@@ -997,7 +997,11 @@ def main():
                           "source": d.get("source"), "status": c.get("status")})
 
     (out / "feed.json").write_text(json.dumps(
-        {"releases": releases, "platforms": platforms, "queue": queue,
+        # The queue is a worklist, not part of the published database, and it is not shipped.
+        # It lived behind a 候補 tab that showed candidates already confirmed; the project owner's
+        # call is that it should not be in the interface at all. data/queue/ stays as the internal
+        # worklist it always was.
+        {"releases": releases, "platforms": platforms,
          "print_candidates": print_candidates, "web_works": web_works,
          "samples_dropped": len(samples),
          "platform_meta": plat_meta, "lapsed": lapsed},

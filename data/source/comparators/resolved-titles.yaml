@@ -49,6 +49,15 @@ works:
       platform. It was there — /comic/65870 — and the claim was right. A search returning nothing
       is evidence about the search, not about the work. Two of the three domains were searched and
       both came back empty for a work present on both.
+      WHY it failed, since the pattern will recur: both query tokens are high-frequency and carry
+      almost no discriminating power. 魔法少女 is among the most saturated title prefixes in manga,
+      a bare 201 collides with page numbers, ids and year prefixes, and むちゃ is a common word.
+      The ynjn.jp search returned 魔法少女ホロウィッチ, 夢みる魔法少女, 魔法少女の憂鬱 and
+      ボクらは魔法少年 — the target swamped by its own genre. Contrast ばっどがーる 肉丸, which
+      resolved first try because 肉丸 appears almost nowhere else.
+      WORKAROUND for generic titles: resolve by author, not by title. カドコミ's
+      /search/author/<uuid> embeds a creator's full work list with codes and rescued
+      クレアちゃん飼育日記 when its title search failed; ニコニコ has /manga/list?user_id=<n>.
 
 # Searched and NOT resolved — left conflated rather than split on a guess:
 #

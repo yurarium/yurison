@@ -42,8 +42,12 @@ def jsonable(o):
     raise TypeError(f"unserialisable {type(o).__name__}")
 
 
-# Episode titles that are chapters without carrying a number.
-FINAL_RE = re.compile(r"最終(話|回)|最終エピソード")
+# A series ending is its own event, as distinct from an ordinary chapter as a first chapter is.
+# Titles state it plainly and in several forms: 最終話 / 最終回 / 最終幕 / 最終エピソード, and a
+# trailing （完）. Split finales are common — 最終話①②③, 最終話-1, 最終話前編/後編, 最終話［上］［下］ —
+# and every part matches, so a series can carry the label on more than one day. That is left alone:
+# each part genuinely is part of the ending, and picking one as the "real" last would be a guess.
+FINAL_RE = re.compile(r"最終(話|回|幕|エピソード)|[（(]完[）)]\s*$")
 # Announcements and artwork typed as chapters upstream — they are not story instalments.
 NON_STORY_RE = re.compile(r"告知|お知らせ|カバー|PV|特報|予告|特典|コミックス第[0-9０-９]+巻|重版")
 # Extras and side stories count on the CHAPTER side: おまけ, 番外編 and 外伝 are content a reader
@@ -626,11 +630,33 @@ def main():
     # and safer signal than reading the title, and it rescues works whose chapters are named rather
     # than numbered — スズラン手帖's anthology entries, for instance.
     attested_titles = {norm_work(r["work"]) for r in releases if r.get("provenance") == "attested"}
-    earliest, count = {}, {}
+    earliest, latest, count = {}, {}, {}
     for r in sorted(releases, key=lambda r: r["pub"]):
         nw = norm_work(r["work"])
         earliest.setdefault(nw, r["pub"])
+        latest[nw] = r["pub"]
         count[nw] = count.get(nw, 0) + 1
+
+    # Works the sources mark as finished. GigaViewer carries 完結 as a genre, カドコミ states a
+    # serialisation status, and Web漫画アンテナ tags its listings. None of these says which chapter
+    # was the last, only that the series has ended — enough to corroborate, not to assert alone.
+    completed = {}
+    for f in glob.glob("data/source/gigaviewer/*-series.yaml") + glob.glob("data/source/webpages/*.yaml"):
+        d0 = yaml.safe_load(open(f)) or {}
+        for w in (d0.get("series") or []) + (d0.get("works") or []):
+            t = w.get("title") or w.get("work_title")
+            if t and ("完結" in (w.get("genres") or []) or w.get("status") in ("完結", "finished")):
+                completed[norm_work(t)] = True
+    kf = pathlib.Path("data/source/kadokomi/chapters.yaml")
+    if kf.exists():
+        for w in (yaml.safe_load(kf.read_text()) or {}).get("works") or []:
+            if w.get("status") == "finished" and w.get("work_title"):
+                completed[norm_work(w["work_title"])] = True
+    cf2 = pathlib.Path("data/source/comparators/claims.yaml")
+    if cf2.exists():
+        for c in (yaml.safe_load(cf2.read_text()) or {}).get("updates") or []:
+            if "完結" in (c.get("listing_tags") or []) and c.get("work"):
+                completed[norm_work(c["work"])] = True
 
     for r in releases:
         ep = r.get("ep") or ""
@@ -642,10 +668,20 @@ def main():
             continue
         n = ep_number(ep)
         has_earlier = earliest.get(norm_work(r["work"]), r["pub"]) < r["pub"]
-        if n == 1:
+        # Checked before the numbering, because a finale is usually numbered too (第30話 最終回) and
+        # the ending is the more informative fact about it.
+        if FINAL_RE.search(unicodedata.normalize("NFKC", ep)):
+            r["kind"], r["kind_basis"] = "final", "title states this is the last chapter"
+        elif completed.get(norm_work(r["work"])) and r["pub"] == latest.get(norm_work(r["work"])):
+            # The platform marks the series 完結 and this is the newest release we hold for it.
+            # Weaker than the title saying so — the tag may have been applied after the fact — so
+            # it is flagged as inferred and the interface marks it.
+            r["kind"], r["kind_basis"] = "final", "series marked 完結; newest release we hold"
+            # Distinct from the blanket `kind_inferred` set at the end of this loop, which is true
+            # of every kind. This marks the weaker of the two routes to `final` specifically.
+            r["final_inferred"] = True
+        elif n == 1:
             r["kind"], r["kind_basis"] = "new-series", "episode numbered 1"
-        elif FINAL_RE.search(ep):
-            r["kind"], r["kind_basis"] = "new-chapter", "final chapter"
         elif n is not None:
             r["kind"], r["kind_basis"] = "new-chapter", f"episode numbered {n}"
         elif has_earlier:

@@ -1,0 +1,59 @@
+# まんがタイムSquare — per-series Atom feeds, one per work.
+#
+# The platform-wide /atom holds about twenty entries across everything it publishes,
+# which on a platform with 165 yuri series is a window of days. Per-series feeds are not
+# a rolling window — 大室家's returns all 136 of its episodes — so a work updating monthly
+# is caught rather than missed.
+#
+# Dates are the feed's own <updated>: platform-attested, not inferred.
+source: gigaviewer
+platform: mangatime-square
+platform_name: "まんがタイムSquare"
+publisher: ""
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: platform-genre
+series_resolved: 2
+works:
+  - work_title: "ニセアイホンアイ"
+    series_id: "12207421984001570933"
+    url: "https://mangatime-square.com/atom/series/12207421984001570933"
+    chapter_count: 3
+    chapters:
+      - title: "第3話"
+        updated: 2026-07-24
+        url: "https://mangatime-square.com/episode/12207421984001577945"
+        free_from: 2026-07-24
+      - title: "第2話"
+        updated: 2026-07-24
+        url: "https://mangatime-square.com/episode/12207421984001577941"
+        free_from: 2026-07-24
+      - title: "第1話"
+        updated: 2026-07-24
+        url: "https://mangatime-square.com/episode/12207421984001577937"
+        free_from: 2026-07-24
+  - work_title: "腹割るウチらの秘密ごと!"
+    series_id: "12207421983530024812"
+    url: "https://mangatime-square.com/atom/series/12207421983530024812"
+    chapter_count: 5
+    chapters:
+      - title: "第5話"
+        updated: 2026-07-03
+        url: "https://mangatime-square.com/episode/12207421983656607518"
+        free_from: 2026-07-03
+      - title: "第4話"
+        updated: 2026-06-05
+        url: "https://mangatime-square.com/episode/12207421983656607515"
+        free_from: 2026-06-05
+      - title: "第3話"
+        updated: 2026-05-15
+        url: "https://mangatime-square.com/episode/12207421983656607512"
+        free_from: 2026-05-15
+      - title: "第2話"
+        updated: 2026-05-15
+        url: "https://mangatime-square.com/episode/12207421983656607509"
+        free_from: 2026-05-15
+      - title: "第1話"
+        updated: 2026-05-15
+        url: "https://mangatime-square.com/episode/12207421983656607506"
+        free_from: 2026-05-15

@@ -1,0 +1,61 @@
+# FEEL web — per-series Atom feeds, one per work.
+#
+# The platform-wide /atom holds about twenty entries across everything it publishes,
+# which on a platform with 165 yuri series is a window of days. Per-series feeds are not
+# a rolling window — 大室家's returns all 136 of its episodes — so a work updating monthly
+# is caught rather than missed.
+#
+# Dates are the feed's own <updated>: platform-attested, not inferred.
+source: gigaviewer
+platform: feelweb
+platform_name: "FEEL web"
+publisher: ""
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: platform-genre
+series_resolved: 4
+works:
+  - work_title: "JSさんとOLちゃん"
+    series_id: "3269754496333353406"
+    url: "https://feelweb.jp/atom/series/3269754496333353406"
+    chapter_count: 3
+    chapters:
+      - title: "第3話"
+        updated: 2021-06-04
+        url: "https://feelweb.jp/episode/3269754496334725378"
+        free_from: 2021-06-04
+      - title: "第2話"
+        updated: 2021-06-04
+        url: "https://feelweb.jp/episode/3269754496334725369"
+        free_from: 2021-06-04
+      - title: "第1話"
+        updated: 2021-06-04
+        url: "https://feelweb.jp/episode/3269754496334725363"
+        free_from: 2021-06-04
+  - work_title: "まとう君、ほころぶ私"
+    series_id: "2550689798763768335"
+    url: "https://feelweb.jp/atom/series/2550689798763768335"
+    chapter_count: 1
+    chapters:
+      - title: "第1話"
+        updated: 2024-08-15
+        url: "https://feelweb.jp/episode/2550689798763776115"
+        free_from: 2024-08-15
+  - work_title: "ヒトゴトですから!"
+    series_id: "3269754496396042691"
+    url: "https://feelweb.jp/atom/series/3269754496396042691"
+    chapter_count: 1
+    chapters:
+      - title: "第1話"
+        updated: 2021-08-20
+        url: "https://feelweb.jp/episode/3269754496401056068"
+        free_from: 2021-08-20
+  - work_title: "月とすっぴん"
+    series_id: "3269754496396042695"
+    url: "https://feelweb.jp/atom/series/3269754496396042695"
+    chapter_count: 1
+    chapters:
+      - title: "第1話"
+        updated: 2021-08-20
+        url: "https://feelweb.jp/episode/3269754496401056101"
+        free_from: 2021-08-20

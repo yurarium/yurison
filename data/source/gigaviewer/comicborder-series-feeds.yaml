@@ -1,0 +1,87 @@
+# コミックボーダー — per-series Atom feeds, one per work.
+#
+# The platform-wide /atom holds about twenty entries across everything it publishes,
+# which on a platform with 165 yuri series is a window of days. Per-series feeds are not
+# a rolling window — 大室家's returns all 136 of its episodes — so a work updating monthly
+# is caught rather than missed.
+#
+# Dates are the feed's own <updated>: platform-attested, not inferred.
+source: gigaviewer
+platform: comicborder
+platform_name: "コミックボーダー"
+publisher: ""
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: platform-genre
+series_resolved: 2
+works:
+  - work_title: "ハナちゃん匂いかがせて"
+    series_id: "3270375685434599418"
+    url: "https://comicborder.com/atom/series/3270375685434599418"
+    chapter_count: 13
+    chapters:
+      - title: "episode 013"
+        updated: 2022-12-09
+        url: "https://comicborder.com/episode/316112896941774091"
+        free_from: 2022-12-09
+      - title: "episode 012"
+        updated: 2022-12-02
+        url: "https://comicborder.com/episode/316112896941774088"
+        free_from: 2022-12-02
+      - title: "episode 011"
+        updated: 2022-11-25
+        url: "https://comicborder.com/episode/316112896941774083"
+        free_from: 2022-11-25
+      - title: "episode 010"
+        updated: 2022-11-18
+        url: "https://comicborder.com/episode/316112896941774080"
+        free_from: 2022-11-18
+      - title: "episode 009"
+        updated: 2022-11-11
+        url: "https://comicborder.com/episode/3270375685474163951"
+        free_from: 2022-11-11
+      - title: "episode 008"
+        updated: 2022-11-04
+        url: "https://comicborder.com/episode/3270375685474163943"
+        free_from: 2022-11-04
+      - title: "episode 007"
+        updated: 2022-10-28
+        url: "https://comicborder.com/episode/3270375685474163935"
+        free_from: 2022-10-28
+      - title: "episode 006"
+        updated: 2022-10-21
+        url: "https://comicborder.com/episode/3270375685474163926"
+        free_from: 2022-10-21
+      - title: "episode 005"
+        updated: 2022-10-14
+        url: "https://comicborder.com/episode/3270375685474163918"
+        free_from: 2022-10-14
+      - title: "episode 004"
+        updated: 2022-10-07
+        url: "https://comicborder.com/episode/3270375685474163905"
+        free_from: 2022-10-07
+      - title: "episode 003"
+        updated: 2022-09-23
+        url: "https://comicborder.com/episode/3270375685474163896"
+        free_from: 2022-09-23
+      - title: "episode 002"
+        updated: 2022-09-23
+        url: "https://comicborder.com/episode/3270375685474163881"
+        free_from: 2022-09-23
+      - title: "episode 001"
+        updated: 2022-09-23
+        url: "https://comicborder.com/episode/3270375685434605726"
+        free_from: 2022-09-23
+  - work_title: "侵略のプリマステラ!"
+    series_id: "12207421983750427652"
+    url: "https://comicborder.com/atom/series/12207421983750427652"
+    chapter_count: 2
+    chapters:
+      - title: "第2侵略　気がついたときには生命が"
+        updated: 2026-07-17
+        url: "https://comicborder.com/episode/12207421983978154177"
+        free_from: 2026-07-17
+      - title: "第1侵略　侵略されてないか？"
+        updated: 2026-06-19
+        url: "https://comicborder.com/episode/12207421983750440973"
+        free_from: 2026-06-19

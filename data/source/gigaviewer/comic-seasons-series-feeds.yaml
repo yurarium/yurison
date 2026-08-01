@@ -1,0 +1,65 @@
+# Seasons — per-series Atom feeds, one per work.
+#
+# The platform-wide /atom holds about twenty entries across everything it publishes,
+# which on a platform with 165 yuri series is a window of days. Per-series feeds are not
+# a rolling window — 大室家's returns all 136 of its episodes — so a work updating monthly
+# is caught rather than missed.
+#
+# Dates are the feed's own <updated>: platform-attested, not inferred.
+source: gigaviewer
+platform: comic-seasons
+platform_name: "Seasons"
+publisher: ""
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: platform-genre
+series_resolved: 2
+works:
+  - work_title: "今夜、エーテルで待ちあわせ"
+    series_id: "2551460909766155404"
+    url: "https://comic-seasons.com/atom/series/2551460909766155404"
+    chapter_count: 1
+    chapters:
+      - title: "読切"
+        updated: 2025-12-05
+        url: "https://comic-seasons.com/episode/2551460909766158255"
+        free_from: 2025-12-05
+  - work_title: "悪役令嬢のお嫁さま"
+    series_id: "2550912965184685912"
+    url: "https://comic-seasons.com/atom/series/2550912965184685912"
+    chapter_count: 10
+    chapters:
+      - title: "番外編"
+        updated: 2026-07-24
+        url: "https://comic-seasons.com/episode/12207421983970431851"
+        free_from: 2026-07-24
+      - title: "第16話 後編"
+        updated: 2026-07-10
+        url: "https://comic-seasons.com/episode/12207421983878163863"
+        free_from: 2026-07-10
+      - title: "第9話 後編"
+        updated: 2025-11-14
+        url: "https://comic-seasons.com/episode/2551460909761914956"
+      - title: "第9話 前編"
+        updated: 2025-10-31
+        url: "https://comic-seasons.com/episode/2551460909761914952"
+      - title: "第8話 後編"
+        updated: 2025-10-10
+        url: "https://comic-seasons.com/episode/2551460909629495747"
+      - title: "第8話 前編"
+        updated: 2025-09-26
+        url: "https://comic-seasons.com/episode/2551460909629495742"
+      - title: "第2話 後編"
+        updated: 2025-03-28
+        url: "https://comic-seasons.com/episode/2550912965312605251"
+      - title: "第2話 前編"
+        updated: 2025-03-14
+        url: "https://comic-seasons.com/episode/2550912965312602853"
+      - title: "第1話 後編"
+        updated: 2025-02-28
+        url: "https://comic-seasons.com/episode/2550912965184704381"
+        free_from: 2025-02-28
+      - title: "第1話 前編"
+        updated: 2025-02-14
+        url: "https://comic-seasons.com/episode/2550912965184704375"
+        free_from: 2025-02-14

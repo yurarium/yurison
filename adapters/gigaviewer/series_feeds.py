@@ -131,9 +131,11 @@ def main():
                     break
                 m = re.search(r"/atom/series/(\d+)", h)
                 if m:
-                    # Prefer the platform's own title over the yardstick's string.
-                    tt = re.search(r"<title>([^<]*?)\s*-\s*[^-]*\|", h)
-                    found[(tt.group(1).strip() if tt else w.get("title") or u)] = m.group(1)
+                    # Use the candidate's title. Parsing the page title assumed a "work - author |"
+                    # shape, and コミックオギャー!! writes 『あの子とふたりで。』第1話 - 作者 |, so the
+                    # EPISODE title was being stored as the work — every such work then failed to
+                    # match anything and stayed unattested. The yardstick's title is the work's.
+                    found[w.get("title") or u] = m.group(1)
                 break
 
     floor = MIN_RESOLVED if not a.candidates else 1

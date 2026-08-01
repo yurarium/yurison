@@ -1,0 +1,530 @@
+# マガポケ — dates from the platform's own sitemap.
+#
+# <lastmod> describes when a URL last changed, which for an episode page is the
+# episode. It is the platform's statement, published for crawlers to read, but it
+# describes the URL rather than the chapter — corroboration, not a publication record.
+#
+# Broad and shallow by nature: it reaches every work, usually with one dated episode
+# each. It answers 'has this updated recently at all' for works no other route covers.
+source: webpages
+platform: magapoke
+platform_name: "マガポケ"
+publisher: "講談社"
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+date_basis: sitemap
+date_confidence: low
+works:
+  - work_title: "3分待って むぎ先輩"
+    url: "https://urasunday.com/title/2335"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-20
+        url: "https://pocket.shonenmagazine.com/title/02335/episode/441445"
+        date_basis: sitemap
+  - work_title: "CUTE vs. COOL"
+    url: "https://pocket.shonenmagazine.com/title/03099"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-01-19
+        url: "https://pocket.shonenmagazine.com/title/03099/episode/430279"
+        date_basis: sitemap
+  - work_title: "DOUBLE HELIX BLOSSOM"
+    url: "https://www.corocoro.jp/title/65"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2022-02-22
+        url: "https://pocket.shonenmagazine.com/title/00065/episode/338548"
+        date_basis: sitemap
+  - work_title: "GURU"
+    url: "https://pocket.shonenmagazine.com/title/03068"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-02
+        url: "https://pocket.shonenmagazine.com/title/03068/episode/440227"
+        date_basis: sitemap
+  - work_title: "〆切前には百合が捗る"
+    url: "https://www.ganganonline.com/title/1525"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2022-05-11
+        url: "https://pocket.shonenmagazine.com/title/01525/episode/346863"
+        date_basis: sitemap
+  - work_title: "あくまであまい私の彼女"
+    url: "https://pocket.shonenmagazine.com/title/02709"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-01-16
+        url: "https://pocket.shonenmagazine.com/title/02709/episode/430752"
+        date_basis: sitemap
+  - work_title: "きたない君がいちばんかわいい"
+    url: "https://pocket.shonenmagazine.com/title/01645"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2022-03-18
+        url: "https://pocket.shonenmagazine.com/title/01645/episode/340631"
+        date_basis: sitemap
+  - work_title: "きみが死ぬまで恋をしたい"
+    url: "https://pocket.shonenmagazine.com/title/01049"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-18
+        url: "https://pocket.shonenmagazine.com/title/01049/episode/441391"
+        date_basis: sitemap
+  - work_title: "こいにこいするこに恋す"
+    url: "https://pocket.shonenmagazine.com/title/01418"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2021-12-08
+        url: "https://pocket.shonenmagazine.com/title/01418/episode/331379"
+        date_basis: sitemap
+  - work_title: "この世で一番素敵な終わり方"
+    url: "https://pocket.shonenmagazine.com/title/02260"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2024-06-18
+        url: "https://pocket.shonenmagazine.com/title/02260/episode/398136"
+        date_basis: sitemap
+  - work_title: "ささやくように恋を唄う"
+    url: "https://pocket.shonenmagazine.com/title/01045"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-18
+        url: "https://pocket.shonenmagazine.com/title/01045/episode/441415"
+        date_basis: sitemap
+  - work_title: "ぜんぶ壊して地獄で愛して"
+    url: "https://pocket.shonenmagazine.com/title/02367"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-18
+        url: "https://pocket.shonenmagazine.com/title/02367/episode/441404"
+        date_basis: sitemap
+  - work_title: "そらいろメモリアル"
+    url: "https://ciao.shogakukan.co.jp/comics/title/00039/episode/4363"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2022-02-18
+        url: "https://pocket.shonenmagazine.com/title/00039/episode/337954"
+        date_basis: sitemap
+  - work_title: "はなにあらし"
+    url: "https://urasunday.com/title/1188"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2021-02-28
+        url: "https://pocket.shonenmagazine.com/title/01188/episode/317545"
+        date_basis: sitemap
+  - work_title: "ひきこまり吸血姫の悶々"
+    url: "https://www.ganganonline.com/title/1593"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2022-01-11
+        url: "https://pocket.shonenmagazine.com/title/01593/episode/334597"
+        date_basis: sitemap
+  - work_title: "ふたりエスケープ"
+    url: "https://pocket.shonenmagazine.com/title/01357"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2023-01-18
+        url: "https://pocket.shonenmagazine.com/title/01357/episode/366656"
+        date_basis: sitemap
+  - work_title: "アイドラトリィ"
+    url: "https://pocket.shonenmagazine.com/title/02901"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-29
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/441610"
+        date_basis: sitemap
+  - work_title: "アイ・ヘイ・チュー"
+    url: "https://pocket.shonenmagazine.com/title/03273"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-09
+        url: "https://pocket.shonenmagazine.com/title/03273/episode/441105"
+        date_basis: sitemap
+  - work_title: "イタズラっ子世に憚らず!!"
+    url: "https://www.ganganonline.com/title/2268"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-30
+        url: "https://pocket.shonenmagazine.com/title/02268/episode/441883"
+        date_basis: sitemap
+  - work_title: "オカルトタイムズ"
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-22
+        url: "https://pocket.shonenmagazine.com/title/03282/episode/441372"
+        date_basis: sitemap
+  - work_title: "シュガーガール・ドリップ"
+    url: "https://pocket.shonenmagazine.com/title/02604"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-02-15
+        url: "https://pocket.shonenmagazine.com/title/02604/episode/431883"
+        date_basis: sitemap
+  - work_title: "セカンドバレンタイン"
+    url: "https://flowercomics.jp/title/2258"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2024-02-18
+        url: "https://pocket.shonenmagazine.com/title/02258/episode/392411"
+        date_basis: sitemap
+  - work_title: "ドリーム☆ジャンボ☆ガール"
+    url: "https://pocket.shonenmagazine.com/title/02758"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-29
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/441960"
+        date_basis: sitemap
+  - work_title: "ハロー、メランコリック!"
+    url: "https://pocket.shonenmagazine.com/title/01544"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2021-11-11
+        url: "https://pocket.shonenmagazine.com/title/01544/episode/330586"
+        date_basis: sitemap
+  - work_title: "ファタールゲーム"
+    url: "https://pocket.shonenmagazine.com/title/03056"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-24
+        url: "https://pocket.shonenmagazine.com/title/03056/episode/441582"
+        date_basis: sitemap
+  - work_title: "ブラッディ・リリィ"
+    url: "https://ciao.shogakukan.co.jp/comics/title/00145/episode/5362"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2016-05-30
+        url: "https://pocket.shonenmagazine.com/title/00145/episode/144023"
+        date_basis: sitemap
+  - work_title: "メイドはお嬢様と笑いたい。"
+    url: "https://ciao.shogakukan.co.jp/comics/title/00392/episode/7392"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2017-12-21
+        url: "https://pocket.shonenmagazine.com/title/00392/episode/183891"
+        date_basis: sitemap
+  - work_title: "メンヘラさんと市松さん"
+    url: "https://pocket.shonenmagazine.com/title/02250"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2023-07-16
+        url: "https://pocket.shonenmagazine.com/title/02250/episode/378761"
+        date_basis: sitemap
+  - work_title: "ラスボス姫は男装勇者にリア恋営業をかけられる!?"
+    url: "https://flowercomics.jp/title/1409"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-20
+        url: "https://pocket.shonenmagazine.com/title/01409/episode/441457"
+        date_basis: sitemap
+  - work_title: "レベル1の最強テイマー ～幸運極振りの初心者ゲーマーはもふもふ軍団を従え最強へ至ります～"
+    url: "https://www.ganganonline.com/title/1587"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2022-02-18
+        url: "https://pocket.shonenmagazine.com/title/01587/episode/338443"
+        date_basis: sitemap
+  - work_title: "ロンリーガールに逆らえない"
+    url: "https://pocket.shonenmagazine.com/title/01376"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2022-11-18
+        url: "https://pocket.shonenmagazine.com/title/01376/episode/361676"
+        date_basis: sitemap
+  - work_title: "上杉くんは女の子をやめたい"
+    url: "https://ciao.shogakukan.co.jp/comics/title/00577/episode/22025"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2018-10-04
+        url: "https://pocket.shonenmagazine.com/title/00577/episode/223457"
+        date_basis: sitemap
+  - work_title: "世が夜なら!"
+    url: "https://pocket.shonenmagazine.com/title/01147"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2022-01-05
+        url: "https://pocket.shonenmagazine.com/title/01147/episode/333555"
+        date_basis: sitemap
+  - work_title: "今日はカノジョがいないから"
+    url: "https://pocket.shonenmagazine.com/title/01839"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-05-18
+        url: "https://pocket.shonenmagazine.com/title/01839/episode/438236"
+        date_basis: sitemap
+  - work_title: "女ともだちと結婚してみた。"
+    url: "https://pocket.shonenmagazine.com/title/01837"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2023-11-18
+        url: "https://pocket.shonenmagazine.com/title/01837/episode/388247"
+        date_basis: sitemap
+  - work_title: "女同士とかありえないでしょと言い張る女の子を、百日間で徹底的に落とす百合のお話"
+    url: "https://www.ganganonline.com/title/1258"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-24
+        url: "https://pocket.shonenmagazine.com/title/01258/episode/441387"
+        date_basis: sitemap
+  - work_title: "妖怪殲滅のサイコリリー"
+    url: "https://urasunday.com/title/2565"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2024-07-07
+        url: "https://pocket.shonenmagazine.com/title/02565/episode/398301"
+        date_basis: sitemap
+  - work_title: "宙-CHUU-"
+    url: "https://urasunday.com/title/2087"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2023-02-22
+        url: "https://pocket.shonenmagazine.com/title/02087/episode/369103"
+        date_basis: sitemap
+  - work_title: "将来的に死んでくれ"
+    url: "https://pocket.shonenmagazine.com/title/00195"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2019-10-09
+        url: "https://pocket.shonenmagazine.com/title/00195/episode/296085"
+        date_basis: sitemap
+  - work_title: "平良深姉妹はどっちもヤんでる"
+    url: "https://pocket.shonenmagazine.com/title/02257"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-03-18
+        url: "https://pocket.shonenmagazine.com/title/02257/episode/434012"
+        date_basis: sitemap
+  - work_title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
+    url: "https://pocket.shonenmagazine.com/title/02328"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-24
+        url: "https://pocket.shonenmagazine.com/title/02328/episode/441285"
+        date_basis: sitemap
+  - work_title: "性別「モナリザ」の君へ。"
+    url: "https://www.ganganonline.com/title/12"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2022-02-04
+        url: "https://pocket.shonenmagazine.com/title/00012/episode/337087"
+        date_basis: sitemap
+  - work_title: "怨霊日和"
+    url: "https://pocket.shonenmagazine.com/title/03125"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-03-11
+        url: "https://pocket.shonenmagazine.com/title/03125/episode/433732"
+        date_basis: sitemap
+  - work_title: "怪獣ロマンティクス"
+    url: "https://pocket.shonenmagazine.com/title/03196"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-09
+        url: "https://pocket.shonenmagazine.com/title/03196/episode/441093"
+        date_basis: sitemap
+  - work_title: "春綴る、桜咲くこの部屋で"
+    url: "https://www.ganganonline.com/title/1222"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2020-10-01
+        url: "https://pocket.shonenmagazine.com/title/01222/episode/311615"
+        date_basis: sitemap
+  - work_title: "最果てのセレナード"
+    url: "https://pocket.shonenmagazine.com/title/02390"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2025-01-24
+        url: "https://pocket.shonenmagazine.com/title/02390/episode/411294"
+        date_basis: sitemap
+  - work_title: "気をつけなよ、お姉さん。"
+    url: "https://pocket.shonenmagazine.com/title/01509"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2023-07-20
+        url: "https://pocket.shonenmagazine.com/title/01509/episode/380297"
+        date_basis: sitemap
+  - work_title: "温室のアトリエ"
+    url: "https://www.ganganonline.com/title/2643"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2024-10-15
+        url: "https://pocket.shonenmagazine.com/title/02643/episode/404937"
+        date_basis: sitemap
+  - work_title: "獄門撫子此処ニ在リ"
+    url: "https://www.corocoro.jp/title/773"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2019-03-09
+        url: "https://pocket.shonenmagazine.com/title/00773/episode/254869"
+        date_basis: sitemap
+  - work_title: "甘えさせて雛森さん!"
+    url: "https://pocket.shonenmagazine.com/title/02043"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2023-04-18
+        url: "https://pocket.shonenmagazine.com/title/02043/episode/373535"
+        date_basis: sitemap
+  - work_title: "私がモテないのはどう考えてもお前らが悪い!"
+    url: "https://www.ganganonline.com/title/29"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2022-02-04
+        url: "https://pocket.shonenmagazine.com/title/00029/episode/337082"
+        date_basis: sitemap
+  - work_title: "私に天使が舞い降りた!"
+    url: "https://pocket.shonenmagazine.com/title/01052"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2025-05-18
+        url: "https://pocket.shonenmagazine.com/title/01052/episode/417088"
+        date_basis: sitemap
+  - work_title: "私の百合はお仕事です!"
+    url: "https://pocket.shonenmagazine.com/title/01050"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-05-18
+        url: "https://pocket.shonenmagazine.com/title/01050/episode/438255"
+        date_basis: sitemap
+  - work_title: "私より可愛いJKがいたらOす"
+    url: "https://flowercomics.jp/title/2490"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2025-01-09
+        url: "https://pocket.shonenmagazine.com/title/02490/episode/408842"
+        date_basis: sitemap
+  - work_title: "第十二号蘇生魔術"
+    url: "https://pocket.shonenmagazine.com/title/02875"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2025-05-09
+        url: "https://pocket.shonenmagazine.com/title/02875/episode/416661"
+        date_basis: sitemap
+  - work_title: "踊り場にスカートが鳴る"
+    url: "https://pocket.shonenmagazine.com/title/01646"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2025-09-18
+        url: "https://pocket.shonenmagazine.com/title/01646/episode/424501"
+        date_basis: sitemap
+  - work_title: "銀の河に星の城"
+    url: "https://flowercomics.jp/title/2780"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-06-26
+        url: "https://pocket.shonenmagazine.com/title/02780/episode/440508"
+        date_basis: sitemap
+  - work_title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
+    url: "https://www.ganganonline.com/title/2349"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2023-08-30
+        url: "https://pocket.shonenmagazine.com/title/02349/episode/382931"
+        date_basis: sitemap
+  - work_title: "雨夜の月"
+    url: "https://pocket.shonenmagazine.com/title/02202"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-08-01
+        url: "https://pocket.shonenmagazine.com/title/02202/episode/442069"
+        date_basis: sitemap
+  - work_title: "雪が溶けたらおんなじ制服"
+    url: "https://pocket.shonenmagazine.com/title/02913"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2025-07-16
+        url: "https://pocket.shonenmagazine.com/title/02913/episode/419948"
+        date_basis: sitemap
+  - work_title: "頂のリヴィーツァ"
+    url: "https://pocket.shonenmagazine.com/title/02596"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2024-08-21
+        url: "https://pocket.shonenmagazine.com/title/02596/episode/402213"
+        date_basis: sitemap
+  - work_title: "香り屋さんの纏さん"
+    url: "https://www.ganganonline.com/title/2286"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2023-08-11
+        url: "https://pocket.shonenmagazine.com/title/02286/episode/381406"
+        date_basis: sitemap
+  - work_title: "黒百合ミステリー"
+    url: "https://ciao.shogakukan.co.jp/comics/title/00253/episode/5565"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2017-04-12
+        url: "https://pocket.shonenmagazine.com/title/00253/episode/162049"
+        date_basis: sitemap
+  - work_title: "アイ・ヘイ・チュー!"
+    url: "https://pocket.shonenmagazine.com/title/03273"
+    chapter_count: 1
+    chapters:
+      - title: ""
+        updated: 2026-07-09
+        url: "https://pocket.shonenmagazine.com/title/03273/episode/441105"
+        date_basis: sitemap

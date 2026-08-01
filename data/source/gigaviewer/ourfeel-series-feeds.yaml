@@ -1,0 +1,26 @@
+# OUR FEEL — per-series Atom feeds, one per work.
+#
+# The platform-wide /atom holds about twenty entries across everything it publishes,
+# which on a platform with 165 yuri series is a window of days. Per-series feeds are not
+# a rolling window — 大室家's returns all 136 of its episodes — so a work updating monthly
+# is caught rather than missed.
+#
+# Dates are the feed's own <updated>: platform-attested, not inferred.
+source: gigaviewer
+platform: ourfeel
+platform_name: "OUR FEEL"
+publisher: ""
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: platform-genre
+series_resolved: 1
+works:
+  - work_title: "明日の空を見る人よ"
+    series_id: "2550912966077178892"
+    url: "https://ourfeel.jp/atom/series/2550912966077178892"
+    chapter_count: 1
+    chapters:
+      - title: "明日の空を見る人よ"
+        updated: 2025-08-14
+        url: "https://ourfeel.jp/episode/2550912966077179576"
+        free_from: 2025-08-14

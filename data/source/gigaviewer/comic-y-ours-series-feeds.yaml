@@ -1,0 +1,91 @@
+# COMIC Y-OURS — per-series Atom feeds, one per work.
+#
+# The platform-wide /atom holds about twenty entries across everything it publishes,
+# which on a platform with 165 yuri series is a window of days. Per-series feeds are not
+# a rolling window — 大室家's returns all 136 of its episodes — so a work updating monthly
+# is caught rather than missed.
+#
+# Dates are the feed's own <updated>: platform-attested, not inferred.
+source: gigaviewer
+platform: comic-y-ours
+platform_name: "COMIC Y-OURS"
+publisher: ""
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: platform-genre
+series_resolved: 3
+works:
+  - work_title: "アンラッキースケベ"
+    series_id: "12207421983387276073"
+    url: "https://comic-y-ours.com/atom/series/12207421983387276073"
+    chapter_count: 1
+    chapters:
+      - title: "アンラッキースケベ"
+        updated: 2026-03-06
+        url: "https://comic-y-ours.com/episode/12207421983394553051"
+        free_from: 2026-03-06
+  - work_title: "ホントのキモチ"
+    series_id: "12207421983499052823"
+    url: "https://comic-y-ours.com/atom/series/12207421983499052823"
+    chapter_count: 1
+    chapters:
+      - title: "ホントのキモチ"
+        updated: 2026-04-14
+        url: "https://comic-y-ours.com/episode/12207421983499079730"
+        free_from: 2026-04-14
+  - work_title: "愛でたいセンセイ"
+    series_id: "2551460909766306523"
+    url: "https://comic-y-ours.com/atom/series/2551460909766306523"
+    chapter_count: 16
+    chapters:
+      - title: "第16話"
+        updated: 2026-05-08
+        url: "https://comic-y-ours.com/episode/2551460910041802946"
+      - title: "第15話"
+        updated: 2026-03-13
+        url: "https://comic-y-ours.com/episode/2551460910041802942"
+      - title: "第14話"
+        updated: 2026-02-13
+        url: "https://comic-y-ours.com/episode/2551460909889202201"
+      - title: "第13話"
+        updated: 2026-01-16
+        url: "https://comic-y-ours.com/episode/2551460909889202195"
+      - title: "第12話"
+        updated: 2026-01-16
+        url: "https://comic-y-ours.com/episode/2551460909791888856"
+      - title: "第11話"
+        updated: 2026-01-16
+        url: "https://comic-y-ours.com/episode/2551460909791888848"
+      - title: "第10話"
+        updated: 2026-01-16
+        url: "https://comic-y-ours.com/episode/2551460909791888844"
+      - title: "第9話"
+        updated: 2026-01-16
+        url: "https://comic-y-ours.com/episode/2551460909791888836"
+      - title: "第8話"
+        updated: 2026-01-16
+        url: "https://comic-y-ours.com/episode/2551460909791888831"
+      - title: "第7話"
+        updated: 2026-01-16
+        url: "https://comic-y-ours.com/episode/2551460909791888824"
+      - title: "第6話"
+        updated: 2026-01-16
+        url: "https://comic-y-ours.com/episode/2551460909791888815"
+      - title: "第5話"
+        updated: 2026-01-16
+        url: "https://comic-y-ours.com/episode/2551460909791888808"
+      - title: "第4話"
+        updated: 2026-01-16
+        url: "https://comic-y-ours.com/episode/2551460909791888804"
+      - title: "第3話"
+        updated: 2026-01-16
+        url: "https://comic-y-ours.com/episode/2551460909791888798"
+        free_from: 2026-01-16
+      - title: "第2話"
+        updated: 2026-01-16
+        url: "https://comic-y-ours.com/episode/2551460909791888794"
+        free_from: 2026-01-16
+      - title: "第1話"
+        updated: 2026-01-16
+        url: "https://comic-y-ours.com/episode/2551460909791888785"
+        free_from: 2026-01-16

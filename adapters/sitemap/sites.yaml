@@ -1,0 +1,15 @@
+# Platforms publishing a sitemap whose entries are per-episode and carry <lastmod>.
+#
+# A sitemap exists to be fetched by crawlers, so this is the cheapest legitimate route into a
+# client-rendered platform — no browser, no headers, nothing negotiated. Found while looking for a
+# way into マガポケ that did not need rendering.
+#
+# `work_key` extracts the work id from an episode URL so episodes can be grouped by work.
+sites:
+  - id: magapoke
+    name: マガポケ
+    publisher: 講談社
+    sitemap: https://pocket.shonenmagazine.com/sitemap.xml
+    work_key: '/title/(\d+)/episode/\d+'
+    candidate_key: '/title/(\d+)'
+    verified: 2026-08-01

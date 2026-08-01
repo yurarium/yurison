@@ -230,15 +230,17 @@ not_works:
 # Re-probed with both a bare and a compatible-token user agent. Of five hosts filed as bot
 # protection, exactly one refuses:
 #
-#   novema.jp (comicグラスト)      403 to both agents — the only genuine refusal
-#   viewer.heros-web.com         503 to both, consistently — service unavailable, not a policy
+#   novema.jp (comicグラスト)      403 — GEOBLOCKED (project owner). Not bot protection.
+#   viewer.heros-web.com         503 — DOWN FOR MAINTENANCE (project owner). Temporary; retry.
 #   neetsha.jp (新都社)            200 — never blocked; the first probe hit a transient failure
 #   getnavi.jp                   200 — likewise
-#   sonorama.asahi.com (アサコミ)   does not resolve — the host is gone
+#   sonorama.asahi.com           MOVED, not gone: it became アサコミ at asacomi.jp, which runs
+#                                comici and is now in the webpages registry.
 #
-# neetsha.jp and getnavi.jp answer on the homepage but 404 on the work URLs we recorded, so what
-# they need is fresh targets, not access. Three different problems were being counted as one, and
-# the count was used to argue the tail was harder than it is.
+# So NOTHING here is bot protection. The label was mine and it was wrong five times out of five:
+# one geoblock, one maintenance window, two transient failures, one site rename. What the last
+# three need is fresh work URLs, not access — the recorded targets 404 because they point at the
+# old locations.
 access_notes: see the comment above
 
 geoblocked:
@@ -251,6 +253,13 @@ geoblocked:
     note: >-
       Also marked 更新終了 by Web漫画アンテナ, so it was already in the needs-nothing bucket. The
       412 was read as bot protection in the first survey; it is the geoblock.
+  - name: comicグラスト
+    host: novema.jp
+    observed: HTTP 403
+    note: >-
+      Identified as a geoblock by the project owner 2026-08-01, having been filed as bot
+      protection. It answers 403 to every agent because of where the request comes from.
+
   - name: piccoma
     host: piccoma.com
     note: >-

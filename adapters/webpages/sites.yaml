@@ -104,6 +104,20 @@ sites:
     min_works: 1
     verified: 2026-08-01
 
+  # アサコミ — 朝日新聞出版, opened 2025-01-30, and the successor to ソノラマ+ whose content it
+  # absorbed. Our candidates still point at sonorama.asahi.com, which no longer resolves; that
+  # was recorded as "host gone" when it had in fact moved. comici engine, so no code needed —
+  # what it needs is re-resolved work URLs.
+  - id: asacomi
+    name: アサコミ
+    publisher: 朝日新聞出版
+    host: asacomi.jp
+    engine: comici
+    min_episodes: 1
+    min_works: 1
+    supersedes: sonorama.asahi.com
+    verified: 2026-08-01
+
 engines:
   comici:
     block: '(?=<div data-e2e="eli" class="series-eplist-item")'

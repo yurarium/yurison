@@ -686,15 +686,29 @@ def main():
     # appearance — 魔法少女201 is 集英社's, carried on 少年ジャンプ+ and ヤンジャン+, and also on
     # ニコニコ漫画. Marking it there as if it originated is wrong twice over: it misattributes the
     # work, and it points a reader at the worse copy.
+    _pl = (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("platforms") or []
+    syndicators = {p["name"] for p in _pl if p.get("syndication") or p.get("id") == "nicovideo"}
+    rank_of = {p["name"]: (p.get("reading_rank") or 99) for p in _pl}
+
     origin_of = {}
     _rt = pathlib.Path("data/source/comparators/resolved-titles.yaml")
     if _rt.exists():
         for w in (yaml.safe_load(_rt.read_text()) or {}).get("works") or []:
             if w.get("platform"):
                 origin_of[norm_work(w["title"])] = w["platform"]
-    syndicators = {p["name"] for p in (yaml.safe_load(
-        pathlib.Path("data/platforms.yaml").read_text()) or {}).get("platforms") or []
-        if p.get("syndication") or p.get("id") == "nicovideo"}
+    # Anything we attest on a platform that is not a syndicator is an origin for this purpose,
+    # whether or not a resolved-titles row happens to name it. ばっどがーる was confirmed on FUZ
+    # and its chapters held, yet its ニコニコ copy still read as original because the rule only
+    # consulted one file. Where several carry it, the best-ranked wins — that is the whole point
+    # of reading_rank.
+    for r in releases:
+        pn = r.get("plat_name") or ""
+        if r.get("provenance") != "attested" or pn in syndicators or not pn:
+            continue
+        k = norm_work(r.get("work") or "")
+        cur = origin_of.get(k)
+        if cur is None or rank_of.get(pn, 99) < rank_of.get(cur, 99):
+            origin_of[k] = pn
     for r in releases:
         og = origin_of.get(norm_work(r.get("work") or ""))
         if og and (r.get("plat_name") or "") in syndicators and og != r.get("plat_name"):

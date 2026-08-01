@@ -118,9 +118,18 @@ def main():
             rows.append({"title": w.get("title"), "url": u})
     for w in gap.get("works_missing") or []:
         rows.append({"title": w.get("title"), "url": w.get("url")})
+    # Works confirmed on FUZ by external search. Without this the confirmation established a title
+    # and nothing else: ばっどがーる was known to be FUZ's, but with no FUZ chapters held the feed
+    # had only the ニコニコ copy to offer and pointed readers at the worse one.
+    res = pathlib.Path("data/source/comicfuz/resolved.yaml")
+    if res.exists():
+        for w in (yaml.safe_load(res.read_text()) or {}).get("works") or []:
+            if w.get("url"):
+                rows.append({"title": w.get("title"), "url": w["url"]})
     seen_u, targets = set(), []
     for w in rows:
         u = w.get("url") or ""
+        u = re.sub(r"comic-fuz\.com/series/", "comic-fuz.com/manga/", u)
         if "comic-fuz.com/manga/" in u and u not in seen_u:
             seen_u.add(u)
             targets.append(w)

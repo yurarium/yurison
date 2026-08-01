@@ -1,0 +1,583 @@
+# COVERAGE against 百合ナビ WEB連載中の百合漫画 — curated, so no filtering needed.
+# Tier C, discovery only: names a work, its platform, and roughly when it updated.
+# Attests nothing (REQUIREMENTS §1). This is the work queue for the §5 acceptance
+# criterion. `raw` holds title+author unsplit; separating them needs the platform page.
+source: yurinavi-webyuri
+role: coverage-yardstick
+retrieved: 2026-08-01
+record_type: coverage_gap
+works_listed: 128
+platforms_total: 19
+platforms_watched: 4
+works_on_watched_platforms: 81
+platforms:
+  - platform: "カドコミ"
+    works: 59
+    watched: true
+  - platform: "きららベース"
+    works: 24
+    watched: false
+  - platform: "一迅プラス"
+    works: 17
+    watched: true
+  - platform: "サンデーうぇぶり"
+    works: 3
+    watched: false
+  - platform: "ニコニコ静画"
+    works: 3
+    watched: false
+  - platform: "コミックDAYS"
+    works: 3
+    watched: true
+  - platform: "ガンガンONLINE"
+    works: 3
+    watched: false
+  - platform: "コミックオギャー!!"
+    works: 2
+    watched: false
+  - platform: "竹コミ！"
+    works: 2
+    watched: false
+  - platform: "チャンピオンクロス"
+    works: 2
+    watched: false
+  - platform: "となりのヤングジャンプ"
+    works: 2
+    watched: true
+  - platform: "Seasons"
+    works: 1
+    watched: false
+  - platform: "ジャンプ+"
+    works: 1
+    watched: false
+  - platform: "COMIC OGYAAA!!"
+    works: 1
+    watched: false
+  - platform: "週刊コロコロ"
+    works: 1
+    watched: false
+  - platform: "pixivコミック"
+    works: 1
+    watched: false
+  - platform: "コミプレ"
+    works: 1
+    watched: false
+  - platform: "花とゆめ＋"
+    works: 1
+    watched: false
+  - platform: "webアクション"
+    works: 1
+    watched: false
+works:
+  - raw: "壊していいよ、すいかちゃん 虫歯"
+    platform: "COMIC OGYAAA!!"
+    last_update_seen: 07-17
+    watched_platform: false
+  - raw: "悪役令嬢のお嫁さま かわのあきこ"
+    platform: "Seasons"
+    last_update_seen: 07-10
+    watched_platform: false
+  - raw: "ボイタボイネ 夏草"
+    platform: "pixivコミック"
+    last_update_seen: 07-20
+    watched_platform: false
+  - raw: "ゆりゆりぱにっく～尊すぎる事案が発生しています！～ 中村カンコ"
+    platform: "webアクション"
+    last_update_seen: 08-07
+    watched_platform: false
+  - raw: "おちこぼれフルーツタルト 浜弓場 双"
+    platform: "きららベース"
+    last_update_seen: 08-01
+    watched_platform: false
+  - raw: "きみとボドゲが作りたい！ 赤城ナツイチ"
+    platform: "きららベース"
+    last_update_seen: 07-16
+    watched_platform: false
+  - raw: "このままモブじゃ終われない! 優しい内臓"
+    platform: "きららベース"
+    last_update_seen: 07-11
+    watched_platform: false
+  - raw: "ごきげんよう、一局いかが? 卯花つかさ"
+    platform: "きららベース"
+    last_update_seen: 07-14
+    watched_platform: false
+  - raw: "しあわせ鳥見んぐ わらびもちきなこ"
+    platform: "きららベース"
+    last_update_seen: 07-25
+    watched_platform: false
+  - raw: "ななどなどなど 宇崎うそ"
+    platform: "きららベース"
+    last_update_seen: 08-04
+    watched_platform: false
+  - raw: "ぬるめた こかむも"
+    platform: "きららベース"
+    last_update_seen: 07-25
+    watched_platform: false
+  - raw: "ばっどがーる 肉丸"
+    platform: "きららベース"
+    last_update_seen: 07-28
+    watched_platform: false
+  - raw: "アイドルビーバック！ はんざわかおり"
+    platform: "きららベース"
+    last_update_seen: 08-13
+    watched_platform: false
+  - raw: "エイティエイトを２でわって 有馬"
+    platform: "きららベース"
+    last_update_seen: 07-25
+    watched_platform: false
+  - raw: "フルボイス！ 科戸コウ"
+    platform: "きららベース"
+    last_update_seen: 08-01
+    watched_platform: false
+  - raw: "プロジェクト・ユリフォーミング！ 御家かえる"
+    platform: "きららベース"
+    last_update_seen: 08-06
+    watched_platform: false
+  - raw: "ラブかライクか分からない！ sasa熊"
+    platform: "きららベース"
+    last_update_seen: 08-18
+    watched_platform: false
+  - raw: "一畳間まんきつ暮らし！ ひさまくまこ"
+    platform: "きららベース"
+    last_update_seen: 07-21
+    watched_platform: false
+  - raw: "保健室の鍵閉めてっ 蕗屋文字"
+    platform: "きららベース"
+    last_update_seen: 08-25
+    watched_platform: false
+  - raw: "十字トンボは空を飛ばない 織日ちひろ/虫原"
+    platform: "きららベース"
+    last_update_seen: 07-18
+    watched_platform: false
+  - raw: "好都合セミフレンド 千種みのり"
+    platform: "きららベース"
+    last_update_seen: 07-16
+    watched_platform: false
+  - raw: "子供部屋ドラゴン *sow*"
+    platform: "きららベース"
+    last_update_seen: 07-11
+    watched_platform: false
+  - raw: "押しかけ女房、コドモ付き！ とめきち"
+    platform: "きららベース"
+    last_update_seen: 07-23
+    watched_platform: false
+  - raw: "星屑テレパス 大熊らすこ"
+    platform: "きららベース"
+    last_update_seen: 07-18
+    watched_platform: false
+  - raw: "江口さんちの純情サキュバス 工藤える"
+    platform: "きららベース"
+    last_update_seen: 08-13
+    watched_platform: false
+  - raw: "球詠 マウンテンプクイチ"
+    platform: "きららベース"
+    last_update_seen: 07-14
+    watched_platform: false
+  - raw: "運命のヤマダダダダダダダダダダ おにぎりパクパク"
+    platform: "きららベース"
+    last_update_seen: 07-16
+    watched_platform: false
+  - raw: "魔女まじょS-WITCH 海老川ケイ"
+    platform: "きららベース"
+    last_update_seen: 07-23
+    watched_platform: false
+  - raw: "明日ちゃんのセーラー服 博"
+    platform: "となりのヤングジャンプ"
+    last_update_seen: 07-17
+    watched_platform: true
+  - raw: "英雄少女と呪われの銀姫 アルト/絵本奈央"
+    platform: "となりのヤングジャンプ"
+    last_update_seen: 07-21
+    watched_platform: true
+  - raw: "T.Tラバーズ。 本間リョウタ"
+    platform: "カドコミ"
+    last_update_seen: 07-11
+    watched_platform: true
+  - raw: "あたし達って付き合ってるよね!? 涼風そら"
+    platform: "カドコミ"
+    last_update_seen: 07-11
+    watched_platform: true
+  - raw: "お姉さまと巨人 ～お嬢さまが異世界転生～ Be-con"
+    platform: "カドコミ"
+    last_update_seen: 07-20
+    watched_platform: true
+  - raw: "きょうはなにしよう？ サスケ"
+    platform: "カドコミ"
+    last_update_seen: 07-27
+    watched_platform: true
+  - raw: "くちべた食堂 梵辛"
+    platform: "カドコミ"
+    last_update_seen: 07-15
+    watched_platform: true
+  - raw: "この恋、一旦持ち帰らせていただきます！ あおと響"
+    platform: "カドコミ"
+    last_update_seen: 07-27
+    watched_platform: true
+  - raw: "この湯で、あなたと 南部くまこ/春木やちか"
+    platform: "カドコミ"
+    last_update_seen: 08-01
+    watched_platform: true
+  - raw: "ときときチャンネル とこみち/宮澤伊織"
+    platform: "カドコミ"
+    last_update_seen: 08-04
+    watched_platform: true
+  - raw: "どれが恋かがわからない 奥たまむし"
+    platform: "カドコミ"
+    last_update_seen: 07-13
+    watched_platform: true
+  - raw: "ひとりみです 森島明子"
+    platform: "カドコミ"
+    last_update_seen: 08-25
+    watched_platform: true
+  - raw: "らぶぶいっ！ 芽瑠藻"
+    platform: "カドコミ"
+    last_update_seen: 07-22
+    watched_platform: true
+  - raw: "わたしのために脱ぎなさいっ！ 九郎"
+    platform: "カドコミ"
+    last_update_seen: 07-13
+    watched_platform: true
+  - raw: "アフタヌーンティーはいかがですか？ 私と先輩の、不純で一途なふたり暮らし 文尾文/桃田ロウ"
+    platform: "カドコミ"
+    last_update_seen: 08-06
+    watched_platform: true
+  - raw: "イジめてイジられて 千田大輔"
+    platform: "カドコミ"
+    last_update_seen: 07-24
+    watched_platform: true
+  - raw: "ウィキッドスポット Sal Jiang"
+    platform: "カドコミ"
+    last_update_seen: 07-24
+    watched_platform: true
+  - raw: "カムパネルラの塔 Dormicum"
+    platform: "カドコミ"
+    last_update_seen: 08-01
+    watched_platform: true
+  - raw: "ガヴリールドロップアウト うかみ"
+    platform: "カドコミ"
+    last_update_seen: 08-08
+    watched_platform: true
+  - raw: "クレアちゃん飼育日記―カブトムシ少女にお世話されてます― 庄司ひろのり"
+    platform: "カドコミ"
+    last_update_seen: 07-10
+    watched_platform: true
+  - raw: "ケイヤクシマイ ヒジキ"
+    platform: "カドコミ"
+    last_update_seen: 07-20
+    watched_platform: true
+  - raw: "ダメ犬彼女 くわばらたもつ"
+    platform: "カドコミ"
+    last_update_seen: 07-18
+    watched_platform: true
+  - raw: "ハルのレジスタ 槌居"
+    platform: "カドコミ"
+    last_update_seen: 08-05
+    watched_platform: true
+  - raw: "バカに告白 矢坂しゅう"
+    platform: "カドコミ"
+    last_update_seen: 07-27
+    watched_platform: true
+  - raw: "バクガタリzzZ 鰤尾みちる"
+    platform: "カドコミ"
+    last_update_seen: 07-20
+    watched_platform: true
+  - raw: "モブヘブン 徳永パン"
+    platform: "カドコミ"
+    last_update_seen: 07-27
+    watched_platform: true
+  - raw: "ユリノコ よつば◎ますみ。"
+    platform: "カドコミ"
+    last_update_seen: 07-21
+    watched_platform: true
+  - raw: "リコリス・リコイル 備前やすのり"
+    platform: "カドコミ"
+    last_update_seen: 09-05
+    watched_platform: true
+  - raw: "リリィズコンプレックス 館山けーた"
+    platform: "カドコミ"
+    last_update_seen: 08-01
+    watched_platform: true
+  - raw: "七限目は忍者修行です！ MIGCHIP"
+    platform: "カドコミ"
+    last_update_seen: 07-17
+    watched_platform: true
+  - raw: "世界一可愛い私の幼馴染が隠れてVTuberをしているらしい 岡野く仔 / 不和二亜"
+    platform: "カドコミ"
+    last_update_seen: 07-17
+    watched_platform: true
+  - raw: "人妻教師が教え子の女子高生にドはまりする話 川上しをん / 入間人間"
+    platform: "カドコミ"
+    last_update_seen: 08-18
+    watched_platform: true
+  - raw: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～ 砂泉文"
+    platform: "カドコミ"
+    last_update_seen: 07-17
+    watched_platform: true
+  - raw: "作りたい女と食べたい女 ゆざきさかおみ"
+    platform: "カドコミ"
+    last_update_seen: 07-10
+    watched_platform: true
+  - raw: "創る庭 みかん氏"
+    platform: "カドコミ"
+    last_update_seen: 07-21
+    watched_platform: true
+  - raw: "君となら、明日を歌えるの 葛城かなで"
+    platform: "カドコミ"
+    last_update_seen: 07-31
+    watched_platform: true
+  - raw: "君になれたら ろここ"
+    platform: "カドコミ"
+    last_update_seen: 08-05
+    watched_platform: true
+  - raw: "咲きそめコンプレックス んみ"
+    platform: "カドコミ"
+    last_update_seen: 07-22
+    watched_platform: true
+  - raw: "堕天使そぷらのちゃんの復讐 藤本セツナ"
+    platform: "カドコミ"
+    last_update_seen: 07-13
+    watched_platform: true
+  - raw: "大崎さんと小森さん 犬山あむ"
+    platform: "カドコミ"
+    last_update_seen: 07-15
+    watched_platform: true
+  - raw: "妄執女と芥川 鈴木二三江"
+    platform: "カドコミ"
+    last_update_seen: 07-23
+    watched_platform: true
+  - raw: "安達としまむら 柚原もけ/入間人間"
+    platform: "カドコミ"
+    last_update_seen: 07-20
+    watched_platform: true
+  - raw: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～ 江島絵理"
+    platform: "カドコミ"
+    last_update_seen: 08-19
+    watched_platform: true
+  - raw: "少女星間漂流記 夜の羊雲 / 東崎惟子"
+    platform: "カドコミ"
+    last_update_seen: 08-05
+    watched_platform: true
+  - raw: "彼なんかより、私のほうがいいでしょ？ ぷらぱ/アサクラネル"
+    platform: "カドコミ"
+    last_update_seen: 08-21
+    watched_platform: true
+  - raw: "彼女のカノジョと不純な初恋 Akeo/ 花宮みぃ"
+    platform: "カドコミ"
+    last_update_seen: 07-28
+    watched_platform: true
+  - raw: "彼氏の女友達がぐいぐい来る（私に） あめみくろ"
+    platform: "カドコミ"
+    last_update_seen: 07-12
+    watched_platform: true
+  - raw: "忍者と殺し屋のふたりぐらし ハンバーガー"
+    platform: "カドコミ"
+    last_update_seen: 07-30
+    watched_platform: true
+  - raw: "怪異部～M県Y市の怪現象について～ さりい・Ｂ"
+    platform: "カドコミ"
+    last_update_seen: 07-18
+    watched_platform: true
+  - raw: "悪いが私は百合じゃない もちオーレ"
+    platform: "カドコミ"
+    last_update_seen: 08-20
+    watched_platform: true
+  - raw: "或いは、私の名探偵 毒田ぺパ子"
+    platform: "カドコミ"
+    last_update_seen: 07-27
+    watched_platform: true
+  - raw: "拝啓、在りし日に咲く花たちへ 五十嵐純"
+    platform: "カドコミ"
+    last_update_seen: 07-23
+    watched_platform: true
+  - raw: "新米姉妹のふたりごはん 柊ゆたか"
+    platform: "カドコミ"
+    last_update_seen: 08-25
+    watched_platform: true
+  - raw: "晴れ晴れ日和 吉村佳"
+    platform: "カドコミ"
+    last_update_seen: 07-20
+    watched_platform: true
+  - raw: "月はタピオカみたいに 小畠泪/今安"
+    platform: "カドコミ"
+    last_update_seen: 07-27
+    watched_platform: true
+  - raw: "機動戦士ガンダム 水星の魔女 青春フロンティア 波多ヒロ/HISADAKE"
+    platform: "カドコミ"
+    last_update_seen: 07-24
+    watched_platform: true
+  - raw: "猫に白鳥、蛍に小判 ヨドカワ"
+    platform: "カドコミ"
+    last_update_seen: 07-10
+    watched_platform: true
+  - raw: "百合のはじまりは奴隷から みもと / デス山ハナ子"
+    platform: "カドコミ"
+    last_update_seen: 07-10
+    watched_platform: true
+  - raw: "私を喰べたい、ひとでなし 苗川采"
+    platform: "カドコミ"
+    last_update_seen: 07-11
+    watched_platform: true
+  - raw: "聖女先生の魔法は進んでる！ しまづ/鴉ぴえろ"
+    platform: "カドコミ"
+    last_update_seen: 07-11
+    watched_platform: true
+  - raw: "顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。 はちこ/能代リョウ"
+    platform: "カドコミ"
+    last_update_seen: 07-17
+    watched_platform: true
+  - raw: "スライム倒して300年、知らないうちにレベルMAXになってました 森田季節/シバユウスケ"
+    platform: "ガンガンONLINE"
+    last_update_seen: 07-30
+    watched_platform: false
+  - raw: "私がモテないのはどう考えてもお前らが悪い! 谷川ニコ"
+    platform: "ガンガンONLINE"
+    last_update_seen: 08-06
+    watched_platform: false
+  - raw: "裏世界ピクニック 宮澤伊織/水野英多"
+    platform: "ガンガンONLINE"
+    last_update_seen: 07-12
+    watched_platform: false
+  - raw: "新刊100億冊ください 破賀ミチル"
+    platform: "コミックDAYS"
+    last_update_seen: 07-16
+    watched_platform: true
+  - raw: "笑顔のたえない職場です。 くずしろ"
+    platform: "コミックDAYS"
+    last_update_seen: 07-11
+    watched_platform: true
+  - raw: "雨夜の月 くずしろ"
+    platform: "コミックDAYS"
+    last_update_seen: 07-18
+    watched_platform: true
+  - raw: "あの子とふたりで。 当麻"
+    platform: "コミックオギャー!!"
+    last_update_seen: 07-17
+    watched_platform: false
+  - raw: "恋より青く 深海 紺"
+    platform: "コミックオギャー!!"
+    last_update_seen: 07-10
+    watched_platform: false
+  - raw: "魔女とくゅらす 柴田康平"
+    platform: "コミプレ"
+    last_update_seen: 07-22
+    watched_platform: false
+  - raw: "#ギャルとギャルの百合 イノウエ"
+    platform: "サンデーうぇぶり"
+    last_update_seen: 07-14
+    watched_platform: false
+  - raw: "てくのぱにっくゆにばーす 伏見ダイキ"
+    platform: "サンデーうぇぶり"
+    last_update_seen: 07-10
+    watched_platform: false
+  - raw: "なとりとしずは 鮎川あお"
+    platform: "サンデーうぇぶり"
+    last_update_seen: 07-21
+    watched_platform: false
+  - raw: "春雷卓球 平方昌宏"
+    platform: "ジャンプ+"
+    last_update_seen: 07-10
+    watched_platform: false
+  - raw: "上伊那ぼたん、酔へる姿は百合の花 塀"
+    platform: "チャンピオンクロス"
+    last_update_seen: 07-28
+    watched_platform: false
+  - raw: "阿佐ヶ谷サキュバス同人物語 縁山"
+    platform: "チャンピオンクロス"
+    last_update_seen: 07-11
+    watched_platform: false
+  - raw: "わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?） むっしゅ/みかみてれん"
+    platform: "ニコニコ静画"
+    last_update_seen: 07-31
+    watched_platform: false
+  - raw: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話 倉崎もろこ/みかみてれん"
+    platform: "ニコニコ静画"
+    last_update_seen: 07-10
+    watched_platform: false
+  - raw: "魔法少女201 むちゃ"
+    platform: "ニコニコ静画"
+    last_update_seen: 07-23
+    watched_platform: false
+  - raw: "ささやくように恋を唄う 竹嶋えく"
+    platform: "一迅プラス"
+    last_update_seen: 08-13
+    watched_platform: true
+  - raw: "ぜんぶ壊して地獄で愛して くわばらたもつ"
+    platform: "一迅プラス"
+    last_update_seen: 09-03
+    watched_platform: true
+  - raw: "たゆたう恋の散り際に ゆあま"
+    platform: "一迅プラス"
+    last_update_seen: 07-23
+    watched_platform: true
+  - raw: "ひなちゃんが生きてるなら 紬めめ"
+    platform: "一迅プラス"
+    last_update_seen: 07-23
+    watched_platform: true
+  - raw: "ゆるゆり なもり"
+    platform: "一迅プラス"
+    last_update_seen: 07-16
+    watched_platform: true
+  - raw: "キミが吠えるための歌を、 樫風"
+    platform: "一迅プラス"
+    last_update_seen: 08-06
+    watched_platform: true
+  - raw: "マユノウタ シクシク"
+    platform: "一迅プラス"
+    last_update_seen: 07-23
+    watched_platform: true
+  - raw: "今日はカノジョがいないから 岩見樹代子"
+    platform: "一迅プラス"
+    last_update_seen: 09-10
+    watched_platform: true
+  - raw: "君のせいなんだから、責任とってよね。 当麻"
+    platform: "一迅プラス"
+    last_update_seen: 07-23
+    watched_platform: true
+  - raw: "大室家 なもり"
+    platform: "一迅プラス"
+    last_update_seen: 07-16
+    watched_platform: true
+  - raw: "小春と湊 わたしのパートナーは女の子 ひあるろん＆達磨"
+    platform: "一迅プラス"
+    last_update_seen: 09-03
+    watched_platform: true
+  - raw: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～ 玉崎たま"
+    platform: "一迅プラス"
+    last_update_seen: 09-03
+    watched_platform: true
+  - raw: "現実世界でも幸せにしてくださいね？ しぼりかすこ"
+    platform: "一迅プラス"
+    last_update_seen: 08-06
+    watched_platform: true
+  - raw: "私の推しは悪役令嬢。 青乃下/いのり。"
+    platform: "一迅プラス"
+    last_update_seen: 08-13
+    watched_platform: true
+  - raw: "超深宇宙より愛をこめて アシダカヲズ"
+    platform: "一迅プラス"
+    last_update_seen: 07-23
+    watched_platform: true
+  - raw: "陰キャギャルでもイキがりたい！ かしわぎつきこ"
+    platform: "一迅プラス"
+    last_update_seen: 08-06
+    watched_platform: true
+  - raw: "骨に願いを、星に呪いを いくたはな"
+    platform: "一迅プラス"
+    last_update_seen: 07-16
+    watched_platform: true
+  - raw: "白き乙女の人狼 アジイチ/王月よう"
+    platform: "竹コミ！"
+    last_update_seen: 07-10
+    watched_platform: false
+  - raw: "魔法少女にあこがれて 小野中彰大"
+    platform: "竹コミ！"
+    last_update_seen: 07-17
+    watched_platform: false
+  - raw: "フレンドガールフレンド 瑠夏子"
+    platform: "花とゆめ＋"
+    last_update_seen: 07-27
+    watched_platform: false
+  - raw: "DOUBLE HELIX BLOSSOM アサウラ/西馬ごめゆき"
+    platform: "週刊コロコロ"
+    last_update_seen: 07-18
+    watched_platform: false

@@ -379,8 +379,31 @@ Historical completeness is explicitly **not** required. What ran before we start
 platform is imperfectly knowable, and that is accepted — see the bootstrap discussion below.
 Forward coverage is the target. Adult-rated material remains subject to DEFINITIONS §7 regardless.
 
-This makes Web漫画アンテナ a **yardstick**, not a source. It stays Tier C and attests nothing; what
-it provides is a measurable gap.
+This makes both a **yardstick**, not a source. They stay Tier C and attest nothing; what they
+provide is a measurable gap.
+
+Two lists, differing in kind:
+
+| | Works | Platforms | Character |
+|---|---|---|---|
+| [Web漫画アンテナ 百合 tag](https://webcomics.jp/tag/%E7%99%BE%E5%90%88) | ~1,530 | ~96 | Crowd-tagged, broad |
+| [百合ナビ WEB連載中の百合漫画](https://yurinavi.com/2017/02/28/web_yuri/) | ~130 | ~19 | Hand-maintained, much narrower |
+
+> **Neither is a precision filter.** The antenna is crowd-tagged. 百合ナビ's list is maintained by
+> hand but its inclusion standards are traditionally loose — it dates from a period when far less
+> yuri was published and posting about a work was cheap. Being listed by either says a work exists
+> and where; it says nothing about content, and **neither may be cited toward `content_tier`**.
+>
+> An earlier version of `coverage_union.py` weighted the curated list 4× on the assumption that
+> hand-curation implied higher precision. It does not. The weighting was removed rather than
+> retuned.
+
+百合ナビ's list URL carries a stale 2017 date. The page is current; WordPress permalinks are not
+dates.
+
+百合ナビ also runs a 発売日 calendar covering **volume** releases rather than web chapters — a
+separate axis, valuable mainly for forthcoming releases that no bibliographic source carries yet.
+Not yet wired in.
 
 #### The metric is platform coverage, not per-work overlap
 

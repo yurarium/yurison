@@ -42,14 +42,50 @@ def jsonable(o):
     raise TypeError(f"unserialisable {type(o).__name__}")
 
 
+# Episode titles that are chapters without carrying a number.
+FINAL_RE = re.compile(r"最終(話|回)|最終エピソード")
+# Announcements and artwork typed as chapters upstream — they are not story instalments.
+NON_STORY_RE = re.compile(r"告知|お知らせ|イラスト|カバー|PV|特報|予告|おまけ")
+# Side stories are story content but not instalments of the main run.
+SIDE_RE = re.compile(r"番外編|外伝|特別編")
+_KANJI = {"〇": 0, "一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
+          "六": 6, "七": 7, "八": 8, "九": 9}
+
+
+def kanji_number(s):
+    """Kanji numerals 1–99 — 第十一話 is chapter 11. Titles using them were falling to `unknown`."""
+    m = re.search(r"[一二三四五六七八九十]+", s or "")
+    if not m:
+        return None
+    k = m.group(0)
+    if "十" not in k:
+        return _KANJI.get(k) if len(k) == 1 else None
+    tens, _, ones = k.partition("十")
+    return (_KANJI.get(tens, 1) if tens else 1) * 10 + (_KANJI.get(ones, 0) if ones else 0)
+
+
 def ep_number(title):
-    """Chapter number where the title states one — 第7話 / 7話 / #7 / その7 / full-width."""
+    """Chapter number where the title states one.
+
+    Platforms number chapters many ways: 第7話 / 7話 / #7 / その7 / File.30 / Episode 12 /
+    Case.4 / act.9, plus full-width digits. Missing these left obvious chapters as `unknown`.
+    """
     import unicodedata
     s = unicodedata.normalize("NFKC", title or "")
-    m = re.search(r"(?:第|#|その)\s*(\d+)\s*(?:話|回|章)?", s)
-    if not m:
-        m = re.match(r"\s*(\d+)\s*(?:話|回|章)", s)
-    return int(m.group(1)) if m else None
+    pats = [
+        r"(?:第|#|その)\s*(\d+)\s*(?:話|回|章)?",
+        r"^\s*(\d+)\s*(?:話|回|章)",
+        r"(?:file|episode|ep|case|act|track|phase|stage|page|scene)\s*[.．]?\s*(\d+)",
+        # Works that count in their own units: 2皿目, 5杯目, 3夜, 7手目 …
+        r"^\s*(\d+)\s*[皿杯品夜手戦局曲片粒滴]\s*目?",
+    ]
+    for pat in pats:
+        m = re.search(pat, s, re.I)
+        if m:
+            return int(m.group(1))
+    if re.search(r"第[一二三四五六七八九十]+[話回章]", s):
+        return kanji_number(s)
+    return None
 
 
 def norm_work(s):
@@ -411,23 +447,48 @@ def main():
     # ongoing one; notices and trials are neither. A comparator claim carries no episode
     # information at all, so it stays `unknown` rather than being guessed into a category.
     OTHER_TYPES = {"notice", "apology-art", "trial", "republication"}
+
+    # An earlier release for the same work PROVES this is not the start of it. That is a stronger
+    # and safer signal than reading the title, and it rescues works whose chapters are named rather
+    # than numbered — スズラン手帖's anthology entries, for instance.
+    earliest, count = {}, {}
+    for r in sorted(releases, key=lambda r: r["pub"]):
+        nw = norm_work(r["work"])
+        earliest.setdefault(nw, r["pub"])
+        count[nw] = count.get(nw, 0) + 1
+
     for r in releases:
-        if r.get("provenance") == "claimed":
-            r["kind"] = "unknown"
-            r["kind_basis"] = "comparator names no chapter"
+        ep = r.get("ep") or ""
+        if r["type"] in OTHER_TYPES or NON_STORY_RE.search(ep):
+            r["kind"], r["kind_basis"] = "other", "notice, artwork, trial or announcement"
             continue
-        if r["type"] in OTHER_TYPES:
-            r["kind"], r["kind_basis"] = "other", f"release type {r['type']}"
+        if SIDE_RE.search(ep):
+            r["kind"], r["kind_basis"] = "other", "side story, not a main-run instalment"
             continue
-        n = ep_number(r.get("ep") or "")
+        n = ep_number(ep)
+        has_earlier = earliest.get(norm_work(r["work"]), r["pub"]) < r["pub"]
         if n == 1:
             r["kind"], r["kind_basis"] = "new-series", "episode numbered 1"
+        elif FINAL_RE.search(ep):
+            r["kind"], r["kind_basis"] = "new-chapter", "final chapter"
         elif n is not None:
             r["kind"], r["kind_basis"] = "new-chapter", f"episode numbered {n}"
+        elif has_earlier:
+            # Not the first release we hold for this work, so not the start of it.
+            r["kind"], r["kind_basis"] = "new-chapter", "work has an earlier release here"
+        elif count.get(norm_work(r["work"]), 0) > 1:
+            # Several unnumbered entries for one work, all bearing the same date — a back catalogue
+            # arriving at once, as with an anthology. They are chapters of a series rather than a
+            # series each. One of them is genuinely its first, and we cannot tell which, so the
+            # basis says so rather than the label implying certainty.
+            r["kind"] = "new-chapter"
+            r["kind_basis"] = "one of several entries for this work; first not identifiable"
         elif r["type"] == "oneshot":
             r["kind"], r["kind_basis"] = "new-series", "one-shot"
         else:
-            r["kind"], r["kind_basis"] = "unknown", "episode not numbered"
+            r["kind"], r["kind_basis"] = "unknown", "no chapter number and no earlier release held"
+        # Inference from what we hold, never a statement by the publisher.
+        r["kind_inferred"] = True
 
     # Reading-quality ranking is editorial curation, kept out of the source layer (§5).
     ranks, plat_meta = {}, {}

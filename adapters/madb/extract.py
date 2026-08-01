@@ -202,7 +202,7 @@ def main():
             "    publisher-side labelling under DEFINITIONS §4.",
             "",
         ]
-        (out / f"{sid}.yaml").write_text("\n".join(L))
+        (out / f"{wid}.yaml").write_text("\n".join(L))
 
     kept = sum(len(v) for v in by_series.values())
     counts = Counter(grouping.values())

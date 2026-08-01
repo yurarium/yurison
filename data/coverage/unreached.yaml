@@ -1,0 +1,61 @@
+# Series a comparator reports that we hold no chapter data for, each with the reason.
+#
+# Every one has been attempted through all four routes — the GigaViewer per-series feed, comici
+# markup, a plain fetch parsed by the usual strategies, and a rendered DOM. 'Unreached' here
+# means all four were tried, not that nothing was.
+#
+# Most are platform-side absences rather than our failure. The commonest is WITHDRAWN AT SOURCE:
+# the work's 掲載期間 has ended, the URL still resolves, and the publisher now serves an empty
+# series feed. A comparator that saw it while it was up is not wrong; the work is simply no
+# longer published. That is a state the project already has a name for (REQUIREMENTS §4), not a
+# reachability problem, and no adapter will ever retrieve what is no longer served.
+source: derived
+role: unreached-series
+retrieved: 2026-08-01
+count: 10
+works:
+- work: ガールミートガール
+  platform: アサコミ
+  url: http://sonorama.asahi.com/series/GMG-story.html
+  reason: host sonorama.asahi.com is gone; the work moved with アサコミ and needs re-resolving
+- work: スライム倒して300年、知らないうちにレベルMAXになってました 森田季節/シバユウスケ
+  platform: ガンガンONLINE
+  url: null
+  reason: no route yielded a dated chapter list
+- work: ツイてるギャルとミエてる陰キャ
+  platform: きら星ポータル
+  url: https://kirapo.jp/meteor/titles/tuimie
+  reason: きら星ポータル has no adapter and no dated list on the work page
+- work: 勇者の旅の裏側で
+  platform: ドリコミ+
+  url: null
+  reason: geoblocked (ドリコミ+) — excluded by the goal
+- work: 姫虐が止まらない白桃さん
+  platform: 一迅プラス
+  url: https://ichicomi.com/episode/2551460910021695025
+  reason: 'withdrawn at source: the 読み切り版''s 掲載期間 has ended; 一迅プラス serves its series
+    feed empty.'
+- work: 散らないで菊
+  platform: コミックゼノン
+  url: https://comic-zenon.com/episode/12207421983944323839
+  reason: 'withdrawn at source: comic-zenon.com/episode/12207421983944323839 exists
+    but its 掲載期間 has ended, so the series feed is served empty. Confirmed by the project
+    owner 2026-08-01. Not a gap in our reach — the platform publishes nothing for
+    it now (REQUIREMENTS §4).'
+- work: 横槍メンゴ新作読切シリーズ
+  platform: ヤンジャン+
+  url: https://ynjn.jp/title/30352
+  reason: ヤンジャン+ builds its list client-side and the render yielded no dated chapters
+- work: 画家の肖像
+  platform: コミックゼノン
+  url: https://comic-zenon.com/episode/12207421983944323781
+  reason: 'withdrawn at source: same shape as 散らないで菊 — a コミックゼノン漫画大賞 entry whose 掲載期間
+    has ended and whose series feed is served empty.'
+- work: 私の魂を食べて下さい!
+  platform: COMICリュウ
+  url: https://www.comic-ryu.jp/series/watashinotamashiiwotabetekudasai/
+  reason: listed URL 404s on comic-ryu.jp
+- work: 藤髪の魔女
+  platform: ガンガンONLINE
+  url: https://www.ganganonline.com/title/2649
+  reason: ガンガンONLINE publishes no per-chapter dates at all

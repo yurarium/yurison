@@ -53,16 +53,18 @@ engines:
     title: 'data-e2e="eliTitle">([^<]+)<'
     date: 'series-eplist-item-meta-date">(\d{4})/(\d{1,2})/(\d{1,2})<'
     url: 'href="(/episodes/[^"]+)"'
-    # comici does not expose a per-episode free/paid state in the listing, so access is left unset
-    # rather than assumed (REQUIREMENTS §6).
-    free: null
+    # comici DOES state per-episode access in the listing — a 無料 badge or a coin price. An
+    # earlier note here said it did not; that was wrong, from grepping the wrong offset.
+    # Verified 2026-08-01 against 竹コミ and confirmed on all four comici sites.
+    free: 'series-eplist-item-access-text[^"]*mode-free'
+    paid: 'series-eplist-item-access-paid'
 
   yanmaga:
     block: '(?=<li class="mod-episode-item")'
     title: 'data-episode-title="([^"]+)"'
     date: 'class="mod-episode-date">(\d{4})/(\d{1,2})/(\d{1,2})<'
     url: 'class="mod-episode-link[^"]*"[^>]*href="([^"]+)"'
-    free: 'data-is-free="(true|false)"'
+    free_attr: 'data-is-free="(true|false)"'
 
 # Investigated 2026-08-01, not usable by this adapter:
 #

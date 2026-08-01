@@ -54,10 +54,14 @@ def episodes(html, eng, base):
         if um:
             u = um.group(1)
             row["url"] = u if u.startswith("http") else base.rstrip("/") + u
-        if eng.get("free"):
-            fm = re.search(eng["free"], b)
+        # Only a stated value is recorded; absence is left unset rather than assumed (§6).
+        if eng.get("free") and re.search(eng["free"], b):
+            row["access_modes"] = ["free"]
+        elif eng.get("paid") and re.search(eng["paid"], b):
+            row["access_modes"] = ["purchase"]
+        elif eng.get("free_attr"):
+            fm = re.search(eng["free_attr"], b)
             if fm:
-                # Only a stated value is recorded; absence is left unset rather than assumed (§6).
                 row["access_modes"] = ["free"] if fm.group(1) == "true" else ["purchase"]
         out.append(row)
     return out

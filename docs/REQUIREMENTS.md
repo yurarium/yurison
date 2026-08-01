@@ -441,6 +441,28 @@ Measured 2026-08-01, by signal:
 | Inferred window slide | 1 | see below |
 | **None** | **~290** | most platforms state nothing |
 
+#### What each platform actually exposes (investigated 2026-08-01)
+
+| Platform group | Per-chapter access? | How |
+|---|---|---|
+| comici — ビッコミ, 竹コミ, チャンピオンクロス, キミコミ | **yes** | 無料 badge or coin price in the listing |
+| ヤンマガWeb | **yes** | `data-is-free` attribute |
+| COMIC FUZ | **yes** | `pointConsumption` per chapter |
+| カドコミ | no field | free platform-wide (owner-attested) |
+| GigaViewer — ジャンプ+, DAYS, となりのYJ, サンデーうぇぶり | **no** | only `freeTermStartDate`, present on 5 entries total |
+| Comparator claims | no | name a work and a date, nothing else |
+
+An earlier note here said comici exposed no access state. That was wrong — it is in the listing
+markup, and grepping the wrong offset in a saved page produced the mistake. Verified against 竹コミ
+and confirmed across all four comici sites.
+
+The models differ by platform in ways no single default could capture: comici runs *first few free,
+latest free, middle paid*; FUZ runs a *sliding volume window*; カドコミ is free throughout. That is
+why per-chapter data is worth the extra fetching wherever a platform states it.
+
+For the GigaViewer group, `freeTermStartDate` is the only signal and it is nearly absent in
+practice. Asserting a default for those four on no evidence would be inventing data.
+
 **A platform default is the biggest lever, and the least evidenced.** It is not read from any field —
 it is asserted knowledge about how a service works, so it carries `default_access_basis` naming who
 asserted it and when, and it applies only where the source supplies no per-chapter value. Adding

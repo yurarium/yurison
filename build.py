@@ -279,6 +279,10 @@ def main():
         d = yaml.safe_load(open(f)) or {}
         if d.get("record_type") in ("web_series", "print_candidates"):
             continue
+        # Per-series Atom feeds carry works-with-chapters rather than a flat release list, the same
+        # shape the webpages adapters emit. Read below with those, not here (§5).
+        if d.get("record_type") == "web_work_chapters":
+            continue
         pid = d.get("platform")
         platforms.append({"id": pid, "name": d.get("platform_name"),
                           "publisher": d.get("publisher"),
@@ -428,7 +432,8 @@ def main():
                     "free_from": None, "access_modes": [],
                 })
 
-    for f in sorted(glob.glob("data/source/webpages/*.yaml")):
+    for f in (sorted(glob.glob("data/source/webpages/*.yaml"))
+              + sorted(glob.glob("data/source/gigaviewer/*-series-feeds.yaml"))):
         d = yaml.safe_load(open(f)) or {}
         pid, pname = d.get("platform"), d.get("platform_name")
         for w in d.get("works") or []:

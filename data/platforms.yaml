@@ -217,3 +217,28 @@ not_works:
       is not stated, so it cannot be reported as one. pixivコミック itself is closed to us by
       operator choice, so the individual works behind it are not reachable there either; they are
       covered through 一迅社's own channels instead.
+
+# ── Access restricted by geography, not by policy or markup ───────────────────────────────────
+#
+# Recorded separately because it is a different kind of unreachable. A 403 or 412 from these hosts
+# is not bot protection and not a robots decision — the service is licensed for Japan and refuses
+# the request on location. Nothing about the adapter, the user agent or the request rate would
+# change the outcome, so they must not sit in the "retry later" bucket where the first survey put
+# them (project owner, 2026-08-01).
+geoblocked:
+  - name: ドリコミ+
+    host: drecomi-plus.jp
+    observed: HTTP 403
+  - name: LINEマンガ
+    host: manga.line.me
+    observed: HTTP 412
+    note: >-
+      Also marked 更新終了 by Web漫画アンテナ, so it was already in the needs-nothing bucket. The
+      412 was read as bot protection in the first survey; it is the geoblock.
+  - name: piccoma
+    host: piccoma.com
+    note: >-
+      Checked 2026-08-01: piccoma appears NOWHERE in our data — not as a platform, not in any
+      candidate URL, not in either comparator's listings. Recorded so the question does not get
+      asked again. Nothing is lost to its geoblock because nothing points at it.
+

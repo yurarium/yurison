@@ -1,6 +1,9 @@
 # Second-pass reconnaissance: which extraction strategy actually returns dated chapters.
 # Updated 2026-08-01 after retrying hosts that timed out on the first attempt — two of the
 # fifteen were a plain timeout, not a block.
+# NOTE 2026-08-01: some of the remaining 403/412 responses are GEOBLOCKS, not bot
+# protection — drecomi-plus.jp and manga.line.me are licensed for Japan. See the
+# geoblocked list in data/platforms.yaml. No adapter change reaches them.
 source: derived
 role: reconnaissance
 retrieved: 2026-08-01
@@ -41,7 +44,7 @@ platforms:
   selector:
     tag: a
     class: series-eplist-item-link
-- platform: HERO&#039;S Web
+- platform: HERO'S Web
   host: viewer.heros-web.com
   work_url: https://viewer.heros-web.com/episode/3269754496898191059
   exclusive_works: 10
@@ -279,7 +282,7 @@ platforms:
   exclusive_works: 2
   strategy: markup
   sample:
-  - title: 連載シリーズ &gt; プリンセ「ス」 プリンセ「ス」 2020年12月25日更新！ 第8話 -->
+  - title: 連載シリーズ > プリンセ「ス」 プリンセ「ス」 2020年12月25日更新！ 第8話 -->
     date: '2020-12-25'
   - title: 第１話を読む --> ストーリー わたしが好きになったのは、髪が短く背が高い、ちょっぴりボーイッシュな「王子さま」。 でも私は知っている。彼女が恋をしていること
     date: '2022-04-01'

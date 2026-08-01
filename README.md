@@ -39,8 +39,9 @@ record rather than taken on trust.
 
 ## Licence
 
-Project code and the original classifications, evidence notes and compiled dataset structure are
-licensed separately from third-party bibliographic data, which remains subject to its own source
-terms — see [Requirements §3](docs/REQUIREMENTS.md).
-
-*Licence not yet chosen.*
+- **Code, schema, adapters, documentation** — [MIT](LICENSE)
+- **Original data contributions** — [CC0 1.0](DATA-LICENSE.md) (classifications, evidence notes,
+  dataset structure). Bibliographic facts are not copyrightable and are not licensed by anyone.
+- **Third-party source data** — remains under its own terms and is **not** relicensed here; MADB
+  requires attribution and version citation, openBD restricts use to book-introduction purposes and
+  forbids transferring use rights. See [DATA-LICENSE.md](DATA-LICENSE.md).

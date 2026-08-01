@@ -43,7 +43,10 @@ RELEASE_TYPES = [
     ("republication", r"再掲|再録"),
 ]
 
-MIN_ENTRIES = 5  # health assertion: an empty or tiny feed means broken, not "nothing published"
+# An EMPTY feed means broken, not "nothing published". A small feed does not: some publishers
+# genuinely run only a few series, so a threshold above 1 rejects legitimate small platforms
+# (comic-trail returned 3 real entries and was wrongly failed at 5).
+MIN_ENTRIES = 1
 
 # Platform timestamps are unreliable. GigaViewer emits Atom <updated> and no <published>, so the
 # value is by definition "last modified", not "first published". Sites mass-update it during
@@ -60,6 +63,21 @@ BULK_PER_WORK = 3
 # posting is advertising. Their samples are not publication events and do not belong in a release
 # feed. The series is still worth keeping: it names a print work, often one the catalogue lacks.
 PROMO_ONLY_TYPES = {"trial"}
+
+# GigaViewer ships in two generations. The newer Next.js build (ichicomi) renders genre chips on
+# its series listing; the classic server-rendered build (comic-days, zenon, tonarinoyj, …) carries
+# title, author and tagline and NO genre data at all. Verified 2026-08-01: none of the classic
+# hosts exposes a working /tag/ or /genre/ page either.
+#
+# So most platforms cannot tell us which of their series are yuri, which is DEFINITIONS §4's bias
+# in concrete form — general platforms label nothing. They onboard in `known-works` mode instead:
+# the feed attests releases for works identified as yuri somewhere else (the print catalogue, a
+# labelling platform, or a confirmed discovery candidate).
+#
+# A known-works match is IDENTIFICATION, not classification. The work's marketing_label comes from
+# wherever it was established; the platform is only telling us a release happened.
+MODE_GENRE = "genre"
+MODE_KNOWN = "known-works"
 
 
 def get(url, cache_dir, force=False):
@@ -115,6 +133,29 @@ def yuri_series(html, genre, label):
     return out
 
 
+def known_titles(paths):
+    """Normalised titles of works already established as yuri, from the built catalogue and from
+    any platform that does label its own series."""
+    out = {}
+    for p_ in paths:
+        f = pathlib.Path(p_)
+        if not f.exists():
+            continue
+        if f.suffix == ".json":
+            for w in json.loads(f.read_text()):
+                out[norm_title(w.get("t", ""))] = w.get("t", "")
+        else:
+            d = yaml.safe_load(f.read_text()) or {}
+            for s in d.get("series") or []:
+                out[norm_title(s.get("title", ""))] = s.get("title", "")
+    out.pop("", None)
+    return out
+
+
+def norm_title(s):
+    return re.sub(r"[\s\-.=、。･・！!？?　]", "", (s or "").strip().lower())
+
+
 def classify(title):
     for name, pat in RELEASE_TYPES:
         if re.search(pat, title):
@@ -129,6 +170,9 @@ def main():
     ap.add_argument("--retrieved", required=True)
     ap.add_argument("--platforms", default="adapters/gigaviewer/platforms.yaml")
     ap.add_argument("--force", action="store_true", help="ignore cache validators")
+    ap.add_argument("--known", nargs="*", default=["data/build/index.json",
+                                                   "data/source/gigaviewer/ichicomi-series.yaml"],
+                    help="sources of already-established yuri work titles")
     a = ap.parse_args()
 
     cache = pathlib.Path(a.cache).expanduser()
@@ -138,28 +182,56 @@ def main():
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
 
+    known = known_titles(a.known)
+    if known:
+        print(f"known yuri works: {len(known)} (for known-works platforms)\n")
+
     totals = Counter()
     for p in plats:
-        if not p.get("series_pages"):
-            totals["skipped (no series pages)"] += 1
+        if p.get("enabled") is False:
+            totals["disabled"] += 1
             continue
+        mode = p.get("mode", MODE_GENRE)
 
         series = {}
-        for sp in p["series_pages"]:
-            html, cached = get(sp["url"], cache, a.force)
-            found = yuri_series(html, p["yuri_genre"], sp.get("label", ""))
-            if not found:
-                print(f"HEALTH: {p['id']} — no yuri series found at {sp['url']}. "
-                      "Markup may have changed; refusing to write for this platform.", file=sys.stderr)
-                totals["degraded"] += 1
-                series = None
-                break
-            series.update(found)
-        if series is None:
-            continue
+        if mode == MODE_GENRE:
+            if not p.get("series_pages"):
+                totals["skipped (no series pages)"] += 1
+                continue
+            for sp in p["series_pages"]:
+                html, cached = get(sp["url"], cache, a.force)
+                found = yuri_series(html, p["yuri_genre"], sp.get("label", ""))
+                if not found:
+                    print(f"HEALTH: {p['id']} — no yuri series found at {sp['url']}. "
+                          "Markup may have changed; refusing to write for this platform.",
+                          file=sys.stderr)
+                    totals["degraded"] += 1
+                    series = None
+                    break
+                series.update(found)
+            if series is None:
+                continue
+        else:
+            if not known:
+                totals["skipped (no known-works list)"] += 1
+                continue
+            series = None  # resolved per-entry against `known` below
 
-        feed, cached = get(p["atom"], cache, a.force)
-        root = ET.fromstring(feed)
+        try:
+            feed, cached = get(p["atom"], cache, a.force)
+            root = ET.fromstring(feed)
+            # A 200 is not proof of a feed: mangacross.jp/atom serves its React app shell with a
+            # 200 status. Require an actual Atom root before believing any of it.
+            if not root.tag.endswith("}feed"):
+                raise ET.ParseError(f"root element is <{root.tag}>, not an Atom <feed> — "
+                                    "the endpoint is probably serving a web page")
+        except (ET.ParseError, OSError) as e:
+            # One broken source degrades that platform and nothing else (§6): a run must not die
+            # because a publisher served malformed XML.
+            print(f"HEALTH: {p['id']} — feed unusable ({type(e).__name__}: {e}). "
+                  "Writing nothing for this platform.", file=sys.stderr)
+            totals["degraded"] += 1
+            continue
         entries = root.findall("a:entry", ATOM)
         if len(entries) < MIN_ENTRIES:
             print(f"HEALTH: {p['id']} — feed has {len(entries)} entries (< {MIN_ENTRIES}). "
@@ -171,8 +243,14 @@ def main():
         for e in entries:
             # GigaViewer puts the SERIES title in <content> and the EPISODE title in <title>.
             work = (e.findtext("a:content", "", ATOM) or "").strip()
-            if work not in series:
-                continue
+            if mode == MODE_GENRE:
+                if work not in series:
+                    continue
+                ident = "platform-genre"
+            else:
+                if norm_title(work) not in known:
+                    continue
+                ident = "known-work-match"
             ep = (e.findtext("a:title", "", ATOM) or "").strip()
             link = next((l.get("href") for l in e.findall("a:link", ATOM)
                          if l.get("rel") is None), "")
@@ -188,6 +266,9 @@ def main():
                 "platform_updated": (e.findtext("a:updated", "", ATOM) or "").strip(),
                 "url": link,
                 "author": (e.findtext("a:author/a:name", "", ATOM) or "").strip(),
+                # How this release was identified as belonging to a yuri work. A known-work match
+                # is identification only — it carries no marketing_label of its own.
+                "identified_via": ident,
             }
             if rt == "unclassified":
                 r["raw_title"] = ep  # kept verbatim for the next maintenance pass (§6)
@@ -253,6 +334,7 @@ def main():
 
         doc = [
             "# Source-layer record: web releases from a GigaViewer platform (REQUIREMENTS §5).",
+            f"# identification mode: {mode}",
             "# The Atom feed is the publisher's own update channel. Episode thumbnails offered as",
             "# enclosures are NOT referenced — they are not a reuse feed (§2).",
             "source: gigaviewer",
@@ -261,12 +343,14 @@ def main():
             f"publisher: {json.dumps(p['publisher'], ensure_ascii=False)}",
             f"retrieved: {a.retrieved}",
             "record_type: web_releases",
-            f"yuri_series_count: {len(series)}",
+            f"identification_mode: {mode}",
+            f"yuri_series_count: {len(series) if series else 0}",
             "releases:",
         ]
         for r in sorted(rels, key=lambda r: r["platform_updated"], reverse=True):
             doc.append(f"  - release_id: {json.dumps(r['release_id'], ensure_ascii=False)}")
-            for k in ("work_title", "web_status", "episode_title", "release_type", "date", "date_basis",
+            for k in ("work_title", "web_status", "identified_via", "episode_title",
+                      "release_type", "date", "date_basis",
                       "first_seen", "first_reported", "platform_updated", "platform_date_changed",
                       "date_confidence", "date_note", "url",
                       "author", "free_term_start", "raw_title"):
@@ -277,6 +361,8 @@ def main():
         (out / f"{p['id']}.yaml").write_text("\n".join(doc))
 
         # The yuri series list is itself evidence, and is what marketing_label rests on.
+        if series is None:
+            series = {}
         sdoc = ["# Series whose own publisher labelling marks them yuri (DEFINITIONS §4).",
                 "source: gigaviewer", f"platform: {p['id']}", f"retrieved: {a.retrieved}",
                 "record_type: web_series", "series:"]

@@ -370,6 +370,48 @@ weeks and then flips to `purchase`. Three consequences:
    historical information about how a work was published, and is not overwritten.
 3. Access volatility, not chapter cadence, is what sets the fast pipeline's polling frequency.
 
+### Two identification modes, because most platforms label nothing
+
+GigaViewer ships in two generations. The newer Next.js build renders genre chips on its series
+listings; the classic server-rendered build carries title, author and tagline and **no genre data
+at all**. Verified 2026-08-01: none of the classic hosts exposes a working `/tag/` or `/genre/`
+page either.
+
+This is DEFINITIONS §4's labelling bias in concrete form, so platforms onboard in one of two modes:
+
+| Mode | How a release is identified | Platforms |
+|---|---|---|
+| `genre` | The platform's own genre or label marks the series yuri. Establishes `marketing_label`. | 一迅プラス |
+| `known-works` | The work was identified as yuri **elsewhere**; the feed only attests that a release happened. | the other 8 |
+
+A known-works match is **identification, not classification**. The work's `marketing_label` comes
+from wherever it was established — the print catalogue, a labelling platform, a confirmed discovery
+candidate — and the general platform contributes nothing to it. Records carry `identified_via` so
+the two can never be confused.
+
+#### The known-works set is currently the binding constraint
+
+Onboarded 2026-08-01: nine platforms live, one disabled. The eight known-works platforms produced
+**zero matches** against a known set of 386 titles, across 402 distinct works in their feeds.
+
+That is a real result, not a broken matcher (verified by probing titles known to be in the set).
+The known set is presently 百合姫コミックス print works plus 一迅プラス series, and those are not
+serialised on 講談社's or 集英社's platforms. So the infrastructure is in place and idle: it starts
+producing the moment the known set covers works published there, which is what confirming discovery
+candidates does.
+
+The alternative — trusting a general platform to tell us what is yuri — is the thing DEFINITIONS §4
+says cannot work.
+
+#### Health checks learned two corrections here
+
+- **A 200 is not proof of a feed.** `mangacross.jp/atom` returns HTTP 200 while serving its React
+  app shell; its `/tag/百合` likewise 200s while returning the homepage. The adapter now requires an
+  Atom `<feed>` root before believing any of it, and mangacross is disabled with the reason recorded.
+- **A small feed is not a broken feed.** The entry-count floor was 5, which failed comic-trail for
+  returning 3 genuine entries. Only an *empty* feed indicates breakage; the floor is now 1.
+- **One bad source degrades one platform.** A malformed feed previously killed the whole run.
+
 ### Platform dates are claims, not observations
 
 **A platform's own timestamp is not evidence of when something was published.** Verified on

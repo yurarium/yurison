@@ -156,6 +156,12 @@ level across hundreds of issues each, and those are where Class S and the pre-19
 The historical sweep [Requirements §7](REQUIREMENTS.md) treats as the harder, later problem is the
 part bulk data supports best. Whether to reorder is open.
 
+## Note on platform onboarding
+
+The 302-work catalogue is also the identification set for web platforms that apply no genre labels.
+See [Requirements §5](REQUIREMENTS.md); the short version is that its narrowness is currently the
+binding constraint on release coverage.
+
 ## Practical notes
 
 - Pin the release tag per [Data licence §3](../DATA-LICENSE.md); MADB requires the dataset version be

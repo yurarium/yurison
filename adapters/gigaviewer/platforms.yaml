@@ -15,17 +15,21 @@ platforms:
     series_pages:
       - url: https://ichicomi.com/series/yurihime
         label: コミック百合姫
+    mode: genre
     yuri_genre: 百合
     verified: 2026-08-01
 
-  # Confirmed GigaViewer with a working /atom; series pages not yet surveyed for yuri lines.
-  # Each needs its series_pages filled in before it produces records.
+  # ── known-works platforms ───────────────────────────────────────────────────────────────────
+  # Classic GigaViewer: server-rendered listings carrying title, author and tagline and NO genre
+  # data. Verified 2026-08-01 that none exposes a working /tag/ or /genre/ page either — 
+  # mangacross.jp/tag/百合 returns its homepage. These platforms cannot say which of their series
+  # are yuri, so their feeds attest releases for works identified elsewhere (mode: known-works).
   - id: kuragebunch
     name: くらげバンチ
     publisher: 新潮社
     host: kuragebunch.com
     atom: https://kuragebunch.com/atom
-    series_pages: []
+    mode: known-works
     yuri_genre: 百合
     verified: 2026-08-01
 
@@ -34,25 +38,29 @@ platforms:
     publisher: コアミックス
     host: comic-zenon.com
     atom: https://comic-zenon.com/atom
-    series_pages: []
+    mode: known-works
     yuri_genre: 百合
     verified: 2026-08-01
 
+  # mangacross.jp/atom returns HTTP 200 but serves its React app shell, not an Atom feed. Its
+  # /tag/百合 likewise 200s while returning the homepage. Disabled until a real feed is found.
   - id: mangacross
     name: マンガクロス
     publisher: 秋田書店
     host: mangacross.jp
     atom: https://mangacross.jp/atom
-    series_pages: []
+    mode: known-works
+    enabled: false
     yuri_genre: 百合
     verified: 2026-08-01
+    note: /atom serves HTML with a 200 status; no usable feed
 
   - id: comic-days
     name: コミックDAYS
     publisher: 講談社
     host: comic-days.com
     atom: https://comic-days.com/atom
-    series_pages: []
+    mode: known-works
     yuri_genre: 百合
     verified: 2026-08-01
 
@@ -61,7 +69,7 @@ platforms:
     publisher: 集英社
     host: tonarinoyj.jp
     atom: https://tonarinoyj.jp/atom
-    series_pages: []
+    mode: known-works
     yuri_genre: 百合
     verified: 2026-08-01
 
@@ -70,7 +78,7 @@ platforms:
     publisher: マッグガーデン
     host: magcomi.com
     atom: https://magcomi.com/atom
-    series_pages: []
+    mode: known-works
     yuri_genre: 百合
     verified: 2026-08-01
 
@@ -79,7 +87,7 @@ platforms:
     publisher: 白泉社
     host: comic-trail.com
     atom: https://comic-trail.com/atom
-    series_pages: []
+    mode: known-works
     yuri_genre: 百合
     verified: 2026-08-01
 
@@ -91,8 +99,7 @@ platforms:
     publisher: 集英社
     host: shonenjumpplus.com
     atom: https://shonenjumpplus.com/atom
-    series_pages: []
-    labels_genres: false
+    mode: known-works
     yuri_genre: 百合
     verified: 2026-08-01
 
@@ -101,7 +108,7 @@ platforms:
     publisher: オーバーラップ
     host: comic-gardo.com
     atom: https://comic-gardo.com/atom
-    series_pages: []
+    mode: known-works
     yuri_genre: 百合
     verified: 2026-08-01
 

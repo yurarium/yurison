@@ -10,25 +10,21 @@ pages_sampled: 31
 record_type: coverage_gap
 listings: 1532
 distinct_works: 1203
-works_on_watched_platform: 827
+works_on_watched_platform: 858
 platforms_total: 96
-platforms_watched: 15
+platforms_watched: 17
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "ニコニコ漫画"
-    works: 71
+    works: 66
   - platform: "pixivコミック"
-    works: 54
-  - platform: "チャンピオンクロス"
-    works: 18
+    works: 51
   - platform: "ゼノン編集部"
     works: 16
   - platform: "comicブースト"
     works: 15
   - platform: "マガポケ"
     works: 14
-  - platform: "キミコミ"
-    works: 13
   - platform: "ガンガンONLINE"
     works: 13
   - platform: "ストーリアダッシュ(更新終了)"
@@ -51,8 +47,6 @@ platforms_missing:
     works: 7
   - platform: "コミック アース・スター"
     works: 6
-  - platform: "ヤンチャンWeb"
-    works: 6
   - platform: "COMICリュウ"
     works: 6
   - platform: "LINEマンガ(更新終了)"
@@ -60,6 +54,8 @@ platforms_missing:
   - platform: "裏サンデー"
     works: 5
   - platform: "フラコミlike!"
+    works: 5
+  - platform: "ヤンチャンWeb"
     works: 5
   - platform: "マンガよもんが"
     works: 5
@@ -73,8 +69,6 @@ platforms_missing:
     works: 4
   - platform: "WEBコミックガンマぷらす(更新終了)"
     works: 4
-  - platform: "コミックヴァルキリー(更新終了)"
-    works: 3
   - platform: "ヤンジャン+"
     works: 3
   - platform: "ライコミ"
@@ -121,9 +115,9 @@ platforms_missing:
     works: 1
   - platform: "ドリコミ+"
     works: 1
-  - platform: "ソノラマプラス(更新終了)"
-    works: 1
   - platform: "アサコミ"
+    works: 1
+  - platform: "ソノラマプラス(更新終了)"
     works: 1
   - platform: "コミックPASH! neo"
     works: 1
@@ -134,8 +128,6 @@ platforms_missing:
   - platform: "栞"
     works: 1
   - platform: "OUR FEEL"
-    works: 1
-  - platform: "Souffle"
     works: 1
   - platform: "Matogrosso(更新終了)"
     works: 1
@@ -158,6 +150,8 @@ platforms_missing:
   - platform: "NewsCrunch"
     works: 1
   - platform: "げつあくWEB(更新終了)"
+    works: 1
+  - platform: "コミックヴァルキリー(更新終了)"
     works: 1
   - platform: "マイナビニュース"
     works: 1

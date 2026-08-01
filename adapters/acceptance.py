@@ -132,8 +132,12 @@ def main():
             y_in.append(w)
 
     def y_match(raw):
+        """百合ナビ runs title and author together, so match on our title being a PREFIX of the
+        cell. The previous version also required len(title) > 3, which silently excluded short
+        Japanese titles — 創る庭 normalises to three characters and was reported as a miss while
+        sitting in the feed."""
         n = norm(raw)
-        return any(o and (n.startswith(o) or o in n) for o in ours if len(o) > 3)
+        return any(o and n.startswith(o) for o in ours if len(o) >= 2)
 
     y_hit = [w for w in y_in if y_match(w["raw"])]
     y_w = [w for w in y_in if norm(w["platform"]) in watched]

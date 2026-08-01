@@ -573,7 +573,34 @@ session as platforms were onboarded:
 | 9 | 645 (53.6%) |
 | 11 (+サンデーうぇぶり, webアクション) | 730 (60.7%) |
 | 12 (+COMIC FUZ) | 764 (63.5%) |
-| **15 (+ビッコミ, 竹コミ, ヤンマガWeb)** | **827 (68.7%)** |
+| 15 (+ビッコミ, 竹コミ, ヤンマガWeb) | 827 (68.7%) |
+| **17 (+チャンピオンクロス, キミコミ)** | **858 (71.3%)** |
+
+#### Acceptance, measured
+
+`adapters/acceptance.py` measures the criterion over the period the feed covers, against both
+yardsticks, separating deliberate exclusions from genuine misses. Over **2026-07-11 → 2026-08-01**:
+
+| | Listed as updating | On a watched platform | Acceptance (watched) | Acceptance (all) |
+|---|---|---|---|---|
+| Web漫画アンテナ | 181 | 95 | **74.7%** (76.3% adjusted) | 44.8% |
+| 百合ナビ WEB連載 | 88 | 60 | **61.7%** | 45.5% |
+
+Both land near 45% overall from independent lists of different sizes, which is a useful cross-check
+on the measurement rather than on the coverage.
+
+**The remaining misses are mostly not defects.** They are works on watched platforms that have not
+published since we started watching, so they sit outside every current feed window. The criterion
+is explicitly *over time*; with retention in place each will be captured on its next update and
+stay captured. This number climbing across runs is the thing to watch.
+
+Two categories that are **not** coverage gaps and are reported separately:
+
+- **Deliberate exclusions** — 試し読み-only anthologies the antenna counts as updates and
+  DEFINITIONS §6 excludes as non-web-publication.
+- **Works only one yardstick knows.** きょうはなにしよう？, くちべた食堂 and モブヘブン appear on
+  百合ナビ and **not on the antenna at all**, so an antenna-seeded fetch list can never reach them.
+  The two lists genuinely cover different ground, which is why the criterion names both.
 
 **The syndication prediction held.** Onboarding those three cut ニコニコ漫画's exclusive count from
 91 to 76 and pixivコミック's from 63 to 55, without touching either. Their apparent coverage really

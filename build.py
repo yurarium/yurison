@@ -18,7 +18,8 @@ import yaml
 # Tier A/B attesting sources only. Discovery-only sources (Tier C/D) never appear here — they feed
 # data/queue/, which is deliberately outside the source tree so nothing can promote a candidate
 # into a record by accident.
-ALLOWED_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha", "gigaviewer"}
+ALLOWED_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha",
+                   "gigaviewer", "kadokomi"}
 
 # Sources carrying work-level records that merge into a work. Others (release feeds) are
 # platform-level and compile separately.
@@ -222,6 +223,30 @@ def main():
             })
     releases.sort(key=lambda r: r["pub"], reverse=True)
 
+    # Web works confirmed against a publisher after discovery named them. These have no MADB
+    # record — they are web-native and mostly too recent for the print sources — so they compile
+    # separately rather than being forced through the tankōbon work-merge. Folding them into the
+    # main work table is a schema step, not a formatting one, and is deliberately not rushed here.
+    web_works = []
+    for f in sorted(glob.glob("data/source/kadokomi/confirmed.yaml")):
+        d = yaml.safe_load(open(f)) or {}
+        for w in d.get("works") or []:
+            if not w.get("marketing_label") and not w.get("content_tier"):
+                errors.append(f"{w.get('work_title')}: confirmed web work with neither axis set")
+            if w.get("marketing_label") and not w.get("marketing_label_basis"):
+                errors.append(f"{w.get('work_title')}: marketing_label without basis (DEFINITIONS §5)")
+            web_works.append({
+                "title": w.get("work_title"), "url": w.get("url"),
+                "platform": d.get("source"), "status": w.get("serialization_status"),
+                "tags": w.get("tags", []), "label": w.get("label"),
+                "authors": w.get("authors", []),
+                "marketing_label": w.get("marketing_label"),
+                "marketing_label_basis": w.get("marketing_label_basis"),
+                "content_tier": w.get("content_tier"),
+                "discovered_via": w.get("discovered_via"),
+                "oneshot": w.get("is_oneshot"),
+            })
+
     # Print works reached through a web sample: catalogue candidates, not releases.
     print_candidates = []
     for f in sorted(glob.glob("data/source/gigaviewer/*-print-candidates.yaml")):
@@ -244,13 +269,15 @@ def main():
 
     (out / "feed.json").write_text(json.dumps(
         {"releases": releases, "platforms": platforms, "queue": queue,
-         "print_candidates": print_candidates},
+         "print_candidates": print_candidates, "web_works": web_works},
         ensure_ascii=False, indent=1, default=jsonable))
 
     serialised = sum(1 for r in releases if r.get("web") == "serialised")
     print(f"releases        : {len(releases)} from {len(platforms)} platform(s) "
           f"({serialised} serialised, {len(releases)-serialised} promotional samples)")
     print(f"print candidates: {len(print_candidates)} from web samples")
+    wl = sum(1 for w in web_works if w.get("marketing_label") == "yuri")
+    print(f"web works       : {len(web_works)} confirmed ({wl} with a publisher yuri label)")
     print(f"queue           : {len(queue)} unconfirmed candidates")
     print(f"works compiled  : {len(works)}")
     print(f"volumes         : {sum(w['volume_count'] for w in works)}")

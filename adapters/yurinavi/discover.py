@@ -30,6 +30,43 @@ IGNORE = r"セール|OFF|ポイント還元|還元|無料公開中止|キャン�
 
 MIN_ITEMS = 3
 
+# Discovery resolves WHERE a work lives; confirmation then resolves what it is. Articles link out
+# to the platform, so the platform and its work code are extracted here and carried on the
+# candidate. Recognising a host is not attesting anything — it only says where to look.
+PLATFORMS = [
+    ("kadokomi", r"https?://comic-walker\.com/detail/([A-Za-z0-9_]+)"),
+    ("comic-days", r"https?://comic-days\.com/(?:episode|series)/(\d+)"),
+    ("kuragebunch", r"https?://kuragebunch\.com/(?:episode|series)/(\d+)"),
+    ("ichicomi", r"https?://ichicomi\.com/(?:episode|series)/(\d+)"),
+]
+
+
+def fetch_article(url, cache):
+    """Articles are fetched only to find the outbound platform link."""
+    key = re.sub(r"[^a-z0-9]+", "_", url)[-70:]
+    f = cache / "articles" / f"{key}.html"
+    f.parent.mkdir(parents=True, exist_ok=True)
+    if f.exists():
+        return f.read_text()
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    try:
+        with urllib.request.urlopen(req, timeout=45) as r:
+            t = r.read().decode("utf-8", "replace")
+    except Exception:
+        return ""
+    finally:
+        time.sleep(1.2)
+    f.write_text(t)
+    return t
+
+
+def resolve_platform(html):
+    for name, pat in PLATFORMS:
+        m = re.search(pat, html)
+        if m:
+            return name, m.group(1)
+    return None, None
+
 
 def fetch(url, cache):
     p = cache / "feed.xml"
@@ -77,9 +114,12 @@ def main():
         counts[sig or "ignored"] += 1
         if not sig or sig == "roundup":
             continue
+        art = (it.findtext("link") or "").strip()
+        plat, code = resolve_platform(fetch_article(art, cache)) if art else (None, None)
         for t in titles_in(head):
             rows.append({"work_title": t, "signal": sig, "headline": head,
-                         "url": (it.findtext("link") or "").strip(),
+                         "url": art, "platform": plat, "platform_code": code,
+                         "source": "yurinavi",
                          "announced": (it.findtext("pubDate") or "").strip()})
 
     out = pathlib.Path(a.out)
@@ -99,15 +139,19 @@ def main():
     ]
     for r in sorted(rows, key=lambda r: r["announced"], reverse=True):
         L.append(f"  - work_title: {json.dumps(r['work_title'], ensure_ascii=False)}")
-        for k in ("signal", "announced", "url"):
-            L.append(f"    {k}: {json.dumps(r[k], ensure_ascii=False)}")
+        for k in ("signal", "announced", "url", "platform", "platform_code"):
+            if r.get(k):
+                L.append(f"    {k}: {json.dumps(r[k], ensure_ascii=False)}")
         L.append(f"    headline: {json.dumps(r['headline'], ensure_ascii=False)}")
         L.append("    status: unconfirmed")
     L.append("")
     (out / "yurinavi.yaml").write_text("\n".join(L))
 
     print(f"feed items     : {len(items)}")
+    from collections import Counter as _C
     print(f"candidates     : {len(rows)}")
+    plats = _C(r.get("platform") or "unresolved" for r in rows)
+    print(f"  platforms    : {dict(plats)}")
     for k, v in counts.most_common():
         print(f"  {str(k):12}: {v}")
     print(f"written        : {out}/yurinavi.yaml")

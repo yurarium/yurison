@@ -1,0 +1,139 @@
+# Confirmed against カドコミ work pages. Discovery named these; the publisher attests them.
+# No synopsis and no image URLs are stored (REQUIREMENTS §2).
+source: kadokomi
+retrieved: 2026-08-01
+record_type: web_work_confirmation
+works:
+  - work_title: "この湯で、あなたと"
+    platform_code: "KC_019740_S"
+    url: "https://comic-walker.com/detail/KC_019740_S"
+    genre: {"code": "0203", "id": "018a178c-a908-71de-89b0-6edf2fe71a8e", "name": "少女"}
+    sub_genre: {"code": "0208", "id": "018a262f-9865-788e-9694-4758845b6e7d", "name": "恋愛"}
+    serialization_status: "ongoing"
+    is_oneshot: false
+    is_original: true
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "CandleA"
+    marketing_label: "yuri"
+    tags: ["現代", "女主人公", "ドラマ", "大人向け", "百合", "癒やされる", "社会", "社会人", "考えさせられる", "アイドル"]
+    authors:
+      - name: "南部くまこ"
+        role: "原作"
+      - name: "春木やちか"
+        role: "作画"
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_019740_S"
+      retrieved: "2026-08-01"
+      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
+    discovered_via:
+      source: null
+      signal: "new-serial"
+      url: "https://yurinavi.com/2026/07/29/konoyude-anatato/"
+  - work_title: "姉妹傭兵"
+    platform_code: "KC_019475_S"
+    url: "https://comic-walker.com/detail/KC_019475_S"
+    genre: {"code": "0202", "id": "018a178c-a907-74f2-9038-a98bd8bbf2db", "name": "青年"}
+    sub_genre: {"code": "0203", "id": "018a262f-9860-7033-b06d-961a9b224c75", "name": "バトル・アクション"}
+    serialization_status: "ongoing"
+    is_oneshot: false
+    is_original: false
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "コミックNewtype"
+    marketing_label: "yuri"
+    tags: ["コミカライズ", "女主人公", "家族", "百合", "働く女子", "年の差", "MF文庫J"]
+    authors:
+      - name: "坂南加"
+        role: "漫画"
+      - name: "三河ごーすと"
+        role: "原作"
+      - name: "kappe"
+        role: "キャラクター原案"
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_019475_S"
+      retrieved: "2026-08-01"
+      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
+    discovered_via:
+      source: null
+      signal: "new-serial"
+      url: "https://yurinavi.com/2026/07/22/shimaiyouhei-start/"
+  - work_title: "世界一可愛い私の幼馴染が隠れてVTuberをしているらしい"
+    platform_code: "KC_016982_S"
+    url: "https://comic-walker.com/detail/KC_016982_S"
+    genre: {"code": "0202", "id": "018a178c-a907-74f2-9038-a98bd8bbf2db", "name": "青年"}
+    sub_genre: {"code": "0208", "id": "018a262f-9865-788e-9694-4758845b6e7d", "name": "恋愛"}
+    serialization_status: "ongoing"
+    is_oneshot: false
+    is_original: false
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "コミックコンプ＆コンプティーク"
+    marketing_label: "yuri"
+    tags: ["コミカライズ", "ラブコメ", "現代", "美少女", "ほのぼの", "胸キュン", "なろう系", "いちゃラブ", "百合", "癒やされる", "ハッピー", "WEB小説", "巨乳", "ギャップ女子", "ツンデレ", "オタク", "推し活", "萌え", "アイドル", "女子大生", "配信者"]
+    authors:
+      - name: "岡野く仔"
+        role: "漫画"
+      - name: "不和二亜"
+        role: "原作"
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_016982_S"
+      retrieved: "2026-08-01"
+      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
+    discovered_via:
+      source: null
+      signal: "new-serial"
+      url: "https://yurinavi.com/2026/07/16/sekaiichikawaii-start/"
+  - work_title: "イジめてイジられて"
+    platform_code: "KC_019052_S"
+    url: "https://comic-walker.com/detail/KC_019052_S"
+    genre: {"code": "0202", "id": "018a178c-a907-74f2-9038-a98bd8bbf2db", "name": "青年"}
+    sub_genre: {"code": "0208", "id": "018a262f-9865-788e-9694-4758845b6e7d", "name": "恋愛"}
+    serialization_status: "ongoing"
+    is_oneshot: false
+    is_original: false
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "ヤングエースＵＰ"
+    marketing_label: "yuri"
+    tags: ["ラブコメ", "現代", "学園モノ", "美少女", "胸キュン", "大人向け", "溺愛", "いちゃラブ", "百合", "笑える", "お色気", "おっぱい", "秘密の関係", "クセになる", "ギャップ女子", "ツンデレ", "ギャル", "性癖", "片思い", "ヤンデレ", "変態", "パンツ", "地味女子", "尽くす系女子", "生意気", "ヤンキー", "ケンカップル", "コスプレ"]
+    authors:
+      - name: "千田大輔"
+        role: "著者"
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_019052_S"
+      retrieved: "2026-08-01"
+      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
+    discovered_via:
+      source: null
+      signal: "new-serial"
+      url: "https://yurinavi.com/2026/07/19/ijimeteijirarete-start/"
+  - work_title: "残光再撮"
+    platform_code: "KC_011927_S"
+    url: "https://comic-walker.com/detail/KC_011927_S"
+    genre: {"code": "0202", "id": "018a178c-a907-74f2-9038-a98bd8bbf2db", "name": "青年"}
+    sub_genre: {"code": "0208", "id": "018a262f-9865-788e-9694-4758845b6e7d", "name": "恋愛"}
+    serialization_status: "ongoing"
+    is_oneshot: false
+    is_original: false
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "コミックキューン"
+    marketing_label: "yuri"
+    tags: ["ラブコメ", "学園モノ", "女主人公", "ドキドキハラハラ", "いちゃラブ", "百合"]
+    authors:
+      - name: "若鶏にこみ"
+        role: "著者"
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_011927_S"
+      retrieved: "2026-08-01"
+      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
+    discovered_via:
+      source: null
+      signal: "new-serial"
+      url: "https://yurinavi.com/2026/07/27/zankou-start/"

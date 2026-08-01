@@ -450,11 +450,22 @@ def main():
         d = yaml.safe_load(open(f)) or {}
         pid, pname = d.get("platform"), d.get("platform_name")
         for w in d.get("works") or []:
+            # A work reached through editorial coverage was published before we heard of it —
+            # 百合ナビ covers one-shots weeks late, and a one-shot is gone from every listing by
+            # then. Dropping it for being older than the window means it can never appear at all,
+            # however often we poll: polling frequency cannot retrieve something that was already
+            # old when we first learned it existed. So confirmation-sourced works are admitted on
+            # the date we learned of them, carrying their true publication date with them.
+            late = bool(w.get("discovered_via"))
             for c in w.get("chapters") or []:
                 u = str(c.get("updated") or "")
-                if not u or u < wcut or u > wtoday:
+                if not u or u > wtoday:
+                    continue
+                if u < wcut and not late:
                     continue
                 releases.append({
+                    "late_discovered": u < wcut,
+                    "discovered_on": str(d.get("retrieved", "")) if u < wcut else None,
                     "id": f"{pid}:{c.get('url') or c.get('title')}", "work": w.get("work_title"),
                     # The platform's own count decides this: a series with one episode is a
                     # one-shot. Confirmation established it and the loop was discarding it.
@@ -865,6 +876,12 @@ def main():
                                    f"how this series names its instalments")
                 r["kind_inferred"] = True
                 continue
+        # A one-shot is a work in one instalment: the start of it and the end of it. Tested before
+        # the chapter rules, which were reaching "later chapter of a work attested elsewhere" and
+        # labelling 【読切】吸血少女とウンディーネ 新話.
+        if r["type"] == "oneshot":
+            r["kind"], r["kind_basis"] = "new-series", "one-shot: the platform lists one episode"
+            continue
         if r["type"] == "extra" or EXTRA_RE.search(ep):
             r["kind"], r["kind_basis"] = "new-chapter", "extra or side story — content, not notice"
             continue
@@ -970,7 +987,11 @@ def main():
             # chapter because the plain row happened to sort first.
             kept = seen_chapter[k]
             if r.get("type") == "oneshot" and kept.get("type") != "oneshot":
+                # The kind was derived before this merge, so upgrading the type alone left
+                # 下部七花はかく語りき a one-shot labelled 新話. Upgrade both together.
                 kept["type"] = "oneshot"
+                kept["kind"] = "new-series"
+                kept["kind_basis"] = "one-shot: the platform lists one episode"
             if r.get("discovered_via") and not kept.get("discovered_via"):
                 kept["discovered_via"] = r["discovered_via"]
             dropped_dupes += 1
@@ -978,7 +999,13 @@ def main():
         seen_chapter[k] = r
         deduped.append(r)
     releases = deduped
-    releases.sort(key=lambda r: r["pub"], reverse=True)
+    # `feed_date` is where a release sits in the list; `pub` remains what it always was, the
+    # publication date, locked at first sighting and never revised (§5). They differ only for a
+    # late discovery, which is news on the day it is found — filing it under a publication date
+    # months back would bury it where nobody looks, which is the same as dropping it.
+    for r in releases:
+        r["feed_date"] = r.get("discovered_on") or r["pub"] if r.get("late_discovered") else r["pub"]
+    releases.sort(key=lambda r: r["feed_date"], reverse=True)
 
     lapsed = [c for c in carriage(
         [{"work": r["work"], "episode": r["ep"], "platform": r["plat_name"] or r["plat"]}

@@ -52,16 +52,27 @@ def fetch(url, cache, max_age_days=1):
 
 
 def identity(html):
-    """work, author from the episode page's own title element."""
+    """work, author from the episode page's own title element.
+
+    The two halves are not in a fixed order across GigaViewer installs:
+
+        一迅プラス      大室家 - なもり / 第1話
+        サンデーうぇぶり  第1話 もう一度 / なとりとしずは - 鮎川あお
+
+    Taking whichever comes first therefore recorded an episode title as the work — なとりとしずは
+    entered the feed as "第1話 もう一度". The half carrying " - " is the work and author; the other
+    is the episode, whichever side it falls on.
+    """
     m = re.search(r"<title>([^<]*)</title>", html)
     if not m:
         return None, None
     head = _html.unescape(m.group(1)).split("|")[0].strip()
-    head = head.split("/")[0].strip()          # drop the episode part
-    if " - " in head:
-        w, _, a = head.partition(" - ")
+    parts = [s.strip() for s in head.split("/") if s.strip()]
+    named = [s for s in parts if " - " in s]
+    if named:
+        w, _, a = named[-1].partition(" - ")
         return w.strip(), a.strip()
-    return head, None
+    return (parts[0] if parts else head), None
 
 
 def episodes(xml):

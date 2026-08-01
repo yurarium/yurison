@@ -17,14 +17,24 @@ Usage:  catalogue.py --out data/source/kadokomi --cache ~/workspace/kadokomi-cac
 import argparse, json, pathlib, re, sys, time, urllib.request
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
-TAG_UUID = "018b8a02-f3d9-7a59-969d-288cb905f0fc"   # 百合
+# カドコミ labels yuri under more than one tag, and enumerating only 百合 missed the others
+# outright: 作りたい女と食べたい女 carries GL and nothing else, so no amount of paging the 百合 tag
+# would ever have reached it. Each tag is its own catalogue and they are unioned.
+TAGS = [
+    ("百合", "018b8a02-f3d9-7a59-969d-288cb905f0fc"),
+    ("GL",   "018b8a02-f448-7b77-b194-cafcc706ed85"),
+]
+TAG_UUID = TAGS[0][1]
 BASE = "https://comic-walker.com/search/tag/{uuid}"
 PAUSE = 1.5
 MIN_WORKS = 50
 
 
 def page(n, cache, uuid):
-    f = cache / f"tag-{uuid[:8]}-p{n}.html"
+    # The full uuid, not a prefix. カドコミ's tag uuids share their first block — 百合 and GL are
+    # both 018b8a02-… — so an 8-character key made GL read 百合's cached pages and report an
+    # identical, and identically wrong, 348.
+    f = cache / f"tag-{uuid}-p{n}.html"
     if f.exists():
         return f.read_text()
     url = BASE.format(uuid=uuid) + (f"?p={n}" if n > 1 else "")
@@ -62,26 +72,33 @@ def main():
     cache = pathlib.Path(a.cache).expanduser()
     cache.mkdir(parents=True, exist_ok=True)
 
-    total, works, seen = None, [], set()
-    for n in range(1, a.max_pages + 1):
-        t, rows = results(page(n, cache, a.uuid))
-        if total is None:
-            total = t
-        if not rows:
-            break
-        new = 0
-        for r in rows:
-            code = r.get("code")
-            if not code or code in seen:
-                continue
-            seen.add(code)
-            works.append({"code": code, "title": (r.get("title") or "").strip(),
-                          "status": r.get("serializationStatus")})
-            new += 1
-        if new == 0:
-            break            # pagination exhausted or looping
-        if total and len(works) >= total:
-            break
+    tags = TAGS if a.uuid == TAG_UUID else [("(given)", a.uuid)]
+    works, seen, per_tag, totals = [], set(), {}, {}
+    for name, uuid in tags:
+        total, got = None, 0
+        for n in range(1, a.max_pages + 1):
+            t, rows = results(page(n, cache, uuid))
+            if total is None:
+                total = t
+            if not rows:
+                break
+            new = 0
+            for r in rows:
+                code = r.get("code")
+                got += 1
+                if not code or code in seen:
+                    continue
+                seen.add(code)
+                works.append({"code": code, "title": (r.get("title") or "").strip(),
+                              "status": r.get("serializationStatus"), "tag": name})
+                new += 1
+            if new == 0 and got >= (total or 0):
+                break            # pagination exhausted or looping
+            if total and got >= total:
+                break
+        per_tag[name] = got
+        totals[name] = total
+    total = sum(v for v in totals.values() if v)
 
     if len(works) < MIN_WORKS:
         sys.exit(f"HEALTH: enumerated {len(works)} works (< {MIN_WORKS}); the tag page markup or "
@@ -89,23 +106,30 @@ def main():
 
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
-    L = ["# カドコミ's own 百合 tag catalogue — the publisher's labelling, not a third party's.",
+    L = ["# カドコミ's own yuri tag catalogues — the publisher's labelling, not a third party's.",
+         "# Union of every tag in TAGS. 百合 alone was not enough: works tagged only GL are",
+         "# invisible to it, which is how 作りたい女と食べたい女 stayed unreachable.",
          "# Establishes marketing_label under DEFINITIONS §4 for every work listed.",
          "#",
          "# Read from /search/tag/<uuid>, a permitted path: robots.txt disallows /? and /api/, and",
          "# this is neither. Results are embedded in the page, so the disallowed API is not called.",
          "source: kadokomi", "role: attesting", f"retrieved: {a.retrieved}",
-         "record_type: platform_yuri_catalogue", f"tag_uuid: {a.uuid}",
+         "record_type: platform_yuri_catalogue",
+         "tags_enumerated:"] + [f"  - {{ name: {n}, uuid: {u}, listed: {totals.get(n)} }}"
+                                for n, u in tags] + [
          f"total_reported: {total}", f"works_enumerated: {len(works)}", "works:"]
     for w in sorted(works, key=lambda w: w["code"]):
         L.append(f"  - code: {json.dumps(w['code'], ensure_ascii=False)}")
         L.append(f"    title: {json.dumps(w['title'], ensure_ascii=False)}")
         if w.get("status"):
             L.append(f"    status: {json.dumps(w['status'], ensure_ascii=False)}")
+        L.append(f"    tag: {json.dumps(w.get('tag') or '', ensure_ascii=False)}")
         L.append("    marketing_label: yuri")
     L.append("")
     (out / "catalogue.yaml").write_text("\n".join(L))
 
+    for n, _ in tags:
+        print(f"  tag {n:6} listed {totals.get(n)}")
     print(f"total reported by カドコミ : {total}")
     print(f"works enumerated          : {len(works)}")
     print(f"written                   : {out}/catalogue.yaml")

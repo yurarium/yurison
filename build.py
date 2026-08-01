@@ -298,7 +298,14 @@ def main():
     # they are the project's only real access_modes data.
     # Other platforms' Atom feeds hold roughly a fortnight of updates. FUZ returns full histories,
     # so its contribution is trimmed to a comparable window or it dominates the feed.
-    FUZ_FEED_DAYS = 21
+    # One window for everything that enters the feed. The platform windows used to be 21 days while
+    # the comparator claims ran to 60, which meant the feed showed two months of "site says this
+    # updated" against three weeks of "the publisher confirms it" — so a claim older than 21 days
+    # could never be superseded by the chapter it duplicated, and every such work was counted a
+    # miss. クレアちゃん飼育日記 was reported missing while its chapter sat in the source layer one
+    # day the wrong side of the cutoff.
+    FEED_DAYS = 60
+    FUZ_FEED_DAYS = FEED_DAYS
     fuz_ahead = {}
     fz = pathlib.Path("data/source/comicfuz/works.yaml")
     if fz.exists():
@@ -376,7 +383,7 @@ def main():
 
     # Platforms with no feed, read from their own server-rendered work pages. Like FUZ these
     # return full histories, so only a recent window joins the feed.
-    WEBPAGE_FEED_DAYS = 21
+    WEBPAGE_FEED_DAYS = FEED_DAYS
     wcut = str(datetime.date.today() - datetime.timedelta(days=WEBPAGE_FEED_DAYS))
     wtoday = str(datetime.date.today())
     # カドコミ: same shape as the webpages adapters, but it does apply a 百合 tag, so its works

@@ -654,6 +654,23 @@ def main():
     not_works = {norm_work(x["title"]) for x in
                  (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("not_works") or []}
 
+    # Full chapter histories we hold, by (work, platform). Only sources that return a whole
+    # history count — a rolling feed proves nothing about what it does not mention.
+    platform_history = {}
+    for f in (glob.glob("data/source/gigaviewer/*-series-feeds.yaml")
+              + glob.glob("data/source/gigaviewer/*-confirmed.yaml")
+              + glob.glob("data/source/kadokomi/chapters.yaml")
+              + glob.glob("data/source/comicfuz/works.yaml")):
+        d0 = yaml.safe_load(open(f)) or {}
+        pn = norm_work(d0.get("platform_name") or "")
+        for w in d0.get("works") or []:
+            ti = norm_work(w.get("work_title") or w.get("title") or "")
+            ds = [str(c.get("updated"))[:10] for c in (w.get("chapters") or [])
+                  if c.get("updated")]
+            if ti and pn and ds:
+                platform_history[(ti, pn)] = ds
+
+    contradicted, contradicted_works = 0, []
     CLAIM_DATE_SLACK = 2   # days either side
 
     def near_dates(when):
@@ -697,6 +714,25 @@ def main():
             # attest on that date.
             if any(nw.startswith(k) for k, kd in attested_keys if kd == when and len(k) >= 2):
                 continue
+            # A claim for a work whose full chapter history we hold on that very platform, with no
+            # chapter anywhere near the claimed date, is not an unconfirmed report — it is a
+            # report the platform contradicts. 君のせいなんだから、責任とってよね。 is claimed for
+            # 2026-07-23; 一迅プラス's own feed lists six chapters ending 2026-06-17, paid ones
+            # included. Leaving that as 要確認 implies we might yet confirm it. We have looked.
+            # Three chapters at minimum before contradicting anyone. A history of one is not a
+            # history — 浪人なんてろくでもない! had a single chapter held and was being used to
+            # declare the comparator wrong, which is a stronger claim than the evidence carries.
+            plat_hist = platform_history.get((nw, norm_work(c.get("platform") or "")))
+            if plat_hist and len(plat_hist) >= 3 and not any(abs((datetime.date.fromisoformat(when)
+                                          - datetime.date.fromisoformat(x)).days) <= 7
+                                     for x in plat_hist):
+                contradicted += 1
+                contradicted_works.append({
+                    "work": w, "platform": c.get("platform"), "claimed": when,
+                    "platform_latest": max(plat_hist),
+                    "chapters_held": len(plat_hist), "source": c.get("source")})
+                continue
+
             # The two comparators overlap, and 百合ナビ's cell carries the author, so the same
             # update arrives twice under different strings. Keep the first and record that both
             # reported it, rather than showing the reader one event twice.
@@ -1079,6 +1115,9 @@ def main():
         # call is that it should not be in the interface at all. data/queue/ stays as the internal
         # worklist it always was.
         {"releases": releases, "platforms": platforms,
+         # Works a comparator reports as updating that the platform's own full chapter history
+         # contradicts. Recorded rather than silently dropped: they are not coverage we lack.
+         "contradicted": contradicted_works,
          "print_candidates": print_candidates, "web_works": web_works,
          "samples_dropped": len(samples),
          "platform_meta": plat_meta, "lapsed": lapsed},
@@ -1097,6 +1136,7 @@ def main():
     if lapsed:
         print(f"carriage lapses : {len(lapsed)}")
     print(f"duplicate chapters collapsed : {dropped_dupes}")
+    print(f"claims contradicted by the platform's own history : {contradicted}")
     serialised = sum(1 for r in releases if r.get("web") == "serialised")
     print(f"releases        : {len(releases)} from {len(platforms)} platform(s) "
           f"({serialised} serialised, {len(releases)-serialised} promotional samples)")

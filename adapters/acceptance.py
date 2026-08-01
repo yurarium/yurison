@@ -82,6 +82,11 @@ def main():
                 if r.get("web") == "promotional-sample-only"}
     for pc in feed.get("print_candidates") or []:
         excluded.add(norm(pc.get("work_title")))
+    # Works the platform's own full chapter history contradicts. A yardstick reporting an update
+    # the publisher's own feed does not show is not coverage we lack — we fetched the history and
+    # it disagrees. Counted apart from both hits and misses, and named, so the disagreement is
+    # visible rather than absorbed into a percentage.
+    contradicted = {norm(c["work"]): c for c in feed.get("contradicted") or []}
 
     print(f"Feed period: {lo} → {hi}   ({(d_hi - d_lo).days + 1} days)")
     print(f"Feed holds : {len(rel)} releases across {len(ours)} distinct works\n")
@@ -113,18 +118,28 @@ def main():
           f"{len(a_hit)}/{len(in_window)} = {100*len(a_hit)/max(len(in_window),1):.1f}%")
     miss = [r for r in a_w if norm(r["title"]) not in ours]
     excl = [r for r in miss if norm(r["title"]) in excluded]
-    real = [r for r in miss if norm(r["title"]) not in excluded]
+    contra = [r for r in miss if norm(r["title"]) in contradicted
+              and norm(r["title"]) not in excluded]
+    real = [r for r in miss if norm(r["title"]) not in excluded
+            and norm(r["title"]) not in contradicted]
     if excl:
         print(f"  of which DELIBERATELY EXCLUDED ({len(excl)}): 試し読み-only series, not web"
               " publication (DEFINITIONS §6)")
         for r in excl[:5]:
             print(f"    - {r['title'][:38]:40} {r['platform']}")
+    if contra:
+        print(f"  of which CONTRADICTED ({len(contra)}): the platform's own chapter history shows "
+              "no such update")
+        for r in contra[:5]:
+            c = contradicted[norm(r["title"])]
+            print(f"    - {r['title'][:34]:36} claimed {c['claimed']}, platform's latest "
+                  f"{c['platform_latest']} ({c['chapters_held']} chapters held)")
     if real:
         print(f"  genuinely missed ({len(real)}):")
         for r in real[:12]:
             print(f"    - {r['title'][:38]:40} {r['platform']}")
-    adj_w = len(a_w) - len(excl)
-    print(f"  ADJUSTED (excluding deliberate exclusions)  : "
+    adj_w = len(a_w) - len(excl) - len(contra)
+    print(f"  ADJUSTED (excluding deliberate exclusions and contradictions) : "
           f"{len(a_w_hit)}/{adj_w} = {100*len(a_w_hit)/max(adj_w,1):.1f}%")
 
     # ── 百合ナビ WEB連載 ──────────────────────────────────────────────

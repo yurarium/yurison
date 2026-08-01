@@ -203,7 +203,16 @@ def main():
                 "id": r.get("release_id"), "work": r.get("work_title"),
                 "ep": r.get("episode_title"), "type": r.get("release_type"),
                 "adv": bool(r.get("advances_narrative")),
-                "pub": str(r.get("published", "")), "url": r.get("url"),
+                # `date` is the earliest evidence held, locked when the release was first seen
+                # and never revised (§5). Platforms mass-update Atom <updated> on refresh and
+                # import, so their current value is carried for reference, never as the sort key.
+                "pub": str(r.get("date") or r.get("platform_updated", ""))[:10],
+                "seen": str(r.get("first_seen", "")),
+                "basis": r.get("date_basis", "bootstrap"),
+                "conf": r.get("date_confidence", "reported"),
+                "why": r.get("date_note", ""),
+                "moved": r.get("platform_date_changed", ""),
+                "url": r.get("url"),
                 "author": r.get("author", ""), "plat": pid,
                 "plat_name": d.get("platform_name"),
                 "free_from": str(r.get("free_term_start", "")) or None,

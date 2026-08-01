@@ -45,6 +45,16 @@ RELEASE_TYPES = [
 
 MIN_ENTRIES = 5  # health assertion: an empty or tiny feed means broken, not "nothing published"
 
+# Platform timestamps are unreliable. GigaViewer emits Atom <updated> and no <published>, so the
+# value is by definition "last modified", not "first published". Sites mass-update it during
+# metadata refreshes and when importing an existing series, which back-dates a whole run to one
+# instant. Observed 2026-08-01: 37 entries across 4 timestamps, one of them carrying 25 entries
+# from only 3 works.
+#
+# A shared timestamp is normal when it is a scheduled daily batch — many works, about one entry
+# each. It is suspect when one work contributes several entries at the identical instant.
+BULK_PER_WORK = 3
+
 
 def get(url, cache_dir, force=False):
     """Fetch with a cached copy and a conditional request. Returns (text, from_cache)."""
@@ -168,7 +178,8 @@ def main():
                 "episode_title": ep,
                 "release_type": rt,
                 "advances_narrative": rt in ("chapter", "oneshot", "extra"),
-                "published": (e.findtext("a:updated", "", ATOM) or "").strip(),
+                # Atom <updated>: last modified, NOT first published. Named accordingly.
+                "platform_updated": (e.findtext("a:updated", "", ATOM) or "").strip(),
                 "url": link,
                 "author": (e.findtext("a:author/a:name", "", ATOM) or "").strip(),
             }
@@ -177,6 +188,53 @@ def main():
             if free_start:
                 r["free_term_start"] = free_start
             rels.append(r)
+
+        # Flag bulk-update signatures: several entries of ONE work sharing an identical timestamp.
+        per = Counter((r["work_title"], r["platform_updated"]) for r in rels)
+        for r in rels:
+            n = per[(r["work_title"], r["platform_updated"])]
+            if n >= BULK_PER_WORK:
+                r["date_confidence"] = "low"
+                r["date_note"] = (f"{n} releases of this work share this timestamp — consistent with "
+                                  "a metadata refresh or a series import, not same-day publication")
+            else:
+                r["date_confidence"] = "reported"
+
+        # Dates are LOCKED at first sight and never revised (REQUIREMENTS §4).
+        #
+        # The bulk-update problem is largely a first-import artefact: on the run that first sees a
+        # platform, everything is inherited from timestamps we had no part in observing. From then
+        # on we watch releases appear, and a later mass-update cannot move a date we already hold.
+        # So the primary date is the earliest evidence available when the release was first seen,
+        # and subsequent platform changes are recorded as divergence rather than followed.
+        prior = {}
+        prev_file = out / f"{p['id']}.yaml"
+        first_run = not prev_file.exists()
+        if not first_run:
+            old = yaml.safe_load(prev_file.read_text()) or {}
+            prior = {o.get("release_id"): o for o in (old.get("releases") or [])}
+
+        for r in rels:
+            was = prior.get(r["release_id"])
+            if was:
+                r["first_seen"] = str(was.get("first_seen") or a.retrieved)
+                r["first_reported"] = str(was.get("first_reported") or r["platform_updated"])
+                r["date_basis"] = was.get("date_basis") or "bootstrap"
+                # Direct evidence of a platform rewriting its own timestamps. Kept, not followed.
+                if r["platform_updated"] and r["platform_updated"] != r["first_reported"]:
+                    r["platform_date_changed"] = (f"was {r['first_reported']}, "
+                                                  f"now {r['platform_updated']}")
+            else:
+                r["first_seen"] = a.retrieved
+                r["first_reported"] = r["platform_updated"]
+                # bootstrap: present when we started watching, so the platform's date is inherited
+                # with nothing behind it. observed: appeared between two runs, so first_seen is
+                # real evidence and bounds the true date from above.
+                r["date_basis"] = "bootstrap" if first_run else "observed"
+
+            # The date the rest of the system uses: earliest evidence held, locked.
+            cands = [d for d in (r["first_reported"], r["first_seen"]) if d]
+            r["date"] = min(c[:10] for c in cands) if cands else ""
 
         doc = [
             "# Source-layer record: web releases from a GigaViewer platform (REQUIREMENTS §5).",
@@ -191,9 +249,11 @@ def main():
             f"yuri_series_count: {len(series)}",
             "releases:",
         ]
-        for r in sorted(rels, key=lambda r: r["published"], reverse=True):
+        for r in sorted(rels, key=lambda r: r["platform_updated"], reverse=True):
             doc.append(f"  - release_id: {json.dumps(r['release_id'], ensure_ascii=False)}")
-            for k in ("work_title", "episode_title", "release_type", "published", "url",
+            for k in ("work_title", "episode_title", "release_type", "date", "date_basis",
+                      "first_seen", "first_reported", "platform_updated", "platform_date_changed",
+                      "date_confidence", "date_note", "url",
                       "author", "free_term_start", "raw_title"):
                 if r.get(k):
                     doc.append(f"    {k}: {json.dumps(r[k], ensure_ascii=False)}")
@@ -219,7 +279,14 @@ def main():
         totals["series"] += len(series)
         totals["releases"] += len(rels)
         types = Counter(r["release_type"] for r in rels)
+        low = sum(1 for r in rels if r.get("date_confidence") == "low")
+        boot = sum(1 for r in rels if r.get("date_basis") == "bootstrap")
+        moved = sum(1 for r in rels if r.get("platform_date_changed"))
+        totals["low-confidence dates"] += low
         print(f"{p['id']:14} series={len(series):3} releases={len(rels):3}  {dict(types)}")
+        print(f"{'':14} dates: {boot} bootstrap, {len(rels)-boot} observed"
+              + (f", {low} bulk-signature" if low else "")
+              + (f", {moved} CHANGED at source" if moved else ""))
 
     print()
     print(f"platforms written : {totals['platforms']}")

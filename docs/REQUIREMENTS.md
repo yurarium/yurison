@@ -370,6 +370,53 @@ weeks and then flips to `purchase`. Three consequences:
    historical information about how a work was published, and is not overwritten.
 3. Access volatility, not chapter cadence, is what sets the fast pipeline's polling frequency.
 
+### Platform dates are claims, not observations
+
+**A platform's own timestamp is not evidence of when something was published.** Verified on
+GigaViewer, 2026-08-01: the Atom feeds carry `<updated>` and **no `<published>` element at all**, so
+the value is last-modified by definition. Sites mass-update it during metadata refreshes and when
+importing an existing series, collapsing a whole run of chapters onto one instant.
+
+The signature is measurable. Of 37 entries in one feed, 4 distinct timestamps; one of them carried
+25 entries from only 3 works. A shared timestamp is unremarkable when it is a scheduled daily batch
+— many works, roughly one entry each — and suspect when a single work contributes several entries
+at an identical instant. Records crossing that threshold are flagged `date_confidence: low` with the
+count that triggered it.
+
+#### Dates are locked at first sight
+
+Each release carries:
+
+| Field | Meaning |
+|---|---|
+| `first_seen` | When **this database** first observed the release. Never revised. |
+| `first_reported` | The platform's timestamp **as it stood when we first saw it**. Never revised. |
+| `platform_updated` | The platform's timestamp now. May move. |
+| `date` | Earliest of the above, fixed at first sight. What everything downstream uses. |
+| `date_basis` | `bootstrap` or `observed` — see below |
+| `platform_date_changed` | Recorded when `platform_updated` diverges from `first_reported` |
+
+A later mass-update at the source is **recorded as divergence and not followed**. This is §4's
+append-and-mark applied to timestamps: the platform's current claim can change, our observation
+cannot.
+
+#### It is mostly a first-import problem, and it decays
+
+`date_basis` distinguishes the two cases, and the distinction is what makes the problem temporary:
+
+- **`bootstrap`** — the release was already there when tracking of that platform began. Its date is
+  inherited from the platform with nothing observed behind it. Every record from a platform's first
+  run is bootstrap.
+- **`observed`** — the release appeared between two runs. `first_seen` then genuinely bounds the
+  true publication date from above, and no later rewrite can move it.
+
+So the unreliability is concentrated at the start of tracking a platform and shrinks with every
+subsequent run. The cost of adding a platform late is a block of bootstrap records; the cost of
+never locking dates would be a database that silently rewrites its own history whenever a publisher
+tidies its metadata.
+
+The interface states which case a date falls under rather than presenting all dates alike.
+
 ### Observation is passive — never authenticate, never purchase
 
 Access terms are read from **public listing metadata and the platform's own labelling**. The

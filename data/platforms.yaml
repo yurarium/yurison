@@ -98,7 +98,9 @@ platforms:
     publisher: ピクシブ
     reading_rank: 3
     overlap: 0.77
-    watched: false
+    watched: true
+    watched_since: 2026-08-02
+    adapter: adapters/pixivcomic/
     blocker: >-
       Reachable, but only with a browser in the pipeline. Work pages are a pure client shell
       (__NEXT_DATA__ empty) and the data comes from /api/app/works/..., which returns 403 to a

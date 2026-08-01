@@ -22,7 +22,8 @@ import yaml
 # data/queue/, which is deliberately outside the source tree so nothing can promote a candidate
 # into a record by accident.
 ALLOWED_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha",
-                   "gigaviewer", "kadokomi", "comicfuz", "webpages", "comparators", "nicovideo"}
+                   "gigaviewer", "kadokomi", "comicfuz", "webpages", "comparators", "nicovideo",
+                   "pixivcomic"}
 
 # Sources carrying work-level records that merge into a work. Others (release feeds) are
 # platform-level and compile separately.
@@ -137,6 +138,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="data/build")
     a = ap.parse_args()
+
+    # pixivコミック has two possible sources — the rendered pages and adapters/pixivcomic/ — and
+    # they carry the same chapters. The dedup keys on (work, episode, platform) and would collapse
+    # the duplication silently rather than reporting it, so the overlap is caught here instead.
+    _px_new = glob.glob("data/source/pixivcomic/*.yaml")
+    _px_old = pathlib.Path("data/source/webpages/rendered-pixivcomic.yaml")
+    if _px_new and _px_old.exists():
+        sys.exit(f"VALIDATION: pixivコミック is present twice — {_px_old} and "
+                 f"{', '.join(_px_new)}. The adapter replaces the rendered output; delete the "
+                 "rendered file once its chapters have been compared against the new source.")
 
     src = defaultdict(dict)
     for d in sorted(glob.glob("data/source/*")):
@@ -451,7 +462,8 @@ def main():
 
     for f in (sorted(glob.glob("data/source/webpages/*.yaml"))
               + sorted(glob.glob("data/source/gigaviewer/*-series-feeds.yaml"))
-              + sorted(glob.glob("data/source/gigaviewer/*-confirmed.yaml"))):
+              + sorted(glob.glob("data/source/gigaviewer/*-confirmed.yaml"))
+              + sorted(glob.glob("data/source/pixivcomic/*.yaml"))):
         d = yaml.safe_load(open(f)) or {}
         pid, pname = d.get("platform"), d.get("platform_name")
         for w in d.get("works") or []:
@@ -629,7 +641,9 @@ def main():
             ti = w.get("title") or w.get("work_title")
             if ti:
                 known_titles[norm_work(ti)] = ti
-    for f in glob.glob("data/source/webpages/*.yaml") + glob.glob("data/source/gigaviewer/*-series.yaml"):
+    for f in (glob.glob("data/source/webpages/*.yaml")
+              + glob.glob("data/source/gigaviewer/*-series.yaml")
+              + glob.glob("data/source/pixivcomic/*.yaml")):
         d0 = yaml.safe_load(open(f)) or {}
         for w in (d0.get("works") or []) + (d0.get("series") or []):
             ti = w.get("work_title") or w.get("title")
@@ -672,7 +686,8 @@ def main():
     for f in (glob.glob("data/source/gigaviewer/*-series-feeds.yaml")
               + glob.glob("data/source/gigaviewer/*-confirmed.yaml")
               + glob.glob("data/source/kadokomi/chapters.yaml")
-              + glob.glob("data/source/comicfuz/works.yaml")):
+              + glob.glob("data/source/comicfuz/works.yaml")
+              + glob.glob("data/source/pixivcomic/*.yaml")):
         d0 = yaml.safe_load(open(f)) or {}
         pn = norm_work(d0.get("platform_name") or "")
         for w in d0.get("works") or []:

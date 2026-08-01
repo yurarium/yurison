@@ -87,7 +87,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--cache", required=True)
     ap.add_argument("--retrieved", required=True)
-    ap.add_argument("--limit", type=int, default=80)
+    ap.add_argument("--limit", type=int, default=400)
     a = ap.parse_args()
 
     cache = pathlib.Path(a.cache).expanduser()
@@ -95,8 +95,15 @@ def main():
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
 
-    src = yaml.safe_load(open(a.works)) or {}
     codes = {}
+    # カドコミ's own 百合 catalogue is authoritative and complete; prefer it over antenna seeding.
+    cat = pathlib.Path("data/source/kadokomi/catalogue.yaml")
+    if cat.exists():
+        for w in (yaml.safe_load(cat.read_text()) or {}).get("works") or []:
+            if w.get("code"):
+                codes[w["code"]] = w.get("title")
+
+    src = yaml.safe_load(open(a.works)) or {}
     for c in src.get("candidates") or []:
         if "カドコミ" not in (c.get("platforms") or []):
             continue

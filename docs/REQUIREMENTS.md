@@ -589,6 +589,22 @@ yardsticks, separating deliberate exclusions from genuine misses. Over **2026-07
 Both land near 45% overall from independent lists of different sizes, which is a useful cross-check
 on the measurement rather than on the coverage.
 
+#### Enumerate the publisher's own catalogue where one is reachable
+
+Antenna-seeded discovery is a fallback, not the goal. Where a platform publishes its own yuri
+listing, that is both complete and *publisher labelling*, so it establishes `marketing_label`
+directly instead of producing candidates needing confirmation.
+
+カドコミ allows this. `/search/tag/<uuid>` is a permitted path — robots.txt disallows `/?` (the root
+with a query) and `/api/`, and this is neither — and the page embeds its own results, paginated with
+`?p=N`. Enumerating it gives **348 works, matching the total カドコミ itself reports**, against 243
+the antenna listed.
+
+The gain was asymmetric in a telling way: it moved 百合ナビ acceptance from 61.7% to 68.3% while
+leaving the antenna's watched-platform figure unchanged. The extra works are ones the antenna does
+not list at all, which is the clearest demonstration yet that the two yardsticks cover different
+ground and that neither should be the sole seed.
+
 **The remaining misses are mostly not defects.** They are works on watched platforms that have not
 published since we started watching, so they sit outside every current feed window. The criterion
 is explicitly *over time*; with retention in place each will be captured on its next update and

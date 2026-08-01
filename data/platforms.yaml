@@ -52,6 +52,11 @@ platforms:
     syndication: >-
       Largely but not solely a syndicator (project owner, 2026-08-01). It does originate some
       content, so it cannot be dismissed outright.
+    blocker: >-
+      Work pages ARE server-rendered (episode_item markup), but carry NO per-episode date — only
+      channel banners have one. Without dates a release cannot be placed on a timeline, so it is
+      unusable for the feed regardless of the quality argument. Reaching it would need one fetch
+      per episode against /watch/<id>, which is not proportionate.
     watched: false
     notes: >-
       The main practical problem in the gap, and largely a mirage. Image quality is notably worse
@@ -120,5 +125,14 @@ platforms:
   - { id: championcross, name: チャンピオンクロス, publisher: 秋田書店, reading_rank: null, overlap: 0.11, watched: true,
       notes: "comici engine on championcross.jp — not mangacross.jp, which is a different site." }
   - { id: kimicomi,   name: キミコミ,       publisher: 一迅社,  reading_rank: null, overlap: 0.62, watched: true }
-  - { id: kirarabase,     name: きららベース,           publisher: 芳文社,        reading_rank: null, watched: false,
-      notes: "24 works on 百合ナビ's list, zero on the antenna — the two yardsticks genuinely differ." }
+  - id: kirarabase
+    name: きららベース
+    publisher: 芳文社
+    reading_rank: null
+    watched: false
+    notes: >-
+      Not a site of its own — an official channel ON ニコニコ漫画
+      (manga.nicovideo.jp/official/kirara/), which is why no domain resolved. Its 24 works are
+      芳文社 きらら titles, so most should also be on COMIC FUZ; only 5 of 24 are in our FUZ set,
+      because that set was antenna-seeded rather than taken from FUZ's own catalogue — and FUZ
+      publishes no index, sitemap or robots.txt to enumerate from.

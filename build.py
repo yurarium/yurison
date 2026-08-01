@@ -299,18 +299,22 @@ def main():
     # Other platforms' Atom feeds hold roughly a fortnight of updates. FUZ returns full histories,
     # so its contribution is trimmed to a comparable window or it dominates the feed.
     FUZ_FEED_DAYS = 21
+    fuz_ahead = {}
     fz = pathlib.Path("data/source/comicfuz/works.yaml")
     if fz.exists():
         d = yaml.safe_load(fz.read_text()) or {}
-        # Anchor the window to TODAY, not to the newest date in the data. FUZ carries scheduled
-        # future unlocks, and anchoring on those pulled months of back-catalogue into the feed.
+        # Anchor the window to TODAY, not to the newest date in the data. FUZ carries free dates
+        # for chapters running ahead of the free line, and anchoring on those pulled months of
+        # back-catalogue into the feed.
         today = str(datetime.date.today())
         cutoff = str(datetime.date.today() - datetime.timedelta(days=FUZ_FEED_DAYS))
         for w in d.get("works") or []:
             for c in w.get("chapters") or []:
                 u = str(c.get("updated") or "")
-                # Future-dated chapters are scheduled, not released (§5). Excluded outright.
-                if not u or u < cutoff or u > today or c.get("scheduled"):
+                # An advance chapter has no `updated` at all — FUZ states no publication date for
+                # it, only when it stops costing points — so there is no date to file it under.
+                # It is attached to the work below instead of being given an invented one.
+                if not u or u < cutoff or u > today or c.get("advance_paid"):
                     continue
                 releases.append({
                     "id": f"comicfuz:{c.get('chapter_id')}", "work": w.get("work_title"),
@@ -326,55 +330,30 @@ def main():
                     "access_modes": c.get("access_modes") or [],
                     "became_free": bool(c.get("became_free")),
                     "access_changed": c.get("access_changed"),
+                    # FUZ's dates track the free schedule rather than publication, so a FUZ row is
+                    # "this became readable free on this date". A row still carrying `purchase` is
+                    # one whose free window has since closed; it is an update, but not a free one.
+                    "date_means": "free-from",
                 })
-        # ── inferred paywall-window slide (transitional) ───────────────────────────────────────
-        # A real flip can only be observed across runs, and tracking began too recently to have
-        # seen any. Meanwhile FUZ's common model is a sliding window: the newest N chapters are
-        # paid and older ones free, so when a new chapter lands the oldest paid one falls out and
-        # becomes free. Where the window is small, dating that transition to the newest chapter's
-        # publication is a reasonable stopgap.
+        # Chapters running ahead of the free line. These are published and paid now, and FUZ
+        # states when each stops costing points but never when it was published — so they are
+        # attached to the work as context rather than emitted as dated rows.
         #
-        # Bounded deliberately. Measured across FUZ's yuri works the windows are mostly 20–155
-        # chapters, which is volume-gating: those slide when a VOLUME is released, not per chapter,
-        # so the inference would be unsound. Applied only to windows of SMALL_WINDOW or fewer, and
-        # marked inferred so it is never mistaken for an observation.
-        SMALL_WINDOW = 5
+        # This replaces an inferred "paywall window slide" that used to live here, which guessed
+        # the flip date from chapter cadence. The guess is unnecessary now that the schedule is
+        # read directly, and it was the source of the only 無料化 the feed ever showed.
         for w in d.get("works") or []:
-            ch = [c for c in (w.get("chapters") or [])
-                  if c.get("updated") and not c.get("scheduled")]
-            ch.sort(key=lambda c: str(c["updated"]), reverse=True)
-            run = 0
-            for c in ch:
-                if (c.get("access_modes") or [None])[0] == "purchase":
-                    run += 1
-                else:
-                    break
-            if not (1 <= run <= SMALL_WINDOW) or run >= len(ch):
+            adv_ch = [c for c in (w.get("chapters") or []) if c.get("advance_paid")]
+            if not adv_ch:
                 continue
-            boundary = ch[run]
-            if (boundary.get("access_modes") or [None])[0] != "free":
-                continue
-            # The chapter falling out of the window must be content. A volume announcement
-            # becoming free is not a reading opportunity.
-            if NON_STORY_RE.search(boundary.get("title") or ""):
-                continue
-            releases.append({
-                "id": f"comicfuz-slide:{boundary.get('chapter_id')}",
-                "work": w.get("work_title"), "ep": boundary.get("title"),
-                "type": "access-change", "adv": False, "web": "serialised",
-                "pub": str(ch[0]["updated"]), "seen": str(d.get("retrieved", "")),
-                "basis": "inferred", "conf": "low",
-                "why": f"paywall window of {run}; transition inferred, not observed",
-                "moved": "", "url": (f"https://comic-fuz.com/manga/viewer/{boundary['chapter_id']}"
-                                     if boundary.get("chapter_id") else w.get("url")),
-                "series_url": w.get("url"),
-                "author": ", ".join(w.get("authors") or []),
-                "plat": "comic-fuz", "plat_name": "COMIC FUZ",
-                "ident": "discovery-candidate", "free_from": None,
-                "access_modes": ["free"], "became_free": True,
-                "access_changed": "purchase -> free (inferred)",
-                "access_inferred": True,
-            })
+            adv_ch.sort(key=lambda c: str(c.get("free_from") or ""))
+            nw = norm_work(w.get("work_title") or "")
+            fuz_ahead[nw] = {
+                "n": len(adv_ch),
+                "ep": adv_ch[0].get("title"),
+                "free_from": str(adv_ch[0].get("free_from") or ""),
+                "newest_ep": adv_ch[-1].get("title"),
+            }
 
         # A chapter that has flipped to free is an update in the free view even if it was
         # published long ago, so it is emitted on the date the flip was observed.
@@ -463,8 +442,22 @@ def main():
         # Free view membership. `free-timed` counts: rate-limited free (待てば無料, one chapter a
         # day per series with an account) is still free to a reader willing to wait.
         am = r.get("access_modes") or []
+        # One category, not two. A chapter that has just come out from behind a paywall and a
+        # chapter that was always free are the same thing to a reader asking "what is the newest
+        # I can read for free" — which is the question this view answers. `became_free` is still
+        # recorded, but it is a reason, not a separate kind of update.
         r["free"] = bool(r.get("free_from")) or bool(r.get("became_free")) \
             or any(m in ("free", "free-timed") for m in am)
+
+        # Chapters the reader could pay for right now, ahead of the free line. Attached to every
+        # row for the work so the interface can lead with it: "the newest free chapter is X, and
+        # there are N paid ones past it" is more useful than either fact alone.
+        ah = fuz_ahead.get(norm_work(r.get("work") or "")) if r.get("plat") == "comic-fuz" else None
+        if ah:
+            r["ahead_n"] = ah["n"]
+            r["ahead_ep"] = ah["newest_ep"]
+            r["ahead_next_free"] = ah["free_from"]
+            r["ahead_next_ep"] = ah["ep"]
 
     # ── provisional claims from the comparator sites (§5) ──────────────────────────────────────
     # Taken as provisionally true for one question only: that a work updated, and roughly when.

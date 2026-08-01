@@ -56,21 +56,37 @@ def page_props(html):
 
 def access_of(chapter):
     """FUZ states the access model per chapter. `pointConsumption` empty means free to read;
-    populated means it costs points. Anything else is quarantined rather than guessed (§6)."""
+    populated means it costs points. Anything else is quarantined rather than guessed (§6).
+
+    `type` distinguishes two kinds of paid chapter, and the distinction matters (see `iso`):
+    type 1 is a chapter running ahead of the free line — published and paid now, free from its
+    stated date. Every one of the 40 future-dated chapters carries type 1, and no past-dated
+    chapter does, so the type is what identifies them rather than the date being in the future.
+    """
     pc = chapter.get("pointConsumption")
     if pc == {} or pc is None:
-        return ["free"], None
+        return ["free"], None, False
     if isinstance(pc, dict) and pc.get("amount"):
-        return ["purchase"], f"pointConsumption type={pc.get('type')} amount={pc.get('amount')}"
-    return ["unknown"], f"unrecognised pointConsumption: {json.dumps(pc, ensure_ascii=False)}"
+        return (["purchase"],
+                f"pointConsumption type={pc.get('type')} amount={pc.get('amount')}",
+                pc.get("type") == 1)
+    return ["unknown"], f"unrecognised pointConsumption: {json.dumps(pc, ensure_ascii=False)}", False
 
 
 def iso(d):
-    """FUZ dates are YYYY/MM/DD.
+    """FUZ dates are YYYY/MM/DD, and they are NOT publication dates.
 
-    Note these are NOT always publication dates. 40 of 1,880 dated chapters were in the future when
-    first read, all of them `purchase` — they are scheduled availability dates for chapters that
-    have not been released yet. Callers must check (see `scheduled`).
+    40 of 1,880 were in the future when first read. An earlier version of this file read that as
+    "not yet released". That was wrong: every one of those 40 chapters already has readers —
+    a median of 47 likes and comments on them — which an unpublished chapter cannot have. They are
+    published and paid, and the date is when each stops costing points.
+
+    Which reading applies is marked structurally rather than guessed from the date: all 40 carry
+    `pointConsumption.type == 1`, and no past-dated chapter does.
+
+    The same appears to hold for the rest — FUZ's dates track the free schedule throughout. A work
+    will show several recent chapters free at a fortnightly cadence with older ones paid again,
+    which is a free window opening and closing, not a publication order.
     """
     m = re.match(r"(\d{4})/(\d{1,2})/(\d{1,2})", str(d or ""))
     return f"{m.group(1)}-{int(m.group(2)):02d}-{int(m.group(3)):02d}" if m else ""
@@ -126,7 +142,7 @@ def main():
         chapters = []
         for group in pp.get("chapters") or []:
             for c in group.get("chapters") or []:
-                modes, note = access_of(c)
+                modes, note, advance = access_of(c)
                 acc[modes[0]] += 1
                 when = iso(c.get("updatedDate"))
                 row = {
@@ -135,10 +151,14 @@ def main():
                     "updated": when,
                     "access_modes": modes,
                 }
-                # A date in the future is a schedule, not an observation (REQUIREMENTS §5). These
-                # chapters have not been released; they must never enter a release feed.
-                if when and when > a.retrieved:
-                    row["scheduled"] = True
+                # Published and paid, free from `updated`. It is a real chapter a reader can pay
+                # to read now, but it is not a dated release event we can place in a feed: FUZ
+                # states no publication date for it anywhere. So it is carried as an advance
+                # chapter and the date is recorded as what it is (§5).
+                if advance:
+                    row["advance_paid"] = True
+                    row["free_from"] = when
+                    row.pop("updated", None)
                 if note:
                     row["access_note"] = note
                 chapters.append(row)
@@ -200,10 +220,11 @@ def main():
         for c in w["chapters"]:
             L.append(f"      - chapter_id: {c['chapter_id']}")
             L.append(f"        title: {js(c['title'])}")
-            if c["updated"]:
+            if c.get("updated"):
                 L.append(f"        updated: {c['updated']}")
-            if c.get("scheduled"):
-                L.append("        scheduled: true   # future date — not yet released")
+            if c.get("advance_paid"):
+                L.append("        advance_paid: true   # published and paid; free from free_from")
+                L.append(f"        free_from: {c['free_from']}")
             L.append(f"        access_modes: {js(c['access_modes'])}")
             for k in ("access_changed", "access_changed_on"):
                 if c.get(k):

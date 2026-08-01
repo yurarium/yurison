@@ -412,6 +412,13 @@ evidence of a new series; a later-numbered chapter of an ongoing one; notices, t
 are neither; and a comparator claim carries no chapter information, so it stays `unknown` rather
 than being guessed into a category. That yields 6 new-series rather than 403.
 
+### 試し読み-only series are dropped, not hidden
+
+Sample-only series were being filtered out of the default view while remaining in the data. That
+still inflated totals and the acceptance measure with entries DEFINITIONS §6 says are not web
+publication. They are now removed from the feed outright and kept as print candidates, which is
+what they are.
+
 ### Two models of "update"
 
 Reader-selectable, because they answer different questions:

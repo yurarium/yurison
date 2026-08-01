@@ -453,6 +453,7 @@ def main():
     # An earlier release for the same work PROVES this is not the start of it. That is a stronger
     # and safer signal than reading the title, and it rescues works whose chapters are named rather
     # than numbered — スズラン手帖's anthology entries, for instance.
+    attested_titles = {norm_work(r["work"]) for r in releases if r.get("provenance") == "attested"}
     earliest, count = {}, {}
     for r in sorted(releases, key=lambda r: r["pub"]):
         nw = norm_work(r["work"])
@@ -478,6 +479,13 @@ def main():
         elif has_earlier:
             # Not the first release we hold for this work, so not the start of it.
             r["kind"], r["kind_basis"] = "new-chapter", "work has an earlier release here"
+        elif attested_titles and any(
+                norm_work(r["work"]).startswith(a) or a.startswith(norm_work(r["work"]))
+                for a in attested_titles if len(a) > 2):
+            # A claim naming a work we attest elsewhere: the work demonstrably has chapters here,
+            # so an update to it is a further one rather than a start.
+            r["kind"] = "new-chapter"
+            r["kind_basis"] = "work is attested elsewhere in this database"
         elif count.get(norm_work(r["work"]), 0) > 1:
             # Several unnumbered entries for one work, all bearing the same date — a back catalogue
             # arriving at once, as with an anthology. They are chapters of a series rather than a
@@ -488,7 +496,10 @@ def main():
         elif r["type"] == "oneshot":
             r["kind"], r["kind_basis"] = "new-series", "one-shot"
         else:
-            r["kind"], r["kind_basis"] = "unknown", "no chapter number and no earlier release held"
+            r["kind"] = "unknown"
+            r["kind_basis"] = ("listing site names no chapter, and the work is not tracked on a "
+                               "platform we reach" if r.get("provenance") == "claimed"
+                               else "no chapter number and no earlier release held")
         # Inference from what we hold, never a statement by the publisher.
         r["kind_inferred"] = True
 
@@ -515,6 +526,11 @@ def main():
         else:
             r["is_preferred"] = True
     # Only the preferred source of each chapter is shown; alternatives ride along on that entry.
+    # 試し読み-only series are not web publication (DEFINITIONS §6), so they are dropped from the
+    # feed outright rather than hidden behind a filter — a hidden entry still inflates totals and
+    # the acceptance measure. They remain as print candidates, which is what they actually are.
+    samples = [r for r in releases if r.get("web") == "promotional-sample-only"]
+    releases = [r for r in releases if r.get("web") != "promotional-sample-only"]
     releases = [r for r in releases if r.get("is_preferred")]
     releases.sort(key=lambda r: r["pub"], reverse=True)
 
@@ -569,6 +585,7 @@ def main():
     (out / "feed.json").write_text(json.dumps(
         {"releases": releases, "platforms": platforms, "queue": queue,
          "print_candidates": print_candidates, "web_works": web_works,
+         "samples_dropped": len(samples),
          "platform_meta": plat_meta, "lapsed": lapsed},
         ensure_ascii=False, indent=1, default=jsonable))
 
@@ -576,6 +593,7 @@ def main():
     print(f"provenance      : {dict(_C(r.get('provenance') for r in releases))}")
     print(f"update kind     : {dict(_C(r.get('kind') for r in releases))}")
     print(f"free view       : {sum(1 for r in releases if r.get('free'))} of {len(releases)}")
+    print(f"samples dropped : {len(samples)} (promotional 試し読み — kept as print candidates)")
     print(f"identification  : {dict(_C(r.get('ident') for r in releases))}")
     am = _C(m for r in releases for m in (r.get("access_modes") or []))
     if am:

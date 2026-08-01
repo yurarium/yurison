@@ -45,9 +45,11 @@ def jsonable(o):
 # Episode titles that are chapters without carrying a number.
 FINAL_RE = re.compile(r"最終(話|回)|最終エピソード")
 # Announcements and artwork typed as chapters upstream — they are not story instalments.
-NON_STORY_RE = re.compile(r"告知|お知らせ|イラスト|カバー|PV|特報|予告|おまけ")
-# Side stories are story content but not instalments of the main run.
-SIDE_RE = re.compile(r"番外編|外伝|特別編")
+NON_STORY_RE = re.compile(r"告知|お知らせ|カバー|PV|特報|予告")
+# Extras and side stories count on the CHAPTER side: おまけ, 番外編 and 外伝 are content a reader
+# follows the series for, unlike an announcement or a cover reveal. They are instalments of an
+# existing work, so they are never a new series either.
+EXTRA_RE = re.compile(r"おまけ|番外編|外伝|特別編|幕間")
 _KANJI = {"〇": 0, "一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
           "六": 6, "七": 7, "八": 8, "九": 9}
 
@@ -459,11 +461,11 @@ def main():
 
     for r in releases:
         ep = r.get("ep") or ""
-        if r["type"] in OTHER_TYPES or NON_STORY_RE.search(ep):
+        if r["type"] in OTHER_TYPES or NON_STORY_RE.search(ep) or ep.strip() == "イラスト":
             r["kind"], r["kind_basis"] = "other", "notice, artwork, trial or announcement"
             continue
-        if SIDE_RE.search(ep):
-            r["kind"], r["kind_basis"] = "other", "side story, not a main-run instalment"
+        if r["type"] == "extra" or EXTRA_RE.search(ep):
+            r["kind"], r["kind_basis"] = "new-chapter", "extra or side story — content, not notice"
             continue
         n = ep_number(ep)
         has_earlier = earliest.get(norm_work(r["work"]), r["pub"]) < r["pub"]

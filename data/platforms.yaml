@@ -58,12 +58,26 @@ platforms:
     syndication: >-
       Largely but not solely a syndicator (project owner, 2026-08-01). It does originate some
       content, so it cannot be dismissed outright.
-    blocker: >-
-      Work pages ARE server-rendered (episode_item markup), but carry NO per-episode date — only
-      channel banners have one. Without dates a release cannot be placed on a timeline, so it is
-      unusable for the feed regardless of the quality argument. Reaching it would need one fetch
-      per episode against /watch/<id>, which is not proportionate.
-    watched: false
+    former_blocker: >-
+      WRONG, corrected 2026-08-01. It said: episode_item markup carries no per-episode date, so a
+      release cannot be placed on a timeline, and reaching it would need one fetch per episode.
+      The first half is true — episode items really do carry only data-number, a page count and
+      view counters. The conclusion was not. The date is on the same page in div.meta_info, at
+      work level: "2026年07月23日更新  2024年10月24日開始  [ 4話 無料 ]". Server-rendered, so a
+      plain fetch reaches it, one per work like カドコミ and FUZ.
+      The reasoning error worth remembering: the feed's unit for an unattested update is "this work
+      updated, on this date", which is what the comparators state and what the interface shows.
+      Work level was always sufficient. Per-episode was a requirement I invented and then declared
+      unmeetable.
+      Checked before building: 百合ナビ claimed 魔女まじょS-WITCH updated 2026-07-23 and the page
+      says 2026年07月23日更新.
+    granularity_caveat: >-
+      Work level means no chapter title and no chapter number, so these releases carry type
+      unclassified and cannot establish a chapter kind. "[ N話 無料 ]" states how many episodes are
+      free, not that the newest is, so the free view only counts a work where every episode is.
+    watched: true
+    watched_since: 2026-08-01
+    granularity: work
     notes: >-
       The main practical problem in the gap, and largely a mirage. Image quality is notably worse
       than the origin platforms, and it syndicates a great deal of content published elsewhere.
@@ -86,11 +100,20 @@ platforms:
     overlap: 0.77
     watched: false
     blocker: >-
-      Not available to an identified client. Work pages are a pure client shell (__NEXT_DATA__ is
-      empty) and the data comes from /api/app/works/..., which robots.txt permits but which returns
-      403 to a self-identifying request. Reaching it would mean misrepresenting the client to get
-      past an access control, which §5's passive-observation rule forbids. Closed by the operator's
-      choice, not by difficulty.
+      Reachable, but only with a browser in the pipeline. Work pages are a pure client shell
+      (__NEXT_DATA__ empty) and the data comes from /api/app/works/..., which returns 403 to a
+      self-identifying non-browser request — so a plain fetch gets nothing, and spoofing the client
+      to get past that is out under §5.
+    reconnaissance_2026_08_01: >-
+      Rendered comic.pixiv.net/works/12066 in a real browser. The page shows everything needed:
+      title, author, the publisher's own 百合 tag, per-episode availability
+      (掲載期間が終了しました vs readable), and 更新日 at work level. No access control is being
+      circumvented by this — a browser is the client the operator serves. What it costs is a
+      rendering step in the pipeline for 131 works, on an ongoing basis.
+      NOT DONE, deliberately: overlap is 0.77, the highest of any platform, so its unique
+      contribution is the smallest of the large targets, and onboarding origin platforms erodes it
+      without touching it. Worth revisiting only after ニコニコ lands and its exclusive count is
+      re-measured.
     notes: >-
       CORRECTED 2026-08-01: initially recorded as an origin platform on no evidence. Measured
       overlap is 0.77 — higher than ニコニコ漫画's 0.71 — so most of what it lists is available

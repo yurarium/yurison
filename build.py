@@ -22,7 +22,7 @@ import yaml
 # data/queue/, which is deliberately outside the source tree so nothing can promote a candidate
 # into a record by accident.
 ALLOWED_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha",
-                   "gigaviewer", "kadokomi", "comicfuz", "webpages", "comparators"}
+                   "gigaviewer", "kadokomi", "comicfuz", "webpages", "comparators", "nicovideo"}
 
 # Sources carrying work-level records that merge into a work. Others (release feeds) are
 # platform-level and compile separately.
@@ -433,6 +433,39 @@ def main():
                     "access_modes": c.get("access_modes") or [],
                 })
 
+    # ── ニコニコ漫画: work-level update dates ──────────────────────────────────────────────────
+    # The platform states that a work updated on a date, and never which chapter. So these attest
+    # the update and nothing about its contents — no chapter title, no number, and therefore
+    # `unclassified` as a type, the same shape a comparator claim has but with the platform itself
+    # as the source rather than a listing site.
+    nf = pathlib.Path("data/source/nicovideo/nicovideo.yaml")
+    if nf.exists():
+        d = yaml.safe_load(nf.read_text()) or {}
+        for w in d.get("works") or []:
+            u = str(w.get("updated") or "")[:10]
+            if not u or u < wcut or u > wtoday:
+                continue
+            # "[ N話 無料 ]" means N episodes are free, not that the newest one is. Claiming the
+            # update is free on that basis would put paywalled chapters in the free view, so it is
+            # only claimed when every episode is free.
+            eps, free_eps = w.get("episode_count"), w.get("free_episodes")
+            all_free = bool(eps and free_eps and free_eps >= eps)
+            started = str(w.get("started") or "")[:10]
+            releases.append({
+                "id": f"nicovideo:{w.get('comic_id')}:{u}", "work": w.get("work_title"),
+                "ep": "", "type": "unclassified", "adv": True, "web": "serialised",
+                "pub": u, "seen": str(d.get("retrieved", "")),
+                "basis": "observed", "conf": "reported",
+                "why": "work-level update date stated by the platform; chapter not identified",
+                "moved": "", "url": w.get("url"), "author": w.get("author", ""),
+                "plat": "nicovideo", "plat_name": "ニコニコ漫画",
+                "ident": "discovery-candidate", "free_from": None,
+                "access_modes": ["free"] if all_free else [],
+                "episode_count": eps, "free_episodes": free_eps,
+                "started": started or None,
+                "work_level": True,
+            })
+
     # Platform-wide access defaults, applied only where the source gave no per-chapter value.
     default_access = {}
     for pl in (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("platforms") or []:
@@ -705,6 +738,10 @@ def main():
             # Distinct from the blanket `kind_inferred` set at the end of this loop, which is true
             # of every kind. This marks the weaker of the two routes to `final` specifically.
             r["final_inferred"] = True
+        elif r.get("started") and r["started"] == r["pub"]:
+            # The platform states the serialisation start date and it is this update. Positive
+            # evidence, unlike "first time we saw it".
+            r["kind"], r["kind_basis"] = "new-series", "platform states the serialisation started"
         elif n == 1:
             r["kind"], r["kind_basis"] = "new-series", "episode numbered 1"
         elif n is not None:

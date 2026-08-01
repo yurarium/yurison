@@ -165,7 +165,9 @@ def candidate_titles(path):
         return {}
     d = yaml.safe_load(f.read_text()) or {}
     out = {}
-    for w in d.get("works_missing") or []:
+    # Accept either the full candidate list or the gap report; the full list is what should be
+    # used, since the gap deliberately excludes everything already reachable.
+    for w in (d.get("candidates") or []) + (d.get("works_missing") or []):
         out[norm_title(w.get("title", ""))] = w.get("title", "")
     out.pop("", None)
     return out
@@ -192,7 +194,7 @@ def main():
     ap.add_argument("--known", nargs="*", default=["data/build/index.json",
                                                    "data/source/gigaviewer/ichicomi-series.yaml"],
                     help="sources of already-established yuri work titles")
-    ap.add_argument("--candidates", default="data/coverage/webcomics-gap.yaml",
+    ap.add_argument("--candidates", default="data/coverage/webcomics-works.yaml",
                     help="Tier C yardstick naming candidate titles (discovery only)")
     a = ap.parse_args()
 
@@ -329,7 +331,22 @@ def main():
             old = yaml.safe_load(prev_file.read_text()) or {}
             prior = {o.get("release_id"): o for o in (old.get("releases") or [])}
 
+        # Releases that have scrolled out of the Atom window must be KEPT (REQUIREMENTS §4).
+        # Rewriting the file from the current window each run silently discarded everything older,
+        # so the feed could never accumulate — it only ever held one window's worth.
+        seen_now = {r["release_id"] for r in rels}
+        retained = 0
+        for rid, old_rec in prior.items():
+            if rid in seen_now:
+                continue
+            keep = dict(old_rec)
+            keep["in_current_window"] = False
+            rels.append(keep)
+            retained += 1
+
         for r in rels:
+            if r.get("in_current_window") is False:
+                continue          # already locked on an earlier run; nothing to recompute
             was = prior.get(r["release_id"])
             if was:
                 r["first_seen"] = str(was.get("first_seen") or a.retrieved)
@@ -379,6 +396,8 @@ def main():
         ]
         for r in sorted(rels, key=lambda r: r["platform_updated"], reverse=True):
             doc.append(f"  - release_id: {json.dumps(r['release_id'], ensure_ascii=False)}")
+            if r.get("in_current_window") is False:
+                doc.append("    in_current_window: false")
             for k in ("work_title", "web_status", "identified_via", "episode_title",
                       "release_type", "date", "date_basis",
                       "first_seen", "first_reported", "platform_updated", "platform_date_changed",
@@ -434,8 +453,9 @@ def main():
         boot = sum(1 for r in rels if r.get("date_basis") == "bootstrap")
         moved = sum(1 for r in rels if r.get("platform_date_changed"))
         totals["low-confidence dates"] += low
-        print(f"{p['id']:14} series={len(series):3} releases={len(rels):3}  "
-              f"{dict(types)}  {dict(idents)}")
+        print(f"{p['id']:14} series={len(series):3} releases={len(rels):3}"
+              + (f" (+{retained} retained)" if retained else "")
+              + f"  {dict(types)}  {dict(idents)}")
         if promo:
             n = sum(1 for r in rels if r["web_status"] == "promotional-sample-only")
             print(f"{'':14} {len(promo)} series are 試し読み samples only "

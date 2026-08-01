@@ -176,6 +176,29 @@ def main():
     L.append("")
     (out / "webcomics-gap.yaml").write_text("\n".join(L))
 
+    # The FULL candidate list — every work the antenna lists, with the platforms carrying it.
+    #
+    # The gap file above holds only works on NO watched platform, which makes it useless as a
+    # matching list: onboarding a platform removes its works from the gap, so the adapters stop
+    # recognising exactly the titles they just gained access to. Feed matching must use this file.
+    W = ["# ALL works listed under Web漫画アンテナ's 百合 tag, with their platforms.",
+         "#",
+         "# Tier C, DISCOVERY ONLY (REQUIREMENTS §1): this says a work exists and where. It attests",
+         "# nothing and establishes no marketing_label. Adapters use it to know which titles to look",
+         "# for; the platform's own feed or page is what attests a release.",
+         "#",
+         "# Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.",
+         "source: webcomics.jp", "role: discovery-only", f"retrieved: {a.retrieved}",
+         "record_type: candidate_works", f"works: {len(platforms_of)}", "candidates:"]
+    titles = {}
+    for e in entries:
+        titles.setdefault(norm(e["title"]), e["title"])
+    for k, ps in sorted(platforms_of.items()):
+        W.append(f"  - title: {json.dumps(titles.get(k, k), ensure_ascii=False)}")
+        W.append(f"    platforms: {json.dumps(sorted(ps), ensure_ascii=False)}")
+    W.append("")
+    (out / "webcomics-works.yaml").write_text("\n".join(W))
+
     nworks = len(platforms_of)
     print(f"listings          : {len(entries)} over {a.pages} page(s), {len(per_platform)} platforms")
     print(f"distinct works    : {nworks}  ({len(entries)-nworks} multi-platform listings)")

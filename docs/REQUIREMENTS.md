@@ -472,6 +472,36 @@ candidates does.
 The alternative — trusting a general platform to tell us what is yuri — is the thing DEFINITIONS §4
 says cannot work.
 
+#### How much yuri is actually being published, and how much we catch
+
+The feed looked sparse, so it was measured rather than argued about. Web漫画アンテナ's 百合 tag is
+ordered by update recency, which makes it a usable clock:
+
+| | |
+|---|---|
+| Works listed under 百合 | 1,532 |
+| Updated in the last ~3.5 weeks (pages 1–5) | **250** |
+| Of those, on a platform we watch | **116** |
+
+The rest is a long tail of dormant and completed work — page 15 of the listing reaches May 2025 and
+page 31 reaches 2018. So the active field is roughly **250 works updating per 3.5 weeks**, not 1,500,
+and the ceiling for a feed is what those produce.
+
+That reframes the coverage figure: 68.7% counts *reachable catalogue*, while the number that
+governs how full the feed looks is the 116.
+
+**The largest single hole was カドコミ** — 53 of the 250 recent updates, more than twice any other
+platform, and contributing nothing because only a per-work *confirmation* adapter existed for five
+named titles. `adapters/kadokomi/releases.py` now tracks its episodes.
+
+#### Rolling windows must accumulate, not be re-derived
+
+A separate fault surfaced here. The release adapters rewrote their output from the current feed
+window on every run, so releases that scrolled out of a platform's Atom window were **discarded** —
+a direct breach of §4, and the reason the feed could never grow past one window's worth however
+often it ran. Releases outside the current window are now retained and marked
+`in_current_window: false`.
+
 #### Platforms without feeds are read from their own work pages
 
 Most platforms outside GigaViewer publish no feed at all. Several render their episode lists

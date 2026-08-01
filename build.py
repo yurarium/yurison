@@ -260,6 +260,29 @@ def main():
     WEBPAGE_FEED_DAYS = 21
     wcut = str(datetime.date.today() - datetime.timedelta(days=WEBPAGE_FEED_DAYS))
     wtoday = str(datetime.date.today())
+    # カドコミ: same shape as the webpages adapters, but it does apply a 百合 tag, so its works
+    # carry a marketing_label where present.
+    kf = pathlib.Path("data/source/kadokomi/chapters.yaml")
+    if kf.exists():
+        d = yaml.safe_load(kf.read_text()) or {}
+        for w in d.get("works") or []:
+            for c in w.get("chapters") or []:
+                u = str(c.get("updated") or "")
+                if not u or u < wcut or u > wtoday:
+                    continue
+                releases.append({
+                    "id": f"kadokomi:{c.get('code')}", "work": w.get("work_title"),
+                    "ep": (c.get("title") or "") + (f" {c['subtitle']}" if c.get("subtitle") else ""),
+                    "type": "chapter", "adv": True, "web": "serialised", "pub": u,
+                    "seen": str(d.get("retrieved", "")), "basis": "bootstrap",
+                    "conf": "reported", "why": "", "moved": "", "url": w.get("url"),
+                    "author": ", ".join(w.get("authors") or []),
+                    "plat": "kadokomi", "plat_name": "カドコミ",
+                    "ident": "platform-genre" if w.get("marketing_label") == "yuri"
+                             else "discovery-candidate",
+                    "free_from": None, "access_modes": [],
+                })
+
     for f in sorted(glob.glob("data/source/webpages/*.yaml")):
         d = yaml.safe_load(open(f)) or {}
         pid, pname = d.get("platform"), d.get("platform_name")

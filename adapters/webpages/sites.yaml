@@ -47,6 +47,51 @@ sites:
     engine: yanmaga
     min_episodes: 1
 
+  # ── added 2026-08-01 from the long-tail survey ───────────────────────────────────────────────
+  # Four more comici installs, found by a second reconnaissance pass that tried the extraction
+  # instead of sniffing for date-shaped strings. All four key on the same series-eplist markup as
+  # ビッコミ, and needed no code. The first pass missed them because it probed five hosts for
+  # comici markers and none of those five were comici — the sample decided the answer.
+  #
+  # `publisher` is left unset where the survey did not establish it: naming one from the domain
+  # would be invented attribution.
+  - id: g-comi
+    name: Gコミ
+    host: g-comi.jp
+    engine: comici
+    min_episodes: 1
+    exclusive_works_at_onboarding: 11
+    verified: 2026-08-01
+
+  - id: hanayume
+    name: 花とゆめ+
+    publisher: 白泉社
+    host: hanayume.com
+    engine: comici
+    min_episodes: 1
+    # One of its four candidate URLs resolves to a series page here; the other three point
+    # elsewhere. The parser demonstrably works on the one that does, so the redesign-detection
+    # floor is set to match rather than discarding the site.
+    min_works: 1
+    exclusive_works_at_onboarding: 4
+    verified: 2026-08-01
+
+  - id: comicride
+    name: ライコミ
+    host: comicride.jp
+    engine: comici
+    min_episodes: 1
+    exclusive_works_at_onboarding: 3
+    verified: 2026-08-01
+
+  - id: j-nbooks
+    name: COMICリュエル
+    host: comic.j-nbooks.jp
+    engine: comici
+    min_episodes: 1
+    exclusive_works_at_onboarding: 1
+    verified: 2026-08-01
+
 engines:
   comici:
     block: '(?=<div data-e2e="eli" class="series-eplist-item")'

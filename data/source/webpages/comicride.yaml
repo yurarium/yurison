@@ -1,0 +1,109 @@
+# ライコミ (publisher not established) — chapters from server-rendered work pages.
+# Works named by a Tier C yardstick; the platform attests the chapters.
+# This platform applies no 百合 tag, so nothing here establishes marketing_label.
+source: webpages
+platform: comicride
+platform_name: "ライコミ"
+publisher: ""
+engine: comici
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works:
+  - work_title: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
+    url: "https://comicride.jp/series/7b86cbca64ebe"
+    chapter_count: 10
+    chapters:
+      - title: "第1話"
+        updated: "2023-11-30"
+        url: "https://comicride.jp/episodes/5c29a2097883c"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: "2023-11-30"
+        url: "https://comicride.jp/episodes/1bef41eea27ca"
+        access_modes: ["free"]
+      - title: "第3話"
+        updated: "2023-11-30"
+        url: "https://comicride.jp/episodes/95bdd2a7641ae"
+      - title: "第4話"
+        updated: "2023-11-30"
+        url: "https://comicride.jp/episodes/a1a54402631e5"
+      - title: "第5話"
+        updated: "2023-11-30"
+        url: "https://comicride.jp/episodes/4c17d153df202"
+      - title: "第36話後編"
+        updated: "2026-04-22"
+        url: "https://comicride.jp/episodes/5a70cf5bc8475"
+        access_modes: ["free"]
+      - title: "第37話前編"
+        updated: "2026-05-20"
+        url: "https://comicride.jp/episodes/cd51f701eb3b7"
+        access_modes: ["purchase"]
+      - title: "第37話中編"
+        updated: "2026-06-17"
+        url: "https://comicride.jp/episodes/8d4959868bf93"
+        access_modes: ["purchase"]
+      - title: "第37話後編①"
+        updated: "2026-07-15"
+        url: "https://comicride.jp/episodes/2d6dc426a7abd"
+        access_modes: ["purchase"]
+      - title: "第37話後編②"
+        updated: "2026-07-29"
+        url: "https://comicride.jp/episodes/c73d76a2ebb6c"
+        access_modes: ["purchase"]
+  - work_title: "『人斬り』少女、公爵令嬢の護衛になる"
+    url: "https://comicride.jp/series/b95a6b1493469"
+    chapter_count: 10
+    chapters:
+      - title: "第1話"
+        updated: "2024-04-01"
+        url: "https://comicride.jp/episodes/26fc4e24c7882"
+        access_modes: ["free"]
+      - title: "第2話①"
+        updated: "2024-04-08"
+        url: "https://comicride.jp/episodes/bf4b5d8ecc8c8"
+        access_modes: ["free"]
+      - title: "第2話②"
+        updated: "2024-04-15"
+        url: "https://comicride.jp/episodes/311e95659fd11"
+        access_modes: ["free"]
+      - title: "第2話③"
+        updated: "2024-04-22"
+        url: "https://comicride.jp/episodes/14457b3ceb682"
+        access_modes: ["free"]
+      - title: "第2話④"
+        updated: "2024-04-29"
+        url: "https://comicride.jp/episodes/489ed2c756360"
+        access_modes: ["free"]
+      - title: "第18話①"
+        updated: "2026-04-13"
+        url: "https://comicride.jp/episodes/422ced47dec0d"
+        access_modes: ["free"]
+      - title: "第18話②"
+        updated: "2026-04-27"
+        url: "https://comicride.jp/episodes/242ff09404507"
+        access_modes: ["purchase"]
+      - title: "第19話"
+        updated: "2026-06-15"
+        url: "https://comicride.jp/episodes/6dc1611b1e4a9"
+        access_modes: ["purchase"]
+      - title: "第20話①"
+        updated: "2026-07-13"
+        url: "https://comicride.jp/episodes/deec7982b0f01"
+        access_modes: ["purchase"]
+      - title: "第20話②"
+        updated: "2026-07-27"
+        url: "https://comicride.jp/episodes/aefe92cfec1ad"
+        access_modes: ["purchase"]
+  - work_title: "殺し屋メイドは茨姫の夢を見る"
+    url: "https://comicride.jp/series/b59a539f01669"
+    chapter_count: 2
+    chapters:
+      - title: "前編"
+        updated: "2024-03-20"
+        url: "https://comicride.jp/episodes/17017a9db9fae"
+        access_modes: ["free"]
+      - title: "後編"
+        updated: "2024-03-20"
+        url: "https://comicride.jp/episodes/3f57301a4b921"
+        access_modes: ["purchase"]

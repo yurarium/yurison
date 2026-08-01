@@ -1,0 +1,96 @@
+# COMICリュエル (publisher not established) — chapters from server-rendered work pages.
+# Works named by a Tier C yardstick; the platform attests the chapters.
+# This platform applies no 百合 tag, so nothing here establishes marketing_label.
+source: webpages
+platform: j-nbooks
+platform_name: "COMICリュエル"
+publisher: ""
+engine: comici
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works:
+  - work_title: "SHWD《シュード》"
+    url: "https://comic.j-nbooks.jp/series/25f1325d1fd40"
+    chapter_count: 10
+    chapters:
+      - title: "ep.1①"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/8154a0c000292"
+        access_modes: ["free"]
+      - title: "ep.1②"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/3099785d0c379"
+        access_modes: ["free"]
+      - title: "ep.2"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/98bac1c7698ac"
+        access_modes: ["free"]
+      - title: "ep.3"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/3ba6197df8aa7"
+      - title: "ep.4"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/5b8237832e733"
+      - title: "ep.14"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/fcb364fd14378"
+        access_modes: ["purchase"]
+      - title: "ep.15"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/dda8f1667fb92"
+        access_modes: ["purchase"]
+      - title: "ep.16"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/491b97d9909bd"
+        access_modes: ["purchase"]
+      - title: "ep.17"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/f289d21eed8f5"
+        access_modes: ["purchase"]
+      - title: "ep.18"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/0e09c8e65e262"
+        access_modes: ["purchase"]
+  - work_title: "白と黒～Black &amp; White～"
+    url: "https://comic.j-nbooks.jp/series/b334c297c6024"
+    chapter_count: 10
+    chapters:
+      - title: "第1話"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/3e1b6705c17c7"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/a9a1c34b4af15"
+        access_modes: ["free"]
+      - title: "第3話"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/b730e8406fe6f"
+        access_modes: ["free"]
+      - title: "第4話"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/af6119d209a0a"
+      - title: "第5話"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/5fe24c9e5ab13"
+      - title: "第14話"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/f3857a80d330f"
+        access_modes: ["purchase"]
+      - title: "第15話"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/3b7149fc7104f"
+        access_modes: ["purchase"]
+      - title: "第16話"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/74ddab7513646"
+        access_modes: ["purchase"]
+      - title: "第17話"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/12ed07551e531"
+        access_modes: ["purchase"]
+      - title: "最終話"
+        updated: "2024-10-04"
+        url: "https://comic.j-nbooks.jp/episodes/d1568a129df1a"
+        access_modes: ["purchase"]

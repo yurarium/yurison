@@ -121,16 +121,22 @@ def main():
                 continue
             works.append({"work_title": tgt["title"], "url": tgt["url"], "episodes": eps})
 
-        if len(works) < MIN_WORKS:
-            print(f"HEALTH: {site['id']} — {len(works)} works parsed (< {MIN_WORKS}); "
+        # The floor exists to catch a site redesign silently emptying a parser. It has to scale
+        # with how many works the site actually has, or a platform carrying one yuri title is
+        # permanently indistinguishable from a broken one — which is what happened to 花とゆめ+
+        # (4 candidates) and COMICリュエル (1) the first time they ran.
+        floor = site.get("min_works", min(MIN_WORKS, max(1, len(targets))))
+        if len(works) < floor:
+            print(f"HEALTH: {site['id']} — {len(works)} works parsed (< {floor}); "
                   "markup may have changed. Writing nothing for this site.", file=sys.stderr)
             continue
 
-        L = [f"# {site['name']} ({site['publisher']}) — chapters from server-rendered work pages.",
+        L = [f"# {site['name']} ({site.get('publisher') or 'publisher not established'}) — chapters from "
+         "server-rendered work pages.",
              "# Works named by a Tier C yardstick; the platform attests the chapters.",
              "# This platform applies no 百合 tag, so nothing here establishes marketing_label.",
              "source: webpages", f"platform: {site['id']}",
-             f"platform_name: {js(site['name'])}", f"publisher: {js(site['publisher'])}",
+             f"platform_name: {js(site['name'])}", f"publisher: {js(site.get('publisher', ''))}",
              f"engine: {site['engine']}", f"retrieved: {a.retrieved}",
              "record_type: web_work_chapters", "identification_mode: discovery-candidate",
              "works:"]

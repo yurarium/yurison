@@ -1,0 +1,34 @@
+# マイナビニュース — chapters extracted heuristically from work pages.
+#
+# NOT a publisher-stated field. Blocks carrying a date and a chapter-like label were
+# matched in the page; the strategy was proven for this host in
+# data/coverage/extract.yaml before being run. Every release carries
+# date_basis: heuristic and date_confidence: low so it is never mistaken for the
+# kind of statement GigaViewer or FUZ make.
+#
+# No 百合 label is established here (DEFINITIONS §4); works are named by the Tier C
+# yardsticks and this attests only their chapters.
+source: webpages
+platform: news-mynavi-jp
+platform_name: "マイナビニュース"
+publisher: ""
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+extraction: markup
+date_basis: heuristic
+date_confidence: low
+works:
+  - work_title: "自動車の妖精 パッソちゃんの恩返し"
+    url: "https://news.mynavi.jp/series/carfairy/"
+    chapter_count: 3
+    chapters:
+      - title: "クイズ 第62回 バイクのステップに謎の突起物! 何のパーツ?"
+        updated: 2026-07-31
+        date_basis: heuristic
+      - title: "相談室 第5回 バイクのエンジンオイルっていつ交換すればいいの? 意外と知らない役割も解説 2"
+        updated: 2026-07-24
+        date_basis: heuristic
+      - title: "相談室 第6回 安いオイルと高いオイル、何が違う? バイクのエンジンオイルの選び方を解説 20"
+        updated: 2026-07-25
+        date_basis: heuristic

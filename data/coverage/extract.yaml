@@ -1,0 +1,530 @@
+# Second-pass reconnaissance: which extraction strategy actually returns dated chapters.
+# Updated 2026-08-01 after retrying hosts that timed out on the first attempt — two of the
+# fifteen were a plain timeout, not a block.
+source: derived
+role: reconnaissance
+retrieved: 2026-08-01
+platforms:
+- platform: pixivコミック
+  host: comic.pixiv.net
+  work_url: https://comic.pixiv.net/works/7685
+  exclusive_works: 41
+  strategy: none
+- platform: comicブースト
+  host: comic-boost.com
+  work_url: https://comic-boost.com/content/01340001
+  exclusive_works: 15
+  strategy: none
+- platform: ガンガンONLINE
+  host: www.ganganonline.com
+  work_url: https://www.ganganonline.com/title/1525
+  exclusive_works: 13
+  strategy: none
+- platform: マガポケ
+  host: pocket.shonenmagazine.com
+  work_url: https://pocket.shonenmagazine.com/title/03099
+  exclusive_works: 11
+  strategy: none
+- platform: Gコミ
+  host: g-comi.jp
+  work_url: https://g-comi.jp/series/063225706887f
+  exclusive_works: 11
+  strategy: markup
+  sample:
+  - title: 第1話 2023/10/23 2776 無料
+    date: '2023-10-23'
+  - title: 第2話 2023/10/23 2280 <path d="M15.9568 19.3644L15.761 18.356C15.7185 18.4785
+      15.7
+    date: '2023-10-23'
+  - title: 第3話 2023/10/23 1757 90
+    date: '2023-10-23'
+  selector:
+    tag: a
+    class: series-eplist-item-link
+- platform: HERO&#039;S Web
+  host: viewer.heros-web.com
+  work_url: https://viewer.heros-web.com/episode/3269754496898191059
+  exclusive_works: 10
+  strategy: no-response
+- platform: マンガワン
+  host: manga-one.com
+  work_url: https://manga-one.com/viewer/290902
+  exclusive_works: 10
+  strategy: none
+- platform: マンガPark
+  host: manga-park.com
+  work_url: https://manga-park.com/title/64829
+  exclusive_works: 9
+  strategy: markup
+  sample:
+  - title: 第1話① 6178 67 2023/1/24
+    date: '2023-01-24'
+  - title: 第1話② 5221 21 2023/1/24
+    date: '2023-01-24'
+  - title: 第1話③ 5004 31 2023/1/24
+    date: '2023-01-24'
+  selector:
+    tag: li
+    class: ''
+- platform: きら星ポータル
+  host: kirapo.jp
+  work_url: https://kirapo.jp/meteor/titles/tuimie
+  exclusive_works: 8
+  strategy: none
+- platform: FEEL web
+  host: feelweb.jp
+  work_url: https://feelweb.jp/episode/3269754496334725363
+  exclusive_works: 7
+  strategy: none
+- platform: ストーリアダッシュ(更新終了)
+  host: storia.takeshobo.co.jp
+  work_url: https://storia.takeshobo.co.jp/manga/himitsunoaishikata/
+  exclusive_works: 7
+  strategy: none
+- platform: ヤングアニマルWeb
+  host: younganimal.com
+  work_url: https://younganimal.com/series/061d7bbd35a86
+  exclusive_works: 7
+  strategy: none
+- platform: LINEマンガ(更新終了)
+  host: manga.line.me
+  work_url: https://manga.line.me/product/periodic?id=Z0001543
+  exclusive_works: 6
+  strategy: no-response
+- platform: 裏サンデー
+  host: urasunday.com
+  work_url: https://urasunday.com/title/2335
+  exclusive_works: 5
+  strategy: none
+- platform: ちゃおプラス
+  host: ciao.shogakukan.co.jp
+  work_url: https://ciao.shogakukan.co.jp/comics/title/00039/episode/4363
+  exclusive_works: 5
+  strategy: none
+- platform: COMICリュウ
+  host: www.comic-ryu.jp
+  work_url: https://www.comic-ryu.jp/series/hinayuriboukenki/
+  exclusive_works: 5
+  strategy: none
+- platform: フラコミlike!
+  host: flowercomics.jp
+  work_url: https://flowercomics.jp/title/2258
+  exclusive_works: 5
+  strategy: none
+- platform: マンガよもんが
+  host: www.yomonga.com
+  work_url: https://www.yomonga.com/titles/2532/
+  exclusive_works: 5
+  strategy: markup
+  sample:
+  - title: 購入はこちら ダブル クリック タップ で拡大解除 --> --> --> --> --> 更新日：2026/01/06 Chapter.1_1巻
+      第1話-1
+    date: '2026-01-06'
+  - title: 2026/07/21 Chapter.16 第15話 2026/09/01に公開終了
+    date: '2026-07-21'
+  - title: 読む 2026/07/07 Chapter.15 第14話 2026/08/18に公開終了
+    date: '2026-07-07'
+  selector:
+    tag: a
+    class: button-type1
+- platform: COMIC Y-OURS
+  host: comic-y-ours.com
+  work_url: https://comic-y-ours.com/episode/12207421983394553051
+  exclusive_works: 4
+  strategy: none
+- platform: 少年ジャンプルーキー
+  host: rookie.shonenjump.com
+  work_url: https://rookie.shonenjump.com/series/fmRli8MBymM
+  exclusive_works: 4
+  strategy: none
+- platform: 花とゆめ+
+  host: hanayume.com
+  work_url: https://hanayume.com/series/f3ce082d639de
+  exclusive_works: 4
+  strategy: markup
+  sample:
+  - title: '#1 2026/04/20 8264 無料'
+    date: '2026-04-20'
+  - title: '#2 2026/04/20 6828 無料'
+    date: '2026-04-20'
+  - title: '#3 2026/04/20 5700 無料'
+    date: '2026-04-20'
+  selector:
+    tag: a
+    class: series-eplist-item-link
+- platform: WEBコミックガンマぷらす(更新終了)
+  host: gammaplus.takeshobo.co.jp
+  work_url: https://gammaplus.takeshobo.co.jp/manga/girl_martyrdom/
+  exclusive_works: 4
+  strategy: none
+- platform: ライコミ
+  host: comicride.jp
+  work_url: https://comicride.jp/series/7b86cbca64ebe
+  exclusive_works: 3
+  strategy: markup
+  sample:
+  - title: 第1話 2023/11/30 6782 無料
+    date: '2023-11-30'
+  - title: 第2話 2023/11/30 5802 無料
+    date: '2023-11-30'
+  - title: 第3話 2023/11/30 4664 <path d="M15.9568 19.3644L15.761 18.356C15.7185 18.4785
+      15.7
+    date: '2023-11-30'
+  selector:
+    tag: a
+    class: series-eplist-item-link
+- platform: 新都社
+  host: neetsha.jp
+  work_url: http://neetsha.jp/inside/comic.php?id=23916
+  exclusive_works: 3
+  strategy: no-response
+- platform: ヤンジャン+
+  host: ynjn.jp
+  work_url: https://ynjn.jp/title/28795
+  exclusive_works: 3
+  strategy: none
+- platform: コミックグロウル
+  host: comic-growl.com
+  work_url: https://comic-growl.com/episode/13933686331793881861
+  exclusive_works: 3
+  strategy: none
+- platform: ダ・ヴィンチニュース
+  host: ddnavi.com
+  work_url: https://ddnavi.com/gyarumeido_akuyakureijo/
+  exclusive_works: 3
+  strategy: markup
+  sample:
+  - title: 試し読み *電子書籍ストアBOOK☆WALKERへ移動します 最新話 ヒロインが首席をとりたい理由は？ それを知ったお嬢様は、彼女の力になると告げる／ギャルメイ
+    date: '2024-09-16'
+  - title: 第1回 ギャルが乙女ゲームの“モブキャラ”に転生！ メイドになって仕える主人は…／ギャルメイドと悪役令嬢① 『ギャルメイドと悪役令嬢 〜おじょーさまのハッピーエ
+    date: '2024-09-07'
+  - title: 第2回 乙女ゲームの世界に転生して悪役令嬢に仕えるメイドに。ゲームでの彼女の結末って…／ギャルメイドと悪役令嬢② 『ギャルメイドと悪役令嬢 〜おじょーさまのハッ
+    date: '2024-09-08'
+  selector:
+    tag: li
+    class: archives-list__item
+- platform: ファイアCROSS
+  host: firecross.jp
+  work_url: https://firecross.jp/ebook/series/541
+  exclusive_works: 3
+  strategy: markup
+  sample:
+  - title: ≫ 第0話 公開：2024/4/15 32 1
+    date: '2024-04-15'
+  - title: 無料 第1話 公開：2024/4/15 33 0
+    date: '2024-04-15'
+  - title: 無料 第2話 公開：2024/4/15 26 0
+    date: '2024-04-15'
+  selector:
+    tag: li
+    class: shop-item-btn
+- platform: ツイ4
+  host: sai-zen-sen.jp
+  work_url: https://sai-zen-sen.jp/comics/twi4/twins/
+  exclusive_works: 3
+  strategy: none
+- platform: コロコロオンライン
+  host: www.corocoro.jp
+  work_url: https://www.corocoro.jp/title/65
+  exclusive_works: 2
+  strategy: none
+- platform: コミックNewtype(更新終了)
+  host: comic.webnewtype.com
+  work_url: https://comic.webnewtype.com/contents/asufude/
+  exclusive_works: 2
+  strategy: no-response
+- platform: eBigComic4(更新終了)
+  host: ebookjapan.yahoo.co.jp
+  work_url: https://ebookjapan.yahoo.co.jp/stories/107382/
+  exclusive_works: 2
+  strategy: no-response
+- platform: コミックエッセイ劇場
+  host: www.comic-essay.com
+  work_url: https://www.comic-essay.com/episode/a1006/
+  exclusive_works: 2
+  strategy: none
+- platform: GANMA!(更新終了)
+  host: ganma.jp
+  work_url: https://ganma.jp/yorunoonesan
+  exclusive_works: 2
+  strategy: markup
+  sample:
+  - title: 2021/06/14 配信 第1話 クズだってえっちなお姉さんに癒されたい！
+    date: '2021-06-14'
+  - title: 2021/06/28 配信 第2話 クズだってお金が欲しい！
+    date: '2021-06-28'
+  - title: 2021/07/12 配信 第3話 クズだって予備校に通いた…くはない！
+    date: '2021-07-12'
+  selector:
+    tag: li
+    class: relative
+- platform: ヤングエースUP(更新終了)
+  host: web-ace.jp
+  work_url: https://web-ace.jp/youngaceup/contents/1000161/
+  exclusive_works: 2
+  strategy: none
+- platform: まんがタイムSquare
+  host: mangatime-square.com
+  work_url: https://mangatime-square.com/episode/12207421984001577937
+  exclusive_works: 2
+  strategy: none
+- platform: コミックボーダー
+  host: comicborder.com
+  work_url: https://comicborder.com/episode/3270375685434605726
+  exclusive_works: 2
+  strategy: none
+- platform: コミックノヴァ
+  host: www.123hon.com
+  work_url: https://www.123hon.com/nova/web-comic/princess/
+  exclusive_works: 2
+  strategy: markup
+  sample:
+  - title: 連載シリーズ &gt; プリンセ「ス」 プリンセ「ス」 2020年12月25日更新！ 第8話 -->
+    date: '2020-12-25'
+  - title: 第１話を読む --> ストーリー わたしが好きになったのは、髪が短く背が高い、ちょっぴりボーイッシュな「王子さま」。 でも私は知っている。彼女が恋をしていること
+    date: '2022-04-01'
+  selector:
+    tag: a
+    class: archive
+- platform: Seasons
+  host: comic-seasons.com
+  work_url: https://comic-seasons.com/episode/2551460909766158255
+  exclusive_works: 2
+  strategy: none
+- platform: comico(更新終了)
+  host: www.comico.jp
+  work_url: https://www.comico.jp/articleList.nhn?titleNo=32598
+  exclusive_works: 2
+  strategy: none
+- platform: COMICリュエル
+  host: comic.j-nbooks.jp
+  work_url: https://comic.j-nbooks.jp/series/25f1325d1fd40
+  exclusive_works: 1
+  strategy: markup
+  sample:
+  - title: ep.1① 2024/10/04 85 無料
+    date: '2024-10-04'
+  - title: ep.1② 2024/10/04 75 無料
+    date: '2024-10-04'
+  - title: ep.2 2024/10/04 82 無料
+    date: '2024-10-04'
+  selector:
+    tag: a
+    class: series-eplist-item-link
+- platform: LINE マンガ インディーズ
+  host: manga.line.me
+  work_url: https://manga.line.me/indies/product/detail?id=12480
+  exclusive_works: 1
+  strategy: no-response
+- platform: コミックPASH! neo
+  host: comicpash.jp
+  work_url: https://comicpash.jp/series/37aae26103d8a
+  exclusive_works: 1
+  strategy: none
+- platform: comicグラスト
+  host: novema.jp
+  work_url: https://novema.jp/comic/serial/n10
+  exclusive_works: 1
+  strategy: no-response
+- platform: やわらかスピリッツ
+  host: yawaspi.com
+  work_url: https://yawaspi.com/oyasumi/index.html
+  exclusive_works: 1
+  strategy: none
+- platform: 少年エースplus(更新終了)
+  host: web-ace.jp
+  work_url: https://web-ace.jp/shonenaceplus/contents/3000097/
+  exclusive_works: 1
+  strategy: none
+- platform: げつあくWEB(更新終了)
+  host: getsuaku.com
+  work_url: https://getsuaku.com/episode/001_gaw_koedeoshigoto
+  exclusive_works: 1
+  strategy: no-response
+- platform: NewsCrunch
+  host: comic.pixiv.net
+  work_url: https://comic.pixiv.net/works/10121
+  exclusive_works: 1
+  strategy: none
+- platform: GetNavi
+  host: getnavi.jp
+  work_url: https://getnavi.jp/category/comic/horoyoi/
+  exclusive_works: 1
+  strategy: no-response
+- platform: pixivコミックマガジン
+  host: comic.pixiv.net
+  work_url: https://comic.pixiv.net/magazines/206
+  exclusive_works: 1
+  strategy: none
+- platform: アサコミ
+  host: sonorama.asahi.com
+  work_url: http://sonorama.asahi.com/series/GMG-story.html
+  exclusive_works: 1
+  strategy: no-response
+- platform: ソノラマプラス(更新終了)
+  host: sonorama.asahi.com
+  work_url: http://sonorama.asahi.com/series/GMG-story.html
+  exclusive_works: 1
+  strategy: no-response
+- platform: 路草
+  host: michikusacomics.jp
+  work_url: https://michikusacomics.jp/product/hutsukoi
+  exclusive_works: 1
+  strategy: markup
+  sample:
+  - title: 1話 初恋は一目惚れ 2023.06.28
+    date: '2023-06-28'
+  - title: 2話 特別な子 2023.07.12
+    date: '2023-07-12'
+  - title: 3話 君は知らない 2023.07.19
+    date: '2023-07-19'
+  selector:
+    tag: a
+    class: ''
+- platform: ゼロサムオンライン
+  host: zerosumonline.com
+  work_url: https://zerosumonline.com/detail/royaltailor
+  exclusive_works: 1
+  strategy: none
+- platform: マンガボックス
+  host: www.mangabox.me
+  work_url: https://www.mangabox.me/reader/262412/
+  exclusive_works: 1
+  strategy: none
+- platform: Matogrosso(更新終了)
+  host: matogrosso.jp
+  work_url: https://matogrosso.jp/serial/shigokoi_02-136/
+  exclusive_works: 1
+  strategy: none
+- platform: ドリコミ+
+  host: drecomi-plus.jp
+  work_url: https://drecomi-plus.jp/series/CD00038
+  exclusive_works: 1
+  strategy: no-response
+- platform: アルファポリス
+  host: www.alphapolis.co.jp
+  work_url: https://www.alphapolis.co.jp/manga/official/791000435
+  exclusive_works: 1
+  strategy: none
+- platform: Web漫画速報
+  host: mangalifewin.takeshobo.co.jp
+  work_url: http://mangalifewin.takeshobo.co.jp/rensai/kiminotamenarashineru/
+  exclusive_works: 1
+  strategy: none
+- platform: COMIC熱帯
+  host: www.comicnettai.com
+  work_url: https://www.comicnettai.com/book/30
+  exclusive_works: 1
+  strategy: markup
+  sample:
+  - title: 第6話 2024.05.24
+    date: '2024-05-24'
+  - title: 第5話 2024.04.26
+    date: '2024-04-26'
+  - title: 第4話（後編） 2024.02.23
+    date: '2024-02-23'
+  selector:
+    tag: div
+    class: detail--product__item__center
+- platform: マガジンデビュー(更新終了)
+  host: debut.shonenmagazine.com
+  work_url: https://debut.shonenmagazine.com/comic/10536
+  exclusive_works: 1
+  strategy: none
+- platform: パイコミックス
+  host: comics.pie.co.jp
+  work_url: https://comics.pie.co.jp/series/herside/
+  exclusive_works: 1
+  strategy: no-response
+- platform: コロナEX
+  host: to-corona-ex.com
+  work_url: https://to-corona-ex.com/comics/20000000049417
+  exclusive_works: 1
+  strategy: none
+- platform: OUR FEEL
+  host: ourfeel.jp
+  work_url: https://ourfeel.jp/episode/2550912966077179576
+  exclusive_works: 1
+  strategy: none
+- platform: WEBコミックガンマ(更新終了)
+  host: webcomicgamma.takeshobo.co.jp
+  work_url: http://webcomicgamma.takeshobo.co.jp/manga/akebosijeny/
+  exclusive_works: 1
+  strategy: none
+- platform: コミックヴァルキリー(更新終了)
+  host: www.comic-valkyrie.com
+  work_url: https://www.comic-valkyrie.com/youheisyoujo
+  exclusive_works: 1
+  strategy: none
+- platform: てれびくんヒーローコミックス
+  host: televikun-super-hero-comics.com
+  work_url: https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/
+  exclusive_works: 1
+  strategy: none
+- platform: 栞
+  host: shiori-on.com
+  work_url: https://shiori-on.com/product/ryutoryunokekkon
+  exclusive_works: 1
+  strategy: none
+- platform: マイナビニュース
+  host: news.mynavi.jp
+  work_url: https://news.mynavi.jp/series/carfairy/
+  exclusive_works: 1
+  strategy: markup
+  sample:
+  - title: バイクのクイズ 第62回 バイクのステップに謎の突起物! 何のパーツ? 2026/07/31 08:00 連載
+    date: '2026-07-31'
+  - title: 今さら聞けない「バイクのギモン」相談室 第5回 バイクのエンジンオイルっていつ交換すればいいの? 意外と知らない役割も解説 2026/07/24
+      11:00 連
+    date: '2026-07-24'
+  - title: 今さら聞けない「バイクのギモン」相談室 第6回 安いオイルと高いオイル、何が違う? バイクのエンジンオイルの選び方を解説 2026/07/25
+      11:00 連載
+    date: '2026-07-25'
+  selector:
+    tag: li
+    class: c-sideRanking_listNode
+- platform: MAGKAN
+  host: kansai.mag-garden.co.jp
+  work_url: https://kansai.mag-garden.co.jp/series/76bb18d479f8c
+  exclusive_works: 1
+  strategy: none
+- platform: がうがうモンスター
+  host: comic-action.com
+  work_url: https://comic-action.com/episode/4856001361133391941
+  exclusive_works: 0
+  strategy: none
+- platform: Souffle
+  host: championcross.jp
+  work_url: https://championcross.jp/series/52e0d2b7319b5
+  exclusive_works: 0
+  strategy: markup
+  sample:
+  - title: 第1話 2023/09/12 701 無料
+    date: '2023-09-12'
+  - title: 第2話① 2023/09/12 581 無料
+    date: '2023-09-12'
+  - title: 第2話② 2023/09/12 610 無料
+    date: '2023-09-12'
+  selector:
+    tag: a
+    class: series-eplist-item-link
+- platform: コミクリ!(更新終了)
+  host: comic-days.com
+  work_url: https://comic-days.com/episode/3269754496502263912
+  exclusive_works: 0
+  strategy: none
+- platform: 電撃ツイッターマガジン(更新終了)
+  host: comic-walker.com
+  work_url: https://comic-walker.com/detail/KC_003197_S
+  exclusive_works: 0
+  strategy: next
+  sample:
+  - title: 第1話　恋も現場で起きるんだ
+    date: '2022-09-09'
+    date_key: updateDate
+  - title: 第1話
+    date: '2022-09-09'
+    date_key: updateDate
+  - title: 第2話
+    date: '2022-09-23'
+    date_key: updateDate

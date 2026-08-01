@@ -29,6 +29,11 @@ platforms:
     name: カドコミ
     publisher: KADOKAWA
     reading_rank: 1
+    # Platform-wide access model. Recorded as the project owner's knowledge of the service, not
+    # as something read from a field — カドコミ exposes no per-chapter access state we have
+    # established. Applied only where a source supplies no per-chapter value of its own.
+    default_access: free
+    default_access_basis: "project owner, 2026-08-01: カドコミ chapters are free to read"
     overlap: 0.28
     watched: true
     notes: Good resolution; substantial free availability.

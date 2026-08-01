@@ -45,7 +45,7 @@ def jsonable(o):
 # Episode titles that are chapters without carrying a number.
 FINAL_RE = re.compile(r"最終(話|回)|最終エピソード")
 # Announcements and artwork typed as chapters upstream — they are not story instalments.
-NON_STORY_RE = re.compile(r"告知|お知らせ|カバー|PV|特報|予告")
+NON_STORY_RE = re.compile(r"告知|お知らせ|カバー|PV|特報|予告|特典|コミックス第[0-9０-９]+巻|重版")
 # Extras and side stories count on the CHAPTER side: おまけ, 番外編 and 外伝 are content a reader
 # follows the series for, unlike an announcement or a cover reveal. They are instalments of an
 # existing work, so they are never a new series either.
@@ -323,6 +323,55 @@ def main():
                     "became_free": bool(c.get("became_free")),
                     "access_changed": c.get("access_changed"),
                 })
+        # ── inferred paywall-window slide (transitional) ───────────────────────────────────────
+        # A real flip can only be observed across runs, and tracking began too recently to have
+        # seen any. Meanwhile FUZ's common model is a sliding window: the newest N chapters are
+        # paid and older ones free, so when a new chapter lands the oldest paid one falls out and
+        # becomes free. Where the window is small, dating that transition to the newest chapter's
+        # publication is a reasonable stopgap.
+        #
+        # Bounded deliberately. Measured across FUZ's yuri works the windows are mostly 20–155
+        # chapters, which is volume-gating: those slide when a VOLUME is released, not per chapter,
+        # so the inference would be unsound. Applied only to windows of SMALL_WINDOW or fewer, and
+        # marked inferred so it is never mistaken for an observation.
+        SMALL_WINDOW = 5
+        for w in d.get("works") or []:
+            ch = [c for c in (w.get("chapters") or [])
+                  if c.get("updated") and not c.get("scheduled")]
+            ch.sort(key=lambda c: str(c["updated"]), reverse=True)
+            run = 0
+            for c in ch:
+                if (c.get("access_modes") or [None])[0] == "purchase":
+                    run += 1
+                else:
+                    break
+            if not (1 <= run <= SMALL_WINDOW) or run >= len(ch):
+                continue
+            boundary = ch[run]
+            if (boundary.get("access_modes") or [None])[0] != "free":
+                continue
+            # The chapter falling out of the window must be content. A volume announcement
+            # becoming free is not a reading opportunity.
+            if NON_STORY_RE.search(boundary.get("title") or ""):
+                continue
+            releases.append({
+                "id": f"comicfuz-slide:{boundary.get('chapter_id')}",
+                "work": w.get("work_title"), "ep": boundary.get("title"),
+                "type": "access-change", "adv": False, "web": "serialised",
+                "pub": str(ch[0]["updated"]), "seen": str(d.get("retrieved", "")),
+                "basis": "inferred", "conf": "low",
+                "why": f"paywall window of {run}; transition inferred, not observed",
+                "moved": "", "url": (f"https://comic-fuz.com/manga/viewer/{boundary['chapter_id']}"
+                                     if boundary.get("chapter_id") else w.get("url")),
+                "series_url": w.get("url"),
+                "author": ", ".join(w.get("authors") or []),
+                "plat": "comic-fuz", "plat_name": "COMIC FUZ",
+                "ident": "discovery-candidate", "free_from": None,
+                "access_modes": ["free"], "became_free": True,
+                "access_changed": "purchase -> free (inferred)",
+                "access_inferred": True,
+            })
+
         # A chapter that has flipped to free is an update in the free view even if it was
         # published long ago, so it is emitted on the date the flip was observed.
         for w in d.get("works") or []:
@@ -394,8 +443,19 @@ def main():
                     "access_modes": c.get("access_modes") or [],
                 })
 
+    # Platform-wide access defaults, applied only where the source gave no per-chapter value.
+    default_access = {}
+    for pl in (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("platforms") or []:
+        if pl.get("default_access"):
+            default_access[pl["name"]] = (pl["default_access"], pl.get("default_access_basis", ""))
+
     for r in releases:
         r["provenance"] = "attested"
+        if not r.get("access_modes"):
+            da = default_access.get(r.get("plat_name") or "")
+            if da:
+                r["access_modes"] = [da[0]]
+                r["access_basis"] = da[1]
         # Free view membership. `free-timed` counts: rate-limited free (待てば無料, one chapter a
         # day per series with an account) is still free to a reader willing to wait.
         am = r.get("access_modes") or []

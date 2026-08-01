@@ -429,6 +429,35 @@ Reader-selectable, because they answer different questions:
   from behind a paywall**. A chapter becoming free is an update to a reader watching for free
   reading, even though it was published long ago.
 
+#### Where free status actually comes from
+
+Measured 2026-08-01, by signal:
+
+| Signal | Entries | Notes |
+|---|---|---|
+| Platform default | 96 | カドコミ, recorded as owner knowledge with attribution |
+| Per-chapter stated | 22 | COMIC FUZ `pointConsumption` |
+| `freeTermStartDate` | 5 | GigaViewer, present but rare in practice |
+| Inferred window slide | 1 | see below |
+| **None** | **~290** | most platforms state nothing |
+
+**A platform default is the biggest lever, and the least evidenced.** It is not read from any field —
+it is asserted knowledge about how a service works, so it carries `default_access_basis` naming who
+asserted it and when, and it applies only where the source supplies no per-chapter value. Adding
+one for a platform nobody has checked would be inventing data.
+
+#### The paywall-window inference is transitional and narrowly bounded
+
+FUZ slides a window: the newest N chapters are paid and older ones free, so a new chapter pushes the
+oldest paid one into free. Where N is small, dating that transition to the newest chapter's
+publication is a reasonable stopgap until real cross-run observation accumulates.
+
+It is bounded because the data does not support more. Across FUZ's yuri works the windows are mostly
+**20–155 chapters**, which is volume-gating — those slide when a *volume* is released, not per
+chapter, so the same reasoning would be unsound. Applied only to windows of 5 or fewer, skipping
+boundaries that are volume announcements rather than content, and marked `access_inferred` so it is
+never mistaken for an observation. **Current yield: 1 entry.** Small, and honest about it.
+
 The second case is only observable across runs: a flip is detected by comparing a chapter's access
 state against the previous fetch, never from a single snapshot. COMIC FUZ is the clearest example —
 it applies different rules per series, some free throughout, some free after the latest couple of

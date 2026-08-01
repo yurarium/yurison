@@ -12,6 +12,9 @@ Usage:  build.py [--out data/build]
 import argparse, datetime, glob, json, pathlib, sys
 from collections import defaultdict
 
+sys.path.insert(0, "adapters")
+from crossplatform import carriage, merge_releases  # noqa: E402
+
 import yaml
 
 # REQUIREMENTS §1. A field whose provenance is not here fails the build.
@@ -219,9 +222,38 @@ def main():
                 "url": r.get("url"),
                 "author": r.get("author", ""), "plat": pid,
                 "plat_name": d.get("platform_name"),
+                "ident": r.get("identified_via", "platform-genre"),
                 "free_from": str(r.get("free_term_start", "")) or None,
             })
+    # Reading-quality ranking is editorial curation, kept out of the source layer (§5).
+    ranks, plat_meta = {}, {}
+    pf = pathlib.Path("data/platforms.yaml")
+    if pf.exists():
+        for pl in (yaml.safe_load(pf.read_text()) or {}).get("platforms") or []:
+            ranks[pl["name"]] = pl.get("reading_rank")
+            plat_meta[pl["name"]] = {"rank": pl.get("reading_rank"),
+                                     "overlap": pl.get("overlap")}
+
+    # Merge the same chapter seen on several platforms, and point at the best source carrying it.
+    merged = merge_releases(
+        [{"work": r["work"], "episode": r["ep"], "platform": r["plat_name"] or r["plat"],
+          "date": r["pub"], "url": r["url"], "_r": r} for r in releases], ranks)
+    by_key = {(m["work"], m["episode"]): m for m in merged}
+    for r in releases:
+        m = by_key.get((r["work"], r["ep"]))
+        if m:
+            r["preferred"] = m["preferred"]
+            r["also_on"] = m["also_on"]
+            r["is_preferred"] = (r["plat_name"] or r["plat"]) == m["preferred"]
+        else:
+            r["is_preferred"] = True
+    # Only the preferred source of each chapter is shown; alternatives ride along on that entry.
+    releases = [r for r in releases if r.get("is_preferred")]
     releases.sort(key=lambda r: r["pub"], reverse=True)
+
+    lapsed = [c for c in carriage(
+        [{"work": r["work"], "episode": r["ep"], "platform": r["plat_name"] or r["plat"]}
+         for r in releases]) if c["status"] == "lapsed"]
 
     # Web works confirmed against a publisher after discovery named them. These have no MADB
     # record — they are web-native and mostly too recent for the print sources — so they compile
@@ -269,9 +301,14 @@ def main():
 
     (out / "feed.json").write_text(json.dumps(
         {"releases": releases, "platforms": platforms, "queue": queue,
-         "print_candidates": print_candidates, "web_works": web_works},
+         "print_candidates": print_candidates, "web_works": web_works,
+         "platform_meta": plat_meta, "lapsed": lapsed},
         ensure_ascii=False, indent=1, default=jsonable))
 
+    from collections import Counter as _C
+    print(f"identification  : {dict(_C(r.get('ident') for r in releases))}")
+    if lapsed:
+        print(f"carriage lapses : {len(lapsed)}")
     serialised = sum(1 for r in releases if r.get("web") == "serialised")
     print(f"releases        : {len(releases)} from {len(platforms)} platform(s) "
           f"({serialised} serialised, {len(releases)-serialised} promotional samples)")

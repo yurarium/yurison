@@ -134,8 +134,8 @@ def yuri_series(html, genre, label):
 
 
 def known_titles(paths):
-    """Normalised titles of works already established as yuri, from the built catalogue and from
-    any platform that does label its own series."""
+    """Normalised titles of works already ESTABLISHED as yuri — the built catalogue, and platforms
+    that label their own series. A match here is identification against settled evidence."""
     out = {}
     for p_ in paths:
         f = pathlib.Path(p_)
@@ -148,6 +148,25 @@ def known_titles(paths):
             d = yaml.safe_load(f.read_text()) or {}
             for s in d.get("series") or []:
                 out[norm_title(s.get("title", ""))] = s.get("title", "")
+    out.pop("", None)
+    return out
+
+
+def candidate_titles(path):
+    """Titles a Tier C yardstick says are yuri and names a platform for.
+
+    This is DISCOVERY, not evidence (REQUIREMENTS §1): the antenna says which titles to look for,
+    and the platform's own feed is what attests the release. Releases matched this way are marked
+    `discovery-candidate` and the work carries no marketing_label from it — a Tier C listing is a
+    bare assertion of membership and establishes nothing about content.
+    """
+    f = pathlib.Path(path)
+    if not f.exists():
+        return {}
+    d = yaml.safe_load(f.read_text()) or {}
+    out = {}
+    for w in d.get("works_missing") or []:
+        out[norm_title(w.get("title", ""))] = w.get("title", "")
     out.pop("", None)
     return out
 
@@ -173,6 +192,8 @@ def main():
     ap.add_argument("--known", nargs="*", default=["data/build/index.json",
                                                    "data/source/gigaviewer/ichicomi-series.yaml"],
                     help="sources of already-established yuri work titles")
+    ap.add_argument("--candidates", default="data/coverage/webcomics-gap.yaml",
+                    help="Tier C yardstick naming candidate titles (discovery only)")
     a = ap.parse_args()
 
     cache = pathlib.Path(a.cache).expanduser()
@@ -183,8 +204,11 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     known = known_titles(a.known)
-    if known:
-        print(f"known yuri works: {len(known)} (for known-works platforms)\n")
+    cands = candidate_titles(a.candidates) if a.candidates else {}
+    # Established titles win where both contain a title, so provenance is never downgraded.
+    cands = {k: v for k, v in cands.items() if k not in known}
+    if known or cands:
+        print(f"known yuri works: {len(known)} established, {len(cands)} discovery candidates\n")
 
     totals = Counter()
     for p in plats:
@@ -248,9 +272,13 @@ def main():
                     continue
                 ident = "platform-genre"
             else:
-                if norm_title(work) not in known:
+                nw = norm_title(work)
+                if nw in known:
+                    ident = "known-work-match"
+                elif nw in cands:
+                    ident = "discovery-candidate"
+                else:
                     continue
-                ident = "known-work-match"
             ep = (e.findtext("a:title", "", ATOM) or "").strip()
             link = next((l.get("href") for l in e.findall("a:link", ATOM)
                          if l.get("rel") is None), "")
@@ -320,8 +348,10 @@ def main():
                 r["date_basis"] = "bootstrap" if first_run else "observed"
 
             # The date the rest of the system uses: earliest evidence held, locked.
-            cands = [d for d in (r["first_reported"], r["first_seen"]) if d]
-            r["date"] = min(c[:10] for c in cands) if cands else ""
+            # Named distinctly: `cands` is the module-level discovery-candidate map, and shadowing
+            # it here silently broke title matching on every platform after the first.
+            date_evidence = [d for d in (r["first_reported"], r["first_seen"]) if d]
+            r["date"] = min(c[:10] for c in date_evidence) if date_evidence else ""
 
         # Classify each series by the shape of its release history.
         by_work = defaultdict(list)
@@ -398,12 +428,14 @@ def main():
         totals["platforms"] += 1
         totals["series"] += len(series)
         totals["releases"] += len(rels)
+        idents = Counter(r["identified_via"] for r in rels)
         types = Counter(r["release_type"] for r in rels)
         low = sum(1 for r in rels if r.get("date_confidence") == "low")
         boot = sum(1 for r in rels if r.get("date_basis") == "bootstrap")
         moved = sum(1 for r in rels if r.get("platform_date_changed"))
         totals["low-confidence dates"] += low
-        print(f"{p['id']:14} series={len(series):3} releases={len(rels):3}  {dict(types)}")
+        print(f"{p['id']:14} series={len(series):3} releases={len(rels):3}  "
+              f"{dict(types)}  {dict(idents)}")
         if promo:
             n = sum(1 for r in rels if r["web_status"] == "promotional-sample-only")
             print(f"{'':14} {len(promo)} series are 試し読み samples only "

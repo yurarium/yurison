@@ -103,6 +103,40 @@ platforms:
     yuri_genre: 百合
     verified: 2026-08-01
 
+  - id: sundaywebry
+    name: サンデーうぇぶり
+    publisher: 小学館
+    host: www.sunday-webry.com
+    atom: https://www.sunday-webry.com/atom
+    mode: known-works
+    yuri_genre: 百合
+    verified: 2026-08-01
+    note: >-
+      GigaViewer (classic markup, no genre chips). Overlap 0.02 — the lowest measured, so its 65
+      listed works are genuinely its own and its exclusivity will not shrink as others onboard.
+
+  - id: comic-action
+    name: webアクション
+    publisher: 双葉社
+    host: comic-action.com
+    atom: https://comic-action.com/atom
+    mode: known-works
+    yuri_genre: 百合
+    verified: 2026-08-01
+
+  # comic-boost.com/atom returns HTTP 200 with text/html — an app shell, not a feed. Same trap as
+  # mangacross. Disabled.
+  - id: comic-boost
+    name: comicブースト
+    publisher: 北欧社
+    host: comic-boost.com
+    atom: https://comic-boost.com/atom
+    mode: known-works
+    enabled: false
+    yuri_genre: 百合
+    verified: 2026-08-01
+    note: /atom serves text/html with a 200 status; no usable feed
+
   - id: comic-gardo
     name: コミックガルド
     publisher: オーバーラップ

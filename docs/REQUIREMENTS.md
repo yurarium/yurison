@@ -597,6 +597,19 @@ bookkeeping around that one rule.
 `adapters/gigaviewer/test_dates.py` holds it as a regression test: claimed-earlier wins,
 claimed-later loses, and a subsequent change in either direction leaves the stored date untouched.
 
+#### A future date is a schedule, never a release
+
+COMIC FUZ returns `updatedDate` on chapters that have not been published yet — 40 of 1,880 when
+first read, every one of them `purchase`. They are scheduled unlock dates.
+
+Two rules, both learned by shipping the bug: **future-dated entries never enter a release feed**,
+and **a rolling window is anchored to today, not to the newest date in the data**. Anchoring on the
+data pulled months of back-catalogue into the feed because the newest date was five months ahead.
+
+This is the same rule as the 発売日 calendar's — a date the world has not yet produced is a claim,
+not an observation — arriving from a source where it was not expected. Worth assuming any date
+field may contain one.
+
 #### Fields
 
 Each release carries:

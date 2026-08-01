@@ -228,20 +228,21 @@ def main():
     # COMIC FUZ publishes no feed, so its adapter returns full chapter histories rather than a
     # rolling window. Only recent chapters join the feed — the rest stay in the source layer, where
     # they are the project's only real access_modes data.
-    FUZ_FEED_DAYS = 60
+    # Other platforms' Atom feeds hold roughly a fortnight of updates. FUZ returns full histories,
+    # so its contribution is trimmed to a comparable window or it dominates the feed.
+    FUZ_FEED_DAYS = 21
     fz = pathlib.Path("data/source/comicfuz/works.yaml")
     if fz.exists():
         d = yaml.safe_load(fz.read_text()) or {}
-        newest = max((str(c.get("updated") or "") for w in d.get("works") or []
-                      for c in w.get("chapters") or []), default="")
-        cutoff = ""
-        if newest:
-            y, m, dd = (int(x) for x in newest.split("-"))
-            cutoff = str(datetime.date(y, m, dd) - datetime.timedelta(days=FUZ_FEED_DAYS))
+        # Anchor the window to TODAY, not to the newest date in the data. FUZ carries scheduled
+        # future unlocks, and anchoring on those pulled months of back-catalogue into the feed.
+        today = str(datetime.date.today())
+        cutoff = str(datetime.date.today() - datetime.timedelta(days=FUZ_FEED_DAYS))
         for w in d.get("works") or []:
             for c in w.get("chapters") or []:
                 u = str(c.get("updated") or "")
-                if not u or u < cutoff:
+                # Future-dated chapters are scheduled, not released (§5). Excluded outright.
+                if not u or u < cutoff or u > today or c.get("scheduled"):
                     continue
                 releases.append({
                     "id": f"comicfuz:{c.get('chapter_id')}", "work": w.get("work_title"),

@@ -22,16 +22,19 @@ works:
       - chapter_id: 78680
         title: "第20話(2)"
         updated: 2026-09-11
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 78677
         title: "第20話(1)"
         updated: 2026-08-28
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 78458
         title: "第19話(2)"
         updated: 2026-08-14
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 78455
@@ -499,111 +502,133 @@ works:
       - chapter_id: 53783
         title: "１５巻 第９０球 「示すしかなかろ」（２）"
         updated: 2027-01-01
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 53780
         title: "１５巻 第９０球 「示すしかなかろ」（１）"
         updated: 2026-12-25
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 53777
         title: "１５巻 第８９球 「言うことが聞けんと？」（２）"
         updated: 2026-12-18
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 53774
         title: "１５巻 第８９球 「言うことが聞けんと？」（１）"
         updated: 2026-12-11
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 53771
         title: "１５巻 第８８球 「ただの壁じゃない」（２）"
         updated: 2026-12-04
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 53768
         title: "１５巻 第８８球 「ただの壁じゃない」（１）"
         updated: 2026-11-27
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 53765
         title: "１５巻 第８７球 「顔面に当ててでも」（２）"
         updated: 2026-11-20
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 53762
         title: "１５巻 第８７球 「顔面に当ててでも」（１）"
         updated: 2026-11-13
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 53759
         title: "１５巻 第８６球 「無理してないかな」（２）"
         updated: 2026-11-06
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 53756
         title: "１５巻 第８６球 「無理してないかな」（１）"
         updated: 2026-10-30
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 53753
         title: "１５巻 第８５球 「暴挙！」（２）"
         updated: 2026-10-23
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 53750
         title: "１５巻 第８５球 「暴挙！」（１）"
         updated: 2026-10-16
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 47977
         title: "１４巻 第８４球 「背番号」（２）"
         updated: 2026-10-09
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 47974
         title: "１４巻 第８４球 「背番号」（１）"
         updated: 2026-10-02
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 47971
         title: "１４巻 第８３球 「嫌われてるのかなぁ」（２）"
         updated: 2026-09-25
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 47968
         title: "１４巻 第８３球 「嫌われてるのかなぁ」（１）"
         updated: 2026-09-18
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 47965
         title: "１４巻 第８２球 「ど真ん中」（２）"
         updated: 2026-09-11
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 47962
         title: "１４巻 第８２球 「ど真ん中」（１）"
         updated: 2026-09-04
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 47959
         title: "１４巻 第８１球 「一年生」（２）"
         updated: 2026-08-28
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 47956
         title: "１４巻 第８１球 「一年生」（１）"
         updated: 2026-08-21
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 47953
         title: "１４巻 第８０球 「実感」（２）"
         updated: 2026-08-14
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 47950
         title: "１４巻 第８０球 「実感」（１）"
         updated: 2026-08-07
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 47947
@@ -2395,21 +2420,25 @@ works:
       - chapter_id: 75472
         title: "２巻 第２６話"
         updated: 2026-08-25
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 75469
         title: "２巻 第２５話"
         updated: 2026-08-18
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 75466
         title: "２巻 第２４話"
         updated: 2026-08-11
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 75463
         title: "２巻 第２３話"
         updated: 2026-08-04
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 75460
@@ -2532,11 +2561,13 @@ works:
       - chapter_id: 79439
         title: "第31皿(2)"
         updated: 2026-08-25
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 79436
         title: "第31皿(1)"
         updated: 2026-08-11
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 78974
@@ -2941,26 +2972,31 @@ works:
       - chapter_id: 78605
         title: "１巻 番外編"
         updated: 2026-08-30
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 78602
         title: "１巻 第１２話"
         updated: 2026-08-23
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 78599
         title: "１巻 第１１話"
         updated: 2026-08-16
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 78596
         title: "１巻 第１０話"
         updated: 2026-08-09
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 78593
         title: "１巻 第９話"
         updated: 2026-08-02
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 78590
@@ -3013,6 +3049,7 @@ works:
       - chapter_id: 79592
         title: "第４３話"
         updated: 2026-08-27
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 78710
@@ -3246,11 +3283,13 @@ works:
       - chapter_id: 79313
         title: "第36話(2)"
         updated: 2026-08-30
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 78716
         title: "第36話(1)"
         updated: 2026-08-16
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 78788
@@ -3766,6 +3805,7 @@ works:
       - chapter_id: 77989
         title: "第４０話"
         updated: 2026-08-12
+        scheduled: true   # future date — not yet released
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60"
       - chapter_id: 77986

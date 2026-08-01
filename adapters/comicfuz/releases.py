@@ -66,7 +66,12 @@ def access_of(chapter):
 
 
 def iso(d):
-    """FUZ dates are YYYY/MM/DD."""
+    """FUZ dates are YYYY/MM/DD.
+
+    Note these are NOT always publication dates. 40 of 1,880 dated chapters were in the future when
+    first read, all of them `purchase` — they are scheduled availability dates for chapters that
+    have not been released yet. Callers must check (see `scheduled`).
+    """
     m = re.match(r"(\d{4})/(\d{1,2})/(\d{1,2})", str(d or ""))
     return f"{m.group(1)}-{int(m.group(2)):02d}-{int(m.group(3)):02d}" if m else ""
 
@@ -112,12 +117,17 @@ def main():
             for c in group.get("chapters") or []:
                 modes, note = access_of(c)
                 acc[modes[0]] += 1
+                when = iso(c.get("updatedDate"))
                 row = {
                     "chapter_id": c.get("chapterId"),
                     "title": c.get("chapterMainName", ""),
-                    "updated": iso(c.get("updatedDate")),
+                    "updated": when,
                     "access_modes": modes,
                 }
+                # A date in the future is a schedule, not an observation (REQUIREMENTS §5). These
+                # chapters have not been released; they must never enter a release feed.
+                if when and when > a.retrieved:
+                    row["scheduled"] = True
                 if note:
                     row["access_note"] = note
                 chapters.append(row)
@@ -156,6 +166,8 @@ def main():
             L.append(f"        title: {js(c['title'])}")
             if c["updated"]:
                 L.append(f"        updated: {c['updated']}")
+            if c.get("scheduled"):
+                L.append("        scheduled: true   # future date — not yet released")
             L.append(f"        access_modes: {js(c['access_modes'])}")
             if c.get("access_note"):
                 L.append(f"        access_note: {js(c['access_note'])}")

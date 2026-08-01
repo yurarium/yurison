@@ -426,7 +426,14 @@ def main():
                     "id": f"{pid}:{c.get('url') or c.get('title')}", "work": w.get("work_title"),
                     "ep": c.get("title"), "type": "chapter", "adv": True,
                     "web": "serialised", "pub": u, "seen": str(d.get("retrieved", "")),
-                    "basis": "bootstrap", "conf": "reported", "why": "", "moved": "",
+                    # A heuristically-parsed date is not the same kind of fact as one a platform
+                    # states, and saying so is the whole price of the generic extractor. Carried
+                    # through to the feed rather than left in the source layer.
+                    "basis": c.get("date_basis") or d.get("date_basis") or "bootstrap",
+                    "conf": d.get("date_confidence") or "reported",
+                    "why": ("date matched as a pattern in the page, not stated by the platform"
+                            if (c.get("date_basis") or d.get("date_basis")) == "heuristic" else ""),
+                    "moved": "",
                     "url": c.get("url") or w.get("url"), "author": "",
                     "plat": pid, "plat_name": pname,
                     "ident": "discovery-candidate", "free_from": None,

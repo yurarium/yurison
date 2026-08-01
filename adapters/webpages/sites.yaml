@@ -92,6 +92,18 @@ sites:
     exclusive_works_at_onboarding: 1
     verified: 2026-08-01
 
+  # ヤングチャンピオン's own site, same comici engine as チャンピオンクロス and a DIFFERENT host.
+  # Found because the comparator's チャンピオンクロス claims carry youngchampion.jp URLs — the
+  # publisher runs both and the antenna files them under one name.
+  - id: youngchampion
+    name: ヤングチャンピオン
+    publisher: 秋田書店
+    host: youngchampion.jp
+    engine: comici
+    min_episodes: 1
+    min_works: 1
+    verified: 2026-08-01
+
 engines:
   comici:
     block: '(?=<div data-e2e="eli" class="series-eplist-item")'

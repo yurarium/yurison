@@ -1,9 +1,8 @@
 # Second-pass reconnaissance: which extraction strategy actually returns dated chapters.
-# Updated 2026-08-01 after retrying hosts that timed out on the first attempt — two of the
-# fifteen were a plain timeout, not a block.
-# NOTE 2026-08-01: some of the remaining 403/412 responses are GEOBLOCKS, not bot
-# protection — drecomi-plus.jp and manga.line.me are licensed for Japan. See the
-# geoblocked list in data/platforms.yaml. No adapter change reaches them.
+# Re-probed 2026-08-01. Of the five hosts previously filed as blocked, only novema.jp (403)
+# actually refuses. neetsha.jp and getnavi.jp both answer 200 — the earlier failures were
+# transient. viewer.heros-web.com returns 503 consistently and sonorama.asahi.com no longer
+# resolves. 'Bot protection' was one label doing four different jobs.
 source: derived
 role: reconnaissance
 retrieved: 2026-08-01

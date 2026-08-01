@@ -225,6 +225,22 @@ not_works:
 # the request on location. Nothing about the adapter, the user agent or the request rate would
 # change the outcome, so they must not sit in the "retry later" bucket where the first survey put
 # them (project owner, 2026-08-01).
+# ── "Blocked" was one label doing four different jobs (corrected 2026-08-01) ──────────────────
+#
+# Re-probed with both a bare and a compatible-token user agent. Of five hosts filed as bot
+# protection, exactly one refuses:
+#
+#   novema.jp (comicグラスト)      403 to both agents — the only genuine refusal
+#   viewer.heros-web.com         503 to both, consistently — service unavailable, not a policy
+#   neetsha.jp (新都社)            200 — never blocked; the first probe hit a transient failure
+#   getnavi.jp                   200 — likewise
+#   sonorama.asahi.com (アサコミ)   does not resolve — the host is gone
+#
+# neetsha.jp and getnavi.jp answer on the homepage but 404 on the work URLs we recorded, so what
+# they need is fresh targets, not access. Three different problems were being counted as one, and
+# the count was used to argue the tail was harder than it is.
+access_notes: see the comment above
+
 geoblocked:
   - name: ドリコミ+
     host: drecomi-plus.jp

@@ -1,0 +1,31 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C357101
+grouping: series-link
+madb_id: C357101
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C357101
+record_type: manga_book_series
+title:
+  ja: "かわいさ余って好きさ100倍!!"
+  yomi: "カワイサ アマッテ スキサ 100バイ"
+creator: "[著]めの"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yuri-hime comics"
+volume_count: 1
+first_published: 2015-09
+last_published: 2015-09
+volumes:
+  - madb_id: M453672
+    isbn: "9784758074506"
+    published: 2015-09
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C357101
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

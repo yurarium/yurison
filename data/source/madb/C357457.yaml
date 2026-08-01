@@ -1,0 +1,40 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C357457
+grouping: series-link
+madb_id: C357457
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C357457
+record_type: manga_book_series
+title:
+  ja: "私の世界を構成する塵のような何か。"
+  yomi: "ワタクシ ノ セカイ オ コウセイスル チリ ノ ヨウナ ナニカ"
+creator: "[著]天野しゅにんた"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yuri-hime comics"
+volume_count: 3
+first_published: 2012-09
+last_published: 2014-01
+volumes:
+  - madb_id: M478788
+    number: "1"
+    isbn: "9784758072076"
+    published: 2012-09
+  - madb_id: M478783
+    number: "2"
+    isbn: "9784758072397"
+    published: 2013-05
+  - madb_id: M454398
+    number: "3"
+    isbn: "9784758072847"
+    published: 2014-01
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C357457
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

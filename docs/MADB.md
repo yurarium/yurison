@@ -3,8 +3,8 @@
 Findings from working the 文化庁メディア芸術データベース bulk datasets against the 百合姫 lineage,
 2026-08-01, release 1.2.18.
 
-The short version: MADB cannot supply the Phase 1 corpus. It is strong exactly where
-[Requirements §7](REQUIREMENTS.md) put Phase 2, and thin where it put Phase 1.
+The short version: magazine contents are unusable for our magazines, but the 単行本 imprint field
+enumerates the whole Phase 1 corpus. 646 volumes, 302 works, all with ISBNs.
 
 ## Release cadence
 
@@ -93,23 +93,68 @@ them.
 Records carry よみがな under `ja-hrkt`, which satisfies the transliteration requirement without a
 separate romanisation step.
 
+## The imprint route — this is how the corpus is built
+
+Magazine contents are a dead end, but 単行本 are not. cm101 carries `schema:brand`, which holds the
+レーベル, and the 百合姫 line is there.
+
+Matching `schema:brand` against a normalised form of `Yurihime comics` / `コミック百合姫` /
+`百合姫コミックス` / `百合姫books` yields **646 volumes across 302 works, 2006-02 to 2026-06-15, every
+one with an ISBN.** That is the Phase 1 corpus, at the size §7 predicted, and the ISBNs give a direct
+join to openBD.
+
+MADB spells the imprint at least seven ways, including case and hyphenation variants and one that
+drops the `IDコミックス` prefix entirely:
+
+```
+IDコミックス. Yurihime comics                 237
+IDコミックス / Yuri-hime comics               163
+IDコミックス / Yurihime comics                136
+IDコミックス. コミック百合姫                     30
+IDコミックス. Yurihime comics = コミック百合姫      8
+Yuri-Hime COMICS                            …
+百合姫books                                   1
+```
+
+Any exact match on this field loses most of the corpus silently. Normalise (NFKC, casefold, strip
+separators) and match on substrings.
+
+The imprint is publisher-side labelling, so it establishes `marketing_label: yuri` mechanically
+under [Definitions §4](DEFINITIONS.md), with the brand field as its basis. The interpretive axis
+still needs a human.
+
+### Grouping traps
+
+**About a third of volumes carry no `schema:isPartOf`.** 197 of 646. These are recent records
+ingested from NDL that MADB has not yet resolved to a series. Grouping on the series link alone
+drops them. The extractor falls back to normalised-title matching and records which route produced
+each work:
+
+| Route | Works |
+|---|---|
+| `series-link` | 222 |
+| `mixed` | 12 |
+| `title-match` | 15 |
+| `title-only` | 53 |
+
+**Volumes of one work can sit on both sides.** 半熟女子 vol 1 (`Yuri-Hime COMICS`, no series link)
+and vol 2 (`IDコミックス / Yuri-hime comics`, linked to C357308) are the same work. Series-link
+grouping alone produces a one-volume work numbered "2", which looks plausible and is wrong.
+
+**MADB holds duplicate series records.** ゆるゆり appears as two works, 26 volumes and 12. Merging
+them is a curation decision and belongs in the overlay, not the adapter — the source layer reports
+what MADB says.
+
 ## What this changes
 
-MADB gives us magazine-level metadata for three of the five magazines in the 百合姫 lineage, partial
-issue lists, and no contents. Building the Phase 1 corpus from it is not possible.
+**Phase 1 runs from MADB after all**, via the imprint rather than magazine contents. Publisher
+sources are still needed for the magazines MADB lacks and for serialisation-level detail, but the
+corpus enumerates from bulk data.
 
-Two things follow.
-
-**Phase 1 has to run on publisher sources.** 一迅社's own site and ichicomi carry the 百合姫 catalogue.
-MADB stays in the picture for magazine-level facts and for 単行本 records once titles are known, but
-it cannot enumerate the corpus.
-
-**MADB is a Phase 2 asset, and a good one.** 花とゆめ, りぼん, なかよし and ガロ are covered at the
-contents level across hundreds of issues each, and those are the magazines where Class S and the
-pre-1990s precursors ran. The historical sweep that [Requirements §7](REQUIREMENTS.md) treats as the
-harder, later problem is the part MADB makes tractable.
-
-Whether to reorder the phases on that basis is open.
+**Phase 2 may be easier than assumed.** 花とゆめ, りぼん, なかよし and ガロ are covered at contents
+level across hundreds of issues each, and those are where Class S and the pre-1990s precursors ran.
+The historical sweep [Requirements §7](REQUIREMENTS.md) treats as the harder, later problem is the
+part bulk data supports best. Whether to reorder is open.
 
 ## Practical notes
 

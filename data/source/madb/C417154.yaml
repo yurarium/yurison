@@ -1,0 +1,52 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C417154
+grouping: series-link
+madb_id: C417154
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C417154
+record_type: manga_book_series
+title:
+  ja: "月が綺麗ですね"
+  yomi: "ツキ ガ キレイ デスネ"
+creator: "[著]伊藤ハチ"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 6
+first_published: 2016-05
+last_published: 2020-01
+volumes:
+  - madb_id: M525261
+    number: "1"
+    isbn: "9784758075350"
+    published: 2016-05
+  - madb_id: M523276
+    number: "2"
+    isbn: "9784758076357"
+    published: 2017-02
+  - madb_id: M531382
+    number: "3"
+    isbn: "9784758077293"
+    published: 2017-10
+  - madb_id: M531158
+    number: "4"
+    isbn: "9784758078221"
+    published: 2018-07
+  - madb_id: M524251
+    number: "5"
+    isbn: "9784758079105"
+    published: 2019-03
+  - madb_id: M814965
+    number: "6"
+    isbn: "9784758079990"
+    published: 2020-01
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C417154
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

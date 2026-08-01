@@ -1,0 +1,132 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C341206
+grouping: title-match
+madb_id: C341206
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C341206
+record_type: manga_book_series
+title:
+  ja: "ゆるゆり"
+  yomi: "ユル ユリ"
+creator: "[著]なもり"
+publisher: "一迅社"
+imprint: "Yuri-hime comics"
+volume_count: 26
+first_published: 2009-08
+last_published: 2025-11-24
+volumes:
+  - madb_id: M400412
+    number: "1"
+    isbn: "9784758070553"
+    published: 2009-08
+  - madb_id: M454747
+    number: "2"
+    isbn: "9784758070706"
+    published: 2010-02
+  - madb_id: M454706
+    number: "3"
+    isbn: "9784758070904"
+    published: 2010-07
+  - madb_id: M400413
+    number: "4"
+    isbn: "9784758071215"
+    published: 2011-02
+  - madb_id: M465243
+    number: "4"
+    isbn: "9784758071208"
+    published: 2011-02
+  - madb_id: M454748
+    number: "5"
+    isbn: "9784758071475"
+    published: 2011-06
+  - madb_id: M454768
+    number: "6"
+    isbn: "9784758071505"
+    published: 2011-07
+  - madb_id: M454707
+    number: "7"
+    isbn: "9784758071451"
+    published: 2011-08
+  - madb_id: M454769
+    number: "8"
+    isbn: "9784758072007"
+    published: 2012-08
+  - madb_id: M454708
+    number: "9"
+    isbn: "9784758072038"
+    published: 2012-08
+  - madb_id: M454770
+    number: "10"
+    isbn: "9784758072526"
+    published: 2013-06
+  - madb_id: M465249
+    number: "10"
+    isbn: "9784758072519"
+    published: 2013-06
+  - madb_id: M422208
+    number: "11"
+    isbn: "9784758072915"
+    published: 2014-02
+  - madb_id: M465250
+    number: "11"
+    isbn: "9784758072908"
+    published: 2014-02
+  - madb_id: M454758
+    number: "12"
+    isbn: "9784758073271"
+    published: 2014-08
+  - madb_id: M465251
+    number: "12"
+    isbn: "9784758073264"
+    published: 2014-08
+  - madb_id: M454771
+    number: "13"
+    isbn: "9784758073905"
+    published: 2015-02
+  - madb_id: M810043
+    number: "17"
+    isbn: "9784758079747"
+    published: 2019-09
+  - madb_id: M825289
+    number: "18"
+    isbn: "9784758021142"
+    published: 2020-06
+  - madb_id: M829293
+    number: "19"
+    isbn: "9784758021975"
+    published: 2021-01
+  - madb_id: M852591
+    number: "20"
+    isbn: "9784758022866"
+    published: 2021-09
+  - madb_id: M858483
+    number: "21"
+    isbn: "9784758023405"
+    published: 2022-01
+  - madb_id: M879382
+    number: "22"
+    isbn: "9784758024815"
+    published: 2023-01
+  - madb_id: M1034973
+    number: "23"
+    isbn: "9784758028196"
+    published: 2025-01-03
+  - madb_id: M1087548
+    number: "24"
+    isbn: "9784758029834"
+    published: 2025-11-24
+  - madb_id: M1087557
+    number: "24"
+    isbn: "9784758029827"
+    published: 2025-11-24
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C341206
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

@@ -1,0 +1,39 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C371014
+grouping: series-link
+madb_id: C371014
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C371014
+record_type: manga_book_series
+title:
+  ja: "みみみっくす!"
+  yomi: "ミミ ミックス"
+creator: "[著]広瀬まどか"
+publisher: ""
+imprint: "IDコミックス　／　Yurihime comics"
+volume_count: 3
+first_published: 2017-12
+last_published: 2018-07
+volumes:
+  - madb_id: M498046
+    number: "1"
+    isbn: "9784758076708"
+  - madb_id: M532377
+    number: "2"
+    isbn: "9784758077545"
+    published: 2017-12
+  - madb_id: M531211
+    number: "3"
+    isbn: "9784758078207"
+    published: 2018-07
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C371014
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

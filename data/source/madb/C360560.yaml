@@ -1,0 +1,44 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C360560
+grouping: series-link
+madb_id: C360560
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C360560
+record_type: manga_book_series
+title:
+  ja: "citrus"
+  yomi: "シトラス"
+creator: "[著]サブロウタ"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yurihime comics"
+volume_count: 4
+first_published: 2015-08
+last_published: 2015-08
+volumes:
+  - madb_id: M460943
+    number: "1"
+    isbn: "9784758074520"
+    published: 2015-08
+  - madb_id: M460944
+    number: "2"
+    isbn: "9784758074537"
+    published: 2015-08
+  - madb_id: M460945
+    number: "3"
+    isbn: "9784758074544"
+    published: 2015-08
+  - madb_id: M460952
+    number: "4"
+    isbn: "9784758074483"
+    published: 2015-08
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C360560
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

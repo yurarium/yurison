@@ -1,0 +1,37 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: madb-t-ntr
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "捏造トラップ : NTR"
+  yomi: "ネツゾウ トラップ : NTR"
+creator: "[著]コダマナオコ"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 2
+first_published: 2017-05
+last_published: 2018-02
+volumes:
+  - madb_id: M858937
+    number: "4"
+    isbn: "9784758076593"
+    published: 2017-05
+  - madb_id: M859077
+    number: "6"
+    isbn: "9784758077705"
+    published: 2018-02
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

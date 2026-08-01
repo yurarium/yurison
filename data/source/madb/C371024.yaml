@@ -1,0 +1,136 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C371024
+grouping: title-match
+madb_id: C371024
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C371024
+record_type: manga_book_series
+title:
+  ja: "私に天使が舞い降りた!"
+  yomi: "ワタシ ニ テンシ ガ マイオリタ"
+creator: "[著]椋木ななつ"
+publisher: ""
+imprint: "IDコミックス　／　Yurihime comics"
+volume_count: 27
+first_published: 2017-06
+last_published: 2025-06-23
+volumes:
+  - madb_id: M498025
+    number: "1"
+    isbn: "9784758076722"
+    published: 2017-06
+  - madb_id: M532374
+    number: "2"
+    isbn: "9784758077552"
+    published: 2017-12
+  - madb_id: M531132
+    number: "3"
+    isbn: "9784758078191"
+    published: 2018-06
+  - madb_id: M522033
+    number: "4"
+    isbn: "9784758078757"
+    published: 2018-12
+  - madb_id: M522796
+    number: "5"
+    isbn: "9784758078979"
+    published: 2019-01
+  - madb_id: M523304
+    number: "5"
+    isbn: "9784758078962"
+    published: 2019-01
+  - madb_id: M808077
+    number: "6"
+    isbn: "9784758079525"
+    published: 2019-07
+  - madb_id: M818602
+    number: "7"
+    isbn: "9784758020794"
+    published: 2020-02
+  - madb_id: M818619
+    number: "7"
+    isbn: "9784758020787"
+    published: 2020-02
+  - madb_id: M825899
+    number: "8"
+    isbn: "9784758021579"
+    published: 2020-10
+  - madb_id: M825935
+    number: "8"
+    isbn: "9784758021562"
+    published: 2020-10
+  - madb_id: M830339
+    number: "9"
+    isbn: "9784758022163"
+    published: 2021-03
+  - madb_id: M830395
+    number: "9"
+    isbn: "9784758022156"
+    published: 2021-03
+  - madb_id: M854957
+    number: "10"
+    isbn: "9784758023061"
+    published: 2021-11
+  - madb_id: M855016
+    number: "10"
+    isbn: "9784758023078"
+    published: 2021-11
+  - madb_id: M871162
+    number: "11"
+    isbn: "9784758024259"
+    published: 2022-07
+  - madb_id: M871214
+    number: "11"
+    isbn: "9784758024242"
+    published: 2022-07
+  - madb_id: M875183
+    number: "12"
+    isbn: "9784758024600"
+    published: 2022-10
+  - madb_id: M875377
+    number: "12"
+    isbn: "9784758024617"
+    published: 2022-10
+  - madb_id: M930774
+    number: "13"
+    isbn: "9784758025805"
+    published: 2023-08
+  - madb_id: M930777
+    number: "13"
+    isbn: "9784758025799"
+    published: 2023-08
+  - madb_id: M948229
+    number: "14"
+    isbn: "9784758026581"
+    published: 2024-03
+  - madb_id: M948303
+    number: "14"
+    isbn: "9784758026574"
+    published: 2024-03
+  - madb_id: M1033504
+    number: "15"
+    isbn: "9784758027694"
+    published: 2024-10-06
+  - madb_id: M1033586
+    number: "15"
+    isbn: "9784758027700"
+    published: 2024-10-06
+  - madb_id: M1063283
+    number: "16"
+    isbn: "9784758029018"
+    published: 2025-06-23
+  - madb_id: M1063287
+    number: "16"
+    isbn: "9784758029025"
+    published: 2025-06-23
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C371024
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

@@ -1,0 +1,31 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C360620
+grouping: series-link
+madb_id: C360620
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C360620
+record_type: manga_book_series
+title:
+  ja: "トミコの気持ち"
+  yomi: "トミコ ノ キモチ"
+creator: "[著]ねこ太"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yurihime comics"
+volume_count: 1
+first_published: 2015-08
+last_published: 2015-08
+volumes:
+  - madb_id: M460974
+    isbn: "9784758074476"
+    published: 2015-08
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C360620
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

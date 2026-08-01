@@ -1,0 +1,40 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C437146
+grouping: mixed
+madb_id: C437146
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C437146
+record_type: manga_book_series
+title:
+  ja: "ゆりづくしの教室で"
+  yomi: "ユリズクシ ノ キョウシツ デ"
+creator: "[著]しーめ"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 3
+first_published: 2020-08
+last_published: 2022-02
+volumes:
+  - madb_id: M821060
+    number: "1"
+    isbn: "9784758021449"
+    published: 2020-08
+  - madb_id: M846139
+    number: "2"
+    isbn: "9784758022279"
+    published: 2021-04
+  - madb_id: M860233
+    number: "3"
+    isbn: "9784758023535"
+    published: 2022-02
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C437146
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

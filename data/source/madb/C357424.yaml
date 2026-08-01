@@ -1,0 +1,44 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C357424
+grouping: title-match
+madb_id: C357424
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C357424
+record_type: manga_book_series
+title:
+  ja: "犬神さんと猫山さん"
+  yomi: "イヌガミサン ト ネコヤマサン"
+creator: "[著]くずしろ"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yuri-hime comics"
+volume_count: 4
+first_published: 2013-12
+last_published: 2016-07
+volumes:
+  - madb_id: M454516
+    number: "2"
+    isbn: "9784758072793"
+    published: 2013-12
+  - madb_id: M454528
+    number: "3"
+    isbn: "9784758072991"
+    published: 2014-05
+  - madb_id: M454506
+    number: "4"
+    isbn: "9784758073981"
+    published: 2015-04
+  - madb_id: M860140
+    number: "5"
+    isbn: "9784758075411"
+    published: 2016-07
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C357424
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

@@ -1,0 +1,36 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C419899
+grouping: series-link
+madb_id: C419899
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C419899
+record_type: manga_book_series
+title:
+  ja: "スカーレット"
+  yomi: "スカーレット"
+creator: "[著]結野ちり"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 2
+first_published: 2019-03
+last_published: 2020-01
+volumes:
+  - madb_id: M524241
+    number: "1"
+    isbn: "9784758079129"
+    published: 2019-03
+  - madb_id: M814989
+    number: "2"
+    isbn: "9784758020657"
+    published: 2020-01
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C419899
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

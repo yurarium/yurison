@@ -1,0 +1,37 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: madb-t-
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "カナリアは綺羅星の夢をみる"
+  yomi: "カナリア ワ キラボシ ノ ユメ オ ミル"
+creator: "sheepD / "
+publisher: "[頒布]講談社"
+imprint: "IDコミックス. Yurihime comics"
+volume_count: 2
+first_published: 2025-08-04
+last_published: 2026-04-13
+volumes:
+  - madb_id: M1065078
+    number: "2"
+    isbn: "9784758029384"
+    published: 2025-08-04
+  - madb_id: M1111115
+    number: "3"
+    isbn: "9784758089845"
+    published: 2026-04-13
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

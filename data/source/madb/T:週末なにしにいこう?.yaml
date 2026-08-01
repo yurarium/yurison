@@ -1,0 +1,32 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: madb-t-
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "週末なにしにいこう?"
+  yomi: "シュウマツ ナニシニ イコウ?"
+creator: "[著]Hitoto*"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 1
+first_published: 2017-09
+last_published: 2017-09
+volumes:
+  - madb_id: M858807
+    isbn: "9784758077118"
+    published: 2017-09
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

@@ -1,0 +1,40 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C417413
+grouping: series-link
+madb_id: C417413
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C417413
+record_type: manga_book_series
+title:
+  ja: "あとで姉妹ます。"
+  yomi: "アトデ シマイ マス 。"
+creator: "[著]めの"
+publisher: "一迅社"
+imprint: "IDコミックス"
+volume_count: 3
+first_published: 2016-08
+last_published: 2017-08
+volumes:
+  - madb_id: M524949
+    number: "1"
+    isbn: "9784758075565"
+    published: 2016-08
+  - madb_id: M525241
+    number: "2"
+    isbn: "9784758076388"
+    published: 2017-02
+  - madb_id: M532343
+    number: "3"
+    isbn: "9784758077101"
+    published: 2017-08
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C417413
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

@@ -1,0 +1,40 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C366405
+grouping: series-link
+madb_id: C366405
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C366405
+record_type: manga_book_series
+title:
+  ja: "初恋姉妹"
+  yomi: "ハツコイ シマイ"
+creator: "[漫画]東雲水生 / [脚本]駒尾真子"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yuri-hime comics"
+volume_count: 3
+first_published: 2006-04
+last_published: 2008-05
+volumes:
+  - madb_id: M478331
+    number: "1"
+    isbn: "4758070024"
+    published: 2006-04
+  - madb_id: M478616
+    number: "2"
+    isbn: "9784758070133"
+    published: 2007-05
+  - madb_id: M478642
+    number: "3"
+    isbn: "9784758070263"
+    published: 2008-05
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C366405
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

@@ -1,0 +1,60 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C362025
+grouping: series-link
+madb_id: C362025
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C362025
+record_type: manga_book_series
+title:
+  ja: "2DK、Gペン、目覚まし時計。"
+  yomi: "2DK Gペン メザマシドケイ"
+creator: "[著]大沢やよい"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yurihime comics"
+volume_count: 8
+first_published: 2015-07
+last_published: 2019-01
+volumes:
+  - madb_id: M463405
+    number: "1"
+    isbn: "9784758074346"
+    published: 2015-07
+  - madb_id: M463426
+    number: "2"
+    isbn: "9784758075060"
+    published: 2016-01
+  - madb_id: M525117
+    number: "3"
+    isbn: "9784758075688"
+    published: 2016-08
+  - madb_id: M522643
+    number: "4"
+    isbn: "9784758076463"
+    published: 2017-03
+  - madb_id: M532324
+    number: "5"
+    isbn: "9784758077088"
+    published: 2017-08
+  - madb_id: M531089
+    number: "6"
+    isbn: "9784758077491"
+    published: 2017-12
+  - madb_id: M519402
+    number: "7"
+    isbn: "9784758078115"
+    published: 2018-06
+  - madb_id: M520941
+    number: "8"
+    isbn: "9784758078924"
+    published: 2019-01
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C362025
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

@@ -1,0 +1,36 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C419541
+grouping: series-link
+madb_id: C419541
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C419541
+record_type: manga_book_series
+title:
+  ja: "女子高生と王子ちゃん"
+  yomi: "ジョシコウセイ ト オウジチャン"
+creator: "[著]くうねりん"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 2
+first_published: 2018-12
+last_published: 2019-07
+volumes:
+  - madb_id: M522058
+    number: "1"
+    isbn: "9784758078771"
+    published: 2018-12
+  - madb_id: M808080
+    number: "2"
+    isbn: "9784758079587"
+    published: 2019-07
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C419541
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

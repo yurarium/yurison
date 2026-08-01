@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C357437
+grouping: title-match
+madb_id: C357437
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C357437
+record_type: manga_book_series
+title:
+  ja: "百合男子"
+  yomi: "ユリ ダンシ"
+creator: "[著]倉田嘘"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yuri-hime comics"
+volume_count: 5
+first_published: 2011-09
+last_published: 2014-07
+volumes:
+  - madb_id: M928014
+    number: "1"
+    isbn: "9784758071635"
+    published: 2011-09
+  - madb_id: M454468
+    number: "第2巻"
+    isbn: "9784758071895"
+    published: 2012-07
+  - madb_id: M454518
+    number: "第3巻"
+    isbn: "9784758072267"
+    published: 2013-02
+  - madb_id: M454530
+    number: "第4巻"
+    isbn: "9784758072663"
+    published: 2013-08
+  - madb_id: M454508
+    number: "第5巻"
+    isbn: "9784758073165"
+    published: 2014-07
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C357437
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

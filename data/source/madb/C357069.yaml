@@ -1,0 +1,31 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C357069
+grouping: series-link
+madb_id: C357069
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C357069
+record_type: manga_book_series
+title:
+  ja: "Sweet Little Devil"
+  yomi: "スイート リトル デビル"
+creator: "[著]南崎いく"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yurihime comics"
+volume_count: 1
+first_published: 2015-09
+last_published: 2015-09
+volumes:
+  - madb_id: M454874
+    isbn: "9784758074728"
+    published: 2015-09
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C357069
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

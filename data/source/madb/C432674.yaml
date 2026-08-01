@@ -1,0 +1,92 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C432674
+grouping: title-match
+madb_id: C432674
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C432674
+record_type: manga_book_series
+title:
+  ja: "ささやくように恋を唄う"
+  yomi: "ササヤク ヨウニ コイ オ ウタウ"
+creator: "[著]竹嶋えく"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 16
+first_published: 2019-07
+last_published: 2026-05-18
+volumes:
+  - madb_id: M807988
+    number: "1"
+    isbn: "9784758079501"
+    published: 2019-07
+  - madb_id: M816035
+    number: "2"
+    isbn: "9784758020749"
+    published: 2020-02
+  - madb_id: M821141
+    number: "3"
+    isbn: "9784758021357"
+    published: 2020-07
+  - madb_id: M829882
+    number: "4"
+    isbn: "9784758022019"
+    published: 2021-02
+  - madb_id: M852535
+    number: "5"
+    isbn: "9784758022941"
+    published: 2021-10
+  - madb_id: M867837
+    number: "6"
+    isbn: "9784758023979"
+    published: 2022-05
+  - madb_id: M880202
+    number: "7"
+    isbn: "9784758024914"
+    published: 2023-02
+  - madb_id: M930792
+    number: "8"
+    isbn: "9784758025782"
+    published: 2023-08
+  - madb_id: M966880
+    number: "9"
+    isbn: "9784758026956"
+    published: 2024-04
+  - madb_id: M966916
+    number: "9"
+    isbn: "9784758026949"
+    published: 2024-04
+  - madb_id: M972391
+    number: "10"
+    isbn: "9784758027434"
+    published: 2024-08
+  - madb_id: M972439
+    number: "10"
+    isbn: "9784758027427"
+    published: 2024-08
+  - madb_id: M1064376
+    number: "11"
+    isbn: "9784758029278"
+    published: 2025-07-21
+  - madb_id: M1064422
+    number: "11"
+    isbn: "9784758029261"
+    published: 2025-07-21
+  - madb_id: M1112247
+    number: "12"
+    isbn: "9784758098342"
+    published: 2026-05-18
+  - madb_id: M1112285
+    number: "12"
+    isbn: "9784758098359"
+    published: 2026-05-18
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C432674
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

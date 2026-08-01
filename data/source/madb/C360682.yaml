@@ -1,0 +1,74 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C360682
+grouping: series-link
+madb_id: C360682
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C360682
+record_type: manga_book_series
+title:
+  ja: "立花館To Lieあんぐる"
+  yomi: "タチバナカン トライアングル"
+creator: "[著]merryhachi"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yurihime comics"
+volume_count: 12
+first_published: 2015-07
+last_published: 2019-06
+volumes:
+  - madb_id: M824018
+    number: "9"
+    isbn: "9784758021319"
+  - madb_id: M824026
+    number: "9"
+    isbn: "9784758021302"
+  - madb_id: M460980
+    number: "1"
+    isbn: "9784758074353"
+    published: 2015-07
+  - madb_id: M460889
+    number: "2"
+    isbn: "9784758075183"
+    published: 2016-02
+  - madb_id: M530831
+    number: "4"
+    isbn: "9784758076609"
+    published: 2017-05
+  - madb_id: M531149
+    number: "5"
+    isbn: "9784758077507"
+    published: 2018-01
+  - madb_id: M518624
+    number: "6"
+    isbn: "9784758078023"
+    published: 2018-05
+  - madb_id: M518625
+    number: "6"
+    isbn: "9784758078030"
+    published: 2018-05
+  - madb_id: M532043
+    number: "7"
+    isbn: "9784758078146"
+    published: 2018-08
+  - madb_id: M532174
+    number: "7"
+    isbn: "9784758078351"
+    published: 2018-08
+  - madb_id: M807730
+    number: "8"
+    isbn: "9784758079365"
+    published: 2019-06
+  - madb_id: M807746
+    number: "8"
+    isbn: "9784758079372"
+    published: 2019-06
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C360682
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

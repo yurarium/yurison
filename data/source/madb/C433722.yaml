@@ -1,0 +1,44 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C433722
+grouping: series-link
+madb_id: C433722
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C433722
+record_type: manga_book_series
+title:
+  ja: "ゆめぐりゆりめぐり"
+  yomi: "ユメグリ ユリ メグリ"
+creator: "[著]はづき"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 4
+first_published: 2019-10
+last_published: 2021-05
+volumes:
+  - madb_id: M811007
+    number: "volume 1"
+    isbn: "9784758079808"
+    published: 2019-10
+  - madb_id: M820653
+    number: "volume 2"
+    isbn: "9784758021081"
+    published: 2020-05
+  - madb_id: M827468
+    number: "volume 3"
+    isbn: "9784758021739"
+    published: 2020-11
+  - madb_id: M847631
+    number: "4"
+    isbn: "9784758022415"
+    published: 2021-05
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C433722
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

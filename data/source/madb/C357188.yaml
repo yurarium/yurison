@@ -1,0 +1,40 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C357188
+grouping: series-link
+madb_id: C357188
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C357188
+record_type: manga_book_series
+title:
+  ja: "カシオペア・ドルチェ"
+  yomi: "カシオペア ドルチェ"
+creator: "[著]髙木信孝"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yuri-hime comics"
+volume_count: 3
+first_published: 2009-01
+last_published: 2011-08
+volumes:
+  - madb_id: M454636
+    number: "1"
+    isbn: "9784758070386"
+    published: 2009-01
+  - madb_id: M454617
+    number: "2"
+    isbn: "9784758070690"
+    published: 2010-02
+  - madb_id: M454634
+    number: "3"
+    isbn: "9784758071581"
+    published: 2011-08
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C357188
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

@@ -1,0 +1,52 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C450093
+grouping: title-match
+madb_id: C450093
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C450093
+record_type: manga_book_series
+title:
+  ja: "踊り場にスカートが鳴る"
+  yomi: "オドリバ ニ スカート ガ ナル"
+creator: "[著]うたたね游"
+publisher: "[頒布]講談社"
+imprint: "IDコミックス"
+volume_count: 6
+first_published: 2021-07
+last_published: 2025-11-24
+volumes:
+  - madb_id: M849613
+    number: "1"
+    isbn: "9784758022620"
+    published: 2021-07
+  - madb_id: M867800
+    number: "2"
+    isbn: "9784758023948"
+    published: 2022-05
+  - madb_id: M928535
+    number: "3"
+    isbn: "9784758025300"
+    published: 2023-05
+  - madb_id: M948342
+    number: "4"
+    isbn: "9784758026598"
+    published: 2024-03
+  - madb_id: M1034178
+    number: "5"
+    isbn: "9784758028189"
+    published: 2025-01-13
+  - madb_id: M1087556
+    number: "6"
+    isbn: "9784758029797"
+    published: 2025-11-24
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C450093
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

@@ -1,0 +1,49 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: madb-t-
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "平良深姉妹はどっちもヤんでる"
+  yomi: "ヘラミ シマイ ワ ドッチ モ ヤンデル"
+creator: "金子ある / カネコアル"
+publisher: "[頒布]講談社"
+imprint: "IDコミックス. Yurihime comics"
+volume_count: 5
+first_published: 2023-06
+last_published: 2026-05-18
+volumes:
+  - madb_id: M929360
+    number: "1"
+    isbn: "9784758025416"
+    published: 2023-06
+  - madb_id: M945990
+    number: "2"
+    isbn: "9784758026345"
+    published: 2024-01
+  - madb_id: M971152
+    number: "3"
+    isbn: "9784758027311"
+    published: 2024-08
+  - madb_id: M1063147
+    number: "4"
+    isbn: "9784758028844"
+    published: 2025-05-23
+  - madb_id: M1112234
+    number: "5"
+    isbn: "9784758098380"
+    published: 2026-05-18
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

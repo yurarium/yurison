@@ -1,0 +1,31 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C357270
+grouping: series-link
+madb_id: C357270
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C357270
+record_type: manga_book_series
+title:
+  ja: "レンアイ♥女子ファイル"
+  yomi: "レンアイ ジョシ ファイル"
+creator: "[著]森島明子"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yuri-hime comics"
+volume_count: 1
+first_published: 2012-12
+last_published: 2012-12
+volumes:
+  - madb_id: M454777
+    isbn: "9784758072199"
+    published: 2012-12
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C357270
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

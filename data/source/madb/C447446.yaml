@@ -1,0 +1,55 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C447446
+grouping: mixed
+madb_id: C447446
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C447446
+record_type: manga_book_series
+title:
+  ja: "ロンリーガールに逆らえない"
+  yomi: "ロンリー ガール ニ サカラエナイ"
+creator: "[著]樫風"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 7
+first_published: 2020-11
+last_published: 2024-05
+volumes:
+  - madb_id: M829685
+    number: "1"
+    isbn: "9784758021104"
+  - madb_id: M827558
+    number: "2"
+    isbn: "9784758021715"
+    published: 2020-11
+  - madb_id: M847603
+    number: "3"
+    isbn: "9784758022392"
+    published: 2021-05
+  - madb_id: M854992
+    number: "4"
+    isbn: "9784758023085"
+    published: 2021-11
+  - madb_id: M870172
+    number: "5"
+    isbn: "9784758024105"
+    published: 2022-06
+  - madb_id: M879262
+    number: "6"
+    isbn: "9784758024808"
+    published: 2023-01
+  - madb_id: M967822
+    number: "6"
+    isbn: "9784758026994"
+    published: 2024-05
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C447446
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

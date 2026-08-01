@@ -1,0 +1,67 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C417707
+grouping: title-match
+madb_id: C417707
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C417707
+record_type: manga_book_series
+title:
+  ja: "きみが死ぬまで恋をしたい"
+  yomi: "キミ ガ シヌ マデ コイ オ シタイ"
+creator: "[著]あおのなち"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 10
+first_published: 2019-02
+last_published: 2026-02-09
+volumes:
+  - madb_id: M523199
+    number: "1"
+    isbn: "9784758078986"
+    published: 2019-02
+  - madb_id: M809325
+    number: "2"
+    isbn: "9784758079648"
+    published: 2019-08
+  - madb_id: M823141
+    number: "3"
+    isbn: "9784758021470"
+    published: 2020-08
+  - madb_id: M849990
+    number: "4"
+    isbn: "9784758022675"
+    published: 2021-07
+  - madb_id: M870154
+    number: "5"
+    isbn: "9784758024006"
+    published: 2022-05
+  - madb_id: M870403
+    number: "5"
+    isbn: "9784758023993"
+    published: 2022-05
+  - madb_id: M880424
+    number: "6"
+    isbn: "9784758024976"
+    published: 2023-02
+  - madb_id: M965924
+    number: "7"
+    isbn: "9784758026482"
+    published: 2024-03
+  - madb_id: M1062086
+    number: "8"
+    isbn: "9784758028653"
+    published: 2025-04-19
+  - madb_id: M1095738
+    isbn: "9784758089388"
+    published: 2026-02-09
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C417707
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

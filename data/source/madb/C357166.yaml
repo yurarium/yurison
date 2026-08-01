@@ -1,0 +1,76 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C357166
+grouping: series-link
+madb_id: C357166
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C357166
+record_type: manga_book_series
+title:
+  ja: "ゆるゆり"
+  yomi: "ユル ユリ"
+creator: "[著]なもり"
+publisher: "一迅社"
+imprint: "ID コミックス　／　Yurihime comics"
+volume_count: 12
+first_published: 2015-07
+last_published: 2018-02
+volumes:
+  - madb_id: M460968
+    number: "2"
+    isbn: "9784758074377"
+    published: 2015-07
+  - madb_id: M460969
+    number: "3"
+    isbn: "9784758074551"
+    published: 2015-08
+  - madb_id: M460971
+    number: "4"
+    isbn: "9784758074568"
+    published: 2015-08
+  - madb_id: M460972
+    number: "5"
+    isbn: "9784758074575"
+    published: 2015-08
+  - madb_id: M454293
+    number: "6"
+    isbn: "9784758074735"
+    published: 2015-09
+  - madb_id: M454310
+    number: "7"
+    isbn: "9784758074742"
+    published: 2015-09
+  - madb_id: M454303
+    number: "8"
+    isbn: "9784758074759"
+    published: 2015-10
+  - madb_id: M454166
+    number: "9"
+    isbn: "9784758074797"
+    published: 2015-10
+  - madb_id: M463466
+    number: "10"
+    isbn: "9784758074940"
+    published: 2015-11
+  - madb_id: M463559
+    number: "11"
+    isbn: "9784758074957"
+    published: 2015-11
+  - madb_id: M515946
+    number: "16"
+    isbn: "9784758077750"
+    published: 2018-02
+  - madb_id: M515947
+    number: "16"
+    isbn: "9784758077767"
+    published: 2018-02
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C357166
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

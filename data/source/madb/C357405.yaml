@@ -1,0 +1,44 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C357405
+grouping: series-link
+madb_id: C357405
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C357405
+record_type: manga_book_series
+title:
+  ja: "月と世界とエトワール"
+  yomi: "ツキ ト セカイ ト エトワール"
+creator: "[著]高上優里子"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yuri-hime comics"
+volume_count: 4
+first_published: 2013-07
+last_published: 2015-04
+volumes:
+  - madb_id: M454619
+    number: "1"
+    isbn: "9784758072564"
+    published: 2013-07
+  - madb_id: M454632
+    number: "2"
+    isbn: "9784758072878"
+    published: 2014-02
+  - madb_id: M454623
+    number: "3"
+    isbn: "9784758073356"
+    published: 2014-09
+  - madb_id: M454633
+    number: "4"
+    isbn: "9784758073967"
+    published: 2015-04
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C357405
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

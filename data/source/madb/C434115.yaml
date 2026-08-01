@@ -1,0 +1,40 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C434115
+grouping: series-link
+madb_id: C434115
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C434115
+record_type: manga_book_series
+title:
+  ja: "ハロー、メランコリック!"
+  yomi: "ハロー 、 メランコリック!"
+creator: "[著]大沢やよい"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 3
+first_published: 2019-11
+last_published: 2021-04
+volumes:
+  - madb_id: M812190
+    number: "1"
+    isbn: "9784758079877"
+    published: 2019-11
+  - madb_id: M822649
+    number: "2"
+    isbn: "9784758021265"
+    published: 2020-07
+  - madb_id: M846156
+    number: "3"
+    isbn: "9784758022286"
+    published: 2021-04
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C434115
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

@@ -1,0 +1,36 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C437157
+grouping: series-link
+madb_id: C437157
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C437157
+record_type: manga_book_series
+title:
+  ja: "ふたごわずらい"
+  yomi: "フタゴ ワズライ"
+creator: "[著]桜野いつき"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 2
+first_published: 2020-08
+last_published: 2021-03
+volumes:
+  - madb_id: M821093
+    number: "volume 1"
+    isbn: "9784758021432"
+    published: 2020-08
+  - madb_id: M830432
+    number: "2"
+    isbn: "9784758022170"
+    published: 2021-03
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C437157
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

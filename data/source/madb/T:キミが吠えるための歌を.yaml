@@ -1,0 +1,41 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: madb-t-
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "キミが吠えるための歌を、"
+  yomi: "キミ ガ ホエル タメノ ウタ オ 、"
+creator: "樫風 / カシカゼ"
+publisher: "[頒布]講談社"
+imprint: "IDコミックス. Yurihime comics"
+volume_count: 3
+first_published: 2025-01-13
+last_published: 2026-02-09
+volumes:
+  - madb_id: M1034169
+    number: "1"
+    isbn: "9784758028165"
+    published: 2025-01-13
+  - madb_id: M1065135
+    number: "2"
+    isbn: "9784758029391"
+    published: 2025-08-04
+  - madb_id: M1095333
+    number: "3"
+    isbn: "9784758089210"
+    published: 2026-02-09
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

@@ -605,11 +605,10 @@ last-seen statement once stale rather than asserting terms that may have lapsed.
 framework (§6) with two or three real adapters, validation, build, and a working Pages site. Every
 layer proven against roughly 500–1,000 works before scaling.
 
-> **Corrected 2026-08-01.** This originally said MADB's serialisation datasets made the corpus
-> tractable directly. They do not. MADB holds three of the five magazines at magazine level, partial
-> issue lists, and no contents records for any of them. The corpus has to be built from publisher
-> sources — 一迅社 and ichicomi — with MADB supplying magazine facts and 単行本 records once titles
-> are known. See [MADB.md](MADB.md).
+> **Corrected 2026-08-01.** This originally pointed at MADB's magazine-serialisation datasets. Those
+> hold no contents records for any yuri magazine. The corpus comes instead from the 単行本 imprint
+> field (`schema:brand`): 646 volumes, 302 works, 2006–2026, all with ISBNs. Publisher sources are
+> still needed for the three magazines MADB lacks and for serialisation detail. See [MADB.md](MADB.md).
 
 The adapter framework is Phase 1 work rather than a later refinement: it is the mechanism that
 decides whether this project needs continuous attention or periodic maintenance, and that is the

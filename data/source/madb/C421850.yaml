@@ -1,0 +1,31 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C421850
+grouping: series-link
+madb_id: C421850
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C421850
+record_type: manga_book_series
+title:
+  ja: "リリウム・テラリウム = Lilium Terrarium : GIRL meets GIRL OMNIBUS STORY ＆ ILLUSTRATION by ED"
+  yomi: "Lilium Terrarium"
+creator: "[著]ED"
+publisher: "[発売]講談社"
+imprint: "YURIHIME COMICS"
+volume_count: 1
+first_published: 2019-01
+last_published: 2019-01
+volumes:
+  - madb_id: M525543
+    isbn: "9784758078931"
+    published: 2019-01
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C421850
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

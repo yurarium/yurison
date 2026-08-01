@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C419808
+grouping: mixed
+madb_id: C419808
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C419808
+record_type: manga_book_series
+title:
+  ja: "ヒーローさんと元女幹部さん"
+  yomi: "ヒーロー サン ト モト オンナ カンブ サン"
+creator: "[著]そめちめ"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 5
+first_published: 2019-04
+last_published: 2022-09
+volumes:
+  - madb_id: M525405
+    number: "1"
+    isbn: "9784758079181"
+    published: 2019-04
+  - madb_id: M814944
+    number: "2"
+    isbn: "9784758020664"
+    published: 2020-01
+  - madb_id: M825930
+    number: "3"
+    isbn: "9784758021586"
+    published: 2020-10
+  - madb_id: M849969
+    number: "4"
+    isbn: "9784758022644"
+    published: 2021-07
+  - madb_id: M873780
+    number: "5"
+    isbn: "9784758024495"
+    published: 2022-09
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C419808
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

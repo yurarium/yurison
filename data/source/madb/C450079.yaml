@@ -1,0 +1,56 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C450079
+grouping: title-match
+madb_id: C450079
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C450079
+record_type: manga_book_series
+title:
+  ja: "彩純ちゃんはレズ風俗に興味があります!"
+  yomi: "アスミチャン ワ レズ フウゾク ニ キョウミ ガ アリマス !"
+creator: "[著]伊月クロ"
+publisher: "[頒布]講談社"
+imprint: "IDコミックス"
+volume_count: 7
+first_published: 2021-06
+last_published: 2025-12-08
+volumes:
+  - madb_id: M848567
+    number: "1"
+    isbn: "9784758022491"
+    published: 2021-06
+  - madb_id: M860230
+    number: "2"
+    isbn: "9784758023542"
+    published: 2022-02
+  - madb_id: M874667
+    number: "3"
+    isbn: "9784758024532"
+    published: 2022-10
+  - madb_id: M929107
+    number: "4"
+    isbn: "9784758025393"
+    published: 2023-06
+  - madb_id: M969062
+    number: "5"
+    isbn: "9784758027045"
+    published: 2024-06
+  - madb_id: M1060289
+    number: "6"
+    isbn: "9784758028387"
+    published: 2025-04-14
+  - madb_id: M1088317
+    number: "7"
+    isbn: "9784758029889"
+    published: 2025-12-08
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C450079
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

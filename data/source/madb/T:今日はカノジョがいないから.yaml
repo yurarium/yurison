@@ -1,0 +1,57 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: madb-t-
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "今日はカノジョがいないから"
+  yomi: "キョウ ワ カノジョ ガ イナイ カラ"
+creator: "岩見樹代子 / イワミキヨコ"
+publisher: "[頒布]講談社"
+imprint: "IDコミックス. Yurihime comics"
+volume_count: 7
+first_published: 2022-01
+last_published: 2026-04-13
+volumes:
+  - madb_id: M857779
+    number: "1"
+    isbn: "9784758023399"
+    published: 2022-01
+  - madb_id: M873753
+    number: "2"
+    isbn: "9784758024501"
+    published: 2022-09
+  - madb_id: M881410
+    number: "3"
+    isbn: "9784758024990"
+    published: 2023-03
+  - madb_id: M941478
+    number: "4"
+    isbn: "9784758026161"
+    published: 2023-11
+  - madb_id: M971168
+    number: "5"
+    isbn: "9784758027304"
+    published: 2024-08
+  - madb_id: M1063099
+    number: "6"
+    isbn: "9784758028806"
+    published: 2025-05-23
+  - madb_id: M1110950
+    number: "7"
+    isbn: "9784758089838"
+    published: 2026-04-13
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

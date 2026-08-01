@@ -1,0 +1,40 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C418702
+grouping: series-link
+madb_id: C418702
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C418702
+record_type: manga_book_series
+title:
+  ja: "徒然日和"
+  yomi: "ツレズレ ビヨリ"
+creator: "[著]土室圭"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 3
+first_published: 2018-05
+last_published: 2019-11
+volumes:
+  - madb_id: M518627
+    number: "1"
+    isbn: "9784758078054"
+    published: 2018-05
+  - madb_id: M524239
+    number: "2"
+    isbn: "9784758079044"
+    published: 2019-03
+  - madb_id: M812070
+    number: "3"
+    isbn: "9784758079884"
+    published: 2019-11
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C418702
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

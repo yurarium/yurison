@@ -1,0 +1,52 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C434622
+grouping: mixed
+madb_id: C434622
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C434622
+record_type: manga_book_series
+title:
+  ja: "Citrus +"
+  yomi: "シトラス プラス"
+creator: "[著]サブロウタ"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 6
+first_published: 2019-12
+last_published: 2024-07
+volumes:
+  - madb_id: M813622
+    number: "vol. 1"
+    isbn: "9784758079761"
+    published: 2019-12
+  - madb_id: M823115
+    number: "vol. 2"
+    isbn: "9784758021043"
+    published: 2020-08
+  - madb_id: M847606
+    number: "3"
+    isbn: "9784758022187"
+    published: 2021-04
+  - madb_id: M860248
+    number: "4"
+    isbn: "9784758023375"
+    published: 2022-02
+  - madb_id: M880129
+    number: "5"
+    isbn: "9784758024891"
+    published: 2023-01
+  - madb_id: M970815
+    number: "6"
+    isbn: "9784758027229"
+    published: 2024-07
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C434622
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

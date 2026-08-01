@@ -1,0 +1,36 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C357308
+grouping: title-match
+madb_id: C357308
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C357308
+record_type: manga_book_series
+title:
+  ja: "半熟女子"
+  yomi: "ハンジュク ジョシ"
+creator: "[著]森島明子"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yuri-hime comics"
+volume_count: 2
+first_published: 2008-11-01
+last_published: 2009-09
+volumes:
+  - madb_id: M963187
+    number: "1"
+    isbn: "9784758070348"
+    published: 2008-11-01
+  - madb_id: M454786
+    number: "2"
+    isbn: "9784758070591"
+    published: 2009-09
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C357308
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

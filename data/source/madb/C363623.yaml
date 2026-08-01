@@ -1,0 +1,31 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C363623
+grouping: series-link
+madb_id: C363623
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C363623
+record_type: manga_book_series
+title:
+  ja: "くちびるためいきさくらいろ"
+  yomi: "クチビル タメイキ サクライロ"
+creator: "[著]森永みるく"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yuri-hime comics"
+volume_count: 1
+first_published: 2006-02
+last_published: 2006-02
+volumes:
+  - madb_id: M470221
+    isbn: "4758070016"
+    published: 2006-02
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C363623
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

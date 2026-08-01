@@ -1,0 +1,31 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C357479
+grouping: series-link
+madb_id: C357479
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C357479
+record_type: manga_book_series
+title:
+  ja: "薄光スノウフレーク"
+  yomi: "ハッコウ スノウ フレーク"
+creator: "[著]Haya."
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yuri-hime comics"
+volume_count: 1
+first_published: 2014-10
+last_published: 2014-10
+volumes:
+  - madb_id: M454917
+    isbn: "9784758073530"
+    published: 2014-10
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C357479
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

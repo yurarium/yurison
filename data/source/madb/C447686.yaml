@@ -1,0 +1,76 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C447686
+grouping: title-match
+madb_id: C447686
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C447686
+record_type: manga_book_series
+title:
+  ja: "私の推しは悪役令嬢。"
+  yomi: "ワタクシ ノ オシ ワ アクヤク レイジョウ 。"
+creator: "[原作]いのり。 / [漫画]青乃下"
+publisher: "[頒布]講談社"
+imprint: "IDコミックス"
+volume_count: 12
+first_published: 2021-01
+last_published: 2026-05-18
+volumes:
+  - madb_id: M830191
+    number: "1"
+    isbn: "9784758021937"
+    published: 2021-01
+  - madb_id: M849256
+    number: "2"
+    isbn: "9784758022637"
+    published: 2021-07
+  - madb_id: M857801
+    number: "3"
+    isbn: "9784758023184"
+    published: 2022-01
+  - madb_id: M871195
+    number: "4"
+    isbn: "9784758024334"
+    published: 2022-07
+  - madb_id: M879324
+    number: "5"
+    isbn: "9784758024792"
+    published: 2023-01
+  - madb_id: M929048
+    number: "6"
+    isbn: "9784758025409"
+    published: 2023-06
+  - madb_id: M941432
+    number: "7"
+    isbn: "9784758026147"
+    published: 2023-11
+  - madb_id: M941479
+    number: "7"
+    isbn: "9784758026130"
+    published: 2023-11
+  - madb_id: M967830
+    number: "8"
+    isbn: "9784758026963"
+    published: 2024-05
+  - madb_id: M1063163
+    number: "10"
+    isbn: "9784758028813"
+    published: 2025-05-23
+  - madb_id: M1087530
+    number: "11"
+    isbn: "9784758029780"
+    published: 2025-11-24
+  - madb_id: M1112298
+    number: "12"
+    isbn: "9784758098366"
+    published: 2026-05-18
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C447686
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

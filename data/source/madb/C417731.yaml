@@ -1,0 +1,88 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C417731
+grouping: title-match
+madb_id: C417731
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C417731
+record_type: manga_book_series
+title:
+  ja: "私の百合はお仕事です!"
+  yomi: "ワタクシ ノ ユリ ワ オシゴト デス"
+creator: "[著]未幡"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 15
+first_published: 2017-07
+last_published: 2025-12-08
+volumes:
+  - madb_id: M513716
+    number: "1"
+    isbn: "9784758076937"
+    published: 2017-07
+  - madb_id: M514136
+    number: "2"
+    isbn: "9784758077392"
+    published: 2017-11
+  - madb_id: M518626
+    number: "3"
+    isbn: "9784758078047"
+    published: 2018-05
+  - madb_id: M522044
+    number: "4"
+    isbn: "9784758078689"
+    published: 2018-12
+  - madb_id: M808010
+    number: "5"
+    isbn: "9784758079488"
+    published: 2019-07
+  - madb_id: M815909
+    number: "6"
+    isbn: "9784758020756"
+    published: 2020-02
+  - madb_id: M825952
+    number: "7"
+    isbn: "9784758021616"
+    published: 2020-10
+  - madb_id: M847605
+    number: "8"
+    isbn: "9784758022422"
+    published: 2021-05
+  - madb_id: M856850
+    number: "9"
+    isbn: "9784758023252"
+    published: 2021-12
+  - madb_id: M870214
+    number: "10"
+    isbn: "9784758024136"
+    published: 2022-06
+  - madb_id: M870436
+    number: "10"
+    isbn: "9784758024143"
+    published: 2022-06
+  - madb_id: M877270
+    number: "11"
+    isbn: "9784758024723"
+    published: 2022-12
+  - madb_id: M929113
+    number: "12"
+    isbn: "9784758025379"
+    published: 2023-06
+  - madb_id: M946817
+    number: "13"
+    isbn: "9784758026468"
+    published: 2024-02
+  - madb_id: M1088235
+    number: "14"
+    isbn: "9784758029902"
+    published: 2025-12-08
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C417731
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

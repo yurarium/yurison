@@ -1,0 +1,36 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C418483
+grouping: series-link
+madb_id: C418483
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C418483
+record_type: manga_book_series
+title:
+  ja: "ルミナス = ブルー"
+  yomi: "ルミナス = ブルー"
+creator: "[著]岩見樹代子"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 2
+first_published: 2019-04
+last_published: 2019-11
+volumes:
+  - madb_id: M525809
+    number: "1"
+    isbn: "9784758079211"
+    published: 2019-04
+  - madb_id: M812179
+    number: "2"
+    isbn: "9784758079860"
+    published: 2019-11
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C418483
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

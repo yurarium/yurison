@@ -1,0 +1,31 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C418886
+grouping: series-link
+madb_id: C418886
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C418886
+record_type: manga_book_series
+title:
+  ja: "瞬きできない"
+  yomi: "マバタキ デキナイ"
+creator: "[著]雪尾ゆき"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 1
+first_published: 2018-01
+last_published: 2018-01
+volumes:
+  - madb_id: M531318
+    isbn: "9784758077514"
+    published: 2018-01
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C418886
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

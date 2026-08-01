@@ -1,0 +1,31 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C434618
+grouping: series-link
+madb_id: C434618
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C434618
+record_type: manga_book_series
+title:
+  ja: "ぼくは、百合なお姉ちゃんを応援しています"
+  yomi: "ボク ワ 、 ユリナ オネエチャン オ オウエンシテイマス"
+creator: "[著]あおと響"
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 1
+first_published: 2019-12
+last_published: 2019-12
+volumes:
+  - madb_id: M813633
+    isbn: "9784758079938"
+    published: 2019-12
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C434618
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

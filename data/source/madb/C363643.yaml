@@ -1,0 +1,31 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-01
+work_id: C363643
+grouping: series-link
+madb_id: C363643
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C363643
+record_type: manga_book_series
+title:
+  ja: "マーメイドライン"
+  yomi: "マーメイド ライン"
+creator: "[著]金田一蓮十郎"
+publisher: "一迅社"
+imprint: "IDコミックス　／　Yuri-hime comics"
+volume_count: 1
+first_published: 2008-03
+last_published: 2008-03
+volumes:
+  - madb_id: M470324
+    isbn: "9784758070256"
+    published: 2008-03
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C363643
+  retrieved: 2026-08-01
+  note: >-
+    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

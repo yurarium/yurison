@@ -29,7 +29,8 @@ from collections import Counter
 import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "recon"))
-from extract import CHAPTERISH, norm_date, try_jsonld, try_markup, try_next  # noqa: E402
+from extract import (CHAPTERISH, norm_date, try_jsonld, try_markup,  # noqa: E402
+                     try_next, try_pairs)
 
 CHROME = None
 for c in ("/snap/bin/chromium", "/usr/bin/chromium", "/usr/bin/chromium-browser",
@@ -68,6 +69,9 @@ def episodes(html):
     got = try_jsonld(html) or try_next(html)
     if len(got) < MIN_EPISODES:
         got, _ = try_markup(html)
+    if len(got) < MIN_EPISODES:
+        # Nested chapter lists, where title and date are not in a common repeated container.
+        got = try_pairs(html)
     out, seen = [], set()
     for g in got:
         title = re.sub(r"\s+", " ", g.get("title") or "").strip()

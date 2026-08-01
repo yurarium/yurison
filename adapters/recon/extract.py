@@ -116,6 +116,42 @@ def try_nuxt(html):
         return []
 
 
+def try_pairs(html):
+    """Pair each date with the nearest chapter label before it.
+
+    try_markup splits at every occurrence of a tag, which yields the fragment between one opening
+    tag and the next rather than a nested container. On a flat <li> list that is the same thing; on
+    a nested div tree it is not, and title and date land in different fragments. マンガワン renders
+    its chapter list as nested divs — 第8話(後編) in one <p>, 2026/07/19 in another two levels down
+    — so nothing was extracted from a page that plainly had it.
+
+    Pairing by position needs no assumption about structure at all.
+    """
+    body = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", html, flags=re.S | re.I)
+    flat = re.sub(r"<[^>]+>", "\x00", body)
+    out, seen = [], set()
+    for m in re.finditer(r"\d{4}[-/.年]\d{1,2}[-/.月]\d{1,2}", flat):
+        d = norm_date(m.group(0))
+        if not d:
+            continue
+        back = flat[max(0, m.start() - 900): m.start()]
+        labels = list(CHAPTERISH.finditer(back))
+        if not labels:
+            continue
+        lm = labels[-1]
+        # If another date sits between the label and this one, the label belongs to that date and
+        # not to this — 第8話(後編) was being paired with 第8話(前編)'s date as well as its own.
+        if re.search(r"\d{4}[-/.年]\d{1,2}[-/.月]\d{1,2}", back[lm.end():]):
+            continue
+        label = re.sub(r"[\x00]+", " ", back[lm.start(): lm.end() + 40]).strip()
+        label = re.split(r"\s{2,}", label)[0].strip()
+        if not label or (label, d) in seen:
+            continue
+        seen.add((label, d))
+        out.append({"title": label, "date": d})
+    return out
+
+
 def try_markup(html):
     """Repeated blocks holding a date and an anchor. Reports the container it keyed on so the
     result is reproducible as a selector rather than a one-off parse."""

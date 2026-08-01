@@ -1,0 +1,170 @@
+# マンガワン — chapters read from a RENDERED page.
+#
+# This platform serves a shell and builds its chapter list in JavaScript, so a fetch
+# returns nothing to parse. The page is rendered with headless chromium and the DOM
+# it produced is read — the platform's own page, as it chose to draw it.
+#
+# date_basis: rendered — weaker than a feed the platform published, stronger than a
+# pattern matched in static markup. No genre label is established here (§4).
+source: webpages
+platform: mangaone
+platform_name: "マンガワン"
+publisher: "小学館"
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+date_basis: rendered
+date_confidence: reported
+works:
+  - work_title: "かわいい同盟"
+    url: "https://manga-one.com/viewer/290902"
+    chapter_count: 9
+    chapters:
+      - title: "第1話"
+        updated: 2025-06-06
+        date_basis: rendered
+      - title: "10話ずつ"
+        updated: 2026-04-10
+        date_basis: rendered
+      - title: "第20話 無料"
+        updated: 2026-04-10
+        date_basis: rendered
+      - title: "第19話"
+        updated: 2026-03-27
+        date_basis: rendered
+      - title: "第18話"
+        updated: 2026-02-27
+        date_basis: rendered
+      - title: "第17話"
+        updated: 2026-02-13
+        date_basis: rendered
+      - title: "第16話"
+        updated: 2026-01-30
+        date_basis: rendered
+      - title: "10話ずつ 前へ 1"
+        updated: 2026-02-19
+        date_basis: rendered
+      - title: "第1話 のコメント いいね順 新着順 985コメント"
+        updated: 2026-06-13
+        date_basis: rendered
+  - work_title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
+    url: "https://manga-one.com/manga/27253/chapter/307792"
+    chapter_count: 12
+    chapters:
+      - title: "第1話 宇宙のはじっこでこんにちは | ギャラクシーぷーちゃん 宇宙のはじっこでこんに"
+        updated: 2026-01-04
+        date_basis: rendered
+      - title: "第9話(前編) ミーアさんとムーちゃんにこんにちは 先読"
+        updated: 2026-08-16
+        date_basis: rendered
+      - title: "第8話(後編) ミュウさんにこんにちは 無料"
+        updated: 2026-07-19
+        date_basis: rendered
+      - title: "第8話(前編) ミュウさんにこんにちは"
+        updated: 2026-07-05
+        date_basis: rendered
+      - title: "第7話(後編) スーパーマーケットでこんにちは"
+        updated: 2026-06-07
+        date_basis: rendered
+      - title: "第7話(前編) スーパーマーケットでこんにちは"
+        updated: 2026-05-10
+        date_basis: rendered
+      - title: "第6話(後編) レインボー僕ちゃんにこんにちは"
+        updated: 2026-04-26
+        date_basis: rendered
+      - title: "第6話(前編) レインボー僕ちゃんにこんにちは"
+        updated: 2026-04-12
+        date_basis: rendered
+      - title: "5話 お好み焼きにこんにちは(5ページ)"
+        updated: 2026-03-15
+        date_basis: rendered
+      - title: "第5話 アーニャさんにこんにちは"
+        updated: 2026-03-01
+        date_basis: rendered
+      - title: "10話ずつ 前へ 1"
+        updated: 2026-07-17
+        date_basis: rendered
+      - title: "第1話 宇宙のはじっこでこんにちはのコメント いいね順 新着順"
+        updated: 2026-07-26
+        date_basis: rendered
+  - work_title: "付き合ってあげてもいいかな"
+    url: "https://manga-one.com/viewer/70173"
+    chapter_count: 2
+    chapters:
+      - title: "10話ずつ"
+        updated: 2025-07-04
+        date_basis: rendered
+      - title: "10話ずつ 前へ 1"
+        updated: 2025-04-17
+        date_basis: rendered
+  - work_title: "妖怪殲滅のサイコリリー"
+    url: "https://manga-one.com/viewer/225633"
+    chapter_count: 12
+    chapters:
+      - title: "第1話 出遭い | 妖怪殲滅のサイコリリー"
+        updated: 2023-10-19
+        date_basis: rendered
+      - title: "第14話(前編) 剣が峰 先読"
+        updated: 2026-08-06
+        date_basis: rendered
+      - title: "第13話(後編) 弟子 無料"
+        updated: 2026-07-30
+        date_basis: rendered
+      - title: "第13話(前編) 弟子"
+        updated: 2026-07-23
+        date_basis: rendered
+      - title: "第12話(後編) 規制緩和"
+        updated: 2026-07-16
+        date_basis: rendered
+      - title: "第12話(前編) 規制緩和"
+        updated: 2024-05-16
+        date_basis: rendered
+      - title: "第11話(後編) 未達成"
+        updated: 2024-05-09
+        date_basis: rendered
+      - title: "第11話(前編) 未達成"
+        updated: 2024-05-02
+        date_basis: rendered
+      - title: "第10話(後編) ニアミス"
+        updated: 2024-04-25
+        date_basis: rendered
+      - title: "第10話(前編) ニアミス"
+        updated: 2024-04-18
+        date_basis: rendered
+      - title: "10話ずつ 前へ 1"
+        updated: 2024-03-19
+        date_basis: rendered
+      - title: "第1話 出遭いのコメント いいね順 新着順 568コメント"
+        updated: 2026-08-01
+        date_basis: rendered
+  - work_title: "私の焦がれる彼女"
+    url: "https://manga-one.com/manga/27454/chapter/316774"
+    chapter_count: 9
+    chapters:
+      - title: "第1話 始まり | 私の焦がれる彼女"
+        updated: 2025-11-05
+        date_basis: rendered
+      - title: "第6話 犯人 無料"
+        updated: 2026-04-01
+        date_basis: rendered
+      - title: "第5話 彼女の場所"
+        updated: 2026-02-04
+        date_basis: rendered
+      - title: "第4話 誰のせい"
+        updated: 2026-01-07
+        date_basis: rendered
+      - title: "第3話 すれ違い"
+        updated: 2025-12-03
+        date_basis: rendered
+      - title: "第2話 彼女の音 無料"
+        updated: 2025-11-19
+        date_basis: rendered
+      - title: "第1話 始まり 無料"
+        updated: 2025-11-05
+        date_basis: rendered
+      - title: "第1話 始まりのコメント いいね順 新着順 177コメント"
+        updated: 2026-04-01
+        date_basis: rendered
+      - title: "2回読まされたわ &gt;&gt;198男も出るから性別とか関係無いwwww"
+        updated: 2026-04-01
+        date_basis: rendered

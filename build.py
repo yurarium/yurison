@@ -9,7 +9,7 @@ Fails closed: any validation error aborts the build without writing.
 
 Usage:  build.py [--out data/build]
 """
-import argparse, datetime, glob, json, pathlib, sys
+import argparse, datetime, glob, json, pathlib, re, sys
 from collections import defaultdict
 
 sys.path.insert(0, "adapters")
@@ -22,7 +22,7 @@ import yaml
 # data/queue/, which is deliberately outside the source tree so nothing can promote a candidate
 # into a record by accident.
 ALLOWED_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha",
-                   "gigaviewer", "kadokomi", "comicfuz", "webpages"}
+                   "gigaviewer", "kadokomi", "comicfuz", "webpages", "comparators"}
 
 # Sources carrying work-level records that merge into a work. Others (release feeds) are
 # platform-level and compile separately.
@@ -40,6 +40,21 @@ def jsonable(o):
     if isinstance(o, (datetime.date, datetime.datetime)):
         return o.isoformat()
     raise TypeError(f"unserialisable {type(o).__name__}")
+
+
+def ep_number(title):
+    """Chapter number where the title states one — 第7話 / 7話 / #7 / その7 / full-width."""
+    import unicodedata
+    s = unicodedata.normalize("NFKC", title or "")
+    m = re.search(r"(?:第|#|その)\s*(\d+)\s*(?:話|回|章)?", s)
+    if not m:
+        m = re.match(r"\s*(\d+)\s*(?:話|回|章)", s)
+    return int(m.group(1)) if m else None
+
+
+def norm_work(s):
+    s = re.sub(r"[\u200b-\u200f\u202a-\u202e\ufeff]", "", s or "")
+    return re.sub(r"[\s\-.=、。･・！!？?　]", "", s.strip().lower())
 
 
 def load_dir(p):
@@ -253,6 +268,26 @@ def main():
                     "plat": "comic-fuz", "plat_name": "COMIC FUZ",
                     "ident": "discovery-candidate", "free_from": None,
                     "access_modes": c.get("access_modes") or [],
+                    "became_free": bool(c.get("became_free")),
+                    "access_changed": c.get("access_changed"),
+                })
+        # A chapter that has flipped to free is an update in the free view even if it was
+        # published long ago, so it is emitted on the date the flip was observed.
+        for w in d.get("works") or []:
+            for c in w.get("chapters") or []:
+                if not c.get("became_free") or not c.get("access_changed_on"):
+                    continue
+                releases.append({
+                    "id": f"comicfuz-free:{c.get('chapter_id')}", "work": w.get("work_title"),
+                    "ep": c.get("title"), "type": "access-change", "adv": False,
+                    "web": "serialised", "pub": str(c["access_changed_on"]),
+                    "seen": str(d.get("retrieved", "")), "basis": "observed",
+                    "conf": "reported", "why": "", "moved": "", "url": w.get("url"),
+                    "author": ", ".join(w.get("authors") or []),
+                    "plat": "comic-fuz", "plat_name": "COMIC FUZ",
+                    "ident": "discovery-candidate", "free_from": None,
+                    "access_modes": c.get("access_modes") or [],
+                    "became_free": True, "access_changed": c.get("access_changed"),
                 })
 
     # Platforms with no feed, read from their own server-rendered work pages. Like FUZ these
@@ -301,6 +336,98 @@ def main():
                     "ident": "discovery-candidate", "free_from": None,
                     "access_modes": c.get("access_modes") or [],
                 })
+
+    for r in releases:
+        r["provenance"] = "attested"
+        # Free view membership. `free-timed` counts: rate-limited free (待てば無料, one chapter a
+        # day per series with an account) is still free to a reader willing to wait.
+        am = r.get("access_modes") or []
+        r["free"] = bool(r.get("free_from")) or bool(r.get("became_free")) \
+            or any(m in ("free", "free-timed") for m in am)
+
+    # ── provisional claims from the comparator sites (§5) ──────────────────────────────────────
+    # Taken as provisionally true for one question only: that a work updated, and roughly when.
+    # A claim is a FLOOR, not an addition — where a platform attests the same work on the same
+    # date, the attested record wins and the claim is dropped.
+    attested_keys = {(norm_work(r["work"]), r["pub"]) for r in releases}
+    claim_index = {}
+    # Canonicalise platform names through the registry's aliases, so a site the comparators label
+    # two ways (ニコニコ静画 / ニコニコ漫画) reads as one platform and dedupes as one.
+    alias_to_name = {}
+    for pl in (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("platforms") or []:
+        for al in (pl.get("aliases") or []) + [pl.get("name")]:
+            if al:
+                alias_to_name[norm_work(al)] = pl.get("name")
+    attested_works = {norm_work(r["work"]) for r in releases}
+    cf = pathlib.Path("data/source/comparators/claims.yaml")
+    claims_kept = 0
+    if cf.exists():
+        d = yaml.safe_load(cf.read_text()) or {}
+        for c in d.get("updates") or []:
+            w, when = c.get("work"), str(c.get("date") or "")
+            if not w or not when:
+                continue
+            nw = norm_work(w)
+            if (nw, when) in attested_keys:
+                continue
+            # 百合ナビ runs title and author together in one cell, so an exact-key test misses a
+            # claim that duplicates an attested release — "リリィズコンプレックス 館山けーた" against
+            # "リリィズコンプレックス". Suppress a claim whose cell starts with a title we already
+            # attest on that date.
+            if any(nw.startswith(k) for k, kd in attested_keys if kd == when and len(k) >= 2):
+                continue
+            # The two comparators overlap, and 百合ナビ's cell carries the author, so the same
+            # update arrives twice under different strings. Keep the first and record that both
+            # reported it, rather than showing the reader one event twice.
+            dup = next((c2 for c2 in claim_index.get(when, [])
+                        if nw.startswith(c2["nw"]) or c2["nw"].startswith(nw)), None)
+            if dup:
+                srcs = set(dup["rel"].get("claim_source", "").split("+")) | {c.get("source")}
+                dup["rel"]["claim_source"] = "+".join(sorted(s for s in srcs if s))
+                continue
+            # A claim for a work we already attest elsewhere on another date is still useful:
+            # it records an update we did not see. Kept, but flagged.
+            releases.append({
+                "id": f"claim:{c.get('source')}:{nw}:{when}", "work": w, "ep": "",
+                "type": "unclassified", "adv": True, "web": "serialised", "pub": when,
+                "seen": str(d.get("retrieved", "")), "basis": "claimed", "conf": "reported",
+                "why": "", "moved": "", "url": c.get("url"), "author": "",
+                "plat": "claim",
+                "plat_name": alias_to_name.get(norm_work(c.get("platform") or ""),
+                                               c.get("platform") or "?"),
+                "ident": "comparator-claim", "free_from": None, "access_modes": [],
+                "provenance": "claimed", "claim_source": c.get("source"),
+                "also_attested_elsewhere": nw in attested_works,
+            })
+            claim_index.setdefault(when, []).append({"nw": nw, "rel": releases[-1]})
+            claims_kept += 1
+
+    # ── update kind: new series / new chapter / other ──────────────────────────────────────────
+    # Derived from positive evidence only. An earlier version inferred `new-series` from "first
+    # appearance in our data", which in a three-week window is true of almost everything and
+    # asserted far more than we know — a long-running work seen for the first time is not new.
+    #
+    # So: a numbered first chapter is evidence of a new series; a later-numbered chapter of an
+    # ongoing one; notices and trials are neither. A comparator claim carries no episode
+    # information at all, so it stays `unknown` rather than being guessed into a category.
+    OTHER_TYPES = {"notice", "apology-art", "trial", "republication"}
+    for r in releases:
+        if r.get("provenance") == "claimed":
+            r["kind"] = "unknown"
+            r["kind_basis"] = "comparator names no chapter"
+            continue
+        if r["type"] in OTHER_TYPES:
+            r["kind"], r["kind_basis"] = "other", f"release type {r['type']}"
+            continue
+        n = ep_number(r.get("ep") or "")
+        if n == 1:
+            r["kind"], r["kind_basis"] = "new-series", "episode numbered 1"
+        elif n is not None:
+            r["kind"], r["kind_basis"] = "new-chapter", f"episode numbered {n}"
+        elif r["type"] == "oneshot":
+            r["kind"], r["kind_basis"] = "new-series", "one-shot"
+        else:
+            r["kind"], r["kind_basis"] = "unknown", "episode not numbered"
 
     # Reading-quality ranking is editorial curation, kept out of the source layer (§5).
     ranks, plat_meta = {}, {}
@@ -383,6 +510,9 @@ def main():
         ensure_ascii=False, indent=1, default=jsonable))
 
     from collections import Counter as _C
+    print(f"provenance      : {dict(_C(r.get('provenance') for r in releases))}")
+    print(f"update kind     : {dict(_C(r.get('kind') for r in releases))}")
+    print(f"free view       : {sum(1 for r in releases if r.get('free'))} of {len(releases)}")
     print(f"identification  : {dict(_C(r.get('ident') for r in releases))}")
     am = _C(m for r in releases for m in (r.get("access_modes") or []))
     if am:

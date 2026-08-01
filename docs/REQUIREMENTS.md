@@ -379,6 +379,54 @@ weeks and then flips to `purchase`. Three consequences:
    historical information about how a work was published, and is not overwritten.
 3. Access volatility, not chapter cadence, is what sets the fast pipeline's polling frequency.
 
+### Comparator claims are provisionally true — a deliberate relaxation
+
+**Decided 2026-08-01.** Web漫画アンテナ and 百合ナビ remain Tier C and non-attesting for
+bibliographic fields, but for one narrow question — *did this work update, and roughly when* —
+their listings are taken as **provisionally true** and shown in the feed.
+
+The reasoning: those two sites *are* the acceptance criterion. Restricting the feed to
+platform-attested releases made it structurally incapable of meeting that criterion for platforms
+we cannot reach, several of which are closed by the operator rather than by effort. A reader
+looking for what updated is better served by a claim labelled as a claim than by silence.
+
+What it does **not** change:
+
+- Claims establish **no `marketing_label`, no `content_tier`, no bibliographic field**. A bare
+  listing is still not corroboration (§1). The rule about evidence needing to state a case stands.
+- Every entry carries `provenance`: `attested` or `claimed`, and the interface must keep them
+  visibly distinct. They are never merged into an undifferentiated "release".
+- **A claim is a floor, not an addition.** Where a platform attests the same work on the same date
+  the attested record wins and the claim is dropped, including when 百合ナビ's title-plus-author
+  cell means the two do not match on an exact key.
+
+### Update kind, and what may be inferred
+
+Feed entries carry `kind`: `new-series`, `new-chapter`, `other` or `unknown`, derived from
+**positive evidence only** and always marked as inferred.
+
+An earlier version derived `new-series` from "first appearance in our data", which in a three-week
+window is true of almost everything and produced 403 new series out of 488 entries. A long-running
+work seen for the first time is not new. The rule is now: a numbered first chapter or a one-shot is
+evidence of a new series; a later-numbered chapter of an ongoing one; notices, trials and reprints
+are neither; and a comparator claim carries no chapter information, so it stays `unknown` rather
+than being guessed into a category. That yields 6 new-series rather than 403.
+
+### Two models of "update"
+
+Reader-selectable, because they answer different questions:
+
+- **All** — every update, including chapters that are paid-only.
+- **Free** — only what can be read without paying. This includes **rate-limited free** (待てば無料
+  / one chapter a day per series with an account) and, importantly, **chapters that have moved out
+  from behind a paywall**. A chapter becoming free is an update to a reader watching for free
+  reading, even though it was published long ago.
+
+The second case is only observable across runs: a flip is detected by comparing a chapter's access
+state against the previous fetch, never from a single snapshot. COMIC FUZ is the clearest example —
+it applies different rules per series, some free throughout, some free after the latest couple of
+chapters, some paywalling recent volumes.
+
 ### Acceptance criterion for release coverage
 
 > **Every update listed on Web漫画アンテナ or 百合ナビ should appear in this feed over time, with the

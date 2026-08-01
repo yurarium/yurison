@@ -95,8 +95,19 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     gap = yaml.safe_load(open(a.gap)) or {}
-    targets = [w for w in (gap.get("works_missing") or [])
-               if "FUZ" in (w.get("platform") or "") and "comic-fuz.com/manga/" in (w.get("url") or "")]
+    # Accepts the full candidate list (candidates/urls) or the gap report (works_missing/url).
+    rows = []
+    for w in gap.get("candidates") or []:
+        for u in w.get("urls") or []:
+            rows.append({"title": w.get("title"), "url": u})
+    for w in gap.get("works_missing") or []:
+        rows.append({"title": w.get("title"), "url": w.get("url")})
+    seen_u, targets = set(), []
+    for w in rows:
+        u = w.get("url") or ""
+        if "comic-fuz.com/manga/" in u and u not in seen_u:
+            seen_u.add(u)
+            targets.append(w)
     targets = targets[:a.limit]
     if not targets:
         sys.exit("no COMIC FUZ works found in the gap file")
@@ -144,6 +155,31 @@ def main():
             "discovered_via": {"source": gap.get("source"), "role": "discovery-only"},
         })
 
+    # ── access flips ───────────────────────────────────────────────────────────────────────────
+    # A chapter moving from paid to free is itself an update for a reader who wants free content,
+    # and FUZ applies different rules per series — some free throughout, some free after the latest
+    # couple, some paywalling recent volumes. Detected by comparing against the previous run and
+    # recorded on the chapter; it can only be observed across runs, never from one snapshot.
+    prior = {}
+    pf = out / "works.yaml"
+    if pf.exists():
+        old = yaml.safe_load(pf.read_text()) or {}
+        for w in old.get("works") or []:
+            for c in w.get("chapters") or []:
+                if c.get("chapter_id") is not None:
+                    prior[c["chapter_id"]] = (c.get("access_modes") or [None])[0]
+    flips = 0
+    for w in works:
+        for c in w["chapters"]:
+            was = prior.get(c["chapter_id"])
+            now = (c["access_modes"] or [None])[0]
+            if was and now and was != now:
+                c["access_changed"] = f"{was} -> {now}"
+                c["access_changed_on"] = a.retrieved
+                if now in ("free", "free-timed"):
+                    c["became_free"] = True
+                flips += 1
+
     if len(works) < MIN_WORKS:
         sys.exit(f"HEALTH: resolved {len(works)} works (< {MIN_WORKS}). Refusing to write.")
 
@@ -169,6 +205,11 @@ def main():
             if c.get("scheduled"):
                 L.append("        scheduled: true   # future date — not yet released")
             L.append(f"        access_modes: {js(c['access_modes'])}")
+            for k in ("access_changed", "access_changed_on"):
+                if c.get(k):
+                    L.append(f"        {k}: {js(c[k])}")
+            if c.get("became_free"):
+                L.append("        became_free: true")
             if c.get("access_note"):
                 L.append(f"        access_note: {js(c['access_note'])}")
     L.append("")
@@ -178,6 +219,7 @@ def main():
     print(f"works resolved : {len(works)}")
     print(f"chapters       : {sum(len(w['chapters']) for w in works)}")
     print(f"access modes   : {dict(acc)}")
+    print(f"access flips   : {flips} (only observable across runs)")
     for t, why in failed:
         print(f"  FAILED {t}: {why}")
 

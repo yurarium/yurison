@@ -122,7 +122,12 @@ def main():
     if reg.exists():
         for pl in (yaml.safe_load(reg.read_text()) or {}).get("platforms") or []:
             if pl.get("watched"):
+                # The yardsticks label some sites differently from their own branding —
+                # ゼノン編集部 for コミックゼノン, ヤンチャンWeb for チャンピオンクロス — so a site we
+                # already watch was being counted as an unwatched gap under its other name.
                 watched_names.add(norm(pl.get("name")))
+                for al in pl.get("aliases") or []:
+                    watched_names.add(norm(al))
 
     # A series is often on several platforms (19.6% of these are, up to six each), so a work is a
     # gap only when it is on NO watched platform. Counting presences overstates the gap and

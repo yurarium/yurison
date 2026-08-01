@@ -115,6 +115,8 @@ def main():
         for pl in (yaml.safe_load(reg.read_text()) or {}).get("platforms") or []:
             if pl.get("watched"):
                 watched.add(norm(pl.get("name")))
+                for al in pl.get("aliases") or []:
+                    watched.add(norm(al))
 
     per_plat = Counter(w["platform"] for w in works)
     on_watched = sum(n for p, n in per_plat.items() if norm(p) in watched)

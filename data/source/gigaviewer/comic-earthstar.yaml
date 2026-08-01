@@ -1,0 +1,28 @@
+# Source-layer record: web releases from a GigaViewer platform (REQUIREMENTS §5).
+# identification mode: known-works
+# The Atom feed is the publisher's own update channel. Episode thumbnails offered as
+# enclosures are NOT referenced — they are not a reuse feed (§2).
+source: gigaviewer
+platform: comic-earthstar
+platform_name: "コミック アース・スター"
+publisher: "アース・スター エンターテイメント"
+retrieved: 2026-08-01
+record_type: web_releases
+identification_mode: known-works
+yuri_series_count: 0
+releases:
+  - release_id: "earthstar:episode:12207421983861577217"
+    work_title: "ガイド役の天使を殴り倒したら、死霊術師になりました　～激カワゴスロリ魔神様、サイコー！～"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第14話①"
+    release_type: "chapter"
+    date: "2026-07-30"
+    date_basis: "bootstrap"
+    first_seen: "2026-08-01"
+    first_reported: "2026-07-30T09:00:00Z"
+    platform_updated: "2026-07-30T09:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-earthstar.com/episode/12207421983861577217"
+    author: "漫画：でかいるか/原作：エリーゼ/キャラクター原案：がわこ"
+    advances_narrative: true

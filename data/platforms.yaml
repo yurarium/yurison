@@ -79,11 +79,17 @@ platforms:
     reading_rank: 3
     overlap: 0.77
     watched: false
+    blocker: >-
+      Not available to an identified client. Work pages are a pure client shell (__NEXT_DATA__ is
+      empty) and the data comes from /api/app/works/..., which robots.txt permits but which returns
+      403 to a self-identifying request. Reaching it would mean misrepresenting the client to get
+      past an access control, which §5's passive-observation rule forbids. Closed by the operator's
+      choice, not by difficulty.
     notes: >-
       CORRECTED 2026-08-01: initially recorded as an origin platform on no evidence. Measured
       overlap is 0.77 — higher than ニコニコ漫画's 0.71 — so most of what it lists is available
-      elsewhere too. Direction unknown. Lower resolution as well, so its 63 currently-exclusive
-      works are likely to shrink as other platforms are onboarded. Priority reduced.
+      elsewhere too. Direction unknown. Lower resolution as well, so its exclusive count should
+      shrink as other platforms are onboarded.
 
   - id: sundaywebry
     name: サンデーうぇぶり
@@ -108,7 +114,8 @@ platforms:
   - { id: tonarinoyj,     name: となりのヤングジャンプ,  publisher: 集英社,        reading_rank: null, watched: true }
   - { id: shonenjumpplus, name: 少年ジャンプ+,          publisher: 集英社,        reading_rank: null, watched: true }
   - { id: kuragebunch,    name: くらげバンチ,           publisher: 新潮社,        reading_rank: null, watched: true }
-  - { id: comic-zenon,    name: コミックゼノン,         publisher: コアミックス,  reading_rank: null, watched: true }
+  - { id: comic-zenon,    name: コミックゼノン,         publisher: コアミックス,  reading_rank: null, watched: true,
+      aliases: [ゼノン編集部] }
   - { id: magcomi,        name: MAGCOMI,               publisher: マッグガーデン, reading_rank: null, watched: true }
   - { id: comic-trail,    name: コミックトレイル,       publisher: 白泉社,        reading_rank: null, watched: true }
   - { id: comic-gardo,    name: コミックガルド,         publisher: オーバーラップ, reading_rank: null, watched: true }
@@ -123,7 +130,11 @@ platforms:
   - { id: magapoke,    name: マガポケ,       publisher: 講談社,  reading_rank: null, overlap: 0.76, watched: false,
       notes: "Nuxt with a hydration payload rather than markup; needs a different approach. 36 works, 14 exclusive." }
   - { id: championcross, name: チャンピオンクロス, publisher: 秋田書店, reading_rank: null, overlap: 0.11, watched: true,
+      aliases: [ヤンチャンWeb],
       notes: "comici engine on championcross.jp — not mangacross.jp, which is a different site." }
+  - { id: comic-ogyaaa, name: "COMIC OGYAAA!!", publisher: 一迅社, reading_rank: null, watched: true,
+      aliases: ["COMIC OGYAAA!!"] }
+  - { id: comic-earthstar, name: コミック アース・スター, publisher: アース・スター エンターテイメント, reading_rank: null, watched: true }
   - { id: kimicomi,   name: キミコミ,       publisher: 一迅社,  reading_rank: null, overlap: 0.62, watched: true }
   - id: kirarabase
     name: きららベース

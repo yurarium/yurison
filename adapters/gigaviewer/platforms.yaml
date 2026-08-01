@@ -137,6 +137,24 @@ platforms:
     verified: 2026-08-01
     note: /atom serves text/html with a 200 status; no usable feed
 
+  - id: comic-ogyaaa
+    name: COMIC OGYAAA!!
+    publisher: 一迅社
+    host: comic-ogyaaa.com
+    atom: https://comic-ogyaaa.com/atom
+    mode: known-works
+    yuri_genre: 百合
+    verified: 2026-08-01
+
+  - id: comic-earthstar
+    name: コミック アース・スター
+    publisher: アース・スター エンターテイメント
+    host: comic-earthstar.com
+    atom: https://comic-earthstar.com/atom
+    mode: known-works
+    yuri_genre: 百合
+    verified: 2026-08-01
+
   - id: comic-gardo
     name: コミックガルド
     publisher: オーバーラップ

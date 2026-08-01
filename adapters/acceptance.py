@@ -58,7 +58,11 @@ def main():
     ours = {norm(r["work"]) for r in rel}
 
     reg = yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text())["platforms"]
-    watched = {norm(p["name"]) for p in reg if p.get("watched")}
+    watched = set()
+    for p_ in reg:
+        if p_.get("watched"):
+            watched.add(norm(p_["name"]))
+            watched.update(norm(a) for a in p_.get("aliases") or [])
 
     # Works we hold but deliberately keep out of the feed. A yardstick counting these as updates is
     # a definitional disagreement, not a coverage gap, and conflating the two would misstate both.

@@ -10,17 +10,15 @@ pages_sampled: 31
 record_type: coverage_gap
 listings: 1532
 distinct_works: 1203
-works_on_watched_platform: 858
+works_on_watched_platform: 895
 platforms_total: 96
-platforms_watched: 17
+platforms_watched: 21
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "ニコニコ漫画"
-    works: 66
+    works: 65
   - platform: "pixivコミック"
-    works: 51
-  - platform: "ゼノン編集部"
-    works: 16
+    works: 46
   - platform: "comicブースト"
     works: 15
   - platform: "マガポケ"
@@ -35,8 +33,6 @@ platforms_missing:
     works: 11
   - platform: "マンガワン"
     works: 10
-  - platform: "COMIC OGYAAA!!"
-    works: 10
   - platform: "マンガPark"
     works: 9
   - platform: "きら星ポータル"
@@ -45,8 +41,6 @@ platforms_missing:
     works: 7
   - platform: "ヤングアニマルWeb"
     works: 7
-  - platform: "コミック アース・スター"
-    works: 6
   - platform: "COMICリュウ"
     works: 6
   - platform: "LINEマンガ(更新終了)"
@@ -54,8 +48,6 @@ platforms_missing:
   - platform: "裏サンデー"
     works: 5
   - platform: "フラコミlike!"
-    works: 5
-  - platform: "ヤンチャンWeb"
     works: 5
   - platform: "マンガよもんが"
     works: 5

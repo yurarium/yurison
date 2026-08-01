@@ -574,7 +574,13 @@ session as platforms were onboarded:
 | 11 (+サンデーうぇぶり, webアクション) | 730 (60.7%) |
 | 12 (+COMIC FUZ) | 764 (63.5%) |
 | 15 (+ビッコミ, 竹コミ, ヤンマガWeb) | 827 (68.7%) |
-| **17 (+チャンピオンクロス, キミコミ)** | **858 (71.3%)** |
+| 17 (+チャンピオンクロス, キミコミ) | 858 (71.3%) |
+| **21 (+COMIC OGYAAA!!, アース・スター, and two aliases)** | **895 (74.4%)** |
+
+> **The yardsticks label some sites differently from their own branding.** ゼノン編集部 is
+> comic-zenon.com and ヤンチャンWeb is championcross.jp — both already watched, both counted as
+> unwatched gaps under the other name. Platform entries now carry `aliases`, worth 3 points of
+> coverage for no new fetching at all. Any platform-name comparison must go through them.
 
 #### Acceptance, measured
 
@@ -588,6 +594,19 @@ yardsticks, separating deliberate exclusions from genuine misses. Over **2026-07
 
 Both land near 45% overall from independent lists of different sizes, which is a useful cross-check
 on the measurement rather than on the coverage.
+
+#### Platforms closed by the operator, not by difficulty
+
+**pixivコミック** is the largest single remaining gap and is not available to us. Its work pages are
+a pure client shell — `__NEXT_DATA__` is empty — and the content comes from `/api/app/works/…`,
+which its robots.txt permits but which returns **403 to a self-identifying request**. Getting past
+that would mean misrepresenting the client to bypass an access control, which §5's
+passive-observation rule forbids. Recorded as closed by choice rather than left as an open task.
+
+**ニコニコ漫画** is blocked structurally: work pages are server-rendered but carry no per-episode
+date, so releases cannot be placed on a timeline.
+
+Between them these account for most of the residual gap, and neither is a matter of effort.
 
 #### Enumerate the publisher's own catalogue where one is reachable
 

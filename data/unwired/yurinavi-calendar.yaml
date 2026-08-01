@@ -1,0 +1,458 @@
+# 百合ナビ 発売日カレンダー — CAPTURED, NOT WIRED.
+#
+# Read by nothing: not the build, not the site. Kept so the parsing is not lost.
+#
+# Tier C, discovery only. 百合ナビ is not a source of truth (REQUIREMENTS §1), and a date
+# here attests nothing. A SCHEDULED date is a claim about the future — release dates slip
+# — so it must never be stored as a publication date (§5).
+#
+# `raw` holds title, volume number and author together; splitting them needs the
+# publisher's own record.
+source: yurinavi-calendar
+role: discovery-only
+status: captured-not-wired
+retrieved: 2026-08-01
+record_type: release_calendar
+entries: 115
+releases:
+  - raw: "旧友と不倫してみた (1) 岸虎次郎"
+    scheduled: 06-01
+    volume: 1
+    publisher: "GOT NOiPA"
+  - raw: "クズ浪人生、人生が辛いので夜のお姉さんを呼んでみた (11) こすずめ"
+    scheduled: 06-01
+    volume: 11
+    publisher: "GANMA"
+  - raw: "山神の娘 デジコレ DIGITAL COMICS (1) イシガミアキラ / 青木健生"
+    scheduled: 06-02
+    volume: 1
+    publisher: "小学館 デジコレ"
+  - raw: "山神の娘 デジコレ DIGITAL COMICS (2) イシガミアキラ / 青木健生"
+    scheduled: 06-02
+    volume: 2
+    publisher: "小学館 デジコレ"
+  - raw: "私がりっちゃんに壊されるまで (1) 天海杏菜"
+    scheduled: 06-04
+    volume: 1
+    publisher: "ぶんか社 RiSky"
+  - raw: "ライバルアライバル (1) 永田さんずい"
+    scheduled: 06-05
+    volume: 1
+    publisher: "カドカワ"
+  - raw: "くま クマ 熊 ベアー (14) せるげい / くまなの"
+    scheduled: 06-05
+    volume: 14
+    publisher: "主婦と 生活社"
+  - raw: "カルネアデス (2) 綾里けいし/はっとりまさき"
+    scheduled: 06-09
+    volume: 2
+    publisher: "カドカワ ドラゴン"
+  - raw: "私の魔法は絶対に当たるんです ~スローライフを守るために魔法を撃ち続けていたら、いつの間にか森の聖女になっていました~ (1) 大庭下門/みきさい"
+    scheduled: 06-09
+    volume: 1
+    publisher: "講談社 シリウス"
+  - raw: "キラキラの壊し方 (2) 玖々嶌 社"
+    scheduled: 06-09
+    volume: 2
+    publisher: "講談社 シリウス"
+  - raw: "シャドウ・アサシンズ・ワールド ~影は薄いけど、最強忍者やってます~ (5) 空山トキ/五色安未"
+    scheduled: 06-09
+    volume: 5
+    publisher: "講談社 シリウス"
+  - raw: "ボイタボイネ (1) 夏草"
+    scheduled: 06-10
+    volume: 1
+    publisher: "MG ブレード"
+  - raw: "声優ラジオのウラオモテ #15 夕陽とやすみは隠しきれない！ 二月公 / さばみぞれ 小説"
+    scheduled: 06-10
+    publisher: "カドカワ 電撃文庫"
+  - raw: "あまねくシグナル (2) はうあゆ"
+    scheduled: 06-11
+    volume: 2
+    publisher: "芳文社 きらら"
+  - raw: "君にかわいいと叫びたい (3) ハッピーゼリーポンチ"
+    scheduled: 06-11
+    volume: 3
+    publisher: "カドカワ"
+  - raw: "ファタールゲーム (3) ばったん"
+    scheduled: 06-12
+    volume: 3
+    publisher: "講談社 KISS"
+  - raw: "作りたい女と食べたい女 (6) ゆざき さかおみ"
+    scheduled: 06-15
+    volume: 6
+    publisher: "カドカワ it"
+  - raw: "エルフとひとつ屋根の下 (3) いくたはな"
+    scheduled: 06-16
+    volume: 3
+    publisher: "秋田書店 ポニータ"
+  - raw: "アイドラトリィ (4) 大鷹シン / ホマレ"
+    scheduled: 06-17
+    volume: 4
+    publisher: "講談社"
+  - raw: "コミック百合姫2026年8月号"
+    scheduled: 06-17
+    publisher: "一迅社 百合姫"
+  - raw: "骨に願いを、星に呪いを (1) いくたはな"
+    scheduled: 06-18
+    volume: 1
+    publisher: "一迅社 百合姫"
+  - raw: "マユノウタ (2) シクシク"
+    scheduled: 06-18
+    volume: 2
+    publisher: "一迅社 百合姫"
+  - raw: "僕らのアイは気持ち悪い (3) 雨水汐"
+    scheduled: 06-18
+    volume: 3
+    publisher: "一迅社 百合姫"
+  - raw: "ぜんぶ壊して地獄で愛して (6) 雨水汐"
+    scheduled: 06-18
+    volume: 6
+    publisher: "一迅社 百合姫"
+  - raw: "偏愛至上主義 岩見樹代子作品集 岩見 樹代子"
+    scheduled: 06-18
+    publisher: "一迅社 百合姫"
+  - raw: "溺愛理想主義 岩見樹代子作品集 岩見 樹代子"
+    scheduled: 06-18
+    publisher: "一迅社 百合姫"
+  - raw: "お姉さまと巨人 お嬢さまが異世界転生 (9) Be-con"
+    scheduled: 06-19
+    volume: 9
+    publisher: "カドカワ 青騎士"
+  - raw: "謎のユリイカ (1) 吉富昭仁"
+    scheduled: 06-19
+    volume: 1
+    publisher: "ぶんか社 orSiS"
+  - raw: "娘が彼女を連れてきた話 (1) 栗崎きんぐ"
+    scheduled: 06-19
+    volume: 1
+    publisher: "ぶんか社 orSiS"
+  - raw: "雨夜の月 (12) くずしろ"
+    scheduled: 06-19
+    volume: 12
+    publisher: "講談社 ヤンマガ"
+  - raw: "笑顔のたえない職場です。(15) くずしろ"
+    scheduled: 06-19
+    volume: 15
+    publisher: "講談社 KC"
+  - raw: "乙女のおかず (2) 藤川よつ葉 / かかとぶし"
+    scheduled: 06-19
+    volume: 2
+    publisher: "講談社"
+  - raw: "憧れのメイドさんはタバコが似合う (4) 嶋水えけ"
+    scheduled: 06-22
+    volume: 4
+    publisher: "スクエニ ガンガン"
+  - raw: "君になれたら (1) ろここ"
+    scheduled: 06-23
+    volume: 1
+    publisher: "カドカワ ﾌﾗｯﾊﾟｰ"
+  - raw: "新刊100億冊ください (3) 破賀ミチル"
+    scheduled: 06-23
+    volume: 3
+    publisher: "講談社 ﾓｰﾆﾝｸﾞ"
+  - raw: "冷たくて柔らか (7) ウオズミ アミ"
+    scheduled: 06-25
+    volume: 7
+    publisher: "集英社 ﾏｰｶﾞﾚｯﾄ"
+  - raw: "星屑テレパス (6) 大熊らすこ"
+    scheduled: 06-26
+    volume: 6
+    publisher: "芳文社 きらら"
+  - raw: "ごきげんよう、一局いかが？(5) 卯花つかさ"
+    scheduled: 06-26
+    volume: 5
+    publisher: "芳文社 きらら"
+  - raw: "一畳間まんきつ暮らし！アンソロジーコミック (1) アンソロジー"
+    scheduled: 06-26
+    volume: 1
+    publisher: "芳文社 きらら"
+  - raw: "ガールズ・スキャット・オーケストラ！(1) ゐぬゐ"
+    scheduled: 06-26
+    volume: 1
+    publisher: "芳文社 きらら"
+  - raw: "ケイヤクシマイ (6) ヒジキ"
+    scheduled: 06-26
+    volume: 6
+    publisher: "カドカワ キューン"
+  - raw: "或いは、私の名探偵 (2) 毒田ペパ子"
+    scheduled: 06-26
+    volume: 2
+    publisher: "カドカワ キューン"
+  - raw: "この恋、一旦持ち帰らせていただきます！(1) あおと響"
+    scheduled: 06-26
+    volume: 1
+    publisher: "カドカワ キューン"
+  - raw: "転生王女と天才令嬢の魔法革命 (9) 南高春告 / 鴉ぴえろ"
+    scheduled: 06-26
+    volume: 9
+    publisher: "カドカワ 電撃"
+  - raw: "新米姉妹のふたりごはん (12) 柊ゆたか"
+    scheduled: 06-26
+    volume: 12
+    publisher: "カドカワ 電撃"
+  - raw: "らぶぶいっ！(1) 芽瑠藻"
+    scheduled: 06-26
+    volume: 1
+    publisher: "カドカワ エース"
+  - raw: "夢でフラれてはじまる百合 (4) ヒジキ"
+    scheduled: 06-26
+    volume: 4
+    publisher: "竹書房 バンブー"
+  - raw: "罪に溺れるクライム百合アンソロジー アンソロジー"
+    scheduled: 06-26
+    publisher: "竹書房 バンブー"
+  - raw: "ギャルと地味子が恋をする青春百合アンソロジー アンソロジー"
+    scheduled: 06-26
+    publisher: "竹書房 バンブー"
+  - raw: "あなたみたいに (1) ユニ"
+    scheduled: 06-26
+    volume: 1
+    publisher: "ナンバー ナイン"
+  - raw: "ふしぎな猫のまち メルティア (5) 佐倉おりこ"
+    scheduled: 06-26
+    volume: 5
+    publisher: "小学館 ちゃお"
+  - raw: "犬も歩けば姫に当たる (1) 観乃ふみ"
+    scheduled: 06-26
+    volume: 1
+    publisher: "forcs"
+  - raw: "citrus + (7) サブロウタ"
+    scheduled: 06-29
+    volume: 7
+    publisher: "一迅社 百合姫"
+  - raw: "魔性のメロ女に堕とされる百合アンソロジー アンソロジー"
+    scheduled: 06-29
+    publisher: "一迅社 百合姫"
+  - raw: "猫ノ目ゆうかは語るべからず (1) 伊勢海老ボイル / 綾里けいし"
+    scheduled: 06-29
+    volume: 1
+    publisher: "白泉社 アニマル"
+  - raw: "永世乙女の戦い方 (15) くずしろ"
+    scheduled: 06-30
+    volume: 15
+    publisher: "小学館 ビッグ"
+  - raw: "旧友と不倫してみた (2) 岸虎次郎"
+    scheduled: 07-01
+    volume: 2
+    publisher: "GOT NOiPA"
+  - raw: "百合SMでふたりの気持ちはつながりますか? (6) みら"
+    scheduled: 07-01
+    volume: 6
+    publisher: "芳文社"
+  - raw: "愛でたいセンセイ (2)[電子版] タカノ晴"
+    scheduled: 07-06
+    volume: 2
+    publisher: "画報社 YK"
+  - raw: "堕天使そぷらのちゃんの復讐 (2) 藤本セツナ"
+    scheduled: 07-07
+    volume: 2
+    publisher: "カドカワ"
+  - raw: "新米錬金術師の店舗経営 (9) kirero / いつきみずほ"
+    scheduled: 07-08
+    volume: 9
+    publisher: "ｷﾙﾀｲﾑ ｳﾞｧﾙｷﾘｰ"
+  - raw: "謎のユリイカ (1)[電子版] 吉富昭仁"
+    scheduled: 07-08
+    volume: 1
+    publisher: "ぶんか社 orSiS"
+  - raw: "娘が彼女を連れてきた話 (1)[電子版] 栗崎きんぐ"
+    scheduled: 07-08
+    volume: 1
+    publisher: "ぶんか社 orSiS"
+  - raw: "スローループ (11) うちのまいこ"
+    scheduled: 07-10
+    volume: 11
+    publisher: "芳文社 きらら"
+  - raw: "くちべた食堂 (7) 梵辛"
+    scheduled: 07-10
+    volume: 7
+    publisher: "カドカワ"
+  - raw: "さよならアイリスウィッチ ~二人の魔女が紡いだあの夏の記憶~ 森上サナオ / きさらぎ ゆり 小説"
+    scheduled: 07-10
+    publisher: "カドカワ 電撃文庫"
+  - raw: "声優ラジオのウラオモテ #16 夕陽とやすみは続きたい!? 二月公 / さばみぞれ 小説"
+    scheduled: 07-10
+    publisher: "カドカワ 電撃文庫"
+  - raw: "学園のお姫様系女子が、王子様系女子を攻略しようとする話 八星こはく / 工藤える 小説"
+    scheduled: 07-10
+    publisher: "カドカワ 電撃文庫"
+  - raw: "愛でたいセンセイ (2) タカノ晴"
+    scheduled: 07-13
+    volume: 2
+    publisher: "画報社 YK"
+  - raw: "散り損ないのヒラエス (3) にたもと"
+    scheduled: 07-15
+    volume: 3
+    publisher: "ﾋｰﾛｰｽﾞ ふらっと"
+  - raw: "晴れた日のドレスコード (1) あげはる"
+    scheduled: 07-16
+    volume: 1
+    publisher: "一迅社 百合姫"
+  - raw: "キミが吠えるための歌を、(4) 樫風"
+    scheduled: 07-16
+    volume: 4
+    publisher: "一迅社 百合姫"
+  - raw: "きみが死ぬまで恋をしたい (9) あおの なち"
+    scheduled: 07-16
+    volume: 9
+    publisher: "一迅社 百合姫"
+  - raw: "きみが死ぬまで恋をしたい 公式コミックアンソロジー アンソロジー"
+    scheduled: 07-16
+    publisher: "一迅社 百合姫"
+  - raw: "誰かオオカミさんのしつけ方知りませんか!? (1) 餡実ツキ"
+    scheduled: 07-16
+    volume: 1
+    publisher: "一迅社 百合姫"
+  - raw: "コミック百合姫2026年9月号"
+    scheduled: 07-16
+    publisher: "一迅社 百合姫"
+  - raw: "黒の世界は白墨に染まる (1) 涼海来夏"
+    scheduled: 07-16
+    volume: 1
+    publisher: "ぶんか社"
+  - raw: "娘が彼女を連れてきた話 (2) 栗崎きんぐ"
+    scheduled: 07-16
+    volume: 2
+    publisher: "ぶんか社"
+  - raw: "戦姫完食シンフォギア~調めし~ (8) つたの葉"
+    scheduled: 07-16
+    volume: 8
+    publisher: "竹書房 バンブー"
+  - raw: "モブ少女がラスボス魔女を幸せにするまで (2) 鴉ぴえろ / ちょこ庵 小説"
+    scheduled: 07-17
+    volume: 2
+    publisher: "カドカワ ﾌｧﾝﾀｼﾞｱ"
+  - raw: "獄門撫子此処ニ在リ: 我がいとしき怪物よ (5) 伏見 七尾 / おしおしお 小説"
+    scheduled: 07-17
+    volume: 5
+    publisher: "小学館 ガガガ"
+  - raw: "恋より青く (5) 深海 紺"
+    scheduled: 07-17
+    volume: 5
+    publisher: "ホーム"
+  - raw: "あの子とふたりで。(2) 当麻"
+    scheduled: 07-17
+    volume: 2
+    publisher: "ホーム"
+  - raw: "ぐがぐもぐるてん (2) 春夏秋冬 鈴"
+    scheduled: 07-17
+    volume: 2
+    publisher: "青騎士"
+  - raw: "あめとむち (6)[電子版] あいそえる"
+    scheduled: 07-20
+    volume: 6
+    publisher: "画報社 キング"
+  - raw: "対ありでした。~お嬢さまは格闘ゲームなんてしない~ (11) 江島 絵理"
+    scheduled: 07-22
+    volume: 11
+    publisher: "カドカワ MF"
+  - raw: "彼女は裸で踊ってる (3) 岡藤 真依"
+    scheduled: 07-22
+    volume: 3
+    publisher: "講談社 ﾓｰﾆﾝｸﾞ"
+  - raw: "機動戦士ガンダム 水星の魔女 青春フロンティア (2) 波多ヒロ / HISADAKE"
+    scheduled: 07-23
+    volume: 2
+    publisher: "カドカワ エース"
+  - raw: "MURCIÉLAGO -ムルシエラゴ- (29) よしむらかな"
+    scheduled: 07-24
+    volume: 29
+    publisher: "スクエニ ガンガン"
+  - raw: "カワセミさんの釣りごはん (14) 匡乃下キヨマサ"
+    scheduled: 07-24
+    volume: 14
+    publisher: "双葉社 ｱｸｼｮﾝ"
+  - raw: "プロジェクト・ユリフォーミング！(2) 御家かえる"
+    scheduled: 07-27
+    volume: 2
+    publisher: "芳文社 きらら"
+  - raw: "ばっどがーる (6) 肉丸"
+    scheduled: 07-27
+    volume: 6
+    publisher: "芳文社 きらら"
+  - raw: "しあわせ鳥見んぐ (4) わらびもちきなこ"
+    scheduled: 07-27
+    volume: 4
+    publisher: "芳文社 きらら"
+  - raw: "あめとむち (6) あいそえる"
+    scheduled: 07-27
+    volume: 6
+    publisher: "画報社 キング"
+  - raw: "陰キャギャルでもイキがりたい！(4) かしわぎ つきこ"
+    scheduled: 07-28
+    volume: 4
+    publisher: "一迅社 百合姫"
+  - raw: "小春と湊 わたしのパートナーは女の子 (4) ひあるろん&amp;達磨"
+    scheduled: 07-28
+    volume: 4
+    publisher: "一迅社 百合姫"
+  - raw: "彩純ちゃんはレズ風俗に興味があります！(8) 伊月クロ"
+    scheduled: 07-28
+    volume: 8
+    publisher: "一迅社 百合姫"
+  - raw: "セフレ沼から抜け出せないっ！百合えっちアンソロジー アンソロジー"
+    scheduled: 07-28
+    publisher: "一迅社 百合姫"
+  - raw: "今日、お姉さんとエッチしない？ 百合アンソロジー アンソロジー"
+    scheduled: 07-28
+    publisher: "一迅社 百合姫"
+  - raw: "ガールズ・エラー コダマナオコ短編集 コダマ ナオコ"
+    scheduled: 07-28
+    publisher: "一迅社 百合姫"
+  - raw: "ちちゆりラプソディ【成人向け】 焔すばる"
+    scheduled: 07-28
+    publisher: "ｼﾞｰｳｫｰｸ ムーヴ"
+  - raw: "運命は役に立たない (1) まめ魚"
+    scheduled: 07-29
+    volume: 1
+    publisher: "白泉社 アニマル"
+  - raw: "嫌いな後輩にキスされました 灰庭たま / 雪子 小説"
+    scheduled: 07-30
+    publisher: "カドカワ"
+  - raw: "甘い制服をまとって 赤尾ひかる / 館田ダン 小説"
+    scheduled: 07-31
+    publisher: "カドカワ"
+  - raw: "チハヤリスタート！(5) たけうちホロウ"
+    scheduled: 08-03
+    volume: 5
+    publisher: "芳文社 FUZ"
+  - raw: "IDOL×IDOL STORY！(11) 得能正太郎"
+    scheduled: 08-03
+    volume: 11
+    publisher: "芳文社 FUZ"
+  - raw: "うさぎはかく語りき (3) 鴻巣覚"
+    scheduled: 08-03
+    volume: 3
+    publisher: "芳文社 FUZ"
+  - raw: "ガールズ×ヴァンパイア (1) みかみてれん / 千種みのり"
+    scheduled: 08-06
+    volume: 1
+    publisher: "秋田書店 ﾁｬﾝﾋﾟｵﾝ"
+  - raw: "お葉花を愛でる (4) 柴田賢志郎"
+    scheduled: 08-06
+    volume: 4
+    publisher: "秋田書店 ﾁｬﾝﾋﾟｵﾝ"
+  - raw: "私の怪談師はポンコツ可愛い 怪談収集はデートに含まれますか? (1) 石川扇 / 怜悧"
+    scheduled: 08-06
+    volume: 1
+    publisher: "スクエニ ガンガン"
+  - raw: "ニセアイホンアイ (2) いくたはな"
+    scheduled: 08-06
+    volume: 2
+    publisher: "芳文社 まんが"
+  - raw: "小林さんちのメイドラゴン カンナの日常 (16) 木村光博 / クール教信者"
+    scheduled: 08-06
+    volume: 16
+    publisher: "双葉社 ｱｸｼｮﾝ"
+  - raw: "さざめとりお 服部 雀"
+    scheduled: 08-10
+    publisher: "カドカワ"
+  - raw: "さいはての塔、いやはての少女たち (1) すきま"
+    scheduled: 08-17
+    volume: 1
+    publisher: "竹書房 バンブー"
+  - raw: "30まで独りだったら一緒に暮らそうって言ったよね？(1) くずしろ"
+    scheduled: 08-17
+    volume: 1
+    publisher: "竹書房 バンブー"

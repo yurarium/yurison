@@ -410,9 +410,14 @@ Two lists, differing in kind:
 百合ナビ's list URL carries a stale 2017 date. The page is current; WordPress permalinks are not
 dates.
 
-百合ナビ also runs a 発売日 calendar covering **volume** releases rather than web chapters — a
-separate axis, valuable mainly for forthcoming releases that no bibliographic source carries yet.
-Not yet wired in.
+百合ナビ also runs a 発売日 calendar covering **volume** releases rather than web chapters. It is
+parsed by `adapters/yurinavi/calendar.py` and written to `data/unwired/`, which is read by nothing
+— not the build, not the site. Its distinguishing content is forthcoming releases, whose value is
+unclear, so the parsing is kept rather than the feature built.
+
+If it is ever wired up, two constraints apply. It is Tier C and attests nothing. And **a scheduled
+date is a claim about the future, not an observation** — release dates slip, so it can never be
+stored as a publication date under the rule above.
 
 #### The metric is platform coverage, not per-work overlap
 

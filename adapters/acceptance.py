@@ -16,6 +16,7 @@ side is matched by prefix containment and is necessarily looser.
 Usage:  acceptance.py
 """
 import json
+import unicodedata
 import pathlib
 import re
 import sys
@@ -30,8 +31,10 @@ THIS_YEAR = 2026
 
 
 def norm(s):
-    s = re.sub(r"[​-‏‪-‮﻿]", "", s or "")
-    return re.sub(r"[\s\-.=、。･・！!？?　　]", "", s.strip().lower())
+    s = re.sub(r"[\u200b-\u200f\u202a-\u202e\ufeff]", "", s or "")
+    s = unicodedata.normalize("NFKC", s)
+    return re.sub(r"""[\s\-.=、。･・!?,:;'"“”‘’()\[\]{}「」『』【】〈〉《》〔〕~〜_/\\|+*&#@]""",
+                  "", s.strip().lower())
 
 
 def antenna_date(txt, today):

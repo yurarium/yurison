@@ -9,7 +9,7 @@ Fails closed: any validation error aborts the build without writing.
 
 Usage:  build.py [--out data/build]
 """
-import argparse, datetime, glob, json, pathlib, re, sys
+import argparse, datetime, glob, json, pathlib, re, sys, unicodedata
 from collections import defaultdict
 
 sys.path.insert(0, "adapters")
@@ -91,8 +91,19 @@ def ep_number(title):
 
 
 def norm_work(s):
+    """Normalise a work title for comparison.
+
+    NFKC first. Without it （私に） and (私に) compare unequal, as do ２ and 2, and ！ and !.
+    That duplicated series in the feed. The comparators and the platforms render all of these
+    inconsistently, so folding them is the only way titles match across sources.
+
+    The long vowel mark ー is deliberately NOT stripped: it is a letter in katakana, not
+    punctuation, and removing it would merge genuinely different titles.
+    """
     s = re.sub(r"[\u200b-\u200f\u202a-\u202e\ufeff]", "", s or "")
-    return re.sub(r"[\s\-.=、。･・！!？?　]", "", s.strip().lower())
+    s = unicodedata.normalize("NFKC", s)
+    return re.sub(r"""[\s\-.=、。･・!?,:;'"“”‘’()\[\]{}「」『』【】〈〉《》〔〕~〜_/\\|+*&#@]""",
+                  "", s.strip().lower())
 
 
 def load_dir(p):
@@ -302,7 +313,10 @@ def main():
                     "ep": c.get("title"), "type": "chapter", "adv": True,
                     "web": "serialised", "pub": u, "seen": str(d.get("retrieved", "")),
                     "basis": "bootstrap", "conf": "reported", "why": "", "moved": "",
-                    "url": w.get("url"), "author": ", ".join(w.get("authors") or []),
+                    "url": (f"https://comic-fuz.com/manga/viewer/{c['chapter_id']}"
+                            if c.get("chapter_id") else w.get("url")),
+                    "series_url": w.get("url"),
+                    "author": ", ".join(w.get("authors") or []),
                     "plat": "comic-fuz", "plat_name": "COMIC FUZ",
                     "ident": "discovery-candidate", "free_from": None,
                     "access_modes": c.get("access_modes") or [],
@@ -348,7 +362,12 @@ def main():
                     "ep": (c.get("title") or "") + (f" {c['subtitle']}" if c.get("subtitle") else ""),
                     "type": "chapter", "adv": True, "web": "serialised", "pub": u,
                     "seen": str(d.get("retrieved", "")), "basis": "bootstrap",
-                    "conf": "reported", "why": "", "moved": "", "url": w.get("url"),
+                    "conf": "reported", "why": "", "moved": "",
+                    # Deep-link to the chapter where the platform exposes one. Verified pattern:
+                    # /detail/<workCode>/episodes/<episodeCode>.
+                    "url": (f"{w.get('url')}/episodes/{c['code']}" if c.get("code") and w.get("url")
+                            else w.get("url")),
+                    "series_url": w.get("url"),
                     "author": ", ".join(w.get("authors") or []),
                     "plat": "kadokomi", "plat_name": "カドコミ",
                     "ident": "platform-genre" if w.get("marketing_label") == "yuri"

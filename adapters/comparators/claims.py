@@ -23,6 +23,7 @@ What this does NOT change:
 Usage:  claims.py --out data/source/comparators --retrieved 2026-08-01
 """
 import argparse, json, pathlib, re, sys
+import unicodedata
 from collections import Counter
 from datetime import date
 
@@ -36,8 +37,10 @@ MIN_CLAIMS = 20
 
 
 def norm(s):
-    s = re.sub(r"[​-‏‪-‮﻿]", "", s or "")
-    return re.sub(r"[\s\-.=、。･・！!？?　]", "", s.strip().lower())
+    s = re.sub(r"[\u200b-\u200f\u202a-\u202e\ufeff]", "", s or "")
+    s = unicodedata.normalize("NFKC", s)
+    return re.sub(r"""[\s\-.=、。･・!?,:;'"“”‘’()\[\]{}「」『』【】〈〉《》〔〕~〜_/\\|+*&#@]""",
+                  "", s.strip().lower())
 
 
 def antenna_date(txt, today):

@@ -16,6 +16,7 @@ Usage:  coverage.py --out data/coverage --cache ~/workspace/webcomics-cache \
                     --pages 8 --retrieved 2026-08-01
 """
 import argparse, json, pathlib, re, sys, time, urllib.request
+import unicodedata
 from collections import Counter, defaultdict
 
 import yaml
@@ -66,7 +67,9 @@ def norm(s):
     # Strip zero-width and bidi control characters: the antenna emits platform names carrying
     # U+200E/U+200F (竹コミ‎‏‎), which are invisible and silently break every comparison.
     s = re.sub(r"[\u200b-\u200f\u202a-\u202e\ufeff]", "", s or "")
-    return re.sub(r"[\s\-.=、。･・！!？?　]", "", s.strip().lower())
+    s = unicodedata.normalize("NFKC", s)
+    return re.sub(r"""[\s\-.=、。･・!?,:;'"“”‘’()\[\]{}「」『』【】〈〉《》〔〕~〜_/\\|+*&#@]""",
+                  "", s.strip().lower())
 
 
 def main():

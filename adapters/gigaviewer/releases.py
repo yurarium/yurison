@@ -21,6 +21,7 @@ publisher-supplied reuse feed and §2 forbids referencing them.
 Usage:  releases.py --out data/source/gigaviewer --cache ~/workspace/giga-cache
 """
 import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
+import unicodedata
 import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
 
@@ -174,7 +175,10 @@ def candidate_titles(path):
 
 
 def norm_title(s):
-    return re.sub(r"[\s\-.=、。･・！!？?　]", "", (s or "").strip().lower())
+    s = re.sub(r"[\u200b-\u200f\u202a-\u202e\ufeff]", "", s or "")
+    s = unicodedata.normalize("NFKC", s)
+    return re.sub(r"""[\s\-.=、。･・!?,:;'"“”‘’()\[\]{}「」『』【】〈〉《》〔〕~〜_/\\|+*&#@]""",
+                  "", s.strip().lower())
 
 
 def classify(title):

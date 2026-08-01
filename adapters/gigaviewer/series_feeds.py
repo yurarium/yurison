@@ -23,7 +23,7 @@ episode.
 Usage:  series_feeds.py --platform ichicomi --out data/source/gigaviewer \
                         --cache ~/workspace/giga-series-cache --retrieved 2026-08-01
 """
-import argparse, html as _html, json, pathlib, re, sys, time, urllib.error, urllib.request
+import argparse, html as _html, json, pathlib, unicodedata, re, sys, time, urllib.error, urllib.request
 from collections import Counter
 
 import yaml
@@ -52,6 +52,10 @@ def fetch(url, cache, max_age_days=1):
     return t
 
 
+def norm(s):
+    return re.sub(r"\s+", "", unicodedata.normalize("NFKC", s or "")).lower()
+
+
 def series_ids(html):
     """Series name -> id, read off the listing page. First occurrence wins; a listing repeats an
     entry across carousels and the later copies carry the same id."""
@@ -59,6 +63,15 @@ def series_ids(html):
     for m in SERIES_ID.finditer(html):
         out.setdefault(m.group(1).strip(), m.group(3))
     return out
+
+
+FEED_TITLE = re.compile(r"<title>[^<（(]*[（(]([^）)]+)[）)]</title>")
+
+
+def feed_series_name(xml):
+    """The feed states which series it is: 一迅プラス（大室家）. Used to verify the id we paired."""
+    m = FEED_TITLE.search(xml)
+    return m.group(1).strip() if m else None
 
 
 def episodes(xml):
@@ -147,13 +160,23 @@ def main():
         sys.exit(f"HEALTH: resolved {len(found)} series ids (< {floor}). The listing markup "
                  "or the thumbnail URL shape may have changed. Refusing to write.")
 
-    works, failed = [], []
+    works, failed, misattributed = [], [], 0
     for name, sid in list(found.items())[: a.limit]:
         try:
-            eps = episodes(fetch(f"https://{p['host']}/atom/series/{sid}", cache))
+            xml = fetch(f"https://{p['host']}/atom/series/{sid}", cache)
         except (urllib.error.HTTPError, urllib.error.URLError, OSError) as e:
             failed.append((name, type(e).__name__))
             continue
+        # The series id is read from a thumbnail URL near the name on the listing page, which is
+        # positional and therefore fallible: 夕子先輩は育てられない was paired with the id of
+        # 亜澄ちゃんと胡蝶ちゃん, its neighbour, and took on that work's six chapters. The feed says
+        # which series it actually is, so the pairing is checked rather than trusted, and the
+        # feed's own name wins.
+        stated = feed_series_name(xml)
+        if stated and norm(stated) != norm(name):
+            misattributed += 1
+            name = stated
+        eps = episodes(xml)
         if eps:
             works.append({"work_title": name, "series_id": sid, "episodes": eps})
 
@@ -194,6 +217,9 @@ def main():
     (out / f"{p['id']}-series-feeds.yaml").write_text("\n".join(L))
 
     eps = sum(len(w["episodes"]) for w in works)
+    if misattributed:
+        print(f"MISATTRIBUTED       : {misattributed} — the listing paired a name with another "
+              f"work's series id; corrected from each feed's own title")
     print(f"series ids resolved : {len(found)}")
     print(f"series with episodes: {len(works)}")
     print(f"episodes            : {eps}")

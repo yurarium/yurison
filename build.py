@@ -995,11 +995,13 @@ def main():
         # the chapter rules, which were reaching "later chapter of a work attested elsewhere" and
         # labelling 【読切】吸血少女とウンディーネ 新話.
         if r["type"] == "oneshot":
-            r["kind"], r["kind_basis"] = "new-series", "one-shot: the platform lists one episode"
+            # Its own kind. A 読切 is not a 新連載 — it is complete on the day it appears, and
+            # labelling it as a serialisation starting tells the reader to expect a second chapter.
+            r["kind"], r["kind_basis"] = "oneshot", "a one-shot, complete in one instalment"
             continue
         if ONESHOT_RE.search(ep) or ONESHOT_RE.search(r.get("work") or ""):
             r["type"] = "oneshot"
-            r["kind"] = "new-series"
+            r["kind"] = "oneshot"
             r["kind_basis"] = "the title says 読切 — a one-shot, not an instalment"
             r["kind_inferred"] = True
             continue
@@ -1150,7 +1152,7 @@ def main():
                 # The kind was derived before this merge, so upgrading the type alone left
                 # 下部七花はかく語りき a one-shot labelled 新話. Upgrade both together.
                 kept["type"] = "oneshot"
-                kept["kind"] = "new-series"
+                kept["kind"] = "oneshot"
                 kept["kind_basis"] = "one-shot: the platform lists one episode"
             if r.get("discovered_via") and not kept.get("discovered_via"):
                 kept["discovered_via"] = r["discovered_via"]
@@ -1163,6 +1165,15 @@ def main():
     # publication date, locked at first sighting and never revised (§5). They differ only for a
     # late discovery, which is news on the day it is found — filing it under a publication date
     # months back would bury it where nobody looks, which is the same as dropping it.
+    # A work with other releases inside the window is not newly discovered; only one of its
+    # chapters is old. なとりとしずは's 第1話 (2026-05-25) was being lifted to the top of the feed
+    # while its 第2話, 第3話 and 第5話 sat in place below — the same work presented twice over, once
+    # as news. Surfacing is for works we would otherwise never show at all.
+    in_window_works = {norm_work(r["work"]) for r in releases if not r.get("late_discovered")}
+    for r in releases:
+        if r.get("late_discovered") and norm_work(r["work"]) in in_window_works:
+            r["late_discovered"] = False
+            r["discovered_on"] = None
     for r in releases:
         r["feed_date"] = r.get("discovered_on") or r["pub"] if r.get("late_discovered") else r["pub"]
     releases.sort(key=lambda r: r["feed_date"], reverse=True)

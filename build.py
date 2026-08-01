@@ -566,7 +566,9 @@ def main():
     # whole and flagged, because guessing the boundary would invent a title.
     known_titles = {}
     for src in ("data/source/kadokomi/catalogue.yaml", "data/source/kadokomi/chapters.yaml",
-                "data/source/comicfuz/works.yaml", "data/source/comicfuz/resolved.yaml"):
+                "data/source/comicfuz/works.yaml", "data/source/comicfuz/resolved.yaml",
+                "data/source/kadokomi/resolved.yaml", "data/source/nicovideo/resolved.yaml",
+                "data/source/comparators/resolved-titles.yaml"):
         f = pathlib.Path(src)
         if not f.exists():
             continue
@@ -679,6 +681,26 @@ def main():
             t = w.get("work_title") or w.get("title")
             if t:
                 fuz_confirmed.add(norm_work(t))
+
+    # A work confirmed on another platform, appearing on a known syndicator, is a syndicated
+    # appearance — 魔法少女201 is 集英社's, carried on 少年ジャンプ+ and ヤンジャン+, and also on
+    # ニコニコ漫画. Marking it there as if it originated is wrong twice over: it misattributes the
+    # work, and it points a reader at the worse copy.
+    origin_of = {}
+    _rt = pathlib.Path("data/source/comparators/resolved-titles.yaml")
+    if _rt.exists():
+        for w in (yaml.safe_load(_rt.read_text()) or {}).get("works") or []:
+            if w.get("platform"):
+                origin_of[norm_work(w["title"])] = w["platform"]
+    syndicators = {p["name"] for p in (yaml.safe_load(
+        pathlib.Path("data/platforms.yaml").read_text()) or {}).get("platforms") or []
+        if p.get("syndication") or p.get("id") == "nicovideo"}
+    for r in releases:
+        og = origin_of.get(norm_work(r.get("work") or ""))
+        if og and (r.get("plat_name") or "") in syndicators and og != r.get("plat_name"):
+            r["syndicated"] = True
+            r["origin_note"] = (f"carried on {r.get('plat_name')}; originates on {og}, "
+                                f"which is where it should be read")
 
     for r in releases:
         ch = r.get("channel")

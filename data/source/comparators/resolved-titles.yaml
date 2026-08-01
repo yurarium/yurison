@@ -1,0 +1,56 @@
+# Canonical titles confirmed by external web search, for splitting 百合ナビ's conflated cells.
+#
+# 百合ナビ's WEB連載 table runs title and author together in one string. Splitting needs a title
+# confirmed by the platform that carries the work; without one the boundary is a guess, and a guess
+# invents a title (REQUIREMENTS §6).
+#
+# Platform-neutral: unlike data/source/comicfuz/resolved.yaml and
+# data/source/nicovideo/resolved.yaml, these works are on platforms already watched, so nothing
+# needs fetching. Only the title is missing, and only to cut the cell.
+source: comparators
+role: title-confirmation
+retrieved: 2026-08-01
+method: web search restricted to the carrying platform's own domain; one confirmed result each
+record_type: series_identity
+works:
+  - title: "笑顔のたえない職場です。"
+    author: "くずしろ"
+    platform: コミックDAYS
+    url: "https://comic-days.com/episode/10834108156652412315"
+
+  - title: "明日ちゃんのセーラー服"
+    author: "博"
+    platform: となりのヤングジャンプ
+    url: "https://tonarinoyj.jp/episode/13932016480028986061"
+    note: >-
+      The platform writes it with furigana — 明日（あけび）ちゃんのセーラー服 - 博（ひろ）. The form
+      recorded here is the one without, because that is what the comparator cell contains and what
+      the split has to match; the furigana form would never match it.
+
+  - title: "阿佐ヶ谷サキュバス同人物語"
+    author: "縁山"
+    platform: チャンピオンクロス
+    url: "https://championcross.jp/episodes/c588f534a4870"
+
+  - title: "魔法少女201"
+    author: "むちゃ"
+    platform: 少年ジャンプ+
+    url: "https://shonenjumpplus.com/episode/17106371853064376295"
+    also_on:
+      - platform: ヤンジャン+
+        url: "https://ynjn.jp/title/11677"
+      - platform: ニコニコ漫画
+        url: "https://manga.nicovideo.jp/comic/65870"
+    note: >-
+      少年ジャンプ+ states it as "[第1話]魔法少女201 - むちゃ", which gives the split outright.
+      All three URLs came from the project owner 2026-08-01.
+      Worth recording why searching failed: a search restricted to manga.nicovideo.jp returned
+      nothing, and I read that as evidence the work was not there and the claim had the wrong
+      platform. It was there — /comic/65870 — and the claim was right. A search returning nothing
+      is evidence about the search, not about the work. Two of the three domains were searched and
+      both came back empty for a work present on both.
+
+# Searched and NOT resolved — left conflated rather than split on a guess:
+#
+#   スライム倒して300年、知らないうちにレベルMAXになってました 森田季節/シバユウスケ
+#     ガンガンONLINE. Not yet searched.

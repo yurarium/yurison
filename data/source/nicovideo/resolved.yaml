@@ -1,0 +1,40 @@
+# ニコニコ漫画 work ids resolved by external web search restricted to manga.nicovideo.jp.
+#
+# Why these were unreachable: the adapter targets works by the /comic/<id> URLs the antenna
+# supplies. These works reach us only through 百合ナビ, which gives no URL at all — so there was no
+# id to fetch, and the 百合ナビ cell runs title and author together, so there was nothing to match
+# on either. Both failures at once: フルボイス！ 科戸コウ sat in the feed as an unclassified claim
+# on a platform we do watch.
+#
+# One search each, one confirmed result. ニコニコ states its works as "タイトル / 作者", so the
+# same result that gives the id also gives the split — the conflated cell is resolved by the
+# platform rather than guessed apart (REQUIREMENTS §6).
+source: webpages
+role: id-resolution
+retrieved: 2026-08-01
+method: web search restricted to manga.nicovideo.jp; one confirmed result per work
+record_type: series_identity
+works:
+  - title: "フルボイス！"
+    author: "科戸コウ"
+    comic_id: "70759"
+    channel: きららベース
+  - title: "十字トンボは空を飛ばない"
+    author: "織日ちひろ 虫原"
+    comic_id: "71834"
+    channel: きららベース
+  - title: "きみとボドゲが作りたい！"
+    author: "赤城ナツイチ"
+    comic_id: "72637"
+    channel: きららベース
+  - title: "ごきげんよう、一局いかが?"
+    author: "卯花つかさ"
+    comic_id: "59722"
+
+  - title: "魔法少女201"
+    author: "むちゃ"
+    comic_id: "65870"
+    note: >-
+      Not found by search — supplied by the project owner. A restricted search of this very domain
+      returned nothing for a work that is on it, so absence from search results is not evidence of
+      absence from the platform.

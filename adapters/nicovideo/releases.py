@@ -91,6 +91,10 @@ def parse(html):
         # ニコニコ states its works as "タイトル / 作者", which is a cleaner identity than the
         # comparator cell that named the work for us.
         head = t.group(1).split(" - ")[0].strip()
+        # The title element is "タイトル / 作者 おすすめ無料漫画 - ニコニコ漫画". The trailing
+        # editorial phrase varies (おすすめ漫画 / おすすめ無料漫画) and was landing in the author
+        # field — "むちゃ おすすめ漫画".
+        head = re.sub(r"\s*おすすめ(無料)?漫画\s*$", "", head).strip()
         if "/" in head:
             out["title"], _, out["author"] = (x.strip() for x in head.partition("/"))
         else:
@@ -126,6 +130,14 @@ def main():
             m = re.search(r"manga\.nicovideo\.jp/comic/(\d+)", u or "")
             if m:
                 targets.setdefault(m.group(1), w.get("title"))
+    # Works that reach us only through 百合ナビ have no URL and so no id. Ids found by external
+    # search live here; without them a work on a platform we watch stays an unclassified claim.
+    res = pathlib.Path("data/source/nicovideo/resolved.yaml")
+    if res.exists():
+        for w in (yaml.safe_load(res.read_text()) or {}).get("works") or []:
+            if w.get("comic_id"):
+                targets.setdefault(str(w["comic_id"]), w.get("title"))
+
     targets = dict(list(targets.items())[: a.limit])
     if not targets:
         sys.exit("no ニコニコ漫画 work ids found")

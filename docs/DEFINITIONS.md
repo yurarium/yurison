@@ -166,6 +166,23 @@ ongoing web serial are **releases**, tracked beneath their work and never indepe
 or included. A one-shot in an anthology is a work; chapter 43 of a serial is a release. See
 [REQUIREMENTS.md §5](REQUIREMENTS.md#5-release-tracking-web-manga).
 
+### A 試し読み sample is not web publication
+
+Platforms list some titles as "series" whose entire output is 試し読み — sample chapters promoting a
+printed volume. These are **not web manga**, and the scope rule already says so: the work's first
+publication is the tankōbon, and the web posting is advertising for it.
+
+So the samples are not releases and do not belong in a release feed. Counting them would overstate
+web publishing activity with material that is really a shopfront.
+
+The work itself is unaffected — it is a print work and belongs in the catalogue on that basis. In
+practice these samples are a **useful discovery route to print works**: of the two found on
+一迅プラス on 2026-08-01, neither was yet in the catalogue, so the sample was the only signal that
+the volume existed. They are recorded as print candidates rather than discarded.
+
+A 試し読み *within* a genuinely serialised work is a different thing: it is one release among
+others, typed `trial`, and does not change the work's status.
+
 ---
 
 ## 7. Exclusions

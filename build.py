@@ -191,7 +191,7 @@ def main():
     releases, platforms = [], []
     for f in sorted(glob.glob("data/source/gigaviewer/*.yaml")):
         d = yaml.safe_load(open(f)) or {}
-        if d.get("record_type") == "web_series":
+        if d.get("record_type") in ("web_series", "print_candidates"):
             continue
         pid = d.get("platform")
         platforms.append({"id": pid, "name": d.get("platform_name"),
@@ -203,6 +203,9 @@ def main():
                 "id": r.get("release_id"), "work": r.get("work_title"),
                 "ep": r.get("episode_title"), "type": r.get("release_type"),
                 "adv": bool(r.get("advances_narrative")),
+                # Series whose entire output is 試し読み are promoting a printed volume, not
+                # publishing web manga (§5). Carried, but not shown as releases by default.
+                "web": r.get("web_status", "serialised"),
                 # `date` is the earliest evidence held, locked when the release was first seen
                 # and never revised (§5). Platforms mass-update Atom <updated> on refresh and
                 # import, so their current value is carried for reference, never as the sort key.
@@ -219,6 +222,15 @@ def main():
             })
     releases.sort(key=lambda r: r["pub"], reverse=True)
 
+    # Print works reached through a web sample: catalogue candidates, not releases.
+    print_candidates = []
+    for f in sorted(glob.glob("data/source/gigaviewer/*-print-candidates.yaml")):
+        d = yaml.safe_load(open(f)) or {}
+        for c in d.get("candidates") or []:
+            print_candidates.append({**{k: c.get(k) for k in
+                ("work_title", "author", "sample_count", "sample_url", "label", "status")},
+                "platform": d.get("platform")})
+
     # Discovery candidates are NOT records and are kept in a separate structure so nothing
     # downstream can mistake them for attested data (§1).
     queue = []
@@ -231,10 +243,14 @@ def main():
                           "source": d.get("source"), "status": c.get("status")})
 
     (out / "feed.json").write_text(json.dumps(
-        {"releases": releases, "platforms": platforms, "queue": queue},
+        {"releases": releases, "platforms": platforms, "queue": queue,
+         "print_candidates": print_candidates},
         ensure_ascii=False, indent=1, default=jsonable))
 
-    print(f"releases        : {len(releases)} from {len(platforms)} platform(s)")
+    serialised = sum(1 for r in releases if r.get("web") == "serialised")
+    print(f"releases        : {len(releases)} from {len(platforms)} platform(s) "
+          f"({serialised} serialised, {len(releases)-serialised} promotional samples)")
+    print(f"print candidates: {len(print_candidates)} from web samples")
     print(f"queue           : {len(queue)} unconfirmed candidates")
     print(f"works compiled  : {len(works)}")
     print(f"volumes         : {sum(w['volume_count'] for w in works)}")

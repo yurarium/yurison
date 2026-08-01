@@ -22,7 +22,7 @@ Usage:  releases.py --out data/source/gigaviewer --cache ~/workspace/giga-cache
 """
 import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
 import xml.etree.ElementTree as ET
-from collections import Counter
+from collections import Counter, defaultdict
 
 import yaml
 
@@ -54,6 +54,12 @@ MIN_ENTRIES = 5  # health assertion: an empty or tiny feed means broken, not "no
 # A shared timestamp is normal when it is a scheduled daily batch — many works, about one entry
 # each. It is suspect when one work contributes several entries at the identical instant.
 BULK_PER_WORK = 3
+
+# Some platform "series" are only 試し読み — sample chapters promoting a printed volume. They are
+# not web manga: under DEFINITIONS §6 the work's first publication is the tankōbon, and the web
+# posting is advertising. Their samples are not publication events and do not belong in a release
+# feed. The series is still worth keeping: it names a print work, often one the catalogue lacks.
+PROMO_ONLY_TYPES = {"trial"}
 
 
 def get(url, cache_dir, force=False):
@@ -236,6 +242,15 @@ def main():
             cands = [d for d in (r["first_reported"], r["first_seen"]) if d]
             r["date"] = min(c[:10] for c in cands) if cands else ""
 
+        # Classify each series by the shape of its release history.
+        by_work = defaultdict(list)
+        for r in rels:
+            by_work[r["work_title"]].append(r)
+        promo = {w for w, rs in by_work.items()
+                 if {x["release_type"] for x in rs} <= PROMO_ONLY_TYPES}
+        for r in rels:
+            r["web_status"] = "promotional-sample-only" if r["work_title"] in promo else "serialised"
+
         doc = [
             "# Source-layer record: web releases from a GigaViewer platform (REQUIREMENTS §5).",
             "# The Atom feed is the publisher's own update channel. Episode thumbnails offered as",
@@ -251,7 +266,7 @@ def main():
         ]
         for r in sorted(rels, key=lambda r: r["platform_updated"], reverse=True):
             doc.append(f"  - release_id: {json.dumps(r['release_id'], ensure_ascii=False)}")
-            for k in ("work_title", "episode_title", "release_type", "date", "date_basis",
+            for k in ("work_title", "web_status", "episode_title", "release_type", "date", "date_basis",
                       "first_seen", "first_reported", "platform_updated", "platform_date_changed",
                       "date_confidence", "date_note", "url",
                       "author", "free_term_start", "raw_title"):
@@ -275,6 +290,25 @@ def main():
         sdoc.append("")
         (out / f"{p['id']}-series.yaml").write_text("\n".join(sdoc))
 
+        # Promotional-sample series are print works reached through a web sample. Emitted as
+        # catalogue candidates rather than releases — kept, not discarded (§4).
+        if promo:
+            pdoc = ["# Print works surfaced by web 試し読み samples. NOT web manga (DEFINITIONS §6):",
+                    "# the sample promotes a printed volume, so first publication is the tankōbon.",
+                    "# These are catalogue candidates, not releases and not records.",
+                    "source: gigaviewer", f"platform: {p['id']}", f"retrieved: {a.retrieved}",
+                    "record_type: print_candidates", "candidates:"]
+            for w in sorted(promo):
+                rs = by_work[w]
+                pdoc.append(f"  - work_title: {json.dumps(w, ensure_ascii=False)}")
+                pdoc.append(f"    author: {json.dumps(series.get(w, {}).get('author', ''), ensure_ascii=False)}")
+                pdoc.append(f"    sample_count: {len(rs)}")
+                pdoc.append(f"    sample_url: {json.dumps(rs[0]['url'], ensure_ascii=False)}")
+                pdoc.append(f"    label: {json.dumps(series.get(w, {}).get('label', ''), ensure_ascii=False)}")
+                pdoc.append("    status: unconfirmed")
+            pdoc.append("")
+            (out / f"{p['id']}-print-candidates.yaml").write_text("\n".join(pdoc))
+
         totals["platforms"] += 1
         totals["series"] += len(series)
         totals["releases"] += len(rels)
@@ -284,6 +318,10 @@ def main():
         moved = sum(1 for r in rels if r.get("platform_date_changed"))
         totals["low-confidence dates"] += low
         print(f"{p['id']:14} series={len(series):3} releases={len(rels):3}  {dict(types)}")
+        if promo:
+            n = sum(1 for r in rels if r["web_status"] == "promotional-sample-only")
+            print(f"{'':14} {len(promo)} series are 試し読み samples only "
+                  f"({n} releases) -> print candidates, excluded from the feed")
         print(f"{'':14} dates: {boot} bootstrap, {len(rels)-boot} observed"
               + (f", {low} bulk-signature" if low else "")
               + (f", {moved} CHANGED at source" if moved else ""))

@@ -225,6 +225,23 @@ not_works:
 # the request on location. Nothing about the adapter, the user agent or the request rate would
 # change the outcome, so they must not sit in the "retry later" bucket where the first survey put
 # them (project owner, 2026-08-01).
+# ── Platforms that publish no per-chapter dates at all ────────────────────────────────────────
+#
+# A claim about these can be neither confirmed nor contradicted, and that is a property of the
+# platform rather than a gap in our reach. Recorded so the distinction survives: "we have not
+# checked" and "there is nothing to check against" are different states and were being counted as
+# one.
+no_chapter_dates:
+  - name: ガンガンONLINE
+    host: www.ganganonline.com
+    observed: 2026-08-01
+    detail: >-
+      Its __NEXT_DATA__ chapter objects carry id, status, thumbnailUrl, mainText, subText and an
+      app launch URL — and mainText is "次回更新：8月6日", the date of the NEXT update. There is no
+      publication date on any chapter, rendered or not. A reader on the site cannot see when a
+      given chapter appeared either, so this is not something a better adapter reaches.
+      What it does publish is forward-looking: which day the next instalment is due.
+
 # ── "Blocked" was one label doing four different jobs (corrected 2026-08-01) ──────────────────
 #
 # Re-probed with both a bare and a compatible-token user agent. Of five hosts filed as bot

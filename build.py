@@ -670,6 +670,12 @@ def main():
             if ti and pn and ds:
                 platform_history[(ti, pn)] = ds
 
+    # Platforms that publish no per-chapter dates. A claim naming one of them is unconfirmable by
+    # nature, not by neglect, and the interface should say which it is.
+    dateless_platforms = {norm_work(x["name"]) for x in
+                          (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {})
+                          .get("no_chapter_dates") or []}
+
     contradicted, contradicted_works = 0, []
     CLAIM_DATE_SLACK = 2   # days either side
 
@@ -755,6 +761,7 @@ def main():
                                                c.get("platform") or "?"),
                 "channel": channels.get(norm_work(c.get("platform") or "")),
                 "ident": "comparator-claim", "free_from": None, "access_modes": [],
+                "unconfirmable": norm_work(c.get("platform") or "") in dateless_platforms,
                 "provenance": "claimed", "claim_source": c.get("source"),
                 "also_attested_elsewhere": nw in attested_works,
             })

@@ -54,6 +54,11 @@ NON_STORY_RE = re.compile(r"告知|お知らせ|カバー|PV|特報|予告|特�
 # follows the series for, unlike an announcement or a cover reveal. They are instalments of an
 # existing work, so they are never a new series either.
 EXTRA_RE = re.compile(r"おまけ|番外編|外伝|特別編|幕間")
+# Several publishers say so in the title rather than anywhere structured: 【読切】吸血少女と…,
+# 【コミックDAYS読み切り】私のヒーロー, 読み切り作品, and 魔法使いの作庭/よみきり which puts it in
+# the WORK title. Confirmation establishes is_oneshot properly but only reaches works we discovered
+# through editorial coverage; this catches the rest, which were arriving as 新話.
+ONESHOT_RE = re.compile(r"読切|読み切り|よみきり")
 # Things platforms file among the chapters that are not instalments. Grouped here because they all
 # get the SAME treatment: judged against how often the series itself uses the marker, never as a
 # flat keyword rule (see the outlier test below).
@@ -881,6 +886,12 @@ def main():
         # labelling 【読切】吸血少女とウンディーネ 新話.
         if r["type"] == "oneshot":
             r["kind"], r["kind_basis"] = "new-series", "one-shot: the platform lists one episode"
+            continue
+        if ONESHOT_RE.search(ep) or ONESHOT_RE.search(r.get("work") or ""):
+            r["type"] = "oneshot"
+            r["kind"] = "new-series"
+            r["kind_basis"] = "the title says 読切 — a one-shot, not an instalment"
+            r["kind_inferred"] = True
             continue
         if r["type"] == "extra" or EXTRA_RE.search(ep):
             r["kind"], r["kind_basis"] = "new-chapter", "extra or side story — content, not notice"

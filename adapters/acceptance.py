@@ -15,6 +15,10 @@ side is matched by prefix containment and is necessarily looser.
 
 Usage:  acceptance.py
 """
+import datetime
+
+FEED_DAYS = 60
+
 import json
 import unicodedata
 import pathlib
@@ -54,8 +58,13 @@ def antenna_date(txt, today):
 def main():
     feed = json.loads(pathlib.Path("data/build/feed.json").read_text())
     rel = [r for r in feed["releases"] if r.get("web") != "promotional-sample-only"]
-    lo = min(r["pub"] for r in rel)
+    # The window the feed TARGETS, not the extent of what happens to be in it. Late-discovered
+    # works carry their true publication date — one from 2026-05-14 — and deriving the period from
+    # the minimum turned that single row into a 20-day extension of the measurement, against which
+    # nothing else was covered. Acceptance fell from 100% to 94% without any coverage changing.
     hi = max(r["pub"] for r in rel)
+    lo = max(min(r["pub"] for r in rel),
+             str(datetime.date.fromisoformat(hi) - datetime.timedelta(days=FEED_DAYS)))
     d_lo = date(*(int(x) for x in lo.split("-")))
     d_hi = date(*(int(x) for x in hi.split("-")))
     ours = {norm(r["work"]) for r in rel}

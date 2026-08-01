@@ -1,0 +1,48 @@
+# ガンガンONLINE — chapters read from a RENDERED page.
+#
+# This platform serves a shell and builds its chapter list in JavaScript, so a fetch
+# returns nothing to parse. The page is rendered with headless chromium and the DOM
+# it produced is read — the platform's own page, as it chose to draw it.
+#
+# date_basis: rendered — weaker than a feed the platform published, stronger than a
+# pattern matched in static markup. No genre label is established here (§4).
+source: webpages
+platform: ganganonline
+platform_name: "ガンガンONLINE"
+publisher: "スクウェア・エニックス"
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+date_basis: rendered
+date_confidence: reported
+works:
+  - work_title: "ひきこまり吸血姫の悶々"
+    url: "https://www.ganganonline.com/title/1593"
+    chapter_count: 2
+    chapters:
+      - title: "第18話-2 決戦の後に"
+        updated: 2026-07-23
+        date_basis: rendered
+      - title: "第1話-1 引きこもり吸血姫、抜擢!! 作品インフォメーション 『ひきこまり吸血姫の悶"
+        updated: 2025-12-25
+        date_basis: rendered
+  - work_title: "裏世界ピクニック"
+    url: "https://www.ganganonline.com/title/38"
+    chapter_count: 2
+    chapters:
+      - title: "第90話-1 八尺様リバイバルV"
+        updated: 2026-08-02
+        date_basis: rendered
+      - title: "第1話-1 くねくねハンティングI 作品インフォメーション 『裏世界ピクニック』コミッ"
+        updated: 2026-05-12
+        date_basis: rendered
+  - work_title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
+    url: "https://www.ganganonline.com/title/2349"
+    chapter_count: 2
+    chapters:
+      - title: "第9話-2"
+        updated: 2026-06-23
+        date_basis: rendered
+      - title: "第1話-1 作品インフォメーション 『限界社会人さんを救えるのはクソデカ感情ストーカー"
+        updated: 2025-11-12
+        date_basis: rendered

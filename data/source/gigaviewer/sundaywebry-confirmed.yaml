@@ -1,0 +1,39 @@
+# サンデーうぇぶり — works confirmed from the discovery queue.
+#
+# 百合ナビ named these and linked to them; the platform supplies the fields. Tier C
+# names a work and establishes nothing about it (REQUIREMENTS §1).
+#
+# is_oneshot is read, not guessed: a series feed holding exactly one episode is a
+# one-shot. These platforms apply no genre label, so nothing here establishes
+# marketing_label (DEFINITIONS §4).
+source: gigaviewer
+platform: sundaywebry
+platform_name: "サンデーうぇぶり"
+publisher: "小学館"
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works_confirmed: 1
+works:
+  - work_title: "第1話 もう一度"
+    url: "https://www.sunday-webry.com/episode/12207421983745504350"
+    series_id: "12207421983745469823"
+    is_oneshot: false
+    discovered_via:
+      signal: "new-serial"
+      article: "https://yurinavi.com/2026/06/02/natoritoshizuha-start/"
+      headline: "強くなりたい少女たちの青春を描く柔道ガール・ミーツ・ガール「なとりとしずは」WEBで連載開始"
+    chapter_count: 4
+    chapters:
+      - title: "第5話 約束"
+        updated: 2026-07-20
+        url: "https://www.sunday-webry.com/episode/12207421983978194749"
+      - title: "第3話 負けず嫌い"
+        updated: 2026-06-22
+        url: "https://www.sunday-webry.com/episode/12207421983877405342"
+      - title: "第2話 ほころび"
+        updated: 2026-06-08
+        url: "https://www.sunday-webry.com/episode/12207421983809894245"
+      - title: "第1話 もう一度"
+        updated: 2026-05-25
+        url: "https://www.sunday-webry.com/episode/12207421983745504350"

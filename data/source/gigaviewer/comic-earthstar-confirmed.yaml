@@ -1,0 +1,30 @@
+# コミック アース・スター — works confirmed from the discovery queue.
+#
+# 百合ナビ named these and linked to them; the platform supplies the fields. Tier C
+# names a work and establishes nothing about it (REQUIREMENTS §1).
+#
+# is_oneshot is read, not guessed: a series feed holding exactly one episode is a
+# one-shot. These platforms apply no genre label, so nothing here establishes
+# marketing_label (DEFINITIONS §4).
+source: gigaviewer
+platform: comic-earthstar
+platform_name: "コミック アース・スター"
+publisher: "アース・スター エンターテイメント"
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works_confirmed: 1
+works:
+  - work_title: "【読切】吸血少女とウンディーネ"
+    url: "https://comic-earthstar.com/episode/12207421983715032399"
+    series_id: "12207421983715031918"
+    is_oneshot: true
+    discovered_via:
+      signal: "oneshot"
+      article: "https://yurinavi.com/2026/06/24/kyuuketsusyoujyoto-yomikiri/"
+      headline: "変化に戸惑う少女と転校生の読み切り漫画「吸血少女とウンディーネ」WEBで公開"
+    chapter_count: 1
+    chapters:
+      - title: "【読切】吸血少女とウンディーネ"
+        updated: 2026-05-14
+        url: "https://comic-earthstar.com/episode/12207421983715032399"

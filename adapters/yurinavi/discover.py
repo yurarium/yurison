@@ -13,18 +13,25 @@ else already tagged.
 Usage:  discover.py --out data/queue --cache ~/workspace/yurinavi-cache --retrieved 2026-08-01
 """
 import argparse, datetime, json, pathlib, re, time, urllib.request
+
+import yaml
 import xml.etree.ElementTree as ET
 from collections import Counter
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
 
 # Headline shapes worth queueing, vs. commerce noise that is not a publication event.
+# Order matters: roundup is tested FIRST. A まとめ headline names the work it leads with, so it
+# also matches 連載開始 or 読み切り — and it was being filed as that work's announcement. But the
+# roundup's body links to 百合ナビ's own per-work articles, not to the platform, so the candidate
+# could never resolve. Those per-work articles are in the sitemap and reach us on their own; the
+# roundup is a duplicate of them with the link stripped out.
 SIGNALS = [
+    ("roundup", r"まとめ|注目百合ニュース"),
     ("new-serial", r"連載(開始|スタート)|WEBで(スタート|連載)|新連載"),
     ("oneshot", r"読み切り|読切"),
     ("new-volume", r"(単行本|コミックス)[^。]{0,8}(発売|刊行)|新刊"),
     ("adaptation", r"アニメ化|ドラマ化|映像化"),
-    ("roundup", r"まとめ|注目百合ニュース"),
 ]
 IGNORE = r"セール|OFF|ポイント還元|還元|無料公開中止|キャンペーン|抽選|プレゼント"
 
@@ -60,11 +67,91 @@ def fetch_article(url, cache):
     return t
 
 
-def resolve_platform(html):
-    for name, pat in PLATFORMS:
+def registry_hosts():
+    """host -> platform id, from the adapter registries rather than a list kept by hand.
+
+    The hand-kept list named four platforms. comic-earthstar.com has been in the GigaViewer
+    registry throughout and was not in it, so articles linking straight to the work were filed as
+    "no platform link" — the article was fine and the resolver was not.
+    """
+    out = {}
+    for f, key in (("adapters/gigaviewer/platforms.yaml", "platforms"),
+                   ("adapters/webpages/sites.yaml", "sites")):
+        p = pathlib.Path(f)
+        if not p.exists():
+            continue
+        for x in (yaml.safe_load(p.read_text()) or {}).get(key) or []:
+            if x.get("host"):
+                out[x["host"]] = x["id"]
+    out.update({"comic-walker.com": "kadokomi", "comic-fuz.com": "comicfuz",
+                "manga.nicovideo.jp": "nicovideo"})
+    return out
+
+
+def unshorten(url, cache):
+    """t.co and friends hide the destination. Eight of the links in the unresolved articles were
+    shortened, so the work they pointed at was invisible to any amount of pattern matching."""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": UA}, method="HEAD")
+        with urllib.request.urlopen(req, timeout=20) as r:
+            return r.url
+    except Exception:                                              # noqa: BLE001
+        return url
+    finally:
+        time.sleep(0.4)
+
+
+SHORTENERS = ("t.co", "bit.ly", "ow.ly", "buff.ly", "urx.blue", "ux.nu")
+
+
+def resolve_near(html, title, hosts):
+    """The platform link nearest a given work title in the body.
+
+    A まとめ article covers a dozen works and links to each. Taking the first platform link in the
+    page attaches whichever work happens to appear first to every title in it, which is worse than
+    leaving it unresolved. So the link is chosen by distance from where the title is mentioned.
+    """
+    i = html.find(title)
+    if i < 0:
+        return None, None
+    best = None
+    for m in re.finditer(r'href="(https?://([^/"]+)[^"]*)"', html):
+        if m.group(2) not in hosts:
+            continue
+        d = abs(m.start() - i)
+        if best is None or d < best[0]:
+            best = (d, m.group(1), m.group(2))
+    if not best or best[0] > 4000:      # further than that is a different section of the article
+        return None, None
+    code = re.search(r"/(?:episode|series|detail|manga|comic|title)/([A-Za-z0-9_]+)", best[1])
+    return hosts[best[2]], (code.group(1) if code else None)
+
+
+def resolve_platform(html, cache=None, title=None):
+    hosts = registry_hosts()
+    if title:
+        p, c = resolve_near(html, title, hosts)
+        if p:
+            return p, c
+    for name, pat in PLATFORMS:                 # explicit forms first: they carry a clean code
         m = re.search(pat, html)
         if m:
             return name, m.group(1)
+    links = re.findall(r'href="(https?://[^"]+)"', html)
+    for u in links:
+        h = re.match(r"https?://([^/]+)", u).group(1)
+        if h in hosts:
+            code = re.search(r"/(?:episode|series|detail|manga|comic|title)/([A-Za-z0-9_]+)", u)
+            return hosts[h], (code.group(1) if code else None)
+    for u in links:                             # only then pay for the redirects
+        h = re.match(r"https?://([^/]+)", u).group(1)
+        if h not in SHORTENERS:
+            continue
+        real = unshorten(u, cache)
+        rh = re.match(r"https?://([^/]+)", real)
+        if rh and rh.group(1) in hosts:
+            code = re.search(r"/(?:episode|series|detail|manga|comic|title)/([A-Za-z0-9_]+)", real)
+            return hosts[rh.group(1)], (code.group(1) if code else None)
     return None, None
 
 
@@ -164,8 +251,10 @@ def main():
         counts[sig or "ignored"] += 1
         if not sig or sig == "roundup":
             continue
-        plat, code = resolve_platform(fetch_article(art, cache)) if art else (None, None)
+        art_html = fetch_article(art, cache) if art else ""
         for t in titles_in(head):
+            # Resolved per title, not per article: a まとめ names several works and links to each.
+            plat, code = resolve_platform(art_html, cache, t) if art_html else (None, None)
             rows.append({"work_title": t, "signal": sig, "headline": head,
                          "url": art, "platform": plat, "platform_code": code,
                          "source": "yurinavi", "announced": when})

@@ -1,5 +1,9 @@
 # Series a comparator reports and we hold nothing for, after every platform pass.
 # Geoblocked hosts are excluded: no route reaches them from here.
+#
+# URL corrections applied where the candidate list carried a truncated or stale path — the
+# antenna gave comic-ryu.jp/series/watashinotamashiiwot, which 404s; the real slug is
+# watashinotamashiiwotabetekudasai. A 404 was being read as 'unreachable'.
 source: derived
 role: remaining-works
 retrieved: 2026-08-01

@@ -17,7 +17,9 @@ works:
 - work: ガールミートガール
   platform: アサコミ
   url: http://sonorama.asahi.com/series/GMG-story.html
-  reason: host sonorama.asahi.com is gone; the work moved with アサコミ and needs re-resolving
+  reason: 'host moved: sonorama.asahi.com is gone and the work went with ソノラマ+ into
+    アサコミ (asacomi.jp, comici). Needs its URL re-resolved on the new host; the adapter
+    for it already exists.'
 - work: スライム倒して300年、知らないうちにレベルMAXになってました 森田季節/シバユウスケ
   platform: ガンガンONLINE
   url: null
@@ -25,7 +27,8 @@ works:
 - work: ツイてるギャルとミエてる陰キャ
   platform: きら星ポータル
   url: https://kirapo.jp/meteor/titles/tuimie
-  reason: きら星ポータル has no adapter and no dated list on the work page
+  reason: きら星ポータル has no adapter; its work page carries no dated chapter list fetched
+    or rendered. Not yet diagnosed further.
 - work: 勇者の旅の裏側で
   platform: ドリコミ+
   url: null
@@ -45,7 +48,8 @@ works:
 - work: 横槍メンゴ新作読切シリーズ
   platform: ヤンジャン+
   url: https://ynjn.jp/title/30352
-  reason: ヤンジャン+ builds its list client-side and the render yielded no dated chapters
+  reason: ヤンジャン+ builds its chapter list client-side and the rendered DOM still yielded
+    no dated chapters. Not yet diagnosed further.
 - work: 画家の肖像
   platform: コミックゼノン
   url: https://comic-zenon.com/episode/12207421983944323781
@@ -54,7 +58,11 @@ works:
 - work: 私の魂を食べて下さい!
   platform: COMICリュウ
   url: https://www.comic-ryu.jp/series/watashinotamashiiwotabetekudasai/
-  reason: listed URL 404s on comic-ryu.jp
+  reason: 'reachable, not yet parsed: the candidate URL was TRUNCATED (watashinotamashiiwot
+    for watashinotamashiiwotabetekudasai) and 404''d, which read as unreachable. The
+    real series page lists 12 chapters with titles and NO dates; the dates are on
+    each episode page, mixed with sidebar blog dates that need disambiguating. One
+    fetch per episode, and a date picker that ignores the sidebar.'
 - work: 藤髪の魔女
   platform: ガンガンONLINE
   url: https://www.ganganonline.com/title/2649

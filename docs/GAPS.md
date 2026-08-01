@@ -66,65 +66,56 @@ above ~40 works after that, the browser step earns its keep.
 
 ---
 
-## 3. The unwatched long tail — worked through
+## 3. Platform coverage — worked to the series, not the platform
 
-**The entry that stood here twice was wrong.** First it said the tail offered no leverage, from
-six hosts probed for two engines. Then it said the survey had found the leverage, from a heuristic
-that could not tell a chapter date from a 単行本 release date. Both were conclusions drawn from
-samples that decided the answer in advance.
+Every platform in the survey has a route or a stated reason, and so does every individual series.
+The count that matters is the second one: a platform can be "watched" while particular works on it
+are never fetched, which is what was happening.
 
-All 74 platforms have now been surveyed twice — once for shape (`adapters/recon/probe.py`), once by
-attempting the extraction itself (`adapters/recon/extract.py`) — and every one has a disposition.
+**Series a comparator reports that we hold no chapter data for: 10** (from 65).
 
-| Disposition | Hosts | Exclusive works |
-|---|---|---|
-| solved — GigaViewer feed | 15 | 47 |
-| solved — generic extractor | 8 | 26 |
-| solved — comici pages | 5 | 19 |
-| dead — 更新終了, needs nothing | 14 | 31 |
-| blocked — 403/412/host down | 7 | 18 |
-| open — needs rendering | 25 | 128 |
+| Why | Count |
+|---|---|
+| withdrawn at source — 掲載期間 ended, publisher serves an empty feed | 3 |
+| not yet diagnosed further | 3 |
+| route identified, work outstanding | 2 |
+| platform publishes no per-chapter dates | 1 |
+| geoblocked | 1 |
 
-**123 of the 269 works are now reached or need nothing.** Attested releases went 478 → 553 over the
-course of this work.
+Named individually with their reasons in `data/coverage/unreached.yaml`. Most are not reachability
+problems: **withdrawn at source** is a work whose URL still resolves and whose publisher now serves
+an empty series feed because its 掲載期間 has ended. A comparator that saw it while it was up was
+not wrong, and no adapter retrieves what is no longer served — that is a state the project already
+names (REQUIREMENTS §4).
 
-### Solved, and how
+### Routes, cheapest first
 
-- **GigaViewer (15)** — twelve instances were sitting unnoticed. Registry rows, no code.
-  comicブースト (15), FEEL web (7), ちゃおプラス (5), COMICリュウ (5), COMIC Y-OURS (4), まんがタイムSquare (2), コミックボーダー (2), Seasons (2), 路草 (1), マガジンデビュー(更新終了) (1), パイコミックス (1), OUR FEEL (1), 栞 (1)
-- **comici (5)** — four more installs of the engine ビッコミ and 竹コミ already use, found by
-  trying the extraction rather than grepping five homepages for a marker.
-  Gコミ (11), 花とゆめ+ (4), ライコミ (3), COMICリュエル (1)
-- **generic extractor (8)** — `adapters/generic/releases.py`. The 21 markup-only hosts have no
-  engine in common but share the *shape* of a chapter list: repeated blocks each carrying a date
-  and a chapter-like label. That parses without knowing a site's markup, so there is no selector
-  registry to maintain. マンガPark (9), マンガよもんが (5), ダ・ヴィンチニュース (3), ファイアCROSS (3), GANMA!(更新終了) (2), コミックノヴァ (2), COMIC熱帯 (1), マイナビニュース (1)
+Each is used only where the one above it fails, and a platform reachable a cheaper way is never
+listed for a dearer one.
 
-  The cost of generality is paid explicitly: every release carries `date_basis: heuristic` and
-  `date_confidence: low`, a block without a chapter-like label is skipped, and volume announcements
-  are dropped. It is not the kind of statement GigaViewer or FUZ make and is not recorded as one.
+1. **Publisher feed** — GigaViewer `/atom`, and per-series `/atom/series/<id>` which is not a
+   rolling window. 22 platforms.
+2. **Server-rendered pages** — comici's series-eplist markup, カドコミ's `__NEXT_DATA__`, FUZ,
+   ニコニコ's `div.meta_info`. 11 platforms.
+3. **Sitemap `<lastmod>`** — `adapters/sitemap/`. Published for crawlers to read; broad and
+   shallow. マガポケ's carries 3,113 dated episode URLs.
+4. **Generic extraction** — `adapters/generic/`, for hosts with no shared engine, driven by
+   strategies proven per host rather than a selector registry.
+5. **Rendering** — `adapters/render/`, headless chromium `--dump-dom`. No Python dependency and no
+   driver. For platforms that build their chapter list in JavaScript: マガポケ, pixivコミック,
+   マンガワン, ガンガンONLINE.
+6. **Per-work, all routes** — `adapters/remaining/`, which tries all of the above against a single
+   work. Used for the residue the platform passes leave behind.
 
-### Blocked, with the reason
+### What no route reaches
 
-HERO&#039;S Web (10), 新都社 (3), LINE マンガ インディーズ (1), comicグラスト (1), GetNavi (1), アサコミ (1), ドリコミ+ (1)
-
-403 and 412 are bot protection; one host no longer resolves. Two others in this group turned out to
-be plain timeouts and were recovered by retrying with a `Mozilla/5.0 (compatible; yurarium/0.1;
-+…)` agent — the long-standing convention, which still names us and still links here. That is not
-the thing refused for pixivコミック: that would mean claiming to be a browser to pass an access
-control. This claims to be us, in the format the web expects.
-
-### Open — the solution is rendering
-
-pixivコミック (41), ガンガンONLINE (13), マガポケ (11), マンガワン (10), きら星ポータル (8), ヤングアニマルWeb (7), 裏サンデー (5), フラコミlike! (5), 少年ジャンプルーキー (4), ヤンジャン+ (3), コミックグロウル (3), ツイ4 (3), コロコロオンライン (2), コミックエッセイ劇場 (2), コミックPASH! neo (1), やわらかスピリッツ (1), NewsCrunch (1), pixivコミックマガジン (1), ゼロサムオンライン (1), マンガボックス (1), アルファポリス (1), Web漫画速報 (1), コロナEX (1), てれびくんヒーローコミックス (1), MAGKAN (1)
-
-These are client-rendered: the chapter list is not in the HTML at any URL. The solution is the same
-one identified for pixivコミック — render the page and read the DOM — and it is a solution, not a
-dead end. What it costs is a browser in the pipeline, which is one decision taken once and then
-covering all 25 hosts and 128 works at a stroke, pixiv's 41 among them.
-
-That changes the arithmetic considerably from when it was weighed for pixiv alone. Recommended as
-the next substantial piece of work.
+- **pixivコミック's app API** returns 403 to anything that is not its own client. Its sitemap 404s,
+  and `/works/<id>.json` and `/magazines/<id>.rss` both return the Next.js catch-all shell rather
+  than data. Rendering reaches the same information, which is what it is used for.
+- **Geoblocked hosts** (ドリコミ+, LINEマンガ, comicグラスト) refuse on location. Nothing about the
+  request changes that.
+- **ガンガンONLINE** publishes `次回更新：8月6日` and no historical dates at all. A reader on the
+  site cannot see when a chapter appeared either.
 
 ## 4. Serialisation history
 

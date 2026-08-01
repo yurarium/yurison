@@ -6,11 +6,12 @@ platform: comicride
 platform_name: "ライコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-08-01
+retrieved: 2026-08-02
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
+    author: "南方純,kiki,キンタ"
     url: "https://comicride.jp/series/7b86cbca64ebe"
     chapter_count: 10
     chapters:
@@ -52,6 +53,7 @@ works:
         url: "https://comicride.jp/episodes/c73d76a2ebb6c"
         access_modes: ["purchase"]
   - work_title: "『人斬り』少女、公爵令嬢の護衛になる"
+    author: "スメラギ,笹塔五郎,ミユキルリア"
     url: "https://comicride.jp/series/b95a6b1493469"
     chapter_count: 10
     chapters:
@@ -96,6 +98,7 @@ works:
         url: "https://comicride.jp/episodes/aefe92cfec1ad"
         access_modes: ["purchase"]
   - work_title: "殺し屋メイドは茨姫の夢を見る"
+    author: "星文ろの"
     url: "https://comicride.jp/series/b59a539f01669"
     chapter_count: 2
     chapters:

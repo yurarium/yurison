@@ -16,6 +16,7 @@ Never stored: synopsis text or image URLs (§2).
 Usage:  releases.py --gap data/coverage/webcomics-gap.yaml --out data/source/webpages \
                     --cache ~/workspace/webpages-cache --retrieved 2026-08-01
 """
+import html as _html
 import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
 from collections import Counter
 
@@ -119,7 +120,13 @@ def main():
             if len(eps) < site.get("min_episodes", 1):
                 failed.append((tgt["title"], f"{len(eps)} episodes parsed"))
                 continue
-            works.append({"work_title": tgt["title"], "url": tgt["url"], "episodes": eps})
+            # comici states the author in the page title as "作品 - 作者 | プラットフォーム".
+            # It was never read, so every comici platform reported chapters with no author.
+            au = re.search(r"<title>[^<|]*?\s+-\s+([^<|]+?)\s*\|", html)
+            row = {"work_title": tgt["title"], "url": tgt["url"], "episodes": eps}
+            if au:
+                row["author"] = _html.unescape(au.group(1).strip())
+            works.append(row)
 
         # The floor exists to catch a site redesign silently emptying a parser. It has to scale
         # with how many works the site actually has, or a platform carrying one yuri title is
@@ -142,6 +149,8 @@ def main():
              "works:"]
         for w in works:
             L.append(f"  - work_title: {js(w['work_title'])}")
+            if w.get("author"):
+                L.append(f"    author: {js(w['author'])}")
             L.append(f"    url: {js(w['url'])}")
             L.append(f"    chapter_count: {len(w['episodes'])}")
             L.append("    chapters:")

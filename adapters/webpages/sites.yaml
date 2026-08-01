@@ -121,6 +121,18 @@ sites:
     supersedes: sonorama.asahi.com
     verified: 2026-08-01
 
+  # HERO'S Web — comici. It answered 503 to every probe while it was down for maintenance, which
+  # was recorded as "unreachable"; it is neither blocked nor gone, and the works are on the bare
+  # host rather than the viewer. subdomain the candidate list carries.
+  - id: heros-web
+    name: HERO'S Web
+    publisher: ヒーローズ
+    host: heros-web.com
+    engine: comici
+    min_episodes: 1
+    min_works: 1
+    verified: 2026-08-02
+
 engines:
   comici:
     block: '(?=<div data-e2e="eli" class="series-eplist-item")'

@@ -497,9 +497,13 @@ def main():
                     "why": ("date matched as a pattern in the page, not stated by the platform"
                             if (c.get("date_basis") or d.get("date_basis")) == "heuristic" else ""),
                     "moved": "",
-                    "url": c.get("url") or w.get("url"), "author": "",
+                    "url": c.get("url") or w.get("url"),
+                    # Author may be stated per chapter (GigaViewer feeds) or per work; both were
+                    # being dropped in favour of an empty string.
+                    "author": c.get("author") or w.get("author") or "",
                     "plat": pid, "plat_name": pname,
-                    "ident": "discovery-candidate", "free_from": None,
+                    "ident": "discovery-candidate",
+                    "free_from": c.get("free_from"),
                     "access_modes": c.get("access_modes") or [],
                 })
 

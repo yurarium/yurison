@@ -10,7 +10,7 @@ source: gigaviewer
 platform: feelweb
 platform_name: "FEEL web"
 publisher: ""
-retrieved: 2026-08-01
+retrieved: 2026-08-02
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 4
@@ -22,16 +22,22 @@ works:
     chapters:
       - title: "第3話"
         updated: 2021-06-04
+        author: "ゆりかご"
         url: "https://feelweb.jp/episode/3269754496334725378"
         free_from: 2021-06-04
+        access_modes: ["free"]
       - title: "第2話"
         updated: 2021-06-04
+        author: "ゆりかご"
         url: "https://feelweb.jp/episode/3269754496334725369"
         free_from: 2021-06-04
+        access_modes: ["free"]
       - title: "第1話"
         updated: 2021-06-04
+        author: "ゆりかご"
         url: "https://feelweb.jp/episode/3269754496334725363"
         free_from: 2021-06-04
+        access_modes: ["free"]
   - work_title: "まとう君、ほころぶ私"
     series_id: "2550689798763768335"
     url: "https://feelweb.jp/atom/series/2550689798763768335"
@@ -39,8 +45,10 @@ works:
     chapters:
       - title: "第1話"
         updated: 2024-08-15
+        author: "犬井あゆ"
         url: "https://feelweb.jp/episode/2550689798763776115"
         free_from: 2024-08-15
+        access_modes: ["free"]
   - work_title: "ヒトゴトですから!"
     series_id: "3269754496396042691"
     url: "https://feelweb.jp/atom/series/3269754496396042691"
@@ -48,8 +56,10 @@ works:
     chapters:
       - title: "第1話"
         updated: 2021-08-20
+        author: "ユニ"
         url: "https://feelweb.jp/episode/3269754496401056068"
         free_from: 2021-08-20
+        access_modes: ["free"]
   - work_title: "月とすっぴん"
     series_id: "3269754496396042695"
     url: "https://feelweb.jp/atom/series/3269754496396042695"
@@ -57,5 +67,7 @@ works:
     chapters:
       - title: "第1話"
         updated: 2021-08-20
+        author: "アケガタユウ"
         url: "https://feelweb.jp/episode/3269754496401056101"
         free_from: 2021-08-20
+        access_modes: ["free"]

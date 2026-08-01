@@ -10,7 +10,7 @@ source: gigaviewer
 platform: mangatime-square
 platform_name: "まんがタイムSquare"
 publisher: ""
-retrieved: 2026-08-01
+retrieved: 2026-08-02
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 2
@@ -22,16 +22,22 @@ works:
     chapters:
       - title: "第3話"
         updated: 2026-07-24
+        author: "いくたはな"
         url: "https://mangatime-square.com/episode/12207421984001577945"
         free_from: 2026-07-24
+        access_modes: ["free"]
       - title: "第2話"
         updated: 2026-07-24
+        author: "いくたはな"
         url: "https://mangatime-square.com/episode/12207421984001577941"
         free_from: 2026-07-24
+        access_modes: ["free"]
       - title: "第1話"
         updated: 2026-07-24
+        author: "いくたはな"
         url: "https://mangatime-square.com/episode/12207421984001577937"
         free_from: 2026-07-24
+        access_modes: ["free"]
   - work_title: "腹割るウチらの秘密ごと!"
     series_id: "12207421983530024812"
     url: "https://mangatime-square.com/atom/series/12207421983530024812"
@@ -39,21 +45,31 @@ works:
     chapters:
       - title: "第5話"
         updated: 2026-07-03
+        author: "夏村東和"
         url: "https://mangatime-square.com/episode/12207421983656607518"
         free_from: 2026-07-03
+        access_modes: ["free"]
       - title: "第4話"
         updated: 2026-06-05
+        author: "夏村東和"
         url: "https://mangatime-square.com/episode/12207421983656607515"
         free_from: 2026-06-05
+        access_modes: ["free"]
       - title: "第3話"
         updated: 2026-05-15
+        author: "夏村東和"
         url: "https://mangatime-square.com/episode/12207421983656607512"
         free_from: 2026-05-15
+        access_modes: ["free"]
       - title: "第2話"
         updated: 2026-05-15
+        author: "夏村東和"
         url: "https://mangatime-square.com/episode/12207421983656607509"
         free_from: 2026-05-15
+        access_modes: ["free"]
       - title: "第1話"
         updated: 2026-05-15
+        author: "夏村東和"
         url: "https://mangatime-square.com/episode/12207421983656607506"
         free_from: 2026-05-15
+        access_modes: ["free"]

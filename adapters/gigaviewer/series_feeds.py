@@ -73,8 +73,12 @@ def episodes(xml):
         # Atom escapes the episode title, so 【試し読み】あんすこ［Are you &quot;mine&quot;？］ arrives
         # encoded. Decoded here, at parse, so the writer quotes it correctly — decoding it later,
         # in the written file, produces a bare " inside a quoted scalar and invalid YAML.
+        # Every entry carries <author><name>; it was simply never read, which is most of why
+        # 64% of attested releases had no author.
+        au = re.search(r"<author>\s*<name>([^<]*)</name>", b, re.S)
         out.append({"title": _html.unescape(t.group(1).strip()), "updated": u.group(1)[:10],
                     "url": l.group(1) if l else "",
+                    "author": _html.unescape(au.group(1).strip()) if au else None,
                     "free_from": free.group(1)[:10] if free else None})
     return out
 
@@ -177,10 +181,15 @@ def main():
         for e in w["episodes"]:
             L.append(f"      - title: {js(e['title'])}")
             L.append(f"        updated: {e['updated']}")
+            if e.get("author"):
+                L.append(f"        author: {js(e['author'])}")
             if e.get("url"):
                 L.append(f"        url: {js(e['url'])}")
             if e.get("free_from"):
+                # Present only while a chapter is in a free window. Its presence marks the chapter
+                # free; its ABSENCE proves nothing — an always-free chapter carries no term either.
                 L.append(f"        free_from: {e['free_from']}")
+                L.append('        access_modes: ["free"]')
     L.append("")
     (out / f"{p['id']}-series-feeds.yaml").write_text("\n".join(L))
 

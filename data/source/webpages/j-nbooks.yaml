@@ -6,11 +6,12 @@ platform: j-nbooks
 platform_name: "COMICリュエル"
 publisher: ""
 engine: comici
-retrieved: 2026-08-01
+retrieved: 2026-08-02
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "SHWD《シュード》"
+    author: "sono.N"
     url: "https://comic.j-nbooks.jp/series/25f1325d1fd40"
     chapter_count: 10
     chapters:
@@ -53,6 +54,7 @@ works:
         url: "https://comic.j-nbooks.jp/episodes/0e09c8e65e262"
         access_modes: ["purchase"]
   - work_title: "白と黒～Black & White～"
+    author: "Sal Jiang"
     url: "https://comic.j-nbooks.jp/series/b334c297c6024"
     chapter_count: 10
     chapters:

@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-seasons
 platform_name: "Seasons"
 publisher: ""
-retrieved: 2026-08-01
+retrieved: 2026-08-02
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 2
@@ -22,8 +22,10 @@ works:
     chapters:
       - title: "読切"
         updated: 2025-12-05
+        author: "ヨン"
         url: "https://comic-seasons.com/episode/2551460909766158255"
         free_from: 2025-12-05
+        access_modes: ["free"]
   - work_title: "悪役令嬢のお嫁さま"
     series_id: "2550912965184685912"
     url: "https://comic-seasons.com/atom/series/2550912965184685912"
@@ -31,35 +33,49 @@ works:
     chapters:
       - title: "番外編"
         updated: 2026-07-24
+        author: "かわのあきこ"
         url: "https://comic-seasons.com/episode/12207421983970431851"
         free_from: 2026-07-24
+        access_modes: ["free"]
       - title: "第16話 後編"
         updated: 2026-07-10
+        author: "かわのあきこ"
         url: "https://comic-seasons.com/episode/12207421983878163863"
         free_from: 2026-07-10
+        access_modes: ["free"]
       - title: "第9話 後編"
         updated: 2025-11-14
+        author: "かわのあきこ"
         url: "https://comic-seasons.com/episode/2551460909761914956"
       - title: "第9話 前編"
         updated: 2025-10-31
+        author: "かわのあきこ"
         url: "https://comic-seasons.com/episode/2551460909761914952"
       - title: "第8話 後編"
         updated: 2025-10-10
+        author: "かわのあきこ"
         url: "https://comic-seasons.com/episode/2551460909629495747"
       - title: "第8話 前編"
         updated: 2025-09-26
+        author: "かわのあきこ"
         url: "https://comic-seasons.com/episode/2551460909629495742"
       - title: "第2話 後編"
         updated: 2025-03-28
+        author: "かわのあきこ"
         url: "https://comic-seasons.com/episode/2550912965312605251"
       - title: "第2話 前編"
         updated: 2025-03-14
+        author: "かわのあきこ"
         url: "https://comic-seasons.com/episode/2550912965312602853"
       - title: "第1話 後編"
         updated: 2025-02-28
+        author: "かわのあきこ"
         url: "https://comic-seasons.com/episode/2550912965184704381"
         free_from: 2025-02-28
+        access_modes: ["free"]
       - title: "第1話 前編"
         updated: 2025-02-14
+        author: "かわのあきこ"
         url: "https://comic-seasons.com/episode/2550912965184704375"
         free_from: 2025-02-14
+        access_modes: ["free"]

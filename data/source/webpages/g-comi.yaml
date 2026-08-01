@@ -6,11 +6,12 @@ platform: g-comi
 platform_name: "Gコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-08-01
+retrieved: 2026-08-02
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "いちこえ、にふり、タチアオイ"
+    author: "ヨドカワ"
     url: "https://g-comi.jp/series/063225706887f"
     chapter_count: 7
     chapters:
@@ -42,6 +43,7 @@ works:
         url: "https://g-comi.jp/episodes/f4df83c084bcd"
         access_modes: ["purchase"]
   - work_title: "たゆたうふたり"
+    author: "ぷえぶろ"
     url: "https://g-comi.jp/series/fef424c168c44"
     chapter_count: 6
     chapters:
@@ -69,6 +71,7 @@ works:
         url: "https://g-comi.jp/episodes/e2e6fe4032589"
         access_modes: ["purchase"]
   - work_title: "イヴとイヴたち"
+    author: "長代ルージュ"
     url: "https://g-comi.jp/series/bb5c13d2cf687"
     chapter_count: 5
     chapters:
@@ -92,6 +95,7 @@ works:
         url: "https://g-comi.jp/episodes/3f4def4b12c10"
         access_modes: ["purchase"]
   - work_title: "世界をすくってもお腹はすくから"
+    author: "裏海マユ,ちょきんぎょ。"
     url: "https://g-comi.jp/series/58238b3987c11"
     chapter_count: 1
     chapters:
@@ -100,6 +104,7 @@ works:
         url: "https://g-comi.jp/episodes/33e2dddea57e8"
         access_modes: ["free"]
   - work_title: "喫茶 秘匿異"
+    author: "おやすみまくら"
     url: "https://g-comi.jp/series/82ac8f503cf40"
     chapter_count: 1
     chapters:
@@ -108,6 +113,7 @@ works:
         url: "https://g-comi.jp/episodes/c19e312157c01"
         access_modes: ["free"]
   - work_title: "多良さんのウワサ"
+    author: "窓口基"
     url: "https://g-comi.jp/series/f5a28c7f5cc1b"
     chapter_count: 10
     chapters:
@@ -152,6 +158,7 @@ works:
         url: "https://g-comi.jp/episodes/b45d99aadc18a"
         access_modes: ["purchase"]
   - work_title: "暴走!?サキュバスせんぱい"
+    author: "ミナミト"
     url: "https://g-comi.jp/series/5448ec9f6077b"
     chapter_count: 9
     chapters:
@@ -187,6 +194,7 @@ works:
         url: "https://g-comi.jp/episodes/b06d963747c91"
         access_modes: ["purchase"]
   - work_title: "狙いはキミだけ!"
+    author: "あまね"
     url: "https://g-comi.jp/series/192003ee77e21"
     chapter_count: 1
     chapters:
@@ -195,6 +203,7 @@ works:
         url: "https://g-comi.jp/episodes/5af726b8d97ba"
         access_modes: ["free"]
   - work_title: "百合フェチLIFE"
+    author: "館山けーた"
     url: "https://g-comi.jp/series/7e3c698bca968"
     chapter_count: 5
     chapters:

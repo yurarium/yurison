@@ -151,9 +151,21 @@ platforms:
     publisher: 芳文社
     reading_rank: null
     watched: false
+    # NOT a platform. An official channel ON ニコニコ漫画
+    # (manga.nicovideo.jp/official/kirara/), carrying 芳文社's きらら titles. No domain of its own,
+    # which is why none resolved when it was first looked for.
+    channel_of: ニコニコ漫画
+    syndicated: true
+    origin_publisher: 芳文社
+    # NOT uniformly COMIC FUZ. Most of what the channel carries is syndicated from FUZ, but some
+    # of it is native to the channel: 魔女まじょS-WITCH (海老川ケイ) is on ニコニコ漫画 and returns
+    # nothing on comic-fuz.com. So origin must be established per work, not assumed from the
+    # channel. An earlier `likely_home: COMIC FUZ` on this entry was wrong for that reason.
+    origin: per-work
     notes: >-
-      Not a site of its own — an official channel ON ニコニコ漫画
-      (manga.nicovideo.jp/official/kirara/), which is why no domain resolved. Its 24 works are
-      芳文社 きらら titles, so most should also be on COMIC FUZ; only 5 of 24 are in our FUZ set,
-      because that set was antenna-seeded rather than taken from FUZ's own catalogue — and FUZ
-      publishes no index, sitemap or robots.txt to enumerate from.
+      Most of its works are syndicated appearances rather than original web publication — serialised
+      in the まんがタイムきらら magazines and carried on 芳文社's own COMIC FUZ. Of 18 seen, 4 were in
+      our FUZ set at the outset; FUZ publishes no index, sitemap or robots.txt and its search is a
+      client shell, so the rest cannot be enumerated, and each has to be resolved individually by
+      external search. Five were confirmed that way (data/source/comicfuz/resolved.yaml); at least
+      one turned out not to be on FUZ at all.

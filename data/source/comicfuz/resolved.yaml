@@ -1,0 +1,38 @@
+# COMIC FUZ series identity resolved by external web search restricted to comic-fuz.com.
+#
+# Why this file exists: these works reach us through 百合ナビ's WEB連載 table, whose cells run
+# title and author together in one string ("ばっどがーる 肉丸"). Splitting that needs the
+# canonical title from the publisher's own page — otherwise the boundary is a guess, and a guess
+# invents a title (REQUIREMENTS §6). One confirmed title lets the cell be cut at a known point;
+# whatever follows is the author.
+#
+# `title` and `url` are what the search confirmed. `author_on_page` is recorded only where the
+# result stated it; where it is absent the author is still derived from the cell remainder, which
+# is a subtraction rather than an attribution.
+#
+# FUZ is the origin platform for all of these. They were first seen syndicated onto ニコニコ漫画's
+# きららベース channel, which is not a platform in its own right (see data/platforms.yaml).
+source: comicfuz
+role: title-confirmation
+retrieved: 2026-08-01
+method: web search restricted to comic-fuz.com; one result confirmed per work, no crawling
+record_type: series_identity
+works:
+  - title: "ばっどがーる"
+    url: "https://comic-fuz.com/manga/2664"
+    author_on_page: "肉丸"
+  - title: "星屑テレパス"
+    url: "https://comic-fuz.com/manga/2062"
+    author_on_page: "大熊らすこ"
+  - title: "ぬるめた"
+    url: "https://comic-fuz.com/series/2389"
+    author_on_page: "こかむも"
+  - title: "しあわせ鳥見んぐ"
+    url: "https://comic-fuz.com/manga/2474"
+    author_on_page: "わらびもちきなこ"
+  - title: "一畳間まんきつ暮らし！"
+    url: "https://comic-fuz.com/manga/1811"
+    # The result confirmed the title and page; it did not name the author.
+
+# Searched and NOT found on comic-fuz.com — left conflated rather than split on a guess:
+#   魔女まじょS-WITCH 海老川ケイ

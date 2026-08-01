@@ -1,0 +1,24 @@
+# ニコニコ漫画 series identity confirmed by external web search.
+#
+# Identity only — no chapters, so this contributes no releases. Its purpose is to give a canonical
+# title for works that reach us through 百合ナビ's WEB連載 table, where title and author run
+# together in one cell and cannot be split without knowing where the title ends (§6).
+#
+# ニコニコ漫画 states its own works as "タイトル / 作者", so the split is read off the platform's
+# page rather than inferred from the comparator's cell.
+#
+# ニコニコ漫画 remains structurally unusable as a release feed: it is server-rendered but carries
+# no per-episode dates. That is a separate matter from identity, which it does state.
+source: webpages
+role: title-confirmation
+retrieved: 2026-08-01
+method: web search restricted to manga.nicovideo.jp; one result confirmed per work, no crawling
+record_type: series_identity
+works:
+  - work_title: "魔女まじょS-WITCH"
+    author: "海老川ケイ"
+    url: "https://manga.nicovideo.jp/comic/69333"
+    channel: きららベース
+    note: >-
+      Native to the きららベース channel, not syndicated from COMIC FUZ — searching comic-fuz.com
+      for it returns nothing. This is the case that showed the channel carries both.

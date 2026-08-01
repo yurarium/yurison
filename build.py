@@ -470,12 +470,67 @@ def main():
     claim_index = {}
     # Canonicalise platform names through the registry's aliases, so a site the comparators label
     # two ways (ニコニコ静画 / ニコニコ漫画) reads as one platform and dedupes as one.
-    alias_to_name = {}
+    alias_to_name, channels = {}, {}
     for pl in (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("platforms") or []:
         for al in (pl.get("aliases") or []) + [pl.get("name")]:
             if al:
                 alias_to_name[norm_work(al)] = pl.get("name")
+        # Some names the comparators use are CHANNELS on another platform rather than platforms —
+        # きららベース is an official channel on ニコニコ漫画 carrying 芳文社 titles. Presenting one
+        # as a platform implies the work is published there, when it is a syndicated appearance.
+        if pl.get("channel_of"):
+            channels[norm_work(pl["name"])] = {
+                "name": pl["name"], "host": pl["channel_of"],
+                "syndicated": bool(pl.get("syndicated")),
+                "origin": pl.get("origin_publisher"), "home": pl.get("likely_home"),
+            }
     attested_works = {norm_work(r["work"]) for r in releases}
+    # 百合ナビ runs title and author together in one cell ("ばっどがーる 肉丸"), so a claim from it
+    # displays the pair as if it were a title. Where the cell begins with a title we hold from an
+    # attesting source, split it; the remainder is the author. Where it does not, the cell is left
+    # whole and flagged, because guessing the boundary would invent a title.
+    known_titles = {}
+    for src in ("data/source/kadokomi/catalogue.yaml", "data/source/kadokomi/chapters.yaml",
+                "data/source/comicfuz/works.yaml", "data/source/comicfuz/resolved.yaml"):
+        f = pathlib.Path(src)
+        if not f.exists():
+            continue
+        for w in (yaml.safe_load(f.read_text()) or {}).get("works") or []:
+            ti = w.get("title") or w.get("work_title")
+            if ti:
+                known_titles[norm_work(ti)] = ti
+    for f in glob.glob("data/source/webpages/*.yaml") + glob.glob("data/source/gigaviewer/*-series.yaml"):
+        d0 = yaml.safe_load(open(f)) or {}
+        for w in (d0.get("works") or []) + (d0.get("series") or []):
+            ti = w.get("work_title") or w.get("title")
+            if ti:
+                known_titles[norm_work(ti)] = ti
+    for r in releases:
+        known_titles.setdefault(norm_work(r["work"]), r["work"])
+    # Web漫画アンテナ lists a clean title in its own cell. It is not an attesting source, but a
+    # title string is all that is needed to locate the boundary in a 百合ナビ cell — the split is
+    # then checked against the cell itself, so a wrong title simply fails to match.
+    _cf = pathlib.Path("data/source/comparators/claims.yaml")
+    if _cf.exists():
+        for c in (yaml.safe_load(_cf.read_text()) or {}).get("updates") or []:
+            if not c.get("raw_cell") and c.get("work"):
+                known_titles.setdefault(norm_work(c["work"]), c["work"])
+
+    def split_cell(cell):
+        n = norm_work(cell)
+        best = None
+        for k, ti in known_titles.items():
+            if len(k) >= 2 and n.startswith(k) and (best is None or len(k) > len(best[0])):
+                best = (k, ti)
+        if not best:
+            return cell, None, False
+        # Recover the author by length: the normalised prefix maps back to a raw prefix.
+        raw = cell.strip()
+        for cut in range(len(raw), 0, -1):
+            if norm_work(raw[:cut]) == best[0]:
+                return best[1], raw[cut:].strip(" 　/・") or None, True
+        return best[1], None, True
+
     cf = pathlib.Path("data/source/comparators/claims.yaml")
     claims_kept = 0
     if cf.exists():
@@ -484,6 +539,11 @@ def main():
             w, when = c.get("work"), str(c.get("date") or "")
             if not w or not when:
                 continue
+            author = None
+            unsplit = False
+            if c.get("raw_cell"):
+                w, author, ok = split_cell(w)
+                unsplit = not ok
             nw = norm_work(w)
             if (nw, when) in attested_keys:
                 continue
@@ -508,16 +568,49 @@ def main():
                 "id": f"claim:{c.get('source')}:{nw}:{when}", "work": w, "ep": "",
                 "type": "unclassified", "adv": True, "web": "serialised", "pub": when,
                 "seen": str(d.get("retrieved", "")), "basis": "claimed", "conf": "reported",
-                "why": "", "moved": "", "url": c.get("url"), "author": "",
+                "why": "", "moved": "", "url": c.get("url"), "author": author or "",
+                "title_unsplit": unsplit,
                 "plat": "claim",
                 "plat_name": alias_to_name.get(norm_work(c.get("platform") or ""),
                                                c.get("platform") or "?"),
+                "channel": channels.get(norm_work(c.get("platform") or "")),
                 "ident": "comparator-claim", "free_from": None, "access_modes": [],
                 "provenance": "claimed", "claim_source": c.get("source"),
                 "also_attested_elsewhere": nw in attested_works,
             })
             claim_index.setdefault(when, []).append({"nw": nw, "rel": releases[-1]})
             claims_kept += 1
+
+    # A channel is a section of a host platform, not a platform. Naming the host is always correct.
+    # Calling a particular work *syndicated*, though, is a claim about where it was first published,
+    # and that is per-work: きららベース carries 芳文社 titles from COMIC FUZ, but 魔女まじょS-WITCH
+    # is native to the channel and returns nothing on comic-fuz.com. So 転載 is asserted only where
+    # the work is confirmed on the origin platform; otherwise the origin is recorded as unknown.
+    fuz_confirmed = set()
+    _rf = pathlib.Path("data/source/comicfuz/resolved.yaml")
+    if _rf.exists():
+        for w in (yaml.safe_load(_rf.read_text()) or {}).get("works") or []:
+            fuz_confirmed.add(norm_work(w["title"]))
+    for f in glob.glob("data/source/comicfuz/*.yaml"):
+        for w in (yaml.safe_load(open(f)) or {}).get("works") or []:
+            t = w.get("work_title") or w.get("title")
+            if t:
+                fuz_confirmed.add(norm_work(t))
+
+    for r in releases:
+        ch = r.get("channel")
+        if ch:
+            r["plat_name"] = f"{ch['host']}（{ch['name']}）"
+            elsewhere = norm_work(r["work"]) in fuz_confirmed
+            r["syndicated"] = bool(ch["syndicated"] and elsewhere)
+            if r["syndicated"]:
+                r["origin_note"] = (f"syndicated on {ch['host']}; confirmed on {ch['origin']}'s "
+                                    f"own platform, which is where it originates")
+            else:
+                r["origin_note"] = (f"carried on {ch['host']} in the {ch['name']} channel, which is "
+                                    f"a section of that site rather than a platform. Whether it was "
+                                    f"first published here or elsewhere is not established.")
+                r["origin_unknown"] = True
 
     # ── update kind: new series / new chapter / other ──────────────────────────────────────────
     # Derived from positive evidence only. An earlier version inferred `new-series` from "first
@@ -669,6 +762,7 @@ def main():
         ensure_ascii=False, indent=1, default=jsonable))
 
     from collections import Counter as _C
+    print(f"syndicated      : {sum(1 for r in releases if r.get('syndicated'))}")
     print(f"provenance      : {dict(_C(r.get('provenance') for r in releases))}")
     print(f"update kind     : {dict(_C(r.get('kind') for r in releases))}")
     print(f"free view       : {sum(1 for r in releases if r.get('free'))} of {len(releases)}")

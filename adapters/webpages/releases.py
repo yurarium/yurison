@@ -85,7 +85,15 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     gap = yaml.safe_load(open(a.gap)) or {}
-    missing = gap.get("works_missing") or []
+    # Accepts either the full candidate list (candidates/urls) or the gap report
+    # (works_missing/url). The full list is what should be used — the gap deliberately excludes
+    # everything already reachable, so an adapter reading it loses works the moment they are.
+    missing = []
+    for w in gap.get("candidates") or []:
+        for u in w.get("urls") or []:
+            missing.append({"title": w.get("title"), "url": u})
+    for w in gap.get("works_missing") or []:
+        missing.append({"title": w.get("title"), "url": w.get("url")})
 
     grand = Counter()
     for site in spec["sites"]:

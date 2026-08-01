@@ -24,6 +24,22 @@ sites:
     engine: comici
     min_episodes: 1
 
+  # championcross.jp — NOT mangacross.jp. Its /atom is an app shell, but the work pages run the
+  # same comici engine as ビッコミ and 竹コミ.
+  - id: championcross
+    name: チャンピオンクロス
+    publisher: 秋田書店
+    host: championcross.jp
+    engine: comici
+    min_episodes: 1
+
+  - id: kimicomi
+    name: キミコミ
+    publisher: 一迅社
+    host: kimicomi.com
+    engine: comici
+    min_episodes: 1
+
   - id: yanmaga
     name: ヤンマガWeb
     publisher: 講談社

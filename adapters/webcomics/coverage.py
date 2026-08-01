@@ -190,12 +190,17 @@ def main():
          "# Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.",
          "source: webcomics.jp", "role: discovery-only", f"retrieved: {a.retrieved}",
          "record_type: candidate_works", f"works: {len(platforms_of)}", "candidates:"]
-    titles = {}
+    titles, urls = {}, {}
     for e in entries:
         titles.setdefault(norm(e["title"]), e["title"])
+        # URLs must be carried here, not only in the gap report. The gap excludes anything already
+        # reachable, so adapters that resolve work pages from it lose access to a work the moment
+        # its platform is onboarded — which is the opposite of what should happen.
+        urls.setdefault(norm(e["title"]), []).append(e["work_url"])
     for k, ps in sorted(platforms_of.items()):
         W.append(f"  - title: {json.dumps(titles.get(k, k), ensure_ascii=False)}")
         W.append(f"    platforms: {json.dumps(sorted(ps), ensure_ascii=False)}")
+        W.append(f"    urls: {json.dumps(sorted(set(urls.get(k, []))), ensure_ascii=False)}")
     W.append("")
     (out / "webcomics-works.yaml").write_text("\n".join(W))
 

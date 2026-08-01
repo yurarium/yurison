@@ -10,17 +10,15 @@ pages_sampled: 31
 record_type: coverage_gap
 listings: 1532
 distinct_works: 1203
-works_on_watched_platform: 730
+works_on_watched_platform: 764
 platforms_total: 96
-platforms_watched: 11
+platforms_watched: 12
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "ニコニコ漫画"
-    works: 86
+    works: 76
   - platform: "pixivコミック"
-    works: 59
-  - platform: "COMIC FUZ"
-    works: 34
+    works: 55
   - platform: "ビッコミ"
     works: 25
   - platform: "竹コミ‎‏‎"
@@ -129,9 +127,9 @@ platforms_missing:
     works: 1
   - platform: "ドリコミ+"
     works: 1
-  - platform: "アサコミ"
-    works: 1
   - platform: "ソノラマプラス(更新終了)"
+    works: 1
+  - platform: "アサコミ"
     works: 1
   - platform: "コミックPASH! neo"
     works: 1

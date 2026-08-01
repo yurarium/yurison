@@ -113,8 +113,13 @@ def main():
         for pl in (yaml.safe_load(pf.read_text()) or {}).get("platforms") or []:
             if pl.get("enabled") is not False:
                 watched_names.add(norm(pl.get("name")))
-    if pathlib.Path("data/source/kadokomi/confirmed.yaml").exists():
-        watched_names.add(norm("カドコミ"))
+    # data/platforms.yaml is the registry of what is watched, including platforms served by
+    # adapters other than the GigaViewer one (カドコミ, COMIC FUZ).
+    reg = pathlib.Path("data/platforms.yaml")
+    if reg.exists():
+        for pl in (yaml.safe_load(reg.read_text()) or {}).get("platforms") or []:
+            if pl.get("watched"):
+                watched_names.add(norm(pl.get("name")))
 
     # A series is often on several platforms (19.6% of these are, up to six each), so a work is a
     # gap only when it is on NO watched platform. Counting presences overstates the gap and

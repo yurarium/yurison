@@ -520,8 +520,19 @@ platform-presences overstates the gap and mis-ranks the targets:
 | COMIC FUZ | 34 | **34** |
 | マガポケ | 37 | **14** |
 
-Measured 2026-08-01: 1,532 listings are **1,203 distinct works**, of which **645 (53.6%)** are
-reachable on a watched platform — not the 43.1% a presence count reports.
+Measured 2026-08-01: 1,532 listings are **1,203 distinct works**. Coverage moved through the
+session as platforms were onboarded:
+
+| Platforms watched | Works reachable |
+|---|---|
+| 9 | 645 (53.6%) |
+| 11 (+サンデーうぇぶり, webアクション) | 730 (60.7%) |
+| **12 (+COMIC FUZ)** | **764 (63.5%)** |
+
+**The syndication prediction held.** Onboarding those three cut ニコニコ漫画's exclusive count from
+91 to 76 and pixivコミック's from 63 to 55, without touching either. Their apparent coverage really
+is largely other platforms' work seen through them, so neither is a coverage target — onboarding
+origins erodes them for free.
 
 #### Overlap is measured, and it re-ranks the targets again
 

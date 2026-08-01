@@ -463,7 +463,24 @@ def main():
     # Taken as provisionally true for one question only: that a work updated, and roughly when.
     # A claim is a FLOOR, not an addition — where a platform attests the same work on the same
     # date, the attested record wins and the claim is dropped.
+    # Built from the SOURCE layer, not from the windowed feed. The platform windows are 21 days
+    # and the comparator claim window is 60, so a claim older than 21 days could never be
+    # superseded by the attested chapter it duplicates — ぷれいめ～と showed 要確認 on a date we
+    # hold カドコミ's own chapter for. A claim is a floor, and the floor applies whether or not the
+    # attested release happens to fall inside the feed window (§5).
     attested_keys = {(norm_work(r["work"]), r["pub"]) for r in releases}
+    for f in (glob.glob("data/source/kadokomi/chapters.yaml")
+              + glob.glob("data/source/comicfuz/works.yaml")
+              + glob.glob("data/source/webpages/*.yaml")):
+        d0 = yaml.safe_load(open(f)) or {}
+        for w in d0.get("works") or []:
+            ti = norm_work(w.get("work_title") or w.get("title") or "")
+            if not ti:
+                continue
+            for c in w.get("chapters") or []:
+                u = str(c.get("updated") or "")[:10]
+                if u:
+                    attested_keys.add((ti, u))
     claim_index = {}
     # Canonicalise platform names through the registry's aliases, so a site the comparators label
     # two ways (ニコニコ静画 / ニコニコ漫画) reads as one platform and dedupes as one.
@@ -528,8 +545,13 @@ def main():
                 return best[1], raw[cut:].strip(" 　/・") or None, True
         return best[1], None, True
 
+    # Titles the comparators list in a work position that are not works — a magazine's own channel
+    # page updates whenever anything on it updates, and reads as a work. See platforms.yaml.
+    not_works = {norm_work(x["title"]) for x in
+                 (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("not_works") or []}
+
     cf = pathlib.Path("data/source/comparators/claims.yaml")
-    claims_kept = 0
+    claims_kept, phantom = 0, 0
     if cf.exists():
         d = yaml.safe_load(cf.read_text()) or {}
         for c in d.get("updates") or []:
@@ -542,6 +564,9 @@ def main():
                 w, author, ok = split_cell(w)
                 unsplit = not ok
             nw = norm_work(w)
+            if nw in not_works:
+                phantom += 1
+                continue
             if (nw, when) in attested_keys:
                 continue
             # 百合ナビ runs title and author together in one cell, so an exact-key test misses a

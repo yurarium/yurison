@@ -169,3 +169,28 @@ platforms:
       client shell, so the rest cannot be enumerated, and each has to be resolved individually by
       external search. Five were confirmed that way (data/source/comicfuz/resolved.yaml); at least
       one turned out not to be on FUZ at all.
+
+# ── Entries the comparators list in a work position that are not works ────────────────────────
+#
+# Web漫画アンテナ's listing is per-URL, and a publisher's channel page updates whenever anything
+# on it updates. So a magazine's own page can appear alongside actual works and be indistinguishable
+# from one — it has a title, it has an update date, and it links somewhere sensible.
+#
+# Left alone, these become phantom works: a row saying "ゆりひめ@ピクシブ updated" tells a reader
+# nothing about what to read, and it inflates coverage with a title no publisher ever serialised.
+#
+# Matched on title, not URL. A URL pattern looked promising and was wrong — /category/ and
+# /manga/official/ paths turned out to be genuine work pages on GetNavi and AlphaPolis.
+not_works:
+  - title: ゆりひめ@ピクシブ
+    url: https://comic.pixiv.net/magazines/206
+    kind: magazine-channel
+    host: pixivコミック
+    origin_magazine: コミック百合姫
+    origin_publisher: 一迅社
+    note: >-
+      A syndication of コミック百合姫 onto pixivコミック carrying most or all of its works, not a
+      work in its own right. Its updates are real — something in 百合姫 updated — but which work
+      is not stated, so it cannot be reported as one. pixivコミック itself is closed to us by
+      operator choice, so the individual works behind it are not reachable there either; they are
+      covered through 一迅社's own channels instead.

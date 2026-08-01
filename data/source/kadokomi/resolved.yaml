@@ -1,0 +1,43 @@
+# カドコミ work codes resolved by external web search restricted to comic-walker.com.
+#
+# Why these were missing: the カドコミ catalogue is enumerated from the publisher's own 百合 tag
+# (348 works). Works the publisher does not tag 百合 are absent from it, so a comparator naming one
+# had nowhere to resolve to and stayed 要確認 — reported by a listing site, never confirmed against
+# the platform. 忍者と殺し屋のふたりぐらし is the case that showed it.
+#
+# Tag absence is not evidence about content. These are named by the Tier C yardsticks the same way
+# the tagged ones are; what they lack is a publisher label, so they establish no marketing_label
+# (DEFINITIONS §4) where the tagged catalogue works do.
+#
+# Same method as data/source/comicfuz/resolved.yaml: one search per work, one confirmed result,
+# no crawling. The code is what the adapter needs; it then reads the work's own page as usual.
+source: kadokomi
+role: code-resolution
+retrieved: 2026-08-01
+method: web search restricted to comic-walker.com; one result confirmed per work
+record_type: series_identity
+works:
+  - title: "忍者と殺し屋のふたりぐらし"
+    code: "KC_004464_S"
+    author_on_page: "ハンバーガー"
+  - title: "作りたい女と食べたい女"
+    code: "KC_002798_S"
+    author_on_page: "ゆざきさかおみ"
+    note: >-
+      A vertical-scroll edition also exists as KC_004834_S（タテスク）. Not listed here: it is the
+      same work in another format, and carrying both would double every chapter in the feed.
+  - title: "モブヘブン"
+    code: "KC_006725_S"
+    author_on_page: "徳永パン"
+  - title: "晴れ晴れ日和"
+    code: "KC_000848_S"
+    author_on_page: "吉村佳"
+  - title: "聖女先生の魔法は進んでる！"
+    code: "KC_006695_S"
+    author_on_page: "しまづ / 鴉ぴえろ"
+  - title: "機動戦士ガンダム 水星の魔女 青春フロンティア"
+    code: "KC_006679_S"
+    author_on_page: "波多ヒロ / HISADAKE"
+  - title: "ぷれいめ～と"
+    code: "KC_008613_S"
+    author_on_page: "まゃ～吾郎"

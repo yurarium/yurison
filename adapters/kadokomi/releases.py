@@ -103,6 +103,14 @@ def main():
             if w.get("code"):
                 codes[w["code"]] = w.get("title")
 
+    # Works the publisher does not tag 百合 are absent from the catalogue, so a comparator naming
+    # one had nothing to resolve against. Codes found by external search live here.
+    res = pathlib.Path("data/source/kadokomi/resolved.yaml")
+    if res.exists():
+        for w in (yaml.safe_load(res.read_text()) or {}).get("works") or []:
+            if w.get("code"):
+                codes[w["code"]] = w.get("title")
+
     src = yaml.safe_load(open(a.works)) or {}
     for c in src.get("candidates") or []:
         if "カドコミ" not in (c.get("platforms") or []):

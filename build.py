@@ -22,7 +22,7 @@ import yaml
 # data/queue/, which is deliberately outside the source tree so nothing can promote a candidate
 # into a record by accident.
 ALLOWED_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha",
-                   "gigaviewer", "kadokomi", "comicfuz"}
+                   "gigaviewer", "kadokomi", "comicfuz", "webpages"}
 
 # Sources carrying work-level records that merge into a work. Others (release feeds) are
 # platform-level and compile separately.
@@ -251,6 +251,30 @@ def main():
                     "basis": "bootstrap", "conf": "reported", "why": "", "moved": "",
                     "url": w.get("url"), "author": ", ".join(w.get("authors") or []),
                     "plat": "comic-fuz", "plat_name": "COMIC FUZ",
+                    "ident": "discovery-candidate", "free_from": None,
+                    "access_modes": c.get("access_modes") or [],
+                })
+
+    # Platforms with no feed, read from their own server-rendered work pages. Like FUZ these
+    # return full histories, so only a recent window joins the feed.
+    WEBPAGE_FEED_DAYS = 21
+    wcut = str(datetime.date.today() - datetime.timedelta(days=WEBPAGE_FEED_DAYS))
+    wtoday = str(datetime.date.today())
+    for f in sorted(glob.glob("data/source/webpages/*.yaml")):
+        d = yaml.safe_load(open(f)) or {}
+        pid, pname = d.get("platform"), d.get("platform_name")
+        for w in d.get("works") or []:
+            for c in w.get("chapters") or []:
+                u = str(c.get("updated") or "")
+                if not u or u < wcut or u > wtoday:
+                    continue
+                releases.append({
+                    "id": f"{pid}:{c.get('url') or c.get('title')}", "work": w.get("work_title"),
+                    "ep": c.get("title"), "type": "chapter", "adv": True,
+                    "web": "serialised", "pub": u, "seen": str(d.get("retrieved", "")),
+                    "basis": "bootstrap", "conf": "reported", "why": "", "moved": "",
+                    "url": c.get("url") or w.get("url"), "author": "",
+                    "plat": pid, "plat_name": pname,
                     "ident": "discovery-candidate", "free_from": None,
                     "access_modes": c.get("access_modes") or [],
                 })

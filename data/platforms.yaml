@@ -107,5 +107,15 @@ platforms:
   - { id: magcomi,        name: MAGCOMI,               publisher: マッグガーデン, reading_rank: null, watched: true }
   - { id: comic-trail,    name: コミックトレイル,       publisher: 白泉社,        reading_rank: null, watched: true }
   - { id: comic-gardo,    name: コミックガルド,         publisher: オーバーラップ, reading_rank: null, watched: true }
+  - { id: bigcomics,   name: ビッコミ,      publisher: 小学館,  reading_rank: null, overlap: 0.04, watched: true,
+      notes: "comici engine, server-rendered work pages, no feed. 25 works, near-fully exclusive." }
+  - { id: takecomic,   name: 竹コミ,        publisher: 竹書房,  reading_rank: null, overlap: 0.27, watched: true,
+      notes: "Same comici engine as ビッコミ — one adapter spec covers both." }
+  - { id: yanmaga,     name: ヤンマガWeb,    publisher: 講談社,  reading_rank: null, overlap: 0.38, watched: true,
+      notes: "Server-rendered; states per-episode free/paid via data-is-free." }
+  - { id: sundaywebry, name: サンデーうぇぶり, publisher: 小学館,  reading_rank: null, overlap: 0.02, watched: true }
+  - { id: comic-action, name: webアクション,  publisher: 双葉社,  reading_rank: null, overlap: 0.50, watched: true }
+  - { id: magapoke,    name: マガポケ,       publisher: 講談社,  reading_rank: null, overlap: 0.76, watched: false,
+      notes: "Nuxt with a hydration payload rather than markup; needs a different approach. 36 works, 14 exclusive." }
   - { id: kirarabase,     name: きららベース,           publisher: 芳文社,        reading_rank: null, watched: false,
       notes: "24 works on 百合ナビ's list, zero on the antenna — the two yardsticks genuinely differ." }

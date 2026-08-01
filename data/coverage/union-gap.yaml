@@ -7,35 +7,14 @@
 record_type: coverage_union
 platforms:
   - platform: "ニコニコ漫画"
-    antenna_works: 175
+    antenna_works: 71
     curated_works: 0
   - platform: "pixivコミック"
-    antenna_works: 130
+    antenna_works: 54
     curated_works: 1
-  - platform: "サンデーうぇぶり"
-    antenna_works: 65
-    curated_works: 3
-  - platform: "マガポケ"
-    antenna_works: 37
-    curated_works: 0
-  - platform: "COMIC FUZ"
-    antenna_works: 34
-    curated_works: 0
-  - platform: "ヤンマガWeb"
-    antenna_works: 26
-    curated_works: 0
-  - platform: "ビッコミ"
-    antenna_works: 25
-    curated_works: 0
   - platform: "きららベース"
     antenna_works: 0
     curated_works: 24
-  - platform: "竹コミ‎‏‎"
-    antenna_works: 22
-    curated_works: 0
-  - platform: "webアクション"
-    antenna_works: 20
-    curated_works: 1
   - platform: "チャンピオンクロス"
     antenna_works: 18
     curated_works: 2
@@ -48,40 +27,34 @@ platforms:
   - platform: "comicブースト"
     antenna_works: 15
     curated_works: 0
-  - platform: "ストーリアダッシュ(更新終了)"
+  - platform: "マガポケ"
     antenna_works: 14
     curated_works: 0
   - platform: "キミコミ"
     antenna_works: 13
     curated_works: 0
-  - platform: "COMIC OGYAAA!!"
-    antenna_works: 11
-    curated_works: 1
-  - platform: "ヤンジャン+"
-    antenna_works: 11
+  - platform: "ストーリアダッシュ(更新終了)"
+    antenna_works: 12
     curated_works: 0
+  - platform: "COMIC OGYAAA!!"
+    antenna_works: 10
+    curated_works: 1
   - platform: "Gコミ"
     antenna_works: 11
     curated_works: 0
   - platform: "HERO&#039;S Web"
     antenna_works: 11
     curated_works: 0
-  - platform: "コミックNewtype(更新終了)"
-    antenna_works: 11
-    curated_works: 0
   - platform: "マンガワン"
     antenna_works: 10
-    curated_works: 0
-  - platform: "きら星ポータル"
-    antenna_works: 9
     curated_works: 0
   - platform: "マンガPark"
     antenna_works: 9
     curated_works: 0
-  - platform: "FEEL web"
-    antenna_works: 7
+  - platform: "きら星ポータル"
+    antenna_works: 9
     curated_works: 0
-  - platform: "がうがうモンスター"
+  - platform: "FEEL web"
     antenna_works: 7
     curated_works: 0
   - platform: "ヤングアニマルWeb"
@@ -90,20 +63,17 @@ platforms:
   - platform: "コミック アース・スター"
     antenna_works: 6
     curated_works: 0
-  - platform: "裏サンデー"
-    antenna_works: 6
-    curated_works: 0
   - platform: "ヤンチャンWeb"
     antenna_works: 6
     curated_works: 0
   - platform: "COMICリュウ"
     antenna_works: 6
     curated_works: 0
-  - platform: "ヤングエースUP(更新終了)"
-    antenna_works: 6
-    curated_works: 0
   - platform: "LINEマンガ(更新終了)"
     antenna_works: 6
+    curated_works: 0
+  - platform: "裏サンデー"
+    antenna_works: 5
     curated_works: 0
   - platform: "フラコミlike!"
     antenna_works: 5
@@ -120,13 +90,7 @@ platforms:
   - platform: "COMIC Y-OURS"
     antenna_works: 4
     curated_works: 0
-  - platform: "コミックグロウル"
-    antenna_works: 4
-    curated_works: 0
   - platform: "少年ジャンプルーキー"
-    antenna_works: 4
-    curated_works: 0
-  - platform: "ダ・ヴィンチニュース"
     antenna_works: 4
     curated_works: 0
   - platform: "WEBコミックガンマぷらす(更新終了)"
@@ -135,10 +99,16 @@ platforms:
   - platform: "Seasons"
     antenna_works: 2
     curated_works: 1
+  - platform: "コミックヴァルキリー(更新終了)"
+    antenna_works: 3
+    curated_works: 0
+  - platform: "ヤンジャン+"
+    antenna_works: 3
+    curated_works: 0
   - platform: "ライコミ"
     antenna_works: 3
     curated_works: 0
-  - platform: "コミックエッセイ劇場"
+  - platform: "コミックグロウル"
     antenna_works: 3
     curated_works: 0
   - platform: "新都社"
@@ -150,7 +120,7 @@ platforms:
   - platform: "ツイ4"
     antenna_works: 3
     curated_works: 0
-  - platform: "コミックヴァルキリー(更新終了)"
+  - platform: "ダ・ヴィンチニュース"
     antenna_works: 3
     curated_works: 0
   - platform: "ニコニコ静画"
@@ -162,10 +132,10 @@ platforms:
   - platform: "まんがタイムSquare"
     antenna_works: 2
     curated_works: 0
-  - platform: "マンガボックス"
+  - platform: "コミックボーダー"
     antenna_works: 2
     curated_works: 0
-  - platform: "コミックボーダー"
+  - platform: "コミックエッセイ劇場"
     antenna_works: 2
     curated_works: 0
   - platform: "コミックノヴァ"
@@ -175,6 +145,12 @@ platforms:
     antenna_works: 2
     curated_works: 0
   - platform: "コロナEX"
+    antenna_works: 2
+    curated_works: 0
+  - platform: "ヤングエースUP(更新終了)"
+    antenna_works: 2
+    curated_works: 0
+  - platform: "コミックNewtype(更新終了)"
     antenna_works: 2
     curated_works: 0
   - platform: "COMICリュエル"
@@ -189,9 +165,6 @@ platforms:
   - platform: "コミックオギャー!!"
     antenna_works: 0
     curated_works: 2
-  - platform: "竹コミ！"
-    antenna_works: 0
-    curated_works: 2
   - platform: "pixivコミックマガジン"
     antenna_works: 1
     curated_works: 0
@@ -202,6 +175,9 @@ platforms:
     antenna_works: 1
     curated_works: 0
   - platform: "アサコミ"
+    antenna_works: 1
+    curated_works: 0
+  - platform: "ソノラマプラス(更新終了)"
     antenna_works: 1
     curated_works: 0
   - platform: "コミックPASH! neo"
@@ -219,19 +195,22 @@ platforms:
   - platform: "OUR FEEL"
     antenna_works: 1
     curated_works: 0
+  - platform: "Souffle"
+    antenna_works: 1
+    curated_works: 0
   - platform: "Matogrosso(更新終了)"
     antenna_works: 1
     curated_works: 0
   - platform: "GetNavi"
     antenna_works: 1
     curated_works: 0
-  - platform: "ソノラマプラス(更新終了)"
-    antenna_works: 1
-    curated_works: 0
   - platform: "comicグラスト"
     antenna_works: 1
     curated_works: 0
   - platform: "少年エースplus(更新終了)"
+    antenna_works: 1
+    curated_works: 0
+  - platform: "Web漫画速報"
     antenna_works: 1
     curated_works: 0
   - platform: "COMIC熱帯"
@@ -246,13 +225,7 @@ platforms:
   - platform: "路草"
     antenna_works: 1
     curated_works: 0
-  - platform: "電撃ツイッターマガジン(更新終了)"
-    antenna_works: 1
-    curated_works: 0
   - platform: "NewsCrunch"
-    antenna_works: 1
-    curated_works: 0
-  - platform: "Souffle"
     antenna_works: 1
     curated_works: 0
   - platform: "げつあくWEB(更新終了)"
@@ -267,10 +240,7 @@ platforms:
   - platform: "パイコミックス"
     antenna_works: 1
     curated_works: 0
-  - platform: "Web漫画速報"
-    antenna_works: 1
-    curated_works: 0
-  - platform: "コミクリ!(更新終了)"
+  - platform: "マンガボックス"
     antenna_works: 1
     curated_works: 0
   - platform: "マガジンデビュー(更新終了)"

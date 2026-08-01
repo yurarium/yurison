@@ -10,35 +10,29 @@ pages_sampled: 31
 record_type: coverage_gap
 listings: 1532
 distinct_works: 1203
-works_on_watched_platform: 764
+works_on_watched_platform: 827
 platforms_total: 96
-platforms_watched: 12
+platforms_watched: 15
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "ニコニコ漫画"
-    works: 76
+    works: 71
   - platform: "pixivコミック"
-    works: 55
-  - platform: "ビッコミ"
-    works: 25
-  - platform: "竹コミ‎‏‎"
-    works: 22
+    works: 54
   - platform: "チャンピオンクロス"
     works: 18
-  - platform: "ヤンマガWeb"
-    works: 16
   - platform: "ゼノン編集部"
     works: 16
   - platform: "comicブースト"
     works: 15
   - platform: "マガポケ"
     works: 14
-  - platform: "ストーリアダッシュ(更新終了)"
-    works: 14
   - platform: "キミコミ"
     works: 13
   - platform: "ガンガンONLINE"
     works: 13
+  - platform: "ストーリアダッシュ(更新終了)"
+    works: 12
   - platform: "Gコミ"
     works: 11
   - platform: "HERO&#039;S Web"
@@ -127,9 +121,9 @@ platforms_missing:
     works: 1
   - platform: "ドリコミ+"
     works: 1
-  - platform: "ソノラマプラス(更新終了)"
-    works: 1
   - platform: "アサコミ"
+    works: 1
+  - platform: "ソノラマプラス(更新終了)"
     works: 1
   - platform: "コミックPASH! neo"
     works: 1

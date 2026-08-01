@@ -472,6 +472,21 @@ candidates does.
 The alternative — trusting a general platform to tell us what is yuri — is the thing DEFINITIONS §4
 says cannot work.
 
+#### Platforms without feeds are read from their own work pages
+
+Most platforms outside GigaViewer publish no feed at all. Several render their episode lists
+server-side, so a named work can be followed by polling its own page:
+`adapters/webpages/` holds per-engine selectors as declarative data, and ビッコミ and 竹コミ turned
+out to run the same engine (comici) with identical markup — one spec, two publishers.
+
+Not reachable this way, recorded with reasons in `sites.yaml`: pixivコミック (Next.js client shell,
+31KB with 13 Japanese runs), マガポケ (Nuxt hydration payload rather than markup), ニコニコ漫画
+(`/atom` returns an app shell, and it is a low-quality syndicator anyway).
+
+> **Invisible characters break matching.** The antenna emits platform names carrying U+200E/U+200F
+> bidi marks — 竹コミ renders identically to 竹コミ‎‏‎ but compares unequal, so a fully-onboarded
+> platform kept reporting as a gap. Normalisation strips zero-width and bidi controls.
+
 #### Health checks learned two corrections here
 
 - **A 200 is not proof of a feed.** `mangacross.jp/atom` returns HTTP 200 while serving its React
@@ -527,7 +542,8 @@ session as platforms were onboarded:
 |---|---|
 | 9 | 645 (53.6%) |
 | 11 (+サンデーうぇぶり, webアクション) | 730 (60.7%) |
-| **12 (+COMIC FUZ)** | **764 (63.5%)** |
+| 12 (+COMIC FUZ) | 764 (63.5%) |
+| **15 (+ビッコミ, 竹コミ, ヤンマガWeb)** | **827 (68.7%)** |
 
 **The syndication prediction held.** Onboarding those three cut ニコニコ漫画's exclusive count from
 91 to 76 and pixivコミック's from 63 to 55, without touching either. Their apparent coverage really

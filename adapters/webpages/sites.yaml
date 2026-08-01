@@ -1,0 +1,59 @@
+# Server-rendered work pages, for platforms with no feed (REQUIREMENTS §5, §6).
+#
+# Selectors are declarative data so adding a platform is a row here, not code — and so a maintenance
+# pass after a site redesign is a bounded edit. Each site declares how to find episode blocks and
+# how to read a title, date and access state out of one.
+#
+# None of these platforms applies a 百合 tag, so nothing here establishes marketing_label
+# (DEFINITIONS §4). Works are named by the Tier C yardsticks; the platform attests the chapters.
+
+sites:
+  # ビッコミ and 竹コミ run the same engine (comici) with identical markup — one spec, two
+  # publishers. Verified 2026-08-01.
+  - id: bigcomics
+    name: ビッコミ
+    publisher: 小学館
+    host: bigcomics.jp
+    engine: comici
+    min_episodes: 1
+
+  - id: takecomic
+    name: 竹コミ
+    publisher: 竹書房
+    host: takecomic.jp
+    engine: comici
+    min_episodes: 1
+
+  - id: yanmaga
+    name: ヤンマガWeb
+    publisher: 講談社
+    host: yanmaga.jp
+    engine: yanmaga
+    min_episodes: 1
+
+engines:
+  comici:
+    block: '(?=<div data-e2e="eli" class="series-eplist-item")'
+    title: 'data-e2e="eliTitle">([^<]+)<'
+    date: 'series-eplist-item-meta-date">(\d{4})/(\d{1,2})/(\d{1,2})<'
+    url: 'href="(/episodes/[^"]+)"'
+    # comici does not expose a per-episode free/paid state in the listing, so access is left unset
+    # rather than assumed (REQUIREMENTS §6).
+    free: null
+
+  yanmaga:
+    block: '(?=<li class="mod-episode-item")'
+    title: 'data-episode-title="([^"]+)"'
+    date: 'class="mod-episode-date">(\d{4})/(\d{1,2})/(\d{1,2})<'
+    url: 'class="mod-episode-link[^"]*"[^>]*href="([^"]+)"'
+    free: 'data-is-free="(true|false)"'
+
+# Investigated 2026-08-01, not usable by this adapter:
+#
+#   pixivコミック   comic.pixiv.net — Next.js client shell; a work page is 31KB with 13 Japanese
+#                  runs and no embedded payload. Needs a different approach. 55 works.
+#   マガポケ        pocket.shonenmagazine.com — Nuxt; the p-episode__ classes appear only in CSS,
+#                  with content in a hydration payload rather than markup. 36 works.
+#   ニコニコ漫画     manga.nicovideo.jp — /atom returns text/html with a 200 (app shell). Also a
+#                  syndicator with poor image quality, so low value regardless. See
+#                  data/platforms.yaml.

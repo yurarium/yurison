@@ -8,8 +8,8 @@ retrieved: 2026-08-01
 record_type: coverage_gap
 works_listed: 128
 platforms_total: 19
-platforms_watched: 6
-works_on_watched_platforms: 85
+platforms_watched: 7
+works_on_watched_platforms: 87
 platforms:
   - platform: "カドコミ"
     works: 59
@@ -37,7 +37,7 @@ platforms:
     watched: false
   - platform: "竹コミ！"
     works: 2
-    watched: false
+    watched: true
   - platform: "チャンピオンクロス"
     works: 2
     watched: false
@@ -568,11 +568,11 @@ works:
   - raw: "白き乙女の人狼 アジイチ/王月よう"
     platform: "竹コミ！"
     last_update_seen: 07-10
-    watched_platform: false
+    watched_platform: true
   - raw: "魔法少女にあこがれて 小野中彰大"
     platform: "竹コミ！"
     last_update_seen: 07-17
-    watched_platform: false
+    watched_platform: true
   - raw: "フレンドガールフレンド 瑠夏子"
     platform: "花とゆめ＋"
     last_update_seen: 07-27

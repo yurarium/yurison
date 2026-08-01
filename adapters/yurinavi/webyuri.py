@@ -68,7 +68,10 @@ def parse(html):
 
 
 def norm(s):
-    return re.sub(r"[\s\-.=、。･・！!？?　]", "", (s or "").strip().lower())
+    # Strip zero-width and bidi control characters: the antenna emits platform names carrying
+    # U+200E/U+200F (竹コミ‎‏‎), which are invisible and silently break every comparison.
+    s = re.sub(r"[\u200b-\u200f\u202a-\u202e\ufeff]", "", s or "")
+    return re.sub(r"[\s\-.=、。･・！!？?　]", "", s.strip().lower())
 
 
 def main():
@@ -105,14 +108,13 @@ def main():
         for w in (yaml.safe_load(kc.read_text()) or {}).get("works") or []:
             covered.add(norm(w.get("work_title")))
 
+    # data/platforms.yaml is the registry of what is watched, across all adapters.
     watched = set()
-    pf = pathlib.Path("adapters/gigaviewer/platforms.yaml")
-    if pf.exists():
-        for pl in (yaml.safe_load(pf.read_text()) or {}).get("platforms") or []:
-            if pl.get("enabled") is not False:
+    reg = pathlib.Path("data/platforms.yaml")
+    if reg.exists():
+        for pl in (yaml.safe_load(reg.read_text()) or {}).get("platforms") or []:
+            if pl.get("watched"):
                 watched.add(norm(pl.get("name")))
-    if kc.exists():
-        watched.add(norm("カドコミ"))
 
     per_plat = Counter(w["platform"] for w in works)
     on_watched = sum(n for p, n in per_plat.items() if norm(p) in watched)

@@ -175,3 +175,105 @@ platforms:
 #   comic-walker.com カドコミ (KADOKAWA) — tag search results load from /api/, which its robots.txt
 #                    disallows. The page's own __NEXT_DATA__ carries only genre and label lists.
 #                    Label and ranking pages may be server-rendered; not yet checked.
+
+  # ── added 2026-08-01 from the long-tail survey ───────────────────────────────────────────────
+  # Found by probing every unwatched platform for /atom rather than the six that were convenient.
+  # All of these are GigaViewer and needed no code — the earlier conclusion that the long tail
+  # "offers no leverage" was drawn from a sample that happened to contain none of them.
+
+  - id: feelweb
+    name: FEEL web
+    host: feelweb.jp
+    atom: https://feelweb.jp/atom
+    mode: known-works
+    exclusive_works_at_onboarding: 7
+    verified: 2026-08-01
+
+  - id: ciao
+    name: ちゃおプラス
+    host: ciao.shogakukan.co.jp
+    atom: https://ciao.shogakukan.co.jp/atom
+    mode: known-works
+    exclusive_works_at_onboarding: 5
+    verified: 2026-08-01
+
+  - id: comic-ryu
+    name: COMICリュウ
+    host: www.comic-ryu.jp
+    atom: https://www.comic-ryu.jp/atom
+    mode: known-works
+    exclusive_works_at_onboarding: 5
+    verified: 2026-08-01
+
+  - id: comic-y-ours
+    name: COMIC Y-OURS
+    host: comic-y-ours.com
+    atom: https://comic-y-ours.com/atom
+    mode: known-works
+    exclusive_works_at_onboarding: 4
+    verified: 2026-08-01
+
+  - id: mangatime-square
+    name: まんがタイムSquare
+    host: mangatime-square.com
+    atom: https://mangatime-square.com/atom
+    mode: known-works
+    exclusive_works_at_onboarding: 2
+    verified: 2026-08-01
+
+  - id: comicborder
+    name: コミックボーダー
+    host: comicborder.com
+    atom: https://comicborder.com/atom
+    mode: known-works
+    exclusive_works_at_onboarding: 2
+    verified: 2026-08-01
+
+  - id: comic-seasons
+    name: Seasons
+    host: comic-seasons.com
+    atom: https://comic-seasons.com/atom
+    mode: known-works
+    exclusive_works_at_onboarding: 2
+    verified: 2026-08-01
+
+  - id: michikusacomics
+    name: 路草
+    host: michikusacomics.jp
+    atom: https://michikusacomics.jp/atom
+    mode: known-works
+    exclusive_works_at_onboarding: 1
+    verified: 2026-08-01
+
+  - id: debut
+    name: マガジンデビュー(更新終了)
+    host: debut.shonenmagazine.com
+    atom: https://debut.shonenmagazine.com/atom
+    mode: known-works
+    exclusive_works_at_onboarding: 1
+    verified: 2026-08-01
+    # Marked 更新終了 by the antenna: kept for the archival record, expected to emit nothing.
+
+  - id: comics
+    name: パイコミックス
+    host: comics.pie.co.jp
+    atom: https://comics.pie.co.jp/atom
+    mode: known-works
+    exclusive_works_at_onboarding: 1
+    verified: 2026-08-01
+
+  - id: ourfeel
+    name: OUR FEEL
+    host: ourfeel.jp
+    atom: https://ourfeel.jp/atom
+    mode: known-works
+    exclusive_works_at_onboarding: 1
+    verified: 2026-08-01
+
+  - id: shiori-on
+    name: 栞
+    host: shiori-on.com
+    atom: https://shiori-on.com/atom
+    mode: known-works
+    exclusive_works_at_onboarding: 1
+    verified: 2026-08-01

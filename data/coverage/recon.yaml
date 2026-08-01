@@ -1,0 +1,1481 @@
+# Reconnaissance across unwatched platforms. Survey only — one work page per host.
+# `verdict` is the cheapest route found, not a judgment about whether to take it.
+source: derived
+role: reconnaissance
+retrieved: 2026-08-01
+platforms:
+- platform: pixivコミック
+  host: comic.pixiv.net
+  robots:
+    present: true
+    disallow:
+    - /images/page/
+  feeds: []
+  work_page:
+    url: https://comic.pixiv.net/works/7685
+    status: 200
+    bytes: 32698
+    payload:
+    - next
+    has_date: false
+    visible_text_chars: 57
+  verdict: page-no-date
+  exclusive_works: 41
+- platform: comicブースト
+  host: comic-boost.com
+  robots:
+    present: true
+    disallow:
+    - /search/
+    - /error
+    - /viewer/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 174
+    is_index: false
+  work_page:
+    url: https://comic-boost.com/content/01340001
+    status: 200
+    bytes: 32250
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 1736
+  verdict: server-rendered-page
+  exclusive_works: 15
+- platform: ガンガンONLINE
+  host: www.ganganonline.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://www.ganganonline.com/title/1525
+    status: 200
+    bytes: 30841
+    payload:
+    - next
+    has_date: true
+    visible_text_chars: 1465
+  verdict: server-rendered-page
+  exclusive_works: 13
+- platform: マガポケ
+  host: pocket.shonenmagazine.com
+  robots:
+    present: true
+    disallow:
+    - /maintenance
+    - /error/*
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 3
+    is_index: true
+  work_page:
+    url: https://pocket.shonenmagazine.com/title/03099
+    status: 200
+    bytes: 32991
+    payload:
+    - nuxt
+    - jsonld
+    has_date: true
+    visible_text_chars: 915
+  verdict: server-rendered-page
+  exclusive_works: 11
+- platform: Gコミ
+  host: g-comi.jp
+  robots:
+    present: true
+    disallow:
+    - /api/
+    - /auth/
+    - /users/
+    - /bookshelf/
+    - /point/
+    - /payment/
+    - /thankyou
+    - /viewer/
+    - /oembeded/
+    - /xfer/
+    - /articles/
+    - /te/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 651
+    is_index: false
+  work_page:
+    url: https://g-comi.jp/series/063225706887f
+    status: 200
+    bytes: 166943
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 1958
+  verdict: server-rendered-page
+  exclusive_works: 11
+- platform: HERO&#039;S Web
+  host: viewer.heros-web.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://viewer.heros-web.com/episode/3269754496898191059
+    status: 503
+  verdict: unreachable
+  exclusive_works: 10
+- platform: マンガワン
+  host: manga-one.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://manga-one.com/viewer/290902
+    status: 200
+    bytes: 94604
+    payload:
+    - markup
+    has_date: false
+    visible_text_chars: 393
+  verdict: page-no-date
+  exclusive_works: 10
+- platform: マンガPark
+  host: manga-park.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://manga-park.com/title/64829
+    status: 200
+    bytes: 92962
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 3052
+  verdict: server-rendered-page
+  exclusive_works: 9
+- platform: きら星ポータル
+  host: kirapo.jp
+  robots:
+    present: true
+    disallow: []
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 2
+    is_index: true
+  work_page:
+    url: https://kirapo.jp/meteor/titles/tuimie
+    status: 200
+    bytes: 39865
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 1047
+  verdict: server-rendered-page
+  exclusive_works: 8
+- platform: FEEL web
+  host: feelweb.jp
+  robots:
+    present: false
+    disallow: []
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  work_page:
+    url: https://feelweb.jp/episode/3269754496334725363
+    status: 200
+    bytes: 31448
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 624
+  verdict: feed
+  exclusive_works: 7
+- platform: ストーリアダッシュ(更新終了)
+  host: storia.takeshobo.co.jp
+  robots:
+    present: true
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://storia.takeshobo.co.jp/manga/himitsunoaishikata/
+    status: 200
+    bytes: 297132
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 2814
+  verdict: server-rendered-page
+  exclusive_works: 7
+- platform: ヤングアニマルWeb
+  host: younganimal.com
+  robots:
+    present: true
+    disallow:
+    - /api/
+    - /auth/
+    - /users/
+    - /bookshelf/
+    - /point/
+    - /payment/
+    - /thankyou
+    - /viewer/
+    - /oembeded/
+    - /xfer/
+    - /articles/
+    - /te/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 1966
+    is_index: false
+  work_page:
+    url: https://younganimal.com/series/061d7bbd35a86
+    status: 502
+  verdict: sitemap-only
+  exclusive_works: 7
+- platform: LINEマンガ(更新終了)
+  host: manga.line.me
+  robots:
+    present: true
+    disallow:
+    - /book/end_guide
+    - /api/
+    - /member/
+    - /internal/
+    - /share/
+    - /webtoons/article
+    - /indies/signup
+    - /indies/signup/
+    - /indies/admin
+    - /indies/admin/
+    - /product_review/
+    - /webtoons_review/
+  feeds: []
+  work_page:
+    url: https://manga.line.me/product/periodic?id=Z0001543
+    status: 412
+  verdict: unreachable
+  exclusive_works: 6
+- platform: 裏サンデー
+  host: urasunday.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://urasunday.com/title/2335
+    status: 200
+    bytes: 95056
+    payload:
+    - markup
+    has_date: false
+    visible_text_chars: 397
+  verdict: page-no-date
+  exclusive_works: 5
+- platform: ちゃおプラス
+  host: ciao.shogakukan.co.jp
+  robots:
+    present: true
+    disallow: []
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 11
+    is_index: true
+  work_page:
+    url: https://ciao.shogakukan.co.jp/comics/title/00039/episode/4363
+    status: 200
+    bytes: 36763
+    payload:
+    - nuxt
+    has_date: true
+    visible_text_chars: 11747
+  verdict: feed
+  exclusive_works: 5
+- platform: COMICリュウ
+  host: www.comic-ryu.jp
+  robots:
+    present: true
+    disallow:
+    - /wp-admin/
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 11
+    is_index: true
+  work_page:
+    url: https://www.comic-ryu.jp/series/hinayuriboukenki/
+    status: 200
+    bytes: 141269
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 44563
+  verdict: feed
+  exclusive_works: 5
+- platform: フラコミlike!
+  host: flowercomics.jp
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://flowercomics.jp/title/2258
+    status: 200
+    bytes: 66544
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 674
+  verdict: page-with-date-thin
+  exclusive_works: 5
+- platform: マンガよもんが
+  host: www.yomonga.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://www.yomonga.com/titles/2532/
+    status: 503
+  verdict: unreachable
+  exclusive_works: 5
+- platform: COMIC Y-OURS
+  host: comic-y-ours.com
+  robots:
+    present: false
+    disallow: []
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  work_page:
+    url: https://comic-y-ours.com/episode/12207421983394553051
+    status: 200
+    bytes: 31941
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 395
+  verdict: feed
+  exclusive_works: 4
+- platform: 少年ジャンプルーキー
+  host: rookie.shonenjump.com
+  robots:
+    present: true
+    disallow:
+    - /api/csp_report
+  feeds: []
+  work_page:
+    url: https://rookie.shonenjump.com/series/fmRli8MBymM
+    status: 200
+    bytes: 25423
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 652
+  verdict: page-with-date-thin
+  exclusive_works: 4
+- platform: 花とゆめ+
+  host: hanayume.com
+  robots:
+    present: true
+    disallow:
+    - /api/
+    - /auth/
+    - /users/
+    - /bookshelf/
+    - /point/
+    - /payment/
+    - /thankyou
+    - /viewer/
+    - /oembeded/
+    - /xfer/
+    - /articles/
+    - /te/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 1015
+    is_index: false
+  work_page:
+    url: https://hanayume.com/series/f3ce082d639de
+    status: 200
+    bytes: 224221
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 1947
+  verdict: server-rendered-page
+  exclusive_works: 4
+- platform: WEBコミックガンマぷらす(更新終了)
+  host: gammaplus.takeshobo.co.jp
+  robots:
+    present: true
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://gammaplus.takeshobo.co.jp/manga/girl_martyrdom/
+    status: 200
+    bytes: 297164
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 2814
+  verdict: server-rendered-page
+  exclusive_works: 4
+- platform: ライコミ
+  host: comicride.jp
+  robots:
+    present: true
+    disallow:
+    - /api/
+    - /auth/
+    - /users/
+    - /bookshelf/
+    - /point/
+    - /payment/
+    - /thankyou
+    - /viewer/
+    - /oembeded/
+    - /xfer/
+    - /articles/
+    - /te/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 685
+    is_index: false
+  work_page:
+    url: https://comicride.jp/series/7b86cbca64ebe
+    status: 200
+    bytes: 201961
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 2282
+  verdict: server-rendered-page
+  exclusive_works: 3
+- platform: 新都社
+  host: neetsha.jp
+  robots:
+    present: true
+    disallow:
+    - /inside/edit/
+  feeds: []
+  work_page:
+    url: http://neetsha.jp/inside/comic.php?id=23916
+    status: 403
+  verdict: unreachable
+  exclusive_works: 3
+- platform: ヤンジャン+
+  host: ynjn.jp
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://ynjn.jp/title/28795
+    status: 200
+    bytes: 181031
+    payload:
+    - nuxt
+    has_date: true
+    visible_text_chars: 163127
+  verdict: server-rendered-page
+  exclusive_works: 3
+- platform: コミックグロウル
+  host: comic-growl.com
+  robots:
+    present: true
+    disallow:
+    - /api/
+    - /auth/
+    - /users/
+    - /bookshelf/
+    - /point/
+    - /payment/
+    - /thankyou
+    - /viewer/
+    - /oembeded/
+    - /xfer/
+    - /articles/
+    - /te/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 648
+    is_index: false
+  work_page:
+    url: https://comic-growl.com/episode/13933686331793881861
+    status: 200
+    bytes: 162342
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 2137
+  verdict: server-rendered-page
+  exclusive_works: 3
+- platform: ダ・ヴィンチニュース
+  host: ddnavi.com
+  robots:
+    present: true
+    disallow:
+    - /search/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 144
+    is_index: true
+  work_page:
+    url: https://ddnavi.com/gyarumeido_akuyakureijo/
+    status: 200
+    bytes: 59209
+    payload:
+    - jsonld
+    has_date: true
+    visible_text_chars: 4735
+  verdict: server-rendered-page
+  exclusive_works: 3
+- platform: ファイアCROSS
+  host: firecross.jp
+  robots:
+    present: true
+    disallow:
+    - /my/
+    - /reader/
+    - /ad/
+  feeds: []
+  work_page:
+    url: https://firecross.jp/ebook/series/541
+    status: 403
+  verdict: unreachable
+  exclusive_works: 3
+- platform: ツイ4
+  host: sai-zen-sen.jp
+  robots:
+    present: true
+    disallow:
+    - /mt/
+  feeds:
+  - path: /rss.xml
+    content_type: text/xml
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 2
+    is_index: true
+  work_page:
+    url: https://sai-zen-sen.jp/comics/twi4/twins/
+    status: 200
+    bytes: 48687
+    payload:
+    - markup
+    has_date: false
+    visible_text_chars: 7822
+  verdict: feed
+  exclusive_works: 3
+- platform: コロコロオンライン
+  host: www.corocoro.jp
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://www.corocoro.jp/title/65
+    status: 200
+    bytes: 33713
+    payload:
+    - markup
+    has_date: false
+    visible_text_chars: 402
+  verdict: page-no-date
+  exclusive_works: 2
+- platform: コミックNewtype(更新終了)
+  host: comic.webnewtype.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://comic.webnewtype.com/contents/asufude/
+    status: 404
+  verdict: unreachable
+  exclusive_works: 2
+- platform: eBigComic4(更新終了)
+  host: ebookjapan.yahoo.co.jp
+  robots:
+    present: true
+    disallow:
+    - /assets/
+    - /ytm/
+    - /mypage
+    - /cart
+    - /bookshelf
+    - /bviewer
+    - /review
+    - /proxy/
+    - /*.jpg$
+    - /*.png$
+    - /*.css$
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 36
+    is_index: false
+  work_page:
+    url: https://ebookjapan.yahoo.co.jp/stories/107382/
+    status: 404
+  verdict: sitemap-only
+  exclusive_works: 2
+- platform: コミックエッセイ劇場
+  host: www.comic-essay.com
+  robots:
+    present: true
+    disallow: []
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 3103
+    is_index: false
+  work_page:
+    url: https://www.comic-essay.com/episode/a1006/
+    status: 200
+    bytes: 37320
+    payload:
+    - jsonld
+    has_date: false
+    visible_text_chars: 1803
+  verdict: sitemap-only
+  exclusive_works: 2
+- platform: GANMA!(更新終了)
+  host: ganma.jp
+  robots:
+    present: true
+    disallow:
+    - /web/account/
+    - /web/accountSetting
+    - /web/activate/
+    - /web/bookshelf/
+    - /web/pwreset
+    - /web/qaAndroid
+    - /web/qaiOS
+    - /web/signin
+    - /web/signin/
+    - /web/signup
+    - /web/signup/
+    - /web/error
+  feeds: []
+  work_page:
+    url: https://ganma.jp/yorunoonesan
+    status: 200
+    bytes: 391532
+    payload:
+    - jsonld
+    has_date: true
+    visible_text_chars: 33352
+  verdict: server-rendered-page
+  exclusive_works: 2
+- platform: ヤングエースUP(更新終了)
+  host: web-ace.jp
+  robots:
+    present: true
+    disallow: []
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 3230
+    is_index: false
+  work_page:
+    url: https://web-ace.jp/youngaceup/contents/1000161/
+    status: 200
+    bytes: 69254
+    payload:
+    - jsonld
+    has_date: true
+    visible_text_chars: 2912
+  verdict: server-rendered-page
+  exclusive_works: 2
+- platform: まんがタイムSquare
+  host: mangatime-square.com
+  robots:
+    present: false
+    disallow: []
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  work_page:
+    url: https://mangatime-square.com/episode/12207421984001577937
+    status: 200
+    bytes: 28583
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 506
+  verdict: feed
+  exclusive_works: 2
+- platform: コミックボーダー
+  host: comicborder.com
+  robots:
+    present: false
+    disallow: []
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  work_page:
+    url: https://comicborder.com/episode/3270375685434605726
+    status: 200
+    bytes: 24648
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 620
+  verdict: feed
+  exclusive_works: 2
+- platform: コミックノヴァ
+  host: www.123hon.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://www.123hon.com/nova/web-comic/princess/
+    status: 200
+    bytes: 43970
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 14017
+  verdict: server-rendered-page
+  exclusive_works: 2
+- platform: Seasons
+  host: comic-seasons.com
+  robots:
+    present: false
+    disallow: []
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  work_page:
+    url: https://comic-seasons.com/episode/2551460909766158255
+    status: 200
+    bytes: 34188
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 489
+  verdict: feed
+  exclusive_works: 2
+- platform: comico(更新終了)
+  host: www.comico.jp
+  robots:
+    present: true
+    disallow:
+    - /login
+    - /password/find
+    - /comic/*/product
+    - /magazine_comic/*/product
+    - /challenge/*/comment
+    - /*.nhn
+    - /store/
+    - /tag/
+    - /author/
+    - /user/
+  feeds: []
+  work_page:
+    url: https://www.comico.jp/articleList.nhn?titleNo=32598
+    status: 200
+    bytes: 131226
+    payload:
+    - nuxt
+    has_date: false
+    visible_text_chars: 112989
+  verdict: page-no-date
+  exclusive_works: 2
+- platform: COMICリュエル
+  host: comic.j-nbooks.jp
+  robots:
+    present: true
+    disallow:
+    - /api/
+    - /auth/
+    - /users/
+    - /bookshelf/
+    - /point/
+    - /payment/
+    - /thankyou
+    - /viewer/
+    - /oembeded/
+    - /xfer/
+    - /articles/
+    - /te/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 405
+    is_index: false
+  work_page:
+    url: https://comic.j-nbooks.jp/series/25f1325d1fd40
+    status: 200
+    bytes: 192522
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 2019
+  verdict: server-rendered-page
+  exclusive_works: 1
+- platform: LINE マンガ インディーズ
+  host: manga.line.me
+  robots:
+    present: true
+    disallow:
+    - /book/end_guide
+    - /api/
+    - /member/
+    - /internal/
+    - /share/
+    - /webtoons/article
+    - /indies/signup
+    - /indies/signup/
+    - /indies/admin
+    - /indies/admin/
+    - /product_review/
+    - /webtoons_review/
+  feeds: []
+  work_page:
+    url: https://manga.line.me/indies/product/detail?id=12480
+    status: 412
+  verdict: unreachable
+  exclusive_works: 1
+- platform: コミックPASH! neo
+  host: comicpash.jp
+  robots:
+    present: true
+    disallow:
+    - /api/
+    - /auth/
+    - /users/
+    - /bookshelf/
+    - /point/
+    - /payment/
+    - /thankyou
+    - /viewer/
+    - /oembeded/
+    - /xfer/
+    - /articles/
+    - /te/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 442
+    is_index: false
+  work_page:
+    url: https://comicpash.jp/series/37aae26103d8a
+    status: 200
+    bytes: 226390
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 2221
+  verdict: server-rendered-page
+  exclusive_works: 1
+- platform: comicグラスト
+  host: novema.jp
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://novema.jp/comic/serial/n10
+    status: 403
+  verdict: unreachable
+  exclusive_works: 1
+- platform: やわらかスピリッツ
+  host: yawaspi.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://yawaspi.com/oyasumi/index.html
+    status: 200
+    bytes: 18041
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 2135
+  verdict: server-rendered-page
+  exclusive_works: 1
+- platform: 少年エースplus(更新終了)
+  host: web-ace.jp
+  robots:
+    present: true
+    disallow: []
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 3230
+    is_index: false
+  work_page:
+    url: https://web-ace.jp/shonenaceplus/contents/3000097/
+    status: 200
+    bytes: 69436
+    payload:
+    - jsonld
+    has_date: true
+    visible_text_chars: 3226
+  verdict: server-rendered-page
+  exclusive_works: 1
+- platform: げつあくWEB(更新終了)
+  host: getsuaku.com
+  robots:
+    present: true
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://getsuaku.com/episode/001_gaw_koedeoshigoto
+    status: 404
+  verdict: unreachable
+  exclusive_works: 1
+- platform: NewsCrunch
+  host: comic.pixiv.net
+  robots:
+    present: true
+    disallow:
+    - /images/page/
+  feeds: []
+  work_page:
+    url: https://comic.pixiv.net/works/10121
+    status: 200
+    bytes: 32699
+    payload:
+    - next
+    has_date: false
+    visible_text_chars: 57
+  verdict: page-no-date
+  exclusive_works: 1
+- platform: GetNavi
+  host: getnavi.jp
+  robots:
+    present: true
+    disallow:
+    - /?s=
+    - /page/*/?s=
+    - /search/
+    - /wp-json/
+    - /?rest_route=
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 46
+    is_index: true
+  work_page:
+    url: https://getnavi.jp/category/comic/horoyoi/
+    status: 404
+  verdict: sitemap-only
+  exclusive_works: 1
+- platform: pixivコミックマガジン
+  host: comic.pixiv.net
+  robots:
+    present: true
+    disallow:
+    - /images/page/
+  feeds: []
+  work_page:
+    url: https://comic.pixiv.net/magazines/206
+    status: 200
+    bytes: 32600
+    payload:
+    - next
+    has_date: false
+    visible_text_chars: 57
+  verdict: page-no-date
+  exclusive_works: 1
+- platform: アサコミ
+  host: sonorama.asahi.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: http://sonorama.asahi.com/series/GMG-story.html
+    status: null
+  verdict: unreachable
+  exclusive_works: 1
+- platform: ソノラマプラス(更新終了)
+  host: sonorama.asahi.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: http://sonorama.asahi.com/series/GMG-story.html
+    status: null
+  verdict: unreachable
+  exclusive_works: 1
+- platform: 路草
+  host: michikusacomics.jp
+  robots:
+    present: false
+    disallow: []
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 5
+    is_index: true
+  work_page:
+    url: https://michikusacomics.jp/product/hutsukoi
+    status: 200
+    bytes: 77697
+    payload:
+    - jsonld
+    has_date: true
+    visible_text_chars: 11567
+  verdict: feed
+  exclusive_works: 1
+- platform: ゼロサムオンライン
+  host: zerosumonline.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://zerosumonline.com/detail/royaltailor
+    status: 200
+    bytes: 10922
+    payload:
+    - markup
+    has_date: false
+    visible_text_chars: 27
+  verdict: page-no-date
+  exclusive_works: 1
+- platform: マンガボックス
+  host: www.mangabox.me
+  robots:
+    present: true
+    disallow:
+    - '*.png'
+    - '*.jpg'
+    - '*.jpeg'
+    - /redirect_to/*
+    - /auser/*
+    - /browser/auser/*
+    - /ad_creative/*
+    - /*?order=
+    - /*_from=link_page
+    - /*_manga_id=
+    - /*_content_id=
+    - /*utm_source=
+  feeds: []
+  work_page:
+    url: https://www.mangabox.me/reader/262412/
+    status: 200
+    bytes: 390544
+    payload:
+    - markup
+    has_date: false
+    visible_text_chars: 16711
+  verdict: page-no-date
+  exclusive_works: 1
+- platform: Matogrosso(更新終了)
+  host: matogrosso.jp
+  robots:
+    present: true
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://matogrosso.jp/serial/shigokoi_02-136/
+    status: 200
+    bytes: 42887
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 10858
+  verdict: server-rendered-page
+  exclusive_works: 1
+- platform: ドリコミ+
+  host: drecomi-plus.jp
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://drecomi-plus.jp/series/CD00038
+    status: 403
+  verdict: unreachable
+  exclusive_works: 1
+- platform: アルファポリス
+  host: www.alphapolis.co.jp
+  robots:
+    present: true
+    disallow:
+    - /dreambookclub/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 589
+    is_index: true
+  work_page:
+    url: https://www.alphapolis.co.jp/manga/official/791000435
+    status: 200
+    bytes: 115425
+    payload:
+    - jsonld
+    has_date: true
+    visible_text_chars: 2857
+  verdict: server-rendered-page
+  exclusive_works: 1
+- platform: Web漫画速報
+  host: mangalifewin.takeshobo.co.jp
+  robots:
+    present: true
+    disallow: []
+  feeds: []
+  work_page:
+    url: http://mangalifewin.takeshobo.co.jp/rensai/kiminotamenarashineru/
+    status: 200
+    bytes: 297132
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 2814
+  verdict: server-rendered-page
+  exclusive_works: 1
+- platform: COMIC熱帯
+  host: www.comicnettai.com
+  robots:
+    present: true
+    disallow:
+    - /publus/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 80
+    is_index: false
+  work_page:
+    url: https://www.comicnettai.com/book/30
+    status: 200
+    bytes: 31670
+    payload:
+    - jsonld
+    has_date: true
+    visible_text_chars: 922
+  verdict: server-rendered-page
+  exclusive_works: 1
+- platform: マガジンデビュー(更新終了)
+  host: debut.shonenmagazine.com
+  robots:
+    present: true
+    disallow:
+    - /wp-admin/
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 9
+    is_index: true
+  work_page:
+    url: https://debut.shonenmagazine.com/comic/10536
+    status: 200
+    bytes: 55239
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 12573
+  verdict: feed
+  exclusive_works: 1
+- platform: パイコミックス
+  host: comics.pie.co.jp
+  robots:
+    present: true
+    disallow:
+    - /wp/wp-admin/
+    - /*?*Marcelwinatschek*
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 9
+    is_index: true
+  work_page:
+    url: https://comics.pie.co.jp/series/herside/
+    status: 404
+  verdict: feed
+  exclusive_works: 1
+- platform: コロナEX
+  host: to-corona-ex.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  work_page:
+    url: https://to-corona-ex.com/comics/20000000049417
+    status: 200
+    bytes: 42429
+    payload:
+    - next
+    has_date: true
+    visible_text_chars: 837
+  verdict: server-rendered-page
+  exclusive_works: 1
+- platform: OUR FEEL
+  host: ourfeel.jp
+  robots:
+    present: false
+    disallow: []
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  work_page:
+    url: https://ourfeel.jp/episode/2550912966077179576
+    status: 200
+    bytes: 37913
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 472
+  verdict: feed
+  exclusive_works: 1
+- platform: WEBコミックガンマ(更新終了)
+  host: webcomicgamma.takeshobo.co.jp
+  robots:
+    present: true
+    disallow: []
+  feeds: []
+  work_page:
+    url: http://webcomicgamma.takeshobo.co.jp/manga/akebosijeny/
+    status: 200
+    bytes: 297132
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 2814
+  verdict: server-rendered-page
+  exclusive_works: 1
+- platform: コミックヴァルキリー(更新終了)
+  host: www.comic-valkyrie.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 16
+    is_index: false
+  work_page:
+    url: https://www.comic-valkyrie.com/youheisyoujo
+    status: 200
+    bytes: 11620
+    payload:
+    - markup
+    has_date: false
+    visible_text_chars: 1090
+  verdict: sitemap-only
+  exclusive_works: 1
+- platform: てれびくんヒーローコミックス
+  host: televikun-super-hero-comics.com
+  robots:
+    present: false
+    disallow: []
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 26
+    is_index: false
+  work_page:
+    url: https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/
+    status: 200
+    bytes: 15452
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 740
+  verdict: page-with-date-thin
+  exclusive_works: 1
+- platform: 栞
+  host: shiori-on.com
+  robots:
+    present: true
+    disallow:
+    - /wp-admin/
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 3
+    is_index: true
+  work_page:
+    url: https://shiori-on.com/product/ryutoryunokekkon
+    status: 200
+    bytes: 39523
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 14330
+  verdict: feed
+  exclusive_works: 1
+- platform: マイナビニュース
+  host: news.mynavi.jp
+  robots:
+    present: true
+    disallow:
+    - /AAMBA
+    - /SITE=MN
+    - /6082618/
+    - /adk_random.html
+    - /top/digital/mobile/net_hikaku/wp-admin/
+    - /testpage/
+    - /testpage2/
+    - /testpage3/
+    - /testpage4/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 4
+    is_index: false
+  work_page:
+    url: https://news.mynavi.jp/series/carfairy/
+    status: 200
+    bytes: 160907
+    payload:
+    - jsonld
+    has_date: true
+    visible_text_chars: 4707
+  verdict: server-rendered-page
+  exclusive_works: 1
+- platform: MAGKAN
+  host: kansai.mag-garden.co.jp
+  robots:
+    present: true
+    disallow:
+    - /api/
+    - /auth/
+    - /users/
+    - /bookshelf/
+    - /point/
+    - /payment/
+    - /thankyou
+    - /viewer/
+    - /oembeded/
+    - /xfer/
+    - /articles/
+    - /te/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 463
+    is_index: false
+  work_page:
+    url: https://kansai.mag-garden.co.jp/series/76bb18d479f8c
+    status: 200
+    bytes: 121461
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 1748
+  verdict: server-rendered-page
+  exclusive_works: 1
+- platform: がうがうモンスター
+  host: comic-action.com
+  robots:
+    present: true
+    disallow: []
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  work_page:
+    url: https://comic-action.com/episode/4856001361133391941
+    status: 200
+    bytes: 42310
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 610
+  verdict: feed
+  exclusive_works: 0
+- platform: Souffle
+  host: championcross.jp
+  robots:
+    present: true
+    disallow:
+    - /api/
+    - /auth/
+    - /users/
+    - /bookshelf/
+    - /point/
+    - /payment/
+    - /thankyou
+    - /viewer/
+    - /oembeded/
+    - /xfer/
+    - /articles/
+    - /te/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 2698
+    is_index: false
+  work_page:
+    url: https://championcross.jp/series/52e0d2b7319b5
+    status: 200
+    bytes: 155444
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 2206
+  verdict: server-rendered-page
+  exclusive_works: 0
+- platform: コミクリ!(更新終了)
+  host: comic-days.com
+  robots:
+    present: false
+    disallow: []
+  feeds:
+  - path: /atom
+    content_type: application/atom+xml
+  work_page:
+    url: https://comic-days.com/episode/3269754496502263912
+    status: 200
+    bytes: 154930
+    payload:
+    - markup
+    has_date: true
+    visible_text_chars: 961
+  verdict: feed
+  exclusive_works: 0
+- platform: 電撃ツイッターマガジン(更新終了)
+  host: comic-walker.com
+  robots:
+    present: true
+    disallow:
+    - /?
+    - /api/
+    - /auth/
+  feeds: []
+  sitemap:
+    path: /sitemap.xml
+    urls_in_first_page: 8
+    is_index: true
+  work_page:
+    url: https://comic-walker.com/detail/KC_003197_S
+    status: 200
+    bytes: 107494
+    payload:
+    - next
+    has_date: true
+    visible_text_chars: 1158
+  verdict: server-rendered-page
+  exclusive_works: 0

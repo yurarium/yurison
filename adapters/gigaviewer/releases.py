@@ -391,7 +391,10 @@ def main():
             "source: gigaviewer",
             f"platform: {p['id']}",
             f"platform_name: {json.dumps(p['name'], ensure_ascii=False)}",
-            f"publisher: {json.dumps(p['publisher'], ensure_ascii=False)}",
+            # Optional. A platform found by probing for /atom is identified by its host; the
+            # publisher behind it is a separate fact. An empty value is honest — guessing one from
+            # the domain would put invented attribution into the source layer.
+            f"publisher: {json.dumps(p.get('publisher', ''), ensure_ascii=False)}",
             f"retrieved: {a.retrieved}",
             "record_type: web_releases",
             f"identification_mode: {mode}",

@@ -66,32 +66,70 @@ above ~40 works after that, the browser step earns its keep.
 
 ---
 
-## 3. The unwatched long tail — no shared engine
+## 3. The unwatched long tail — 74 platforms, 269 exclusive works
 
-79 platforms appear across the two yardsticks. The head is thin: comicブースト 18, マガポケ 103
-listings but few exclusive, ヤンジャン+ 20, マンガPark 15, HERO'S Web 14, マンガワン 14, then
-single digits. Two of the larger entries (コミックNewtype, ストーリアダッシュ) are marked 更新終了
-and need nothing.
+**The previous entry here was wrong, and wrong in a way worth recording.** It said the long tail
+offered "no leverage" and recommended leaving it alone. That came from probing six hosts, chosen
+because they were the largest, for two engines. None of the six happened to be GigaViewer, and I
+generalised from that to seventy-four.
 
-Probed 2026-08-01 for engines we already have adapters for:
+`adapters/recon/probe.py` now surveys every unwatched platform for robots rules, feed endpoints at
+the conventional paths, sitemaps, and the payload shape of one representative work page. Results in
+`data/coverage/recon.yaml`.
 
-| Host | GigaViewer `/atom` | comici markup |
+| Cheapest route found | Hosts | Exclusive works |
 |---|---|---|
-| pocket.shonenmagazine.com | 404 | no |
-| ynjn.jp | 404 | no |
-| comic-boost.com | soft 404 (HTML) | no |
-| manga-park.com | 404 | no |
-| viewer.heros-web.com | 503 | no |
-| manga-one.com | 404 | no |
+| `server-rendered-page` | 30 | 112 |
+| `page-no-date` | 9 | 64 |
+| `unreachable` | 12 | 35 |
+| `feed` | 15 | 35 |
+| `sitemap-only` | 5 | 13 |
+| `page-with-date-thin` | 3 | 10 |
 
-**Path.** A bespoke adapter each, for single-digit exclusive works apiece. There is no leverage
-here — no third engine to unlock several at once, which is what GigaViewer and comici each did.
+### Already taken: 12 more GigaViewer platforms
 
-**Recommendation.** Leave it. The remaining acceptance gap is zero; these platforms carry works the
-yardsticks do not list, so onboarding them chases coverage no one has asked for against a
-definition of completeness we do not have.
+Fifteen hosts serve a real feed, and twelve of them are GigaViewer instances that were sitting
+there the whole time — FEEL web, ちゃおプラス, COMICリュウ, COMIC Y-OURS, まんがタイムSquare,
+コミックボーダー, Seasons, 路草, パイコミックス, OUR FEEL, 栞, マガジンデビュー. They needed no code,
+only registry rows, because one adapter has always served all of them. Watched platforms 13 → 22.
 
----
+They contribute nothing *yet*, and that is expected rather than a failure: these are small sites
+whose `/atom` holds about five entries, so a given yuri work appears only in the window where it
+actually updates. FEEL web's feed at the time of writing carried two works, neither of them ours.
+The adapter retains history across runs, so coverage accrues by polling rather than by backfill.
+
+### Caveat that changes how the table should be read
+
+`has_date` in the survey means "a date appears on the page", not "an update date appears".
+ガンガンONLINE is the worked example: it is server-rendered and shows `2024.05.24発売！` — a
+**単行本 release date**. Its chapter list loads client-side, so its real route is a rendered page,
+not a fetch. Every `server-rendered-page` verdict therefore needs a second pass distinguishing an
+update date from a volume date before an adapter is written against it.
+
+### Routes for the remainder, by family
+
+- **`jsonld` (7 hosts, 11 works)** — schema.org is standardised, so one parser serves all seven:
+  ダ・ヴィンチニュース, コミックエッセイ劇場, 路草, アルファポリス, COMIC熱帯, マイナビニュース, plus
+  two 更新終了 sites needing nothing. The generic-parser case, and the next thing to build.
+- **`nuxt` / `next` (5 hosts, 25 works)** — マガポケ, ちゃおプラス, ヤンジャン+, ガンガンONLINE,
+  コロナEX. Payload location differs per host but the extraction is the same shape as the カドコミ
+  and FUZ adapters. ガンガンONLINE's payload is a 3.7 KB shell, so it belongs with pixiv under
+  "needs rendering".
+- **`markup` (21 hosts, 83 works)** — comicブースト 15, Gコミ 11, マンガPark 9, きら星ポータル 8,
+  フラコミlike! 5, 少年ジャンプルーキー 4, 花とゆめ+ 4, and a tail of ones and twos. No shared
+  engine, but the *code* is shared: one adapter driven by a per-host selector registry, which is
+  a row of configuration per host rather than a program each.
+- **`sitemap-only` (5 hosts, 13 works)** — enumeration works, dates do not. `<lastmod>` is a
+  candidate signal but describes the URL, not the chapter; usable only if it can be corroborated.
+- **`unreachable` (12 hosts, 35 works)** — of which several are marked 更新終了 by the antenna and
+  need nothing at all. The live remainder are timeouts and 403s to be retried before conclusions.
+
+### What this does not settle
+
+269 works is the count of works these platforms carry that no watched platform carries. It is not
+269 works of *unmet demand*: acceptance against both yardsticks is already at 100%, so nothing here
+is currently being asked for and missed. The case for this work is completeness against a
+definition the project has not yet written down, which is worth doing and worth being honest about.
 
 ## 4. Serialisation history
 

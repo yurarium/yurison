@@ -15,7 +15,7 @@ Fetches are paginated and polite: identified UA, one request per 1.5s, page coun
 Usage:  coverage.py --out data/coverage --cache ~/workspace/webcomics-cache \
                     --pages 8 --retrieved 2026-08-01
 """
-import argparse, json, pathlib, re, sys, time, urllib.request
+import argparse, html as _html, json, pathlib, re, sys, time, urllib.request
 import unicodedata
 from collections import Counter, defaultdict
 
@@ -52,12 +52,16 @@ def parse(html):
         date = re.search(r'class="entry-date">\s*([^<]+?)\s*</div>', b)
         tags = re.search(r'class="hover-tip-popup-block">\s*([^<]+?)\s*</span>', b)
         cno = re.search(r'data-comic-no="(\d+)"', b)
+        # The antenna emits HTML entities in its own text — HERO&#039;S Web, and apostrophes and
+        # ampersands inside work titles. Left encoded they travel into titles, platform names and
+        # every comparison built on them, so a platform never matches its registry entry.
+        u = _html.unescape
         out.append({
-            "title": title.group(2),
+            "title": u(title.group(2)),
             "work_url": title.group(1),
-            "platform": site.group(1) if site else "",
-            "updated_text": date.group(1) if date else "",
-            "tags": [x.strip() for x in tags.group(1).split(",")] if tags else [],
+            "platform": u(site.group(1)) if site else "",
+            "updated_text": u(date.group(1)) if date else "",
+            "tags": [u(x.strip()) for x in tags.group(1).split(",")] if tags else [],
             "antenna_id": cno.group(1) if cno else "",
         })
     return out

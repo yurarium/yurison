@@ -1,0 +1,13 @@
+# Source-layer record: web releases from a GigaViewer platform (REQUIREMENTS §5).
+# identification mode: known-works
+# The Atom feed is the publisher's own update channel. Episode thumbnails offered as
+# enclosures are NOT referenced — they are not a reuse feed (§2).
+source: gigaviewer
+platform: comic-seasons
+platform_name: "Seasons"
+publisher: ""
+retrieved: 2026-08-01
+record_type: web_releases
+identification_mode: known-works
+yuri_series_count: 0
+releases:

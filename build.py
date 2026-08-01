@@ -172,7 +172,8 @@ def main():
     idx = [{"id": w["work_id"], "t": w["title"]["ja"], "y": w["title"].get("yomi", ""),
             "c": w.get("creator", ""), "n": w["volume_count"],
             "d": w.get("first_publication", {}).get("date", ""),
-            "l": w.get("marketing_label"), "ct": w.get("content_tier")} for w in works]
+            "l": w.get("marketing_label"), "ct": w.get("content_tier"),
+            "g": w.get("grouping")} for w in works]
     (out / "index.json").write_text(json.dumps(idx, ensure_ascii=False, separators=(",", ":"), default=jsonable))
 
     if len(works) != len(src):

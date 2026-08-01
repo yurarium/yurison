@@ -184,9 +184,17 @@ slice justifies the phase is a decision for Phase 2, not now.
 
 The magazine line that anchors `marketing_label: magazine`, and the corpus for Phase 1:
 
-- 『百合姉妹』(2003–2004, サン出版)
-- 『コミック百合姫』(2005–, 一迅社) — including the 『百合姫S』『百合姫Wildrose』 offshoots
-- 『ガレット』(2017–, ガレット works)
+| Magazine | Publisher | From | MADB ID |
+|---|---|---|---|
+| 『百合姉妹』 | サン出版 | 2003–2004 | — *(absent from MADB)* |
+| 『コミック百合姫（月刊Comic ZERO-SUM増刊）』 | 一迅社 | 2005-09-01 | C117556 |
+| 『コミック百合姫S』 | 一迅社 | 2007 | C117558 |
+| 『コミック百合姫』 | 一迅社 | 2008-03-01 | C117557 |
+| 『つぼみ』 | 芳文社 | 2009-02-27 | C123168 |
+| 『百合姫Wildrose』 | 一迅社 | — | — *(absent from MADB)* |
+| 『ガレット』 | ガレット works | 2017– | — *(absent from MADB)* |
 
-To be verified against MADB マンガ雑誌 data and publisher sources during Phase 1, and extended
-with any further yuri-identified magazines that sweep reveals.
+Verified against MADB release 1.2.18 on 2026-08-01. 『つぼみ』 was added as a result; three of the
+seven are absent from MADB and need publisher sources. See [MADB.md](MADB.md).
+
+To be extended with any further yuri-identified magazines a publisher-side sweep reveals.

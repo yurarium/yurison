@@ -32,7 +32,7 @@ is recorded rather than discarded.
 
 | Source | Access | Notes |
 |---|---|---|
-| 文化庁メディア芸術データベース (MADB) | Bulk JSON-LD + Turtle at [github.com/mediaarts-db/dataset](https://github.com/mediaarts-db/dataset); Web API and SPARQL endpoint | 30 datasets incl. マンガ単行本, **マンガ雑誌**, and **magazine serialisation history**. The historical spine. URIs migrated `bunka.go.jp` → `artmuseums.go.jp` on 2024-11-26; use `mediaarts-db.artmuseums.go.jp`. Latest release seen: v1.2 (2024-01-31) — **check for newer releases before relying on currency.** |
+| 文化庁メディア芸術データベース (MADB) | Bulk JSON-LD + Turtle at [github.com/mediaarts-db/dataset](https://github.com/mediaarts-db/dataset); Web API and SPARQL endpoint | Magazines, issues, volumes, and issue contents. Ships **monthly**; pull from Releases and pin the tag. URIs migrated `bunka.go.jp` → `artmuseums.go.jp` on 2024-11-26. **Issue contents cover only 9.3% of issues and none of the yuri magazines** — see [MADB.md](MADB.md) before planning around it. |
 | 国立国会図書館サーチ (NDL Search) | SRU / OpenSearch | Legal deposit — effectively every book printed in Japan, including pre-2000. Coverage no fan database has. |
 | openBD | JSON API | ISBN → publisher-supplied bibliographic data and cover images. Strong on in-print and forthcoming, weak historically. Terms obligations in §3. |
 | 出版書誌データベース (Books.or.jp) | Web | JPO-run publisher bibliography. |
@@ -601,18 +601,27 @@ last-seen statement once stale rather than asserting terms that may have lapsed.
 ## 7. Phasing
 
 **Phase 1 — 百合姫 lineage, end to end.** The full pipeline against a bounded, high-signal corpus:
-『百合姉妹』→『コミック百合姫』(and offshoots) →『ガレット』. Schema, the adapter framework (§6)
-with two or three real adapters, validation, build, and a working Pages site. Every layer proven
-against roughly 500–1,000 works before scaling. MADB's magazine-serialisation datasets make this
-corpus tractable directly.
+『百合姉妹』→『コミック百合姫』(and offshoots) →『つぼみ』→『ガレット』. Schema, the adapter
+framework (§6) with two or three real adapters, validation, build, and a working Pages site. Every
+layer proven against roughly 500–1,000 works before scaling.
+
+> **Corrected 2026-08-01.** This originally said MADB's serialisation datasets made the corpus
+> tractable directly. They do not. MADB holds three of the five magazines at magazine level, partial
+> issue lists, and no contents records for any of them. The corpus has to be built from publisher
+> sources — 一迅社 and ichicomi — with MADB supplying magazine facts and 単行本 records once titles
+> are known. See [MADB.md](MADB.md).
 
 The adapter framework is Phase 1 work rather than a later refinement: it is the mechanism that
 decides whether this project needs continuous attention or periodic maintenance, and that is the
 difference between it surviving and not.
 
-**Phase 2 — historical spine.** MADB + NDL sweep for pre-2000 print. The coverage no existing
-database has, and the hardest sourcing problem — deliberately attempted only once the pipeline is
-proven.
+**Phase 2 — historical spine.** MADB + NDL sweep for pre-2000 print, the coverage no existing
+database has.
+
+> **Reassessed 2026-08-01.** This was framed as the harder, later problem. MADB's contents data is
+> concentrated on 花とゆめ (849 issues), なかよし (806), りぼん (776) and 月刊漫画ガロ (412), which
+> are the magazines where Class S and the pre-1990s precursors ran. This phase may be the *more*
+> tractable one from bulk data. Whether to reorder is open.
 
 **Phase 3 — breadth.** Current print and web across all publishers, and the release-tracking
 pipeline (§5) extended across all ongoing web serialisations. Release tracking is prototyped

@@ -50,9 +50,9 @@ editorial sources, but must record that it did so.
 
 | Source | Value | *(verified 2026-08-01)* |
 |---|---|---|
-| [百合ナビ](https://yurinavi.com/) | 百合漫画発売日一覧 release calendar — corroborates dates and catches forthcoming volumes. Its **news blog** is the practical route to 読み切り one-shots, which are otherwise near-invisible (see below). |
-| [Web漫画アンテナ](https://webcomics.jp/tag/%E7%99%BE%E5%90%88) | Cross-platform web-manga aggregator; ~900+ works under its 百合 tag, each with platform, update time and a link back to the original. |
-| 日本語版Wikipedia, pixiv百科事典 | Background and classification discussion |
+| [百合ナビ](https://yurinavi.com/) | Long-running yuri news site: a news feed, a WEB連載 list, and a 発売日 calendar. Occupies an interesting position in the ecosystem — it is where new yuri work gets announced — but is **not a source of truth**. Inclusion is traditionally loose, dating from a period when far less yuri was published. Valuable for **discovery**; weightless as verification. |
+| [Web漫画アンテナ](https://webcomics.jp/tag/%E7%99%BE%E5%90%88) | Cross-platform web-manga aggregator, ~1,530 works under its 百合 tag with platform and update time. Crowd-tagged, so likewise discovery only. |
+| 日本語版Wikipedia, pixiv百科事典 | Background and classification **discussion** — see the distinction below |
 
 **Tier D — discovery only, never stored.** Foreign aggregators. Permitted to enqueue a candidate
 title. Permitted to supply nothing else.
@@ -68,12 +68,21 @@ without polluting the record:
 | **Corroborative** | Supports a classification as `basis` | Tier A–C |
 | **Discovery** | Tells us a work exists, nothing more | Any tier, including D |
 
-A source may hold several roles. The rule that follows and matters most:
+A source may hold several roles. Two rules follow, and both matter.
 
 > **A third-party tag is never a `marketing_label`.** Web漫画アンテナ or 百合ナビ filing a work
-> under 百合 is Tier C evidence toward `content_tier`. `marketing_label` requires publisher- or
-> platform-side labelling (DEFINITIONS §4) and nothing else. These sources will tempt exactly this
-> confusion, since a 百合 tag *looks* like a label.
+> under 百合 is not a label. `marketing_label` requires publisher- or platform-side labelling
+> (DEFINITIONS §4) and nothing else. These sources will tempt exactly this confusion, since a 百合
+> tag *looks* like a label.
+
+> **A bare listing is not corroboration either.** Tier C may support a `content_tier` when it
+> *says something* — a review, an article, an encyclopaedia entry describing how a work treats its
+> relationship. A work merely appearing under a 百合 heading is a bare assertion of membership,
+> produced by crowd tagging or by loose editorial inclusion, with no reasoning attached and no way
+> to weigh it. Evidence has to state a case; a tag only claims one.
+>
+> This is why the two coverage yardsticks in §5 are strictly discovery, despite both being
+> Japanese and both being about yuri specifically.
 
 ### One-shots are the hardest discovery problem
 

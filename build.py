@@ -54,6 +54,9 @@ NON_STORY_RE = re.compile(r"告知|お知らせ|カバー|PV|特報|予告|特�
 # follows the series for, unlike an announcement or a cover reveal. They are instalments of an
 # existing work, so they are never a new series either.
 EXTRA_RE = re.compile(r"おまけ|番外編|外伝|特別編|幕間")
+# Volume promotion, which platforms file among the chapters: 3巻発売フェア, 第2巻 書店フェア.
+# Not matched as a keyword rule — see the outlier test below, which is relative to each series.
+VOLUME_MARK_RE = re.compile(r"[0-9０-９一二三四五六七八九十]+\s*巻|発売|フェア|刊行|書店")
 _KANJI = {"〇": 0, "一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
           "六": 6, "七": 7, "八": 8, "九": 9}
 
@@ -723,11 +726,45 @@ def main():
             if "完結" in (c.get("listing_tags") or []) and c.get("work"):
                 completed[norm_work(c["work"])] = True
 
+    # An entry is judged against its own series' naming, not against a keyword list. A title
+    # carrying 巻 among sixty that do not is a volume announcement — うさぎはかく語りき files
+    # 3巻発売フェア and 第2巻 書店フェア among its chapters. But some series genuinely count in
+    # volumes, and a keyword rule would mistype every one of their instalments. So the test is the
+    # proportion: rare in this series means it is not how this series names its chapters.
+    #
+    # The denominator comes from the full source history, not the feed window, or a series with two
+    # chapters in view and one of them promotional would read as 50% and escape.
+    VOLUME_OUTLIER_MAX = 0.30
+    MIN_SIBLINGS = 4
+    series_titles = defaultdict(list)
+    for f in (glob.glob("data/source/kadokomi/chapters.yaml")
+              + glob.glob("data/source/comicfuz/works.yaml")
+              + glob.glob("data/source/webpages/*.yaml")
+              + glob.glob("data/source/gigaviewer/*.yaml")):
+        d0 = yaml.safe_load(open(f)) or {}
+        for w in d0.get("works") or []:
+            ti = norm_work(w.get("work_title") or w.get("title") or "")
+            if ti:
+                series_titles[ti] += [c.get("title") or "" for c in w.get("chapters") or []]
+    for r in releases:
+        series_titles.setdefault(norm_work(r["work"]), []).append(r.get("ep") or "")
+
     for r in releases:
         ep = r.get("ep") or ""
         if r["type"] in OTHER_TYPES or NON_STORY_RE.search(ep) or ep.strip() == "イラスト":
             r["kind"], r["kind_basis"] = "other", "notice, artwork, trial or announcement"
             continue
+        sibs = series_titles.get(norm_work(r["work"])) or []
+        if VOLUME_MARK_RE.search(ep) and len(sibs) >= MIN_SIBLINGS:
+            marked = sum(1 for s in sibs if VOLUME_MARK_RE.search(s))
+            share = marked / len(sibs)
+            if share <= VOLUME_OUTLIER_MAX:
+                r["kind"] = "other"
+                r["kind_basis"] = (f"names a volume, and only {marked} of {len(sibs)} chapters in "
+                                   f"this series do ({share:.0%}) — a release announcement rather "
+                                   f"than an instalment")
+                r["kind_inferred"] = True
+                continue
         if r["type"] == "extra" or EXTRA_RE.search(ep):
             r["kind"], r["kind_basis"] = "new-chapter", "extra or side story — content, not notice"
             continue

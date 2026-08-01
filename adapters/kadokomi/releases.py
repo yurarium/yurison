@@ -111,6 +111,15 @@ def main():
             if w.get("code"):
                 codes[w["code"]] = w.get("title")
 
+    # Works confirmed from the discovery queue. Confirmation established what they ARE and then
+    # nothing fetched their episodes, so a one-shot found through 百合ナビ produced a work record
+    # and no release — which is why the feed showed one one-shot in thirteen hundred entries.
+    conf = pathlib.Path("data/source/kadokomi/confirmed.yaml")
+    if conf.exists():
+        for w in (yaml.safe_load(conf.read_text()) or {}).get("works") or []:
+            if w.get("platform_code"):
+                codes.setdefault(w["platform_code"], w.get("work_title"))
+
     src = yaml.safe_load(open(a.works)) or {}
     for c in src.get("candidates") or []:
         if "カドコミ" not in (c.get("platforms") or []):

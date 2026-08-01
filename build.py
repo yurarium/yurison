@@ -406,6 +406,16 @@ def main():
     wtoday = str(datetime.date.today())
     # カドコミ: same shape as the webpages adapters, but it does apply a 百合 tag, so its works
     # carry a marketing_label where present.
+    # Works the platform itself calls a one-shot. Confirmation records is_oneshot and the release
+    # loop typed everything `chapter` regardless, so a one-shot arrived in the feed as an ordinary
+    # instalment of a series with one instalment.
+    oneshot_works = set()
+    _cf = pathlib.Path("data/source/kadokomi/confirmed.yaml")
+    if _cf.exists():
+        for w in (yaml.safe_load(_cf.read_text()) or {}).get("works") or []:
+            if w.get("is_oneshot") and w.get("work_title"):
+                oneshot_works.add(norm_work(w["work_title"]))
+
     kf = pathlib.Path("data/source/kadokomi/chapters.yaml")
     if kf.exists():
         d = yaml.safe_load(kf.read_text()) or {}
@@ -415,6 +425,8 @@ def main():
                 if not u or u < wcut or u > wtoday:
                     continue
                 releases.append({
+                    "type_override": ("oneshot" if norm_work(w.get("work_title") or "")
+                                      in oneshot_works else None),
                     "id": f"kadokomi:{c.get('code')}", "work": w.get("work_title"),
                     "ep": (c.get("title") or "") + (f" {c['subtitle']}" if c.get("subtitle") else ""),
                     "type": "chapter", "adv": True, "web": "serialised", "pub": u,
@@ -458,6 +470,10 @@ def main():
                     "ident": "discovery-candidate", "free_from": None,
                     "access_modes": c.get("access_modes") or [],
                 })
+
+    for r in releases:
+        if r.pop("type_override", None):
+            r["type"] = "oneshot"
 
     # ── ニコニコ漫画: work-level update dates ──────────────────────────────────────────────────
     # The platform states that a work updated on a date, and never which chapter. So these attest
@@ -785,6 +801,16 @@ def main():
             t = w.get("title") or w.get("work_title")
             if t and ("完結" in (w.get("genres") or []) or w.get("status") in ("完結", "finished")):
                 completed[norm_work(t)] = True
+    # Works the platform itself calls a one-shot. Confirmation records is_oneshot and the release
+    # loop typed everything `chapter` regardless, so a one-shot arrived in the feed as an ordinary
+    # instalment of a series with one instalment.
+    oneshot_works = set()
+    _cf = pathlib.Path("data/source/kadokomi/confirmed.yaml")
+    if _cf.exists():
+        for w in (yaml.safe_load(_cf.read_text()) or {}).get("works") or []:
+            if w.get("is_oneshot") and w.get("work_title"):
+                oneshot_works.add(norm_work(w["work_title"]))
+
     kf = pathlib.Path("data/source/kadokomi/chapters.yaml")
     if kf.exists():
         for w in (yaml.safe_load(kf.read_text()) or {}).get("works") or []:

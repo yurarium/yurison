@@ -12,7 +12,7 @@ else already tagged.
 
 Usage:  discover.py --out data/queue --cache ~/workspace/yurinavi-cache --retrieved 2026-08-01
 """
-import argparse, json, pathlib, re, time, urllib.request
+import argparse, datetime, json, pathlib, re, time, urllib.request
 import xml.etree.ElementTree as ET
 from collections import Counter
 
@@ -68,14 +68,50 @@ def resolve_platform(html):
     return None, None
 
 
-def fetch(url, cache):
-    p = cache / "feed.xml"
+def fetch(url, cache, name="feed.xml"):
+    p = cache / name
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=45) as r:
         t = r.read().decode("utf-8", "replace")
     p.write_text(t)
     time.sleep(1.0)
     return t
+
+
+def sitemap_posts(cache, days, today):
+    """Every post URL in the window, from WordPress's own sitemap.
+
+    The RSS feed returns thirteen items and honours no pagination — ?paged=, ?posts_per_page= and
+    /page/N/feed/ all redirect back to the same thirteen. So discovery only ever saw the last
+    fortnight or so of coverage, and one-shots are exactly what that misses: they are announced
+    once and never mentioned again. One one-shot had reached the feed; the sitemap lists 202
+    one-shot articles, 5 of them inside the current window.
+
+    Post URLs carry their date, so the window is applied before anything is fetched.
+    """
+    idx = fetch("https://yurinavi.com/wp-sitemap.xml", cache, "sitemap.xml")
+    subs = [u for u in re.findall(r"<loc>([^<]+)</loc>", idx) if "posts-post" in u]
+    urls = []
+    for i, s in enumerate(subs):
+        urls += re.findall(r"<loc>([^<]+)</loc>", fetch(s, cache, f"sitemap-{i}.xml"))
+    cutoff = today - datetime.timedelta(days=days)
+    out = []
+    for u in urls:
+        m = re.search(r"/(\d{4})/(\d{2})/(\d{2})/", u)
+        if not m:
+            continue
+        d = datetime.date(*map(int, m.groups()))
+        if cutoff <= d <= today:
+            out.append((u, d))
+    return sorted(out, key=lambda x: x[1], reverse=True)
+
+
+def headline_of(html):
+    m = re.search(r"<title>([^<]*)</title>", html)
+    if not m:
+        return ""
+    # WordPress renders "<headline> | 百合ナビ"; the site name is not part of the headline.
+    return re.sub(r"\s*[|｜]\s*百合ナビ.*$", "", m.group(1)).strip()
 
 
 def titles_in(headline):
@@ -98,6 +134,8 @@ def main():
     ap.add_argument("--cache", required=True)
     ap.add_argument("--retrieved", required=True)
     ap.add_argument("--feed", default="https://yurinavi.com/feed")
+    ap.add_argument("--days", type=int, default=60,
+                    help="also read the sitemap back this far; 0 for RSS only")
     a = ap.parse_args()
 
     cache = pathlib.Path(a.cache).expanduser()
@@ -107,20 +145,30 @@ def main():
     if len(items) < MIN_ITEMS:
         raise SystemExit(f"HEALTH: feed returned {len(items)} items (< {MIN_ITEMS}). Refusing to write.")
 
+    # The RSS items, plus every post in the window that the RSS cannot reach.
+    seen_urls = {(it.findtext("link") or "").strip() for it in items}
+    extra = []
+    if a.days:
+        today = datetime.date(*(int(x) for x in a.retrieved.split("-")))
+        for u, d in sitemap_posts(cache, a.days, today):
+            if u in seen_urls:
+                continue
+            html = fetch_article(u, cache)
+            extra.append((headline_of(html), u, str(d)))
+
     rows, counts = [], Counter()
-    for it in items:
-        head = (it.findtext("title") or "").strip()
+    for head, art, when in ([((it.findtext("title") or "").strip(),
+                              (it.findtext("link") or "").strip(),
+                              (it.findtext("pubDate") or "").strip()) for it in items] + extra):
         sig = signal_of(head)
         counts[sig or "ignored"] += 1
         if not sig or sig == "roundup":
             continue
-        art = (it.findtext("link") or "").strip()
         plat, code = resolve_platform(fetch_article(art, cache)) if art else (None, None)
         for t in titles_in(head):
             rows.append({"work_title": t, "signal": sig, "headline": head,
                          "url": art, "platform": plat, "platform_code": code,
-                         "source": "yurinavi",
-                         "announced": (it.findtext("pubDate") or "").strip()})
+                         "source": "yurinavi", "announced": when})
 
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=True)

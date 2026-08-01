@@ -1,0 +1,526 @@
+# MAGCOMI — per-series Atom feeds, one per work.
+#
+# The platform-wide /atom holds about twenty entries across everything it publishes,
+# which on a platform with 165 yuri series is a window of days. Per-series feeds are not
+# a rolling window — 大室家's returns all 136 of its episodes — so a work updating monthly
+# is caught rather than missed.
+#
+# Dates are the feed's own <updated>: platform-attested, not inferred.
+source: gigaviewer
+platform: magcomi
+platform_name: "MAGCOMI"
+publisher: "マッグガーデン"
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: platform-genre
+series_resolved: 21
+works:
+  - work_title: "【今日の10ページ】BREAD NEW DAY"
+    series_id: "2550912964518979142"
+    url: "https://magcomi.com/atom/series/2550912964518979142"
+    chapter_count: 1
+    chapters:
+      - title: "今日の10ページ『BREAD NEW DAY』毒田ペパ子"
+        updated: 2024-09-27
+        url: "https://magcomi.com/episode/2550912964518979930"
+        free_from: 2024-09-27
+  - work_title: "【今日の10ページ】Mock Love"
+    series_id: "2550689798449591402"
+    url: "https://magcomi.com/atom/series/2550689798449591402"
+    chapter_count: 1
+    chapters:
+      - title: "今日の10ページ『Mock Love』犬井あゆ"
+        updated: 2024-05-30
+        url: "https://magcomi.com/episode/2550689798539255616"
+        free_from: 2024-05-30
+  - work_title: "【今日の10ページ】お前なんか拾わなければよかった"
+    series_id: "2550689798450095645"
+    url: "https://magcomi.com/atom/series/2550689798450095645"
+    chapter_count: 1
+    chapters:
+      - title: "今日の10ページ『お前なんか拾わなければよかった』鉄一"
+        updated: 2024-05-05
+        url: "https://magcomi.com/episode/2550689798450194685"
+        free_from: 2024-05-05
+  - work_title: "【今日の10ページ】きみは青いこもれび"
+    series_id: "2551460909657144817"
+    url: "https://magcomi.com/atom/series/2551460909657144817"
+    chapter_count: 1
+    chapters:
+      - title: "今日の10ページ「きみは青いこもれび」相模"
+        updated: 2025-10-21
+        url: "https://magcomi.com/episode/2551460909657145122"
+        free_from: 2025-10-21
+  - work_title: "【今日の10ページ】せばまたな"
+    series_id: "2551460909881690800"
+    url: "https://magcomi.com/atom/series/2551460909881690800"
+    chapter_count: 1
+    chapters:
+      - title: "今日の10ページ「せばまたな」まじさわ"
+        updated: 2025-12-12
+        url: "https://magcomi.com/episode/2551460909881789317"
+        free_from: 2025-12-12
+  - work_title: "【今日の10ページ】ちゅーしたらどんなお願いも叶えてくれるお稲荷様のハレちゃん"
+    series_id: "2550912965753548549"
+    url: "https://magcomi.com/atom/series/2550912965753548549"
+    chapter_count: 1
+    chapters:
+      - title: "今日の10ページ『ちゅーしたらどんなお願いも叶えてくれるお稲荷様のハレちゃん』ゐぬゐ"
+        updated: 2025-06-27
+        url: "https://magcomi.com/episode/2550912965753560014"
+        free_from: 2025-06-27
+  - work_title: "【今日の10ページ】カラオケなんて嫌いだよ"
+    series_id: "2551460909751787103"
+    url: "https://magcomi.com/atom/series/2551460909751787103"
+    chapter_count: 1
+    chapters:
+      - title: "今日の10ページ「カラオケなんて嫌いだよ」箕田海道"
+        updated: 2025-11-11
+        url: "https://magcomi.com/episode/2551460909751834862"
+        free_from: 2025-11-11
+  - work_title: "【今日の10ページ】サウナに閉じ込められた二人"
+    series_id: "2550912965753548545"
+    url: "https://magcomi.com/atom/series/2550912965753548545"
+    chapter_count: 1
+    chapters:
+      - title: "今日の10ページ『サウナに閉じ込められた二人』桐野いつき"
+        updated: 2025-06-20
+        url: "https://magcomi.com/episode/2550912965753560009"
+        free_from: 2025-06-20
+  - work_title: "【今日の10ページ】ラントメーア"
+    series_id: "2551460909964709204"
+    url: "https://magcomi.com/atom/series/2551460909964709204"
+    chapter_count: 1
+    chapters:
+      - title: "今日の10ページ「ラントメーア」千悟センゴ"
+        updated: 2026-01-23
+        url: "https://magcomi.com/episode/2551460909964711489"
+        free_from: 2026-01-23
+  - work_title: "【今日の10ページ】世界の終わりにエロ本と先生と。"
+    series_id: "2550689798336797203"
+    url: "https://magcomi.com/atom/series/2550689798336797203"
+    chapter_count: 1
+    chapters:
+      - title: "今日の10ページ『世界の終わりにエロ本と先生と。』優しい内臓"
+        updated: 2024-04-10
+        url: "https://magcomi.com/episode/2550689798372256224"
+        free_from: 2024-04-10
+  - work_title: "【今日の10ページ】怪異調査室"
+    series_id: "2551460909530586335"
+    url: "https://magcomi.com/atom/series/2551460909530586335"
+    chapter_count: 1
+    chapters:
+      - title: "今日の10ページ「怪異調査室」森"
+        updated: 2025-09-05
+        url: "https://magcomi.com/episode/2551460909530630827"
+        free_from: 2025-09-05
+  - work_title: "【今日の10ページ】田内梢と着付けについて"
+    series_id: "2550689798875665809"
+    url: "https://magcomi.com/atom/series/2550689798875665809"
+    chapter_count: 1
+    chapters:
+      - title: "今日の10ページ『田内梢と着付けについて』岡村アユム"
+        updated: 2024-08-06
+        url: "https://magcomi.com/episode/2550689798875666937"
+        free_from: 2024-08-06
+  - work_title: "【今日の10ページ】知らない海を教えて"
+    series_id: "2551460909751787105"
+    url: "https://magcomi.com/atom/series/2551460909751787105"
+    chapter_count: 1
+    chapters:
+      - title: "今日の10ページ「知らない海を教えて」相模"
+        updated: 2025-11-28
+        url: "https://magcomi.com/episode/2551460909751834866"
+        free_from: 2025-11-28
+  - work_title: "お嬢様マッチングアプリ"
+    series_id: "4856001361369138636"
+    url: "https://magcomi.com/atom/series/4856001361369138636"
+    chapter_count: 1
+    chapters:
+      - title: "特別読切「2022年後期「箱庭」大名人、特別読切WEB公開！」"
+        updated: 2023-07-05
+        url: "https://magcomi.com/episode/4856001361369138927"
+        free_from: 2023-07-05
+  - work_title: "さかなでは足もつかない"
+    series_id: "12207421983866621356"
+    url: "https://magcomi.com/atom/series/12207421983866621356"
+    chapter_count: 1
+    chapters:
+      - title: "特別読切"
+        updated: 2026-06-23
+        url: "https://magcomi.com/episode/12207421983866622005"
+        free_from: 2026-06-23
+  - work_title: "さよならローズガーデン"
+    series_id: "4856001361079360321"
+    url: "https://magcomi.com/atom/series/4856001361079360321"
+    chapter_count: 17
+    chapters:
+      - title: "最終話「さよならローズガーデン」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118508538"
+      - title: "第16話「願いはひとつだけ」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118508534"
+      - title: "第15話「繭の鼓動、繭破る風」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118508529"
+      - title: "第14話「ひとときのマスカレイド」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118508522"
+      - title: "第13話「共犯者は微笑み返す」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118508512"
+      - title: "第12話「荊は誰?」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118508506"
+      - title: "第11話「雲間の陽光、燃える蕾」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118508498"
+      - title: "第10話「海風は太陽を抉る」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118508494"
+      - title: "第9話「ペンの軌道は海を越えて」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118508490"
+      - title: "第8話「臆病の自火はやがて」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118508486"
+      - title: "第7話「日は陰り、揺れる蕾」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118508481"
+      - title: "第6話「墓前に燃えた薔薇」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118533536"
+      - title: "第5話「暗雲、されど雨音は遠く」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118508476"
+      - title: "第4話「名のない怪物、名のない蕾」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118508472"
+      - title: "第3話「わたしを蝕む黒星病」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118533532"
+        free_from: 2023-04-10
+      - title: "第2話「太陽、荊、共犯者」"
+        updated: 2023-04-10
+        url: "https://magcomi.com/episode/4856001361118533528"
+        free_from: 2023-04-10
+      - title: "第1話「さよならのはじまり」"
+        updated: 2025-12-30
+        url: "https://magcomi.com/episode/4856001361118508468"
+        free_from: 2025-12-30
+  - work_title: "れーこ"
+    series_id: "2550912965318240348"
+    url: "https://magcomi.com/atom/series/2550912965318240348"
+    chapter_count: 1
+    chapters:
+      - title: "特別読切"
+        updated: 2025-03-14
+        url: "https://magcomi.com/episode/2550912965318241018"
+        free_from: 2025-03-14
+  - work_title: "ガチ百合生徒会長の花園"
+    series_id: "316190246985037071"
+    url: "https://magcomi.com/atom/series/316190246985037071"
+    chapter_count: 1
+    chapters:
+      - title: "特別読切"
+        updated: 2022-12-10
+        url: "https://magcomi.com/episode/316190246985037259"
+        free_from: 2022-12-10
+  - work_title: "ボイタボイネ"
+    series_id: "2551460909687430106"
+    url: "https://magcomi.com/atom/series/2551460909687430106"
+    chapter_count: 17
+    chapters:
+      - title: "第17話「The next station is」"
+        updated: 2026-07-21
+        url: "https://magcomi.com/episode/12207421983935452946"
+      - title: "第16話「五等分のアイ！」"
+        updated: 2026-07-07
+        url: "https://magcomi.com/episode/12207421983850995778"
+        free_from: 2026-07-21
+      - title: "第15話「雨にも負けず」"
+        updated: 2026-06-16
+        url: "https://magcomi.com/episode/12207421983777871737"
+        free_from: 2026-07-07
+      - title: "第14/14.5話「一緒ならどこへでも/ひみつのはじまり」"
+        updated: 2026-06-02
+        url: "https://magcomi.com/episode/12207421983541594314"
+      - title: "第13話「ギャル、襲来（後編）」"
+        updated: 2026-05-19
+        url: "https://magcomi.com/episode/12207421983727314930"
+      - title: "第12話「ギャル、襲来（前編）」"
+        updated: 2026-03-17
+        url: "https://magcomi.com/episode/12207421983433966222"
+      - title: "第11話「素敵なエスコート」"
+        updated: 2026-03-03
+        url: "https://magcomi.com/episode/12207421983383523757"
+      - title: "第10話「授業中はしずかに」"
+        updated: 2026-02-17
+        url: "https://magcomi.com/episode/12207421983340304950"
+      - title: "第9話「君の体温」"
+        updated: 2026-02-03
+        url: "https://magcomi.com/episode/2551460910041683791"
+      - title: "第8話「蛙の王子様（後編）」"
+        updated: 2026-01-20
+        url: "https://magcomi.com/episode/2551460909964955757"
+      - title: "第7話「蛙の王子様（前編）」"
+        updated: 2026-01-06
+        url: "https://magcomi.com/episode/2551460909932609000"
+      - title: "第6話「真剣勝負！」"
+        updated: 2025-12-16
+        url: "https://magcomi.com/episode/2551460909863511274"
+      - title: "第5話「ふたりの体験入部」"
+        updated: 2025-12-02
+        url: "https://magcomi.com/episode/2551460909804620506"
+      - title: "第4話「長く短い帰り道」"
+        updated: 2025-11-18
+        url: "https://magcomi.com/episode/2551460909759450509"
+      - title: "第3話「ディスティニーD組」"
+        updated: 2025-11-04
+        url: "https://magcomi.com/episode/2551460909726144064"
+      - title: "第2話「男子制服の理由」"
+        updated: 2025-10-21
+        url: "https://magcomi.com/episode/2551460909687954344"
+        free_from: 2025-11-04
+      - title: "第1話「最強のボーイッシュ女子」"
+        updated: 2025-10-21
+        url: "https://magcomi.com/episode/2551460909687451648"
+        free_from: 2025-10-21
+  - work_title: "姉になりたい義姉VS百合になりたい義妹"
+    series_id: "4856001361097102289"
+    url: "https://magcomi.com/atom/series/4856001361097102289"
+    chapter_count: 74
+    chapters:
+      - title: "最終話"
+        updated: 2025-04-25
+        url: "https://magcomi.com/episode/2550912965503774095"
+      - title: "第63話"
+        updated: 2025-04-11
+        url: "https://magcomi.com/episode/2550912965289671503"
+      - title: "番外編9"
+        updated: 2025-03-28
+        url: "https://magcomi.com/episode/2550912965420118181"
+      - title: "番外編8"
+        updated: 2025-03-14
+        url: "https://magcomi.com/episode/2550912965369082101"
+      - title: "第62話"
+        updated: 2025-02-28
+        url: "https://magcomi.com/episode/2550912965285020825"
+      - title: "第61話"
+        updated: 2025-02-14
+        url: "https://magcomi.com/episode/2550912965158395972"
+      - title: "第60話"
+        updated: 2025-01-24
+        url: "https://magcomi.com/episode/2550912965118591077"
+      - title: "第59話"
+        updated: 2025-01-10
+        url: "https://magcomi.com/episode/2550912965031964572"
+      - title: "第58話"
+        updated: 2024-12-27
+        url: "https://magcomi.com/episode/2550912964971398723"
+      - title: "第57話"
+        updated: 2024-12-13
+        url: "https://magcomi.com/episode/2550912964893452012"
+      - title: "第56話"
+        updated: 2024-11-22
+        url: "https://magcomi.com/episode/2550912964832915564"
+      - title: "第55話"
+        updated: 2024-11-08
+        url: "https://magcomi.com/episode/2550912964760893882"
+      - title: "第54話"
+        updated: 2024-10-25
+        url: "https://magcomi.com/episode/2550912964699851687"
+      - title: "第53話"
+        updated: 2024-10-11
+        url: "https://magcomi.com/episode/2550912964638746471"
+      - title: "第52話"
+        updated: 2024-09-27
+        url: "https://magcomi.com/episode/2550912964425852789"
+      - title: "第51話"
+        updated: 2024-09-13
+        url: "https://magcomi.com/episode/2550912964425852776"
+      - title: "番外編7"
+        updated: 2024-09-13
+        url: "https://magcomi.com/episode/2550912964617184102"
+      - title: "番外編6"
+        updated: 2024-09-13
+        url: "https://magcomi.com/episode/2550912964617184097"
+      - title: "第50話"
+        updated: 2024-08-30
+        url: "https://magcomi.com/episode/2550912964425852770"
+      - title: "第49話"
+        updated: 2024-08-27
+        url: "https://magcomi.com/episode/2550912964425852766"
+      - title: "第48話"
+        updated: 2024-08-23
+        url: "https://magcomi.com/episode/2550912964425852760"
+      - title: "第47話"
+        updated: 2024-08-20
+        url: "https://magcomi.com/episode/2550912964425852756"
+      - title: "第46話"
+        updated: 2024-08-16
+        url: "https://magcomi.com/episode/2550912964425759265"
+      - title: "第45話"
+        updated: 2024-08-13
+        url: "https://magcomi.com/episode/2550912964425759261"
+      - title: "第44話"
+        updated: 2024-08-09
+        url: "https://magcomi.com/episode/2550912964425759256"
+      - title: "第43話"
+        updated: 2024-08-09
+        url: "https://magcomi.com/episode/2550689798888885927"
+      - title: "第42話"
+        updated: 2024-08-06
+        url: "https://magcomi.com/episode/2550689798888885920"
+      - title: "第41話"
+        updated: 2024-08-06
+        url: "https://magcomi.com/episode/2550689798888885907"
+      - title: "第40話"
+        updated: 2024-08-02
+        url: "https://magcomi.com/episode/2550912964421896720"
+      - title: "第39話"
+        updated: 2024-08-02
+        url: "https://magcomi.com/episode/2550689798829248317"
+      - title: "第38話"
+        updated: 2024-07-20
+        url: "https://magcomi.com/episode/2550689798790475505"
+      - title: "第37話"
+        updated: 2024-07-10
+        url: "https://magcomi.com/episode/2550689798703057903"
+      - title: "番外編"
+        updated: 2024-06-20
+        url: "https://magcomi.com/episode/2550689798703055243"
+      - title: "番外編"
+        updated: 2024-06-10
+        url: "https://magcomi.com/episode/2550689798660263059"
+      - title: "第36話"
+        updated: 2024-05-20
+        url: "https://magcomi.com/episode/2550689798514948196"
+      - title: "第35話"
+        updated: 2024-05-10
+        url: "https://magcomi.com/episode/2550689798417360325"
+      - title: "第34話"
+        updated: 2024-04-20
+        url: "https://magcomi.com/episode/2550689798375226771"
+      - title: "第33話"
+        updated: 2024-04-10
+        url: "https://magcomi.com/episode/2550689798309476008"
+      - title: "第32話"
+        updated: 2024-03-20
+        url: "https://magcomi.com/episode/2550689798283147596"
+      - title: "第31話"
+        updated: 2024-03-10
+        url: "https://magcomi.com/episode/11341664176610062136"
+      - title: "第30話"
+        updated: 2024-02-20
+        url: "https://magcomi.com/episode/11341664176585821820"
+      - title: "第29話"
+        updated: 2024-02-10
+        url: "https://magcomi.com/episode/10044607041212545875"
+      - title: "第28話"
+        updated: 2024-01-20
+        url: "https://magcomi.com/episode/14079602755605447839"
+      - title: "第27話"
+        updated: 2024-01-10
+        url: "https://magcomi.com/episode/14079602755563913507"
+      - title: "第26話"
+        updated: 2023-12-20
+        url: "https://magcomi.com/episode/14079602755529788850"
+      - title: "第25話"
+        updated: 2023-12-10
+        url: "https://magcomi.com/episode/14079602755445670149"
+      - title: "第24話"
+        updated: 2023-11-20
+        url: "https://magcomi.com/episode/14079602755400922280"
+      - title: "第23話"
+        updated: 2023-11-10
+        url: "https://magcomi.com/episode/14079602755311866486"
+      - title: "第22話"
+        updated: 2023-10-20
+        url: "https://magcomi.com/episode/14079602755271314777"
+      - title: "第21話"
+        updated: 2023-10-10
+        url: "https://magcomi.com/episode/14079602755199001444"
+      - title: "第20話"
+        updated: 2023-09-20
+        url: "https://magcomi.com/episode/14079602755171221077"
+      - title: "第19話"
+        updated: 2023-09-10
+        url: "https://magcomi.com/episode/4856001361511408444"
+      - title: "番外編"
+        updated: 2023-08-20
+        url: "https://magcomi.com/episode/14079602755097147451"
+      - title: "番外編"
+        updated: 2023-08-10
+        url: "https://magcomi.com/episode/4856001361588803185"
+      - title: "第18話"
+        updated: 2023-07-20
+        url: "https://magcomi.com/episode/4856001361406769436"
+      - title: "第17話"
+        updated: 2023-07-10
+        url: "https://magcomi.com/episode/4856001361335084536"
+      - title: "第16話"
+        updated: 2023-06-20
+        url: "https://magcomi.com/episode/4856001361238669542"
+      - title: "番外編"
+        updated: 2023-06-10
+        url: "https://magcomi.com/episode/4856001361308038915"
+      - title: "第15話"
+        updated: 2023-05-20
+        url: "https://magcomi.com/episode/4856001361238669530"
+      - title: "第14話"
+        updated: 2023-05-20
+        url: "https://magcomi.com/episode/4856001361238669526"
+      - title: "第13話"
+        updated: 2023-05-20
+        url: "https://magcomi.com/episode/4856001361238669515"
+      - title: "第12話"
+        updated: 2023-05-20
+        url: "https://magcomi.com/episode/4856001361184442973"
+      - title: "第11話"
+        updated: 2023-05-10
+        url: "https://magcomi.com/episode/4856001361184442967"
+      - title: "第10話"
+        updated: 2023-05-10
+        url: "https://magcomi.com/episode/4856001361184442962"
+      - title: "第9話"
+        updated: 2023-05-10
+        url: "https://magcomi.com/episode/4856001361184442958"
+      - title: "第8話"
+        updated: 2023-05-10
+        url: "https://magcomi.com/episode/4856001361140043401"
+      - title: "第7話"
+        updated: 2023-04-20
+        url: "https://magcomi.com/episode/4856001361140043397"
+      - title: "第6話"
+        updated: 2023-04-20
+        url: "https://magcomi.com/episode/4856001361140043392"
+      - title: "第5話"
+        updated: 2023-04-20
+        url: "https://magcomi.com/episode/4856001361140043386"
+      - title: "第4話"
+        updated: 2023-04-20
+        url: "https://magcomi.com/episode/4856001361109228330"
+      - title: "第3話"
+        updated: 2023-04-09
+        url: "https://magcomi.com/episode/4856001361109228323"
+      - title: "第2話"
+        updated: 2023-04-09
+        url: "https://magcomi.com/episode/4856001361109228317"
+      - title: "第1話"
+        updated: 2023-04-09
+        url: "https://magcomi.com/episode/4856001361109228311"
+      - title: "第0話"
+        updated: 2023-04-09
+        url: "https://magcomi.com/episode/4856001361097282599"
+        free_from: 2023-04-09
+  - work_title: "岐阜の善き魔女"
+    series_id: "316190247002963329"
+    url: "https://magcomi.com/atom/series/316190247002963329"
+    chapter_count: 1
+    chapters:
+      - title: "7ページ連載予告マンガ"
+        updated: 2022-12-30
+        url: "https://magcomi.com/episode/316190247005502982"
+        free_from: 2022-12-30

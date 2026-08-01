@@ -1,0 +1,872 @@
+# となりのヤングジャンプ — per-series Atom feeds, one per work.
+#
+# The platform-wide /atom holds about twenty entries across everything it publishes,
+# which on a platform with 165 yuri series is a window of days. Per-series feeds are not
+# a rolling window — 大室家's returns all 136 of its episodes — so a work updating monthly
+# is caught rather than missed.
+#
+# Dates are the feed's own <updated>: platform-attested, not inferred.
+source: gigaviewer
+platform: tonarinoyj
+platform_name: "となりのヤングジャンプ"
+publisher: "集英社"
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: platform-genre
+series_resolved: 83
+works:
+  - work_title: "[10Pショート読切] CONTINUE?"
+    series_id: "2550912964443147835"
+    url: "https://tonarinoyj.jp/atom/series/2550912964443147835"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] CONTINUE?"
+        updated: 2024-08-28
+        url: "https://tonarinoyj.jp/episode/2550912964443171883"
+        free_from: 2024-08-28
+  - work_title: "[10Pショート読切] ep.9"
+    series_id: "2550689798901390171"
+    url: "https://tonarinoyj.jp/atom/series/2550689798901390171"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] ep.9"
+        updated: 2024-08-07
+        url: "https://tonarinoyj.jp/episode/2550689798901526126"
+        free_from: 2024-08-07
+  - work_title: "あの子が泳いでいた水槽"
+    series_id: "2551460909564404266"
+    url: "https://tonarinoyj.jp/atom/series/2551460909564404266"
+    chapter_count: 1
+    chapters:
+      - title: "あの子が泳いでいた水槽"
+        updated: 2025-09-22
+        url: "https://tonarinoyj.jp/episode/2551460909564405265"
+        free_from: 2025-09-22
+  - work_title: "いばら姫"
+    series_id: "2550689798352530650"
+    url: "https://tonarinoyj.jp/atom/series/2550689798352530650"
+    chapter_count: 1
+    chapters:
+      - title: "いばら姫"
+        updated: 2024-04-10
+        url: "https://tonarinoyj.jp/episode/2550689798352531159"
+        free_from: 2024-04-10
+  - work_title: "[特別読切] おかえりるうちゃん"
+    series_id: "2551460910093804414"
+    url: "https://tonarinoyj.jp/atom/series/2551460910093804414"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] おかえりるうちゃん"
+        updated: 2026-02-25
+        url: "https://tonarinoyj.jp/episode/2551460910093823834"
+        free_from: 2026-02-25
+  - work_title: "おもいあいノ石人間"
+    series_id: "2551460909920554046"
+    url: "https://tonarinoyj.jp/atom/series/2551460909920554046"
+    chapter_count: 1
+    chapters:
+      - title: "おもいあいノ石人間"
+        updated: 2025-12-17
+        url: "https://tonarinoyj.jp/episode/2551460909920554413"
+        free_from: 2025-12-17
+  - work_title: "[10Pショート読切] お嬢様だってすね毛は生える"
+    series_id: "12207421983326535488"
+    url: "https://tonarinoyj.jp/atom/series/12207421983326535488"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] お嬢様だってすね毛は生える"
+        updated: 2026-02-01
+        url: "https://tonarinoyj.jp/episode/12207421983326560361"
+        free_from: 2026-02-01
+  - work_title: "[10Pショート読切] かわいい親友の落とし方"
+    series_id: "2551460910062725400"
+    url: "https://tonarinoyj.jp/atom/series/2551460910062725400"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] かわいい親友の落とし方"
+        updated: 2026-01-23
+        url: "https://tonarinoyj.jp/episode/2551460910062734360"
+        free_from: 2026-01-23
+  - work_title: "[特別読切] きみと観たいレースがある"
+    series_id: "3269754496543431712"
+    url: "https://tonarinoyj.jp/atom/series/3269754496543431712"
+    chapter_count: 7
+    chapters:
+      - title: "[番外編4] きみと観たいレースがある"
+        updated: 2023-12-01
+        url: "https://tonarinoyj.jp/episode/14079602755507131317"
+        free_from: 2023-12-01
+      - title: "[番外編3] きみと観たいレースがある"
+        updated: 2023-08-04
+        url: "https://tonarinoyj.jp/episode/4856001361577496958"
+        free_from: 2023-08-04
+      - title: "[番外編2] きみと観たいレースがある"
+        updated: 2023-05-05
+        url: "https://tonarinoyj.jp/episode/4856001361194577498"
+        free_from: 2023-05-05
+      - title: "[番外編] きみと観たいレースがある"
+        updated: 2022-12-02
+        url: "https://tonarinoyj.jp/episode/316190246972899347"
+        free_from: 2022-12-02
+      - title: "[第2話] きみと観たいレースがある"
+        updated: 2022-07-29
+        url: "https://tonarinoyj.jp/episode/3270375685316769417"
+        free_from: 2022-07-29
+      - title: "[第1話] きみと観たいレースがある"
+        updated: 2022-07-01
+        url: "https://tonarinoyj.jp/episode/3270375685311559827"
+        free_from: 2022-07-01
+      - title: "[特別読切] きみと観たいレースがある"
+        updated: 2021-10-15
+        url: "https://tonarinoyj.jp/episode/3269754496543431998"
+        free_from: 2021-10-15
+  - work_title: "[テーマ読切：お仕事] くゆらす女々"
+    series_id: "2550912965947808900"
+    url: "https://tonarinoyj.jp/atom/series/2550912965947808900"
+    chapter_count: 1
+    chapters:
+      - title: "[テーマ読切：お仕事] くゆらす女々"
+        updated: 2025-07-16
+        url: "https://tonarinoyj.jp/episode/2550912965947830792"
+        free_from: 2025-07-16
+  - work_title: "これがうさぎのお仕事ですか？"
+    series_id: "2551460909564404257"
+    url: "https://tonarinoyj.jp/atom/series/2551460909564404257"
+    chapter_count: 1
+    chapters:
+      - title: "これがうさぎのお仕事ですか？"
+        updated: 2025-09-22
+        url: "https://tonarinoyj.jp/episode/2551460909564405242"
+        free_from: 2025-09-22
+  - work_title: "[10Pショート読切] さよなら"
+    series_id: "3270296674384334118"
+    url: "https://tonarinoyj.jp/atom/series/3270296674384334118"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] さよなら"
+        updated: 2022-06-08
+        url: "https://tonarinoyj.jp/episode/3270296674384339730"
+        free_from: 2022-06-08
+  - work_title: "[特別読切] さよならミュージアム"
+    series_id: "4856001361157727731"
+    url: "https://tonarinoyj.jp/atom/series/4856001361157727731"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] さよならミュージアム"
+        updated: 2023-04-20
+        url: "https://tonarinoyj.jp/episode/4856001361157739240"
+        free_from: 2023-04-20
+  - work_title: "[特別読切] しのちゃんは見ている"
+    series_id: "14079602755364231171"
+    url: "https://tonarinoyj.jp/atom/series/14079602755364231171"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] しのちゃんは見ている"
+        updated: 2023-10-27
+        url: "https://tonarinoyj.jp/episode/14079602755364231378"
+        free_from: 2023-10-27
+  - work_title: "[10Pショート読切] てぇてぇ二人"
+    series_id: "14079602755360143507"
+    url: "https://tonarinoyj.jp/atom/series/14079602755360143507"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] てぇてぇ二人"
+        updated: 2023-11-01
+        url: "https://tonarinoyj.jp/episode/14079602755360143718"
+        free_from: 2023-11-01
+  - work_title: "[特別読切] ねこみたいなのとわたし"
+    series_id: "2550912964681637730"
+    url: "https://tonarinoyj.jp/atom/series/2550912964681637730"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] ねこみたいなのとわたし"
+        updated: 2024-10-03
+        url: "https://tonarinoyj.jp/episode/2550912964681656283"
+        free_from: 2024-10-03
+  - work_title: "[特別読切] のっぽと不登校"
+    series_id: "2550912965822070144"
+    url: "https://tonarinoyj.jp/atom/series/2550912965822070144"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] のっぽと不登校"
+        updated: 2025-06-19
+        url: "https://tonarinoyj.jp/episode/2550912965822071409"
+        free_from: 2025-06-19
+  - work_title: "[特別読切] ふたり異世界人"
+    series_id: "2550912965757174278"
+    url: "https://tonarinoyj.jp/atom/series/2550912965757174278"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] ふたり異世界人"
+        updated: 2025-06-04
+        url: "https://tonarinoyj.jp/episode/2550912965757174587"
+        free_from: 2025-06-04
+  - work_title: "[特別読切] ふつうのあたしたち"
+    series_id: "12207421983554063262"
+    url: "https://tonarinoyj.jp/atom/series/12207421983554063262"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] ふつうのあたしたち"
+        updated: 2026-04-09
+        url: "https://tonarinoyj.jp/episode/12207421983554072834"
+        free_from: 2026-04-09
+  - work_title: "[特別読切] ふわもみ"
+    series_id: "3269754496746987845"
+    url: "https://tonarinoyj.jp/atom/series/3269754496746987845"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] ふわもみ"
+        updated: 2022-02-10
+        url: "https://tonarinoyj.jp/episode/3269754496746988194"
+        free_from: 2022-02-10
+  - work_title: "ほしくずプラネタリウム"
+    series_id: "4856001361242312818"
+    url: "https://tonarinoyj.jp/atom/series/4856001361242312818"
+    chapter_count: 1
+    chapters:
+      - title: "ほしくずプラネタリウム"
+        updated: 2023-05-29
+        url: "https://tonarinoyj.jp/episode/4856001361242313219"
+        free_from: 2023-05-29
+  - work_title: "[特別読切] もっとヒーローになりたい"
+    series_id: "4856001361453598065"
+    url: "https://tonarinoyj.jp/atom/series/4856001361453598065"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] もっとヒーローになりたい"
+        updated: 2023-07-07
+        url: "https://tonarinoyj.jp/episode/4856001361453599359"
+        free_from: 2023-07-07
+  - work_title: "[第1話] エリオと電気人形"
+    series_id: "3270296674379186980"
+    url: "https://tonarinoyj.jp/atom/series/3270296674379186980"
+    chapter_count: 4
+    chapters:
+      - title: "[年賀イラスト] エリオと電気人形"
+        updated: 2026-01-01
+        url: "https://tonarinoyj.jp/episode/2551460909935332583"
+        free_from: 2026-01-01
+      - title: "[年賀イラスト] エリオと電気人形"
+        updated: 2025-01-01
+        url: "https://tonarinoyj.jp/episode/2550912965035985814"
+        free_from: 2024-01-01
+      - title: "[年賀イラスト] エリオと電気人形"
+        updated: 2024-01-01
+        url: "https://tonarinoyj.jp/episode/14079602755593132497"
+        free_from: 2023-01-01
+      - title: "[第1話] エリオと電気人形"
+        updated: 2024-09-18
+        url: "https://tonarinoyj.jp/episode/3270296674379223025"
+        free_from: 2024-09-18
+  - work_title: "[10Pショート読切] カウントダウンは10から数える"
+    series_id: "14079602755360143509"
+    url: "https://tonarinoyj.jp/atom/series/14079602755360143509"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] カウントダウンは10から数える"
+        updated: 2023-11-02
+        url: "https://tonarinoyj.jp/episode/14079602755360143722"
+        free_from: 2023-11-02
+  - work_title: "[特別読切] キャッチユー・キャッチミー"
+    series_id: "3269754496613349970"
+    url: "https://tonarinoyj.jp/atom/series/3269754496613349970"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] キャッチユー・キャッチミー"
+        updated: 2021-11-26
+        url: "https://tonarinoyj.jp/episode/3269754496613350277"
+        free_from: 2021-11-26
+  - work_title: "[10Pショート読切] キラキラさん"
+    series_id: "14079602755426268894"
+    url: "https://tonarinoyj.jp/atom/series/14079602755426268894"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] キラキラさん"
+        updated: 2023-11-12
+        url: "https://tonarinoyj.jp/episode/14079602755426269360"
+        free_from: 2023-11-12
+  - work_title: "クラス全員で百合カプを守る話"
+    series_id: "4856001361242312842"
+    url: "https://tonarinoyj.jp/atom/series/4856001361242312842"
+    chapter_count: 1
+    chapters:
+      - title: "クラス全員で百合カプを守る話"
+        updated: 2023-05-29
+        url: "https://tonarinoyj.jp/episode/4856001361242313264"
+        free_from: 2023-05-29
+  - work_title: "[10Pショート読切] サウナにハマりました"
+    series_id: "14079602755273766058"
+    url: "https://tonarinoyj.jp/atom/series/14079602755273766058"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] サウナにハマりました"
+        updated: 2023-10-09
+        url: "https://tonarinoyj.jp/episode/14079602755273767223"
+        free_from: 2023-10-09
+  - work_title: "[第1話] ストライク・オア・ガター"
+    series_id: "13933686331772859124"
+    url: "https://tonarinoyj.jp/atom/series/13933686331772859124"
+    chapter_count: 3
+    chapters:
+      - title: "[第3話] ストライク・オア・ガター"
+        updated: 2021-01-20
+        url: "https://tonarinoyj.jp/episode/13933686331772859580"
+        free_from: 2021-01-20
+      - title: "[第2話] ストライク・オア・ガター"
+        updated: 2021-01-13
+        url: "https://tonarinoyj.jp/episode/13933686331772859576"
+        free_from: 2021-01-13
+      - title: "[第1話] ストライク・オア・ガター"
+        updated: 2021-01-06
+        url: "https://tonarinoyj.jp/episode/13933686331772859573"
+        free_from: 2021-01-06
+  - work_title: "セパレートユニフォーム"
+    series_id: "2550912964971098439"
+    url: "https://tonarinoyj.jp/atom/series/2550912964971098439"
+    chapter_count: 1
+    chapters:
+      - title: "セパレートユニフォーム"
+        updated: 2024-12-11
+        url: "https://tonarinoyj.jp/episode/2550912964971198641"
+        free_from: 2024-12-11
+  - work_title: "[10Pショート読切] ソフト百合♡クッキング"
+    series_id: "4855956445090375107"
+    url: "https://tonarinoyj.jp/atom/series/4855956445090375107"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] ソフト百合♡クッキング"
+        updated: 2023-02-23
+        url: "https://tonarinoyj.jp/episode/4855956445090376166"
+        free_from: 2023-02-23
+  - work_title: "[特別読切] デス・キス・ラブ！"
+    series_id: "2550912965562081398"
+    url: "https://tonarinoyj.jp/atom/series/2550912965562081398"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] デス・キス・ラブ！"
+        updated: 2025-04-18
+        url: "https://tonarinoyj.jp/episode/2550912965562081792"
+        free_from: 2025-04-18
+  - work_title: "[10Pショート読切] ハートは腐らない"
+    series_id: "2550912965766156051"
+    url: "https://tonarinoyj.jp/atom/series/2550912965766156051"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] ハートは腐らない"
+        updated: 2025-06-11
+        url: "https://tonarinoyj.jp/episode/2550912965766159299"
+        free_from: 2025-06-11
+  - work_title: "ヒロイン."
+    series_id: "2550689798287079678"
+    url: "https://tonarinoyj.jp/atom/series/2550689798287079678"
+    chapter_count: 1
+    chapters:
+      - title: "ヒロイン."
+        updated: 2024-03-18
+        url: "https://tonarinoyj.jp/episode/2550689798287081420"
+        free_from: 2024-03-18
+  - work_title: "ピアノを弾くカエルたち"
+    series_id: "12207421983850426842"
+    url: "https://tonarinoyj.jp/atom/series/12207421983850426842"
+    chapter_count: 1
+    chapters:
+      - title: "ピアノを弾くカエルたち"
+        updated: 2026-06-22
+        url: "https://tonarinoyj.jp/episode/12207421983850437692"
+        free_from: 2026-06-22
+  - work_title: "[第1話] ベイビー車中ハッカーズ"
+    series_id: "2550912964606689260"
+    url: "https://tonarinoyj.jp/atom/series/2550912964606689260"
+    chapter_count: 2
+    chapters:
+      - title: "[第2話] ベイビー車中ハッカーズ"
+        updated: 2024-10-16
+        url: "https://tonarinoyj.jp/episode/2550912964759341318"
+        free_from: 2024-10-16
+      - title: "[第1話] ベイビー車中ハッカーズ"
+        updated: 2024-09-18
+        url: "https://tonarinoyj.jp/episode/2550912964606721429"
+        free_from: 2024-09-18
+  - work_title: "[特別読切] モデルチェンジ"
+    series_id: "316190246998789158"
+    url: "https://tonarinoyj.jp/atom/series/316190246998789158"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] モデルチェンジ"
+        updated: 2022-12-01
+        url: "https://tonarinoyj.jp/episode/316190246998887390"
+        free_from: 2022-12-01
+  - work_title: "モノクロ-おなじゆめをみてる-"
+    series_id: "2550912964966545348"
+    url: "https://tonarinoyj.jp/atom/series/2550912964966545348"
+    chapter_count: 1
+    chapters:
+      - title: "モノクロ-おなじゆめをみてる-"
+        updated: 2024-12-05
+        url: "https://tonarinoyj.jp/episode/2550912964966586850"
+        free_from: 2024-12-05
+  - work_title: "ユードットエフエム"
+    series_id: "2550912965313535188"
+    url: "https://tonarinoyj.jp/atom/series/2550912965313535188"
+    chapter_count: 1
+    chapters:
+      - title: "ユードットエフエム"
+        updated: 2025-03-13
+        url: "https://tonarinoyj.jp/episode/2550912965313547936"
+        free_from: 2025-03-13
+  - work_title: "[第1話] ラブライブ！flowers＊ー蓮ノ空女学院スクールアイドルクラブー"
+    series_id: "14079602755582005593"
+    url: "https://tonarinoyj.jp/atom/series/14079602755582005593"
+    chapter_count: 1
+    chapters:
+      - title: "[第1話] ラブライブ！flowers＊ー蓮ノ空女学院スクールアイドルクラブー"
+        updated: 2023-12-20
+        url: "https://tonarinoyj.jp/episode/14079602755582006280"
+        free_from: 2023-12-20
+  - work_title: "[10Pショート読切] ランドエスケープ"
+    series_id: "316190247132193796"
+    url: "https://tonarinoyj.jp/atom/series/316190247132193796"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] ランドエスケープ"
+        updated: 2023-01-28
+        url: "https://tonarinoyj.jp/episode/316190247132193862"
+        free_from: 2023-01-28
+  - work_title: "[10Pショート読切] レチタティーヴォ"
+    series_id: "14079602755146639201"
+    url: "https://tonarinoyj.jp/atom/series/14079602755146639201"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] レチタティーヴォ"
+        updated: 2023-09-02
+        url: "https://tonarinoyj.jp/episode/14079602755146639491"
+        free_from: 2023-09-02
+  - work_title: "何かが至りません"
+    series_id: "2550912964966545323"
+    url: "https://tonarinoyj.jp/atom/series/2550912964966545323"
+    chapter_count: 1
+    chapters:
+      - title: "何かが至りません"
+        updated: 2024-12-05
+        url: "https://tonarinoyj.jp/episode/2550912964966586789"
+        free_from: 2024-12-05
+  - work_title: "[第1話] 全部君のせいだ"
+    series_id: "3270296674427702153"
+    url: "https://tonarinoyj.jp/atom/series/3270296674427702153"
+    chapter_count: 2
+    chapters:
+      - title: "[第2話] 全部君のせいだ"
+        updated: 2022-08-17
+        url: "https://tonarinoyj.jp/episode/3270296674427703430"
+        free_from: 2022-08-17
+      - title: "[第1話] 全部君のせいだ"
+        updated: 2022-07-20
+        url: "https://tonarinoyj.jp/episode/3270296674427703426"
+        free_from: 2022-07-20
+  - work_title: "[特別読切] 共依存魔法少女"
+    series_id: "2550912964575125485"
+    url: "https://tonarinoyj.jp/atom/series/2550912964575125485"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] 共依存魔法少女"
+        updated: 2024-09-12
+        url: "https://tonarinoyj.jp/episode/2550912964575128673"
+        free_from: 2024-09-12
+  - work_title: "[特別読切] 南山除妖録"
+    series_id: "3270375685341530684"
+    url: "https://tonarinoyj.jp/atom/series/3270375685341530684"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] 南山除妖録"
+        updated: 2022-07-19
+        url: "https://tonarinoyj.jp/episode/3270375685341535217"
+        free_from: 2022-07-19
+  - work_title: "[10Pショート読切] 同星生殖"
+    series_id: "2550689798901390181"
+    url: "https://tonarinoyj.jp/atom/series/2550689798901390181"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] 同星生殖"
+        updated: 2024-08-14
+        url: "https://tonarinoyj.jp/episode/2550689798901526159"
+        free_from: 2024-08-14
+  - work_title: "[特別読切] 咲いたキズアト"
+    series_id: "2551460909533596520"
+    url: "https://tonarinoyj.jp/atom/series/2551460909533596520"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] 咲いたキズアト"
+        updated: 2025-09-11
+        url: "https://tonarinoyj.jp/episode/2551460909533596845"
+        free_from: 2025-09-11
+  - work_title: "[特別読切] 土居ちゃんはけしからん"
+    series_id: "2550912964906027125"
+    url: "https://tonarinoyj.jp/atom/series/2550912964906027125"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] 土居ちゃんはけしからん"
+        updated: 2024-12-25
+        url: "https://tonarinoyj.jp/episode/2550912964906027834"
+        free_from: 2024-12-25
+  - work_title: "[第1話] 夜嵐にわらう"
+    series_id: "3269754496660932718"
+    url: "https://tonarinoyj.jp/atom/series/3269754496660932718"
+    chapter_count: 2
+    chapters:
+      - title: "[第2話] 夜嵐にわらう"
+        updated: 2022-03-16
+        url: "https://tonarinoyj.jp/episode/3269754496799789917"
+        free_from: 2022-03-16
+      - title: "[第1話] 夜嵐にわらう"
+        updated: 2022-01-12
+        url: "https://tonarinoyj.jp/episode/3269754496660932934"
+        free_from: 2022-01-12
+  - work_title: "[特別読切] 天使と書いて悪魔と読む。逆もまた然り。"
+    series_id: "2550912965159398707"
+    url: "https://tonarinoyj.jp/atom/series/2550912965159398707"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] 天使と書いて悪魔と読む。逆もまた然り。"
+        updated: 2025-01-23
+        url: "https://tonarinoyj.jp/episode/2550912965159409071"
+        free_from: 2025-01-23
+  - work_title: "宇宙人だった君へ"
+    series_id: "2550912964707023484"
+    url: "https://tonarinoyj.jp/atom/series/2550912964707023484"
+    chapter_count: 1
+    chapters:
+      - title: "宇宙人だった君へ"
+        updated: 2024-10-09
+        url: "https://tonarinoyj.jp/episode/2550912964707023897"
+        free_from: 2024-10-09
+  - work_title: "屍同士"
+    series_id: "2550912965313535171"
+    url: "https://tonarinoyj.jp/atom/series/2550912965313535171"
+    chapter_count: 1
+    chapters:
+      - title: "屍同士"
+        updated: 2025-03-13
+        url: "https://tonarinoyj.jp/episode/2550912965313547884"
+        free_from: 2025-03-13
+  - work_title: "彼女は悪魔"
+    series_id: "2550912964707023482"
+    url: "https://tonarinoyj.jp/atom/series/2550912964707023482"
+    chapter_count: 1
+    chapters:
+      - title: "彼女は悪魔"
+        updated: 2024-10-09
+        url: "https://tonarinoyj.jp/episode/2550912964707023884"
+        free_from: 2024-10-09
+  - work_title: "[10Pショート読切] 忘れないでね"
+    series_id: "2550912964443147821"
+    url: "https://tonarinoyj.jp/atom/series/2550912964443147821"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] 忘れないでね"
+        updated: 2024-08-21
+        url: "https://tonarinoyj.jp/episode/2550912964443171854"
+        free_from: 2024-08-21
+  - work_title: "[10Pショート読切] 忠犬ねーね"
+    series_id: "2550912964443147834"
+    url: "https://tonarinoyj.jp/atom/series/2550912964443147834"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] 忠犬ねーね"
+        updated: 2024-08-27
+        url: "https://tonarinoyj.jp/episode/2550912964443171879"
+        free_from: 2024-08-27
+  - work_title: "[10Pショート読切] 抱き寝ーター"
+    series_id: "14079602755201264319"
+    url: "https://tonarinoyj.jp/atom/series/14079602755201264319"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] 抱き寝ーター"
+        updated: 2023-09-17
+        url: "https://tonarinoyj.jp/episode/14079602755201264727"
+        free_from: 2023-09-17
+  - work_title: "描くこと。"
+    series_id: "2550912964971098436"
+    url: "https://tonarinoyj.jp/atom/series/2550912964971098436"
+    chapter_count: 1
+    chapters:
+      - title: "描くこと。"
+        updated: 2024-12-11
+        url: "https://tonarinoyj.jp/episode/2550912964971198636"
+        free_from: 2024-12-11
+  - work_title: "日陰のふたり"
+    series_id: "2551460910019401901"
+    url: "https://tonarinoyj.jp/atom/series/2551460910019401901"
+    chapter_count: 1
+    chapters:
+      - title: "日陰のふたり"
+        updated: 2026-01-21
+        url: "https://tonarinoyj.jp/episode/2551460910019404852"
+        free_from: 2026-01-21
+  - work_title: "春へ、"
+    series_id: "4856001361242312835"
+    url: "https://tonarinoyj.jp/atom/series/4856001361242312835"
+    chapter_count: 1
+    chapters:
+      - title: "春へ、"
+        updated: 2023-05-29
+        url: "https://tonarinoyj.jp/episode/4856001361242313253"
+        free_from: 2023-05-29
+  - work_title: "[テーマ読切：○○な女] 最低な君が好き"
+    series_id: "2550912965974283789"
+    url: "https://tonarinoyj.jp/atom/series/2550912965974283789"
+    chapter_count: 1
+    chapters:
+      - title: "[テーマ読切：○○な女] 最低な君が好き"
+        updated: 2025-07-20
+        url: "https://tonarinoyj.jp/episode/2550912965974316524"
+        free_from: 2025-07-20
+  - work_title: "[10Pショート読切] 最後の告白"
+    series_id: "2551460909962347987"
+    url: "https://tonarinoyj.jp/atom/series/2551460909962347987"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] 最後の告白"
+        updated: 2026-01-15
+        url: "https://tonarinoyj.jp/episode/2551460909962348550"
+        free_from: 2026-01-15
+  - work_title: "月のお寿司を抱えてねむる"
+    series_id: "2551460909893085094"
+    url: "https://tonarinoyj.jp/atom/series/2551460909893085094"
+    chapter_count: 1
+    chapters:
+      - title: "月のお寿司を抱えてねむる"
+        updated: 2025-12-08
+        url: "https://tonarinoyj.jp/episode/2551460909893088075"
+        free_from: 2025-12-08
+  - work_title: "[特別読切] 未完成なふたり"
+    series_id: "12207421983525254138"
+    url: "https://tonarinoyj.jp/atom/series/12207421983525254138"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] 未完成なふたり"
+        updated: 2026-03-26
+        url: "https://tonarinoyj.jp/episode/12207421983525254745"
+        free_from: 2026-03-26
+  - work_title: "残光"
+    series_id: "2550912965313535184"
+    url: "https://tonarinoyj.jp/atom/series/2550912965313535184"
+    chapter_count: 1
+    chapters:
+      - title: "残光"
+        updated: 2025-03-13
+        url: "https://tonarinoyj.jp/episode/2550912965313547927"
+        free_from: 2025-03-13
+  - work_title: "毒を喰らわば。"
+    series_id: "14079602755640947082"
+    url: "https://tonarinoyj.jp/atom/series/14079602755640947082"
+    chapter_count: 1
+    chapters:
+      - title: "毒を喰らわば。"
+        updated: 2024-01-17
+        url: "https://tonarinoyj.jp/episode/10044607041200390693"
+        free_from: 2024-01-17
+  - work_title: "[10Pショート読切] 水曜日、午後5時シアター前"
+    series_id: "14079602755302817679"
+    url: "https://tonarinoyj.jp/atom/series/14079602755302817679"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] 水曜日、午後5時シアター前"
+        updated: 2023-10-21
+        url: "https://tonarinoyj.jp/episode/14079602755302821034"
+        free_from: 2023-10-21
+  - work_title: "泡みたいに抱きしめて"
+    series_id: "11341664176590064102"
+    url: "https://tonarinoyj.jp/atom/series/11341664176590064102"
+    chapter_count: 1
+    chapters:
+      - title: "泡みたいに抱きしめて"
+        updated: 2024-02-19
+        url: "https://tonarinoyj.jp/episode/11341664176590160445"
+        free_from: 2024-02-19
+  - work_title: "[第1話+第2話] 清田さんは汚されたい!?"
+    series_id: "14079602755304381424"
+    url: "https://tonarinoyj.jp/atom/series/14079602755304381424"
+    chapter_count: 4
+    chapters:
+      - title: "[休載イラスト] 清田さんは汚されたい!?"
+        updated: 2024-07-05
+        url: "https://tonarinoyj.jp/episode/2550689798789976426"
+        free_from: 2024-07-05
+      - title: "[年賀イラスト] 清田さんは汚されたい!?"
+        updated: 2024-01-01
+        url: "https://tonarinoyj.jp/episode/14079602755599749045"
+        free_from: 2023-01-01
+      - title: "[第3話] 清田さんは汚されたい!?"
+        updated: 2024-07-04
+        url: "https://tonarinoyj.jp/episode/14079602755360143735"
+        free_from: 2023-07-04
+      - title: "[第1話+第2話] 清田さんは汚されたい!?"
+        updated: 2024-07-04
+        url: "https://tonarinoyj.jp/episode/14079602755304381834"
+        free_from: 2023-07-04
+  - work_title: "[特別読切] 清田さんを汚したい"
+    series_id: "3269754496899350101"
+    url: "https://tonarinoyj.jp/atom/series/3269754496899350101"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] 清田さんを汚したい"
+        updated: 2022-05-06
+        url: "https://tonarinoyj.jp/episode/3269754496899350243"
+        free_from: 2022-05-06
+  - work_title: "[10Pショート読切] 熱の中の少女"
+    series_id: "2550689798870998236"
+    url: "https://tonarinoyj.jp/atom/series/2550689798870998236"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] 熱の中の少女"
+        updated: 2024-07-31
+        url: "https://tonarinoyj.jp/episode/2550689798871007144"
+        free_from: 2024-07-31
+  - work_title: "[10Pショート読切] 痛かったら喜んでください"
+    series_id: "2551460910093671955"
+    url: "https://tonarinoyj.jp/atom/series/2551460910093671955"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] 痛かったら喜んでください"
+        updated: 2026-02-05
+        url: "https://tonarinoyj.jp/episode/2551460910093823874"
+        free_from: 2026-02-05
+  - work_title: "[第1話] 相席いいですか？"
+    series_id: "14079602755399112642"
+    url: "https://tonarinoyj.jp/atom/series/14079602755399112642"
+    chapter_count: 1
+    chapters:
+      - title: "[第1話] 相席いいですか？"
+        updated: 2023-11-09
+        url: "https://tonarinoyj.jp/episode/14079602755399113146"
+        free_from: 2023-11-09
+  - work_title: "[10Pショート読切] 硝子の体温"
+    series_id: "2550689798901390166"
+    url: "https://tonarinoyj.jp/atom/series/2550689798901390166"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] 硝子の体温"
+        updated: 2024-08-04
+        url: "https://tonarinoyj.jp/episode/2550689798901526108"
+        free_from: 2024-08-04
+  - work_title: "神の右手"
+    series_id: "4856001361242312808"
+    url: "https://tonarinoyj.jp/atom/series/4856001361242312808"
+    chapter_count: 1
+    chapters:
+      - title: "神の右手"
+        updated: 2023-05-29
+        url: "https://tonarinoyj.jp/episode/4856001361242313205"
+        free_from: 2023-05-29
+  - work_title: "[特別読切] 福音のメリテール"
+    series_id: "2550689798701554052"
+    url: "https://tonarinoyj.jp/atom/series/2550689798701554052"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] 福音のメリテール"
+        updated: 2024-06-19
+        url: "https://tonarinoyj.jp/episode/2550689798701554557"
+        free_from: 2024-06-19
+  - work_title: "[特別読切] 私の宝箱"
+    series_id: "2550912965241143461"
+    url: "https://tonarinoyj.jp/atom/series/2550912965241143461"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] 私の宝箱"
+        updated: 2025-02-07
+        url: "https://tonarinoyj.jp/episode/2550912965241191415"
+        free_from: 2025-02-07
+  - work_title: "秒速11.2kmでともに"
+    series_id: "12207421983850426853"
+    url: "https://tonarinoyj.jp/atom/series/12207421983850426853"
+    chapter_count: 1
+    chapters:
+      - title: "秒速11.2kmでともに"
+        updated: 2026-06-22
+        url: "https://tonarinoyj.jp/episode/12207421983850437714"
+        free_from: 2026-06-22
+  - work_title: "窓辺のあなたへ"
+    series_id: "2550912964551932328"
+    url: "https://tonarinoyj.jp/atom/series/2550912964551932328"
+    chapter_count: 1
+    chapters:
+      - title: "窓辺のあなたへ"
+        updated: 2024-09-09
+        url: "https://tonarinoyj.jp/episode/2550912964551956318"
+        free_from: 2024-09-09
+  - work_title: "篠崎志乃は甘くない！"
+    series_id: "12207421983458721054"
+    url: "https://tonarinoyj.jp/atom/series/12207421983458721054"
+    chapter_count: 1
+    chapters:
+      - title: "篠崎志乃は甘くない！"
+        updated: 2026-03-14
+        url: "https://tonarinoyj.jp/episode/12207421983459331340"
+        free_from: 2026-03-14
+  - work_title: "[第1話] 英雄少女と呪われの銀姫"
+    series_id: "2551460910044574466"
+    url: "https://tonarinoyj.jp/atom/series/2551460910044574466"
+    chapter_count: 11
+    chapters:
+      - title: "[第6話 後編] 英雄少女と呪われの銀姫"
+        updated: 2026-07-21
+        url: "https://tonarinoyj.jp/episode/12207421983914838722"
+        free_from: 2026-07-21
+      - title: "[第6話 前編] 英雄少女と呪われの銀姫"
+        updated: 2026-07-07
+        url: "https://tonarinoyj.jp/episode/12207421983914838718"
+        free_from: 2026-07-07
+      - title: "[第5話 後編] 英雄少女と呪われの銀姫"
+        updated: 2026-06-16
+        url: "https://tonarinoyj.jp/episode/12207421983750174293"
+        free_from: 2026-06-16
+      - title: "[第5話 前編] 英雄少女と呪われの銀姫"
+        updated: 2026-06-02
+        url: "https://tonarinoyj.jp/episode/12207421983750174288"
+        free_from: 2026-06-02
+      - title: "[第4話 後編] 英雄少女と呪われの銀姫"
+        updated: 2026-05-19
+        url: "https://tonarinoyj.jp/episode/12207421983637885521"
+        free_from: 2026-05-19
+      - title: "[第4話 前編] 英雄少女と呪われの銀姫"
+        updated: 2026-05-05
+        url: "https://tonarinoyj.jp/episode/12207421983637885517"
+        free_from: 2026-05-05
+      - title: "[第3話 後編] 英雄少女と呪われの銀姫"
+        updated: 2026-04-21
+        url: "https://tonarinoyj.jp/episode/12207421983481119959"
+        free_from: 2026-04-21
+      - title: "[第3話 前編] 英雄少女と呪われの銀姫"
+        updated: 2026-04-07
+        url: "https://tonarinoyj.jp/episode/12207421983481119955"
+        free_from: 2026-04-07
+      - title: "[第2話 後編] 英雄少女と呪われの銀姫"
+        updated: 2026-03-17
+        url: "https://tonarinoyj.jp/episode/12207421983433864019"
+        free_from: 2026-03-17
+      - title: "[第2話 前編] 英雄少女と呪われの銀姫"
+        updated: 2026-03-03
+        url: "https://tonarinoyj.jp/episode/12207421983372732258"
+        free_from: 2026-03-03
+      - title: "[第1話] 英雄少女と呪われの銀姫"
+        updated: 2026-01-19
+        url: "https://tonarinoyj.jp/episode/2551460910044575820"
+        free_from: 2026-01-19
+  - work_title: "雪を踏む"
+    series_id: "11341664176563908282"
+    url: "https://tonarinoyj.jp/atom/series/11341664176563908282"
+    chapter_count: 1
+    chapters:
+      - title: "雪を踏む"
+        updated: 2024-02-07
+        url: "https://tonarinoyj.jp/episode/11341664176563908800"
+        free_from: 2024-02-07
+  - work_title: "[10Pショート読切] 青春、ときどき不老不死"
+    series_id: "2550912964443147823"
+    url: "https://tonarinoyj.jp/atom/series/2550912964443147823"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] 青春、ときどき不老不死"
+        updated: 2024-08-22
+        url: "https://tonarinoyj.jp/episode/2550912964443171862"
+        free_from: 2024-08-22

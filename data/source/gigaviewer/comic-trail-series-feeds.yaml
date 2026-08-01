@@ -1,0 +1,88 @@
+# コミックトレイル — per-series Atom feeds, one per work.
+#
+# The platform-wide /atom holds about twenty entries across everything it publishes,
+# which on a platform with 165 yuri series is a window of days. Per-series feeds are not
+# a rolling window — 大室家's returns all 136 of its episodes — so a work updating monthly
+# is caught rather than missed.
+#
+# Dates are the feed's own <updated>: platform-attested, not inferred.
+source: gigaviewer
+platform: comic-trail
+platform_name: "コミックトレイル"
+publisher: "白泉社"
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: platform-genre
+series_resolved: 1
+works:
+  - work_title: "第１話 〈１〉 / お嬢様、懺悔する。"
+    series_id: "2551460909751842548"
+    url: "https://comic-trail.com/atom/series/2551460909751842548"
+    chapter_count: 20
+    chapters:
+      - title: "第10話〈２〉"
+        updated: 2026-07-17
+        url: "https://comic-trail.com/episode/12207421983793454538"
+        free_from: 2026-07-17
+      - title: "第10話〈１〉"
+        updated: 2026-07-03
+        url: "https://comic-trail.com/episode/12207421983793454534"
+        free_from: 2026-07-03
+      - title: "第９話〈２〉"
+        updated: 2026-06-19
+        url: "https://comic-trail.com/episode/12207421983737799272"
+      - title: "第９話〈１〉"
+        updated: 2026-06-05
+        url: "https://comic-trail.com/episode/12207421983737799266"
+      - title: "第８話〈２〉"
+        updated: 2026-05-22
+        url: "https://comic-trail.com/episode/12207421983633587071"
+      - title: "第８話〈１〉"
+        updated: 2026-05-08
+        url: "https://comic-trail.com/episode/12207421983633587065"
+      - title: "第７話〈２〉"
+        updated: 2026-04-24
+        url: "https://comic-trail.com/episode/12207421983434010525"
+      - title: "第７話〈１〉"
+        updated: 2026-04-10
+        url: "https://comic-trail.com/episode/12207421983434010521"
+      - title: "第６話 〈２〉"
+        updated: 2026-03-20
+        url: "https://comic-trail.com/episode/12207421983325766067"
+      - title: "第６話 〈１〉"
+        updated: 2026-03-06
+        url: "https://comic-trail.com/episode/12207421983325766057"
+      - title: "第５話 〈２〉"
+        updated: 2026-02-20
+        url: "https://comic-trail.com/episode/2551460910065897994"
+      - title: "第５話 〈１〉"
+        updated: 2026-02-06
+        url: "https://comic-trail.com/episode/2551460910065897990"
+      - title: "第４話 〈２〉"
+        updated: 2026-01-23
+        url: "https://comic-trail.com/episode/2551460909957049051"
+      - title: "第４話 〈１〉"
+        updated: 2026-01-09
+        url: "https://comic-trail.com/episode/2551460909957049040"
+      - title: "第３話 〈２〉"
+        updated: 2025-12-26
+        url: "https://comic-trail.com/episode/2551460909806357029"
+      - title: "第３話 〈１〉"
+        updated: 2025-12-12
+        url: "https://comic-trail.com/episode/2551460909806357025"
+      - title: "第２話 〈２〉"
+        updated: 2025-11-21
+        url: "https://comic-trail.com/episode/2551460909758971068"
+        free_from: 2025-11-21
+      - title: "第２話 〈１〉"
+        updated: 2025-11-14
+        url: "https://comic-trail.com/episode/2551460909806357020"
+        free_from: 2025-11-14
+      - title: "第１話 〈２〉"
+        updated: 2025-11-14
+        url: "https://comic-trail.com/episode/2551460909806357011"
+        free_from: 2025-11-14
+      - title: "第１話 〈１〉"
+        updated: 2025-11-14
+        url: "https://comic-trail.com/episode/2551460909758971055"
+        free_from: 2025-11-14

@@ -90,6 +90,7 @@ def main():
     ap.add_argument("--cache", required=True)
     ap.add_argument("--retrieved", required=True)
     ap.add_argument("--limit", type=int, default=400)
+    ap.add_argument("--candidates", help="Tier C candidate list, for platforms with no listing page")
     a = ap.parse_args()
 
     reg = yaml.safe_load(open("adapters/gigaviewer/platforms.yaml"))["platforms"]
@@ -97,8 +98,8 @@ def main():
     if not p:
         sys.exit(f"platform '{a.platform}' not in the GigaViewer registry")
     pages = p.get("series_pages") or []
-    if not pages:
-        sys.exit(f"'{a.platform}' declares no series_pages; nothing to enumerate")
+    if not pages and not a.candidates:
+        sys.exit(f"'{a.platform}' declares no series_pages and no --candidates given")
 
     cache = pathlib.Path(a.cache).expanduser()
     cache.mkdir(parents=True, exist_ok=True)
@@ -108,8 +109,36 @@ def main():
     found = {}
     for page in pages:
         found.update(series_ids(fetch(page["url"], cache)))
-    if len(found) < MIN_RESOLVED:
-        sys.exit(f"HEALTH: resolved {len(found)} series ids (< {MIN_RESOLVED}). The listing markup "
+
+    # Platforms with no yuri listing page of their own — most of GigaViewer — still expose the
+    # series id on every episode page, as the link to that series' own feed. So a work named by a
+    # Tier C yardstick is resolvable from the episode URL the yardstick already gives us: one fetch
+    # to learn the series id, then the series feed. That is the same two requests per work as the
+    # listing route, without needing the platform to publish a genre listing at all.
+    if a.candidates and len(found) < a.limit:
+        src = yaml.safe_load(open(a.candidates)) or {}
+        seen = set()
+        for w in src.get("candidates") or []:
+            for u in [w.get("url", "")] + (w.get("urls") or []):
+                if not u or p["host"] not in u or "/episode/" not in u or u in seen:
+                    continue
+                seen.add(u)
+                if (w.get("title") or "") in found:
+                    break
+                try:
+                    h = fetch(u, cache)
+                except (urllib.error.HTTPError, urllib.error.URLError, OSError):
+                    break
+                m = re.search(r"/atom/series/(\d+)", h)
+                if m:
+                    # Prefer the platform's own title over the yardstick's string.
+                    tt = re.search(r"<title>([^<]*?)\s*-\s*[^-]*\|", h)
+                    found[(tt.group(1).strip() if tt else w.get("title") or u)] = m.group(1)
+                break
+
+    floor = MIN_RESOLVED if not a.candidates else 1
+    if len(found) < floor:
+        sys.exit(f"HEALTH: resolved {len(found)} series ids (< {floor}). The listing markup "
                  "or the thumbnail URL shape may have changed. Refusing to write.")
 
     works, failed = [], []

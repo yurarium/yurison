@@ -1,0 +1,645 @@
+# COMIC OGYAAA!! — per-series Atom feeds, one per work.
+#
+# The platform-wide /atom holds about twenty entries across everything it publishes,
+# which on a platform with 165 yuri series is a window of days. Per-series feeds are not
+# a rolling window — 大室家's returns all 136 of its episodes — so a work updating monthly
+# is caught rather than missed.
+#
+# Dates are the feed's own <updated>: platform-attested, not inferred.
+source: gigaviewer
+platform: comic-ogyaaa
+platform_name: "COMIC OGYAAA!!"
+publisher: "一迅社"
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: platform-genre
+series_resolved: 11
+works:
+  - work_title: "『あの子とふたりで。』第1話"
+    series_id: "2550912965818312577"
+    url: "https://comic-ogyaaa.com/atom/series/2550912965818312577"
+    chapter_count: 13
+    chapters:
+      - title: "第11話"
+        updated: 2026-07-17
+        url: "https://comic-ogyaaa.com/episode/12207421983966745358"
+        free_from: 2026-07-17
+      - title: "番外編②"
+        updated: 2026-06-19
+        url: "https://comic-ogyaaa.com/episode/12207421983855324363"
+        free_from: 2026-06-19
+      - title: "第10話"
+        updated: 2026-04-17
+        url: "https://comic-ogyaaa.com/episode/12207421983608495099"
+      - title: "第9話"
+        updated: 2026-03-20
+        url: "https://comic-ogyaaa.com/episode/12207421983502754840"
+      - title: "第8話"
+        updated: 2026-02-20
+        url: "https://comic-ogyaaa.com/episode/12207421983399542677"
+      - title: "第7話"
+        updated: 2026-01-09
+        url: "https://comic-ogyaaa.com/episode/2551460910015645917"
+      - title: "第6話"
+        updated: 2025-12-12
+        url: "https://comic-ogyaaa.com/episode/2551460909911904528"
+      - title: "第5話"
+        updated: 2025-11-21
+        url: "https://comic-ogyaaa.com/episode/2551460909834534876"
+      - title: "番外編①"
+        updated: 2025-10-10
+        url: "https://comic-ogyaaa.com/episode/2551460909676306675"
+        free_from: 2025-10-10
+      - title: "第4話"
+        updated: 2025-09-12
+        url: "https://comic-ogyaaa.com/episode/2551460909564152298"
+      - title: "第3話"
+        updated: 2025-08-08
+        url: "https://comic-ogyaaa.com/episode/2550912966064326900"
+      - title: "第２話"
+        updated: 2025-07-11
+        url: "https://comic-ogyaaa.com/episode/2550912965945257430"
+        free_from: 2025-07-11
+      - title: "第1話"
+        updated: 2025-06-13
+        url: "https://comic-ogyaaa.com/episode/2550912965818317820"
+        free_from: 2025-06-13
+  - work_title: "『あの子は優しすぎる。』前編"
+    series_id: "2550912964477002101"
+    url: "https://comic-ogyaaa.com/atom/series/2550912964477002101"
+    chapter_count: 2
+    chapters:
+      - title: "後編"
+        updated: 2024-08-23
+        url: "https://comic-ogyaaa.com/episode/2550912964509398509"
+      - title: "前編"
+        updated: 2024-08-16
+        url: "https://comic-ogyaaa.com/episode/2550912964477004522"
+        free_from: 2024-08-16
+  - work_title: "『きみと観たいレースがある』読切"
+    series_id: "3269754496840120950"
+    url: "https://comic-ogyaaa.com/atom/series/3269754496840120950"
+    chapter_count: 23
+    chapters:
+      - title: "最終話 2023年11月4日 BCマイル(GⅠ)"
+        updated: 2024-03-22
+        url: "https://comic-ogyaaa.com/episode/2550689798327509028"
+      - title: "第17話 2022年10月2日 凱旋門賞(GⅠ)"
+        updated: 2024-02-23
+        url: "https://comic-ogyaaa.com/episode/2550668106000737014"
+      - title: "第16話 2022年10月1日 カドラン賞(GⅠ)"
+        updated: 2024-01-26
+        url: "https://comic-ogyaaa.com/episode/10044607041235444878"
+      - title: "第15話 2022年8月14日 札幌10R 藻岩山特別(3歳以上2勝クラス)"
+        updated: 2023-12-22
+        url: "https://comic-ogyaaa.com/episode/14079602755585919337"
+      - title: "番外編4"
+        updated: 2023-11-24
+        url: "https://comic-ogyaaa.com/episode/14079602755481147216"
+        free_from: 2023-11-24
+      - title: "第14話 2022年8月12日 Yogiboヴェルサイユリゾートファーム"
+        updated: 2023-10-27
+        url: "https://comic-ogyaaa.com/episode/14079602755365709176"
+      - title: "第13話 2022年5月29日 東京優駿(GⅠ)"
+        updated: 2023-09-22
+        url: "https://comic-ogyaaa.com/episode/14079602755227987284"
+      - title: "第12話 2022年4月3日 大阪杯(GⅠ)"
+        updated: 2023-08-25
+        url: "https://comic-ogyaaa.com/episode/14079602755128248578"
+      - title: "番外編３"
+        updated: 2023-07-28
+        url: "https://comic-ogyaaa.com/episode/4856001361561258296"
+        free_from: 2023-07-28
+      - title: "第11話 2021年12月29日 東京大賞典(GⅠ)"
+        updated: 2023-06-23
+        url: "https://comic-ogyaaa.com/episode/4856001361359167833"
+      - title: "第10話 2021年11月28日 ジャパンカップ(GⅠ)"
+        updated: 2023-05-26
+        url: "https://comic-ogyaaa.com/episode/4856001361263229885"
+      - title: "番外編２"
+        updated: 2023-04-28
+        url: "https://comic-ogyaaa.com/episode/4856001361171643997"
+        free_from: 2023-04-28
+      - title: "第9話 2021年11月27日 東京7R 3歳以上1勝クラス"
+        updated: 2023-03-24
+        url: "https://comic-ogyaaa.com/episode/4856001361071930116"
+      - title: "第8話 2021年11月6日 京王杯2歳ステークス(GⅡ)話"
+        updated: 2023-02-24
+        url: "https://comic-ogyaaa.com/episode/4855956445112116807"
+      - title: "第7話 2021年11月6日 2R2歳未勝利"
+        updated: 2023-01-27
+        url: "https://comic-ogyaaa.com/episode/316190247132888111"
+      - title: "第6話 2021年10月3日 凱旋門賞(GⅠ)"
+        updated: 2022-12-23
+        url: "https://comic-ogyaaa.com/episode/316190247040600549"
+      - title: "番外編"
+        updated: 2022-11-25
+        url: "https://comic-ogyaaa.com/episode/316190246984111738"
+        free_from: 2022-11-25
+      - title: "第5話 2021年10月3日 スプリンターズステークス(ＧⅠ)"
+        updated: 2022-10-28
+        url: "https://comic-ogyaaa.com/episode/316190246907649544"
+      - title: "第4話 2021年8月22日 札幌記念(ＧⅡ)"
+        updated: 2022-09-23
+        url: "https://comic-ogyaaa.com/episode/316112896864330728"
+      - title: "第3話 2021年7月25日 アイビスサマーダッシュ(ＧⅢ)"
+        updated: 2022-08-26
+        url: "https://comic-ogyaaa.com/episode/3270375685449539099"
+      - title: "第2話 2021年7月11日 七夕賞(ＧⅢ)"
+        updated: 2022-07-22
+        url: "https://comic-ogyaaa.com/episode/3270375685347733434"
+        free_from: 2022-07-22
+      - title: "第1話 2021年5月9日 NHKマイルカップ(GI)"
+        updated: 2022-06-24
+        url: "https://comic-ogyaaa.com/episode/3270296674416128599"
+        free_from: 2022-06-24
+      - title: "読切"
+        updated: 2022-05-20
+        url: "https://comic-ogyaaa.com/episode/3269754496840121720"
+        free_from: 2022-05-20
+  - work_title: "『まるせっせんす』第1話　原罪"
+    series_id: "12207421983372417929"
+    url: "https://comic-ogyaaa.com/atom/series/12207421983372417929"
+    chapter_count: 6
+    chapters:
+      - title: "第6話 紅血"
+        updated: 2026-07-10
+        url: "https://comic-ogyaaa.com/episode/12207421983939282915"
+        free_from: 2026-07-10
+      - title: "第5話 日常"
+        updated: 2026-06-12
+        url: "https://comic-ogyaaa.com/episode/12207421983826592694"
+        free_from: 2026-06-12
+      - title: "第4話 証明"
+        updated: 2026-05-08
+        url: "https://comic-ogyaaa.com/episode/12207421983660420413"
+        free_from: 2026-05-08
+      - title: "第3話 発見"
+        updated: 2026-04-10
+        url: "https://comic-ogyaaa.com/episode/12207421983581911275"
+        free_from: 2026-04-10
+      - title: "第2話 解体"
+        updated: 2026-03-13
+        url: "https://comic-ogyaaa.com/episode/12207421983478025565"
+        free_from: 2026-03-13
+      - title: "第1話　原罪"
+        updated: 2026-02-13
+        url: "https://comic-ogyaaa.com/episode/12207421983372421766"
+        free_from: 2026-02-13
+  - work_title: "『ゆりゾン』第1話 初恋(仮)"
+    series_id: "2550912965728492745"
+    url: "https://comic-ogyaaa.com/atom/series/2550912965728492745"
+    chapter_count: 2
+    chapters:
+      - title: "第2話 はじめてのチュウ"
+        updated: 2025-10-24
+        url: "https://comic-ogyaaa.com/episode/2551460909730247441"
+        free_from: 2025-10-24
+      - title: "第1話 初恋(仮)"
+        updated: 2025-05-23
+        url: "https://comic-ogyaaa.com/episode/2550912965728497650"
+        free_from: 2025-05-23
+  - work_title: "『コモドドラゴン』読切"
+    series_id: "2550912966036249825"
+    url: "https://comic-ogyaaa.com/atom/series/2550912966036249825"
+    chapter_count: 1
+    chapters:
+      - title: "読切"
+        updated: 2025-08-01
+        url: "https://comic-ogyaaa.com/episode/2550912966036266046"
+        free_from: 2025-08-01
+  - work_title: "『サバーキ 』Chapter001"
+    series_id: "3269754496840162019"
+    url: "https://comic-ogyaaa.com/atom/series/3269754496840162019"
+    chapter_count: 12
+    chapters:
+      - title: "Chapter012"
+        updated: 2024-07-26
+        url: "https://comic-ogyaaa.com/episode/2550689798875510910"
+        free_from: 2024-07-26
+      - title: "Chapter011"
+        updated: 2023-08-25
+        url: "https://comic-ogyaaa.com/episode/14079602755128248617"
+        free_from: 2023-08-25
+      - title: "Chapter010"
+        updated: 2023-07-28
+        url: "https://comic-ogyaaa.com/episode/4856001361561262114"
+        free_from: 2023-07-28
+      - title: "Chapter009"
+        updated: 2023-07-14
+        url: "https://comic-ogyaaa.com/episode/4856001361510035590"
+        free_from: 2023-07-14
+      - title: "Chapter008"
+        updated: 2022-05-20
+        url: "https://comic-ogyaaa.com/episode/3269754496840504899"
+        free_from: 2022-05-20
+      - title: "Chapter007"
+        updated: 2022-05-20
+        url: "https://comic-ogyaaa.com/episode/3269754496840162426"
+        free_from: 2022-05-01
+      - title: "Chapter006"
+        updated: 2022-05-20
+        url: "https://comic-ogyaaa.com/episode/3269754496840162421"
+        free_from: 2022-05-01
+      - title: "Chapter005"
+        updated: 2022-05-20
+        url: "https://comic-ogyaaa.com/episode/3269754496840162415"
+        free_from: 2022-05-01
+      - title: "Chapter004"
+        updated: 2022-05-20
+        url: "https://comic-ogyaaa.com/episode/3269754496840162409"
+        free_from: 2022-05-01
+      - title: "Chapter003"
+        updated: 2022-05-20
+        url: "https://comic-ogyaaa.com/episode/3269754496840162398"
+        free_from: 2022-05-01
+      - title: "Chapter002"
+        updated: 2022-05-20
+        url: "https://comic-ogyaaa.com/episode/3269754496840162383"
+        free_from: 2022-05-01
+      - title: "Chapter001"
+        updated: 2022-05-20
+        url: "https://comic-ogyaaa.com/episode/3269754496840162376"
+        free_from: 2022-05-01
+  - work_title: "『壊していいよ、すいかちゃん』第1話 かくして二人は出会った"
+    series_id: "12207421983608475749"
+    url: "https://comic-ogyaaa.com/atom/series/12207421983608475749"
+    chapter_count: 6
+    chapters:
+      - title: "第6話 アカツキ"
+        updated: 2026-07-17
+        url: "https://comic-ogyaaa.com/episode/12207421983966745370"
+        free_from: 2026-07-17
+      - title: "第5話 絶対そうだ！"
+        updated: 2026-06-19
+        url: "https://comic-ogyaaa.com/episode/12207421983855324357"
+        free_from: 2026-06-19
+      - title: "第4話 うそみたいな日"
+        updated: 2026-05-15
+        url: "https://comic-ogyaaa.com/episode/12207421983716271783"
+        free_from: 2026-05-15
+      - title: "第3話 覚悟は決まった"
+        updated: 2026-04-17
+        url: "https://comic-ogyaaa.com/episode/12207421983608495091"
+        free_from: 2026-04-17
+      - title: "第2話 なんで私なの"
+        updated: 2026-04-17
+        url: "https://comic-ogyaaa.com/episode/12207421983608495086"
+        free_from: 2026-04-17
+      - title: "第1話 かくして二人は出会った"
+        updated: 2026-04-17
+        url: "https://comic-ogyaaa.com/episode/12207421983608495081"
+        free_from: 2026-04-17
+  - work_title: "『恋より青く』第1話"
+    series_id: "4856001361171639719"
+    url: "https://comic-ogyaaa.com/atom/series/4856001361171639719"
+    chapter_count: 42
+    chapters:
+      - title: "第40話"
+        updated: 2026-07-10
+        url: "https://comic-ogyaaa.com/episode/12207421983939282905"
+        free_from: 2026-07-10
+      - title: "第39話"
+        updated: 2026-05-08
+        url: "https://comic-ogyaaa.com/episode/12207421983660420409"
+      - title: "第38話"
+        updated: 2026-04-10
+        url: "https://comic-ogyaaa.com/episode/12207421983581911267"
+      - title: "第37話"
+        updated: 2026-02-13
+        url: "https://comic-ogyaaa.com/episode/12207421983372421775"
+      - title: "第36話"
+        updated: 2026-01-09
+        url: "https://comic-ogyaaa.com/episode/2551460910010065102"
+      - title: "第35話"
+        updated: 2025-12-12
+        url: "https://comic-ogyaaa.com/episode/2551460909911904538"
+      - title: "第34話"
+        updated: 2025-11-14
+        url: "https://comic-ogyaaa.com/episode/2551460909810934637"
+      - title: "第33話"
+        updated: 2025-10-10
+        url: "https://comic-ogyaaa.com/episode/2551460909676306682"
+      - title: "第32話"
+        updated: 2025-09-12
+        url: "https://comic-ogyaaa.com/episode/2551460909564152294"
+      - title: "第31話"
+        updated: 2025-07-11
+        url: "https://comic-ogyaaa.com/episode/2550912965945257443"
+      - title: "第30話"
+        updated: 2025-06-13
+        url: "https://comic-ogyaaa.com/episode/2550912965815564985"
+      - title: "第29話"
+        updated: 2025-05-09
+        url: "https://comic-ogyaaa.com/episode/2550912965666451278"
+      - title: "第28話"
+        updated: 2025-04-11
+        url: "https://comic-ogyaaa.com/episode/2550912965536624934"
+      - title: "第27話"
+        updated: 2025-03-14
+        url: "https://comic-ogyaaa.com/episode/2550912965410151060"
+      - title: "第26話"
+        updated: 2025-02-14
+        url: "https://comic-ogyaaa.com/episode/2550912965274256964"
+      - title: "第25話"
+        updated: 2025-01-10
+        url: "https://comic-ogyaaa.com/episode/2550912965119071385"
+      - title: "第24話"
+        updated: 2024-12-13
+        url: "https://comic-ogyaaa.com/episode/2550912964998315714"
+      - title: "第23話"
+        updated: 2024-10-11
+        url: "https://comic-ogyaaa.com/episode/2550912964729533724"
+      - title: "第22話"
+        updated: 2024-09-13
+        url: "https://comic-ogyaaa.com/episode/2550912964607021053"
+      - title: "第21話"
+        updated: 2024-08-09
+        url: "https://comic-ogyaaa.com/episode/2550912964448263250"
+      - title: "第20話"
+        updated: 2024-07-12
+        url: "https://comic-ogyaaa.com/episode/2550689798815752682"
+      - title: "第19話"
+        updated: 2024-06-14
+        url: "https://comic-ogyaaa.com/episode/2550689798694035029"
+      - title: "第18話"
+        updated: 2024-05-10
+        url: "https://comic-ogyaaa.com/episode/2550689798539415169"
+      - title: "第17話"
+        updated: 2024-04-12
+        url: "https://comic-ogyaaa.com/episode/2550689798392341721"
+      - title: "第16話"
+        updated: 2024-03-08
+        url: "https://comic-ogyaaa.com/episode/2550689798285972420"
+      - title: "第15話"
+        updated: 2024-01-26
+        url: "https://comic-ogyaaa.com/episode/10044607041235444857"
+      - title: "第14話"
+        updated: 2024-01-12
+        url: "https://comic-ogyaaa.com/episode/14079602755642166573"
+      - title: "第13話"
+        updated: 2023-12-22
+        url: "https://comic-ogyaaa.com/episode/14079602755585919225"
+      - title: "第12話"
+        updated: 2023-12-08
+        url: "https://comic-ogyaaa.com/episode/14079602755533230029"
+      - title: "番外編2"
+        updated: 2023-11-24
+        url: "https://comic-ogyaaa.com/episode/14079602755481147208"
+        free_from: 2023-11-24
+      - title: "第11話"
+        updated: 2023-11-10
+        url: "https://comic-ogyaaa.com/episode/14079602755422318092"
+      - title: "第10話"
+        updated: 2023-10-27
+        url: "https://comic-ogyaaa.com/episode/14079602755365709166"
+      - title: "第9話"
+        updated: 2023-10-13
+        url: "https://comic-ogyaaa.com/episode/14079602755300485340"
+      - title: "第8話"
+        updated: 2023-09-22
+        url: "https://comic-ogyaaa.com/episode/14079602755223474362"
+      - title: "番外編1"
+        updated: 2023-09-08
+        url: "https://comic-ogyaaa.com/episode/14079602755173783887"
+        free_from: 2023-09-08
+      - title: "第7話"
+        updated: 2023-07-28
+        url: "https://comic-ogyaaa.com/episode/4856001361561258264"
+      - title: "第6話"
+        updated: 2023-07-14
+        url: "https://comic-ogyaaa.com/episode/4856001361510034602"
+      - title: "第5話"
+        updated: 2023-06-23
+        url: "https://comic-ogyaaa.com/episode/4856001361359162134"
+      - title: "第4話"
+        updated: 2023-06-09
+        url: "https://comic-ogyaaa.com/episode/4856001361311163233"
+      - title: "第3話"
+        updated: 2023-05-26
+        url: "https://comic-ogyaaa.com/episode/4856001361263226693"
+        free_from: 2023-05-26
+      - title: "第2話"
+        updated: 2023-05-12
+        url: "https://comic-ogyaaa.com/episode/4856001361215082510"
+        free_from: 2023-05-12
+      - title: "第1話"
+        updated: 2023-04-28
+        url: "https://comic-ogyaaa.com/episode/4856001361171643976"
+        free_from: 2023-04-28
+  - work_title: "『真夏のスピカ』読切"
+    series_id: "316190246983976202"
+    url: "https://comic-ogyaaa.com/atom/series/316190246983976202"
+    chapter_count: 1
+    chapters:
+      - title: "読切"
+        updated: 2022-11-25
+        url: "https://comic-ogyaaa.com/episode/316190246984111706"
+        free_from: 2022-11-25
+  - work_title: "『魔法を捨てたい女の子』第一話 私立雪薔薇女学院"
+    series_id: "3269754496893300891"
+    url: "https://comic-ogyaaa.com/atom/series/3269754496893300891"
+    chapter_count: 66
+    chapters:
+      - title: "第三十五話 魔法を捨てた女の子（後編）"
+        updated: 2025-06-27
+        url: "https://comic-ogyaaa.com/episode/2550912965881489917"
+      - title: "第三十五話 魔法を捨てた女の子（前編）"
+        updated: 2025-06-13
+        url: "https://comic-ogyaaa.com/episode/2550912965815564994"
+      - title: "第三十四話 少女たちの薔薇の聖戦（後編）"
+        updated: 2025-05-23
+        url: "https://comic-ogyaaa.com/episode/2550912965728497671"
+      - title: "第三十四話 少女たちの薔薇の聖戦（前編）"
+        updated: 2025-04-25
+        url: "https://comic-ogyaaa.com/episode/2550912965597701596"
+      - title: "第三十三話 ザ・シークレット・コア・オブ・慈愛堂（後編）"
+        updated: 2025-04-11
+        url: "https://comic-ogyaaa.com/episode/2550912965536624962"
+      - title: "第三十三話 ザ・シークレット・コア・オブ・慈愛堂（前編）"
+        updated: 2025-03-28
+        url: "https://comic-ogyaaa.com/episode/2550912965470761521"
+      - title: "第三十二話 美しく歪んだ最果てナイトメア（後編）"
+        updated: 2025-03-14
+        url: "https://comic-ogyaaa.com/episode/2550912965410151073"
+      - title: "第三十二話 美しく歪んだ最果てナイトメア（前編）"
+        updated: 2025-02-14
+        url: "https://comic-ogyaaa.com/episode/2550912965274250917"
+      - title: "第三十一話 優等生を解き放つラブ・ロック（後編）"
+        updated: 2025-01-24
+        url: "https://comic-ogyaaa.com/episode/2550912965174447894"
+      - title: "第三十一話 優等生を解き放つラブ・ロック（前編）"
+        updated: 2025-01-10
+        url: "https://comic-ogyaaa.com/episode/2550912965119071390"
+      - title: "第三十話 リブートを誘う熱い頬（後編）"
+        updated: 2024-12-13
+        url: "https://comic-ogyaaa.com/episode/2550912964998315722"
+      - title: "第三十話 リブートを誘う熱い頬（前編）"
+        updated: 2024-11-29
+        url: "https://comic-ogyaaa.com/episode/2550912964941210219"
+      - title: "第二十九話 できない夜明けの闇落ちガール（後編）"
+        updated: 2024-11-08
+        url: "https://comic-ogyaaa.com/episode/2550912964850237600"
+      - title: "第二十九話 できない夜明けの闇落ちガール（前編）"
+        updated: 2024-10-25
+        url: "https://comic-ogyaaa.com/episode/2550912964790290233"
+      - title: "第二十八話 嘘と真が交差するオンステージ（後編）"
+        updated: 2024-10-11
+        url: "https://comic-ogyaaa.com/episode/2550912964729533730"
+      - title: "第二十八話 嘘と真が交差するオンステージ（前編）"
+        updated: 2024-09-27
+        url: "https://comic-ogyaaa.com/episode/2550912964672762114"
+      - title: "第二十七話 幕開けを待つ孤高のシンデレラ（後編）"
+        updated: 2024-09-13
+        url: "https://comic-ogyaaa.com/episode/2550912964607021062"
+      - title: "第二十七話 幕開けを待つ孤高のシンデレラ（前編）"
+        updated: 2024-08-23
+        url: "https://comic-ogyaaa.com/episode/2550912964509398521"
+      - title: "第二十六話 心も体もお見通しなツインテール（後編）"
+        updated: 2024-08-09
+        url: "https://comic-ogyaaa.com/episode/2550912964448263262"
+      - title: "第二十六話 心も体もお見通しなツインテール（前編）"
+        updated: 2024-07-26
+        url: "https://comic-ogyaaa.com/episode/2550689798875510903"
+      - title: "第二十五話 天使と悪魔のバトル＆ロマンス（後編）"
+        updated: 2024-06-28
+        url: "https://comic-ogyaaa.com/episode/2550689798754960419"
+      - title: "第二十五話 天使と悪魔のバトル＆ロマンス（前編）"
+        updated: 2024-06-14
+        url: "https://comic-ogyaaa.com/episode/2550689798694035049"
+      - title: "第二十四話 ハッピー・バースデーに黒薔薇を（後編）"
+        updated: 2024-05-24
+        url: "https://comic-ogyaaa.com/episode/2550689798603310079"
+      - title: "第二十四話 ハッピー・バースデーに黒薔薇を（前編）"
+        updated: 2024-05-10
+        url: "https://comic-ogyaaa.com/episode/2550689798538584486"
+      - title: "第二十三話 ウェルカム・トゥ・秘密の花園（後編）"
+        updated: 2024-04-26
+        url: "https://comic-ogyaaa.com/episode/2550689798442995487"
+      - title: "第二十三話 ウェルカム・トゥ・秘密の花園（前編）"
+        updated: 2024-04-12
+        url: "https://comic-ogyaaa.com/episode/2550689798392295007"
+      - title: "第二十二話 春に揺らめくバニーの心（後編）"
+        updated: 2024-03-22
+        url: "https://comic-ogyaaa.com/episode/2550689798327509041"
+      - title: "第二十二話 春に揺らめくバニーの心（前編）"
+        updated: 2024-03-08
+        url: "https://comic-ogyaaa.com/episode/2550689798285972430"
+      - title: "第二十一話 棘を秘めたスウィート・チェリー（後編）"
+        updated: 2024-02-23
+        url: "https://comic-ogyaaa.com/episode/2550668106000737023"
+      - title: "第二十一話 棘を秘めたスウィート・チェリー（前編）"
+        updated: 2024-02-09
+        url: "https://comic-ogyaaa.com/episode/11341664176588607403"
+      - title: "第二十話 ローズ・ガーデンに芽生えた桜（後編）"
+        updated: 2024-01-26
+        url: "https://comic-ogyaaa.com/episode/10044607041235444891"
+      - title: "第二十話 ローズ・ガーデンに芽生えた桜（前編）"
+        updated: 2024-01-12
+        url: "https://comic-ogyaaa.com/episode/14079602755642166583"
+      - title: "第十九話 夜を越えたいバージンたち（後編）"
+        updated: 2023-12-22
+        url: "https://comic-ogyaaa.com/episode/14079602755585919345"
+      - title: "第十九話 夜を越えたいバージンたち（前編）"
+        updated: 2023-12-08
+        url: "https://comic-ogyaaa.com/episode/14079602755533230047"
+      - title: "第十八話 妖しい瞳のミストレス（後編）"
+        updated: 2023-11-24
+        url: "https://comic-ogyaaa.com/episode/14079602755481147220"
+      - title: "第十八話 妖しい瞳のミストレス（前編）"
+        updated: 2023-11-10
+        url: "https://comic-ogyaaa.com/episode/14079602755422318104"
+      - title: "第十七話 噂の二人とカオスな学院（後編）"
+        updated: 2023-10-13
+        url: "https://comic-ogyaaa.com/episode/14079602755300485375"
+      - title: "第十七話 噂の二人とカオスな学院（前編）"
+        updated: 2023-09-29
+        url: "https://comic-ogyaaa.com/episode/14079602755249436753"
+      - title: "第十六話 雪薔薇とプリンス（後編）"
+        updated: 2023-09-08
+        url: "https://comic-ogyaaa.com/episode/14079602755173783930"
+      - title: "第十六話 雪薔薇とプリンス（前編）"
+        updated: 2023-08-25
+        url: "https://comic-ogyaaa.com/episode/14079602755128248597"
+      - title: "第十五話 高慢なリトル・レディ（後編）"
+        updated: 2023-08-11
+        url: "https://comic-ogyaaa.com/episode/14079602755071609733"
+      - title: "第十五話 高慢なリトル・レディ（前編）"
+        updated: 2023-07-28
+        url: "https://comic-ogyaaa.com/episode/4856001361561258302"
+      - title: "第十四話 それぞれのホームカミング（後編）"
+        updated: 2023-07-14
+        url: "https://comic-ogyaaa.com/episode/4856001361510034618"
+      - title: "第十四話 それぞれのホームカミング（前編）"
+        updated: 2023-06-23
+        url: "https://comic-ogyaaa.com/episode/4856001361359168561"
+      - title: "第十三話 雪月夜はココアの香り（後編）"
+        updated: 2023-06-09
+        url: "https://comic-ogyaaa.com/episode/4856001361311163273"
+      - title: "第十三話 雪月夜はココアの香り（前編）"
+        updated: 2023-05-26
+        url: "https://comic-ogyaaa.com/episode/4856001361263229923"
+      - title: "第十二話 戸惑いのプリマ・バレリーナ（後編）"
+        updated: 2023-05-12
+        url: "https://comic-ogyaaa.com/episode/4856001361215082537"
+      - title: "第十二話 戸惑いのプリマ・バレリーナ（前編）"
+        updated: 2023-04-28
+        url: "https://comic-ogyaaa.com/episode/4856001361171643986"
+      - title: "第十一話 猫とシークレットガーデン（後編）"
+        updated: 2023-04-14
+        url: "https://comic-ogyaaa.com/episode/4856001361135767134"
+      - title: "第十一話 猫とシークレットガーデン（前編）"
+        updated: 2023-03-24
+        url: "https://comic-ogyaaa.com/episode/4856001361071930128"
+      - title: "第十話 乙夜のティーパーティー（後編）"
+        updated: 2023-02-24
+        url: "https://comic-ogyaaa.com/episode/4855956445112116823"
+      - title: "第十話 乙夜のティーパーティー（前編）"
+        updated: 2023-02-10
+        url: "https://comic-ogyaaa.com/episode/4855956445069773760"
+      - title: "第九話 ふたりぼっちでレトロタウン（後編）"
+        updated: 2023-01-27
+        url: "https://comic-ogyaaa.com/episode/316190247132886405"
+      - title: "第九話 ふたりぼっちでレトロタウン（前編）"
+        updated: 2023-01-13
+        url: "https://comic-ogyaaa.com/episode/316190247090681070"
+      - title: "第八話 インディアンサマーの秘密（後編）"
+        updated: 2022-12-23
+        url: "https://comic-ogyaaa.com/episode/316190247040599683"
+      - title: "第八話 インディアンサマーの秘密（前編）"
+        updated: 2022-12-09
+        url: "https://comic-ogyaaa.com/episode/316190247015267344"
+      - title: "第七話 恋慕ビタースイート（後編）"
+        updated: 2022-11-25
+        url: "https://comic-ogyaaa.com/episode/316190246984111746"
+      - title: "第七話 恋慕ビタースイート（前編）"
+        updated: 2022-11-11
+        url: "https://comic-ogyaaa.com/episode/316190246945549785"
+      - title: "第六話 星降る夏夜のエンカウンター（後編）"
+        updated: 2022-10-28
+        url: "https://comic-ogyaaa.com/episode/316190246907649551"
+      - title: "第六話 星降る夏夜のエンカウンター（前編）"
+        updated: 2022-10-14
+        url: "https://comic-ogyaaa.com/episode/316112896925903223"
+      - title: "第五話 清廉潔白なマイプリンス"
+        updated: 2022-09-23
+        url: "https://comic-ogyaaa.com/episode/316112896864291544"
+      - title: "第四話 エスケープは蒼い予感"
+        updated: 2023-12-29
+        url: "https://comic-ogyaaa.com/episode/3270375685449539077"
+      - title: "第三話 水晶宮寮のグランピー"
+        updated: 2023-12-29
+        url: "https://comic-ogyaaa.com/episode/3270375685347733444"
+        free_from: 2024-08-31
+      - title: "第二話 午餐とアバンチュール"
+        updated: 2023-12-29
+        url: "https://comic-ogyaaa.com/episode/3270296674416128633"
+        free_from: 2024-08-31
+      - title: "第一話 私立雪薔薇女学院"
+        updated: 2022-05-27
+        url: "https://comic-ogyaaa.com/episode/3269754496893316619"
+        free_from: 2022-05-27
+      - title: "予告編"
+        updated: 2023-04-29
+        url: "https://comic-ogyaaa.com/episode/3270296674343536934"
+        free_from: 2023-04-29

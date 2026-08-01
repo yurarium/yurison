@@ -13,7 +13,7 @@ import argparse, datetime, glob, json, pathlib, re, sys, unicodedata
 from collections import defaultdict
 
 sys.path.insert(0, "adapters")
-from crossplatform import carriage, merge_releases  # noqa: E402
+from crossplatform import carriage, episode_key, merge_releases  # noqa: E402
 
 import yaml
 
@@ -618,8 +618,18 @@ def main():
     not_works = {norm_work(x["title"]) for x in
                  (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("not_works") or []}
 
+    CLAIM_DATE_SLACK = 2   # days either side
+
+    def near_dates(when):
+        try:
+            d0 = datetime.date.fromisoformat(when)
+        except ValueError:
+            return ()
+        return tuple(str(d0 + datetime.timedelta(days=k))
+                     for k in range(-CLAIM_DATE_SLACK, CLAIM_DATE_SLACK + 1) if k)
+
     cf = pathlib.Path("data/source/comparators/claims.yaml")
-    claims_kept, phantom = 0, 0
+    claims_kept, phantom, claims_superseded_nearby = 0, 0, 0
     if cf.exists():
         d = yaml.safe_load(cf.read_text()) or {}
         for c in d.get("updates") or []:
@@ -636,6 +646,14 @@ def main():
                 phantom += 1
                 continue
             if (nw, when) in attested_keys:
+                continue
+            # Comparators and platforms disagree by a day or two routinely — a listing site records
+            # when it noticed, the platform when it published, and timezones and crawl schedules do
+            # the rest. 白き乙女の人狼 is attested on 竹コミ for 2026-07-10 and claimed for 07-12.
+            # Treating those as two events shows the reader one update twice, the second time
+            # marked unconfirmed. Exact-date matching was too strict for what these dates are.
+            if any((nw, d) in attested_keys for d in near_dates(when)):
+                claims_superseded_nearby += 1
                 continue
             # 百合ナビ runs title and author together in one cell, so an exact-key test misses a
             # claim that duplicates an attested release — "リリィズコンプレックス 館山けーた" against
@@ -898,6 +916,29 @@ def main():
     samples = [r for r in releases if r.get("web") == "promotional-sample-only"]
     releases = [r for r in releases if r.get("web") != "promotional-sample-only"]
     releases = [r for r in releases if r.get("is_preferred")]
+    # The same chapter can now arrive twice from one platform: its per-series feed and its
+    # platform-wide feed both carry it, with different release ids. merge_releases picks the best
+    # PLATFORM for a chapter, which does not help when the duplicate is on that platform —
+    # 雨夜の月's 第５０−２話 appeared twice on コミックDAYS. Collapse on what identifies a chapter:
+    # the work, the episode, and where it was published.
+    seen_chapter, deduped, dropped_dupes = {}, [], 0
+    for r in sorted(releases, key=lambda r: (r["pub"], r.get("basis") == "heuristic")):
+        # The FULL episode title, not episode_key. episode_key reduces to a chapter number, so
+        # 第５０−１話 and 第５０−２話 both key as n50 — using it here silently deleted every second
+        # part of a split chapter. That is right for deciding "same chapter, two platforms" and
+        # exactly wrong for deciding "same row twice".
+        k = (norm_work(r["work"]), norm_work(r.get("ep") or ""),
+             r.get("plat_name") or r.get("plat"))
+        # An empty episode is not an identity: work-level rows (ニコニコ) and comparator claims
+        # would all collapse into one per platform. Those are deduped by date instead.
+        if not (r.get("ep") or "").strip():
+            k = k + (r["pub"],)
+        if k in seen_chapter:
+            dropped_dupes += 1
+            continue
+        seen_chapter[k] = True
+        deduped.append(r)
+    releases = deduped
     releases.sort(key=lambda r: r["pub"], reverse=True)
 
     lapsed = [c for c in carriage(
@@ -939,10 +980,17 @@ def main():
 
     # Discovery candidates are NOT records and are kept in a separate structure so nothing
     # downstream can mistake them for attested data (§1).
-    queue = []
+    # A candidate stops being a candidate the moment a platform attests it. Nothing removed them,
+    # so the queue still listed seven works as "unconfirmed" that the feed had confirmed — the tab
+    # persisted with nothing in it that was true.
+    _feed_att = {norm_work(r["work"]) for r in releases if r.get("provenance") == "attested"}
+    queue, promoted = [], 0
     for f in sorted(glob.glob("data/queue/*.yaml")):
         d = yaml.safe_load(open(f)) or {}
         for c in d.get("candidates") or []:
+            if norm_work(c.get("work_title") or "") in _feed_att:
+                promoted += 1
+                continue
             queue.append({"work": c.get("work_title"), "signal": c.get("signal"),
                           "url": c.get("url"), "headline": c.get("headline"),
                           "announced": str(c.get("announced", "")),
@@ -967,13 +1015,15 @@ def main():
         print(f"access modes    : {dict(am)}")
     if lapsed:
         print(f"carriage lapses : {len(lapsed)}")
+    print(f"duplicate chapters collapsed : {dropped_dupes}")
     serialised = sum(1 for r in releases if r.get("web") == "serialised")
     print(f"releases        : {len(releases)} from {len(platforms)} platform(s) "
           f"({serialised} serialised, {len(releases)-serialised} promotional samples)")
     print(f"print candidates: {len(print_candidates)} from web samples")
     wl = sum(1 for w in web_works if w.get("marketing_label") == "yuri")
     print(f"web works       : {len(web_works)} confirmed ({wl} with a publisher yuri label)")
-    print(f"queue           : {len(queue)} unconfirmed candidates")
+    print(f"queue           : {len(queue)} unconfirmed candidates "
+          f"({promoted} dropped — now attested)")
     print(f"works compiled  : {len(works)}")
     print(f"volumes         : {sum(w['volume_count'] for w in works)}")
     print(f"with openBD     : {sum(1 for w in works if 'openbd' in w['sources'])}")

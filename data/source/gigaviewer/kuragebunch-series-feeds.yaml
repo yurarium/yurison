@@ -1,0 +1,144 @@
+# くらげバンチ — per-series Atom feeds, one per work.
+#
+# The platform-wide /atom holds about twenty entries across everything it publishes,
+# which on a platform with 165 yuri series is a window of days. Per-series feeds are not
+# a rolling window — 大室家's returns all 136 of its episodes — so a work updating monthly
+# is caught rather than missed.
+#
+# Dates are the feed's own <updated>: platform-attested, not inferred.
+source: gigaviewer
+platform: kuragebunch
+platform_name: "くらげバンチ"
+publisher: "新潮社"
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: platform-genre
+series_resolved: 13
+works:
+  - work_title: "さえちゃんのとなり"
+    series_id: "2550912964605789737"
+    url: "https://kuragebunch.com/atom/series/2550912964605789737"
+    chapter_count: 1
+    chapters:
+      - title: "さえちゃんのとなり"
+        updated: 2024-09-20
+        url: "https://kuragebunch.com/episode/2550912964605794646"
+        free_from: 2024-09-20
+  - work_title: "スウィングが無ければ意味が無い"
+    series_id: "14079602755430093361"
+    url: "https://kuragebunch.com/atom/series/14079602755430093361"
+    chapter_count: 1
+    chapters:
+      - title: "スウィングが無ければ意味が無い"
+        updated: 2023-11-14
+        url: "https://kuragebunch.com/episode/14079602755430095088"
+        free_from: 2023-11-14
+  - work_title: "ストロベリークォーツ"
+    series_id: "2550912965382990725"
+    url: "https://kuragebunch.com/atom/series/2550912965382990725"
+    chapter_count: 1
+    chapters:
+      - title: "ストロベリークォーツ"
+        updated: 2025-03-07
+        url: "https://kuragebunch.com/episode/2550912965383006850"
+        free_from: 2025-03-07
+  - work_title: "ファーストペンギン・レクイエム"
+    series_id: "12207421983893646743"
+    url: "https://kuragebunch.com/atom/series/12207421983893646743"
+    chapter_count: 3
+    chapters:
+      - title: "第3話 人類を守る仕事"
+        updated: 2026-07-28
+        url: "https://kuragebunch.com/episode/12207421983906416219"
+      - title: "第2話 ドアの向こうは"
+        updated: 2026-06-30
+        url: "https://kuragebunch.com/episode/12207421983906416214"
+        free_from: 2026-07-28
+      - title: "第1話 命の保証のない仕事"
+        updated: 2026-06-30
+        url: "https://kuragebunch.com/episode/12207421983893652478"
+        free_from: 2026-06-30
+  - work_title: "ベーズのドアの向こうには"
+    series_id: "2550912964733573722"
+    url: "https://kuragebunch.com/atom/series/2550912964733573722"
+    chapter_count: 1
+    chapters:
+      - title: "ベーズのドアの向こうには"
+        updated: 2024-10-18
+        url: "https://kuragebunch.com/episode/2550912964733611723"
+        free_from: 2024-10-18
+  - work_title: "ママ活女"
+    series_id: "12207421983529904402"
+    url: "https://kuragebunch.com/atom/series/12207421983529904402"
+    chapter_count: 1
+    chapters:
+      - title: "ママ活女"
+        updated: 2026-03-27
+        url: "https://kuragebunch.com/episode/12207421983529910910"
+        free_from: 2026-03-27
+  - work_title: "メイドのベル"
+    series_id: "12207421983458657760"
+    url: "https://kuragebunch.com/atom/series/12207421983458657760"
+    chapter_count: 2
+    chapters:
+      - title: "メイドのベル　後編"
+        updated: 2026-03-10
+        url: "https://kuragebunch.com/episode/12207421983458660590"
+      - title: "メイドのベル　前編"
+        updated: 2026-03-10
+        url: "https://kuragebunch.com/episode/12207421983458660582"
+        free_from: 2026-03-10
+  - work_title: "先輩と後輩、大暴れの週末"
+    series_id: "2550912965269443376"
+    url: "https://kuragebunch.com/atom/series/2550912965269443376"
+    chapter_count: 1
+    chapters:
+      - title: "先輩と後輩、大暴れの週末"
+        updated: 2025-02-28
+        url: "https://kuragebunch.com/episode/2550912965269449845"
+        free_from: 2025-02-28
+  - work_title: "其れの手も借りるほど"
+    series_id: "14079602755594903536"
+    url: "https://kuragebunch.com/atom/series/14079602755594903536"
+    chapter_count: 1
+    chapters:
+      - title: "其れの手も借りるほど"
+        updated: 2023-12-26
+        url: "https://kuragebunch.com/episode/14079602755594905097"
+        free_from: 2023-12-26
+  - work_title: "友達からでもいいですか"
+    series_id: "12207421984030241994"
+    url: "https://kuragebunch.com/atom/series/12207421984030241994"
+    chapter_count: 1
+    chapters:
+      - title: "第1話"
+        updated: 2026-07-31
+        url: "https://kuragebunch.com/episode/12207421984030246278"
+        free_from: 2026-07-31
+  - work_title: "昼のひもので夜もすがら"
+    series_id: "2550912964584005084"
+    url: "https://kuragebunch.com/atom/series/2550912964584005084"
+    chapter_count: 1
+    chapters:
+      - title: "昼のひもので夜もすがら"
+        updated: 2024-09-06
+        url: "https://kuragebunch.com/episode/2550912964584008803"
+        free_from: 2024-09-06
+  - work_title: "負けない冬に春が咲く"
+    series_id: "2550912965761323159"
+    url: "https://kuragebunch.com/atom/series/2550912965761323159"
+    chapter_count: 1
+    chapters:
+      - title: "負けない冬に春が咲く"
+        updated: 2025-06-06
+        url: "https://kuragebunch.com/episode/2550912965761324907"
+        free_from: 2025-06-06
+  - work_title: "銀玉の価値を上げる方法"
+    series_id: "2551460909836378675"
+    url: "https://kuragebunch.com/atom/series/2551460909836378675"
+    chapter_count: 1
+    chapters:
+      - title: "銀玉の価値を上げる方法"
+        updated: 2025-11-21
+        url: "https://kuragebunch.com/episode/2551460909836381475"
+        free_from: 2025-11-21

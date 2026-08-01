@@ -1,0 +1,370 @@
+# コミックゼノン — per-series Atom feeds, one per work.
+#
+# The platform-wide /atom holds about twenty entries across everything it publishes,
+# which on a platform with 165 yuri series is a window of days. Per-series feeds are not
+# a rolling window — 大室家's returns all 136 of its episodes — so a work updating monthly
+# is caught rather than missed.
+#
+# Dates are the feed's own <updated>: platform-attested, not inferred.
+source: gigaviewer
+platform: comic-zenon
+platform_name: "コミックゼノン"
+publisher: "コアミックス"
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: platform-genre
+series_resolved: 14
+works:
+  - work_title: "My Friend Mana"
+    series_id: "3269754496817875492"
+    url: "https://comic-zenon.com/atom/series/3269754496817875492"
+    chapter_count: 1
+    chapters:
+      - title: "読切 My Friend Mana"
+        updated: 2022-03-18
+        url: "https://comic-zenon.com/episode/3269754496817930030"
+        free_from: 2022-03-18
+  - work_title: "かっこいい彼女"
+    series_id: "2550689798333966515"
+    url: "https://comic-zenon.com/atom/series/2550689798333966515"
+    chapter_count: 1
+    chapters:
+      - title: "読切 かっこいい彼女"
+        updated: 2024-03-22
+        url: "https://comic-zenon.com/episode/2550689798333988450"
+        free_from: 2024-03-22
+  - work_title: "まい・えんぷてぃ・らぶ"
+    series_id: "2550689798768341018"
+    url: "https://comic-zenon.com/atom/series/2550689798768341018"
+    chapter_count: 1
+    chapters:
+      - title: "読切 まい・えんぷてぃ・らぶ"
+        updated: 2024-07-05
+        url: "https://comic-zenon.com/episode/2550689798768341356"
+  - work_title: "イトが搦ム"
+    series_id: "3269754496831025507"
+    url: "https://comic-zenon.com/atom/series/3269754496831025507"
+    chapter_count: 1
+    chapters:
+      - title: "読切 イトが搦ム"
+        updated: 2022-03-25
+        url: "https://comic-zenon.com/episode/3269754496831132958"
+        free_from: 2022-03-25
+  - work_title: "ゲームフレンド"
+    series_id: "12207421983885290253"
+    url: "https://comic-zenon.com/atom/series/12207421983885290253"
+    chapter_count: 1
+    chapters:
+      - title: "読切 ゲームフレンド"
+        updated: 2026-06-28
+        url: "https://comic-zenon.com/episode/12207421983889328876"
+        free_from: 2026-06-28
+  - work_title: "トランス細工ガール"
+    series_id: "14079602755346289411"
+    url: "https://comic-zenon.com/atom/series/14079602755346289411"
+    chapter_count: 1
+    chapters:
+      - title: "読切 トランス細工ガール"
+        updated: 2023-10-20
+        url: "https://comic-zenon.com/episode/14079602755346320255"
+        free_from: 2023-10-20
+  - work_title: "ファッションガールヒーロー"
+    series_id: "2550689798333966519"
+    url: "https://comic-zenon.com/atom/series/2550689798333966519"
+    chapter_count: 1
+    chapters:
+      - title: "読切 ファッションガールヒーロー"
+        updated: 2024-03-22
+        url: "https://comic-zenon.com/episode/2550689798333988462"
+        free_from: 2024-03-22
+  - work_title: "マーモリス"
+    series_id: "4856001361487433695"
+    url: "https://comic-zenon.com/atom/series/4856001361487433695"
+    chapter_count: 1
+    chapters:
+      - title: "読切 マーモリス"
+        updated: 2023-09-29
+        url: "https://comic-zenon.com/episode/4856001361489767244"
+        free_from: 2023-09-29
+  - work_title: "人喰い姫のカヴァリエーレ"
+    series_id: "4856001361222609125"
+    url: "https://comic-zenon.com/atom/series/4856001361222609125"
+    chapter_count: 39
+    chapters:
+      - title: "最終話（2）"
+        updated: 2025-01-03
+        url: "https://comic-zenon.com/episode/2550912965061171947"
+      - title: "最終話（1）"
+        updated: 2024-12-20
+        url: "https://comic-zenon.com/episode/2550912964970499400"
+      - title: "第19話（2）"
+        updated: 2024-12-06
+        url: "https://comic-zenon.com/episode/2550912964970499395"
+      - title: "第19話（1）"
+        updated: 2024-11-15
+        url: "https://comic-zenon.com/episode/2550912964823504868"
+      - title: "第18話（2）"
+        updated: 2024-11-01
+        url: "https://comic-zenon.com/episode/2550912964823504862"
+      - title: "第18話（1）"
+        updated: 2024-10-18
+        url: "https://comic-zenon.com/episode/2550912964707339523"
+      - title: "第17話（2）"
+        updated: 2024-10-04
+        url: "https://comic-zenon.com/episode/2550912964707339511"
+      - title: "第17話（1）"
+        updated: 2024-09-20
+        url: "https://comic-zenon.com/episode/2550912964580121584"
+      - title: "第16話（2）"
+        updated: 2024-09-06
+        url: "https://comic-zenon.com/episode/2550912964580121577"
+      - title: "第16話（1）"
+        updated: 2024-08-16
+        url: "https://comic-zenon.com/episode/2550912964421085604"
+      - title: "第15話（2）"
+        updated: 2024-08-02
+        url: "https://comic-zenon.com/episode/2550912964421085599"
+      - title: "第15話（1）"
+        updated: 2024-07-19
+        url: "https://comic-zenon.com/episode/2550689798794030185"
+      - title: "第14話（2）"
+        updated: 2024-07-05
+        url: "https://comic-zenon.com/episode/2550689798794030180"
+      - title: "第14話（1）"
+        updated: 2024-06-21
+        url: "https://comic-zenon.com/episode/2550689798672496715"
+      - title: "第13話（2）"
+        updated: 2024-06-07
+        url: "https://comic-zenon.com/episode/2550689798672496709"
+      - title: "第13話（1）"
+        updated: 2024-05-17
+        url: "https://comic-zenon.com/episode/2550689798514719816"
+      - title: "第12話（2）"
+        updated: 2024-05-03
+        url: "https://comic-zenon.com/episode/2550689798514719811"
+      - title: "第12話（1）"
+        updated: 2024-04-19
+        url: "https://comic-zenon.com/episode/2550689798378431927"
+      - title: "第11話（2）"
+        updated: 2024-04-05
+        url: "https://comic-zenon.com/episode/2550689798378431922"
+      - title: "第11話（1）"
+        updated: 2024-03-15
+        url: "https://comic-zenon.com/episode/2550689798271834233"
+      - title: "第10話（2）"
+        updated: 2024-03-01
+        url: "https://comic-zenon.com/episode/2550689798271834228"
+      - title: "第10話（1）"
+        updated: 2024-02-16
+        url: "https://comic-zenon.com/episode/11341664176573767072"
+      - title: "第9話（2）"
+        updated: 2024-02-02
+        url: "https://comic-zenon.com/episode/11341664176573767067"
+      - title: "第9話（1）"
+        updated: 2024-01-19
+        url: "https://comic-zenon.com/episode/14079602755607907297"
+      - title: "第8話（2）"
+        updated: 2024-01-05
+        url: "https://comic-zenon.com/episode/14079602755607907292"
+      - title: "第8話（1）"
+        updated: 2023-12-15
+        url: "https://comic-zenon.com/episode/14079602755515515307"
+      - title: "第7話（2）"
+        updated: 2023-12-01
+        url: "https://comic-zenon.com/episode/14079602755515515302"
+      - title: "第7話（1）"
+        updated: 2023-11-17
+        url: "https://comic-zenon.com/episode/14079602755396291989"
+      - title: "第6話（2）"
+        updated: 2023-11-03
+        url: "https://comic-zenon.com/episode/14079602755396291983"
+      - title: "第6話（1）"
+        updated: 2023-10-20
+        url: "https://comic-zenon.com/episode/14079602755282896245"
+      - title: "第5話（2）"
+        updated: 2023-10-06
+        url: "https://comic-zenon.com/episode/14079602755282896240"
+      - title: "第5話（1）"
+        updated: 2023-09-15
+        url: "https://comic-zenon.com/episode/14079602755157827600"
+      - title: "第4話（2）"
+        updated: 2023-09-01
+        url: "https://comic-zenon.com/episode/14079602755157827595"
+      - title: "第4話（1）"
+        updated: 2023-08-18
+        url: "https://comic-zenon.com/episode/4856001361588782966"
+      - title: "第3話（2）"
+        updated: 2023-08-04
+        url: "https://comic-zenon.com/episode/4856001361489766851"
+      - title: "第3話（1）"
+        updated: 2023-07-21
+        url: "https://comic-zenon.com/episode/4856001361489766840"
+      - title: "第2話（2）"
+        updated: 2023-07-07
+        url: "https://comic-zenon.com/episode/4856001361223043403"
+        free_from: 2023-07-21
+      - title: "第2話（1）"
+        updated: 2023-06-16
+        url: "https://comic-zenon.com/episode/4856001361223043396"
+        free_from: 2023-07-07
+      - title: "第1話"
+        updated: 2023-06-16
+        url: "https://comic-zenon.com/episode/4856001361223043384"
+        free_from: 2023-06-16
+  - work_title: "多重夢"
+    series_id: "2550912965765813606"
+    url: "https://comic-zenon.com/atom/series/2550912965765813606"
+    chapter_count: 1
+    chapters:
+      - title: "読切 多重夢"
+        updated: 2025-05-30
+        url: "https://comic-zenon.com/episode/2550912965765814675"
+        free_from: 2025-05-30
+  - work_title: "夜明けのアリス"
+    series_id: "12207421983425978428"
+    url: "https://comic-zenon.com/atom/series/12207421983425978428"
+    chapter_count: 1
+    chapters:
+      - title: "読切 夜明けのアリス"
+        updated: 2026-02-27
+        url: "https://comic-zenon.com/episode/12207421983426102334"
+        free_from: 2026-02-27
+  - work_title: "弓道スケッチ"
+    series_id: "2550912965124168307"
+    url: "https://comic-zenon.com/atom/series/2550912965124168307"
+    chapter_count: 1
+    chapters:
+      - title: "読切 弓道スケッチ"
+        updated: 2025-01-31
+        url: "https://comic-zenon.com/episode/2550912965209653001"
+        free_from: 2025-01-31
+  - work_title: "神様の手"
+    series_id: "14079602755346289409"
+    url: "https://comic-zenon.com/atom/series/14079602755346289409"
+    chapter_count: 1
+    chapters:
+      - title: "読切 神様の手"
+        updated: 2023-10-20
+        url: "https://comic-zenon.com/episode/14079602755346320251"
+        free_from: 2023-10-20
+  - work_title: "紅茶の魔女の優雅なる宮廷生活 チートをひた隠す最弱魔導師の窓際ライフ"
+    series_id: "3270296674358741660"
+    url: "https://comic-zenon.com/atom/series/3270296674358741660"
+    chapter_count: 38
+    chapters:
+      - title: "最終話 紅茶の魔女と女王様②"
+        updated: 2024-02-16
+        url: "https://comic-zenon.com/episode/11341664176573766903"
+      - title: "最終話 紅茶の魔女と女王様①"
+        updated: 2024-02-02
+        url: "https://comic-zenon.com/episode/11341664176573766896"
+      - title: "第20話 一杯の紅茶とありったけの愛②"
+        updated: 2024-01-19
+        url: "https://comic-zenon.com/episode/14079602755607906754"
+      - title: "第20話 一杯の紅茶とありったけの愛①"
+        updated: 2024-01-05
+        url: "https://comic-zenon.com/episode/14079602755607906749"
+      - title: "第19話 癒やしの紅茶と果ての地②"
+        updated: 2023-12-15
+        url: "https://comic-zenon.com/episode/14079602755515515132"
+      - title: "第19話 癒やしの紅茶と果ての地①"
+        updated: 2023-12-01
+        url: "https://comic-zenon.com/episode/14079602755515515125"
+      - title: "第18話 王女の決意と未来②"
+        updated: 2023-11-17
+        url: "https://comic-zenon.com/episode/14079602755396291717"
+      - title: "第18話 王女の決意と未来①"
+        updated: 2023-11-03
+        url: "https://comic-zenon.com/episode/14079602755396291709"
+      - title: "第17話 怒りの魔女と王女の涙②"
+        updated: 2023-10-20
+        url: "https://comic-zenon.com/episode/14079602755282896048"
+      - title: "第17話 怒りの魔女と王女の涙①"
+        updated: 2023-10-06
+        url: "https://comic-zenon.com/episode/14079602755282896043"
+      - title: "第16話 黒幕の凶刃と人質の王女②"
+        updated: 2023-09-15
+        url: "https://comic-zenon.com/episode/14079602755157827317"
+      - title: "第16話 黒幕の凶刃と人質の王女①"
+        updated: 2023-09-01
+        url: "https://comic-zenon.com/episode/14079602755157827309"
+      - title: "第15話 黒幕の正体と禁断の魔導書②"
+        updated: 2023-08-18
+        url: "https://comic-zenon.com/episode/4856001361588782490"
+      - title: "第15話 黒幕の正体と禁断の魔導書①"
+        updated: 2023-08-04
+        url: "https://comic-zenon.com/episode/4856001361588782477"
+      - title: "第14話 魔女と決着②"
+        updated: 2023-07-21
+        url: "https://comic-zenon.com/episode/4856001361489766366"
+      - title: "第14話 魔女と決着①"
+        updated: 2023-07-07
+        url: "https://comic-zenon.com/episode/4856001361489766351"
+      - title: "第13話 偽物の英雄と魔法の真髄②"
+        updated: 2023-06-16
+        url: "https://comic-zenon.com/episode/4856001361294767542"
+      - title: "第13話 偽物の英雄と魔法の真髄①"
+        updated: 2023-06-02
+        url: "https://comic-zenon.com/episode/4856001361294767537"
+      - title: "第12話 爆焔の宿命と開戦の狼煙②"
+        updated: 2023-05-19
+        url: "https://comic-zenon.com/episode/4856001361194565393"
+      - title: "第12話 爆焔の宿命と開戦の狼煙①"
+        updated: 2023-05-05
+        url: "https://comic-zenon.com/episode/4856001361118693520"
+      - title: "第11話 魔女の初陣と本当の魔法②"
+        updated: 2023-04-07
+        url: "https://comic-zenon.com/episode/4856001361118693512"
+      - title: "第11話 魔女の初陣と本当の魔法①"
+        updated: 2023-03-17
+        url: "https://comic-zenon.com/episode/4856001361007927049"
+      - title: "第10話 協議会と魔女の意地②"
+        updated: 2023-03-03
+        url: "https://comic-zenon.com/episode/4856001361007927040"
+      - title: "第10話 協議会と魔女の意地①"
+        updated: 2023-02-17
+        url: "https://comic-zenon.com/episode/4855956445054667905"
+      - title: "第9話 魔女の覚悟とたった一つの願い②"
+        updated: 2023-02-03
+        url: "https://comic-zenon.com/episode/4855956445054667892"
+      - title: "第9話 魔女の覚悟とたった一つの願い①"
+        updated: 2023-01-20
+        url: "https://comic-zenon.com/episode/316190247077605580"
+      - title: "第8話 魔女の不安と新たな宮廷魔導師②"
+        updated: 2023-01-06
+        url: "https://comic-zenon.com/episode/316190247077605575"
+      - title: "第8話 魔女の不安と新たな宮廷魔導師①"
+        updated: 2022-12-16
+        url: "https://comic-zenon.com/episode/316190247005800649"
+      - title: "第7話 王女の決意と魔女の想い②"
+        updated: 2022-11-18
+        url: "https://comic-zenon.com/episode/316190246930038557"
+      - title: "第7話 王女の決意と魔女の想い①"
+        updated: 2022-11-04
+        url: "https://comic-zenon.com/episode/316190246930038549"
+      - title: "第6話 本の魔導師と魔女の過去②"
+        updated: 2022-10-21
+        url: "https://comic-zenon.com/episode/316112896912429528"
+      - title: "第6話 本の魔導師と魔女の過去①"
+        updated: 2022-10-07
+        url: "https://comic-zenon.com/episode/316112896912429519"
+      - title: "第5話 魔女と王女と王宮デート②"
+        updated: 2022-09-16
+        url: "https://comic-zenon.com/episode/316112896848917880"
+      - title: "第5話 魔女と王女と王宮デート①"
+        updated: 2022-08-19
+        url: "https://comic-zenon.com/episode/3270375685399017916"
+      - title: "第4話 王女と婚約とアリシアの調べ物"
+        updated: 2022-07-15
+        url: "https://comic-zenon.com/episode/3270375685314506589"
+      - title: "第3話 爆焔の魔導師と王女の願い"
+        updated: 2022-06-17
+        url: "https://comic-zenon.com/episode/3270296674386519088"
+      - title: "第2話 庭園茶会と宮廷魔導師の仕事"
+        updated: 2022-05-20
+        url: "https://comic-zenon.com/episode/3270296674358789209"
+        free_from: 2022-06-17
+      - title: "第1話 紅茶の魔女と王女様"
+        updated: 2022-05-20
+        url: "https://comic-zenon.com/episode/3270296674358789204"
+        free_from: 2022-05-20

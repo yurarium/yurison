@@ -16,7 +16,7 @@ Usage:  coverage.py --out data/coverage --cache ~/workspace/webcomics-cache \
                     --pages 8 --retrieved 2026-08-01
 """
 import argparse, json, pathlib, re, sys, time, urllib.request
-from collections import Counter
+from collections import Counter, defaultdict
 
 import yaml
 
@@ -116,12 +116,29 @@ def main():
     if pathlib.Path("data/source/kadokomi/confirmed.yaml").exists():
         watched_names.add(norm("カドコミ"))
 
+    # A series is often on several platforms (19.6% of these are, up to six each), so a work is a
+    # gap only when it is on NO watched platform. Counting presences overstates the gap and
+    # mis-ranks the platforms: ニコニコ漫画 leads on presences, but about half of those works are
+    # reachable somewhere already watched.
+    platforms_of = defaultdict(set)
+    for e in entries:
+        platforms_of[norm(e["title"])].add(e["platform"])
+    works_covered = {t for t, ps in platforms_of.items()
+                     if any(norm(p_) in watched_names for p_ in ps)}
+
+    # Rank unwatched platforms by works reachable nowhere already watched — the actual gain.
+    exclusive = Counter()
+    for t, ps in platforms_of.items():
+        if t in works_covered:
+            continue
+        for p_ in ps:
+            exclusive[p_] += 1
+
     per_platform = Counter(e["platform"] for e in entries)
-    watched_works = sum(n for p_, n in per_platform.items() if norm(p_) in watched_names)
+    watched_works = len(works_covered)
 
     hits = [e for e in entries if norm(e["title"]) in covered]
     gaps = [e for e in entries if norm(e["title"]) not in covered]
-    by_platform = Counter(e["platform"] for e in gaps)
 
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -132,13 +149,13 @@ def main():
          "# acceptance criterion in §5 — every listed update eventually appearing in our feed.",
          "source: webcomics.jp", "role: coverage-yardstick", f"retrieved: {a.retrieved}",
          f"pages_sampled: {a.pages}", "record_type: coverage_gap",
-         f"sampled: {len(entries)}", f"covered_now: {len(hits)}", f"gap: {len(gaps)}",
+         f"listings: {len(entries)}", f"distinct_works: {len(platforms_of)}",
+         f"works_on_watched_platform: {watched_works}",
          f"platforms_total: {len(per_platform)}",
          f"platforms_watched: {len([p_ for p_ in per_platform if norm(p_) in watched_names])}",
-         f"listed_works_on_watched_platforms: {watched_works}",
+         "# ranked by works reachable on NO watched platform",
          "platforms_missing:"]
-    for p, n in Counter(e["platform"] for e in entries
-                        if norm(e["platform"]) not in watched_names).most_common():
+    for p, n in exclusive.most_common():
         L.append(f"  - platform: {json.dumps(p, ensure_ascii=False)}")
         L.append(f"    works: {n}")
     L.append("works_missing:")
@@ -151,19 +168,18 @@ def main():
     L.append("")
     (out / "webcomics-gap.yaml").write_text("\n".join(L))
 
-    print(f"sampled           : {len(entries)} works over {a.pages} page(s), "
-          f"{len(per_platform)} platforms")
-    print(f"in our feed today : {len(hits)} (feeds are a rolling window; not the metric)")
+    nworks = len(platforms_of)
+    print(f"listings          : {len(entries)} over {a.pages} page(s), {len(per_platform)} platforms")
+    print(f"distinct works    : {nworks}  ({len(entries)-nworks} multi-platform listings)")
     print()
-    print(f"PLATFORM COVERAGE : {len([p_ for p_ in per_platform if norm(p_) in watched_names])}"
-          f"/{len(per_platform)} platforms watched")
-    print(f"                    {watched_works}/{len(entries)} listed works "
-          f"({100*watched_works/max(len(entries),1):.1f}%) live on a watched platform")
+    print(f"WORK COVERAGE     : {watched_works}/{nworks} "
+          f"({100*watched_works/max(nworks,1):.1f}%) reachable on a watched platform")
+    print(f"platforms watched : {len([p_ for p_ in per_platform if norm(p_) in watched_names])}"
+          f"/{len(per_platform)}")
     print()
-    print("largest unwatched platforms:")
-    for p_, n in per_platform.most_common():
-        if norm(p_) not in watched_names and n >= 15:
-            print(f"  {n:4}  {p_}")
+    print("unwatched platforms, by works reachable NOWHERE watched:")
+    for p_, n in exclusive.most_common(12):
+        print(f"  {n:4} exclusive (of {per_platform[p_]:4} listed)  {p_}")
 
 
 if __name__ == "__main__":

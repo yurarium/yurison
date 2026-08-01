@@ -8,25 +8,21 @@ role: coverage-yardstick
 retrieved: 2026-08-01
 pages_sampled: 31
 record_type: coverage_gap
-sampled: 1532
-covered_now: 9
-gap: 1523
+listings: 1532
+distinct_works: 1203
+works_on_watched_platform: 645
 platforms_total: 96
 platforms_watched: 9
-listed_works_on_watched_platforms: 661
+# ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "ニコニコ漫画"
-    works: 175
-  - platform: "pixivコミック"
-    works: 130
+    works: 91
   - platform: "サンデーうぇぶり"
     works: 65
-  - platform: "マガポケ"
-    works: 37
+  - platform: "pixivコミック"
+    works: 63
   - platform: "COMIC FUZ"
     works: 34
-  - platform: "ヤンマガWeb"
-    works: 26
   - platform: "ビッコミ"
     works: 25
   - platform: "竹コミ‎‏‎"
@@ -35,35 +31,35 @@ platforms_missing:
     works: 20
   - platform: "チャンピオンクロス"
     works: 18
+  - platform: "ヤンマガWeb"
+    works: 16
   - platform: "ゼノン編集部"
     works: 16
   - platform: "comicブースト"
     works: 15
+  - platform: "マガポケ"
+    works: 14
   - platform: "ストーリアダッシュ(更新終了)"
     works: 14
   - platform: "キミコミ"
     works: 13
   - platform: "ガンガンONLINE"
     works: 13
-  - platform: "ヤンジャン+"
-    works: 11
   - platform: "Gコミ"
     works: 11
   - platform: "HERO&#039;S Web"
     works: 11
-  - platform: "COMIC OGYAAA!!"
-    works: 11
-  - platform: "コミックNewtype(更新終了)"
-    works: 11
   - platform: "マンガワン"
     works: 10
-  - platform: "きら星ポータル"
-    works: 9
+  - platform: "COMIC OGYAAA!!"
+    works: 10
   - platform: "マンガPark"
     works: 9
-  - platform: "FEEL web"
-    works: 7
+  - platform: "きら星ポータル"
+    works: 9
   - platform: "がうがうモンスター"
+    works: 7
+  - platform: "FEEL web"
     works: 7
   - platform: "ヤングアニマルWeb"
     works: 7
@@ -74,8 +70,6 @@ platforms_missing:
   - platform: "ヤンチャンWeb"
     works: 6
   - platform: "COMICリュウ"
-    works: 6
-  - platform: "ヤングエースUP(更新終了)"
     works: 6
   - platform: "LINEマンガ(更新終了)"
     works: 6
@@ -89,17 +83,17 @@ platforms_missing:
     works: 4
   - platform: "COMIC Y-OURS"
     works: 4
-  - platform: "コミックグロウル"
-    works: 4
   - platform: "少年ジャンプルーキー"
-    works: 4
-  - platform: "ダ・ヴィンチニュース"
     works: 4
   - platform: "WEBコミックガンマぷらす(更新終了)"
     works: 4
+  - platform: "コミックヴァルキリー(更新終了)"
+    works: 3
+  - platform: "ヤンジャン+"
+    works: 3
   - platform: "ライコミ"
     works: 3
-  - platform: "コミックエッセイ劇場"
+  - platform: "コミックグロウル"
     works: 3
   - platform: "新都社"
     works: 3
@@ -107,7 +101,7 @@ platforms_missing:
     works: 3
   - platform: "ツイ4"
     works: 3
-  - platform: "コミックヴァルキリー(更新終了)"
+  - platform: "ダ・ヴィンチニュース"
     works: 3
   - platform: "コロコロオンライン"
     works: 2
@@ -115,15 +109,19 @@ platforms_missing:
     works: 2
   - platform: "まんがタイムSquare"
     works: 2
-  - platform: "マンガボックス"
-    works: 2
   - platform: "コミックボーダー"
+    works: 2
+  - platform: "コミックエッセイ劇場"
     works: 2
   - platform: "コミックノヴァ"
     works: 2
   - platform: "GANMA!(更新終了)"
     works: 2
   - platform: "コロナEX"
+    works: 2
+  - platform: "ヤングエースUP(更新終了)"
+    works: 2
+  - platform: "コミックNewtype(更新終了)"
     works: 2
   - platform: "COMICリュエル"
     works: 2
@@ -139,6 +137,8 @@ platforms_missing:
     works: 1
   - platform: "アサコミ"
     works: 1
+  - platform: "ソノラマプラス(更新終了)"
+    works: 1
   - platform: "コミックPASH! neo"
     works: 1
   - platform: "ゼロサムオンライン"
@@ -149,15 +149,17 @@ platforms_missing:
     works: 1
   - platform: "OUR FEEL"
     works: 1
+  - platform: "Souffle"
+    works: 1
   - platform: "Matogrosso(更新終了)"
     works: 1
   - platform: "GetNavi"
     works: 1
-  - platform: "ソノラマプラス(更新終了)"
-    works: 1
   - platform: "comicグラスト"
     works: 1
   - platform: "少年エースplus(更新終了)"
+    works: 1
+  - platform: "Web漫画速報"
     works: 1
   - platform: "COMIC熱帯"
     works: 1
@@ -167,11 +169,7 @@ platforms_missing:
     works: 1
   - platform: "路草"
     works: 1
-  - platform: "電撃ツイッターマガジン(更新終了)"
-    works: 1
   - platform: "NewsCrunch"
-    works: 1
-  - platform: "Souffle"
     works: 1
   - platform: "げつあくWEB(更新終了)"
     works: 1
@@ -181,9 +179,7 @@ platforms_missing:
     works: 1
   - platform: "パイコミックス"
     works: 1
-  - platform: "Web漫画速報"
-    works: 1
-  - platform: "コミクリ!(更新終了)"
+  - platform: "マンガボックス"
     works: 1
   - platform: "マガジンデビュー(更新終了)"
     works: 1

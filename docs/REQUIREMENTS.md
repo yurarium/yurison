@@ -481,6 +481,52 @@ says cannot work.
   returning 3 genuine entries. Only an *empty* feed indicates breakage; the floor is now 1.
 - **One bad source degrades one platform.** A malformed feed previously killed the whole run.
 
+### A series is often on several platforms, and they are not equivalent
+
+19.6% of works on Web漫画アンテナ's 百合 tag appear on more than one platform, up to six each. Three
+facts follow, each of which breaks a naive approach:
+
+**Releases are not simultaneous.** The same chapter can land a day or two apart. Exact-timestamp
+matching fails; no matching at all produces duplicates separated by a couple of days, which read as
+two chapters. Releases merge on work + chapter number within a 3-day window, and the earliest
+sighting sets the date, which is then locked as under the rule below.
+
+**Platforms differ in reading quality.** Image resolution and free-chapter availability, including
+where free but rate-limited (待てば無料 / チケット). Where a chapter is in several places the feed
+points at the best one and names the alternatives. The ranking lives in `data/platforms.yaml` and
+is **editorial curation, not a fact from any source** — it affects only where a reader is sent,
+never inclusion or classification.
+
+**A platform can silently stop carrying a series.** No notice, no end marker; chapters simply stop
+appearing there while continuing elsewhere. So the preferred source is chosen **per release, from
+the platforms that carry that release** — a platform being better in general is no use if it lacks
+chapter 13. A platform trailing the leader by two or more chapters is marked `lapsed`, which is a
+caution about following the series there and **never** evidence that the series ended.
+
+`adapters/crossplatform.py` implements this and `adapters/test_crossplatform.py` pins it. The tests
+were written before any multi-platform data existed — only 一迅プラス is producing releases so far —
+so the behaviour is fixed by stated fact rather than by whatever the first sample happened to show.
+
+#### Coverage is counted in works, not presences
+
+Because of the overlap, a work is a gap only when it is on **no** watched platform. Counting
+platform-presences overstates the gap and mis-ranks the targets:
+
+| | Listed | Reachable nowhere watched |
+|---|---|---|
+| ニコニコ漫画 | 175 | **91** |
+| サンデーうぇぶり | 65 | **65** |
+| pixivコミック | 130 | **63** |
+| COMIC FUZ | 34 | **34** |
+| マガポケ | 37 | **14** |
+
+Measured 2026-08-01: 1,532 listings are **1,203 distinct works**, of which **645 (53.6%)** are
+reachable on a watched platform — not the 43.1% a presence count reports.
+
+ニコニコ漫画 loses about half its apparent weight, and it also ranks low on reading quality.
+サンデーうぇぶり and COMIC FUZ are wholly exclusive, and COMIC FUZ ranks high on quality, so the
+order to work in is not the order raw listings suggest.
+
 ### Platform dates are claims, not observations
 
 **A platform's own timestamp is not evidence of when something was published.** Verified on

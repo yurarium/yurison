@@ -1,0 +1,74 @@
+# Platform registry — reading quality and access character.
+#
+# A series is frequently published on more than one platform (19.6% of works on Web漫画アンテナ's
+# 百合 tag, up to six platforms each), and the platforms are not equivalent to read on. Where a work
+# is available in several places, the database should be able to say which is the better one.
+#
+# Factors, per the project owner:
+#   - image resolution
+#   - free chapter availability, including where free but rate-limited (待てば無料 / チケット)
+#
+# `reading_rank` is an editorial judgment, not a fact derived from a source. It is recorded here as
+# curation, kept out of the source layer, and carries no bearing on whether a work is included or
+# how it is classified — only on where a reader is pointed.
+#
+# Scale: 1 best. Unranked platforms are unassessed, not bad.
+
+platforms:
+  - id: kadokomi
+    name: カドコミ
+    publisher: KADOKAWA
+    reading_rank: 1
+    notes: Good resolution; substantial free availability.
+    watched: true
+
+  - id: comic-fuz
+    name: COMIC FUZ
+    publisher: 芳文社
+    reading_rank: 1
+    notes: >-
+      Good resolution and free availability. Not GigaViewer, no feed, custom SPA — technically the
+      hardest of the high-value targets, but 34 works available nowhere else watched.
+    watched: false
+
+  - id: nicovideo
+    name: ニコニコ漫画
+    publisher: ドワンゴ
+    reading_rank: 3
+    notes: >-
+      Lower resolution. Largest raw presence in the gap (175) but only 91 works are unavailable on
+      a watched platform, so its true weight is roughly half what the headline suggests.
+    watched: false
+
+  - id: pixivcomic
+    name: pixivコミック
+    publisher: ピクシブ
+    reading_rank: 3
+    notes: Lower resolution. 130 listed, 63 exclusive.
+    watched: false
+
+  - id: sundaywebry
+    name: サンデーうぇぶり
+    publisher: 小学館
+    reading_rank: null
+    notes: Unassessed. 65 works listed and all 65 exclusive — the largest fully-exclusive gap.
+    watched: false
+
+  - id: ichicomi
+    name: 一迅プラス
+    publisher: 一迅社
+    reading_rank: null
+    notes: Unassessed. The 百合姫 line's own platform; the only one that labels its own genres.
+    watched: true
+
+  # Watched via the GigaViewer adapter; reading quality unassessed.
+  - { id: comic-days,     name: コミックDAYS,          publisher: 講談社,        reading_rank: null, watched: true }
+  - { id: tonarinoyj,     name: となりのヤングジャンプ,  publisher: 集英社,        reading_rank: null, watched: true }
+  - { id: shonenjumpplus, name: 少年ジャンプ+,          publisher: 集英社,        reading_rank: null, watched: true }
+  - { id: kuragebunch,    name: くらげバンチ,           publisher: 新潮社,        reading_rank: null, watched: true }
+  - { id: comic-zenon,    name: コミックゼノン,         publisher: コアミックス,  reading_rank: null, watched: true }
+  - { id: magcomi,        name: MAGCOMI,               publisher: マッグガーデン, reading_rank: null, watched: true }
+  - { id: comic-trail,    name: コミックトレイル,       publisher: 白泉社,        reading_rank: null, watched: true }
+  - { id: comic-gardo,    name: コミックガルド,         publisher: オーバーラップ, reading_rank: null, watched: true }
+  - { id: kirarabase,     name: きららベース,           publisher: 芳文社,        reading_rank: null, watched: false,
+      notes: "24 works on 百合ナビ's list, zero on the antenna — the two yardsticks genuinely differ." }

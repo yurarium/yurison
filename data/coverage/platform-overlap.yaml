@@ -1,0 +1,184 @@
+# MEASURED platform overlap, from Web漫画アンテナ's 百合 tag, 2026-08-01.
+#
+# overlap = share of this platform's listed works that also appear on another platform.
+#
+# IMPORTANT: overlap does NOT establish direction. A high-overlap platform may be syndicating
+# others' work, or may be originating work that others syndicate — this data cannot tell them
+# apart. What it does measure is UNIQUE CONTRIBUTION: a high-overlap platform adds little that
+# is not obtainable elsewhere, whichever way the syndication runs. That is what matters for
+# onboarding priority, so direction is left unasserted.
+#
+# Regenerate: see adapters/webcomics/coverage.py for the parser.
+source: webcomics.jp
+role: measurement
+record_type: platform_overlap
+measured: 2026-08-01
+platforms:
+  - platform: "がうがうモンスター"
+    works: 7
+    also_elsewhere: 7
+    overlap: 1.0
+  - platform: "コミックNewtype(更新終了)"
+    works: 11
+    also_elsewhere: 9
+    overlap: 0.818
+  - platform: "ヤンジャン+"
+    works: 11
+    also_elsewhere: 9
+    overlap: 0.818
+  - platform: "pixivコミック"
+    works: 130
+    also_elsewhere: 100
+    overlap: 0.769
+  - platform: "マガポケ"
+    works: 37
+    also_elsewhere: 28
+    overlap: 0.757
+  - platform: "ニコニコ漫画"
+    works: 173
+    also_elsewhere: 123
+    overlap: 0.711
+  - platform: "マンガPark"
+    works: 9
+    also_elsewhere: 6
+    overlap: 0.667
+  - platform: "ヤングエースUP(更新終了)"
+    works: 6
+    also_elsewhere: 4
+    overlap: 0.667
+  - platform: "裏サンデー"
+    works: 6
+    also_elsewhere: 4
+    overlap: 0.667
+  - platform: "キミコミ"
+    works: 13
+    also_elsewhere: 8
+    overlap: 0.615
+  - platform: "webアクション"
+    works: 20
+    also_elsewhere: 10
+    overlap: 0.5
+  - platform: "ストーリアダッシュ(更新終了)"
+    works: 14
+    also_elsewhere: 7
+    overlap: 0.5
+  - platform: "ヤングアニマルWeb"
+    works: 7
+    also_elsewhere: 3
+    overlap: 0.429
+  - platform: "マンガワン"
+    works: 10
+    also_elsewhere: 4
+    overlap: 0.4
+  - platform: "ヤンマガWeb"
+    works: 26
+    also_elsewhere: 10
+    overlap: 0.385
+  - platform: "COMIC FUZ"
+    works: 34
+    also_elsewhere: 13
+    overlap: 0.382
+  - platform: "COMIC OGYAAA!!"
+    works: 11
+    also_elsewhere: 4
+    overlap: 0.364
+  - platform: "一迅プラス"
+    works: 138
+    also_elsewhere: 49
+    overlap: 0.355
+  - platform: "コミックDAYS"
+    works: 109
+    also_elsewhere: 38
+    overlap: 0.349
+  - platform: "COMICリュウ"
+    works: 6
+    also_elsewhere: 2
+    overlap: 0.333
+  - platform: "LINEマンガ(更新終了)"
+    works: 6
+    also_elsewhere: 2
+    overlap: 0.333
+  - platform: "ヤンチャンWeb"
+    works: 6
+    also_elsewhere: 2
+    overlap: 0.333
+  - platform: "カドコミ"
+    works: 243
+    also_elsewhere: 68
+    overlap: 0.28
+  - platform: "竹コミ‎‏‎"
+    works: 22
+    also_elsewhere: 6
+    overlap: 0.273
+  - platform: "フラコミlike!"
+    works: 5
+    also_elsewhere: 1
+    overlap: 0.2
+  - platform: "HERO&#039;S Web"
+    works: 11
+    also_elsewhere: 2
+    overlap: 0.182
+  - platform: "コミック アース・スター"
+    works: 6
+    also_elsewhere: 1
+    overlap: 0.167
+  - platform: "FEEL web"
+    works: 7
+    also_elsewhere: 1
+    overlap: 0.143
+  - platform: "comicブースト"
+    works: 15
+    also_elsewhere: 2
+    overlap: 0.133
+  - platform: "となりのヤングジャンプ"
+    works: 84
+    also_elsewhere: 10
+    overlap: 0.119
+  - platform: "チャンピオンクロス"
+    works: 18
+    also_elsewhere: 2
+    overlap: 0.111
+  - platform: "きら星ポータル"
+    works: 9
+    also_elsewhere: 1
+    overlap: 0.111
+  - platform: "MAGCOMI"
+    works: 21
+    also_elsewhere: 2
+    overlap: 0.095
+  - platform: "Gコミ"
+    works: 11
+    also_elsewhere: 1
+    overlap: 0.091
+  - platform: "ビッコミ"
+    works: 25
+    also_elsewhere: 1
+    overlap: 0.04
+  - platform: "サンデーうぇぶり"
+    works: 65
+    also_elsewhere: 1
+    overlap: 0.015
+  - platform: "少年ジャンプ+"
+    works: 51
+    also_elsewhere: 0
+    overlap: 0.0
+  - platform: "ゼノン編集部"
+    works: 16
+    also_elsewhere: 0
+    overlap: 0.0
+  - platform: "くらげバンチ"
+    works: 13
+    also_elsewhere: 0
+    overlap: 0.0
+  - platform: "ガンガンONLINE"
+    works: 13
+    also_elsewhere: 0
+    overlap: 0.0
+  - platform: "ちゃおプラス"
+    works: 5
+    also_elsewhere: 0
+    overlap: 0.0
+  - platform: "マンガよもんが"
+    works: 5
+    also_elsewhere: 0
+    overlap: 0.0

@@ -523,9 +523,38 @@ platform-presences overstates the gap and mis-ranks the targets:
 Measured 2026-08-01: 1,532 listings are **1,203 distinct works**, of which **645 (53.6%)** are
 reachable on a watched platform — not the 43.1% a presence count reports.
 
-ニコニコ漫画 loses about half its apparent weight, and it also ranks low on reading quality.
-サンデーうぇぶり and COMIC FUZ are wholly exclusive, and COMIC FUZ ranks high on quality, so the
-order to work in is not the order raw listings suggest.
+#### Overlap is measured, and it re-ranks the targets again
+
+Per-platform overlap — the share of a platform's works that also appear elsewhere — is measured in
+`data/coverage/platform-overlap.yaml`:
+
+| Platform | Works | Overlap |
+|---|---|---|
+| pixivコミック | 130 | **0.77** |
+| マガポケ | 37 | 0.76 |
+| ニコニコ漫画 | 173 | 0.71 |
+| COMIC FUZ | 34 | 0.38 |
+| カドコミ | 243 | 0.28 |
+| ビッコミ | 25 | 0.04 |
+| **サンデーうぇぶり** | 65 | **0.02** |
+| 少年ジャンプ+ | 51 | 0.00 |
+
+> **Overlap does not establish direction.** A high-overlap platform may be syndicating others' work
+> or originating work that others syndicate; this data cannot tell them apart. What it measures is
+> **unique contribution** — a high-overlap platform adds little unobtainable elsewhere, whichever
+> way the syndication runs. That is what governs onboarding priority, so direction is left
+> unasserted unless separately known.
+
+Where direction *is* known it is recorded with its source. ニコニコ漫画 is largely but not solely a
+syndicator (project owner, 2026-08-01), with notably worse image quality — so despite topping the
+raw count it is a poor target and a poor `preferred` source.
+
+This corrected a claim of mine: I had recorded pixivコミック as an origin platform on no evidence.
+At 0.77 its overlap is *higher* than ニコニコ's, so its 63 currently-exclusive works are expected to
+shrink as other platforms come online.
+
+**サンデーうぇぶり is the clearest target**: 65 works, overlap 0.02, so its exclusivity is real and
+will not evaporate. COMIC FUZ follows on quality and exclusivity, at higher technical cost.
 
 ### Platform dates are claims, not observations
 

@@ -13,46 +13,79 @@
 # how it is classified — only on where a reader is pointed.
 #
 # Scale: 1 best. Unranked platforms are unassessed, not bad.
+#
+# Cross-platform overlap matters more than raw listing counts. Measured overlap per platform is in
+# `data/coverage/platform-overlap.yaml`; `overlap` here is copied from it.
+#
+# Overlap does NOT establish direction — a high-overlap platform may be syndicating others' work or
+# originating work others syndicate, and the antenna data cannot tell them apart. What it measures
+# is UNIQUE CONTRIBUTION: a high-overlap platform adds little unobtainable elsewhere, whichever way
+# the syndication runs. Where direction IS known it is recorded as `syndication:` with its source.
+#
+# High overlap means: low onboarding priority, and a poor `preferred` source.
 
 platforms:
   - id: kadokomi
     name: カドコミ
     publisher: KADOKAWA
     reading_rank: 1
-    notes: Good resolution; substantial free availability.
+    overlap: 0.28
     watched: true
+    notes: Good resolution; substantial free availability.
 
   - id: comic-fuz
     name: COMIC FUZ
     publisher: 芳文社
     reading_rank: 1
+    overlap: 0.38
+    watched: false
     notes: >-
       Good resolution and free availability. Not GigaViewer, no feed, custom SPA — technically the
-      hardest of the high-value targets, but 34 works available nowhere else watched.
-    watched: false
+      hardest of the high-value targets. Overlap 0.38 and all 34 listed works currently reachable
+      nowhere else watched.
 
   - id: nicovideo
     name: ニコニコ漫画
     publisher: ドワンゴ
     reading_rank: 3
-    notes: >-
-      Lower resolution. Largest raw presence in the gap (175) but only 91 works are unavailable on
-      a watched platform, so its true weight is roughly half what the headline suggests.
+    overlap: 0.71
+    syndication: >-
+      Largely but not solely a syndicator (project owner, 2026-08-01). It does originate some
+      content, so it cannot be dismissed outright.
     watched: false
+    notes: >-
+      The main practical problem in the gap, and largely a mirage. Image quality is notably worse
+      than the origin platforms, and it syndicates a great deal of content published elsewhere.
+      Its 175 listings reduce to 91 unreachable-elsewhere, and most of those 91 are expected to
+      originate on platforms not yet watched rather than on ニコニコ itself.
+
+      Prediction worth checking as origins come online: onboarding pixivコミック, サンデーうぇぶり
+      and COMIC FUZ should cut ニコニコ's exclusive count sharply. If it does, ニコニコ never needs
+      onboarding for coverage — only as a fallback source for works genuinely unavailable elsewhere.
+      Deprioritised accordingly, despite topping the raw count.
 
   - id: pixivcomic
     name: pixivコミック
     publisher: ピクシブ
     reading_rank: 3
-    notes: Lower resolution. 130 listed, 63 exclusive.
+    overlap: 0.77
     watched: false
+    notes: >-
+      CORRECTED 2026-08-01: initially recorded as an origin platform on no evidence. Measured
+      overlap is 0.77 — higher than ニコニコ漫画's 0.71 — so most of what it lists is available
+      elsewhere too. Direction unknown. Lower resolution as well, so its 63 currently-exclusive
+      works are likely to shrink as other platforms are onboarded. Priority reduced.
 
   - id: sundaywebry
     name: サンデーうぇぶり
     publisher: 小学館
     reading_rank: null
-    notes: Unassessed. 65 works listed and all 65 exclusive — the largest fully-exclusive gap.
+    overlap: 0.02
     watched: false
+    notes: >-
+      Overlap 0.02 — almost everything it lists appears nowhere else, so its 65 exclusive works are
+      genuinely its own and will not shrink as other platforms come online. The clearest
+      coverage-per-effort target. Reading quality unassessed.
 
   - id: ichicomi
     name: 一迅プラス

@@ -773,15 +773,15 @@ def main():
     # and that is per-work: きららベース carries 芳文社 titles from COMIC FUZ, but 魔女まじょS-WITCH
     # is native to the channel and returns nothing on comic-fuz.com. So 転載 is asserted only where
     # the work is confirmed on the origin platform; otherwise the origin is recorded as unknown.
+    # Chapters, not just a confirmed title. resolved.yaml records that a work of this name exists
+    # on FUZ, which is not the same as knowing the copy on the channel is that work — ぬるめた has a
+    # shorter, older run on ニコニコ漫画 and a newer one on FUZ, and we hold no FUZ chapters for it
+    # at all (its /series/ URL 404s). A title in common is not a syndication.
     fuz_confirmed = set()
-    _rf = pathlib.Path("data/source/comicfuz/resolved.yaml")
-    if _rf.exists():
-        for w in (yaml.safe_load(_rf.read_text()) or {}).get("works") or []:
-            fuz_confirmed.add(norm_work(w["title"]))
     for f in glob.glob("data/source/comicfuz/*.yaml"):
         for w in (yaml.safe_load(open(f)) or {}).get("works") or []:
             t = w.get("work_title") or w.get("title")
-            if t:
+            if t and (w.get("chapters") or w.get("episodes")):
                 fuz_confirmed.add(norm_work(t))
 
     # A work confirmed on another platform, appearing on a known syndicator, is a syndicated
@@ -811,12 +811,26 @@ def main():
         cur = origin_of.get(k)
         if cur is None or rank_of.get(pn, 99) < rank_of.get(cur, 99):
             origin_of[k] = pn
+    # Syndication needs evidence that it is the SAME RUN, not just the same title. ぬるめた exists
+    # twice: a shorter, older version on ニコニコ漫画 and a newer one on COMIC FUZ. Calling the
+    # first a syndicated copy of the second misattributes it and points a reader at the wrong work.
+    # A title match alone cannot tell a syndication from a same-named separate run, so the claim is
+    # only made where we hold chapter data on the origin side to have matched against.
     for r in releases:
-        og = origin_of.get(norm_work(r.get("work") or ""))
-        if og and (r.get("plat_name") or "") in syndicators and og != r.get("plat_name"):
-            r["syndicated"] = True
-            r["origin_note"] = (f"carried on {r.get('plat_name')}; originates on {og}, "
-                                f"which is where it should be read")
+        nwk = norm_work(r.get("work") or "")
+        og = origin_of.get(nwk)
+        if not og or (r.get("plat_name") or "") not in syndicators or og == r.get("plat_name"):
+            continue
+        origin_chapters = platform_history.get((nwk, norm_work(og)))
+        if not origin_chapters:
+            r["same_title_elsewhere"] = og
+            r["origin_note"] = (f"a work of this title also appears on {og}. Whether it is the same "
+                                f"run is not established — we hold no chapter list on that side to "
+                                f"compare, and a shared title is not evidence of a shared work.")
+            continue
+        r["syndicated"] = True
+        r["origin_note"] = (f"carried on {r.get('plat_name')}; originates on {og}, "
+                            f"which is where it should be read")
 
     for r in releases:
         ch = r.get("channel")
@@ -846,6 +860,10 @@ def main():
     # An earlier release for the same work PROVES this is not the start of it. That is a stronger
     # and safer signal than reading the title, and it rescues works whose chapters are named rather
     # than numbered — スズラン手帖's anthology entries, for instance.
+    by_work_rows = defaultdict(list)
+    for r in releases:
+        by_work_rows[norm_work(r["work"])].append(r)
+
     attested_titles = {norm_work(r["work"]) for r in releases if r.get("provenance") == "attested"}
     earliest, latest, count = {}, {}, {}
     for r in sorted(releases, key=lambda r: r["pub"]):
@@ -957,8 +975,20 @@ def main():
             # The platform states the serialisation start date and it is this update. Positive
             # evidence, unlike "first time we saw it".
             r["kind"], r["kind_basis"] = "new-series", "platform states the serialisation started"
-        elif n == 1:
+        elif n == 1 and not any(
+                ep_number(o.get("ep") or "") not in (None, 1)
+                and (ep_number(o.get("ep") or "") or 0) > 1
+                and o["pub"] < r["pub"]
+                for o in by_work_rows.get(norm_work(r["work"]), [])):
             r["kind"], r["kind_basis"] = "new-series", "episode numbered 1"
+        elif n == 1:
+            # Chapter 1 dated after a later chapter of the same work is not a new series; it is a
+            # misdated row. 妖怪殲滅のサイコリリー's 第1話 came back dated today from a rendered page
+            # while its 第13話 sat on 07-30 — the pairing had caught a comment timestamp.
+            r["kind"] = "new-chapter"
+            r["kind_basis"] = ("numbered 1 but the work has a higher-numbered chapter dated "
+                               "earlier — the date is not trustworthy, so not read as a start")
+            r["kind_inferred"] = True
         elif n is not None:
             r["kind"], r["kind_basis"] = "new-chapter", f"episode numbered {n}"
         elif has_earlier:

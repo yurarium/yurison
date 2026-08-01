@@ -145,6 +145,9 @@ def try_pairs(html):
             continue
         label = re.sub(r"[\x00]+", " ", back[lm.start(): lm.end() + 40]).strip()
         label = re.split(r"\s{2,}", label)[0].strip()
+        # Rendered pages carry comment and sort controls next to the chapter list, and they were
+        # ending up inside the label: 「第1話 出遭いのコメント いいね順 新着順 568コメント」.
+        label = re.split(r"のコメント|いいね順|新着順|\d+コメント", label)[0].strip()
         if not label or (label, d) in seen:
             continue
         seen.add((label, d))

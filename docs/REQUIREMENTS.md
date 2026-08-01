@@ -370,6 +370,38 @@ weeks and then flips to `purchase`. Three consequences:
    historical information about how a work was published, and is not overwritten.
 3. Access volatility, not chapter cadence, is what sets the fast pipeline's polling frequency.
 
+### Acceptance criterion for release coverage
+
+> **Every update listed on Web漫画アンテナ or 百合ナビ should appear in this feed over time, with the
+> attesting source recorded.**
+
+Historical completeness is explicitly **not** required. What ran before we started watching a
+platform is imperfectly knowable, and that is accepted — see the bootstrap discussion below.
+Forward coverage is the target. Adult-rated material remains subject to DEFINITIONS §7 regardless.
+
+This makes Web漫画アンテナ a **yardstick**, not a source. It stays Tier C and attests nothing; what
+it provides is a measurable gap.
+
+#### The metric is platform coverage, not per-work overlap
+
+Measured 2026-08-01 across all 31 pages of its 百合 tag: **1,532 works on 96 platforms.**
+
+A naive per-work comparison scores 0.6%, which is misleading. Atom feeds are a rolling window of
+recent entries, so no snapshot of ours can match a full catalogue — but **every update on a watched
+platform passes through its window eventually**, which is precisely what the criterion asks for. So
+the gate is whether a platform is watched at all:
+
+| | |
+|---|---|
+| Platforms watched | **9 of 96** |
+| Listed works living on a watched platform | **661 of 1,532 (43.1%)** |
+
+The long tail is real — 96 platforms — but weighted by works it concentrates hard. The largest
+unwatched venues are ニコニコ漫画 (175), pixivコミック (130), サンデーうぇぶり (65), マガポケ (37)
+and COMIC FUZ (34). Adding those five would take work coverage past 70%.
+
+`adapters/webcomics/coverage.py` writes the full gap to `data/coverage/`, which is the work queue.
+
 ### Two identification modes, because most platforms label nothing
 
 GigaViewer ships in two generations. The newer Next.js build renders genre chips on its series

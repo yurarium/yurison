@@ -15,7 +15,14 @@ from collections import defaultdict
 import yaml
 
 # REQUIREMENTS §1. A field whose provenance is not here fails the build.
-ALLOWED_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha"}
+# Tier A/B attesting sources only. Discovery-only sources (Tier C/D) never appear here — they feed
+# data/queue/, which is deliberately outside the source tree so nothing can promote a candidate
+# into a record by accident.
+ALLOWED_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha", "gigaviewer"}
+
+# Sources carrying work-level records that merge into a work. Others (release feeds) are
+# platform-level and compile separately.
+WORK_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha"}
 
 # REQUIREMENTS §2. Covers may only be referenced from a publisher-supplied reuse feed.
 ALLOWED_COVER_HOSTS = {"cover.openbd.jp"}
@@ -45,6 +52,8 @@ def main():
         name = pathlib.Path(d).name
         if name not in ALLOWED_SOURCES:
             sys.exit(f"VALIDATION: source directory '{name}' is not on the allowlist (§1)")
+        if name not in WORK_SOURCES:
+            continue
         for r in load_dir(d):
             wid = r["work_id"]
             if name in src[wid]:
@@ -178,6 +187,46 @@ def main():
 
     if len(works) != len(src):
         sys.exit(f"VALIDATION: {len(src)} work ids in, {len(works)} out — records lost in merge.")
+    # ---- Web releases (§5) -------------------------------------------------------------------
+    releases, platforms = [], []
+    for f in sorted(glob.glob("data/source/gigaviewer/*.yaml")):
+        d = yaml.safe_load(open(f)) or {}
+        if d.get("record_type") == "web_series":
+            continue
+        pid = d.get("platform")
+        platforms.append({"id": pid, "name": d.get("platform_name"),
+                          "publisher": d.get("publisher"),
+                          "series": d.get("yuri_series_count", 0),
+                          "retrieved": str(d.get("retrieved", ""))})
+        for r in d.get("releases") or []:
+            releases.append({
+                "id": r.get("release_id"), "work": r.get("work_title"),
+                "ep": r.get("episode_title"), "type": r.get("release_type"),
+                "adv": bool(r.get("advances_narrative")),
+                "pub": str(r.get("published", "")), "url": r.get("url"),
+                "author": r.get("author", ""), "plat": pid,
+                "plat_name": d.get("platform_name"),
+                "free_from": str(r.get("free_term_start", "")) or None,
+            })
+    releases.sort(key=lambda r: r["pub"], reverse=True)
+
+    # Discovery candidates are NOT records and are kept in a separate structure so nothing
+    # downstream can mistake them for attested data (§1).
+    queue = []
+    for f in sorted(glob.glob("data/queue/*.yaml")):
+        d = yaml.safe_load(open(f)) or {}
+        for c in d.get("candidates") or []:
+            queue.append({"work": c.get("work_title"), "signal": c.get("signal"),
+                          "url": c.get("url"), "headline": c.get("headline"),
+                          "announced": str(c.get("announced", "")),
+                          "source": d.get("source"), "status": c.get("status")})
+
+    (out / "feed.json").write_text(json.dumps(
+        {"releases": releases, "platforms": platforms, "queue": queue},
+        ensure_ascii=False, indent=1, default=jsonable))
+
+    print(f"releases        : {len(releases)} from {len(platforms)} platform(s)")
+    print(f"queue           : {len(queue)} unconfirmed candidates")
     print(f"works compiled  : {len(works)}")
     print(f"volumes         : {sum(w['volume_count'] for w in works)}")
     print(f"with openBD     : {sum(1 for w in works if 'openbd' in w['sources'])}")

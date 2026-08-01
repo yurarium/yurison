@@ -1,0 +1,4670 @@
+# CLASSIFICATION REVIEW QUEUE — content_tier (DEFINITIONS §3).
+#
+# NOT A RECORD, and not read by the build. data/queue/ sits outside the source tree so
+# that nothing here can become a record by accident (REQUIREMENTS §1).
+#
+# content_tier cannot be derived. A publisher's 百合 tag is marketing_label by
+# definition; an aggregator's tag is an opinion; 'serialised in 百合姫' is the venue's
+# identity, not the work's. Everything below is evidence pointing at where to look —
+# never at what to conclude.
+#
+# To classify: fill content_tier with one of
+#   canonical-romance | strongly-implied | class-s | incidental
+# and complete the basis, then move the entry to data/overlay/<work_id>.yaml, which the
+# build prefers over every source. class-s on a post-2000 work needs justifying in the
+# basis note (DEFINITIONS §3).
+#
+# Ordered weakest-evidence-first, longest series first within each band: the works with
+# no corroboration beyond their imprint are the ones a human adds most to.
+source: derived
+role: review-queue
+retrieved: 2026-08-01
+record_type: classification_queue
+unclassified_total: 302
+works:
+  - work_id: "C357437"
+    title: "百合男子"
+    yomi: "ユリ ダンシ"
+    creator: "[著]倉田嘘"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 5
+    first_published: "2011-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C360665"
+    title: "捏造トラップ"
+    yomi: "ネツゾウ トラップ"
+    creator: "[著]コダマナオコ"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 4
+    first_published: "2015-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357405"
+    title: "月と世界とエトワール"
+    yomi: "ツキ ト セカイ ト エトワール"
+    creator: "[著]高上優里子"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 4
+    first_published: "2013-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C417413"
+    title: "あとで姉妹ます。"
+    yomi: "アトデ シマイ マス 。"
+    creator: "[著]めの"
+    imprint: "IDコミックス"
+    volumes: 3
+    first_published: "2016-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357103"
+    title: "きものなでしこ"
+    yomi: "キモノ ナデシコ"
+    creator: "[著]八色"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 3
+    first_published: "2012-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C371014"
+    title: "みみみっくす!"
+    yomi: "ミミ ミックス"
+    creator: "[著]広瀬まどか"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 3
+    first_published: "2017-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357188"
+    title: "カシオペア・ドルチェ"
+    yomi: "カシオペア ドルチェ"
+    creator: "[著]髙木信孝"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 3
+    first_published: "2009-01"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419040"
+    title: "グッバイ・ディストピア"
+    yomi: "グッバイ ・ ディストピア"
+    creator: "[著]ひそな"
+    imprint: "IDコミックス"
+    volumes: 3
+    first_published: "2018-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C437093"
+    title: "セメルパルス"
+    yomi: "セメルパルス"
+    creator: "[著]荻野純"
+    imprint: "IDコミックス"
+    volumes: 3
+    first_published: "2020-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366405"
+    title: "初恋姉妹"
+    yomi: "ハツコイ シマイ"
+    creator: "[漫画]東雲水生 / [脚本]駒尾真子"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 3
+    first_published: "2006-04"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C353658"
+    title: "南波と海鈴"
+    yomi: "ナナミ ト ミスズ"
+    creator: "[著]南方純"
+    imprint: "Yuri-hime comics"
+    volumes: 3
+    first_published: "2007-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357412"
+    title: "極上ドロップス"
+    yomi: "ゴクジョウ ドロップス"
+    creator: "[著]三国ハヂメ"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 3
+    first_published: "2015-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357457"
+    title: "私の世界を構成する塵のような何か。"
+    yomi: "ワタクシ ノ セカイ オ コウセイスル チリ ノ ヨウナ ナニカ"
+    creator: "[著]天野しゅにんた"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 3
+    first_published: "2012-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C448669"
+    title: "転生したらあかりだけスライムだった件"
+    yomi: "テンセイ シタラ アカリ ダケ スライム ダッタ ケン"
+    creator: "[原作]なもり / [漫画]水鳥なや"
+    imprint: "IDコミックス"
+    volumes: 3
+    first_published: "2021-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357061"
+    title: "HONEY CRUSH"
+    yomi: "ハニー クラッシュ"
+    creator: "[著]椿あす"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 2
+    first_published: "2009-01"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419039"
+    title: "Roid-ロイド"
+    yomi: "Roid - ロイド"
+    creator: "[著]しろし"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2018-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357085"
+    title: "あやめ14"
+    yomi: "アヤメ フォーティーン"
+    creator: "[著]天野しゅにんた"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 2
+    first_published: "2015-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C360565"
+    title: "いおの様ファナティクス"
+    yomi: "イオノサマ ファナティクス"
+    creator: "[著]藤枝雅"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 2
+    first_published: "2015-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C371006"
+    title: "いつかみのれば"
+    yomi: "イツカ ミノレバ"
+    creator: "[著]西あすか"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 2
+    first_published: "2017-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418570"
+    title: "しおりを探すページたち"
+    yomi: "シオリ オ サガス ページタチ"
+    creator: "[著]くもすずめ"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2018-03"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357122"
+    title: "ときめき☆もののけ女学園"
+    yomi: "トキメキ モノノケ ジョガクエン"
+    creator: "[著]南国ばなな"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 2
+    first_published: "2008-08-01"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C437157"
+    title: "ふたごわずらい"
+    yomi: "フタゴ ワズライ"
+    creator: "[著]桜野いつき"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2020-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357151"
+    title: "ふーふ"
+    yomi: "フーフ"
+    creator: "[著]源久也"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 2
+    first_published: "2011-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C436230"
+    title: "ぽちゃクライム!"
+    yomi: "ポチャ クライム !"
+    creator: "[著]みんたろう"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2020-03"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C421740"
+    title: "みらいのふうふですけど?"
+    yomi: "ミライ ノ フウフ デスケド ?"
+    creator: "[著]野中友"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2018-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357158"
+    title: "むげんのみなもに"
+    yomi: "ムゲン ノ ミナモ ニ"
+    creator: "[著]高崎ゆうき"
+    imprint: "IDコミックス　／　Yuri-Hime COMICS"
+    volumes: 2
+    first_published: "2010-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419300"
+    title: "ゆりこん"
+    yomi: "ユリコン"
+    creator: "[著]久川はる"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2018-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419809"
+    title: "イケメンすぎです紫葵先パイ!"
+    yomi: "イケメン スギデス シキ センパイ !"
+    creator: "[著]ゆあま"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2019-04"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-5f4cde3ca776"
+    title: "ギャルメイドと悪役令嬢"
+    yomi: "ギャルメイド ト アクヤク レイジョウ : オジョーサマ ノ ハッピーエンド シカ カタン!"
+    creator: "鍵穴 / カギアナ"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 2
+    first_published: "2025-03-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-0ab9c167da38"
+    title: "クダンノフォークロア = FOLKLORE OF KUDAN"
+    yomi: "FOLKLORE OF KUDAN"
+    creator: "[キャラクターデザイン原案]SukeraSparo / [原作]志水はつみ / [漫画]煮汁"
+    imprint: "YURIHIME COMICS"
+    volumes: 2
+    first_published: "2021-04"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C432259"
+    title: "サラダボウル"
+    yomi: "サラダ ボウル"
+    creator: "[著]きぃやん"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2019-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C416024"
+    title: "ショコラ : 社会人百合アンソロジー"
+    yomi: "ショコラ : シャカイジン ユリ アンソロジー"
+    creator: ""
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2018-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419899"
+    title: "スカーレット"
+    yomi: "スカーレット"
+    creator: "[著]結野ちり"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2019-03"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C422766"
+    title: "ストロベリーシェイクsweet"
+    yomi: "ストロベリー シェイク スイート"
+    creator: "[著]林家志弦"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2006-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C450217"
+    title: "ツン姫さまとダメ王子ちゃん"
+    yomi: "ツン ヒメサマ ト ダメ オウジチャン"
+    creator: "ヨウハ"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2021-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418826"
+    title: "デミライフ!"
+    yomi: "デミ ライフ !"
+    creator: "[著]黄井ぴかち"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2017-04"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C438652"
+    title: "パルフェ : おねロリ百合アンソロジー"
+    yomi: "パルフェ : オネロリ ユリ アンソロジー"
+    creator: ""
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2018-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C423026"
+    title: "ホームズさんは推理ができない"
+    yomi: "ホームズサン ワ スイリ ガ デキナイ"
+    creator: "[著]沼地どろまる"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2017-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357249"
+    title: "ボウソウガールズテキモウソウレンアイテキステキプロジェクト"
+    yomi: "ボウソウ ガールズ テキ モウソウ レンアイ テキ ステキ プロジェクト"
+    creator: "[著]河合朗"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 2
+    first_published: "2014-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418875"
+    title: "モデルちゃんと地味マネさん"
+    yomi: "モデルチャン ト ジミマネサン"
+    creator: "[著]たねこ"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2018-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C362041"
+    title: "ラストワルツ"
+    yomi: "ラスト ワルツ"
+    creator: "[著]片倉アコ"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 2
+    first_published: "2016-01"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C417787"
+    title: "万葬不踏の欺神迷宮"
+    yomi: "バンソウ フトウ ノ ギシン メイキュウ"
+    creator: "[著]武川慎"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2018-03"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419044"
+    title: "三日月のカルテ"
+    yomi: "ミカズキ ノ カルテ"
+    creator: "[著]七坂なな"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2018-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-011549d102b6"
+    title: "伽藍の姫"
+    yomi: "ガラン ノ ヒメ"
+    creator: "こるせ / コルセ"
+    imprint: "IDコミックス. コミック百合姫"
+    volumes: 2
+    first_published: "2024-01"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419541"
+    title: "女子高生と王子ちゃん"
+    yomi: "ジョシコウセイ ト オウジチャン"
+    creator: "[著]くうねりん"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2018-12"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357346"
+    title: "少女失格"
+    yomi: "ショウジョ シッカク"
+    creator: "[著]河合朗"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 2
+    first_published: "2015-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357382"
+    title: "恋愛遺伝子XX"
+    yomi: "レンアイ イデンシ ダブル エックス"
+    creator: "[作画]蔵王大志 / [原作]影木栄貴"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 2
+    first_published: "2011-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C423992"
+    title: "明日、きみに会えたら"
+    yomi: "アス  キミ ニ アエタラ"
+    creator: "[著]あおと響"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2017-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C423639"
+    title: "昼下がりに、また。"
+    yomi: "ヒルサガリ ニ  マタ"
+    creator: "[著]片倉アコ"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2018-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-baa4c71bbb48"
+    title: "無力聖女と無能王女"
+    yomi: "ムリョク セイジョ ト ムノウ オウジョ : マリョク ゼロ デ ショウカンサレタ セイジョ ノ イセカイ キュウコクキ"
+    creator: "玉崎たま / タマサキタマ"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 2
+    first_published: "2025-05-23"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357434"
+    title: "白銀ギムナジウム"
+    yomi: "ハクギン ギムナジウム"
+    creator: "[著]ひるのつき子"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 2
+    first_published: "2014-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C353604"
+    title: "百合姫Wildrose"
+    yomi: "ユリ ヒメ ワイルドローズ"
+    creator: ""
+    imprint: "yh COMICS"
+    volumes: 2
+    first_published: "2010-03"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418820"
+    title: "監獄街 (プリズンタウン) へようこそ!"
+    yomi: "プリズン タウン エ ヨウコソ !"
+    creator: "[著]寝路"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2018-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357467"
+    title: "紅蓮紀"
+    yomi: "グレンキ"
+    creator: "[著]武若丸"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 2
+    first_published: "2009-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357049"
+    title: "12分のエチュード"
+    yomi: "12フン ノ エチュード"
+    creator: "[著]仲原椿"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 1
+    first_published: "2015-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C451659"
+    title: "2DK、Gペン、アフタータイム。 : 大沢やよい短編集"
+    yomi: "2DK 、 Gペン 、 アフタータイム 。 : オオサワ ヤヨイ タンペンシュウ"
+    creator: "[著]大沢やよい"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2021-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357059"
+    title: "Girl@Girl"
+    yomi: "ガール アット ガール"
+    creator: "[著]まに"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357060"
+    title: "Girls Love"
+    yomi: "ガールズ ラブ"
+    creator: ""
+    imprint: "IDコミックス　／　Yuri-hime comics anthology series"
+    volumes: 1
+    first_published: "2011-03"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C364412"
+    title: "Girls Love"
+    yomi: "strawberry milk shake"
+    creator: ""
+    imprint: "IDコミックス　／　Yuri-hime comics anthology series"
+    volumes: 1
+    first_published: "2011-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357065"
+    title: "LOVE CUBIC"
+    yomi: "Love cubic"
+    creator: "[著]谷村まりか"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2009-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-433464a98ea4"
+    title: "Now loading…!"
+    yomi: "Now loading … !"
+    creator: "[著]みかん氏"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2017-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C415938"
+    title: "Shibuyaギャル百合アンソロジー"
+    yomi: "Shibuya ギャル ユリ アンソロジー"
+    creator: ""
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2019-03"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357069"
+    title: "Sweet Little Devil"
+    yomi: "スイート リトル デビル"
+    creator: "[著]南崎いく"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 1
+    first_published: "2015-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357072"
+    title: "Vespa"
+    yomi: "ベスパ"
+    creator: "[著]大北紘子"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357074"
+    title: "Wildrose Re: mix"
+    yomi: "ワイルドローズ リミックス"
+    creator: ""
+    imprint: "IDコミックス　／　Yuri-hime comics anthology series"
+    volumes: 1
+    first_published: "2011-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-152d10214034"
+    title: "Yrhm百合姫20thアンソロジー"
+    yomi: "Yrhm ユリヒメ 20th アンソロジー"
+    creator: " / "
+    imprint: "IDコミックス. コミック百合姫"
+    volumes: 1
+    first_published: "2025-08-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357077"
+    title: "flower・flower"
+    yomi: "フラワー フラワー"
+    creator: "[著]石見翔子"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2009-01"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357078"
+    title: "game"
+    yomi: "ゲーム"
+    creator: "[著]竹宮ジン"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357079"
+    title: "marriage black"
+    yomi: "マリッジ ブラック"
+    creator: "[著]速瀬羽柴"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2011-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357080"
+    title: "philosophia"
+    yomi: "フィロソフィア"
+    creator: "[著]天野しゅにんた"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C360561"
+    title: "×××したいくらい可愛い君が"
+    yomi: "×××シタイクライ カワイイ キミ ガ"
+    creator: "[著]春日沙生"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357088"
+    title: "いちばん近くて、とおいふたり"
+    yomi: "イチバン チカクテ トオイ フタリ"
+    creator: "[著]黒柾志西"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2012-01"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357089"
+    title: "いばらの泪"
+    yomi: "イバラ ノ ナミダ"
+    creator: "[著]リカチ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2011-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C363622"
+    title: "かわいいあなた"
+    yomi: "カワイイ アナタ"
+    creator: "[著]乙ひより"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2007-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357101"
+    title: "かわいさ余って好きさ100倍!!"
+    yomi: "カワイサ アマッテ スキサ 100バイ"
+    creator: "[著]めの"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C363623"
+    title: "くちびるためいきさくらいろ"
+    yomi: "クチビル タメイキ サクライロ"
+    creator: "[著]森永みるく"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2006-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357104"
+    title: "くちびるに透けたオレンジ"
+    yomi: "クチビル ニ スケタ オレンジ"
+    creator: "[著]ロクロイチ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C360568"
+    title: "くちびるに透けたオレンジ"
+    yomi: "クチビル ニ スケタ オレンジ"
+    creator: "[著]ロクロイチ"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 1
+    first_published: "2015-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357106"
+    title: "ことのはの巫女とことだまの魔女と"
+    yomi: "コトノハ ノ ミコ ト コトダ マ ノ マジョ ト"
+    creator: "[著]藤枝雅"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2006-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366882"
+    title: "さくら文通"
+    yomi: "サクラ ブンツウ"
+    creator: "[著]ヒマワリソウヤ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-6f0fc1151072"
+    title: "ささやくように恋を唄う : 公式コミックアンソロジー"
+    yomi: "ササヤク ヨウニ コイ オ ウタウ : コウシキ コミック アンソロジー"
+    creator: ""
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2024-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366407"
+    title: "さよならフォークロア"
+    yomi: "サヨナラ フォークロア"
+    creator: "[著]かずまこを"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-12"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357109"
+    title: "すこやかパラダイムシフト"
+    yomi: "スコヤカ パラダイム シフト"
+    creator: "[著]すこやか"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357114"
+    title: "それでもやっぱり恋をする。"
+    yomi: "ソレデモ ヤッパリ コイ オ スル"
+    creator: "[著]倉田嘘"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2011-01"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419831"
+    title: "ちょこメイト"
+    yomi: "チョコ メイト"
+    creator: "[著]山田あこ"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2017-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C422856"
+    title: "ときめく、はじめての。"
+    yomi: "トキメク  ハジメテ ノ"
+    creator: "[著]野中友"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2017-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357124"
+    title: "にじいろシークレット"
+    yomi: "ニジイロ シークレット"
+    creator: "[著]楽時たらひ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-03"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357125"
+    title: "ぱすてるディズ"
+    yomi: "パステル ディズ"
+    creator: "[著]由井ひな子"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357146"
+    title: "ひみつ、ひとつ"
+    yomi: "ヒミツ ヒトツ"
+    creator: "[著]仲原椿"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357150"
+    title: "ふたりとふたり"
+    yomi: "フタリ ト フタリ"
+    creator: "[著]吉富昭仁"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-077024fd4f2b"
+    title: "ふたりエスケープ公式コミックアンソロジー"
+    yomi: "フタリ エスケープ コウシキ コミック アンソロジー"
+    creator: "一迅社 / 田口囁一 / イチジンシャ / タグチショウイチ"
+    imprint: "IDコミックス. コミック百合姫"
+    volumes: 1
+    first_published: "2025-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418885"
+    title: "へんたいよくできました"
+    yomi: "ヘンタイ ヨク デキマシタ"
+    creator: "[著]雪尾ゆき"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2019-03"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C434618"
+    title: "ぼくは、百合なお姉ちゃんを応援しています"
+    yomi: "ボク ワ 、 ユリナ オネエチャン オ オウエンシテイマス"
+    creator: "[著]あおと響"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2019-12"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357164"
+    title: "ゆりどりみどり"
+    yomi: "ユリドリ ミドリ"
+    creator: "[著]源久也"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-12"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357165"
+    title: "ゆりゆり"
+    yomi: "ユリユリ"
+    creator: "[著]なもり"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2012-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C360582"
+    title: "よめとり!"
+    yomi: "ヨメトリ"
+    creator: "[著]すこやか"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357168"
+    title: "ろくじょーひとまのねこがみさま"
+    yomi: "ロクジョー ヒトマ ノ ネコガミサマ"
+    creator: "[著]源久也"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-12"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357178"
+    title: "イノセントノイズ"
+    yomi: "イノセント ノイズ"
+    creator: "[著]井村瑛"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357179"
+    title: "インフェルノガール"
+    yomi: "インフェルノ ガール"
+    creator: "[著]黒霧操"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-03"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C356244"
+    title: "オトメキカングレーテル"
+    yomi: "オトメ キカン グレーテル"
+    creator: "[著]すどおかおる"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2009-01"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366409"
+    title: "オレンジイエロー"
+    yomi: "オレンジ イエロー"
+    creator: "[著]乙ひより"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C432235"
+    title: "カヌレ : スール百合アンソロジー"
+    yomi: "カヌレ : スール ユリ アンソロジー"
+    creator: ""
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2019-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419917"
+    title: "カワイイとサヨナラ､"
+    yomi: "カワイイ ト サヨナラ 、"
+    creator: "[著]ねが"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2016-12"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C432686"
+    title: "ガラスの靴を脱ぎ捨てて"
+    yomi: "ガラス ノ クツ オ ヌギステテ"
+    creator: "[著]桐山はるか"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2019-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357192"
+    title: "ガールズ・シンドローム"
+    yomi: "ガールズ シンドローム"
+    creator: "[著]慎結"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C360596"
+    title: "キマシ!"
+    yomi: "キマシ"
+    creator: ""
+    imprint: "IDコミックス　／　Yuri-hime comics anthology series"
+    volumes: 1
+    first_published: "2015-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357194"
+    title: "キミイロ少女"
+    yomi: "キミイロ ショウジョ"
+    creator: "[著]未幡"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C422605"
+    title: "キミイロ少女"
+    yomi: "キミイロ ショウジョ"
+    creator: "[著]未幡"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2018-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366415"
+    title: "キラキラ"
+    yomi: "キラキラ"
+    creator: "[著]竹宮ジン"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2011-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357197"
+    title: "クローバー"
+    yomi: "クローバー"
+    creator: "[著]乙ひより"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2008-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C422658"
+    title: "コイゴコロクリップ"
+    yomi: "コイゴコロ クリップ"
+    creator: "[著]みもと"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2018-03"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357210"
+    title: "サイダーと泣き虫。"
+    yomi: "サイダー ト ナキムシ"
+    creator: "[著]缶乃"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-04"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357211"
+    title: "シュガールーム"
+    yomi: "シュガー ルーム"
+    creator: "[著]鹿嵐"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C362037"
+    title: "シーソー×ゲーム"
+    yomi: "シーソー × ゲーム"
+    creator: "[著]竹宮ジン"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418804"
+    title: "ジャックポットに微笑んで"
+    yomi: "ジャックポット ニ ホホエンデ"
+    creator: "[著]つつい"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2016-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357217"
+    title: "スターライトメロディ"
+    yomi: "スターライト メロディ"
+    creator: "[著]蕗"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-12"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357218"
+    title: "ストレンジベイビーズ"
+    yomi: "ストレンジ ベイビーズ"
+    creator: "[著]大沢やよい"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2013-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C432567"
+    title: "ストレンジベイビーズ : 完全版"
+    yomi: "ストレンジ ベイビーズ : カンゼンバン"
+    creator: "[著]大沢やよい"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2019-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C448703"
+    title: "ストロベリーパルフェ : おねロリ百合アンソロジー"
+    yomi: "ストロベリーパルフェ : オネ ロリ ユリ アンソロジー"
+    creator: ""
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2020-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357225"
+    title: "スパイスガールズ"
+    yomi: "スパイス ガールズ"
+    creator: "[著]大沢やよい"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C417718"
+    title: "スパイスガールズ : 完全版"
+    yomi: "スパイス ガールズ : カンゼンバン"
+    creator: "[著]大沢やよい"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2016-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366410"
+    title: "スリーピングビューティーの見た夢"
+    yomi: "スリーピング ビューティー ノ ミタ ユメ"
+    creator: "[著]四ツ原フリコ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357222"
+    title: "センチメンタルダスト"
+    yomi: "センチメンタル ダスト"
+    creator: "[著]河合朗"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2013-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357226"
+    title: "ダークチェリーと少女A"
+    yomi: "ダーク チェリー ト ショウジョ エー"
+    creator: "[著]ちさこ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C417152"
+    title: "チヨちゃんの嫁入り"
+    yomi: "チヨチャン ノ ヨメイリ"
+    creator: "[著]伊藤ハチ"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2016-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357227"
+    title: "ツインケイク"
+    yomi: "ツイン ケイク"
+    creator: "[著]青井はな"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2011-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357235"
+    title: "トゥルー・トゥルー"
+    yomi: "トゥルー トゥルー"
+    creator: "[著]百乃モト"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C360620"
+    title: "トミコの気持ち"
+    yomi: "トミコ ノ キモチ"
+    creator: "[著]ねこ太"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 1
+    first_published: "2015-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357236"
+    title: "ナイフエッジガール"
+    yomi: "ナイフ エッジ ガール"
+    creator: "[著]古街キッカ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C360622"
+    title: "ナチュリーズ"
+    yomi: "ナチュリーズ"
+    creator: "[著]あおと響"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357237"
+    title: "ハミングガール"
+    yomi: "ハミング ガール"
+    creator: "[著]野中友"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366423"
+    title: "パイをあげましょ、あなたにパイをね"
+    yomi: "パイ オ アゲマショ アナタ ニ パイ オ ネ"
+    creator: "[著]さかもと麻乃"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2012-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C416085"
+    title: "パルフェおねロリ百合アンソロジー"
+    yomi: "パルフェ オネ ロリ ユリ アンソロジー"
+    creator: ""
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2017-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357241"
+    title: "ヒメ・コイ"
+    yomi: "ヒメ コイ"
+    creator: "[著]マシュー正木"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C422988"
+    title: "フーリッシュ!"
+    yomi: "フーリッシュ"
+    creator: "[著]ポルリン"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2018-04"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366424"
+    title: "ブラックヤギーと劇薬まどれーぬ"
+    yomi: "ブラック ヤギー ト ゲキヤク マドレーヌ"
+    creator: "[著]大沢やよい"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2012-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C417719"
+    title: "ブラックヤギーと劇薬まどれーぬ : 完全版"
+    yomi: "ブラック ヤギー ト ゲキヤク マドレーヌ : カンゼンバン"
+    creator: "[著]大沢やよい"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2016-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C362040"
+    title: "プリンスプリンス"
+    yomi: "プリンス プリンス"
+    creator: "[著]あおと響"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 1
+    first_published: "2015-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357246"
+    title: "プリンセス♥プリンセス"
+    yomi: "プリンセス プリンセス"
+    creator: "[著]青木光恵"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357253"
+    title: "マイナスりてらしー"
+    yomi: "マイナス リテラシー"
+    creator: "[著]宮下未紀"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2009-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C421955"
+    title: "マイ・ファーストレディ"
+    yomi: "マイ ・ ファースト レディ"
+    creator: "[著]竹宮ジン"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2016-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C416110"
+    title: "マカロン : アイドル百合アンソロジー"
+    yomi: "マカロン : アイドル ユリ アンソロジー"
+    creator: ""
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2019-04"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357255"
+    title: "マテリアルキャンディ"
+    yomi: "マテリアル キャンディ"
+    creator: "[著]黒霧操"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2013-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C433110"
+    title: "マーメイドライン : 完全版"
+    yomi: "マーメイド ライン : カンゼンバン"
+    creator: "[著]金田一蓮十郎"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2019-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366425"
+    title: "メッてされてキャッ"
+    yomi: "メッ テ サレテ キャッ"
+    creator: "[著]田仲みのる"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2012-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357257"
+    title: "ユリポップ"
+    yomi: "ユリ ポップ"
+    creator: "[著]珠月まや"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357258"
+    title: "ラブフラッグ★Girls!!"
+    yomi: "ラブ フラッグ girls"
+    creator: "[著]高橋依摘"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-03"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366411"
+    title: "ラブフリッカー"
+    yomi: "ラブ フリッカー"
+    creator: "[著]竹宮ジン"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418253"
+    title: "リリィマリアと和解せよ"
+    yomi: "リリィマリア ト ワカイセヨ"
+    creator: "[著]大宮宮美"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2018-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C421850"
+    title: "リリウム・テラリウム = Lilium Terrarium : GIRL meets GIRL OMNIBUS STORY ＆ ILLUSTRATION by ED"
+    yomi: "Lilium Terrarium"
+    creator: "[著]ED"
+    imprint: "YURIHIME COMICS"
+    volumes: 1
+    first_published: "2019-01"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366401"
+    title: "リンケージ"
+    yomi: "リンケージ"
+    creator: "[著]倉田嘘"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2009-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C417728"
+    title: "リンケージ : 完全版"
+    yomi: "リンケージ : カンゼンバン"
+    creator: "[著]倉田嘘"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2016-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357264"
+    title: "レイニーソング"
+    yomi: "レイニー ソング"
+    creator: "[著]百乃モト"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2013-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357270"
+    title: "レンアイ♥女子ファイル"
+    yomi: "レンアイ ジョシ ファイル"
+    creator: "[著]森島明子"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2012-12"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357265"
+    title: "レンアイマンガ"
+    yomi: "レンアイ マンガ"
+    creator: "[著]コダマナオコ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-12"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418850"
+    title: "ロク + イチ暮らし"
+    yomi: "ロク + イチ グラシ"
+    creator: "[著]梅原うめ"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2017-12"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357266"
+    title: "ロケット☆ガール  Rock It, GiRL!!"
+    yomi: "ロケット ガール rock it, girl"
+    creator: "[著]田仲みのる"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-17cfb9510f3f"
+    title: "ロンリーガールに花束を"
+    yomi: "ロンリー ガール ニ ハナタバ オ : カシカゼ タンペンシュウ"
+    creator: "樫風 / カシカゼ"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 1
+    first_published: "2025-01-13"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C432582"
+    title: "ワンナイトフレンド : かやこ短編集"
+    yomi: "ワン ナイト フレンド : カヤコ タンペンシュウ"
+    creator: "[著]かやこ"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2019-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C438075"
+    title: "乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった…girls patch"
+    yomi: "オトメ ゲーム ノ ハメツ フラグ シカ ナイ アクヤク レイジョウ ニ テンセイシテシマッタ … girls patch"
+    creator: ""
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2020-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C362044"
+    title: "住めど地獄のインフェルノ"
+    yomi: "スメド ジゴク ノ インフェルノ"
+    creator: "[著]春日沙生"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 1
+    first_published: "2015-12"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C362046"
+    title: "俺の嫁なんていねぇ!"
+    yomi: "オレ ノ ヨメ ナンテ イネェ"
+    creator: "[著]倉田嘘"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 1
+    first_published: "2015-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C360644"
+    title: "倒錯少女症候群"
+    yomi: "トウサク ショウジョ ショウコウグン"
+    creator: "[著]Shimazaki"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419759"
+    title: "凛としてカレンな花のように"
+    yomi: "リン ト シテ カレンナ ハナ ノ ヨウニ"
+    creator: "[著]ヒロアキ"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2019-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366418"
+    title: "初恋テクトニクス"
+    yomi: "ハツコイ テクトニクス"
+    creator: "[著]かもたま"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2011-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357304"
+    title: "初恋構造式"
+    yomi: "ハツコイ コウゾウシキ"
+    creator: "[著]天野しゅにんた"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2012-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C448637"
+    title: "双子百合えっちアンソロジー"
+    yomi: "フタゴ ユリエッチ アンソロジー"
+    creator: ""
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2020-04"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C417155"
+    title: "合法百合夫婦本"
+    yomi: "ゴウホウ ユリ フウフボン"
+    creator: "[著]伊藤ハチ"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2016-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366429"
+    title: "名前はまだない"
+    yomi: "ナマエ ワ マダ ナイ"
+    creator: "[著]かずまこを"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2013-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418644"
+    title: "君に好きっていわせたい"
+    yomi: "キミ ニ スキ ッテ イワセタイ"
+    creator: "[著]竹嶋えく"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2018-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-dc8ad1c1b98b"
+    title: "君は少女"
+    yomi: "キミ ワ ショウジョ"
+    creator: "[著]ななつ藤"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2018-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357312"
+    title: "喋喋喃喃"
+    yomi: "チョウチョウ ナンナン"
+    creator: "[著]竹宮ジン"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-03"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C363646"
+    title: "夜空の王子と朝焼けの姫"
+    yomi: "ヨゾラ ノ オウジ ト アサヤケ ノ ヒメ"
+    creator: "[著]袴田めら"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2007-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C422274"
+    title: "夢の中で君を探して"
+    yomi: "ユメ ノ ナカ デ キミ オ サガシテ"
+    creator: "[著]織生あや"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2018-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-ed799845adab"
+    title: "好きだからHしてます。"
+    yomi: "スキダカラ H シテマス 。"
+    creator: "[著]コダマナオコ"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2022-01"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C360658"
+    title: "少女²"
+    yomi: "ショウジョ ノ ジジョウ"
+    creator: "[著]未幡"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C417732"
+    title: "少女² (shoujo no jijou) : 完全版"
+    yomi: "ショウジョ ノ ジジョウ : カンゼンバン"
+    creator: "[著]未幡"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2018-12"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357354"
+    title: "少女惑星"
+    yomi: "ショウジョ ワクセイ"
+    creator: "[著]柏原麻実"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2013-04"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366413"
+    title: "少女薄命"
+    yomi: "ショウジョ ハクメイ"
+    creator: "[著]東雲水生"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357356"
+    title: "屋上ぴかぴかロマンス"
+    yomi: "オクジョウ ピカピカ ロマンス"
+    creator: "[著]大沢やよい"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C432566"
+    title: "屋上ぴかぴかロマンス : 完全版"
+    yomi: "オクジョウ ピカピカ ロマンス : カンゼンバン"
+    creator: "[著]大沢やよい"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2019-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-e66aea13ab08"
+    title: "幼なじみが絶対に結ばれる百合アンソロジー"
+    yomi: "オサナナジミ ガ ゼッタイ ニ ムスバレル ユリ アンソロジー"
+    creator: "伊藤ハチ / 相崎うたう / 雨水汐 / アイザキウタウ / イトウハチ / ウスイシオ"
+    imprint: "IDコミックス. コミック百合姫"
+    volumes: 1
+    first_published: "2025-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C424074"
+    title: "恋に煩い"
+    yomi: "コイ ニ ワズライ"
+    creator: "[著]後藤悠希"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2018-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366427"
+    title: "恋のカオリ"
+    yomi: "コイ ノ カオリ"
+    creator: "[著]竹宮ジン"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2012-07"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C421957"
+    title: "恋愛ログ"
+    yomi: "レンアイ ログ"
+    creator: "[著]竹宮ジン"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2016-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357381"
+    title: "恋愛彼岸"
+    yomi: "レンアイ ヒガン"
+    creator: "[著]東雲水生"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2011-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419970"
+    title: "悪夢の楽園"
+    yomi: "アクム ノ ラクエン"
+    creator: "[著]せきはら"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2016-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C360663"
+    title: "愛羅武勇より愛してる"
+    yomi: "アイ ラブ ユウ ヨリ アイシテル"
+    creator: "[著]くみちょう"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2015-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357393"
+    title: "明日の君に花束を"
+    yomi: "アス ノ キミ ニ ハナタバ オ"
+    creator: "[著]片倉アコ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C270392"
+    title: "春夏秋冬"
+    yomi: "ハル ナツ アキ フユ"
+    creator: "[作画]蔵王大志 / [原作]影木栄貴"
+    imprint: "百合姫コミックス"
+    volumes: 1
+    first_published: "2007-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C451119"
+    title: "春夏秋冬 : 完全版"
+    yomi: "ハル ナツ アキ フユ : カンゼンバン"
+    creator: "[作画]蔵王大志 / [原作]影木栄貴"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2021-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-6914778f540d"
+    title: "昨日シたのに覚えてないの?"
+    yomi: "キノウ シタ ノニ オボエテナイノ ? : ユリ エッチ タンペンシュウ"
+    creator: "焼肉定食 / ヤキニク テイショク"
+    imprint: "IDコミックス. コミック百合姫"
+    volumes: 1
+    first_published: "2026-02-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-874a4281201d"
+    title: "晴れの国のあっぱれ団"
+    yomi: "ハレ ノ クニ ノ アッパレ ダン"
+    creator: "[著]竹嶋えく"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2017-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366426"
+    title: "最低女神"
+    yomi: "サイテイ メガミ"
+    creator: "[著]井村瑛"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2012-05"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357407"
+    title: "未完成ガール"
+    yomi: "ミカンセイ ガール"
+    creator: "[著]河合朗"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419776"
+    title: "桃色トランス"
+    yomi: "モモイロ トランス"
+    creator: "[著]こるり"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2017-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357411"
+    title: "極上♥ドロップス"
+    yomi: "ゴクジョウ ドロップス"
+    creator: "[著]三国ハヂメ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2009-12"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357416"
+    title: "死神アリス"
+    yomi: "シニガミ アリス"
+    creator: "[著]いづみやおとは"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2011-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357417"
+    title: "水色エーテル"
+    yomi: "ミズイロ エーテル"
+    creator: "[著]黒霧操"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2011-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357418"
+    title: "水色シネマ"
+    yomi: "ミズイロ シネマ"
+    creator: "[著]乙ひより"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C366428"
+    title: "沼、暗闇、夜の森"
+    yomi: "ヌマ クラヤミ ヨル ノ モリ"
+    creator: "[著]さかもと麻乃"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2013-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357429"
+    title: "瑠璃色の夢"
+    yomi: "ルリイロ ノ ユメ"
+    creator: "[著]森島明子"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2009-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-be5cc2b8bfa4"
+    title: "甘やかし百合えっちアンソロジー"
+    yomi: "アマヤカシ ユリ エッチ アンソロジー"
+    creator: " / "
+    imprint: "IDコミックス. コミック百合姫"
+    volumes: 1
+    first_published: "2025-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C280370"
+    title: "百合姫selection"
+    yomi: "ユリヒメ selection"
+    creator: ""
+    imprint: "百合姫books"
+    volumes: 1
+    first_published: "2007-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C363651"
+    title: "百合心中"
+    yomi: "ユリ シンジュウ"
+    creator: "[著]東雲水生"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2009-08"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418886"
+    title: "瞬きできない"
+    yomi: "マバタキ デキナイ"
+    creator: "[著]雪尾ゆき"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2018-01"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-3d7d425211b5"
+    title: "私の百合はお仕事です! : 公式コミックアンソロジー"
+    yomi: "ワタクシ ノ ユリ ワ オシゴト デス ! : コウシキ コミック アンソロジー"
+    creator: ""
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2023-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357461"
+    title: "秘密のカケラ"
+    yomi: "ヒミツ ノ カケラ"
+    creator: "[著]藤沢誠"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357463"
+    title: "秘蜜少女"
+    yomi: "ヒミツ ショウジョ"
+    creator: "[著]CHI-RAN"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2008-01"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C363653"
+    title: "純水アドレッセンス"
+    yomi: "ジュンスイ アドレッセンス"
+    creator: "[著]かずまこを"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2009-02"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418818"
+    title: "終電で帰さない、たった1つの方法"
+    yomi: "シュウデン デ カエサナイ 、 タッタ 1ツ ノ ホウホウ"
+    creator: "[著]トクヲツム"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2016-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C363654"
+    title: "絶対×浪漫"
+    yomi: "ゼッタイ × ローマン"
+    creator: "[著]むっちりむうにい"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2006-06"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-749adc50976e"
+    title: "絶対に主従が逆転する百合えっちアンソロジー"
+    yomi: "ゼッタイ ニ シュジュウ ガ ギャクテンスル ユリ エッチ アンソロジー"
+    creator: " / "
+    imprint: "IDコミックス. コミック百合姫"
+    volumes: 1
+    first_published: "2026-02-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357469"
+    title: "絶対少女アストライア"
+    yomi: "ゼッタイ ショウジョ アストライア"
+    creator: "[著]東雲水生"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C416733"
+    title: "茜色のキスは屋上で"
+    yomi: "アカネイロ ノ キス ワ オクジョウ デ"
+    creator: "[著]百乃モト"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2016-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357475"
+    title: "茜色コンフィチュール"
+    yomi: "アカネイロ コンフィチュール"
+    creator: "[著]黒霧操"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2012-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357479"
+    title: "薄光スノウフレーク"
+    yomi: "ハッコウ スノウ フレーク"
+    creator: "[著]Haya."
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2014-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418773"
+    title: "課金済ガールフレンド"
+    yomi: "カキンズミ ガール フレンド"
+    creator: "[著]沼地どろまる"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2016-11"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-f89f55de6d40"
+    title: "週末なにしにいこう?"
+    yomi: "シュウマツ ナニシニ イコウ?"
+    creator: "[著]Hitoto*"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2017-09"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419299"
+    title: "高嶺の花はウソツキです。"
+    yomi: "タカネ ノ ハナ ワ ウソツキデス 。"
+    creator: "[著]飴野"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2018-10"
+    marketing_label: "yuri"
+    evidence_tags: {}   # nothing beyond the imprint
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C360682"
+    title: "立花館To Lieあんぐる"
+    yomi: "タチバナカン トライアングル"
+    creator: "[著]merryhachi"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 12
+    first_published: "2015-07"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["メディア化", "ラブコメ", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C362025"
+    title: "2DK、Gペン、目覚まし時計。"
+    yomi: "2DK Gペン メザマシドケイ"
+    creator: "[著]大沢やよい"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 8
+    first_published: "2015-07"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["お仕事", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-82e1b1d200c1"
+    title: "アンドロイドは経験人数に入りますか??"
+    yomi: "アンドロイド ワ ケイケン ニンズウ ニ ハイリマスカ ??"
+    creator: "焼肉定食 / ヤキニク テイショク"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 7
+    first_published: "2022-03"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["メディア化", "ラブコメ", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C447446"
+    title: "ロンリーガールに逆らえない"
+    yomi: "ロンリー ガール ニ サカラエナイ"
+    creator: "[著]樫風"
+    imprint: "IDコミックス"
+    volumes: 7
+    first_published: "2020-05"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ラブコメ", "学園・青春", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C447146"
+    title: "君と綴るうたかた"
+    yomi: "キミ ト ツズル ウタカタ"
+    creator: "ゆあま"
+    imprint: "IDコミックス"
+    volumes: 7
+    first_published: "2021-02"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C434622"
+    title: "Citrus +"
+    yomi: "シトラス プラス"
+    creator: "[著]サブロウタ"
+    imprint: "IDコミックス"
+    volumes: 6
+    first_published: "2019-12"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["学園・青春", "恋愛", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357075"
+    title: "citrus"
+    yomi: "シトラス"
+    creator: "[著]サブロウタ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 6
+    first_published: "2013-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["学園・青春", "恋愛", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C434611"
+    title: "きたない君がいちばんかわいい"
+    yomi: "キタナイ キミ ガ イチバン カワイイ"
+    creator: "[著]まにお"
+    imprint: "IDコミックス"
+    volumes: 6
+    first_published: "2019-12"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C417154"
+    title: "月が綺麗ですね"
+    yomi: "ツキ ガ キレイ デスネ"
+    creator: "[著]伊藤ハチ"
+    imprint: "IDコミックス"
+    volumes: 6
+    first_published: "2016-05"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C419808"
+    title: "ヒーローさんと元女幹部さん"
+    yomi: "ヒーロー サン ト モト オンナ カンブ サン"
+    creator: "[著]そめちめ"
+    imprint: "IDコミックス"
+    volumes: 5
+    first_published: "2019-04"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["アクション・バトル", "ラブコメ", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418874"
+    title: "行進子犬に恋文を"
+    yomi: "コウシン コイヌ ニ コイブミ オ"
+    creator: "[著]玉崎たま"
+    imprint: "IDコミックス"
+    volumes: 5
+    first_published: "2018-07"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C360560"
+    title: "citrus"
+    yomi: "シトラス"
+    creator: "[著]サブロウタ"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 4
+    first_published: "2015-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["学園・青春", "恋愛", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C447420"
+    title: "ふたりエスケープ"
+    yomi: "フタリ エスケープ"
+    creator: "[著]田口囁一"
+    imprint: "IDコミックス"
+    volumes: 4
+    first_published: "2020-12"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["コメディ・ギャグ", "日常", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C433722"
+    title: "ゆめぐりゆりめぐり"
+    yomi: "ユメグリ ユリ メグリ"
+    creator: "[著]はづき"
+    imprint: "IDコミックス"
+    volumes: 4
+    first_published: "2019-10"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C447621"
+    title: "ナメられたくないナメカワさん"
+    yomi: "ナメラレタクナイ ナメカワサン"
+    creator: "阿東里枝"
+    imprint: "IDコミックス"
+    volumes: 4
+    first_published: "2020-09"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C433119"
+    title: "割り切った関係ですから。"
+    yomi: "ワリキッタ カンケイ デス カラ 。"
+    creator: "[著]FLOWERCHILD"
+    imprint: "IDコミックス"
+    volumes: 4
+    first_published: "2019-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["学園・青春", "恋愛", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C450440"
+    title: "女ともだちと結婚してみた。"
+    yomi: "オンナトモダチ ト ケッコン シテ ミタ 。"
+    creator: "[著]雨水汐"
+    imprint: "IDコミックス"
+    volumes: 4
+    first_published: "2021-10"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ヒューマンドラマ", "日常", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357424"
+    title: "犬神さんと猫山さん"
+    yomi: "イヌガミサン ト ネコヤマサン"
+    creator: "[著]くずしろ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 4
+    first_published: "2013-12"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ラブコメ", "日常", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418827"
+    title: "羽山先生と寺野先生は付き合っている"
+    yomi: "ハヤマ センセイ ト テラノ センセイ ワ ツキアッテ イル"
+    creator: "[著]黄井ぴかち"
+    imprint: "IDコミックス"
+    volumes: 4
+    first_published: "2019-01"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-c89ad3469fa7"
+    title: "この世で一番素敵な終わり方"
+    yomi: "コノヨ デ イチバン ステキナ オワリカタ"
+    creator: "[著]シクシク"
+    imprint: "IDコミックス"
+    volumes: 3
+    first_published: "2023-06"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C437146"
+    title: "ゆりづくしの教室で"
+    yomi: "ユリズクシ ノ キョウシツ デ"
+    creator: "[著]しーめ"
+    imprint: "IDコミックス"
+    volumes: 3
+    first_published: "2020-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["学園・青春", "日常", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-505a89667aad"
+    title: "サボりなら保健室でどうぞ?"
+    yomi: "サボリ ナラ ホケンシツ デ ドウゾ ?"
+    creator: "あおと響 / アオトヒビキ"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 3
+    first_published: "2024-10"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ラブコメ", "学園・青春", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C434115"
+    title: "ハロー、メランコリック!"
+    yomi: "ハロー 、 メランコリック!"
+    creator: "[著]大沢やよい"
+    imprint: "IDコミックス"
+    volumes: 3
+    first_published: "2019-11"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-cf3dd0774ec0"
+    title: "君としらない夏になる"
+    yomi: "キミ ト シラナイ ナツ ニ ナル"
+    creator: "[著]きぃやん"
+    imprint: "IDコミックス"
+    volumes: 3
+    first_published: "2022-04"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-dac0d03455a0"
+    title: "嫌われ魔女令嬢と男装皇子の婚約"
+    yomi: "キラワレ マジョ レイジョウ ト ダンソウ オウジ ノ コンヤク"
+    creator: "散葉ちんみ / チルハチンミ"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 3
+    first_published: "2023-12"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ファンタジー", "ラブコメ", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-e22b67cb3529"
+    title: "崖っぷち令嬢は黒騎士様を惚れさせたい!"
+    yomi: "ガケップチ レイジョウ ワ クロキシサマ オ ホレサセタイ !"
+    creator: "そめちめ / 洲央 / スオウ / ソメチメ"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 3
+    first_published: "2024-09"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ファンタジー", "ラブコメ", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418702"
+    title: "徒然日和"
+    yomi: "ツレズレ ビヨリ"
+    creator: "[著]土室圭"
+    imprint: "IDコミックス"
+    volumes: 3
+    first_published: "2018-05"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C432580"
+    title: "海猫荘days"
+    yomi: "ウミネコソウ days"
+    creator: "[著]コダマナオコ"
+    imprint: "IDコミックス"
+    volumes: 3
+    first_published: "2019-06"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ヒューマンドラマ", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-6aa5f3dfb75c"
+    title: "甘えさせて雛森さん!"
+    yomi: "アマエサセテ ヒナモリサン !"
+    creator: "[著]tsuke"
+    imprint: "IDコミックス"
+    volumes: 3
+    first_published: "2022-04"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ラブコメ", "学園・青春", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-6642b757519d"
+    title: "おそとごはんをご一緒に"
+    yomi: "オソト ゴハン オ ゴイッショ ニ"
+    creator: "[著]はづき"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2023-07"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-1ef804f147fa"
+    title: "しかばね少女と愛が重い聖騎士の討伐学園ライフ"
+    yomi: "シカバネ ショウジョ ト アイ ガ オモイ セイキシ ノ トウバツ ガクエン ライフ"
+    creator: "[著]日野アラシ"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2023-12"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ファンタジー", "ラブコメ", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-d77fd8875710"
+    title: "サルビアのブーケ"
+    yomi: "サルビア ノ ブーケ"
+    creator: "4kaえんぴつ / 古賀由人 / 4ka エンピツ / コガユウト"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 2
+    first_published: "2024-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ヒューマンドラマ", "ファンタジー", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C418483"
+    title: "ルミナス = ブルー"
+    yomi: "ルミナス = ブルー"
+    creator: "[著]岩見樹代子"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2019-04"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["学園・青春", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-de1410efb48e"
+    title: "捏造トラップ : NTR"
+    yomi: "ネツゾウ トラップ : NTR"
+    creator: "[著]コダマナオコ"
+    imprint: "IDコミックス"
+    volumes: 2
+    first_published: "2017-05"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["学園・青春", "恋愛", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-c9f5a9cc2ddd"
+    title: "ギャルメイドと悪役令嬢 : おじょーさまのハッピーエンドしか勝たん!"
+    yomi: "ギャル メイド ト アクヤク レイジョウ : オジョーサマ ノ ハッピー エンド シカ カタン !"
+    creator: "[著]鍵穴"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2024-09"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ラブコメ", "異世界・転生", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-39b5cac3debf"
+    title: "スピカをつかまえて"
+    yomi: "スピカ オ ツカマエテ"
+    creator: "[著]織日ちひろ"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2022-06"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C363643"
+    title: "マーメイドライン"
+    yomi: "マーメイド ライン"
+    creator: "[著]金田一蓮十郎"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2008-03"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["学園・青春", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C363644"
+    title: "乙女ケーキ"
+    yomi: "オトメ ケーキ"
+    creator: "[著]タカハシマコ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2007-07"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-b2ad5c4f9ae2"
+    title: "亜澄ちゃんと胡蝶ちゃん"
+    yomi: "アズミチャン ト コチョウチャン"
+    creator: "あまね / アマネ"
+    imprint: "IDコミックス. コミック百合姫"
+    volumes: 1
+    first_published: "2026-06-15"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ラブコメ", "恋愛", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-996afb03181d"
+    title: "嘘つき花嫁と同性結婚論"
+    yomi: "ウソツキ ハナヨメ ト ドウセイ ケッコンロン"
+    creator: "[著]コダマナオコ"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2024-05"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ヒューマンドラマ", "ラブコメ", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-03fdc53d5c85"
+    title: "夏とレモンとオーバーレイ"
+    yomi: "ナツ ト レモン ト オーバーレイ"
+    creator: "[原作]Ru / [漫画]宮原都"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2023-02"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ヒューマンドラマ", "完結", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-10b3f760b21e"
+    title: "夢と恋ではつり合わない"
+    yomi: "ユメ ト コイ デワ ツリアイワナイ"
+    creator: "とりいしづく / トリイシズク"
+    imprint: "IDコミックス. コミック百合姫"
+    volumes: 1
+    first_published: "2025-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-4fcb40b60315"
+    title: "愛したぶんだけ愛してほしいっ!"
+    yomi: "アイシタ ブン ダケ アイシテ ホシイッ !"
+    creator: "[著]まにお"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2024-02"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-8d36b7fa8508"
+    title: "春の光に呑まれても"
+    yomi: "ハル ノ ヒカリ ニ ノマレテモ"
+    creator: "仁科 / ニシナ"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 1
+    first_published: "2026-04-20"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ヒューマンドラマ", "学園・青春", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357413"
+    title: "楽園の条件"
+    yomi: "ラクエン ノ ジョウケン"
+    creator: "[著]森島明子"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2008-01"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-afd2ebc1fa51"
+    title: "私の推しは悪役令嬢。メイドキッチン"
+    yomi: "ワタクシ ノ オシ ワ アクヤク レイジョウ 。 メイド キッチン"
+    creator: "[原作]いのり。 / [漫画]tsuke"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2023-11"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C421919"
+    title: "親がうるさいので後輩 (♀) と偽装結婚してみた。"
+    yomi: "オヤ ガ ウルサイ ノデ コウハイ (♀) ト ギソウ ケッコン シテミタ 。"
+    creator: "[著]コダマナオコ"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2018-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C423809"
+    title: "透明な薄い水色に"
+    yomi: "トウメイナ ウスイ ミズイロ ニ"
+    creator: "[著]岩見樹代子"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2018-02"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C371024"
+    title: "私に天使が舞い降りた!"
+    yomi: "ワタシ ニ テンシ ガ マイオリタ"
+    creator: "[著]椋木ななつ"
+    imprint: "IDコミックス　／　Yurihime comics"
+    volumes: 27
+    first_published: "2017-06"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["コメディ・ギャグ", "日常", "百合"]
+      webcomics.jp: ["4コマ", "アニメ化", "女子小学生", "日常", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C341206"
+    title: "ゆるゆり"
+    yomi: "ユル ユリ"
+    creator: "[著]なもり"
+    imprint: "Yuri-hime comics"
+    volumes: 26
+    first_published: "2009-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["コメディ・ギャグ", "日常", "百合"]
+      webcomics.jp: ["女子中学生", "日常", "架空の部活", "癒やし・ほっこり", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C432674"
+    title: "ささやくように恋を唄う"
+    yomi: "ササヤク ヨウニ コイ オ ウタウ"
+    creator: "[著]竹嶋えく"
+    imprint: "IDコミックス"
+    volumes: 16
+    first_published: "2019-07"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+      webcomics.jp: ["アニメ化", "女子高生", "百合", "音楽"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C417731"
+    title: "私の百合はお仕事です!"
+    yomi: "ワタクシ ノ ユリ ワ オシゴト デス"
+    creator: "[著]未幡"
+    imprint: "IDコミックス"
+    volumes: 15
+    first_published: "2017-07"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+      webcomics.jp: ["アニメ化", "カフェ・喫茶店", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357166"
+    title: "ゆるゆり"
+    yomi: "ユル ユリ"
+    creator: "[著]なもり"
+    imprint: "ID コミックス　／　Yurihime comics"
+    volumes: 12
+    first_published: "2015-07"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["コメディ・ギャグ", "日常", "百合"]
+      webcomics.jp: ["女子中学生", "日常", "架空の部活", "癒やし・ほっこり", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C447686"
+    title: "私の推しは悪役令嬢。"
+    yomi: "ワタクシ ノ オシ ワ アクヤク レイジョウ 。"
+    creator: "[原作]いのり。 / [漫画]青乃下"
+    imprint: "IDコミックス"
+    volumes: 12
+    first_published: "2021-01"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ラブコメ", "異世界・転生", "百合"]
+      webcomics.jp: ["アニメ化", "コミカライズ", "乙女ゲーム", "令嬢", "小説家になろう", "悪役令嬢", "百合", "転生"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C417707"
+    title: "きみが死ぬまで恋をしたい"
+    yomi: "キミ ガ シヌ マデ コイ オ シタイ"
+    creator: "[著]あおのなち"
+    imprint: "IDコミックス"
+    volumes: 10
+    first_published: "2019-02"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ファンタジー", "恋愛", "百合"]
+      webcomics.jp: ["アニメ化", "ファンタジー", "学園", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C371011"
+    title: "たとえとどかぬ糸だとしても"
+    yomi: "タトエ トドカヌ イト ダト シテモ"
+    creator: "[著]Tmnr"
+    imprint: "IDコミックス　／　YURIHIME COMICS"
+    volumes: 7
+    first_published: "2017-06"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+      webcomics.jp: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-862269fc23bd"
+    title: "今日はカノジョがいないから"
+    yomi: "キョウ ワ カノジョ ガ イナイ カラ"
+    creator: "岩見樹代子 / イワミキヨコ"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 7
+    first_published: "2022-01"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["学園・青春", "恋愛", "百合"]
+      webcomics.jp: ["お色気・微エロ", "エロ", "三角関係", "女子高生", "浮気・不倫", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C450079"
+    title: "彩純ちゃんはレズ風俗に興味があります!"
+    yomi: "アスミチャン ワ レズ フウゾク ニ キョウミ ガ アリマス !"
+    creator: "[著]伊月クロ"
+    imprint: "IDコミックス"
+    volumes: 7
+    first_published: "2021-06"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+      webcomics.jp: ["エロ", "性風俗・娼館", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C450093"
+    title: "踊り場にスカートが鳴る"
+    yomi: "オドリバ ニ スカート ガ ナル"
+    creator: "[著]うたたね游"
+    imprint: "IDコミックス"
+    volumes: 6
+    first_published: "2021-07"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["学園・青春", "恋愛", "百合"]
+      webcomics.jp: ["女子高生", "男装", "百合", "運動系部活"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-5994f6084094"
+    title: "平良深姉妹はどっちもヤんでる"
+    yomi: "ヘラミ シマイ ワ ドッチ モ ヤンデル"
+    creator: "金子ある / カネコアル"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 5
+    first_published: "2023-06"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["コメディ・ギャグ", "日常", "百合"]
+      webcomics.jp: ["メイド", "ヤンデレ", "姉妹", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-0c91c2045751"
+    title: "ぜんぶ壊して地獄で愛して"
+    yomi: "ゼンブ コワシテ ジゴク デ アイシテ"
+    creator: "くわばらたもつ / クワバラタモツ"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 4
+    first_published: "2023-09"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["サスペンス", "学園・青春", "百合"]
+      webcomics.jp: ["女子高生", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357320"
+    title: "大室家"
+    yomi: "オオムロケ"
+    creator: "[著]なもり"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 4
+    first_published: "2013-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["コメディ・ギャグ", "日常", "百合"]
+      webcomics.jp: ["スピンオフ・外伝", "姉妹", "日常", "癒やし・ほっこり", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-0e4c1cff6da9"
+    title: "映しちゃダメな顔"
+    yomi: "ウツシチャ ダメナ カオ"
+    creator: "FLOWERCHILD / "
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 4
+    first_published: "2023-12"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["お仕事", "恋愛", "百合"]
+      webcomics.jp: ["エロ", "役者・声優", "水商売", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C421954"
+    title: "いとしこいし"
+    yomi: "イトシ コイシ"
+    creator: "[著]竹宮ジン"
+    imprint: "IDコミックス"
+    volumes: 3
+    first_published: "2019-02"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+      webcomics.jp: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-dfdc34ca6273"
+    title: "キミが吠えるための歌を、"
+    yomi: "キミ ガ ホエル タメノ ウタ オ 、"
+    creator: "樫風 / カシカゼ"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 3
+    first_published: "2025-01-13"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["学園・青春", "百合"]
+      webcomics.jp: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-7d865b2a6fdc"
+    title: "陰キャギャルでもイキがりたい!"
+    yomi: "インキャ ギャル デモ イキガリタイ !"
+    creator: "かしわぎつきこ / カシワギツキコ"
+    imprint: "IDコミックス. コミック百合姫"
+    volumes: 3
+    first_published: "2023-11"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["コメディ・ギャグ", "日常", "百合"]
+      webcomics.jp: ["女子高生", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-4448a2f4ec69"
+    title: "カナリアは綺羅星の夢をみる"
+    yomi: "カナリア ワ キラボシ ノ ユメ オ ミル"
+    creator: "sheepD / "
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 2
+    first_published: "2025-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["恋愛", "歴史・時代", "百合"]
+      webcomics.jp: ["大正", "性風俗・娼館", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-2f98b8f350d3"
+    title: "僕らのアイは気持ち悪い"
+    yomi: "ボクラ ノ アイ ワ キモチワルイ"
+    creator: "雨水汐 / ウスイシオ"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 2
+    first_published: "2025-02"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["サスペンス", "ヒューマンドラマ", "百合"]
+      webcomics.jp: ["フェチ・性癖", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357308"
+    title: "半熟女子"
+    yomi: "ハンジュク ジョシ"
+    creator: "[著]森島明子"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 2
+    first_published: "2008-11-01"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+      webcomics.jp: ["女子高生", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-dca23421a053"
+    title: "現実世界でも幸せにしてくださいね?"
+    yomi: "リアル デモ シアワセ ニ シテクダサイネ ?"
+    creator: "しぼりかすこ / シボリ カスコ"
+    imprint: "IDコミックス. Yurihime comics"
+    volumes: 2
+    first_published: "2025-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+      webcomics.jp: ["ハーレム", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-91483dd6f954"
+    title: "超深宇宙より愛をこめて"
+    yomi: "チョウシン ウチュウ ヨリ アイ オ コメテ"
+    creator: "アシダカヲズ / アシダカオズ"
+    imprint: "IDコミックス. コミック百合姫"
+    volumes: 2
+    first_published: "2025-09"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["恋愛", "日常", "百合"]
+      webcomics.jp: ["女子高生", "学園", "宇宙人", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C341237"
+    title: "飴色紅茶館歓談"
+    yomi: "アメイロ コウチャカン カンダン"
+    creator: "[著]藤枝雅"
+    imprint: "Yuri-Hime COMICS"
+    volumes: 2
+    first_published: "2009-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+      webcomics.jp: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C363624"
+    title: "この願いが叶うなら"
+    yomi: "コノ ネガイ ガ カナウ ナラ"
+    creator: "[著]袴田めら"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2009-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+      webcomics.jp: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357113"
+    title: "それが君になる"
+    yomi: "ソレ ガ キミ ニ ナル"
+    creator: "[著]袴田めら"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-11"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+      webcomics.jp: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-a6c8e8e645f7"
+    title: "たゆたう恋の散り際に"
+    yomi: "タユタウ コイ ノ チリギワ ニ"
+    creator: "ゆあま / ユアマ"
+    imprint: "IDコミックス. Yurihime comics = コミック百合姫"
+    volumes: 1
+    first_published: "2026-05-18"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["学園・青春", "恋愛", "百合"]
+      webcomics.jp: ["学園", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-d48ce540fe11"
+    title: "ひなちゃんが生きてるなら"
+    yomi: "ヒナチャン ガ イキテル ナラ"
+    creator: "紬めめ / ツムギメメ"
+    imprint: "IDコミックス. Yurihime comics = コミック百合姫"
+    volumes: 1
+    first_published: "2026-06-15"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["サスペンス", "ホラー", "百合"]
+      webcomics.jp: ["ホラー", "幼なじみ", "田舎", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357215"
+    title: "スズラン手帖"
+    yomi: "スズラン テチョウ"
+    creator: "[著]タカハシマコ"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2013-10"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+      webcomics.jp: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-457e7832a924"
+    title: "マユノウタ"
+    yomi: "マユ ノ ウタ"
+    creator: "シクシク / シクシク"
+    imprint: "IDコミックス. コミック百合姫"
+    volumes: 1
+    first_published: "2026-01-12"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["サスペンス", "百合"]
+      webcomics.jp: ["ホラー", "百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C357295"
+    title: "会長と副会長"
+    yomi: "カイチョウ ト フクカイチョウ"
+    creator: "[著]袴田めら"
+    imprint: "IDコミックス　／　Yuri-hime comics"
+    volumes: 1
+    first_published: "2010-10"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+      webcomics.jp: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-fd3353ff9f04"
+    title: "君のせいなんだから、責任とってよね。"
+    yomi: "キミ ノ セイ ナンダカラ 、 セキニン トッテヨネ 。"
+    creator: "当麻 / トウマ"
+    imprint: "IDコミックス. Yurihime comics = コミック百合姫"
+    volumes: 1
+    first_published: "2026-06-08"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["恋愛", "百合"]
+      webcomics.jp: ["百合", "社会人"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "C451050"
+    title: "恋愛遺伝子XX : 完全版"
+    yomi: "レンアイ イデンシ XX : カンゼンバン"
+    creator: "[作画]蔵王大志 / [原作]影木栄貴"
+    imprint: "IDコミックス"
+    volumes: 1
+    first_published: "2021-10"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["百合"]
+      webcomics.jp: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this
+  - work_id: "madb-t-da761248fe04"
+    title: "私だって青春したいですよ、本当は。"
+    yomi: "ワタクシ ダッテ セイシュンシタイ デス ヨ 、 ホントウ ワ 。"
+    creator: "尾野凛 / オノリン"
+    imprint: "IDコミックス. コミック百合姫"
+    volumes: 1
+    first_published: "2026-03-02"
+    marketing_label: "yuri"
+    evidence_tags:   # toward a tier, never a tier
+      gigaviewer: ["ラブコメ", "学園・青春", "百合"]
+      webcomics.jp: ["百合"]
+    content_tier: ""   # canonical-romance | strongly-implied | class-s | incidental
+    content_tier_basis:
+      source: ""       # who says so — a Japanese source (REQUIREMENTS §1)
+      url: ""
+      retrieved: ""
+      note: ""         # what in the work supports this

@@ -383,7 +383,24 @@ The signature is measurable. Of 37 entries in one feed, 4 distinct timestamps; o
 at an identical instant. Records crossing that threshold are flagged `date_confidence: low` with the
 count that triggered it.
 
-#### Dates are locked at first sight
+#### The rule
+
+```
+effective date = min(claimed date, first scrape date)   — fixed at first sight, never revised
+```
+
+A claimed date **earlier** than our first scrape is accepted: the release plainly existed before we
+looked, so the platform's claim is the better evidence. A claimed date **later** than our first
+scrape cannot be a publication date for something we had already seen, so our observation wins.
+
+**The load-bearing half is the second clause.** If the platform later changes its claim — which
+these platforms do, in bulk — the stored date does not move. Everything else in this section is
+bookkeeping around that one rule.
+
+`adapters/gigaviewer/test_dates.py` holds it as a regression test: claimed-earlier wins,
+claimed-later loses, and a subsequent change in either direction leaves the stored date untouched.
+
+#### Fields
 
 Each release carries:
 
@@ -396,9 +413,8 @@ Each release carries:
 | `date_basis` | `bootstrap` or `observed` — see below |
 | `platform_date_changed` | Recorded when `platform_updated` diverges from `first_reported` |
 
-A later mass-update at the source is **recorded as divergence and not followed**. This is §4's
-append-and-mark applied to timestamps: the platform's current claim can change, our observation
-cannot.
+A later mass-update at the source is **recorded as divergence and not followed** — §4's
+append-and-mark applied to timestamps.
 
 #### It is mostly a first-import problem, and it decays
 

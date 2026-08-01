@@ -445,7 +445,8 @@ def main():
                 })
 
     for f in (sorted(glob.glob("data/source/webpages/*.yaml"))
-              + sorted(glob.glob("data/source/gigaviewer/*-series-feeds.yaml"))):
+              + sorted(glob.glob("data/source/gigaviewer/*-series-feeds.yaml"))
+              + sorted(glob.glob("data/source/gigaviewer/*-confirmed.yaml"))):
         d = yaml.safe_load(open(f)) or {}
         pid, pname = d.get("platform"), d.get("platform_name")
         for w in d.get("works") or []:
@@ -455,7 +456,10 @@ def main():
                     continue
                 releases.append({
                     "id": f"{pid}:{c.get('url') or c.get('title')}", "work": w.get("work_title"),
-                    "ep": c.get("title"), "type": "chapter", "adv": True,
+                    # The platform's own count decides this: a series with one episode is a
+                    # one-shot. Confirmation established it and the loop was discarding it.
+                    "ep": c.get("title"),
+                    "type": "oneshot" if w.get("is_oneshot") else "chapter", "adv": True,
                     "web": "serialised", "pub": u, "seen": str(d.get("retrieved", "")),
                     # A heuristically-parsed date is not the same kind of fact as one a platform
                     # states, and saying so is the whole price of the generic extractor. Carried
@@ -960,9 +964,18 @@ def main():
         if not (r.get("ep") or "").strip():
             k = k + (r["pub"],)
         if k in seen_chapter:
+            # Merge what the duplicate knows rather than discarding it wholesale. The same chapter
+            # arrives from the platform's own feed AND from confirmation, and only the confirmed
+            # copy knows it is a one-shot — 下部七花はかく語りき was in the feed as an ordinary
+            # chapter because the plain row happened to sort first.
+            kept = seen_chapter[k]
+            if r.get("type") == "oneshot" and kept.get("type") != "oneshot":
+                kept["type"] = "oneshot"
+            if r.get("discovered_via") and not kept.get("discovered_via"):
+                kept["discovered_via"] = r["discovered_via"]
             dropped_dupes += 1
             continue
-        seen_chapter[k] = True
+        seen_chapter[k] = r
         deduped.append(r)
     releases = deduped
     releases.sort(key=lambda r: r["pub"], reverse=True)

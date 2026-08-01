@@ -1,0 +1,31 @@
+# コミックDAYS — works confirmed from the discovery queue.
+#
+# 百合ナビ named these and linked to them; the platform supplies the fields. Tier C
+# names a work and establishes nothing about it (REQUIREMENTS §1).
+#
+# is_oneshot is read, not guessed: a series feed holding exactly one episode is a
+# one-shot. These platforms apply no genre label, so nothing here establishes
+# marketing_label (DEFINITIONS §4).
+source: gigaviewer
+platform: comic-days
+platform_name: "コミックDAYS"
+publisher: "講談社"
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works_confirmed: 1
+works:
+  - work_title: "下部七花はかく語りき"
+    author: "暮みちる"
+    url: "https://comic-days.com/episode/12207421983885192770"
+    series_id: "12207421983885192394"
+    is_oneshot: true
+    discovered_via:
+      signal: "oneshot"
+      article: "https://yurinavi.com/2026/07/20/shimobenanaha-yomikiri/"
+      headline: "クラスの陽キャ美少女との不思議な主従関係を描く百合読み切り「下部七花はかく語りき」WEBで公開"
+    chapter_count: 1
+    chapters:
+      - title: "【コミックDAYS読み切り】下部七花はかく語りき"
+        updated: 2026-07-06
+        url: "https://comic-days.com/episode/12207421983885192770"

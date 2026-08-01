@@ -1,0 +1,37 @@
+# くらげバンチ — works confirmed from the discovery queue.
+#
+# 百合ナビ named these and linked to them; the platform supplies the fields. Tier C
+# names a work and establishes nothing about it (REQUIREMENTS §1).
+#
+# is_oneshot is read, not guessed: a series feed holding exactly one episode is a
+# one-shot. These platforms apply no genre label, so nothing here establishes
+# marketing_label (DEFINITIONS §4).
+source: gigaviewer
+platform: kuragebunch
+platform_name: "くらげバンチ"
+publisher: "新潮社"
+retrieved: 2026-08-01
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works_confirmed: 1
+works:
+  - work_title: "ファーストペンギン・レクイエム"
+    author: "タダノなつ"
+    url: "https://kuragebunch.com/episode/12207421983893652478"
+    series_id: "12207421983893646743"
+    is_oneshot: false
+    discovered_via:
+      signal: "new-serial"
+      article: "https://yurinavi.com/2026/07/01/first-pengin-start/"
+      headline: "怪異に立ち向かう少女ふたりを描いた新連載「ファーストペンギン・レクイエム」がWEBでスタート"
+    chapter_count: 3
+    chapters:
+      - title: "第3話 人類を守る仕事"
+        updated: 2026-07-28
+        url: "https://kuragebunch.com/episode/12207421983906416219"
+      - title: "第2話 ドアの向こうは"
+        updated: 2026-06-30
+        url: "https://kuragebunch.com/episode/12207421983906416214"
+      - title: "第1話 命の保証のない仕事"
+        updated: 2026-06-30
+        url: "https://kuragebunch.com/episode/12207421983893652478"

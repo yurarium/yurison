@@ -587,6 +587,18 @@ def main():
     # Canonicalise platform names through the registry's aliases, so a site the comparators label
     # two ways (ニコニコ静画 / ニコニコ漫画) reads as one platform and dedupes as one.
     alias_to_name, channels = {}, {}
+    # The adapter registries carry aliases too, and only platforms.yaml was being read — so
+    # 花とゆめ＋ (the antenna's full-width ＋) and 花とゆめ+ (the site's) stayed two platforms, and a
+    # work carried once looked cross-published with itself.
+    for _reg, _key in (("adapters/webpages/sites.yaml", "sites"),
+                       ("adapters/gigaviewer/platforms.yaml", "platforms")):
+        _f = pathlib.Path(_reg)
+        if not _f.exists():
+            continue
+        for pl in (yaml.safe_load(_f.read_text()) or {}).get(_key) or []:
+            for al in (pl.get("aliases") or []) + [pl.get("name")]:
+                if al:
+                    alias_to_name[norm_work(al)] = pl.get("name")
     for pl in (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("platforms") or []:
         for al in (pl.get("aliases") or []) + [pl.get("name")]:
             if al:
@@ -1032,11 +1044,38 @@ def main():
         [{"work": r["work"], "episode": r["ep"], "platform": r["plat_name"] or r["plat"],
           "date": r["pub"], "url": r["url"], "_r": r} for r in releases], ranks)
     by_key = {(m["work"], m["episode"]): m for m in merged}
+    # Reading quality decides where to send someone only among copies they can actually read.
+    # しあわせ鳥見んぐ is best read on COMIC FUZ and its newest chapter there is behind a long
+    # paywall while another platform carries it free — pointing at the better image of something
+    # the reader cannot open is not a preference, it is a dead end. A free carrier wins; among
+    # free carriers, and among paywalled ones, reading_rank decides as before.
+    # Read the merge's OWN sources rather than re-deriving keys: a chapter carried on two
+    # platforms has two slightly different episode strings, so keying on each row's text matched
+    # nothing and the rule silently did nothing.
+    switched = 0
+    for m in merged:
+        srcs = m.get("sources") or []
+        free_srcs = [s for s in srcs if (s.get("_r") or {}).get("free")]
+        if not free_srcs:
+            continue
+        best_free = min(free_srcs, key=lambda s: ranks.get(s["platform"], 99))["platform"]
+        if best_free == m["preferred"]:
+            continue
+        pref_row = next((s for s in srcs if s["platform"] == m["preferred"]), None)
+        if pref_row and (pref_row.get("_r") or {}).get("free"):
+            continue          # the preferred copy is free too; rank keeps its say
+        carriers = {s["platform"] for s in srcs} | {m["preferred"]}
+        m["also_on"] = sorted(carriers - {best_free})
+        m["preferred"] = best_free
+        m["preferred_reason"] = "the best-ranked carrier this chapter is actually free on"
+        switched += 1
     for r in releases:
         m = by_key.get((r["work"], r["ep"]))
         if m:
             r["preferred"] = m["preferred"]
             r["also_on"] = m["also_on"]
+            if m.get("preferred_reason"):
+                r["preferred_reason"] = m["preferred_reason"]
             r["is_preferred"] = (r["plat_name"] or r["plat"]) == m["preferred"]
         else:
             r["is_preferred"] = True
@@ -1173,6 +1212,7 @@ def main():
     if lapsed:
         print(f"carriage lapses : {len(lapsed)}")
     print(f"duplicate chapters collapsed : {dropped_dupes}")
+    print(f"preference moved to a free carrier : {switched}")
     print(f"claims contradicted by the platform's own history : {contradicted}")
     serialised = sum(1 for r in releases if r.get("web") == "serialised")
     print(f"releases        : {len(releases)} from {len(platforms)} platform(s) "

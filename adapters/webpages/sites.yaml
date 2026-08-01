@@ -65,6 +65,9 @@ sites:
 
   - id: hanayume
     name: 花とゆめ+
+    # The antenna writes it with a full-width ＋ and the site with a half-width +. Without the
+    # alias the same platform appeared as two, and a work carried once looked cross-published.
+    aliases: ["花とゆめ＋"]
     publisher: 白泉社
     host: hanayume.com
     engine: comici

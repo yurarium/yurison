@@ -1,0 +1,53 @@
+# DISCOVERY QUEUE — candidates only. Not records, not evidence of anything.
+#
+# 百合ナビ is Tier C: it may say a work exists, and nothing else (REQUIREMENTS §1).
+# Each entry needs confirming against the publisher or platform, which is what supplies
+# the fields. Works reaching the database this way will often have marketing_label: none
+# and require a human content_tier call — that is the whole reason the queue exists.
+source: yurinavi
+role: discovery-only
+retrieved: 2026-08-01
+record_type: discovery_queue
+candidates:
+  - work_title: "この湯で、あなたと"
+    signal: "new-serial"
+    announced: "Wed, 29 Jul 2026 10:58:13 +0000"
+    url: "https://yurinavi.com/2026/07/29/konoyude-anatato/"
+    headline: "銭湯で出会ったOLとアイドル少女の恋を描く百合漫画「この湯で、あなたと」WEBでスタート"
+    status: unconfirmed
+  - work_title: "姉妹傭兵"
+    signal: "new-serial"
+    announced: "Wed, 22 Jul 2026 11:16:31 +0000"
+    url: "https://yurinavi.com/2026/07/22/shimaiyouhei-start/"
+    headline: "戦場で生きるふたりの関係を描く百合アクション新連載「姉妹傭兵」WEBでスタート"
+    status: unconfirmed
+  - work_title: "ファーストペンギン・レクイエム"
+    signal: "new-serial"
+    announced: "Thu, 30 Jul 2026 08:44:53 +0000"
+    url: "https://yurinavi.com/2026/07/30/yurinews-matome395/"
+    headline: "「ファーストペンギン・レクイエム」連載開始など注目百合ニュース【6月29日～7月12日まとめ】"
+    status: unconfirmed
+  - work_title: "世界一可愛い私の幼馴染が隠れてVTuberをしているらしい"
+    signal: "new-serial"
+    announced: "Thu, 16 Jul 2026 11:00:16 +0000"
+    url: "https://yurinavi.com/2026/07/16/sekaiichikawaii-start/"
+    headline: "大好きが止まらない、両片想い幼馴染百合ラブコメ「世界一可愛い私の幼馴染が隠れてVTuberをしているらしい」WEBでスタート"
+    status: unconfirmed
+  - work_title: "イジめてイジられて"
+    signal: "new-serial"
+    announced: "Sun, 19 Jul 2026 11:00:15 +0000"
+    url: "https://yurinavi.com/2026/07/19/ijimeteijirarete-start/"
+    headline: "一軍ヤンキーとオタク女子の秘密の関係を描く百合ラブコメ「イジめてイジられて」WEBでスタート"
+    status: unconfirmed
+  - work_title: "残光再撮"
+    signal: "new-serial"
+    announced: "Mon, 27 Jul 2026 11:00:39 +0000"
+    url: "https://yurinavi.com/2026/07/27/zankou-start/"
+    headline: "拗らせ女子大生ふたりの大学生ガールズラブコメ「残光再撮」WEBで連載中"
+    status: unconfirmed
+  - work_title: "下部七花はかく語りき"
+    signal: "oneshot"
+    announced: "Mon, 20 Jul 2026 11:00:33 +0000"
+    url: "https://yurinavi.com/2026/07/20/shimobenanaha-yomikiri/"
+    headline: "クラスの陽キャ美少女との不思議な主従関係を描く百合読み切り「下部七花はかく語りき」WEBで公開"
+    status: unconfirmed

@@ -1,0 +1,118 @@
+# GigaViewer platforms (Hatena's manga engine). One adapter serves all of them: identical Atom
+# feeds at /atom and identical series-page markup, so adding a publisher is a row here, not code.
+#
+# Tier B — publisher-operated, attesting (REQUIREMENTS §1).
+# `yuri_genre` / `yuri_label` are the publisher's OWN labelling, so a match establishes
+# marketing_label under DEFINITIONS §4. A third-party tag never would.
+
+platforms:
+  - id: ichicomi
+    name: 一迅プラス
+    publisher: 一迅社
+    host: ichicomi.com
+    atom: https://ichicomi.com/atom
+    # Series listings whose entries are known to be the yuri line.
+    series_pages:
+      - url: https://ichicomi.com/series/yurihime
+        label: コミック百合姫
+    yuri_genre: 百合
+    verified: 2026-08-01
+
+  # Confirmed GigaViewer with a working /atom; series pages not yet surveyed for yuri lines.
+  # Each needs its series_pages filled in before it produces records.
+  - id: kuragebunch
+    name: くらげバンチ
+    publisher: 新潮社
+    host: kuragebunch.com
+    atom: https://kuragebunch.com/atom
+    series_pages: []
+    yuri_genre: 百合
+    verified: 2026-08-01
+
+  - id: comic-zenon
+    name: コミックゼノン
+    publisher: コアミックス
+    host: comic-zenon.com
+    atom: https://comic-zenon.com/atom
+    series_pages: []
+    yuri_genre: 百合
+    verified: 2026-08-01
+
+  - id: mangacross
+    name: マンガクロス
+    publisher: 秋田書店
+    host: mangacross.jp
+    atom: https://mangacross.jp/atom
+    series_pages: []
+    yuri_genre: 百合
+    verified: 2026-08-01
+
+  - id: comic-days
+    name: コミックDAYS
+    publisher: 講談社
+    host: comic-days.com
+    atom: https://comic-days.com/atom
+    series_pages: []
+    yuri_genre: 百合
+    verified: 2026-08-01
+
+  - id: tonarinoyj
+    name: となりのヤングジャンプ
+    publisher: 集英社
+    host: tonarinoyj.jp
+    atom: https://tonarinoyj.jp/atom
+    series_pages: []
+    yuri_genre: 百合
+    verified: 2026-08-01
+
+  - id: magcomi
+    name: MAGCOMI
+    publisher: マッグガーデン
+    host: magcomi.com
+    atom: https://magcomi.com/atom
+    series_pages: []
+    yuri_genre: 百合
+    verified: 2026-08-01
+
+  - id: comic-trail
+    name: コミックトレイル
+    publisher: 白泉社
+    host: comic-trail.com
+    atom: https://comic-trail.com/atom
+    series_pages: []
+    yuri_genre: 百合
+    verified: 2026-08-01
+
+  # 少年ジャンプ+ is GigaViewer with a working /atom, but applies no genre labels at all, so the
+  # series-page route yields nothing here by design. Its yuri content is reached the other way:
+  # discovery names a work (adapters/yurinavi), then this feed attests its releases.
+  - id: shonenjumpplus
+    name: 少年ジャンプ+
+    publisher: 集英社
+    host: shonenjumpplus.com
+    atom: https://shonenjumpplus.com/atom
+    series_pages: []
+    labels_genres: false
+    yuri_genre: 百合
+    verified: 2026-08-01
+
+  - id: comic-gardo
+    name: コミックガルド
+    publisher: オーバーラップ
+    host: comic-gardo.com
+    atom: https://comic-gardo.com/atom
+    series_pages: []
+    yuri_genre: 百合
+    verified: 2026-08-01
+
+# Investigated 2026-08-01, not usable by this adapter:
+#
+#   comic-fuz.com    COMIC FUZ (芳文社) — publisher of つぼみ and the きらら line, so a real gap.
+#                    Not GigaViewer. No /atom, no /rss, no robots.txt, /tag/ 404s. Custom SPA;
+#                    needs its own adapter.
+#   seiga.nicovideo.jp  ニコニコ静画 — / and /robots.txt both return 403 to non-browser clients;
+#                    /manga and manga.nicovideo.jp respond. Unreadable robots.txt is a reason for
+#                    caution, not a licence. Needs deliberate investigation before any fetching.
+#   comic-walker.com カドコミ (KADOKAWA) — tag search results load from /api/, which its robots.txt
+#                    disallows. The page's own __NEXT_DATA__ carries only genre and label lists.
+#                    Label and ranking pages may be server-rendered; not yet checked.

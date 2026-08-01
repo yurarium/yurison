@@ -81,6 +81,30 @@ which is a defensible inference but an inference nonetheless.
 this axis. The whole value of `marketing_label` is that it records what the publisher did, and it
 is worthless the moment other people's opinions are mixed into it.
 
+### `marketing_label: none` means nothing about content
+
+This axis records a **commercial decision**, and its absence is not random. Publishers withhold the
+label for reasons that have nothing to do with what is on the page:
+
+- **Audience targeting.** A seinen or shōnen venue does not label a work 百合 even when the
+  relationship is the premise, because the label addresses a different readership than the one the
+  magazine is sold to.
+- **Publisher policy.** Some houses do not use the term at all, in any imprint.
+- **Platform convention.** General web-manga platforms — 少年ジャンプ+ among them — apply no genre
+  label of this kind to anything.
+
+So `none` is evidence about marketing, never about content. Reading it as "not very yuri" inverts
+the axis's meaning.
+
+**The practical consequence is a bias, not a gap.** A database assembled label-first will
+faithfully reproduce the catalogue of yuri-specialist publishers and systematically thin out
+everything else — including large, well-known works. The skew tracks publisher type and target
+audience, so it cannot be corrected by collecting more labelled works.
+
+`content_tier` therefore carries most of the field, and the discovery routes in
+[Requirements §1](REQUIREMENTS.md) that do not depend on labelling are a **counterweight to a known
+bias**, not a supplement to an otherwise sound method.
+
 ---
 
 ## 5. Evidence (`basis`)

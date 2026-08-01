@@ -149,6 +149,16 @@ since Japanese publisher sites commonly block cross-origin image requests.
 Implementation: lazy-loaded, with a graceful **text fallback** when blocked or missing;
 **suppressed entirely** on `explicit_content: true` records.
 
+> **This yields almost nothing in practice (measured 2026-08-01).** Across the 646 ISBNs of the
+> Phase 1 corpus, openBD resolved 498 and supplied **one** cover image. 一迅社 does not feed cover
+> art to openBD, including for December 2025 releases. The rule above is correct and stays, but the
+> site is **effectively text-only** for this corpus.
+>
+> The tempting fix — pulling covers from the publisher's own product pages — is forbidden by the
+> rule above and is not a matter of degree: a scraped marketing image carries no reuse permission,
+> which is the entire basis on which openBD's are usable. If covers matter enough, the answer is
+> another publisher-supplied feed, not a relaxation here.
+
 ---
 
 ## 3. Obligations imposed by source terms

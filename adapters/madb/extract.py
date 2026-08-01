@@ -9,7 +9,7 @@ Classification beyond the mechanical marketing_label is not done here — see do
 
 Usage:  extract.py --cache ~/workspace/madb-cache/1.2.18 --tag 1.2.18 --out data/source/madb
 """
-import argparse, json, pathlib, re, sys, unicodedata
+import argparse, hashlib, json, pathlib, re, sys, unicodedata
 from collections import Counter, defaultdict
 
 # Imprint patterns identifying the 一迅社 百合姫 line. Matched against a normalised schema:brand.
@@ -140,7 +140,9 @@ def main():
         synthetic = sid.startswith("T:")
         # A title-only work has no cm104 record; take its descriptive fields from the first volume.
         s = vs[0] if synthetic else series[sid]
-        wid = ("madb-t-" + re.sub(r"[^a-z0-9]+", "", sid[2:])[:24] or "madb-t-x") if synthetic else sid
+        # Synthetic ids must be stable and unique. Stripping non-ASCII would erase a Japanese title
+        # entirely and collapse every title-only work onto one id, so hash the normalised title.
+        wid = "madb-t-" + hashlib.sha1(sid[2:].encode()).hexdigest()[:12] if synthetic else sid
         vs.sort(key=lambda r: (flat(r.get("schema:datePublished", "")), flat(r.get("schema:volumeNumber", ""))))
         dates = [flat(r.get("schema:datePublished", "")) for r in vs if r.get("schema:datePublished")]
         # Any adult marking excludes the work outright (DEFINITIONS §7); flag for review, never auto-include.

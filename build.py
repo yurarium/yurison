@@ -680,14 +680,22 @@ def main():
     not_works = {norm_work(x["title"]) for x in
                  (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("not_works") or []}
 
-    # Full chapter histories we hold, by (work, platform). Only sources that return a whole
-    # history count — a rolling feed proves nothing about what it does not mention.
+    # Full chapter histories we hold, by (work, platform), for contradicting a comparator.
+    #
+    # The test is whether the platform publishes a HISTORY or a survival set, and most publish the
+    # latter. pixivコミック expires chapters: 異種族女子に〇〇する話 lists 第1話, 第2話, 第3話 ending
+    # 2021 — the permanently-free opening, with the middle gone — and a comparator saying it updated
+    # in 2026 is entirely consistent with that. Mean chapters per work says the same across the
+    # board: comicfuz 62.7, kadokomi 19.5, pixivcomic 4.7. カドコミ returns latestEpisodes plus
+    # firstEpisodes by construction, which is a window with a hole in the middle by design.
+    #
+    # Absence of evidence is only evidence of absence where the list is known to be complete, so
+    # the sources permitted here are only those that return whole histories. Everything else can
+    # attest what it shows and must not be used to deny what it does not.
     platform_history = {}
     for f in (glob.glob("data/source/gigaviewer/*-series-feeds.yaml")
               + glob.glob("data/source/gigaviewer/*-confirmed.yaml")
-              + glob.glob("data/source/kadokomi/chapters.yaml")
-              + glob.glob("data/source/comicfuz/works.yaml")
-              + glob.glob("data/source/pixivcomic/*.yaml")):
+              + glob.glob("data/source/comicfuz/works.yaml")):
         d0 = yaml.safe_load(open(f)) or {}
         pn = norm_work(d0.get("platform_name") or "")
         for w in d0.get("works") or []:
@@ -755,7 +763,17 @@ def main():
             # Three chapters at minimum before contradicting anyone. A history of one is not a
             # history — 浪人なんてろくでもない! had a single chapter held and was being used to
             # declare the comparator wrong, which is a stronger claim than the evidence carries.
+            # A large gap between the claim and the newest chapter we hold is the signature of a
+            # partial listing, not of a work that stopped. Platforms expire chapters — pixivコミック
+            # leaves the permanently-free opening and takes the middle away — and several
+            # GigaViewer installs serve only what is currently free: となりのヤングジャンプ averages
+            # 1.3 chapters per work against コミックDAYS's 26.3. Where we are this far behind, the
+            # honest reading is that we cannot see the whole run, whatever the reason.
+            CONTRADICTION_MAX_GAP = 120   # days
             plat_hist = platform_history.get((nw, norm_work(c.get("platform") or "")))
+            if plat_hist and (datetime.date.fromisoformat(when)
+                              - datetime.date.fromisoformat(max(plat_hist))).days > CONTRADICTION_MAX_GAP:
+                plat_hist = None
             if plat_hist and len(plat_hist) >= 3 and not any(abs((datetime.date.fromisoformat(when)
                                           - datetime.date.fromisoformat(x)).days) <= 7
                                      for x in plat_hist):

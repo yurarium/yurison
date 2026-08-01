@@ -8,8 +8,8 @@ retrieved: 2026-08-01
 record_type: coverage_gap
 works_listed: 128
 platforms_total: 19
-platforms_watched: 4
-works_on_watched_platforms: 81
+platforms_watched: 6
+works_on_watched_platforms: 85
 platforms:
   - platform: "カドコミ"
     works: 59
@@ -22,7 +22,7 @@ platforms:
     watched: true
   - platform: "サンデーうぇぶり"
     works: 3
-    watched: false
+    watched: true
   - platform: "ニコニコ静画"
     works: 3
     watched: false
@@ -67,7 +67,7 @@ platforms:
     watched: false
   - platform: "webアクション"
     works: 1
-    watched: false
+    watched: true
 works:
   - raw: "壊していいよ、すいかちゃん 虫歯"
     platform: "COMIC OGYAAA!!"
@@ -84,7 +84,7 @@ works:
   - raw: "ゆりゆりぱにっく～尊すぎる事案が発生しています！～ 中村カンコ"
     platform: "webアクション"
     last_update_seen: 08-07
-    watched_platform: false
+    watched_platform: true
   - raw: "おちこぼれフルーツタルト 浜弓場 双"
     platform: "きららベース"
     last_update_seen: 08-01
@@ -464,15 +464,15 @@ works:
   - raw: "#ギャルとギャルの百合 イノウエ"
     platform: "サンデーうぇぶり"
     last_update_seen: 07-14
-    watched_platform: false
+    watched_platform: true
   - raw: "てくのぱにっくゆにばーす 伏見ダイキ"
     platform: "サンデーうぇぶり"
     last_update_seen: 07-10
-    watched_platform: false
+    watched_platform: true
   - raw: "なとりとしずは 鮎川あお"
     platform: "サンデーうぇぶり"
     last_update_seen: 07-21
-    watched_platform: false
+    watched_platform: true
   - raw: "春雷卓球 平方昌宏"
     platform: "ジャンプ+"
     last_update_seen: 07-10

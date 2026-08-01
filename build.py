@@ -22,7 +22,7 @@ import yaml
 # data/queue/, which is deliberately outside the source tree so nothing can promote a candidate
 # into a record by accident.
 ALLOWED_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha",
-                   "gigaviewer", "kadokomi"}
+                   "gigaviewer", "kadokomi", "comicfuz"}
 
 # Sources carrying work-level records that merge into a work. Others (release feeds) are
 # platform-level and compile separately.
@@ -225,6 +225,35 @@ def main():
                 "ident": r.get("identified_via", "platform-genre"),
                 "free_from": str(r.get("free_term_start", "")) or None,
             })
+    # COMIC FUZ publishes no feed, so its adapter returns full chapter histories rather than a
+    # rolling window. Only recent chapters join the feed — the rest stay in the source layer, where
+    # they are the project's only real access_modes data.
+    FUZ_FEED_DAYS = 60
+    fz = pathlib.Path("data/source/comicfuz/works.yaml")
+    if fz.exists():
+        d = yaml.safe_load(fz.read_text()) or {}
+        newest = max((str(c.get("updated") or "") for w in d.get("works") or []
+                      for c in w.get("chapters") or []), default="")
+        cutoff = ""
+        if newest:
+            y, m, dd = (int(x) for x in newest.split("-"))
+            cutoff = str(datetime.date(y, m, dd) - datetime.timedelta(days=FUZ_FEED_DAYS))
+        for w in d.get("works") or []:
+            for c in w.get("chapters") or []:
+                u = str(c.get("updated") or "")
+                if not u or u < cutoff:
+                    continue
+                releases.append({
+                    "id": f"comicfuz:{c.get('chapter_id')}", "work": w.get("work_title"),
+                    "ep": c.get("title"), "type": "chapter", "adv": True,
+                    "web": "serialised", "pub": u, "seen": str(d.get("retrieved", "")),
+                    "basis": "bootstrap", "conf": "reported", "why": "", "moved": "",
+                    "url": w.get("url"), "author": ", ".join(w.get("authors") or []),
+                    "plat": "comic-fuz", "plat_name": "COMIC FUZ",
+                    "ident": "discovery-candidate", "free_from": None,
+                    "access_modes": c.get("access_modes") or [],
+                })
+
     # Reading-quality ranking is editorial curation, kept out of the source layer (§5).
     ranks, plat_meta = {}, {}
     pf = pathlib.Path("data/platforms.yaml")
@@ -307,6 +336,9 @@ def main():
 
     from collections import Counter as _C
     print(f"identification  : {dict(_C(r.get('ident') for r in releases))}")
+    am = _C(m for r in releases for m in (r.get("access_modes") or []))
+    if am:
+        print(f"access modes    : {dict(am)}")
     if lapsed:
         print(f"carriage lapses : {len(lapsed)}")
     serialised = sum(1 for r in releases if r.get("web") == "serialised")

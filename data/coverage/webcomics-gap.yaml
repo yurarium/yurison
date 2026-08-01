@@ -10,25 +10,21 @@ pages_sampled: 31
 record_type: coverage_gap
 listings: 1532
 distinct_works: 1203
-works_on_watched_platform: 645
+works_on_watched_platform: 730
 platforms_total: 96
-platforms_watched: 9
+platforms_watched: 11
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "ニコニコ漫画"
-    works: 91
-  - platform: "サンデーうぇぶり"
-    works: 65
+    works: 86
   - platform: "pixivコミック"
-    works: 63
+    works: 59
   - platform: "COMIC FUZ"
     works: 34
   - platform: "ビッコミ"
     works: 25
   - platform: "竹コミ‎‏‎"
     works: 22
-  - platform: "webアクション"
-    works: 20
   - platform: "チャンピオンクロス"
     works: 18
   - platform: "ヤンマガWeb"
@@ -57,15 +53,11 @@ platforms_missing:
     works: 9
   - platform: "きら星ポータル"
     works: 9
-  - platform: "がうがうモンスター"
-    works: 7
   - platform: "FEEL web"
     works: 7
   - platform: "ヤングアニマルWeb"
     works: 7
   - platform: "コミック アース・スター"
-    works: 6
-  - platform: "裏サンデー"
     works: 6
   - platform: "ヤンチャンWeb"
     works: 6
@@ -73,6 +65,8 @@ platforms_missing:
     works: 6
   - platform: "LINEマンガ(更新終了)"
     works: 6
+  - platform: "裏サンデー"
+    works: 5
   - platform: "フラコミlike!"
     works: 5
   - platform: "マンガよもんが"
@@ -1776,16 +1770,6 @@ works_missing:
     url: "https://kirapo.jp/meteor/titles/kuchini"
     antenna_id: "117799"
     tags: ["お色気・微エロ", "百合", "ギャグ・コメディ", "女子高生", "学園"]
-  - title: "友達からでもいいですか"
-    platform: "くらげバンチ"
-    url: "https://kuragebunch.com/episode/12207421984030246278"
-    antenna_id: "212643"
-    tags: ["百合", "成人女性"]
-  - title: "ファーストペンギン・レクイエム"
-    platform: "くらげバンチ"
-    url: "https://kuragebunch.com/episode/12207421983893652478"
-    antenna_id: "210818"
-    tags: ["ホラー", "異能・超能力", "現代ファンタジー", "百合"]
   - title: "ママ活女"
     platform: "くらげバンチ"
     url: "https://kuragebunch.com/episode/12207421983529910910"
@@ -1846,11 +1830,6 @@ works_missing:
     url: "https://getsuaku.com/episode/001_gaw_koedeoshigoto"
     antenna_id: "155527"
     tags: ["百合", "エロ", "役者・声優"]
-  - title: "上杉くんは女の子をやめたい"
-    platform: "ちゃおプラス"
-    url: "https://ciao.shogakukan.co.jp/comics/title/00577/episode/22025"
-    antenna_id: "168566"
-    tags: ["三角関係", "恋愛", "女装", "同性愛・LGBTQ+", "現代", "青春", "TS", "幼なじみ", "BL", "百合"]
   - title: "そらいろメモリアル"
     platform: "ちゃおプラス"
     url: "https://ciao.shogakukan.co.jp/comics/title/00039/episode/4363"
@@ -3676,16 +3655,6 @@ works_missing:
     url: "https://comic-earthstar.com/episode/14079602755509017037"
     antenna_id: "142568"
     tags: ["追放", "(集落の)開拓・復興", "温泉・サウナ", "百合", "完結"]
-  - title: "雨夜の月"
-    platform: "コミックDAYS"
-    url: "https://comic-days.com/episode/3269632237276869027"
-    antenna_id: "119911"
-    tags: ["音楽", "女子高生", "百合", "障害者"]
-  - title: "私のヒーロー"
-    platform: "コミックDAYS"
-    url: "https://comic-days.com/episode/12207421983805333018"
-    antenna_id: "212461"
-    tags: ["最近のコメント数"]
   - title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
     platform: "コミックDAYS"
     url: "https://comic-days.com/episode/2550912964518073379"
@@ -4381,16 +4350,6 @@ works_missing:
     url: "https://to-corona-ex.com/comics/20000000049417"
     antenna_id: "132672"
     tags: ["百合", "完結"]
-  - title: "#ギャルとギャルの百合"
-    platform: "サンデーうぇぶり"
-    url: "https://www.sunday-webry.com/episode/2550912965814192510"
-    antenna_id: "189200"
-    tags: ["百合", "女子高生", "恋愛"]
-  - title: "にせものターコイズ"
-    platform: "サンデーうぇぶり"
-    url: "https://www.sunday-webry.com/episode/12207421983913735230"
-    antenna_id: "212339"
-    tags: ["百合", "読み切り"]
   - title: "てくのぱにっくゆにばーす"
     platform: "サンデーうぇぶり"
     url: "https://www.sunday-webry.com/episode/2551460909679507683"
@@ -6061,11 +6020,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/02758"
     antenna_id: "188517"
     tags: ["ギャグ・コメディ", "マネー", "百合"]
-  - title: "雨夜の月"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/02202"
-    antenna_id: "152896"
-    tags: ["障害者", "女子高生", "百合"]
   - title: "ファタールゲーム"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03056"
@@ -6511,16 +6465,6 @@ works_missing:
     url: "https://youngchampion.jp/series/f82a97494ac07"
     antenna_id: "168332"
     tags: ["百合"]
-  - title: "雨夜の月"
-    platform: "ヤンマガWeb"
-    url: "https://yanmaga.jp/comics/%E9%9B%A8%E5%A4%9C%E3%81%AE%E6%9C%88"
-    antenna_id: "119863"
-    tags: ["百合", "女子高生", "障害者", "アニメ化"]
-  - title: "サタノファニ"
-    platform: "ヤンマガWeb"
-    url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B"
-    antenna_id: "111373"
-    tags: ["エロ", "バトル", "裏社会", "雑学・豆知識", "偉人・歴史上の人物", "百合"]
   - title: "乙女のおかず"
     platform: "ヤンマガWeb"
     url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
@@ -7336,16 +7280,6 @@ works_missing:
     url: "https://web-ace.jp/shonenaceplus/contents/3000097/"
     antenna_id: "169493"
     tags: ["百合", "ギャグ・コメディ", "異種族・人外", "おねロリ"]
-  - title: "春雷卓球"
-    platform: "少年ジャンプ+"
-    url: "https://shonenjumpplus.com/episode/17107094912913096422"
-    antenna_id: "200040"
-    tags: ["女子高生", "運動系部活", "百合", "スポーツ", "卓球"]
-  - title: "ビタースイートナイトシェード"
-    platform: "少年ジャンプ+"
-    url: "https://shonenjumpplus.com/episode/9253191255561725561"
-    antenna_id: "212450"
-    tags: ["百合", "読み切り"]
   - title: "推し活バスケ"
     platform: "少年ジャンプ+"
     url: "https://shonenjumpplus.com/episode/17107094914778813575"

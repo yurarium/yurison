@@ -54,9 +54,19 @@ NON_STORY_RE = re.compile(r"告知|お知らせ|カバー|PV|特報|予告|特�
 # follows the series for, unlike an announcement or a cover reveal. They are instalments of an
 # existing work, so they are never a new series either.
 EXTRA_RE = re.compile(r"おまけ|番外編|外伝|特別編|幕間")
-# Volume promotion, which platforms file among the chapters: 3巻発売フェア, 第2巻 書店フェア.
-# Not matched as a keyword rule — see the outlier test below, which is relative to each series.
-VOLUME_MARK_RE = re.compile(r"[0-9０-９一二三四五六七八九十]+\s*巻|発売|フェア|刊行|書店")
+# Things platforms file among the chapters that are not instalments. Grouped here because they all
+# get the SAME treatment: judged against how often the series itself uses the marker, never as a
+# flat keyword rule (see the outlier test below).
+#
+# Three kinds, found by surveying the titles that carry no chapter number across the whole corpus
+# rather than by guessing at a vocabulary:
+#   volume promotion — 3巻発売フェア, 第2巻 書店フェア, 単行本
+#   bonus artwork    — オフショット (91 occurrences), イラスト (52)
+#   notices          — 休載 (18)
+NON_STORY_OUTLIER_RE = re.compile(
+    r"[0-9０-９一二三四五六七八九十]+\s*巻|発売|フェア|刊行|書店|単行本"
+    r"|オフショット|イラスト|休載")
+VOLUME_MARK_RE = NON_STORY_OUTLIER_RE   # retained: the name the outlier test was written against
 _KANJI = {"〇": 0, "一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
           "六": 6, "七": 7, "八": 8, "九": 9}
 
@@ -85,8 +95,9 @@ def ep_number(title):
         r"(?:第|#|その)\s*(\d+)\s*(?:話|回|章)?",
         r"^\s*(\d+)\s*(?:話|回|章)",
         r"(?:file|episode|ep|case|act|track|phase|stage|page|scene)\s*[.．]?\s*(\d+)",
-        # Works that count in their own units: 2皿目, 5杯目, 3夜, 7手目 …
-        r"^\s*(\d+)\s*[皿杯品夜手戦局曲片粒滴]\s*目?",
+        # Works that count in their own units: 2皿目, 5杯目, 3夜, 7手目, 27枠目, 17輪目 …
+        # 巻 is deliberately absent: a leading N巻 is usually a volume, not a chapter number.
+        r"^\s*(\d+)\s*[皿杯品夜手戦局曲片粒滴枠輪服着球]\s*目?",
     ]
     for pat in pats:
         m = re.search(pat, s, re.I)
@@ -760,9 +771,9 @@ def main():
             share = marked / len(sibs)
             if share <= VOLUME_OUTLIER_MAX:
                 r["kind"] = "other"
-                r["kind_basis"] = (f"names a volume, and only {marked} of {len(sibs)} chapters in "
-                                   f"this series do ({share:.0%}) — a release announcement rather "
-                                   f"than an instalment")
+                r["kind_basis"] = (f"reads as a volume, artwork or notice, and only {marked} of "
+                                   f"{len(sibs)} chapters in this series do ({share:.0%}) — not "
+                                   f"how this series names its instalments")
                 r["kind_inferred"] = True
                 continue
         if r["type"] == "extra" or EXTRA_RE.search(ep):

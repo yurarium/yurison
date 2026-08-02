@@ -1494,17 +1494,46 @@ def main():
     # container like 横槍メンゴ新作読切シリーズ is an author's 読切 series where one volume is yuri and
     # the next need not be. Discovery flags the container because ONE instalment matched. Recording
     # the container as a yuri work with N chapters would assert that about all N.
-    ANTHOLOGY_EP = re.compile(r"【(?:試し読み|読切|読み切り)】\s*([^［\[]{1,20})[［\[]([^］\]]{1,40})[］\]]")
+    # Containers are not uniform, and neither is how they name their instalments. Two shapes so far,
+    # and the point is that more will appear:
+    #
+    #   一迅プラス     【試し読み】白玉もち［貝合わせ］     bracketed, marker first
+    #   pixivコミック  漫画：樫風 幼馴染のトロフィー(前編)  role-prefixed, title runs on
+    #
+    # Both state an author and a title for a work that is not the container. Neither fits the
+    # chapter model, and both are works.
+    ANTHOLOGY_EP = re.compile(
+        r"【(?:試し読み|読切|読み切り)】\s*([^［\[]{1,20})[［\[]([^］\]]{1,40})[］\]]"
+        r"|(?:漫画|作画|著者)[：:]\s*(\S{1,16})\s+(.{2,40}?)$")
+
+    def anth_parts(s):
+        """(author, title) for an instalment, whichever shape the container uses."""
+        m = ANTHOLOGY_EP.match((s or "").strip())
+        if not m:
+            return None
+        a, ti = (m.group(1), m.group(2)) if m.group(1) else (m.group(3), m.group(4))
+        a, ti = (a or "").strip(), (ti or "").strip()
+        # (前編)/(後編) is a part of the instalment, not a different work — keep the parts together
+        # under one title so a two-part 読切 does not become two works.
+        ti = re.sub(r"\s*[（(](?:前編|後編|中編|前篇|後篇)[）)]\s*$", "", ti).strip()
+        return (a, ti) if a and ti else None
     COLLECTION = re.compile(r"アンソロジー|短編集|読切シリーズ|読み切りシリーズ|読切集|オムニバス|傑作選")
+    # An instalment that names its own author and title IS A WORK, and is recorded as one. It does
+    # not fit the model cleanly — it has no series id of its own, its URL belongs to the container,
+    # and its "platform" is the container's platform — but a 読切 by 白玉もち called 貝合わせ is not a
+    # chapter of anything, and filing it as one loses both the work and its author. Where the
+    # categories and the thing disagree, the thing wins.
     split_anth = 0
     for r in releases:
-        m = ANTHOLOGY_EP.match((r.get("ep") or "").strip())
-        if not m:
+        parts = anth_parts(r.get("ep"))
+        if not parts:
             continue
-        # The instalment's own author and title, as the platform gives them.
-        r["author"], r["ep"] = m.group(1).strip(), m.group(2).strip()
+        author, title = parts
         r["collection"] = r["work"]
-        r["type"] = "trial" if "試し読み" in (r.get("ep_raw") or "") else r["type"]
+        r["work"], r["author"], r["ep"] = title, author, title
+        # One instalment, complete in itself. The container may run for years; this did not.
+        r["type"], r["kind"] = "oneshot", "oneshot"
+        r["kind_basis"] = "an instalment of a collection, complete in one part"
         split_anth += 1
     for r in releases:
         if COLLECTION.search(r.get("work") or ""):
@@ -1616,6 +1645,23 @@ def main():
             elif _wurl:
                 bucket["url"] = bucket["url"] or _wurl
             for c in dated:
+                # An instalment that names its own author and title is filed as its own work, not
+                # as a chapter of the container. Same reasoning as the feed: 貝合わせ by 白玉もち is a
+                # work, and a row saying the container has N chapters says nothing true about it.
+                _am = anth_parts(c.get("title"))
+                if _am:
+                    _au, _ti = _am
+                    _k2 = (norm_work(_ti), plat)
+                    _b2 = series.setdefault(_k2, {
+                        "work": _ti, "platform": plat, "url": None, "feed_url": None,
+                        "author": _au, "chapters": {}, "upcoming": 0,
+                        "partial": False, "oneshot_src": True, "_srcs": {"collection"},
+                        "collection": title,
+                    })
+                    _b2["chapters"].setdefault(c.get("url") or norm_work(_ti), {
+                        "title": _ti, "updated": c.get("updated"), "url": c.get("url"),
+                        "access_modes": c.get("access_modes"), "author": _au})
+                    continue
                 # Key on the episode URL where there is one — it is the platform's own identifier —
                 # and on the chapter name otherwise.
                 ck = c.get("url") or norm_work(c.get("title") or "")
@@ -1708,6 +1754,10 @@ def main():
               if v["_srcs"] != {"remaining"} or v["chapters"] > _real[k[0]]}
 
     _cands |= {norm_work(r["work"]) for r in releases}
+    # An instalment is in scope because the collection it appeared in was assessed, not because a
+    # discovery list names it — 貝合わせ appears on no candidate list and is nonetheless a work we
+    # hold, attested, with its own author.
+    _cands |= {norm_work(v["work"]) for v in series.values() if v.get("collection")}
     _before = len(series)
     series = {k: v for k, v in series.items() if k[0] in _cands}
     _out_of_scope = _before - len(series)

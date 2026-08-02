@@ -19,9 +19,24 @@
 # author's 読切 series where Vol.1 is described as 女性×女性 and Vol.2 carries no such description.
 # Nothing about Vol.1 licenses a claim about Vol.2.
 #
-# What is done about it: instalments are split out under their own author and title, the collection
-# is shown as context rather than as the work, and no genre label is inherited downward. Classifying
-# an instalment remains what it always was — a human judgement (DEFINITIONS §4).
+# WHAT IS DONE: an instalment that names its own author and title is recorded AS A WORK, because it
+# is one. 貝合わせ by 白玉もち is not a chapter of anything. It fits the model badly — no series id of
+# its own, a URL belonging to the container, a "platform" that is the container's — and it is still
+# a work, so where the categories and the thing disagree the thing wins. The collection is carried
+# alongside as context and no genre label is inherited downward. Classifying an instalment remains
+# what it always was: a human judgement (DEFINITIONS §4).
+#
+# Containers are NOT uniform, and neither is how they name their instalments. Two shapes so far:
+#
+#   一迅プラス     【試し読み】白玉もち［貝合わせ］      bracketed, marker first
+#   pixivコミック  漫画：樫風 幼馴染のトロフィー(前編)   role-prefixed, title runs on
+#
+# Both state an author and a title for something that is not the container. (前編)/(後編) is a part
+# of one instalment and not a separate work, so the parts are merged rather than counted twice.
+# More shapes will appear; the reader of this file should expect to add one rather than assume the
+# two below are the pattern.
+#
+# 36 instalment works across 6 collections are recorded this way.
 source: derived
 role: collections
 retrieved: 2026-08-02

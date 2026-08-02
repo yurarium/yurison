@@ -38,3 +38,31 @@ works:
       Not found by search — supplied by the project owner. A restricted search of this very domain
       returned nothing for a work that is on it, so absence from search results is not evidence of
       absence from the platform.
+
+  # きららベース is a CHANNEL on ニコニコ漫画, not a platform. A claim naming it was being left as an
+  # unconfirmed row against a name no adapter watches — but the channel's host is one we read, and
+  # the works were simply not in its target list. All four confirm on ニコニコ漫画 with the claimed
+  # date: ぬるめた 07-25, しあわせ鳥見んぐ 07-25, 一畳間まんきつ暮らし！ 07-21.
+  #
+  # Three of them are also on COMIC FUZ, where we hold full histories — but on different dates,
+  # because the syndicated copy updates to its own schedule. Matching a channel claim against the
+  # FUZ rows would have been wrong in both directions: a miss on the date, and a claim about where
+  # the chapter appeared.
+  - title: "ぬるめた"
+    author: "こかむも"
+    comic_id: "54003"
+  - title: "しあわせ鳥見んぐ"
+    author: "わらびもちきなこ"
+    comic_id: "54000"
+  - title: "一畳間まんきつ暮らし！"
+    author: "ひさまくまこ"
+    comic_id: "44944"
+  - title: "球詠"
+    author: "マウンテンプクイチ"
+    comic_id: "22768"
+  # Native to the channel rather than syndicated — it returns nothing on comic-fuz.com, which is why
+  # the build refuses to call it 転載. Confirms on ニコニコ漫画 at the claimed 2026-07-23.
+  - title: "魔女まじょS-WITCH"
+    author: "海老川ケイ"
+    comic_id: "69333"
+

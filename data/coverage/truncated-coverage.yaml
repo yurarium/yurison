@@ -1,0 +1,76 @@
+# Coverage found to be truncated, not complete.
+#
+# comici platforms render TEN episodes and hide the rest behind もっと見る, ascending from #1.
+# Our comici route reads that first page, so for these rows the chapter count is the first ten
+# episodes and `latest` is the tenth-OLDEST chapter, not the newest. 竹コミ works showed a newest
+# chapter of 2025-10-17 against a claim of 2026-07-21 — nine months apart — and the CLAIM was
+# right.
+#
+# This is why so many comici-platform claims read as uncorroborated: we were comparing a claim
+# about the newest chapter against the tenth-oldest one. The claims were not wrong; our reading
+# of the platform was short.
+#
+# The direct route is closed. ?page=N is ignored; the list comes from plus-api.comici.jp, which
+# answers 403 without a contentApiKey Bearer token taken from the site's own bundle. That is a
+# client credential and this project does not replay one. The open route is a browser pressing
+# もっと見る, as is already done for マガポケ.
+source: derived
+role: truncated-coverage
+retrieved: 2026-08-02
+rows_affected: 45
+by_platform:
+  "竹コミ": 16
+  "キミコミ": 8
+  "チャンピオンクロス": 8
+  "ビッコミ": 4
+  "HERO'S Web": 4
+  "ライコミ": 2
+  "Gコミ": 1
+  "アサコミ": 1
+  "コミックグロウル": 1
+rows:
+  - "多良さんのウワサ — Gコミ — 10 ch, newest held 2026-05-22"
+  - "ナキノン — HERO'S Web — 20 ch, newest held 2026-05-15"
+  - "散り損ないのヒラエス — HERO'S Web — 10 ch, newest held 2026-05-25"
+  - "死に戻り王女は生き延びるために百合ハーレムを作ることにした — HERO'S Web — 10 ch, newest held 2026-07-17"
+  - "魔女とくゅらす — HERO'S Web — 10 ch, newest held 2026-07-22"
+  - "ガールミートガール — アサコミ — 10 ch, newest held 2026-04-15"
+  - "さきゅりふぁいす! — キミコミ — 10 ch, newest held 2026-05-11"
+  - "サキュバスじゃないモン! — キミコミ — 10 ch, newest held 2025-10-13"
+  - "タコと天使たち — キミコミ — 10 ch, newest held 2025-12-10"
+  - "ワインガールズ — キミコミ — 10 ch, newest held 2026-08-02"
+  - "人妻とJK — キミコミ — 10 ch, newest held 2026-06-08"
+  - "田所さん — キミコミ — 10 ch, newest held 2026-07-13"
+  - "百合ラブスレイブ ふたりだけの放課後 — キミコミ — 10 ch, newest held 2025-12-22"
+  - "見えてますよ!愛沢さん — キミコミ — 10 ch, newest held 2026-07-23"
+  - "ケモノとワルツ — コミックグロウル — 10 ch, newest held 2026-04-04"
+  - "Killer♡Twinkle～アンチはステージに上がれません♡～ — チャンピオンクロス — 10 ch, newest held 2026-07-19"
+  - "おしえごと 同人教師と天才ギャル — チャンピオンクロス — 10 ch, newest held 2024-10-04"
+  - "お葉花を愛でる — チャンピオンクロス — 10 ch, newest held 2026-06-03"
+  - "エルフとひとつ屋根の下 — チャンピオンクロス — 10 ch, newest held 2026-05-04"
+  - "ガールズ×ヴァンパイア — チャンピオンクロス — 10 ch, newest held 2026-07-15"
+  - "フェアウェイの声をきかせて — チャンピオンクロス — 20 ch, newest held 2025-07-06"
+  - "上伊那ぼたん、酔へる姿は百合の花 — チャンピオンクロス — 10 ch, newest held 2026-07-28"
+  - "好きな女の子が私にだけなぜか厳しい — チャンピオンクロス — 10 ch, newest held 2024-04-08"
+  - "あくまで!アットホームな職場です。 — ビッコミ — 10 ch, newest held 2026-07-27"
+  - "セイ少女黙示録 ですぺあ — ビッコミ — 10 ch, newest held 2026-05-22"
+  - "抱かれたい女〜JDだけどアラサー女子に買われています〜 — ビッコミ — 10 ch, newest held 2024-06-14"
+  - "酒と鬼は二合まで — ビッコミ — 10 ch, newest held 2026-07-15"
+  - "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい — ライコミ — 10 ch, newest held 2026-07-29"
+  - "『人斬り』少女、公爵令嬢の護衛になる — ライコミ — 10 ch, newest held 2026-07-27"
+  - "OL Vtuberと推しJKちゃん — 竹コミ — 20 ch, newest held 2026-05-29"
+  - "「触れたい」は恋の始まり — 竹コミ — 10 ch, newest held 2026-06-19"
+  - "むちむち漫画家の完全勝利メシ 最強ボディで余命も担当編集もぶっ飛ばす! — 竹コミ — 10 ch, newest held 2026-07-18"
+  - "ウは宇宙ヤバイのウ! — 竹コミ — 10 ch, newest held 2026-07-09"
+  - "シュナイダーラリー — 竹コミ — 10 ch, newest held 2026-04-09"
+  - "今年注目のエースちゃん — 竹コミ — 10 ch, newest held 2026-07-10"
+  - "夢でフラれてはじまる百合 — 竹コミ — 10 ch, newest held 2026-07-24"
+  - "恋に恋するコイビト関係 — 竹コミ — 10 ch, newest held 2025-12-19"
+  - "灼熱の卓球娘 REBURN!! — 竹コミ — 10 ch, newest held 2026-07-17"
+  - "白き乙女の人狼 — 竹コミ — 10 ch, newest held 2026-07-10"
+  - "百合神さまの言うとおり! — 竹コミ — 10 ch, newest held 2026-07-03"
+  - "私だけが宮地美雪を愛している — 竹コミ — 10 ch, newest held 2026-07-03"
+  - "貴女へささげるサディスティック — 竹コミ — 10 ch, newest held 2026-07-10"
+  - "銀輪ボイス — 竹コミ — 20 ch, newest held 2026-02-07"
+  - "魔性の乙女の役廻り — 竹コミ — 20 ch, newest held 2025-10-17"
+  - "魔法少女にあこがれて — 竹コミ — 10 ch, newest held 2026-07-17"

@@ -32,7 +32,15 @@ import urllib.error, urllib.request
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
 PAUSE = 1.0
-ENDED = re.compile(r"公開終了|掲載終了|配信終了|販売終了")
+# NOT a bare substring. ガンガンONLINE prints 「公開終了した話は ガンガンONLINEアプリで公開中！」 as a
+# standing banner on every work page — an advertisement for its app, on works that are perfectly
+# readable. Testing for 公開終了 anywhere in the body would have marked that entire platform
+# withdrawn, and the only reason it did not is that the checker had so far been pointed at
+# one-shots, none of which are there.
+#
+# The marker counts only where it is a statement about THIS work: 公開終了 not followed by した話
+# (the banner's own phrasing) and not sitting inside an app-promotion sentence.
+ENDED = re.compile(r"(?:公開終了|掲載終了|配信終了|販売終了)(?!した話)(?![^。]{0,20}アプリ)")
 ATOM = re.compile(r"/atom/series/(\d+)")
 
 

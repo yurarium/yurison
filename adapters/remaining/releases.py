@@ -26,6 +26,8 @@ from collections import Counter
 
 import yaml
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+import comici  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "recon"))
 from extract import CHAPTERISH, try_jsonld, try_markup, try_next, try_pairs  # noqa: E402
 
@@ -125,86 +127,12 @@ def from_giga(html, page_url):
     return out
 
 
-SORT_LINK = re.compile(r'class="series-sort-link"[^>]*href="([^"]+)"')
-
-
 def from_comici(html, page_url=""):
-    """comici shows ten episodes and hides the rest behind もっと見る — but it also renders a range
-    navigation, and those ranges are ordinary URLs.
+    """Delegated to adapters/comici.py — one engine, one parser. This adapter used to hold
+    the only correct reading of comici's three access states and its range navigation,
+    which is precisely why the fix never reached the eight platforms read elsewhere."""
+    return comici.chapters(html, page_url, get)
 
-    お姉さんは女子小学生に興味があります。 offers /episodes/<hash>/1, /2 and /3 labelled 1, 31 and 61,
-    and each returns its whole block rather than a page of ten. So the full history is reachable by
-    fetching the ranges, and the LAST range holds the newest chapters — which is the only part the
-    update feed needs.
-
-    No browser and no credential. The episode list also comes from plus-api.comici.jp, which
-    answers 403 without a contentApiKey Bearer token taken from the site's own bundle; that is a
-    client credential and is not replayed here. The range links are the site's own navigation.
-    """
-    if not COMICI_BLOCK.search(html):
-        return []
-    ranges = [u for u in dict.fromkeys(SORT_LINK.findall(html))]
-    if ranges and page_url:
-        base = re.match(r"(https?://[^/]+)", page_url)
-        merged, seen_html = [], set()
-        for rel in ranges:
-            u = rel if rel.startswith("http") else (base.group(1) + rel if base else "")
-            if not u or u in seen_html:
-                continue
-            seen_html.add(u)
-            merged += _comici_rows(get(u))
-        if merged:
-            ded = {}
-            for r in merged:
-                ded.setdefault((r["title"], r["updated"]), r)
-            return list(ded.values())
-    return _comici_rows(html)
-
-
-def _comici_rows(html):
-    if not COMICI_BLOCK.search(html):
-        return []
-    out = []
-    for b in re.split(r'(?=<div data-e2e="eli")', html)[1:]:
-        m = COMICI_ROW.search(b)
-        if m:
-            row = {"title": _html.unescape(m.group(1).strip()),
-                   "updated": f"{int(m.group(2)):04d}-{int(m.group(3)):02d}-{int(m.group(4)):02d}"}
-            # comici marks access THREE ways, not two, and the middle one is the one that matters
-            # most to a reader. 運命は役に立たない on 花とゆめ+ has ten chapters of which exactly one is
-            # actually paid; we were calling four of them paid because the conditional badge was
-            # unrecognised and fell through to the paid branch.
-            #
-            #   eliFreeBadge / mode-free / 無料      free — 今なら無料 counts, it is readable now
-            #   eliIfIcon                            one free chapter per series per day, per account
-            #   eliWfIcon                            one extra free chapter per day, ANY series
-            #   eliCoinIcon / access-paid            coin. Actually paid.
-            #
-            # The two ticket systems are different rules and the same OUTCOME: every chapter marked
-            # with either can be read for nothing, eventually. That is why they count as free here
-            # rather than as a third thing a reader has to reason about — the only real question is
-            # whether money is required, and for these it is not. Which badge it was is kept in
-            # access_note, because the pacing differs and other platforms run other systems again.
-            #
-            # The icons carry no alt or title text, so the badge id is all the markup states; the
-            # meaning of each is recorded from the project owner, not inferred from the abbreviation.
-            #
-            # Order matters: the paid test must run FIRST, because a paid row can carry the word
-            # 無料 in surrounding promotional text.
-            if re.search(r'data-e2e="eliCoinIcon"|series-eplist-item-access-paid', b):
-                row["access_modes"] = ["purchase"]
-            elif re.search(r'data-e2e="eliIfIcon"', b):
-                row["access_modes"] = ["free-timed"]
-                row["access_note"] = "作品チケット — one free chapter per series per day, per account"
-            elif re.search(r'data-e2e="eliWfIcon"', b):
-                row["access_modes"] = ["free-timed"]
-                row["access_note"] = "共通チケット — one extra free chapter per day, any series"
-            elif re.search(r'data-e2e="eliFreeBadge"'
-                           r'|series-eplist-item-access-text[^"]*mode-free'
-                           r'|series-eplist-item-access[^>]*>\s*(?:<[^>]*>\s*)*無料', b):
-                row["access_modes"] = ["free"]
-            out.append(row)
-    return out
 
 
 def from_generic(html):

@@ -18,6 +18,9 @@ Usage:  releases.py --gap data/coverage/webcomics-gap.yaml --out data/source/web
 """
 import html as _html
 import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+import comici  # noqa: E402
 from collections import Counter
 
 import yaml
@@ -41,7 +44,14 @@ def fetch(url, cache):
     return t
 
 
-def episodes(html, eng, base):
+def episodes(html, eng, base, page_url=None, fetch=None):
+    # comici is read by the shared module, not by this file's selectors. Its access model has three
+    # states and its chapter list is paginated behind a range navigation; both were worked out once
+    # and both used to live only in adapters/remaining/, so every comici platform read HERE — キミコミ,
+    # 竹コミ, ビッコミ, ライコミ, Gコミ, HERO'S Web, チャンピオンクロス, 花とゆめ+ — carried a two-state
+    # reading and only the first ten chapters. One engine, one parser.
+    if eng.get("engine_name") == "comici" and comici.is_comici(html):
+        return comici.chapters(html, page_url, fetch or (lambda u: ""))
     out = []
     for b in re.split(eng["block"], html)[1:]:
         tm = re.search(eng["title"], b)
@@ -102,7 +112,7 @@ def main():
 
     grand = Counter()
     for site in spec["sites"]:
-        eng = engines[site["engine"]]
+        eng = dict(engines[site["engine"]], engine_name=site["engine"])
         targets = [w for w in missing
                    if site["host"] in (w.get("url") or "")][:a.limit]
         if not targets:
@@ -116,7 +126,8 @@ def main():
             except urllib.error.HTTPError as e:
                 failed.append((tgt["title"], f"HTTP {e.code}"))
                 continue
-            eps = episodes(html, eng, f"https://{site['host']}")
+            eps = episodes(html, eng, f"https://{site['host']}", tgt["url"],
+                           lambda u: fetch(u, cache))
             if len(eps) < site.get("min_episodes", 1):
                 failed.append((tgt["title"], f"{len(eps)} episodes parsed"))
                 continue

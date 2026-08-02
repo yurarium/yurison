@@ -1718,8 +1718,15 @@ def main():
                         "partial": False, "oneshot_src": True, "_srcs": {"collection"},
                         "collection": title,
                     })
+                    # The instalment's own episode URL where the container gives one, and the
+                    # container's page otherwise. Without this a promoted instalment is a work in
+                    # the tab whose source chip links nowhere — Mな王子の愛し方 claimed "readable on
+                    # pixivコミック" with no way to reach it.
+                    _u2 = c.get("url") or w.get("url")
+                    if not _b2.get("url"):
+                        _b2["url"] = _u2
                     _b2["chapters"].setdefault(c.get("url") or norm_work(_ti), {
-                        "title": _ti, "updated": c.get("updated"), "url": c.get("url"),
+                        "title": _ti, "updated": c.get("updated"), "url": _u2,
                         "access_modes": c.get("access_modes"), "author": _au})
                     continue
                 # Key on the chapter NAME, always. Keying on the URL "where there is one" mixed two
@@ -1779,7 +1786,13 @@ def main():
         # for what is observed, not inferred — nothing here says 完結, because almost no platform
         # says it and guessing it from silence would be wrong for every series on hiatus.
         _k = (norm_work(row["work"]), row["platform"])
-        row["oneshot"] = (row.pop("oneshot_src", False) or _k in _oneshot
+        # A work with ONE chapter whose chapter title is the work's own title is a 読切. Platforms
+        # name a one-shot's only episode after the work — 神様やめらんない / 神様やめらんない — and the
+        # marker-based test misses every one that does not also print 読切. Those were being filed
+        # `dormant`, which reads as abandoned when the thing is simply finished.
+        _self_named = (row["chapters"] == 1 and not row["partial"]
+                       and norm_work(row.get("latest_ep") or "") == norm_work(row["work"]))
+        row["oneshot"] = (row.pop("oneshot_src", False) or _k in _oneshot or _self_named
                           or (row["chapters"] == 1 and not row["partial"]
                               and norm_work(row["work"]) in _oneshot_any))
         if not row["latest"]:

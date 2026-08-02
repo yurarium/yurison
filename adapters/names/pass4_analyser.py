@@ -110,6 +110,16 @@ def unihan_on(ch, prefer_kun=False):
     return on or kun
 
 
+def _kanji_adjacent(whole, token):
+    """Is this token touching another kanji in the original string?"""
+    i = whole.find(token)
+    if i < 0:
+        return False
+    before = whole[i - 1] if i > 0 else ""
+    after = whole[i + len(token)] if i + len(token) < len(whole) else ""
+    return any("\u4e00" <= c <= "\u9fff" for c in (before, after) if c)
+
+
 def per_char(tokenizer, modes, ch, prefer_kun=False):
     """A reading for one character in isolation, or None. Analyser first, Unihan after."""
     for m in modes:
@@ -159,6 +169,11 @@ def analyse_best(tokenizer, s, modes, prefer_kun=False):
 # The part of speech says which pieces are not words in their own right: an auxiliary verb (助動詞),
 # a conjunctive particle (接続助詞, the て of ついて), and a suffix (接尾辞) all attach to what
 # precedes them. A CASE particle — の, を, は — is a separate word and keeps its space.
+# Intensifier prefixes bind to the word AFTER them: 激カワ is gekikawa, one word, not "Geki
+# Kawa". Sudachi tokenises 激 separately because 激カワ is slang and not in the dictionary. Small
+# closed set, and each of these is a prefix in every use — none is a word standing alone.
+PREFIX_GLUE = ("激", "超", "爆", "鬼", "極", "神")
+
 ATTACHES = ("助動詞", "接尾辞")
 ATTACH_SUB = ("接続助詞",)
 
@@ -183,7 +198,7 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
     for m in tokenizer.tokenize(s, mode):
         surf = m.surface()
         r = m.reading_form()
-        glue = attaches_left(m.part_of_speech())
+        glue = attaches_left(m.part_of_speech()) or (out and out[-1].endswith("\x02"))
         # SURFACE FIRST. Sudachi does not decline to read a symbol — it returns キゴウ, the reading
         # of 記号, the WORD "symbol". So a space, ～, ×, ♡ or ◎ each came back as a legitimate-looking
         # kana reading and sailed past a check for empty or unreadable output: 森島 明子 became
@@ -211,14 +226,30 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
             # Consecutive characters the analyser could not read are ONE word, not several:
             # 玄採 came out "Gen Sai" because Sudachi split it and each half was read alone. A
             # fallback token glues to a fallback token before it.
-            fell_back = True
+            # SUSPECT ONLY IF IT IS INSIDE A KANJI COMPOUND.
+            #
+            # A fallback character standing alone between kana, Latin or punctuation is read
+            # exactly as a reader without context would read it, and Unihan's on reading is usually
+            # right there: 激 in 激カワ is ゲキ, the standard intensifier, and the rendering is as
+            # correct as a context-free reading can be. Warning about it is noise.
+            #
+            # A fallback character sitting NEXT TO another kanji is different. The two form a
+            # compound whose reading is a property of the compound, not of its characters — and
+            # since one half came from a dictionary and the other from the analyser, the result
+            # mixes on and kun, which Japanese does only exceptionally (重箱読み, 湯桶読み). 濡鴉
+            # comes out ジュ + カラス and is really ぬれがらす. That is worth a mark.
+            if len(surf) > 1 or _kanji_adjacent(s, surf):
+                fell_back = True
+            if surf in PREFIX_GLUE:
+                sub += "\x02"
             out.append(("\x00" if (glue or (out and out[-1].startswith("\x01"))) else "")
                        + "\x01" + sub)
             continue
         # ー lengthens the sound before it. Standing as its own token it rendered as a literal
         # "ー" in the middle of the romaji: 抱き寝ーター came out "Daki Ne ー Tā".
         out.append(("\x00" if (glue or surf == "\u30fc") else "")
-                   + (READING_OVERRIDE.get(surf) or kata(r)))
+                   + (READING_OVERRIDE.get(surf) or kata(r))
+                   + ("\x02" if surf in PREFIX_GLUE else ""))
     # No space before closing punctuation, and none after an opening one — " , " is not spacing,
     # it is damage.
     got = ""
@@ -226,7 +257,7 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
         if not tokn:
             continue
         glue = tokn.startswith("\x00")
-        tokn = tokn.lstrip("\x00").lstrip("\x01")
+        tokn = tokn.lstrip("\x00").lstrip("\x01").rstrip("\x02")
         if not tokn:
             continue
         if got and not glue and not (tokn[0] in "、。，．！？」』）】〉》・…" or got[-1] in "「『（【〈《"):

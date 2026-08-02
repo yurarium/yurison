@@ -97,6 +97,31 @@ def episodes(html):
     return out
 
 
+# Interface words that can follow a title and are not an author.
+_NOT_AUTHOR = re.compile(r"^(UP|NEW|更新|無料|お気に入り|シェア|クリップ|[0-9]|次回|最新話|全話|第|話数|続きを読む)")
+
+
+def author_near_title(html, title):
+    """The author sits directly under the work title, as text rather than in an attribute.
+
+    マガポケ renders it that way — 「オカルトタイムズ」 then 「いどんち」 on the next line — and every
+    pattern that looked for an author-ish class or JSON key found nothing, because there is none.
+    Positional, so it is validated: a short line that is not interface furniture, else nothing.
+    """
+    if not title:
+        return None
+    body = html[html.find("<body"):]
+    body = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", body, flags=re.S)
+    lines = [l.strip() for l in re.sub(r"<[^>]+>", "\n", body).split("\n") if l.strip()]
+    for i, line in enumerate(lines):
+        if title in line and len(line) <= len(title) + 4:
+            for nxt in lines[i + 1: i + 3]:
+                if 1 <= len(nxt) <= 24 and not _NOT_AUTHOR.match(nxt):
+                    return nxt
+            return None
+    return None
+
+
 def js(v):
     return json.dumps(v, ensure_ascii=False)
 
@@ -129,7 +154,11 @@ def main():
                 continue
             eps = episodes(html)
             if len(eps) >= MIN_EPISODES:
-                rows.append({"work_title": t.get("title"), "url": t["url"], "episodes": eps})
+                row = {"work_title": t.get("title"), "url": t["url"], "episodes": eps}
+                au = author_near_title(html, t.get("title"))
+                if au:
+                    row["author"] = au
+                rows.append(row)
             else:
                 failed["no dated chapters"] += 1
 
@@ -150,6 +179,8 @@ def main():
              "date_basis: rendered", "date_confidence: reported", "works:"]
         for w in rows:
             L.append(f"  - work_title: {js(w['work_title'])}")
+            if w.get("author"):
+                L.append(f"    author: {js(w['author'])}")
             L.append(f"    url: {js(w['url'])}")
             L.append(f"    chapter_count: {len(w['episodes'])}")
             L.append("    chapters:")

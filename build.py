@@ -1130,6 +1130,17 @@ def main():
     # PLATFORM for a chapter, which does not help when the duplicate is on that platform —
     # 雨夜の月's 第５０−２話 appeared twice on コミックDAYS. Collapse on what identifies a chapter:
     # the work, the episode, and where it was published.
+    # A sitemap row is a URL and a date and nothing else. It earns its place only where no richer
+    # source covers the work — otherwise it adds an empty row beside a full one for the same
+    # platform, which is how マガポケ came to hold 16 titleless rows next to 43 proper ones.
+    rich = {(norm_work(r["work"]), r.get("plat_name") or r.get("plat"))
+            for r in releases if r.get("basis") != "sitemap" and (r.get("ep") or "").strip()}
+    before_thin = len(releases)
+    releases = [r for r in releases
+                if r.get("basis") != "sitemap"
+                or (norm_work(r["work"]), r.get("plat_name") or r.get("plat")) not in rich]
+    thin_dropped = before_thin - len(releases)
+
     seen_chapter, deduped, dropped_dupes = {}, [], 0
     for r in sorted(releases, key=lambda r: (r["pub"], r.get("basis") == "heuristic")):
         # The FULL episode title, not episode_key. episode_key reduces to a chapter number, so
@@ -1260,6 +1271,7 @@ def main():
     if lapsed:
         print(f"carriage lapses : {len(lapsed)}")
     print(f"duplicate chapters collapsed : {dropped_dupes}")
+    print(f"thin sitemap rows superseded  : {thin_dropped}")
     print(f"preference moved to a free carrier : {switched}")
     print(f"claims contradicted by the platform's own history : {contradicted}")
     serialised = sum(1 for r in releases if r.get("web") == "serialised")

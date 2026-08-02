@@ -199,10 +199,33 @@ follow from the same reasoning, though —
 - a guessed reading is recorded as guessed, so that a later confirmed reading can replace it and so
   that the residue report (§8.6) can list what is still unverified.
 
-**The real work is alignment, not lookup.** A whole-string reading is easy and is what the sources
-give: MADB returns `私の世界を構成する塵のような何か。` → `ワタクシ ノ セカイ オ コウセイ スル チリ ノ
-ヨウナ ナニカ`. Ruby needs each kanji run paired with its own kana — `<ruby>塵<rt>ちり</rt></ruby>` —
-and that pairing is not in the data. Two levels, and the first is worth shipping on its own:
+**The alignment is a solved problem — use a library, do not invent one.** A whole-string reading is
+what the sources give: MADB returns `私の世界を構成する塵のような何か。` → `ワタクシ ノ セカイ オ
+コウセイ スル チリ ノ ヨウナ ナニカ`. Ruby needs each kanji run paired with its own kana —
+`<ruby>塵<rt>ちり</rt></ruby>` — and that pairing is not in the data. It is also a well-studied
+problem with a standard shape: **dynamic-programming alignment of the surface against its reading**,
+anchored on the kana that appear in both (okurigana and particles are fixed points), scoring
+candidate readings per kanji from a reading lexicon and handling rendaku. Existing tooling:
+
+| | |
+|---|---|
+| `fugashi` + `unidic-lite`, or `SudachiPy` | morphological analysis giving a reading per token — the input the alignment needs. Both pip-installable, no compilation |
+| `cutlet` | Hepburn romanisation done properly, including the long-vowel handling that §8.1's macron question turns on. Built on fugashi |
+| `kuroshiro` (JS) | end-to-end furigana, if a reference implementation is wanted |
+| KANJIDIC2 | per-kanji readings, the lexicon the DP scores against |
+
+None are installed here yet, and two things need checking before adopting any of them:
+
+- **Licence.** KANJIDIC2 is CC BY-SA, and this project publishes its own notes CC0. A reading is a
+  fact and facts are not copyrightable, but the share-alike terms deserve reading before we depend
+  on it. UniDic's licensing is a triple-licence and needs the same look.
+- **Proper nouns are the weak point, and they are our hard case.** Morphological analysers are
+  trained on running text and are notoriously poor on names and coinages — exactly the 670 author
+  names in §2. So this tooling largely solves *titles* and largely does not solve *authors*, which
+  is another reason the two keep separate standards (§1). Do not let a tokeniser's confident output
+  on a pen name be mistaken for a sourced reading.
+
+Two levels, and the first is worth shipping on its own:
 
 1. **Whole-string reading**, shown above or beside the title. No alignment, works everywhere, and
    already answers "how do I say this". This is what the romanisation pass produces anyway.

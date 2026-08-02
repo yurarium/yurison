@@ -3,3 +3,9 @@ madb-cache/
 openbd-cache/
 __pycache__/
 *.pyc
+
+# Crash-recovery journal for data/names/*.yaml — facts learned since the last compaction. Exists
+# only while a name pass is mid-flight and is replayed into the YAML on the next start, so it is
+# transient state rather than data. The YAML beside it is the thing worth committing.
+data/names/.journal/
+data/names/en-candidates.yaml

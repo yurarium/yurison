@@ -53,11 +53,23 @@ KINDS = ("authors", "titles")
 EN_RANK = {
     # authors (§5): the person's own rendering beats anything we compute from a reading.
     "stated": 30,
-    # titles (§5): the work's own English name beats our translation beats our romanisation.
-    "official": 40,
+    # TITLES. Three levels, not two, per the project owner's correction to §5:
+    #   official-jp  the English title the AUTHOR, MAGAZINE or JAPANESE PUBLISHER uses. It is the
+    #                work's own name in English and outranks everything.
+    #   licensed     what an English-language licensor publishes it as. Authoritative, but a second
+    #                party's choice, so it loses to the work's own.
+    #   translated / romaji  ours, and marked as ours.
+    "official-jp": 50,
+    "licensed": 40,
     "translated": 20,
     "romaji": 10,
 }
+
+# Where a claim came from, kept beside every claim so that "who says so" survives into the data.
+# The distinction that matters is the last two: a community-editable database is a lead, not an
+# attribution, and only a Japanese publisher page or a licensor catalogue can promote a title out
+# of candidacy.
+SOURCE_KINDS = ("platform", "publisher-jp", "licensor", "community-db", "derived")
 
 READING_RANK = {
     "surface": 50,        # the name is written in kana; the reading is not inferred, it is the name
@@ -70,6 +82,20 @@ READING_RANK = {
 
 def today():
     return datetime.date.today().isoformat()
+
+
+def same_reading(a, b):
+    """Are these the same reading, ignoring where the word boundary was drawn?
+
+    アオタユキコ and アオタ ユキコ are one reading written two ways: a kana surface has no space in
+    it, and a source that separates family from given does. Calling that a conflict would fill the
+    file with 23 disagreements that are not disagreements, and — worse — would train whoever reads
+    the conflict list to skim it. The list is only useful if everything in it is real.
+
+    The spacing itself is not discarded: where a source distinguishes the halves they are stored in
+    reading_family and reading_given, which is where §8.2 wants them anyway.
+    """
+    return str(a).replace(" ", "").replace("　", "") == str(b).replace(" ", "").replace("　", "")
 
 
 class NameStore:
@@ -169,6 +195,7 @@ class NameStore:
                                default_flow_style=False, width=100)
                 f.flush()
                 os.fsync(f.fileno())
+            os.chmod(tmp, 0o644)  # mkstemp is 0600; these are data files like every other in data/
             os.replace(tmp, path)
         except BaseException:
             pathlib.Path(tmp).unlink(missing_ok=True)
@@ -195,7 +222,8 @@ class NameStore:
     def _apply(self, kind, ja, fact):
         cur = self.records[kind].setdefault(ja, {})
         self._merge_group(cur, fact, "en", "basis", EN_RANK, "en_conflicts")
-        self._merge_group(cur, fact, "reading", "reading_basis", READING_RANK, "reading_conflicts")
+        self._merge_group(cur, fact, "reading", "reading_basis", READING_RANK, "reading_conflicts",
+                          equiv=same_reading)
         # Fields that are plain observations rather than competing claims: last writer wins, since
         # they cannot contradict each other in a way that misnames anyone.
         for k in ("ja_family", "ja_given", "reading_family", "reading_given",
@@ -205,29 +233,89 @@ class NameStore:
         for k in ("handles",):
             if fact.get(k):
                 cur[k] = sorted(set(cur.get(k, [])) | set(fact[k]))
+        if fact.get("candidate"):
+            self._add_candidate(cur, fact)
+        self._verify(cur)
         return cur
 
-    def _merge_group(self, cur, fact, value_key, basis_key, ranks, conflict_key):
-        """Merge one competing claim (an English rendering, or a reading) under the rank rule."""
-        new_val, new_basis = fact.get(value_key), fact.get(basis_key)
-        if new_val is None or new_basis is None:
+    @staticmethod
+    def _add_candidate(cur, fact):
+        """An English title we hold but cannot attribute — recorded, never promoted to `en`.
+
+        The project owner's correction to §5: a community-editable database (Wikidata, AniList,
+        MangaUpdates) may be reporting a licensed title, a Japanese publisher's own English title,
+        or a SCANLATION title, and nothing in the record distinguishes them. A scanlation title is
+        not a name the work has, so publishing one — even marked — would be inventing a name and
+        attributing it to the book. Candidacy is the honest state: we have seen this string, we
+        cannot yet say who gave the work that name, and one fetch of the licensor page it points at
+        would settle it.
+        """
+        entry = {"value": fact["candidate"], "source": fact.get("source")}
+        for k in ("source_kind", "source_url", "candidate_note"):
+            if fact.get(k):
+                entry[k.replace("candidate_", "")] = fact[k]
+        lst = cur.setdefault("en_candidates", [])
+        if not any(e.get("value") == entry["value"] and e.get("source") == entry.get("source")
+                   for e in lst):
+            lst.append(entry)
+
+    def _merge_group(self, cur, fact, value_key, basis_key, ranks, conflict_key, equiv=None):
+        """Merge one competing claim (an English rendering, or a reading) under the rank rule.
+
+        A claim may carry a basis with NO value, and that is the normal case for an author: §8.1
+        says the romanisation is generated per reader from the kana rather than stored, so
+        `basis: romaji` with no `en` means exactly "render it from the reading". Requiring a value
+        here would have thrown that claim away and left every romanised author with no basis at all
+        — which is the field §1 needs in order to know what a later pass must not overwrite.
+        """
+        new_basis = fact.get(basis_key)
+        if new_basis is None:
             return
+        new_val = fact.get(value_key)
         new_rank = ranks.get(new_basis, -1)
-        old_val, old_basis = cur.get(value_key), cur.get(basis_key)
-        if old_val is None:
-            cur.update({value_key: new_val, basis_key: new_basis})
+        agrees = equiv or (lambda a, b: a == b)
+        if basis_key not in cur:
+            if new_val is not None:
+                cur[value_key] = new_val
+            cur[basis_key] = new_basis
             self._stamp(cur, fact, value_key)
             return
+        old_val, old_basis = cur.get(value_key), cur.get(basis_key)
         old_rank = ranks.get(old_basis, -1)
+        if new_val is None and old_val is not None:
+            # A bare basis — "render this from the reading" — cannot relabel a string somebody
+            # else supplied. Letting it through would stamp `official-jp` onto a romanisation
+            # without changing the romanisation, which is the worst of both: a wrong string wearing
+            # a basis that §5 shows unmarked.
+            return
         if new_rank > old_rank:
             # The displaced claim is kept: a source we have now outranked may still be the one that
             # was right, and throwing it away makes that unrecoverable.
-            self._push(cur, conflict_key, old_val, old_basis, cur.get(f"{value_key}_source"))
-            cur.update({value_key: new_val, basis_key: new_basis})
+            if old_val is not None:
+                self._push(cur, conflict_key, old_val, old_basis, cur.get(f"{value_key}_source"))
+            if new_val is not None:
+                cur[value_key] = new_val
+            cur[basis_key] = new_basis
             self._stamp(cur, fact, value_key)
-        elif new_rank == old_rank and new_val != old_val:
+        elif new_rank < old_rank and new_val is not None and not agrees(new_val, old_val):
+            # The new claim loses, and is kept anyway. The project owner's correction is explicit:
+            # "where a work has both an official-jp and a licensed title and they differ, keep both
+            # and prefer official-jp for display. Do not silently discard the loser." A licensor's
+            # title is a real fact about the work even when the work's own English name outranks it.
             self._push(cur, conflict_key, new_val, new_basis, fact.get("source"))
-        elif new_val == old_val and fact.get("source") and fact["source"] != cur.get(f"{value_key}_source"):
+        elif new_rank == old_rank and old_val is None and new_val is not None:
+            # Same rank, but the existing claim was a bare basis with no string — an author marked
+            # `romaji` because their reading is known. A source now offering an actual string is
+            # adding to that claim, not competing with it, so it fills the gap rather than being
+            # dropped on the floor as a tie.
+            cur[value_key] = new_val
+            self._stamp(cur, fact, value_key)
+        elif (new_rank == old_rank and new_val is not None and old_val is not None
+              and not agrees(new_val, old_val)):
+            self._push(cur, conflict_key, new_val, new_basis, fact.get("source"))
+        elif (new_val is not None and old_val is not None and agrees(new_val, old_val)
+              and fact.get("source")
+              and fact["source"] != cur.get(f"{value_key}_source")):
             # §1: corroboration from a second source is what lifts a name out of "one database says
             # so". Recorded rather than counted, so which sources agreed stays visible.
             corro = cur.setdefault(f"{value_key}_corroborated", [])
@@ -235,13 +323,44 @@ class NameStore:
                 corro.append(fact["source"])
 
     def _stamp(self, cur, fact, value_key):
+        """Attach provenance to the CLAIM, not to the record.
+
+        `source_kind` was briefly a record-level field and that was wrong in a way worth keeping a
+        note about: `Sal Jiang` had its `platform` provenance — the Japanese site's own byline —
+        overwritten with `community-db` by a MangaUpdates record that merely corroborated the same
+        string. The record then said a platform-printed name came from a fan database. The owner's
+        correction asks for provenance "per title, not just the string", and a record can hold two
+        claims from two kinds of source, so the stamp has to travel with each claim.
+        """
         for src, dst in (("source", f"{value_key}_source"), ("source_url", f"{value_key}_url"),
+                         ("source_kind", f"{value_key}_source_kind"),
                          ("at", f"{value_key}_at"), ("pass", f"{value_key}_pass")):
             if fact.get(src) is not None:
                 cur[dst] = fact[src]
-        if "verified" in fact and value_key == "en":
-            cur["verified"] = fact["verified"]
-        cur.setdefault("verified", False)
+
+    @staticmethod
+    def _verify(cur):
+        """`verified` is derived, never passed in, and it is about the READING.
+
+        §5d is specific: "readings carry verified: true|false", and the mark exists so that a real
+        person is not authoritatively misnamed. That is a fact about the kana, not about the English
+        rendering — whose status is what `basis` already carries (§5's table). Keeping them as one
+        flag each, with one meaning each, is what stops the two marks being conflated later by
+        someone reading only half the plan.
+
+        Deriving rather than storing it means it cannot drift out of step with the reading it
+        describes: a better source arriving raises reading_basis and the flag follows in the same
+        write.
+
+        A name already written in Latin has no reading to verify and is not unverified: the platform
+        printed the author's own form, and there is nothing left to be wrong about.
+        """
+        if cur.get("reading"):
+            cur["verified"] = cur.get("reading_basis") in ("surface", "stated")
+        elif cur.get("en") and cur.get("basis") in ("stated", "official-jp", "licensed"):
+            cur["verified"] = True
+        else:
+            cur["verified"] = False
 
     @staticmethod
     def _push(cur, key, value, basis, source):
@@ -276,6 +395,20 @@ class NameStore:
     def tried(self, ja, source):
         return any(e.get("source") == source for e in self.attempts.get(ja, ()))
 
+    def supplies(self, kind, ja, want):
+        """Does this record now carry what a source promising `want` was supposed to add?
+
+        The mirror of open_for's test, and it has to stay the mirror: drive() uses this to decide
+        whether a name was actually answered, and open_for uses the same rule to decide whether to
+        ask again. If they disagree, a name is either asked forever or never asked again.
+        """
+        r = self.records[kind].get(ja) or {}
+        if want == "reading":
+            return bool(r.get("reading"))
+        if want == "en":
+            return bool(r.get("en"))
+        return bool(r.get("reading")) and bool(r.get("en"))
+
     def resolved_en(self, kind, ja):
         return bool(self.records[kind].get(ja, {}).get("en"))
 
@@ -286,8 +419,9 @@ class NameStore:
         """The names this source still has something to say about.
 
         `want` is what would count as progress: 'reading' for a source that gives kana, 'en' for
-        one that gives an English rendering, 'either' when a hit would give both. A name already
-        carrying what this source could add is skipped even though it was never attempted — that is
+        one that gives an English rendering, 'either' for a source that might give one or the
+        other — in which case it still has something to offer until BOTH are held. A name already
+        carrying what this source could add is skipped even though it was never attempted; that is
         §4's "resolved is final", and it is what bounds the total cost across restarts.
         """
         out = []
@@ -333,8 +467,12 @@ HEADER_NOTE = (
     "derivable from kana and none is derivable from another, so baking one in would cap what the "
     "reader-facing style toggle can ever offer. `en` is present only where a source STATES a Latin "
     "form; otherwise it is absent and the rendering is generated from `reading` at display time. "
-    "`basis` is about the English rendering (authors: stated|romaji; titles: official|translated|"
-    "romaji); `reading_basis` is about the kana. Conflicts are kept, never resolved silently."
+    "`basis` is about the English rendering (authors: stated|romaji; titles: official-jp|licensed|"
+    "translated|romaji, in that precedence); `reading_basis` is about the kana. `en_candidates` "
+    "holds English titles we have seen but cannot attribute to a Japanese publisher or a licensor: "
+    "community databases also carry scanlation titles, which are not names the work has, so a "
+    "candidate is never promoted to `en` without confirmation. Conflicts are kept, never resolved "
+    "silently."
 )
 
 ATTEMPTS_NOTE = (

@@ -109,6 +109,17 @@ LENGTHENS = {"a": {"あ"}, "i": {"い"}, "u": {"う"}, "e": {"え"}, "o": {"う"
 KATAKANA_START, KATAKANA_END = 0x30A1, 0x30F6
 HIRAGANA_START = 0x3041
 
+# Punctuation a kana-only string may contain, and what it becomes when rendered. These are not
+# readings — nothing is pronounced — so they pass through rather than being romanised. Anything not
+# listed here is emitted unchanged, which is the right default for ☆ and × and their friends.
+PUNCT = {"、": ", ", "。": ". ", "・": " ", "〜": "~", "～": "~", "＝": "=", "！": "!", "？": "?",
+         "「": "“", "」": "”", "『": "“", "』": "”", "（": " (", "）": ") ",
+         "…": "...", "‥": "..", "　": " ", "＆": " & ", "／": "/"}
+
+# What may sit between kana without making a string un-romanisable. Symbols are included because a
+# title like ガールズ×ヴァンパイア is fully determined — the × is already Latin and stays Latin.
+PUNCT_OK = set(" 　・-〜～＝=、。「」『』（）()！？!?…‥,.／/×☆★♪†＆&＋+♡♥∞→←＊*:：;；’'\"")
+
 
 def to_hiragana(s):
     """Fold katakana onto hiragana so one table serves both. ー and small kana survive unchanged."""
@@ -167,7 +178,7 @@ def kana_only(s):
     for c in s:
         if is_kana(c):
             seen = True
-        elif c in " 　・-〜~＝=・、。「」『』（）()！？!?…‥,.／/":
+        elif c in PUNCT_OK:
             continue
         else:
             return False
@@ -228,7 +239,7 @@ def romanise(reading, style="macron"):
             pending_sokuon = True
             continue
         if "raw" in m:
-            parts.append(m["raw"])
+            parts.append(PUNCT.get(m["raw"], m["raw"]))
             pending_sokuon = False
             continue
         r = m["r"]

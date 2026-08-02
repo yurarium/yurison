@@ -60,6 +60,13 @@ ROLE_TAIL = re.compile(r"[\s　]+(?:%s)\s*$"
 
 MASK = "\ue000"  # private-use stand-in for a separator that must survive the split
 
+# Strings that arrive in the author position without being people. `ヨン / 読切` is one author and a
+# format tag separated by the same slash the credits use, so the tag becomes an "author" and would
+# get a pass 3 search query spent on the word "one-shot". These are dropped at the source rather
+# than filtered later, so no pass ever has to know about them.
+NOT_A_NAME = {"読切", "読み切り", "連載", "新連載", "完結", "番外編", "特別編", "出張版", "前編",
+              "後編", "中編", "無料", "試し読み", "オリジナル", "不明", "作者不明", "その他"}
+
 BRACKETS = [("（", "）"), ("(", ")"), ("〔", "〕"), ("【", "】"), ("[", "]")]
 BRACKETED = re.compile(r"[（(〔【\[]([^）)〕】\]]*)[）)〕】\]]")
 
@@ -71,7 +78,7 @@ IMPRINT = re.compile(r"刊$|文庫|新書|書房|書店|出版|社$|MF|GA|富士
 def _mask_brackets(s):
     """Hide separators inside brackets behind MASK so the split cannot cut a bracketed span in
     half. Restored by split_authors once the splitting is done."""
-    out, depth, buf = [], 0, []
+    out, depth = [], 0
     openers = {a for a, _ in BRACKETS}
     closers = {b for _, b in BRACKETS}
     for c in s:
@@ -102,7 +109,7 @@ def split_authors(credit):
         p = ROLE_TAIL.sub("", ROLE_HEAD.sub("", p)).strip()
         name, reading = _peel_bracket(p)
         name = name.strip(" 　:：")
-        if not name or ROLE_ONLY.match(name):
+        if not name or ROLE_ONLY.match(name) or name in NOT_A_NAME:
             continue
         # A part with no Japanese and no Latin left is punctuation, not a person.
         if not (kana.has_kana(name) or kana.has_kanji(name) or kana.has_latin(name)):
@@ -134,13 +141,16 @@ def _peel_bracket(part):
 
 
 def load(build_dir, feeds=("feed/current.json", "feed/2026-07.json")):
-    """Return (authors, titles, credits) — sorted name lists plus the raw credit strings.
+    """Return (authors, titles, credits, by_title).
 
     `credits` is kept because pass 0 needs to know which page a name was read from, and the credit
-    string is the only link back to the work that carried it.
+    string is the only link back to the work that carried it. `by_title` maps a Japanese title to
+    the authors credited on it, which is what lets pass 2 join a database's ROMANISED credit to our
+    Japanese one — "MIZUNO Eita" cannot be string-matched to 水野英多, so the work is the only join
+    available.
     """
     build = pathlib.Path(build_dir)
-    titles, authors, credits = {}, {}, {}
+    titles, authors, credits, by_title = {}, {}, {}, {}
     rows = []
 
     series = json.loads((build / "series.json").read_text(encoding="utf-8"))
@@ -157,13 +167,18 @@ def load(build_dir, feeds=("feed/current.json", "feed/2026-07.json")):
         if not credit:
             continue
         credits.setdefault(credit, []).append(url)
-        for name, reading in split_authors(credit):
+        names = split_authors(credit)
+        if work:
+            for name, _ in names:
+                if name not in by_title.setdefault(work, []):
+                    by_title[work].append(name)
+        for name, reading in names:
             slot = authors.setdefault(name, {"reading": None, "urls": []})
             if reading and not slot["reading"]:
                 slot["reading"] = reading
             if url:
                 slot["urls"].append(url)
-    return authors, titles, credits
+    return authors, titles, credits, by_title
 
 
 def plan_baseline(build_dir):

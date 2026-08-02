@@ -20,6 +20,24 @@ It is deliberately not part of build.py. A build that fails because of a style r
 gets the rule deleted; this is run when the shape of the code changes, and its number is expected
 to fall as main() is decomposed further.
 
+WHY THE COUNT IS NOT SIMPLY FALLING. The obvious remedy is to decompose main(). Two blocks came
+out cleanly (write_feed_split, write_run_record) because they are the tail of the pipeline: they
+read finished data and write files. The rest does not come out, and the reason is worth recording
+so it is not attempted again from scratch.
+
+Extracting the first-sighting-ledger section — a block with its own section comment, apparently one
+concern — stranded ELEVEN names that main() still needed afterwards. Five were real state
+(`lapsed`, `print_candidates`, `promoted`, `queue`, `web_works`). The other six were LOOP VARIABLES:
+`c`, `k`, `key`, `r`, `v`, `w`, bound in one section and read in a later one.
+
+That is the finding. main() is not a long function with tidy sections; its sections communicate
+through names that look local and are not, and loop variables are load-bearing across hundreds of
+lines. Decomposition therefore has to thread state explicitly rather than lift blocks, which is a
+larger change than it appears and must be done with the byte-comparison harness in place.
+
+Until then this lint is the mitigation: it cannot stop the hazard, but it names every place the
+hazard lives, and the budget in docs/budgets.json stops the number growing.
+
 Usage:  shadowing.py [file ...] [--span N] [--max N]
 Exit 1 if the count exceeds --max, so it can gate a change if anyone wants it to.
 """

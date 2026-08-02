@@ -58,8 +58,22 @@ def work_data(html):
 
 
 def ep_rows(data):
-    """Episodes carry an id, code, title and update timestamp. Free/paid state is not stated in a
-    form we have established, so access_modes is left unset rather than guessed (§6)."""
+    """Episodes carry an id, code, title, update timestamp — and, it turns out, their access.
+
+    This used to say free/paid was "not stated in a form we have established", which was true when
+    written and stopped being true without anyone noticing. It is stated, in two fields:
+
+        isActive        readable right now, without paying
+        deliveryPeriod  when that ends; 9999-12-31 means it does not
+
+    On 私を喰べたい、ひとでなし, 48 of 410 episodes are active and the rest are not — カドコミ's usual
+    "newest few stay open" shape.
+
+    Only the POSITIVE statement is recorded. isActive true means the platform says you can read it,
+    so that is `free`. isActive false means it is not open, and カドコミ does not say whether that is
+    because it must be bought or because it is simply gone — so nothing is recorded, and the row
+    reads as unknown rather than as paid. Asserting 有料 from a missing field is what put
+    オタクサキュバスの才能がありすぎる！ — a free one-shot — in the interface as paid."""
     out = {}
     for key in ("latestEpisodes", "firstEpisodes"):
         block = data.get(key) or {}
@@ -71,9 +85,16 @@ def ep_rows(data):
             if not code:
                 continue
             when = str(e.get("updateDate") or e.get("startDate") or e.get("deliveryStartAt") or "")
-            out[code] = {"code": code, "title": (e.get("title") or "").strip(),
-                         "subtitle": (e.get("subTitle") or "").strip(),
-                         "updated": when[:10] if when else ""}
+            row = {"code": code, "title": (e.get("title") or "").strip(),
+                   "subtitle": (e.get("subTitle") or "").strip(),
+                   "updated": when[:10] if when else ""}
+            if e.get("isActive") is True:
+                row["access_modes"] = ["free"]
+                dp = str(e.get("deliveryPeriod") or "")[:10]
+                # 9999-12-31 is the platform's way of saying "no end", not a date.
+                if dp and not dp.startswith("9999"):
+                    row["free_until"] = dp
+            out[code] = row
     return list(out.values())
 
 
@@ -195,6 +216,10 @@ def main():
                 L.append(f"        subtitle: {js(e['subtitle'])}")
             if e.get("updated"):
                 L.append(f"        updated: {js(e['updated'])}")
+            if e.get("access_modes"):
+                L.append(f"        access_modes: {js(e['access_modes'])}")
+            if e.get("free_until"):
+                L.append(f"        free_until: {js(e['free_until'])}")
     L.append("")
     (out / "chapters.yaml").write_text("\n".join(L))
 

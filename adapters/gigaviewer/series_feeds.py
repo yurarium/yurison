@@ -65,7 +65,10 @@ def series_ids(html):
     return out
 
 
-FEED_TITLE = re.compile(r"<title>[^<（(]*[（(]([^）)]+)[）)]</title>")
+# Greedy to the LAST closing bracket: work titles contain brackets of their own —
+# コミックガルド（病弱少女、転生して健康な肉体（最強）を手に入れる…） — and a non-greedy match stopped
+# at the inner one and failed, so validation silently skipped every work with a bracket in its name.
+FEED_TITLE = re.compile(r"<title>[^<（(]*[（(](.+)[）)]</title>", re.S)
 
 
 def feed_series_name(xml):
@@ -177,6 +180,37 @@ def main():
             misattributed += 1
             name = stated
         eps = episodes(xml)
+        # The series feed has a free-only variant, advertised on the platform's own pages as
+        # 「Atom (無料話のみ)」. The difference between the two IS the access data, stated by the
+        # publisher rather than inferred from a badge — and far better than giga:freeTermStartDate,
+        # which appears only while a chapter sits inside a limited free window and says nothing
+        # about the rest. One extra request per series.
+        try:
+            free_xml = fetch(f"https://{p['host']}/atom/series/{sid}?free_only=1", cache)
+            free_ids = {e["url"] for e in episodes(free_xml) if e.get("url")}
+        except (urllib.error.HTTPError, urllib.error.URLError, OSError):
+            free_ids = None
+        # free_only=1 means UNCONDITIONALLY free. A chapter outside it may still be readable at no
+        # cost with a 作品チケット — コミックDAYS shows 「作品チケットで読む（無料）」 on exactly such
+        # chapters — and this project counts rate-limited free as free (free-timed), because it is
+        # free to a reader willing to wait. Marking those purchase would understate the free view.
+        #
+        # Ticket eligibility is a property of the WORK, not the chapter (「この作品は作品チケット
+        # 対象です」), so it costs one probe on one paid chapter rather than one per chapter.
+        if free_ids is not None:
+            paid = [e for e in eps if e.get("url") and e["url"] not in free_ids]
+            ticketed = False
+            if paid:
+                try:
+                    ep_html = fetch(paid[-1]["url"], cache)
+                    ticketed = bool(re.search(r"チケットで読む（無料）|作品チケット[^。]{0,12}対象", ep_html))
+                except (urllib.error.HTTPError, urllib.error.URLError, OSError):
+                    ticketed = False
+            for e in eps:
+                if e.get("url") in free_ids:
+                    e["access_modes"] = ["free"]
+                else:
+                    e["access_modes"] = ["free-timed"] if ticketed else ["purchase"]
         if eps:
             works.append({"work_title": name, "series_id": sid, "episodes": eps})
 
@@ -209,10 +243,9 @@ def main():
             if e.get("url"):
                 L.append(f"        url: {js(e['url'])}")
             if e.get("free_from"):
-                # Present only while a chapter is in a free window. Its presence marks the chapter
-                # free; its ABSENCE proves nothing — an always-free chapter carries no term either.
                 L.append(f"        free_from: {e['free_from']}")
-                L.append('        access_modes: ["free"]')
+            if e.get("access_modes"):
+                L.append(f"        access_modes: {js(e['access_modes'])}")
     L.append("")
     (out / f"{p['id']}-series-feeds.yaml").write_text("\n".join(L))
 

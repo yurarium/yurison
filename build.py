@@ -1082,6 +1082,17 @@ def main():
     merged = merge_releases(
         [{"work": r["work"], "episode": r["ep"], "platform": r["plat_name"] or r["plat"],
           "date": r["pub"], "url": r["url"], "_r": r} for r in releases], ranks)
+    # Map every SOURCE ROW to its merged entry, not just the one whose raw strings happen to be the
+    # bucket's representative. merge_releases groups on a normalised key, so a chapter carried as
+    # 「第５０−２話　夢現」 on one platform and 「【第50話(2)】夢現」 on another lands in one bucket with
+    # one representative — and the other row then failed the lookup, fell through to is_preferred =
+    # True, and 雨夜の月 appeared twice on the same day for the same chapter.
+    by_row = {}
+    for m in merged:
+        for s in m.get("sources") or []:
+            r = s.get("_r")
+            if r is not None:
+                by_row[id(r)] = m
     by_key = {(m["work"], m["episode"]): m for m in merged}
     # Reading quality decides where to send someone only among copies they can actually read.
     # しあわせ鳥見んぐ is best read on COMIC FUZ and its newest chapter there is behind a long
@@ -1097,7 +1108,8 @@ def main():
         free_srcs = [s for s in srcs if (s.get("_r") or {}).get("free")]
         if not free_srcs:
             continue
-        best_free = min(free_srcs, key=lambda s: ranks.get(s["platform"], 99))["platform"]
+        best_free = min(free_srcs, key=lambda s: (ranks.get(s["platform"]) or 99,
+                                                  s["platform"]))["platform"]
         if best_free == m["preferred"]:
             continue
         pref_row = next((s for s in srcs if s["platform"] == m["preferred"]), None)
@@ -1109,7 +1121,7 @@ def main():
         m["preferred_reason"] = "the best-ranked carrier this chapter is actually free on"
         switched += 1
     for r in releases:
-        m = by_key.get((r["work"], r["ep"]))
+        m = by_row.get(id(r)) or by_key.get((r["work"], r["ep"]))
         if m:
             r["preferred"] = m["preferred"]
             r["also_on"] = m["also_on"]

@@ -91,6 +91,10 @@ def merge_releases(rows, ranks):
             "preferred": best["platform"], "preferred_url": best.get("url"),
             "also_on": sorted({s["platform"] for s in b["sources"]} - {best["platform"]}),
             "source_count": len(b["sources"]),
+            # The rows that went into this bucket. Callers need them to map a release back to its
+            # merged entry — grouping is on a normalised key, so only one row per bucket has the
+            # raw strings the entry carries, and everything else failed a lookup keyed on those.
+            "sources": b["sources"],
         })
     return sorted(out, key=lambda e: (str(e["date"] or ""), e["work"]), reverse=True)
 

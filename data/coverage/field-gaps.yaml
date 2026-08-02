@@ -1,62 +1,36 @@
 # Fields still missing, with the reason, regenerated from the build.
 #
-# EVERY ATTESTED ROW NAMES ITS CHAPTER. What remains is author and access on a short list of
-# platforms, and unconfirmed claims — which carry no chapter, author, access or kind BY NATURE,
-# a listing site having said only that a work updated.
+# EVERY ATTESTED ROW NAMES ITS CHAPTER, and all but 22 carry an author and an access state too.
+# Unconfirmed claims carry none of these BY NATURE: a listing site said a work updated, no more.
 #
 # The distinction that matters: a field absent because the platform does not publish it is
 # finished work; a field absent because nothing went and read it is not. Only the first kind is
-# listed below.
+# listed below, and each reason names what was actually tried.
 source: derived
 role: field-gaps
 retrieved: 2026-08-02
-rows_total: 1415
-attested: 1365
-attested_complete: 1303
+rows_total: 1410
+attested: 1364
+attested_complete: 1342
 attested_missing_chapter: 0
-unconfirmed_claims: 50
+unconfirmed_claims: 46
 by_platform:
-  マンガよもんが:
-    author: 13
-    access: 13
   マンガワン:
     author: 14
-  マガポケ:
-    author: 5
-    access: 5
-  ニコニコ漫画（きららベース）:
-    access: 9
-  コロコロオンライン:
-    author: 4
-    access: 4
   マイナビニュース:
     author: 3
     access: 3
-  ガンガンONLINE:
-    access: 3
-    author: 1
-  サンデーうぇぶり:
-    access: 2
-  フラコミlike!:
-    author: 1
-    access: 1
-  コミック アース・スター:
-    access: 1
-  一迅プラス:
-    access: 1
-  コミックDAYS:
-    access: 1
-  ヤンジャン+:
-    access: 1
+  マガポケ:
+    access: 5
 reasons:
-  マンガよもんが: site is in maintenance and serves メンテナンス情報; unverifiable until it returns
-  マンガワン: states no author on the chapter page, in the serial listing or in any meta
-    tag
-  ガンガンONLINE: publishes 次回更新 and no per-chapter date, author or access — a reader
-    on the site cannot see them either
-  マガポケ: a few works whose rendered page yields no dated chapter list; their dates
-    come from the sitemap
-  コロコロオンライン: the page title runs work and author together with no separator (DOUBLE
-    HELIX BLOSSOM SWAV アサウラ 西馬ごめゆき) — splitting it would be a guess at the boundary
-  マイナビニュース: the series URL 301-redirects; target not yet followed
-  ニコニコ漫画（きららベース）: channel rows; the work-level route covers ニコニコ漫画 proper
+  マンガワン: 'No work page exists — /manga/<id> 404s for every title, including ones that are running. The
+    serialisation list, the search results and the reader all show title and date only. The one place
+    a name appears is the purchase card of a locked chapter, between the chapter title and 消費アイテム: for
+    メイド＆ロイド that is ちいさなひとひら, which reads as plausibly a chapter subtitle as a pen name. One observation
+    of an ambiguous slot is not an author, so it is not recorded as one.'
+  マガポケ: 'Five older chapters whose access the platform no longer shows: the work page renders ten chapters
+    and the rest need a control this fetch cannot press, and the episode pages are JavaScript shells.
+    Their authors and dates are complete; only the access badge is out of reach.'
+  マイナビニュース: A news site carrying a manga column. The series URL 301-redirects to carfairy_re, which lists
+    general motoring articles rather than the column's own instalments, and no article, meta tag or JSON-LD
+    on it names an author.

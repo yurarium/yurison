@@ -1,0 +1,52 @@
+# コロコロオンライン — chapters, authors and access from the work page.
+#
+# Each chapter row names itself in its thumbnail's alt text ("第99話 の話サムネイル"), dates
+# itself in a <time>, and states its access as an image badge: 無料, チケット, or the coin
+# mark. Authors are links to their own author pages, which is why they can be read at all —
+# the page <title> runs work and authors together with no separator.
+#
+# Rendered: the page builds in JavaScript and the API host answers 405 to GET.
+#
+# No genre label is established here (DEFINITIONS §4).
+source: webpages
+platform: corocoro
+platform_name: "コロコロオンライン"
+publisher: "小学館"
+retrieved: 2026-08-02
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+date_basis: platform-stated
+date_confidence: reported
+works:
+  - work_title: "DOUBLE HELIX BLOSSOM"
+    author: "SWAV / アサウラ / 西馬ごめゆき"
+    url: "https://www.corocoro.jp/title/65"
+    chapter_count: 9
+    chapters:
+      - title: "第100話"
+        updated: 2026-08-01
+        access_modes: ["free"]
+      - title: "第99話"
+        updated: 2026-07-18
+        access_modes: ["free"]
+      - title: "第98話"
+        updated: 2026-07-04
+        access_modes: ["free"]
+      - title: "第97話"
+        updated: 2026-06-27
+        access_modes: ["free-timed"]
+      - title: "特別イラスト①"
+        updated: 2024-02-10
+        access_modes: ["free"]
+      - title: "第4話"
+        updated: 2024-02-03
+        access_modes: ["free-timed"]
+      - title: "第3話"
+        updated: 2024-01-27
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: 2024-01-20
+        access_modes: ["free"]
+      - title: "第1話"
+        updated: 2024-01-15
+        access_modes: ["free"]

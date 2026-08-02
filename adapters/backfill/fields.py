@@ -23,7 +23,7 @@ Nothing is guessed. A route that does not fire leaves the field empty, which is 
 Usage:  fields.py --gaps data/coverage/field-gap-rows.yaml --out data/source/webpages \
                   --retrieved 2026-08-02
 """
-import argparse, html as _html, json, pathlib, re, sys, time
+import argparse, html as _html, json, pathlib, re, subprocess, sys, time
 import urllib.error, urllib.request
 from collections import Counter, defaultdict
 
@@ -45,6 +45,41 @@ TITLE = re.compile(r"<title>([^<]*)</title>", re.S)
 TITLE_TAIL = {
     "flowercomics.jp": ("フラコミlike!", {"いつでも無料": ["free"]}),
 }
+
+# Hosts that name their authors with a link to the author's own page. That link is the platform
+# saying "this is a person, and here is their page" — the one form of author statement that cannot
+# be confused with a tagline, a subtitle or a chapter name, which is what every looser reading of
+# "the text next to the title" has turned out to be. コロコロオンライン writes the work title into a
+# single h1 and its authors into three such links; its <title> runs them all together as
+# "DOUBLE HELIX BLOSSOM SWAV アサウラ 西馬ごめゆき" with no separator, so the link is the only place
+# the boundary between title and author is stated rather than guessed.
+AUTHOR_LINK = {"www.corocoro.jp": r'href="/author/\d+"[^>]*>(?:\s*<[^>]*>)*\s*([^<]{1,24})'}
+CHROME = next((c for c in ("/snap/bin/chromium", "/usr/bin/chromium",
+                           "/usr/bin/chromium-browser", "/usr/bin/google-chrome")
+               if pathlib.Path(c).exists()), None)
+
+
+def render(url):
+    """These pages build their content in JavaScript; there is nothing in the served HTML to read."""
+    if not CHROME:
+        return ""
+    try:
+        out = subprocess.run(
+            [CHROME, "--headless", "--disable-gpu", "--no-sandbox", "--virtual-time-budget=11000",
+             f"--user-agent={UA}", "--dump-dom", url], capture_output=True, text=True, timeout=140)
+    except (subprocess.TimeoutExpired, OSError):
+        return ""
+    time.sleep(PAUSE)
+    return out.stdout or ""
+
+
+def author_links(url):
+    pat = AUTHOR_LINK.get(host_of(url))
+    if not pat:
+        return None
+    names = [_html.unescape(x).strip() for x in re.findall(pat, render(url))]
+    names = [n for n in dict.fromkeys(names) if n]
+    return " / ".join(names) or None
 
 
 def get(url, limit=3_000_000):
@@ -153,6 +188,13 @@ def main():
                 how[route] += 1
                 continue
         if not eps and not author:
+            au = author_links(url)
+            if au:
+                works.append({"work_title": w, "author": au, "url": url,
+                              "platform": plat_of.get(w), "route": "author-link",
+                              "work_access": None, "episodes": []})
+                how["author-link"] += 1
+                continue
             missed.append((w, "no route yielded the missing fields"))
             continue
         how[route] += 1

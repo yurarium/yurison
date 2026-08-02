@@ -958,6 +958,16 @@ def main():
     # take it from any other row for the same work regardless of which adapter found it; access
     # belongs to a chapter, so it only crosses between rows for the same work, platform and
     # episode. This is not inference — it is the same fact, already fetched, not carried across.
+    def _author_str(a):
+        """An author field is a string in most sources and a list in a few. Anything else — a dict,
+        a nested object — is not a name and is not treated as one."""
+        if isinstance(a, str):
+            return a.strip() or None
+        if isinstance(a, list):
+            parts = [x.strip() for x in a if isinstance(x, str) and x.strip()]
+            return " / ".join(parts) or None
+        return None
+
     author_of, access_of = {}, {}
     # Identity confirmations carry an author that no release record does — 阿佐ヶ谷サキュバス同人物語's
     # 縁山 was established by search and then never reached a row, because those files hold identity
@@ -980,6 +990,38 @@ def main():
             author_of[wk] = f["author"]
         if f.get("access_modes"):
             access_of.setdefault((wk, pn, ek), f["access_modes"])
+    # An author is a fact about a work, and a work's author does not expire when the work drops out
+    # of a 60-day window. Until now the index was built from releases, so 怪獣ロマンティクス — whose
+    # author じぃと is stated plainly by pixivコミック, and which appears in the feed via マガポケ where
+    # no author is stated — had an empty author column while the answer sat in a file we had
+    # already fetched. Same for アイドラトリィ and オカルトタイムズ. Read every source we hold, once.
+    for _f in sorted(pathlib.Path("data/source").rglob("*.yaml")):
+        try:
+            _d = yaml.safe_load(_f.read_text())
+        except Exception:                                                       # noqa: BLE001
+            continue
+
+        def _seen(o):
+            if isinstance(o, dict):
+                t = next((o[k] for k in ("work_title", "title", "name")
+                          if isinstance(o.get(k), str) and o[k].strip()), None)
+                a = next((_author_str(o[k]) for k in
+                          ("author", "authors", "author_on_page", "author_name")
+                          if _author_str(o.get(k))), None)
+                if t and a:
+                    author_of.setdefault(norm_work(t), a)
+                for v in o.values():
+                    _seen(v)
+            elif isinstance(o, list):
+                for v in o:
+                    _seen(v)
+            elif isinstance(o, str) and "<author>" in o:
+                # Some sources keep the platform's Atom feed verbatim, which is the strongest form
+                # of this fact: the platform's own <author><name> beside its own <title>.
+                for m in re.finditer(r"<title>([^<]+)</title>.{0,900}?<author><name>([^<]+)</name>",
+                                     o, re.S):
+                    author_of.setdefault(norm_work(m.group(1)), m.group(2).strip())
+        _seen(_d)
     for r in releases:
         k = norm_work(r.get("work") or "")
         if r.get("author") and k not in author_of:

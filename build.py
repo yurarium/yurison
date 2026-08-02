@@ -123,10 +123,15 @@ def norm_work(s):
 
     The long vowel mark ー is deliberately NOT stripped: it is a letter in katakana, not
     punctuation, and removing it would merge genuinely different titles.
+
+    Nor is '+', for the same reason and a sharper one: it marks a SEQUEL. citrus and citrus+ are
+    two works with two URLs on 一迅プラス, and stripping it merged them into one everywhere in the
+    database — the sequel's releases filed under the original. NFKC has already folded ＋ to +, so
+    keeping it costs no cross-source matching.
     """
     s = re.sub(r"[\u200b-\u200f\u202a-\u202e\ufeff]", "", s or "")
     s = unicodedata.normalize("NFKC", s)
-    return re.sub(r"""[\s\-.=、。･・!?,:;'"“”‘’()\[\]{}「」『』【】〈〉《》〔〕~〜_/\\|+*&#@]""",
+    return re.sub(r"""[\s\-.=、。･・!?,:;'"“”‘’()\[\]{}「」『』【】〈〉《》〔〕~〜_/\\|*&#@]""",
                   "", s.strip().lower())
 
 

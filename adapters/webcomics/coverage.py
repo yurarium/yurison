@@ -72,7 +72,7 @@ def norm(s):
     # U+200E/U+200F (竹コミ‎‏‎), which are invisible and silently break every comparison.
     s = re.sub(r"[\u200b-\u200f\u202a-\u202e\ufeff]", "", s or "")
     s = unicodedata.normalize("NFKC", s)
-    return re.sub(r"""[\s\-.=、。･・!?,:;'"“”‘’()\[\]{}「」『』【】〈〉《》〔〕~〜_/\\|+*&#@]""",
+    return re.sub(r"""[\s\-.=、。･・!?,:;'"“”‘’()\[\]{}「」『』【】〈〉《》〔〕~〜_/\\|*&#@]""",
                   "", s.strip().lower())
 
 
@@ -202,6 +202,22 @@ def main():
          "# Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.",
          "source: webcomics.jp", "role: discovery-only", f"retrieved: {a.retrieved}",
          "record_type: candidate_works", f"works: {len(platforms_of)}", "candidates:"]
+    # CUMULATIVE. The 百合 tag is a rolling list of recent updates, not a catalogue: a work that
+    # stops updating drops off it. Regenerating the candidate list from a fresh read therefore
+    # DELETES works — reading 31 pages instead of 8 lost four, citrus+ among them, and gained none.
+    # Every adapter driven by this file would then stop fetching them, and a work we have held for
+    # months would quietly leave the database because a listing site stopped mentioning it.
+    #
+    # A work does not stop existing. Previous candidates are carried forward and merged; nothing is
+    # ever removed here. Removal, if it is ever right, is a decision about the work and belongs
+    # somewhere that records a reason.
+    prev = {}
+    _pf = out / "webcomics-works.yaml"
+    if _pf.exists():
+        for c in (yaml.safe_load(_pf.read_text()) or {}).get("candidates") or []:
+            if c.get("title"):
+                prev[norm(c["title"])] = c
+
     titles, urls = {}, {}
     for e in entries:
         titles.setdefault(norm(e["title"]), e["title"])
@@ -209,13 +225,24 @@ def main():
         # reachable, so adapters that resolve work pages from it lose access to a work the moment
         # its platform is onboarded — which is the opposite of what should happen.
         urls.setdefault(norm(e["title"]), []).append(e["work_url"])
+    carried = 0
+    for k, c in prev.items():
+        if k not in platforms_of:
+            platforms_of[k] = set(c.get("platforms") or [])
+            titles.setdefault(k, c.get("title"))
+            urls.setdefault(k, list(c.get("urls") or []))
+            carried += 1
+        else:
+            platforms_of[k] |= set(c.get("platforms") or [])
+            urls.setdefault(k, []).extend(c.get("urls") or [])
     for k, ps in sorted(platforms_of.items()):
         W.append(f"  - title: {json.dumps(titles.get(k, k), ensure_ascii=False)}")
-        W.append(f"    platforms: {json.dumps(sorted(ps), ensure_ascii=False)}")
-        W.append(f"    urls: {json.dumps(sorted(set(urls.get(k, []))), ensure_ascii=False)}")
+        W.append(f"    platforms: {json.dumps(sorted(p for p in ps if p), ensure_ascii=False)}")
+        W.append(f"    urls: {json.dumps(sorted(set(u for u in urls.get(k, []) if u)), ensure_ascii=False)}")
     W.append("")
     (out / "webcomics-works.yaml").write_text("\n".join(W))
 
+    print(f"carried forward   : {carried} works no longer listed but still tracked")
     nworks = len(platforms_of)
     print(f"listings          : {len(entries)} over {a.pages} page(s), {len(per_platform)} platforms")
     print(f"distinct works    : {nworks}  ({len(entries)-nworks} multi-platform listings)")

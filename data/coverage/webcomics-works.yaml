@@ -7,16 +7,10 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-01
+retrieved: 2026-08-02
 record_type: candidate_works
-works: 1203
+works: 1200
 candidates:
-  - title: "#うちらが最強 ～陰キャ除霊師とギャルJK～"
-    platforms: ["カドコミ"]
-    urls: ["https://comic-walker.com/detail/KC_006225_S"]
-  - title: "#ギャルとギャルの百合"
-    platforms: ["サンデーうぇぶり"]
-    urls: ["https://www.sunday-webry.com/episode/2550912965814192510"]
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/316190247047937848"]
@@ -49,7 +43,7 @@ candidates:
     urls: ["https://comic-walker.com/detail/KC_005863_S"]
   - title: "citrus"
     platforms: ["一迅プラス"]
-    urls: ["https://ichicomi.com/episode/2550912965923203593"]
+    urls: ["https://ichicomi.com/episode/2550912965923203593", "https://ichicomi.com/episode/2550912965923203855"]
   - title: "citrus+"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923203855"]
@@ -155,60 +149,6 @@ candidates:
   - title: "〆切前には百合が捗る"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/1525"]
-  - title: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
-    platforms: ["ライコミ"]
-    urls: ["https://comicride.jp/series/7b86cbca64ebe"]
-  - title: "「触れたい」は恋の始まり"
-    platforms: ["竹コミ‎‏‎"]
-    urls: ["https://takecomic.jp/series/5a87d01128492"]
-  - title: "『人斬り』少女、公爵令嬢の護衛になる"
-    platforms: ["ライコミ"]
-    urls: ["https://comicride.jp/series/b95a6b1493469"]
-  - title: "【今日の10ページ】BREAD NEW DAY"
-    platforms: ["MAGCOMI"]
-    urls: ["https://magcomi.com/episode/2550912964518979930"]
-  - title: "【今日の10ページ】Mock Love"
-    platforms: ["MAGCOMI"]
-    urls: ["https://magcomi.com/episode/2550689798539255616"]
-  - title: "【今日の10ページ】お前なんか拾わなければよかった"
-    platforms: ["MAGCOMI"]
-    urls: ["https://magcomi.com/episode/2550689798450194685"]
-  - title: "【今日の10ページ】きみは青いこもれび"
-    platforms: ["MAGCOMI"]
-    urls: ["https://magcomi.com/episode/2551460909657145122"]
-  - title: "【今日の10ページ】せばまたな"
-    platforms: ["MAGCOMI"]
-    urls: ["https://magcomi.com/episode/2551460909881789317"]
-  - title: "【今日の10ページ】ちゅーしたらどんなお願いも叶えてくれるお稲荷様のハレちゃん"
-    platforms: ["MAGCOMI"]
-    urls: ["https://magcomi.com/episode/2550912965753560014"]
-  - title: "【今日の10ページ】カラオケなんて嫌いだよ"
-    platforms: ["MAGCOMI"]
-    urls: ["https://magcomi.com/episode/2551460909751834862"]
-  - title: "【今日の10ページ】サウナに閉じ込められた二人"
-    platforms: ["MAGCOMI"]
-    urls: ["https://magcomi.com/episode/2550912965753560009"]
-  - title: "【今日の10ページ】ラントメーア"
-    platforms: ["MAGCOMI"]
-    urls: ["https://magcomi.com/episode/2551460909964711489"]
-  - title: "【今日の10ページ】世界の終わりにエロ本と先生と。"
-    platforms: ["MAGCOMI"]
-    urls: ["https://magcomi.com/episode/2550689798372256224"]
-  - title: "【今日の10ページ】怪異調査室"
-    platforms: ["MAGCOMI"]
-    urls: ["https://magcomi.com/episode/2551460909530630827"]
-  - title: "【今日の10ページ】田内梢と着付けについて"
-    platforms: ["MAGCOMI"]
-    urls: ["https://magcomi.com/episode/2550689798875666937"]
-  - title: "【今日の10ページ】知らない海を教えて"
-    platforms: ["MAGCOMI"]
-    urls: ["https://magcomi.com/episode/2551460909751834866"]
-  - title: "【特別読切】人魚姫"
-    platforms: ["HERO'S Web"]
-    urls: ["https://viewer.heros-web.com/episode/3269754496898191059"]
-  - title: "【百合】となりの席の地味な奴"
-    platforms: ["LINE マンガ インディーズ"]
-    urls: ["https://manga.line.me/indies/product/detail?id=12480"]
   - title: "あくまであまい私の彼女"
     platforms: ["コミックDAYS", "マガポケ"]
     urls: ["https://comic-days.com/episode/2550689798345958424", "https://pocket.shonenmagazine.com/title/02709"]
@@ -299,6 +239,9 @@ candidates:
   - title: "うそつきのんちゃん、地獄に堕ちろ"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17106371859967550978"]
+  - title: "#うちらが最強 ～陰キャ除霊師とギャルJK～"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_006225_S"]
   - title: "うまいものだけ食べて生きます。/読み切り"
     platforms: ["ヤングアニマルWeb"]
     urls: ["https://younganimal.com/series/061d7bbd35a86"]
@@ -353,6 +296,9 @@ candidates:
   - title: "お付きのメノと氷姫"
     platforms: ["少年エースplus(更新終了)"]
     urls: ["https://web-ace.jp/shonenaceplus/contents/3000097/"]
+  - title: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
+    platforms: ["ライコミ"]
+    urls: ["https://comicride.jp/series/7b86cbca64ebe"]
   - title: "お姉さまと巨人 ～お嬢さまが異世界転生～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_003240_S"]
@@ -1127,18 +1073,18 @@ candidates:
   - title: "ギャルだけど、クールな貴女を笑わせたい!【タテヨミ】"
     platforms: ["LINEマンガ(更新終了)"]
     urls: ["https://manga.line.me/product/periodic?id=S137703"]
+  - title: "#ギャルとギャルの百合"
+    platforms: ["サンデーうぇぶり"]
+    urls: ["https://www.sunday-webry.com/episode/2550912965814192510"]
   - title: "ギャルとネクラの吸血関係"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/60565"]
   - title: "ギャルと委員長が偶然再会する話"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/14079602755518249965"]
-  - title: "ギャルメイドと悪役令嬢 〜おじょーさまのハッピーエンドしか勝たん!〜"
-    platforms: ["ダ・ヴィンチニュース"]
-    urls: ["https://ddnavi.com/gyarumeido_akuyakureijo/"]
   - title: "ギャルメイドと悪役令嬢 ～おじょーさまのハッピーエンドしか勝たん!～"
-    platforms: ["pixivコミック", "一迅プラス"]
-    urls: ["https://comic.pixiv.net/works/10861", "https://ichicomi.com/episode/2550912965919401444"]
+    platforms: ["pixivコミック", "ダ・ヴィンチニュース", "一迅プラス"]
+    urls: ["https://comic.pixiv.net/works/10861", "https://ddnavi.com/gyarumeido_akuyakureijo/", "https://ichicomi.com/episode/2550912965919401444"]
   - title: "ギャル推しJKはギャルになりたい"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/11397"]
@@ -1616,9 +1562,6 @@ candidates:
   - title: "ムショカノジョ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019393_S"]
-  - title: "メイド&ロイドはお嬢様のお役に立ちたい!"
-    platforms: ["マンガワン"]
-    urls: ["https://manga-one.com/manga/28129/chapter/355684"]
   - title: "メイドのデューデ"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2550912965378889801"]
@@ -1628,6 +1571,9 @@ candidates:
   - title: "メイドはお嬢様と笑いたい。"
     platforms: ["ちゃおプラス"]
     urls: ["https://ciao.shogakukan.co.jp/comics/title/00392/episode/7392"]
+  - title: "メイド&ロイドはお嬢様のお役に立ちたい!"
+    platforms: ["マンガワン"]
+    urls: ["https://manga-one.com/manga/28129/chapter/355684"]
   - title: "メンヘラさんと市松さん"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/02250"]
@@ -1697,12 +1643,12 @@ candidates:
   - title: "リリィ・リリィ・ラ・ラ・ランド"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_001234_S"]
-  - title: "リリー&アイビー ～ケンカップル百合×性愛アンソロジー～"
-    platforms: ["pixivコミック"]
-    urls: ["https://comic.pixiv.net/works/8759"]
   - title: "リリーとキャラメル"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2550689798638388235"]
+  - title: "リリー&アイビー ～ケンカップル百合×性愛アンソロジー～"
+    platforms: ["pixivコミック"]
+    urls: ["https://comic.pixiv.net/works/8759"]
   - title: "リリーズ【タテスク】"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_000584_S"]
@@ -1847,6 +1793,9 @@ candidates:
   - title: "人妻教師が教え子の女子高生にドはまりする話"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_006978_S", "https://manga.nicovideo.jp/comic/74091"]
+  - title: "『人斬り』少女、公爵令嬢の護衛になる"
+    platforms: ["ライコミ"]
+    urls: ["https://comicride.jp/series/b95a6b1493469"]
   - title: "人間のペット飼いたい"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/4856001361163769575"]
@@ -1868,6 +1817,45 @@ candidates:
   - title: "今日から未来"
     platforms: ["HERO'S Web", "pixivコミック", "ニコニコ漫画"]
     urls: ["https://comic.pixiv.net/works/6489", "https://manga.nicovideo.jp/comic/69451", "https://viewer.heros-web.com/episode/10834108156700245168"]
+  - title: "【今日の10ページ】BREAD NEW DAY"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/2550912964518979930"]
+  - title: "【今日の10ページ】Mock Love"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/2550689798539255616"]
+  - title: "【今日の10ページ】お前なんか拾わなければよかった"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/2550689798450194685"]
+  - title: "【今日の10ページ】きみは青いこもれび"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/2551460909657145122"]
+  - title: "【今日の10ページ】せばまたな"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/2551460909881789317"]
+  - title: "【今日の10ページ】ちゅーしたらどんなお願いも叶えてくれるお稲荷様のハレちゃん"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/2550912965753560014"]
+  - title: "【今日の10ページ】カラオケなんて嫌いだよ"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/2551460909751834862"]
+  - title: "【今日の10ページ】サウナに閉じ込められた二人"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/2550912965753560009"]
+  - title: "【今日の10ページ】ラントメーア"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/2551460909964711489"]
+  - title: "【今日の10ページ】世界の終わりにエロ本と先生と。"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/2550689798372256224"]
+  - title: "【今日の10ページ】怪異調査室"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/2551460909530630827"]
+  - title: "【今日の10ページ】田内梢と着付けについて"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/2550689798875666937"]
+  - title: "【今日の10ページ】知らない海を教えて"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/2551460909751834866"]
   - title: "今日の授業は恋愛です!"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/53889"]
@@ -2459,12 +2447,12 @@ candidates:
   - title: "忠犬ねーね"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2550912964443171879"]
-  - title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
-    platforms: ["ニコニコ漫画", "マガポケ"]
-    urls: ["https://manga.nicovideo.jp/comic/67469", "https://pocket.shonenmagazine.com/title/02328"]
   - title: "念願の悪役令嬢の身体を手に入れたぞ!"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/2550689798271538198"]
+  - title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
+    platforms: ["ニコニコ漫画", "マガポケ"]
+    urls: ["https://manga.nicovideo.jp/comic/67469", "https://pocket.shonenmagazine.com/title/02328"]
   - title: "性別「モナリザ」の君へ。"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/12"]
@@ -2586,11 +2574,8 @@ candidates:
     platforms: ["コロナEX", "ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/49417", "https://to-corona-ex.com/comics/20000000049417"]
   - title: "抱かれたい女〜JDだけどアラサー女子に買われています〜"
-    platforms: ["ビッコミ"]
-    urls: ["https://bigcomics.jp/series/7c900aada4b46"]
-  - title: "抱かれたい女～JDだけどアラサー女子に買われています～"
-    platforms: ["サンデーうぇぶり"]
-    urls: ["https://www.sunday-webry.com/episode/3269754496731950619"]
+    platforms: ["サンデーうぇぶり", "ビッコミ"]
+    urls: ["https://bigcomics.jp/series/7c900aada4b46", "https://www.sunday-webry.com/episode/3269754496731950619"]
   - title: "抱き寝ーター"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/14079602755201264727"]
@@ -2951,6 +2936,9 @@ candidates:
   - title: "熱演"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17107094912913090959"]
+  - title: "【特別読切】人魚姫"
+    platforms: ["HERO'S Web"]
+    urls: ["https://viewer.heros-web.com/episode/3269754496898191059"]
   - title: "犬も歩けば姫に当たる"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/13322"]
@@ -3080,6 +3068,9 @@ candidates:
   - title: "百合SMでふたりの気持ちはつながりますか?"
     platforms: ["COMIC FUZ", "pixivコミック", "ニコニコ漫画"]
     urls: ["https://comic-fuz.com/manga/2391", "https://comic.pixiv.net/works/7194", "https://manga.nicovideo.jp/comic/56323"]
+  - title: "【百合】となりの席の地味な奴"
+    platforms: ["LINE マンガ インディーズ"]
+    urls: ["https://manga.line.me/indies/product/detail?id=12480"]
   - title: "百合にはさまる男は死ねばいい!?"
     platforms: ["LINEマンガ(更新終了)", "comicブースト", "ダ・ヴィンチニュース"]
     urls: ["https://comic-boost.com/content/01280001", "https://ddnavi.com/yurini-sinebaii/", "https://manga.line.me/product/periodic?id=Z0001152"]
@@ -3380,12 +3371,12 @@ candidates:
   - title: "角野兎はかわいい夢を見続ける?"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/8386"]
-  - title: "誰かオオカミさんのしつけ方知りませんか!?"
-    platforms: ["一迅プラス"]
-    urls: ["https://ichicomi.com/episode/12207421983347947242"]
+  - title: "「触れたい」は恋の始まり"
+    platforms: ["竹コミ‎‏‎"]
+    urls: ["https://takecomic.jp/series/5a87d01128492"]
   - title: "誰かオオカミさんのしつけ方知りませんか⁉"
-    platforms: ["ニコニコ漫画"]
-    urls: ["https://manga.nicovideo.jp/comic/76631"]
+    platforms: ["ニコニコ漫画", "一迅プラス"]
+    urls: ["https://ichicomi.com/episode/12207421983347947242", "https://manga.nicovideo.jp/comic/76631"]
   - title: "謎のユリイカ"
     platforms: ["マンガよもんが"]
     urls: ["https://www.yomonga.com/titles/2546/"]

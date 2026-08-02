@@ -5,64 +5,50 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-08-01
+retrieved: 2026-08-02
 pages_sampled: 31
 record_type: coverage_gap
 listings: 1532
-distinct_works: 1203
-works_on_watched_platform: 895
+distinct_works: 1200
+works_on_watched_platform: 1028
 platforms_total: 96
-platforms_watched: 21
+platforms_watched: 35
 # ranked by works reachable on NO watched platform
 platforms_missing:
-  - platform: "ニコニコ漫画"
-    works: 65
-  - platform: "pixivコミック"
-    works: 46
   - platform: "comicブースト"
-    works: 15
-  - platform: "マガポケ"
     works: 14
   - platform: "ガンガンONLINE"
     works: 13
-  - platform: "ストーリアダッシュ(更新終了)"
-    works: 12
-  - platform: "Gコミ"
-    works: 11
-  - platform: "HERO'S Web"
-    works: 11
   - platform: "マンガワン"
     works: 10
+  - platform: "Gコミ"
+    works: 10
+  - platform: "マガポケ"
+    works: 9
   - platform: "マンガPark"
     works: 9
-  - platform: "きら星ポータル"
+  - platform: "HERO'S Web"
     works: 9
-  - platform: "FEEL web"
-    works: 7
+  - platform: "きら星ポータル"
+    works: 8
   - platform: "ヤングアニマルWeb"
     works: 7
-  - platform: "COMICリュウ"
-    works: 6
-  - platform: "LINEマンガ(更新終了)"
-    works: 6
+  - platform: "ストーリアダッシュ(更新終了)"
+    works: 7
   - platform: "裏サンデー"
     works: 5
   - platform: "フラコミlike!"
     works: 5
   - platform: "マンガよもんが"
     works: 5
-  - platform: "ちゃおプラス"
+  - platform: "LINEマンガ(更新終了)"
     works: 5
   - platform: "花とゆめ+"
-    works: 4
-  - platform: "COMIC Y-OURS"
     works: 4
   - platform: "少年ジャンプルーキー"
     works: 4
   - platform: "WEBコミックガンマぷらす(更新終了)"
     works: 4
-  - platform: "ヤンジャン+"
-    works: 3
   - platform: "ライコミ"
     works: 3
   - platform: "コミックグロウル"
@@ -73,15 +59,9 @@ platforms_missing:
     works: 3
   - platform: "ツイ4"
     works: 3
-  - platform: "ダ・ヴィンチニュース"
-    works: 3
   - platform: "コロコロオンライン"
     works: 2
-  - platform: "Seasons"
-    works: 2
-  - platform: "まんがタイムSquare"
-    works: 2
-  - platform: "コミックボーダー"
+  - platform: "ヤンジャン+"
     works: 2
   - platform: "コミックエッセイ劇場"
     works: 2
@@ -89,13 +69,11 @@ platforms_missing:
     works: 2
   - platform: "GANMA!(更新終了)"
     works: 2
-  - platform: "コロナEX"
+  - platform: "ダ・ヴィンチニュース"
     works: 2
   - platform: "ヤングエースUP(更新終了)"
     works: 2
   - platform: "コミックNewtype(更新終了)"
-    works: 2
-  - platform: "COMICリュエル"
     works: 2
   - platform: "eBigComic4(更新終了)"
     works: 2
@@ -117,10 +95,6 @@ platforms_missing:
     works: 1
   - platform: "WEBコミックガンマ(更新終了)"
     works: 1
-  - platform: "栞"
-    works: 1
-  - platform: "OUR FEEL"
-    works: 1
   - platform: "Matogrosso(更新終了)"
     works: 1
   - platform: "GetNavi"
@@ -129,31 +103,25 @@ platforms_missing:
     works: 1
   - platform: "少年エースplus(更新終了)"
     works: 1
-  - platform: "Web漫画速報"
-    works: 1
   - platform: "COMIC熱帯"
     works: 1
   - platform: "LINE マンガ インディーズ"
     works: 1
   - platform: "MAGKAN"
     works: 1
-  - platform: "路草"
-    works: 1
-  - platform: "NewsCrunch"
+  - platform: "コロナEX"
     works: 1
   - platform: "げつあくWEB(更新終了)"
     works: 1
   - platform: "コミックヴァルキリー(更新終了)"
     works: 1
+  - platform: "COMICリュエル"
+    works: 1
   - platform: "マイナビニュース"
     works: 1
   - platform: "アルファポリス"
     works: 1
-  - platform: "パイコミックス"
-    works: 1
   - platform: "マンガボックス"
-    works: 1
-  - platform: "マガジンデビュー(更新終了)"
     works: 1
   - platform: "やわらかスピリッツ"
     works: 1
@@ -2503,11 +2471,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_005506_S"
     antenna_id: "168136"
     tags: ["百合"]
-  - title: "クレアちゃん飼育日記―カブトムシ少女にお世話されてます―"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_016896_S"
-    antenna_id: "210626"
-    tags: ["百合"]
   - title: "オタクサキュバスの才能がありすぎる!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_016705_S"
@@ -2538,11 +2501,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_003176_S"
     antenna_id: "108480"
     tags: ["王宮・貴族社会", "異世界", "転生", "ファンタジー", "百合", "令嬢", "アニメ化", "完結", "国家経営・内政"]
-  - title: "その手紙代行します!"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_014260_S"
-    antenna_id: "210784"
-    tags: ["百合", "読み切り"]
   - title: "人妻教師が教え子の女子高生にドはまりする話"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006978_S"
@@ -3603,11 +3561,6 @@ works_missing:
     url: "https://kodansha-cc.co.jp/series/sonoyoki"
     antenna_id: "96493"
     tags: ["百合"]
-  - title: "ガイド役の天使を殴り倒したら、死霊術師になりました ～激カワゴスロリ魔神様、サイコー!～"
-    platform: "コミック アース・スター"
-    url: "https://comic-earthstar.com/episode/2550912965247413858"
-    antenna_id: "183725"
-    tags: ["VR", "アクション", "ネクロマンサー", "百合", "宗教", "犬"]
   - title: "吸血少女とウンディーネ"
     platform: "コミック アース・スター"
     url: "https://comic-earthstar.com/episode/12207421983715032399"

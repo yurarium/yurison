@@ -157,3 +157,60 @@ if FAILS:
     print(f"{len(FAILS)} FAILED: {', '.join(FAILS)}")
     sys.exit(1)
 print("all name invariants hold")
+
+
+def test_ruby_spells_the_reading():
+    """A record must not contradict itself on the page.
+
+    Spans and readings come from different paths — the analyser tokenises, a sourced reading
+    arrives whole — and nothing forced them to agree until this. Three titles shipped reading
+    ワタシ while their ruby said わたくし. The invariant is mechanical, so it is a test rather than
+    a habit.
+    """
+    import json, pathlib
+    f = pathlib.Path(__file__).resolve().parents[2] / "data" / "build" / "series.json"
+    if not f.exists():
+        print("  skip  ruby/reading agreement (no build output)")
+        return
+    import kana
+    bad = []
+    for r in json.load(open(f))["series"]:
+        we = r.get("work_en") or {}
+        rd, rb = we.get("reading"), we.get("ruby")
+        if not rd or not rb:
+            continue
+        flat = kana.to_hiragana(rd).replace(" ", "")
+        got = "".join(x[1] or kana.to_hiragana(x[0]) for x in rb).replace(" ", "")
+        if got != flat:
+            bad.append(r["work"])
+    assert not bad, f"ruby does not spell the reading for {len(bad)}: {bad[:3]}"
+    print(f"  ok    ruby spells the reading, all rows that have both")
+
+
+def test_no_ruby_over_latin():
+    """Furigana over "M" is not furigana. Sudachi reads M as メートル, the SI symbol for metre, and
+    it reached 93 records before the surface was checked ahead of the reading."""
+    import yaml, pathlib, kana
+    d = pathlib.Path(__file__).resolve().parents[2] / "data" / "names"
+    bad = []
+    for kind in ("titles", "authors"):
+        f = d / f"{kind}.yaml"
+        if not f.exists():
+            continue
+        for k, v in (yaml.safe_load(f.read_text()) or {}).get("names", {}).items():
+            for t, rd in (v.get("furigana_spans") or []):
+                if not (rd and t and all(c.isascii() for c in t)):
+                    continue
+                # A single letter may keep the reading that is its NAME — V in Vチューバー is ブイ.
+                import pass4_analyser as p4
+                nm = p4.LETTER_NAME.get(t.upper()) if len(t) == 1 else None
+                if nm and kana.to_hiragana(nm) == rd:
+                    continue
+                bad.append((k, t, rd))
+    assert not bad, f"ruby over Latin/ASCII in {len(bad)} places: {bad[:3]}"
+    print("  ok    no ruby over Latin or ASCII")
+
+
+test_ruby_spells_the_reading()
+test_no_ruby_over_latin()
+print("\nall name invariants hold")

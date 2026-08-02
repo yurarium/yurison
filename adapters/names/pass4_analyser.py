@@ -42,6 +42,15 @@ KATA = {chr(c) for c in range(0x30A0, 0x3100)}
 #
 # Keep it short and keep it justified. It is not a place to fix individual titles: anything here
 # changes every work containing that token, which is the point and also the risk.
+# The Japanese names of the Latin letters. Closed set, no maintenance, and the only readings a
+# single Latin character legitimately takes in running Japanese.
+LETTER_NAME = {
+    "A": "エー", "B": "ビー", "C": "シー", "D": "ディー", "E": "イー", "F": "エフ", "G": "ジー",
+    "H": "エイチ", "I": "アイ", "J": "ジェー", "K": "ケー", "L": "エル", "M": "エム", "N": "エヌ",
+    "O": "オー", "P": "ピー", "Q": "キュー", "R": "アール", "S": "エス", "T": "ティー", "U": "ユー",
+    "V": "ブイ", "W": "ダブリュー", "X": "エックス", "Y": "ワイ", "Z": "ゼット",
+}
+
 READING_OVERRIDE = {
     "私": "ワタシ",
     "俺": "オレ",
@@ -252,10 +261,23 @@ def furigana_spans(tokenizer, s, mode=None):
         r = m.reading_form()
         if not surf:
             continue
+        # A Latin letter inside a Japanese word IS read aloud — V in Vチューバー is ブイ, and ruby
+        # saying so is useful. What is not useful is the SI expansion: Sudachi reads M as メートル,
+        # metre. So Latin keeps its reading only when that reading is the letter's NAME, which is a
+        # closed set of 26 and needs no maintenance, and is otherwise passed through bare.
+        if surf and len(surf) == 1 and surf.isascii() and surf.isalpha():
+            nm = LETTER_NAME.get(surf.upper())
+            out.append([surf, _k.to_hiragana(nm)] if nm and kata(r) == nm else [surf, None])
+            continue
+        # SURFACE FIRST, exactly as analyse() does — the two must agree or one string gets two
+        # different readings. 怪異部～M県Y市の怪現象について～ built its romaji from analyse(), which
+        # passes ASCII through, and its ruby from here, which did not: Sudachi reads M as メートル,
+        # the SI symbol for metre, so the page showed "M Ken Y Shi" beside めーとる over the M.
+        # Latin in a Japanese title is read as letters, and no reader needs furigana over "M".
+        if all(unicodedata.category(c)[0] in "PZS" or c.isascii() for c in surf):
+            out.append([surf, None])
+            continue
         if not r or r == "*" or has_kanji(r):
-            if all(unicodedata.category(c)[0] in "PZS" or c.isascii() for c in surf):
-                out.append([surf, None])
-                continue
             return None
         # The override applies HERE too. It was applied when building the reading string and not
         # when building the ruby, so the same title read "Watashi" in romaji and showed わたくし

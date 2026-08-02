@@ -211,7 +211,18 @@ def load_names():
             # aligned with the tokeniser; a reading that came from a source has no token structure,
             # so it is aligned directly — the anchor algorithm works on a whole string too, it is
             # simply less accurate than doing it per token.
+            # THE RUBY MUST SPELL THE READING. Spans and readings are produced by different paths
+            # — the analyser tokenises, while a sourced reading arrives whole — and nothing forced
+            # them to agree. Three records ended up reading ワタシ while their ruby said わたくし,
+            # which is one record contradicting itself on the same line of the page.
+            #
+            # So stored spans are used only when they reconstruct the stored reading. Otherwise the
+            # reading wins, because it is the thing other passes corroborate and the thing the
+            # romanisation is built from, and the ruby is re-derived from it.
             sp = rec.get("furigana_spans")
+            flat = _kana.to_hiragana(rd).replace(" ", "")
+            if sp and "".join(x[1] or _kana.to_hiragana(x[0]) for x in sp).replace(" ", "") != flat:
+                sp = None
             if not sp:
                 got = _kana.align(k_ja, rd.replace(" ", ""))
                 if got:

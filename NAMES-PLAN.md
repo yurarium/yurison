@@ -109,6 +109,55 @@ Passes 0–2 are resumable and idempotent; each writes `data/names/*.yaml` keyed
 string, and a name already resolved is never re-queried. Being resumable is what makes this safe to
 run slowly in the background over days.
 
+## 4a. How long, and how much of it is searching
+
+Measured where possible, estimated where not, and the estimates are marked as such.
+
+**Pass 0 yields less than §3 implies — I checked.** Sampling 278 cached pages across seven caches,
+65% contain a Latin social handle, which looked encouraging until the handles were counted per host:
+almost all are the *platform's* own footer links. Filtering out any handle appearing on more than
+half a host's pages leaves **0% for kadokomi and pixiv, 5% for niconico, 30% for GigaViewer** — and
+even that 30% still contains platform accounts (`SundayWebry`, `comicdays_team`) alongside genuine
+author ones (`jiangsal` is Sal Jiang, an author we hold). Realistic yield after filtering: **5–15% of
+authors**. Worth doing because it is free and the handles it does find are authoritative, but it is
+not the shortcut it looked like.
+
+**Ruby furigana in our caches: 0 of 278 pages.** That source does not exist. Every reading has to
+come from a dictionary, a database, or the alignment pass.
+
+| pass | network | time | resolves (estimated) |
+|---|---|---|---|
+| 0 cache mining | none | ~1h incl. writing it | 50–100 authors |
+| 1 kana → Hepburn | none | minutes | 219 authors, 164 titles — *exact, not estimated* |
+| 2 bulk APIs | ~800–1500 requests | 2–4h at polite pacing | 25–35% of titles, similar for authors |
+| 3 residue | per-name, cached-first | **the open-ended part** | see below |
+
+**Pass 2's request count is small and its coverage is the uncertainty.** AniList batches via
+aliases, so 1055 titles is ~40 requests, not 1055. The doubt is coverage: our set is 415 one-shots
+and ~640 serials, and these databases index tankōbon-bearing series well, web-only serials
+moderately, and one-shots barely at all. A weighted guess is 300–370 titles resolved, leaving
+~700.
+
+**Pass 3 is where the time goes: roughly 600–700 titles and 450–550 authors.** At 1–3 minutes each
+— open the work's own page (often already cached), check `og:title`, follow the author link, stop —
+that is **25–40 hours of agent work**. As a background task at a few hours a day, one to two weeks;
+run continuously with polite pacing, two to four days.
+
+**Searching, specifically: close to zero by design.** §3 rules out bulk search-engine queries, so
+the traffic is documented API calls plus publisher pages we largely already hold. Net new fetches
+are on the order of a single adapter run — not a bot-block risk at one request at a time.
+
+**The honest limit.** A guessed 30–50% of the residue will not be resolvable *at all*: a web
+one-shot by an artist with no tankōbon, no database entry and no English-language presence has no
+official English name and no published reading anywhere. Those stay Japanese permanently, which is
+what §6 is for, and they should be reported as *closed — nothing to find* rather than left looking
+like outstanding work forever.
+
+**Deliberately out of v1: OCR of title-page art.** §1 notes an official English title may exist only
+in the logo artwork. Reaching it means fetching images and running OCR over them, which is a
+different order of cost and a different failure mode. Leave it; record which works are suspected to
+have one.
+
 ## 5. What gets marked
 
 Per the project owner: series names need their official/guess status shown; author names do not,

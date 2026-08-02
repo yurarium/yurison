@@ -1483,6 +1483,34 @@ def main():
                           "announced": str(c.get("announced", "")),
                           "source": d.get("source"), "status": c.get("status")})
 
+    # ── anthologies and other collections ─────────────────────────────────────────────────────
+    # A 百合アンソロジー is not a serial and its instalments are not its chapters. Each is a separate
+    # short work by a separate author, and 一迅プラス states both in the chapter title:
+    # 【試し読み】白玉もち［貝合わせ］ is 貝合わせ by 白玉もち. We were flattening 19 of these into
+    # "new chapters" of one work by an author called アンソロジー.
+    #
+    # THE CAUTION THAT MATTERS: a collection's label does not descend to its instalments. These
+    # seven are titled 百合アンソロジー, so the publisher has labelled the collection itself — but a
+    # container like 横槍メンゴ新作読切シリーズ is an author's 読切 series where one volume is yuri and
+    # the next need not be. Discovery flags the container because ONE instalment matched. Recording
+    # the container as a yuri work with N chapters would assert that about all N.
+    ANTHOLOGY_EP = re.compile(r"【(?:試し読み|読切|読み切り)】\s*([^［\[]{1,20})[［\[]([^］\]]{1,40})[］\]]")
+    COLLECTION = re.compile(r"アンソロジー|短編集|読切シリーズ|読み切りシリーズ|読切集|オムニバス|傑作選")
+    split_anth = 0
+    for r in releases:
+        m = ANTHOLOGY_EP.match((r.get("ep") or "").strip())
+        if not m:
+            continue
+        # The instalment's own author and title, as the platform gives them.
+        r["author"], r["ep"] = m.group(1).strip(), m.group(2).strip()
+        r["collection"] = r["work"]
+        r["type"] = "trial" if "試し読み" in (r.get("ep_raw") or "") else r["type"]
+        split_anth += 1
+    for r in releases:
+        if COLLECTION.search(r.get("work") or ""):
+            r["in_collection"] = True
+    print(f"anthology instalments split into their own author and title : {split_anth}")
+
     # ── series index (data/build/series.json) ─────────────────────────────────────────────────
     # The feed is a 60-day window, which answers "what updated recently". A reader asking "what can
     # I read" wants the other question, and the works most worth listing are exactly the ones the

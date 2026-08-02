@@ -1,0 +1,43 @@
+# Collections, and why their label must not descend to their instalments.
+#
+# A 百合アンソロジー, a 短編集 and an author's 読切シリーズ are all CONTAINERS. Each instalment is a
+# separate short work by a separate author. 一迅プラス states both in the chapter title —
+# 【試し読み】白玉もち［貝合わせ］ is 貝合わせ by 白玉もち — and we were flattening nineteen of these
+# into "new chapters" of one series by an author called アンソロジー.
+#
+# THE HAZARD, which is the reason this file exists:
+#
+#   Discovery flags a container because ONE instalment matched. Recording the container as a yuri
+#   work with N chapters asserts that about all N, and that is not knowable from the container.
+#
+# The seven below are safe in one direction only: they are TITLED 百合アンソロジー, so the publisher
+# has labelled the collection itself. That is a statement about the collection, and it is still not
+# a statement that every instalment is yuri — an anthology can carry a framing piece, an afterword
+# comic, or a contributor who read the brief differently.
+#
+# 横槍メンゴ新作読切シリーズ on ヤンジャン+ is the unsafe shape and is NOT recorded as a work: it is an
+# author's 読切 series where Vol.1 is described as 女性×女性 and Vol.2 carries no such description.
+# Nothing about Vol.1 licenses a claim about Vol.2.
+#
+# What is done about it: instalments are split out under their own author and title, the collection
+# is shown as context rather than as the work, and no genre label is inherited downward. Classifying
+# an instalment remains what it always was — a human judgement (DEFINITIONS §4).
+source: derived
+role: collections
+retrieved: 2026-08-02
+containers:
+  - "セフレ沼から抜け出せないっ！百合えっちアンソロジー"
+  - "今日、お姉さんとエッチしない？ 百合アンソロジー"
+  - "魔性のメロ女に堕とされる百合アンソロジー"
+  - "昨日シたのに覚えてないの？ 百合えっち短編集"
+  - "女子校の王子様は私しか眼中にないらしい 百合アンソロジーコミック①"
+  - "お仕事×バディ 百合アンソロジーコミック"
+  - "リリー＆アイビー ～ケンカップル百合×性愛アンソロジー～"
+not_recorded:
+  - work: "横槍メンゴ新作読切シリーズ"
+    platform: "ヤンジャン+"
+    why: >-
+      An author's 読切 container, not a yuri work. Vol.1 is 週刊ヤングジャンプ掲載特別読切 described as
+      女性×女性; Vol.2 carries no such description and may not be in scope at all. ヤンジャン+ also
+      publishes no per-episode dates, so there is nothing to date an instalment by even if one
+      qualified.

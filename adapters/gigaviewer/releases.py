@@ -20,7 +20,21 @@ publisher-supplied reuse feed and §2 forbids referencing them.
 
 Usage:  releases.py --out data/source/gigaviewer --cache ~/workspace/giga-cache
 """
-import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
+import argparse, datetime, json, pathlib, re, sys, time, urllib.error, urllib.request
+
+JST = datetime.timezone(datetime.timedelta(hours=9))
+
+
+def jst_date(stamp):
+    """The date a Japanese platform considers a UTC timestamp to fall on."""
+    s = str(stamp or "").strip()
+    if len(s) <= 10 or "T" not in s:
+        return s[:10]
+    try:
+        d = datetime.datetime.fromisoformat(s.replace("Z", "+00:00"))
+    except ValueError:
+        return s[:10]
+    return d.astimezone(JST).date().isoformat() if d.tzinfo else s[:10]
 import unicodedata
 import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
@@ -372,7 +386,16 @@ def main():
             # Named distinctly: `cands` is the module-level discovery-candidate map, and shadowing
             # it here silently broke title matching on every platform after the first.
             date_evidence = [d for d in (r["first_reported"], r["first_seen"]) if d]
-            r["date"] = min(c[:10] for c in date_evidence) if date_evidence else ""
+            # JST, not UTC. Atom <updated> is UTC and 少年ジャンプ+ / サンデーうぇぶり publish at
+            # 15:00Z — midnight JST the next day — so slicing ten characters dated every one of
+            # their chapters a day early. 春雷卓球 shows 2026年07月31日 against a 2026-07-30T15:00:00Z
+            # stamp, on a series that updates 毎週金曜: the Friday is the 31st.
+            #
+            # This is a PARSE correction, not a revision of a locked date (§5). The date was never
+            # the platform's; it was our misreading of the platform's, and the locking rule exists
+            # to stop us following a platform that moves its own dates, not to preserve our own
+            # arithmetic errors.
+            r["date"] = min(jst_date(c) for c in date_evidence) if date_evidence else ""
 
         # Classify each series by the shape of its release history.
         by_work = defaultdict(list)

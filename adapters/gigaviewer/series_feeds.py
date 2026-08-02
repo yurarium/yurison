@@ -100,6 +100,30 @@ def feed_series_name(xml):
     return inner.group(1).strip() if inner else None
 
 
+JST = datetime.timezone(datetime.timedelta(hours=9))
+
+
+def jst_date(stamp):
+    """The date a Japanese platform considers this to be, not the date UTC does.
+
+    GigaViewer stamps <updated> in UTC. 少年ジャンプ+ and サンデーうぇぶり publish at 15:00Z — which is
+    midnight JST the NEXT day — so slicing the first ten characters dated every one of their
+    chapters a day early. 春雷卓球's page prints 2026年07月31日 against a feed stamp of
+    2026-07-30T15:00:00Z, and the series says 毎週金曜更新: the 31st is the Friday.
+
+    Not every platform is affected — コミックDAYS stamps 03:00Z and 一迅プラス 02:00Z, both mid-morning
+    JST — which is exactly why this survived: it is invisible on the platforms one happens to check.
+    """
+    s = (stamp or "").strip()
+    try:
+        d = datetime.datetime.fromisoformat(s.replace("Z", "+00:00"))
+    except ValueError:
+        return s[:10]
+    if d.tzinfo is None:
+        return s[:10]
+    return d.astimezone(JST).date().isoformat()
+
+
 def episodes(xml):
     out = []
     for b in ENTRY.findall(xml):
@@ -115,7 +139,7 @@ def episodes(xml):
         # Every entry carries <author><name>; it was simply never read, which is most of why
         # 64% of attested releases had no author.
         au = re.search(r"<author>\s*<name>([^<]*)</name>", b, re.S)
-        out.append({"title": _html.unescape(t.group(1).strip()), "updated": u.group(1)[:10],
+        out.append({"title": _html.unescape(t.group(1).strip()), "updated": jst_date(u.group(1)),
                     "url": l.group(1) if l else "",
                     "author": _html.unescape(au.group(1).strip()) if au else None,
                     "free_from": free.group(1)[:10] if free else None})
@@ -283,13 +307,21 @@ def main():
                 elif e.get("url") in ticket_urls:
                     e["access_modes"] = ["free-timed"]
                 elif scheduled:
-                    # The platform publishes a free date for this work's paid chapters. Only the
-                    # probed ones have a date we actually read; the rest are on the same schedule
-                    # and are recorded as free-eventually without inventing a date for them.
-                    e["access_modes"] = ["free-timed"]
+                    # PAID NOW, free on a stated date — which is `purchase`, not `free-timed`.
+                    #
+                    # I got this wrong when I added it. `free-timed` in this project means readable
+                    # RIGHT NOW at no cost, merely rate-limited: a ticket, a daily charge. A chapter
+                    # showing 「2026年08月07日に無料公開予定」 also shows 80pt and 購入して読む, and its
+                    # own data layer says can_read: false. Filing it as free-timed made the interface
+                    # tell a reader that every chapter of ゆりゆりぱにっく was readable at no cost when
+                    # 18 of its 24 cost 80pt each.
+                    #
+                    # The distinction is the one FUZ already draws between チャージ and 先行, and it
+                    # is the only one that matters at the moment someone decides what to open.
+                    e["access_modes"] = ["purchase"]
                     if scheduled.get(e.get("url")):
                         e["free_from"] = scheduled[e["url"]]
-                    e["access_note"] = "無料公開予定 — the platform states a date it becomes free"
+                    e["access_note"] = "先行 — costs money now; the platform states a date it becomes free"
                 else:
                     e["access_modes"] = ["purchase"]
         if eps:

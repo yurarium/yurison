@@ -114,6 +114,32 @@ def ep_number(title):
     return None
 
 
+JST = datetime.timezone(datetime.timedelta(hours=9))
+
+
+def jst_date(stamp):
+    """The date a Japanese platform considers a timestamp to fall on.
+
+    Atom <updated> is UTC. 少年ジャンプ+ and サンデーうぇぶり publish at 15:00Z, which is midnight JST
+    the NEXT day, so taking the first ten characters dated every one of their chapters a day early:
+    春雷卓球's page prints 2026年07月31日 against a stamp of 2026-07-30T15:00:00Z, and the series
+    updates 毎週金曜 — the 31st is the Friday.
+
+    コミックDAYS stamps 03:00Z and 一迅プラス 02:00Z, both mid-morning JST and unaffected, which is why
+    this survived: it is invisible on whichever platform one happens to check first.
+
+    A bare date passes through unchanged; only a real timestamp is converted.
+    """
+    s = str(stamp or "").strip()
+    if len(s) <= 10 or "T" not in s:
+        return s[:10]
+    try:
+        d = datetime.datetime.fromisoformat(s.replace("Z", "+00:00"))
+    except ValueError:
+        return s[:10]
+    return d.astimezone(JST).date().isoformat() if d.tzinfo else s[:10]
+
+
 def norm_work(s):
     """Normalise a work title for comparison.
 
@@ -320,7 +346,7 @@ def main():
                 # `date` is the earliest evidence held, locked when the release was first seen
                 # and never revised (§5). Platforms mass-update Atom <updated> on refresh and
                 # import, so their current value is carried for reference, never as the sort key.
-                "pub": str(r.get("date") or r.get("platform_updated", ""))[:10],
+                "pub": jst_date(r.get("date") or r.get("platform_updated", "")),
                 "seen": str(r.get("first_seen", "")),
                 "basis": r.get("date_basis", "bootstrap"),
                 "conf": r.get("date_confidence", "reported"),
@@ -1729,12 +1755,13 @@ def main():
                         "title": _ti, "updated": c.get("updated"), "url": _u2,
                         "access_modes": c.get("access_modes"), "author": _au})
                     continue
-                # Key on the chapter NAME, always. Keying on the URL "where there is one" mixed two
-                # key spaces in one bucket: the コミックDAYS series feed carries episode URLs and the
-                # resolver's copy of the same 121 chapters carries none, so nothing matched and
-                # 雨夜の月 came out with 242 chapters — every chapter twice. A name every source has
-                # beats a stronger identifier only some of them do.
-                ck = norm_work(c.get("title") or "") or c.get("url")
+                # Name AND date. Keying on the name alone was the fix for a worse bug — mixing URL
+                # and name key spaces gave 雨夜の月 242 chapters, every one twice — but a name is not
+                # unique within a work: 運命は役に立たない has two instalments both called おまけ, on
+                # 2026-05-10 and 2026-07-05, and one of them silently vanished. The date separates
+                # them, and two sources describing the same chapter agree on both.
+                ck = (norm_work(c.get("title") or ""), str(c.get("updated") or "")[:10]) \
+                    if c.get("title") else c.get("url")
                 slot = bucket["chapters"].setdefault(ck, {})
                 for fld in ("title", "updated", "url", "access_modes", "free_until", "free_from",
                             "author"):

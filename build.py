@@ -1564,52 +1564,72 @@ def main():
             _read = next((c.get("url") for c in reversed(dated) if c.get("url")), None)
             if not _read and _wurl and not _feedish.search(_wurl):
                 _read = _wurl
-            row = {
-                "work": title, "platform": plat,
-                "url": _read, "feed_url": _wurl if _wurl and _feedish.search(_wurl) else None,
-                "author": w.get("author") or "",
-                "chapters": len(w.get("chapters") or []),
-                "dated": len(dated),
-                "first": str(dated[0]["updated"])[:10] if dated else None,
-                "latest": str(dated[-1]["updated"])[:10] if dated else None,
-                "latest_ep": (dated[-1].get("title") or "").strip() if dated else "",
-                "free": sum(1 for c in chs if "free" in (c.get("access_modes") or [])),
-                "free_timed": sum(1 for c in chs if "free-timed" in (c.get("access_modes") or [])),
-                "priced": sum(1 for c in chs if "purchase" in (c.get("access_modes") or [])),
-                "upcoming": len(future),
-                "partial": bool(partial),
-                "oneshot_src": oneshot_src,
-                "_src": _d.get("platform") or _d.get("source") or "",
-            }
-            # The same platform is described by more than one adapter — マガポケ by both the sitemap
-            # and the rendered page. Keep whichever actually read more of the series; a sitemap row
-            # knows one episode and would otherwise overwrite a full history.
-            prev = series.get(key)
-            if not prev or row["chapters"] > prev["chapters"]:
-                if prev:
-                    row["author"] = row["author"] or prev["author"]
-                series[key] = row
-            elif prev and not prev.get("author") and row["author"]:
-                prev["author"] = row["author"]
+            # Accumulate, do not choose. Two files routinely describe the same (work, platform)
+            # and know different things: comic-days-series-feeds holds 下部七花はかく語りき WITH its
+            # access state and author, comic-days-confirmed holds the same single chapter with
+            # neither. Picking the record with more chapters made that a tie, and a tie fell to
+            # whichever file sorted first — so the interface showed no access for a chapter whose
+            # access we had already fetched. The feed got this right; this did not.
+            bucket = series.setdefault(key, {
+                "work": title, "platform": plat, "url": None, "feed_url": None,
+                "author": "", "chapters": {}, "upcoming": 0,
+                "partial": True, "oneshot_src": False, "_srcs": set(),
+            })
+            bucket["_srcs"].add(_d.get("platform") or _d.get("source") or "")
+            bucket["oneshot_src"] = bucket["oneshot_src"] or oneshot_src
+            # Partial only if EVERY source for this row is partial. One full history is enough to
+            # make the count real, whatever else also saw a slice of it.
+            bucket["partial"] = bucket["partial"] and bool(partial)
+            bucket["upcoming"] = max(bucket["upcoming"], len(future))
+            if not bucket["author"] and w.get("author"):
+                bucket["author"] = w["author"]
+            if _wurl and _feedish.search(_wurl):
+                bucket["feed_url"] = bucket["feed_url"] or _wurl
+            elif _wurl:
+                bucket["url"] = bucket["url"] or _wurl
+            for c in dated:
+                # Key on the episode URL where there is one — it is the platform's own identifier —
+                # and on the chapter name otherwise.
+                ck = c.get("url") or norm_work(c.get("title") or "")
+                slot = bucket["chapters"].setdefault(ck, {})
+                for fld in ("title", "updated", "url", "access_modes", "free_until", "free_from",
+                            "author"):
+                    if c.get(fld) and not slot.get(fld):
+                        slot[fld] = c[fld]
 
-    # Authors: prefer the index built across every source over whatever the individual record
-    # carried. Two reasons. Adapters that reach a work sideways often have no author at all — the
-    # コミックDAYS series feed states くずしろ and the カドコミ chapter list states nobody — and one
-    # stale row in remaining.yaml carries "くずしろ / 第１−１話　奏音と咲希", an author with a chapter
-    # title welded to it. A string containing a chapter marker is not a name, so it is discarded
-    # rather than shown.
-    # 第１−１話 is a split chapter and the separator is a full-width minus, so requiring digits
-    # immediately before 話 missed exactly the row this guard was written for.
+    # Collapse each bucket's merged chapters into the row the interface reads.
+    for row in series.values():
+        chs = sorted(row.pop("chapters").values(), key=lambda c: str(c.get("updated") or ""))
+        row["chapters_list"] = chs
+        row["chapters"] = len(chs)
+        row["dated"] = len(chs)
+        row["first"] = str(chs[0]["updated"])[:10] if chs else None
+        row["latest"] = str(chs[-1]["updated"])[:10] if chs else None
+        row["latest_ep"] = (chs[-1].get("title") or "").strip() if chs else ""
+        row["free"] = sum(1 for c in chs if "free" in (c.get("access_modes") or []))
+        row["free_timed"] = sum(1 for c in chs if "free-timed" in (c.get("access_modes") or []))
+        row["priced"] = sum(1 for c in chs if "purchase" in (c.get("access_modes") or []))
+        if not row["author"]:
+            row["author"] = next((c["author"] for c in reversed(chs) if c.get("author")), "")
+        # The link is the newest chapter that has one; the work-level url only if it is a page.
+        row["url"] = next((c.get("url") for c in reversed(chs) if c.get("url")), None) or row["url"]
+
+    # Authors: prefer the index built across every source over whatever a single record carried.
+    # Adapters that reach a work sideways often have no author at all, and one stale row carries
+    # "くずしろ / 第１−１話　奏音と咲希" — an author with a chapter title welded to it. A string
+    # containing a chapter marker is not a name, so it is discarded rather than shown. 第１−１話 is a
+    # split chapter and the separator is a full-width minus, so requiring digits immediately before
+    # 話 would miss exactly the row this guard exists for.
     _BAD_AUTHOR = re.compile(r"第[0-9０-９][0-9０-９\-−‐–—.．]*[話回巻]|更新日|\d{4}[-/年]")
     for row in series.values():
-        idx = author_of.get(norm_work(row["work"]))
-        if not row["author"] or _BAD_AUTHOR.search(row["author"]):
+        if row["author"] and _BAD_AUTHOR.search(row["author"]):
+            row["author"] = ""
+        if not row["author"]:
+            idx = author_of.get(norm_work(row["work"]))
             row["author"] = idx if idx and not _BAD_AUTHOR.search(idx) else ""
 
-    # One-shots. A 読切 with one chapter and no update for a year is not dormant — it is finished,
-    # and it was finished the day it appeared. Calling it 休眠 alongside abandoned serials would be
-    # the tab inventing a decline that never happened. Taken from the releases, where the platform's
-    # own statement (a series with one episode; a 読切 in the title) has already been resolved.
+    # One-shots the releases already resolved — the platform's own statement, for works recent
+    # enough to be in the feed at all. Most 読切 are not, which is why the source records matter more.
     _oneshot = {(norm_work(r["work"]), r.get("plat_name") or r.get("plat"))
                 for r in releases if r.get("kind") == "oneshot" or r.get("type") == "oneshot"}
     _oneshot_any = {w for w, _ in _oneshot}
@@ -1654,10 +1674,10 @@ def main():
     # invents a second platform for a work and reports the wrong access alongside it.
     _real = defaultdict(int)
     for (wk, plat), row in series.items():
-        if row["_src"] != "remaining":
+        if row["_srcs"] != {"remaining"}:
             _real[wk] = max(_real[wk], row["chapters"])
     series = {k: v for k, v in series.items()
-              if v["_src"] != "remaining" or v["chapters"] > _real[k[0]]}
+              if v["_srcs"] != {"remaining"} or v["chapters"] > _real[k[0]]}
 
     _cands |= {norm_work(r["work"]) for r in releases}
     _before = len(series)
@@ -1665,7 +1685,8 @@ def main():
     _out_of_scope = _before - len(series)
 
     for row in series.values():
-        row.pop("_src", None)
+        row.pop("_srcs", None)
+        row.pop("chapters_list", None)
     series_rows = sorted(series.values(),
                          key=lambda r: (r["latest"] or "", r["chapters"]), reverse=True)
     (out / "series.json").write_text(json.dumps(

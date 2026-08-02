@@ -1,0 +1,82 @@
+# Gaps remaining in the updates tab, and why each is still open.
+#
+# EVERY ATTESTED ROW IS COMPLETE: 1343 of 1343 carry chapter, author, access and kind. What is
+# left is 45 unconfirmed claims — a listing site saying a work updated, which no platform has
+# corroborated. Those are not missing FIELDS; they are rows whose existence is unconfirmed.
+#
+# Each was put through adapters/remaining/, which tries the per-series Atom feed an episode page
+# links, comici markup, a plain parse, then a rendered DOM. 22 of 42 with a URL resolved to a
+# chapter list; most of those lists do not contain the claimed chapter, which is itself the
+# answer rather than a failure.
+source: derived
+role: open-gaps
+retrieved: 2026-08-02
+attested_rows: 1343
+attested_rows_incomplete: 0
+unconfirmed_claims: 45
+categories:
+  - id: no_such_chapter
+    count: 19
+    why: >-
+      We read this work on this platform and the platform's own chapter list does not contain the claimed update. Checked by hand for マガポケ/オカルトタイムズ: the live page's newest chapter is 2026-07-22, exactly what we hold, against a claim of 2026-08-01. The aggregator is reporting something the platform does not show — a 単行本 release, a notice, or an error. Not a gap in our reading.
+    rows:
+      - "オカルトタイムズ — マガポケ — 2026-08-01"
+      - "しゅがー・みーつ・がーる! — COMIC FUZ — 2026-07-28"
+      - "お姉さんは女子小学生に興味があります。 — 竹コミ — 2026-07-21"
+      - "平良深姉妹はどっちもヤんでる — マガポケ — 2026-07-17"
+      - "今夜、エーテルで待ちあわせ — Seasons — 2026-07-17"
+      - "GURU — マガポケ — 2026-07-16"
+      - "魔性の乙女の役廻り — 竹コミ — 2026-07-10"
+      - "OL Vtuberと推しJKちゃん — 竹コミ — 2026-07-08"
+      - "銀輪ボイス — 竹コミ — 2026-07-05"
+      - "男装メイドは尽くしたい — 花とゆめ+ — 2026-07-05"
+      - "香原さんのふぇちのーと — 竹コミ — 2026-07-01"
+      - "フェアウェイの声をきかせて — チャンピオンクロス — 2026-07-01"
+      - "オカワリいただけただろうか? — pixivコミック — 2026-06-27"
+      - "ナキノン — HERO'S Web — 2026-06-25"
+      - "異種族女子に〇〇する話 — pixivコミック — 2026-06-20"
+      - "誰かオオカミさんのしつけ方知りませんか⁉ — ニコニコ漫画 — 2026-06-18"
+      - "腹割るウチらの秘密ごと! — pixivコミック — 2026-06-18"
+      - "踊り場にスカートが鳴る — マガポケ — 2026-06-16"
+      - "セイ少女黙示録 ですぺあ — ビッコミ — 2026-06-07"
+  - id: platform_unread
+    count: 14
+    why: >-
+      A platform no adapter covers. ヤンジャン+ (4) is the largest: ynjn.jp serves no robots.txt, no /atom, and builds its chapter list client-side, so it needs the browser route rather than a fetch. ドリコミ+ is geoblocked. The rest are one claim each — a per-platform adapter for a single row is not yet worth it, but nothing prevents it.
+    rows:
+      - "英雄少女と呪われの銀姫 — ヤンジャン+ — 2026-08-01"
+      - "獄門撫子此処ニ在リ — てれびくんヒーローコミックス — 2026-07-28"
+      - "勇者の旅の裏側で — ドリコミ+ — 2026-07-28"
+      - "世界で一番おっぱいが好き! — マンガボックス — 2026-07-23"
+      - "バカ女26時 — ヤンジャン+ — 2026-07-17"
+      - "月とすっぴん — FEEL web — 2026-07-10"
+      - "愛でたいセンセイ — COMIC Y-OURS — 2026-07-03"
+      - "ケモノとワルツ — コミックグロウル — 2026-07-02"
+      - "ガールミートガール — アサコミ — 2026-07-02"
+      - "私の魂を食べて下さい! — COMICリュウ — 2026-06-26"
+      - "横槍メンゴ新作読切シリーズ — ヤンジャン+ — 2026-06-25"
+      - "ベイビー車中ハッカーズ — ヤンジャン+ — 2026-06-22"
+      - "ツイてるギャルとミエてる陰キャ — きら星ポータル — 2026-06-17"
+      - "ロイヤルテーラー ―王宮の裁縫師― — ゼロサムオンライン — 2026-06-12"
+  - id: work_not_read_here
+    count: 7
+    why: >-
+      We read the platform but not this work on it: the work is not in that platform's target list, so no per-series feed was ever fetched for it. Fixable by adding the work to the platform's candidates — the cheapest remaining category.
+    rows:
+      - "怪獣ロマンティクス — pixivコミック — 2026-07-18"
+      - "声に乗せてファンファーレ — pixivコミック — 2026-07-17"
+      - "藤髪の魔女 — ガンガンONLINE — 2026-07-14"
+      - "画家の肖像 — コミックゼノン — 2026-07-13"
+      - "散らないで菊 — コミックゼノン — 2026-07-13"
+      - "姫虐が止まらない白桃さん — 一迅プラス — 2026-07-10"
+      - "温室のアトリエ — ガンガンONLINE — 2026-07-03"
+  - id: no_url
+    count: 5
+    why: >-
+      The claim names no URL. ニコニコ漫画（きららベース）(4) reports work-level updates with no link, so there is nothing to open and no way to identify which chapter is meant.
+    rows:
+      - "スライム倒して300年、知らないうちにレベルMAXになってました 森田季節/シバユウスケ — ガンガンONLINE — 2026-07-30"
+      - "ぬるめた — ニコニコ漫画（きららベース） — 2026-07-25"
+      - "しあわせ鳥見んぐ — ニコニコ漫画（きららベース） — 2026-07-25"
+      - "一畳間まんきつ暮らし！ — ニコニコ漫画（きららベース） — 2026-07-21"
+      - "球詠 — ニコニコ漫画（きららベース） — 2026-07-14"

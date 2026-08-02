@@ -35,6 +35,12 @@ CHROME = next((c for c in ("/snap/bin/chromium", "/usr/bin/chromium",
                if pathlib.Path(c).exists()), None)
 PAUSE = 1.0
 MIN_EPISODES = 1
+TODAY = __import__("datetime").date.today().isoformat()
+# Hosts whose own adapter reads them better than the generic routes here can. pixivコミック numbers
+# chapters 1, 2, 3 and states access by which episodes it renders at all; the generic extractor sees
+# neither and produced a chapter called "第1話 … 更新日:" with no access beside the render adapter's
+# clean reading of the same page.
+COVERED_HOSTS = ("comic.pixiv.net",)
 
 COMICI_BLOCK = re.compile(r'data-e2e="eli"')
 COMICI_ROW = re.compile(
@@ -154,6 +160,14 @@ def from_generic(html):
             continue
         m = CHAPTERISH.search(t)
         lab = re.split(r"\s\d{4}[-/.年]|\s+\d{2,}(?:\s|$)", t[m.start(): m.end() + 40])[0].strip()
+        # Rendered pages put the date's own label next to the chapter, and the generic extractor
+        # swept it into the title: "第1話 ぐっすん！…別れは出会いのシグナル 更新日:". Strip that and the
+        # other furniture words that sit in the same position.
+        lab = re.sub(r"\s*(更新日|公開日|配信日|更新)\s*[:：]?\s*$", "", lab).strip()
+        # A date in the future is 公開予定 — announced, not published. コミックFUZ carries these months
+        # ahead, and one arrived here as しゅがー・みーつ・がーる! "updating" on 2026-08-25.
+        if d > TODAY:
+            continue
         if lab and (lab, d) not in seen:
             seen.add((lab, d))
             out.append({"title": lab, "updated": d})
@@ -170,6 +184,9 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--cache", required=True)
     ap.add_argument("--retrieved", required=True)
+    ap.add_argument("--name", default="remaining",
+                    help="output basename; the claim-resolution queue writes a separate file so it "
+                         "does not overwrite the works this adapter was originally built for")
     a = ap.parse_args()
 
     cache = pathlib.Path(a.cache).expanduser()
@@ -182,6 +199,10 @@ def main():
         url = w.get("url")
         if not url:
             failed.append((w.get("title"), "no URL"))
+            continue
+        if any(h in (url or "") for h in COVERED_HOSTS):
+            failed.append((w.get("title"),
+                           "host is covered by a dedicated adapter — not re-read here"))
             continue
         html = get(url)
         eps, route, page_author = [], None, None
@@ -223,7 +244,7 @@ def main():
              "# usual strategies, and finally a rendered DOM. The route used is recorded per work.",
              "#",
              "# No genre label is established here (DEFINITIONS §4).",
-             "source: webpages", "platform: remaining", "platform_name: \"\"",
+             "source: webpages", f"platform: {a.name}", "platform_name: \"\"",
              f"retrieved: {a.retrieved}", "record_type: web_work_chapters",
              "identification_mode: discovery-candidate", "works:"]
         for r in rows:
@@ -246,7 +267,7 @@ def main():
                 if r["route"] in ("markup", "rendered"):
                     L.append(f"        date_basis: {'rendered' if r['route']=='rendered' else 'heuristic'}")
         L.append("")
-        (out / "remaining.yaml").write_text("\n".join(L))
+        (out / f"{a.name}.yaml").write_text("\n".join(L))
 
     print(f"works attempted : {len(rows) + len(failed)}")
     print(f"reached         : {len(rows)}  {dict(how)}")

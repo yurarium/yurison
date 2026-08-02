@@ -1,0 +1,929 @@
+# Series reached individually after every platform pass had left them out.
+#
+# Four routes tried per work, cheapest first: the GigaViewer per-series feed linked
+# from an episode page, comici's series-eplist markup, a plain fetch parsed by the
+# usual strategies, and finally a rendered DOM. The route used is recorded per work.
+#
+# No genre label is established here (DEFINITIONS §4).
+source: webpages
+platform: claim-resolved
+platform_name: ""
+retrieved: 2026-08-02
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works:
+  - work_title: "オカルトタイムズ"
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    platform_name: "マガポケ"
+    route: "markup"
+    chapter_count: 1
+    chapters:
+      - title: "第1話】ハザマ学園怪奇新聞部"
+        updated: 2026-06-30
+        date_basis: heuristic
+  - work_title: "しゅがー・みーつ・がーる!"
+    url: "https://comic-fuz.com/manga/3108"
+    platform_name: "COMIC FUZ"
+    route: "markup"
+    chapter_count: 61
+    chapters:
+      - title: "第30皿(2)"
+        updated: 2026-06-23
+        date_basis: heuristic
+      - title: "第30皿(1)"
+        updated: 2026-06-09
+        date_basis: heuristic
+      - title: "第29皿(2)"
+        updated: 2026-05-26
+        date_basis: heuristic
+      - title: "第29皿(1)"
+        updated: 2026-05-12
+        date_basis: heuristic
+      - title: "第28皿(2)"
+        updated: 2026-04-28
+        date_basis: heuristic
+      - title: "第28皿(1)"
+        updated: 2026-04-21
+        date_basis: heuristic
+      - title: "第27皿(2)"
+        updated: 2026-03-24
+        date_basis: heuristic
+      - title: "第27皿(1)"
+        updated: 2026-03-10
+        date_basis: heuristic
+      - title: "第26皿(2)"
+        updated: 2026-01-21
+        date_basis: heuristic
+      - title: "第26皿(1)"
+        updated: 2026-01-07
+        date_basis: heuristic
+      - title: "第25皿(2)"
+        updated: 2025-12-23
+        date_basis: heuristic
+      - title: "第25皿(1)"
+        updated: 2025-12-09
+        date_basis: heuristic
+      - title: "第24皿(2)"
+        updated: 2025-10-21
+        date_basis: heuristic
+      - title: "第24皿(1)"
+        updated: 2025-10-07
+        date_basis: heuristic
+      - title: "第23皿(2)"
+        updated: 2025-09-23
+        date_basis: heuristic
+      - title: "第23皿(1)"
+        updated: 2025-09-09
+        date_basis: heuristic
+      - title: "第22皿(2)"
+        updated: 2025-08-26
+        date_basis: heuristic
+      - title: "第22皿(1)"
+        updated: 2025-08-12
+        date_basis: heuristic
+      - title: "第21皿(2)"
+        updated: 2025-07-22
+        date_basis: heuristic
+      - title: "第21皿(1)"
+        updated: 2025-07-08
+        date_basis: heuristic
+      - title: "第20皿(2)"
+        updated: 2025-06-24
+        date_basis: heuristic
+      - title: "第20皿(1)"
+        updated: 2025-06-10
+        date_basis: heuristic
+      - title: "第19皿(2)"
+        updated: 2025-05-27
+        date_basis: heuristic
+      - title: "第19皿(1)"
+        updated: 2025-05-13
+        date_basis: heuristic
+      - title: "第18皿(2)"
+        updated: 2025-03-25
+        date_basis: heuristic
+      - title: "第18皿(1)"
+        updated: 2025-03-11
+        date_basis: heuristic
+      - title: "第17皿(2)"
+        updated: 2025-02-25
+        date_basis: heuristic
+      - title: "第17皿(1)"
+        updated: 2025-02-11
+        date_basis: heuristic
+      - title: "第16皿(2)"
+        updated: 2025-01-21
+        date_basis: heuristic
+      - title: "第16皿(1)"
+        updated: 2025-01-07
+        date_basis: heuristic
+      - title: "第15皿(2)"
+        updated: 2024-12-24
+        date_basis: heuristic
+      - title: "第15皿(1)"
+        updated: 2024-12-10
+        date_basis: heuristic
+      - title: "第14皿(2)"
+        updated: 2024-10-08
+        date_basis: heuristic
+      - title: "第14皿(1)"
+        updated: 2024-10-01
+        date_basis: heuristic
+      - title: "第13皿(2)"
+        updated: 2024-09-24
+        date_basis: heuristic
+      - title: "第13皿(1)"
+        updated: 2024-09-17
+        date_basis: heuristic
+      - title: "第12皿(2)"
+        updated: 2024-09-10
+        date_basis: heuristic
+      - title: "第12皿(1)"
+        updated: 2024-09-03
+        date_basis: heuristic
+      - title: "第11皿(2)"
+        updated: 2024-08-27
+        date_basis: heuristic
+      - title: "第11皿(1)"
+        updated: 2024-08-20
+        date_basis: heuristic
+      - title: "第10皿(2)"
+        updated: 2024-08-13
+        date_basis: heuristic
+      - title: "第10皿(1)"
+        updated: 2024-08-06
+        date_basis: heuristic
+      - title: "第9皿(2)"
+        updated: 2024-07-30
+        date_basis: heuristic
+      - title: "第9皿(1)"
+        updated: 2024-07-23
+        date_basis: heuristic
+      - title: "第8皿(2)"
+        updated: 2024-07-02
+        date_basis: heuristic
+      - title: "第8皿(1)"
+        updated: 2024-06-25
+        date_basis: heuristic
+      - title: "第7皿(2)"
+        updated: 2024-06-18
+        date_basis: heuristic
+      - title: "第7皿(1)"
+        updated: 2024-06-11
+        date_basis: heuristic
+      - title: "第6皿(2)"
+        updated: 2024-06-04
+        date_basis: heuristic
+      - title: "第6皿(1)"
+        updated: 2024-05-28
+        date_basis: heuristic
+      - title: "第5皿(2)"
+        updated: 2024-05-21
+        date_basis: heuristic
+      - title: "第5皿(1)"
+        updated: 2024-05-14
+        date_basis: heuristic
+      - title: "第4皿(2)"
+        updated: 2024-05-07
+        date_basis: heuristic
+      - title: "第4皿(1)"
+        updated: 2024-04-30
+        date_basis: heuristic
+      - title: "第3皿(2)"
+        updated: 2024-04-23
+        date_basis: heuristic
+      - title: "第3皿(1)"
+        updated: 2024-04-16
+        date_basis: heuristic
+      - title: "第2皿(2)"
+        updated: 2024-04-09
+        date_basis: heuristic
+      - title: "第2皿(1)"
+        updated: 2024-04-02
+        date_basis: heuristic
+      - title: "第1皿(2)"
+        updated: 2024-03-26
+        date_basis: heuristic
+      - title: "第1皿(1)"
+        updated: 2024-03-26
+        date_basis: heuristic
+      - title: "第0皿"
+        updated: 2024-03-26
+        date_basis: heuristic
+  - work_title: "お姉さんは女子小学生に興味があります。"
+    author: "柚木涼太"
+    url: "https://takecomic.jp/series/2ff377e5bc873"
+    platform_name: "竹コミ"
+    route: "comici"
+    chapter_count: 10
+    chapters:
+      - title: "1話"
+        updated: 2025-10-17
+        author: "柚木涼太"
+        access_modes: ["free"]
+      - title: "2話"
+        updated: 2025-10-17
+        author: "柚木涼太"
+        access_modes: ["free"]
+      - title: "3話"
+        updated: 2025-10-17
+        author: "柚木涼太"
+        access_modes: ["free"]
+      - title: "4話"
+        updated: 2025-10-17
+        author: "柚木涼太"
+        access_modes: ["purchase"]
+      - title: "5話"
+        updated: 2025-10-17
+        author: "柚木涼太"
+        access_modes: ["purchase"]
+      - title: "60話"
+        updated: 2025-10-17
+        author: "柚木涼太"
+        access_modes: ["purchase"]
+      - title: "61話"
+        updated: 2025-10-17
+        author: "柚木涼太"
+        access_modes: ["purchase"]
+      - title: "62話"
+        updated: 2025-10-17
+        author: "柚木涼太"
+        access_modes: ["purchase"]
+      - title: "63話"
+        updated: 2025-10-17
+        author: "柚木涼太"
+        access_modes: ["purchase"]
+      - title: "64話"
+        updated: 2025-10-17
+        author: "柚木涼太"
+        access_modes: ["purchase"]
+  - work_title: "平良深姉妹はどっちもヤんでる"
+    url: "https://pocket.shonenmagazine.com/title/02257"
+    platform_name: "マガポケ"
+    route: "markup"
+    chapter_count: 1
+    chapters:
+      - title: "#１（１）】"
+        updated: 2023-08-04
+        date_basis: heuristic
+  - work_title: "今夜、エーテルで待ちあわせ"
+    author: "ヨン / 読切"
+    url: "https://comic-seasons.com/episode/2551460909766158255"
+    platform_name: "Seasons"
+    route: "gigaviewer"
+    chapter_count: 1
+    chapters:
+      - title: "読切"
+        updated: 2025-12-05
+        author: "ヨン"
+        access_modes: ["free"]
+  - work_title: "魔性の乙女の役廻り"
+    author: "サスケ"
+    url: "https://takecomic.jp/series/2706e9d937d5f"
+    platform_name: "竹コミ"
+    route: "comici"
+    chapter_count: 10
+    chapters:
+      - title: "1話"
+        updated: 2025-10-17
+        author: "サスケ"
+        access_modes: ["free"]
+      - title: "2話"
+        updated: 2025-10-17
+        author: "サスケ"
+        access_modes: ["free"]
+      - title: "3話"
+        updated: 2025-10-17
+        author: "サスケ"
+        access_modes: ["purchase"]
+      - title: "4話"
+        updated: 2025-10-17
+        author: "サスケ"
+        access_modes: ["purchase"]
+      - title: "5話"
+        updated: 2025-10-17
+        author: "サスケ"
+        access_modes: ["purchase"]
+      - title: "10話"
+        updated: 2025-10-17
+        author: "サスケ"
+        access_modes: ["purchase"]
+      - title: "11話"
+        updated: 2025-10-17
+        author: "サスケ"
+        access_modes: ["purchase"]
+      - title: "12話"
+        updated: 2025-10-17
+        author: "サスケ"
+        access_modes: ["purchase"]
+      - title: "13話"
+        updated: 2025-10-17
+        author: "サスケ"
+        access_modes: ["purchase"]
+      - title: "14話"
+        updated: 2025-10-17
+        author: "サスケ"
+        access_modes: ["purchase"]
+  - work_title: "月とすっぴん"
+    author: "アケガタユウ"
+    url: "https://feelweb.jp/episode/3269754496401056101"
+    platform_name: "FEEL web"
+    route: "gigaviewer"
+    chapter_count: 1
+    chapters:
+      - title: "第1話"
+        updated: 2021-08-20
+        author: "アケガタユウ"
+        access_modes: ["free"]
+  - work_title: "OL Vtuberと推しJKちゃん"
+    author: "しのぎあさ"
+    url: "https://takecomic.jp/series/0e7fd362c2c11"
+    platform_name: "竹コミ"
+    route: "comici"
+    chapter_count: 10
+    chapters:
+      - title: "1話"
+        updated: 2025-10-17
+        author: "しのぎあさ"
+        access_modes: ["free"]
+      - title: "2話"
+        updated: 2025-10-17
+        author: "しのぎあさ"
+        access_modes: ["free"]
+      - title: "3話"
+        updated: 2025-10-17
+        author: "しのぎあさ"
+        access_modes: ["free"]
+      - title: "4話"
+        updated: 2025-10-17
+        author: "しのぎあさ"
+        access_modes: ["purchase"]
+      - title: "5話"
+        updated: 2025-10-17
+        author: "しのぎあさ"
+        access_modes: ["purchase"]
+      - title: "16話"
+        updated: 2025-10-17
+        author: "しのぎあさ"
+        access_modes: ["purchase"]
+      - title: "17話"
+        updated: 2025-11-28
+        author: "しのぎあさ"
+        access_modes: ["purchase"]
+      - title: "18話"
+        updated: 2026-02-27
+        author: "しのぎあさ"
+        access_modes: ["purchase"]
+      - title: "19話"
+        updated: 2026-03-27
+        author: "しのぎあさ"
+        access_modes: ["free"]
+      - title: "20話"
+        updated: 2026-05-29
+        author: "しのぎあさ"
+        access_modes: ["purchase"]
+  - work_title: "銀輪ボイス"
+    author: "もくふう"
+    url: "https://takecomic.jp/series/de0a74a9b5715"
+    platform_name: "竹コミ"
+    route: "comici"
+    chapter_count: 10
+    chapters:
+      - title: "1話"
+        updated: 2025-10-17
+        author: "もくふう"
+        access_modes: ["free"]
+      - title: "2話"
+        updated: 2025-10-17
+        author: "もくふう"
+        access_modes: ["free"]
+      - title: "3話"
+        updated: 2025-10-17
+        author: "もくふう"
+        access_modes: ["purchase"]
+      - title: "4話"
+        updated: 2025-10-17
+        author: "もくふう"
+        access_modes: ["purchase"]
+      - title: "5話"
+        updated: 2025-10-17
+        author: "もくふう"
+        access_modes: ["purchase"]
+      - title: "14話"
+        updated: 2025-10-17
+        author: "もくふう"
+        access_modes: ["purchase"]
+      - title: "15話"
+        updated: 2025-10-17
+        author: "もくふう"
+        access_modes: ["purchase"]
+      - title: "16話"
+        updated: 2025-10-17
+        author: "もくふう"
+        access_modes: ["purchase"]
+      - title: "17話"
+        updated: 2025-10-17
+        author: "もくふう"
+        access_modes: ["free"]
+      - title: "18話"
+        updated: 2026-02-07
+        author: "もくふう"
+        access_modes: ["purchase"]
+  - work_title: "男装メイドは尽くしたい"
+    author: "瑠夏子"
+    url: "https://hanayume.com/series/1191c17a3f374"
+    platform_name: "花とゆめ+"
+    route: "comici"
+    chapter_count: 7
+    chapters:
+      - title: "1話"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free"]
+      - title: "2話①"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["purchase"]
+      - title: "2話②"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["purchase"]
+      - title: "3話①"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["purchase"]
+      - title: "3話②"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["purchase"]
+      - title: "4話①"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["purchase"]
+      - title: "4話②＜完＞"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["purchase"]
+  - work_title: "腹割るウチらの秘密ごと!"
+    author: "夏村東和"
+    url: "https://mangatime-square.com/episode/12207421983656607506"
+    platform_name: "まんがタイムSquare"
+    route: "gigaviewer"
+    chapter_count: 5
+    chapters:
+      - title: "第5話"
+        updated: 2026-07-03
+        author: "夏村東和"
+        access_modes: ["free"]
+      - title: "第4話"
+        updated: 2026-06-05
+        author: "夏村東和"
+        access_modes: ["free"]
+      - title: "第3話"
+        updated: 2026-05-15
+        author: "夏村東和"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: 2026-05-15
+        author: "夏村東和"
+        access_modes: ["free"]
+      - title: "第1話"
+        updated: 2026-05-15
+        author: "夏村東和"
+        access_modes: ["free"]
+  - work_title: "愛でたいセンセイ"
+    author: "タカノ晴"
+    url: "https://comic-y-ours.com/episode/2551460909791888785"
+    platform_name: "COMIC Y-OURS"
+    route: "gigaviewer"
+    chapter_count: 16
+    chapters:
+      - title: "第16話"
+        updated: 2026-05-08
+        author: "タカノ晴"
+        access_modes: ["purchase"]
+      - title: "第15話"
+        updated: 2026-03-13
+        author: "タカノ晴"
+        access_modes: ["purchase"]
+      - title: "第14話"
+        updated: 2026-02-13
+        author: "タカノ晴"
+        access_modes: ["purchase"]
+      - title: "第13話"
+        updated: 2026-01-16
+        author: "タカノ晴"
+        access_modes: ["purchase"]
+      - title: "第12話"
+        updated: 2026-01-16
+        author: "タカノ晴"
+        access_modes: ["purchase"]
+      - title: "第11話"
+        updated: 2026-01-16
+        author: "タカノ晴"
+        access_modes: ["purchase"]
+      - title: "第10話"
+        updated: 2026-01-16
+        author: "タカノ晴"
+        access_modes: ["purchase"]
+      - title: "第9話"
+        updated: 2026-01-16
+        author: "タカノ晴"
+        access_modes: ["purchase"]
+      - title: "第8話"
+        updated: 2026-01-16
+        author: "タカノ晴"
+        access_modes: ["purchase"]
+      - title: "第7話"
+        updated: 2026-01-16
+        author: "タカノ晴"
+        access_modes: ["purchase"]
+      - title: "第6話"
+        updated: 2026-01-16
+        author: "タカノ晴"
+        access_modes: ["purchase"]
+      - title: "第5話"
+        updated: 2026-01-16
+        author: "タカノ晴"
+        access_modes: ["purchase"]
+      - title: "第4話"
+        updated: 2026-01-16
+        author: "タカノ晴"
+        access_modes: ["purchase"]
+      - title: "第3話"
+        updated: 2026-01-16
+        author: "タカノ晴"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: 2026-01-16
+        author: "タカノ晴"
+        access_modes: ["free"]
+      - title: "第1話"
+        updated: 2026-01-16
+        author: "タカノ晴"
+        access_modes: ["free"]
+  - work_title: "ケモノとワルツ"
+    author: "椿木とりか"
+    url: "https://comic-growl.com/series/5ec689382839e"
+    platform_name: "コミックグロウル"
+    route: "comici"
+    chapter_count: 10
+    chapters:
+      - title: "1"
+        updated: 2025-09-06
+        author: "椿木とりか"
+        access_modes: ["free"]
+      - title: "2-①"
+        updated: 2025-09-13
+        author: "椿木とりか"
+        access_modes: ["purchase"]
+      - title: "2-②"
+        updated: 2025-09-20
+        author: "椿木とりか"
+        access_modes: ["purchase"]
+      - title: "3-①"
+        updated: 2025-09-27
+        author: "椿木とりか"
+        access_modes: ["purchase"]
+      - title: "3-②"
+        updated: 2025-10-04
+        author: "椿木とりか"
+        access_modes: ["purchase"]
+      - title: "19-①"
+        updated: 2026-03-07
+        author: "椿木とりか"
+        access_modes: ["purchase"]
+      - title: "19-②"
+        updated: 2026-03-14
+        author: "椿木とりか"
+        access_modes: ["purchase"]
+      - title: "最終話-①"
+        updated: 2026-03-21
+        author: "椿木とりか"
+        access_modes: ["purchase"]
+      - title: "最終話-②"
+        updated: 2026-03-28
+        author: "椿木とりか"
+        access_modes: ["purchase"]
+      - title: "最終話-③"
+        updated: 2026-04-04
+        author: "椿木とりか"
+        access_modes: ["purchase"]
+  - work_title: "ガールミートガール"
+    author: "茂木清香"
+    url: "https://asacomi.jp/series/d67c4f256e18f"
+    platform_name: "アサコミ"
+    route: "comici"
+    chapter_count: 10
+    chapters:
+      - title: "#1　あいびき☆ミートガール"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free"]
+      - title: "#2　Let's party!"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free"]
+      - title: "#3　お買い物デート！-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free"]
+      - title: "#3　お買い物デート！-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["purchase"]
+      - title: "#4　肉刺子-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["purchase"]
+      - title: "#12　革命の肉刺子-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["purchase"]
+      - title: "#13　Can you celebrate?-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["purchase"]
+      - title: "#13　Can you celebrate?-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["purchase"]
+      - title: "#14　ガールミートガール-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["purchase"]
+      - title: "#14　ガールミートガール-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["purchase"]
+  - work_title: "香原さんのふぇちのーと"
+    author: "鬼無サケル"
+    url: "https://takecomic.jp/series/4e4bb1b935407"
+    platform_name: "竹コミ"
+    route: "comici"
+    chapter_count: 10
+    chapters:
+      - title: "1話"
+        updated: 2025-10-17
+        author: "鬼無サケル"
+        access_modes: ["free"]
+      - title: "2話"
+        updated: 2025-10-17
+        author: "鬼無サケル"
+        access_modes: ["free"]
+      - title: "3話"
+        updated: 2025-10-17
+        author: "鬼無サケル"
+        access_modes: ["purchase"]
+      - title: "4話"
+        updated: 2025-10-17
+        author: "鬼無サケル"
+        access_modes: ["purchase"]
+      - title: "5話"
+        updated: 2025-10-17
+        author: "鬼無サケル"
+        access_modes: ["purchase"]
+      - title: "11話"
+        updated: 2025-10-17
+        author: "鬼無サケル"
+        access_modes: ["purchase"]
+      - title: "12話"
+        updated: 2025-10-17
+        author: "鬼無サケル"
+        access_modes: ["purchase"]
+      - title: "13話"
+        updated: 2025-10-17
+        author: "鬼無サケル"
+        access_modes: ["purchase"]
+      - title: "14話"
+        updated: 2025-10-17
+        author: "鬼無サケル"
+        access_modes: ["free"]
+      - title: "15話"
+        updated: 2026-04-17
+        author: "鬼無サケル"
+        access_modes: ["purchase"]
+  - work_title: "フェアウェイの声をきかせて"
+    author: "椎葉裕巳"
+    url: "https://championcross.jp/series/8178b4fc09df9"
+    platform_name: "チャンピオンクロス"
+    route: "comici"
+    chapter_count: 10
+    chapters:
+      - title: "第1話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free"]
+      - title: "第3話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free"]
+      - title: "第4話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "第5話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "第62話"
+        updated: 2025-05-04
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "第63話"
+        updated: 2025-05-18
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "第64話"
+        updated: 2025-06-01
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "第65話"
+        updated: 2025-06-15
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "最終話"
+        updated: 2025-07-06
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+  - work_title: "ナキノン"
+    author: "根岸岳春"
+    url: "https://heros-web.com/series/696d291fa1769"
+    platform_name: "HERO'S Web"
+    route: "comici"
+    chapter_count: 10
+    chapters:
+      - title: "第一話　泣"
+        updated: 2026-05-15
+        author: "根岸岳春"
+        access_modes: ["free"]
+      - title: "第二話　蛍"
+        updated: 2026-05-15
+        author: "根岸岳春"
+        access_modes: ["purchase"]
+      - title: "第三話　客"
+        updated: 2026-05-15
+        author: "根岸岳春"
+        access_modes: ["purchase"]
+      - title: "第四話　伝"
+        updated: 2026-05-15
+        author: "根岸岳春"
+        access_modes: ["purchase"]
+      - title: "第五話　遊"
+        updated: 2026-05-15
+        author: "根岸岳春"
+        access_modes: ["purchase"]
+      - title: "第十八話　罪"
+        updated: 2026-05-15
+        author: "根岸岳春"
+        access_modes: ["purchase"]
+      - title: "第十九話　故"
+        updated: 2026-05-15
+        author: "根岸岳春"
+        access_modes: ["purchase"]
+      - title: "第二十話　誓"
+        updated: 2026-05-15
+        author: "根岸岳春"
+        access_modes: ["purchase"]
+      - title: "第二十一話　岬"
+        updated: 2026-05-15
+        author: "根岸岳春"
+        access_modes: ["purchase"]
+      - title: "第二十二話　Knockin' on Heaven's Door"
+        updated: 2026-05-15
+        author: "根岸岳春"
+        access_modes: ["purchase"]
+  - work_title: "誰かオオカミさんのしつけ方知りませんか⁉"
+    url: "https://manga.nicovideo.jp/comic/76631"
+    platform_name: "ニコニコ漫画"
+    route: "markup"
+    chapter_count: 2
+    chapters:
+      - title: "第１話から読む"
+        updated: 2026-03-19
+        date_basis: heuristic
+      - title: "2話 無料"
+        updated: 2026-02-20
+        date_basis: heuristic
+  - work_title: "あなたの未来を許さない"
+    author: "倫理きよ,Syousa.,jimao"
+    url: "https://comicpash.jp/series/37aae26103d8a"
+    platform_name: "コミックPASH! neo"
+    route: "comici"
+    chapter_count: 10
+    chapters:
+      - title: "第一夜：【御堂小夜子】"
+        updated: 2024-12-17
+        author: "倫理きよ,Syousa.,jimao"
+        access_modes: ["free"]
+      - title: "第二日：【御堂小夜子】①"
+        updated: 2024-12-17
+        author: "倫理きよ,Syousa.,jimao"
+        access_modes: ["free"]
+      - title: "第二日：【御堂小夜子】②"
+        updated: 2024-12-17
+        author: "倫理きよ,Syousa.,jimao"
+        access_modes: ["free"]
+      - title: "第二日：【御堂小夜子】③"
+        updated: 2024-12-17
+        author: "倫理きよ,Syousa.,jimao"
+        access_modes: ["purchase"]
+      - title: "第二日：【御堂小夜子】④"
+        updated: 2024-12-17
+        author: "倫理きよ,Syousa.,jimao"
+        access_modes: ["purchase"]
+      - title: "第十〜十四日：【スカー】②"
+        updated: 2026-04-20
+        author: "倫理きよ,Syousa.,jimao"
+        access_modes: ["purchase"]
+      - title: "第十四日〜2647年〜第二十四日①"
+        updated: 2026-05-04
+        author: "倫理きよ,Syousa.,jimao"
+        access_modes: ["purchase"]
+      - title: "第十四日〜2647年〜第二十四日②"
+        updated: 2026-05-18
+        author: "倫理きよ,Syousa.,jimao"
+        access_modes: ["purchase"]
+      - title: "第二万五千五百日①"
+        updated: 2026-06-01
+        author: "倫理きよ,Syousa.,jimao"
+        access_modes: ["free"]
+      - title: "第二万五千五百日②"
+        updated: 2026-06-15
+        author: "倫理きよ,Syousa.,jimao"
+        access_modes: ["purchase"]
+  - work_title: "踊り場にスカートが鳴る"
+    url: "https://pocket.shonenmagazine.com/title/01646"
+    platform_name: "マガポケ"
+    route: "markup"
+    chapter_count: 1
+    chapters:
+      - title: "Episode 1】少女たちは踊り場に(1)"
+        updated: 2022-03-10
+        date_basis: heuristic
+  - work_title: "ロイヤルテーラー ―王宮の裁縫師―"
+    url: "https://zerosumonline.com/detail/royaltailor"
+    platform_name: "ゼロサムオンライン"
+    route: "rendered"
+    chapter_count: 3
+    chapters:
+      - title: "第3話 公開期間：2022年2月4日 〜"
+        updated: 2022-02-04
+        date_basis: rendered
+      - title: "第2話 公開期間：2022年1月14日 〜"
+        updated: 2022-01-14
+        date_basis: rendered
+      - title: "第1話 公開期間：2021年12月3日 〜 非公開エピソードはこちら ファンレターを送"
+        updated: 2021-12-03
+        date_basis: rendered
+  - work_title: "セイ少女黙示録 ですぺあ"
+    author: "中村汚濁"
+    url: "https://bigcomics.jp/series/2c1db177ce231"
+    platform_name: "ビッコミ"
+    route: "comici"
+    chapter_count: 10
+    chapters:
+      - title: "《第一幕》キョウイです"
+        updated: 2024-12-27
+        author: "中村汚濁"
+        access_modes: ["free"]
+      - title: "《第二幕》祝福されし因果律の会"
+        updated: 2025-01-10
+        author: "中村汚濁"
+        access_modes: ["free"]
+      - title: "《第三幕》沈みゆく聖徒"
+        updated: 2025-01-24
+        author: "中村汚濁"
+        access_modes: ["free"]
+      - title: "《第四幕》わたしたちの願望機"
+        updated: 2025-02-14
+        author: "中村汚濁"
+        access_modes: ["purchase"]
+      - title: "《第五幕》共同戦線"
+        updated: 2025-02-28
+        author: "中村汚濁"
+        access_modes: ["purchase"]
+      - title: "《第二十七幕》六人目の使徒"
+        updated: 2026-03-13
+        author: "中村汚濁"
+        access_modes: ["purchase"]
+      - title: "《第二十八幕》楽園追放"
+        updated: 2026-03-27
+        author: "中村汚濁"
+        access_modes: ["free"]
+      - title: "《第二十九幕》アンゴルモアの箱舟"
+        updated: 2026-04-10
+        author: "中村汚濁"
+        access_modes: ["free"]
+      - title: "《第三十幕》これは、私が少女だった頃の物語"
+        updated: 2026-04-24
+        author: "中村汚濁"
+        access_modes: ["purchase"]
+      - title: "《終幕》おまけの一日"
+        updated: 2026-05-22
+        author: "中村汚濁"
+        access_modes: ["purchase"]

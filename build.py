@@ -10,7 +10,7 @@ Fails closed: any validation error aborts the build without writing.
 Usage:  build.py [--out data/build]
 """
 import argparse, datetime, glob, json, pathlib, re, sys, unicodedata
-from collections import defaultdict
+from collections import Counter, defaultdict
 
 sys.path.insert(0, "adapters")
 from crossplatform import carriage, episode_key, merge_releases  # noqa: E402
@@ -1482,6 +1482,174 @@ def main():
                           "url": c.get("url"), "headline": c.get("headline"),
                           "announced": str(c.get("announced", "")),
                           "source": d.get("source"), "status": c.get("status")})
+
+    # ── series index (data/build/series.json) ─────────────────────────────────────────────────
+    # The feed is a 60-day window, which answers "what updated recently". A reader asking "what can
+    # I read" wants the other question, and the works most worth listing are exactly the ones the
+    # window drops: a long-running series between arcs is absent from the feed and entirely
+    # reachable. So this is built from the FULL chapter histories in data/source/ — 19,031 chapters
+    # against the feed's 1,387 — and not from `releases`.
+    #
+    # A row is (work, PLATFORM), not (work). 40 works run on more than one platform and they differ
+    # in what is free and how much of it; collapsing them would hide the choice a reader is making.
+    # The 単行本 tab is per-work because a volume is; this is not.
+    series = {}
+    for _f in sorted(pathlib.Path("data/source").rglob("*.yaml")):
+        try:
+            _d = yaml.safe_load(_f.read_text())
+        except Exception:                                                       # noqa: BLE001
+            continue
+        if not isinstance(_d, dict) or _d.get("record_type") != "web_work_chapters":
+            continue
+        # comicfuz and kadokomi predate the platform_name convention and state only `source`.
+        _SRC_PLAT = {"comicfuz": "COMIC FUZ", "kadokomi": "カドコミ"}
+        _fp = (_d.get("platform_name") or _d.get("platform")
+               or _SRC_PLAT.get(_d.get("source"), "") or "")
+        for w in _d.get("works") or []:
+            title = (w.get("work_title") or "").strip()
+            if not title:
+                continue
+            plat = (w.get("platform_name") or _fp or "").strip()
+            chs = [c for c in (w.get("chapters") or []) if c.get("updated")]
+            # カドコミ dates a not-yet-released chapter 9999-12-31, and コミックFUZ carries 公開予定
+            # rows months out. Neither has been published, so neither can be the latest chapter —
+            # left in they sorted the whole index by which series had announced furthest ahead.
+            _now = str(datetime.date.today())
+            future = [c for c in chs if str(c["updated"])[:10] > _now]
+            chs = [c for c in chs if str(c["updated"])[:10] <= _now]
+            dated = sorted(chs, key=lambda c: str(c["updated"]))
+            # Whether the chapter count is the SERIES length or only what we can see. Some routes
+            # are partial by construction and no amount of re-running fixes them: pixivコミック
+            # renders only the freely-readable episodes, ガンガンONLINE states a date only for
+            # chapters inside a publishing window, マガポケ draws twenty and hides the rest, and a
+            # sitemap knows a handful of URLs. Presenting "2 話" for 裏世界ピクニック — which has
+            # ninety — would be the interface asserting our coverage as a fact about the manga.
+            partial = _d.get("source") in ("sitemap",) or _d.get("platform") in (
+                "pixivcomic", "ganganonline", "magapoke", "mangaone", "backfill", "remaining",
+                "corocoro") or str(_f).endswith(("sitemap-magapoke.yaml", "magapoke-deep.yaml",
+                                                 "rendered-magapoke.yaml", "rendered-mangaone.yaml"))
+            # A one-shot is knowable from the record itself, and has to be: almost every 読切 is
+            # older than the 60-day feed, so asking the releases about it finds 17 of the 433
+            # single-chapter rows. The platform states it in the chapter title (【読切】…) or the
+            # confirmation marks the work, and both are already how the feed decides this.
+            oneshot_src = bool(w.get("is_oneshot")) or any(
+                ONESHOT_RE.search(c.get("title") or "") for c in (w.get("chapters") or []))
+            key = (norm_work(title), plat)
+            row = {
+                "work": title, "platform": plat, "url": w.get("url"),
+                "author": w.get("author") or "",
+                "chapters": len(w.get("chapters") or []),
+                "dated": len(dated),
+                "first": str(dated[0]["updated"])[:10] if dated else None,
+                "latest": str(dated[-1]["updated"])[:10] if dated else None,
+                "latest_ep": (dated[-1].get("title") or "").strip() if dated else "",
+                "free": sum(1 for c in chs if "free" in (c.get("access_modes") or [])),
+                "free_timed": sum(1 for c in chs if "free-timed" in (c.get("access_modes") or [])),
+                "priced": sum(1 for c in chs if "purchase" in (c.get("access_modes") or [])),
+                "upcoming": len(future),
+                "partial": bool(partial),
+                "oneshot_src": oneshot_src,
+                "_src": _d.get("platform") or _d.get("source") or "",
+            }
+            # The same platform is described by more than one adapter — マガポケ by both the sitemap
+            # and the rendered page. Keep whichever actually read more of the series; a sitemap row
+            # knows one episode and would otherwise overwrite a full history.
+            prev = series.get(key)
+            if not prev or row["chapters"] > prev["chapters"]:
+                if prev:
+                    row["author"] = row["author"] or prev["author"]
+                series[key] = row
+            elif prev and not prev.get("author") and row["author"]:
+                prev["author"] = row["author"]
+
+    # Authors: prefer the index built across every source over whatever the individual record
+    # carried. Two reasons. Adapters that reach a work sideways often have no author at all — the
+    # コミックDAYS series feed states くずしろ and the カドコミ chapter list states nobody — and one
+    # stale row in remaining.yaml carries "くずしろ / 第１−１話　奏音と咲希", an author with a chapter
+    # title welded to it. A string containing a chapter marker is not a name, so it is discarded
+    # rather than shown.
+    # 第１−１話 is a split chapter and the separator is a full-width minus, so requiring digits
+    # immediately before 話 missed exactly the row this guard was written for.
+    _BAD_AUTHOR = re.compile(r"第[0-9０-９][0-9０-９\-−‐–—.．]*[話回巻]|更新日|\d{4}[-/年]")
+    for row in series.values():
+        idx = author_of.get(norm_work(row["work"]))
+        if not row["author"] or _BAD_AUTHOR.search(row["author"]):
+            row["author"] = idx if idx and not _BAD_AUTHOR.search(idx) else ""
+
+    # One-shots. A 読切 with one chapter and no update for a year is not dormant — it is finished,
+    # and it was finished the day it appeared. Calling it 休眠 alongside abandoned serials would be
+    # the tab inventing a decline that never happened. Taken from the releases, where the platform's
+    # own statement (a series with one episode; a 読切 in the title) has already been resolved.
+    _oneshot = {(norm_work(r["work"]), r.get("plat_name") or r.get("plat"))
+                for r in releases if r.get("kind") == "oneshot" or r.get("type") == "oneshot"}
+    _oneshot_any = {w for w, _ in _oneshot}
+
+    _today = datetime.date.today()
+    for row in series.values():
+        # State from the one thing every platform actually tells us: when it last published. Named
+        # for what is observed, not inferred — nothing here says 完結, because almost no platform
+        # says it and guessing it from silence would be wrong for every series on hiatus.
+        _k = (norm_work(row["work"]), row["platform"])
+        row["oneshot"] = (row.pop("oneshot_src", False) or _k in _oneshot
+                          or (row["chapters"] == 1 and not row["partial"]
+                              and norm_work(row["work"]) in _oneshot_any))
+        if not row["latest"]:
+            row["state"] = "unknown"
+        elif row["oneshot"]:
+            row["state"] = "oneshot"
+        else:
+            age = (_today - datetime.date.fromisoformat(row["latest"])).days
+            row["age_days"] = age
+            row["state"] = "active" if age <= 45 else ("slow" if age <= 365 else "dormant")
+    # Where a work runs on several platforms, each row says so, so a reader on one can see the rest.
+    _by_work = defaultdict(list)
+    for (wk, plat), row in series.items():
+        _by_work[wk].append(plat)
+    for (wk, plat), row in series.items():
+        row["also_on"] = sorted(p for p in _by_work[wk] if p and p != plat)
+
+    # Scope. An adapter fetching a platform's per-series feeds reads whatever the platform lists,
+    # so this walk picks up neighbours of the works we track — 「タイムマシンはお呼びでない!」 arrived
+    # that way. The tracked universe is the candidate list plus whatever is already in the feed;
+    # anything outside it was never assessed as in scope and does not belong in a reader-facing tab.
+    _cands = set()
+    _ct = pathlib.Path("data/coverage/claim-targets.yaml")
+    if _ct.exists():
+        for c in (yaml.safe_load(_ct.read_text()) or {}).get("candidates") or []:
+            if c.get("title"):
+                _cands.add(norm_work(c["title"]))
+    # The catch-all resolver labels a row with whichever list named the work, not with the host it
+    # actually read: it holds 雨夜の月 as マガポケ with 121 chapters, which is コミックDAYS's history
+    # wearing another platform's name. The feed already drops these; so must this, or the tab
+    # invents a second platform for a work and reports the wrong access alongside it.
+    _real = defaultdict(int)
+    for (wk, plat), row in series.items():
+        if row["_src"] != "remaining":
+            _real[wk] = max(_real[wk], row["chapters"])
+    series = {k: v for k, v in series.items()
+              if v["_src"] != "remaining" or v["chapters"] > _real[k[0]]}
+
+    _cands |= {norm_work(r["work"]) for r in releases}
+    _before = len(series)
+    series = {k: v for k, v in series.items() if k[0] in _cands}
+    _out_of_scope = _before - len(series)
+
+    for row in series.values():
+        row.pop("_src", None)
+    series_rows = sorted(series.values(),
+                         key=lambda r: (r["latest"] or "", r["chapters"]), reverse=True)
+    (out / "series.json").write_text(json.dumps(
+        {"series": series_rows,
+         "generated": str(_today),
+         "note": "Built from full chapter histories in data/source/, not from the 60-day feed "
+                 "window. One row per (work, platform).",
+         "thresholds": {"active": "latest chapter within 45 days",
+                        "slow": "within a year", "dormant": "older than a year"}},
+        ensure_ascii=False, indent=1, default=jsonable))
+    _st = Counter(r["state"] for r in series_rows)
+    print(f"series index    : {len(series_rows)} (work, platform) rows across "
+          f"{len({k[0] for k in series})} works — {dict(_st)}"
+          f"{f'  [{_out_of_scope} out-of-scope rows dropped]' if _out_of_scope else ''}")
 
     (out / "feed.json").write_text(json.dumps(
         # The queue is a worklist, not part of the published database, and it is not shipped.

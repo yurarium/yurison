@@ -5,6 +5,6 @@ set -euo pipefail
 SITE="${1:-$HOME/workspace/yurarium.github.io}"
 [ -f data/build/index.json ] || { echo "no build output — run ./build.py first" >&2; exit 1; }
 [ -d "$SITE/kari" ] || { echo "site repo not found at $SITE" >&2; exit 1; }
-cp data/build/index.json data/build/works.json data/build/feed.json "$SITE/kari/data/"
+cp data/build/index.json data/build/works.json data/build/feed.json data/build/series.json "$SITE/kari/data/"
 echo "copied $(python3 -c 'import json;print(len(json.load(open("data/build/index.json"))))') works -> $SITE/kari/data/"
 echo "now commit and push in $SITE"

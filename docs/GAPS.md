@@ -1,5 +1,13 @@
 # Remaining gaps and the path through each
 
+> **The counts in this document are not maintained by hand.** Numbers that can be derived are
+> derived — see `data/build/run.json` and the technical view at `kari/status.html`, which are
+> regenerated on every build. A gap list edited by hand goes stale, and this one did: several
+> entries below were closed before anyone updated them.
+>
+> What belongs here is the part that cannot be computed — **why** a gap exists and what the route
+> through it is. Keep that; take the arithmetic from the build.
+
 State as of 2026-08-01, after onboarding ニコニコ漫画. Written to be acted on, so each entry says
 what the gap actually is, what the route through it costs, and what would make it worth doing.
 

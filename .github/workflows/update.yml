@@ -35,7 +35,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pyyaml
+      - run: pip install pyyaml sudachipy sudachidict-core
 
       - name: Confirm a browser is present
         id: browser
@@ -104,6 +104,26 @@ jobs:
       # ── Stage D — compile. This one is allowed to fail the run. ───────────────────────────────
       - name: Compile
         run: python3 build.py
+
+      # The hooks in .githooks are per-clone local config — a fresh checkout has none, which is
+      # exactly why the leak guard documents CI as its backstop. The same argument applies to the
+      # data gate, so it runs here too.
+      #
+      # RUNTIME, not gate. This job publishes an unattended update and the site must keep updating:
+      # a violated invariant has already degraded to the fallback it names, and what matters here is
+      # that the count is recorded and visible. The blocking copy runs at pre-push and on pull
+      # requests, where someone is present to fix it.
+      - name: Invariants and budgets (runtime — reports, does not block)
+        run: python3 check.py --runtime
+
+      - name: Prove the checks can fail
+        run: python3 check.py --self-test
+
+      - name: Unit tests
+        run: |
+          python3 adapters/names/test_names.py
+          python3 adapters/test_crossplatform.py
+          python3 adapters/gigaviewer/test_dates.py
 
       - name: Field audit — a moved selector is silent otherwise
         run: |

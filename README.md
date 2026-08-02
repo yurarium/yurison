@@ -3,7 +3,9 @@
 A bibliographic database of Japanese yuri (百合) manga — print and web, historical and current —
 built from Japanese sources and published as a static site.
 
-**Status: specification.** No data or code yet. The design is settled; see below.
+**Status: running.** 1,366 tracked releases across 22 platforms, 1,009 web works, 302 print works.
+The site updates from the platforms' own feeds; see [docs/HANDOVER.md](docs/HANDOVER.md) for where
+things stand.
 
 ## What this is
 
@@ -35,6 +37,9 @@ record rather than taken on trust.
 - [Definitions](docs/DEFINITIONS.md) — what counts as a yuri work, and how each record's
   classification is justified
 - [Requirements](docs/REQUIREMENTS.md) — sourcing, copyright policy, archival rules, architecture
+- [Standing instructions](docs/STANDING-INSTRUCTIONS.md) — how the project is worked on, and what
+  is enforced at check-in
+- [Handover](docs/HANDOVER.md) — current state, settled decisions, open work
 - [Takedown policy](TAKEDOWN.md)
 
 ## Licence

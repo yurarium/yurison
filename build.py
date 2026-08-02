@@ -2567,6 +2567,20 @@ def main():
     print(f"unclassified    : {len(warnings)} works have no content_tier (needs human review)")
     print(f"written         : {out}/works.json, {out}/index.json")
 
+    # THE SHOW MUST GO ON. Runtime mode counts violations and reports them; it never aborts. Each
+    # invariant names the fallback the build has already applied, so what is published is degraded
+    # rather than broken, and the count is the tripwire. The same checks BLOCK at check-in, where
+    # someone is present to fix them — see docs/STANDING-INSTRUCTIONS.md §7.
+    try:
+        import subprocess as _sp
+        sys.stdout.flush()          # the child writes straight to the fd; without this its output
+                                    # lands ahead of the build's own buffered lines and reads as
+                                    # though the checks ran before the thing they check.
+        _sp.run([sys.executable, str(pathlib.Path(__file__).parent / "check.py"), "--runtime"],
+                timeout=180)
+    except Exception as _e:
+        print(f"checks          : could not run ({_e})")
+
 
 if __name__ == "__main__":
     main()

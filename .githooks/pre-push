@@ -13,3 +13,18 @@ while read -r _lref loid _rref roid; do
   "$GUARD" identity "$range" || exit $?
 done
 "$GUARD" content tree || exit $?
+
+# ── Data gate: all right or no go ────────────────────────────────────────────────────────────────
+# The exposure moment for DATA as well as identity. Invariants must hold and no budget may have
+# loosened; check.py self-tests first and refuses to pass anything if its own canaries are not
+# caught, on the same fail-closed principle as the leak guard above.
+#
+# Skipped when there is no build output — a docs-only commit should not require a full build — and
+# bypassable with --no-verify, exactly like the guard. CI is the backstop.
+ROOT="$(git rev-parse --show-toplevel)"
+if [ -f "$ROOT/data/build/series.json" ]; then
+  python3 "$ROOT/check.py" --gate --no-tighten || {
+    echo "pre-push: data gate said NO GO. Fix, or --no-verify if you know why." >&2
+    exit 1
+  }
+fi

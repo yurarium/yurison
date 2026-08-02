@@ -7,3 +7,15 @@ DIR="$(git rev-parse --show-toplevel)/.githooks"
 [ -f "$DIR/leak-deny.local" ] && export LEAK_DENY="$(cat "$DIR/leak-deny.local")"
 "$DIR/leak-guard.sh" identity-config || exit $?
 "$DIR/leak-guard.sh" content staged  || exit $?
+
+# Fast subset only. The full data gate runs at pre-push, which is the exposure moment; making every
+# commit wait on it would train everyone to pass --no-verify, and a gate that is routinely bypassed
+# enforces nothing.
+ROOT="$(git rev-parse --show-toplevel)"
+for t in adapters/names/test_names.py adapters/test_crossplatform.py; do
+  [ -f "$ROOT/$t" ] || continue
+  python3 "$ROOT/$t" >/dev/null 2>&1 || {
+    echo "pre-commit: $t fails. Run it to see why." >&2
+    exit 1
+  }
+done

@@ -1,0 +1,14 @@
+# Work list for the マンガよもんが adapter, lifted from the generic pass that used to cover this
+# host. Kept here so the adapter has its targets without the superseded source file staying in
+# data/source/, where build.py would read its dateless rows alongside the real ones.
+works:
+  - work_title: "娘が彼女を連れてきた話"
+    url: "https://www.yomonga.com/titles/2532/"
+  - work_title: "宝石を飼う"
+    url: "https://www.yomonga.com/titles/2534/"
+  - work_title: "謎のユリイカ"
+    url: "https://www.yomonga.com/titles/2546/"
+  - work_title: "鬼売れアイドルが今日も私を推してくる"
+    url: "https://www.yomonga.com/titles/2514/"
+  - work_title: "黒の世界は白墨に染まる"
+    url: "https://www.yomonga.com/titles/2558/"

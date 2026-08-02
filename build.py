@@ -418,6 +418,9 @@ def main():
     # Platforms with no feed, read from their own server-rendered work pages. Like FUZ these
     # return full histories, so only a recent window joins the feed.
     WEBPAGE_FEED_DAYS = FEED_DAYS
+    # Facts about chapters too old to be releases, kept so they can still be carried onto the rows
+    # that are in the feed. Keyed (work, platform, chapter).
+    field_facts = {}
     wcut = str(datetime.date.today() - datetime.timedelta(days=WEBPAGE_FEED_DAYS))
     wtoday = str(datetime.date.today())
     # カドコミ: same shape as the webpages adapters, but it does apply a 百合 tag, so its works
@@ -478,11 +481,29 @@ def main():
             # old when we first learned it existed. So confirmation-sourced works are admitted on
             # the date we learned of them, carrying their true publication date with them.
             late = bool(w.get("discovered_via"))
+            # Some statements are made about the work rather than about a chapter. フラコミlike!
+            # writes its whole access policy into the page title — 銀の河に星の城 | いつでも無料 |
+            # フラコミlike! | 空木帆子 — so there is an author and an access state and no chapter
+            # list to hang them on. Recorded against the work, with an empty chapter key.
+            if not (w.get("chapters") or []) and (w.get("author") or w.get("access_modes")):
+                field_facts[(norm_work(w.get("work_title") or ""), pname_w, "")] = {
+                    "author": w.get("author"), "access_modes": w.get("access_modes")}
             for c in w.get("chapters") or []:
                 u = str(c.get("updated") or "")
                 if not u or u > wtoday:
                     continue
                 if u < wcut and not late:
+                    # Out of the window, so not a release — but still a fact about a chapter, and
+                    # the row-level backfill goes out precisely to fetch facts about chapters that
+                    # are old. Its reading of 吸血少女とウンディーネ (published 80 days ago, still in
+                    # the feed as a late discovery) was being discarded here, before anything could
+                    # carry the access state onto the row that needed it. Keep the fact, drop the
+                    # release.
+                    if c.get("author") or c.get("access_modes") or w.get("author"):
+                        field_facts[(norm_work(w.get("work_title") or ""), pname_w,
+                                     norm_work(c.get("title") or ""))] = {
+                            "author": c.get("author") or w.get("author"),
+                            "access_modes": c.get("access_modes")}
                     continue
                 releases.append({
                     "late_discovered": u < wcut,
@@ -954,6 +975,11 @@ def main():
             ti = w.get("title") or w.get("work_title")
             if au and ti:
                 author_of.setdefault(norm_work(ti), au)
+    for (wk, pn, ek), f in field_facts.items():
+        if f.get("author") and wk not in author_of:
+            author_of[wk] = f["author"]
+        if f.get("access_modes"):
+            access_of.setdefault((wk, pn, ek), f["access_modes"])
     for r in releases:
         k = norm_work(r.get("work") or "")
         if r.get("author") and k not in author_of:
@@ -968,9 +994,13 @@ def main():
             r["author"] = author_of[k]
             r["author_basis"] = "carried from another record of the same work"
             filled_author += 1
-        ak = (k, r.get("plat_name") or r.get("plat"), norm_work(r.get("ep") or ""))
-        if not r.get("access_modes") and access_of.get(ak):
-            r["access_modes"] = list(access_of[ak])
+        pn = r.get("plat_name") or r.get("plat")
+        ak = (k, pn, norm_work(r.get("ep") or ""))
+        # A work-level statement applies to every chapter of that work on that platform, so it is
+        # consulted only after the chapter-specific one fails to match.
+        got = access_of.get(ak) or access_of.get((k, pn, ""))
+        if not r.get("access_modes") and got:
+            r["access_modes"] = list(got)
             filled_access += 1
 
     # ── update kind: new series / new chapter / other ──────────────────────────────────────────
@@ -1230,6 +1260,25 @@ def main():
                 or (norm_work(r["work"]), r.get("plat_name") or r.get("plat")) not in rich]
     thin_dropped = before_thin - len(releases)
 
+    # The catch-all resolver is a last resort and behaves like one: it reads whatever markup a page
+    # offers, which on コミックFUZ means the 公開予定 strip — chapter numbers against dates months in
+    # the future, no access, and the platform name inherited from whichever list named the work.
+    # That is right when nothing else reaches a work and wrong the moment something does. コミック
+    # FUZ's own adapter holds 一畳間まんきつ暮らし！ with 67 chapters, each with a price and a free_from
+    # date; the resolver held the same work with 64 dateless-in-substance rows labelled ニコニコ.
+    # Drop the resolver's version wherever a real adapter covers the same work on the same host.
+    def host_of(u):
+        m = re.match(r"https?://([^/]+)", u or "")
+        return m.group(1).lower() if m else ""
+
+    covered = {(norm_work(r["work"]), host_of(r.get("url")))
+               for r in releases if r.get("plat") != "remaining" and r.get("access_modes")}
+    before_res = len(releases)
+    releases = [r for r in releases
+                if r.get("plat") != "remaining"
+                or (norm_work(r["work"]), host_of(r.get("url"))) not in covered]
+    resolver_dropped = before_res - len(releases)
+
     seen_chapter, deduped, dropped_dupes = {}, [], 0
     for r in sorted(releases, key=lambda r: (r["pub"], r.get("basis") == "heuristic")):
         # The FULL episode title, not episode_key. episode_key reduces to a chapter number, so
@@ -1256,6 +1305,15 @@ def main():
                 kept["kind_basis"] = "one-shot: the platform lists one episode"
             if r.get("discovered_via") and not kept.get("discovered_via"):
                 kept["discovered_via"] = r["discovered_via"]
+            # Same for the fields themselves. Two rows for one chapter are two readings of the same
+            # page, and the one that sorted first is not necessarily the one that knows more:
+            # 吸血少女とウンディーネ arrived from the platform pass with a date and a chapter name, and
+            # again from the row-level backfill with the access state read off the series feed. The
+            # first won on sort order and the second was discarded whole, access included — so the
+            # row stayed empty in exactly the field the second fetch had gone out to fill.
+            for f in ("author", "access_modes", "free_from", "url"):
+                if r.get(f) and not kept.get(f):
+                    kept[f] = r[f]
             dropped_dupes += 1
             continue
         seen_chapter[k] = r
@@ -1361,6 +1419,7 @@ def main():
         print(f"carriage lapses : {len(lapsed)}")
     print(f"duplicate chapters collapsed : {dropped_dupes}")
     print(f"thin sitemap rows superseded  : {thin_dropped}")
+    print(f"resolver rows superseded      : {resolver_dropped}")
     print(f"fields carried across records : {filled_author} author, {filled_access} access")
     print(f"preference moved to a free carrier : {switched}")
     print(f"claims contradicted by the platform's own history : {contradicted}")

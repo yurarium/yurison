@@ -1,0 +1,65 @@
+# ガンガンONLINE — chapters, dates, author and access from the page's own embedded state.
+#
+# The page ships its state inline in <script id="__NEXT_DATA__">, so a plain GET carries
+# everything: a per-chapter publishingPeriod ("2026.07.19〜2026.08.01"), a status marking
+# ended and not-yet-published chapters, and the title-level author. No rendering needed.
+#
+# The window's start date is the publication date and is recorded as platform-stated. A
+# chapter whose window has closed, or which carries status 2, is purchase; one still open
+# is free. status 3 is 次回更新 — announced, not published — and is not a release.
+#
+# No genre label is established here (DEFINITIONS §4).
+source: webpages
+platform: ganganonline
+platform_name: "ガンガンONLINE"
+publisher: "スクウェア・エニックス"
+retrieved: 2026-08-02
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+date_basis: platform-stated
+date_confidence: reported
+works:
+  - work_title: "ひきこまり吸血姫の悶々"
+    author: "原作／小林湖底(GA文庫／SBクリエイティブ刊)　キャラクター原案・漫画／りいちゅ"
+    url: "https://www.ganganonline.com/title/1593"
+    chapter_count: 2
+    chapters:
+      - title: "第18話-2 決戦の後に"
+        updated: 2026-07-23
+        access_modes: ["free"]
+      - title: "第18話-1 決戦の後に"
+        updated: 2026-07-09
+        access_modes: ["purchase"]
+  - work_title: "私がモテないのはどう考えてもお前らが悪い!"
+    author: "谷川ニコ"
+    url: "https://www.ganganonline.com/title/29"
+    chapter_count: 2
+    chapters:
+      - title: "喪240 モテないし後片づけ(中編)"
+        updated: 2026-07-09
+        access_modes: ["free"]
+      - title: "喪240 モテないし後片づけ(前編)"
+        updated: 2026-06-18
+        access_modes: ["purchase"]
+  - work_title: "裏世界ピクニック"
+    author: "原作／宮澤伊織(早川書房刊)　作画／水野英多　キャラクター原案／shirakaba"
+    url: "https://www.ganganonline.com/title/38"
+    chapter_count: 2
+    chapters:
+      - title: "第90話-1 八尺様リバイバルV"
+        updated: 2026-08-02
+        access_modes: ["free"]
+      - title: "第89話-3 八尺様リバイバルIV"
+        updated: 2026-07-19
+        access_modes: ["purchase"]
+  - work_title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
+    author: "ちさこ"
+    url: "https://www.ganganonline.com/title/2349"
+    chapter_count: 2
+    chapters:
+      - title: "第9話-2"
+        updated: 2026-06-23
+        access_modes: ["free"]
+      - title: "第9話-1"
+        updated: 2026-06-09
+        access_modes: ["purchase"]

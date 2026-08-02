@@ -1,0 +1,65 @@
+# Attested rows the build says are missing a field, with the URL a reader would open.
+# Regenerated from the build; the input to adapters/backfill/fields.py.
+source: derived
+role: field-gap-rows
+rows:
+  - work: "吸血少女とウンディーネ"
+    url: "https://comic-earthstar.com/episode/12207421983715032399"
+    platform: "コミック アース・スター"
+    missing: ["access"]
+  - work: "夕子先輩は育てられない"
+    url: "https://ichicomi.com/episode/12207421983742535195"
+    platform: "一迅プラス"
+    missing: ["access"]
+  - work: "DOUBLE HELIX BLOSSOM"
+    url: "https://www.corocoro.jp/title/65"
+    platform: "コロコロオンライン"
+    missing: ["author", "access"]
+  - work: "上杉くんは女の子をやめたい"
+    url: "https://www.sunday-webry.com/episode/12207421984039246490"
+    platform: "サンデーうぇぶり"
+    missing: ["access"]
+  - work: "自動車の妖精 パッソちゃんの恩返し"
+    url: "https://news.mynavi.jp/series/carfairy/"
+    platform: "マイナビニュース"
+    missing: ["author", "access"]
+  - work: "妖怪殲滅のサイコリリー"
+    url: "https://manga-one.com/viewer/225633"
+    platform: "マンガワン"
+    missing: ["author"]
+  - work: "サタノファニ"
+    url: "https://comic-days.com/episode/12207421983566481726"
+    platform: "コミックDAYS"
+    missing: ["access"]
+  - work: "メイド&ロイドはお嬢様のお役に立ちたい!"
+    url: "https://manga-one.com/manga/28129/chapter/355684"
+    platform: "マンガワン"
+    missing: ["author"]
+  - work: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
+    url: "https://pocket.shonenmagazine.com/title/02328"
+    platform: "マガポケ"
+    missing: ["author"]
+  - work: "銀の河に星の城"
+    url: "https://flowercomics.jp/title/2780"
+    platform: "フラコミlike!"
+    missing: ["author", "access"]
+  - work: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
+    url: "https://manga-one.com/manga/27253/chapter/307792"
+    platform: "マンガワン"
+    missing: ["author"]
+  - work: "怪獣ロマンティクス"
+    url: "https://pocket.shonenmagazine.com/title/03196/episode/441093"
+    platform: "マガポケ"
+    missing: ["access"]
+  - work: "アイドラトリィ"
+    url: "https://pocket.shonenmagazine.com/title/02901"
+    platform: "マガポケ"
+    missing: ["access"]
+  - work: "オカルトタイムズ"
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    platform: "マガポケ"
+    missing: ["access"]
+  - work: "なとりとしずは"
+    url: "https://www.sunday-webry.com/episode/12207421983745504350"
+    platform: "サンデーうぇぶり"
+    missing: ["access"]

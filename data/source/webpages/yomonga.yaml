@@ -1,0 +1,127 @@
+# マンガよもんが — chapters, author and access from the work page's own markup.
+#
+# The page is server-rendered: each episode is an episode-list block carrying update-date,
+# episode-name and, where the chapter is time-limited, publish-end-date. The author sits
+# beside the synopsis as 漫画：<name>.
+#
+# Access is the window, not the branding. The site calls itself ぶんか社の無料マンガサイト and
+# the word 無料 appears nowhere except its meta description — there is no per-chapter badge,
+# so the stated end date is the only thing the platform actually says about access.
+#
+# No genre label is established here (DEFINITIONS §4).
+source: webpages
+platform: yomonga
+platform_name: "マンガよもんが"
+publisher: "ぶんか社"
+retrieved: 2026-08-02
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+date_basis: platform-stated
+date_confidence: reported
+works:
+  - work_title: "娘が彼女を連れてきた話"
+    author: "栗崎きんぐ"
+    url: "https://www.yomonga.com/titles/2532/"
+    chapter_count: 6
+    chapters:
+      - title: "Chapter.16 第15話"
+        updated: 2026-07-21
+        access_modes: ["free"]
+        free_until: 2026-09-01
+      - title: "Chapter.15 第14話"
+        updated: 2026-07-07
+        access_modes: ["free"]
+        free_until: 2026-08-18
+      - title: "Chapter.14 第13話"
+        updated: 2026-06-16
+        access_modes: ["free"]
+        free_until: 2026-08-04
+      - title: "Chapter.3 第2話"
+        updated: 2026-01-06
+        access_modes: ["free"]
+      - title: "Chapter.2 第1話-2"
+        updated: 2026-01-06
+        access_modes: ["free"]
+      - title: "Chapter.1_1巻 第1話-1"
+        updated: 2026-01-06
+        access_modes: ["free"]
+  - work_title: "宝石を飼う"
+    author: "宮部サチ"
+    url: "https://www.yomonga.com/titles/2534/"
+    chapter_count: 3
+    chapters:
+      - title: "Chapter.3 第1話-3"
+        updated: 2026-01-06
+        access_modes: ["free"]
+      - title: "Chapter.2 第1話-2"
+        updated: 2026-01-06
+        access_modes: ["free"]
+      - title: "Chapter.1 第1話-1"
+        updated: 2026-01-06
+        access_modes: ["free"]
+  - work_title: "謎のユリイカ"
+    author: "吉富昭仁"
+    url: "https://www.yomonga.com/titles/2546/"
+    chapter_count: 6
+    chapters:
+      - title: "Chapter.13　第7話-1"
+        updated: 2026-07-21
+        access_modes: ["free"]
+        free_until: 2026-09-01
+      - title: "Chapter.12　第6話-2"
+        updated: 2026-07-07
+        access_modes: ["free"]
+        free_until: 2026-08-18
+      - title: "Chapter.11　第6話-1"
+        updated: 2026-06-16
+        access_modes: ["free"]
+        free_until: 2026-08-04
+      - title: "Chapter.3　第2話-1"
+        updated: 2026-03-03
+        access_modes: ["free"]
+      - title: "Chapter.2　第1話-2"
+        updated: 2026-03-03
+        access_modes: ["free"]
+      - title: "Chapter.1_1巻　第1話-1"
+        updated: 2026-03-03
+        access_modes: ["free"]
+  - work_title: "鬼売れアイドルが今日も私を推してくる"
+    author: "狼"
+    url: "https://www.yomonga.com/titles/2514/"
+    chapter_count: 3
+    chapters:
+      - title: "Chapter.3　第２話-１"
+        updated: 2025-07-01
+        access_modes: ["free"]
+      - title: "Chapter.2　第１話-２"
+        updated: 2025-07-01
+        access_modes: ["free"]
+      - title: "Chapter.1　第1巻　第１話-１"
+        updated: 2025-07-01
+        access_modes: ["free"]
+  - work_title: "黒の世界は白墨に染まる"
+    author: "涼海来夏"
+    url: "https://www.yomonga.com/titles/2558/"
+    chapter_count: 6
+    chapters:
+      - title: "Chapter.6　第3話_1"
+        updated: 2026-07-21
+        access_modes: ["free"]
+        free_until: 2026-09-01
+      - title: "Chapter.5　第2話_2"
+        updated: 2026-07-07
+        access_modes: ["free"]
+        free_until: 2026-08-18
+      - title: "Chapter.4　第2話_1"
+        updated: 2026-06-16
+        access_modes: ["free"]
+        free_until: 2026-08-04
+      - title: "Chapter.3　第1話_3"
+        updated: 2026-06-16
+        access_modes: ["free"]
+      - title: "Chapter.2　第1話_2"
+        updated: 2026-06-16
+        access_modes: ["free"]
+      - title: "Chapter.1　第1話_1"
+        updated: 2026-06-16
+        access_modes: ["free"]

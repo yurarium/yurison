@@ -1419,13 +1419,28 @@ def main():
         + "".join(f"  {json.dumps(k, ensure_ascii=False)}: {v}\n"
                  for k, v in sorted(ledger.items())))
 
+    # ── initial build period ───────────────────────────────────────────────────────────────────
+    # Surfacing a late discovery at the top of the feed is right in STEADY STATE: a one-shot that
+    # 百合ナビ covers weeks late would otherwise be filed months back and never seen. It is wrong
+    # NOW. The archive sweep is reading ten years of coverage, and every work it recovers would
+    # arrive stamped "discovered today" — a decade of one-shots piled onto one date, drowning the
+    # actual news and asserting a discovery event that is an artefact of when we happened to run.
+    #
+    # During the initial build a work is recorded against the date it was published, which is the
+    # date the claim gives. `late_discovered` is still computed and still stored, so the rows can be
+    # told apart later and so steady-state behaviour can be restored by flipping this.
+    BOOTSTRAP = True
+    if BOOTSTRAP:
+        for r in releases:
+            r["surfaced"] = False
     in_window_works = {norm_work(r["work"]) for r in releases if not r.get("late_discovered")}
     for r in releases:
         if r.get("late_discovered") and norm_work(r["work"]) in in_window_works:
             r["late_discovered"] = False
             r["discovered_on"] = None
     for r in releases:
-        r["feed_date"] = r.get("discovered_on") or r["pub"] if r.get("late_discovered") else r["pub"]
+        r["feed_date"] = (r["pub"] if BOOTSTRAP or not r.get("late_discovered")
+                          else (r.get("discovered_on") or r["pub"]))
     releases.sort(key=lambda r: r["feed_date"], reverse=True)
 
     lapsed = [c for c in carriage(

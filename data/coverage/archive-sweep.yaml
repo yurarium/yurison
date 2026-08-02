@@ -1,0 +1,43 @@
+# How much of each external list has actually been read.
+#
+# Both are read as a RECENT WINDOW, which is right for a daily update run and wrong for a first
+# build. Neither has been swept. The question "has the whole blog been evaluated for reachable
+# one-shots" has one answer: no, and here is the size of what is unread.
+#
+# 百合ナビ — https://yurinavi.com
+#   2,778 posts, 2016-07-07 .. 2026-08-02, from WordPress's own sitemap.
+#   Only 45 fall inside the 60-day window. 2,733 have never been fetched.
+#
+#   The slugs classify themselves, so the shape of the archive is knowable without reading it:
+#     start      343   new serialisations
+#     yomikiri   202   ONE-SHOTS  <- 5 inside the window, 197 outside
+#     rel         97   volume releases
+#     review      38   reviews
+#     matome/pv/tokuten/anime/interview …  the rest is commentary
+#
+#   One-shots by year: 2018:1  2019:1  2020:5  2021:18  2022:23  2023:26  2024:46  2025:48  2026:34
+#   A one-shot is announced once and never mentioned again, so a window-based reader misses them by
+#   construction — the RSS feed returns thirteen items and honours no pagination at all.
+#
+# Web漫画アンテナ — https://webcomics.jp/tag/百合
+#   The 百合 tag runs to 31 pages of 50, roughly 1,533 entries. We read 8, so about 400.
+#   `--pages 8` is a sample, not the list, and nothing in the output said so.
+#
+# WHAT THIS IS NOT: a claim that all 197 are missing works. Many will already be held under their
+# platform's own record — the sweep is what tells us which. It is a claim that they have not been
+# looked at.
+source: derived
+role: archive-sweep
+retrieved: 2026-08-02
+yurinavi:
+  posts_total: 2778
+  span: "2016-07-07 .. 2026-08-02"
+  inside_window: 45
+  never_fetched: 2733
+  oneshot_articles: 202
+  oneshot_outside_window: 197
+webcomics:
+  tag: 百合
+  pages_available: 31
+  entries_estimated: 1533
+  pages_read: 8

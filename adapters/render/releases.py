@@ -23,7 +23,7 @@ feed it published and stronger than a pattern matched in markup.
 Usage:  releases.py --targets data/coverage/render-targets.yaml --out data/source/webpages \
                     --cache ~/workspace/render-cache --retrieved 2026-08-01
 """
-import argparse, json, pathlib, re, subprocess, sys, time
+import argparse, html as _html, json, pathlib, re, subprocess, sys, time
 from collections import Counter
 
 import yaml
@@ -62,6 +62,58 @@ def render(url, cache, max_age_days=2):
         return ""
     f.write_text(html)
     return html
+
+
+# Platforms whose rendered chapter list has a stable structure worth reading directly. The generic
+# strategies find a date and a label and nothing else; these carry access per chapter, which is the
+# field the free view depends on and which no heuristic can recover.
+STRUCTURED = {
+    # マガポケ: <li class="c-episode-items__item"> … __date, __ttl, and an icon that is either
+    # __ico--free or __ico--point with a price on it.
+    "magapoke": {
+        "item": r'<li class="c-episode-items__item">',
+        "date": r'__date">([^<]*)<',
+        "title": r'__ttl">([^<]*)<',
+        "access": r'__ico--(\w+)">([^<]*)<',
+    },
+    # マンガワン names nothing semantically — the classes are utility soup — but the item container
+    # is stable and the badges are plain text: 無料 for free, 先読 for a chapter released early to
+    # paying readers (which is why some carry a future date).
+    "mangaone": {
+        "item": r'<div class="cursor-pointer block border-b-1',
+        "date": r'<p class="text-xs text-gray-700[^"]*">(\d{4}/\d{1,2}/\d{1,2})</p>',
+        "title": r'<p class="line-clamp-1[^"]*">([^<]*)</p>',
+        "free_marker": r'>無料<',
+        "advance_marker": r'先読|先行',
+    },
+}
+
+
+def episodes_structured(html, spec):
+    out = []
+    for b in re.split(spec["item"], html)[1:]:
+        d = re.search(spec["date"], b)
+        ti = re.search(spec["title"], b)
+        if not (d and ti):
+            continue
+        date = norm_date(d.group(1))
+        title = re.sub(r"\s+", " ", _html.unescape(ti.group(1))).strip()
+        if not date or not title:
+            continue
+        row = {"title": title, "updated": date}
+        if spec.get("free_marker"):
+            # Presence-based rather than a captured value: the badge either appears or it does not.
+            row["access_modes"] = ["free"] if re.search(spec["free_marker"], b) else ["purchase"]
+            if spec.get("advance_marker") and re.search(spec["advance_marker"], b):
+                row["access_note"] = "released early to paying readers (先読)"
+        ico = re.search(spec["access"], b) if spec.get("access") else None
+        if ico:
+            kind = ico.group(1)
+            row["access_modes"] = ["free"] if kind == "free" else ["purchase"]
+            if kind != "free" and ico.group(2).strip():
+                row["price"] = ico.group(2).strip()
+        out.append(row)
+    return out
 
 
 def episodes(html):
@@ -152,7 +204,10 @@ def main():
             if not html:
                 failed["empty render"] += 1
                 continue
-            eps = episodes(html)
+            spec = STRUCTURED.get(plat["id"])
+            eps = episodes_structured(html, spec) if spec else []
+            if len(eps) < MIN_EPISODES:
+                eps = episodes(html)
             if len(eps) >= MIN_EPISODES:
                 row = {"work_title": t.get("title"), "url": t["url"], "episodes": eps}
                 au = author_near_title(html, t.get("title"))
@@ -187,6 +242,12 @@ def main():
             for e in w["episodes"]:
                 L.append(f"      - title: {js(e['title'])}")
                 L.append(f"        updated: {e['updated']}")
+                if e.get("access_modes"):
+                    L.append(f"        access_modes: {js(e['access_modes'])}")
+                if e.get("price"):
+                    L.append(f"        access_note: {js('point price ' + e['price'])}")
+                elif e.get("access_note"):
+                    L.append(f"        access_note: {js(e['access_note'])}")
                 L.append("        date_basis: rendered")
         L.append("")
         (out / f"rendered-{plat['id']}.yaml").write_text("\n".join(L))

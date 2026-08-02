@@ -99,6 +99,21 @@ def parse(html):
             out["title"], _, out["author"] = (x.strip() for x in head.partition("/"))
         else:
             out["title"] = head
+    # The work page renders the first few episodes AND the latest one, each with its title and a
+    # /watch/ link. The 更新 date in meta_info is the date THAT episode appeared, so naming it costs
+    # nothing and turns a work-level row into one that says which chapter — which is what a reader
+    # looking at the page sees. Only the newest is emitted: the others carry no date of their own.
+    sec = html[html.find('id="episode_list"'):]
+    best = None
+    for b in re.split(r'<li class="episode_item">', sec)[1:]:
+        n = re.search(r'data-number="(\d+)"', b)
+        ti = re.search(r'<div class="title"><a href="(/watch/mg\d+)">([^<]*)</a>', b)
+        if n and ti and (best is None or int(n.group(1)) > best[0]):
+            best = (int(n.group(1)), ti.group(2).strip(), ti.group(1))
+    if best:
+        out["latest_episode"] = best[1]
+        out["latest_episode_url"] = "https://manga.nicovideo.jp" + best[2]
+
     ch = re.search(r'/official/([a-z0-9_]+)/"[^>]*>\s*<div class="mg_banner">', html)
     if ch:
         out["channel_slug"] = ch.group(1)
@@ -180,7 +195,8 @@ def main():
     for w in sorted(works, key=lambda w: w["updated"], reverse=True):
         L.append(f"  - work_title: {js(w['title'])}")
         for k in ("author", "url", "comic_id", "updated", "started", "episode_count",
-                  "free_episodes", "format", "channel_slug"):
+                  "free_episodes", "format", "channel_slug", "latest_episode",
+                  "latest_episode_url"):
             if w.get(k) not in (None, ""):
                 L.append(f"    {k}: {js(w[k])}")
     L.append("")

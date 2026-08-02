@@ -95,12 +95,27 @@ def from_giga(html, page_url):
         # publishes no episode list for it.
         ti = re.search(r"<title>([^<]*)</title>", xml)
         DIAG[page_url] = f"platform's series feed is empty ({ti.group(1) if ti else 'no title'})"
+    # The free-only variant of the same feed gives per-chapter access, and every entry carries its
+    # author — both were being discarded, which is why works rescued by this adapter arrived with a
+    # date and nothing else.
+    try:
+        free_ids = set(re.findall(r'<link href="([^"]+)"/>',
+                                  get(f"https://{base}/atom/series/{m.group(1)}?free_only=1")))
+    except Exception:                                              # noqa: BLE001
+        free_ids = set()
     out = []
     for b in re.findall(r"<entry>(.*?)</entry>", xml, re.S):
         t = re.search(r"<title>([^<]*)</title>", b)
         u = re.search(r"<updated>([^<]*)</updated>", b)
+        l = re.search(r'<link href="([^"]+)"', b)
+        au = re.search(r"<author>\s*<name>([^<]*)</name>", b, re.S)
         if t and u:
-            out.append({"title": _html.unescape(t.group(1).strip()), "updated": u.group(1)[:10]})
+            row = {"title": _html.unescape(t.group(1).strip()), "updated": u.group(1)[:10]}
+            if au:
+                row["author"] = _html.unescape(au.group(1).strip())
+            if free_ids and l:
+                row["access_modes"] = ["free"] if l.group(1) in free_ids else ["purchase"]
+            out.append(row)
     return out
 
 
@@ -160,8 +175,14 @@ def main():
             failed.append((w.get("title"), "no URL"))
             continue
         html = get(url)
-        eps, route = [], None
+        eps, route, page_author = [], None, None
         if html:
+            # comici states the author in the page title as "作品 - 作者 | プラットフォーム", the same
+            # place the webpages adapter reads it. This route was ignoring it, so works rescued here
+            # arrived without one while the same platform's other works had theirs.
+            _au = re.search(r"<title>[^<|]*?\s+-\s+([^<|]+?)\s*\|", html)
+            if _au:
+                page_author = _html.unescape(_au.group(1).strip())
             for name, fn in (("gigaviewer", lambda h: from_giga(h, url)),
                              ("comici", from_comici), ("markup", from_generic)):
                 eps = fn(html)
@@ -179,8 +200,11 @@ def main():
                                              "no route yielded a dated chapter list")))
             continue
         how[route] += 1
+        if page_author:
+            for e in eps:
+                e.setdefault("author", page_author)
         rows.append({"work_title": w.get("title"), "url": url, "platform": w.get("platform"),
-                     "route": route, "episodes": eps})
+                     "route": route, "author": page_author, "episodes": eps})
 
     if rows:
         L = ["# Series reached individually after every platform pass had left them out.",
@@ -195,6 +219,8 @@ def main():
              "identification_mode: discovery-candidate", "works:"]
         for r in rows:
             L.append(f"  - work_title: {js(r['work_title'])}")
+            if r.get("author"):
+                L.append(f"    author: {js(r['author'])}")
             L.append(f"    url: {js(r['url'])}")
             if r.get("platform"):
                 L.append(f"    platform_name: {js(r['platform'])}")
@@ -204,6 +230,10 @@ def main():
             for e in r["episodes"]:
                 L.append(f"      - title: {js(e['title'])}")
                 L.append(f"        updated: {e['updated']}")
+                if e.get("author"):
+                    L.append(f"        author: {js(e['author'])}")
+                if e.get("access_modes"):
+                    L.append(f"        access_modes: {js(e['access_modes'])}")
                 if r["route"] in ("markup", "rendered"):
                     L.append(f"        date_basis: {'rendered' if r['route']=='rendered' else 'heuristic'}")
         L.append("")

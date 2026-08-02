@@ -467,6 +467,10 @@ def main():
         d = yaml.safe_load(open(f)) or {}
         pid, pname = d.get("platform"), d.get("platform_name")
         for w in d.get("works") or []:
+            # A file that gathers works from several platforms states the platform per work; the
+            # file-level name is empty there, and reading only that left 54 rows labelled "?".
+            pname_w = w.get("platform_name") or pname
+            pid_w = w.get("platform") or pid
             # A work reached through editorial coverage was published before we heard of it —
             # 百合ナビ covers one-shots weeks late, and a one-shot is gone from every listing by
             # then. Dropping it for being older than the window means it can never appear at all,
@@ -501,7 +505,7 @@ def main():
                     # Author may be stated per chapter (GigaViewer feeds) or per work; both were
                     # being dropped in favour of an empty string.
                     "author": c.get("author") or w.get("author") or "",
-                    "plat": pid, "plat_name": pname,
+                    "plat": pid_w, "plat_name": pname_w,
                     "ident": "discovery-candidate",
                     "free_from": c.get("free_from"),
                     "access_modes": c.get("access_modes") or [],
@@ -510,6 +514,15 @@ def main():
     for r in releases:
         if r.pop("type_override", None):
             r["type"] = "oneshot"
+
+    # A platform feed types an entry `unclassified` when its own heuristic cannot tell what it is.
+    # Where we HAVE told — a chapter number parsed out of the title — the label should follow:
+    # 雨夜の月's 第５０−２話　夢現 was showing as 新話 and 未分類 at the same time, which is the
+    # interface disagreeing with itself in front of the reader.
+    for r in releases:
+        if r.get("type") == "unclassified" and ep_number(r.get("ep") or "") is not None:
+            r["type"] = "chapter"
+            r["type_basis"] = "numbered chapter, though the platform feed did not say so"
 
     # ── ニコニコ漫画: work-level update dates ──────────────────────────────────────────────────
     # The platform states that a work updated on a date, and never which chapter. So these attest
@@ -531,11 +544,15 @@ def main():
             started = str(w.get("started") or "")[:10]
             releases.append({
                 "id": f"nicovideo:{w.get('comic_id')}:{u}", "work": w.get("work_title"),
-                "ep": "", "type": "unclassified", "adv": True, "web": "serialised",
+                # The newest episode named on the work page is the one the 更新 date refers to.
+                "ep": w.get("latest_episode") or "",
+                "type": "chapter" if w.get("latest_episode") else "unclassified",
+                "adv": True, "web": "serialised",
                 "pub": u, "seen": str(d.get("retrieved", "")),
                 "basis": "observed", "conf": "reported",
                 "why": "work-level update date stated by the platform; chapter not identified",
-                "moved": "", "url": w.get("url"), "author": w.get("author", ""),
+                "moved": "", "url": w.get("latest_episode_url") or w.get("url"),
+                "author": w.get("author", ""),
                 "plat": "nicovideo", "plat_name": "ニコニコ漫画",
                 "ident": "discovery-candidate", "free_from": None,
                 "access_modes": ["free"] if all_free else [],

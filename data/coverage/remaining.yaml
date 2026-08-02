@@ -1,64 +1,218 @@
-# Series a comparator reports and we hold nothing for, after every platform pass.
-# Geoblocked hosts are excluded: no route reaches them from here.
-#
-# URL corrections applied where the candidate list carried a truncated or stale path — the
-# antenna gave comic-ryu.jp/series/watashinotamashiiwot, which 404s; the real slug is
-# watashinotamashiiwotabetekudasai. A 404 was being read as 'unreachable'.
+# Every work still carrying an unconfirmed claim, with the URL we hold for it.
+# Run through adapters/remaining/, which tries the GigaViewer per-series feed, comici markup, a
+# plain fetch and a rendered DOM against each in turn — a claim that survives all four is one we
+# have actually looked for, not one nothing happened to fetch.
 source: derived
 role: remaining-works
-retrieved: 2026-08-01
+retrieved: 2026-08-02
 works:
-- title: 冷たくて 柔らか
-  platform: pixivコミック
-  url: https://comic.pixiv.net/works/11800
-- title: メイド&ロイドはお嬢様のお役に立ちたい!
-  platform: マンガワン
-  url: https://manga-one.com/manga/28129/chapter/355684
-- title: 魔女とくゅらす
-  platform: コミプレ
-  url: https://heros-web.com/series/2b64bc0622a2a
-- title: 死に戻り王女は生き延びるために百合ハーレムを作ることにした
-  platform: HERO'S Web
-  url: https://heros-web.com/series/ec09a10dc9490
+- title: 英雄少女と呪われの銀姫
+  platform: ヤンジャン+
+  url: https://tonarinoyj.jp/episode/2551460910044575820
+- title: オカルトタイムズ
+  platform: マガポケ
+  url: https://pocket.shonenmagazine.com/title/03282
+- title: DOUBLE HELIX BLOSSOM
+  platform: コロコロオンライン
+  url: https://www.corocoro.jp/title/65
+- title: 魔王城デート大作戦!
+  platform: キミコミ
+  url: https://kimicomi.com/series/0cd32d6a7efc2
+- title: 雨夜の月
+  platform: マガポケ
+  url: https://comic-days.com/episode/3269632237276869027
+- title: 病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら...
+  platform: コミックガルド
+  url: https://comic-gardo.com/episode/2550912966011803878
+- title: 獄門撫子此処ニ在リ
+  platform: てれびくんヒーローコミックス
+  url: https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/
+- title: フレンドガールフレンド
+  platform: 花とゆめ+
+  url: https://hanayume.com/series/f3ce082d639de
+- title: しゅがー・みーつ・がーる!
+  platform: COMIC FUZ
+  url: https://comic-fuz.com/manga/3108
+- title: シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～
+  platform: コミックDAYS
+  url: https://comic-days.com/episode/2550912964518073379
+- title: ぬるめた
+  platform: ニコニコ漫画（きららベース）
+  url: https://comic-fuz.com/series/2389
+- title: ぜんぶ壊して地獄で愛して
+  platform: マガポケ
+  url: https://comic-days.com/episode/14079602755160898551
+- title: しあわせ鳥見んぐ
+  platform: ニコニコ漫画（きららベース）
+  url: https://comic-fuz.com/manga/2474
+- title: 銀の河に星の城
+  platform: フラコミlike!
+  url: https://flowercomics.jp/title/2780
+- title: ニセアイホンアイ
+  platform: まんがタイムSquare
+  url: https://mangatime-square.com/episode/12207421984001577937
+- title: オカワリいただけただろうか?
+  platform: webアクション
+  url: https://comic-action.com/episode/2550912964909179818
+- title: 超深宇宙より愛をこめて
+  platform: 一迅プラス
+  url: https://comic.pixiv.net/works/11521
+- title: 君のせいなんだから、責任とってよね。
+  platform: 一迅プラス
+  url: https://comic.pixiv.net/works/13225
+- title: 世界で一番おっぱいが好き!
+  platform: マンガボックス
+  url: https://comic-walker.com/detail/KC_000034_S
+- title: ひなちゃんが生きてるなら
+  platform: 一迅プラス
+  url: https://comic.pixiv.net/works/13226
+- title: 小林さんちのメイドラゴン
+  platform: webアクション
+  url: https://comic-action.com/episode/13933686331613879685
+- title: 一畳間まんきつ暮らし！
+  platform: ニコニコ漫画（きららベース）
+  url: https://comic-fuz.com/manga/1811
+- title: お姉さんは女子小学生に興味があります。
+  platform: 竹コミ
+  url: https://manga.nicovideo.jp/comic/31194
+- title: 暴走!?サキュバスせんぱい
+  platform: Gコミ
+  url: https://g-comi.jp/series/5448ec9f6077b
+- title: 運命は役に立たない
+  platform: 花とゆめ+
+  url: https://hanayume.com/series/ca4ef0eb47ea3
+- title: 裏世界ピクニック
+  platform: ガンガンONLINE
+  url: https://www.ganganonline.com/title/38
+- title: 公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう...
+  platform: チャンピオンクロス
+  url: https://youngchampion.jp/series/86c1162f34a04
+- title: 上杉くんは女の子をやめたい
+  platform: ちゃおプラス
+  url: https://ciao.shogakukan.co.jp/comics/title/00577/episode/22025
+- title: 平良深姉妹はどっちもヤんでる
+  platform: マガポケ
+  url: https://comic-days.com/episode/4856001361274266527
+- title: 今夜、エーテルで待ちあわせ
+  platform: Seasons
+  url: https://comic-seasons.com/episode/2551460909766158255
+- title: バカ女26時
+  platform: ヤンジャン+
+  url: https://comic.pixiv.net/works/9913
+- title: あの子とふたりで。
+  platform: コミックオギャー!!
+  url: https://comic-ogyaaa.com/episode/2550912965818317820
+- title: 新刊100億冊ください
+  platform: コミックDAYS
+  url: https://comic-days.com/episode/2550912965415315207
+- title: GURU
+  platform: マガポケ
+  url: https://comic-days.com/episode/12207421983430012575
 - title: 藤髪の魔女
   platform: ガンガンONLINE
   url: https://www.ganganonline.com/title/2649
+- title: 球詠
+  platform: ニコニコ漫画（きららベース）
+  url: https://comic-fuz.com/manga/441
 - title: 画家の肖像
   platform: コミックゼノン
   url: https://comic-zenon.com/episode/12207421983944323781
 - title: 散らないで菊
   platform: コミックゼノン
   url: https://comic-zenon.com/episode/12207421983944323839
+- title: 私に天使が舞い降りた!
+  platform: マガポケ
+  url: https://comic.pixiv.net/works/4810
+- title: 魔性の乙女の役廻り
+  platform: 竹コミ
+  url: https://takecomic.jp/series/2706e9d937d5f
+- title: 月とすっぴん
+  platform: FEEL web
+  url: https://feelweb.jp/episode/3269754496401056101
+- title: 恋より青く
+  platform: コミックオギャー!!
+  url: https://comic-ogyaaa.com/episode/4856001361171643976
 - title: 姫虐が止まらない白桃さん
   platform: 一迅プラス
   url: https://ichicomi.com/episode/2551460910021695025
+- title: 私がモテないのはどう考えてもお前らが悪い!
+  platform: ガンガンONLINE
+  url: https://www.ganganonline.com/title/29
+- title: 今日はカノジョがいないから
+  platform: 一迅プラス
+  url: https://comic-days.com/episode/3270296674372407715
+- title: 魔法使いの作庭/よみきり
+  platform: 花とゆめ+
+  url: https://hanayume.com/series/96cd6ffadb9ee
+- title: OL Vtuberと推しJKちゃん
+  platform: 竹コミ
+  url: https://takecomic.jp/series/0e7fd362c2c11
+- title: 世界をすくってもお腹はすくから
+  platform: Gコミ
+  url: https://g-comi.jp/series/58238b3987c11
+- title: 銀輪ボイス
+  platform: 竹コミ
+  url: https://takecomic.jp/series/de0a74a9b5715
+- title: 男装メイドは尽くしたい
+  platform: 花とゆめ+
+  url: https://hanayume.com/series/1191c17a3f374
+- title: 腹割るウチらの秘密ごと!
+  platform: まんがタイムSquare
+  url: https://comic.pixiv.net/works/11664
+- title: 温室のアトリエ
+  platform: ガンガンONLINE
+  url: https://www.ganganonline.com/title/2643
+- title: 愛でたいセンセイ
+  platform: COMIC Y-OURS
+  url: https://comic-y-ours.com/episode/2551460909791888785
+- title: ケモノとワルツ
+  platform: コミックグロウル
+  url: https://comic-growl.com/series/5ec689382839e
 - title: ガールミートガール
   platform: アサコミ
   url: http://sonorama.asahi.com/series/GMG-story.html
+- title: 香原さんのふぇちのーと
+  platform: 竹コミ
+  url: https://manga.nicovideo.jp/comic/56509
+- title: フェアウェイの声をきかせて
+  platform: チャンピオンクロス
+  url: https://championcross.jp/series/8178b4fc09df9
+- title: 転生王女と天才令嬢の魔法革命
+  platform: カドコミ
+  url: https://comic-walker.com/detail/KC_003176_S
 - title: 私の魂を食べて下さい!
   platform: COMICリュウ
   url: https://www.comic-ryu.jp/series/watashinotamashiiwotabetekudasai/
-- title: 犬も歩けば姫に当たる
-  platform: pixivコミック
-  url: https://comic.pixiv.net/works/13322
 - title: 横槍メンゴ新作読切シリーズ
   platform: ヤンジャン+
   url: https://ynjn.jp/title/30352
 - title: ナキノン
   platform: HERO'S Web
   url: https://heros-web.com/series/696d291fa1769
+- title: ベイビー車中ハッカーズ
+  platform: ヤンジャン+
+  url: https://tonarinoyj.jp/episode/2550912964606721429
 - title: 異種族女子に〇〇する話
   platform: pixivコミック
   url: https://comic.pixiv.net/works/7840
+- title: 誰かオオカミさんのしつけ方知りませんか⁉
+  platform: ニコニコ漫画
+  url: https://ichicomi.com/episode/12207421983347947242
 - title: ツイてるギャルとミエてる陰キャ
   platform: きら星ポータル
   url: https://kirapo.jp/meteor/titles/tuimie
-- title: あなたの未来を許さない
-  platform: コミックPASH! neo
-  url: https://comicpash.jp/series/37aae26103d8a
+- title: 踊り場にスカートが鳴る
+  platform: マガポケ
+  url: https://comic.pixiv.net/works/7648
 - title: ロイヤルテーラー ―王宮の裁縫師―
   platform: ゼロサムオンライン
   url: https://zerosumonline.com/detail/royaltailor
+- title: 彩純ちゃんはレズ風俗に興味があります!
+  platform: 一迅プラス
+  url: https://ichicomi.com/episode/2550912965923204004
+- title: 大崎さんと小森さん
+  platform: コミックエッセイ劇場
+  url: https://comic-walker.com/detail/KC_014277_S
 - title: セイ少女黙示録 ですぺあ
   platform: ビッコミ
   url: https://bigcomics.jp/series/2c1db177ce231

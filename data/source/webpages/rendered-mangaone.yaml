@@ -20,151 +20,206 @@ works:
     url: "https://manga-one.com/viewer/290902"
     chapter_count: 9
     chapters:
-      - title: "第1話"
-        updated: 2025-06-06
-        date_basis: rendered
-      - title: "10話ずつ"
+      - title: "休載のお知らせ"
         updated: 2026-04-10
+        access_modes: ["free"]
         date_basis: rendered
-      - title: "第20話 無料"
+      - title: "第20話"
         updated: 2026-04-10
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "おまけ"
+        updated: 2026-03-13
+        access_modes: ["free"]
         date_basis: rendered
       - title: "第19話"
         updated: 2026-03-27
+        access_modes: ["purchase"]
         date_basis: rendered
       - title: "第18話"
         updated: 2026-02-27
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "2巻コミックPR"
+        updated: 2026-02-13
+        access_modes: ["free"]
         date_basis: rendered
       - title: "第17話"
         updated: 2026-02-13
+        access_modes: ["purchase"]
         date_basis: rendered
       - title: "第16話"
         updated: 2026-01-30
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "10話ずつ 前へ 1"
-        updated: 2026-02-19
-        date_basis: rendered
-      - title: "第1話"
-        updated: 2026-06-13
+      - title: "おまけ"
+        updated: 2026-01-02
+        access_modes: ["free"]
         date_basis: rendered
   - work_title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
     url: "https://manga-one.com/manga/27253/chapter/307792"
-    chapter_count: 12
+    chapter_count: 10
     chapters:
-      - title: "第1話 宇宙のはじっこでこんにちは | ギャラクシーぷーちゃん 宇宙のはじっこでこんに"
-        updated: 2026-01-04
-        date_basis: rendered
-      - title: "第9話(前編) ミーアさんとムーちゃんにこんにちは 先読"
+      - title: "第9話(前編)"
         updated: 2026-08-16
+        access_modes: ["purchase"]
+        access_note: "released early to paying readers (先読)"
         date_basis: rendered
-      - title: "第8話(後編) ミュウさんにこんにちは 無料"
+      - title: "第8話(後編)"
         updated: 2026-07-19
+        access_modes: ["free"]
         date_basis: rendered
-      - title: "第8話(前編) ミュウさんにこんにちは"
+      - title: "1巻コミックPR"
         updated: 2026-07-05
+        access_modes: ["free"]
         date_basis: rendered
-      - title: "第7話(後編) スーパーマーケットでこんにちは"
+      - title: "第8話(前編)"
+        updated: 2026-07-05
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "第7話(後編)"
         updated: 2026-06-07
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "第7話(前編) スーパーマーケットでこんにちは"
+      - title: "第7話(前編)"
         updated: 2026-05-10
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "第6話(後編) レインボー僕ちゃんにこんにちは"
+      - title: "第6話(後編)"
         updated: 2026-04-26
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "第6話(前編) レインボー僕ちゃんにこんにちは"
+      - title: "第6話(前編)"
         updated: 2026-04-12
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "5話 お好み焼きにこんにちは(5ページ)"
+      - title: "第5.5話"
         updated: 2026-03-15
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "第5話 アーニャさんにこんにちは"
+      - title: "第5話"
         updated: 2026-03-01
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "10話ずつ 前へ 1"
-        updated: 2026-07-17
+  - work_title: "メイド&ロイドはお嬢様のお役に立ちたい!"
+    url: "https://manga-one.com/manga/28129/chapter/355684"
+    chapter_count: 8
+    chapters:
+      - title: "Memory5(前編)"
+        updated: 2026-08-15
+        access_modes: ["purchase"]
+        access_note: "released early to paying readers (先読)"
         date_basis: rendered
-      - title: "第1話 宇宙のはじっこでこんにちは"
-        updated: 2026-07-26
+      - title: "Memory4(後編)"
+        updated: 2026-07-25
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "Memory4(前編)"
+        updated: 2026-07-11
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "Memory3(後編)"
+        updated: 2026-06-27
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "Memory3(前編)"
+        updated: 2026-06-13
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "Memory2(後編)"
+        updated: 2026-06-13
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "Memory2(前編)"
+        updated: 2026-06-13
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "Memory1"
+        updated: 2026-06-13
+        access_modes: ["free"]
         date_basis: rendered
   - work_title: "付き合ってあげてもいいかな"
     url: "https://manga-one.com/viewer/70173"
     chapter_count: 2
     chapters:
-      - title: "10話ずつ"
+      - title: "オンラインくじ第2弾告知PR"
         updated: 2025-07-04
+        access_modes: ["free"]
         date_basis: rendered
-      - title: "10話ずつ 前へ 1"
-        updated: 2025-04-17
+      - title: "最終14巻コミックスPR"
+        updated: 2025-03-14
+        access_modes: ["free"]
         date_basis: rendered
   - work_title: "妖怪殲滅のサイコリリー"
     url: "https://manga-one.com/viewer/225633"
-    chapter_count: 12
+    chapter_count: 10
     chapters:
-      - title: "第1話 出遭い | 妖怪殲滅のサイコリリー"
-        updated: 2023-10-19
-        date_basis: rendered
-      - title: "第14話(前編) 剣が峰 先読"
+      - title: "第14話(前編)"
         updated: 2026-08-06
+        access_modes: ["purchase"]
+        access_note: "released early to paying readers (先読)"
         date_basis: rendered
-      - title: "第13話(後編) 弟子 無料"
+      - title: "第13話(後編)"
         updated: 2026-07-30
+        access_modes: ["free"]
         date_basis: rendered
-      - title: "第13話(前編) 弟子"
+      - title: "第13話(前編)"
         updated: 2026-07-23
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "第12話(後編) 規制緩和"
+      - title: "バニースーツ"
+        updated: 2024-05-30
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第12話(後編)"
         updated: 2026-07-16
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "第12話(前編) 規制緩和"
+      - title: "第12話(前編)"
         updated: 2024-05-16
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "第11話(後編) 未達成"
+      - title: "第11話(後編)"
         updated: 2024-05-09
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "第11話(前編) 未達成"
+      - title: "第11話(前編)"
         updated: 2024-05-02
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "第10話(後編) ニアミス"
+      - title: "第10話(後編)"
         updated: 2024-04-25
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "第10話(前編) ニアミス"
+      - title: "第10話(前編)"
         updated: 2024-04-18
-        date_basis: rendered
-      - title: "10話ずつ 前へ 1"
-        updated: 2024-03-19
-        date_basis: rendered
-      - title: "第1話 出遭い"
-        updated: 2026-08-01
+        access_modes: ["purchase"]
         date_basis: rendered
   - work_title: "私の焦がれる彼女"
     url: "https://manga-one.com/manga/27454/chapter/316774"
-    chapter_count: 9
+    chapter_count: 6
     chapters:
-      - title: "第1話 始まり | 私の焦がれる彼女"
-        updated: 2025-11-05
-        date_basis: rendered
-      - title: "第6話 犯人 無料"
+      - title: "第6話"
         updated: 2026-04-01
+        access_modes: ["free"]
         date_basis: rendered
-      - title: "第5話 彼女の場所"
+      - title: "第5話"
         updated: 2026-02-04
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "第4話 誰のせい"
+      - title: "第4話"
         updated: 2026-01-07
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "第3話 すれ違い"
+      - title: "第3話"
         updated: 2025-12-03
+        access_modes: ["purchase"]
         date_basis: rendered
-      - title: "第2話 彼女の音 無料"
+      - title: "第2話"
         updated: 2025-11-19
+        access_modes: ["free"]
         date_basis: rendered
-      - title: "第1話 始まり 無料"
+      - title: "第1話"
         updated: 2025-11-05
-        date_basis: rendered
-      - title: "第1話 始まり"
-        updated: 2026-04-01
-        date_basis: rendered
-      - title: "2回読まされたわ &gt;&gt;198男も出るから性別とか関係無いwwww"
-        updated: 2026-04-01
+        access_modes: ["free"]
         date_basis: rendered

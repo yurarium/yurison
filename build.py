@@ -23,7 +23,7 @@ import yaml
 # into a record by accident.
 ALLOWED_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha",
                    "gigaviewer", "kadokomi", "comicfuz", "webpages", "comparators", "nicovideo",
-                   "pixivcomic"}
+                   "pixivcomic", "reachable"}
 
 # Sources carrying work-level records that merge into a work. Others (release feeds) are
 # platform-level and compile separately.

@@ -1,0 +1,1493 @@
+# Whether each work's page is still served, and what the platform answered.
+#
+# A 読切 is published once and often taken down, so an archive sweep recovers works that
+# are still readable and works that only ever existed — and they must not look alike.
+# Nothing here is inferred from age: a 2019 one-shot may still be up and a 2026 one gone.
+#
+# `gone` (404/410) is the platform's own answer. `blocked` (403, timeout, refusal) says
+# nothing about the work and only about our access; geoblocked hosts land there and are
+# NOT withdrawals. A `gone` result deletes nothing — the work was published, on that date,
+# by that author, and that stays true. The record just stops claiming it can be read.
+source: reachable
+role: availability
+retrieved: 2026-08-02
+record_type: availability_check
+checked: 246
+works:
+  - work: "貝合わせ"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326495"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "金小路家の恋愛指南"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326486"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "甘い香りに誘われて"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326467"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "指先蜜のテラリウム"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326458"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "はなしてつないで"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326441"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "お姉さまの言うとおり？"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326426"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "Are you \"mine\"？"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326502"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "押してダメなら描いてみろ"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326492"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "彼女のコスプレ"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326480"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "きみの特別になれなくても"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326464"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "オトナ・レッスン"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326455"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "言わせてあげない"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326438"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ワンマン彼女"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326421"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "私のヒーロー"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/12207421983805333018"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "残り香に牙"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983947227343"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ひみつのまんが"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/12207421983906425557"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "オタクサキュバスの才能がありすぎる！"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_016705_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "下部七花はかく語りき"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/12207421983885192770"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "崩れる前のわたしでいさせて"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_019408_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "魔法使いの作庭/よみきり"
+    platform: "花とゆめ+"
+    url: "https://hanayume.com/episodes/0e40b70f4fb6a"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "光と影のアトリエ"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983882061386"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "Down the hole"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983882061380"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "知らないあなた"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983882061373"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "メロウ・アンビバレンス"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983882061368"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "初恋の呪い"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983882061365"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "嘘の理由"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983882061356"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "その手紙代行します！"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_014260_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ゲームフレンド"
+    platform: "コミックゼノン"
+    url: "https://comic-zenon.com/episode/12207421983889328876"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "天瀬ましろはイきたくない！"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_016898_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "résonance"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/12207421983793418075"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "さかなでは足もつかない"
+    platform: "MAGCOMI"
+    url: "https://magcomi.com/episode/12207421983866622005"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "浪人なんてろくでもない！"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983829237024"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "声に乗せてファンファーレ"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/12207421983742371464"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "聖さまの思うままに"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/12207421983765928461"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "夕子先輩は育てられない"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983742535195"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "Gesso,"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008729_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "わたしのかわいいおんなのこ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008733_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "終末、おやつ食べよ。"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008775_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "吸血少女とウンディーネ"
+    platform: "コミック アース・スター"
+    url: "https://comic-earthstar.com/episode/12207421983715032399"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "来航怪異の音がする ～横濱外来妖対策局～"
+    platform: "コミック アース・スター"
+    url: "https://comic-earthstar.com/episode/12207421983605265777"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ガールズライブイン・ライブハウス"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983611774619"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "あんたが悪い"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008642_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ふつうのあたしたち"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/12207421983554072834"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ぜんぜんかわいくない"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983555609398"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "Queentopia Project【タテスク】"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008652_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "それはただの夏の一日"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983529195736"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "未完成なふたり"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/12207421983525254745"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "春の埋み火"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983505827938"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "夜明けのアリス"
+    platform: "コミックゼノン"
+    url: "https://comic-zenon.com/episode/12207421983426102334"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "おかえりるうちゃん"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2551460910093823834"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "痛かったら喜んでください"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2551460910093823874"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "お嬢様だってすね毛は生える"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/12207421983326560361"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "わたしのミューズ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008370_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "かわいい親友の落とし方"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2551460910062734360"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "CUTE vs. COOL"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03099/episode/430279"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "最後の告白"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2551460909962348550"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "今夜、エーテルで待ちあわせ"
+    platform: "Seasons"
+    url: "https://comic-seasons.com/episode/2551460909766158255"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "魔女ってバイト代出ます？"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2551460909862300153"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "クール・エイド"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2551460909765781155"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "くちびるへのリビドー"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007151_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "F30のきみ"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2551460909728612179"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "春風のふり"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007149_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "カワセミとブルー"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2551460909616541525"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "徒花の約束"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007123_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "かわいいのなにが悪いの？"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007022_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "江畔ノ燕々"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007045_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "咲いたキズアト"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2551460909533596845"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "いととうとし"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912966048555512"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "正しく叱って、優しく縛って"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912966048555509"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "極北にて。"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550912965979276316"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "悪役令嬢とギャルメイド"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401696"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "あこがれを結んで"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204074"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "アダとエイヴァ"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923203314"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "梓月は天に咲う"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204435"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "エクストリームスーパーダーリン"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401743"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "御羊ちゃんは触りたい"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204644"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "溺れて、愛毒"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204803"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "かたわれの女神"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204413"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "きみがわるい！"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204215"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "近日点はまだ遠く"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204133"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "煙に寄せて"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401689"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "恋にミスリード"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204880"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "恋人の下の名前が呼べなくて困ってます"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204728"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "心に依りて"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401661"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "今宵、悪役令嬢の手をとれたら"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965913104445"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "残存の竜"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923203756"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ジュリア・イン・ザ・ボックス！"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401664"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "好きです、フッてください！"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204427"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "好きな人が指輪をつけてきた"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401725"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "超深宇宙より愛をこめて【読み切り版】"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401588"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "電波系Xエンカウント"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401669"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ドロップアウト・サキュバス！"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204500"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ナイショの彼女"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401704"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "凪の果てにて"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923203892"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "飲んでみる？"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401656"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "バズーカを持った天使"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923203867"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "はなれないよ"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204839"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ひかりのすむところ"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204225"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ヒモ吸血鬼が出ていかない"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965979341010"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ファインダーの先に"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401740"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "文系のきみ、理系のあなた"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204062"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "マジックアワー"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204871"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "また明日、あの席で。"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401633"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "指先に恋を咲かせて"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923203913"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "バニーガール拾いました。"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965979341393"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "端々と安寧"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965979341358"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "うそつき"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965979341321"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "少女心中"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965979341283"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "どうせ二人ぼっち"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965979341221"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "井の中の空を知らない"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965979341163"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "嘘"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965979341113"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "パペット・デート"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965979341066"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "青春CONTINUE？"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965979341017"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "4時半、コインランドリーにて"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923203933"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ロマンスコード"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204184"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "私の知ってるお姉さん"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401648"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "私の小さなおひめさま"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965913104454"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ワンコと距離の測り方"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401622"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "キュートアグレッション"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965979341007"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ドラ神様は生贄を食べたい"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965979340984"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "百合バリズム部"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965979340968"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "最低な君が好き"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912965974316524"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "くゆらす女々"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912965947830792"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "雪が溶けたらおんなじ制服"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/02913/episode/419948"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "朝村さんと夜山さん"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550912965822222250"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "†でぃすてにぃ・ふれんず†"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006751_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "のっぽと不登校"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912965822071409"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ハートは腐らない"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912965766159299"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ふたり異世界人"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912965757174587"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "多重夢"
+    platform: "コミックゼノン"
+    url: "https://comic-zenon.com/episode/2550912965765814675"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ミラちゃんが生き返った"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006469_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "第十二号蘇生魔術"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/02875/episode/416661"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "デス・キス・ラブ!"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912965562081792"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "乖花の退鬼師"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006445_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "れーこ"
+    platform: "MAGCOMI"
+    url: "https://magcomi.com/episode/2550912965318241018"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "楽園の季節"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550912965308422088"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "辿り着けない星"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550912965308422121"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "私の宝箱"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912965241191415"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "私の幽霊"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550912965183085999"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "オフィスのつづきはリビングで【タテスク】"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006333_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "弓道スケッチ"
+    platform: "コミックゼノン"
+    url: "https://comic-zenon.com/episode/2550912965209653001"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "天使と書いて悪魔と読む。逆もまた然り。"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912965159409071"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "好子さんのいる地獄で死にたい"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550912965061330991"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "#うちらが最強 ～陰キャ除霊師とギャルJK～"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006225_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "プラスチックの怒り"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550912965004446476"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "土居ちゃんはけしからん"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912964906027834"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "リスカとキバ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006177_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "変態祓魔師燈明院牡丹"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006123_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "アオハルに憑き物"
+    platform: "コミック アース・スター"
+    url: "https://comic-earthstar.com/episode/2550912964936717251"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "恋の焦点"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550912964856622869"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "猫の日"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006065_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "有美の言う通り"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550912964784980464"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "魔女っ子ルルとお師匠様"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006064_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "一夜で堕ちる恋なんて"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005998_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ねこみたいなのとわたし"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912964681656283"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "愛する貴方はキメラ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005876_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "泣き虫王子（♀）のいずもくんは女子高の王子様と百合になるかもしれない"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005905_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "共依存魔法少女"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912964575128673"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "絵筆と黒絹"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005856_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "葬られたきみへ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005851_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "CONTINUE?"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912964443171883"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "忠犬ねーね"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912964443171879"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "青春、ときどき不老不死"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912964443171862"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "忘れないでね"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550912964443171854"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "同星生殖"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550689798901526159"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "はなぢの思い"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550689798871388445"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "魔界にただいま"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550689798845851404"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ep.9"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550689798901526126"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "硝子の体温"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550689798901526108"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "熱の中の少女"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550689798871007144"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "Time bomb"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550689798599190722"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "まい・えんぷてぃ・らぶ"
+    platform: "コミックゼノン"
+    url: "https://comic-zenon.com/episode/2550689798768341356"
+    status: withdrawn
+    why: "page says 公開終了"
+    code: 200
+    checked: 2026-08-02
+  - work: "ミッドナイト・エクスプレス"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550689798732832121"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "不思議なゆりこさん"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550689798663938691"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "福音のメリテール"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/2550689798701554557"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "今日、オアシスで眠る"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550689798547512949"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "すき焼き定食なんかキライだ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005499_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "じわじわ百合になっていくJK"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005510_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "三木と日野"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550689798309072093"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "夜明け前が一番暗いとかドヤ顔するヤツ絶対殺す"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550689798309072098"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ソリスターズ・ハイ"
+    platform: "コミック アース・スター"
+    url: "https://comic-earthstar.com/episode/2550689798369117852"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "みだれた二人のやられめし"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005469_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "かっこいい彼女"
+    platform: "コミックゼノン"
+    url: "https://comic-zenon.com/episode/2550689798333988450"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ファッションガールヒーロー"
+    platform: "コミックゼノン"
+    url: "https://comic-zenon.com/episode/2550689798333988462"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "女の友情"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/2550668105997208149"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "したたかな細胞"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/11341664176576331695"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "一夜の願い"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/10044607041204449997"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "庭にゾンビ来てるよ"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/10044607041235029728"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "こもぐちゃんに食べられたい！"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005345_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "橙山寮のあの子たち"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/10044607041200248108"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ごめんね柳子"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/10044607041200244956"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "キラメキRESTART→"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/14079602755456009421"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "冷厳寺さんは今日からおもちゃ"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/14079602755391426512"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "キラキラさん"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/14079602755426269360"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "カウントダウンは10から数える"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/14079602755360143722"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "てぇてぇ二人"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/14079602755360143718"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "しのちゃんは見ている"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/14079602755364231378"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "水曜日、午後5時シアター前"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/14079602755302821034"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "トランス細工ガール"
+    platform: "コミックゼノン"
+    url: "https://comic-zenon.com/episode/14079602755346320255"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "神様の手"
+    platform: "コミックゼノン"
+    url: "https://comic-zenon.com/episode/14079602755346320251"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "サウナにハマりました"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/14079602755273767223"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "マーモリス"
+    platform: "コミックゼノン"
+    url: "https://comic-zenon.com/episode/4856001361489767244"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "抱き寝ーター"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/14079602755201264727"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "レチタティーヴォ"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/14079602755146639491"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "命の価値"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/4856001361535630772"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "二人の人魚姫"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/4856001361503670604"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "メンヘラさんと市松さん"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/02250/episode/378761"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "もっとヒーローになりたい"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/4856001361453599359"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "お嬢様マッチングアプリ"
+    platform: "MAGCOMI"
+    url: "https://magcomi.com/episode/4856001361369138927"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "最後の晩餐"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/4856001361294668969"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "同じ時を生きたい"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/4856001361263880703"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "作ってあげたい!よもつご飯"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/4856001361236208105"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "14gの逃避行"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/4856001361139111747"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "濡鴉の魔女"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/4856001361139111821"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "さよならミュージアム"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/4856001361157739240"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "泡沫"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003696_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ゆめみるがらくた"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/4856001361024877756"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "名前のつかない日常"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/4856001361031856240"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ソフト百合♡クッキング"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/4855956445090376166"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "私の魔法使い"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/4855956445047167861"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "シスターグレイ"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/316190247109747187"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "綺麗な花の遺し方"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/316190247109747296"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "その気になれば世界だってぶっ壊せる"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/316190247127500935"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ランドエスケープ"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/316190247132193862"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "飛んで回らない"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/316190247034404776"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ことのことのは"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/316190247014733519"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ガチ百合生徒会長の花園"
+    platform: "MAGCOMI"
+    url: "https://magcomi.com/episode/316190246985037259"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "モデルチェンジ"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/316190246998887390"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "セッ○スしないと出られない部屋～百合ver.～"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003252_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ボドカン！"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000614_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "建前とチョコレート"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/316112896828248051"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "三年坂"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004855_S"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ヒモとは絡みづらい"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/3270296674383965324"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "南山除妖録"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/3270375685341535217"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ふたりの告白"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/3270375685307274432"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "とうめいなおとうさん"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/3270296674393348526"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "さよなら"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/3270296674384339730"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "清田さんを汚したい"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/3269754496899350243"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "縁切鋏"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/3269754496865237541"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "羨望と白百合の君へ。"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/3269754496792511068"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "イトが搦ム"
+    platform: "コミックゼノン"
+    url: "https://comic-zenon.com/episode/3269754496831132958"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "My Friend Mana"
+    platform: "コミックゼノン"
+    url: "https://comic-zenon.com/episode/3269754496817930030"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ふわもみ"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/3269754496746988194"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "みぞれちゃん、"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/3269754496571931493"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "ダルマ・マイノリティ"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/3269754496571931465"
+    status: present
+    code: 200
+    checked: 2026-08-02
+  - work: "キャッチユー・キャッチミー"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/3269754496613350277"
+    status: present
+    code: 200
+    checked: 2026-08-02

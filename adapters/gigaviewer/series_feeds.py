@@ -77,6 +77,7 @@ def series_ids(html):
 #
 # Every field check passed those rows: they had a chapter, an author, a date and a platform. Only
 # reading the list showed it.
+TICKET_RE = re.compile(r"チケットで読む（無料）|作品チケット[^。]{0,12}対象")
 FEED_TITLE = re.compile(r"<title>([^<]*)</title>")
 FEED_TITLE_INNER = re.compile(r"[（(](.+)[）)]", re.S)
 
@@ -208,22 +209,48 @@ def main():
         # chapters — and this project counts rate-limited free as free (free-timed), because it is
         # free to a reader willing to wait. Marking those purchase would understate the free view.
         #
-        # Ticket eligibility is a property of the WORK, not the chapter (「この作品は作品チケット
-        # 対象です」), so it costs one probe on one paid chapter rather than one per chapter.
+        # Ticket eligibility is NOT a property of the work. This used to probe one paid chapter and
+        # apply the answer to all of them, on the stated assumption that 「この作品は作品チケット対象
+        # です」 describes the series. It does not: on 雨夜の月 the newest paid chapter 第５０−２話 is
+        # coin-only while 第３０−２話 and 第１３−１話 are both ticket-readable. Eligibility OPENS WITH
+        # AGE, so a work has a boundary, and one probe on one side of it mislabels everything on the
+        # other — here, ninety chapters called free-timed when the newest is simply paywalled.
+        #
+        # The feed is newest-first and eligibility is monotonic in age, so the boundary is found by
+        # bisection: about seven probes for ninety chapters instead of one wrong answer or ninety
+        # right ones. The two ends are probed first, which also catches a work that is uniformly one
+        # or the other without any search at all.
+        def _ticketed(url):
+            try:
+                return bool(TICKET_RE.search(fetch(url, cache)))
+            except (urllib.error.HTTPError, urllib.error.URLError, OSError):
+                return False
+
         if free_ids is not None:
             paid = [e for e in eps if e.get("url") and e["url"] not in free_ids]
-            ticketed = False
+            first_ticketed = len(paid)          # index of the oldest run that IS ticketed
             if paid:
-                try:
-                    ep_html = fetch(paid[-1]["url"], cache)
-                    ticketed = bool(re.search(r"チケットで読む（無料）|作品チケット[^。]{0,12}対象", ep_html))
-                except (urllib.error.HTTPError, urllib.error.URLError, OSError):
-                    ticketed = False
+                if _ticketed(paid[0]["url"]):
+                    first_ticketed = 0          # even the newest is ticketed
+                elif not _ticketed(paid[-1]["url"]):
+                    first_ticketed = len(paid)  # none of them are
+                else:
+                    lo, hi = 0, len(paid) - 1   # paid[lo] not ticketed, paid[hi] ticketed
+                    while hi - lo > 1:
+                        mid = (lo + hi) // 2
+                        if _ticketed(paid[mid]["url"]):
+                            hi = mid
+                        else:
+                            lo = mid
+                    first_ticketed = hi
+            ticket_urls = {e["url"] for e in paid[first_ticketed:]}
             for e in eps:
                 if e.get("url") in free_ids:
                     e["access_modes"] = ["free"]
+                elif e.get("url") in ticket_urls:
+                    e["access_modes"] = ["free-timed"]
                 else:
-                    e["access_modes"] = ["free-timed"] if ticketed else ["purchase"]
+                    e["access_modes"] = ["purchase"]
         if eps:
             works.append({"work_title": name, "series_id": sid, "episodes": eps})
 

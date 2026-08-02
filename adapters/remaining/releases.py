@@ -170,14 +170,39 @@ def _comici_rows(html):
         if m:
             row = {"title": _html.unescape(m.group(1).strip()),
                    "updated": f"{int(m.group(2)):04d}-{int(m.group(3)):02d}-{int(m.group(4)):02d}"}
-            # Two badge forms across comici installs: 竹コミ classes it (…access-text … mode-free),
-            # 花とゆめ+ puts the literal 無料 in the access element and an SVG lock on paid ones.
-            if re.search(r'series-eplist-item-access-text[^"]*mode-free'
-                         r'|series-eplist-item-access[^>]*>\s*(?:<[^>]*>\s*)*無料', b):
-                row["access_modes"] = ["free"]
-            elif re.search(r'series-eplist-item-access-paid|mode-paid'
-                           r'|series-eplist-item-access[^>]*>\s*(?:<[^>]*>\s*)*<path', b):
+            # comici marks access THREE ways, not two, and the middle one is the one that matters
+            # most to a reader. 運命は役に立たない on 花とゆめ+ has ten chapters of which exactly one is
+            # actually paid; we were calling four of them paid because the conditional badge was
+            # unrecognised and fell through to the paid branch.
+            #
+            #   eliFreeBadge / mode-free / 無料      free — 今なら無料 counts, it is readable now
+            #   eliIfIcon                            one free chapter per series per day, per account
+            #   eliWfIcon                            one extra free chapter per day, ANY series
+            #   eliCoinIcon / access-paid            coin. Actually paid.
+            #
+            # The two ticket systems are different rules and the same OUTCOME: every chapter marked
+            # with either can be read for nothing, eventually. That is why they count as free here
+            # rather than as a third thing a reader has to reason about — the only real question is
+            # whether money is required, and for these it is not. Which badge it was is kept in
+            # access_note, because the pacing differs and other platforms run other systems again.
+            #
+            # The icons carry no alt or title text, so the badge id is all the markup states; the
+            # meaning of each is recorded from the project owner, not inferred from the abbreviation.
+            #
+            # Order matters: the paid test must run FIRST, because a paid row can carry the word
+            # 無料 in surrounding promotional text.
+            if re.search(r'data-e2e="eliCoinIcon"|series-eplist-item-access-paid', b):
                 row["access_modes"] = ["purchase"]
+            elif re.search(r'data-e2e="eliIfIcon"', b):
+                row["access_modes"] = ["free-timed"]
+                row["access_note"] = "作品チケット — one free chapter per series per day, per account"
+            elif re.search(r'data-e2e="eliWfIcon"', b):
+                row["access_modes"] = ["free-timed"]
+                row["access_note"] = "共通チケット — one extra free chapter per day, any series"
+            elif re.search(r'data-e2e="eliFreeBadge"'
+                           r'|series-eplist-item-access-text[^"]*mode-free'
+                           r'|series-eplist-item-access[^>]*>\s*(?:<[^>]*>\s*)*無料', b):
+                row["access_modes"] = ["free"]
             out.append(row)
     return out
 
@@ -301,6 +326,8 @@ def main():
                     L.append(f"        author: {js(e['author'])}")
                 if e.get("access_modes"):
                     L.append(f"        access_modes: {js(e['access_modes'])}")
+                if e.get("access_note"):
+                    L.append(f"        access_note: {js(e['access_note'])}")
                 if r["route"] in ("markup", "rendered"):
                     L.append(f"        date_basis: {'rendered' if r['route']=='rendered' else 'heuristic'}")
         L.append("")

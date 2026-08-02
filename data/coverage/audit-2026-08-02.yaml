@@ -77,6 +77,16 @@ findings:
       The row already carries a + marker on the count, but the access sentence reads as a statement
       about the work. A proportion whose denominator is our coverage is not a proportion.
 
+method_note: >-
+  The second audit's briefing was flawed and adapters/audit/BRIEFING.md replaces it. One verifier was
+  handed COMIC FUZ's four access states outright, which tests nothing — the agent can only confirm
+  what it was told. The neutral framing supplies the prior a READER has (some chapters free, some
+  free but rate-limited, some paid; mechanism and presentation vary by source) without supplying
+  which page shows which. It also states the trap explicitly: the middle category is sometimes
+  marked by NOTHING, so an unmarked chapter is a state and not a missing value. This project has
+  read absence as "paid" three times in three different places — カドコミ, COMIC FUZ, comici — and
+  each time the fix was the same shape.
+
 supported:
   - "少年ジャンプ+, サンデーうぇぶり, comic-action paid chapters — 0 of 6 probed each offer a no-cost route"
   - "雨夜の月 — 120 of 121 readable; the remaining one states 08月22日に無料公開予定, so even that is understated"

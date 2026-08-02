@@ -1,0 +1,95 @@
+# アサコミ (朝日新聞出版) — chapters from server-rendered work pages.
+# Works named by a Tier C yardstick; the platform attests the chapters.
+# This platform applies no 百合 tag, so nothing here establishes marketing_label.
+source: webpages
+platform: asacomi
+platform_name: "アサコミ"
+publisher: "朝日新聞出版"
+engine: comici
+retrieved: 2026-08-02
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works:
+  - work_title: "ガールミートガール"
+    author: "茂木清香"
+    url: "https://asacomi.jp/series/d67c4f256e18f"
+    chapter_count: 26
+    chapters:
+      - title: "#1　あいびき☆ミートガール"
+        updated: "2026-04-15"
+        access_modes: ["free"]
+      - title: "#2　Let's party!"
+        updated: "2026-04-15"
+        access_modes: ["free"]
+      - title: "#3　お買い物デート！-①"
+        updated: "2026-04-15"
+        access_modes: ["free"]
+      - title: "#3　お買い物デート！-②"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#4　肉刺子-①"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#4　肉刺子-②"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#5　ビーフorチキン？-①"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#5　ビーフorチキン？-②"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#6　命短し食せよ乙女-①"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#6　命短し食せよ乙女-②"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#7　その他のわたし-①"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#7　その他のわたし-②"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#8　肉刺子謝肉祭①-①"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#8　肉刺子謝肉祭①-②"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#9　肉刺子謝肉祭②-①"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#9　肉刺子謝肉祭②-②"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#10　肉刺子謝肉祭③-①"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#10　肉刺子謝肉祭③-②"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#11　異変-①"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#11　異変-②"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#12　革命の肉刺子-①"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#12　革命の肉刺子-②"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#13　Can you celebrate?-①"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#13　Can you celebrate?-②"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "#14　ガールミートガール-①"
+        updated: "2026-04-15"
+        access_modes: ["purchase"]
+      - title: "#14　ガールミートガール-②"
+        updated: "2026-04-15"
+        access_modes: ["purchase"]

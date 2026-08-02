@@ -21,7 +21,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: '# ウチ ラ ガ サイキョウ   ～ カゲ キャ ジョレイ シ ト ギャル JK ～'
+    reading: '# ウチラ ガ サイキョウ   ～ カゲ キャ ジョレイシ ト ギャル JK ～'
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -71,7 +71,7 @@ names:
       - しんにゅうしゃいん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 100 ニチ ゴ ニ × × × スル オンナ シャチョウ ト シンニュウシャイン
+    reading: 100 ニチゴ ニ × × × スル オンナ シャチョウ ト シンニュウシャイン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -97,7 +97,7 @@ names:
       - ゆり
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 100 ニチ ゴ ニ サク ユリ
+    reading: 100 ニチゴ ニ サク ユリ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -165,7 +165,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 30 マデ ヒトリ ダッ タラ イッショ ニ クラソウ ッテ イッ タ ヨ ネ ?
+    reading: 30 マデ ヒトリダッタラ イッショ ニ クラソウ ッテ イッタ ヨ ネ ?
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -183,7 +183,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 4 ジハン、 コインランドリー ニテ
+    reading: 4ジハン、 コインランドリー ニテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -237,6 +237,9 @@ names:
     verified: false
   F30のきみ:
     basis: romaji
+    furigana_spans:
+    - - F30のきみ
+      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: F 30 ノ キミ
@@ -281,6 +284,9 @@ names:
     en_source: wikidata
     en_source_kind: community-db
     en_url: http://www.wikidata.org/entity/Q115366267
+    furigana_spans:
+    - - JKとともだちのオカン
+      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: JK ト トモダチ ノ オカン
@@ -298,9 +304,12 @@ names:
     en_source: mangaupdates
     en_source_kind: community-db
     en_url: https://www.mangaupdates.com/series/8guv8kw/js-san-to-ol-chan
+    furigana_spans:
+    - - JSさんとOLちゃん
+      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: JS サン ト OL チャン
+    reading: JSサン ト OLチャン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -318,7 +327,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: Killer ♡ Twinkle ～ アンチ ハ ステージ ニ アガレ マセ ン ♡ ～
+    reading: Killer ♡ Twinkle ～ アンチ ハ ステージ ニ アガレマセン ♡ ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -351,7 +360,7 @@ names:
       - かた
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: M ナ オウジ ノ アイシ カタ
+    reading: Mナ オウジ ノ アイシカタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -386,7 +395,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: OL   Vtuber ト オシ JK チャン
+    reading: OL   Vtuber ト オシ JKチャン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -509,7 +518,11 @@ names:
   Where I Belong(第96回新人コミック大賞・佳作):
     basis: romaji
     furigana_spans:
-    - - Where I Belong(
+    - - 'Where '
+      - null
+    - - I
+      - あい
+    - - ' Belong('
       - null
     - - 第
       - だい
@@ -635,7 +648,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 「オマエ ゴトキ ガ マオウ ニ カテル ト オモウ ナ」 ト ユウシャ パーティ ヲ ツイホウ サ レ タ ノ デ、 オウト デ キママ ニ クラシ タイ
+    reading: 「オマエゴトキガ マオウ ニ カテル ト オモウ ナ」 ト ユウシャ パーティ ヲ ツイホウ サレタ ノデ、 オウト デ キママニ クラシタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -765,7 +778,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 【キョウ ノ 10 ページ】 オマエ ナンカ ヒロワ ナケレ バ ヨカッ タ
+    reading: 【キョウ ノ 10 ページ】 オマエ ナンカ ヒロワナケレバ ヨカッタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -805,7 +818,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 【キョウ ノ 10 ページ】 セ バ マタ ナ
+    reading: 【キョウ ノ 10 ページ】 セバ マタナ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -837,7 +850,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 【キョウ ノ 10 ページ】 チ ュ ー シ タラ ドンナ オネガイ モ カナエ テ クレル オ イナリ サマ ノ ハレ チャン
+    reading: 【キョウ ノ 10 ページ】 チ ュ ー シタラ ドンナ オネガイ モ カナエテ クレル オ イナリサマ ノ ハレチャン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -859,7 +872,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 【キョウ ノ 10 ページ】 カラオケ ナンテ キライ ダ ヨ
+    reading: 【キョウ ノ 10 ページ】 カラオケ ナンテ キライダ ヨ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -887,7 +900,7 @@ names:
       - ふたり
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 【キョウ ノ 10 ページ】 サウナ ニ トジコメ ラレ タ フタリ
+    reading: 【キョウ ノ 10 ページ】 サウナ ニ トジコメラレタ フタリ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -963,7 +976,7 @@ names:
       - しつ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 【キョウ ノ 10 ページ】 カイイ チョウサ シツ
+    reading: 【キョウ ノ 10 ページ】 カイイ チョウサシツ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -991,7 +1004,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 【キョウ ノ 10 ページ】 タウチ コズエ ト キツケ ニ ツイ テ
+    reading: 【キョウ ノ 10 ページ】 タウチ コズエ ト キツケ ニ ツイテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1021,7 +1034,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 【キョウ ノ 10 ページ】 シラ ナイ ウミ ヲ オシエ テ
+    reading: 【キョウ ノ 10 ページ】 シラナイ ウミ ヲ オシエテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1047,7 +1060,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アキラカ ニ ネンレイ ヲ サショウ シ テ イル ジョシコウセイ VTuber
+    reading: アキラカニ ネンレイ ヲ サショウ シテ イル ジョシコウセイ VTuber
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1065,7 +1078,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アクマデ ! アットホーム ナ ショクバ デス。
+    reading: アクマデ ! アットホームナ ショクバデス。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1107,7 +1120,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アコガレ ヲ ムスン デ
+    reading: アコガレ ヲ ムスンデ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1141,7 +1154,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アタシタチ ッテ ツキアッ テル ヨ ネ ! ?
+    reading: アタシタチ ッテ ツキアッテル ヨ ネ ! ?
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1195,7 +1208,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アナタ ガ ワタシ ヲ テラス カラ。
+    reading: アナタ ガ ワタシ ヲ テラスカラ。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1277,7 +1290,7 @@ names:
       - りゆう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アノ コ ガ キライ ナ 17 カラ 18 ノ リユウ
+    reading: アノ コ ガ キライナ 17 カラ 18 ノ リユウ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1301,7 +1314,7 @@ names:
       - すいそう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アノ コ ガ オヨイ デ イ タ スイソウ
+    reading: アノ コ ガ オヨイデ イタ スイソウ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1390,7 +1403,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イッソ、 コイ ダッ タラ ヨカッ タ ノ ニ
+    reading: イッソ、 コイダッタラ ヨカッタ ノ ニ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1399,6 +1412,9 @@ names:
     verified: false
   いつかのLo-fiみゅーじっく:
     basis: romaji
+    furigana_spans:
+    - - いつかのLo-fiみゅーじっく
+      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: イツ カ ノ Lo - fi ミュージック
@@ -1513,7 +1529,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウサギ ハ カク カタリ キ
+    reading: ウサギ ハ カク カタリキ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1542,7 +1558,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウソツキ ノン チャン、 ジゴク ニ オチロ
+    reading: ウソツキ ノンチャン、 ジゴク ニ オチロ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1566,7 +1582,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウミネコ ニ ハ マケ ナイ !
+    reading: ウミネコ ニ ハ マケナイ !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1597,7 +1613,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オシエ ゴト   ドウニン キョウシ ト テンサイ ギャル
+    reading: オシエゴト   ドウニン キョウシ ト テンサイ ギャル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1697,7 +1713,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オ カネ シカ カタ ン ( ダイ 94 カイ シンジン コミック タイショウ・ カサク )
+    reading: オ カネ シカ カタン ( ダイ 94 カイ シンジン コミック タイショウ・ カサク )
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1777,7 +1793,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オ アネ サマ ノ イウ トオリ？
+    reading: オ アネサマ ノ イウ トオリ？
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1815,7 +1831,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オネエサン ハ ジョシ ショウガクセイ ニ キョウミ ガ アリ マス。
+    reading: オネエサン ハ ジョシ ショウガクセイ ニ キョウミ ガ アリマス。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1863,7 +1879,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オジョウサマ ダ ッテ スネゲ ハ ハエル
+    reading: オジョウサマダ ッテ スネゲ ハ ハエル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -1951,7 +1967,7 @@ names:
       - しま
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カイジュウ ショク ノ シマ
+    reading: カイジュウショク ノ シマ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2055,7 +2071,7 @@ names:
       - かた
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カワイイ シンユウ ノ オトシ カタ
+    reading: カワイイ シンユウ ノ オトシカタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2216,7 +2232,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キミ ト ミ タイ レース ガ アル
+    reading: キミ ト ミタイ レース ガ アル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2241,7 +2257,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キミ ノ トクベツ ニ ナレ ナク テ モ
+    reading: キミ ノ トクベツニ ナレナクテ モ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2335,7 +2351,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: グルグル メ ノ ウズハラ サン
+    reading: グルグル メ ノ ウズハラサン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2369,7 +2385,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コイ ニ コイ スル コ ニ コイ ス
+    reading: コイ ニ コイ スル コ ニ コイス
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2394,7 +2410,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コノ ママ モブ ジャ オワレ ナイ！
+    reading: コノ ママ モブ ジャ オワレナイ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2457,7 +2473,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コノ コイ、 イッタン モチカエラ セ テ イタダキ マス！
+    reading: コノ コイ、 イッタン モチカエラセテ イタダキマス！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2505,7 +2521,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コノ ユ デ、 アナタ ト
+    reading: コノ ユデ、 アナタ ト
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2529,7 +2545,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コノ ユリ ハ フィクション デス
+    reading: コノ ユリ ハ フィクションデス
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2573,7 +2589,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コ ハル ヒヨリ。
+    reading: コハル ヒヨリ。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2591,7 +2607,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コモ グ チャン ニ タベ ラレ タイ！
+    reading: コモ グチャン ニ タベラレタイ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2609,7 +2625,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コレ ガ ウサギ ノ オ シゴト デス カ ?
+    reading: コレ ガ ウサギ ノ オ シゴトデス カ ?
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2673,7 +2689,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サカナ デ ハ アシ モ ツカ ナイ
+    reading: サカナ デ ハ アシ モ ツカナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2702,7 +2718,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ササヤク ヨウ ニ コイ ヲ ウタウ
+    reading: ササヤク ヨウニ コイ ヲ ウタウ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2718,6 +2734,9 @@ names:
     verified: true
   さよならミュージアム:
     basis: romaji
+    furigana_spans:
+    - - さよならミュージアム
+      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: サヨナラ ミュージアム
@@ -2805,7 +2824,7 @@ names:
       - さいぼう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シタタカ ナ サイボウ
+    reading: シタタカナ サイボウ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2823,7 +2842,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シノ チャン ハ ミ テ イル
+    reading: シノチャン ハ ミテ イル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2862,7 +2881,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ジワジワ ユリ ニ ナッ テ イク JK
+    reading: ジワジワ ユリ ニ ナッテ イク JK
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2884,7 +2903,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: スキヤキ テイショク ナンカ キライ ダ
+    reading: スキヤキ テイショク ナンカ キライダ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2947,9 +2966,12 @@ names:
     verified: false
   すわっぷ⇔すわっぷ:
     basis: romaji
+    furigana_spans:
+    - - すわっぷ⇔すわっぷ
+      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: スワッ プ ⇔ スワッ プ
+    reading: スワップ ⇔ スワップ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -2982,7 +3004,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゼンブ コワシ テ ジゴク デ アイシ テ
+    reading: ゼンブ コワシテ ジゴク デ アイシテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -3000,7 +3022,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ソコ ニ ニジ ガ ナク テ モ
+    reading: ソコ ニ ニジ ガ ナクテ モ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -3044,7 +3066,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ソノ テガミ ダイコウ シ マス！
+    reading: ソノ テガミ ダイコウ シマス！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -3070,7 +3092,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ソノ キ ニ ナレ バ セカイ ダ ッテ ブッ コワセル
+    reading: ソノ キ ニ ナレバ セカイダ ッテ ブッ コワセル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -3102,7 +3124,7 @@ names:
       - や
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ソノ ホコサキ、 シラ ヌ ガ マナ ヤ
+    reading: ソノ ホコサキ、 シラヌガ マナ ヤ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -3266,7 +3288,7 @@ names:
       - ふたり
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: テェ テェ フタリ
+    reading: テェテェ フタリ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -3380,7 +3402,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ドウセ フタリ ボッチ
+    reading: ドウセ フタリボッチ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -3619,7 +3641,7 @@ names:
       - もんもん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒキコマ リ キュウケツ ヒメ ノ モンモン
+    reading: ヒキコマリ キュウケツ ヒメ ノ モンモン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -3785,7 +3807,7 @@ names:
       - にん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フタリ イセカイ ニン
+    reading: フタリ イセカイニン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -3876,7 +3898,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ホグシ テ、 イエ コロモ サン。
+    reading: ホグシテ、 イエ コロモサン。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -3984,7 +4006,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミダレ タ フタリ ノ ヤラ レ メシ
+    reading: ミダレタ フタリ ノ ヤラレ メシ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4054,7 +4076,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: モシ、 コイ ガ ミエ タ ナラ
+    reading: モシ、 コイ ガ ミエタナラ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4126,7 +4148,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヤサシイ キョウシ ノ シツケ カタ。
+    reading: ヤサシイ キョウシ ノ シツケカタ。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4225,7 +4247,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユリ ユリ パニック ～ トウト スギル ジアン ガ ハッセイ シ テ イ マス ! ～
+    reading: ユリ ユリ パニック ～ トウト スギル ジアン ガ ハッセイ シテ イマス ! ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4250,7 +4272,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヨクバレ !   ニンゲン サン
+    reading: ヨクバレ !   ニンゲンサン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4312,7 +4334,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタクシ、 マケ マセ ン ノ デ。   セイリャク ケッコン ハ レイジョウ ノ タシナミ
+    reading: ワタクシ、 マケマセン ノデ。   セイリャク ケッコン ハ レイジョウ ノ タシナミ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4364,7 +4386,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタシ ノ オナカ ノ セキニン トッ テ！
+    reading: ワタシ ノ オナカ ノ セキニン トッテ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4538,7 +4560,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アフタヌーン ティー ハ イカガ デス カ？   ワタシ ト センパイ ノ、 フジュン デ イチズ ナ フタリ クラシ
+    reading: アフタヌーン ティー ハ イカガデス カ？   ワタシ ト センパイ ノ、 フジュンデ イチズナ フタリ クラシ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4611,7 +4633,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アンドロイド ハ ジライ ケイ ノ ユメ ヲ ミル。
+    reading: アンドロイド ハ ジライケイ ノ ユメ ヲ ミル。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4635,7 +4657,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アンドロイド ハ ケイケン ニンズウ ニ ハイリ マス カ？？
+    reading: アンドロイド ハ ケイケン ニンズウ ニ ハイリマス カ？？
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4660,7 +4682,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イト ガ カラミ ム
+    reading: イト ガ カラミム
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4717,7 +4739,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: エイティエイト ヲ ニ デ ワッ テ
+    reading: エイティエイト ヲ ニ デ ワッテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4775,7 +4797,7 @@ names:
       - した
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: エルフ ト ヒト ツ ヤネ ノ シタ
+    reading: エルフ ト ヒトツ ヤネ ノ シタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4814,7 +4836,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オカ ケン ト エスパー ト
+    reading: オカケン ト エスパー ト
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -4890,6 +4912,9 @@ names:
     verified: false
   オフィスのつづきはリビングで【タテスク】:
     basis: romaji
+    furigana_spans:
+    - - オフィスのつづきはリビングで【タテスク】
+      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: オフィス ノ ツヅキ ハ リビング デ 【タテスク】
@@ -4916,7 +4941,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オンニ ッテ ヨン デ モ イイ デス カ？
+    reading: オンニ ッテ ヨンデ モ イイデス カ？
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5061,6 +5086,18 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ガイド役の天使を殴り倒したら、死霊術師になりました ～激カワゴスロリ魔神様、サイコー!～:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ガイドヤクのテンシをオウりトウしたら、シレイジュツシになりました ～ゲキカワゴスロリマカミヨウ、サイコー!～
+    reading_at: '2026-08-02'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
   ガチ恋やめて:
     basis: romaji
     furigana_spans:
@@ -5072,7 +5109,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ガチ コイ ヤメ テ
+    reading: ガチ コイ ヤメテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5081,6 +5118,13 @@ names:
     verified: false
   ガチ恋カウント2.9:
     basis: romaji
+    furigana_spans:
+    - - ガチ
+      - null
+    - - 恋
+      - こい
+    - - カウント2.9
+      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ガチ コイ カウント 2.9
@@ -5107,7 +5151,7 @@ names:
       - はなぞの
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ガチ ユリ セイトカイ チョウ ノ ハナゾノ
+    reading: ガチ ユリ セイトカイチョウ ノ ハナゾノ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5216,7 +5260,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キャバジョウ ダ ケド JD ニ オトサ レ マシ タ
+    reading: キャバジョウダケド JD ニ オトサレマシタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5275,7 +5319,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ギャラクシー プー チャン   ウチュウ ノ ハジッコ デ コンニチハ
+    reading: ギャラクシー プーチャン   ウチュウ ノ ハジッコ デ コンニチハ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5337,7 +5381,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ギャル メイド ト アクヤク レイジョウ   ～ オ ジョー サマ ノ ハッピーエンド シカ カタ ン！ ～
+    reading: ギャル メイド ト アクヤク レイジョウ   ～ オ ジョー サマ ノ ハッピーエンド シカ カタン！ ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5355,7 +5399,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ギャル オシ JK ハ ギャル ニ ナリ タイ
+    reading: ギャル オシ JK ハ ギャル ニ ナリタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5406,7 +5450,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クズ ロウニンセイ、 ジンセイ ガ ツライ ノ デ ヨル ノ オネエサン ヲ ヨン デ ミ タ
+    reading: クズ ロウニンセイ、 ジンセイ ガ ツライ ノデ ヨル ノ オネエサン ヲ ヨンデ ミタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5434,7 +5478,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クラス ノ アイドル ハ キョウ モ オセ ナイ
+    reading: クラス ノ アイドル ハ キョウ モ オセナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5497,7 +5541,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クレア チャン シイク ニッキ ― カブトムシ ショウジョ ニ オセワ サ レ テ マス ―
+    reading: クレアチャン シイク ニッキ ― カブトムシ ショウジョ ニ オセワ サレテマス ―
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5581,9 +5625,12 @@ names:
     verified: false
   コミックオギャー)｜おもしろい、がうまれるところ（まるせっせんす:
     basis: romaji
+    furigana_spans:
+    - - コミックオギャー)｜おもしろい、がうまれるところ（まるせっせんす
+      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コミックオギャー ) ｜ オモシロイ、 ガ ウマレル トコロ （マル セッセ ンス
+    reading: コミックオギャー ) ｜ オモシロイ、 ガ ウマレル トコロ （マル セッセンス
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5601,7 +5648,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コミックオギャー ) ｜ オモシロイ、 ガ ウマレル トコロ （コワシ テ イイ ヨ、 スイカ チャン
+    reading: コミックオギャー ) ｜ オモシロイ、 ガ ウマレル トコロ （コワシテ イイ ヨ、 スイカチャン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5701,7 +5748,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サボリ ナラ ホケンシツ デ ドウゾ？
+    reading: サボリナラ ホケンシツ デ ドウゾ？
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5736,7 +5783,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シャイ ナ アノ コ ニ ナツカ レ タイ
+    reading: シャイナ アノ コ ニ ナツカレタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5778,7 +5825,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シャドウ・ アサシンズ・ ワールド   ～ カゲ ハ ウスイ ケド、 サイキョウ ニンジャ ヤッ テ マス ～
+    reading: シャドウ・ アサシンズ・ ワールド   ～ カゲ ハ ウスイケド、 サイキョウ ニンジャ ヤッテマス ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5842,7 +5889,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シンデレラ ケガレ ナイ !
+    reading: シンデレラ ケガレナイ !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5882,7 +5929,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: スウィング ガ ナケレ バ イミ ガ ナイ
+    reading: スウィング ガ ナケレバ イミ ガ ナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -5927,7 +5974,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: スクエア）。 （フク ワル ウチ ラ ノ ヒミツ ゴト！
+    reading: スクエア）。 （フク ワル ウチラ ノ ヒミツゴト！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6074,7 +6121,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: セイ ショウジョ モクシロク   デス ペ ア
+    reading: セイ ショウジョ モクシロク  デスペ ア
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6100,7 +6147,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: セッ ○ ス シ ナイ ト デ ラレ ナイ ヘヤ ～ ユリ ver . ～
+    reading: セッ ○ ス シナイ ト デラレナイ ヘヤ ～ ユリ ver . ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6137,7 +6184,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: セフレ ヌマ カラ ヌケダセ ナ イッ！ ユリ エッチ アンソロジー
+    reading: セフレ ヌマ カラ ヌケダセナ イッ！ ユリ エッチ アンソロジー
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6220,7 +6267,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タコ ト テンシ タチ
+    reading: タコ ト テンシタチ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6302,7 +6349,7 @@ names:
       - かのじょ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ダメ ケン カノジョ
+    reading: ダメケン カノジョ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6348,7 +6395,7 @@ names:
       - しゅうき
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: チャンマス ト ユウシャ チャン / ショウネン ジャンプ + マンガ ショウ 2023 ネン シュウキ
+    reading: チャンマス ト ユウシャチャン / ショウネン ジャンプ + マンガ ショウ 2023 ネン シュウキ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6419,7 +6466,7 @@ names:
       - さま
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ド M ジョシ ト ガッカリ ジョオウ サマ
+    reading: ド M ジョシ ト ガッカリ ジョオウサマ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6447,7 +6494,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ドラ カミ サマ ハ イケニエ ヲ タベ タイ
+    reading: ドラ カミサマ ハ イケニエ ヲ タベタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6559,7 +6606,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ニニン ガ シノブ デン プラス
+    reading: ニニン ガ シノブデン プラス
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6601,7 +6648,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ネコ サマ ノ イウ トオリ
+    reading: ネコサマ ノ イウ トオリ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6727,7 +6774,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハート ハ クサラ ナイ
+    reading: ハート ハ クサラナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6743,7 +6790,7 @@ names:
       - こくはく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: バカ ニ コクハク
+    reading: バカニ コクハク
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6763,7 +6810,7 @@ names:
       - じ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: バカ ジョ 26 ジ
+    reading: バカジョ 26 ジ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6794,7 +6841,7 @@ names:
       - てんし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: バズーカ ヲ モッ タ テンシ
+    reading: バズーカ ヲ モッタ テンシ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6812,7 +6859,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: バニーガール ヒロイ マシ タ。
+    reading: バニーガール ヒロイマシタ。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6865,7 +6912,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒモ ト ハ カラミ ヅライ
+    reading: ヒモ ト ハ カラミヅライ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6887,7 +6934,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒモ キュウケツキ ガ デ テ イカ ナイ
+    reading: ヒモ キュウケツキ ガ デテ イカナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6914,7 +6961,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒーロー サン ト ガンニョ カンブ サン
+    reading: ヒーローサン ト ガンニョ カンブサン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -6939,7 +6986,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ピアノ ヲ ヒク カエル タチ
+    reading: ピアノ ヲ ヒク カエルタチ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7003,7 +7050,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フェアウェイ ノ コエ ヲ キカ セ テ
+    reading: フェアウェイ ノ コエ ヲ キカセテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7180,7 +7227,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ペスト ガ アケ タラ アソビ マショウ！   ～ チュウセイ ヨーロッパ セカイ ト ゲンダイ ブンメイ スロー ライフ ～
+    reading: ペスト ガ アケタラ アソビマショウ！   ～ チュウセイ ヨーロッパ セカイ ト ゲンダイ ブンメイ スロー ライフ ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7219,7 +7266,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ホームセンター ゴト ヨビダサ レ タ ワタシ ノ ダイ メイキュウ リノベーション！
+    reading: ホームセンターゴト ヨビダサレタ ワタシ ノ ダイ メイキュウ リノベーション！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7265,7 +7312,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ボドカン！   ～ オンナ、 シュウジン ドウシ、 カンゴク デ ナニ モ オコラ ナイ ハズ ガ ナク ～
+    reading: ボドカン！   ～ オンナ、 シュウジンドウシ、 カンゴク デ ナニ モ オコラナイ ハズ ガ ナク ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7361,7 +7408,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミラ チャン ガ イキカエッ タ
+    reading: ミラチャン ガ イキカエッタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7394,7 +7441,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: メイド & ロイド ハ オジョウサマ ノ オ ヤク ニ タチ タイ !
+    reading: メイド & ロイド ハ オジョウサマ ノ オ ヤク ニ タチタイ !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7433,7 +7480,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: メンヘラ サン ト イチマツ サン
+    reading: メンヘラサン ト イチマツサン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7483,7 +7530,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヤンデレ メ ル コ チャン ハ センパイ ガ オ スキ
+    reading: ヤンデレメル コチャン ハ センパイ ガ オ スキ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7753,7 +7800,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ロイヤル テーラー   ― オウキュウ ノ サイホウ シ ―
+    reading: ロイヤル テーラー   ― オウキュウ ノ サイホウシ ―
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7775,7 +7822,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ロック ハ シュクジョ ノ タシナミ デシ テ
+    reading: ロック ハ シュクジョ ノ タシナミデシテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7813,7 +7860,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ロンリー ガール ニ サカラエ ナイ
+    reading: ロンリー ガール ニ サカラエナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7851,7 +7898,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワケ アッ テ シャチョウ レイジョウ ニ ヒロワ レ マシ タ
+    reading: ワケ アッテ シャチョウ レイジョウ ニ ヒロワレマシタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7875,7 +7922,7 @@ names:
       - かた
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワンコ ト キョリ ノ ハカリ カタ
+    reading: ワンコ ト キョリ ノ ハカリカタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -7913,7 +7960,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヲトメ ハ ギボ ニ コイ シ テル
+    reading: ヲトメ ハ ギボ ニ コイ シテル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8004,7 +8051,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イチ ジョウ カン マンキツ クラシ！
+    reading: イチ ジョウカン マンキツ クラシ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8030,7 +8077,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナナ ゲン メ ハ ニンジャ シュギョウ デス！
+    reading: ナナゲン メ ハ ニンジャ シュギョウデス！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8088,7 +8135,7 @@ names:
       - かた
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サンカッケイ ノ コワシ カタ
+    reading: サンカッケイ ノ コワシカタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8179,7 +8226,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゲボク サン ト ヌシ チャン ノ ニチジョウ ～ ヌシ ノ タメ ナラ ナン デ モ シ マス ～
+    reading: ゲボクサン ト ヌシチャン ノ ニチジョウ ～ ヌシ ノ タメナラ ナン デ モ シマス ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8203,7 +8250,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カブ ナナ ハナ ハ カク カタリ キ
+    reading: カブ ナナ ハナ ハ カク カタリキ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8219,7 +8266,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フシギ ナ ユリコ サン
+    reading: フシギナ ユリコサン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8244,6 +8291,18 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  不死犠コネクト:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: フシギコネクト
+    reading_at: '2026-08-02'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
   世が夜なら!:
     basis: romaji
     furigana_spans:
@@ -8257,7 +8316,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヨ ガ ヨル ナラ !
+    reading: ヨ ガ ヨルナラ !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8301,7 +8360,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: セカイ ヲ スクッ テ モ オナカ ハ スク カラ
+    reading: セカイ ヲ スクッテ モ オナカ ハ スクカラ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8331,7 +8390,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: セカイイチ カワイイ ワタシ ノ オサナナジミ ガ カクレ テ VTuber ヲ シ テ イル ラシイ
+    reading: セカイイチ カワイイ ワタシ ノ オサナナジミ ガ カクレテ VTuber ヲ シテ イルラシイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8404,7 +8463,7 @@ names:
       - し
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カイ ゲ ノ タイ キ シ
+    reading: カイゲ ノ タイキシ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8482,7 +8541,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イ ノ ナカ ノ ソラ ヲ シラ ナイ
+    reading: イ ノ ナカ ノ ソラ ヲ シラナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8502,7 +8561,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アスミ チャン ト コチョウ チャン
+    reading: アスミチャン ト コチョウチャン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8590,7 +8649,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ニンゲン ノ ペット カイ タイ
+    reading: ニンゲン ノ ペット カイタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8650,7 +8709,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コンヤ ハ ヨル スズメ ノ ヤタイ デ
+    reading: コンヤ ハ ヨル スズメ ノ ヤタイデ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8676,7 +8735,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コヨイ、 アクヤク レイジョウ ノ テ ヲ トレ タラ
+    reading: コヨイ、 アクヤク レイジョウ ノ テ ヲ トレタラ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8694,7 +8753,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コトシ チュウモク ノ エース チャン
+    reading: コトシ チュウモク ノ エースチャン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8718,7 +8777,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キョウ、 オネエサン ト エッチ シ ナイ？   ユリ アンソロジー
+    reading: キョウ、 オネエサン ト エッチ シナイ？   ユリ アンソロジー
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8764,7 +8823,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キョウ、 コシバ アオイ ニ アエ タラ。
+    reading: キョウ、 コシバ アオイ ニ アエタラ。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8832,7 +8891,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ツキアッ テ アゲ テ モ イイ カ ナ
+    reading: ツキアッテ アゲテ モ イイ カ ナ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8874,7 +8933,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: レイジョウ VTuber ハ メイド ノ ヤショク ニ ジュウリン サ レル ～ キンダン ゴハン デ ショク レポ セイ ハイシン ～
+    reading: レイジョウ VTuber ハ メイド ノ ヤショク ニ ジュウリン サレル ～ キンダン ゴハン デ ショク レポセイ ハイシン ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8894,7 +8953,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イセ サン ト シマ サン
+    reading: イセサン ト シマサン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8932,7 +8991,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カイチョウ！ キョウ ハ サボリ マショウ！
+    reading: カイチョウ！ キョウ ハ サボリマショウ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -8978,7 +9037,7 @@ names:
       - うた
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ササキ サン ガ キエ タ ヒ ノ ウタ
+    reading: ササキサン ガ キエタ ヒ ノ ウタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9010,7 +9069,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サクマ ジュンサ ト ハナオカ ジュンサ ハ ツキアイ ハジメ タ
+    reading: サクマ ジュンサ ト ハナオカ ジュンサ ハ ツキアイ ハジメタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9030,7 +9089,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナン カ ガ イタリ マセ ン
+    reading: ナン カ ガ イタリマセン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9048,7 +9107,7 @@ names:
       - はん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ツクッ テ アゲ タイ ! ヨモ ツ ゴハン
+    reading: ツクッテ アゲタイ ! ヨモ ツ ゴハン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9080,7 +9139,7 @@ names:
       - おんな
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ツクリ タイ オンナ ト タベ タイ オンナ
+    reading: ツクリタイ オンナ ト タベタイ オンナ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9241,7 +9300,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: センパイ、 オイシイ デス カ？
+    reading: センパイ、 オイシイデス カ？
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9357,7 +9416,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゼンブ クン ノ セイ ダ
+    reading: ゼンブクン ノ セイダ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9419,8 +9478,8 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コウシャク レイジョウ ノ ロウラク ミッション ～ マオウ ト ノ セイリャク ケッコン ガ、 ジンルイ サイゴ ノ キリフダ デス !…．． ッテ、 マオウ ガ オンナノコ
-      ノ バアイ ハ ドウ . . .
+    reading: コウシャク レイジョウ ノ ロウラク ミッション ～ マオウ ト ノ セイリャク ケッコン ガ、 ジンルイ サイゴ ノ キリフダデス !…．． ッテ、 マオウ ガ オンナノコ ノ
+      バアイ ハ ドウ . . .
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9516,7 +9575,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ツメタク テ   ヤワラカ
+    reading: ツメタクテ   ヤワラカ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9538,7 +9597,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: レイゲン ジ サン ハ キョウ カラ オモチャ
+    reading: レイゲンジサン ハ キョウ カラ オモチャ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9654,7 +9713,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワリキッ タ カンケイ デス カラ。
+    reading: ワリキッタ カンケイデスカラ。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9725,7 +9784,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゴゼン ニ ジ ハ ショクタク デ
+    reading: ゴゼン ニ ジ ハ ショクタクデ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9761,7 +9820,7 @@ names:
       - ろく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナンザン ジョ アヤカシ ロク
+    reading: ナンザン ジョ アヤカシロク
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9781,7 +9840,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トモダチ 100 ニン デキル カ ナ
+    reading: トモダチ 100ニン デキル カ ナ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9797,7 +9856,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トモダチ カラ デ モ イイ デス カ
+    reading: トモダチ カラデ モ イイデス カ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9813,7 +9872,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トモダチ ヲ ゾンビ ニ シ テ ソレ カラ
+    reading: トモダチ ヲ ゾンビ ニ シテ ソレ カラ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9857,7 +9916,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オナジ トキ ヲ イキ タイ
+    reading: オナジ トキ ヲ イキタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9875,7 +9934,7 @@ names:
       - せいしょく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ドウ セイ セイショク
+    reading: ドウセイ セイショク
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9893,7 +9952,7 @@ names:
       - にちじょう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナマエ ノ ツカ ナイ ニチジョウ
+    reading: ナマエ ノ ツカナイ ニチジョウ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9913,7 +9972,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ムカイ ノ ガッコウ デ デスゲーム ヤッ テル ッポイ
+    reading: ムカイ ノ ガッコウ デ デスゲーム ヤッテルッポイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -9962,7 +10021,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キミ ト ナラ、 アス ヲ ウタエル ノ
+    reading: キミ トナラ、 アス ヲ ウタエル ノ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10002,7 +10061,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キミ ニ カワイイ ト サケビ タイ
+    reading: キミ ニ カワイイ ト サケビタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10018,7 +10077,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キミ ニ ナレ タラ
+    reading: キミ ニ ナレタラ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10040,7 +10099,7 @@ names:
       - りゆう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キミ ニ ヒカ レ タ リユウ
+    reading: キミ ニ ヒカレタ リユウ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10060,7 +10119,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キミ ノ セイ ナ ン ダ カラ、 セキニン トッ テ ヨ ネ。
+    reading: キミ ノ セイナ ンダカラ、 セキニン トッテ ヨ ネ。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10142,7 +10201,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: スエ ナイ キュウケツキ ノ ゾウショヒョウ / ヨミキリ
+    reading: スエナイ キュウケツキ ノ ゾウショヒョウ / ヨミキリ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10212,7 +10271,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サイ タ キズアト
+    reading: サイタ キズアト
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10330,7 +10389,7 @@ names:
       - がんぼう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シオウテン レイ シ ノ ガンボウ
+    reading: シオウテン レイシ ノ ガンボウ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10346,7 +10405,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ドイ チャン ハ ケシカラン
+    reading: ドイチャン ハ ケシカラン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10376,7 +10435,7 @@ names:
       - ふつうか
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: チキュウ メツボウ リツ   7 カ マエ コウコウ   フツウカ
+    reading: チキュウ メツボウリツ   7カ マエ コウコウ   フツウカ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10400,7 +10459,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ジライ ケイ ジバクレイ ノ ミチコ チャン
+    reading: ジライケイ ジバクレイ ノ ミチコチャン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10420,7 +10479,7 @@ names:
       - ふくしゅう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ダテン シ ソ プラ ノ チャン ノ フクシュウ
+    reading: ダテンシ ソ プラ ノチャン ノ フクシュウ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10436,7 +10495,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コワシ テ イイ ヨ、 スイカ チャン
+    reading: コワシテ イイ ヨ、 スイカチャン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10456,7 +10515,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コエ ニ ノセ テ ファンファーレ
+    reading: コエ ニ ノセテ ファンファーレ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10498,7 +10557,7 @@ names:
       - ぼたん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヘンタイ ハライ マ シ トウミョウ イン ボタン
+    reading: ヘンタイ ハライ マシ トウミョウイン ボタン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10542,7 +10601,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユウコ センパイ ハ ソダテ ラレ ナイ
+    reading: ユウコ センパイ ハ ソダテラレナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10574,7 +10633,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タラ サン ノ ウワサ
+    reading: タラサン ノ ウワサ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10590,7 +10649,7 @@ names:
       - む
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タジュウ ム
+    reading: タジュウム
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10628,7 +10687,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヨル ノ クラゲ ハ オヨゲ ナイ
+    reading: ヨル ノ クラゲ ハ オヨゲナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10714,7 +10773,7 @@ names:
       - ゆり
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユメ デ フラ レ テ ハジマル ユリ
+    reading: ユメ デ フラレテ ハジマル ユリ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10738,7 +10797,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユメ ト コイ デ ハ ツリアワ ナイ
+    reading: ユメ ト コイデ ハ ツリアワナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10756,7 +10815,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユメ ゴ ノ グレイ
+    reading: ユメゴ ノ グレイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10808,7 +10867,7 @@ names:
       - はなし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ダイスキ ナ シンユウ ガ ブイチューバー ノ ジブン ニ ガチ コイ シ テ タ ハナシ
+    reading: ダイスキナ シンユウ ガ ブイチューバー ノ ジブン ニ ガチ コイ シテタ ハナシ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10849,7 +10908,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オオサキ サン ト コモリ サン
+    reading: オオサキサン ト コモリサン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10903,7 +10962,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: テンシ ト カイ テ アクマ ト ヨム。 ギャク モ マタ シカリ。
+    reading: テンシ ト カイテ アクマ ト ヨム。 ギャク モ マタ シカリ。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10939,7 +10998,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アマガセ マ シロ ハ イキ タク ナイ！
+    reading: アマガセ マ シロ ハ イキタク ナイ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -10989,7 +11048,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ケイヤク シ マショ   オツカレサマ ジョシ、 セワヤキ アクマ ト クラス
+    reading: ケイヤク シマショ   オツカレサマ ジョシ、 セワヤキ アクマ ト クラス
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11025,7 +11084,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オンナ ダ カラ、 ト パーティ ヲ ツイホウ サ レ タ ノ デ デンセツ ノ マジョ ト サイキョウ タッグ ヲ クミ マシ タ
+    reading: オンナダカラ、 ト パーティ ヲ ツイホウ サレタ ノデ デンセツ ノ マジョ ト サイキョウ タッグ ヲ クミマシタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11045,7 +11104,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オンナ トモダチ ト ケッコン シ テ ミ タ。
+    reading: オンナ トモダチ ト ケッコン シテ ミタ。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11085,7 +11144,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オンナノコ アワセ
+    reading: オンナノコアワセ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11111,7 +11170,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ジョシ キュウケツキ ノ ニカ ハ オイシイ チ ガ スイ タイ !
+    reading: ジョシ キュウケツキ ノ ニカ ハ オイシイ チ ガ スイタイ !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11127,7 +11186,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ジョシコウ ダ カラ セーフ
+    reading: ジョシコウダカラ セーフ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11163,7 +11222,7 @@ names:
       - いち
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ジョシコウ ノ オウジ サマ ハ ワタシ シ カ ガンチュウ ニ ナイ ラシイ   ユリ アンソロジー コミック イチ
+    reading: ジョシコウ ノ オウジサマ ハ ワタシ シ カ ガンチュウ ニ ナイラシイ   ユリ アンソロジー コミック イチ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11179,7 +11238,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: スキ デス、 フッ テ クダサイ！
+    reading: スキデス、 フッ テ クダサイ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11203,7 +11262,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: スキ ナ ヒト ガ ユビワ ヲ ツケ テ キ タ
+    reading: スキナ ヒト ガ ユビワ ヲ ツケテ キタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11235,7 +11294,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: スキ ナ オンナノコ ガ ワタシ ニ ダケ ナゼ カ キビシイ
+    reading: スキナ オンナノコ ガ ワタシ ニ ダケ ナゼ カ キビシイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11259,7 +11318,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヨシコ サン ノ イル ジゴク デ シニ タイ
+    reading: ヨシコサン ノ イル ジゴク デ シニタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11295,7 +11354,7 @@ names:
       - あくたがわ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: モウシュウ ジョ ト アクタガワ
+    reading: モウシュウジョ ト アクタガワ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11345,7 +11404,7 @@ names:
       - ぎまい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アネ ニ ナリ タイ ギシ VS ユリ ニ ナリ タイ ギマイ
+    reading: アネ ニ ナリタイ ギシ VS ユリ ニ ナリタイ ギマイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11403,7 +11462,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アネ ヲ スキ ナ オネエサン ト
+    reading: アネ ヲ スキナ オネエサン ト
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11449,7 +11508,7 @@ names:
       - こうい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒメ ト ジョ ユウシャ ガ ムスバ レル タメ ノ 12 ノ セイ コウイ
+    reading: ヒメ ト ジョ ユウシャ ガ ムスバレル タメ ノ 12 ノ セイ コウイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11513,7 +11572,7 @@ names:
       - はなし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ムスメ ガ カノジョ ヲ ツレ テ キ タ ハナシ
+    reading: ムスメ ガ カノジョ ヲ ツレテ キタ ハナシ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11543,7 +11602,7 @@ names:
       - こんやく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キラワ レ マジョ レイジョウ ト ダンソウ ミコ ノ コンヤク
+    reading: キラワレ マジョ レイジョウ ト ダンソウ ミコ ノ コンヤク
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11565,7 +11624,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウチュウ ニン ダッ タ キミ ヘ
+    reading: ウチュウニンダッタ キミ ヘ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11617,7 +11676,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミノリ チャン ノ カメラ
+    reading: ミノリチャン ノ カメラ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11697,7 +11756,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タイ アリ デシ タ。   ～ オジョウサマ ハ カクトウ ゲーム ナンテ シ ナイ ～
+    reading: タイ アリデシタ。   ～ オジョウサマ ハ カクトウ ゲーム ナンテ シナイ ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11780,7 +11839,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コバヤシ サン チ ノ メイドラゴン
+    reading: コバヤシサン チ ノ メイドラゴン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11804,7 +11863,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コヤナギ チャン ノ マモリ カタ !
+    reading: コヤナギチャン ノ マモリカタ !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11824,7 +11883,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ショウジョ タチ ノ アト ニ クチヅケ ヲ
+    reading: ショウジョタチ ノ アト ニ クチヅケ ヲ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11880,7 +11939,7 @@ names:
       - ひより
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ショウジョ タチ ノ シュウマツ ヒヨリ
+    reading: ショウジョタチ ノ シュウマツ ヒヨリ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11896,7 +11955,7 @@ names:
       - どうし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シカバネ ドウシ
+    reading: シカバネドウシ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11918,7 +11977,7 @@ names:
       - まじょ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ギフ ノ ゼン キ マジョ
+    reading: ギフ ノ ゼンキ マジョ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11950,7 +12009,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ガケップチ レイジョウ ハ クロ キシ サマ ヲ ホレ サセ タイ！
+    reading: ガケップチ レイジョウ ハ クロ キシサマ ヲ ホレサセタイ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -11970,7 +12029,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クズレル マエ ノ ワタシ デ イ サセ テ
+    reading: クズレル マエ ノ ワタシデ イサセテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12028,7 +12087,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヘイミン ノ ワタシ デス ガ コウシャク レイジョウ サマ ヲ タブラカシ テ イキ テ イ マス
+    reading: ヘイミン ノ ワタシデスガ コウシャク レイジョウサマ ヲ タブラカシテ イキテ イマス
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12123,7 +12182,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オサナナジミ ハ、 ニャア ト ナイ テ スカート ノ ナカ
+    reading: オサナナジミ ハ、 ニャア ト ナイテ スカート ノ ナカ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12143,7 +12202,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ニワ ニ ゾンビ キ テル ヨ
+    reading: ニワ ニ ゾンビ キテル ヨ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12199,7 +12258,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アスミ チャン ハ レズ フウゾク ニ キョウミ ガ アリ マス！
+    reading: アスミチャン ハ レズ フウゾク ニ キョウミ ガ アリマス！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12299,7 +12358,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カレ ナンカ ヨリ、 ワタシ ノ ホウ ガ イイ デショ？
+    reading: カレ ナンカ ヨリ、 ワタシ ノ ホウ ガ イイデショ？
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12321,7 +12380,7 @@ names:
       - はつこい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カノジョ ノ カノジョ ト フジュン ナ ハツコイ
+    reading: カノジョ ノ カノジョ ト フジュンナ ハツコイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12407,7 +12466,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カノジョ ハ ワタシ ノ カオ モ ワカラ ナイ 【タテスク】
+    reading: カノジョ ハ ワタシ ノ カオ モ ワカラナイ 【タテスク】
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12511,7 +12570,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オ ヒツジ チャン ハ サワリ タイ
+    reading: オ ヒツジチャン ハ サワリタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12531,7 +12590,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ココロ ニ ヨリ テ
+    reading: ココロ ニ ヨリテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12591,7 +12650,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シマ フウ サン ノ A クイック
+    reading: シマフウサン ノ A クイック
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12607,7 +12666,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワスレ ナイ デ ネ
+    reading: ワスレナイデ ネ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12634,7 +12693,7 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ネンガン ノ アクヤク レイジョウ ノ カラダ ヲ テ ニ イレ タ ゾ !
+    reading: ネンガン ノ アクヤク レイジョウ ノ カラダ ヲ テ ニ イレタ ゾ !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12668,7 +12727,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ネンガン ノ アクヤク レイジョウ ノ カラダ ヲ テ ニ イレ タ ゾ !
+    reading: ネンガン ノ アクヤク レイジョウ ノ カラダ ヲ テ ニ イレタ ゾ !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12700,7 +12759,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: セイベツ フメイ ナ チュウセイ ボク ッコ ト オネエサン
+    reading: セイベツ フメイナ チュウセイ ボクッコ ト オネエサン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12726,7 +12785,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: セイベツ フメイ ナ コロシヤ サン ガ カワイ スギル。
+    reading: セイベツ フメイナ コロシヤサン ガ カワイ スギル。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12766,7 +12825,7 @@ names:
       - はなし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ショウワル テンサイ オサナナジミ ト ノ ショウブ ニ マケ テ ハツタイケン ヲ ゼンブ ウバワ レル ハナシ
+    reading: ショウワル テンサイ オサナナジミ ト ノ ショウブ ニ マケテ ハツタイケン ヲ ゼンブ ウバワレル ハナシ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -12848,7 +12907,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カイイ ブ ～ M ケン Y シ ノ カイ ゲンショウ ニ ツイ テ ～
+    reading: カイイ ブ ～ M ケン Y シ ノ カイ ゲンショウ ニ ツイテ ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13022,7 +13081,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コイ ハ ゾク シャ ニ ノッ テ ( ヤング スペリオール シンジンショウ・ カサク )
+    reading: コイ ハ ゾクシャ ニ ノッテ ( ヤング スペリオール シンジンショウ・ カサク )
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13074,7 +13133,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コイビト ノ シタ ノ ナマエ ガ ヨベ ナク テ コマッ テ マス
+    reading: コイビト ノ シタ ノ ナマエ ガ ヨベナクテ コマッテマス
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13163,7 +13222,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワルイ コト ヲ カンガエ テ イル
+    reading: ワルイ コト ヲ カンガエテ イル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13237,7 +13296,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アクヤク レイジョウ ノ オ ヨメ サマ
+    reading: アクヤク レイジョウ ノ オ ヨメサマ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13281,7 +13340,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アクヤク レイジョウ ノ ナカ ノ ヒト 〜 ダンザイ サ レ タ テンショウ シャ ノ タメ ウソツキ ヒロイン ニ フクシュウ イタシ マス 〜
+    reading: アクヤク レイジョウ ノ ナカ ノ ヒト 〜 ダンザイ サレタ テンショウシャ ノ タメ ウソツキ ヒロイン ニ フクシュウ イタシマス 〜
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13297,7 +13356,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アクマ ノ モカ チャン
+    reading: アクマ ノ モカチャン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13359,7 +13418,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アイサ レ テ モ イイ ン ダ ヨ
+    reading: アイサレテ モ イイ ンダ ヨ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13379,7 +13438,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アイシ タ ブン ダケ アイシ テ ホ シイッ！
+    reading: アイシタ ブン ダケ アイシテ ホ シイッ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13415,7 +13474,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: メデ タイ センセイ
+    reading: メデタイ センセイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13439,7 +13498,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カンカク キョウユウ メイド サン！
+    reading: カンカク キョウユウ メイドサン！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13478,7 +13537,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イダカ レ タイ オンナ 〜 JD ダ ケド アラサー ジョシ ニ カワ レ テ イ マス 〜
+    reading: イダカレタイ オンナ 〜 JDダケド アラサー ジョシ ニ カワレテ イマス 〜
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13510,7 +13569,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オシ テ ダメ ナラ エガイ テ ミロ
+    reading: オシテ ダメナラ エガイテ ミロ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13542,7 +13601,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハイケイ、 アリ シ ヒ ニ サク ハナ タチ ヘ
+    reading: ハイケイ、 アリシ ヒ ニ サク ハナタチ ヘ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13566,7 +13625,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユビサキ ニ コイ ヲ サカ セ テ
+    reading: ユビサキ ニ コイ ヲ サカセテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13614,7 +13673,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ステ ラレ エルフ サン ハ セカイ デ イチバン ツヨク テ カワイイ！
+    reading: ステラレ エルフサン ハ セカイ デ イチバン ツヨクテ カワイイ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13676,7 +13735,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オシ ガ シン ダ ノ デ タイム リープ シ テ セイゾン ルート カクホ シ マス !
+    reading: オシ ガ シンダ ノデ タイム リープ シテ セイゾン ルート カクホ シマス !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13704,7 +13763,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オシ ガ トナリ デ ジュギョウ ニ シュウチュウ デキ ナイ !
+    reading: オシ ガ トナリ デ ジュギョウ ニ シュウチュウ デキナイ !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13724,7 +13783,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オシ ト ノ ユリ ハ アリ エ ナイ！
+    reading: オシ ト ノ ユリ ハ アリ エナイ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13870,7 +13929,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シン・ マホウカ コウコウ ノ レットウ セイ   キグナス ノ オトメ タチ
+    reading: シン・ マホウカ コウコウ ノ レットウセイ   キグナス ノ オトメタチ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13890,7 +13949,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シンカン イチレイレイオク サツ クダサイ
+    reading: シンカン イチレイレイオクサツ クダサイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13922,7 +13981,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シンマイ ユウシャ ノ オ シナガキ ～ ノギ ワカバ ハ ユウシャ デ アル   ス ピン アウ ト ヨン コマ ～
+    reading: シンマイ ユウシャ ノ オ シナガキ ～ ノギ ワカバ ハ ユウシャデ アル  ス ピン アウト ヨン コマ ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -13974,7 +14033,7 @@ names:
       - ふく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アス チャン ノ セーラーフク
+    reading: アスチャン ノ セーラーフク
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14070,7 +14129,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ホシノ ヒバナ ハ ミツガ レル
+    reading: ホシノ ヒバナ ハ ミツガレル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14088,7 +14147,7 @@ names:
       - かお
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウツシ チャ ダメ ナ カオ
+    reading: ウツシチャ ダメナ カオ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14204,7 +14263,7 @@ names:
       - たんぺんしゅう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キノウ シ タ ノ ニ オボエ テ ナイ ノ？   ユリ エッチ タンペンシュウ
+    reading: キノウシタ ノ ニ オボエテナイ ノ？   ユリ エッチ タンペンシュウ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14244,7 +14303,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハレ タ ヒ ノ ドレスコード
+    reading: ハレタ ヒ ノ ドレスコード
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14306,7 +14365,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サイテイ ナ キミ ガ スキ
+    reading: サイテイナ キミ ガ スキ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14336,7 +14395,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サイキョウ サイコウ ノ マホウ ショウジョ ハ ゼッタイ マケ ナイ
+    reading: サイキョウ サイコウ ノ マホウ ショウジョ ハ ゼッタイ マケナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14485,7 +14544,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ツキ ノ オ スシ ヲ カカエ テ ネムル
+    reading: ツキ ノ オ スシ ヲ カカエテ ネムル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14501,7 +14560,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ツキ ハ タピオカ ミタイ ニ
+    reading: ツキ ハ タピオカ ミタイニ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14521,7 +14580,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ツキ ハ ヒツジ ヲ カゾエ ナイ
+    reading: ツキ ハ ヒツジ ヲ カゾエナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14565,7 +14624,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アサムラ サン ト ヨヤマ サン
+    reading: アサムラサン ト ヨヤマサン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14581,7 +14640,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミカンセイ ナ フタリ
+    reading: ミカンセイナ フタリ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14713,7 +14772,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トウヤマ リョウ ノ アノ コ タチ
+    reading: トウヤマ リョウ ノ アノ コタチ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14763,7 +14822,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カケ タ ツキ ト ドーナッツ
+    reading: カケタ ツキ ト ドーナッツ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14791,7 +14850,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マサシク シカッ テ、 ヤサシク シバッ テ
+    reading: マサシク シカッテ、 ヤサシク シバッテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14837,7 +14896,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シ ニ モドリ オウジョ ハ イキノビル タメ ニ ユリ ハーレム ヲ ツクル コト ニ シ タ
+    reading: シ ニ モドリ オウジョ ハ イキノビル タメ ニ ユリ ハーレム ヲ ツクル コト ニ シタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14899,7 +14958,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シ マモレ ニチジョウ ケイ ヲ
+    reading: シ マモレ ニチジョウケイ ヲ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -14949,8 +15008,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シニガミ ショウジョ ハ カゲ カラ オシ ヲ ナガメ タイ 　 ─ アクヤク ニ TS テンショウ シ タ ケド、 コッソリ ゲンサク キャラ ヲ カンサツ シ ニ イキ マス！
-      ─
+    reading: シニガミ ショウジョ ハ カゲ カラ オシ ヲ ナガメタイ 　 ─ アクヤク ニ TS テンショウ シタケド、 コッソリ ゲンサク キャラ ヲ カンサツ シ ニ イキマス！ ─
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15046,7 +15104,7 @@ names:
       - そこ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ザンガイ ショウジョ、 キラキラ ナ セカイ ノ ソコ
+    reading: ザンガイ ショウジョ、 キラキラナ セカイ ノ ソコ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15066,7 +15124,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コロシヤ ヤメ タイ !
+    reading: コロシヤ ヤメタイ !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15138,7 +15196,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コロシ コロサ レ サンカク カンケイ ニ ワタシ ガ イマ カラ ハイル ン デス カ？
+    reading: コロシ コロサレ サンカク カンケイ ニ ワタシ ガ イマ カラ ハイル ンデス カ？
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15160,7 +15218,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マイツキ ニワ ツキ オオヤ ツキ
+    reading: マイツキ ニワツキ オオヤツキ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15180,7 +15238,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ドク ヲ クラワ バ。
+    reading: ドク ヲ クラワバ。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15204,7 +15262,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キ ニ ナッ テル ヒト ガ オトコ ジャ ナカッ タ
+    reading: キ ニ ナッテル ヒト ガ オトコジャ ナカッタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15280,7 +15338,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アセ フェチ ハンダ サン ハ アジワイ タイ
+    reading: アセ フェチ ハンダサン ハ アジワイタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15300,7 +15358,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: エグチ サン チ ノ ジュンジョウ サキュバス
+    reading: エグチサン チ ノ ジュンジョウ サキュバス
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15338,7 +15396,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アワ ミタイ ニ ダキシメ テ
+    reading: アワ ミタイニ ダキシメテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15388,7 +15446,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナキムシ オウジ （♀） ノ イ ズ モ クン ハ ジョシコウ ノ オウジ サマ ト ユリ ニ ナル カ モ シレ ナイ
+    reading: ナキムシ オウジ （♀） ノ イズ モ クン ハ ジョシコウ ノ オウジサマ ト ユリ ニ ナル カ モ シレナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15454,7 +15512,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウミ ガ スキ ダ
+    reading: ウミ ガ スキダ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15490,7 +15548,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウミ ハ アレ ドモ、 カゼ ハ フク / ヨミキリ
+    reading: ウミ ハ アレドモ、 カゼ ハ フク / ヨミキリ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15510,7 +15568,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キヨタ サン ハ ヨゴサ レ タイ ! ?
+    reading: キヨタサン ハ ヨゴサレタイ ! ?
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15530,7 +15588,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キヨタ サン ヲ ヨゴシ タイ
+    reading: キヨタサン ヲ ヨゴシタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15556,7 +15614,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワン デン サン ト ジャノメ サン
+    reading: ワンデンサン ト ジャノメサン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15576,7 +15634,7 @@ names:
       - どく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オボレ テ、 アイ ドク
+    reading: オボレテ、 アイ ドク
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15625,6 +15683,30 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  潮滅に沈む翡翠、北のまちの黒曜:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: シオメツにチンむヒミドリ、キタのまちのクロヨウ
+    reading_at: '2026-08-02'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
+  濡鴉の魔女:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ジュカラスのマオンナ
+    reading_at: '2026-08-02'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
   瀬戸さんを笑わせたい紬ちゃん:
     basis: romaji
     furigana_spans:
@@ -15642,7 +15724,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: セト サン ヲ ワラワ セ タイ ツムギ チャン
+    reading: セトサン ヲ ワラワセタイ ツムギチャン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15750,7 +15832,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ムリョク セイジョ ト ムノウ オウジョ ～ マリョク ゼロ デ ショウカン サ レ タ セイジョ ノ イセカイ キュウコク キ ～
+    reading: ムリョク セイジョ ト ムノウ オウジョ ～ マリョク ゼロ デ ショウカン サレタ セイジョ ノ イセカイ キュウコクキ ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15770,7 +15852,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ケムリ ニ ヨセ テ
+    reading: ケムリ ニ ヨセテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15834,7 +15916,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イヌ ト シゴト ハ ケムリ ニ マケ ナイ
+    reading: イヌ ト シゴト ハ ケムリ ニ マケナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15862,7 +15944,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イヌ モ アルケ バ ヒメ ニ アタル
+    reading: イヌ モ アルケバ ヒメ ニ アタル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -15997,7 +16079,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ネコマ ホウ ガ セカイ ニ カクメイ ヲ オコス ソウ デス ヨ ?
+    reading: ネコマ ホウ ガ セカイ ニ カクメイ ヲ オコス ソウデス ヨ ?
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16035,7 +16117,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゲンジツセカイ デ モ シアワセ ニ シ テ クダサイ ネ？
+    reading: ゲンジツセカイ デ モ シアワセニ シテ クダサイ ネ？
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16051,7 +16133,7 @@ names:
       - えい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タマ エイ
+    reading: タマエイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16089,7 +16171,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ルトウ サン ニ ハ カナイ マセ ン！
+    reading: ルトウサン ニ ハ カナイマセン！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16113,7 +16195,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アマイ カオリ ニ サソワ レ テ
+    reading: アマイ カオリ ニ サソワレテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16133,7 +16215,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アマエ サ セ テ ヒナモリ サン !
+    reading: アマエ サセテ ヒナモリサン !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16153,7 +16235,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アマヤカセ マゾク ドモ
+    reading: アマヤカセ マゾクドモ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16212,7 +16294,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ダンソウ メイド ハ ツクシ タイ
+    reading: ダンソウ メイド ハ ツクシタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16254,7 +16336,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イセカイ オンセン ノ ワガシ ヤ JK
+    reading: イセカイ オンセン ノ ワガシヤ JK
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16330,7 +16412,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ツカレ キッ タ オンナ ガ シヌ ホド イヤサ レル タメ ニ。
+    reading: ツカレ キッタ オンナ ガ シヌ ホド イヤサレル タメ ニ。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16388,8 +16470,8 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ビョウジャク ショウジョ、 テンショウ シ テ ケンコウ ナ ニクタイ ( サイキョウ ) ヲ テ ニ イレル   ～ トモダチ ガ ホシク テ マキョウ カラ タビダッ タ ノ
-      デス ガ、 ドウ ヤラ . . .
+    reading: ビョウジャク ショウジョ、 テンショウ シテ ケンコウナ ニクタイ ( サイキョウ ) ヲ テ ニ イレル   ～ トモダチ ガ ホシクテ マキョウ カラ タビダッタ ノデスガ、
+      ドウ ヤラ . . .
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16459,8 +16541,8 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ビョウジャク ショウジョ、 テンショウ シ テ ケンコウ ナ ニクタイ （サイキョウ） ヲ テ ニ イレル 　 ～ トモダチ ガ ホシク テ マキョウ カラ タビダッ タ ノ デス
-      ガ、 ドウ ヤラ ワタシ ノ マホウ ハ スコシ オカシイ ヨウ デス！？ ～
+    reading: ビョウジャク ショウジョ、 テンショウ シテ ケンコウナ ニクタイ （サイキョウ） ヲ テ ニ イレル 　 ～ トモダチ ガ ホシクテ マキョウ カラ タビダッタ ノデスガ、 ドウ
+      ヤラ ワタシ ノ マホウ ハ スコシ オカシイ ヨウデス！？ ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16496,7 +16578,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イタカッ タラ ヨロコン デ クダサイ
+    reading: イタカッタラ ヨロコンデ クダサイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16546,7 +16628,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シラケ タ ヨル ( ヤング スペリオール シンジンショウ・ カサク )
+    reading: シラケタ ヨル ( ヤング スペリオール シンジンショウ・ カサク )
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16620,7 +16702,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シラユリ ニ × イ ヲ コメ テ
+    reading: シラユリ ニ ×イ ヲ コメテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16654,7 +16736,7 @@ names:
       - しょう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シロ ソウ ノ アクマ / 2025 ネン 2 ガツ キ ブロンズ ルーキー ショウ
+    reading: シロソウ ノ アクマ / 2025 ネン 2 ガツ キ ブロンズ ルーキー ショウ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16674,7 +16756,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユリ SM デ フタリ ノ キモチ ハ ツナガリ マス カ？
+    reading: ユリ SM デ フタリ ノ キモチ ハ ツナガリマス カ？
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16704,7 +16786,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユリ ニ ハサマル オトコ ハ シネ バ イイ ! ?
+    reading: ユリ ニ ハサマル オトコ ハ シネバ イイ ! ?
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16754,7 +16836,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユリ オタ ニ ユリ ハ ゴハット デス ! ?
+    reading: ユリ オタ ニ ユリ ハ ゴハットデス ! ?
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16822,7 +16904,7 @@ names:
       - けん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユリ ケン
+    reading: ユリケン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16844,7 +16926,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユリ カミ サマ ノ イウ トオリ !
+    reading: ユリ カミサマ ノ イウ トオリ !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16882,7 +16964,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユリカ ノ スパイ ガッコウ 　 ニュウガク シ タラ カイラク ゴウモン ニ タエル クンレン バカリ ナ ン デス ガ ! ?
+    reading: ユリカ ノ スパイ ガッコウ 　 ニュウガク シタラ カイラク ゴウモン ニ タエル クンレン バカリナ ンデスガ ! ?
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16918,7 +17000,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アイセキ イイ デス カ ?
+    reading: アイセキ イイデス カ ?
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16940,7 +17022,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マ センパイ ノ マエ デ ハ カッコ ツケ ラレ ナイ！
+    reading: マ センパイ ノ マエ デ ハ カッコ ツケラレナイ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -16972,7 +17054,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シラ ナイ アナタ
+    reading: シラナイ アナタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17046,7 +17128,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カミ ゲー ッテ ソウ イウ コト デス カ
+    reading: カミ ゲー ッテ ソウ イウ コトデス カ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17066,7 +17148,7 @@ names:
       - て
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カミ サマ ノ テ
+    reading: カミサマ ノ テ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17084,7 +17166,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カミ サマ ヤメ ラン ナイ
+    reading: カミサマ ヤメランナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17128,7 +17210,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタシ、 エリート テンシ デス ガ ナンコウフラク ナ JK ニ コマッ テ マス！
+    reading: ワタシ、 エリート テンシデスガ ナンコウフラクナ JK ニ コマッテマス！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17156,7 +17238,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタシ ガ モテ ナイ ノ ハ ドウ カンガエ テ モ オマエ ラ ガ ワルイ !
+    reading: ワタシ ガ モテナイ ノ ハ ドウ カンガエテ モ オマエラ ガ ワルイ !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17182,7 +17264,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタシ ダケ ガ ミヤジ ミユキ ヲ アイシ テ イル
+    reading: ワタシ ダケ ガ ミヤジ ミユキ ヲ アイシテ イル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17206,7 +17288,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタシ ダ ッテ セイシュン シ タイ デス ヨ、 ホントウ ハ。
+    reading: ワタシダ ッテ セイシュン シタイデス ヨ、 ホントウ ハ。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17260,7 +17342,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタシ ニ テンシ ガ マイオリ タ！
+    reading: ワタシ ニ テンシ ガ マイオリタ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17278,7 +17360,7 @@ names:
       - くぐつ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタシ ノ ミダラ ナ クグツ
+    reading: ワタシ ノ ミダラナ クグツ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17348,7 +17430,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタシ ノ チイサナ オ ヒメ サマ
+    reading: ワタシ ノ チイサナ オ ヒメサマ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17464,7 +17546,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタシ ノ ユリ ハ オ シゴト デス !
+    reading: ワタシ ノ ユリ ハ オ シゴトデス !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17488,7 +17570,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタシ ノ シッ テル オネエサン
+    reading: ワタシ ノ シッテル オネエサン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17534,7 +17616,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタシ ハ キミ ヲ ナカ セ タイ
+    reading: ワタシ ハ キミ ヲ ナカセタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17554,7 +17636,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタシ ヲ タベ タイ、 ヒトデナシ
+    reading: ワタシ ヲ タベタイ、 ヒトデナシ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17586,7 +17668,7 @@ names:
       - しょう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワタシタチ ハ コウサイ シ タイ ノ カ モ シレ ナイ / 2025 ネン 6 ガツ キ ブロンズ ルーキー ショウ
+    reading: ワタシタチ ハ コウサイ シタイ ノ カ モ シレナイ / 2025 ネン 6 ガツ キ ブロンズ ルーキー ショウ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17595,6 +17677,11 @@ names:
     verified: false
   秒速11.2kmでともに:
     basis: romaji
+    furigana_spans:
+    - - 秒速
+      - びょうそく
+    - - 11.2kmでともに
+      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ビョウソク 11.2 km デ トモ ニ
@@ -17657,7 +17744,7 @@ names:
       - じょうさま
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: リュウ ニン ボディガード ト オジョウサマ
+    reading: リュウニン ボディガード ト オジョウサマ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17699,7 +17786,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワラウ モン ダ ヨ フクイン サン
+    reading: ワラウ モンダ ヨ フクインサン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17719,7 +17806,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: エガオ ノ タエ ナイ ショクバ デス。
+    reading: エガオ ノ タエナイ ショクバデス。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17823,7 +17910,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コウチャ ノ マジョ ノ ユウガ ナル キュウテイ セイカツ   チート ヲ ヒ タ カクス サイジャク マドウシ ノ マドギワ ライフ
+    reading: コウチャ ノ マジョ ノ ユウガナル キュウテイ セイカツ   チート ヲ ヒタ カクス サイジャク マドウシ ノ マドギワ ライフ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17847,12 +17934,24 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クレナイ マ カン ノ オンナ タチ
+    reading: クレナイ マカン ノ オンナタチ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  紗痲 Fallin' Jail:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: シャマ fアールリットルリットルアイノルマル' jアールアイリットル
+    reading_at: '2026-08-02'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    reading_uncertain: true
     verified: false
   紡ぐ乙女と大正の月:
     basis: romaji
@@ -17958,7 +18057,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ムスバ レル ヒ / ヨミキリ
+    reading: ムスバレル ヒ / ヨミキリ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -17986,7 +18085,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユウキ トモナ ハ ユウシャ デ アル   ユウシャ ブ ビヨリ   Party ♪
+    reading: ユウキ トモナ ハ ユウシャデ アル   ユウシャ ブ ビヨリ   Party ♪
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18010,7 +18109,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ケッコン シ タイ リュウグウ サン ハ ジョウリク シ マシ タ
+    reading: ケッコン シタイ リュウグウサン ハ ジョウリク シマシタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18054,7 +18153,7 @@ names:
       - かた
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キレイ ナ ハナ ノ ノコシ カタ
+    reading: キレイナ ハナ ノ ノコシカタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18134,7 +18233,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キヨシ サマ ノ オモウ ママ ニ
+    reading: キヨシサマ ノ オモウ ママ ニ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18160,7 +18259,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: セイジョ センセイ ノ マホウ ハ ススン デル！
+    reading: セイジョ センセイ ノ マホウ ハ ススンデル！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18220,7 +18319,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヌイ デ モ イイ ヨ ネ？
+    reading: ヌイデ モ イイ ヨ ネ？
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18244,7 +18343,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハラペコ コ ペ コ ハ ニク ト スム !
+    reading: ハラペココペ コ ハ ニク ト スム !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18266,7 +18365,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フク ワル ウチ ラ ノ ヒミツ ゴト !
+    reading: フク ワル ウチラ ノ ヒミツゴト !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18304,7 +18403,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ジドウシャ ノ ヨウセイ   パッソ チャン ノ オンガエシ
+    reading: ジドウシャ ノ ヨウセイ   パッソチャン ノ オンガエシ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18356,7 +18455,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イロンナ オンナノコ ト キス ヲ シ テ イ タラ、 ユリ キス ニ メザメ テ シマイ マシ タ…．．。
+    reading: イロンナ オンナノコ ト キス ヲ シテ イタラ、 ユリ キス ニ メザメテ シマイマシタ…．．。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18386,7 +18485,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イロ シラ ヌ クロ ハ アオ ニ フレル
+    reading: イロ シラヌ クロ ハ アオ ニ フレル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18402,7 +18501,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハナ ノ ヨウ ナ ワタシタチ
+    reading: ハナ ノ ヨウナ ワタシタチ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18446,7 +18545,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハナコ サン ト ハナコ チャン
+    reading: ハナコサン ト ハナコチャン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18470,7 +18569,7 @@ names:
       - ぎんき
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: エイユウ ショウジョ ト ノロワ レ ノ ギンキ
+    reading: エイユウ ショウジョ ト ノロワレ ノ ギンキ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18486,7 +18585,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ホウムラ レ タ キミ ヘ
+    reading: ホウムラレタ キミ ヘ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18633,7 +18732,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミエ テ マス ヨ !   アイザワ サン
+    reading: ミエテマス ヨ !   アイザワサン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18657,7 +18756,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シンユウ ニ スキ ナ ヒト ガ デキ タ ラシイ
+    reading: シンユウ ニ スキナ ヒト ガ デキタラシイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18701,7 +18800,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イワ セ テ アゲ ナイ
+    reading: イワセテ アゲナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18723,7 +18822,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ダレ カ オオカミ サン ノ シツケ カタ シリ マセ ン カ！？
+    reading: ダレ カ オオカミサン ノ シツケカタ シリマセン カ！？
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18783,7 +18882,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マケ ナイ フユ ニ ハル ガ サク
+    reading: マケナイ フユ ニ ハル ガ サク
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18843,7 +18942,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: チョウ シン ウチュウ ヨリ アイ ヲ コメ テ
+    reading: チョウ シン ウチュウ ヨリ アイ ヲ コメテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18879,7 +18978,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: チョウ シン ウチュウ ヨリ アイ ヲ コメ テ 【ヨミキリ バン】
+    reading: チョウ シン ウチュウ ヨリ アイ ヲ コメテ 【ヨミキリ バン】
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18911,7 +19010,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アシ ガ ダイスキ アスワ サン / ヨミキリ
+    reading: アシ ガ ダイスキ アスワサン / ヨミキリ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -18991,7 +19090,7 @@ names:
       - ほし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タドリツケ ナイ ホシ
+    reading: タドリツケナイ ホシ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19035,7 +19134,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トウメイ ナ ウスイ ミズイロ ニ
+    reading: トウメイナ ウスイ ミズイロ ニ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19138,7 +19237,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: エンザン エ マ ヒャク ゴウ シュウ 　 センセイ ト ノ ジカン。
+    reading: エンザン エ マ ヒャク ゴウシュウ 　 センセイ ト ノ ジカン。
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19202,7 +19301,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: リョウシ ノ ムスメ タチ
+    reading: リョウシ ノ ムスメタチ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19224,7 +19323,7 @@ names:
       - しなん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コンゴウジ カ ノ レンアイ シナン
+    reading: コンゴウジカ ノ レンアイ シナン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19323,7 +19422,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: レンキン ジュツシ ノ ハンドメイド   ～ フリマ ヤッ テル ダケ ナ ノ ニ デンセツ テキ ナ アツカイ サ レ テ マシ タ ～
+    reading: レンキン ジュツシ ノ ハンドメイド   ～ フリマ ヤッテル ダケナ ノ ニ デンセツテキナ アツカイ サレテマシタ ～
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19341,7 +19440,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: エンマ サマ ノ イウ トオリ
+    reading: エンマサマ ノ イウ トオリ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19365,7 +19464,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アクツ サン ハ オシ ニ ニ テ イル
+    reading: アクツサン ハ オシ ニ ニテ イル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19391,7 +19490,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゲンカイ OL サン ハ アクヤク レイジョウ サマ ニ ツカエ タイ
+    reading: ゲンカイ OLサン ハ アクヤク レイジョウサマ ニ ツカエタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19419,7 +19518,7 @@ names:
       - はなし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゲンカイ OL ト ジョシダイ セイ ガ レイキゴウ スル ハナシ
+    reading: ゲンカイ OL ト ジョシダイセイ ガ レイキゴウ スル ハナシ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19445,7 +19544,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゲンカイ シャカイジン サン ヲ スクエル ノ ハ クソデカ カンジョウ ストーカー チャン ダケ デシ タ
+    reading: ゲンカイ シャカイジンサン ヲ スクエル ノ ハ クソデカ カンジョウ ストーカーチャン ダケデシタ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19461,7 +19560,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カゲ キャギャル デ モ イキ ガリ タイ！
+    reading: カゲ キャギャル デ モ イキガリタイ！
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19545,7 +19644,7 @@ names:
       - せいふく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユキ ガ トケ タラ オンナジ セイフク
+    reading: ユキ ガ トケタラ オンナジ セイフク
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19599,7 +19698,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: デンパ ケイ X エンカ ウント
+    reading: デンパケイ X エンカ ウント
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19701,7 +19800,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トン デ マワラ ナイ
+    reading: トンデ マワラナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19717,7 +19816,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トビノ サン ノ バカ
+    reading: トビノサン ノ バカ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19733,7 +19832,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ノン デ ミル？
+    reading: ノンデ ミル？
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19753,7 +19852,7 @@ names:
       - かんだん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アメイロ コウチャ カン カンダン
+    reading: アメイロ コウチャカン カンダン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19769,7 +19868,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カハラ サン ノ フェ チ ノー ト
+    reading: カハラサン ノ フェ チ ノー ト
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19852,7 +19951,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オニ ウレ アイドル ガ キョウ モ ワタシ ヲ オシ テ クル
+    reading: オニ ウレ アイドル ガ キョウ モ ワタシ ヲ オシテ クル
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19874,7 +19973,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マジョ ッテ バイトダイ デ マス？
+    reading: マジョ ッテ バイトダイ デマス？
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19898,7 +19997,7 @@ names:
       - さま
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マジョ ッコ ルル ト オ シショウ サマ
+    reading: マジョッコ ルル ト オ シショウサマ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19914,7 +20013,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マジョ トク ュ ラ ス
+    reading: マジョトク ュラス
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19940,7 +20039,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マジョ ノ マゴ ト ナナ ニン ノ メイド
+    reading: マジョ ノ マゴ ト ナナニン ノ メイド
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -19958,7 +20057,7 @@ names:
       - てん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マジョ ケイリー ノ ポーション テン
+    reading: マジョ ケイリー ノ ポーションテン
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -20004,7 +20103,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マショウ ノ メロ オンナ ニ オトサ レル ユリ アンソロジー
+    reading: マショウ ノ メロ オンナ ニ オトサレル ユリ アンソロジー
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -20094,7 +20193,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マホウ ショウジョ ニ アコガレ テ
+    reading: マホウ ショウジョ ニ アコガレテ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -20176,7 +20275,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マオウ ジョウ デート ダイ サクセン !
+    reading: マオウジョウ デート ダイ サクセン !
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4
@@ -20216,7 +20315,7 @@ names:
       - ひび
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オウドウ リョウ ノ セイザ ナ ヒビ
+    reading: オウドウ リョウ ノ セイザナ ヒビ
     reading_at: '2026-08-02'
     reading_basis: analyser
     reading_pass: 4

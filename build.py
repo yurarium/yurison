@@ -201,6 +201,10 @@ def load_names():
         import kana as _kana
     except Exception:
         return {}, {}
+    try:
+        import pass4_analyser as _p4
+    except Exception:
+        _p4 = None
 
     def render(k_ja, rec, is_person=False):
         out = {}
@@ -230,10 +234,23 @@ def load_names():
             if sp and any(x[1] for x in sp):
                 out["ruby"] = sp
             # Personal names take particles=False — と in a name is 都 or 斗, never the particle.
-            out["romaji"] = {st: _kana.title_case(_kana.romanise(rd, st), particles=not is_person)
+            # latinise here too. It was applied to `en` and not to the romanisations, so a title
+            # whose reading romanised cleanly could still ship its Japanese punctuation — ｜ in
+            # コミックオギャー)｜… survived every pass because this one output skipped the step.
+            out["romaji"] = {st: (_p4.latinise if _p4 else (lambda x: x))(
+                                 _kana.title_case(_kana.romanise(rd, st), particles=not is_person))
                              for st in ("macron", "double", "plain")}
         if rec.get("en"):
-            out["en"] = rec["en"]
+            # An "already Latin" title is detected by looking for kana and kanji, which means
+            # IDOL×IDOL STORY！ passed as English with its full-width punctuation intact and then
+            # short-circuited every later rendering. Punctuation is typography, not the name, so it
+            # is normalised on the way out — the letters are untouched.
+            # Sources hand back "HINO Arashi (日野アラシ)" — the original in brackets is their
+            # convention for showing both, not part of the name, and it puts Japanese back on an
+            # English page. Dropped when the bracketed part is entirely Japanese.
+            _en = re.sub(r"\s*[（(][^)）]*[)）]\s*$", "",
+                         rec["en"]) if re.search(r"[（(][ぁ-ヿ一-鿿\s]+[)）]\s*$", rec["en"]) else rec["en"]
+            out["en"] = _p4.latinise(_en) if _p4 else _en
         if rec.get("basis"):
             out["basis"] = rec["basis"]
         # False is meaningful and must survive; missing is not the same as verified.
@@ -2423,6 +2440,14 @@ def main():
         _p4.fill_missing({r["work"] for r in series_rows}, "titles")
         _p4.fill_missing({(r.get("author") or "").strip()
                           for r in series_rows if r.get("author")}, "authors")
+        # Chapter names and credit lines — 202 of the former against 6 titles, so this is most of
+        # what stays Japanese on an English page.
+        # Titles as phrases too, so one whose only Japanese is punctuation (IDOL×IDOL STORY！) is
+        # covered; the title store keys on readings and skips those entirely.
+        _p4.fill_chapters({x for r in releases + series_rows
+                           for x in (r.get("ep"), r.get("latest_ep"), r.get("collection"),
+                                     (r.get("author") or "").strip(),
+                                     r.get("work")) if x})
     except Exception as e:                      # never let a naming helper break the build
         print(f"names           : automatic reading pass skipped ({e})")
 
@@ -2468,7 +2493,12 @@ def main():
          "note": "English renderings and readings, keyed by NFKC-folded title/author. Joined onto "
                  "feed rows at render time so archived months — which are never rewritten — still "
                  "show current names.",
-         "titles": _title_folded, "authors": _auth_folded},
+         "titles": _title_folded, "authors": _auth_folded,
+         # Chapter names, collections and credit lines, keyed folded like the rest.
+         "phrases": {_fold(k): v for k, v in (
+             (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
+              ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}
+         ).items()}},
         ensure_ascii=False, indent=1, default=jsonable))
 
     (out / "series.json").write_text(json.dumps(

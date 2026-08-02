@@ -25,7 +25,7 @@ Licence: SudachiPy and SudachiDict-core are Apache-2.0 (§5c). KANJIDIC2 is deli
 
 Usage:  pass4_analyser.py [--limit N] [--dry-run]
 """
-import argparse, datetime, pathlib, sys, unicodedata
+import argparse, datetime, pathlib, re, sys, unicodedata
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import yaml  # noqa: E402
@@ -71,13 +71,33 @@ def has_kanji(s):
     return any("\u4e00" <= c <= "\u9fff" for c in s)
 
 
+_UNIHAN = None
+
+
+def unihan_on(ch):
+    """On-yomi from the Unicode Han Database, or None.
+
+    THE LAST RESORT AND THE WEAKEST. SudachiDict — core and full — has no standalone entry for 濡,
+    激, 痲, 犠 or 滅, so a title containing one could never be rendered at all. Unihan has all of
+    them. But on-yomi is the Chinese-derived reading, and a Japanese title is usually a native word
+    taking kun-yomi: 濡鴉 is almost certainly nuregarasu, not ju-a. So this is used only when
+    everything else has failed, and everything built on it is marked uncertain.
+    """
+    global _UNIHAN
+    if _UNIHAN is None:
+        import json
+        f = STORE / "unihan-on.json"
+        _UNIHAN = json.loads(f.read_text())["readings"] if f.exists() else {}
+    return _UNIHAN.get(ch)
+
+
 def per_char(tokenizer, modes, ch):
-    """A reading for one character in isolation, or None. The last resort, and a weak one."""
+    """A reading for one character in isolation, or None. Analyser first, Unihan after."""
     for m in modes:
         r = [t.reading_form() for t in tokenizer.tokenize(ch, m)]
         if r and r[0] and r[0] != "*" and not has_kanji(r[0]):
             return kata(r[0])
-    return None
+    return unihan_on(ch)
 
 
 def analyse_best(tokenizer, s, modes):
@@ -108,6 +128,21 @@ def analyse_best(tokenizer, s, modes):
     return (got, True) if got and any_kanji and not has_kanji(got) else (None, False)
 
 
+# An inflected verb is ONE word, and Sudachi hands back its morphemes: 食べ + たい, つい + て,
+# なり + まし + た. Joining every morpheme with a space and capitalising each produced "Tabe Tai",
+# "Tsui Te", "Nari Mashi Ta" — which is not how any of those are written in romaji.
+#
+# The part of speech says which pieces are not words in their own right: an auxiliary verb (助動詞),
+# a conjunctive particle (接続助詞, the て of ついて), and a suffix (接尾辞) all attach to what
+# precedes them. A CASE particle — の, を, は — is a separate word and keeps its space.
+ATTACHES = ("助動詞", "接尾辞")
+ATTACH_SUB = ("接続助詞",)
+
+
+def attaches_left(pos):
+    return pos and (pos[0] in ATTACHES or (len(pos) > 1 and pos[1] in ATTACH_SUB))
+
+
 def analyse(tokenizer, s, mode=None):
     """A reading for the whole string, or None if any part of it comes back unreadable.
 
@@ -124,6 +159,7 @@ def analyse(tokenizer, s, mode=None):
     for m in tokenizer.tokenize(s, mode):
         surf = m.surface()
         r = m.reading_form()
+        glue = attaches_left(m.part_of_speech())
         # SURFACE FIRST. Sudachi does not decline to read a symbol — it returns キゴウ, the reading
         # of 記号, the WORD "symbol". So a space, ～, ×, ♡ or ◎ each came back as a legitimate-looking
         # kana reading and sailed past a check for empty or unreadable output: 森島 明子 became
@@ -134,14 +170,18 @@ def analyse(tokenizer, s, mode=None):
             continue
         if not r or r == "*" or has_kanji(r):
             return None            # a kanji we cannot read means we cannot read the string
-        out.append(READING_OVERRIDE.get(surf) or kata(r))
+        out.append(("\x00" if glue else "") + (READING_OVERRIDE.get(surf) or kata(r)))
     # No space before closing punctuation, and none after an opening one — " , " is not spacing,
     # it is damage.
     got = ""
     for tokn in out:
         if not tokn:
             continue
-        if got and not (tokn[0] in "、。，．！？」』）】〉》・…" or got[-1] in "「『（【〈《"):
+        glue = tokn.startswith("\x00")
+        tokn = tokn.lstrip("\x00")
+        if not tokn:
+            continue
+        if got and not glue and not (tokn[0] in "、。，．！？」』）】〉》・…" or got[-1] in "「『（【〈《"):
             got += " "
         got += tokn
     got = got.strip()
@@ -297,6 +337,53 @@ def furigana_spans(tokenizer, s, mode=None):
     return merged
 
 
+# 第12話, 12話, ＃15①, 第５０−２話　夢現 — a chapter name is mostly a NUMBER wearing a counter, and
+# translating that structure is worth more than romanising it: "Ch. 12" reads, "Dai 12 Wa" does not.
+# The subtitle after it is a title and is romanised like one.
+# The number can carry a sub-part on EITHER side of the counter — 第50-2話 and 第90話-1 are both
+# written, as are circled digits ①②③ used as a part marker. All of it is the number.
+CIRCLED = {"①": "1", "②": "2", "③": "3", "④": "4", "⑤": "5", "⑥": "6", "⑦": "7", "⑧": "8", "⑨": "9"}
+CHAPTER_PAT = re.compile(
+    r"^\s*[#＃]?\s*(?:第\s*)?"
+    r"([0-9]+(?:[-−.][0-9]+)?)"
+    r"\s*(?:話|回|話目|幕|章|球|服|皿|輪|侵略|角|限|節|夜|日目|冊目|泊目|軒目)?"
+    r"\s*([-.][0-9]+)?\s*(.*)$")
+EXTRA_PAT = re.compile(r"^\s*(?:【?(番外編|特別編|おまけ|最終話|最終回|前編|後編|中編|完結)】?)\s*(.*)$")
+EXTRA_EN = {"番外編": "Extra", "特別編": "Special", "おまけ": "Bonus", "最終話": "Final",
+            "最終回": "Final", "前編": "Part 1", "後編": "Part 2", "中編": "Part 2", "完結": "End"}
+
+
+def chapter_en(name, romanise_rest):
+    """An English rendering of a chapter name, or None if it is not chapter-shaped.
+
+    `romanise_rest` renders whatever follows the number — a subtitle, which is a title and gets a
+    title's treatment. Structure is translated, content is romanised: those are different jobs and
+    conflating them gives "Dai 90 Wa 1 Hasshakusama Ribaibaru", which helps nobody.
+    """
+    if not name:
+        return None
+    # Circled digits are a PART marker, and NFKC turns ② into a bare "2" — so ＃15② normalised to
+    # "#152" and read as chapter one hundred and fifty-two. They are converted first, to the
+    # hyphenated form they mean, and only then is the rest normalised.
+    n = name
+    for c, d in CIRCLED.items():
+        n = n.replace(c, "-" + d)
+    n = unicodedata.normalize("NFKC", n).replace("\u2212", "-").replace("\uff0d", "-").strip()
+    m = CHAPTER_PAT.match(n)
+    if m and (m.group(1) is not None) and ("話" in n or "回" in n or n.lstrip().startswith(("#", "＃"))
+                                           or re.match(r"^\s*第", n)):
+        num = m.group(1) + (m.group(2) or "")
+        rest = (m.group(3) or "").strip()
+        tail = romanise_rest(rest) if rest else ""
+        return latinise(f"Ch. {num}" + (f" {tail}" if tail else ""))
+    m = EXTRA_PAT.match(n)
+    if m:
+        rest = (m.group(2) or "").strip()
+        tail = romanise_rest(rest) if rest else ""
+        return latinise(EXTRA_EN[m.group(1)] + (f" {tail}" if tail else ""))
+    return None
+
+
 def fill_missing(strings, kind, quiet=False):
     """Give every string a reading if one can be found. Idempotent, offline, safe to call always.
 
@@ -353,3 +440,110 @@ def fill_missing(strings, kind, quiet=False):
 
 if __name__ == "__main__":
     main()
+
+
+# Full-width punctuation is Japanese typography, not content: 【】！？　・ read as Japanese on an
+# English page even when every letter around them is Latin. NFKC handles most, but not the marks it
+# considers distinct characters rather than compatibility forms.
+PUNCT_MAP = {"　": " ", "、": ",", "。": ".", "・": " · ", "～": "~", "〜": "~", "―": "—", "ー": "-",
+             "【": "[", "】": "]", "《": "<", "》": ">", "「": "\u201c", "」": "\u201d",
+             "『": "\u201c", "』": "\u201d", "〈": "<", "〉": ">", "×": "x", "｜": "|", "／": "/"}
+
+
+def latinise(text):
+    """Punctuation an English reader can read, without touching letters."""
+    if not text:
+        return text
+    out = unicodedata.normalize("NFKC", text)
+    for a, b in PUNCT_MAP.items():
+        out = out.replace(a, b)
+    return re.sub(r"\s{2,}", " ", out).strip()
+
+
+def romanise_ja(tok, modes, text):
+    """Romanise a fragment — a chapter subtitle, one name out of a credit line — or return it as it
+    came. Uses the same analyser and the same styles, so nothing here can disagree with a title."""
+    import kana as _k
+    if not text:
+        return text
+    if not has_japanese(text):
+        return latinise(text)        # already Latin words, but maybe Japanese punctuation
+    r, _unc = analyse_best(tok, text, modes)
+    if not r:
+        return latinise(text)       # nothing readable; at least fix the punctuation
+    return latinise(_k.title_case(_k.romanise(r, "macron")))
+
+
+def fill_chapters(names_seen, quiet=False):
+    """English for chapter names and credit lines, stored beside titles and authors.
+
+    These are the bulk of what remains Japanese on an English page — 202 chapter names against 6
+    titles — and they are two different problems. A chapter name is mostly STRUCTURE (第12話) which
+    translates; a credit line is a list of ROLES and NAMES, where the roles translate and the names
+    are romanised. Neither is served by romanising the whole string.
+    """
+    try:
+        from sudachipy import Dictionary, SplitMode
+    except ImportError:
+        return 0
+    f = STORE / "phrases.yaml"
+    doc = yaml.safe_load(f.read_text()) if f.exists() else {}
+    doc.setdefault("note", "Chapter names and credit lines rendered for the English view. Structure "
+                           "is translated (第12話 -> Ch. 12, 原作 -> story); names are romanised.")
+    names = doc.setdefault("names", {})
+    # Also strings that are only Japanese PUNCTUATION — IDOL×IDOL STORY！ has no kana or kanji and
+    # still reads as Japanese typography on an English page.
+    todo = [x for x in names_seen
+            if x and x not in names and (has_japanese(x) or latinise(x) != x)]
+    if not todo:
+        return 0
+    tok = Dictionary().create()
+    modes = [SplitMode.C, SplitMode.A]
+    added = 0
+    for x in todo:
+        en = chapter_en(x, lambda t: romanise_ja(tok, modes, t))
+        if en is None:
+            if is_credit_line(x):
+                en = credit_en(tok, modes, x)
+            else:
+                en = romanise_ja(tok, modes, x)
+        if en and en != x:
+            names[x] = en
+            added += 1
+    if added:
+        doc["names"] = names
+        f.write_text(yaml.safe_dump(doc, allow_unicode=True, sort_keys=True, width=100))
+        if not quiet:
+            print(f"phrases filled  : {added} chapter names / credits rendered")
+    return added
+
+
+# Roles as they appear in a Japanese credit line. Translating these and romanising the names is the
+# only reading that produces something an English reader can use: the alternative rendered
+# 原作／宮澤伊織 as "Gensaku / Miyazawa Iori", which names a role nobody outside Japan knows.
+CREDIT_ROLE = {"原作": "story", "作画": "art", "漫画": "manga", "脚本": "script", "構成": "composition",
+               "企画": "concept", "監修": "supervision", "協力": "assistance", "編集": "editor",
+               "キャラクター原案": "character design", "案": "concept", "著": "author"}
+_ROLE_RE = re.compile("(" + "|".join(sorted(CREDIT_ROLE, key=len, reverse=True)) + ")")
+
+
+def credit_en(tok, modes, s):
+    """A credit line with its roles translated and its names romanised."""
+    # Split into CREDITS first, then role from name inside each. Splitting on every separator at
+    # once tore 原作／宮澤伊織 into two entries and printed "story, Miyazawa Iori" — a role and a
+    # person listed as if they were two people.
+    out = []
+    for unit in re.split(r"[、,　\s]{1,}|(?<=[)）])\s*", s):
+        unit = unit.strip(" 　")
+        if not unit:
+            continue
+        m = _ROLE_RE.match(unit)
+        if m:
+            role = CREDIT_ROLE[m.group(1)]
+            rest = unit[m.end():].strip("：:／/・ 　")
+            out.append(f"{romanise_ja(tok, modes, rest)} ({role})" if rest else role)
+        else:
+            bits = [b for b in re.split(r"[／/・＆&+]+", unit) if b.strip()]
+            out.append(", ".join(romanise_ja(tok, modes, b.strip()) for b in bits))
+    # Full-width Latin is Japanese typography: Ｂ is not B to a reader of English.
+    return latinise(", ".join(x for x in out if x))

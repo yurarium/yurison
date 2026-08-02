@@ -180,6 +180,41 @@ That leaves the doubled row for the case that actually earns it — a work with 
 that a reader might know it by. A reasonable expectation is that this is a minority of rows even
 once the work is done, which makes 両 mode affordable rather than a mode that doubles the page.
 
+## 5c. Furigana on series names — the same research, a second use
+
+Proposed as a fold-in, and it is a good one: **to romanise a title you must first know how it is
+read, and furigana is that reading made visible.** The lookup, the queue and the storage decision in
+§8.1 (store the reading, render the style) all serve both features. Doing them separately would mean
+researching the same 817 kanji-bearing titles twice.
+
+Optional, like the taste controls — off by default, persisted per reader.
+
+**The standards differ, deliberately.** §1 sets a near-perfect bar for author readings because a
+wrong one misnames a real person in public. The project owner's call is that series furigana may go
+out on a **best-guess basis where the reading is not known**, and that asymmetry is right: a
+mis-read title is a small, correctable error about a book, not about a person. Two carve-outs
+follow from the same reasoning, though —
+
+- a title that **is** a person's name, or contains one, inherits the higher bar;
+- a guessed reading is recorded as guessed, so that a later confirmed reading can replace it and so
+  that the residue report (§8.6) can list what is still unverified.
+
+**The real work is alignment, not lookup.** A whole-string reading is easy and is what the sources
+give: MADB returns `私の世界を構成する塵のような何か。` → `ワタクシ ノ セカイ オ コウセイ スル チリ ノ
+ヨウナ ナニカ`. Ruby needs each kanji run paired with its own kana — `<ruby>塵<rt>ちり</rt></ruby>` —
+and that pairing is not in the data. Two levels, and the first is worth shipping on its own:
+
+1. **Whole-string reading**, shown above or beside the title. No alignment, works everywhere, and
+   already answers "how do I say this". This is what the romanisation pass produces anyway.
+2. **Aligned ruby**, per kanji run. Derivable heuristically: split the surface into kanji and kana
+   runs, split the reading on the same kana anchors, and match. The kana in the surface act as
+   fixed points, so a title like 私の世界を… aligns cleanly; failures are detectable (leftover runs)
+   rather than silent, and a title that will not align falls back to level 1.
+
+Level 2 should never guess an alignment it cannot verify — a ruby annotation over the wrong
+character is worse than none, and unlike a whole-string reading it is wrong in a specific, visible
+place.
+
 ## 6. Fallback for names not yet researched
 
 **Show the Japanese.** This is the same rule `platName()` already follows for platforms — absent

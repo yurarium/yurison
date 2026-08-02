@@ -371,3 +371,82 @@ def romaji_to_kana(s):
             return None
     kana = " ".join("".join(out).split())
     return kana or None
+
+
+# ── Furigana alignment ────────────────────────────────────────────────────────────────────────
+#
+# Whole-string ruby — the reading of a title stacked over the whole title — is what this project
+# shipped first and it is not how furigana works. Real furigana sits over the kanji it reads, and
+# the kana already in the surface sit under nothing.
+#
+# The standard method, and there is no permissively-licensed Python library that does it for
+# arbitrary text: pykakasi is GPL and word-level only, and JmdictFurigana is per-kanji but is
+# CC BY-SA (JMdict's licence, which this project avoids) and its own documentation discourages
+# using it across sentences. kuroshiro does it properly and is JavaScript. So the morphological
+# analysis stays with the library that is good at it — SudachiPy, Apache-2.0, already a dependency,
+# giving a reading per token — and only the alignment inside a token is ours.
+#
+# THE ALGORITHM. Split the surface into runs of kanji and runs of kana. The kana runs must appear
+# in the reading, in order, unchanged: they are ANCHORS. Whatever lies between two anchors is the
+# reading of the kanji run between them. 喰べたい / タベタイ anchors on べたい, leaving タ for 喰.
+#
+# It fails safely. If an anchor cannot be found the alignment is abandoned for that token and the
+# caller falls back to reading the whole token — because ruby over the WRONG character is worse
+# than ruby over too many, and unlike a whole-token reading it is wrong in a specific, visible
+# place that a reader will notice.
+
+def _kana_eq(a, b):
+    return to_hiragana(a) == to_hiragana(b)
+
+
+def align(surface, reading):
+    """[(text, reading-or-None)] for one token, or None if the reading cannot be placed.
+
+    A pair with reading None is text that reads as itself — kana, punctuation, Latin — and takes
+    no ruby.
+    """
+    if not surface or not reading:
+        return None
+    if not any(not is_kana(c) and (c.isalnum() or "一" <= c <= "鿿") for c in surface):
+        return [(surface, None)]                      # nothing to annotate
+
+    # An ANCHOR is text that appears in the reading as itself: kana, and punctuation, which both
+    # sides carry unchanged. Everything else is READ — kanji, but also digits and Latin, because
+    # 100日後に reads ヒャクニチゴニ and treating "100" as an anchor makes the whole title unalignable.
+    def is_anchor(c):
+        return is_kana(c) or not (c.isalnum() or "一" <= c <= "鿿")
+
+    runs, cur, cur_is_kanji = [], "", None
+    for c in surface:
+        k = not is_anchor(c)
+        if cur and k != cur_is_kanji:
+            runs.append((cur, cur_is_kanji))
+            cur = ""
+        cur, cur_is_kanji = cur + c, k
+    if cur:
+        runs.append((cur, cur_is_kanji))
+
+    # Backtracking, not greedy first-match. An anchor kana often also occurs INSIDE the reading of
+    # the kanji before it: 100日後に reads ヒャクニチゴニ, and pinning the anchor に to the FIRST ニ
+    # leaves 100日後 reading ヒャクニ and the tail unconsumed. The search has to be free to reject a
+    # placement and try the next one, which is what makes this the standard alignment rather than a
+    # scan. Titles are short and runs are few, so the exhaustive form is fast enough and is much
+    # easier to be sure of than a scoring heuristic.
+    def solve(i, pos):
+        if i == len(runs):
+            return [] if pos == len(reading) else None
+        text, readable = runs[i]
+        if not readable:
+            if _kana_eq(reading[pos:pos + len(text)], text):
+                rest = solve(i + 1, pos + len(text))
+                if rest is not None:
+                    return [(text, None)] + rest
+            return None
+        # A read run takes at least one kana, and every split is tried until the rest fits.
+        for stop in range(pos + 1, len(reading) + 1):
+            rest = solve(i + 1, stop)
+            if rest is not None:
+                return [(text, reading[pos:stop])] + rest
+        return None
+
+    return solve(0, 0)

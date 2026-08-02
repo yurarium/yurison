@@ -202,14 +202,22 @@ def load_names():
     except Exception:
         return {}, {}
 
-    def render(rec, is_person=False):
+    def render(k_ja, rec, is_person=False):
         out = {}
         rd = rec.get("reading")
         if rd:
             out["reading"] = rd
-            # Furigana is conventionally hiragana; the store keeps katakana because that is what
-            # sources return. Converted here so the interface does not have to know the difference.
-            out["furigana"] = _kana.to_hiragana(rd).replace(" ", "")
+            # Furigana per KANJI RUN, not stacked over the whole title. pass 4 stores spans it
+            # aligned with the tokeniser; a reading that came from a source has no token structure,
+            # so it is aligned directly — the anchor algorithm works on a whole string too, it is
+            # simply less accurate than doing it per token.
+            sp = rec.get("furigana_spans")
+            if not sp:
+                got = _kana.align(k_ja, rd.replace(" ", ""))
+                if got:
+                    sp = [[t, _kana.to_hiragana(x) if x else None] for t, x in got]
+            if sp and any(x[1] for x in sp):
+                out["ruby"] = sp
             # Personal names take particles=False — と in a name is 都 or 斗, never the particle.
             out["romaji"] = {st: _kana.title_case(_kana.romanise(rd, st), particles=not is_person)
                              for st in ("macron", "double", "plain")}
@@ -230,7 +238,7 @@ def load_names():
             continue
         d = (yaml.safe_load(f.read_text()) or {}).get("names") or {}
         got[kind] = {k: v for k, v in
-                     ((k, render(v, is_person=(kind == "authors"))) for k, v in d.items()) if v}
+                     ((k, render(k, v, is_person=(kind == "authors"))) for k, v in d.items()) if v}
     return got.get("authors", {}), got.get("titles", {})
 
 

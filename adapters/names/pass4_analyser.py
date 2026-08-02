@@ -151,6 +151,9 @@ def main():
                 skipped += 1
                 continue
             rec = names.setdefault(s, {})
+            spans = furigana_spans(tok, s, mode)
+            if spans:
+                rec["furigana_spans"] = spans
             rec.update({"reading": r, "reading_at": today, "reading_basis": "analyser",
                         "reading_pass": 4, "reading_source": "sudachi",
                         "reading_source_kind": "analyser",
@@ -169,3 +172,41 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def furigana_spans(tokenizer, s, mode=None):
+    """[[text, reading-or-null], …] for a whole string, aligned per kanji run.
+
+    Alignment is per TOKEN because that is where a reading is actually known — asking for the
+    reading of a whole title and then trying to place it is the harder problem and the one that
+    produces ruby over the wrong character. SudachiPy supplies the tokens and their readings; only
+    the placement inside a token is ours (kana.align).
+
+    Returns None if any token cannot be aligned, because a title with ruby over half its kanji
+    looks like a bug rather than a partial answer.
+    """
+    import kana as _k
+    out = []
+    for m in tokenizer.tokenize(s, mode):
+        surf = m.surface()
+        r = m.reading_form()
+        if not surf:
+            continue
+        if not r or r == "*" or has_kanji(r):
+            if all(unicodedata.category(c)[0] in "PZS" or c.isascii() for c in surf):
+                out.append([surf, None])
+                continue
+            return None
+        got = _k.align(surf, kata(r))
+        if got is None:
+            return None
+        for text, rd in got:
+            out.append([text, _k.to_hiragana(rd) if rd else None])
+    # Merge neighbouring unread runs so the markup does not fragment plain text pointlessly.
+    merged = []
+    for text, rd in out:
+        if rd is None and merged and merged[-1][1] is None:
+            merged[-1][0] += text
+        else:
+            merged.append([text, rd])
+    return merged

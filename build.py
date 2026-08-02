@@ -953,7 +953,13 @@ def main():
     for r in releases:
         ch = r.get("channel")
         if ch:
-            r["plat_name"] = f"{ch['host']}（{ch['name']}）"
+            # The platform is the HOST. A channel is a section within it — きららベース is
+            # manga.nicovideo.jp/official/kirara/, with no domain of its own — so composing
+            # "ニコニコ漫画（きららベース）" invents a source that does not exist and puts it in the
+            # platform list beside real ones. Same category error as treating a parallel edition or
+            # a reboot as a separate work: a channel is WHERE WITHIN a platform, not another one.
+            r["plat_name"] = ch["host"]
+            r["channel_name"] = ch["name"]
             elsewhere = norm_work(r["work"]) in fuz_confirmed
             r["syndicated"] = bool(ch["syndicated"] and elsewhere)
             if r["syndicated"]:

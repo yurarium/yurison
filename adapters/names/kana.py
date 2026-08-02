@@ -300,14 +300,27 @@ def title_case(s, particles=True):
     # The punctuation table already carries its own trailing space, so a token boundary next to it
     # produced ",  ". Collapse before splitting rather than after, or the empty word becomes a word.
     s = re.sub(r"\s+", " ", s).strip()
+    # A word does not necessarily start or end with a letter. 彼氏の女友達がぐいぐい来る（私に）
+    # romanised to "(watakushi Ni)": the bracket took the capital and left the word lower case,
+    # while "ni)" failed to match the particle list because of the one it carried. Both come from
+    # the same assumption. Capitalise the first LETTER wherever it sits, and test the particle on
+    # the word with its punctuation stripped.
+    def cap(w):
+        for i, c in enumerate(w):
+            if c.isalpha():
+                return w[:i] + w[i].upper() + w[i + 1:]
+        return w
+
     out = []
     for i, w in enumerate(s.split(" ")):
         if not w:
             out.append(w)
-        elif particles and i and w.lower() in PARTICLES:
+            continue
+        core = w.strip("（）()「」『』【】《》[]{}、。,.!?！？…—-~〜・:：;；\"'")
+        if particles and i and core.lower() in PARTICLES:
             out.append(w.lower())
         else:
-            out.append(w[:1].upper() + w[1:])
+            out.append(cap(w))
     return " ".join(out)
 
 

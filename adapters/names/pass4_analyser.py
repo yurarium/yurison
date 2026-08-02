@@ -34,6 +34,21 @@ STORE = pathlib.Path(__file__).resolve().parents[2] / "data" / "names"
 KATA = {chr(c) for c in range(0x30A0, 0x3100)}
 
 
+# Readings that are correct in a dictionary and wrong in ordinary use. SudachiDict gives 私 the
+# formal ワタクシ, which is defensible for the lemma and simply not how the word is read in a manga
+# title — 彼氏の女友達がぐいぐい来る（私に）is "watashi ni", not "watakushi ni". An analyser cannot know
+# register from a title fragment, so this is the one place a small human-curated table earns its
+# keep. Keyed on the exact SURFACE of a token, applied only where the analyser is guessing anyway.
+#
+# Keep it short and keep it justified. It is not a place to fix individual titles: anything here
+# changes every work containing that token, which is the point and also the risk.
+READING_OVERRIDE = {
+    "私": "ワタシ",
+    "俺": "オレ",
+    "僕": "ボク",
+}
+
+
 def is_kana_ch(c):
     return "\u3040" <= c <= "\u30ff"
 
@@ -110,7 +125,7 @@ def analyse(tokenizer, s, mode=None):
             continue
         if not r or r == "*" or has_kanji(r):
             return None            # a kanji we cannot read means we cannot read the string
-        out.append(kata(r))
+        out.append(READING_OVERRIDE.get(surf) or kata(r))
     # No space before closing punctuation, and none after an opening one — " , " is not spacing,
     # it is damage.
     got = ""
@@ -242,7 +257,10 @@ def furigana_spans(tokenizer, s, mode=None):
                 out.append([surf, None])
                 continue
             return None
-        got = _k.align(surf, kata(r))
+        # The override applies HERE too. It was applied when building the reading string and not
+        # when building the ruby, so the same title read "Watashi" in romaji and showed わたくし
+        # above the kanji — two renderings of one reading disagreeing on the page.
+        got = _k.align(surf, READING_OVERRIDE.get(surf) or kata(r))
         if got is None:
             return None
         for text, rd in got:

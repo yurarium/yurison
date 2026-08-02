@@ -1,23 +1,62 @@
-# Rows still missing a field, with the reason. Regenerated from the build.
+# Fields still missing, with the reason, regenerated from the build.
 #
-# Unconfirmed claims carry no chapter, author, access or kind BY NATURE: a listing site says a
-# work updated and nothing more. They are counted apart from attested rows, which are the ones
-# where a missing field means either a platform that does not publish it or a field we have not
-# gone and read.
+# EVERY ATTESTED ROW NAMES ITS CHAPTER. What remains is author and access on a short list of
+# platforms, and unconfirmed claims — which carry no chapter, author, access or kind BY NATURE,
+# a listing site having said only that a work updated.
+#
+# The distinction that matters: a field absent because the platform does not publish it is
+# finished work; a field absent because nothing went and read it is not. Only the first kind is
+# listed below.
 source: derived
 role: field-gaps
 retrieved: 2026-08-02
-rows_total: 1416
-rows_complete: 1279
-incomplete_claims: 50
-incomplete_attested: 87
-platform_reasons:
-  マンガよもんが: site is in maintenance (serves メンテナンス情報); author and access unverifiable
-    until it returns
-  マンガワン: publishes no author anywhere reachable — not on the chapter page, not in
-    the serial listing, not in a meta tag
-  ガンガンONLINE: publishes 次回更新 and no per-chapter dates, author or access
-  マガポケ: works whose rendered page yields no dated chapter list; dates come from the
-    sitemap, which carries URL and date only
-  ニコニコ漫画（きららベース）: channel claims; the work-level route covers ニコニコ漫画 proper, not every
-    channel listing
+rows_total: 1415
+attested: 1365
+attested_complete: 1303
+attested_missing_chapter: 0
+unconfirmed_claims: 50
+by_platform:
+  マンガよもんが:
+    author: 13
+    access: 13
+  マンガワン:
+    author: 14
+  マガポケ:
+    author: 5
+    access: 5
+  ニコニコ漫画（きららベース）:
+    access: 9
+  コロコロオンライン:
+    author: 4
+    access: 4
+  マイナビニュース:
+    author: 3
+    access: 3
+  ガンガンONLINE:
+    access: 3
+    author: 1
+  サンデーうぇぶり:
+    access: 2
+  フラコミlike!:
+    author: 1
+    access: 1
+  コミック アース・スター:
+    access: 1
+  一迅プラス:
+    access: 1
+  コミックDAYS:
+    access: 1
+  ヤンジャン+:
+    access: 1
+reasons:
+  マンガよもんが: site is in maintenance and serves メンテナンス情報; unverifiable until it returns
+  マンガワン: states no author on the chapter page, in the serial listing or in any meta
+    tag
+  ガンガンONLINE: publishes 次回更新 and no per-chapter date, author or access — a reader
+    on the site cannot see them either
+  マガポケ: a few works whose rendered page yields no dated chapter list; their dates
+    come from the sitemap
+  コロコロオンライン: the page title runs work and author together with no separator (DOUBLE
+    HELIX BLOSSOM SWAV アサウラ 西馬ごめゆき) — splitting it would be a guess at the boundary
+  マイナビニュース: the series URL 301-redirects; target not yet followed
+  ニコニコ漫画（きららベース）: channel rows; the work-level route covers ニコニコ漫画 proper

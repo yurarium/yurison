@@ -269,9 +269,34 @@ def romanise(reading, style="macron"):
     return "".join(parts)
 
 
+# Grammatical particles stay lower case in a romanised Japanese title — "Kimi no Na wa", not
+# "Kimi No Na Wa". Never the first word, where the particle reading is not the likely one and a
+# title has to start with a capital regardless.
+# Deliberately conservative. The short sentence-final particles — na, ne, yo, sa — and the
+# one-letter ones — o, e — collide with ordinary nouns: 名 is "na" and means NAME, so including it
+# turned 君の名は into "Kimi no na wa". Lower-casing a noun is a worse error than capitalising a
+# particle, because it reads as a typo rather than as a style choice, so the list holds only
+# particles that are rarely anything else when standing alone.
+PARTICLES = {"wa", "ga", "no", "ni", "wo", "to", "de", "mo", "kara", "made", "yori"}
+
+
 def title_case(s):
-    """Capitalise a rendered name without touching an internal apostrophe: Shin'ichi, not Shin'Ichi."""
-    return " ".join(w[:1].upper() + w[1:] if w else w for w in s.split(" "))
+    """Capitalise a rendered name without touching an internal apostrophe: Shin'ichi, not Shin'Ichi.
+
+    Particles are left alone. This matters because the alternative — capitalising every word —
+    reads as machine output to anyone who knows the language, and the strings we get FROM sources
+    already have it right, so a renderer that got it wrong would look like a downgrade exactly
+    where it is meant to be an improvement.
+    """
+    out = []
+    for i, w in enumerate(s.split(" ")):
+        if not w:
+            out.append(w)
+        elif i and w.lower() in PARTICLES:
+            out.append(w.lower())
+        else:
+            out.append(w[:1].upper() + w[1:])
+    return " ".join(out)
 
 
 # ---------------------------------------------------------------------------------------------

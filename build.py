@@ -182,6 +182,54 @@ def load_dir(p):
 #
 # Verified by byte-comparing every file in data/build/ before and after: identical.
 
+# ── English names and readings ────────────────────────────────────────────────────────────────
+#
+# The store holds a KANA reading, never a romanised string (NAMES-PLAN §8.1): Yūri, Yuuri and Yuri
+# are all derivable from kana and none from each other. The reader chooses a style, so the build
+# renders all three here rather than shipping a romanisation engine to the browser — the stored
+# form stays kana and nothing is baked.
+#
+# Only what the plan permits is emitted. A title's English name is shown unmarked when it is the
+# work's own (official-jp) or a licensor's (licensed), and marked when it is ours (translated,
+# romaji). An unverified reading is marked — §5d, and see the memory note: this is NOT a return of
+# 要確認, because it is a fact about the name that a Japanese-literate reader can adjudicate, and it
+# exists so a real person is not authoritatively misnamed. Anything with no rendering emits nothing
+# at all and the interface shows the Japanese (§6).
+def load_names():
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
+        import kana as _kana
+    except Exception:
+        return {}, {}
+
+    def render(rec):
+        out = {}
+        rd = rec.get("reading")
+        if rd:
+            out["reading"] = rd
+            out["romaji"] = {st: _kana.title_case(_kana.romanise(rd, st))
+                             for st in ("macron", "double", "plain")}
+        if rec.get("en"):
+            out["en"] = rec["en"]
+        if rec.get("basis"):
+            out["basis"] = rec["basis"]
+        # False is meaningful and must survive; missing is not the same as verified.
+        if rec.get("verified") is False:
+            out["unverified"] = True
+        return out or None
+
+    got = {}
+    for kind in ("authors", "titles"):
+        f = pathlib.Path("data/names") / f"{kind}.yaml"
+        if not f.exists():
+            got[kind] = {}
+            continue
+        d = (yaml.safe_load(f.read_text()) or {}).get("names") or {}
+        got[kind] = {k: v for k, v in ((k, render(v)) for k, v in d.items()) if v}
+    return got.get("authors", {}), got.get("titles", {})
+
+
+
 def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
                      contradicted_works, print_candidates, web_works, samples):
     # ── The published feed, split ────────────────────────────────────────────────────────────────
@@ -2332,6 +2380,22 @@ def main():
         })
     series_rows = sorted(works_out,
                          key=lambda r: (r["latest"] or "", r["chapters"]), reverse=True)
+    # Attach English names and readings. Keyed on the exact Japanese string the store was built
+    # from, so a work or author with no entry simply gets nothing and renders in Japanese (§6).
+    _auth_names, _title_names = load_names()
+    _named_w = _named_a = 0
+    for r in series_rows + releases:
+        t = _title_names.get(r.get("work"))
+        if t:
+            r["work_en"] = t
+            _named_w += 1
+        a = _auth_names.get((r.get("author") or "").strip())
+        if a:
+            r["author_en"] = a
+            _named_a += 1
+    print(f"names attached  : {_named_w} rows with a title rendering, {_named_a} with an author "
+          f"rendering (store: {len(_title_names)} titles, {len(_auth_names)} authors)")
+
     (out / "series.json").write_text(json.dumps(
         {"series": series_rows,
          "generated": str(_today),

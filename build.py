@@ -2429,18 +2429,47 @@ def main():
     # Attach English names and readings. Keyed on the exact Japanese string the store was built
     # from, so a work or author with no entry simply gets nothing and renders in Japanese (§6).
     _auth_names, _title_names = load_names()
+
+    # PUNCTUATION-TOLERANT LOOKUP. The store is keyed on the exact Japanese string, and the same
+    # work reaches us with both （私に） and (私に) depending on the platform — full-width and
+    # half-width brackets are different characters, so one variant matched and the other silently
+    # got nothing. NFKC folds the two together without touching the words, so a lookup miss falls
+    # back to the folded key rather than giving up.
+    def _fold(t):
+        return unicodedata.normalize("NFKC", t or "").replace(" ", "")
+
+    _title_folded = {_fold(k): v for k, v in _title_names.items()}
+    _auth_folded = {_fold(k): v for k, v in _auth_names.items()}
+
     _named_w = _named_a = 0
     for r in series_rows + releases:
-        t = _title_names.get(r.get("work"))
+        t = _title_names.get(r.get("work")) or _title_folded.get(_fold(r.get("work")))
         if t:
             r["work_en"] = t
             _named_w += 1
-        a = _auth_names.get((r.get("author") or "").strip())
+        _a_raw = (r.get("author") or "").strip()
+        a = _auth_names.get(_a_raw) or _auth_folded.get(_fold(_a_raw))
         if a:
             r["author_en"] = a
             _named_a += 1
     print(f"names attached  : {_named_w} rows with a title rendering, {_named_a} with an author "
           f"rendering (store: {len(_title_names)} titles, {len(_auth_names)} authors)")
+
+    # NAMES SHIP SEPARATELY TOO, keyed by the folded string, because an ARCHIVED MONTH IS NEVER
+    # REWRITTEN. That rule exists to stop a published date being revised (§5) and it was silently
+    # freezing everything else with it: 2026-07 was written before any of this existed, so every
+    # row in it showed Japanese only and always would have. Dates are the thing that must not
+    # change; a romanisation improving is the system working.
+    #
+    # So the archive keeps its rows exactly as published and the interface joins the current names
+    # onto them at render time. One file, loaded once, covering every month.
+    (out / "feed" / "names.json").write_text(json.dumps(
+        {"generated": str(_today),
+         "note": "English renderings and readings, keyed by NFKC-folded title/author. Joined onto "
+                 "feed rows at render time so archived months — which are never rewritten — still "
+                 "show current names.",
+         "titles": _title_folded, "authors": _auth_folded},
+        ensure_ascii=False, indent=1, default=jsonable))
 
     (out / "series.json").write_text(json.dumps(
         {"series": series_rows,

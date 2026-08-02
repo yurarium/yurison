@@ -51,6 +51,15 @@ LETTER_NAME = {
     "V": "ブイ", "W": "ダブリュー", "X": "エックス", "Y": "ワイ", "Z": "ゼット",
 }
 
+# PARTICLES ARE SPELLED ONE WAY AND SAID ANOTHER. は as a topic particle is pronounced wa, へ as a
+# direction particle is pronounced e — and Sudachi's reading_form gives the KANA (ハ, ヘ), which is
+# what is written rather than what is said. Romanising the written form produced "Ha" all over
+# titles where every reader says "wa": 運命は役に立たない is "Unmei wa", not "Unmei ha".
+#
+# Keyed on part of speech, not on the character, so the 葉 of 葉っぱ and the interjection ハハハ are
+# untouched — only a token that IS the particle is changed.
+PARTICLE_SOUND = {"は": "ワ", "へ": "エ"}
+
 READING_OVERRIDE = {
     "私": "ワタシ",
     "俺": "オレ",
@@ -247,8 +256,10 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
             continue
         # ー lengthens the sound before it. Standing as its own token it rendered as a literal
         # "ー" in the middle of the romaji: 抱き寝ーター came out "Daki Ne ー Tā".
+        _pos = m.part_of_speech()
+        _sound = PARTICLE_SOUND.get(surf) if _pos and _pos[0] == "助詞" else None
         out.append(("\x00" if (glue or surf == "\u30fc") else "")
-                   + (READING_OVERRIDE.get(surf) or kata(r))
+                   + (_sound or READING_OVERRIDE.get(surf) or kata(r))
                    + ("\x02" if surf in PREFIX_GLUE else ""))
     # No space before closing punctuation, and none after an opening one — " , " is not spacing,
     # it is damage.

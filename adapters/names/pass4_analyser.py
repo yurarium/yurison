@@ -74,8 +74,15 @@ def has_kanji(s):
 _UNIHAN = None
 
 
-def unihan_on(ch):
+def unihan_on(ch, prefer_kun=False):
     """On-yomi from the Unicode Han Database, or None.
+
+    ON AND KUN MIXING IS A WARNING, NOT AN ANSWER. 濡鴉 comes out ジュ + カラス — the ON reading of
+    one character beside the KUN of the next. Japanese does form such compounds (重箱読み, 湯桶読み)
+    but they are the exception, so a reading assembled that way is more likely wrong than one that
+    is consistently on or consistently kun. It does not tell us the right reading: 濡鴉 is probably
+    ぬれがらす, a nanori reading this data does not carry at all. Everything from here is marked
+    uncertain regardless, which is why that mark is doing the real work.
 
     THE LAST RESORT AND THE WEAKEST. SudachiDict — core and full — has no standalone entry for 濡,
     激, 痲, 犠 or 滅, so a title containing one could never be rendered at all. Unihan has all of
@@ -88,35 +95,52 @@ def unihan_on(ch):
         import json
         f = STORE / "unihan-on.json"
         _UNIHAN = json.loads(f.read_text())["readings"] if f.exists() else {}
-    return _UNIHAN.get(ch)
+    got = _UNIHAN.get(ch)
+    if not got:
+        return None
+    if isinstance(got, str):                      # older single-reading file
+        return got
+    on, kun = (got + ["", ""])[:2]
+    # TESTED AND REJECTED: preferring kun-yomi for personal names. It sounds right — names do take
+    # kun far more often than on — but Unihan's kJapaneseKun is the reading of the character AS A
+    # WORD, not its nanori. 採 gives トル ("to take"), so 伊藤玄採 became "Itō Gen Toru"; 阿 gives
+    # クマ, so 茉離阿 became "Matsurikuma". Names use nanori readings, which this data does not
+    # carry, and the verb reading is a worse guess than the on reading. The parameter is kept so
+    # the rejection is visible rather than re-derived.
+    return on or kun
 
 
-def per_char(tokenizer, modes, ch):
+def per_char(tokenizer, modes, ch, prefer_kun=False):
     """A reading for one character in isolation, or None. Analyser first, Unihan after."""
     for m in modes:
         r = [t.reading_form() for t in tokenizer.tokenize(ch, m)]
         if r and r[0] and r[0] != "*" and not has_kanji(r[0]):
             return kata(r[0])
-    return unihan_on(ch)
+    return unihan_on(ch, prefer_kun)
 
 
-def analyse_best(tokenizer, s, modes):
+def analyse_best(tokenizer, s, modes, prefer_kun=False):
     """Try each split mode in turn. Mode C keeps compounds whole, which reads better when it works;
     mode A is finer and sometimes reads a kanji that C gave up on, because a rare compound is not in
     the dictionary while its parts are. First success wins."""
     for m in modes:
-        got = analyse(tokenizer, s, m)
+        got, guessed = analyse(tokenizer, s, m, want_flag=True, prefer_kun=prefer_kun)
         if got:
-            return got, False
-    # LAST RESORT. The analyser could not read the string as words, so read it character by
-    # character — 抱き寝ーター defeats every split mode but 寝 alone is ネ. This is a genuinely worse
+            return got, guessed
+    # Whole-string character-by-character reading, kept only for a string the tokeniser cannot
+    # segment at all. Per-TOKEN fallback inside analyse() handles the ordinary case — one unreadable
+    # kanji in an otherwise clean parse — and is far better, because it keeps the segmentation. — 抱き寝ーター defeats every split mode but 寝 alone is ネ. This is a genuinely worse
     # answer: a character read in isolation gives its dictionary reading, and Japanese titles
     # overwhelmingly use kun-yomi in compounds where the isolated form may be on-yomi. It is
     # returned flagged so the interface can say so, and it is all-or-nothing — a reading with a
     # hole in it is not a reading.
     out, any_kanji = [], False
     for ch in s:
-        if is_kana_ch(ch) or not (ch.isalnum() or "\u4e00" <= ch <= "\u9fff"):
+        # ASCII passes through as itself. Asking a Japanese reader for the reading of "L" gets
+        # リットル — litre — and of "R" gets アール, so "Fallin' Jail" came back as
+        # "Fārurittorurittoruainorumaru' Jāruairittoru". A Latin word is already readable; the
+        # character reader is for kanji and must never be pointed at anything else.
+        if ch.isascii() or is_kana_ch(ch) or not (ch.isalnum() or "\u4e00" <= ch <= "\u9fff"):
             out.append(ch)
             continue
         r = per_char(tokenizer, modes, ch)
@@ -143,7 +167,7 @@ def attaches_left(pos):
     return pos and (pos[0] in ATTACHES or (len(pos) > 1 and pos[1] in ATTACH_SUB))
 
 
-def analyse(tokenizer, s, mode=None):
+def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
     """A reading for the whole string, or None if any part of it comes back unreadable.
 
     Partial is not useful here: a title half in kana and half in raw kanji reads worse than the
@@ -155,7 +179,7 @@ def analyse(tokenizer, s, mode=None):
     into 食べ/たい and rendered "Tabe Tai"; the coarser mode is closer to words, which is what a
     romanised title needs.
     """
-    out = []
+    out, fell_back = [], False
     for m in tokenizer.tokenize(s, mode):
         surf = m.surface()
         r = m.reading_form()
@@ -169,8 +193,32 @@ def analyse(tokenizer, s, mode=None):
             out.append(surf)
             continue
         if not r or r == "*" or has_kanji(r):
-            return None            # a kanji we cannot read means we cannot read the string
-        out.append(("\x00" if glue else "") + (READING_OVERRIDE.get(surf) or kata(r)))
+            # PER-TOKEN, not per-string. ガイド役の天使を殴り倒したら、死霊術師になりました～激カワ…
+            # parses perfectly except for ONE character: 激, which SudachiDict has no standalone
+            # entry for. Failing the whole string sent all forty characters to the character-level
+            # reader, which glued them together and mis-read the rest — Gaidoyakunotenshiōuritōshitara
+            # — destroying a tokenisation that was almost entirely correct to salvage one kanji.
+            #
+            # So the fallback is applied to the token that failed and nothing else. The word before
+            # it keeps the analyser's reading; 激 alone gets the per-character one.
+            sub = "".join(c if c.isascii() else (per_char(tokenizer, [mode], c, prefer_kun) or "")
+                          for c in surf)
+            if not sub or has_kanji(sub) or len(sub) < len(surf):
+                return (None, False) if want_flag else None
+            # A per-character reading is a guess — see per_char. Recorded so the interface can mark
+            # it, because 濡鴉 -> ジュカラス is the on-yomi of two characters read separately and is
+            # very likely not how anyone says it.
+            # Consecutive characters the analyser could not read are ONE word, not several:
+            # 玄採 came out "Gen Sai" because Sudachi split it and each half was read alone. A
+            # fallback token glues to a fallback token before it.
+            fell_back = True
+            out.append(("\x00" if (glue or (out and out[-1].startswith("\x01"))) else "")
+                       + "\x01" + sub)
+            continue
+        # ー lengthens the sound before it. Standing as its own token it rendered as a literal
+        # "ー" in the middle of the romaji: 抱き寝ーター came out "Daki Ne ー Tā".
+        out.append(("\x00" if (glue or surf == "\u30fc") else "")
+                   + (READING_OVERRIDE.get(surf) or kata(r)))
     # No space before closing punctuation, and none after an opening one — " , " is not spacing,
     # it is damage.
     got = ""
@@ -178,14 +226,15 @@ def analyse(tokenizer, s, mode=None):
         if not tokn:
             continue
         glue = tokn.startswith("\x00")
-        tokn = tokn.lstrip("\x00")
+        tokn = tokn.lstrip("\x00").lstrip("\x01")
         if not tokn:
             continue
         if got and not glue and not (tokn[0] in "、。，．！？」』）】〉》・…" or got[-1] in "「『（【〈《"):
             got += " "
         got += tokn
     got = got.strip()
-    return got if got and not has_kanji(got) else None
+    ok = got if got and not has_kanji(got) else None
+    return (ok, fell_back and ok is not None) if want_flag else ok
 
 
 # A credit line is not a name. 原作／宮澤伊織(早川書房刊) 作画／水野英多 went through the analyser as

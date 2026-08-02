@@ -21,6 +21,16 @@ for f in "$SITE/kari/data"/*.json "$SITE/kari/data/feed"/*.json; do
   src="data/build/${f#"$SITE/kari/data/"}"
   [ -f "$src" ] || { echo "removing stale $f"; rm -f "$f"; }
 done
+# Re-run the checks AFTER copying, and ship the report last.
+#
+# Two of the invariants compare the site against the build, and build.py runs the checks at the end
+# of the BUILD — when data/build has just been rewritten and the site still holds the previous
+# deploy. At that instant the comparison legitimately fails, so the report published alongside the
+# data always claimed five violations that copying had already fixed. A report that is wrong by
+# construction is worse than none: it trains the reader to ignore it.
+python3 check.py --runtime >/dev/null 2>&1 || true
+cp data/build/checks.json "$SITE/kari/data/" 2>/dev/null || true
+
 echo "copied $(python3 -c 'import json;print(len(json.load(open("data/build/index.json"))))') works -> $SITE/kari/data/"
 echo "feed: $(python3 -c 'import json;print(len(json.load(open("data/build/feed/current.json"))["releases"]))') current rows, archives: $(ls data/build/feed/ | grep -c '^[0-9]')"
 echo "now commit and push in $SITE"

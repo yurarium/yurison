@@ -200,6 +200,12 @@ def inv_deployed_matches_built(ctx):
     """What the site serves is what the build produced.
 
     fallback: do not copy the differing file; the previous one stays served.
+
+    TIMING MATTERS FOR THIS ONE. It is false for the whole window between a build finishing and
+    deploy.sh copying, which is exactly when build.py runs the checks — so the report published
+    beside the data claimed five violations that copying had already fixed, every single time.
+    deploy.sh now re-runs the checks after copying and ships the report last. A report that is
+    wrong by construction is worse than no report: it teaches the reader to ignore it.
     """
     if not SITE.exists():
         return []

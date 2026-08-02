@@ -9,7 +9,7 @@ SITE="${1:-$HOME/workspace/yurarium.github.io}"
 # audit sampler read it — and at 1.3 MB it was downloaded in full by every visitor to render the
 # first screen. What ships is data/build/feed/: a 14-day current.json, one file per archived month,
 # and meta.json. Nothing on the site fetches feed.json any more.
-cp data/build/index.json data/build/works.json data/build/series.json data/build/run.json "$SITE/kari/data/"
+cp data/build/index.json data/build/works.json data/build/series.json data/build/run.json data/build/checks.json "$SITE/kari/data/"
 mkdir -p "$SITE/kari/data/feed"
 cp data/build/feed/*.json "$SITE/kari/data/feed/"
 # Copy, then reconcile. `cp` adds and overwrites but never removes, so a file the build has stopped

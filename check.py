@@ -206,6 +206,10 @@ def inv_deployed_matches_built(ctx):
     bad = []
     for f in list(BUILD.glob("*.json")) + list((BUILD / "feed").glob("*.json")):
         rel = f.relative_to(BUILD)
+        # checks.json reports on this comparison and is written after it; including it would have
+        # the check fail on its own output.
+        if rel.name == "checks.json":
+            continue
         live = SITE / rel
         if live.exists() and live.read_bytes() != f.read_bytes():
             bad.append(str(rel))
@@ -257,11 +261,22 @@ def budget_shadowed_names(ctx):
         return 0
 
 
+# name, measure, what a rise would mean. The third field exists because a bare number in a JSON
+# file tells a later reader nothing about why it matters or which way is good, and a budget nobody
+# understands is a budget that gets raised to make a build pass.
 BUDGETS_DEF = [
-    ("uncertain readings", budget_uncertain_readings),
-    ("works without English", budget_works_without_english),
-    ("incomplete attested rows", budget_incomplete_attested_rows),
-    ("shadowed names in build.py", budget_shadowed_names),
+    ("uncertain readings", budget_uncertain_readings,
+     "readings assembled character by character because no analyser could read the word. A rise "
+     "means new works whose kanji nothing can read, or a regression in the analyser passes."),
+    ("works without English", budget_works_without_english,
+     "works that render in Japanese in English-only mode. Should be 0; a rise means the automatic "
+     "naming pass stopped covering something it used to."),
+    ("incomplete attested rows", budget_incomplete_attested_rows,
+     "attested releases missing a chapter name, author or access state. The classic sign of a "
+     "moved CSS selector — the adapter still returns rows, just emptier ones."),
+    ("shadowed names in build.py", budget_shadowed_names,
+     "names rebound more than 300 lines from their first binding. Two shipped bugs came from this; "
+     "see adapters/lint/shadowing.py for why the count is not simply falling."),
 ]
 
 
@@ -347,7 +362,7 @@ def main():
     recorded = _load(BUDGETS, {}) or {}
     print("\nbudgets (ratchet down only):")
     loosened, tightened = [], {}
-    for name, fn in BUDGETS_DEF:
+    for name, fn, _why in BUDGETS_DEF:
         n = fn(ctx)
         was = recorded.get(name)
         if was is None:
@@ -365,6 +380,21 @@ def main():
         recorded.update(tightened)
         BUDGETS.parent.mkdir(parents=True, exist_ok=True)
         BUDGETS.write_text(json.dumps(dict(sorted(recorded.items())), indent=1) + "\n")
+
+    # A report only a build log ever sees is a report nobody reads. The technical view exists to
+    # carry facts about our own process, and "which invariants degraded on the last run" is exactly
+    # that. Written on both paths so the file is never stale relative to the data beside it.
+    (BUILD / "checks.json").write_text(json.dumps({
+        "generated": ctx.get("generated") or "",
+        "invariants": [{"name": n, "violations": len(v), "examples": v[:5]}
+                       for n, v in [(n, f(ctx)) for n, f in INVARIANTS]],
+        "budgets": [{"name": n, "value": f(ctx), "budget": recorded.get(n), "means": w}
+                    for n, f, w in BUDGETS_DEF],
+        "note": ("Invariants are statements that are either true or the data is broken. At runtime "
+                 "a violation degrades to the fallback named in check.py and is counted here; at "
+                 "check-in the same violation blocks. Budgets are counts with no correct value, "
+                 "only a direction: they tighten automatically and loosen only by hand."),
+    }, ensure_ascii=False, indent=1))
 
     if a.runtime:
         # The show must go on. Violations are reported and counted; the build publishes anyway,

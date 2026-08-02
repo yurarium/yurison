@@ -1,3 +1,4 @@
+import re
 #!/usr/bin/env python3
 """Kana as the stored form of a reading, and the three romanisation styles derived from it.
 
@@ -277,22 +278,33 @@ def romanise(reading, style="macron"):
 # turned 君の名は into "Kimi no na wa". Lower-casing a noun is a worse error than capitalising a
 # particle, because it reads as a typo rather than as a style choice, so the list holds only
 # particles that are rarely anything else when standing alone.
-PARTICLES = {"wa", "ga", "no", "ni", "wo", "to", "de", "mo", "kara", "made", "yori"}
+PARTICLES = {"wa", "ga", "no", "ni", "wo", "to", "de", "mo", "kara", "made", "yori",
+             # を and へ render as single letters and, standing alone between words, are the
+             # particles essentially always. 名 ("na") was the collision worth avoiding, not these.
+             "o", "e"}
 
 
-def title_case(s):
+def title_case(s, particles=True):
     """Capitalise a rendered name without touching an internal apostrophe: Shin'ichi, not Shin'Ichi.
 
-    Particles are left alone. This matters because the alternative — capitalising every word —
+    `particles=False` for a PERSONAL NAME. Grammatical particles do not occur inside one, so the
+    rule can only misfire there: 宮原 都 came out "Miyahara to" because 都 reads "to", which is also
+    the particle と. Lower-casing part of someone's name is a worse error than capitalising a
+    particle in a title, and unlike the title case it is about a person.
+
+    Particles are left alone in titles. This matters because the alternative — capitalising every word —
     reads as machine output to anyone who knows the language, and the strings we get FROM sources
     already have it right, so a renderer that got it wrong would look like a downgrade exactly
     where it is meant to be an improvement.
     """
+    # The punctuation table already carries its own trailing space, so a token boundary next to it
+    # produced ",  ". Collapse before splitting rather than after, or the empty word becomes a word.
+    s = re.sub(r"\s+", " ", s).strip()
     out = []
     for i, w in enumerate(s.split(" ")):
         if not w:
             out.append(w)
-        elif i and w.lower() in PARTICLES:
+        elif particles and i and w.lower() in PARTICLES:
             out.append(w.lower())
         else:
             out.append(w[:1].upper() + w[1:])

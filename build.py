@@ -202,12 +202,16 @@ def load_names():
     except Exception:
         return {}, {}
 
-    def render(rec):
+    def render(rec, is_person=False):
         out = {}
         rd = rec.get("reading")
         if rd:
             out["reading"] = rd
-            out["romaji"] = {st: _kana.title_case(_kana.romanise(rd, st))
+            # Furigana is conventionally hiragana; the store keeps katakana because that is what
+            # sources return. Converted here so the interface does not have to know the difference.
+            out["furigana"] = _kana.to_hiragana(rd).replace(" ", "")
+            # Personal names take particles=False — と in a name is 都 or 斗, never the particle.
+            out["romaji"] = {st: _kana.title_case(_kana.romanise(rd, st), particles=not is_person)
                              for st in ("macron", "double", "plain")}
         if rec.get("en"):
             out["en"] = rec["en"]
@@ -225,7 +229,8 @@ def load_names():
             got[kind] = {}
             continue
         d = (yaml.safe_load(f.read_text()) or {}).get("names") or {}
-        got[kind] = {k: v for k, v in ((k, render(v)) for k, v in d.items()) if v}
+        got[kind] = {k: v for k, v in
+                     ((k, render(v, is_person=(kind == "authors"))) for k, v in d.items()) if v}
     return got.get("authors", {}), got.get("titles", {})
 
 

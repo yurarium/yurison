@@ -158,7 +158,11 @@ def emit(site, today, a):
          f"platform_name: {js(site['name'])}", f"publisher: {js(site.get('publisher', ''))}",
          f"retrieved: {a.retrieved}",
          "record_type: web_work_chapters", "identification_mode: discovery-candidate",
-         "date_basis: platform-stated", "date_confidence: reported", "works:"]
+         # Per site, not per adapter. Both read the platform's own markup, but コロコロ only draws
+         # it in a browser and フラコミ serves it — and "how we came to hold this" is what this
+         # field records. Writing platform-stated for both would have hidden the browser.
+         f"date_basis: {'rendered' if rendered else 'platform-stated'}",
+         "date_confidence: reported", "works:"]
     for w in works:
         L.append(f"  - work_title: {js(w['work_title'])}")
         if w["author"]:

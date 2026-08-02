@@ -34,6 +34,10 @@ STORE = pathlib.Path(__file__).resolve().parents[2] / "data" / "names"
 KATA = {chr(c) for c in range(0x30A0, 0x3100)}
 
 
+def is_kana_ch(c):
+    return "\u3040" <= c <= "\u30ff"
+
+
 def kata(s):
     """Readings are stored in katakana, matching every other pass."""
     return "".join(chr(ord(c) + 0x60) if "ぁ" <= c <= "ゖ" else c for c in s)
@@ -41,6 +45,43 @@ def kata(s):
 
 def has_kanji(s):
     return any("\u4e00" <= c <= "\u9fff" for c in s)
+
+
+def per_char(tokenizer, modes, ch):
+    """A reading for one character in isolation, or None. The last resort, and a weak one."""
+    for m in modes:
+        r = [t.reading_form() for t in tokenizer.tokenize(ch, m)]
+        if r and r[0] and r[0] != "*" and not has_kanji(r[0]):
+            return kata(r[0])
+    return None
+
+
+def analyse_best(tokenizer, s, modes):
+    """Try each split mode in turn. Mode C keeps compounds whole, which reads better when it works;
+    mode A is finer and sometimes reads a kanji that C gave up on, because a rare compound is not in
+    the dictionary while its parts are. First success wins."""
+    for m in modes:
+        got = analyse(tokenizer, s, m)
+        if got:
+            return got, False
+    # LAST RESORT. The analyser could not read the string as words, so read it character by
+    # character — 抱き寝ーター defeats every split mode but 寝 alone is ネ. This is a genuinely worse
+    # answer: a character read in isolation gives its dictionary reading, and Japanese titles
+    # overwhelmingly use kun-yomi in compounds where the isolated form may be on-yomi. It is
+    # returned flagged so the interface can say so, and it is all-or-nothing — a reading with a
+    # hole in it is not a reading.
+    out, any_kanji = [], False
+    for ch in s:
+        if is_kana_ch(ch) or not (ch.isalnum() or "\u4e00" <= ch <= "\u9fff"):
+            out.append(ch)
+            continue
+        r = per_char(tokenizer, modes, ch)
+        if not r:
+            return None, False
+        any_kanji = True
+        out.append(r)
+    got = "".join(out).strip()
+    return (got, True) if got and any_kanji and not has_kanji(got) else (None, False)
 
 
 def analyse(tokenizer, s, mode=None):
@@ -114,7 +155,7 @@ def main():
         sys.exit("SudachiPy not installed: pip install sudachipy sudachidict-core")
     from sudachipy import SplitMode
     tok = Dictionary().create()
-    mode = SplitMode.C
+    modes = [SplitMode.C, SplitMode.A]
     today = str(datetime.date.today())
 
     for kind in ("titles", "authors"):
@@ -145,20 +186,27 @@ def main():
 
         added = skipped = 0
         for s in todo:
-            r = analyse(tok, s, mode)
-            # A reading identical to the surface tells the reader nothing they cannot already see.
-            if not r or r.replace(" ", "") == s.replace(" ", ""):
+            r, uncertain = analyse_best(tok, s, modes)
+            if not r:
                 skipped += 1
                 continue
+            # A reading identical to the surface adds nothing as FURIGANA — but it is still what the
+            # romanisation is built from, and バクガタリzzZ needs "Bakugatari zzZ" as much as any
+            # other title does. Skipping it conflated "useless as ruby" with "useless", and left
+            # every kana-and-Latin title with no English at all.
+            same_as_surface = r.replace(" ", "") == s.replace(" ", "")
             rec = names.setdefault(s, {})
-            spans = furigana_spans(tok, s, mode)
-            if spans:
-                rec["furigana_spans"] = spans
+            if not same_as_surface:
+                spans = furigana_spans(tok, s, modes[0])
+                if spans:
+                    rec["furigana_spans"] = spans
             rec.update({"reading": r, "reading_at": today, "reading_basis": "analyser",
                         "reading_pass": 4, "reading_source": "sudachi",
                         "reading_source_kind": "analyser",
                         # Never true. This is the labelled guess §5d permits, not a claim.
                         "verified": False})
+            if uncertain:
+                rec["reading_uncertain"] = True
             rec.setdefault("basis", "romaji")
             rec["note"] = ("reading guessed by a morphological analyser, not stated by any source; "
                            "analysers are weakest on pen names and coinages")
@@ -169,9 +217,6 @@ def main():
             doc["names"] = names
             f.write_text(yaml.safe_dump(doc, allow_unicode=True, sort_keys=True, width=100))
 
-
-if __name__ == "__main__":
-    main()
 
 
 def furigana_spans(tokenizer, s, mode=None):
@@ -210,3 +255,61 @@ def furigana_spans(tokenizer, s, mode=None):
         else:
             merged.append([text, rd])
     return merged
+
+
+def fill_missing(strings, kind, quiet=False):
+    """Give every string a reading if one can be found. Idempotent, offline, safe to call always.
+
+    THIS IS THE AUTOPILOT. Everything else in this directory is a pass someone runs; this is the one
+    build.py calls on every build, so a title that appears overnight has an English rendering by
+    morning without anyone touching it. It only ever ADDS: a name that already has a reading — from
+    a source, from kana, from a previous run — is left exactly as it was.
+
+    Returns the number added. Missing SudachiPy is not an error: the names simply are not filled and
+    the interface shows Japanese, which is the documented fallback rather than a failure.
+    """
+    try:
+        from sudachipy import Dictionary, SplitMode
+    except ImportError:
+        return 0
+    f = STORE / f"{kind}.yaml"
+    if not f.exists():
+        return 0
+    doc = yaml.safe_load(f.read_text()) or {}
+    names = doc.setdefault("names", {})
+    todo = [s for s in strings
+            if s and not (names.get(s) or {}).get("reading")
+            and has_japanese(s) and not (kind == "authors" and is_credit_line(s))]
+    if not todo:
+        return 0
+    tok = Dictionary().create()
+    modes = [SplitMode.C, SplitMode.A]
+    today = str(datetime.date.today())
+    added = 0
+    for s in todo:
+        r, uncertain = analyse_best(tok, s, modes)
+        if not r:
+            continue
+        rec = names.setdefault(s, {})
+        if r.replace(" ", "") != s.replace(" ", ""):
+            spans = furigana_spans(tok, s, modes[0])
+            if spans:
+                rec["furigana_spans"] = spans
+        rec.update({"reading": r, "reading_at": today, "reading_basis": "analyser",
+                    "reading_pass": 4, "reading_source": "sudachi",
+                    "reading_source_kind": "analyser", "verified": False})
+        if uncertain:
+            rec["reading_uncertain"] = True
+        rec.setdefault("basis", "romaji")
+        rec["note"] = ("reading guessed by a morphological analyser, not stated by any source; "
+                       "analysers are weakest on pen names and coinages")
+        added += 1
+    if added:
+        doc["names"] = names
+        f.write_text(yaml.safe_dump(doc, allow_unicode=True, sort_keys=True, width=100))
+        if not quiet:
+            print(f"names filled    : {added} new {kind} read automatically (analyser, unverified)")
+    return added
+
+if __name__ == "__main__":
+    main()

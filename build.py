@@ -228,6 +228,11 @@ def load_names():
         # False is meaningful and must survive; missing is not the same as verified.
         if rec.get("verified") is False:
             out["unverified"] = True
+        # A reading assembled character by character because nothing could read the word. Weaker
+        # than an ordinary guess and marked separately: 抱き寝ーター came out カカエきネーター, where
+        # 抱き is ダキ — the isolated reading of a character is often not its reading in a compound.
+        if rec.get("reading_uncertain"):
+            out["uncertain"] = True
         return out or None
 
     got = {}
@@ -2393,6 +2398,23 @@ def main():
         })
     series_rows = sorted(works_out,
                          key=lambda r: (r["latest"] or "", r["chapters"]), reverse=True)
+    # AUTOPILOT. Before attaching anything, give every work and author the pipeline currently knows
+    # about a reading if it does not have one. This is what makes a title that appears overnight
+    # render in English by morning with nobody touching it — the alternative is a store that only
+    # grows when someone remembers to run a pass, which is not a database that can be left running.
+    #
+    # Offline, idempotent, and additive only: a name with a reading from a real source is never
+    # overwritten by a guess. If SudachiPy is not installed it does nothing and the interface falls
+    # back to Japanese (§6), which is a documented state rather than a failure.
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
+        import pass4_analyser as _p4
+        _p4.fill_missing({r["work"] for r in series_rows}, "titles")
+        _p4.fill_missing({(r.get("author") or "").strip()
+                          for r in series_rows if r.get("author")}, "authors")
+    except Exception as e:                      # never let a naming helper break the build
+        print(f"names           : automatic reading pass skipped ({e})")
+
     # Attach English names and readings. Keyed on the exact Japanese string the store was built
     # from, so a work or author with no entry simply gets nothing and renders in Japanese (§6).
     _auth_names, _title_names = load_names()

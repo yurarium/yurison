@@ -125,7 +125,43 @@ def from_giga(html, page_url):
     return out
 
 
-def from_comici(html):
+SORT_LINK = re.compile(r'class="series-sort-link"[^>]*href="([^"]+)"')
+
+
+def from_comici(html, page_url=""):
+    """comici shows ten episodes and hides the rest behind もっと見る — but it also renders a range
+    navigation, and those ranges are ordinary URLs.
+
+    お姉さんは女子小学生に興味があります。 offers /episodes/<hash>/1, /2 and /3 labelled 1, 31 and 61,
+    and each returns its whole block rather than a page of ten. So the full history is reachable by
+    fetching the ranges, and the LAST range holds the newest chapters — which is the only part the
+    update feed needs.
+
+    No browser and no credential. The episode list also comes from plus-api.comici.jp, which
+    answers 403 without a contentApiKey Bearer token taken from the site's own bundle; that is a
+    client credential and is not replayed here. The range links are the site's own navigation.
+    """
+    if not COMICI_BLOCK.search(html):
+        return []
+    ranges = [u for u in dict.fromkeys(SORT_LINK.findall(html))]
+    if ranges and page_url:
+        base = re.match(r"(https?://[^/]+)", page_url)
+        merged, seen_html = [], set()
+        for rel in ranges:
+            u = rel if rel.startswith("http") else (base.group(1) + rel if base else "")
+            if not u or u in seen_html:
+                continue
+            seen_html.add(u)
+            merged += _comici_rows(get(u))
+        if merged:
+            ded = {}
+            for r in merged:
+                ded.setdefault((r["title"], r["updated"]), r)
+            return list(ded.values())
+    return _comici_rows(html)
+
+
+def _comici_rows(html):
     if not COMICI_BLOCK.search(html):
         return []
     out = []
@@ -214,7 +250,8 @@ def main():
             if _au:
                 page_author = _html.unescape(_au.group(1).strip())
             for name, fn in (("gigaviewer", lambda h: from_giga(h, url)),
-                             ("comici", from_comici), ("markup", from_generic)):
+                             ("comici", lambda h: from_comici(h, url)),
+                             ("markup", from_generic)):
                 eps = fn(html)
                 if len(eps) >= MIN_EPISODES:
                     route = name

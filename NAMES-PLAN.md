@@ -17,8 +17,17 @@ in public, under their own work. That is a reputational cost to them and to this
 not symmetrical with the cost of leaving a name in Japanese, which costs nothing. So the standard
 here is **as close to perfect as can be researched**, not best-effort: a reading is published when a
 source states it, and corroboration from a second source is worth the extra request for any name we
-are not confident in. A plausible-looking reading with no source behind it is exactly the failure
-mode to design against, because it is indistinguishable from a correct one at a glance.
+are not confident in.
+
+The failure mode is a plausible reading with no source behind it, *presented as if it had one* —
+indistinguishable from a correct one at a glance. But that is a problem of presentation, not of
+guessing, and the project owner's call is that it can be defused by **labelling unverified readings
+as unverified**. An acknowledged guess is a different speech act from an assertion: it does not
+misname anyone, it offers a reading and says it is a reading. So a guess may be published *provided
+it is marked*, and the choice stops being "publish a possible error or show nothing" — which is the
+choice that made the perfectionist standard necessary in the first place.
+
+**This is not a reversal of the no-system-uncertainty rule** (see §5d, which explains why).
 
 And a reading is not the whole answer either, because **people have their own preferred
 romanisation** and
@@ -89,25 +98,61 @@ Ranked by names-per-request, which is the only metric that matters here.
 5. **Publisher/licensor catalogues** (Yen Press, Seven Seas, Viz, Kodansha USA) — the definition of
    an *official* English title, but they only cover licensed works, which is a small slice here.
 
-**Not on the list: search engines.** Bulk querying a search engine is the one approach that will get
-us blocked, gives no licence to the result, and cannot be cached honestly. If a name genuinely needs
-a human to look it up, it goes on a queue and waits — see §6.
+6. **Search, in bulk, deliberately.** Not ruled out — the project owner's position is that a bulk
+   query beats not knowing, when the answer for many names is genuinely out there. It only has to be
+   done in a way that does not get us blocked, and there is a right and a wrong way:
+
+   - **Use a search API, not the results page.** Scraping a SERP is what triggers blocking, breaks
+     terms of service, and yields nothing citable. A proper endpoint (Google's Programmable Search
+     JSON API, or Bing/Brave/Kagi equivalents) is metered, contractual, and returns structured
+     results. Most are paid past a free daily quota — a real cost to weigh, but a small one at these
+     volumes, and it buys legitimacy rather than luck.
+   - **One query per name, not per attempt.** Cache the result forever; a name searched is never
+     searched again. The daily free quota then sets the pace instead of a rate limiter, which suits
+     a task designed to tick over slowly anyway.
+   - **Query narrowly.** `"作者名" site:pixiv.net` beats a bare name: fewer requests, better
+     precision, and less that looks like scraping.
+
+   Search comes LAST, after the free passes, so it only ever sees the residue.
+
+**Never: scraping a search results page.** That is the specific thing that angers a search engine,
+and it is not the same as querying its API.
 
 ## 4. Pipeline
 
 Four passes, each cheaper per name than the next, each recording *where the answer came from*.
 
 ```
-0  cache mining      no network   Latin handles, ruby furigana, bylines already in Latin
+0  cache mining      no network   Latin handles, bylines already in Latin
 1  deterministic     no network   kana → Hepburn. 219 authors + 164 titles, exactly, no guessing
 2  bulk databases    ~tens of requests, all cached
                      AniList → MangaUpdates → Wikidata, in that order, skipping what is solved
-3  queue             the residue. Never guessed, never invented.
+3  automated search  one metered API query per unresolved name, cached forever
+4  label the rest    what search could not settle is published UNVERIFIED, not queued
 ```
 
-Passes 0–2 are resumable and idempotent; each writes `data/names/*.yaml` keyed by the Japanese
-string, and a name already resolved is never re-queried. Being resumable is what makes this safe to
-run slowly in the background over days.
+**No pass is a pile of names for a person to work through.** Checking hundreds of names by hand is
+ruled out, and the plan does not depend on it anywhere: pass 3 is an agent with a search API, and
+pass 4 is a labelling rule rather than a task. The residue is *published*, marked unverified per
+§5d, and improves whenever a later run finds a source. Nothing waits on a human, and nothing sits in
+a queue looking like work that will never be done.
+
+**Self-checkpointing and resumable is a requirement, not a nicety.** This runs for days in the
+background and will be interrupted — by a restart, a rate limit, a crash, or simply being told to
+stop. So:
+
+- **State lives on disk, not in a process.** Every pass writes `data/names/*.yaml` keyed by the
+  Japanese string, flushed as it goes rather than at the end. Killing it at any moment loses at most
+  the name in flight.
+- **Resolved is final.** A name with an answer is never re-queried, so a restart resumes rather than
+  repeats. This is what makes the total cost bounded no matter how many times it is stopped.
+- **Attempts are recorded too, not just successes.** A name that was searched and found nothing must
+  be marked as searched, or every restart pays for it again — and it is also how §4a's "closed,
+  nothing to find" bucket gets populated instead of looking like permanent outstanding work.
+- **Every external response is cached to disk** before it is parsed, so re-parsing after a bug fix
+  costs nothing and the whole job can be re-derived offline.
+- **Progress is legible from outside** — a count of resolved / attempted / remaining per pass, so
+  "is it still working" is answerable without reading a log.
 
 ## 4a. How long, and how much of it is searching
 
@@ -130,7 +175,8 @@ come from a dictionary, a database, or the alignment pass.
 | 0 cache mining | none | ~1h incl. writing it | 50–100 authors |
 | 1 kana → Hepburn | none | minutes | 219 authors, 164 titles — *exact, not estimated* |
 | 2 bulk APIs | ~800–1500 requests | 2–4h at polite pacing | 25–35% of titles, similar for authors |
-| 3 residue | per-name, cached-first | **the open-ended part** | see below |
+| 3 automated search | 1 metered query per name | **the long tail** | most of the remainder |
+| 4 label the rest | none | none — it is a rule | the hard core, published unverified |
 
 **Pass 2's request count is small and its coverage is the uncertainty.** AniList batches via
 aliases, so 1055 titles is ~40 requests, not 1055. The doubt is coverage: our set is 415 one-shots
@@ -138,20 +184,22 @@ and ~640 serials, and these databases index tankōbon-bearing series well, web-o
 moderately, and one-shots barely at all. A weighted guess is 300–370 titles resolved, leaving
 ~700.
 
-**Pass 3 is where the time goes: roughly 600–700 titles and 450–550 authors.** At 1–3 minutes each
-— open the work's own page (often already cached), check `og:title`, follow the author link, stop —
-that is **25–40 hours of agent work**. As a background task at a few hours a day, one to two weeks;
-run continuously with polite pacing, two to four days.
+**Pass 3 is where the time goes: roughly 600–700 titles and 450–550 authors.** Fully automated —
+one narrow search query per unresolved name, plus the work's own page where that helps, both cached
+forever. Wall-clock is set by the search API's daily quota rather than by compute: at a free tier of
+~100 queries/day this is a couple of weeks of ticking over; with a paid tier it is hours. Either way
+it is **unattended**, which is the point.
 
 **Searching, specifically: close to zero by design.** §3 rules out bulk search-engine queries, so
 the traffic is documented API calls plus publisher pages we largely already hold. Net new fetches
 are on the order of a single adapter run — not a bot-block risk at one request at a time.
 
-**The honest limit.** A guessed 30–50% of the residue will not be resolvable *at all*: a web
+**The hard core.** Some fraction — a guess, not a measurement — will not be resolvable at all: a web
 one-shot by an artist with no tankōbon, no database entry and no English-language presence has no
-official English name and no published reading anywhere. Those stay Japanese permanently, which is
-what §6 is for, and they should be reported as *closed — nothing to find* rather than left looking
-like outstanding work forever.
+official English name and no published reading anywhere. These are not a backlog. They get a
+best-guess reading **labelled unverified** (§5d), or where not even a guess is defensible they stay
+Japanese (§6). Both are finished states. The one thing they must not become is a list of hundreds of
+names waiting for a person.
 
 **Deliberately out of v1: OCR of title-page art.** §1 notes an official English title may exist only
 in the logo artwork. Reaching it means fetching images and running OCR over them, which is a
@@ -228,6 +276,30 @@ The cost is worth capping, because most rows do not need it:
 That leaves the doubled row for the case that actually earns it — a work with a real English name
 that a reader might know it by. A reasonable expectation is that this is a minority of rows even
 once the work is done, which makes 両 mode affordable rather than a mode that doubles the page.
+
+## 5d. Why an "unverified reading" mark is allowed when 要確認 was not
+
+This project removed 要確認 from the reader interface on the principle that **uncertainty about our
+own collection process is a category error to show a reader** — nothing but the system will ever
+check whether a listing site's claim was confirmed, so the mark asked the wrong audience to hold an
+open question. A mark on an unverified reading looks like the same thing. It is not, for three
+reasons worth writing down so this does not get "tidied up" later by someone applying the rule
+mechanically:
+
+1. **It is a fact about the content, not about our process.** 要確認 meant "we have not checked this
+   yet". An unverified reading means "this name may be pronounced another way" — a property of the
+   name, of the same kind as a publication date the platform itself moved, which the interface
+   already keeps.
+2. **The reader CAN adjudicate it.** A Japanese-literate reader looking at 樫風 knows whether our
+   reading is plausible; many will know it outright. That is precisely what was untrue of 要確認.
+3. **It protects a third party.** The other marks were about our confidence. This one exists so
+   that a real person is not authoritatively misnamed under their own work. Removing it does not
+   simplify the interface, it transfers a cost onto someone who did not consent to it.
+
+Concretely: readings carry `verified: true|false`, and the interface distinguishes them — the exact
+treatment can be quiet (an unobtrusive marker or styling) since the common case should be verified.
+Unverified is a **temporary state that a later confirmation clears**, so it must never be conflated
+with the fallback in §6, which is the different statement "we have nothing at all".
 
 ## 5c. Furigana on series names — the same research, a second use
 
@@ -342,16 +414,14 @@ appearing tomorrow renders in Japanese, looks deliberate, and joins the queue.
    and capped in §5b.
 
 5. **Taste controls persist per reader**, in localStorage, exactly as theme and language already do.
-6. **The work runs automatically, for names AND titles**, and the difficult cases are collected and
-   raised at the END rather than interrupting for each one. Passes 0–2 (§4) resolve what they can
-   without asking; everything they cannot — no source, conflicting sources, a reading we are not
-   confident in, a title where translation and romaji are both defensible — lands in one report at
-   the finish. How to handle that residue on an ongoing basis is then decided from the actual
-   shape of it, rather than guessed at now.
+6. **The work runs automatically end to end, for names AND titles.** Passes 0–3 resolve what they
+   can; pass 4 labels what is left. Difficult cases are *reported* at the finish so the shape of
+   them is known, but the report is information, not a worklist — **checking hundreds of names by
+   hand is ruled out**, and nothing in this plan depends on it.
 
-   This is what makes §1's "as close to perfect as can be researched" affordable: the bar is high
-   because anything that cannot clear it is *deferred rather than guessed*, and deferring is cheap
-   when the fallback (§6) is to show the Japanese and look deliberate.
+   That ruling is what §5d's unverified label buys. Without it the only honest options for an
+   unsourced reading are silence or a hand check; with it there is a third, and it is the one that
+   scales.
 
 ## 9. Still open
 

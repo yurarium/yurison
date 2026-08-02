@@ -207,23 +207,37 @@ problem with a standard shape: **dynamic-programming alignment of the surface ag
 anchored on the kana that appear in both (okurigana and particles are fixed points), scoring
 candidate readings per kanji from a reading lexicon and handling rendaku. Existing tooling:
 
-| | |
-|---|---|
-| `fugashi` + `unidic-lite`, or `SudachiPy` | morphological analysis giving a reading per token — the input the alignment needs. Both pip-installable, no compilation |
-| `cutlet` | Hepburn romanisation done properly, including the long-vowel handling that §8.1's macron question turns on. Built on fugashi |
-| `kuroshiro` (JS) | end-to-end furigana, if a reference implementation is wanted |
-| KANJIDIC2 | per-kanji readings, the lexicon the DP scores against |
+Licences checked 2026-08-02, from each project's own declaration:
 
-None are installed here yet, and two things need checking before adopting any of them:
+| | licence | |
+|---|---|---|
+| `SudachiPy` | **Apache-2.0** | tokenising + per-token readings |
+| `SudachiDict-core` | **Apache-2.0** | the dictionary behind it |
+| `fugashi` | **MIT AND BSD-3-Clause** | MeCab wrapper; the BSD part is bundled MeCab |
+| `unidic-lite` | MIT/WTFPL code, **UniDic 2.1.2 itself BSD** | alternative dictionary |
+| `cutlet` | **MIT** | Hepburn romanisation — but see below |
+| KANJIDIC2 / JMdict | **CC BY-SA 4.0** | per-kanji readings |
 
-- **Licence.** KANJIDIC2 is CC BY-SA, and this project publishes its own notes CC0. A reading is a
-  fact and facts are not copyrightable, but the share-alike terms deserve reading before we depend
-  on it. UniDic's licensing is a triple-licence and needs the same look.
-- **Proper nouns are the weak point, and they are our hard case.** Morphological analysers are
-  trained on running text and are notoriously poor on names and coinages — exactly the 670 author
-  names in §2. So this tooling largely solves *titles* and largely does not solve *authors*, which
-  is another reason the two keep separate standards (§1). Do not let a tokeniser's confident output
-  on a pen name be mistaken for a sourced reading.
+**Conclusion: take the permissive stack and skip KANJIDIC2 entirely.** It is the only one with
+strings attached — share-alike on modifications, attribution *on each screen* that displays the
+data, and a standing obligation to keep the data updated from the latest version. None of that is
+onerous, but none of it is necessary either: UniDic (BSD) and SudachiDict (Apache-2.0) both carry
+the readings the alignment needs, so the CC BY-SA dependency is avoidable rather than a trade-off to
+accept. Everything else is MIT/BSD/Apache, used at build time and never redistributed, so nothing
+here makes the database a derivative work — which is the actual test.
+
+**`cutlet` does not support macrons.** Its own documentation lists "macrons or circumflexes: Tōkyō,
+Tôkyô" under things it does not do. That does not block §8.1's reader-facing style choice, because
+of the decision already taken there: **store the reading, render the style.** Long vowels are
+recoverable from kana (ゆう → yū / yuu / yu) so all three styles are ours to generate; cutlet becomes
+a convenience for one of them rather than the source of truth. Had we planned to store a romanised
+string, this would have quietly capped what the toggle could offer.
+
+**Proper nouns are these tools' weak point, and they are our hard case.** Morphological analysers
+are trained on running text and are poor on names and coinages — exactly the 670 author names in
+§2. So this tooling largely solves *titles* and largely does not solve *authors*, which is another
+reason the two keep separate standards (§1). A tokeniser's confident output on a pen name is not a
+sourced reading and must never be recorded as one.
 
 Two levels, and the first is worth shipping on its own:
 

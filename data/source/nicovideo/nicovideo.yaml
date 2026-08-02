@@ -9,11 +9,11 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-08-01
+retrieved: 2026-08-02
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
-works_resolved: 176
+works_resolved: 177
 works:
   - work_title: "おちこぼれフルーツタルト"
     author: "浜弓場 双"
@@ -185,6 +185,15 @@ works:
     started: "2023-10-19"
     episode_count: 9
     free_episodes: 9
+    channel_slug: "nicomanga"
+  - work_title: "魔女まじょS-WITCH"
+    author: "海老川ケイ"
+    url: "https://manga.nicovideo.jp/comic/69333"
+    comic_id: "69333"
+    updated: "2026-07-23"
+    started: "2024-10-24"
+    episode_count: 4
+    free_episodes: 4
     channel_slug: "nicomanga"
   - work_title: "咲きそめコンプレックス"
     author: "んみ(著者)"

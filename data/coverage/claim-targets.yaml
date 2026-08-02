@@ -1,7 +1,6 @@
-# Antenna candidates PLUS the URLs the comparators supply with their own claims.
-# A claim naming a watched platform usually carries the work's URL on it. Those URLs were being
-# read as a link for the reader and never as a fetch target, so a work could be claimed on a
-# platform we poll and never polled — 32 of the remaining claims were exactly that.
+# Antenna candidates PLUS the URLs the comparators supply with their claims PLUS every URL an
+# identity confirmation established. A confirmed title tells us WHERE a work is; if that URL
+# never reaches an adapter, the confirmation buys nothing and the work stays a bare claim.
 source: derived
 role: fetch-targets
 retrieved: 2026-08-02
@@ -6689,3 +6688,104 @@ candidates:
   urls:
   - https://pocket.shonenmagazine.com/title/03273
   from: comparator claim
+- title: 笑顔のたえない職場です。
+  platforms:
+  - コミックDAYS
+  urls:
+  - https://comic-days.com/episode/10834108156652412315
+  from: identity confirmation
+- title: 明日ちゃんのセーラー服
+  platforms:
+  - となりのヤングジャンプ
+  urls:
+  - https://tonarinoyj.jp/episode/13932016480028986061
+  from: identity confirmation
+- title: 阿佐ヶ谷サキュバス同人物語
+  platforms:
+  - チャンピオンクロス
+  urls:
+  - https://championcross.jp/episodes/c588f534a4870
+  from: identity confirmation
+- title: 魔法少女201
+  platforms:
+  - 少年ジャンプ+
+  urls:
+  - https://shonenjumpplus.com/episode/17106371853064376295
+  - https://ynjn.jp/title/11677
+  - https://manga.nicovideo.jp/comic/65870
+  from: identity confirmation
+- title: 魔女まじょS-WITCH
+  platforms: []
+  urls:
+  - https://manga.nicovideo.jp/comic/69333
+  from: identity confirmation
+- title: ばっどがーる
+  platforms: []
+  urls:
+  - https://comic-fuz.com/manga/2664
+  from: identity confirmation
+- title: 星屑テレパス
+  platforms: []
+  urls:
+  - https://comic-fuz.com/manga/2062
+  from: identity confirmation
+- title: ぬるめた
+  platforms: []
+  urls:
+  - https://comic-fuz.com/series/2389
+  from: identity confirmation
+- title: しあわせ鳥見んぐ
+  platforms: []
+  urls:
+  - https://comic-fuz.com/manga/2474
+  from: identity confirmation
+- title: 一畳間まんきつ暮らし！
+  platforms: []
+  urls:
+  - https://comic-fuz.com/manga/1811
+  from: identity confirmation
+- title: 忍者と殺し屋のふたりぐらし
+  platforms: []
+  urls:
+  - https://comic-walker.com/detail/KC_004464_S
+  from: identity confirmation
+- title: モブヘブン
+  platforms: []
+  urls:
+  - https://comic-walker.com/detail/KC_006725_S
+  from: identity confirmation
+- title: 晴れ晴れ日和
+  platforms: []
+  urls:
+  - https://comic-walker.com/detail/KC_000848_S
+  from: identity confirmation
+- title: 聖女先生の魔法は進んでる！
+  platforms: []
+  urls:
+  - https://comic-walker.com/detail/KC_006695_S
+  from: identity confirmation
+- title: 機動戦士ガンダム 水星の魔女 青春フロンティア
+  platforms: []
+  urls:
+  - https://comic-walker.com/detail/KC_006679_S
+  from: identity confirmation
+- title: フルボイス！
+  platforms: []
+  urls:
+  - https://manga.nicovideo.jp/comic/70759
+  from: identity confirmation
+- title: 十字トンボは空を飛ばない
+  platforms: []
+  urls:
+  - https://manga.nicovideo.jp/comic/71834
+  from: identity confirmation
+- title: きみとボドゲが作りたい！
+  platforms: []
+  urls:
+  - https://manga.nicovideo.jp/comic/72637
+  from: identity confirmation
+- title: ごきげんよう、一局いかが?
+  platforms: []
+  urls:
+  - https://manga.nicovideo.jp/comic/59722
+  from: identity confirmation

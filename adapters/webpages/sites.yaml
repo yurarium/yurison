@@ -142,8 +142,12 @@ engines:
     # comici DOES state per-episode access in the listing — a 無料 badge or a coin price. An
     # earlier note here said it did not; that was wrong, from grepping the wrong offset.
     # Verified 2026-08-01 against 竹コミ and confirmed on all four comici sites.
-    free: 'series-eplist-item-access-text[^"]*mode-free'
-    paid: 'series-eplist-item-access-paid'
+    # The badge is rendered two ways across comici installs. 竹コミ classes it
+    # (…access-text … mode-free); 花とゆめ+ puts the literal 無料 inside the access element and an
+    # SVG lock icon on the paid ones. Matching only the first left half of hanayume's chapters with
+    # no access at all, so both forms are accepted.
+    free: 'series-eplist-item-access-text[^"]*mode-free|series-eplist-item-access[^>]*>\s*(?:<[^>]*>\s*)*無料'
+    paid: 'series-eplist-item-access-paid|series-eplist-item-access[^>]*>\s*(?:<[^>]*>\s*)*<path'
 
   yanmaga:
     block: '(?=<li class="mod-episode-item")'

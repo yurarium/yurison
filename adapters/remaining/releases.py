@@ -126,8 +126,17 @@ def from_comici(html):
     for b in re.split(r'(?=<div data-e2e="eli")', html)[1:]:
         m = COMICI_ROW.search(b)
         if m:
-            out.append({"title": _html.unescape(m.group(1).strip()),
-                        "updated": f"{int(m.group(2)):04d}-{int(m.group(3)):02d}-{int(m.group(4)):02d}"})
+            row = {"title": _html.unescape(m.group(1).strip()),
+                   "updated": f"{int(m.group(2)):04d}-{int(m.group(3)):02d}-{int(m.group(4)):02d}"}
+            # Two badge forms across comici installs: 竹コミ classes it (…access-text … mode-free),
+            # 花とゆめ+ puts the literal 無料 in the access element and an SVG lock on paid ones.
+            if re.search(r'series-eplist-item-access-text[^"]*mode-free'
+                         r'|series-eplist-item-access[^>]*>\s*(?:<[^>]*>\s*)*無料', b):
+                row["access_modes"] = ["free"]
+            elif re.search(r'series-eplist-item-access-paid|mode-paid'
+                           r'|series-eplist-item-access[^>]*>\s*(?:<[^>]*>\s*)*<path', b):
+                row["access_modes"] = ["purchase"]
+            out.append(row)
     return out
 
 

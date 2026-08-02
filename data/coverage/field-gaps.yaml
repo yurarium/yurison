@@ -1,0 +1,23 @@
+# Rows still missing a field, with the reason. Regenerated from the build.
+#
+# Unconfirmed claims carry no chapter, author, access or kind BY NATURE: a listing site says a
+# work updated and nothing more. They are counted apart from attested rows, which are the ones
+# where a missing field means either a platform that does not publish it or a field we have not
+# gone and read.
+source: derived
+role: field-gaps
+retrieved: 2026-08-02
+rows_total: 1416
+rows_complete: 1279
+incomplete_claims: 50
+incomplete_attested: 87
+platform_reasons:
+  マンガよもんが: site is in maintenance (serves メンテナンス情報); author and access unverifiable
+    until it returns
+  マンガワン: publishes no author anywhere reachable — not on the chapter page, not in
+    the serial listing, not in a meta tag
+  ガンガンONLINE: publishes 次回更新 and no per-chapter dates, author or access
+  マガポケ: works whose rendered page yields no dated chapter list; dates come from the
+    sitemap, which carries URL and date only
+  ニコニコ漫画（きららベース）: channel claims; the work-level route covers ニコニコ漫画 proper, not every
+    channel listing

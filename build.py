@@ -9,7 +9,7 @@ Fails closed: any validation error aborts the build without writing.
 
 Usage:  build.py [--out data/build]
 """
-import argparse, datetime, glob, json, pathlib, re, sys, unicodedata
+import argparse, datetime, glob, json, pathlib, re, statistics, sys, unicodedata
 from collections import Counter, defaultdict
 
 sys.path.insert(0, "adapters")
@@ -2102,7 +2102,10 @@ def main():
             by_month[d[:7]].append(r)
 
     this_month = str(_today)[:7]
-    archived, skipped_pre, warnings = [], 0, []
+    # NOT `warnings` — that name already holds the works with no content_tier, collected at the
+    # top of main(). Rebinding it here made the closing line report this block's warning count (0)
+    # instead of 302 works awaiting human review, so real outstanding work silently read as done.
+    archived, skipped_pre, archive_warnings = [], 0, []
     for m in sorted(by_month):
         if m < ARCHIVE_FROM_MONTH:
             skipped_pre += len(by_month[m])
@@ -2124,7 +2127,7 @@ def main():
             try:
                 old = json.loads(path.read_text()).get("releases") or []
             except (OSError, ValueError) as e:
-                warnings.append(f"feed/{m}.json exists but could not be read ({e}) — left alone")
+                archive_warnings.append(f"feed/{m}.json exists but could not be read ({e}) — left alone")
                 archived.append((m, "unreadable", 0))
                 continue
             o = {_row_key(r): r for r in old}
@@ -2142,7 +2145,7 @@ def main():
                         diffs.append(f"    ~ {k}: " + ", ".join(
                             f"{f} {o[k].get(f)!r} -> {n[k].get(f)!r}" for f in changed))
             if diffs:
-                warnings.append(
+                archive_warnings.append(
                     f"feed/{m}.json is already published and was NOT rewritten; "
                     f"{len(diffs)} row(s) differ from what this run would have written:\n"
                     + "\n".join(diffs[:40])
@@ -2173,7 +2176,7 @@ def main():
           f" · archives " + (", ".join(f"{m} {n} {s}" for m, s, n in archived) or "none")
           + (f" · {skipped_pre} rows before {ARCHIVE_FROM_MONTH} not published as archives "
              f"(bootstrap-imported back catalogue; they stay in series.json)" if skipped_pre else ""))
-    for w in warnings:
+    for w in archive_warnings:
         print(f"  !! {w}")
 
     # ── The run record ───────────────────────────────────────────────────────────────────────────
@@ -2259,6 +2262,46 @@ def main():
     _from = _from[0] if _from else None
     pre_tracking = sum(1 for r in releases if str(r.get("pub") or "") < _from) if _from else 0
 
+    # ── Bulk re-dating ───────────────────────────────────────────────────────────────────────
+    # Platforms periodically stamp a run of chapters with one timestamp. Verified against the
+    # publisher: ichicomi.com answers "publishedAt":"2026-06-05T02:00:00Z" for chapter 1 AND
+    # chapter 12 of the same twelve-chapter serial. It is not a platform that fails to record
+    # dates — 一迅プラス has 74 distinct dates across 197 works — and the cause is not always a
+    # migration; it also happens to ordinary runs for no reason visible from outside.
+    #
+    # Detected by comparing each (platform, date) bucket against that platform's own median day, so
+    # it needs no per-platform configuration and catches new cases without anyone noticing them
+    # first. This is a DIAGNOSTIC: it is recorded here and shown on the technical view, and it does
+    # not alter a single date. The dates are the platform's own statement and the chapter genuinely
+    # became available then — they are simply not per-chapter publication dates, which is what the
+    # standing note in the interface already tells readers.
+    #
+    # distinct_works is the part worth reading. 123 rows across ONE work is a back catalogue
+    # arriving at once; 277 rows across 16 works is a platform-wide restamp. Same shape, different
+    # events, and a bare row count cannot tell them apart.
+    _by_pd, _per_plat = Counter(), {}
+    for r in releases:
+        pn = r.get("plat_name") or r.get("plat")
+        if pn and r.get("pub"):
+            _by_pd[(pn, r["pub"][:10])] += 1
+    for (pn, _d), n in _by_pd.items():
+        _per_plat.setdefault(pn, []).append(n)
+    bulk = []
+    for (pn, d0), n in sorted(_by_pd.items(), key=lambda x: -x[1]):
+        med = statistics.median(_per_plat[pn])
+        if n >= max(20, med * 12):
+            # NOT `works` — that name is already the compiled bibliographic list in this scope,
+            # and rebinding it here turned 302 dicts into a set of title strings 30 lines later.
+            bulk_works = {r["work"] for r in releases
+                          if (r.get("plat_name") or r.get("plat")) == pn and r["pub"][:10] == d0}
+            bulk.append({"platform": pn, "date": d0, "releases": n,
+                         "distinct_works": len(bulk_works), "median_per_day": med,
+                         "example_work": sorted(bulk_works)[0] if bulk_works else None})
+    if bulk:
+        _s = ", ".join(f"{b['platform']} {b['date']} x{b['releases']}" for b in bulk[:4])
+        print(f"bulk re-dating  : {len(bulk)} (platform, date) bucket(s) far above that "
+              f"platform's own median — {_s}")
+
     cl = _C(t["disposition"] for t in claim_trace)
     (out / "run.json").write_text(json.dumps(
         {"generated": str(_today),
@@ -2267,6 +2310,7 @@ def main():
          "sources": src_health,
          # Claims never reach the reader. They are inputs, and this is where they end up.
          "claims": {"total": len(claim_trace), "by_disposition": dict(cl), "trace": claim_trace},
+         "bulk_dated": bulk,
          # Cases the reader-facing interface used to render as doubt, now decided and moved here.
          # A work with no chapters at all is a lead; a volume grouped by title match rather than an
          # explicit series link is our inference. Neither is something a reader can adjudicate, and

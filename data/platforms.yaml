@@ -206,6 +206,138 @@ platforms:
 #
 # Matched on title, not URL. A URL pattern looked promising and was wrong — /category/ and
 # /manga/official/ paths turned out to be genuine work pages on GetNavi and AlphaPolis.
+  # ── Added 2026-08-02 ──────────────────────────────────────────────────────────────────────
+  # Fifteen platforms were being read by the adapters and had no entry here at all. That is a
+  # data gap rather than a bug: this file is the curated list and it stopped keeping up as
+  # adapters were added. The cost was per-platform metadata (rank, overlap, notes) missing for
+  # most of the database — merge behaviour was unaffected, because crossplatform.py reads
+  # `ranks.get(name) or UNRANKED`, so an absent entry and a null rank are already identical.
+  #
+  # reading_rank is DELIBERATELY UNSET on all of these. It is editorial curation — the project
+  # owner's judgement of reading quality (§5) — and inventing fifteen rankings to fill a table
+  # would fabricate exactly the kind of opinion this file exists to record honestly. Unset
+  # behaves as it did before the entry existed, so nothing changes until someone decides.
+
+  - id: gangan-online
+    name: ガンガンONLINE
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: manga-one
+    name: マンガワン
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: young-champion
+    name: ヤングチャンピオン
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: hanayume-plus
+    name: 花とゆめ+
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: corocoro-online
+    name: コロコロオンライン
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: comic-border
+    name: コミックボーダー
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: heros-web
+    name: HERO'S Web
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: g-comi
+    name: Gコミ
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: raicomi
+    name: ライコミ
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: furacomi-like
+    name: フラコミlike!
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: manga-yomonga
+    name: マンガよもんが
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: manga-time-square
+    name: まんがタイムSquare
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: comic-ogyaaa
+    name: コミックオギャー!!
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: seasons
+    name: Seasons
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
+  - id: mynavi-news
+    name: マイナビニュース
+    reading_rank:
+    watched: true
+    notes: >-
+      Read by an adapter; entry added so the
+      platform has metadata. Rank not yet assigned.
+
 not_works:
   - title: ゆりひめ@ピクシブ
     url: https://comic.pixiv.net/magazines/206

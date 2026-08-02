@@ -1,3 +1,5 @@
 .githooks/leak-deny.local
 madb-cache/
 openbd-cache/
+__pycache__/
+*.pyc

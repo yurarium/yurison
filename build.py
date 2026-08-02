@@ -165,6 +165,332 @@ def load_dir(p):
     return [yaml.safe_load(open(f)) for f in sorted(glob.glob(f"{p}/*.yaml"))]
 
 
+# ── Extracted from main() ────────────────────────────────────────────────────────────────────
+#
+# main() was 2200 of this file's 2372 lines and bound 291 local names, 41 of them more than 300
+# lines apart — `r` is rebound 68 times across a span of 2166. That is not untidiness, it is a
+# mechanism: a fresh name at the bottom silently captures one bound near the top, and nothing
+# warns. It happened twice in one hour, both times in the code below. `works` was reused as a set
+# of titles, turning 302 dicts into strings; `warnings` was reused by the archive block, so a line
+# reporting "302 works have no content_tier" quietly reported 0 and real outstanding work read as
+# done.
+#
+# These two blocks are the tail of the pipeline and are pure in the useful sense: they read the
+# finished data and write files. Out of main() they get their OWN scope, so a name bound here
+# cannot collide with one bound a thousand lines earlier, and the parameter list states exactly
+# what each needs instead of "whatever happens to be in scope".
+#
+# Verified by byte-comparing every file in data/build/ before and after: identical.
+
+def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
+                     contradicted_works, print_candidates, web_works, samples):
+    # ── The published feed, split ────────────────────────────────────────────────────────────────
+    #
+    # feed.json above is the INTERNAL whole — the acceptance tests and the audit sampler read it,
+    # and it stays. What ships is this directory. One file of 1.3 MB was downloaded in full by every
+    # visitor to render the first screen; at a year of accumulation that is unloadable, and the cost
+    # falls hardest on the reader who only ever asks "what is new".
+    #
+    #   feed/current.json  — the rolling window the 更新 tab opens on.
+    #   feed/YYYY-MM.json  — one completed month, fetched only if a reader asks for it.
+    #   feed/meta.json     — everything that is NOT a release row.
+    #
+    # The month files carry `releases` and nothing else. platform_meta, lapsed, contradicted,
+    # print_candidates and web_works are statements about the database as a whole, not about a
+    # month, so repeating them in every archive would be both wrong and the very duplication this
+    # split exists to remove. They go in meta.json once.
+    CURRENT_WINDOW_DAYS = 14
+
+    # Where the published archive stops going back, and why it is not simply "everything we hold".
+    #
+    # Update tracking began when this pipeline first ran. Everything dated before that was
+    # bootstrap-imported in one pass from what each platform states about its own back catalogue —
+    # real dates, mostly, but not a record of updates AS THEY HAPPENED: several platforms stamp a
+    # whole back catalogue with the day they listed it (竹コミ gives 386 chapters one single day).
+    # Publishing those months as "the updates of June 2026" would assert a history this project
+    # never observed. They are not lost: they remain in series.json, which is what the 作品 tab is
+    # built from and which is honest about being a chapter history rather than an update record.
+    #
+    # So the archive starts at the first month that is genuinely ours. Raise this only when there is
+    # a month whose updates were actually watched happening.
+    ARCHIVE_FROM_MONTH = "2026-07"
+
+    feed_dir = out / "feed"
+    feed_dir.mkdir(parents=True, exist_ok=True)
+
+    def _fdate(r):
+        return str(r.get("feed_date") or r.get("pub") or "")[:10]
+
+    # The same identity the first-seen ledger uses. Not `id`: 11 of 1,366 rows share one, because a
+    # release id is a platform's word for a chapter and two platforms can use the same word. This
+    # key is what §5 locks a date against, so it is also what a divergence has to be reported in
+    # terms of.
+    def _row_key(r):
+        return f"{norm_work(r.get('work') or '')}|{norm_work(r.get('ep') or '')}|" \
+               f"{r.get('plat_name') or r.get('plat')}"
+
+    # DAYS - 1, so the window is exactly CURRENT_WINDOW_DAYS calendar days counting today. Subtract
+    # the full 14 and the tab shows fifteen date headings under a control that says "直近14日" —
+    # a small lie, but the interface counting differently from its own label is the kind of thing
+    # that makes a reader distrust the counts that matter.
+    window_from = str(_today - datetime.timedelta(days=CURRENT_WINDOW_DAYS - 1))
+    current_rows = [r for r in releases if _fdate(r) >= window_from]
+    (feed_dir / "current.json").write_text(json.dumps(
+        {"releases": current_rows,
+         "window_days": CURRENT_WINDOW_DAYS, "from": window_from, "to": str(_today),
+         "generated": str(_today)},
+        ensure_ascii=False, indent=1, default=jsonable))
+
+    # A month file holds the WHOLE month, including the days that also sit in the current window.
+    # The alternative — "this month minus whatever the window still covers" — makes the file's
+    # contents depend on the day the build ran, so a month written once would be frozen half
+    # complete and the same month written a week later would disagree with it. A month is a month.
+    by_month = defaultdict(list)
+    for r in releases:
+        d = _fdate(r)
+        if len(d) >= 7:
+            by_month[d[:7]].append(r)
+
+    this_month = str(_today)[:7]
+    # NOT `warnings` — that name already holds the works with no content_tier, collected at the
+    # top of main(). Rebinding it here made the closing line report this block's warning count (0)
+    # instead of 302 works awaiting human review, so real outstanding work silently read as done.
+    archived, skipped_pre, archive_warnings = [], 0, []
+    for m in sorted(by_month):
+        if m < ARCHIVE_FROM_MONTH:
+            skipped_pre += len(by_month[m])
+            continue
+        # The month in progress is not archived. It is not finished, so writing it would either
+        # publish an incomplete month or require rewriting it tomorrow — and rewriting is the one
+        # thing an archive may not do.
+        if m >= this_month:
+            continue
+        path = feed_dir / f"{m}.json"
+        payload = {"releases": by_month[m], "month": m, "generated": str(_today)}
+        if path.exists():
+            # REQUIREMENTS §5, date locking. A published month is a statement about dates that has
+            # already been made; a later run must not quietly revise it. So it is never rewritten —
+            # instead any difference is named here, loudly, where it can be looked at. A divergence
+            # is detectable at all because first-seen.yaml keys a release by (work, episode,
+            # platform) and remembers when we first saw it, so "the same row, dated differently"
+            # can be told apart from "a different row".
+            try:
+                old = json.loads(path.read_text()).get("releases") or []
+            except (OSError, ValueError) as e:
+                archive_warnings.append(f"feed/{m}.json exists but could not be read ({e}) — left alone")
+                archived.append((m, "unreadable", 0))
+                continue
+            o = {_row_key(r): r for r in old}
+            n = {_row_key(r): r for r in by_month[m]}
+            diffs = []
+            for k in sorted(set(o) | set(n)):
+                if k not in o:
+                    diffs.append(f"    + not in the published month: {k}  ({_fdate(n[k])})")
+                elif k not in n:
+                    diffs.append(f"    - published but no longer built: {k}  ({_fdate(o[k])})")
+                else:
+                    changed = [f for f in ("pub", "feed_date", "url", "ep", "kind", "free", "type")
+                               if o[k].get(f) != n[k].get(f)]
+                    if changed:
+                        diffs.append(f"    ~ {k}: " + ", ".join(
+                            f"{f} {o[k].get(f)!r} -> {n[k].get(f)!r}" for f in changed))
+            if diffs:
+                archive_warnings.append(
+                    f"feed/{m}.json is already published and was NOT rewritten; "
+                    f"{len(diffs)} row(s) differ from what this run would have written:\n"
+                    + "\n".join(diffs[:40])
+                    + (f"\n    … and {len(diffs) - 40} more" if len(diffs) > 40 else ""))
+            archived.append((m, "kept", len(old)))
+        else:
+            path.write_text(json.dumps(payload, ensure_ascii=False, indent=1, default=jsonable))
+            archived.append((m, "written", len(by_month[m])))
+
+    (feed_dir / "meta.json").write_text(json.dumps(
+        {"platforms": platforms,
+         # Works a comparator reports as updating that the platform's own full chapter history
+         # contradicts. Recorded rather than silently dropped: they are not coverage we lack.
+         "contradicted": contradicted_works,
+         "print_candidates": print_candidates, "web_works": web_works,
+         "samples_dropped": len(samples),
+         "platform_meta": plat_meta, "lapsed": lapsed,
+         # Newest first: the interface offers these as "earlier updates", and the most recent
+         # month is the one most likely to be wanted.
+         "archive_months": [m for m, _s, _n in sorted(archived, reverse=True)],
+         "archive_from": ARCHIVE_FROM_MONTH,
+         "window_days": CURRENT_WINDOW_DAYS,
+         "generated": str(_today)},
+        ensure_ascii=False, indent=1, default=jsonable))
+
+    print(f"feed split      : current {len(current_rows)} rows "
+          f"({window_from}..{_today}, {CURRENT_WINDOW_DAYS}d)"
+          f" · archives " + (", ".join(f"{m} {n} {s}" for m, s, n in archived) or "none")
+          + (f" · {skipped_pre} rows before {ARCHIVE_FROM_MONTH} not published as archives "
+             f"(bootstrap-imported back catalogue; they stay in series.json)" if skipped_pre else ""))
+    for w in archive_warnings:
+        print(f"  !! {w}")
+
+
+
+def write_run_record(out, _today, releases, platforms, works, series_rows,
+                     claim_trace, dropped_dupes, thin_dropped, resolver_dropped,
+                     filled_author, filled_access, samples):
+    # ── The run record ───────────────────────────────────────────────────────────────────────────
+    #
+    # build.py has always printed its counts to stdout and kept none of them, so nothing could say
+    # what last night's run did or what broke. That gap is also why a claim could not be refuted
+    # safely: "the platform lists nothing" and "our fetch of that platform failed" are the same
+    # observation from inside the build unless the run says which happened. So the per-source
+    # freshness below is not decoration — it is the evidence a refutation rests on.
+    src_health = []
+    for d0 in sorted(glob.glob("data/source/*/")):
+        name = pathlib.Path(d0).name
+        files = sorted(glob.glob(d0 + "*.yaml"))
+        if not files:
+            continue
+        got, retrieved, works_n = 0, "", 0
+        for f in files:
+            try:
+                y = yaml.safe_load(open(f)) or {}
+            except Exception:
+                continue
+            r0 = str(y.get("retrieved") or "")[:10]
+            retrieved = max(retrieved, r0)
+            # Two file shapes. Platform adapters write one file holding many works; the
+            # bibliographic sources (MADB, openBD, NDL) write one file PER WORK, with the work at
+            # the top level. Counting only `works:` reported those as zero, which on a health panel
+            # reads as a broken adapter rather than a different layout.
+            ws = y.get("works") or y.get("releases")
+            if ws is None:
+                ws = [y] if y.get("record_type") else []
+            works_n += len(ws)
+            got += sum(len(w.get("chapters") or w.get("episodes") or w.get("volumes") or []) or 1
+                       for w in ws if isinstance(w, dict))
+        age = None
+        if retrieved:
+            try:
+                age = (_today - datetime.date.fromisoformat(retrieved)).days
+            except ValueError:
+                pass
+        src_health.append({"source": name, "files": len(files), "works": works_n,
+                           "rows": got, "retrieved": retrieved, "age_days": age,
+                           "in_scope": name in ALLOWED_SOURCES or name in
+                           {"gigaviewer", "comicfuz", "kadokomi", "comici", "webpages",
+                            "remaining", "render", "sitemap", "reachable", "comparators"},
+                           "empty": works_n == 0})
+
+    # ── Releases per week, and what precedes the record ──────────────────────────────────────────
+    #
+    # status.html drew this itself out of feed.json. It cannot any more: the published feed is a
+    # 14-day window plus month archives, and pointing a whole-history graph at the archives would
+    # mean downloading every month to draw one picture — reintroducing the 1.3 MB the split exists
+    # to remove, on the page that is least often opened. The histogram is small, so the build
+    # computes it once and run.json carries it.
+    #
+    # Publication dates, NOT run history. The distinction matters: no run before today was ever
+    # recorded, so a "changes per run" graph would have to invent its own past. This is made only of
+    # dates the platforms themselves stated.
+    wk = Counter()
+    for r in releases:
+        p = str(r.get("pub") or "")[:10]
+        if not re.fullmatch(r"\d{4}-\d\d-\d\d", p):
+            continue
+        d0 = datetime.date.fromisoformat(p)
+        wk[str(d0 - datetime.timedelta(days=(d0.weekday() + 1) % 7))] += 1   # week beginning Sunday
+    keys = sorted(wk)[-26:]
+    # Trim the leading window edge, exactly as the page used to. The source layer holds a rolling
+    # ~60 days, so weeks older than that appear only where something was discovered late — two or
+    # three rows against a typical two hundred. Drawn as bars they read as a collapse in publishing,
+    # which is the opposite of what happened: those weeks are thin in OUR record, not in the world.
+    # A bar chart cannot caption itself, so the underpopulated tail comes off rather than being
+    # explained away underneath.
+    _med = (sorted(wk.values())[len(keys) // 2] if wk else 0)
+    trimmed = 0
+    while len(keys) > 4 and wk[keys[0]] < _med * 0.25:
+        keys = keys[1:]
+        trimmed += 1
+
+    # The count of releases predating the first retrieval, for the "when the record starts" note.
+    # Same reason as the histogram: status.html worked it out of feed.json and no longer can.
+    _from = sorted(s["retrieved"] for s in src_health if s.get("retrieved"))
+    _from = _from[0] if _from else None
+    pre_tracking = sum(1 for r in releases if str(r.get("pub") or "") < _from) if _from else 0
+
+    # ── Bulk re-dating ───────────────────────────────────────────────────────────────────────
+    # Platforms periodically stamp a run of chapters with one timestamp. Verified against the
+    # publisher: ichicomi.com answers "publishedAt":"2026-06-05T02:00:00Z" for chapter 1 AND
+    # chapter 12 of the same twelve-chapter serial. It is not a platform that fails to record
+    # dates — 一迅プラス has 74 distinct dates across 197 works — and the cause is not always a
+    # migration; it also happens to ordinary runs for no reason visible from outside.
+    #
+    # Detected by comparing each (platform, date) bucket against that platform's own median day, so
+    # it needs no per-platform configuration and catches new cases without anyone noticing them
+    # first. This is a DIAGNOSTIC: it is recorded here and shown on the technical view, and it does
+    # not alter a single date. The dates are the platform's own statement and the chapter genuinely
+    # became available then — they are simply not per-chapter publication dates, which is what the
+    # standing note in the interface already tells readers.
+    #
+    # distinct_works is the part worth reading. 123 rows across ONE work is a back catalogue
+    # arriving at once; 277 rows across 16 works is a platform-wide restamp. Same shape, different
+    # events, and a bare row count cannot tell them apart.
+    _by_pd, _per_plat = Counter(), {}
+    for r in releases:
+        pn = r.get("plat_name") or r.get("plat")
+        if pn and r.get("pub"):
+            _by_pd[(pn, r["pub"][:10])] += 1
+    for (pn, _d), n in _by_pd.items():
+        _per_plat.setdefault(pn, []).append(n)
+    bulk = []
+    for (pn, d0), n in sorted(_by_pd.items(), key=lambda x: -x[1]):
+        med = statistics.median(_per_plat[pn])
+        if n >= max(20, med * 12):
+            # NOT `works` — that name is already the compiled bibliographic list in this scope,
+            # and rebinding it here turned 302 dicts into a set of title strings 30 lines later.
+            bulk_works = {r["work"] for r in releases
+                          if (r.get("plat_name") or r.get("plat")) == pn and r["pub"][:10] == d0}
+            bulk.append({"platform": pn, "date": d0, "releases": n,
+                         "distinct_works": len(bulk_works), "median_per_day": med,
+                         "example_work": sorted(bulk_works)[0] if bulk_works else None})
+    if bulk:
+        _s = ", ".join(f"{b['platform']} {b['date']} x{b['releases']}" for b in bulk[:4])
+        print(f"bulk re-dating  : {len(bulk)} (platform, date) bucket(s) far above that "
+              f"platform's own median — {_s}")
+
+    cl = Counter(t["disposition"] for t in claim_trace)
+    (out / "run.json").write_text(json.dumps(
+        {"generated": str(_today),
+         "releases": len(releases), "platforms": len(platforms),
+         "works": len(works), "series_rows": len(series_rows),
+         "sources": src_health,
+         # Claims never reach the reader. They are inputs, and this is where they end up.
+         "claims": {"total": len(claim_trace), "by_disposition": dict(cl), "trace": claim_trace},
+         "bulk_dated": bulk,
+         # Cases the reader-facing interface used to render as doubt, now decided and moved here.
+         # A work with no chapters at all is a lead; a volume grouped by title match rather than an
+         # explicit series link is our inference. Neither is something a reader can adjudicate, and
+         # both are real coverage facts, so they are counted where the coverage facts live.
+         "gaps": {
+             "uncaptured_works": [
+                 {"work": r["work"],
+                  "platform": (r.get("sources") or [{}])[0].get("platform")}
+                 for r in series_rows if not r.get("chapters")],
+             "grouping": dict(Counter(w.get("grouping") or "unknown" for w in works)),
+         },
+         # Weeks already trimmed and ready to draw; `trimmed_weeks` says how many came off, so the
+         # page can be honest about the window without recomputing anything.
+         "weekly": {"weeks": [{"week": k, "n": wk[k]} for k in keys],
+                    "trimmed_weeks": trimmed, "pre_tracking_releases": pre_tracking,
+                    "tracking_from": _from},
+         "access_modes": dict(Counter(m for r in releases for m in (r.get("access_modes") or []))),
+         "update_kinds": dict(Counter(r.get("kind") for r in releases)),
+         "identification": dict(Counter(r.get("ident") for r in releases)),
+         "collapsed": {"duplicate_chapters": dropped_dupes, "thin_sitemap": thin_dropped,
+                       "resolver": resolver_dropped, "samples": len(samples)},
+         "filled": {"author": filled_author, "access": filled_access}},
+        ensure_ascii=False, indent=1, default=jsonable))
+    print(f"claims traced   : {dict(cl)}")
+    return cl
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="data/build")
@@ -2034,315 +2360,20 @@ def main():
          "platform_meta": plat_meta, "lapsed": lapsed},
         ensure_ascii=False, indent=1, default=jsonable))
 
-    # ── The published feed, split ────────────────────────────────────────────────────────────────
-    #
-    # feed.json above is the INTERNAL whole — the acceptance tests and the audit sampler read it,
-    # and it stays. What ships is this directory. One file of 1.3 MB was downloaded in full by every
-    # visitor to render the first screen; at a year of accumulation that is unloadable, and the cost
-    # falls hardest on the reader who only ever asks "what is new".
-    #
-    #   feed/current.json  — the rolling window the 更新 tab opens on.
-    #   feed/YYYY-MM.json  — one completed month, fetched only if a reader asks for it.
-    #   feed/meta.json     — everything that is NOT a release row.
-    #
-    # The month files carry `releases` and nothing else. platform_meta, lapsed, contradicted,
-    # print_candidates and web_works are statements about the database as a whole, not about a
-    # month, so repeating them in every archive would be both wrong and the very duplication this
-    # split exists to remove. They go in meta.json once.
-    CURRENT_WINDOW_DAYS = 14
+    write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
+                     contradicted_works, print_candidates, web_works, samples)
 
-    # Where the published archive stops going back, and why it is not simply "everything we hold".
-    #
-    # Update tracking began when this pipeline first ran. Everything dated before that was
-    # bootstrap-imported in one pass from what each platform states about its own back catalogue —
-    # real dates, mostly, but not a record of updates AS THEY HAPPENED: several platforms stamp a
-    # whole back catalogue with the day they listed it (竹コミ gives 386 chapters one single day).
-    # Publishing those months as "the updates of June 2026" would assert a history this project
-    # never observed. They are not lost: they remain in series.json, which is what the 作品 tab is
-    # built from and which is honest about being a chapter history rather than an update record.
-    #
-    # So the archive starts at the first month that is genuinely ours. Raise this only when there is
-    # a month whose updates were actually watched happening.
-    ARCHIVE_FROM_MONTH = "2026-07"
-
-    feed_dir = out / "feed"
-    feed_dir.mkdir(parents=True, exist_ok=True)
-
-    def _fdate(r):
-        return str(r.get("feed_date") or r.get("pub") or "")[:10]
-
-    # The same identity the first-seen ledger uses. Not `id`: 11 of 1,366 rows share one, because a
-    # release id is a platform's word for a chapter and two platforms can use the same word. This
-    # key is what §5 locks a date against, so it is also what a divergence has to be reported in
-    # terms of.
-    def _row_key(r):
-        return f"{norm_work(r.get('work') or '')}|{norm_work(r.get('ep') or '')}|" \
-               f"{r.get('plat_name') or r.get('plat')}"
-
-    # DAYS - 1, so the window is exactly CURRENT_WINDOW_DAYS calendar days counting today. Subtract
-    # the full 14 and the tab shows fifteen date headings under a control that says "直近14日" —
-    # a small lie, but the interface counting differently from its own label is the kind of thing
-    # that makes a reader distrust the counts that matter.
-    window_from = str(_today - datetime.timedelta(days=CURRENT_WINDOW_DAYS - 1))
-    current_rows = [r for r in releases if _fdate(r) >= window_from]
-    (feed_dir / "current.json").write_text(json.dumps(
-        {"releases": current_rows,
-         "window_days": CURRENT_WINDOW_DAYS, "from": window_from, "to": str(_today),
-         "generated": str(_today)},
-        ensure_ascii=False, indent=1, default=jsonable))
-
-    # A month file holds the WHOLE month, including the days that also sit in the current window.
-    # The alternative — "this month minus whatever the window still covers" — makes the file's
-    # contents depend on the day the build ran, so a month written once would be frozen half
-    # complete and the same month written a week later would disagree with it. A month is a month.
-    by_month = defaultdict(list)
-    for r in releases:
-        d = _fdate(r)
-        if len(d) >= 7:
-            by_month[d[:7]].append(r)
-
-    this_month = str(_today)[:7]
-    # NOT `warnings` — that name already holds the works with no content_tier, collected at the
-    # top of main(). Rebinding it here made the closing line report this block's warning count (0)
-    # instead of 302 works awaiting human review, so real outstanding work silently read as done.
-    archived, skipped_pre, archive_warnings = [], 0, []
-    for m in sorted(by_month):
-        if m < ARCHIVE_FROM_MONTH:
-            skipped_pre += len(by_month[m])
-            continue
-        # The month in progress is not archived. It is not finished, so writing it would either
-        # publish an incomplete month or require rewriting it tomorrow — and rewriting is the one
-        # thing an archive may not do.
-        if m >= this_month:
-            continue
-        path = feed_dir / f"{m}.json"
-        payload = {"releases": by_month[m], "month": m, "generated": str(_today)}
-        if path.exists():
-            # REQUIREMENTS §5, date locking. A published month is a statement about dates that has
-            # already been made; a later run must not quietly revise it. So it is never rewritten —
-            # instead any difference is named here, loudly, where it can be looked at. A divergence
-            # is detectable at all because first-seen.yaml keys a release by (work, episode,
-            # platform) and remembers when we first saw it, so "the same row, dated differently"
-            # can be told apart from "a different row".
-            try:
-                old = json.loads(path.read_text()).get("releases") or []
-            except (OSError, ValueError) as e:
-                archive_warnings.append(f"feed/{m}.json exists but could not be read ({e}) — left alone")
-                archived.append((m, "unreadable", 0))
-                continue
-            o = {_row_key(r): r for r in old}
-            n = {_row_key(r): r for r in by_month[m]}
-            diffs = []
-            for k in sorted(set(o) | set(n)):
-                if k not in o:
-                    diffs.append(f"    + not in the published month: {k}  ({_fdate(n[k])})")
-                elif k not in n:
-                    diffs.append(f"    - published but no longer built: {k}  ({_fdate(o[k])})")
-                else:
-                    changed = [f for f in ("pub", "feed_date", "url", "ep", "kind", "free", "type")
-                               if o[k].get(f) != n[k].get(f)]
-                    if changed:
-                        diffs.append(f"    ~ {k}: " + ", ".join(
-                            f"{f} {o[k].get(f)!r} -> {n[k].get(f)!r}" for f in changed))
-            if diffs:
-                archive_warnings.append(
-                    f"feed/{m}.json is already published and was NOT rewritten; "
-                    f"{len(diffs)} row(s) differ from what this run would have written:\n"
-                    + "\n".join(diffs[:40])
-                    + (f"\n    … and {len(diffs) - 40} more" if len(diffs) > 40 else ""))
-            archived.append((m, "kept", len(old)))
-        else:
-            path.write_text(json.dumps(payload, ensure_ascii=False, indent=1, default=jsonable))
-            archived.append((m, "written", len(by_month[m])))
-
-    (feed_dir / "meta.json").write_text(json.dumps(
-        {"platforms": platforms,
-         # Works a comparator reports as updating that the platform's own full chapter history
-         # contradicts. Recorded rather than silently dropped: they are not coverage we lack.
-         "contradicted": contradicted_works,
-         "print_candidates": print_candidates, "web_works": web_works,
-         "samples_dropped": len(samples),
-         "platform_meta": plat_meta, "lapsed": lapsed,
-         # Newest first: the interface offers these as "earlier updates", and the most recent
-         # month is the one most likely to be wanted.
-         "archive_months": [m for m, _s, _n in sorted(archived, reverse=True)],
-         "archive_from": ARCHIVE_FROM_MONTH,
-         "window_days": CURRENT_WINDOW_DAYS,
-         "generated": str(_today)},
-        ensure_ascii=False, indent=1, default=jsonable))
-
-    print(f"feed split      : current {len(current_rows)} rows "
-          f"({window_from}..{_today}, {CURRENT_WINDOW_DAYS}d)"
-          f" · archives " + (", ".join(f"{m} {n} {s}" for m, s, n in archived) or "none")
-          + (f" · {skipped_pre} rows before {ARCHIVE_FROM_MONTH} not published as archives "
-             f"(bootstrap-imported back catalogue; they stay in series.json)" if skipped_pre else ""))
-    for w in archive_warnings:
-        print(f"  !! {w}")
-
-    # ── The run record ───────────────────────────────────────────────────────────────────────────
-    #
-    # build.py has always printed its counts to stdout and kept none of them, so nothing could say
-    # what last night's run did or what broke. That gap is also why a claim could not be refuted
-    # safely: "the platform lists nothing" and "our fetch of that platform failed" are the same
-    # observation from inside the build unless the run says which happened. So the per-source
-    # freshness below is not decoration — it is the evidence a refutation rests on.
-    from collections import Counter as _C
-
-    src_health = []
-    for d0 in sorted(glob.glob("data/source/*/")):
-        name = pathlib.Path(d0).name
-        files = sorted(glob.glob(d0 + "*.yaml"))
-        if not files:
-            continue
-        got, retrieved, works_n = 0, "", 0
-        for f in files:
-            try:
-                y = yaml.safe_load(open(f)) or {}
-            except Exception:
-                continue
-            r0 = str(y.get("retrieved") or "")[:10]
-            retrieved = max(retrieved, r0)
-            # Two file shapes. Platform adapters write one file holding many works; the
-            # bibliographic sources (MADB, openBD, NDL) write one file PER WORK, with the work at
-            # the top level. Counting only `works:` reported those as zero, which on a health panel
-            # reads as a broken adapter rather than a different layout.
-            ws = y.get("works") or y.get("releases")
-            if ws is None:
-                ws = [y] if y.get("record_type") else []
-            works_n += len(ws)
-            got += sum(len(w.get("chapters") or w.get("episodes") or w.get("volumes") or []) or 1
-                       for w in ws if isinstance(w, dict))
-        age = None
-        if retrieved:
-            try:
-                age = (_today - datetime.date.fromisoformat(retrieved)).days
-            except ValueError:
-                pass
-        src_health.append({"source": name, "files": len(files), "works": works_n,
-                           "rows": got, "retrieved": retrieved, "age_days": age,
-                           "in_scope": name in ALLOWED_SOURCES or name in
-                           {"gigaviewer", "comicfuz", "kadokomi", "comici", "webpages",
-                            "remaining", "render", "sitemap", "reachable", "comparators"},
-                           "empty": works_n == 0})
-
-    # ── Releases per week, and what precedes the record ──────────────────────────────────────────
-    #
-    # status.html drew this itself out of feed.json. It cannot any more: the published feed is a
-    # 14-day window plus month archives, and pointing a whole-history graph at the archives would
-    # mean downloading every month to draw one picture — reintroducing the 1.3 MB the split exists
-    # to remove, on the page that is least often opened. The histogram is small, so the build
-    # computes it once and run.json carries it.
-    #
-    # Publication dates, NOT run history. The distinction matters: no run before today was ever
-    # recorded, so a "changes per run" graph would have to invent its own past. This is made only of
-    # dates the platforms themselves stated.
-    wk = _C()
-    for r in releases:
-        p = str(r.get("pub") or "")[:10]
-        if not re.fullmatch(r"\d{4}-\d\d-\d\d", p):
-            continue
-        d0 = datetime.date.fromisoformat(p)
-        wk[str(d0 - datetime.timedelta(days=(d0.weekday() + 1) % 7))] += 1   # week beginning Sunday
-    keys = sorted(wk)[-26:]
-    # Trim the leading window edge, exactly as the page used to. The source layer holds a rolling
-    # ~60 days, so weeks older than that appear only where something was discovered late — two or
-    # three rows against a typical two hundred. Drawn as bars they read as a collapse in publishing,
-    # which is the opposite of what happened: those weeks are thin in OUR record, not in the world.
-    # A bar chart cannot caption itself, so the underpopulated tail comes off rather than being
-    # explained away underneath.
-    _med = (sorted(wk.values())[len(keys) // 2] if wk else 0)
-    trimmed = 0
-    while len(keys) > 4 and wk[keys[0]] < _med * 0.25:
-        keys = keys[1:]
-        trimmed += 1
-
-    # The count of releases predating the first retrieval, for the "when the record starts" note.
-    # Same reason as the histogram: status.html worked it out of feed.json and no longer can.
-    _from = sorted(s["retrieved"] for s in src_health if s.get("retrieved"))
-    _from = _from[0] if _from else None
-    pre_tracking = sum(1 for r in releases if str(r.get("pub") or "") < _from) if _from else 0
-
-    # ── Bulk re-dating ───────────────────────────────────────────────────────────────────────
-    # Platforms periodically stamp a run of chapters with one timestamp. Verified against the
-    # publisher: ichicomi.com answers "publishedAt":"2026-06-05T02:00:00Z" for chapter 1 AND
-    # chapter 12 of the same twelve-chapter serial. It is not a platform that fails to record
-    # dates — 一迅プラス has 74 distinct dates across 197 works — and the cause is not always a
-    # migration; it also happens to ordinary runs for no reason visible from outside.
-    #
-    # Detected by comparing each (platform, date) bucket against that platform's own median day, so
-    # it needs no per-platform configuration and catches new cases without anyone noticing them
-    # first. This is a DIAGNOSTIC: it is recorded here and shown on the technical view, and it does
-    # not alter a single date. The dates are the platform's own statement and the chapter genuinely
-    # became available then — they are simply not per-chapter publication dates, which is what the
-    # standing note in the interface already tells readers.
-    #
-    # distinct_works is the part worth reading. 123 rows across ONE work is a back catalogue
-    # arriving at once; 277 rows across 16 works is a platform-wide restamp. Same shape, different
-    # events, and a bare row count cannot tell them apart.
-    _by_pd, _per_plat = Counter(), {}
-    for r in releases:
-        pn = r.get("plat_name") or r.get("plat")
-        if pn and r.get("pub"):
-            _by_pd[(pn, r["pub"][:10])] += 1
-    for (pn, _d), n in _by_pd.items():
-        _per_plat.setdefault(pn, []).append(n)
-    bulk = []
-    for (pn, d0), n in sorted(_by_pd.items(), key=lambda x: -x[1]):
-        med = statistics.median(_per_plat[pn])
-        if n >= max(20, med * 12):
-            # NOT `works` — that name is already the compiled bibliographic list in this scope,
-            # and rebinding it here turned 302 dicts into a set of title strings 30 lines later.
-            bulk_works = {r["work"] for r in releases
-                          if (r.get("plat_name") or r.get("plat")) == pn and r["pub"][:10] == d0}
-            bulk.append({"platform": pn, "date": d0, "releases": n,
-                         "distinct_works": len(bulk_works), "median_per_day": med,
-                         "example_work": sorted(bulk_works)[0] if bulk_works else None})
-    if bulk:
-        _s = ", ".join(f"{b['platform']} {b['date']} x{b['releases']}" for b in bulk[:4])
-        print(f"bulk re-dating  : {len(bulk)} (platform, date) bucket(s) far above that "
-              f"platform's own median — {_s}")
-
-    cl = _C(t["disposition"] for t in claim_trace)
-    (out / "run.json").write_text(json.dumps(
-        {"generated": str(_today),
-         "releases": len(releases), "platforms": len(platforms),
-         "works": len(works), "series_rows": len(series_rows),
-         "sources": src_health,
-         # Claims never reach the reader. They are inputs, and this is where they end up.
-         "claims": {"total": len(claim_trace), "by_disposition": dict(cl), "trace": claim_trace},
-         "bulk_dated": bulk,
-         # Cases the reader-facing interface used to render as doubt, now decided and moved here.
-         # A work with no chapters at all is a lead; a volume grouped by title match rather than an
-         # explicit series link is our inference. Neither is something a reader can adjudicate, and
-         # both are real coverage facts, so they are counted where the coverage facts live.
-         "gaps": {
-             "uncaptured_works": [
-                 {"work": r["work"],
-                  "platform": (r.get("sources") or [{}])[0].get("platform")}
-                 for r in series_rows if not r.get("chapters")],
-             "grouping": dict(_C(w.get("grouping") or "unknown" for w in works)),
-         },
-         # Weeks already trimmed and ready to draw; `trimmed_weeks` says how many came off, so the
-         # page can be honest about the window without recomputing anything.
-         "weekly": {"weeks": [{"week": k, "n": wk[k]} for k in keys],
-                    "trimmed_weeks": trimmed, "pre_tracking_releases": pre_tracking,
-                    "tracking_from": _from},
-         "access_modes": dict(_C(m for r in releases for m in (r.get("access_modes") or []))),
-         "update_kinds": dict(_C(r.get("kind") for r in releases)),
-         "identification": dict(_C(r.get("ident") for r in releases)),
-         "collapsed": {"duplicate_chapters": dropped_dupes, "thin_sitemap": thin_dropped,
-                       "resolver": resolver_dropped, "samples": len(samples)},
-         "filled": {"author": filled_author, "access": filled_access}},
-        ensure_ascii=False, indent=1, default=jsonable))
-    print(f"claims traced   : {dict(cl)}")
+    cl = write_run_record(out, _today, releases, platforms, works, series_rows,
+                          claim_trace, dropped_dupes, thin_dropped, resolver_dropped,
+                          filled_author, filled_access, samples)
 
     print(f"syndicated      : {sum(1 for r in releases if r.get('syndicated'))}")
-    print(f"provenance      : {dict(_C(r.get('provenance') for r in releases))}")
-    print(f"update kind     : {dict(_C(r.get('kind') for r in releases))}")
+    print(f"provenance      : {dict(Counter(r.get('provenance') for r in releases))}")
+    print(f"update kind     : {dict(Counter(r.get('kind') for r in releases))}")
     print(f"free view       : {sum(1 for r in releases if r.get('free'))} of {len(releases)}")
     print(f"samples dropped : {len(samples)} (promotional 試し読み — kept as print candidates)")
-    print(f"identification  : {dict(_C(r.get('ident') for r in releases))}")
-    am = _C(m for r in releases for m in (r.get("access_modes") or []))
+    print(f"identification  : {dict(Counter(r.get('ident') for r in releases))}")
+    am = Counter(m for r in releases for m in (r.get("access_modes") or []))
     if am:
         print(f"access modes    : {dict(am)}")
     if lapsed:

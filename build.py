@@ -1621,14 +1621,20 @@ def main():
                 _byhost = host_plat.get(_hm.group(1).lower())
                 if _byhost and _byhost != plat:
                     plat = _byhost
-            chs = [c for c in (w.get("chapters") or []) if c.get("updated")]
+            # A chapter without a date is still a chapter. COMIC FUZ states no updatedDate on its
+            # coin chapters at all — 70 of 球詠's 228 — so dropping undated rows made every paid
+            # chapter on that platform invisible: the work read as 158 chapters with nothing paid,
+            # and the platform as 96% free. Undated chapters count towards length and access; they
+            # simply cannot contribute a first or latest date.
+            chs = list(w.get("chapters") or [])
             # カドコミ dates a not-yet-released chapter 9999-12-31, and コミックFUZ carries 公開予定
             # rows months out. Neither has been published, so neither can be the latest chapter —
             # left in they sorted the whole index by which series had announced furthest ahead.
             _now = str(datetime.date.today())
-            future = [c for c in chs if str(c["updated"])[:10] > _now]
-            chs = [c for c in chs if str(c["updated"])[:10] <= _now]
-            dated = sorted(chs, key=lambda c: str(c["updated"]))
+            future = [c for c in chs if c.get("updated") and str(c["updated"])[:10] > _now]
+            chs = [c for c in chs if not (c.get("updated") and str(c["updated"])[:10] > _now)]
+            dated = sorted((c for c in chs if c.get("updated")),
+                           key=lambda c: str(c["updated"]))
             # Whether the chapter count is the SERIES length or only what we can see. Some routes
             # are partial by construction and no amount of re-running fixes them: pixivコミック
             # renders only the freely-readable episodes, ガンガンONLINE states a date only for
@@ -1698,7 +1704,7 @@ def main():
                 bucket["feed_url"] = bucket["feed_url"] or _wurl
             elif _wurl:
                 bucket["url"] = bucket["url"] or _wurl
-            for c in dated:
+            for c in chs:
                 # An instalment that names its own author and title is filed as its own work, not
                 # as a chapter of the container. Same reasoning as the feed: 貝合わせ by 白玉もち is a
                 # work, and a row saying the container has N chapters says nothing true about it.
@@ -1733,17 +1739,19 @@ def main():
         chs = sorted(row.pop("chapters").values(), key=lambda c: str(c.get("updated") or ""))
         row["chapters_list"] = chs
         row["chapters"] = len(chs)
-        row["dated"] = len(chs)
-        row["first"] = str(chs[0]["updated"])[:10] if chs else None
-        row["latest"] = str(chs[-1]["updated"])[:10] if chs else None
-        row["latest_ep"] = (chs[-1].get("title") or "").strip() if chs else ""
+        dated = [c for c in chs if c.get("updated")]
+        row["dated"] = len(dated)
+        row["first"] = str(dated[0]["updated"])[:10] if dated else None
+        row["latest"] = str(dated[-1]["updated"])[:10] if dated else None
+        row["latest_ep"] = (dated[-1].get("title") or "").strip() if dated else ""
         row["free"] = sum(1 for c in chs if "free" in (c.get("access_modes") or []))
         row["free_timed"] = sum(1 for c in chs if "free-timed" in (c.get("access_modes") or []))
         row["priced"] = sum(1 for c in chs if "purchase" in (c.get("access_modes") or []))
         if not row["author"]:
             row["author"] = next((c["author"] for c in reversed(chs) if c.get("author")), "")
         # The link is the newest chapter that has one; the work-level url only if it is a page.
-        row["url"] = next((c.get("url") for c in reversed(chs) if c.get("url")), None) or row["url"]
+        row["url"] = next((c.get("url") for c in reversed(dated) if c.get("url")), None) \
+            or next((c.get("url") for c in reversed(chs) if c.get("url")), None) or row["url"]
 
     # Authors: prefer the index built across every source over whatever a single record carried.
     # Adapters that reach a work sideways often have no author at all, and one stale row carries

@@ -55,21 +55,45 @@ def page_props(html):
 
 
 def access_of(chapter):
-    """FUZ states the access model per chapter. `pointConsumption` empty means free to read;
-    populated means it costs points. Anything else is quarantined rather than guessed (§6).
+    """FUZ has FOUR access states, not two, and this used to collapse them into two.
 
-    `type` distinguishes two kinds of paid chapter, and the distinction matters (see `iso`):
-    type 1 is a chapter running ahead of the free line — published and paid now, free from its
-    stated date. Every one of the 40 future-dated chapters carries type 1, and no past-dated
-    chapter does, so the type is what identifies them rather than the date being in the future.
+    The platform offers four: free; readable with a チャージ, one per series per day, costing
+    nothing; and silver or gold coins, which are purchases. Two fields carry it, and the one that
+    matters is the one this adapter ignored entirely — `badge`:
+
+        pointConsumption {}       free. Labelled 無料 on the page.
+        badge present             silver or gold coin. A purchase, and the platform BADGES these.
+        neither                   charge — one per series per day, no payment. Deliberately
+                                  unlabelled on the page.
+
+    That last line is why this was wrong. I looked at a chapter with an amount and no badge, saw
+    nothing marking it, and concluded the unlabelled ones were the paid ones. It is the other way
+    round: unlabelled IS the free-over-time state, and it is the majority — 2,067 of 2,421 chapters
+    held here carry no badge. Reading every amount as `purchase` reported COMIC FUZ at 14% free when
+    most of it can be read for nothing by anyone taking a chapter a day.
+
+    `type: 1` still marks a chapter running ahead of the free line — paid now, free from its stated
+    date — and every future-dated chapter carries it while no past-dated one does.
+
+    The badge-to-meaning mapping is the platform's policy as described by the project owner. The API
+    names none of these states, so it is recorded here rather than guessed from a field name.
     """
     pc = chapter.get("pointConsumption")
     if pc == {} or pc is None:
         return ["free"], None, False
     if isinstance(pc, dict) and pc.get("amount"):
-        return (["purchase"],
-                f"pointConsumption type={pc.get('type')} amount={pc.get('amount')}",
-                pc.get("type") == 1)
+        typ, badge = pc.get("type"), chapter.get("badge")
+        note = f"pointConsumption type={typ} amount={pc.get('amount')} badge={badge}"
+        if badge is not None:
+            # Badged, so it costs money NOW — but not all for the same reason, and the difference
+            # is a date. type 1 is 先行: paid today and free from its stated free_from, which is the
+            # "future date to become free" pattern and covers 85 of the 354 badged chapters here.
+            # type 2 is a coin chapter with no such date. Both are purchases today; only one has an
+            # end. Calling them all "coin" lost that, and the free_from is already carried.
+            if typ == 1:
+                return ["purchase"], f"{note} — 先行, free from its stated date", True
+            return ["purchase"], f"{note} — coin", False
+        return ["free-timed"], f"{note} — チャージ, one per series per day", False
     return ["unknown"], f"unrecognised pointConsumption: {json.dumps(pc, ensure_ascii=False)}", False
 
 

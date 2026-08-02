@@ -1,0 +1,82 @@
+# マガポケ — access for chapters below the fold of the work page.
+#
+# The work page lists twenty chapters and hides the rest behind もっと見る. The rendered adapter
+# reads what the page draws on load, so a chapter older than those twenty had a date, a title and
+# an author and no access state at all. Five rows in the feed were in that position.
+#
+# A reader in that position presses the button. So this was collected the same way: the page opened,
+# もっと見る pressed until the list stopped growing, and each row's badge class read off the chapter
+# it belongs to. 念願の悪役令嬢 goes from twenty rows to 111 that way.
+#
+# The badge is the platform's own statement and there are three of them, which is the other half of
+# why these rows were empty:
+#
+#   c-episode-item__ico--free          free
+#   c-episode-item__ico--ticket-free   free-timed — readable now by spending a 作品チケット
+#   c-episode-item__ico--point         purchase, with the price on the badge
+#
+# adapters/render/ knew only the first and the last, and captured the class with (\w+), which
+# cannot match a hyphen — so --ticket-free arrived as "ticket" and fell through to purchase. That
+# is fixed there; this file is the five rows the fix cannot reach, because they are past the fold.
+#
+# No genre label is established here (DEFINITIONS §4).
+source: webpages
+platform: magapoke
+platform_name: "マガポケ"
+publisher: "講談社"
+retrieved: 2026-08-02
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+date_basis: platform-stated
+date_confidence: reported
+route: browser, もっと見る pressed until the list stopped growing
+works:
+  - work_title: "怪獣ロマンティクス"
+    url: "https://pocket.shonenmagazine.com/title/03196"
+    chapter_count: 1
+    chapters:
+      - title: "【第1話】ぐっすん！ドキドキ！別れは出会いのシグナル"
+        updated: 2026-07-09
+        access_modes: ["free"]
+
+  - work_title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
+    url: "https://pocket.shonenmagazine.com/title/02328"
+    chapter_count: 3
+    chapters:
+      - title: "【第97話】紐解かれる記憶"
+        updated: 2026-06-19
+        access_modes: ["free-timed"]
+      - title: "【第96話】神竜降臨"
+        updated: 2026-06-05
+        access_modes: ["free-timed"]
+      - title: "【第95話】聖女の超爆撃"
+        updated: 2026-05-29
+        access_modes: ["free-timed"]
+
+  - work_title: "オカルトタイムズ"
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    chapter_count: 3
+    chapters:
+      - title: "【第21話】キケンな学園祭デート!?　前編"
+        updated: 2026-06-30
+        access_modes: ["free-timed"]
+      - title: "【第20話】激映え!異階の迷宮（ラビリンス）"
+        updated: 2026-06-30
+        access_modes: ["free-timed"]
+      - title: "【第19話】忍び寄るニャイトメア"
+        updated: 2026-06-30
+        access_modes: ["free-timed"]
+
+  - work_title: "アイドラトリィ"
+    url: "https://pocket.shonenmagazine.com/title/02901"
+    chapter_count: 3
+    chapters:
+      - title: "【#44】ラストスパート"
+        updated: 2026-07-01
+        access_modes: ["free-timed"]
+      - title: "【#43】Flash"
+        updated: 2026-06-17
+        access_modes: ["free-timed"]
+      - title: "【#42】コアメンバー"
+        updated: 2026-06-10
+        access_modes: ["free-timed"]

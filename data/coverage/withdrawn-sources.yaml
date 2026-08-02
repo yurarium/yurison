@@ -1,0 +1,28 @@
+# Sources removed because what they produced was not true, with the check that showed it.
+#
+# The distinction from data/coverage/unreached.yaml: those are works nothing has reached. These are
+# works something reached and got wrong, which is worse, because a wrong row looks exactly like a
+# right one in every count.
+source: derived
+role: withdrawn-sources
+retrieved: 2026-08-02
+sources:
+  - file: data/source/webpages/generic-news-mynavi-jp.yaml
+    platform: マイナビニュース
+    work: 自動車の妖精 パッソちゃんの恩返し
+    removed: 2026-08-02
+    rows_withdrawn: 3
+    why: >-
+      The generic markup extractor read https://news.mynavi.jp/series/carfairy/ and took three
+      "chapters" from it: クイズ 第62回 バイクのステップに謎の突起物!, and 相談室 第5回 and 第6回 on
+      engine oil. None of them is an instalment of this work. They are unrelated columns from the
+      page's sidebar, dated heuristically, and they were sitting in the feed as July 2026 releases.
+      The series itself ends at No. 70, 自動車の妖精 パッソちゃんの恩返し(70) パッソちゃんの存在理由,
+      dated 2024-01-01 — the column has not run for over two years and has no 2026 chapter at all.
+      The rows were flagged as missing an author, and the reason they had no author is that the
+      article they were scraped from is not by this work's author. Chasing the empty field is what
+      found it.
+    author_note: >-
+      For the record, since it was established while checking: the author is ずんだコロッケ, credited
+      on every article page as 著者：<a href="/author/12216/">ずんだコロッケ</a>. Kept here rather
+      than in resolved-authors.yaml because the work has no live rows to attach it to.

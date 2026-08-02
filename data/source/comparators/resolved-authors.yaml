@@ -1,0 +1,54 @@
+# Authors established off-platform, for works whose platform states none.
+#
+# マンガワン publishes no author anywhere a fetch can reach: /manga/<id> 404s for every title, the
+# serialisation list and search results carry title and date only, and the reader shows neither.
+# A human wanting to know who draws these does not keep reloading マンガワン — they look the work up,
+# and the answer is immediate and authoritative. So that is what was done.
+#
+# Each of these is a volume record in openBD, which is already a Tier-A source in this pipeline, so
+# the fact arrives by the same route as every other volume-level author here rather than by a
+# screenshot of a search result. Where the work is also on a platform that does state its author,
+# that first-party statement is recorded too and is the stronger of the two.
+#
+# The one I did NOT record is worth keeping visible. マンガワン's purchase card for メイド＆ロイド shows
+# ちいさなひとひら in the slot between the chapter title and 消費アイテム, and I nearly took it for the
+# author on the strength of its position. The author is みやしろ. Position is not provenance.
+source: comparators
+role: resolved-authors
+record_type: work_identity
+retrieved: 2026-08-02
+works:
+  - work_title: "メイド&ロイドはお嬢様のお役に立ちたい!"
+    author: "みやしろ"
+    platform_unable: "マンガワン"
+    basis:
+      source: sunday-webry
+      url: "https://www.sunday-webry.com/episode/12207421983529061173"
+      note: >-
+        First-party. The work is syndicated to サンデーうぇぶり, whose page title carries the author in
+        the GigaViewer form: "Memory1 彼女の居場所 / メイド＆ロイドはお嬢様のお役に立ちたい！ - みやしろ".
+    corroboration:
+      source: shogakukan
+      url: "https://sundaygx.com/work/17764/"
+      note: "Serialised in サンデーGENE-X from the April 2026 issue."
+
+  - work_title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
+    author: "涼川りん"
+    platform_unable: "マンガワン"
+    basis:
+      source: openbd
+      isbn: "9784098545544"
+      note: >-
+        openBD volume 1: title ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは, author 涼川りん,
+        publisher 小学館.
+
+  - work_title: "妖怪殲滅のサイコリリー"
+    author: "狗之餌 廃狼"
+    platform_unable: "マンガワン"
+    basis:
+      source: openbd
+      isbn: "9784098531714"
+      note: >-
+        openBD volume 1: title 妖怪殲滅のサイコリリー. 1, author "狗之餌 廃狼", series 裏少年サンデー
+        コミックス, publisher 小学館, 202403. 狗之餌 is 原作 and 廃狼 作画; openBD states them as one
+        field and they are kept as it wrote them.

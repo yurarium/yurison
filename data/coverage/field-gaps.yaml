@@ -1,38 +1,36 @@
-# Fields still missing, with the reason, regenerated from the build.
+# Fields missing on attested rows, regenerated from the build.
 #
-# EVERY ATTESTED ROW NAMES ITS CHAPTER, and all but 22 carry an author and an access state too.
-# Unconfirmed claims carry none of these BY NATURE: a listing site said a work updated, no more.
+# THERE ARE NONE. Every attested row carries its chapter, its author, its access state and its
+# kind. The file stays so the next gap has somewhere to appear, and so the reasons the last ones
+# closed are not lost.
 #
-# Counting fields is not the same as reading the list, and the difference is not small. Every
-# check here passed on 43 rows whose WORK NAME was a fragment of Atom XML, on chapters called
-# 1, 2, 3 whose real names sat unread in a subtitle field, and on a chapter with マガポケ welded to
-# its title by an undecoded &#x2F;. All were populated. All were wrong, and all were obvious on
-# sight. The audit below is the weaker of the two checks; the list is the other one.
+# The four that took the longest, and what each actually was:
+#
+#   マンガワン    Genuinely publishes no author: no work page exists (/manga/<id> 404s for every
+#                title), and the list, search and reader show title and date only. Resolved off
+#                platform — openBD for 涼川りん and 狗之餌 廃狼, and サンデーうぇぶり, which carries
+#                the same work and states みやしろ first-party. NOT ちいさなひとひら, which is what
+#                sits in the author's position on the purchase card and which I nearly recorded.
+#   マガポケ      The work page shows twenty chapters and hides the rest behind もっと見る. Pressed
+#                it. Also a third badge, --ticket-free (作品チケット), that adapters/render/ could
+#                not even capture, because it matched the class with (\w+) and '-' is not a word
+#                character — so the state meaning 'readable now' was being recorded as purchase.
+#   マイナビニュース  Not a gap. The three rows were sidebar articles — a bike-oil column and a quiz —
+#                scraped off the series page and filed under this work with heuristic dates. The
+#                column itself ended at No. 70 on 2024-01-01. Withdrawn; see withdrawn-sources.
+#   コロコロ      The author boundary is unguessable from the title string and stated exactly by
+#                the page's /author/N links. SWAV is a third author, not a subtitle.
+#
+# Unconfirmed claims still carry none of these, by nature: a listing site said a work updated.
+# Counting fields is the weaker check. Reading the list is the other one, and it is what found
+# 43 rows whose WORK NAME was Atom XML, chapters called 1 and 2 whose names sat unread in a
+# subtitle, and a chapter with マガポケ welded on by an undecoded &#x2F; — all fully populated.
 source: derived
 role: field-gaps
 retrieved: 2026-08-02
-rows_total: 1386
-attested: 1341
-attested_complete: 1319
-attested_missing_chapter: 0
+rows_total: 1387
+attested: 1342
+attested_complete: 1342
+attested_incomplete: 0
 unconfirmed_claims: 45
-by_platform:
-  マンガワン:
-    author: 14
-  マイナビニュース:
-    author: 3
-    access: 3
-  マガポケ:
-    access: 5
-reasons:
-  マンガワン: No work page exists — /manga/<id> 404s for every title, running ones included. The serialisation
-    list, the search results and the reader show title and date only. A name appears in exactly one place,
-    the purchase card of a locked chapter, and for メイド＆ロイド that name is ちいさなひとひら — as plausibly a chapter
-    subtitle as a pen name. One observation of an ambiguous slot is not an author and is not recorded
-    as one.
-  マガポケ: 'Five older chapters whose access the platform no longer shows: the work page renders ten chapters
-    and the rest need a control this fetch cannot press, and the episode pages are JavaScript shells.
-    Their authors, chapters and dates are complete.'
-  マイナビニュース: A news site carrying a manga column. The series URL 301-redirects to carfairy_re, which lists
-    general motoring articles rather than the column's own instalments, and no article, meta tag or JSON-LD
-    on it names an author.
+by_platform: {}

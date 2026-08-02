@@ -67,6 +67,8 @@ def render(url, cache, max_age_days=2):
 # Platforms whose rendered chapter list has a stable structure worth reading directly. The generic
 # strategies find a date and a label and nothing else; these carry access per chapter, which is the
 # field the free view depends on and which no heuristic can recover.
+ACCESS_BADGE = {"free": ["free"], "ticket-free": ["free-timed"], "point": ["purchase"]}
+
 STRUCTURED = {
     # マガポケ: <li class="c-episode-items__item"> … __date, __ttl, and an icon that is either
     # __ico--free or __ico--point with a price on it.
@@ -74,7 +76,7 @@ STRUCTURED = {
         "item": r'<li class="c-episode-items__item">',
         "date": r'__date">([^<]*)<',
         "title": r'__ttl">([^<]*)<',
-        "access": r'__ico--(\w+)">([^<]*)<',
+        "access": r'__ico--([\w-]+)">([^<]*)<',
     },
     # マンガワン names nothing semantically — the classes are utility soup — but the item container
     # is stable and the badges are plain text: 無料 for free, 先読 for a chapter released early to
@@ -109,8 +111,17 @@ def episodes_structured(html, spec):
         ico = re.search(spec["access"], b) if spec.get("access") else None
         if ico:
             kind = ico.group(1)
-            row["access_modes"] = ["free"] if kind == "free" else ["purchase"]
-            if kind != "free" and ico.group(2).strip():
+            # Three badges, not two. マガポケ marks a chapter --free, --point with a price, or
+            # --ticket-free, which is 作品チケット: readable now, without paying, by spending a ticket
+            # the platform hands out. That is free-timed and it is most of the middle of every long
+            # series here — 念願の悪役令嬢's 第95話 through 第97話, アイドラトリィ's #42 through #44.
+            #
+            # It was invisible twice over. The capture was (\w+), and '-' is not a word character,
+            # so --ticket-free captured as "ticket"; and anything that was not exactly "free" was
+            # called purchase. So the one state that means "you can read this right now" was being
+            # recorded as the one that means you cannot.
+            row["access_modes"] = ACCESS_BADGE.get(kind, ["purchase"])
+            if kind == "point" and ico.group(2).strip():
                 row["price"] = ico.group(2).strip()
         out.append(row)
     return out

@@ -798,8 +798,44 @@ def main():
                 (norm_work(r.get("work") or ""),
                  norm_work(r.get("plat_name") or r.get("plat") or "")), []).append(r["pub"])
 
+    # ── Claims are traced, not published ─────────────────────────────────────────────────────────
+    #
+    # A claim is a listing site saying a work updated. It is an input to this pipeline, not an
+    # output of it. Earlier versions put unconfirmed claims into the feed marked 要確認, which is a
+    # category error: nothing but this system will ever check them, so asking a reader to hold an
+    # open question serves no one — they cannot act on it and it is not a fact about a manga.
+    #
+    # Every claim therefore ends in exactly one disposition, and the ones a reader would want are
+    # already indistinguishable from attested rows because they ARE attested rows (absorbed). The
+    # rest go to the technical view: `open` is a worklist, `refuted` is a record kept in case it
+    # ever needs revisiting, and the others are dead ends with a stated reason.
+    #
+    #   absorbed    the platform attests it too. Ceases to be a claim; the release stands on its own
+    #   phantom     the "work" is not a work (a section heading, a magazine name)
+    #   duplicate   the other comparator reported the same event
+    #   refuted     we hold the platform's own history, it is deep enough to argue from, and it
+    #               contains nothing near the claimed date. We looked at the publisher. That is the
+    #               end — UNLESS the capture guards below fail, in which case it stays `open`.
+    #   undatable   the platform publishes no per-chapter dates at all, so its pages can neither
+    #               confirm nor refute. Not neglect; there is nothing there to read.
+    #   open        not traced yet. This is work to do now, and it is the only bucket that should
+    #               ever shrink by doing something.
+    #
+    # THE CAPTURE GUARDS exist because "we found nothing" and "we fetched nothing" look identical
+    # from inside. A refutation is only allowed when our own capture is deep enough to carry it:
+    # three chapters minimum (a history of one is not a history), and no huge gap between the claim
+    # and our newest (a large gap is the signature of a partial listing — pixivコミック expires its
+    # middle chapters, several GigaViewer installs serve only what is currently free). Every
+    # refutation records the evidence that licensed it, so the "we just failed to capture it"
+    # hypothesis stays visible on the technical screen instead of being assumed away.
+    claim_trace = []
     contradicted, contradicted_works = 0, []
     CLAIM_DATE_SLACK = 2   # days either side
+
+    def trace(c, w, disposition, why, **ev):
+        claim_trace.append({"work": w, "platform": c.get("platform"), "url": c.get("url"),
+                            "claimed": str(c.get("date") or ""), "source": c.get("source"),
+                            "disposition": disposition, "why": why, **ev})
 
     def near_dates(when):
         try:
@@ -825,8 +861,10 @@ def main():
             nw = norm_work(w)
             if nw in not_works:
                 phantom += 1
+                trace(c, w, "phantom", "the name is not a work")
                 continue
             if (nw, when) in attested_keys:
+                trace(c, w, "absorbed", "the platform attests this work on this date")
                 continue
             # Comparators and platforms disagree by a day or two routinely — a listing site records
             # when it noticed, the platform when it published, and timezones and crawl schedules do
@@ -835,6 +873,8 @@ def main():
             # marked unconfirmed. Exact-date matching was too strict for what these dates are.
             if any((nw, d) in attested_keys for d in near_dates(when)):
                 claims_superseded_nearby += 1
+                trace(c, w, "absorbed",
+                      f"attested within {CLAIM_DATE_SLACK} days — the same event, dated differently")
                 continue
             # Same work AND same platform is a stronger match than same work alone, so it carries a
             # wider window. A listing site reports when it notices; the platform's own record dates
@@ -847,12 +887,15 @@ def main():
                                       - datetime.date.fromisoformat(x)).days)
                                  for x in same_plat) <= 7:
                 claims_superseded_nearby += 1
+                trace(c, w, "absorbed", "attested on this platform within a week — one event",
+                      platform_latest=max(same_plat))
                 continue
             # 百合ナビ runs title and author together in one cell, so an exact-key test misses a
             # claim that duplicates an attested release — "リリィズコンプレックス 館山けーた" against
             # "リリィズコンプレックス". Suppress a claim whose cell starts with a title we already
             # attest on that date.
             if any(nw.startswith(k) for k, kd in attested_keys if kd == when and len(k) >= 2):
+                trace(c, w, "absorbed", "attested on this date; the cell runs title and author together")
                 continue
             # A claim for a work whose full chapter history we hold on that very platform, with no
             # chapter anywhere near the claimed date, is not an unconfirmed report — it is a
@@ -869,18 +912,32 @@ def main():
             # 1.3 chapters per work against コミックDAYS's 26.3. Where we are this far behind, the
             # honest reading is that we cannot see the whole run, whatever the reason.
             CONTRADICTION_MAX_GAP = 120   # days
-            plat_hist = platform_history.get((nw, norm_work(c.get("platform") or "")))
-            if plat_hist and (datetime.date.fromisoformat(when)
-                              - datetime.date.fromisoformat(max(plat_hist))).days > CONTRADICTION_MAX_GAP:
-                plat_hist = None
-            if plat_hist and len(plat_hist) >= 3 and not any(abs((datetime.date.fromisoformat(when)
+            raw_hist = platform_history.get((nw, norm_work(c.get("platform") or "")))
+            plat_hist, held_back = raw_hist, None
+            if raw_hist:
+                gap = (datetime.date.fromisoformat(when)
+                       - datetime.date.fromisoformat(max(raw_hist))).days
+                if gap > CONTRADICTION_MAX_GAP:
+                    plat_hist, held_back = None, (
+                        f"we hold {len(raw_hist)} chapters ending {max(raw_hist)}, {gap} days before "
+                        f"the claim — too far behind to argue the platform shows nothing")
+                elif len(raw_hist) < 3:
+                    plat_hist, held_back = None, (
+                        f"only {len(raw_hist)} chapter(s) held — a history of one is not a history")
+            if plat_hist and not any(abs((datetime.date.fromisoformat(when)
                                           - datetime.date.fromisoformat(x)).days) <= 7
                                      for x in plat_hist):
                 contradicted += 1
-                contradicted_works.append({
-                    "work": w, "platform": c.get("platform"), "claimed": when,
-                    "platform_latest": max(plat_hist),
-                    "chapters_held": len(plat_hist), "source": c.get("source")})
+                ev = {"work": w, "platform": c.get("platform"), "claimed": when,
+                      "platform_latest": max(plat_hist),
+                      "chapters_held": len(plat_hist), "source": c.get("source")}
+                contradicted_works.append(ev)
+                trace(c, w, "refuted",
+                      "we hold this platform's own history for this work and it lists nothing "
+                      "within a week of the claimed date",
+                      platform_latest=max(plat_hist), chapters_held=len(plat_hist),
+                      gap_days=(datetime.date.fromisoformat(when)
+                                - datetime.date.fromisoformat(max(plat_hist))).days)
                 continue
 
             # The two comparators overlap, and 百合ナビ's cell carries the author, so the same
@@ -889,27 +946,26 @@ def main():
             dup = next((c2 for c2 in claim_index.get(when, [])
                         if nw.startswith(c2["nw"]) or c2["nw"].startswith(nw)), None)
             if dup:
-                srcs = set(dup["rel"].get("claim_source", "").split("+")) | {c.get("source")}
-                dup["rel"]["claim_source"] = "+".join(sorted(s for s in srcs if s))
+                srcs = set((dup["rec"].get("source") or "").split("+")) | {c.get("source")}
+                dup["rec"]["source"] = "+".join(sorted(s for s in srcs if s))
                 continue
-            # A claim for a work we already attest elsewhere on another date is still useful:
-            # it records an update we did not see. Kept, but flagged.
-            releases.append({
-                "id": f"claim:{c.get('source')}:{nw}:{when}", "work": w, "ep": "",
-                "type": "unclassified", "adv": True, "web": "serialised", "pub": when,
-                "seen": str(d.get("retrieved", "")), "basis": "claimed", "conf": "reported",
-                "why": "", "moved": "", "url": c.get("url"), "author": author or "",
-                "title_unsplit": unsplit,
-                "plat": "claim",
-                "plat_name": alias_to_name.get(norm_work(c.get("platform") or ""),
-                                               c.get("platform") or "?"),
-                "channel": channels.get(norm_work(c.get("platform") or "")),
-                "ident": "comparator-claim", "free_from": None, "access_modes": [],
-                "unconfirmable": norm_work(c.get("platform") or "") in dateless_platforms,
-                "provenance": "claimed", "claim_source": c.get("source"),
-                "also_attested_elsewhere": nw in attested_works,
-            })
-            claim_index.setdefault(when, []).append({"nw": nw, "rel": releases[-1]})
+            # Everything left is untraced. Say WHY it is untraced, because the reasons need
+            # different work: a platform that dates nothing can never be resolved and should stop
+            # being retried, while a platform we simply do not read yet is an adapter waiting to be
+            # written, and a work whose history we hold too thinly is a deeper fetch.
+            if norm_work(c.get("platform") or "") in dateless_platforms:
+                trace(c, w, "undatable",
+                      "this platform publishes no per-chapter dates — a reader on the site cannot "
+                      "see when a chapter appeared either, so there is nothing to check against")
+            else:
+                trace(c, w, "open",
+                      held_back or ("we hold no chapter history for this work on this platform"
+                                    if c.get("url") else
+                                    "no URL reported, and no history held — nothing to trace to"),
+                      chapters_held=len(raw_hist or []),
+                      also_attested_elsewhere=nw in attested_works,
+                      traceable=bool(c.get("url")))
+            claim_index.setdefault(when, []).append({"nw": nw, "rec": claim_trace[-1]})
             claims_kept += 1
 
     # A channel is a section of a host platform, not a platform. Naming the host is always correct.
@@ -1716,10 +1772,15 @@ def main():
             bucket = series.setdefault(key, {
                 "work": title, "platform": plat, "url": None, "feed_url": None,
                 "author": "", "chapters": {}, "upcoming": 0,
-                "partial": True, "oneshot_src": False, "_srcs": set(),
+                "partial": True, "oneshot_src": False, "completed_src": None, "_srcs": set(),
             })
             bucket["_srcs"].add(_d.get("platform") or _d.get("source") or "")
             bucket["oneshot_src"] = bucket["oneshot_src"] or oneshot_src
+            # The platform's own statement that the serialisation is over, where it makes one.
+            # カドコミ's serializationStatus takes three values across the works we hold — unknown
+            # 217, ongoing 92, finished 91 — so `finished` is a real assertion and not a default.
+            if str(w.get("status") or "").lower() == "finished":
+                bucket["completed_src"] = "the platform marks the serialisation finished"
             # Partial only if EVERY source for this row is partial. One full history is enough to
             # make the count real, whatever else also saw a slice of it.
             bucket["partial"] = bucket["partial"] and bool(partial)
@@ -1822,10 +1883,30 @@ def main():
         row["oneshot"] = (row.pop("oneshot_src", False) or _k in _oneshot or _self_named
                           or (row["chapters"] == 1 and not row["partial"]
                               and norm_work(row["work"]) in _oneshot_any))
+        # ENDED, on the platform's own words rather than on silence.
+        #
+        # Two firm signals, and only these two. A chapter titled 最終話 is the publisher saying so in
+        # the one place they always say it; カドコミ additionally carries an explicit status field.
+        # 会長！今日はサボりましょう！ has a 最終話 dated 2025-01-30 and we filed it `dormant` — which
+        # reads as an abandoned series rather than a finished one.
+        #
+        # What is NOT evidence: silence, a stale 次回更新予定日：未定, or an absent update. カドコミ
+        # leaves that work's serializationStatus at "ongoing" to this day, and the 最終話 itself is
+        # isActive: false — withdrawn along with most of the run, so a reader cannot see the ending
+        # on the page at all. The line between "ended" and "hiatus that may never resume" is real
+        # and this does not try to guess it: without one of the two signals a quiet work stays
+        # `dormant`, which describes the observation instead of inferring an intention.
+        _final = bool(row.get("latest_ep")
+                      and FINAL_RE.search(unicodedata.normalize("NFKC", row["latest_ep"])))
+        _completed = row.pop("completed_src", None)
         if not row["latest"]:
             row["state"] = "unknown"
         elif row["oneshot"]:
             row["state"] = "oneshot"
+        elif _final or _completed:
+            row["state"] = "completed"
+            row["completed_basis"] = ("the newest chapter is titled 最終話" if _final
+                                      else _completed)
         else:
             age = (_today - datetime.date.fromisoformat(row["latest"])).days
             row["age_days"] = age
@@ -1911,6 +1992,10 @@ def main():
             "latest_ep": best["latest_ep"],
             "first": min((r["first"] for r in rows if r["first"]), default=None),
             "state": best["state"], "oneshot": best["oneshot"],
+            # Why we say it ended, carried up with the state. A state without its basis is the
+            # thing this project keeps having to unpick.
+            "completed_basis": next((r.get("completed_basis") for r in rows
+                                     if r.get("completed_basis")), None),
             "collection": best.get("collection"),
             "url": best["url"],
             "free": best["free"], "free_timed": best["free_timed"], "priced": best["priced"],
@@ -1949,7 +2034,80 @@ def main():
          "platform_meta": plat_meta, "lapsed": lapsed},
         ensure_ascii=False, indent=1, default=jsonable))
 
+    # ── The run record ───────────────────────────────────────────────────────────────────────────
+    #
+    # build.py has always printed its counts to stdout and kept none of them, so nothing could say
+    # what last night's run did or what broke. That gap is also why a claim could not be refuted
+    # safely: "the platform lists nothing" and "our fetch of that platform failed" are the same
+    # observation from inside the build unless the run says which happened. So the per-source
+    # freshness below is not decoration — it is the evidence a refutation rests on.
     from collections import Counter as _C
+
+    src_health = []
+    for d0 in sorted(glob.glob("data/source/*/")):
+        name = pathlib.Path(d0).name
+        files = sorted(glob.glob(d0 + "*.yaml"))
+        if not files:
+            continue
+        got, retrieved, works_n = 0, "", 0
+        for f in files:
+            try:
+                y = yaml.safe_load(open(f)) or {}
+            except Exception:
+                continue
+            r0 = str(y.get("retrieved") or "")[:10]
+            retrieved = max(retrieved, r0)
+            # Two file shapes. Platform adapters write one file holding many works; the
+            # bibliographic sources (MADB, openBD, NDL) write one file PER WORK, with the work at
+            # the top level. Counting only `works:` reported those as zero, which on a health panel
+            # reads as a broken adapter rather than a different layout.
+            ws = y.get("works") or y.get("releases")
+            if ws is None:
+                ws = [y] if y.get("record_type") else []
+            works_n += len(ws)
+            got += sum(len(w.get("chapters") or w.get("episodes") or w.get("volumes") or []) or 1
+                       for w in ws if isinstance(w, dict))
+        age = None
+        if retrieved:
+            try:
+                age = (_today - datetime.date.fromisoformat(retrieved)).days
+            except ValueError:
+                pass
+        src_health.append({"source": name, "files": len(files), "works": works_n,
+                           "rows": got, "retrieved": retrieved, "age_days": age,
+                           "in_scope": name in ALLOWED_SOURCES or name in
+                           {"gigaviewer", "comicfuz", "kadokomi", "comici", "webpages",
+                            "remaining", "render", "sitemap", "reachable", "comparators"},
+                           "empty": works_n == 0})
+
+    cl = _C(t["disposition"] for t in claim_trace)
+    (out / "run.json").write_text(json.dumps(
+        {"generated": str(_today),
+         "releases": len(releases), "platforms": len(platforms),
+         "works": len(works), "series_rows": len(series_rows),
+         "sources": src_health,
+         # Claims never reach the reader. They are inputs, and this is where they end up.
+         "claims": {"total": len(claim_trace), "by_disposition": dict(cl), "trace": claim_trace},
+         # Cases the reader-facing interface used to render as doubt, now decided and moved here.
+         # A work with no chapters at all is a lead; a volume grouped by title match rather than an
+         # explicit series link is our inference. Neither is something a reader can adjudicate, and
+         # both are real coverage facts, so they are counted where the coverage facts live.
+         "gaps": {
+             "uncaptured_works": [
+                 {"work": r["work"],
+                  "platform": (r.get("sources") or [{}])[0].get("platform")}
+                 for r in series_rows if not r.get("chapters")],
+             "grouping": dict(_C(w.get("grouping") or "unknown" for w in works)),
+         },
+         "access_modes": dict(_C(m for r in releases for m in (r.get("access_modes") or []))),
+         "update_kinds": dict(_C(r.get("kind") for r in releases)),
+         "identification": dict(_C(r.get("ident") for r in releases)),
+         "collapsed": {"duplicate_chapters": dropped_dupes, "thin_sitemap": thin_dropped,
+                       "resolver": resolver_dropped, "samples": len(samples)},
+         "filled": {"author": filled_author, "access": filled_access}},
+        ensure_ascii=False, indent=1, default=jsonable))
+    print(f"claims traced   : {dict(cl)}")
+
     print(f"syndicated      : {sum(1 for r in releases if r.get('syndicated'))}")
     print(f"provenance      : {dict(_C(r.get('provenance') for r in releases))}")
     print(f"update kind     : {dict(_C(r.get('kind') for r in releases))}")

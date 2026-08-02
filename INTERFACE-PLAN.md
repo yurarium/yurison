@@ -64,7 +64,18 @@ The row should answer a reader's four questions in this order: *what updated*, *
 *where do I read it*, *is this new to me*. Everything else is secondary or belongs in a details
 disclosure.
 
-## 3. Run breakdown and a change-over-time graph
+## 3. Run breakdown and a change-over-time graph — DONE (kari/status.html)
+
+I ordered this last, reasoning it was "most valuable once the pipeline is running unattended, which
+it is not yet." That was wrong, and the reason is worth keeping: its value is not unattended
+operation. It is that a project with nowhere to put its own diagnostics puts them in the reader's
+way. The 45 rows marked 要確認 in the update feed were there because there was no other surface —
+and asking a reader to hold a question only this system can answer is a category error, since no
+reader is going to go and check a listing site against a publisher.
+
+So the dependency ran the other way from how I ranked it. Claims could not be taken out of the feed
+until they had somewhere to go. Built now, and the feed is clean: every release is attested, and no
+row carries a note about our own confidence.
 
 Linked at the bottom, out of the way. Two halves with different readiness:
 

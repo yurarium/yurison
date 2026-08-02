@@ -732,6 +732,14 @@ def main():
                           (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {})
                           .get("no_chapter_dates") or []}
 
+    # Attested dates by (work, platform), for recognising a claim that reports what we already hold.
+    platform_dates = {}
+    for r in releases:
+        if r.get("provenance") == "attested" or r.get("basis") not in (None, "claimed"):
+            platform_dates.setdefault(
+                (norm_work(r.get("work") or ""),
+                 norm_work(r.get("plat_name") or r.get("plat") or "")), []).append(r["pub"])
+
     contradicted, contradicted_works = 0, []
     CLAIM_DATE_SLACK = 2   # days either side
 
@@ -768,6 +776,18 @@ def main():
             # Treating those as two events shows the reader one update twice, the second time
             # marked unconfirmed. Exact-date matching was too strict for what these dates are.
             if any((nw, d) in attested_keys for d in near_dates(when)):
+                claims_superseded_nearby += 1
+                continue
+            # Same work AND same platform is a stronger match than same work alone, so it carries a
+            # wider window. A listing site reports when it notices; the platform's own record dates
+            # the same chapter a few days earlier, and the observed gaps cluster at 3–8 days with a
+            # clear break after. Showing both is showing one event twice, the second time as an
+            # empty row marked unconfirmed.
+            pn_claim = alias_to_name.get(norm_work(c.get("platform") or ""), c.get("platform") or "")
+            same_plat = platform_dates.get((nw, norm_work(pn_claim))) or []
+            if same_plat and min(abs((datetime.date.fromisoformat(when)
+                                      - datetime.date.fromisoformat(x)).days)
+                                 for x in same_plat) <= 7:
                 claims_superseded_nearby += 1
                 continue
             # 百合ナビ runs title and author together in one cell, so an exact-key test misses a
@@ -912,6 +932,30 @@ def main():
                                     f"a section of that site rather than a platform. Whether it was "
                                     f"first published here or elsewhere is not established.")
                 r["origin_unknown"] = True
+
+    # Fill from what we already hold. An author belongs to the WORK, so a row that lacks one can
+    # take it from any other row for the same work regardless of which adapter found it; access
+    # belongs to a chapter, so it only crosses between rows for the same work, platform and
+    # episode. This is not inference — it is the same fact, already fetched, not carried across.
+    author_of, access_of = {}, {}
+    for r in releases:
+        k = norm_work(r.get("work") or "")
+        if r.get("author") and k not in author_of:
+            author_of[k] = r["author"]
+        if r.get("access_modes"):
+            access_of.setdefault((k, r.get("plat_name") or r.get("plat"),
+                                  norm_work(r.get("ep") or "")), r["access_modes"])
+    filled_author = filled_access = 0
+    for r in releases:
+        k = norm_work(r.get("work") or "")
+        if not r.get("author") and author_of.get(k):
+            r["author"] = author_of[k]
+            r["author_basis"] = "carried from another record of the same work"
+            filled_author += 1
+        ak = (k, r.get("plat_name") or r.get("plat"), norm_work(r.get("ep") or ""))
+        if not r.get("access_modes") and access_of.get(ak):
+            r["access_modes"] = list(access_of[ak])
+            filled_access += 1
 
     # ── update kind: new series / new chapter / other ──────────────────────────────────────────
     # Derived from positive evidence only. An earlier version inferred `new-series` from "first
@@ -1301,6 +1345,7 @@ def main():
         print(f"carriage lapses : {len(lapsed)}")
     print(f"duplicate chapters collapsed : {dropped_dupes}")
     print(f"thin sitemap rows superseded  : {thin_dropped}")
+    print(f"fields carried across records : {filled_author} author, {filled_access} access")
     print(f"preference moved to a free carrier : {switched}")
     print(f"claims contradicted by the platform's own history : {contradicted}")
     serialised = sum(1 for r in releases if r.get("web") == "serialised")

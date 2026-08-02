@@ -40,7 +40,7 @@ for c in ("/snap/bin/chromium", "/usr/bin/chromium", "/usr/bin/chromium-browser"
         break
 
 UA = "Mozilla/5.0 (compatible; yurarium/0.1; +https://yurarium.github.io/)"
-BUDGET_MS = 8000
+BUDGET_MS = 20000   # pixiv builds its episode list late; 8000 lost ~28 works to timing
 PAUSE = 1.0
 MIN_EPISODES = 2
 
@@ -124,6 +124,50 @@ def episodes_structured(html, spec):
             if kind == "point" and ico.group(2).strip():
                 row["price"] = ico.group(2).strip()
         out.append(row)
+    return out
+
+
+PX_ANCHOR = re.compile(r'<a href="/viewer/stories/(\d+)">(.*?)</a>', re.S)
+# pixiv puts the author in a plain <div> immediately after the work's <h1> — no class, no link.
+# author_near_title() cannot see it, which is why 腹割るウチらの秘密ごと! came back without one.
+PX_AUTHOR = re.compile(r"<h1[^>]*>[^<]*</h1>\s*<div[^>]*>([^<]{1,30})</div>")
+PX_DATE = re.compile(r"更新日[:：]\s*(\d{4})年(\d{1,2})月(\d{1,2})日")
+
+
+def episodes_pixiv(html):
+    """pixivコミック's episode list, which the generic strategies cannot see.
+
+    Each episode is an <a href="/viewer/stories/<id>"> holding three text nodes: a label, a
+    subtitle, and 更新日: 2026年5月8日. The label is usually a bare number — pixiv numbers 1, 2, 3 —
+    which is why CHAPTERISH never matched it and why this platform came back with a fraction of its
+    chapters. On anthologies the label is the artist instead (漫画：樫風), so it is taken as written
+    rather than parsed.
+
+    Access: the rendered list holds exactly the episodes a signed-out reader can open. Checked
+    against the four works whose per-episode access was independently known — 3 free of 18, 7 of 7,
+    1 of 42, 5 of 10 — and the anchor count matched the free count every time. So membership of
+    this list IS the access statement, the same way GigaViewer's ?free_only=1 feed is. It is a
+    statement about what is free, and says nothing about the rest, which is why the paid episodes
+    are absent here rather than recorded as purchase.
+    """
+    out, seen = [], set()
+    for sid, block in PX_ANCHOR.findall(html):
+        d = PX_DATE.search(block)
+        if not d:
+            continue                       # 最初から読む and other furniture: no date, not an episode
+        parts = [x.strip() for x in
+                 _html.unescape(re.sub(r"<[^>]+>", "\n", block)).split("\n") if x.strip()]
+        # Strip the date fragment rather than dropping the whole node: on some works the subtitle
+        # and 更新日 share a text node, and dropping it took the subtitle with it — leaving
+        # 怪獣ロマンティクス's chapter as "…別れは出会いのシグナル 更新日:".
+        parts = [re.sub(r"\s*更新日.*$", "", x).strip() for x in parts]
+        parts = [x for x in parts if x]
+        if not parts or sid in seen:
+            continue
+        seen.add(sid)
+        out.append({"title": " ".join(parts[:2]),
+                    "updated": f"{int(d.group(1)):04d}-{int(d.group(2)):02d}-{int(d.group(3)):02d}",
+                    "access_modes": ["free"]})
     return out
 
 
@@ -216,12 +260,23 @@ def main():
                 failed["empty render"] += 1
                 continue
             spec = STRUCTURED.get(plat["id"])
-            eps = episodes_structured(html, spec) if spec else []
-            if len(eps) < MIN_EPISODES:
-                eps = episodes(html)
+            if plat["id"] == "pixivcomic":
+                # No generic fallback here. A pixiv work with one chapter is an ordinary new
+                # serialisation, and falling through to the generic extractor on that basis is what
+                # gave 怪獣ロマンティクス a chapter called "300話以上✨】無料でたっぷり読める人気作品を…"
+                # — a promotional banner, scraped because the real parser had "too few" rows.
+                eps = episodes_pixiv(html)
+            else:
+                eps = episodes_structured(html, spec) if spec else []
+                if len(eps) < MIN_EPISODES:
+                    eps = episodes(html)
             if len(eps) >= MIN_EPISODES:
                 row = {"work_title": t.get("title"), "url": t["url"], "episodes": eps}
-                au = author_near_title(html, t.get("title"))
+                au = None
+                if plat["id"] == "pixivcomic":
+                    m_au = PX_AUTHOR.search(html)
+                    au = m_au.group(1).strip() if m_au else None
+                au = au or author_near_title(html, t.get("title"))
                 if au:
                     row["author"] = au
                 rows.append(row)

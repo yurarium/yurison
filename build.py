@@ -1375,6 +1375,50 @@ def main():
     # chapters is old. なとりとしずは's 第1話 (2026-05-25) was being lifted to the top of the feed
     # while its 第2話, 第3話 and 第5話 sat in place below — the same work presented twice over, once
     # as news. Surfacing is for works we would otherwise never show at all.
+    # ── first-sighting ledger (§5) ────────────────────────────────────────────────────────────
+    # "Locked at first sighting and never revised" needs somewhere to remember the sighting. Until
+    # this existed, `discovered_on` was read from the source file's `retrieved:` field — which every
+    # adapter rewrites on every run. Run by hand every few days that is invisible. On a daily
+    # schedule it means a late discovery is discovered again each morning: 吸血少女とウンディーネ,
+    # published 2026-05-14 and found in August, would sit at the top of the feed as news for the
+    # rest of its life, and so would every one-shot 百合ナビ ever covers late.
+    #
+    # The ledger is the durable half of this pipeline. Source files are snapshots of what a platform
+    # says today and are overwritten wholesale; this is written once per release and never revised,
+    # and it is committed, so the sighting survives a rebuild from an empty checkout.
+    ledger_path = pathlib.Path("data/ledger/first-seen.yaml")
+    ledger_path.parent.mkdir(parents=True, exist_ok=True)
+    ledger = {}
+    if ledger_path.exists():
+        # str() on the value: YAML parses a bare 2026-08-02 into a datetime.date, and mixing those
+        # with the string dates everything else uses makes the feed sort raise TypeError. Which it
+        # did, silently, because the failure was hidden behind a grep and a pipe's exit code.
+        ledger = {k: str(v) for k, v in
+                  ((yaml.safe_load(ledger_path.read_text()) or {}).get("first_seen") or {}).items()}
+    today_iso = str(datetime.date.today())
+    new_sightings = 0
+    for r in releases:
+        key = f"{norm_work(r['work'])}|{norm_work(r.get('ep') or '')}|{r.get('plat_name') or r.get('plat')}"
+        if key not in ledger:
+            ledger[key] = today_iso
+            new_sightings += 1
+        # The ledger wins over the source file's retrieved date, always. A source rewritten today
+        # does not make an old release new.
+        if r.get("late_discovered"):
+            r["discovered_on"] = ledger[key]
+    ledger_path.write_text(
+        "# When each release was FIRST seen by this pipeline. Written once per release and never\n"
+        "# revised (REQUIREMENTS §5). Source files are snapshots and get overwritten every run;\n"
+        "# this is the part that has to persist, and it is why the repo — not the working tree —\n"
+        "# is the store of record.\n"
+        "#\n"
+        "# Key: work|episode|platform, normalised. A release whose key changes is a new sighting,\n"
+        "# which is the correct behaviour: if the chapter title changed, it is not the row we saw.\n"
+        "source: derived\nrole: first-seen-ledger\n"
+        f"updated: {today_iso}\ncount: {len(ledger)}\nfirst_seen:\n"
+        + "".join(f"  {json.dumps(k, ensure_ascii=False)}: {v}\n"
+                 for k, v in sorted(ledger.items())))
+
     in_window_works = {norm_work(r["work"]) for r in releases if not r.get("late_discovered")}
     for r in releases:
         if r.get("late_discovered") and norm_work(r["work"]) in in_window_works:

@@ -1,0 +1,175 @@
+name: update
+
+# Steady-state run: discover, fetch, compile, publish. See RUNBOOK-github.md.
+#
+# DELIBERATELY MANUAL-ONLY FOR NOW. The schedule is commented out, because merging this with it
+# live would start the job hitting external sites on a timer before anyone had watched it run once.
+# Uncomment when you have the SITE_DEPLOY_KEY secret set, one green workflow_dispatch, and a look
+# at the diff it produced.
+on:
+  workflow_dispatch:
+    inputs:
+      skip_browser:
+        description: "Skip stage C (the browser adapters)"
+        type: boolean
+        default: false
+  # schedule:
+  #   - cron: "17 20 * * *"   # daily, off the hour — everything cron'd at :00 queues
+
+concurrency:
+  group: update
+  cancel-in-progress: false   # two runs writing data/source/ at once is not a race worth having
+
+permissions:
+  contents: write
+
+env:
+  CACHE: .cache
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+
+      - name: Confirm a browser is present
+        id: browser
+        run: |
+          for c in google-chrome chromium chromium-browser; do
+            p=$(command -v $c || true)
+            if [ -n "$p" ]; then echo "found $p"; echo "present=yes" >> "$GITHUB_OUTPUT"; exit 0; fi
+          done
+          echo "::warning::no chromium on the runner — stage C will be skipped"
+          echo "present=no" >> "$GITHUB_OUTPUT"
+
+      - name: Cache fetches and rendered DOMs
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: fetch-${{ github.run_id }}
+          restore-keys: fetch-
+
+      - name: Set the retrieval date once, for every adapter
+        run: echo "R=$(date -u +%F)" >> "$GITHUB_ENV"
+
+      # ── Stage 0 — the work queue. Everything downstream reads what this writes. ───────────────
+      # webcomics-works.yaml and webcomics-gap.yaml are the inputs to comicfuz, kadokomi,
+      # nicovideo, webpages and generic. This is a dependency, not a report, and it runs first.
+      # Web漫画アンテナ stays Tier C throughout: it says a work exists and where, and nothing here
+      # becomes a record.
+      - name: Stage 0 — discovery queue
+        run: |
+          python3 adapters/webcomics/coverage.py --out data/coverage \
+            --cache "$CACHE/webcomics" --pages 8 --retrieved "$R"
+
+      # ── Stage A — feeds, APIs and server-rendered markup. No browser. Most of the feed. ───────
+      - name: Stage A — feeds and APIs
+        run: |
+          set -x
+          python3 adapters/gigaviewer/releases.py --platforms adapters/gigaviewer/platforms.yaml \
+            --out data/source/gigaviewer --cache "$CACHE/giga" --retrieved "$R" || true
+          # series_feeds is per-platform by design — the per-series feed is a different endpoint
+          # from the platform-wide one, and only it carries free_only.
+          for p in $(python3 -c "import yaml;print(' '.join(x['id'] for x in yaml.safe_load(open('adapters/gigaviewer/platforms.yaml'))['platforms']))"); do
+            python3 adapters/gigaviewer/series_feeds.py --platform "$p" \
+              --out data/source/gigaviewer --cache "$CACHE/giga-series" --retrieved "$R" || true
+          done
+          python3 adapters/comicfuz/releases.py  --gap   data/coverage/webcomics-gap.yaml   --out data/source/comicfuz  --cache "$CACHE/fuz"      --retrieved "$R" || true
+          python3 adapters/kadokomi/releases.py  --works data/coverage/webcomics-works.yaml --out data/source/kadokomi  --cache "$CACHE/kadokomi" --retrieved "$R" || true
+          python3 adapters/nicovideo/releases.py --works data/coverage/webcomics-works.yaml --out data/source/nicovideo --cache "$CACHE/nico"     --retrieved "$R" || true
+          python3 adapters/webpages/releases.py  --gap   data/coverage/webcomics-gap.yaml   --out data/source/webpages  --cache "$CACHE/webpages" --retrieved "$R" || true
+          python3 adapters/generic/releases.py   --works data/coverage/webcomics-works.yaml --extract data/coverage/extract.yaml \
+            --out data/source/webpages --cache "$CACHE/generic" --retrieved "$R" || true
+          python3 adapters/ganganonline/releases.py --targets data/coverage/render-targets.yaml --out data/source/webpages --retrieved "$R" || true
+          python3 adapters/yomonga/releases.py     --works adapters/yomonga/works.yaml            --out data/source/webpages --retrieved "$R" || true
+          python3 adapters/shogakukan/releases.py  --sites adapters/shogakukan/sites.yaml         --out data/source/webpages --retrieved "$R" || true
+          python3 adapters/sitemap/releases.py     --sites adapters/sitemap/sites.yaml --works data/coverage/claim-targets.yaml --out data/source/webpages --retrieved "$R" || true
+
+      # ── Stage C — browser. Slow, flaky by nature, must not cost the run. ──────────────────────
+      - name: Stage C — browser adapters
+        if: ${{ steps.browser.outputs.present == 'yes' && !inputs.skip_browser }}
+        continue-on-error: true
+        timeout-minutes: 50
+        run: |
+          python3 adapters/render/releases.py    --targets data/coverage/render-targets.yaml \
+            --out data/source/webpages --cache "$CACHE/render" --limit-per-host 140 --retrieved "$R"
+          python3 adapters/remaining/releases.py --works data/coverage/remaining.yaml \
+            --out data/source/webpages --cache "$CACHE/remaining" --retrieved "$R"
+
+      # ── Stage D — compile. This one is allowed to fail the run. ───────────────────────────────
+      - name: Compile
+        run: python3 build.py
+
+      - name: Field audit — a moved selector is silent otherwise
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          rs = json.load(open("data/build/feed.json"))["releases"]
+          att = [r for r in rs if r["provenance"] == "attested"]
+          bad = [r for r in att if not (r.get("ep") or "").strip()
+                 or not r.get("author") or not r.get("access_modes")]
+          print(f"attested {len(att)}, incomplete {len(bad)}")
+          # A rendered platform that renames a class does not error — it returns rows with the
+          # field missing and the build accepts them. This is the tripwire for that. The threshold
+          # is a budget, not a target: it was 0 when this was written.
+          if len(bad) > 25:
+              for r in bad[:15]:
+                  print("  ", r.get("plat_name"), r["work"][:30], repr(r.get("ep"))[:30])
+              sys.exit(f"{len(bad)} attested rows are missing a field — a selector has probably "
+                       f"moved. See RUNBOOK-github.md section 8.")
+          PY
+
+      # No content scan on this path. The guard's content half looks for real-name strings, and
+      # nothing that reaches here can contain one: data/source, data/build, data/coverage and
+      # data/ledger hold titles, authors, chapter names, dates and URLs scraped from public sites.
+      # Checked rather than assumed — zero files under any of the four contain the local username
+      # or a home path, and the only matches anywhere in the tree are the canaries planted inside
+      # the guard scripts. The public repo receives only the three data/build JSON files, so a slip
+      # would have to survive into those specifically.
+      #
+      # What IS worth asserting is authorship. A push authenticated with GITHUB_TOKEN does not
+      # trigger `on: push` workflows, and a fresh CI checkout has no core.hooksPath, so neither
+      # half of the guard runs automatically here. That does not matter for content. It would
+      # matter if a future edit made the run commit as github.actor instead of the bot.
+      - name: Assert the commit identity
+        env:
+          LEAK_DENY: ${{ secrets.LEAK_DENY }}
+        run: |
+          chmod +x .githooks/leak-guard.sh
+          git config user.name  "yurarium-bot"
+          git config user.email "noreply@yurarium.github.io"
+          .githooks/leak-guard.sh identity-config
+
+      - name: Commit the sources and the build
+        run: |
+          git add data/source data/build data/coverage data/ledger
+          git diff --cached --quiet || git commit -m "update: run ${{ github.run_id }}"
+
+      - name: Push
+        run: git push
+
+      - name: Publish artefacts to the site repo
+        env:
+          DEPLOY_KEY: ${{ secrets.SITE_DEPLOY_KEY }}
+        run: |
+          if [ -z "$DEPLOY_KEY" ]; then
+            echo "::warning::SITE_DEPLOY_KEY unset — built but did not publish"; exit 0
+          fi
+          mkdir -p ~/.ssh && printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+          git clone --depth 1 git@github.com:yurarium/yurarium.github.io.git /tmp/site
+          ./deploy.sh /tmp/site
+          cd /tmp/site
+          git config user.name  "yurarium-bot"
+          git config user.email "noreply@yurarium.github.io"
+          git add kari/data
+          git diff --cached --quiet || git commit -m "kari: data from yurison run ${{ github.run_id }}"
+          # Pushed with the deploy key rather than GITHUB_TOKEN, which means this push DOES trigger
+          # the site repo's own leak-guard.yml. The public repo keeps its server-side backstop
+          # without this workflow doing anything.
+          git push

@@ -52,3 +52,16 @@ works:
         openBD volume 1: title 妖怪殲滅のサイコリリー. 1, author "狗之餌 廃狼", series 裏少年サンデー
         コミックス, publisher 小学館, 202403. 狗之餌 is 原作 and 廃狼 作画; openBD states them as one
         field and they are kept as it wrote them.
+
+  - work_title: "怪獣ロマンティクス"
+    author: "じぃと"
+    platform_unable: "マガポケ"
+    basis:
+      source: nicovideo
+      url: "https://manga.nicovideo.jp/comic/84080"
+      note: >-
+        ニコニコ漫画 carries this work and states the author in its page title:
+        "怪獣ロマンティクス / じぃと おすすめ無料漫画 - ニコニコ漫画". マガポケ, where our row sits, states
+        no author on the work page, and pixivコミック — which did state it — now renders no episode
+        list for this work because it has no freely-readable chapter.
+

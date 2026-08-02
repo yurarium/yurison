@@ -23,7 +23,8 @@ episode.
 Usage:  series_feeds.py --platform ichicomi --out data/source/gigaviewer \
                         --cache ~/workspace/giga-series-cache --retrieved 2026-08-01
 """
-import argparse, html as _html, json, pathlib, unicodedata, re, sys, time, urllib.error, urllib.request
+import argparse, datetime, html as _html, json, pathlib, unicodedata, re, sys, time
+import urllib.error, urllib.request
 from collections import Counter
 
 import yaml
@@ -78,6 +79,14 @@ def series_ids(html):
 # Every field check passed those rows: they had a chapter, an author, a date and a platform. Only
 # reading the list showed it.
 TICKET_RE = re.compile(r"チケットで読む（無料）|作品チケット[^。]{0,12}対象")
+# A second route to reading a paid chapter for nothing, and one コミックDAYS does not use: the
+# platform states the date it becomes free. 一迅プラス shows 「8月13日に無料公開予定」 on a chapter
+# that costs 165pt today. That chapter is not a purchase in any sense a reader cares about — it is
+# free on a known date — and reading it as one made 一迅プラス 2,422 paid against 468 free.
+#
+# 少年ジャンプ+, サンデーうぇぶり and webアクション show no such text on the same probe, so this is not
+# assumed platform-wide: each work is asked, and a platform that never answers gets nothing.
+FREE_ON_RE = re.compile(r"(\d{1,2})月(\d{1,2})日に無料公開予定")
 FEED_TITLE = re.compile(r"<title>([^<]*)</title>")
 FEED_TITLE_INNER = re.compile(r"[（(](.+)[）)]", re.S)
 
@@ -220,11 +229,27 @@ def main():
         # bisection: about seven probes for ninety chapters instead of one wrong answer or ninety
         # right ones. The two ends are probed first, which also catches a work that is uniformly one
         # or the other without any search at all.
-        def _ticketed(url):
+        def _page(url):
             try:
-                return bool(TICKET_RE.search(fetch(url, cache)))
+                return fetch(url, cache)
             except (urllib.error.HTTPError, urllib.error.URLError, OSError):
-                return False
+                return ""
+
+        def _ticketed(url):
+            return bool(TICKET_RE.search(_page(url)))
+
+        def _free_on(url):
+            """The date the platform says this chapter stops costing anything, if it says one."""
+            m = FREE_ON_RE.search(_page(url))
+            if not m:
+                return None
+            mth, day = int(m.group(1)), int(m.group(2))
+            yr = datetime.date.today().year
+            d = datetime.date(yr, mth, day)
+            # A month earlier than today means next year, not eight months ago.
+            if d < datetime.date.today() - datetime.timedelta(days=180):
+                d = datetime.date(yr + 1, mth, day)
+            return d.isoformat()
 
         if free_ids is not None:
             paid = [e for e in eps if e.get("url") and e["url"] not in free_ids]
@@ -244,11 +269,27 @@ def main():
                             lo = mid
                     first_ticketed = hi
             ticket_urls = {e["url"] for e in paid[first_ticketed:]}
+            # Does this platform schedule its paid chapters to become free? Ask the ends, as with
+            # the ticket probe — a work is usually uniform in this, and a platform that does not do
+            # it at all answers no on the first chapter and costs one request.
+            scheduled = {}
+            for probe in ([paid[0], paid[-1]] if len(paid) > 1 else paid[:1]):
+                got = _free_on(probe["url"])
+                if got:
+                    scheduled[probe["url"]] = got
             for e in eps:
                 if e.get("url") in free_ids:
                     e["access_modes"] = ["free"]
                 elif e.get("url") in ticket_urls:
                     e["access_modes"] = ["free-timed"]
+                elif scheduled:
+                    # The platform publishes a free date for this work's paid chapters. Only the
+                    # probed ones have a date we actually read; the rest are on the same schedule
+                    # and are recorded as free-eventually without inventing a date for them.
+                    e["access_modes"] = ["free-timed"]
+                    if scheduled.get(e.get("url")):
+                        e["free_from"] = scheduled[e["url"]]
+                    e["access_note"] = "無料公開予定 — the platform states a date it becomes free"
                 else:
                     e["access_modes"] = ["purchase"]
         if eps:

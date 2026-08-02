@@ -1,0 +1,84 @@
+# Reader-side audit: 16 rows, 107 claims, verified by browsing each work as a reader would.
+#
+# METHOD. A stratified sample rather than the first ten of each tab. Taken today, "first ten" would
+# have been five カドコミ updates out of ten and five works already debugged the same afternoon — it
+# would have scored well and taught nothing. Every fault this project has had lived in the tail.
+#
+# Claims were written out BEFORE anything was fetched (adapters/audit/sample.py), because auditing
+# one's own work invites reinterpreting the claim to match whatever turns up.
+#
+# Claims are what a READER takes away, not field values. "6話無料" was a correct field that implied
+# something false, and that class of fault is invisible to a field-completeness check.
+source: derived
+role: audit
+retrieved: 2026-08-02
+sample: 16 rows / 107 claims
+findings:
+  - id: comici-fix-never-reached-most-comici
+    disposition: refuted
+    severity: systemic
+    claim: "ワインガールズ — 4 of its 10 chapters are readable at no cost (キミコミ)"
+    observed: "the live page badges 4 free, 10 ticket, 2 paid across 16 chapters"
+    why: >-
+      The three-state comici badge logic — free / 作品チケット / coin — was written into
+      adapters/remaining/ this afternoon and fixed 運命は役に立たない. But most comici platforms are
+      not read by that adapter at all: adapters/webpages/ has its OWN comici parser with a
+      two-state model, and it produces キミコミ, 竹コミ, ビッコミ, ライコミ, Gコミ, HERO'S Web,
+      チャンピオンクロス and 花とゆめ+. 97 comici source rows hold 28 free-timed chapters between them.
+      The fix reached the example that prompted it and almost nothing else.
+
+  - id: scheduled-free-is-per-work
+    disposition: refuted
+    severity: systemic
+    claim: "ゆりゆりぱにっく — 6 of its 24 chapters are readable at no cost (webアクション)"
+    observed: "the page states 08月07日に無料公開予定 on a chapter we call purchase"
+    why: >-
+      GigaViewer platforms schedule paid chapters to become free and state the date. It is per WORK,
+      not per platform: ゆりゆりぱにっく has it while SAL and じょしまん。 on the same platform do not.
+      I had probed two works on that platform, found nothing, and reported it as genuinely paid.
+      Re-running with the probe found 18 chapters on comic-action and 430 on 一迅プラス.
+      少年ジャンプ+ and サンデーうぇぶり remain at zero across six probed chapters each, which is now a
+      measured result rather than an assumed one.
+
+  - id: withdrawal-checker-false-positive
+    disposition: defect-in-the-verification-tool
+    severity: high
+    claim: "adapters/reachable/ marks a work withdrawn when its page says 公開終了"
+    observed: >-
+      ガンガンONLINE prints 「公開終了した話は ガンガンONLINEアプリで公開中！」 as a standing banner on
+      every work page. The checker would mark the entire platform withdrawn.
+    why: >-
+      The signal was taken from one true example (散らないで菊 on コミックゼノン) and applied as a
+      substring test. It only escaped notice because the checker has so far been run on one-shots,
+      none of which are on that platform. The tool built to verify the data needed verifying.
+
+  - id: anthology-instalments-have-no-link
+    disposition: refuted
+    claim: "Mな王子の愛し方 — readable on pixivコミック"
+    observed: "url is null; the source chip links nowhere"
+    why: >-
+      Instalments promoted to works inherit the container's platform but not a URL of their own.
+      A regression from this afternoon's promotion change.
+
+  - id: single-chapter-works-called-dormant
+    disposition: suspect
+    claim: "神様やめらんない — dormant, nothing for over a year (webアクション); same for 四王天礼子の願望"
+    observed: "one chapter, chapter title identical to the work title, on a 読切-heavy platform"
+    why: >-
+      Almost certainly one-shots the detector missed: it requires EVERY chapter to carry a 読切
+      marker in its title, and these state it nowhere. A finished 読切 filed as dormant reads as
+      abandoned.
+
+  - id: coverage-as-fact
+    disposition: coverage-stated-as-fact
+    claim: "裏世界ピクニック — 1 of its 3 chapters are readable at no cost"
+    observed: "the series has 90+ chapters; ガンガンONLINE dates only those in a publishing window"
+    why: >-
+      The row already carries a + marker on the count, but the access sentence reads as a statement
+      about the work. A proportion whose denominator is our coverage is not a proportion.
+
+supported:
+  - "少年ジャンプ+, サンデーうぇぶり, comic-action paid chapters — 0 of 6 probed each offer a no-cost route"
+  - "雨夜の月 — 120 of 121 readable; the remaining one states 08月22日に無料公開予定, so even that is understated"
+  - "運命は役に立たない — 12/13, matching the platform after this afternoon's fix"
+  - "魔女ってバイト代出ます？, 四王天礼子の願望, 神様やめらんない — free, one chapter, as claimed"

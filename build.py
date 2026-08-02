@@ -938,6 +938,22 @@ def main():
     # belongs to a chapter, so it only crosses between rows for the same work, platform and
     # episode. This is not inference — it is the same fact, already fetched, not carried across.
     author_of, access_of = {}, {}
+    # Identity confirmations carry an author that no release record does — 阿佐ヶ谷サキュバス同人物語's
+    # 縁山 was established by search and then never reached a row, because those files hold identity
+    # rather than releases and nothing read them here.
+    for _idf in ("data/source/comparators/resolved-titles.yaml",
+                 "data/source/comicfuz/resolved.yaml",
+                 "data/source/kadokomi/resolved.yaml",
+                 "data/source/nicovideo/resolved.yaml",
+                 "data/source/webpages/nicovideo-titles.yaml"):
+        _f = pathlib.Path(_idf)
+        if not _f.exists():
+            continue
+        for w in (yaml.safe_load(_f.read_text()) or {}).get("works") or []:
+            au = w.get("author") or w.get("author_on_page")
+            ti = w.get("title") or w.get("work_title")
+            if au and ti:
+                author_of.setdefault(norm_work(ti), au)
     for r in releases:
         k = norm_work(r.get("work") or "")
         if r.get("author") and k not in author_of:

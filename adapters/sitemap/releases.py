@@ -42,6 +42,26 @@ def get(url):
         time.sleep(PAUSE)
 
 
+TITLE_LOOKUPS = 3
+
+
+def chapter_title(url):
+    """The chapter名 from an episode page's own <title>.
+
+    マガポケ writes "作品 | 【第N話】章題 / マガポケ | …", so the middle segment is the chapter.
+    Returns None rather than a guess when the shape does not hold.
+    """
+    html = get(url)
+    m = re.search(r"<title>([^<]*)</title>", html or "")
+    if not m:
+        return None
+    parts = [s.strip() for s in m.group(1).split("|")]
+    if len(parts) < 2:
+        return None
+    ch = parts[1].split("/")[0].strip()
+    return ch or None
+
+
 def entries(xml):
     """(url, lastmod) for every <url> that has both."""
     out = []
@@ -114,8 +134,16 @@ def main():
                     continue
                 eps = sorted(by_work.get(m.group(1).lstrip("0")) or [], reverse=True)
                 if eps:
-                    works.append({"work_title": w.get("title"), "url": u,
-                                  "episodes": [{"updated": d, "url": eu} for d, eu in eps[:40]]})
+                    rows_ep = [{"updated": d, "url": eu} for d, eu in eps[:40]]
+                    # A sitemap gives a URL and a date. The page behind it states the chapter, and
+                    # a row with a date and no chapter is the one thing a reader can see is empty —
+                    # so the newest few are fetched to name them. Only the newest: older entries
+                    # will not appear in any feed window worth showing.
+                    for e in rows_ep[:TITLE_LOOKUPS]:
+                        ti = chapter_title(e["url"])
+                        if ti:
+                            e["title"] = ti
+                    works.append({"work_title": w.get("title"), "url": u, "episodes": rows_ep})
                 break
         if not works:
             print(f"{s['name'][:20]:22} no candidate work matched the sitemap")
@@ -139,8 +167,7 @@ def main():
             L.append(f"    chapter_count: {len(w['episodes'])}")
             L.append("    chapters:")
             for e in w["episodes"]:
-                # No chapter title: a sitemap carries URLs and dates and says nothing about titles.
-                L.append(f"      - title: \"\"")
+                L.append(f"      - title: {js(e.get('title') or '')}")
                 L.append(f"        updated: {e['updated']}")
                 L.append(f"        url: {js(e['url'])}")
                 L.append("        date_basis: sitemap")

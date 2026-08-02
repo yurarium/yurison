@@ -215,9 +215,30 @@ because correct romanisation is sufficient where the author has stated no prefer
 
 | basis | meaning | shown as |
 |---|---|---|
-| `official` | the author, magazine or licensor uses this English title — from a catalogue, an `og:title`, an English page, or read off the title-page art | no mark — it is the work's name |
+| `official-jp` | the English title the **author, magazine or Japanese publisher** themselves use — an `og:title`, an English page, the title-page art. The work's own name in English | no mark |
+| `licensed` | what an **English-language licensor** publishes it as (Yen Press, Seven Seas, Viz, Kodansha USA). Authoritative, but a second party's choice | no mark |
 | `translated` | our rendering of the meaning | marked |
 | `romaji` | Hepburn of the Japanese, where a translation is the wrong answer (§5a) | marked |
+
+**Precedence: `official-jp` > `licensed` > ours.** Where a work has both an official-jp and a
+licensed title and they differ, keep both and show the official-jp one; the licensor renamed it, and
+the name the work was given at home is the better answer. Do not discard the loser — a reader who
+knows it by the licensed name still needs to find it.
+
+**Fan translations and scanlation titles are excluded entirely.** Not ranked last, not a fallback,
+not recorded as a lead. They are not a name the work has: they are unauthorised, frequently several
+competing versions exist, and recording one lends it an authority it does not have. This is a
+bright line, not a preference.
+
+> **Consequence for §3's sources, and it is not small.** MangaUpdates is largely a
+> scanlation-community database and its English titles frequently ARE fan names; AniList's
+> `title.english` is community-editable and usually but not reliably the licensed title. So neither
+> can establish `official-jp` or `licensed` on its own authority. Both remain excellent for
+> ROMANISATION and for matching a work to an identity — the jobs they are actually good at — but an
+> English title from either is an unconfirmed candidate until a Japanese publisher page or a
+> licensor catalogue corroborates it. Provenance must therefore be recorded per title, not just the
+> string: without it, a community edit and a licensor's catalogue entry are indistinguishable six
+> months later.
 
 `official` is unmarked precisely because it is not our claim. The other two are, and a reader should
 be able to tell that a title is ours rather than the book's. One mark covering both non-official
@@ -226,7 +247,8 @@ interface renders it.
 
 **Authors** carry the rendering and a basis (`stated` / `romaji`), but no visible mark either way —
 both are just the person's name. The basis exists so that a stated preference is never overwritten
-by a later mechanical pass.
+by a later mechanical pass. `stated` means the AUTHOR stated it: a community-supplied romanisation
+in a fan database is not a stated preference, however confident it looks.
 
 ### 5a. Translation is the default; romaji is the edge case
 

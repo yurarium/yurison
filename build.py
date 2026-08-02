@@ -1570,6 +1570,29 @@ def main():
     # A row is (work, PLATFORM), not (work). 40 works run on more than one platform and they differ
     # in what is free and how much of it; collapsing them would hide the choice a reader is making.
     # The 単行本 tab is per-work because a volume is; this is not.
+    # A row's platform is decided by the HOST it was read from, not by the label a file gave it.
+    # The catch-all resolver names a row after whichever list mentioned the work, so remaining.yaml
+    # holds 雨夜の月 as マガポケ with a comic-days.com URL and コミックDAYS's whole 121-chapter history
+    # — which then merged into マガポケ's genuine 10 chapters and produced a 132-chapter マガポケ row
+    # whose access counts were コミックDAYS's. A host cannot be mislabelled; a name can.
+    host_plat = {}
+    for _f in sorted(pathlib.Path("data/source").rglob("*.yaml")):
+        try:
+            _d = yaml.safe_load(_f.read_text())
+        except Exception:                                                       # noqa: BLE001
+            continue
+        if not isinstance(_d, dict) or _d.get("platform") == "remaining":
+            continue
+        _fp = _d.get("platform_name") or _d.get("platform") or ""
+        for w in _d.get("works") or []:
+            if not isinstance(w, dict):
+                continue
+            m = re.match(r"https?://([^/]+)", w.get("url") or "")
+            pn = w.get("platform_name") or _fp
+            if m and pn:
+                host_plat.setdefault(m.group(1).lower(), Counter())[pn] += 1
+    host_plat = {h: c.most_common(1)[0][0] for h, c in host_plat.items()}
+
     series = {}
     for _f in sorted(pathlib.Path("data/source").rglob("*.yaml")):
         try:
@@ -1587,6 +1610,11 @@ def main():
             if not title:
                 continue
             plat = (w.get("platform_name") or _fp or "").strip()
+            _hm = re.match(r"https?://([^/]+)", w.get("url") or "")
+            if _hm:
+                _byhost = host_plat.get(_hm.group(1).lower())
+                if _byhost and _byhost != plat:
+                    plat = _byhost
             chs = [c for c in (w.get("chapters") or []) if c.get("updated")]
             # カドコミ dates a not-yet-released chapter 9999-12-31, and コミックFUZ carries 公開予定
             # rows months out. Neither has been published, so neither can be the latest chapter —
@@ -1682,9 +1710,12 @@ def main():
                         "title": _ti, "updated": c.get("updated"), "url": c.get("url"),
                         "access_modes": c.get("access_modes"), "author": _au})
                     continue
-                # Key on the episode URL where there is one — it is the platform's own identifier —
-                # and on the chapter name otherwise.
-                ck = c.get("url") or norm_work(c.get("title") or "")
+                # Key on the chapter NAME, always. Keying on the URL "where there is one" mixed two
+                # key spaces in one bucket: the コミックDAYS series feed carries episode URLs and the
+                # resolver's copy of the same 121 chapters carries none, so nothing matched and
+                # 雨夜の月 came out with 242 chapters — every chapter twice. A name every source has
+                # beats a stronger identifier only some of them do.
+                ck = norm_work(c.get("title") or "") or c.get("url")
                 slot = bucket["chapters"].setdefault(ck, {})
                 for fld in ("title", "updated", "url", "access_modes", "free_until", "free_from",
                             "author"):
@@ -1785,13 +1816,63 @@ def main():
     for row in series.values():
         row.pop("_srcs", None)
         row.pop("chapters_list", None)
-    series_rows = sorted(series.values(),
+    # ── collapse platforms into one work ───────────────────────────────────────────────────────
+    # A reader looking for 雨夜の月 wants the work, with its platforms as ways in — not three rows
+    # competing to be it. The rows differ in COVERAGE, not in what they are: コミックDAYS holds 121
+    # chapters, マガポケ 10, ヤンマガWeb 4, and presenting those as three series implies three
+    # different lengths for one story.
+    #
+    # Grouping is by title, with the two dangerous cases declared rather than guessed:
+    #   distinct  same title, different works (a reboot). Kept apart.
+    #   editions  one work in parallel formats (a 縦読み version). Grouped, format recorded, and the
+    #             chapter counts NOT summed — both editions carry the same story.
+    # Neither is inferable. Date-span disjointness flags 57 pairs here and every one is the same
+    # work seen through different coverage windows.
+    _ov = pathlib.Path("data/identity/distinct-titles.yaml")
+    distinct, editions = set(), {}
+    if _ov.exists():
+        _od = yaml.safe_load(_ov.read_text()) or {}
+        distinct = {norm_work(x["title"]) for x in (_od.get("distinct") or []) if x.get("title")}
+        for e in _od.get("editions") or []:
+            if e.get("title") and e.get("platform"):
+                editions[(norm_work(e["title"]), e["platform"])] = e.get("format") or "vertical"
+
+    works_out, by_title = [], defaultdict(list)
+    for row in series.values():
+        row["format"] = editions.get((norm_work(row["work"]), row["platform"]), "standard")
+        key = norm_work(row["work"])
+        by_title[key if key not in distinct else f"{key}|{row['platform']}"].append(row)
+
+    for _k, rows in by_title.items():
+        rows.sort(key=lambda r: (r["chapters"], r["latest"] or ""), reverse=True)
+        best = rows[0]
+        works_out.append({
+            "work": best["work"],
+            "author": next((r["author"] for r in rows if r["author"]), ""),
+            # The BEST-KNOWN length, not a sum: every source is describing the same story, and
+            # adding them would report 135 chapters for a 121-chapter work.
+            "chapters": best["chapters"],
+            "partial": all(r["partial"] for r in rows),
+            "latest": max((r["latest"] for r in rows if r["latest"]), default=None),
+            "latest_ep": best["latest_ep"],
+            "first": min((r["first"] for r in rows if r["first"]), default=None),
+            "state": best["state"], "oneshot": best["oneshot"],
+            "collection": best.get("collection"),
+            "url": best["url"],
+            "free": best["free"], "free_timed": best["free_timed"], "priced": best["priced"],
+            "sources": [{"platform": r["platform"], "url": r["url"], "chapters": r["chapters"],
+                         "free": r["free"], "free_timed": r["free_timed"], "priced": r["priced"],
+                         "latest": r["latest"], "partial": r["partial"], "format": r["format"]}
+                        for r in rows],
+        })
+    series_rows = sorted(works_out,
                          key=lambda r: (r["latest"] or "", r["chapters"]), reverse=True)
     (out / "series.json").write_text(json.dumps(
         {"series": series_rows,
          "generated": str(_today),
          "note": "Built from full chapter histories in data/source/, not from the 60-day feed "
-                 "window. One row per (work, platform).",
+                 "window. One row per WORK; its platforms are listed as sources, because they "
+                 "differ in coverage rather than in what they are.",
          "thresholds": {"active": "latest chapter within 45 days",
                         "slow": "within a year", "dormant": "older than a year"}},
         ensure_ascii=False, indent=1, default=jsonable))

@@ -1,0 +1,21 @@
+# Titles that are NOT one work, and parallel editions that ARE.
+#
+# The 作品 tab groups a work's platforms into one row. Two shapes break that if grouped naively, and
+# neither is detectable from the data — I tried date-span disjointness and it flagged 57 pairs, all
+# of which are the same work with different COVERAGE windows on each platform. So these are declared,
+# not inferred (DEFINITIONS §4: identity is a human judgement).
+#
+# distinct — same title, different works. A series rebooted under its own name is two works: the
+# original ran and ended, the new one started over. Merging them invents a single run that never
+# happened, and because the chapter numbering restarts, nothing in the data says they differ.
+#
+# editions — one work published in two parallel formats. A 縦読み / vertical-scroll edition is the
+# same story redrawn for a phone, usually running alongside the standard one and sometimes on the
+# same platform. It is not a second work and not a syndication: both are the publisher's own, and a
+# reader choosing between them is choosing a format, not a source. Recorded as one work with two
+# editions so the chapter counts are not summed and neither is presented as the "real" one.
+source: overlay
+role: work-identity
+retrieved: 2026-08-02
+distinct: []
+editions: []

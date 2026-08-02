@@ -1,0 +1,16 @@
+# Platforms running Shogakukan's newer web reader. One markup, two hosts — same chapter rows, same
+# access badges, same author links. コロコロオンライン builds its list in JavaScript; フラコミlike!
+# serves the identical markup already rendered, so it needs no browser.
+sites:
+  - id: corocoro
+    name: コロコロオンライン
+    publisher: 小学館
+    works:
+      - work_title: "DOUBLE HELIX BLOSSOM"
+        url: "https://www.corocoro.jp/title/65"
+  - id: flowercomics
+    name: フラコミlike!
+    publisher: 小学館
+    works:
+      - work_title: "銀の河に星の城"
+        url: "https://flowercomics.jp/title/2780"

@@ -42,9 +42,12 @@ TITLE = re.compile(r"<title>([^<]*)</title>", re.S)
 
 # 作品 | いつでも無料 | フラコミlike! | 空木帆子 — four segments, the platform third and the author
 # last. Requiring the platform name in place is what keeps this from reading any old title tail.
-TITLE_TAIL = {
-    "flowercomics.jp": ("フラコミlike!", {"いつでも無料": ["free"]}),
-}
+# Deliberately empty. It held flowercomics.jp, reading "いつでも無料" out of the page title as an
+# access state for the whole work — and the platform's own per-chapter badges say Episode.2 -2 is
+# チケット and Episode.4 -1 is paid. The banner was marketing, not a statement about a chapter, and a
+# work-level reading of it was wrong on most of the work's chapters. adapters/shogakukan/ reads the
+# badges instead. Kept as a named, empty route so the lesson stays with the mechanism.
+TITLE_TAIL = {}
 
 # Hosts that name their authors with a link to the author's own page. That link is the platform
 # saying "this is a person, and here is their page" — the one form of author statement that cannot

@@ -22,7 +22,7 @@ What this is and is not:
 Usage:  releases.py --sites adapters/sitemap/sites.yaml --works data/coverage/claim-targets.yaml \
                     --out data/source/webpages --retrieved 2026-08-01
 """
-import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
+import argparse, html as _html, json, pathlib, re, sys, time, urllib.error, urllib.request
 from collections import defaultdict
 
 import yaml
@@ -50,12 +50,18 @@ def chapter_title(url):
 
     マガポケ writes "作品 | 【第N話】章題 / マガポケ | …", so the middle segment is the chapter.
     Returns None rather than a guess when the shape does not hold.
+
+    Entities are decoded FIRST. マガポケ writes that separating slash as &#x2F;, so splitting the
+    raw title on "/" matched nothing and the platform's own name stayed welded to the chapter:
+    【第1話】ぐっすん！ドキドキ！別れは出会いのシグナル &#x2F; マガポケ. It survived every field check —
+    the row had a chapter, an author and a date — and was visible the moment the list was read
+    instead of counted.
     """
-    html = get(url)
-    m = re.search(r"<title>([^<]*)</title>", html or "")
+    page = get(url)
+    m = re.search(r"<title>([^<]*)</title>", page or "")
     if not m:
         return None
-    parts = [s.strip() for s in m.group(1).split("|")]
+    parts = [s.strip() for s in _html.unescape(m.group(1)).split("|")]
     if len(parts) < 2:
         return None
     ch = parts[1].split("/")[0].strip()

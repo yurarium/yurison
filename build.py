@@ -511,7 +511,13 @@ def main():
                     "id": f"{pid}:{c.get('url') or c.get('title')}", "work": w.get("work_title"),
                     # The platform's own count decides this: a series with one episode is a
                     # one-shot. Confirmation established it and the loop was discarding it.
-                    "ep": c.get("title"),
+                    # Subtitle included, as it already is for the gigaviewer sources. pixivコミック
+                    # numbers some works plainly — its numbering_title is "1", "2", "3" — and puts
+                    # the chapter's actual name in sub_title. Dropping it left 壊していいよ、すいか
+                    # ちゃん showing four chapters called 1, 2, 3 and 4, where the platform shows
+                    # 1 かくして二人は出会った. The field was populated, so nothing flagged it.
+                    "ep": (c.get("title") or "")
+                          + (f" {c['subtitle']}" if c.get("subtitle") else ""),
                     "type": "oneshot" if w.get("is_oneshot") else "chapter", "adv": True,
                     "web": "serialised", "pub": u, "seen": str(d.get("retrieved", "")),
                     # A heuristically-parsed date is not the same kind of fact as one a platform

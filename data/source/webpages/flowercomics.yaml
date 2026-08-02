@@ -1,0 +1,46 @@
+# フラコミlike! — chapters, authors and access from the work page.
+#
+# Each chapter row names itself in its thumbnail's alt text ("第99話 の話サムネイル"), dates
+# itself in a <time>, and states its access as an image badge: 無料, チケット, or the coin
+# mark. Authors are links to their own author pages, which is why they can be read at all —
+# the page <title> runs work and authors together with no separator.
+#
+# Rendered: the page builds in JavaScript and the API host answers 405 to GET.
+#
+# No genre label is established here (DEFINITIONS §4).
+source: webpages
+platform: flowercomics
+platform_name: "フラコミlike!"
+publisher: "小学館"
+retrieved: 2026-08-02
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+date_basis: platform-stated
+date_confidence: reported
+works:
+  - work_title: "銀の河に星の城"
+    author: "空木帆子"
+    url: "https://flowercomics.jp/title/2780"
+    chapter_count: 7
+    chapters:
+      - title: "Episode.1 -1"
+        updated: 2025-08-22
+        access_modes: ["free"]
+      - title: "Episode.1 -2"
+        updated: 2025-08-22
+        access_modes: ["free"]
+      - title: "Episode.2 -1"
+        updated: 2025-11-28
+        access_modes: ["free"]
+      - title: "Episode.2 -2"
+        updated: 2025-12-26
+        access_modes: ["free-timed"]
+      - title: "Episode.3 -1"
+        updated: 2026-03-27
+        access_modes: ["purchase"]
+      - title: "Episode.3 -2"
+        updated: 2026-04-24
+        access_modes: ["purchase"]
+      - title: "Episode.4 -1"
+        updated: 2026-07-24
+        access_modes: ["purchase"]

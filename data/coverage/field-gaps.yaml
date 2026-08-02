@@ -3,17 +3,19 @@
 # EVERY ATTESTED ROW NAMES ITS CHAPTER, and all but 22 carry an author and an access state too.
 # Unconfirmed claims carry none of these BY NATURE: a listing site said a work updated, no more.
 #
-# The distinction that matters: a field absent because the platform does not publish it is
-# finished work; a field absent because nothing went and read it is not. Only the first kind is
-# listed below, and each reason names what was actually tried.
+# Counting fields is not the same as reading the list, and the difference is not small. Every
+# check here passed on 43 rows whose WORK NAME was a fragment of Atom XML, on chapters called
+# 1, 2, 3 whose real names sat unread in a subtitle field, and on a chapter with マガポケ welded to
+# its title by an undecoded &#x2F;. All were populated. All were wrong, and all were obvious on
+# sight. The audit below is the weaker of the two checks; the list is the other one.
 source: derived
 role: field-gaps
 retrieved: 2026-08-02
-rows_total: 1410
-attested: 1364
-attested_complete: 1342
+rows_total: 1386
+attested: 1341
+attested_complete: 1319
 attested_missing_chapter: 0
-unconfirmed_claims: 46
+unconfirmed_claims: 45
 by_platform:
   マンガワン:
     author: 14
@@ -23,14 +25,14 @@ by_platform:
   マガポケ:
     access: 5
 reasons:
-  マンガワン: 'No work page exists — /manga/<id> 404s for every title, including ones that are running. The
-    serialisation list, the search results and the reader all show title and date only. The one place
-    a name appears is the purchase card of a locked chapter, between the chapter title and 消費アイテム: for
-    メイド＆ロイド that is ちいさなひとひら, which reads as plausibly a chapter subtitle as a pen name. One observation
-    of an ambiguous slot is not an author, so it is not recorded as one.'
+  マンガワン: No work page exists — /manga/<id> 404s for every title, running ones included. The serialisation
+    list, the search results and the reader show title and date only. A name appears in exactly one place,
+    the purchase card of a locked chapter, and for メイド＆ロイド that name is ちいさなひとひら — as plausibly a chapter
+    subtitle as a pen name. One observation of an ambiguous slot is not an author and is not recorded
+    as one.
   マガポケ: 'Five older chapters whose access the platform no longer shows: the work page renders ten chapters
     and the rest need a control this fetch cannot press, and the episode pages are JavaScript shells.
-    Their authors and dates are complete; only the access badge is out of reach.'
+    Their authors, chapters and dates are complete.'
   マイナビニュース: A news site carrying a manga column. The series URL 301-redirects to carfairy_re, which lists
     general motoring articles rather than the column's own instalments, and no article, meta tag or JSON-LD
     on it names an author.

@@ -65,16 +65,29 @@ def series_ids(html):
     return out
 
 
-# Greedy to the LAST closing bracket: work titles contain brackets of their own —
-# コミックガルド（病弱少女、転生して健康な肉体（最強）を手に入れる…） — and a non-greedy match stopped
-# at the inner one and failed, so validation silently skipped every work with a bracket in its name.
-FEED_TITLE = re.compile(r"<title>[^<（(]*[（(](.+)[）)]</title>", re.S)
+# Two steps, and the order matters. The element first — <title> up to the first '<', so the match
+# cannot leave it — and only then the brackets inside it.
+#
+# It was one pattern before, greedy to the LAST closing bracket, because work titles contain
+# brackets of their own: コミックガルド（病弱少女、転生して健康な肉体（最強）を手に入れる…）. A non-greedy
+# match stopped at the inner one, so validation silently skipped every work with a bracket in its
+# name. But greedy plus re.S let '.' cross '</title>' as well, and the feed's <subtitle> — the
+# synopsis — holds brackets too. The match ran to one of those, and 43 rows took as their work name
+# a string beginning "ファタールゲーム）</title> <subtitle>田井中せりは1作だけ売れたことのある…".
+#
+# Every field check passed those rows: they had a chapter, an author, a date and a platform. Only
+# reading the list showed it.
+FEED_TITLE = re.compile(r"<title>([^<]*)</title>")
+FEED_TITLE_INNER = re.compile(r"[（(](.+)[）)]", re.S)
 
 
 def feed_series_name(xml):
     """The feed states which series it is: 一迅プラス（大室家）. Used to verify the id we paired."""
     m = FEED_TITLE.search(xml)
-    return m.group(1).strip() if m else None
+    if not m:
+        return None
+    inner = FEED_TITLE_INNER.search(m.group(1))
+    return inner.group(1).strip() if inner else None
 
 
 def episodes(xml):

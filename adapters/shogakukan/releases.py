@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""コロコロオンライン — chapters, authors and access from the work page (REQUIREMENTS §5).
+"""Shogakukan's web reader — chapters, authors and access from the work page (REQUIREMENTS §5).
+
+Two hosts run the same reader: コロコロオンライン and フラコミlike!. Same chapter rows, same access
+badges, same author links. コロコロ builds its list in JavaScript; フラコミ serves the identical
+markup already rendered, so it is fetched plainly and only コロコロ pays for a browser. They were
+found separately — フラコミ because the catch-all resolver had turned its chapter Episode.4 -1 into
+"Episode.4 -1 0 0" by sweeping up the like and comment counts beside it.
 
 The catch-all resolver reached this platform and read its chapter strip positionally, which gave
 titles like "第99話 4,825" — the chapter with its like count welded on — and no author or access at
@@ -32,16 +38,16 @@ The page builds itself in JavaScript, so this renders. There is no JSON in the s
 API host answers 405 to GET — it takes POST only, and reconstructing that call is a great deal of
 work for one platform when the page itself says everything.
 
-Usage:  releases.py --works adapters/corocoro/works.yaml --out data/source/webpages \
+Usage:  releases.py --sites adapters/shogakukan/sites.yaml --out data/source/webpages \
                     --retrieved 2026-08-02
 """
 import argparse, datetime as dt, html as _html, json, pathlib, re, subprocess, sys, time
+import urllib.error, urllib.request
 
 import yaml
 
 UA = "Mozilla/5.0 (compatible; yurarium/0.1; +https://yurarium.github.io/)"
 PAUSE = 1.0
-PLATFORM = "corocoro"
 CHROME = next((c for c in ("/snap/bin/chromium", "/usr/bin/chromium",
                            "/usr/bin/chromium-browser", "/usr/bin/google-chrome")
                if pathlib.Path(c).exists()), None)
@@ -53,9 +59,22 @@ AUTHOR = re.compile(r'href="/author/\d+"[^>]*>(?:\s*<[^>]*>)*\s*([^<]{1,24})')
 BADGE = {"無料": ["free"], "チケット": ["free-timed"], "黄色いCマーク": ["purchase"]}
 
 
+def get(url):
+    """Plain fetch first. フラコミlike! serves the whole chapter list this way and rendering it would
+    be a browser spent on markup already in hand."""
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    try:
+        with urllib.request.urlopen(req, timeout=35) as r:
+            return r.read(4_000_000).decode("utf-8", "replace")
+    except (urllib.error.HTTPError, urllib.error.URLError, OSError):
+        return ""
+    finally:
+        time.sleep(PAUSE)
+
+
 def render(url):
     if not CHROME:
-        sys.exit("no chromium found; this platform has no server-rendered route")
+        return ""
     try:
         out = subprocess.run(
             [CHROME, "--headless", "--disable-gpu", "--no-sandbox", "--virtual-time-budget=12000",
@@ -95,26 +114,37 @@ def js(v):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--works", required=True)
+    ap.add_argument("--sites", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--retrieved", required=True)
     a = ap.parse_args()
 
     today = dt.date.fromisoformat(a.retrieved)
-    works, failed = [], []
-    for w in (yaml.safe_load(open(a.works)) or {}).get("works") or []:
-        dom = render(w.get("url"))
+    pathlib.Path(a.out).mkdir(parents=True, exist_ok=True)
+    for site in (yaml.safe_load(open(a.sites)) or {}).get("sites") or []:
+        emit(site, today, a)
+
+
+def emit(site, today, a):
+    works, failed, rendered = [], [], 0
+    for w in site.get("works") or []:
+        dom = get(w.get("url"))
         eps = chapters(dom, today) if dom else []
         if not eps:
-            failed.append((w.get("work_title"), "no chapter rows in the rendered page"))
+            dom = render(w.get("url"))
+            eps = chapters(dom, today) if dom else []
+            rendered += bool(eps)
+        if not eps:
+            failed.append((w.get("work_title"), "no chapter rows on the page"))
             continue
         works.append({"work_title": w.get("work_title"), "author": authors(dom),
                       "url": w.get("url"), "episodes": eps})
 
     if not works:
-        sys.exit("no work resolved; not writing")
+        print(f"{site['name'][:18]:20} no work resolved")
+        return
 
-    L = ["# コロコロオンライン — chapters, authors and access from the work page.",
+    L = [f"# {site['name']} — chapters, authors and access from the work page.",
          "#",
          "# Each chapter row names itself in its thumbnail's alt text (\"第99話 の話サムネイル\"), dates",
          "# itself in a <time>, and states its access as an image badge: 無料, チケット, or the coin",
@@ -124,8 +154,9 @@ def main():
          "# Rendered: the page builds in JavaScript and the API host answers 405 to GET.",
          "#",
          "# No genre label is established here (DEFINITIONS §4).",
-         "source: webpages", f"platform: {PLATFORM}", "platform_name: \"コロコロオンライン\"",
-         "publisher: \"小学館\"", f"retrieved: {a.retrieved}",
+         "source: webpages", f"platform: {site['id']}",
+         f"platform_name: {js(site['name'])}", f"publisher: {js(site.get('publisher', ''))}",
+         f"retrieved: {a.retrieved}",
          "record_type: web_work_chapters", "identification_mode: discovery-candidate",
          "date_basis: platform-stated", "date_confidence: reported", "works:"]
     for w in works:
@@ -141,13 +172,13 @@ def main():
             if e.get("access_modes"):
                 L.append(f"        access_modes: {js(e['access_modes'])}")
     L.append("")
-    pathlib.Path(a.out).mkdir(parents=True, exist_ok=True)
-    (pathlib.Path(a.out) / f"{PLATFORM}.yaml").write_text("\n".join(L))
+    (pathlib.Path(a.out) / f"{site['id']}.yaml").write_text("\n".join(L))
 
     n = sum(len(w["episodes"]) for w in works)
-    print(f"works resolved : {len(works)}")
-    print(f"chapters       : {n}  ({sum(1 for w in works for e in w['episodes'] if e.get('access_modes'))} with access)")
-    print(f"with author    : {sum(1 for w in works if w['author'])} of {len(works)}")
+    acc = sum(1 for w in works for e in w["episodes"] if e.get("access_modes"))
+    au = sum(1 for w in works if w["author"])
+    print(f"{site['name'][:18]:20} works={len(works)} chapters={n} access={acc} author={au}"
+          f"{'  (rendered)' if rendered else ''}")
     for t, r in failed:
         print(f"    - {str(t)[:30]:32} {r}")
 

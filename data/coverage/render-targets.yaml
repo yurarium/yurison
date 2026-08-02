@@ -1,7 +1,5 @@
 # Works on platforms that build their chapter list in JavaScript. Rendering is the only route,
 # and it is reserved for them: anything reachable by a fetch or a feed must not appear here.
-#
-# pixivコミック was removed when adapters/pixivcomic/ replaced the rendered route for it.
 source: derived
 role: render-targets
 retrieved: 2026-08-02

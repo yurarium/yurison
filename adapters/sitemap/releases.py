@@ -100,9 +100,15 @@ def main():
             if m:
                 by_work[m.group(1).lstrip("0")].append((d, u))
 
+        host = re.match(r"https?://([^/]+)", s["sitemap"]).group(1)
         works = []
         for w in src.get("candidates") or []:
             for u in w.get("urls") or []:
+                # The host must match. Work ids are per-platform and collide across them:
+                # /title/2268 is イタズラっ子世に憚らず!! on ガンガンONLINE and 僕の奥さんはちょっと怖い
+                # on マガポケ, and matching on the bare number filed one under the other's name.
+                if host not in (u or ""):
+                    continue
                 m = ckey.search(u or "")
                 if not m:
                     continue

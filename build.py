@@ -1532,11 +1532,41 @@ def main():
             # older than the 60-day feed, so asking the releases about it finds 17 of the 433
             # single-chapter rows. The platform states it in the chapter title (【読切】…) or the
             # confirmation marks the work, and both are already how the feed decides this.
-            oneshot_src = bool(w.get("is_oneshot")) or any(
-                ONESHOT_RE.search(c.get("title") or "") for c in (w.get("chapters") or []))
+            # ONESHOT_RE over every chapter marks a whole SERIES as a one-shot the moment it runs
+            # one 読切 special: it caught 恋する小惑星 at 86 chapters, 阿久津さんは推しに似ている at 37
+            # and きみと観たいレースがある at 7. A 読切 is short by definition, so the marker only counts
+            # when the work is short too. Three allows for a 前後編 and a little slack; anything
+            # longer is a serial that happened to publish one.
+            # EVERY chapter must carry the marker, not merely one. That single change separates
+            # three cases a length cap alone confuses:
+            #
+            #   1 chapter,  【読切】…            → a one-shot
+            #   2 chapters, 【読切】前編 / 後編    → still one work, published in two parts
+            #   3 chapters, 【読切】… then 第2話  → a pilot that got serialised. NOT a one-shot any
+            #                                     more, and it stops being one the moment the
+            #                                     second chapter lands rather than at some
+            #                                     arbitrary length.
+            #   86 chapters, one 読切 special    → a serial that published a one-shot once
+            #
+            # Bootstrapping from a 読切 to a serialisation is a real path, so the test has to be one
+            # that reclassifies on its own as the work grows.
+            _chs = w.get("chapters") or []
+            oneshot_src = bool(w.get("is_oneshot")) or (
+                bool(_chs) and all(ONESHOT_RE.search(c.get("title") or "") for c in _chs))
             key = (norm_work(title), plat)
+            # The link a reader follows must be a page, and for GigaViewer platforms the work-level
+            # url is the Atom feed we harvested — /atom/series/<id>, which serves XML. That was 532
+            # of 1145 rows pointing at a document no reader wants. Every chapter carries its own
+            # episode URL, so the newest one is both readable and the right destination: someone
+            # opening a series from this tab wants the latest chapter, not a landing page.
+            _feedish = re.compile(r"/atom/|\.xml($|\?)|/feed/?$")
+            _wurl = w.get("url")
+            _read = next((c.get("url") for c in reversed(dated) if c.get("url")), None)
+            if not _read and _wurl and not _feedish.search(_wurl):
+                _read = _wurl
             row = {
-                "work": title, "platform": plat, "url": w.get("url"),
+                "work": title, "platform": plat,
+                "url": _read, "feed_url": _wurl if _wurl and _feedish.search(_wurl) else None,
                 "author": w.get("author") or "",
                 "chapters": len(w.get("chapters") or []),
                 "dated": len(dated),

@@ -8553,10 +8553,10 @@
      "double": "Byoujaku Shoujo, Tenshou Shite Kenkouna Nikutai (Saikyou) o Te ni Ireru ~ Tomodachi ga Hoshikute Makyou kara Tabidatta Nodesuga, Dou Yara Watashi no Mahou wa Sukoshi Okashii Youdesu!? ~",
      "plain": "Byojaku Shojo, Tensho Shite Kenkona Nikutai (Saikyo) o Te ni Ireru ~ Tomodachi ga Hoshikute Makyo kara Tabidatta Nodesuga, Do Yara Watashi no Maho wa Sukoshi Okashi Yodesu!? ~"
     },
-    "en": "The Sickly Girl Reincarnates into a Healthy Body, and It Is the Strongest: I Left the Badlands Wanting Friends, but It Seems My Magic Is a Little Odd!?",
+    "en": "A Sickly Girl Reincarnates and Gets a Healthy (Overpowered) Body ~I Left the Demon Wilds Because I Wanted Friends, but It Seems My Magic Is a Little Strange!?~",
     "basis": "translated",
     "en_forms": {
-     "translated": "The Sickly Girl Reincarnates into a Healthy Body, and It Is the Strongest: I Left the Badlands Wanting Friends, but It Seems My Magic Is a Little Odd!?"
+     "translated": "A Sickly Girl Reincarnates and Gets a Healthy (Overpowered) Body ~I Left the Demon Wilds Because I Wanted Friends, but It Seems My Magic Is a Little Strange!?~"
     },
     "unverified": true
    }
@@ -10081,19 +10081,11 @@
    "surfaced": false,
    "feed_date": "2026-07-27",
    "work_en": {
-    "reading": "ゴクモン ナデシコ ココ ニ アリリ",
+    "reading": "ゴクモン ナデシコ ココ ニ アリ",
     "ruby": [
      [
-      "獄門",
-      "ごくもん"
-     ],
-     [
-      "撫子",
-      "なでしこ"
-     ],
-     [
-      "此処",
-      "ここ"
+      "獄門撫子此処",
+      "ごくもんなでしこここ"
      ],
      [
       "ニ",
@@ -10101,7 +10093,7 @@
      ],
      [
       "在",
-      "あり"
+      "あ"
      ],
      [
       "リ",
@@ -10109,11 +10101,15 @@
      ]
     ],
     "romaji": {
-     "macron": "Gokumon Nadeshiko Koko ni Ariri",
-     "double": "Gokumon Nadeshiko Koko ni Ariri",
-     "plain": "Gokumon Nadeshiko Koko ni Ariri"
+     "macron": "Gokumon Nadeshiko Koko ni Ari",
+     "double": "Gokumon Nadeshiko Koko ni Ari",
+     "plain": "Gokumon Nadeshiko Koko ni Ari"
     },
-    "basis": "romaji",
+    "en": "Gokumon Nadeshiko Is Here",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "Gokumon Nadeshiko Is Here"
+    },
     "unverified": true
    }
   },
@@ -11117,7 +11113,11 @@
      "double": "Asagaya Sakyubasu Dounin Monogatari",
      "plain": "Asagaya Sakyubasu Donin Monogatari"
     },
-    "basis": "romaji",
+    "en": "The Asagaya Succubus Doujin Story",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "The Asagaya Succubus Doujin Story"
+    },
     "unverified": true
    },
    "author_en": {
@@ -11315,7 +11315,9 @@
      "macron": "Nurumeta",
      "double": "Nurumeta",
      "plain": "Nurumeta"
-    }
+    },
+    "en": "Nurumeta",
+    "basis": "romaji"
    },
    "author_en": {
     "reading": "コカムモ",
@@ -16613,7 +16615,9 @@
      "macron": "Boitaboine",
      "double": "Boitaboine",
      "plain": "Boitaboine"
-    }
+    },
+    "en": "Boitaboine",
+    "basis": "romaji"
    },
    "author_en": {
     "reading": "ナツクサ",

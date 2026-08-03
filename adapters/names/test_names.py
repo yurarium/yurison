@@ -33,11 +33,19 @@ from names.inputs import split_authors  # noqa: E402
 from names.pass2_bulk import looks_romanised  # noqa: E402
 from names.store import NameStore  # noqa: E402
 
+import os
+
+# Inversion for ./test.py --canary. See adapters/testkit.py: a suite that passes while inverted is
+# asserting nothing, and without this the runner cannot tell it from one that was proved.
+CANARY = os.environ.get("YURA_CANARY") == "1"
+
 FAILS = []
 
 
 def check(name, got, want):
     ok = got == want
+    if CANARY:
+        ok = not ok
     print(f"  {'ok  ' if ok else 'FAIL'} {name}: {got!r}" + ("" if ok else f" (want {want!r})"))
     if not ok:
         FAILS.append(name)
@@ -153,6 +161,15 @@ finally:
     shutil.rmtree(tmp)
 
 print()
+if CANARY:
+    # Inverted, so failures are the healthy outcome and silence is the alarm. The two assert-based
+    # invariants below run only outside canary mode: an assert cannot be flipped in place, and the
+    # checks above already demonstrate the suite can fail.
+    if FAILS:
+        print("CANARY-PROVEN")
+        sys.exit(0)
+    print("VACUOUS: every check passed while inverted")
+    sys.exit(2)
 if FAILS:
     print(f"{len(FAILS)} FAILED: {', '.join(FAILS)}")
     sys.exit(1)

@@ -58,6 +58,9 @@ def antenna_date(txt, today):
 
 
 def main():
+    # Collected as we go and returned, so the floors below compare against what was actually
+    # measured rather than re-deriving it and risking the two disagreeing.
+    measured = {}
     feed = json.loads(pathlib.Path("data/build/feed.json").read_text())
     rel = [r for r in feed["releases"] if r.get("web") != "promotional-sample-only"]
     # The window the feed TARGETS, not the extent of what happens to be in it. Late-discovered
@@ -141,15 +144,16 @@ def main():
         for r in real[:12]:
             print(f"    - {r['title'][:38]:40} {r['platform']}")
     adj_w = len(a_w) - len(excl) - len(contra)
+    measured["webcomics adjusted"] = 100 * len(a_w_hit) / max(adj_w, 1)
     print(f"  ADJUSTED (excluding deliberate exclusions and contradictions) : "
-          f"{len(a_w_hit)}/{adj_w} = {100*len(a_w_hit)/max(adj_w,1):.1f}%")
+          f"{len(a_w_hit)}/{adj_w} = {measured['webcomics adjusted']:.1f}%")
 
     # ── 百合ナビ WEB連載 ──────────────────────────────────────────────
     yf = pathlib.Path("data/coverage/yurinavi-webyuri.yaml")
     print("\n百合ナビ WEB連載中の百合漫画")
     if not yf.exists():
         print("  (not measured — run adapters/yurinavi/webyuri.py first)")
-        return
+        return measured
     yd = yaml.safe_load(yf.read_text()) or {}
     y_in = []
     for w in yd.get("works") or []:
@@ -178,8 +182,9 @@ def main():
 
     print(f"  works it lists as updating in the period : {len(y_in)}")
     print(f"  ...on a platform we watch                : {len(y_w)}")
+    measured["yurinavi watched"] = 100 * len(y_w_hit) / max(len(y_w), 1)
     print(f"  ACCEPTANCE, watched platforms only       : "
-          f"{len(y_w_hit)}/{len(y_w)} = {100*len(y_w_hit)/max(len(y_w),1):.1f}%")
+          f"{len(y_w_hit)}/{len(y_w)} = {measured['yurinavi watched']:.1f}%")
     print(f"  ACCEPTANCE, all platforms                : "
           f"{len(y_hit)}/{len(y_in)} = {100*len(y_hit)/max(len(y_in),1):.1f}%")
     ymiss = [w for w in y_w if not y_match(w["raw"])]
@@ -187,7 +192,53 @@ def main():
         print(f"  missed on watched platforms ({len(ymiss)}):")
         for w in ymiss[:12]:
             print(f"    - {w['raw'][:38]:40} {w['platform']}")
+    return measured
+
+
+# ── This is a TEST, not only a report ──────────────────────────────────────────────────────────
+#
+# It printed percentages and always exited 0, so ./test.py counted it as a suite while it asserted
+# nothing: coverage could have fallen to zero and the run would still have been green. That is the
+# vacuous-green shape this project keeps meeting, and the runner's --canary pass named it.
+#
+# The floors below are budgets, not targets. They record what was measured on a green run and
+# ratchet the same way docs/budgets.json does: coverage falling means a source stopped being read,
+# which is exactly the silent regression an acceptance measure exists to catch. Raising a floor is
+# a decision to be argued in a commit message; lowering one by hand is the same.
+FLOORS = {
+    "webcomics adjusted": 90.0,      # measured 92.5
+    "yurinavi watched": 94.0,        # measured 97.4
+}
+
+
+def _assert_floors(measured):
+    """Compare each measured percentage against its floor. Returns the failures."""
+    bad = []
+    for name, floor in FLOORS.items():
+        got = measured.get(name)
+        if got is None:
+            bad.append(f"{name}: not measured at all, so the floor could not be checked")
+        elif got < floor:
+            bad.append(f"{name}: {got:.1f}% is below the floor of {floor:.1f}%")
+    return bad
 
 
 if __name__ == "__main__":
-    main()
+    import os
+    measured = main() or {}
+    failures = _assert_floors(measured)
+    if os.environ.get("YURA_CANARY") == "1":
+        # Inverted: the floors are raised past anything achievable, so a suite that really compares
+        # them must fail. Passing here would mean the comparison is not happening.
+        FLOORS = {k: 100.1 for k in FLOORS}
+        if _assert_floors(measured):
+            print("CANARY-PROVEN")
+            sys.exit(0)
+        print("VACUOUS: the coverage floors are not actually compared")
+        sys.exit(2)
+    if failures:
+        print("\nACCEPTANCE FAILED:")
+        for f in failures:
+            print(f"  {f}")
+        sys.exit(1)
+    print("\nacceptance floors hold")

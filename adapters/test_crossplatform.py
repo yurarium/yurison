@@ -12,11 +12,21 @@ import sys
 from crossplatform import carriage, episode_key, merge_releases
 
 RANKS = {"カドコミ": 1, "COMIC FUZ": 1, "ニコニコ漫画": 3, "pixivコミック": 3, "サンデーうぇぶり": None}
+import os
+
+# Inversion for ./test.py --canary. Every check is flipped, so a suite asserting anything real must
+# FAIL; one that passes while inverted is asserting nothing. Without this the runner cannot tell a
+# suite that was proved from one that ignored the canary and passed untouched, which is the
+# vacuous-green failure this project keeps meeting.
+CANARY = os.environ.get("YURA_CANARY") == "1"
+
 FAILS = []
 
 
 def check(name, got, want):
     ok = got == want
+    if CANARY:
+        ok = not ok
     print(f"  {'ok  ' if ok else 'FAIL'} {name}")
     if not ok:
         print(f"        got  {got!r}\n        want {want!r}")
@@ -96,6 +106,14 @@ c = {r["platform"]: r for r in carriage(rows)}
 check("one chapter behind is not a lapse", c["ニコニコ漫画"]["status"], "active")
 
 print()
+if CANARY:
+    # Inverted, so failures are the healthy outcome and silence is the alarm.
+    if FAILS:
+        print("CANARY-PROVEN")
+        sys.exit(0)
+    print("VACUOUS: every check passed while inverted")
+    sys.exit(2)
+
 if FAILS:
     print(f"{len(FAILS)} FAILED: {', '.join(FAILS)}")
     sys.exit(1)

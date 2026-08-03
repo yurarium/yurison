@@ -29,11 +29,21 @@ def lock(stored, claimed_now, first_seen):
     return stored if stored else effective(claimed_now, first_seen)
 
 
+import os
+
+# Inversion for ./test.py --canary. Every check is flipped, so a suite asserting anything real must
+# FAIL; one that passes while inverted is asserting nothing. Without this the runner cannot tell a
+# suite that was proved from one that ignored the canary and passed untouched, which is the
+# vacuous-green failure this project keeps meeting.
+CANARY = os.environ.get("YURA_CANARY") == "1"
+
 FAILS = []
 
 
 def check(name, got, want):
     ok = got == want
+    if CANARY:
+        ok = not ok
     print(f"  {'ok  ' if ok else 'FAIL'} {name}: {got!r}" + ("" if ok else f" (want {want!r})"))
     if not ok:
         FAILS.append(name)
@@ -64,6 +74,14 @@ check("appeared between runs, claim bumped into the future",
       effective("2026-12-01T02:00:00Z", "2026-08-13"), "2026-08-13")
 
 print()
+if CANARY:
+    # Inverted, so failures are the healthy outcome and silence is the alarm.
+    if FAILS:
+        print("CANARY-PROVEN")
+        sys.exit(0)
+    print("VACUOUS: every check passed while inverted")
+    sys.exit(2)
+
 if FAILS:
     print(f"{len(FAILS)} FAILED: {', '.join(FAILS)}")
     sys.exit(1)

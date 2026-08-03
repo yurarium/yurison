@@ -1,50 +1,61 @@
 #!/usr/bin/env python3
-"""Find the verbal tics that mark text as machine-written.
+"""Keep the prose readable: no stock phrasing, no filler, no padding.
 
-WHY THIS EXISTS. Almost every word in this project's prose was drafted by an assistant, and
-assistants have a house style: a small set of constructions that appear far more often in generated
-text than in written English. A reader who knows the tells reads them as a signature. The project's
-text should read as the project's, so the tells are removed.
+WHY THIS EXISTS. Almost every word here was drafted by an assistant, and assistants reach for a
+small set of prefabricated constructions. The problem with them is not that they identify their
+author. It is that they are bad writing: they take a sentence to say nothing, they reach for an
+abstraction where a fact belongs, and they add rhythm in place of content. Enough of them together
+and the text lands in the uncanny valley, where a reader feels the wrongness before naming it, and
+stops trusting the page.
 
-This is a lint and not a matter of taste, because "write naturally" is advice nobody can act on and
-a word list is. The list is deliberately in two tiers, for the same reason check.py is:
+THIS IS NOT A DISGUISE. That the project is AI-driven is neither hidden nor advertised, and nothing
+here exists to defeat a detector. Attribution stays. The consequence matters at the margin: several
+things that detectors flag are KEPT because they earn their place, and several things detectors
+would not notice are CUT because they annoy. When a rule and a detector disagree, the rule follows
+the reader.
 
-  HARD   constructions with no legitimate use here. Absolute, so an invariant: must be zero in
-         anything a reader sees.
-  SOFT   ordinary words that are fine once and a tell in bulk — "comprehensive", "leverage",
-         "robust". A count with a direction, so a budget. Flagging these as errors would make the
-         check something to be deleted rather than obeyed, which is the failure mode recorded in
-         adapters/lint/shadowing.py.
+WHO IS READING. The informational foundation and the architecture will ship in the repository so a
+third party can pick the project up and run with it or change it. That makes this documentation
+part of the deliverable rather than notes to ourselves. It has to be worth a stranger's time.
+
+THE TEST is whether a sentence would annoy someone trying to use the project: does it say a thing,
+or does it perform saying a thing. That is not a check a program can run, which is why the list
+below exists. Every entry names what to write INSTEAD, because a rule that only says "don't" gets
+satisfied by deleting the sentence. If a rule ever makes a passage worse, the rule is wrong and
+should be changed rather than worked around.
+
+THREE TIERS, matching check.py:
+
+  HARD      constructions with no legitimate use. Invariant, must be zero in public text.
+  SOFT      ordinary words that are fine once and are filler in bulk ("comprehensive", "leverage",
+            "robust"). A budget, because making them errors is how a check gets deleted rather than
+            obeyed. See adapters/lint/shadowing.py for that failure mode.
+  DENSITY   things correct in ones and tiresome in threes: tricolons. Measured per thousand words,
+            in prose and not in code.
 
 WHAT IS DELIBERATELY NOT FLAGGED, so it is not "helpfully" added later:
 
-  Bold-lead bullets and numbered rules, in INTERNAL documents. They are a real tell in the wild and
-  they are load-bearing here, where the point is that a rule can be found and cited. Public text
-  gets no such licence.
+  Bold-lead bullets, numbered rules and tables. Published lists of AI tells name all three, and
+  they stay, because the point of these documents is that a rule can be found and cited by someone
+  who has never read them before. Legibility beats camouflage.
+
+  Curly quotes. Also on those lists; also correct typography for web text.
 
   The "short sentence for emphasis." beat, paragraphs that restate their own first line, and
-  elegant variation (swapping in synonyms to avoid repeating a word). Real, and not mechanisable;
-  they are named in STANDING-INSTRUCTIONS §11 as judgement instead.
+  elegant variation (reaching for a synonym rather than repeating a word). Real problems, not
+  mechanisable, and named in STANDING-INSTRUCTIONS §11 as judgement instead.
+
+EM DASHES are avoided on instruction: zero in public text, a budget in internal documents. The
+justification is rhythm rather than signature. A page of them reads as one long breath, and cutting
+them forces the sentence structure to carry the meaning instead.
 
 WHAT WAS WRONG THE FIRST TIME, recorded because the reasoning was plausible and still wrong. This
-file originally exempted em dashes, arguing that the user writes them and the project's documents
-use them throughout. That conflated two different things: how the user writes in conversation, and
-what the project publishes. The exemption was overturned on sight of the README, whose opening
-paragraph carried two em dashes and a tricolon.
+file originally exempted em dashes, arguing that the user writes them and these documents are full
+of them. That conflated how the user writes in conversation with what the project publishes. It was
+overturned on sight of the README, whose opening paragraph carried two em dashes and a tricolon.
 
-The research (Wikipedia's "Signs of AI writing", and work on detector generalisation) says the
-signal is DENSITY AND CLUSTERING, not presence. So the em dash is not banned; it is metered. That
-is a third tier, below:
-
-  HARD      constructions with no legitimate use. Invariant, must be zero in public text.
-  SOFT      ordinary words that are a tell only in bulk. Budget.
-  DENSITY   things correct in ones and diagnostic in threes — em dashes, tricolons. Measured per
-            thousand words against a ceiling, and applied to PUBLIC text only, because internal
-            documents are written to be cited rather than read through.
-
-SCOPE. Public-facing prose is the invariant. Code comments and docstrings are the budget: they are
-in scope and are being cleaned, but there is a backlog and a backlog must not block a build. Commit
-messages already written are history and are left alone.
+SCOPE. Public prose is the invariant. Code comments and docstrings are the budget: in scope, being
+cleaned, but a backlog must not block a build. Commit messages already written are history.
 
 Usage:  tics.py --prose FILE...      what a reader sees; HARD + raw-text rules + density
         tics.py --comments FILE...   comments, docstrings and .md; reports HARD + SOFT

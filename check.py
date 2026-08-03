@@ -191,15 +191,16 @@ def inv_english_mode_has_no_japanese(ctx):
     return sorted(set(bad))
 
 
-def inv_no_machine_tells_in_reader_text(ctx):
-    """Nothing a reader sees carries the verbal tics of generated text.
+def inv_no_stock_phrasing_in_public_text(ctx):
+    """Public prose says things rather than performing them.
 
-    Almost all of this project's prose was drafted by an assistant, and assistants have a house
-    style. A reader who knows the tells reads them as a signature, so they are removed. Only the
-    HARD list is checked here — constructions with no legitimate use — because the invariant is an
-    absolute statement. The ordinary words that are a tell only in bulk are a budget instead.
+    Not a disguise: the project does not hide being AI-driven, and nothing here defeats a detector.
+    These are constructions that waste a sentence, reach for an abstraction where a fact belongs,
+    or add rhythm in place of content. The documentation ships so a third party can pick the
+    project up, which makes it part of the deliverable rather than notes to ourselves.
 
-    fallback: none needed. This reads files that are already written; it cannot degrade a build.
+    Only the HARD list and density are absolute. Words that are filler only in bulk are a budget.
+    fallback: none needed. This reads files already written; it cannot degrade a build.
     """
     out = subprocess.run(
         [sys.executable, str(ROOT / "adapters" / "lint" / "tics.py"), "--prose",
@@ -295,7 +296,7 @@ INVARIANTS = [
     ("every update has a kind", inv_no_unknown_kind),
     ("readings are stored as kana", inv_readings_are_kana),
     ("English mode has no Japanese", inv_english_mode_has_no_japanese),
-    ("no machine tells in reader text", inv_no_machine_tells_in_reader_text),
+    ("no stock phrasing in public text", inv_no_stock_phrasing_in_public_text),
     ("archives are unchanged", inv_archives_unchanged),
     ("deployed data matches built", inv_deployed_matches_built),
     ("no refutation of print serials", inv_no_refutation_of_print_serials),
@@ -325,7 +326,7 @@ def budget_incomplete_attested_rows(ctx):
                     or not r.get("access_modes")))
 
 
-def budget_machine_tells_in_comments(ctx):
+def budget_stock_phrasing_in_comments(ctx):
     try:
         files = [str(f) for f in list(ROOT.rglob("*.py")) + list(ROOT.rglob("*.md"))
                  if ".git" not in f.parts and "data" not in f.parts]
@@ -360,10 +361,11 @@ BUDGETS_DEF = [
     ("incomplete attested rows", budget_incomplete_attested_rows,
      "attested releases missing a chapter name, author or access state. The classic sign of a "
      "moved CSS selector — the adapter still returns rows, just emptier ones."),
-    ("machine tells in comments", budget_machine_tells_in_comments,
-     "verbal tics of generated text in comments, docstrings and documentation. Reader-facing text "
-     "is an invariant instead; this is the backlog, and it ratchets down. See adapters/lint/tics.py "
-     "for what is deliberately not flagged."),
+    ("stock phrasing in comments", budget_stock_phrasing_in_comments,
+     "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which "
+     "are a budget here and zero in public text. Public prose is an invariant instead; this is the "
+     "backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not "
+     "flagged, and why legibility beats camouflage."),
     ("shadowed names in build.py", budget_shadowed_names,
      "names rebound more than 300 lines from their first binding. Two shipped bugs came from this; "
      "see adapters/lint/shadowing.py for why the count is not simply falling."),

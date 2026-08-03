@@ -123,34 +123,50 @@ Unihan is the Unicode licence. Data files derived from a source carry their attr
 - **A document that describes a state goes stale; one that records a decision does not.** Prefer
   the latter, and generate the former.
 
-## 11. Public text must not read as machine-written
+## 11. Write so a stranger can use it
 
-Almost every word here was drafted by an assistant, and assistants have a house style. A reader who
-knows the tells reads them as a signature, and the project's text should read as the project's.
+Almost every word here was drafted by an assistant, and assistants reach for a small set of
+prefabricated constructions. The problem is not that they identify their author. It is that they
+are bad writing: a sentence spent saying nothing, an abstraction where a fact belongs, rhythm in
+place of content. Enough together and the text lands in the uncanny valley, where a reader feels
+the wrongness before naming it and stops trusting the page.
 
-**In scope:** anything a reader sees, the whole of any repository that goes public (existing text
-included, not just new writing), code comments and docstrings, and commit messages from now on.
-Past commit messages are left alone; the public history is to be squashed before 1.0.
+**This is not a disguise.** That the project is AI-driven is neither hidden nor advertised.
+Attribution stays. Nothing here exists to defeat a detector, and where a detector and the reader
+disagree, follow the reader.
 
-`adapters/lint/tics.py` holds the list and the substitutions, in three tiers:
+**The documentation is part of the deliverable.** The informational foundation and the architecture
+ship in the repository so that a third party can pick the project up and run with it or change it.
+Write for that person: someone competent who has never seen this before, is trying to do something
+specific, and will not read the whole thing. It has to be worth a stranger's time.
+
+**The test:** would this annoy someone trying to use the project? Does the sentence say a thing, or
+perform saying a thing?
+
+`adapters/lint/tics.py` mechanises the part that can be mechanised, in three tiers:
 
 | | |
 |---|---|
-| **HARD** | Constructions with no legitimate use. Invariant, must be zero. |
-| **SOFT** | Ordinary words that are a tell only in bulk. Budget, ratchets down. |
-| **DENSITY** | Things correct in ones and diagnostic in threes, measured per thousand words. |
+| **HARD** | Constructions with no legitimate use. Invariant, zero in public text. |
+| **SOFT** | Ordinary words that are filler in bulk. Budget, ratchets down. |
+| **DENSITY** | Correct in ones and tiresome in threes. Measured per thousand words. |
 
-**Em dashes are avoided.** Zero in public text; a budget in internal documents, because those are
-already written full of them and a rule demanding a mass rewrite before the next commit is a rule
-that gets switched off. **Curly quotes are wanted** and nothing may flag them: they appear on
-published lists of tells, and they are correct typography for web text. A lint exists to serve the
-writing.
+Every entry names what to write instead, because a rule that only says "don't" is satisfied by
+deleting the sentence. **If a rule makes a passage worse, the rule is wrong.** Change it rather
+than working around it.
 
-**What the lint cannot catch, and you must:**
+**Kept, though published lists of tells name them:** bold-lead bullets, numbered rules and tables,
+because a rule here has to be findable and citable by someone who has never read the document.
+Legibility beats camouflage. Curly quotes, which are correct typography for web text.
+
+**Avoided:** em dashes, zero in public text and a budget internally. The reason is rhythm rather
+than signature. A page of them reads as one long breath, and cutting them makes the sentence
+structure carry the meaning.
+
+**What no lint will catch, and you must:**
 
 - **The escalating triple.** Three parallel clauses where two would do, the third adding rhythm
-  rather than content. The detector finds the comma-shaped ones; it cannot find three sentences in
-  a row doing the same work.
+  rather than content.
 - **The emphatic fragment.** A one-clause sentence dropped after a long one for weight.
 - **Restatement as structure.** A paragraph whose last line says what its first line said.
 - **Elegant variation.** Reaching for a synonym to avoid repeating a word. Repeat the word.
@@ -159,8 +175,8 @@ writing.
 - **Symmetry that was not in the facts.** Two options given equal weight because two reads well,
   when one is obviously right. Give the recommendation.
 
-**A rule this file got wrong, kept as a warning.** The first version of §11 exempted em dashes,
-reasoning that the user writes them and this project's documents are full of them. That conflated
-how the user writes in conversation with what the project publishes, and it survived exactly as
-long as it took someone to read the README. When a style rule is being justified by *our* habits
-rather than by the reader's experience, the rule is about to be wrong.
+**A rule this file got wrong, kept as a warning.** The first version exempted em dashes, reasoning
+that the user writes them and these documents are full of them. That conflated how the user writes
+in conversation with what the project publishes, and it survived exactly as long as it took someone
+to read the README. When a style rule is being justified by *our* habits rather than by the
+reader's experience, the rule is about to be wrong.

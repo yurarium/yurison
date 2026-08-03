@@ -159,3 +159,30 @@ most navigational control furthest from every other control and read as an after
 first in the bar now, as a calendar grid rather than an option list, because the list grows by
 twelve entries a year.
 
+## The period selector, and the one prediction
+
+**The button says what you are looking at; the popover says what that means.** "latest" rather than
+"last 14 days": the widest control in the bar should not spend itself on a number a reader rarely
+needs, and a default view labelled with a window length reads as a filter. The window length sits
+in the popover, where the choice is made.
+
+**"coming soon" is the only place this interface states something that has not happened.** It is
+calculated from each series' own mean interval, needs three chapters before an interval means
+anything, and carries a note above the list saying it is inferred, in the same style used for
+generated readings. Its rows carry 更新予定 / Expected rather than 新話, because reusing the chapter
+badge would assert that a chapter exists, which is the claim the note disclaims.
+
+Its horizon runs forward only, and that is where it parts from `adapters/schedule.py`. That module
+tolerates a prediction three intervals late, because being overdue is a reason to go and
+look. It is not a reason to tell a reader something is coming. The first version reused that rule
+and offered dates nine months in the past.
+
+## One height per control bar
+
+An input, a select and a button size themselves differently from the same padding, so a bar built
+from all three had four heights in one row and read as several rows that happened to be adjacent.
+Every control in a `.controls` bar shares one height, set once as a custom property.
+
+Hierarchy stays in weight and colour rather than in size. `reset` is quieter than the filters
+beside it; it is not shorter than them.
+

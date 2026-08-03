@@ -31,6 +31,46 @@ document runs magazine-outward rather than corpus-outward: a check against `work
 `series.json` was tried first and produced false leads, recorded further down, because both files
 describe the same single imprint.
 
+The blindness holds on a concrete case. 加瀬さん, the series at the centre of this document's central
+finding below, its author 高嶋ひろみ, its magazine ウィングス, and its publisher 新書館 return zero
+matches each against every file under `data/`, checked directly with `grep -rl` rather than taken on
+report. This is a series licensed into English by Seven Seas and about as well known as the genre
+gets, and the corpus holds zero occurrences of its own title string. That is what "one imprint out of
+a dozen or more" means in practice, on the single case where it is easiest to see.
+
+The 302 figure carries a second softness, this one inside the imprint the corpus does hold, and it
+runs the other way: a single title claimed by more than one work id. Grouping every work in
+`works.json` by its exact Japanese title turns up five such pairs: ゆるゆり, citrus, Girls Love,
+くちびるに透けたオレンジ, and キミイロ少女. ゆるゆり's split, 26 volumes against 12 under two MADB
+series records, is already named as a known duplicate in [MADB](MADB.md), left for a curation
+decision rather than fixed at the adapter. citrus is a second confirmed case, and the first pass at
+explaining it here was wrong and is corrected rather than quietly dropped: reading C357075's six
+volumes and C360560's four as an original run plus a completing reissue assumed the four-volume
+group continued the story where the six left off. The dates rule that out. All four of C360560's
+volumes, ISBNs 9784758074483, 9784758074520, 9784758074537 and 9784758074544, are dated the same
+month, MADB's 2015-08, which is not what a series continuing volume by volume looks like. Checked
+against 一迅社's own catalogue rather than left as a guess: ISBN 9784758074520 is listed there as
+citrus (1) 新装版, and ISBN 9784758074483 as citrus (4) 新装版, each a standalone B6 paperback at
+¥748, both dated July 18, 2015 by the publisher
+([一迅社WEB, citrus (1)](https://data.ichijinsha.co.jp/detail/75807452);
+[一迅社WEB, citrus (4)](https://data.ichijinsha.co.jp/detail/75807448)). So C360560 is not a boxed
+set either: it is four individually catalogued 新装版 volumes, a reissue of the first four volumes
+under new ISBNs, published together as one batch. Where that leaves C357075 is not fully settled. It
+holds the original, pre-reissue printings of volumes 1, 2 and 3, plus the later volumes 5, 9 and 10;
+volumes 4, 6, 7 and 8 do not appear under either citrus work id anywhere in `works.json`, and why is
+not established here. What is established is the shape MADB and the extractor together produce:
+`metadata104` carries the original series and the 新装版 batch as two distinct 単行本シリーズ records,
+`adapters/madb/extract.py` groups strictly by that id, and a repackaging of already-published volumes
+comes out the other end looking like a second work rather than like an edition of the first. The
+other two pairs, くちびるに透けたオレンジ (2010 and 2015, the same five-year gap) and キミイロ少女
+(2014 and 2018), match that shape closely enough to read as the same mechanism, though neither was
+checked against a primary source the way citrus was. So of 302 works, at least two pairs are
+confirmed duplicates of one story and two more are suspected on the same evidence shape, before any
+question of what a print-only magazine adds. The number is real but softer than it looks, in both
+directions: some titles it should hold are entirely absent, and at least a few it does hold are
+counted more than once, or, on the evidence of citrus's missing middle volumes, possibly undercounted
+and overcounted in the same work.
+
 ## コミック百合姫: the one magazine already covered
 
 Publisher 一迅社. On sale the 18th of each month, ¥920, print and a same-day digital edition
@@ -147,26 +187,112 @@ being posted as web chapters anywhere. It is also not what "well known" ordinari
 manga magazine: it is a doujin-adjacent yuri anthology zine with a small, dedicated readership, not
 a newsstand title. Absent from MADB entirely, per the earlier finding in [MADB](MADB.md).
 
-## The series this document was asked to find
+## ウィングス and 加瀬さん: the series this document was asked to find
 
-The brief asked for a well known, ongoing, explicitly GL series carried in a print magazine that
-puts none of it online, not even late. That is a narrow claim, and every strong candidate checked
-against it failed the check: フォワード's flagship yuri title turned out to be on COMIC FUZ,
-MURCIÉLAGO turned out to be on four digital storefronts, ハルタ and アライブ both feed platforms
-already watched, and the two most promising leads out of our own print corpus turned out to be
-sitting on ichicomi the whole time, missed only by a gap in `series.json`'s own coverage. The one
-confirmed case of a magazine putting none of its content online, ガレット, is not commercial and not
-what "well known" describes.
+Every candidate reached by working outward from the magazines this project already half-knows about
+failed the print-only test on direct check, recorded above. The one that holds up came from outside
+that set entirely, named directly rather than surfaced by any method here: 加瀬さん, by 高嶋ひろみ,
+currently serialising as 山田と加瀬さん。in ウィングス, published by 新書館.
 
-So the honest state of this question, after checking every candidate this research turned up, is
-that no commercial, well known, ongoing, explicitly GL series was confirmed to be entirely absent
-from the web. Several plausible candidates were checked specifically and eliminated with evidence,
-which narrows where a second pass should look and says more than an unchecked list would have. 秋田書店's and 小学館's magazines were checked
-shallowly and are the most likely place a real example is still sitting, precisely because no
-platform for either publisher is in `data/platforms.yaml` yet and neither was searched past a first
-pass. A publisher whose web presence has not been mapped at all is a better place to keep looking
-than one, like 芳文社, whose web presence is well documented and turned out to cover the case being
-searched for.
+**新書館** is a shōjo and BL-adjacent publisher whose best-known property is ウィングス itself,
+running continuously since 1982. The magazine ran monthly from its tenth issue through September
+2009 under the title 月刊ウィングス, then reverted to its original bimonthly pattern, on sale the
+28th of even-numbered months
+([Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%B9_(%E9%9B%91%E8%AA%8C))).
+That pattern held through 2026: the June 2026 issue is dated on sale April 28, 2026, and Fujisan's
+listing carries 高嶋ひろみ among that issue's credited authors
+([Fujisan](https://www.fujisan.co.jp/product/160/new/);
+[ebookjapan](https://ebookjapan.yahoo.co.jp/books/322301/A006758047/)). Back issues are addressable:
+Fujisan lists 96 back numbers, paper only through that retailer, filterable back to 2010
+([Fujisan](https://www.fujisan.co.jp/product/160/b/list/)). A forthcoming issue is knowable exactly
+one publication cycle ahead, the same shape as コミック百合姫's monthly pattern stretched to two
+months, and no further than that from any source checked.
+
+新書館 does run a web presence for the Wings family, at `shinshokan.com/webwings/`, distinct from its
+separate web-novel site `nwings`. What that site does today is show a sample read and purchase links
+into 新書館ビューワー and Yahoo!ブックストア for each title, 山田と加瀬さん among them, rather than
+post full chapters for free reading the way ichicomi or comic-walker do
+([shinshokan.com/webwings/title43.html](https://www.shinshokan.com/webwings/title43.html)). That was
+not always true of this specific series. Per Wikipedia, ひらり、, the anthology 加瀬さん started in,
+was discontinued in 2014, and the series moved into an actual web serialisation under the name
+ウェブマガジンウィングス that ran until March 2017, then into the print ウィングス magazine from its
+April 2017 issue onward
+([Wikipedia](https://ja.wikipedia.org/wiki/%E5%8A%A0%E7%80%AC%E3%81%95%E3%82%93%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA)).
+So the claim as given, that the magazine puts none of it online, is accurate for the current
+serialisation and not accurate as a claim about the work's whole history: it spent roughly two and a
+half years as a web-first series before returning to print, and it is the print return, not an
+absence of any web episode ever, that has held for the nine years since. Worth stating precisely
+rather than rounding off, because the distinction is exactly the kind this document exists to keep.
+
+加瀬さん also renames itself between volumes, and the actual sequence, checked against Wikipedia and
+cross-read against BookWalker's and Manga Zenkan's listings rather than taken from any single
+description of it, runs あさがおと加瀬さん。(2012), おべんとうと加瀬さん。(2014), ショートケーキと
+加瀬さん。(2015), エプロンと加瀬さん。(2017), さくらと加瀬さん。(2018), then 山田と加瀬さん。1 through
+5 (2019 to 2025), ten volumes under six titles, one continuous story throughout. This project keys a
+work on its title and folds presentation with `adapters/textnorm.py`, correctly, since two different
+words are two different works there. A series that changes its title every volume or two defeats
+that keying by design rather than by bug: MADB's imprint enumeration, run against this series, would
+return several one- or five-volume works joined by nothing, because title-matching is exactly the
+mechanism that cannot see past a deliberate rename. The proportionate answer to one known case is not
+a new mechanism; it is the same hand-reviewed entry this project already uses for facts a machine
+cannot derive, the kind `data/names/curated.yaml` holds with a basis, a source and a note. That file
+is being worked on elsewhere as this document is written, so the entry is not made here, but the
+shape worth recognising if a second case turns up is this: several single-volume works, one author,
+one imprint, titles that share a distinctive element and differ only in what precedes it. The owner
+could not name a second instance of a renaming series specifically, and this document did not go
+looking for one; it may be a unicorn, and is recorded as one rather than generalised into a problem
+it has not been shown to be.
+
+citrus, above, is the same failure from the other side and is already sitting in data this project
+holds rather than in a magazine it does not watch: one title, two work ids, instead of one series
+under six titles. The two are worth naming together because they are the same mechanism read in
+opposite directions, title-keying that cannot see past a change on one side and cannot see past a
+sameness that hides a real difference on the other, and because between them they show the failure
+is not confined to whatever gets built to reach ウィングス. citrus+, the sequel, does not have this
+problem: its print title `Citrus +` and its web title on ichicomi, `citrus+`, fold to the identical
+string under `adapters/textnorm.py` (`norm("Citrus +") == norm("citrus+")`, checked directly), so
+print and web already agree there and only the base series is fragmented. One more instance of the
+same underlying class turned up while checking this, worth a sentence rather than a section: three
+source-layer titles store a voiced kana as a decomposed pair, base character plus a combining sound
+mark, rather than as the single composed character. 銀玉の価値を上げる方法 in
+`kuragebunch-series-feeds.yaml` carries one in 上げる, さよならミュージアム in
+`tonarinoyj-series-feeds.yaml` carries one in ジ, and the subtitle of お姉さまと巨人 ～お嬢さまが異世界
+転生～ in `kadokomi/chapters.yaml` carries one in が, each confirmed directly by inspecting the stored
+bytes rather than assumed from the visible glyph. `textnorm.py` applies NFKC, which composes them, so
+nothing downstream breaks, but a person comparing raw titles by eye or with a plain string match would
+see two different spellings of one name and miss the match, the identical shape as citrus and 加瀬さん
+one level down, in the encoding rather than in the title.
+
+Whether ウィングス carries any other yuri or GL content was not chased, on purpose. The magazine is a
+general shōjo and boys'-love-adjacent anthology title with dozens of series across genres in any
+given issue; 加瀬さん may be the only one that reads as explicitly GL, and padding this section with
+a search for a second title to make the case broader would manufacture a pattern the evidence does
+not support. One well known, ongoing, explicitly GL series that a magazine keeps off the web is a
+complete finding on its own and does not need a second series to justify writing it down.
+
+That also sets the shape of what this argues for building. A magazine carrying a field's worth of
+yuri is a case for coverage at the magazine level, the way コミック百合姫 or a Kirara title would be.
+A magazine carrying one such series is a case for something narrower: a way to hold a named work that
+no watched platform will ever feed, entered once on the strength of the work rather than of its
+carrier. Those are different features. Nothing here argues for the first on ウィングス's account, and
+building the second only for this one series would be reasonable exactly because it is this
+well known.
+
+One more consequence follows directly. A print-only work can carry volumes and a first-publication
+date; it cannot carry an update, because nothing produces one. It belongs on the works-and-volumes
+side of whatever interface reads this corpus, never in an update feed, and a build that tried to
+place it there would be describing a fact about the pipeline's reach rather than a fact about the
+work. That is the difference between a gap in tracking, which this document is largely about, and a
+work that is simply not the kind of thing an update feed describes.
+
+秋田書店's and 小学館's magazines were checked shallowly earlier in this document and nothing was
+confirmed either way there; nothing found for 新書館 changes that, since 新書館 was not on that list at
+all before the owner named it directly. The method this document used to build its magazine list,
+working outward from platforms and magazines already somewhere in this project's orbit, missed 新書館
+entirely, and no search run against that list would have reached it. That is worth carrying forward
+more than any single magazine profile above: the field is larger than what a search seeded from our
+own data will find, and the one confirmed case came from someone who already knew the genre rather
+than from the method.
 
 ## Whether MADB's issue data could carry this
 

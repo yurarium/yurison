@@ -16563,6 +16563,10 @@ names:
     verified: false
   犬も歩けば姫に当たる:
     basis: romaji
+    en: Inu mo Arukeba Hime ni Ataru
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 犬
       - いぬ
@@ -16580,8 +16584,11 @@ names:
       - あ
     - - たる
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Breaks 犬も歩けば棒に当たる, "even a dog that walks will be hit by a stick", the proverb for going out
+      and courting fortune, by swapping 棒, stick, for 姫, princess, referring to the No.1 hostess the narrator
+      meets; the narrator's own nickname is 忠犬, loyal dog, which doubles the pun the way 蓼食う君も好き好き and
+      笑う門だよ福音さん double theirs on a name sharing a word with the proverb. No English proverb bends the
+      same way.
     reading: イヌ モ アルケバ ヒメ ニ アタル
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -16590,14 +16597,19 @@ names:
     reading_source_kind: analyser
     verified: false
   狙いはキミだけ!:
-    basis: romaji
+    basis: translated
+    en: You're My Only Target!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 狙
       - ねら
     - - いはキミだけ!
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: '狙い, aim or target, does double duty: the synopsis is a girl smitten with an archery-club member,
+      so the word is both the sport''s own vocabulary and the romantic pursuit, a pairing English "target"
+      keeps intact.'
     reading: ネライ ワ キミ ダケ !
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -16687,7 +16699,11 @@ names:
     reading_source_kind: analyser
     verified: false
   猫の日:
-    basis: romaji
+    basis: translated
+    en: Cat Day
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 猫
       - ねこ
@@ -16695,8 +16711,8 @@ names:
       - null
     - - 日
       - ひ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is a pet cat who turns human overnight, reverting to cat-brained moments now and
+      then. Plain phrase, nothing to protect.
     reading: ネコ ノ ヒ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -16705,7 +16721,11 @@ names:
     reading_source_kind: analyser
     verified: false
   猫魔法が世界に革命を起こすそうですよ?:
-    basis: romaji
+    basis: translated
+    en: They Say Cat Magic Will Revolutionize the World?
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 猫魔
       - ねこま
@@ -16725,8 +16745,9 @@ names:
       - お
     - - こすそうですよ?
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is a cat-folk court mage sacked over the belief that beastfolk cannot use magic
+      at all, who takes on a disgraced dog-folk apprentice to prove otherwise. そうですよ carries the hearsay
+      tone the English question mark keeps.
     reading: ネコマ ホウ ガ セカイ ニ カクメイ ヲ オコス ソウデス ヨ ?
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -16770,7 +16791,11 @@ names:
     reading_source_kind: derived
     verified: false
   王の由縁:
-    basis: romaji
+    basis: translated
+    en: What Makes a King
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 王
       - おう
@@ -16778,8 +16803,8 @@ names:
       - null
     - - 由縁
       - ゆえん
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 由縁 is a more literary word for reason or origin than 理由; a speed-manga entry themed "quarrel",
+      with no further synopsis beyond that.
     reading: オウ ノ ユエン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -16860,7 +16885,11 @@ names:
     reading_source_kind: analyser
     verified: false
   瑠東さんには敵いません！:
-    basis: romaji
+    basis: translated
+    en: No Match for Ruto!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 瑠東
       - るとう
@@ -16870,8 +16899,8 @@ names:
       - かな
     - - いません！
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The platform's own yomi field confirms the reading straight through. Honorific dropped per the
+      project's usual practice for a kirara 4-koma.
     reading: ルトウサン ニ ワ カナイマセン！
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -16904,7 +16933,11 @@ names:
     reading_source_kind: analyser
     verified: false
   甘えさせて雛森さん!:
-    basis: romaji
+    basis: translated
+    en: Let Me Be Spoiled, Hinamori!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 甘
       - あま
@@ -16914,8 +16947,10 @@ names:
       - ひなもり
     - - さん!
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'Spoken by the senior, not the junior: the synopsis has star student Suo Yaya caught crying
+      alone by her admiring underclassman Hinamori, and once Hinamori hugs her, Yaya starts demanding
+      to be the one coddled, upending the admiration the title''s junior→senior setup implies. Honorific
+      dropped, name kept.'
     reading: アマエ サセテ ヒナモリサン !
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -16924,7 +16959,11 @@ names:
     reading_source_kind: analyser
     verified: false
   甘やかせ魔族ども:
-    basis: romaji
+    basis: translated
+    en: Pamper Me, You Demons!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 甘
       - あま
@@ -16934,8 +16973,8 @@ names:
       - まぞく
     - - ども
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is a hopeless mess of a girl, sacrificed to a demon lord's ranks, who begs her
+      way into becoming an underling of an executive demon who turns out even more useless than she is.
     reading: アマヤカセ マゾクドモ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -16944,18 +16983,25 @@ names:
     reading_source_kind: analyser
     verified: false
   田所さん:
-    basis: romaji
-    en: Tadokoro-san
-    en_at: '2026-08-02'
+    basis: translated
+    en: Tadokoro
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Tadokoro-san
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q102128142
     furigana_spans:
     - - 田所
       - たどころ
     - - さん
       - null
+    note: 田所 is the protagonist's surname, honorific dropped per the project's usual practice. The synopsis
+      is a quiet girl who likes to draw in the corner of the classroom, unexpectedly the object of the
+      class's most popular girl's affection.
     reading: タドコロ サン
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -16965,7 +17011,11 @@ names:
     reading_url: http://www.wikidata.org/entity/Q102128142
     verified: false
   由花緒リニューアル:
-    basis: romaji
+    basis: translated
+    en: Yukao's Renewal
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 由花
       - ゆか
@@ -16973,17 +17023,27 @@ names:
       - いとぐち
     - - リニューアル
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: ユカ イトグチ リニューアル
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    note: 由花緒 is a given name, and the stored reading had split it as two ordinary words, 由花 (Yuka) plus
+      緒 read いとぐち, "a thread's end"; 緒 at the end of a girl's name conventionally reads お, as in 由紀緒 or
+      美緒, which makes 由花緒 read Yukao as one name rather than a compound. リニューアル is the English loanword
+      renewal, already in the source title.
+    reading: ユカオ リニューアル
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ユカ イトグチ リニューアル
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   男装メイドは尽くしたい:
-    basis: romaji
+    basis: translated
+    en: The Cross-Dressing Maid Wants to Serve
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 男装
       - だんそう
@@ -16993,8 +17053,8 @@ names:
       - つ
     - - くしたい
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is an overprotective maid who disguises herself as a boy to secretly watch over
+      the young lady she serves once that lady starts high school wanting independence.
     reading: ダンソウ メイド ワ ツクシタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17021,7 +17081,11 @@ names:
     reading_source_kind: analyser
     verified: false
   異世界温泉の和菓子屋JK:
-    basis: romaji
+    basis: translated
+    en: The Isekai Hot Spring's Wagashi Shop Girl
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 異世界
       - いせかい
@@ -17035,8 +17099,9 @@ names:
       - や
     - - JK
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 和菓子, wagashi, is traditional Japanese confectionery, kept as the specific thing it is rather
+      than flattened to "sweets"; the synopsis is an Edo-spirited high schooler turning around a failing
+      hot spring in another world.
     reading: イセカイ オンセン ノ ワガシヤ JK
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17067,7 +17132,11 @@ names:
     reading_source_kind: analyser
     verified: false
   異種族女子に〇〇する話:
-    basis: romaji
+    basis: translated
+    en: The Story of Doing ___ to Interspecies Girls
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 異
       - い
@@ -17083,8 +17152,9 @@ names:
       - null
     - - 話
       - はなし
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 〇〇 is a blank in the Japanese title itself, the same device as 限界OLと女子大生が〇〇する話; the synopsis
+      confirms it, an expansion of a one-page web comic literally subtitled "(working title)" about interspecies
+      girls and a human high schooler.
     reading: イ シュゾク ジョシ ニ レイキゴウ スル ハナシ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17281,7 +17351,11 @@ names:
     reading_source_kind: analyser
     verified: false
   痛かったら喜んでください:
-    basis: romaji
+    basis: translated
+    en: If It Hurts, Please Be Happy About It
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 痛
       - いた
@@ -17291,8 +17365,8 @@ names:
       - よろこ
     - - んでください
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A COMITIA speed-manga entry; the platform's subtitle names a different work that won the same
+      event, so no synopsis for this one survives. Plain sentence, nothing to protect.
     reading: イタカッタラ ヨロコンデ クダサイ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17301,7 +17375,11 @@ names:
     reading_source_kind: analyser
     verified: false
   白き乙女の人狼:
-    basis: romaji
+    basis: translated
+    en: The Werewolf of the White Maidens
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 白
       - しろ
@@ -17313,8 +17391,9 @@ names:
       - null
     - - 人狼
       - じんろう
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is a boarding school where losing one's "purity" means expulsion, tagged mystery
+      rather than fantasy, so 人狼 plausibly names the hidden-traitor party game as much as a literal werewolf;
+      English "werewolf" carries the same double reading, so the ambiguity survives untouched.
     reading: シロキ オトメ ノ ジンロウ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17323,7 +17402,11 @@ names:
     reading_source_kind: analyser
     verified: false
   白けた夜(ヤングスペリオール新人賞・佳作):
-    basis: romaji
+    basis: translated
+    en: A Night Gone Flat
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 白
       - しら
@@ -17341,8 +17424,8 @@ names:
       - かさく
     - - )
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 白ける is the mood of a room curdling, going flat or awkward, not literal whiteness. A newcomer-award
+      one-shot with no synopsis beyond the award notice.
     reading: シラケタ ヨル ( ヤング スペリオール シンジンショウ・ カサク )
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17351,7 +17434,12 @@ names:
     reading_source_kind: analyser
     verified: false
   白と黒～Black & White～:
-    basis: romaji
+    basis: official-jp
+    en: Black & White
+    en_at: '2026-08-04'
+    en_source: COMICリュエル&COMICジャルダン
+    en_source_kind: platform
+    en_url: https://comic.j-nbooks.jp/series/b334c297c6024
     furigana_spans:
     - - 白
       - しろ
@@ -17361,8 +17449,10 @@ names:
       - くろ
     - - ～Black & White～
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The platform's own title already carries an English half, 白と黒～Black & White～; recorded from
+      that rather than translated fresh. The two leads' surnames are 白川, Shirakawa, and 黒田, Kuroda, white
+      and black built into the names themselves, matching the synopsis's bank colleagues locked into a
+      strange, violent dynamic.
     reading: シロ ト クロ ～ Black   &   White ～
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17371,7 +17461,11 @@ names:
     reading_source_kind: analyser
     verified: false
   白月光プロジェクト～あの時の彼女を取り戻す～【タテスク】:
-    basis: romaji
+    basis: translated
+    en: 'The Moonlight Project: Getting Back the Her From Back Then'
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 白
       - しろ
@@ -17395,8 +17489,10 @@ names:
       - もど
     - - す～【タテスク】
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis glosses 白月光 with its own furigana as ムーンライト, moonlight, so this is recovery of
+      the author's stated reading rather than a guess. An IT worker suddenly fired and in debt turns to
+      her childhood-friend novelist for help, on condition she moves in as an assistant; the two must
+      undo years of drifting apart to find their way back to who they were.
     reading: シロ ゲッコウ プロジェクト ～ アノ トキ ノ カノジョ ヲ トリモドス ～ 【タテスク】
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17406,6 +17502,10 @@ names:
     verified: false
   白百合に×いを込めて:
     basis: romaji
+    en: Shirayuri ni ×i o Komete
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 白百合
       - しらゆり
@@ -17415,8 +17515,10 @@ names:
       - こ
     - - めて
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The × masks a single kanji in the title itself, on the platform's own page; whatever reads before
+      い is withheld by design, not missing data, so translating would mean guessing the masked word and
+      asserting a reading the title deliberately will not give. A speed-manga entry themed "runner-up",
+      with no further synopsis to narrow the guess.
     reading: シラユリ ニ ×イ ヲ コメテ
     reading_at: '2026-08-02'
     reading_basis: analyser

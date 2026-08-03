@@ -191,6 +191,28 @@ def inv_english_mode_has_no_japanese(ctx):
     return sorted(set(bad))
 
 
+def inv_no_absolute_paths_in_published_files(ctx):
+    """No file we publish names a directory on the machine that built it.
+
+    checks.json records example findings, and several invariants report a finding as
+    "<file>:<line>: <what>" with an absolute path. A failing prose lint therefore wrote a home
+    directory into a public repository, and the commit hook was the only thing that noticed.
+    A guard in the writer fixes today's case; this one fails the next writer to do it.
+    fallback: none available. A path leak is not something to degrade past.
+    """
+    import re as _re
+    bad = []
+    pat = _re.compile(r"(/home/|/Users/|C:\\Users\\)[^\s\"']+")
+    for f in sorted(BUILD.rglob("*.json")):
+        try:
+            hits = pat.findall(f.read_text(encoding="utf-8", errors="replace"))
+        except Exception:
+            continue
+        if hits:
+            bad.append(f"{f.relative_to(BUILD)}: {len(hits)} absolute path(s)")
+    return bad
+
+
 def inv_no_stock_phrasing_in_public_text(ctx):
     """Public prose says things rather than performing them.
 
@@ -371,6 +393,7 @@ INVARIANTS = [
     ("every update has a kind", inv_no_unknown_kind),
     ("readings are stored as kana", inv_readings_are_kana),
     ("English mode has no Japanese", inv_english_mode_has_no_japanese),
+    ("no build-machine paths in published files", inv_no_absolute_paths_in_published_files),
     ("no stock phrasing in public text", inv_no_stock_phrasing_in_public_text),
     ("content flags are accounted for", inv_content_flags_are_accounted_for),
     ("archives are unchanged", inv_archives_unchanged),
@@ -627,9 +650,17 @@ def main():
     # A report only a build log ever sees is a report nobody reads. The technical view exists to
     # carry facts about our own process, and "which invariants degraded on the last run" is exactly
     # that. Written on both paths so the file is never stale relative to the data beside it.
+    # EXAMPLES ARE STRIPPED OF ABSOLUTE PATHS. Several invariants report a finding as
+    # "<file>:<line>: <what>", and the file is an absolute path on whichever machine ran the
+    # build. checks.json is committed and published, so a failing prose lint wrote the developer's
+    # home directory into the public repository. The leak guard caught it, but only because that
+    # run happened to fail; the hazard is in the writer and belongs here.
+    def _unroot(x):
+        return str(x).replace(str(ROOT.parent) + "/", "").replace(str(ROOT) + "/", "")
+
     (BUILD / "checks.json").write_text(json.dumps({
         "generated": ctx.get("generated") or "",
-        "invariants": [{"name": n, "violations": len(v), "examples": v[:5]}
+        "invariants": [{"name": n, "violations": len(v), "examples": [_unroot(e) for e in v[:5]]}
                        for n, v in [(n, f(ctx)) for n, f in INVARIANTS]],
         "budgets": [{"name": n, "value": f(ctx), "budget": recorded.get(n), "means": w}
                     for n, f, w in BUDGETS_DEF],

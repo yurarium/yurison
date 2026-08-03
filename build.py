@@ -458,6 +458,22 @@ def load_names():
             out["en"] = _p4.latinise(_en) if _p4 else _en
         if rec.get("basis"):
             out["basis"] = rec["basis"]
+        # EVERY English form we hold, keyed by what makes it that form, so the reader can order
+        # them. The store already keeps a displaced claim in en_conflicts rather than discarding
+        # it, on the reasoning that a title somebody knows the work by is still worth finding;
+        # shipping the map lets a reader who prefers a licensor's wording to the work's own say so,
+        # which was previously a decision made here on their behalf.
+        #
+        # `romaji` is deliberately absent: it is not a claim about a name, it is the reading spelt
+        # in Latin letters, and it is already shipped in three styles above.
+        forms = {}
+        for claim in [{"value": rec.get("en"), "basis": rec.get("basis")}] + list(
+                rec.get("en_conflicts") or []):
+            b, v = claim.get("basis"), claim.get("value")
+            if v and b in ("official-jp", "licensed", "translated"):
+                forms.setdefault(b, v)   # live claim first, so a superseded one cannot displace it
+        if forms:
+            out["en_forms"] = forms
         # False is meaningful and must survive; missing is not the same as verified.
         if rec.get("verified") is False:
             out["unverified"] = True

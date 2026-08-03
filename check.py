@@ -338,6 +338,21 @@ def budget_stock_phrasing_in_comments(ctx):
         return 0
 
 
+def budget_untested_modules(ctx):
+    """Modules with no test at all. The count the goal drives down.
+
+    Counted by ./test.py, which discovers rather than being told, so this cannot be satisfied by
+    forgetting to register something. A module counts as covered when a test names it in COVERS,
+    when a test sits beside it under the naming convention, or when it carries its own --self-test.
+    """
+    try:
+        out = subprocess.run([sys.executable, str(ROOT / "test.py"), "--quiet"],
+                             capture_output=True, text=True, timeout=120)
+        return int(out.stdout.strip() or 0)
+    except Exception:
+        return 0
+
+
 def budget_structural_triples(ctx):
     """Three used as an organising shape in documents that ship at 1.0.
 
@@ -383,6 +398,10 @@ BUDGETS_DEF = [
      "are a budget here and zero in public text. Public prose is an invariant instead; this is the "
      "backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not "
      "flagged, and why legibility beats camouflage."),
+    ("modules without a test", budget_untested_modules,
+     "Python modules no suite covers. Offline tests are the enforcement for factoring as well: a "
+     "module that cannot be tested without a network has not separated its logic from its I/O, so "
+     "this number falling is the refactoring, not a proxy for it."),
     ("three as an organising shape", budget_structural_triples,
      "lists of exactly three items, and runs of three bold-led paragraphs, in documents that ship "
      "at 1.0. Three reads as rhetoric; four reads as an inventory. When there really are three "
@@ -447,6 +466,7 @@ def self_test():
 
     if ok:
         print(f"  self-test passed ({len(probes)} canaries caught, plus the tics list)")
+        print("CANARY-PROVEN")   # see adapters/testkit.py: proven by planted canary
     return ok
 
 

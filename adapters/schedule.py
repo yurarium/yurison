@@ -178,6 +178,8 @@ def _self_test():
         print("  FAIL: a claimed row was not selected"); ok = False
 
     print("  schedule self-test:", "pass" if ok else "FAIL")
+    if ok:
+        print("CANARY-PROVEN")   # proven by planted canary, not by inversion
     return ok
 
 

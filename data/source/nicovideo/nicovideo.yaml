@@ -9,12 +9,23 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-08-02
+retrieved: 2026-08-03
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 180
 works:
+  - work_title: "安達としまむら"
+    author: "柚原もけ(漫画) 入間人間(原作) のん(キャラクターデザイン)"
+    url: "https://manga.nicovideo.jp/comic/41839"
+    comic_id: "41839"
+    updated: "2026-08-03"
+    started: "2019-06-03"
+    episode_count: 6
+    free_episodes: 6
+    channel_slug: "nicomanga"
+    latest_episode: "第59話「Cherry Blossoms for the Two of Us1」①"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1116534"
   - work_title: "おちこぼれフルーツタルト"
     author: "浜弓場 双"
     url: "https://manga.nicovideo.jp/comic/53909"
@@ -323,17 +334,6 @@ works:
     channel_slug: "nicomanga"
     latest_episode: "特別編-64話-"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1100605"
-  - work_title: "安達としまむら"
-    author: "柚原もけ(漫画) 入間人間(原作) のん(キャラクターデザイン)"
-    url: "https://manga.nicovideo.jp/comic/41839"
-    comic_id: "41839"
-    updated: "2026-07-20"
-    started: "2019-06-03"
-    episode_count: 7
-    free_episodes: 7
-    channel_slug: "nicomanga"
-    latest_episode: "第58話「The Sackura’s Ark2」②"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1104341"
   - work_title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
     author: "江島絵理(著者)"
     url: "https://manga.nicovideo.jp/comic/47294"

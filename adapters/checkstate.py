@@ -141,6 +141,8 @@ def _self_test():
     except ValueError:
         pass
     print("  checkstate self-test:", "pass" if ok else "FAIL")
+    if ok:
+        print("CANARY-PROVEN")   # proven by planted canary, not by inversion
     return ok
 
 

@@ -121,10 +121,12 @@ jobs:
         run: python3 check.py --self-test
 
       - name: Unit tests
+        # ./test.py discovers suites rather than naming them, so a new test cannot sit unrun; it
+        # blocks the network in every child, so a test that needs one fails rather than reaching
+        # out from CI; and --canary re-runs everything inverted to show the suites can fail.
         run: |
-          python3 adapters/names/test_names.py
-          python3 adapters/test_crossplatform.py
-          python3 adapters/gigaviewer/test_dates.py
+          ./test.py
+          ./test.py --canary
 
       - name: Field audit — a moved selector is silent otherwise
         run: |

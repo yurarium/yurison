@@ -31,12 +31,8 @@ jobs:
 
       - name: Unit tests
         run: |
-          python3 adapters/names/test_names.py
-          python3 adapters/test_crossplatform.py
-          python3 adapters/gigaviewer/test_dates.py
-
-      # Without build output the invariants have nothing to read, and a gate that silently passes
-      # because it found nothing is the failure this project keeps hitting. Build first.
+          ./test.py
+          ./test.py --canary
       - name: Build
         run: python3 build.py
 

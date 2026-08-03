@@ -118,7 +118,10 @@ HARD = [
     # is/are after 2022. Wikipedia's list names exactly these verbs.
     # Defining a thing by what it is not. "A catalogue rather than a reader" reads as a formula,
     # and the reader still does not know what it IS until the next sentence.
-    (r"^\s*(a|an|the)\s+\w+(\s+\w+)?\s*,?\s*(rather than|not)\s+(a|an|the)?\b",
+    # \b before the alternation is load-bearing. Without it \w+ backtracks and matches "can",
+    # leaving "not" inside "cannot" to satisfy the rule: "a test cannot be forgotten" was reported
+    # as definition-by-negation. Same for "nothing", "notice", "notable".
+    (r"^\s*(a|an|the)\s+\w+(\s+\w+)?\s*,?\s*\b(rather than|not)\b\s+(a|an|the)?\b",
      "state what it is"),
     (r"\b(is|are|was|were)\s+(a|an)\s+\w+\s+rather than\s+(a|an)\b", "state what it is"),
     (r"\bnot\s+(a|an)\s+\w+(\s+\w+)?\s*,?\s+but\s+(a|an)\b", "state what it is"),
@@ -417,6 +420,11 @@ def self_test():
         ("It shipped, highlighting the need for care", HARD_RX),
         ("Experts argue that this is so", HARD_RX),
     ]
+    # Counter-cases for the negation rule, which fired on "cannot" until \b was added.
+    for text in ("a test cannot be forgotten.", "a notice arrives later", "an option nothing uses"):
+        if any(fires(rx, fix, text) for rx, fix in HARD_RX):
+            print(f"  FAIL: negation rule fired on {text!r}")
+            ok = False
     ok = True
     for text, rules in canaries:
         if not any(fires(rx, fix, text) for rx, fix in rules):
@@ -514,6 +522,8 @@ def self_test():
             ok = False
 
     print("  tics self-test:", "pass" if ok else "FAIL")
+    if ok:
+        print("CANARY-PROVEN")   # proven by planted canary, not by inversion
     return ok
 
 

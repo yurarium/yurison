@@ -28,3 +28,8 @@ if [ -f "$ROOT/data/build/series.json" ]; then
     exit 1
   }
 fi
+
+# The whole suite, discovered and offline. pre-commit runs a fast subset; this is the exposure
+# moment, so it runs everything including the canary pass that proves the suites can fail.
+"$ROOT/test.py" || { echo "pre-push: tests fail. ./test.py to see why." >&2; exit 1; }
+"$ROOT/test.py" --canary >/dev/null || { echo "pre-push: a suite is vacuous. ./test.py --canary" >&2; exit 1; }

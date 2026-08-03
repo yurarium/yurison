@@ -1,0 +1,72 @@
+# Stage A: feeds, APIs and server-rendered markup. No browser.
+#
+# Declared here rather than inline in the workflow so the list is readable, diffable, and runnable
+# by hand in exactly the form CI uses. run_stage.py executes these CONCURRENTLY.
+#
+# The safety argument for concurrency is that these adapters address DIFFERENT HOSTS. Politeness is
+# owed to a server, and each adapter still walks its own host serially at its own pause, so no
+# publisher sees traffic any faster than when the whole stage ran end to end. What stops is the 27
+# platforms and 11 adapters waiting on each other for no one's benefit.
+#
+# `optional: true` means a non-zero exit is reported and tolerated, which is what `|| true` did in
+# the shell. A failing adapter must not cost the run, and must not be silent either.
+commands:
+  - id: gigaviewer-platform-feeds
+    optional: true
+    argv: [adapters/gigaviewer/releases.py, --platforms, adapters/gigaviewer/platforms.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga", --retrieved, "{R}"]
+
+  # Per-series feeds. Only platforms declaring series_pages do work without --candidates, which in
+  # practice is ichicomi; the rest exit immediately and always have. Left in place because the
+  # registry is the thing that should change, not this list.
+  - id: gigaviewer-series-feeds
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, ichicomi,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+
+  - id: comicfuz
+    optional: true
+    argv: [adapters/comicfuz/releases.py, --gap, data/coverage/webcomics-gap.yaml,
+           --out, data/source/comicfuz, --cache, "{CACHE}/fuz", --retrieved, "{R}"]
+
+  - id: kadokomi
+    optional: true
+    argv: [adapters/kadokomi/releases.py, --works, data/coverage/webcomics-works.yaml,
+           --out, data/source/kadokomi, --cache, "{CACHE}/kadokomi", --retrieved, "{R}"]
+
+  - id: nicovideo
+    optional: true
+    argv: [adapters/nicovideo/releases.py, --works, data/coverage/webcomics-works.yaml,
+           --out, data/source/nicovideo, --cache, "{CACHE}/nico", --retrieved, "{R}"]
+
+  - id: webpages
+    optional: true
+    argv: [adapters/webpages/releases.py, --gap, data/coverage/webcomics-gap.yaml,
+           --out, data/source/webpages, --cache, "{CACHE}/webpages", --retrieved, "{R}"]
+
+  - id: generic
+    optional: true
+    argv: [adapters/generic/releases.py, --works, data/coverage/webcomics-works.yaml,
+           --extract, data/coverage/extract.yaml,
+           --out, data/source/webpages, --cache, "{CACHE}/generic", --retrieved, "{R}"]
+
+  - id: ganganonline
+    optional: true
+    argv: [adapters/ganganonline/releases.py, --targets, data/coverage/render-targets.yaml,
+           --out, data/source/webpages, --retrieved, "{R}"]
+
+  - id: yomonga
+    optional: true
+    argv: [adapters/yomonga/releases.py, --works, adapters/yomonga/works.yaml,
+           --out, data/source/webpages, --retrieved, "{R}"]
+
+  - id: shogakukan
+    optional: true
+    argv: [adapters/shogakukan/releases.py, --sites, adapters/shogakukan/sites.yaml,
+           --out, data/source/webpages, --retrieved, "{R}"]
+
+  - id: sitemap
+    optional: true
+    argv: [adapters/sitemap/releases.py, --sites, adapters/sitemap/sites.yaml,
+           --works, data/coverage/claim-targets.yaml,
+           --out, data/source/webpages, --retrieved, "{R}"]

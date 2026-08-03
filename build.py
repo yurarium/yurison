@@ -60,6 +60,37 @@ EXTRA_RE = re.compile(r"おまけ|番外編|外伝|特別編|幕間")
 # the WORK title. Confirmation establishes is_oneshot properly but only reaches works we discovered
 # through editorial coverage; this catches the rest, which were arriving as 新話.
 ONESHOT_RE = re.compile(r"読切|読み切り|よみきり")
+
+# A SKIPPED RELEASE SLOT, attested by the publisher.
+#
+# Japanese web platforms commonly post an illustration in the update slot instead of a chapter,
+# and it arrives in the feed as an ordinary episode entry with a date. 休載イラスト is the usual
+# form: オトメの帝国 has eleven of them running from 2019 to 2026. Read as chapters they inflate
+# the count, can take over `latest`, and would surface to a reader as an update that is precisely
+# an announcement of no update.
+#
+# A skipped slot says ONE scheduled period passed without a chapter. It does NOT say the series is
+# on hiatus: for a monthly title that is routine. It is also evidence of LIFE rather than absence,
+# because somebody drew the illustration and somebody published it on schedule, which is more than
+# silence tells you.
+#
+# COUNTER-CASES DECIDED THE PATTERN. Keying on お休み alone would be wrong: five of the nine
+# non-illustration matches in the corpus are story titles rather than announcements:
+# 第８３話　エリザベートお休み中, 第20話 前編　ルイくんのお休み, #14 #お休みしゅる. So お休み counts
+# only with a scheduling word in front of it, and a chapter number anywhere in the title settles
+# the entry as a chapter whatever else it says.
+SKIPPED_RE = re.compile(r"休載|(?:今週|今回|今月|来週|しばらく)は?お休み")
+CHAPTER_NUM_RE = re.compile(r"第[0-9０-９]+[話回]|[0-9０-９]+話|#[0-9０-９]+")
+# How long an attested skip keeps describing the present. A 休載 notice from 2023 with nothing
+# since has stopped being news about a hiatus and is just an old fact, so the state falls back to
+# the observed ladder and the notice stays as dated evidence.
+HIATUS_FRESH_DAYS = 180
+
+
+def is_skipped_slot(title):
+    """One producer of this fact, used by the release classifier and the series accumulator alike."""
+    t = unicodedata.normalize("NFKC", title or "")
+    return bool(SKIPPED_RE.search(t)) and not CHAPTER_NUM_RE.search(t)
 # Things platforms file among the chapters that are not instalments. Grouped here because they all
 # get the SAME treatment: judged against how often the series itself uses the marker, never as a
 # flat keyword rule (see the outlier test below).
@@ -1696,6 +1727,13 @@ def main():
 
     for r in releases:
         ep = r.get("ep") or ""
+        # Before the generic notice rule, because a skipped slot is a more specific and more useful
+        # fact than "notice": it is dated, publisher-attested, and says the schedule was kept while
+        # the chapter was not.
+        if is_skipped_slot(ep):
+            r["kind"] = "skipped"
+            r["kind_basis"] = "the publisher posted a hiatus notice in this release slot"
+            continue
         if r["type"] in OTHER_TYPES or NON_STORY_RE.search(ep) or ep.strip() == "イラスト":
             r["kind"], r["kind_basis"] = "other", "notice, artwork, trial or announcement"
             continue
@@ -2287,6 +2325,14 @@ def main():
                         "title": _ti, "updated": c.get("updated"), "url": _u2,
                         "access_modes": c.get("access_modes"), "author": _au})
                     continue
+                # A skipped slot is not an instalment. Diverted rather than dropped: the date is
+                # evidence about the schedule and REQUIREMENTS keeps what it observed. Counting
+                # these gave 19 works an inflated `chapters`, and would let a notice become
+                # `latest`, which it had done for 清田さんは汚されたい!?.
+                if is_skipped_slot(c.get("title")):
+                    bucket.setdefault("skipped", []).append(
+                        {"title": c.get("title"), "date": str(c.get("updated") or "")[:10]})
+                    continue
                 # Name AND date. Keying on the name alone was the fix for a worse bug — mixing URL
                 # and name key spaces gave 雨夜の月 242 chapters, every one twice — but a name is not
                 # unique within a work: 運命は役に立たない has two instalments both called おまけ, on
@@ -2379,9 +2425,29 @@ def main():
             row["completed_basis"] = ("the newest chapter is titled 最終話" if _final
                                       else _completed)
         else:
-            age = (_today - datetime.date.fromisoformat(row["latest"])).days
+            # Skipped slots bear on this twice over, and in opposite directions.
+            #
+            # As LIVENESS: publishing hiatus art on schedule is more than silence tells you, so the
+            # age runs from the most recent event of either kind. A monthly series that skipped
+            # last month is not drifting toward dormant.
+            #
+            # As HIATUS: one skip is a skipped period rather than a suspended series. For a monthly title
+            # it is routine. It takes a RUN of them with no chapter in between before the series
+            # itself is fairly called paused, and even then only while the newest is fresh
+            # (HIATUS_FRESH_DAYS); an old notice has stopped describing the present.
+            _sk = sorted((x["date"] for x in (row.get("skipped") or []) if x.get("date")))
+            _after = [d for d in _sk if d > row["latest"]]
+            _newest = max([row["latest"]] + _after)
+            age = (_today - datetime.date.fromisoformat(_newest)).days
             row["age_days"] = age
-            row["state"] = "active" if age <= 45 else ("slow" if age <= 365 else "dormant")
+            if len(_after) >= 2 and age <= HIATUS_FRESH_DAYS:
+                row["state"] = "hiatus"
+                row["state_basis"] = (f"{len(_after)} consecutive skipped slots since the last "
+                                      f"chapter, newest {_after[-1]}")
+            else:
+                row["state"] = "active" if age <= 45 else ("slow" if age <= 365 else "dormant")
+            if _after:
+                row["skipped_since_chapter"] = len(_after)
     # Where a work runs on several platforms, each row says so, so a reader on one can see the rest.
     _by_work = defaultdict(list)
     for (wk, plat), row in series.items():
@@ -2467,6 +2533,12 @@ def main():
             # thing this project keeps having to unpick.
             "completed_basis": next((r.get("completed_basis") for r in rows
                                      if r.get("completed_basis")), None),
+            # Same reasoning for a paused series: the state travels with what it rests on, and
+            # the skipped slots themselves are kept as dated evidence rather than summarised away.
+            "state_basis": next((r.get("state_basis") for r in rows if r.get("state_basis")), None),
+            "skipped": sorted(
+                {(x.get("date"), x.get("title")) for r in rows for x in (r.get("skipped") or [])},
+                reverse=True),
             "collection": best.get("collection"),
             "url": best["url"],
             "free": best["free"], "free_timed": best["free_timed"], "priced": best["priced"],

@@ -13,8 +13,18 @@ on:
         description: "Skip stage C (the browser adapters)"
         type: boolean
         default: false
+  # Measured 2026-08-03, from 10,216 dated feed entries. 98% of releases land in three hours JST:
+  # 00:00 (42%, 少年ジャンプ+ and コミックDAYS), 11:00 (32%, 一迅プラス), 12:00 (24%, the Coamix and
+  # Mag titles). Real spread exists outside those, so these times reduce LATENCY rather than
+  # decide coverage: the window-depth rule is what guarantees nothing is missed, and an off-peak
+  # release simply waits for the next run.
+  #
+  # Times are 30 minutes behind each cluster, to let the feeds settle, and off the hour because
+  # everything cron'd at :00 queues behind the rest of GitHub.
   # schedule:
-  #   - cron: "17 20 * * *"   # daily, off the hour — everything cron'd at :00 queues
+  #   - cron: "37 15 * * *"   # 00:37 JST, after the midnight batch. The most valuable single run.
+  #   - cron: "07 3 * * *"    # 12:07 JST, catching the 11:00 and 12:00 clusters together.
+  #   - cron: "17 10 * * *"   # 19:17 JST, the small evening tail plus a retry margin.
 
 concurrency:
   group: update
@@ -55,7 +65,11 @@ jobs:
           restore-keys: fetch-
 
       - name: Set the retrieval date once, for every adapter
-        run: echo "R=$(date -u +%F)" >> "$GITHUB_ENV"
+        # JST, not UTC. Every publication date in this database is Japanese and stated in JST, and
+        # the most valuable run of the day sits just after midnight Tokyo, which is 15:30 UTC on the
+        # PREVIOUS UTC day. Dating that run from UTC records a chapter as retrieved the day before
+        # it was published, which reads later as a fault in the data rather than in the clock.
+        run: echo "R=$(TZ=Asia/Tokyo date +%F)" >> "$GITHUB_ENV"
 
       # ── Stage 0 — the work queue. Everything downstream reads what this writes. ───────────────
       # webcomics-works.yaml and webcomics-gap.yaml are the inputs to comicfuz, kadokomi,
@@ -67,28 +81,15 @@ jobs:
           python3 adapters/webcomics/coverage.py --out data/coverage \
             --cache "$CACHE/webcomics" --pages 8 --retrieved "$R"
 
-      # ── Stage A — feeds, APIs and server-rendered markup. No browser. Most of the feed. ───────
+      # ── Stage A — feeds, APIs and server-rendered markup. No browser. ────────────────────
+      # The commands live in adapters/stage-a.yaml so they can be run by hand exactly as CI runs
+      # them, and so a failure names the adapter that failed instead of vanishing into `|| true`.
+      # They run CONCURRENTLY: they address different publishers, each still paces its own host,
+      # and eleven adapters no longer queue behind each other's sleep.
       - name: Stage A — feeds and APIs
         run: |
-          set -x
-          python3 adapters/gigaviewer/releases.py --platforms adapters/gigaviewer/platforms.yaml \
-            --out data/source/gigaviewer --cache "$CACHE/giga" --retrieved "$R" || true
-          # series_feeds is per-platform by design — the per-series feed is a different endpoint
-          # from the platform-wide one, and only it carries free_only.
-          for p in $(python3 -c "import yaml;print(' '.join(x['id'] for x in yaml.safe_load(open('adapters/gigaviewer/platforms.yaml'))['platforms']))"); do
-            python3 adapters/gigaviewer/series_feeds.py --platform "$p" \
-              --out data/source/gigaviewer --cache "$CACHE/giga-series" --retrieved "$R" || true
-          done
-          python3 adapters/comicfuz/releases.py  --gap   data/coverage/webcomics-gap.yaml   --out data/source/comicfuz  --cache "$CACHE/fuz"      --retrieved "$R" || true
-          python3 adapters/kadokomi/releases.py  --works data/coverage/webcomics-works.yaml --out data/source/kadokomi  --cache "$CACHE/kadokomi" --retrieved "$R" || true
-          python3 adapters/nicovideo/releases.py --works data/coverage/webcomics-works.yaml --out data/source/nicovideo --cache "$CACHE/nico"     --retrieved "$R" || true
-          python3 adapters/webpages/releases.py  --gap   data/coverage/webcomics-gap.yaml   --out data/source/webpages  --cache "$CACHE/webpages" --retrieved "$R" || true
-          python3 adapters/generic/releases.py   --works data/coverage/webcomics-works.yaml --extract data/coverage/extract.yaml \
-            --out data/source/webpages --cache "$CACHE/generic" --retrieved "$R" || true
-          python3 adapters/ganganonline/releases.py --targets data/coverage/render-targets.yaml --out data/source/webpages --retrieved "$R" || true
-          python3 adapters/yomonga/releases.py     --works adapters/yomonga/works.yaml            --out data/source/webpages --retrieved "$R" || true
-          python3 adapters/shogakukan/releases.py  --sites adapters/shogakukan/sites.yaml         --out data/source/webpages --retrieved "$R" || true
-          python3 adapters/sitemap/releases.py     --sites adapters/sitemap/sites.yaml --works data/coverage/claim-targets.yaml --out data/source/webpages --retrieved "$R" || true
+          python3 adapters/run_stage.py adapters/stage-a.yaml \
+            --retrieved "$R" --cache "$CACHE" --workers 6
 
       # ── Stage C — browser. Slow, flaky by nature, must not cost the run. ──────────────────────
       - name: Stage C — browser adapters

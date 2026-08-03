@@ -61,16 +61,21 @@ month. Stage A took 2,285 s on the one run that completed it, and the second exc
 Daily, that is roughly 1,800 minutes before Stage C's browser work is enabled, which is
 substantially the whole allowance for a job that is not yet trusted.
 
-**Why Stage A is slow, so nobody re-derives it.** It issues about 2,126 sequential requests for the
-GigaViewer series feeds, each followed by `PAUSE = 1.2` seconds. That is 43 minutes of `time.sleep`
-before any network time, and kadokomi adds another 11. Nothing is malfunctioning; the pause is the
-politeness that keeps the project welcome.
+**Why Stage A was slow, so nobody re-derives it.** Eleven adapter invocations ran strictly one
+after another, and each addresses a different publisher. Every one pauses between its own requests,
+and while it slept the other ten waited. Nothing was malfunctioning; the pause is the politeness
+that keeps the project welcome.
 
-The waste is that the pause is a *per-host* courtesy applied to a serial loop across 27 *different*
-hosts. Sleeping 1.2 s after ichicomi before requesting comic-days buys neither host anything. Run
-hosts concurrently with each host still strictly serial at its current rate and the stage finishes
-in the time of the largest, ichicomi at 342 requests, about 7 minutes against 43. No host sees
-traffic any faster than today. That is the prerequisite work, and it belongs in §D.
+A first reading blamed the per-series GigaViewer loop, on the strength of 2,126 URLs in the local
+cache. That was wrong for CI: only ichicomi declares `series_pages`, the workflow passes no
+`--candidates`, and 26 of the 27 platforms therefore exit immediately there. The cache had been
+filled by local runs. Recorded because the number was seductive and the conclusion did not follow
+from it.
+
+The fix is `adapters/run_stage.py` driven by `adapters/stage-a.yaml`: the same commands, run
+concurrently, each still walking its own host serially at its own rate. No publisher sees traffic
+any faster than before, and the stage takes as long as its slowest adapter rather than the sum of
+all of them.
 
 **The cache is not helping and has never helped.** The API reports zero saved caches. The post step
 is skipped when a job fails and both runs failed before it; and `fetch()` uses `max_age_days=1`, so

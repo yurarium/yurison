@@ -6,7 +6,7 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-08-02
+retrieved: 2026-08-03
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
@@ -43,6 +43,7 @@ releases:
     author: "山田恵庸"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421983805333018"
+    in_current_window: false
     work_title: "私のヒーロー"
     web_status: "serialised"
     identified_via: "discovery-candidate"

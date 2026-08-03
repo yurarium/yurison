@@ -207,10 +207,10 @@ def inv_no_stock_phrasing_in_public_text(ctx):
          *[str(f) for f in READER_TEXT if f.exists()]],
         capture_output=True, text=True, timeout=60)
     # Parse on the lint's own markers, not on an em dash: this line used to split on " — " and the
-    # lint's output separator changed, which would have made the invariant silently vacuous. Density
-    # breaches count too, or the measure would report and block nothing.
+    # lint's output separator changed, which would have made the invariant silently vacuous.
+    # Structural findings count too, or the check would report them and block nothing.
     bad = [l.split(" -> ")[0].strip() for l in out.stdout.splitlines() if " -> " in l]
-    bad += [l.strip() for l in out.stdout.splitlines() if l.startswith("DENSITY:")]
+    bad += [l.strip() for l in out.stdout.splitlines() if l.startswith("STRUCTURE:")]
     return bad
 
 

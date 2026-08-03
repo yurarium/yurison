@@ -5,29 +5,31 @@ Japanese web serialisations. Built from Japanese sources and published as a stat
 
 ## What this is
 
-A catalogue rather than a reader. It records what was published, by whom, where and when. For
-serialisations still running it also records which chapters have appeared, and on what terms each
-can currently be read.
+The database records what was published, by whom, where and when. For serialisations still
+running it also tracks which chapters have appeared, and the terms on which each can be read
+today. Every entry links out to the platform that carries the work.
 
 ## Policies
 
-**Japanese sources only.** A foreign aggregator may suggest a title worth investigating. It may not
-supply any stored field.
+**Sources are Japanese.** A foreign aggregator may point at a title worth investigating. Every
+stored field comes from a Japanese source.
 
-**Nothing is deleted.** Publication is a historical fact. When a source drops a title or a platform
-delists a work, the record stays and is marked accordingly.
+**The record is permanent.** Publication is a historical fact. When a source drops a title or a
+platform delists a work, the entry stays and gains a marker saying so.
 
-**No content is hosted.** No manga, no cover images, no publisher synopses. The database holds
-bibliographic facts and links to authorised sources.
+**Only bibliographic facts are held.** Titles, creators, dates, venues, chapter listings, and links
+to authorised sources. Cover images, synopses and manga stay with the publishers who own them.
+
+**Pornography is out of scope.** Works marketed or intended as such are excluded.
 
 ## Scope
 
-Works first published in Japan, judged by publication venue rather than author nationality.
-Anything marketed or intended as pornography is excluded.
+Inclusion follows the publication venue: a work first published in Japan qualifies whatever the
+author's nationality.
 
-Yuri classification is recorded on two independent axes: what the work contains, and what the
-publisher called it. Each carries its own cited evidence, so a disputed call can be argued from the
-record instead of taken on trust.
+Yuri classification is recorded on two independent axes, one for what the work contains and one
+for what the publisher called it. Each axis carries its own cited evidence, so a disputed call can
+be argued from the record.
 
 ## Documents
 
@@ -40,10 +42,10 @@ record instead of taken on trust.
 
 ## Licence
 
-- **Code, schema, adapters, documentation**: [MIT](LICENSE)
-- **Original data contributions**: [CC0 1.0](DATA-LICENSE.md), covering classifications, evidence
-  notes and dataset structure. Bibliographic facts are not copyrightable and are not licensed by
-  anyone.
-- **Third-party source data**: remains under its own terms and is **not** relicensed here. MADB
-  requires attribution and version citation. openBD restricts use to book-introduction purposes and
-  forbids transferring use rights. See [DATA-LICENSE.md](DATA-LICENSE.md).
+Code, schema, adapters and documentation are [MIT](LICENSE). Original data contributions are
+[CC0 1.0](DATA-LICENSE.md), covering classifications, evidence notes and dataset structure.
+Bibliographic facts are not copyrightable, and nobody licenses them.
+
+Third-party source data keeps its own terms and is **not** relicensed here. MADB requires
+attribution and version citation. openBD restricts use to book-introduction purposes and forbids
+transferring use rights. See [DATA-LICENSE.md](DATA-LICENSE.md).

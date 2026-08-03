@@ -33,11 +33,12 @@ looked**. Specifically:
 
 A fix that handles only the reported instance is half a fix. When something is reported:
 
-1. Find the **class** — how many other rows have the same shape? Report that number.
-2. Fix the class.
-3. **Test the counter-case before believing the rule.** Every over-general rule in this project's
-   history was caught by one example: `名` in 君の名は, `V` in Vチューバー, kun-yomi for names.
-   Look for the case the rule would break *before* shipping it.
+Find the **class** first: how many other rows have the same shape? Report that number, then fix the
+class rather than the instance.
+
+**Test the counter-case before believing the rule.** Every over-general rule in this project's
+history was caught by a single example: `名` in 君の名は, `V` in Vチューバー, kun-yomi for names.
+Look for the case the rule would break *before* shipping it.
 
 ## 3. The dominant bug: two paths, one fact
 
@@ -57,6 +58,9 @@ Things here fail by returning something plausible, not by raising:
   punctuation
 - a moved CSS selector returns rows with a field missing, and the build accepts them
 - an empty result set looks exactly like "nothing matched" and like "the fetch failed"
+- a check whose pattern never matched anything reports clean, which is indistinguishable from a
+  check that ran and found nothing. `git grep` with a stray `--` and a lint parsing output on a
+  separator that had changed both did this in one session
 
 So: **test for the specific bad value, not for an exception.** And every checking mechanism must be
 able to prove it ran — `check.py --self-test` and `.githooks/leak-guard.sh` both canary themselves
@@ -131,14 +135,23 @@ are bad writing: a sentence spent saying nothing, an abstraction where a fact be
 place of content. Enough together and the text lands in the uncanny valley, where a reader feels
 the wrongness before naming it and stops trusting the page.
 
-**This is not a disguise.** That the project is AI-driven is neither hidden nor advertised.
-Attribution stays. Nothing here exists to defeat a detector, and where a detector and the reader
-disagree, follow the reader.
+The goal is prose worth reading. That the project is AI-driven is a plain fact of the repository,
+neither hidden nor advertised, and attribution stays. Where a published list of AI tells and the
+reader's experience disagree, follow the reader.
 
 **The documentation is part of the deliverable.** The informational foundation and the architecture
 ship in the repository so that a third party can pick the project up and run with it or change it.
 Write for that person: someone competent who has never seen this before, is trying to do something
 specific, and will not read the whole thing. It has to be worth a stranger's time.
+
+**State what is, not what isn't.** "A catalogue rather than a reader" spends a sentence on what the
+thing is not and leaves the reader still waiting. Say what it is; add the contrast later only where
+it earns its place.
+
+**Three is a figure, not a number.** Avoid it as an organising principle: three bullets, three
+bold-led paragraphs, three parallel clauses, a sentence announcing that there are three of
+something. When there really are three things, say them in prose or find the fourth that was being
+left out to make the shape work.
 
 **The test:** would this annoy someone trying to use the project? Does the sentence say a thing, or
 perform saying a thing?

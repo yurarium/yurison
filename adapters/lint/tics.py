@@ -101,6 +101,15 @@ HARD = [
     (r"\bfrom .{3,30} to .{3,30}, (the|this|it|we)\b", "cut the sweep; start at the point"),
     # Copula avoidance: "is/are" replaced by something weightier. One study found a 10% drop in
     # is/are after 2022. Wikipedia's list names exactly these verbs.
+    # Defining a thing by what it is not. "A catalogue rather than a reader" reads as a formula,
+    # and the reader still does not know what it IS until the next sentence.
+    (r"^\s*(a|an|the)\s+\w+(\s+\w+)?\s*,?\s*(rather than|not)\s+(a|an|the)?\b",
+     "state what it is"),
+    (r"\b(is|are|was|were)\s+(a|an)\s+\w+\s+rather than\s+(a|an)\b", "state what it is"),
+    (r"\bnot\s+(a|an)\s+\w+(\s+\w+)?\s*,?\s+but\s+(a|an)\b", "state what it is"),
+    # Announcing a count of three, which is the figure used as an organising choice.
+    (r"\b(three|Three)\s+(things|commitments|principles|rules|reasons|factors|goals|pillars|"
+     r"points|ways|steps|properties)\b", "list them without counting them first"),
     (r"\bserves as (a|an|the)\b|\bmarks (a|an|the) (first|significant|pivotal|major)\b", "is"),
     # Present participle bolted onto a finished sentence to add significance it did not have.
     (r", (highlighting|underscoring|emphasi[sz]ing|showcasing|reflecting|ensuring|cultivating|"
@@ -172,14 +181,62 @@ LIST_OR_HEADING = re.compile(r"\s*(?:[-*+•]|\d+[.)]|#|\||>)")
 # reports mostly noise is one nobody reads.
 CODEY = re.compile(r"=>|\bfunction\b|\b(?:const|let|var|return)\b|[{};=]|\$\{")
 
-# Correct in ones, diagnostic in threes. Per thousand words, public text only.
+# THE SENTENCE-LEVEL TRICOLON METRIC WAS REMOVED, and this note is here so it is not rebuilt.
+#
+# Two attempts. A regex window of three items counted every four-item inventory as rhetoric,
+# because English drops the comma before the final "and": "Code, schema, adapters and
+# documentation" is four things and two commas. Counting members instead fixed that and exposed the
+# real problem, which is that a comma series is not a tricolon. Of twenty-two hits on the site,
+# almost all were ordinary commas doing ordinary work: appositives ("Taste, not correctness, so
+# ..."), subordinate clauses ("so リセット, which clears every select ..."), parentheticals.
+#
+# A tricolon is three GRAMMATICALLY PARALLEL members. Telling parallel members from a subordinate
+# clause needs a parser, and a metric that reports mostly noise is one nobody reads, which is the
+# failure this file warns about elsewhere. So the figure is caught where it is unambiguous and
+# cheap: at document scale, in structure(), where three bullets or three bold-led paragraphs are
+# visibly an organising choice. The sentence-level case is judgement, and is named in
+# STANDING-INSTRUCTIONS §11.
+
+LIST_OR_HEADING = re.compile(r"\s*(?:[-*+•]|\d+[.)]|#|\||>)")
+
+# A tricolon is a RHETORICAL pattern, so it is counted in prose and not in code. Without this the
+# measure spent itself on JS parameter lists: "kind, raw, existing", "label, cls, why", "idx, feed,
+# series". Sixteen of the first twenty-two hits on the site were signatures, and a measure that
+# reports mostly noise is one nobody reads.
+CODEY = re.compile(r"=>|\bfunction\b|\b(?:const|let|var|return)\b|[{};=]|\$\{")
+
+SERIES = re.compile(r"(?:[\w'\u2019]+(?:[\w\s'\u2019]{0,28})?,\s+){2,}(?:and\s+)?[\w'\u2019]+(?:[\w\s'\u2019]{0,28})?")
+
+
+def tricolons(text):
+    """Count comma series with EXACTLY three members. Both forms: "a, b, and c" and "a, b, c".
+
+    Counting is not matching. A three-item regex window sits happily inside a list of six, which is
+    how "Code, schema, adapters and documentation" got reported as rhetoric: four items, but only
+    two commas, because English drops the comma before the final "and".
+
+    So members are counted, and the last is split again on " and " to recover the item that the
+    missing Oxford comma hides. Three members is a tricolon. Four or more is an inventory, and an
+    inventory reads as one.
+    """
+    n = 0
+    for m in SERIES.finditer(text):
+        parts = [x.strip() for x in m.group(0).split(",")]
+        last = parts[-1]
+        if last.lower().startswith("and "):
+            parts[-1] = last[4:]
+        else:
+            tail = re.split(r"\s+and\s+", last)
+            if len(tail) > 1:
+                parts = parts[:-1] + tail
+        if len([x for x in parts if x]) == 3:
+            n += 1
+    return n
+
+
+# Correct in ones, tiresome in threes. Per thousand words, prose only.
 DENSITY = [
-    # Both forms: "a, b, and c" and the asyndetic "a, b, c". The README's own
-    # "Sources drop titles, platforms delist works, magazines fold" is the second kind, and an
-    # and-only pattern scored it zero.
-    ("tricolons",
-     re.compile(r"\b\w+(?:\s+\w+){0,3},\s+\w+(?:\s+\w+){0,3},\s+(?:and\s+)?\w+(?:\s+\w+){0,3}\b"),
-     2.0),
+    ("tricolons", tricolons, 2.0),
 ]
 
 HARD_RX = [(re.compile(p, re.I), fix) for p, fix in HARD]
@@ -266,27 +323,53 @@ def comments_of(path):
                 yield base + off, line
 
 
-def measure(paths, extract):
-    """Per-thousand-word rates for the things that are only a tell in bulk."""
-    words, counts = 0, {name: 0 for name, _, _ in DENSITY}
-    for p in paths:
-        p = pathlib.Path(p)
-        if not p.exists() or p.name == "tics.py":
+LIST_ITEM = re.compile(r"^(\s*)(?:[-*+]|\d+[.)])\s+(.*)$")
+BOLD_LEAD = re.compile(r"^\s*\*\*[^*]+\*\*")
+
+
+def structure(path):
+    """Groups of exactly three parallel items: the rule of three as an ORGANISING principle.
+
+    The line rules catch "a, b, and c" inside a sentence. They cannot see a section built from
+    three bullets or three bold-led paragraphs, which is the same figure at document scale and is
+    the more tiring one, because the reader meets the shape before reading a word.
+
+    Three is what gets flagged. A list of seven is an inventory and reads as one; a list of exactly
+    three reads as rhetoric, because that is usually what it is.
+
+    Works on BLOCKS, not lines. The first version tracked consecutive lines and so missed three
+    bold-led paragraphs entirely, since the second line of each paragraph ended the run. That was
+    the exact shape being complained about.
+    """
+    text = pathlib.Path(path).read_text(encoding="utf-8", errors="replace")
+    blocks = re.split(r"\n\s*\n", text)
+    hits, run, start = [], 0, 0
+    line_of, n = [], 1
+    for b in blocks:
+        line_of.append(n)
+        n += b.count("\n") + 2
+
+    for idx, b in enumerate(blocks):
+        stripped = b.strip()
+        if not stripped:
             continue
-        for _, text in extract(p):
-            words += len(text.split())
-            # Prose only. A bulleted contents list is an enumeration, not a rhetorical triple, and
-            # "sourcing, copyright policy, archival rules" in an index entry is the right way to
-            # write it. Counting those would make the measure fire on correct documents.
-            if LIST_OR_HEADING.match(text) or CODEY.search(text):
-                continue
-            for name, rx, _ in DENSITY:
-                counts[name] += len(rx.findall(text))
-    out = []
-    for name, _, ceiling in DENSITY:
-        rate = 1000.0 * counts[name] / words if words else 0.0
-        out.append((name, counts[name], round(rate, 1), ceiling, rate > ceiling))
-    return words, out
+        items = [l for l in b.splitlines() if LIST_ITEM.match(l)]
+        if items:
+            run = 0
+            if len(items) == 3:
+                hits.append((line_of[idx], "a list of exactly three items"))
+            continue
+        if BOLD_LEAD.match(stripped):
+            if run == 0:
+                start = line_of[idx]
+            run += 1
+            continue
+        if run == 3:
+            hits.append((start, "three bold-led paragraphs in a row"))
+        run = 0
+    if run == 3:
+        hits.append((start, "three bold-led paragraphs in a row"))
+    return hits
 
 
 def scan(paths, rules, extract):
@@ -350,16 +433,66 @@ def self_test():
             print(f"  FAIL: glyph exemption wrong on {text!r} (got {got}, want {want})")
             ok = False
 
+    # The structural rule has to catch the shape it was written for.
+    import tempfile, os
+    doc = ("# T\n\n**One.** a\ncontinued\n\n**Two.** b\ncontinued\n\n**Three.** c\ncontinued\n\n"
+           "para\n\n- x\n- y\n- z\n\nend\n")
+    fd, tmp = tempfile.mkstemp(suffix=".md"); os.write(fd, doc.encode()); os.close(fd)
+    found = {w for _, w in structure(tmp)}
+    os.unlink(tmp)
+    for want in ("three bold-led paragraphs in a row", "a list of exactly three items"):
+        if want not in found:
+            print(f"  FAIL: structure() missed {want!r}; got {found}")
+            ok = False
+    # Four of a thing is an inventory and must pass.
+    doc4 = "**A.** a\n\n**B.** b\n\n**C.** c\n\n**D.** d\n\n- 1\n- 2\n- 3\n- 4\n"
+    fd, tmp = tempfile.mkstemp(suffix=".md"); os.write(fd, doc4.encode()); os.close(fd)
+    if structure(tmp):
+        print(f"  FAIL: structure() flagged a group of four: {structure(tmp)}")
+        ok = False
+    os.unlink(tmp)
+
+    # Curly quotes are wanted. Nothing may flag them.
+    if any(fires(rx, fix, "the reader\u2019s choice \u201cyes\u201d")
+           for rx, fix in HARD_RX + PROSE_RX):
+        print("  FAIL: something flagged a curly quote")
+        ok = False
+    # The structural rule has to catch the shape it was written for.
+    import tempfile, os
+    doc = ("# T\n\n**One.** a\ncontinued\n\n**Two.** b\ncontinued\n\n**Three.** c\ncontinued\n\n"
+           "para\n\n- x\n- y\n- z\n\nend\n")
+    fd, tmp = tempfile.mkstemp(suffix=".md"); os.write(fd, doc.encode()); os.close(fd)
+    found = {w for _, w in structure(tmp)}
+    os.unlink(tmp)
+    for want in ("three bold-led paragraphs in a row", "a list of exactly three items"):
+        if want not in found:
+            print(f"  FAIL: structure() missed {want!r}; got {found}")
+            ok = False
+    # Four of a thing is an inventory and must pass.
+    doc4 = "**A.** a\n\n**B.** b\n\n**C.** c\n\n**D.** d\n\n- 1\n- 2\n- 3\n- 4\n"
+    fd, tmp = tempfile.mkstemp(suffix=".md"); os.write(fd, doc4.encode()); os.close(fd)
+    if structure(tmp):
+        print(f"  FAIL: structure() flagged a group of four: {structure(tmp)}")
+        ok = False
+    os.unlink(tmp)
+
     # Curly quotes are wanted. Nothing may flag them.
     if any(fires(rx, fix, "the reader\u2019s choice \u201cyes\u201d")
            for rx, fix in HARD_RX + PROSE_RX):
         print("  FAIL: something flagged a curly quote")
         ok = False
     # Tricolon density: rhetoric counts, a function signature does not.
-    rx = DENSITY[0][1]
-    if not rx.findall("sources drop titles, platforms delist works, and magazines fold"):
-        print("  FAIL: tricolon not detected")
-        ok = False
+    count = DENSITY[0][1]
+    for text, want in (("sources drop titles, platforms delist works, and magazines fold", 1),
+                       ("print, web, and historical", 1),
+                       # four items, two commas: English drops the comma before the final "and"
+                       ("Code, schema, adapters and documentation are MIT", 0),
+                       ("records what was published, by whom, where and when", 0),
+                       ("a, b, c, d, e and f", 0)):
+        got = count(text)
+        if got != want:
+            print(f"  FAIL: tricolons({text!r}) = {got}, want {want}")
+            ok = False
     for code in ("function badge(label, cls, why) {", "const [idx, feed, series] = x;"):
         if not CODEY.search(code):
             print(f"  FAIL: code not excluded from tricolon density: {code!r}")
@@ -385,24 +518,22 @@ def main():
     extract = prose_of if a.prose else comments_of
     hits = scan(a.files, rules, extract)
 
-    over = []
+    struct = []
     if a.prose:
-        words, rates = measure(a.files, extract)
-        over = [r for r in rates if r[4]]
-        if not a.quiet:
-            print(f"-- density over {words} words --")
-            for name, n, rate, ceiling, bad in rates:
-                print(f"   {'OVER' if bad else 'ok  '} {name}: {n} = {rate}/1000 (ceiling {ceiling})")
+        for f in a.files:
+            if pathlib.Path(f).exists() and pathlib.Path(f).name != "tics.py":
+                struct += [(f, n, why) for n, why in structure(f)]
 
+    over = []
     if a.quiet:
-        print(len(hits) + len(over))
+        print(len(hits) + len(over) + len(struct))
     else:
         for path, line, found, fix in hits:
             print(f"{path}:{line}: {found!r} -> {fix}")
-        for name, n, rate, ceiling, _ in over:
-            print(f"DENSITY: {name} at {rate}/1000 exceeds {ceiling}")
-        print(f"{len(hits)} tic(s), {len(over)} density breach(es) in {len(a.files)} file(s)")
-    return 1 if (hits or over) else 0
+        for f, n, why in struct:
+            print(f"STRUCTURE: {f}:{n}: {why}")
+        print(f"{len(hits)} tic(s), {len(struct)} structural in {len(a.files)} file(s)")
+    return 1 if (hits or over or struct) else 0
 
 
 if __name__ == "__main__":

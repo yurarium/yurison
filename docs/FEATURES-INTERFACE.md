@@ -67,6 +67,18 @@ which help nobody.
 
 **Where nothing is held, the Japanese shows.** That is a finished state, not a gap.
 
+**A date is mostly not a translation problem.** `08-03` and `2026-08-03` belong to neither
+language: English would write 3 Aug and Japanese 8月3日, and the ISO order reads correctly to both.
+It is also what the archive URLs and filenames use, so a reader who could switch it would see the
+page disagree with its own links. Only two tokens are language-bound, the weekday and the month
+name, and in 併記 both show: `08-03 月 Mon`.
+
+The day heading is a divider, so it cannot take a second line the way a title does, but the token
+is three characters and doubles along the axis that is free. Neither weekday
+nor month name decided anything for 併記 before this: `LANG === 'en' ? EN : JA` gave it Japanese
+because it is not `en`, so the page showed 月 beside a picker button reading 最新 / latest, from the
+same mode, because that one happened to route through `T()`.
+
 ## 5. Marked and unmarked
 
 Unmarked: an English name the work itself uses (`official-jp`) or a licensor publishes

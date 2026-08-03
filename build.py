@@ -61,6 +61,40 @@ EXTRA_RE = re.compile(r"おまけ|番外編|外伝|特別編|幕間")
 # through editorial coverage; this catches the rest, which were arriving as 新話.
 ONESHOT_RE = re.compile(r"読切|読み切り|よみきり")
 
+# A COMPETITION ENTRY. 【第28回角川漫画新人大賞】佳作 is a prize citation standing where a chapter
+# name goes. It is not a chapter name and, crucially, the 28 is the twenty-eighth CONTEST rather
+# than the twenty-eighth chapter, so ep_number read it as one and four works were filed as later
+# chapters of series that do not exist. Each is a single instalment, which is what a newcomer prize
+# publishes: the entry itself.
+#
+# COUNTER-CASES DECIDED THE SHAPE, and a keyword list alone got four of ten wrong. Across the 11,201
+# chapter names held, a bare award vocabulary also matched:
+#
+#   第11話 2021年12月29日 東京大賞典(GⅠ)     大賞 inside 大賞典, a horse race
+#   第1回 …最後のコンクールで片桐は…          a music competition as the story's subject
+#   第23話①：歌唱コンテスト                  a chapter about a singing contest
+#
+# Two things separate a citation from a story: it sits INSIDE BRACKETS (or is the whole title, as
+# with カドマンGP受賞作), and it carries no chapter counter. 第N回 is not a usable signal either
+# way, since it numbers both contests and chapters.
+_AWARD = (r"新人賞|新人大賞|漫画大賞|マンガ大賞|コンテスト|コンクール|佳作|奨励賞|入選|特別賞|受賞")
+PRIZE_BRACKETED = re.compile(r"[【（(\[][^】）)\]]*(?:" + _AWARD + r")[^】）)\]]*[】）)\]]")
+PRIZE_WHOLE = re.compile(r"^[^。、]{0,24}(受賞作|入選作)$")
+
+
+# NOT CHAPTER_NUM_RE, which counts 第N回 as a chapter number. 回 numbers both chapters and
+# contests, so it is exactly the character that cannot decide this: 【第28回…大賞】 is the
+# twenty-eighth contest and 第1回 elsewhere is chapter one. 話 is unambiguous, so only 話 is used.
+UNAMBIGUOUS_CHAPTER = re.compile(r"第[0-9０-９]+話|[0-9０-９]+話|#[0-9０-９]+")
+
+
+def is_prize_entry(title):
+    """A competition citation standing where a chapter name goes."""
+    t = unicodedata.normalize("NFKC", title or "")
+    if UNAMBIGUOUS_CHAPTER.search(t):
+        return False
+    return bool(PRIZE_BRACKETED.search(t) or PRIZE_WHOLE.match(t))
+
 # A SKIPPED RELEASE SLOT, attested by the publisher.
 #
 # Japanese web platforms commonly post an illustration in the update slot instead of a chapter,
@@ -1844,6 +1878,12 @@ def main():
             continue
         n = ep_number(ep)
         has_earlier = earliest.get(norm_work(r["work"]), r["pub"]) < r["pub"]
+        # Before the numbering. A prize citation carries a number that is not a chapter number, and
+        # a competition entry is one instalment: the piece that was entered.
+        if is_prize_entry(ep) and not has_earlier:
+            r["kind"], r["kind_basis"] = "oneshot", "published as a competition entry"
+            r["kind_inferred"] = True
+            continue
         # Checked before the numbering, because a finale is usually numbered too (第30話 最終回) and
         # the ending is the more informative fact about it.
         if FINAL_RE.search(unicodedata.normalize("NFKC", ep)):
@@ -1874,8 +1914,17 @@ def main():
             r["kind_basis"] = ("numbered 1 but the work has a higher-numbered chapter dated "
                                "earlier — the date is not trustworthy, so not read as a start")
             r["kind_inferred"] = True
-        elif n is not None:
+        elif n is not None and (has_earlier or count.get(norm_work(r["work"]), 0) > 1):
             r["kind"], r["kind_basis"] = "new-chapter", f"episode numbered {n}"
+        elif n is not None:
+            # A number without an earlier chapter to be later THAN. This is the first sighting of a
+            # work that was already running, so it is neither a start nor a demonstrable
+            # continuation, and saying "new chapter" asserts a history we do not hold. The number
+            # is reported instead, which is the fact we actually have.
+            r["kind"] = "new-chapter"
+            r["kind_basis"] = (f"numbered {n}, but this is the only chapter we hold: the work was "
+                               f"already running when we first saw it")
+            r["kind_inferred"] = True
         elif has_earlier:
             # Not the first release we hold for this work, so not the start of it.
             r["kind"], r["kind_basis"] = "new-chapter", "work has an earlier release here"

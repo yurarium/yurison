@@ -70,6 +70,31 @@ def main(s):
     s.check(b.FINAL_RE.search("最終回"), "最終回 is a finale")
     s.check(not b.FINAL_RE.search("第2話"), "an ordinary chapter is not a finale")
 
+    # PRIZE ENTRIES. 【第28回角川漫画新人大賞】佳作 is a citation where a chapter name goes, and the
+    # 28 is the twenty-eighth CONTEST. ep_number read it as a chapter number, so four works were
+    # filed as later chapters of series that do not exist.
+    s.check(b.is_prize_entry("【第28回角川漫画新人大賞】佳作"), "a bracketed citation is an entry")
+    s.check(b.is_prize_entry("カドマンGP受賞作"), "a title that is only an award is an entry")
+    s.check(b.is_prize_entry("ライオンと不時着(第17回NC佳作)"),
+            "the bracket may sit at the end")
+
+    # The counter-cases, which a keyword list got wrong four times in ten across 11,201 names.
+    s.check(not b.is_prize_entry("第11話 2021年12月29日 東京大賞典(GⅠ)"),
+            "大賞 inside 大賞典 is a horse race, and the chapter is numbered")
+    s.check(not b.is_prize_entry("第23話①：歌唱コンテスト"),
+            "a chapter about a singing contest is a chapter")
+    s.check(not b.is_prize_entry("第1回 強豪校から来た転校生。最後のコンクールで"),
+            "a competition as the story's subject is not a citation")
+    s.check(not b.is_prize_entry("第1話"), "an ordinary chapter is not an entry")
+    s.check(not b.is_prize_entry(""), "an empty title is not an entry")
+
+    # 回 numbers both contests and chapters, so it must not decide either way. This is why the
+    # prize rule uses its own narrower counter rather than CHAPTER_NUM_RE.
+    s.check(b.UNAMBIGUOUS_CHAPTER.search("第1話"), "話 counts chapters")
+    s.check(not b.UNAMBIGUOUS_CHAPTER.search("第28回"), "回 alone does not")
+    s.check(b.CHAPTER_NUM_RE.search("第28回"),
+            "while the skipped-slot counter does accept 回, which is why they are separate")
+
     # Hiatus freshness has to be a real window, or an attested pause either never applies or never
     # decays back to the observed ladder.
     s.check(0 < b.HIATUS_FRESH_DAYS <= 365, "the hiatus window is a sane number of days")

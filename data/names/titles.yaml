@@ -695,12 +695,16 @@ names:
     reading_url: https://www.mangaupdates.com/series/phvd7u2/furetai-wa-koi-no-hajimari
     verified: false
   『人斬り』少女、公爵令嬢の護衛になる:
-    basis: romaji
-    en: '"Hitokiri" Shoujo, Koushaku Reijou no Goei ni naru'
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Manslayer Girl Becomes Bodyguard to a Duke's Daughter
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: '"Hitokiri" Shoujo, Koushaku Reijou no Goei ni naru'
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/56u199j/hitokiri-shoujo-koushaku-reijou-no-goei-ni-naru
     furigana_spans:
     - - 『
@@ -723,8 +727,8 @@ names:
       - ごえい
     - - になる
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 人斬り is the word for a political assassin of the late shogunate, and the synopsis has it as a
+      name the state pinned on her rather than a job she took.
     reading: 『ヒトキリ』 ショウジョ、 コウシャク レイジョウ ノ ゴエイ ニ ナル
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -1144,14 +1148,18 @@ names:
     reading_source_kind: analyser
     verified: false
   あたし達って付き合ってるよね!?:
-    basis: romaji
-    en: Atashitachi tte Tsukiatteru yo ne!?
-    en_at: '2026-08-02'
+    basis: translated
+    en: We're Going Out, Aren't We?!
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Atashitachi tte Tsukiatteru yo ne!?
     en_corroborated:
     - mangaupdates
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q139987202
     furigana_spans:
     - - あたし
@@ -1168,8 +1176,7 @@ names:
       - あ
     - - ってるよね!?
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: よね is asking for agreement while assuming it, which the English tag question does too.
     reading: アタシタチ ッテ ツキアッテル ヨ ネ ! ?
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -1232,13 +1239,19 @@ names:
     reading_source_kind: analyser
     verified: false
   あなたのとなり:
-    basis: romaji
-    en: Anata no Tonari
-    en_at: '2026-08-02'
+    basis: translated
+    en: Beside You
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Anata no Tonari
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/2lyyttw/anata-no-tonari
+    note: 'となり is 隣 and あなた is 貴方, and writing them in kana is a softness rather than an ambiguity: there
+      is nothing else the four of them can mean.'
     reading: アナタノトナリ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2206,12 +2219,16 @@ names:
     reading_source: surface
     verified: true
   きみが死ぬまで恋をしたい:
-    basis: romaji
-    en: Kimi ga Shinu made Koi o Shitai
-    en_at: '2026-08-02'
+    basis: translated
+    en: I Want to Be in Love Until You Die
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Kimi ga Shinu made Koi o Shitai
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/bdjyasx/kimi-ga-shinu-made-koi-o-shitai
     furigana_spans:
     - - きみが
@@ -3328,12 +3345,16 @@ names:
     reading_source: surface
     verified: true
   たゆたう恋の散り際に:
-    basis: romaji
-    en: Tayutau Koi no Chirigiwa ni
-    en_at: '2026-08-02'
+    basis: translated
+    en: When a Drifting Love Scatters
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Tayutau Koi no Chirigiwa ni
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/hlx920o/tayutau-koi-no-chirigiwa-ni
     furigana_spans:
     - - たゆたう
@@ -3350,6 +3371,8 @@ names:
       - ぎわ
     - - に
       - null
+    note: 散り際 is the moment blossom comes off the branch, so scatter rather than end. たゆたう is the drifting
+      of something afloat.
     reading: タユタウ コイ ノ チリギワ ニ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -3814,12 +3837,16 @@ names:
     reading_source: surface
     verified: true
   ひなちゃんが生きてるなら:
-    basis: romaji
-    en: Hina-chan ga Ikiteru nara
-    en_at: '2026-08-02'
+    basis: translated
+    en: If Hina Is Still Alive
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Hina-chan ga Ikiteru nara
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/6qnfucf/hina-chan-ga-ikiteru-nara
     furigana_spans:
     - - ひなちゃんが
@@ -3828,6 +3855,8 @@ names:
       - い
     - - きてるなら
       - null
+    note: なら is a condition rather than a wish, so this is if she is alive and not if only she were. No
+      synopsis is cached for it, and the grammar decides this one on its own.
     reading: ヒナ チャン ガ イキテル ナラ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -4461,12 +4490,16 @@ names:
     reading_source: surface
     verified: true
   わたくし、負けませんので。 政略結婚は令嬢のたしなみ:
-    basis: romaji
-    en: Watakushi, Makemasen node. Seiryaku Kekkon wa Reijou no Tashinami
-    en_at: '2026-08-02'
+    basis: translated
+    en: I Shall Not Lose. A Political Marriage Is a Lady's Accomplishment
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Watakushi, Makemasen node. Seiryaku Kekkon wa Reijou no Tashinami
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/1qldj67/watakushi-makemasen-node-seiryaku-kekkon-wa-reijou-no-tashinami
     furigana_spans:
     - - わたくし、
@@ -4485,8 +4518,8 @@ names:
       - れいじょう
     - - のたしなみ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: わたくし is the formal first person a noblewoman uses, which the English carries as shall rather
+      than will. たしなみ is something a person of standing is expected to have mastered.
     reading: ワタクシ、 マケマセン ノデ。   セイリャク ケッコン ワ レイジョウ ノ タシナミ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -5199,12 +5232,16 @@ names:
     reading_source_kind: analyser
     verified: false
   カナリアは綺羅星の夢をみる:
-    basis: romaji
-    en: Kanaria wa Kiraboshi no Yume wo Miru
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Canary Dreams of Glittering Stars
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Kanaria wa Kiraboshi no Yume wo Miru
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/3to8wh6/kanaria-wa-kiraboshi-no-yume-wo-miru
     furigana_spans:
     - - カナリアは
@@ -5217,6 +5254,8 @@ names:
       - ゆめ
     - - をみる
       - null
+    note: 綺羅星 is stars as a figure for brilliance. The children are raised as weapons, so the canary is
+      the bird taken down the mine as much as the one that sings.
     reading: カナリア ワ キラボシ ノ ユメ ウォ ミル
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -9237,18 +9276,24 @@ names:
     reading_source_kind: analyser
     verified: false
   今日はカノジョがいないから:
-    basis: romaji
-    en: Kyō wa Kanojo ga Inai kara
-    en_at: '2026-08-02'
+    basis: translated
+    en: My Girlfriend Isn't Here Today
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Kyō wa Kanojo ga Inai kara
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q116233964
     furigana_spans:
     - - 今日
       - きょう
     - - はカノジョがいないから
       - null
+    note: カノジョ in katakana is the girlfriend rather than the pronoun, and the synopsis turns on the relationship
+      being kept off school grounds.
     reading: キョウ ワ カノジョ ガ イナイ カラ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -9526,13 +9571,17 @@ names:
     reading_source_kind: analyser
     verified: false
   作りたい女と食べたい女:
-    basis: romaji
+    basis: licensed
     en: She Loves to Cook, and She Loves to Eat
-    en_at: '2026-08-02'
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: She Loves to Cook, and She Loves to Eat
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
-    en_url: http://www.wikidata.org/entity/Q115170765
+    en_source: Yen Press
+    en_source_kind: licensor
+    en_url: https://yenpress.com/series/she-loves-to-cook-and-she-loves-to-eat
     furigana_spans:
     - - 作
       - つく
@@ -12565,12 +12614,16 @@ names:
     reading_source_kind: analyser
     verified: false
   平良深姉妹はどっちもヤんでる:
-    basis: romaji
-    en: Herami Shimai wa Docchi mo Yanderu
-    en_at: '2026-08-02'
+    basis: translated
+    en: Both Herami Sisters Are Messed Up
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Herami Shimai wa Docchi mo Yanderu
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q115407744
     furigana_spans:
     - - 平良
@@ -12581,6 +12634,8 @@ names:
       - しまい
     - - はどっちもヤんでる
       - null
+    note: ヤんでる is 病んでる written with a katakana ヤ, which is how the word is used online about someone whose
+      fixations have got out of hand.
     reading: ヘラミ シマイ ワ ドッチ モ ヤンデル
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -19404,6 +19459,15 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  見えてますよ！愛沢さん:
+    basis: translated
+    en: I Can See Them, Aizawa!
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: '見えてます looks like the joke about something showing, and the synopsis settles it: the protagonist
+      sees ghosts and has spent years pretending she cannot.'
+    verified: false
   親友に好きな人ができたらしい:
     basis: romaji
     furigana_spans:
@@ -20891,12 +20955,16 @@ names:
     reading_source_kind: analyser
     verified: false
   魔法少女201:
-    basis: romaji
-    en: Mahō Shōjo 201
-    en_at: '2026-08-02'
+    basis: translated
+    en: Magical Girl 201
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Mahō Shōjo 201
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q123537350
     furigana_spans:
     - - 魔法
@@ -20905,8 +20973,7 @@ names:
       - しょうじょ
     - - '201'
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A number rather than a word, so it survives translation unchanged.
     reading: マホウ ショウジョ 201
     reading_at: '2026-08-02'
     reading_basis: analyser

@@ -140,6 +140,19 @@ def main(s):
     s.eq(b.fold_map({"球詠": bare}, fold)[1], [], "a title held once reports no collision")
     s.check(b._fullness({"en": "x"}) > b._fullness({"reading": "x", "basis": "y"}),
             "an English name outweighs a record that merely has more fields")
+    # And where both carry one, the BASIS decides, not the field count. 見えてますよ！愛沢さん is
+    # held twice, and a curated translation lost to a community database's string because the
+    # loser also happened to carry a reading, a ruby split and furigana spans.
+    curated = {"en": "I Can See Them, Aizawa!", "basis": "translated"}
+    scraped = {"en": "I See You, Aizawa-san!", "basis": "romaji", "reading": "x",
+               "ruby": [["a", "b"]], "furigana_spans": [["a", "b"]], "note": "n"}
+    s.check(b._fullness(curated) > b._fullness(scraped),
+            "a translation beats a romanisation carrying more fields")
+    s.eq(b.fold_map({"見えてますよ! 愛沢さん": scraped, "見えてますよ！愛沢さん": curated}, fold)[0]
+         ["見えてますよ!愛沢さん"]["en"], curated["en"],
+         "and the fold keeps the translated one whichever order they arrive in")
+    s.eq(b.fold_map({"見えてますよ！愛沢さん": curated, "見えてますよ! 愛沢さん": scraped}, fold)[0]
+         ["見えてますよ!愛沢さん"]["en"], curated["en"], "in the other order too")
 
 
 if __name__ == "__main__":

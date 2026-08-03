@@ -156,6 +156,41 @@ def known_titles(build="data/build"):
     return out
 
 
+def todo(build="data/build", limit=None):
+    """Works still showing a romanisation, most recently updated first.
+
+    WHY THIS IS A FUNCTION AND NOT A QUERY SOMEBODY TYPES. The queue for the first two rounds of
+    curation was picked with the filter "has no `en`", which is wrong: a machine romanisation IS
+    an `en`, so every work already carrying one was excluded from the very pass meant to replace
+    it. あなたのとなり is four kana meaning next to you and was skipped as already named, because
+    Anata no Tonari was sitting in the field. Choosing the queue by hand reintroduces that each
+    time; generating it does not.
+
+    A romanisation is the finished answer for some titles, so this is a queue to review rather
+    than a list of faults, and it is ordered by what a reader is most likely to be looking at.
+    """
+    import json
+    names = json.loads(pathlib.Path(f"{build}/feed/names.json").read_text())["titles"]
+    feed = json.loads(pathlib.Path(f"{build}/feed/current.json").read_text())["releases"]
+
+    import unicodedata
+    fold = lambda t: unicodedata.normalize("NFKC", t or "").replace(" ", "")
+    latest = {}
+    for r in feed:
+        latest[r["work"]] = max(latest.get(r["work"], ""), r.get("pub") or "")
+    for w in {s["work"] for s in json.loads(pathlib.Path(f"{build}/series.json").read_text())["series"]}:
+        latest.setdefault(w, "")
+
+    out = []
+    for work, when in latest.items():
+        rec = names.get(fold(work)) or {}
+        if rec.get("basis") in ("official-jp", "licensed", "translated"):
+            continue
+        out.append((when, work, (rec.get("romaji") or {}).get("macron") or rec.get("en")))
+    out.sort(key=lambda x: (x[0] or "", x[1]), reverse=True)
+    return out[:limit] if limit else out
+
+
 def apply(store, doc):
     """Record every entry. Returns (applied, candidates)."""
     applied = candidates = 0
@@ -189,7 +224,16 @@ def main(argv=None):
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--build", default="data/build", help="where to look up the titles we hold")
+    ap.add_argument("--todo", type=int, nargs="?", const=40, metavar="N",
+                    help="list works still showing a romanisation, newest first, and stop")
     a = ap.parse_args(argv)
+
+    if a.todo:
+        rows = todo(a.build)
+        for when, work, shown in rows[:a.todo]:
+            print(f"  {when or '        '}  {work[:44]:46} {shown}")
+        print(f"\n{len(rows)} work(s) still show a romanisation; {min(a.todo, len(rows))} listed")
+        return 0
 
     doc = load(a.file)
     bad = check(doc)

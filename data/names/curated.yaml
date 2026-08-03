@@ -1036,3 +1036,130 @@ titles:
       （最強） is a gloss on 健康な肉体 rather than a separate claim, so the English keeps them in
       one clause. The same work is also held under a copy of the title that the source page
       truncated with an ellipsis, which is left unnamed.
+
+  # --- works that were showing a romanisation ------------------------------------------------
+  #
+  # These were skipped by the first two rounds because the queue was chosen with the filter "has
+  # no `en`", and a machine romanisation is an `en`. あなたのとなり is four kana meaning next to
+  # you and was passed over as already named. curate.py --todo generates the queue now.
+
+  あなたのとなり:
+    en: Beside You
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      となり is 隣 and あなた is 貴方, and writing them in kana is a softness rather than an
+      ambiguity: there is nothing else the four of them can mean.
+
+  あたし達って付き合ってるよね!?:
+    en: We're Going Out, Aren't We?!
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: よね is asking for agreement while assuming it, which the English tag question does too.
+
+  『人斬り』少女、公爵令嬢の護衛になる:
+    en: The Manslayer Girl Becomes Bodyguard to a Duke's Daughter
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      人斬り is the word for a political assassin of the late shogunate, and the synopsis has it
+      as a name the state pinned on her rather than a job she took.
+
+  きみが死ぬまで恋をしたい:
+    en: I Want to Be in Love Until You Die
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+
+  たゆたう恋の散り際に:
+    en: When a Drifting Love Scatters
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      散り際 is the moment blossom comes off the branch, so scatter rather than end. たゆたう is
+      the drifting of something afloat.
+
+  ひなちゃんが生きてるなら:
+    en: If Hina Is Still Alive
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      なら is a condition rather than a wish, so this is if she is alive and not if only she
+      were. No synopsis is cached for it, and the grammar decides this one on its own.
+
+  わたくし、負けませんので。 政略結婚は令嬢のたしなみ:
+    en: I Shall Not Lose. A Political Marriage Is a Lady's Accomplishment
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      わたくし is the formal first person a noblewoman uses, which the English carries as shall
+      rather than will. たしなみ is something a person of standing is expected to have mastered.
+
+  カナリアは綺羅星の夢をみる:
+    en: The Canary Dreams of Glittering Stars
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      綺羅星 is stars as a figure for brilliance. The children are raised as weapons, so the
+      canary is the bird taken down the mine as much as the one that sings.
+
+  今日はカノジョがいないから:
+    en: My Girlfriend Isn't Here Today
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      カノジョ in katakana is the girlfriend rather than the pronoun, and the synopsis turns on
+      the relationship being kept off school grounds.
+
+  平良深姉妹はどっちもヤんでる:
+    en: Both Herami Sisters Are Messed Up
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      ヤんでる is 病んでる written with a katakana ヤ, which is how the word is used online about
+      someone whose fixations have got out of hand.
+
+  見えてますよ！愛沢さん:
+    en: I Can See Them, Aizawa!
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      見えてます looks like the joke about something showing, and the synopsis settles it: the
+      protagonist sees ghosts and has spent years pretending she cannot.
+
+  魔法少女201:
+    en: Magical Girl 201
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: A number rather than a word, so it survives translation unchanged.
+
+  作りたい女と食べたい女:
+    en: She Loves to Cook, and She Loves to Eat
+    basis: licensed
+    source: Yen Press
+    source_kind: licensor
+    source_url: https://yenpress.com/series/she-loves-to-cook-and-she-loves-to-eat
+    reviewed: '2026-08-03'

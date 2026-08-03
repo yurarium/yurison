@@ -395,6 +395,25 @@ def budget_works_without_english(ctx):
                and not (r.get("work_en") or {}).get("romaji"))
 
 
+def budget_works_without_an_english_name(ctx):
+    """Works that show a romanisation where an English name should be.
+
+    THIS IS NOT the budget above, and the difference is the whole point. That one counts works
+    that would render in JAPANESE in English-only mode, and a romanisation satisfies it, so it
+    read 0 while 929 of 1,074 titles said nothing at all to a reader who wants to know what a
+    work is. The number was right about what it measured and useless for the question anybody
+    would ask of it, which is this project's characteristic failure moved up into the metrics.
+
+    A romanisation is a finished answer for a coinage, a portmanteau of two characters' names, or
+    a title that is already a name. It is not a finished answer for あなたのとなり, which is four
+    kana meaning next to you. Nothing here can tell those apart, so the count includes both and
+    comes down as titles are reviewed rather than to zero.
+    """
+    return sum(1 for r in ctx["series"]
+               if (r.get("work_en") or {}).get("basis") not in ("official-jp", "licensed",
+                                                                "translated"))
+
+
 def budget_incomplete_attested_rows(ctx):
     return sum(1 for r in ctx["releases"]
                if r.get("provenance") == "attested"
@@ -466,6 +485,10 @@ BUDGETS_DEF = [
     ("works without English", budget_works_without_english,
      "works that render in Japanese in English-only mode. Should be 0; a rise means the automatic "
      "naming pass stopped covering something it used to."),
+    ("works showing a romanisation", budget_works_without_an_english_name,
+     "works with no English name, showing a romanisation instead. Distinct from the budget above, "
+     "which a romanisation satisfies: this is the one that answers 'can a reader tell what this "
+     "is'. Never reaches zero, because romanising is right for a coinage."),
     ("incomplete attested rows", budget_incomplete_attested_rows,
      "attested releases missing a chapter name, author or access state. The classic sign of a "
      "moved CSS selector — the adapter still returns rows, just emptier ones."),

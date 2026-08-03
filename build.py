@@ -145,11 +145,26 @@ def fold_map(records, fold):
     return best, sorted(lost.items())
 
 
+# How much a claim about an English name is worth, highest first. The same order as the name
+# store's own rank, restated here because build.py must not import from the resolver.
+_EN_BASIS = {"official-jp": 4, "licensed": 3, "translated": 2, "stated": 2, "romaji": 1}
+
+
 def _fullness(rec):
-    """How much a name record actually says. An `en` outweighs everything else it can carry."""
+    """How much a name record actually says, for choosing between two that fold together.
+
+    Field count alone was wrong the moment both records had an `en`. 見えてますよ！愛沢さん is
+    held twice, and the copy carrying a curated translation lost to one carrying a community
+    database's string, because the loser also happened to hold a reading, a ruby split and a set
+    of furigana spans. Counting fields measured the wrong thing: what matters first is WHICH
+    English name, and only then how much else is attached.
+    """
     if not isinstance(rec, dict):
-        return 0
-    return (2 if rec.get("en") else 0) + sum(1 for v in rec.values() if v not in (None, "", [], {}))
+        return (0, 0, 0)
+    has_en = 1 if rec.get("en") else 0
+    rank = _EN_BASIS.get(rec.get("basis"), 0) if has_en else 0
+    rest = sum(1 for v in rec.values() if v not in (None, "", [], {}))
+    return (has_en, rank, rest)
 
 
 def content_flags():

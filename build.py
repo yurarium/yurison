@@ -154,6 +154,29 @@ def _stated_for(work, platform):
     return _STATED.get((norm_work(work or ""), norm_work(platform or "")))
 
 
+def _with_cadence_date(stated, latest):
+    """Turn a stated rhythm into the date it next puts an update on.
+
+    The rhythm is the platform's own words (毎月第3金曜), and turning words into a date needs the
+    reader to know what a third Friday is. That belongs here rather than in the browser, where the
+    logic would be a second implementation of something already written and tested.
+
+    Only where the platform has not simply named a date, which is better evidence and needs no
+    arithmetic at all. A rhythm that pins no particular day (隔週金曜 names a fortnight without
+    saying which) yields nothing, which is the honest answer.
+    """
+    if not stated or stated.get("next_update") or not stated.get("cadence") or not latest:
+        return stated
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters" / "render"))
+    import schedule_text
+    start = datetime.date.fromisoformat(latest) + datetime.timedelta(days=1)
+    for k in range(70):
+        d = start + datetime.timedelta(days=k)
+        if schedule_text.fits(stated["cadence"], d.isoformat()):
+            return dict(stated, next_from_cadence=d.isoformat())
+    return stated
+
+
 def _sched_fits(cadence, when):
     """Whether a date falls where a stated cadence puts an update. See render/schedule_text.py."""
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters" / "render"))
@@ -3062,10 +3085,11 @@ def main():
             # predicts from each series' own past interval, which is an inference and is labelled
             # one. A platform that prints 次回無料更新は8/21 has announced a date, and an
             # announcement and an average are not the same kind of thing.
-            "stated_next": next(
-                (dict(_ss, platform=r["platform"])
-                 for r in rows
-                 for _ss in [_stated_for(best["work"], r["platform"])] if _ss), None),
+            "stated_next": _with_cadence_date(
+                next((dict(_ss, platform=r["platform"])
+                      for r in rows
+                      for _ss in [_stated_for(best["work"], r["platform"])] if _ss), None),
+                max((r["latest"] for r in rows if r["latest"]), default=None)),
         })
     # The works list is assembled from the source records rather than from the feed, so filtering
     # releases does not reach it. Both paths need the register, which is why dropping it in one

@@ -1666,6 +1666,14 @@ names:
     reading_source_kind: analyser
     verified: false
   おちこぼれフルーツタルト:
+    basis: translated
+    en: Dropout Idol Fruit Tart
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Adopted from the anime's English release rather than translated fresh, because Idol is not in
+      the Japanese and no reader would recognise Dropout Fruit Tart. The manga is unlicensed, so this
+      is ours to answer for and is marked accordingly. フルーツタルト is the unit's name.
     reading: オチコボレフルーツタルト
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2320,18 +2328,25 @@ names:
     reading_source: surface
     verified: true
   くちべた食堂:
-    basis: romaji
-    en: Kuchibeta Shokudō
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Tongue-Tied Diner
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Kuchibeta Shokudō
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q131751566
     furigana_spans:
     - - くちべた
       - null
     - - 食堂
       - しょくどう
+    note: '口下手 is being bad at speaking rather than shy, and it applies to both women: the customer who
+      spent five years failing to walk in, and the waitress who spent them wishing she would. Replaces
+      a stored romanisation.'
     reading: クチベタ ショクドウ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -2538,7 +2553,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/82k97c8/kono-koi-wo-hoshi-ni-wa-negawanai
     verified: false
   この湯で、あなたと:
-    basis: romaji
+    basis: translated
+    en: In This Bathhouse, With You
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - この
       - null
@@ -2546,8 +2565,9 @@ names:
       - ゆ
     - - で、あなたと
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 湯 is the water rather than the building, and the Japanese is intimate about it, but the setting
+      is a 銭湯 and an English bath is a private tub. Bathhouse buys the setting at the cost of some of
+      the warmth.
     reading: コノ ユデ、 アナタ ト
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -4256,7 +4276,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/4c9cbig/yurizukushi-no-kyoushitsu-de
     verified: false
   ゆりゆりぱにっく～尊すぎる事案が発生しています!～:
-    basis: romaji
+    basis: translated
+    en: 'Yuri Yuri Panic: An Excessively Precious Situation Is Occurring!'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ゆりゆりぱにっく～
       - null
@@ -4272,8 +4296,9 @@ names:
       - はっせい
     - - しています!～
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: ゆりゆり is a coinage and stays. The subtitle is fandom slang (尊い) inside a police blotter frame
+      (事案が発生しています), and the joke is the collision, so the English keeps the bureaucratic register rather
+      than smoothing it.
     reading: ユリ ユリ パニック ～ トウト スギル ジアン ガ ハッセイ シテ イマス ! ～
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -4382,6 +4407,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）:
+    basis: licensed
+    en: There's No Freaking Way I'll be Your Lover! Unless…
+    en_at: '2026-08-03'
+    en_source: Seven Seas Entertainment
+    en_source_kind: licensor
+    en_url: https://www.penguinrandomhouse.com/series/IL4/theres-no-freaking-way-ill-be-your-lover-unless-manga/
+    note: Cited to the distributor's catalogue entry, which names Seven Seas as publisher and the Musshu
+      manga rather than the Mikami Teren novels. sevenseasentertainment.com refuses automated fetches,
+      so its own page could not be read.
+    verified: true
   わたしたちの終わりと:
     basis: romaji
     en: Watashitachi no Owari to
@@ -4706,6 +4742,13 @@ names:
     reading_source_kind: analyser
     verified: false
   イジめてイジられて:
+    basis: translated
+    en: Bullying and Being Bullied
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 'Active and passive of the same verb, which English can only do with a participle pair. Not
+      teasing: the synopsis says 嫌がらせ, and the relationship it becomes is 同意の上のイジメ愛.'
     reading: イジメテイジラレテ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5082,14 +5125,19 @@ names:
     reading_source_kind: analyser
     verified: false
   カムパネルラの塔:
-    basis: romaji
+    basis: translated
+    en: Campanella's Tower
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - カムパネルラの
       - null
     - - 塔
       - とう
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: カムパネルラ is Miyazawa Kenji's spelling of the name in 銀河鉄道の夜, where Campanella is the boy who does
+      not come back. The story is two fashion models and one of them is ill, so the allusion is load-bearing
+      and the English keeps the name in its familiar form.
     reading: カムパネルラ ノ トウ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -6659,6 +6707,10 @@ names:
     verified: true
   ニニンがシノブ伝ぷらす:
     basis: romaji
+    en: Ninin ga Shinobuden Plus
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ニニンがシノブ
       - null
@@ -6666,8 +6718,9 @@ names:
       - でん
     - - ぷらす
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'The title is the times table: 二二が四 read ni-ni ga shi, with 四 swapped for シノブ伝. Nothing in English
+      does that, and a rendering that dropped it would be a different joke. Romanised rather than translated,
+      with ぷらす spelt Plus because it is the English word.'
     reading: ニニン ガ シノブデン プラス
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -7140,6 +7193,12 @@ names:
     reading_source_kind: analyser
     verified: false
   フルボイス！:
+    basis: translated
+    en: Full Voice!
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Katakana English, so the English is recovery. The protagonist works at a voice agency.
     reading: フルボイス！
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7742,6 +7801,13 @@ names:
     reading_source: surface
     verified: true
   リリィズコンプレックス:
+    basis: translated
+    en: Lilies' Complex
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 'リリィズ is plural rather than one girl called Lily: the synopsis has 彼女たち, and the lilies are
+      the point, since it opens on 百合の花 having a poison you cannot see.'
     reading: リリィズコンプレックス
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -8104,7 +8170,11 @@ names:
     reading_source_kind: analyser
     verified: false
   一畳間まんきつ暮らし！:
-    basis: romaji
+    basis: translated
+    en: Living It Up in a One-Tatami Manga Café
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 一
       - いち
@@ -8118,8 +8188,8 @@ names:
       - く
     - - らし！
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: まんきつ is both 漫喫, a manga café, and 満喫, to enjoy something to the full. The synopsis plays on
+      it directly (漫喫を満喫), so the English carries both halves.
     reading: イチ ジョウカン マンキツ クラシ！
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8128,7 +8198,11 @@ names:
     reading_source_kind: analyser
     verified: false
   七限目は忍者修行です！:
-    basis: romaji
+    basis: translated
+    en: Seventh Period Is Ninja Training!
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 七
       - なな
@@ -8144,8 +8218,7 @@ names:
       - しゅぎょう
     - - です！
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 限目 is a school period, and the joke is that there are only six.
     reading: ナナゲン メ ワ ニンジャ シュギョウデス！
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8437,7 +8510,11 @@ names:
     reading_source_kind: analyser
     verified: false
   世界一可愛い私の幼馴染が隠れてVTuberをしているらしい:
-    basis: romaji
+    basis: translated
+    en: Apparently My Childhood Friend, the Cutest in the World, Is Secretly a VTuber
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 世界一
       - せかいいち
@@ -8457,8 +8534,8 @@ names:
       - かく
     - - れてVTuberをしているらしい
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: らしい is the light-novel title's hearsay ending and Apparently is its usual English. Long, and
+      so is the Japanese.
     reading: セカイイチ カワイイ ワタシ ノ オサナナジミ ガ カクレテ VTuber ヲ シテ イルラシイ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8968,7 +9045,12 @@ names:
     reading_source_kind: analyser
     verified: false
   令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～:
-    basis: romaji
+    basis: translated
+    en: 'The Young Lady VTuber Is Overwhelmed by Her Maid''s Midnight Snacks: Forbidden Food, Reviewed
+      Live'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 令嬢
       - れいじょう
@@ -9000,8 +9082,8 @@ names:
       - はいしん
     - - ～
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 蹂躙される is trampled, and the title means it about food while sounding like it means something
+      else. Overwhelmed keeps the double reading where ravished would settle it.
     reading: レイジョウ VTuber ワ メイド ノ ヤショク ニ ジュウリン サレル ～ キンダン ゴハン デ ショク レポセイ ハイシン ～
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -9917,14 +9999,18 @@ names:
     reading_source_kind: analyser
     verified: false
   友達からでもいいですか:
-    basis: romaji
+    basis: translated
+    en: Can We Start as Friends?
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 友達
       - ともだち
     - - からでもいいですか
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: から marks the starting point and でも concedes it, so this is asking to begin as friends rather
+      than settling for friendship.
     reading: トモダチ カラデ モ イイデス カ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -10074,7 +10160,11 @@ names:
     reading_url: http://www.wikidata.org/entity/Q123408707
     verified: false
   君となら、明日を歌えるの:
-    basis: romaji
+    basis: translated
+    en: With You, I Can Sing of Tomorrow
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 君
       - きみ
@@ -10088,8 +10178,8 @@ names:
       - うた
     - - えるの
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The protagonist is described as unable to voice what she wants, and the girl she meets sings
+      on the street, so 歌える is doing double duty and the English keeps it literal.
     reading: キミ トナラ、 アス ヲ ウタエル ノ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -12568,6 +12658,15 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  彼氏の女友達がぐいぐい来る(私に):
+    basis: translated
+    en: My Boyfriend's Girl Friend Keeps Coming On Strong (At Me)
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The bracket is the punchline and stays bracketed. 女友達 is spaced as girl friend because girlfriend
+      is the thing she is not, yet.
+    verified: false
   彼氏の女友達がぐいぐい来る（私に）:
     basis: romaji
     furigana_spans:
@@ -12958,7 +13057,11 @@ names:
     reading_source_kind: analyser
     verified: false
   怪異部～M県Y市の怪現象について～:
-    basis: romaji
+    basis: translated
+    en: 'The Uncanny Club: On the Strange Phenomena of Y City, M Prefecture'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 怪異
       - かいい
@@ -12980,8 +13083,8 @@ names:
       - げんしょう
     - - について～
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: について is the register of a school report or a case file, and the redacted prefecture is the same
+      joke, so the English keeps the stiffness rather than reading as a summary.
     reading: カイイ ブ ～ M ケン Y シ ノ カイ ゲンショウ ニ ツイテ ～
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -14179,7 +14282,9 @@ names:
     reading_source_kind: analyser
     verified: false
   星屑テレパス:
-    basis: romaji
+    basis: translated
+    en: Stardust Telepath
+    en_at: '2026-08-03'
     en_candidates:
     - note: 'Held as a candidate rather than a name because nothing on the Japanese side uses it: the
         Houbunsha platform page carries only 星屑テレパス, and the anime''s own site (hoshitele-anime.com) renders
@@ -14190,13 +14295,17 @@ names:
       source: English-language coverage of the anime
       source_kind: community-db
       value: Stardust Telepath
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 星屑
       - ほしくず
     - - テレパス
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 星屑 is stardust and テレパス is telepath, so the obvious rendering is also the one English readers
+      know from the anime's release. Held briefly as a candidate while looking for an attribution; there
+      is none, because nothing on the Japanese side renders the title in Latin script and the manga is
+      unlicensed. Ours, and marked as ours.
     reading: ホシクズ テレパス
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -14297,14 +14406,18 @@ names:
     reading_source_kind: analyser
     verified: false
   春雷卓球:
-    basis: romaji
+    basis: translated
+    en: Spring Thunder Table Tennis
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 春雷
       - しゅんらい
     - - 卓球
       - たっきゅう
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: '春雷 is a real word for the first thunder of spring and is also the two leads: 春咲桜花 and 轟美雷.
+      English cannot hold both, and the word is the half a reader can use.'
     reading: シュンライ タッキュウ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -14864,7 +14977,11 @@ names:
     reading_source_kind: analyser
     verified: false
   機動戦士ガンダム 水星の魔女 青春フロンティア:
-    basis: romaji
+    basis: translated
+    en: 'Mobile Suit Gundam: The Witch from Mercury, Youth Frontier'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 機動
       - きどう
@@ -14884,8 +15001,9 @@ names:
       - せいしゅん
     - - フロンティア
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Mobile Suit Gundam and The Witch from Mercury are the rights holder's own English and were not
+      invented here, but the subtitle has no English release, so the whole string is ours. The synopsis
+      glosses the frontier as 新天地, a new place to start.
     reading: キドウ センシ ガンダム   スイセイ ノ マジョ   セイシュン フロンティア
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -16057,12 +16175,16 @@ names:
     reading_source_kind: analyser
     verified: false
   狼の皮をかぶった羊姫:
-    basis: romaji
-    en: Ōkami no Kawa o Kabutta Hitsujihime
-    en_at: '2026-08-02'
+    basis: translated
+    en: A Sheep Princess in Wolf's Clothing
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Ōkami no Kawa o Kabutta Hitsujihime
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q114792026
     furigana_spans:
     - - 狼
@@ -16077,6 +16199,8 @@ names:
       - ひつじ
     - - 姫
       - ひめ
+    note: The Japanese inverts 羊の皮をかぶった狼, and English has the same idiom to invert, so the title survives
+      intact. Aki is the wolf serving in the sheep kingdom. Replaces a stored romanisation.
     reading: オウカミ ノ カワ オ カブッタ ヒツジヒメ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -16215,13 +16339,17 @@ names:
     verified: false
   球詠:
     basis: romaji
+    en: Tamayomi
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 球
       - たま
     - - 詠
       - えい
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'Reads as ball and song, and is also the two leads'' names: 山崎珠姫 and 武田詠深. Either translation
+      would discard the other, so it is romanised.'
     reading: タマエイ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17729,7 +17857,11 @@ names:
     reading_source_kind: analyser
     verified: false
   私を喰べたい、ひとでなし:
-    basis: romaji
+    basis: translated
+    en: The Inhuman Girl Who Wants to Eat Me
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 私
       - わたし
@@ -17739,8 +17871,9 @@ names:
       - た
     - - べたい、ひとでなし
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'ひとでなし is an insult meaning brute and literally means not a person, and the synopsis has her
+      mean it both ways: she says she has come to eat the protagonist and will protect her until she is
+      ready. Inhuman is the English word that keeps both.'
     reading: ワタシ ヲ タベタイ、 ヒトデナシ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18346,7 +18479,11 @@ names:
     reading_source_kind: analyser
     verified: false
   聖女先生の魔法は進んでる！:
-    basis: romaji
+    basis: translated
+    en: The Saint Teacher's Magic Is Ahead of Its Time!
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 聖女
       - せいじょ
@@ -18362,8 +18499,8 @@ names:
       - すす
     - - んでる！
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: '進んでる is advanced in the sense of ahead of everyone else, which the synopsis confirms: Tia was
+      exiled as a heretic for how she uses a saint''s magic.'
     reading: セイジョ センセイ ノ マホウ ワ ススンデル！
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18492,7 +18629,11 @@ names:
     reading_source_kind: analyser
     verified: false
   自動車の妖精 パッソちゃんの恩返し:
-    basis: romaji
+    basis: translated
+    en: Passo the Car Fairy Returns the Favour
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 自動車
       - じどうしゃ
@@ -18506,8 +18647,8 @@ names:
       - おんがえ
     - - し
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 恩返し is the folktale move, as in 鶴の恩返し, where the creature repays a kindness. パッソ is a Toyota
+      model, so the fairy is named after the car she is.
     reading: ジドウシャ ノ ヨウセイ   パッソチャン ノ オンガエシ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -19729,7 +19870,12 @@ names:
     reading_source_kind: analyser
     verified: false
   雨夜の月:
-    basis: romaji
+    basis: licensed
+    en: The Moon on a Rainy Night
+    en_at: '2026-08-03'
+    en_source: Kodansha
+    en_source_kind: licensor
+    en_url: https://kodansha.us/series/the-moon-on-a-rainy-night/
     furigana_spans:
     - - 雨夜
       - あまよ

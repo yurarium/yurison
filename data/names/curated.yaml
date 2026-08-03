@@ -81,17 +81,283 @@ titles:
       and the premise is a world where everyone is issued a red thread of fate that does not help
       the protagonist at all, so the flatter English reads truer than Fate Is Useless.
 
-  # --- seen, not yet attributable to anyone -------------------------------------------------
-
   星屑テレパス:
-    candidate: Stardust Telepath
-    source: English-language coverage of the anime
-    source_kind: community-db
+    en: Stardust Telepath
+    basis: translated
+    source: yurarium
+    source_kind: derived
     reviewed: '2026-08-03'
-    candidate_note: >-
-      Held as a candidate rather than a name because nothing on the Japanese side uses it: the
-      Houbunsha platform page carries only 星屑テレパス, and the anime's own site
-      (hoshitele-anime.com) renders the title in Latin script nowhere, cast romanisations aside.
-      The manga is unlicensed in English, so the string comes from the anime's English release,
-      which is a rendering of the adaptation rather than of the work catalogued here. That case is
-      not in NAMES-PLAN §5 and needs a ruling before this can be promoted.
+    note: >-
+      星屑 is stardust and テレパス is telepath, so the obvious rendering is also the one English
+      readers know from the anime's release. Held briefly as a candidate while looking for an
+      attribution; there is none, because nothing on the Japanese side renders the title in Latin
+      script and the manga is unlicensed. Ours, and marked as ours.
+
+  # --- attributed to a licensor -------------------------------------------------------------
+
+  雨夜の月:
+    en: The Moon on a Rainy Night
+    basis: licensed
+    source: Kodansha
+    source_kind: licensor
+    source_url: https://kodansha.us/series/the-moon-on-a-rainy-night/
+    reviewed: '2026-08-03'
+
+  わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）:
+    en: There's No Freaking Way I'll be Your Lover! Unless…
+    basis: licensed
+    source: Seven Seas Entertainment
+    source_kind: licensor
+    source_url: https://www.penguinrandomhouse.com/series/IL4/theres-no-freaking-way-ill-be-your-lover-unless-manga/
+    reviewed: '2026-08-03'
+    note: >-
+      Cited to the distributor's catalogue entry, which names Seven Seas as publisher and the
+      Musshu manga rather than the Mikami Teren novels. sevenseasentertainment.com refuses
+      automated fetches, so its own page could not be read.
+
+  # --- ours ---------------------------------------------------------------------------------
+
+  おちこぼれフルーツタルト:
+    en: Dropout Idol Fruit Tart
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      Adopted from the anime's English release rather than translated fresh, because Idol is not in
+      the Japanese and no reader would recognise Dropout Fruit Tart. The manga is unlicensed, so
+      this is ours to answer for and is marked accordingly. フルーツタルト is the unit's name.
+
+  くちべた食堂:
+    en: The Tongue-Tied Diner
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      口下手 is being bad at speaking rather than shy, and it applies to both women: the customer
+      who spent five years failing to walk in, and the waitress who spent them wishing she would.
+      Replaces a stored romanisation.
+
+  この湯で、あなたと:
+    en: In This Bathhouse, With You
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      湯 is the water rather than the building, and the Japanese is intimate about it, but the
+      setting is a 銭湯 and an English bath is a private tub. Bathhouse buys the setting at the
+      cost of some of the warmth.
+
+  ゆりゆりぱにっく～尊すぎる事案が発生しています!～:
+    en: 'Yuri Yuri Panic: An Excessively Precious Situation Is Occurring!'
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      ゆりゆり is a coinage and stays. The subtitle is fandom slang (尊い) inside a police blotter
+      frame (事案が発生しています), and the joke is the collision, so the English keeps the
+      bureaucratic register rather than smoothing it.
+
+  イジめてイジられて:
+    en: Bullying and Being Bullied
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      Active and passive of the same verb, which English can only do with a participle pair. Not
+      teasing: the synopsis says 嫌がらせ, and the relationship it becomes is 同意の上のイジメ愛.
+
+  カムパネルラの塔:
+    en: Campanella's Tower
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      カムパネルラ is Miyazawa Kenji's spelling of the name in 銀河鉄道の夜, where Campanella is
+      the boy who does not come back. The story is two fashion models and one of them is ill, so
+      the allusion is load-bearing and the English keeps the name in its familiar form.
+
+  ニニンがシノブ伝ぷらす:
+    en: Ninin ga Shinobuden Plus
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      The title is the times table: 二二が四 read ni-ni ga shi, with 四 swapped for シノブ伝.
+      Nothing in English does that, and a rendering that dropped it would be a different joke.
+      Romanised rather than translated, with ぷらす spelt Plus because it is the English word.
+
+  フルボイス！:
+    en: Full Voice!
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: Katakana English, so the English is recovery. The protagonist works at a voice agency.
+
+  リリィズコンプレックス:
+    en: Lilies' Complex
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      リリィズ is plural rather than one girl called Lily: the synopsis has 彼女たち, and the
+      lilies are the point, since it opens on 百合の花 having a poison you cannot see.
+
+  一畳間まんきつ暮らし！:
+    en: Living It Up in a One-Tatami Manga Café
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      まんきつ is both 漫喫, a manga café, and 満喫, to enjoy something to the full. The synopsis
+      plays on it directly (漫喫を満喫), so the English carries both halves.
+
+  七限目は忍者修行です！:
+    en: Seventh Period Is Ninja Training!
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: 限目 is a school period, and the joke is that there are only six.
+
+  世界一可愛い私の幼馴染が隠れてVTuberをしているらしい:
+    en: Apparently My Childhood Friend, the Cutest in the World, Is Secretly a VTuber
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      らしい is the light-novel title's hearsay ending and Apparently is its usual English. Long,
+      and so is the Japanese.
+
+  令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～:
+    en: 'The Young Lady VTuber Is Overwhelmed by Her Maid''s Midnight Snacks: Forbidden Food, Reviewed Live'
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      蹂躙される is trampled, and the title means it about food while sounding like it means
+      something else. Overwhelmed keeps the double reading where ravished would settle it.
+
+  友達からでもいいですか:
+    en: Can We Start as Friends?
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      から marks the starting point and でも concedes it, so this is asking to begin as friends
+      rather than settling for friendship.
+
+  君となら、明日を歌えるの:
+    en: With You, I Can Sing of Tomorrow
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      The protagonist is described as unable to voice what she wants, and the girl she meets sings
+      on the street, so 歌える is doing double duty and the English keeps it literal.
+
+  彼氏の女友達がぐいぐい来る(私に):
+    en: My Boyfriend's Girl Friend Keeps Coming On Strong (At Me)
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      The bracket is the punchline and stays bracketed. 女友達 is spaced as girl friend because
+      girlfriend is the thing she is not, yet.
+
+  怪異部～M県Y市の怪現象について～:
+    en: 'The Uncanny Club: On the Strange Phenomena of Y City, M Prefecture'
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      について is the register of a school report or a case file, and the redacted prefecture is
+      the same joke, so the English keeps the stiffness rather than reading as a summary.
+
+  春雷卓球:
+    en: Spring Thunder Table Tennis
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      春雷 is a real word for the first thunder of spring and is also the two leads: 春咲桜花 and
+      轟美雷. English cannot hold both, and the word is the half a reader can use.
+
+  機動戦士ガンダム 水星の魔女 青春フロンティア:
+    en: 'Mobile Suit Gundam: The Witch from Mercury, Youth Frontier'
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      Mobile Suit Gundam and The Witch from Mercury are the rights holder's own English and were
+      not invented here, but the subtitle has no English release, so the whole string is ours. The
+      synopsis glosses the frontier as 新天地, a new place to start.
+
+  球詠:
+    basis: romaji
+    en: Tamayomi
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      Reads as ball and song, and is also the two leads' names: 山崎珠姫 and 武田詠深. Either
+      translation would discard the other, so it is romanised.
+
+  私を喰べたい、ひとでなし:
+    en: The Inhuman Girl Who Wants to Eat Me
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      ひとでなし is an insult meaning brute and literally means not a person, and the synopsis has
+      her mean it both ways: she says she has come to eat the protagonist and will protect her
+      until she is ready. Inhuman is the English word that keeps both.
+
+  聖女先生の魔法は進んでる！:
+    en: The Saint Teacher's Magic Is Ahead of Its Time!
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      進んでる is advanced in the sense of ahead of everyone else, which the synopsis confirms:
+      Tia was exiled as a heretic for how she uses a saint's magic.
+
+  自動車の妖精 パッソちゃんの恩返し:
+    en: Passo the Car Fairy Returns the Favour
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      恩返し is the folktale move, as in 鶴の恩返し, where the creature repays a kindness. パッソ
+      is a Toyota model, so the fairy is named after the car she is.
+
+  狼の皮をかぶった羊姫:
+    en: A Sheep Princess in Wolf's Clothing
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-03'
+    note: >-
+      The Japanese inverts 羊の皮をかぶった狼, and English has the same idiom to invert, so the
+      title survives intact. Aki is the wolf serving in the sheep kingdom. Replaces a stored
+      romanisation.

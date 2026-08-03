@@ -106,6 +106,29 @@ def check(doc):
     return out
 
 
+def unmatched(doc, known):
+    """Curated keys that name no work we hold.
+
+    A key is the Japanese title exactly as the catalogue stores it, and a hand-typed one that is
+    off by a wave dash or a full-width bracket applies cleanly, changes nothing, and reports
+    success. That is the failure this project keeps meeting, so the join is checked rather than
+    assumed. Authors are not checked here: an author may legitimately be curated before any of
+    their work is, and the same is not true of a title.
+    """
+    return sorted(k for k in (doc.get("titles") or {}) if k not in known)
+
+
+def known_titles(build="data/build"):
+    """Every Japanese title the build knows, from the feed and the series list alike."""
+    import json
+    out = set()
+    for path, key in ((f"{build}/feed/current.json", "releases"), (f"{build}/series.json", "series")):
+        p = pathlib.Path(path)
+        if p.exists():
+            out |= {r["work"] for r in json.loads(p.read_text())[key] if r.get("work")}
+    return out
+
+
 def apply(store, doc):
     """Record every entry. Returns (applied, candidates)."""
     applied = candidates = 0
@@ -135,15 +158,20 @@ def main(argv=None):
     ap.add_argument("--out", default="data/names")
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--build", default="data/build", help="where to look up the titles we hold")
     a = ap.parse_args(argv)
 
     doc = load(a.file)
     bad = check(doc)
     for b in bad:
         print(f"  REJECT {b}")
+    stray = unmatched(doc, known_titles(a.build))
+    for s in stray:
+        print(f"  STRAY  titles/{s}: names no work in the catalogue")
     counts = {k: len(doc.get(k) or {}) for k in ("titles", "authors")}
-    print(f"{counts['titles']} title(s), {counts['authors']} author(s); {len(bad)} rejected")
-    if bad:
+    print(f"{counts['titles']} title(s), {counts['authors']} author(s); "
+          f"{len(bad)} rejected, {len(stray)} matching nothing")
+    if bad or stray:
         return 1
     if a.apply:
         store = NameStore(a.out)

@@ -124,6 +124,23 @@ def main(s):
     # decays back to the observed ladder.
     s.check(0 < b.HIATUS_FRESH_DAYS <= 365, "the hiatus window is a sane number of days")
 
+    # FOLDING TITLES TOGETHER. Two spellings of one title must not let iteration order decide
+    # which name ships. 彼氏の女友達がぐいぐい来る(私に) is held with both bracket widths, and a
+    # curated translation on one of them was dropped on the way to the page by a dict
+    # comprehension, with nothing reporting a problem.
+    import unicodedata
+    fold = lambda t: unicodedata.normalize("NFKC", t or "").replace(" ", "")
+    rich = {"en": "Keeps Coming On Strong (At Me)", "basis": "translated"}
+    bare = {"basis": "romaji"}
+    first = b.fold_map({"来る(私に)": rich, "来る（私に）": bare}, fold)
+    second = b.fold_map({"来る（私に）": bare, "来る(私に)": rich}, fold)
+    s.eq(first[0], second[0], "the surviving record does not depend on which spelling came first")
+    s.eq(first[0]["来る(私に)"]["en"], rich["en"], "and it is the one carrying the English name")
+    s.eq(first[1], [("来る(私に)", 1)], "the collision is reported rather than passed over")
+    s.eq(b.fold_map({"球詠": bare}, fold)[1], [], "a title held once reports no collision")
+    s.check(b._fullness({"en": "x"}) > b._fullness({"reading": "x", "basis": "y"}),
+            "an English name outweighs a record that merely has more fields")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

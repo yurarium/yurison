@@ -83,8 +83,17 @@ def main(s):
         s.eq(rec["ワインガールズ"]["en"], "Wine Girls", "and does not disturb an applied name")
         st.close()
 
+    # A key off by one character applies cleanly and names nothing, so the join is checked.
+    doc = {"titles": {"球詠": {}, "球詠 ": {}}, "authors": {"まめ魚": {}}}
+    s.eq(curate.unmatched(doc, {"球詠"}), ["球詠 "], "a title matching no work is reported")
+    s.eq(curate.unmatched(doc, {"球詠", "球詠 "}), [], "and one that matches is not")
+    s.eq(curate.unmatched({"authors": {"だれか": {}}}, set()), [],
+         "an author may be curated before any of their work is")
+
     # The shipped file must itself pass, or the check is a thing that only tests fixtures.
     s.eq(curate.check(curate.load()), [], "the file in the repository validates")
+    s.eq(curate.unmatched(curate.load(), curate.known_titles()), [],
+         "and every title in it names a work we hold")
 
 
 if __name__ == "__main__":

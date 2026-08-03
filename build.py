@@ -121,6 +121,37 @@ CHAPTER_NUM_RE = re.compile(r"第[0-9０-９]+[話回]|[0-9０-９]+話|#[0-9０
 HIATUS_FRESH_DAYS = 180
 
 
+def fold_map(records, fold):
+    """Key records by their folded name, keeping the fullest where several fold together.
+
+    A dict comprehension here let the last writer win, and the winner depended on iteration order.
+    彼氏の女友達がぐいぐい来る(私に) is held twice, once with full-width brackets and once without,
+    and the copy that arrived second carried no English name: a curated translation was written to
+    the store, applied cleanly, and then silently dropped on the way to the page. The name was
+    absent from the site with nothing anywhere reporting a problem.
+
+    Fullest means the record answering the most questions a reader can ask of it. Ranking by field
+    count rather than by which spelling looks canonical avoids deciding that full-width brackets
+    are wrong, which they are not; the two spellings are one work and either may be the one a
+    source used.
+    """
+    best, lost = {}, {}
+    for k, v in records.items():
+        f = fold(k)
+        if f in best:
+            lost[f] = lost.get(f, 0) + 1
+        if f not in best or _fullness(v) > _fullness(best[f]):
+            best[f] = v
+    return best, sorted(lost.items())
+
+
+def _fullness(rec):
+    """How much a name record actually says. An `en` outweighs everything else it can carry."""
+    if not isinstance(rec, dict):
+        return 0
+    return (2 if rec.get("en") else 0) + sum(1 for v in rec.values() if v not in (None, "", [], {}))
+
+
 def content_flags():
     """Works a source has flagged on content grounds, whether or not we act on the flag.
 
@@ -2843,8 +2874,13 @@ def main():
     # than the first one being taken as proof.
     _wh_names = withheld_works()
     _title_names = {k: v for k, v in _title_names.items() if norm_work(k) not in _wh_names}
-    _title_folded = {_fold(k): v for k, v in _title_names.items()}
-    _auth_folded = {_fold(k): v for k, v in _auth_names.items()}
+    _title_folded, _fold_lost = fold_map(_title_names, _fold)
+    _auth_folded, _a_lost = fold_map(_auth_names, _fold)
+    # Named for what they are rather than reusing a short loop name: `_dropped` is already bound
+    # two thousand lines away in this function, and the shadowing budget counts that.
+    for _folded_key, _folded_dups in _fold_lost + _a_lost:
+        print(f"  note: {_folded_key} has {_folded_dups + 1} records that fold together; "
+              f"kept the fullest")
 
     _named_w = _named_a = 0
     for r in series_rows + releases:

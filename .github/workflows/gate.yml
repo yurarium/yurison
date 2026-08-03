@@ -14,6 +14,10 @@ on:
     branches-ignore: [main]     # main is what the unattended update commits to; see update.yml
   workflow_dispatch:
 
+concurrency:
+  group: gate-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   gate:
     runs-on: ubuntu-latest

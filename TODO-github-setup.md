@@ -50,12 +50,40 @@ Then read the commit it produced. Specifically:
 
 Then run it again **without** skip_browser and confirm Chrome is present on the runner.
 
-## C. Turn on the schedule
+## C. The schedule stays off
 
-Uncomment the `schedule:` block. Daily at 20:17 UTC — off the hour, because everything cron'd at
-:00 queues behind everyone else's jobs.
+Decided 2026-08-03, on measurement rather than caution. Data updates arrive as pushes during
+initial development, and the workflow is exercised by hand when a mechanism actually needs testing.
+Revisit at steady state.
 
-Watch the first three scheduled runs before trusting it.
+**What it would cost.** `yurison` is private, so Actions minutes bill against the free 2,000 a
+month. Stage A took 2,285 s on the one run that completed it, and the second exceeded an hour.
+Daily, that is roughly 1,800 minutes before Stage C's browser work is enabled, which is
+substantially the whole allowance for a job that is not yet trusted.
+
+**Why Stage A is slow, so nobody re-derives it.** It issues about 2,126 sequential requests for the
+GigaViewer series feeds, each followed by `PAUSE = 1.2` seconds. That is 43 minutes of `time.sleep`
+before any network time, and kadokomi adds another 11. Nothing is malfunctioning; the pause is the
+politeness that keeps the project welcome.
+
+The waste is that the pause is a *per-host* courtesy applied to a serial loop across 27 *different*
+hosts. Sleeping 1.2 s after ichicomi before requesting comic-days buys neither host anything. Run
+hosts concurrently with each host still strictly serial at its current rate and the stage finishes
+in the time of the largest, ichicomi at 342 requests, about 7 minutes against 43. No host sees
+traffic any faster than today. That is the prerequisite work, and it belongs in §D.
+
+**The cache is not helping and has never helped.** The API reports zero saved caches. The post step
+is skipped when a job fails and both runs failed before it; and `fetch()` uses `max_age_days=1`, so
+a daily run finds every entry a day old and refetches everything regardless. Discovery pages could
+take a longer age than chapter feeds, where freshness is the point of the run.
+
+**How the meter actually works, which is the counter-intuitive part.** GitHub rounds every run up
+to a whole minute. `leak-guard` has run 97 times for 26.5 minutes of real work and bills as about
+97. Run *count* matters as much as run length, which is why superseded runs are now cancelled.
+
+**Before turning the schedule on:** the per-host parallelism above, a clean run with the browser
+stage, `SITE_DEPLOY_KEY` in place so publishing works, and a re-measured cost. A nightly job that
+half-succeeds trains you to ignore its failures.
 
 ## D. The one real engineering task left
 

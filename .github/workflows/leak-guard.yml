@@ -5,9 +5,22 @@ name: leak-guard
 # rather than blocking before it. The guard self-tests against a canary, so a broken run fails, not passes.
 on: [push, pull_request]
 
+# Superseded runs are cancelled. This is safe to do to a fail-closed security control ONLY because
+# both checks are whole-state at HEAD rather than incremental: `identity HEAD` walks every commit
+# reachable from HEAD, and `content tree` scans the entire working tree. The newest run therefore
+# covers everything a cancelled one would have. Do not add an incremental range check here without
+# removing this.
+concurrency:
+  group: leak-guard-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   leak-guard:
+    # A same-repo branch with an open PR fires both events and pays twice. Push covers our own
+    # work; the pull_request event is kept solely for forks, where the push event does not reach us.
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
+    timeout-minutes: 10          # the job takes well under a minute; this bounds a hang
     steps:
       - uses: actions/checkout@v4
         with:

@@ -1,0 +1,53 @@
+# コロコロオンライン — chapters read from a RENDERED page.
+#
+# This platform serves a shell and builds its chapter list in JavaScript, so a fetch
+# returns nothing to parse. The page is rendered with headless chromium and the DOM
+# it produced is read — the platform's own page, as it chose to draw it.
+#
+# date_basis: rendered — weaker than a feed the platform published, stronger than a
+# pattern matched in static markup. No genre label is established here (§4).
+source: webpages
+platform: www
+platform_name: "コロコロオンライン"
+publisher: ""
+retrieved: 2026-08-03
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+date_basis: rendered
+date_confidence: reported
+works:
+  - work_title: "獄門撫子此処ニ在リ"
+    author: "【漫画】銃爺"
+    url: "https://www.corocoro.jp/title/773"
+    chapter_count: 10
+    chapters:
+      - title: "第11話"
+        updated: 2026-09-21
+        date_basis: rendered
+      - title: "第10話 1,211"
+        updated: 2026-07-27
+        date_basis: rendered
+      - title: "第9話 1,493"
+        updated: 2026-06-15
+        date_basis: rendered
+      - title: "第8話 1,468"
+        updated: 2026-03-16
+        date_basis: rendered
+      - title: "第7話 1,656"
+        updated: 2026-01-26
+        date_basis: rendered
+      - title: "第4話 2,241"
+        updated: 2025-06-16
+        date_basis: rendered
+      - title: "第3話 2,458"
+        updated: 2025-04-28
+        date_basis: rendered
+      - title: "第2話 後編 2,882"
+        updated: 2025-03-03
+        date_basis: rendered
+      - title: "第2話 前編 2,813"
+        updated: 2025-02-10
+        date_basis: rendered
+      - title: "第1話 3,865"
+        updated: 2025-01-27
+        date_basis: rendered

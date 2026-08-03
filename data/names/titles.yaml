@@ -16717,6 +16717,30 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  獄門撫子此処ニ在リ:
+    basis: romaji
+    furigana_spans:
+    - - 獄門
+      - ごくもん
+    - - 撫子
+      - なでしこ
+    - - 此処
+      - ここ
+    - - ニ
+      - null
+    - - 在
+      - あり
+    - - リ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ゴクモン ナデシコ ココ ニ アリリ
+    reading_at: '2026-08-03'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   王の由縁:
     basis: romaji
     furigana_spans:
@@ -20216,6 +20240,17 @@ names:
       on pen names and coinages
     reading: アクツサン ワ オシ ニ ニテ イル
     reading_at: '2026-08-02'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  阿佐ヶ谷サキュバス同人物語:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アサガヤ サキュバス ドウニン モノガタリ
+    reading_at: '2026-08-03'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi

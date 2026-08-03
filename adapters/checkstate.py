@@ -34,7 +34,9 @@ STORE = pathlib.Path(__file__).resolve().parents[1] / "data" / "state" / "checks
 RESULTS = ("ok",         # fetched, parsed, and the work is present
            "empty",      # fetched and parsed, and there is nothing new. A finding, not a failure.
            "missing",    # the source says this work is not there (404 or 410)
-           "blocked",    # refused us specifically (401, 403, 429)
+           "blocked",    # did not yield its content to us: refused (401, 403, 429), or rendered
+                         # to nothing. A standing condition rather than a bad moment, which is what
+                         # separates it from `error`.
            "error",      # transient: 5xx, timeout, connection reset
            "moved")      # redirected somewhere we did not ask for
 

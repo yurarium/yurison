@@ -1,0 +1,31 @@
+# ゼロサムオンライン — chapters read from a RENDERED page.
+#
+# This platform serves a shell and builds its chapter list in JavaScript, so a fetch
+# returns nothing to parse. The page is rendered with headless chromium and the DOM
+# it produced is read — the platform's own page, as it chose to draw it.
+#
+# date_basis: rendered — weaker than a feed the platform published, stronger than a
+# pattern matched in static markup. No genre label is established here (§4).
+source: webpages
+platform: zerosumonline
+platform_name: "ゼロサムオンライン"
+publisher: ""
+retrieved: 2026-08-03
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+date_basis: rendered
+date_confidence: reported
+works:
+  - work_title: "ロイヤルテーラー ―王宮の裁縫師―"
+    url: "https://zerosumonline.com/detail/royaltailor"
+    chapter_count: 3
+    chapters:
+      - title: "第3話 公開期間：2022年2月4日 〜"
+        updated: 2022-02-04
+        date_basis: rendered
+      - title: "第2話 公開期間：2022年1月14日 〜"
+        updated: 2022-01-14
+        date_basis: rendered
+      - title: "第1話 公開期間：2021年12月3日 〜 非公開エピソードはこちら ファンレターを送"
+        updated: 2021-12-03
+        date_basis: rendered

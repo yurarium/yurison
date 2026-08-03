@@ -154,6 +154,39 @@ def main(s):
     s.eq(b.fold_map({"見えてますよ！愛沢さん": curated, "見えてますよ! 愛沢さん": scraped}, fold)[0]
          ["見えてますよ!愛沢さん"]["en"], curated["en"], "in the other order too")
 
+    # PLATFORM HISTORY. Two file shapes, and the second was silently dropped: a file assembled
+    # across platforms leaves the top-level platform_name empty and names it on each work instead,
+    # so every work in it keyed on the empty string and matched no claim. 28 claims read as
+    # untraced while their evidence sat on disk, one of them in a file called claim-resolved.yaml.
+    import tempfile, yaml as _yaml
+    with tempfile.TemporaryDirectory() as d:
+        one = pathlib.Path(d) / "filewide.yaml"
+        one.write_text(_yaml.safe_dump({"platform_name": "COMIC FUZ", "works": [
+            {"work_title": "\u7403\u8a60", "chapters": [{"updated": "2026-07-10"},
+                                                          {"updated": "2026-07-17"}]}]},
+            allow_unicode=True))
+        two = pathlib.Path(d) / "mixed.yaml"
+        two.write_text(_yaml.safe_dump({"platform_name": "", "works": [
+            {"work_title": "A", "platform_name": "\u7af9\u30b3\u30df",
+             "chapters": [{"updated": "2026-07-01"}]}]}, allow_unicode=True))
+        h = b.load_platform_history([str(one), str(two)])
+        s.eq(sorted(h[(b.norm_work("\u7403\u8a60"), b.norm_work("COMIC FUZ"))]),
+             ["2026-07-10", "2026-07-17"], "a file naming its platform once is read")
+        s.check((b.norm_work("A"), b.norm_work("\u7af9\u30b3\u30df")) in h,
+                "and so is a file that names the platform on each work")
+        s.eq(b.load_platform_history([]), {}, "no files is an empty history, not a crash")
+
+        # A work in two files keeps the fuller history: the denial branch asks how much we hold,
+        # and a thin copy displacing a full one turns a refutable claim back into an open one.
+        thin = pathlib.Path(d) / "thin.yaml"
+        thin.write_text(_yaml.safe_dump({"platform_name": "COMIC FUZ", "works": [
+            {"work_title": "\u7403\u8a60", "chapters": [{"updated": "2026-07-10"}]}]},
+            allow_unicode=True))
+        for order in ([str(one), str(thin)], [str(thin), str(one)]):
+            got = b.load_platform_history(order)[(b.norm_work("\u7403\u8a60"),
+                                                  b.norm_work("COMIC FUZ"))]
+            s.eq(len(got), 2, "the fuller history survives whichever file is read first")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

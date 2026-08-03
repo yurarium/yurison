@@ -28,10 +28,14 @@ from collections import Counter
 
 import yaml
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+import checkstate  # noqa: E402
+
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "recon"))
 from extract import (CHAPTERISH, norm_date, try_jsonld, try_markup,  # noqa: E402
                      try_next, try_pairs)
 
+CHECKS = {}
 CHROME = None
 for c in ("/snap/bin/chromium", "/usr/bin/chromium", "/usr/bin/chromium-browser",
           "/usr/bin/google-chrome"):
@@ -229,6 +233,26 @@ def author_near_title(html, title):
     return None
 
 
+def carry_over(path, rows):
+    """Fold this run's rows into whatever the file already holds, keyed on URL.
+
+    WHY THIS EXISTS. --limit-per-host bounds what one run costs, and the writer replaced the whole
+    file with just that window. pixivコミック has 131 targets and a limit of 40, so a run kept the
+    40 it happened to reach and silently dropped the other 91: the file went from 103 works and 446
+    chapters to 35 and 155, and 13 claims that had been attested became untraced again. The limit
+    is right; overwriting is what was wrong.
+
+    A work read this time replaces its earlier entry, because a fresh reading of the same page is
+    better evidence than an old one. A work not reached this time is kept as it was, because not
+    looking at a page is not the same as finding nothing on it.
+    """
+    keep = []
+    if path.exists():
+        old = yaml.safe_load(path.read_text()) or {}
+        fresh = {w["url"] for w in rows if w.get("url")}
+        keep = [w for w in (old.get("works") or []) if w.get("url") not in fresh]
+    return keep
+
 def js(v):
     return json.dumps(v, ensure_ascii=False)
 
@@ -242,6 +266,9 @@ def main():
     ap.add_argument("--limit-per-host", type=int, default=40)
     a = ap.parse_args()
 
+    # Loaded once for the whole run; a per-work save would rewrite the file 188 times.
+    global CHECKS
+    CHECKS = checkstate.load()
     cache = pathlib.Path(a.cache).expanduser()
     cache.mkdir(parents=True, exist_ok=True)
     out = pathlib.Path(a.out)
@@ -257,7 +284,11 @@ def main():
                 failed["timeout"] += 1
                 continue
             if not html:
-                failed["empty render"] += 1
+                failed['empty render'] += 1
+                # Chromium ran the page and it produced nothing. Recorded as a look, because it is one:
+                # a claim on this work is not waiting for somebody to go and check.
+                checkstate.record(CHECKS, plat['name'], t.get('title') or '', 'blocked',
+                                  note='rendered; the page yielded no DOM to read')
                 continue
             spec = STRUCTURED.get(plat["id"])
             if plat["id"] == "pixivcomic":
@@ -281,7 +312,12 @@ def main():
                     row["author"] = au
                 rows.append(row)
             else:
-                failed["no dated chapters"] += 1
+                failed['no dated chapters'] += 1
+                # A FINDING, not a failure. The page rendered and the platform drew no dates on it,
+                # so a reader on the site cannot see when a chapter appeared either. Recorded, or a
+                # claim against this work reads as one nobody has looked at.
+                checkstate.record(CHECKS, plat['name'], t.get('title') or '', 'empty',
+                                  note='rendered; the platform draws no dates on this page')
 
         if not rows:
             print(f"{plat['name'][:20]:22} nothing parsed  {dict(failed)}")
@@ -315,11 +351,32 @@ def main():
                 elif e.get("access_note"):
                     L.append(f"        access_note: {js(e['access_note'])}")
                 L.append("        date_basis: rendered")
+        # Everything this run did not reach, written back unchanged. See carry_over.
+        path = out / f"rendered-{plat['id']}.yaml"
+        kept = carry_over(path, [{"url": w["url"]} for w in rows])
+        for w in kept:
+            L.append(f"  - work_title: {js(w.get('work_title', ''))}")
+            if w.get("author"):
+                L.append(f"    author: {js(w['author'])}")
+            L.append(f"    url: {js(w.get('url', ''))}")
+            L.append(f"    chapter_count: {len(w.get('chapters') or [])}")
+            L.append("    chapters:")
+            for e in (w.get("chapters") or []):
+                L.append(f"      - title: {js(e.get('title', ''))}")
+                L.append(f"        updated: {e.get('updated')}")
+                if e.get("access_modes"):
+                    L.append(f"        access_modes: {js(e['access_modes'])}")
+                if e.get("access_note"):
+                    L.append(f"        access_note: {js(e['access_note'])}")
+                L.append(f"        date_basis: {e.get('date_basis', 'rendered')}")
         L.append("")
-        (out / f"rendered-{plat['id']}.yaml").write_text("\n".join(L))
+        path.write_text("\n".join(L))
         n = sum(len(w["episodes"]) for w in rows)
         print(f"{plat['name'][:20]:22} works={len(rows):3} chapters={n:4}"
+              f"{f'  (+{len(kept)} carried over)' if kept else ''}"
               f"{('  ' + str(dict(failed))) if failed else ''}")
+
+    checkstate.save(CHECKS)
 
 
 if __name__ == "__main__":

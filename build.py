@@ -17,6 +17,9 @@ from crossplatform import carriage, episode_key, merge_releases  # noqa: E402
 
 import yaml
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+import checkstate  # noqa: E402
+
 # REQUIREMENTS §1. A field whose provenance is not here fails the build.
 # Tier A/B attesting sources only. Discovery-only sources (Tier C/D) never appear here — they feed
 # data/queue/, which is deliberately outside the source tree so nothing can promote a candidate
@@ -119,6 +122,39 @@ CHAPTER_NUM_RE = re.compile(r"第[0-9０-９]+[話回]|[0-9０-９]+話|#[0-9０
 # since has stopped being news about a hiatus and is just an old fact, so the state falls back to
 # the observed ladder and the notice stays as dated evidence.
 HIATUS_FRESH_DAYS = 180
+
+
+def load_platform_history(files):
+    """(work, platform) -> the dates that platform lists for that work, from whole-history sources.
+
+    ONLY WHOLE HISTORIES. Absence of evidence is evidence of absence just where the list is known
+    to be complete. A source that shows what it happens to carry can attest a chapter and must
+    never be used to deny one, which is why this is a named list of files rather than everything
+    under data/source.
+
+    TWO SHAPES, and the second is what was being dropped. Most files name their platform once at
+    the top. A file assembled across platforms (remaining.yaml, claim-resolved.yaml) leaves that
+    empty and names the platform on each work instead. The earlier version read only the file-level
+    field, so every work in those files keyed on the empty string, matched no claim, and vanished
+    without a word. That is why 28 claims read as untraced while their evidence was on disk.
+    """
+    out = {}
+    for f in files:
+        d0 = yaml.safe_load(open(f)) or {}
+        filewide = d0.get("platform_name") or ""
+        for w in d0.get("works") or []:
+            ti = norm_work(w.get("work_title") or w.get("title") or "")
+            pn = norm_work(w.get("platform_name") or filewide)
+            ds = sorted({str(c.get("updated"))[:10] for c in (w.get("chapters") or [])
+                         if c.get("updated")})
+            if not (ti and pn and ds):
+                continue
+            # A work may appear in several files. Keep the fullest history, because the denial
+            # branch asks how much we hold, and a thin copy displacing a full one would turn a
+            # refutable claim back into an open one.
+            if len(ds) >= len(out.get((ti, pn), ())):
+                out[(ti, pn)] = ds
+    return out
 
 
 def fold_map(records, fold):
@@ -1477,18 +1513,24 @@ def main():
     # Absence of evidence is only evidence of absence where the list is known to be complete, so
     # the sources permitted here are only those that return whole histories. Everything else can
     # attest what it shows and must not be used to deny what it does not.
-    platform_history = {}
-    for f in (glob.glob("data/source/gigaviewer/*-series-feeds.yaml")
-              + glob.glob("data/source/gigaviewer/*-confirmed.yaml")
-              + glob.glob("data/source/comicfuz/works.yaml")):
-        d0 = yaml.safe_load(open(f)) or {}
-        pn = norm_work(d0.get("platform_name") or "")
-        for w in d0.get("works") or []:
-            ti = norm_work(w.get("work_title") or w.get("title") or "")
-            ds = [str(c.get("updated"))[:10] for c in (w.get("chapters") or [])
-                  if c.get("updated")]
-            if ti and pn and ds:
-                platform_history[(ti, pn)] = ds
+    platform_history = load_platform_history(
+        glob.glob("data/source/gigaviewer/*-series-feeds.yaml")
+        + glob.glob("data/source/gigaviewer/*-confirmed.yaml")
+        + glob.glob("data/source/comicfuz/works.yaml")
+        # The comici and rendered-page adapters write here, in the same shape. Omitting them left
+        # 28 of 43 claims reported as untraced while their chapter lists sat on disk, one of them
+        # in a file called claim-resolved.yaml. Fetched, written, and read by nothing.
+        + glob.glob("data/source/webpages/*.yaml"))
+
+    # Every look adapters/claims/trace.py has taken, keyed the way it writes them. A claim with no
+    # history behind it is untraced only if nobody has been; this is how that is known.
+    claim_checks = checkstate.load()
+
+    # Platforms that carry other people's serialisations and publish no index of their own. A claim
+    # naming one, with no URL, has nothing behind it to fetch.
+    carrier_platforms = {norm_work(x["name"]) for x in
+                         (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {})
+                         .get("platforms", []) if x.get("syndicated")}
 
     # Platforms that publish no per-chapter dates. A claim naming one of them is unconfirmable by
     # nature, not by neglect, and the interface should say which it is.
@@ -1566,9 +1608,21 @@ def main():
     CLAIM_DATE_SLACK = 2   # days either side
 
     def trace(c, w, disposition, why, **ev):
-        claim_trace.append({"work": w, "platform": c.get("platform"), "url": c.get("url"),
-                            "claimed": str(c.get("date") or ""), "source": c.get("source"),
-                            "disposition": disposition, "why": why, **ev})
+        """Record one claim's outcome, and index it so a duplicate of it can be recognised.
+
+        THE INDEX USED TO BE FILLED IN ONE PLACE ONLY, at the foot of the untraced branch, so a
+        claim that was absorbed or refuted earlier never entered it. 百合ナビ runs the author into
+        the title cell and supplies no URL, so its row for a work is a near-duplicate of
+        webcomics.jp's, and the dedupe below could only see the duplicates of claims nothing had
+        settled. 君のせいなんだった、責任とってよね。 was traced from webcomics.jp with a URL and
+        then reported a second time, from 百合ナビ, as untraced work.
+        """
+        rec = {"work": w, "platform": c.get("platform"), "url": c.get("url"),
+               "claimed": str(c.get("date") or ""), "source": c.get("source"),
+               "disposition": disposition, "why": why, **ev}
+        claim_trace.append(rec)
+        claim_index.setdefault(str(c.get("date") or ""), []).append(
+            {"nw": norm_work(w or ""), "rec": rec})
 
     def near_dates(when):
         try:
@@ -1582,7 +1636,33 @@ def main():
     claims_kept, phantom, claims_superseded_nearby = 0, 0, 0
     if cf.exists():
         d = yaml.safe_load(cf.read_text()) or {}
-        for c in d.get("updates") or []:
+        # CLAIMS THAT NAME A PAGE ARE TRACED FIRST. Two comparators report the same update, and
+        # the dedupe below keeps whichever arrived first and folds the second into it. 百合ナビ
+        # runs the author into the title cell and gives no URL, and its rows happen to come first
+        # in the file, so the record kept was the one with nothing to trace to while the row
+        # carrying the link was merged away into it. Ordering is not a tie-break here: it decides
+        # which of two reports of one event the system is left holding.
+        # A URL WE ALREADY HOLD. 百合ナビ reports a work with no link and runs the author into the
+        # title cell, and a previous pass resolved several of those to a page by searching the
+        # carrying platform's own domain. That file is read three times elsewhere in this build and
+        # was never consulted here, so a claim sat reported as untraceable while the address it
+        # needed was on disk. Matched on the cell, which is "<title> <author>", against the two
+        # fields the resolution recorded separately.
+        _resolved = {}
+        _rtf = pathlib.Path("data/source/comparators/resolved-titles.yaml")
+        if _rtf.exists():
+            for _r in (yaml.safe_load(_rtf.read_text()) or {}).get("works") or []:
+                if _r.get("url"):
+                    _resolved[(norm_work(f"{_r.get('title','')} {_r.get('author','')}"),
+                               norm_work(_r.get("platform") or ""))] = _r["url"]
+                    _resolved[(norm_work(_r.get("title") or ""),
+                               norm_work(_r.get("platform") or ""))] = _r["url"]
+
+        for c in sorted(d.get("updates") or [], key=lambda x: (not x.get("url"))):
+            if not c.get("url"):
+                c = dict(c)
+                c["url"] = _resolved.get((norm_work(c.get("work") or ""),
+                                          norm_work(c.get("platform") or "")))
             w, when = c.get("work"), str(c.get("date") or "")
             if not w or not when:
                 continue
@@ -1715,14 +1795,50 @@ def main():
                       "this platform publishes no per-chapter dates — a reader on the site cannot "
                       "see when a chapter appeared either, so there is nothing to check against")
             else:
-                trace(c, w, "open",
-                      held_back or ("we hold no chapter history for this work on this platform"
-                                    if c.get("url") else
-                                    "no URL reported, and no history held — nothing to trace to"),
-                      chapters_held=len(raw_hist or []),
-                      also_attested_elsewhere=nw in attested_works,
-                      traceable=bool(c.get("url")))
-            claim_index.setdefault(when, []).append({"nw": nw, "rec": claim_trace[-1]})
+                # LOOKED AT, AND STILL UNSETTLED, is not the same as NOT LOOKED AT, and the status
+                # page was reporting the first as the second. `open` says "not yet traced. This is
+                # the work outstanding", which asks somebody to go and do a thing that has already
+                # been done and cannot be finished: where a platform's own listing is partial, or
+                # too far behind, or simply empty, its silence proves nothing however often it is
+                # read. That is a terminal state, and parking it in a queue is the same category
+                # error as 要確認, a permanent condition wearing the clothes of pending work.
+                #
+                # The two are told apart by the check ledger rather than by the history, because
+                # both leave the same absence behind. adapters/claims/trace.py records every look.
+                looked = claim_checks.get(f"{c.get('platform') or ''}|{w}") or {}
+                if held_back:
+                    trace(c, w, "unsettleable", held_back,
+                          chapters_held=len(raw_hist or []), last_looked=looked.get("last_checked"))
+                # `error` is left out on purpose: a timeout or a 5xx may pass, and a claim behind
+                # one is still worth another look. The rest are standing conditions: we read the
+                # listing, or the platform will not show it to us, and no number of retries changes
+                # either of those.
+                elif looked.get("result") in ("empty", "ok", "blocked", "missing"):
+                    trace(c, w, "unsettleable",
+                          looked.get("note")
+                          or "we read this platform's own listing and it carries nothing dated here",
+                          chapters_held=0, last_looked=looked.get("last_checked"))
+                elif not c.get("url") and norm_work(c.get("platform") or "") in carrier_platforms:
+                    # A CARRIER, not a publisher. きららベース shows works serialised elsewhere and
+                    # publishes no index, sitemap or usable search, which data/platforms.yaml has
+                    # recorded since it was surveyed: each of its works has to be resolved one at a
+                    # time by external search. With no URL reported and none held, there is no page
+                    # to address, and that is a standing condition rather than a queue.
+                    trace(c, w, "unsettleable",
+                          "no URL reported, and this platform carries works published elsewhere "
+                          "without an index we can enumerate, so there is no page to address",
+                          chapters_held=0)
+                else:
+                    trace(c, w, "open",
+                          ("we hold no chapter history for this work on this platform"
+                           if c.get("url") else
+                           "no URL reported, and no history held — nothing to trace to"),
+                          chapters_held=len(raw_hist or []),
+                          also_attested_elsewhere=nw in attested_works,
+                          traceable=bool(c.get("url")),
+                          last_looked=looked.get("last_checked"),
+                          blocked=looked.get("note"))
+            # (indexed by trace() itself, for every disposition)
             claims_kept += 1
 
     # A channel is a section of a host platform, not a platform. Naming the host is always correct.

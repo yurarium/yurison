@@ -10,52 +10,12 @@ source: webpages
 platform: mangaone
 platform_name: "マンガワン"
 publisher: "小学館"
-retrieved: 2026-08-02
+retrieved: 2026-08-03
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
 date_confidence: reported
 works:
-  - work_title: "かわいい同盟"
-    url: "https://manga-one.com/viewer/290902"
-    chapter_count: 9
-    chapters:
-      - title: "休載のお知らせ"
-        updated: 2026-04-10
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第20話"
-        updated: 2026-04-10
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "おまけ"
-        updated: 2026-03-13
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第19話"
-        updated: 2026-03-27
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第18話"
-        updated: 2026-02-27
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "2巻コミックPR"
-        updated: 2026-02-13
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第17話"
-        updated: 2026-02-13
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第16話"
-        updated: 2026-01-30
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "おまけ"
-        updated: 2026-01-02
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
     url: "https://manga-one.com/manga/27253/chapter/307792"
     chapter_count: 10
@@ -101,6 +61,34 @@ works:
         updated: 2026-03-01
         access_modes: ["purchase"]
         date_basis: rendered
+  - work_title: "私の焦がれる彼女"
+    url: "https://manga-one.com/manga/27454/chapter/316774"
+    chapter_count: 6
+    chapters:
+      - title: "第6話"
+        updated: 2026-04-01
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第5話"
+        updated: 2026-02-04
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "第4話"
+        updated: 2026-01-07
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "第3話"
+        updated: 2025-12-03
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "第2話"
+        updated: 2025-11-19
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話"
+        updated: 2025-11-05
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "メイド&ロイドはお嬢様のお役に立ちたい!"
     url: "https://manga-one.com/manga/28129/chapter/355684"
     chapter_count: 8
@@ -136,18 +124,6 @@ works:
         date_basis: rendered
       - title: "Memory1"
         updated: 2026-06-13
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "付き合ってあげてもいいかな"
-    url: "https://manga-one.com/viewer/70173"
-    chapter_count: 2
-    chapters:
-      - title: "オンラインくじ第2弾告知PR"
-        updated: 2025-07-04
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "最終14巻コミックスPR"
-        updated: 2025-03-14
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "妖怪殲滅のサイコリリー"
@@ -195,31 +171,55 @@ works:
         updated: 2024-04-18
         access_modes: ["purchase"]
         date_basis: rendered
-  - work_title: "私の焦がれる彼女"
-    url: "https://manga-one.com/manga/27454/chapter/316774"
-    chapter_count: 6
+  - work_title: "かわいい同盟"
+    url: "https://manga-one.com/viewer/290902"
+    chapter_count: 9
     chapters:
-      - title: "第6話"
-        updated: 2026-04-01
+      - title: "休載のお知らせ"
+        updated: 2026-04-10
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第5話"
-        updated: 2026-02-04
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第4話"
-        updated: 2026-01-07
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第3話"
-        updated: 2025-12-03
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第2話"
-        updated: 2025-11-19
+      - title: "第20話"
+        updated: 2026-04-10
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第1話"
-        updated: 2025-11-05
+      - title: "おまけ"
+        updated: 2026-03-13
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第19話"
+        updated: 2026-03-27
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "第18話"
+        updated: 2026-02-27
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "2巻コミックPR"
+        updated: 2026-02-13
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第17話"
+        updated: 2026-02-13
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "第16話"
+        updated: 2026-01-30
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "おまけ"
+        updated: 2026-01-02
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "付き合ってあげてもいいかな"
+    url: "https://manga-one.com/viewer/70173"
+    chapter_count: 2
+    chapters:
+      - title: "オンラインくじ第2弾告知PR"
+        updated: 2025-07-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "最終14巻コミックスPR"
+        updated: 2025-03-14
         access_modes: ["free"]
         date_basis: rendered

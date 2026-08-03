@@ -47,6 +47,26 @@ def main(s):
          "an item with no date is skipped")
     s.eq(rd.episodes_structured("", spec), [], "an empty page yields nothing")
 
+    # CARRY-OVER. --limit-per-host bounds a run; it must not bound the FILE. pixivコミック has 131
+    # targets and a limit of 40, so overwriting cost 68 works and 291 chapters in one run, and 13
+    # claims that had been attested went back to untraced.
+    import tempfile, yaml as _yaml
+    with tempfile.TemporaryDirectory() as d:
+        f = pathlib.Path(d) / "rendered-x.yaml"
+        f.write_text(_yaml.safe_dump({"works": [
+            {"work_title": "A", "url": "u/1", "chapters": [{"title": "1", "updated": "2026-01-01"}]},
+            {"work_title": "B", "url": "u/2", "chapters": [{"title": "1", "updated": "2026-01-02"}]},
+        ]}, allow_unicode=True))
+        kept = rd.carry_over(f, [{"url": "u/1"}])
+        s.eq([w["url"] for w in kept], ["u/2"],
+             "a work this run did not reach is kept")
+        s.check(all(w["url"] != "u/1" for w in kept),
+                "and a work it did reach is not carried over, so the fresh reading wins")
+        s.eq(rd.carry_over(f, [{"url": "u/1"}, {"url": "u/2"}]), [],
+             "a run that reached everything carries nothing over")
+        s.eq(rd.carry_over(pathlib.Path(d) / "absent.yaml", [{"url": "u/1"}]), [],
+             "a first run has nothing to carry over and does not fail")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "render.releases"))

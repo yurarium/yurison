@@ -79,8 +79,8 @@
   },
   {
    "name": "modules without a test",
-   "value": 25,
-   "budget": 25,
+   "value": 22,
+   "budget": 22,
    "means": "Python modules no suite covers. Offline tests are the enforcement for factoring as well: a module that cannot be tested without a network has not separated its logic from its I/O, so this number falling is the refactoring, not a proxy for it."
   },
   {

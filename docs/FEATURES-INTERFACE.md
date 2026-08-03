@@ -186,3 +186,22 @@ Every control in a `.controls` bar shares one height, set once as a custom prope
 Hierarchy stays in weight and colour rather than in size. `reset` is quieter than the filters
 beside it; it is not shorter than them.
 
+## Showing which filters are set
+
+Filters persist across sessions, so a reader can return to a list already narrowed by a choice they
+have forgotten making. Opening to "1 shown of 251" with nothing indicating why is the failure this
+prevents: the dropdown responsible looks exactly like the others beside it, and when the bar wraps
+it may not even share a line with them.
+
+**What is marked is exactly what reset clears**, taken from one list per tab. Deriving it from
+anything else drifts: eventually something is marked that the button does not clear, or something
+it does clear is left unmarked. Those lists already excluded the presentation control, which is the
+same line §15 draws.
+
+The reset button goes live at the same moment and states how many filters it will clear, so the
+mark and the way out are learned together. It is disabled otherwise, which it never was, although
+pressing it then did nothing.
+
+Border and weight carry the mark and the text colour is left alone. All three together read as an
+alert rather than as a mark, and colour by itself carries the meaning for nobody who cannot see it.
+

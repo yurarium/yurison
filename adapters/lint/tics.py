@@ -360,6 +360,14 @@ def structure(path):
     the exact shape being complained about.
     """
     text = pathlib.Path(path).read_text(encoding="utf-8", errors="replace")
+    # Code is not document structure. A JS string built by concatenation puts `+` at the start of
+    # each continuation line, and the markdown bullet pattern reads three of those as a list of
+    # three items. Script and style blocks are dropped before the shape is looked at, keeping the
+    # line count so the reported line numbers still point at the right place.
+    if pathlib.Path(path).suffix in (".html", ".htm"):
+        for tag in ("script", "style"):
+            text = re.sub(rf"<{tag}\b.*?</{tag}>",
+                          lambda m: "\n" * m.group(0).count("\n"), text, flags=re.S | re.I)
     blocks = re.split(r"\n\s*\n", text)
     hits, run, start = [], 0, 0
     line_of, n = [], 1
@@ -475,6 +483,16 @@ def self_test():
         ok = False
     os.unlink(tmp)
 
+    # Code inside a page is not the page's structure. Three JS continuation lines beginning with
+    # `+` are a string, not a list, and reading them as one is how this fired on index.html.
+    page = ('<html><body><p>text</p>\n<script>\nconst s = a\n  + "one"\n  + "two"\n'
+            '  + "three";\n</script></body></html>\n')
+    fd, tmp = tempfile.mkstemp(suffix=".html"); os.write(fd, page.encode()); os.close(fd)
+    if structure(tmp):
+        print(f"  FAIL: structure() read JS concatenation as a list: {structure(tmp)}")
+        ok = False
+    os.unlink(tmp)
+
     # Curly quotes are wanted. Nothing may flag them.
     if any(fires(rx, fix, "the reader\u2019s choice \u201cyes\u201d")
            for rx, fix in HARD_RX + PROSE_RX):
@@ -496,6 +514,16 @@ def self_test():
     fd, tmp = tempfile.mkstemp(suffix=".md"); os.write(fd, doc4.encode()); os.close(fd)
     if structure(tmp):
         print(f"  FAIL: structure() flagged a group of four: {structure(tmp)}")
+        ok = False
+    os.unlink(tmp)
+
+    # Code inside a page is not the page's structure. Three JS continuation lines beginning with
+    # `+` are a string, not a list, and reading them as one is how this fired on index.html.
+    page = ('<html><body><p>text</p>\n<script>\nconst s = a\n  + "one"\n  + "two"\n'
+            '  + "three";\n</script></body></html>\n')
+    fd, tmp = tempfile.mkstemp(suffix=".html"); os.write(fd, page.encode()); os.close(fd)
+    if structure(tmp):
+        print(f"  FAIL: structure() read JS concatenation as a list: {structure(tmp)}")
         ok = False
     os.unlink(tmp)
 

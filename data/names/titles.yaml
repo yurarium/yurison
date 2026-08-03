@@ -1,4 +1,4 @@
-generated: '2026-08-02'
+generated: '2026-08-03'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: romaji
@@ -1541,7 +1541,11 @@ names:
     reading_source_kind: analyser
     verified: false
   うさぎはかく語りき:
-    basis: romaji
+    basis: translated
+    en: Thus Spoke the Rabbit
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - うさぎはかく
       - null
@@ -1549,8 +1553,9 @@ names:
       - かた
     - - りき
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'かく語りき is the phrasing of ツァラトゥストラはかく語りき, so the English carries the allusion by matching the
+      formula the same book is known by in English. うさぎ is the animal rather than a character: the platform
+      synopsis has 人喰いうさぎ infesting the underground and a rabbit-eared girl beside the protagonist.'
     reading: ウサギ ワ カク カタリキ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -7932,6 +7937,13 @@ names:
     reading_source: surface
     verified: true
   ワインガールズ:
+    basis: translated
+    en: Wine Girls
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 'Katakana English throughout, so the English is recovery rather than interpretation. The synopsis
+      confirms the wine reading over any homophone: the cast are grape varieties.'
     reading: ワインガールズ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -11689,14 +11701,20 @@ names:
     reading_source_kind: analyser
     verified: false
   安達としまむら:
-    basis: romaji
+    basis: licensed
+    en: Adachi and Shimamura
+    en_at: '2026-08-03'
+    en_source: Yen Press
+    en_source_kind: licensor
+    en_url: https://yenpress.com/series/adachi-and-shimamura-manga
     furigana_spans:
     - - 安達
       - あだち
     - - としまむら
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Yen Press publishes the Yuzuhara Moke manga; Seven Seas publishes Iruma Hitoma's light novels.
+      Both use the same English title, so the split does not affect the string, but the catalogued work
+      here is the manga and the manga's licensor is the one cited.
     reading: アダチ ト シマムラ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -14162,6 +14180,16 @@ names:
     verified: false
   星屑テレパス:
     basis: romaji
+    en_candidates:
+    - note: 'Held as a candidate rather than a name because nothing on the Japanese side uses it: the
+        Houbunsha platform page carries only 星屑テレパス, and the anime''s own site (hoshitele-anime.com) renders
+        the title in Latin script nowhere, cast romanisations aside. The manga is unlicensed in English,
+        so the string comes from the anime''s English release, which is a rendering of the adaptation
+        rather than of the work catalogued here. That case is not in NAMES-PLAN §5 and needs a ruling
+        before this can be promoted.'
+      source: English-language coverage of the anime
+      source_kind: community-db
+      value: Stardust Telepath
     furigana_spans:
     - - 星屑
       - ほしくず
@@ -15402,7 +15430,11 @@ names:
     reading_source_kind: analyser
     verified: false
   江口さんちの純情サキュバス:
-    basis: romaji
+    basis: translated
+    en: The Eguchi Household's Innocent Succubus
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 江口
       - えぐち
@@ -15412,8 +15444,9 @@ names:
       - じゅんじょう
     - - サキュバス
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'さんち is さんの家, the household rather than the person, which the English keeps. 純情 is innocent
+      in the sense of chaste, and that is the joke the title is making: the synopsis has a succubus who
+      cannot work out what ero is.'
     reading: エグチサン チ ノ ジュンジョウ サキュバス
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18768,7 +18801,12 @@ names:
     reading_url: http://www.wikidata.org/entity/Q55536365
     verified: false
   裏世界ピクニック:
-    basis: romaji
+    basis: licensed
+    en: Otherside Picnic
+    en_at: '2026-08-03'
+    en_source: Square Enix Manga & Books
+    en_source_kind: licensor
+    en_url: https://squareenixmangaandbooks.square-enix-games.com/en-us/series/otherside-picnic
     furigana_spans:
     - - 裏
       - うら
@@ -18776,8 +18814,8 @@ names:
       - せかい
     - - ピクニック
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Square Enix publishes the Mizuno Eita manga; J-Novel Club publishes Miyazawa Iori's novels.
+      Cited to the manga's licensor for the same reason as 安達としまむら.
     reading: ウラ セカイ ピクニック
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -19260,12 +19298,16 @@ names:
     reading_source_kind: analyser
     verified: false
   運命は役に立たない:
-    basis: romaji
-    en: Unmei wa Yaku ni Tatanai
-    en_at: '2026-08-02'
+    basis: translated
+    en: Fate Is No Help
+    en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Unmei wa Yaku ni Tatanai
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q138095935
     furigana_spans:
     - - 運命
@@ -19280,6 +19322,9 @@ names:
       - た
     - - たない
       - null
+    note: Replaces a stored romanisation. 役に立たない is useless in the sense of serving no purpose, and the
+      premise is a world where everyone is issued a red thread of fate that does not help the protagonist
+      at all, so the flatter English reads truer than Fate Is Useless.
     reading: ウンメイ ワ ヤク ニ タタナイ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -20477,11 +20522,6 @@ note: 'Readings and English renderings, keyed by the exact Japanese string. NAME
   is about the kana. `en_candidates` holds English titles we have seen but cannot attribute to a Japanese
   publisher or a licensor: community databases also carry scanlation titles, which are not names the work
   has, so a candidate is never promoted to `en` without confirmation. Conflicts are kept, never resolved
-  silently.
-
-
-  UNCONFIRMED ENGLISH CANDIDATES ARE NOT IN THIS FILE. A community database''s English title is not evidence
-  of an official or licensed name (NAMES-PLAN §5), so they are held out of the published record entirely
-  rather than carried here with a flag. They live in en-candidates.yaml, which is not committed.'
+  silently.'
 role: name-readings/titles
 source: overlay

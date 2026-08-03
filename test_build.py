@@ -95,6 +95,31 @@ def main(s):
     s.check(b.CHAPTER_NUM_RE.search("第28回"),
             "while the skipped-slot counter does accept 回, which is why they are separate")
 
+    # TRIAL PREVIEWS. 【試し読み】あんすこ［Are you "mine"？］ is a preview of a printed anthology.
+    # The bracketed part is a real work by a real author, so splitting it out is right; what is on
+    # the web is a sample, not a serialisation. Keeping only the first half of that put 28 previews
+    # in the works list and 13 in the feed.
+    got = b.anth_parts('【試し読み】白玉もち［貝合わせ］')
+    s.eq(got, ('白玉もち', '貝合わせ', True), "a preview yields author, title, and that it IS one")
+
+    # A 読切 instalment is NOT a preview. Same shape, different marker, and it must keep its place
+    # in the feed, or the fix would remove real one-shots along with the samples.
+    s.eq(b.anth_parts('【読切】白玉もち［貝合わせ］'), ('白玉もち', '貝合わせ', False),
+         "a 読切 instalment is an anthology entry that is not a preview")
+
+    # The other shape a container uses, which carries no marker at all.
+    got2 = b.anth_parts('漫画：東雲水生 ある日の話')
+    s.check(got2 and got2[0] == '東雲水生', "the author-prefixed shape is read")
+    s.check(got2 and got2[2] is False, "and is not a preview")
+
+    s.check(b.anth_parts('第1話') is None, "an ordinary chapter is not an anthology entry")
+    s.check(b.anth_parts('') is None, "an empty title is not one")
+    s.check(b.anth_parts(None) is None, "None does not raise")
+
+    # A two-part instalment stays one work, or a 読切 in two halves becomes two works.
+    two = b.anth_parts('【読切】白玉もち［貝合わせ（前編）］')
+    s.eq(two and two[1], '貝合わせ', "a 前編 marker is stripped from the title")
+
     # Hiatus freshness has to be a real window, or an attested pause either never applies or never
     # decays back to the observed ladder.
     s.check(0 < b.HIATUS_FRESH_DAYS <= 365, "the hiatus window is a sane number of days")

@@ -159,6 +159,33 @@ def withheld_works():
     return {k: v for k, v in content_flags().items() if v["withhold"]}
 
 
+# An anthology instalment names its own author and title, in one of two shapes. Lifted out of
+# main() so it can be tested: a pattern that decides what counts as a WORK is exactly the kind of
+# thing that must be provable, and inside a 2,900-line function it was reachable by nothing.
+ANTHOLOGY_EP = re.compile(
+    r"【(?:試し読み|読切|読み切り)】\s*([^［\[]{1,20})[［\[]([^］\]]{1,40})[］\]]"
+    r"|(?:漫画|作画|著者)[：:]\s*(\S{1,16})\s+(.{2,40}?)$")
+
+def anth_parts(s):
+    """(author, title, is_trial) for an instalment, whichever shape the container uses."""
+    s = (s or "").strip()
+    m = ANTHOLOGY_EP.match(s)
+    if not m:
+        return None
+    # WHICH MARKER MATCHED IS PART OF THE ANSWER. 【試し読み】白玉もち［貝合わせ］ names a real
+    # work by a real author, so splitting it is right; but what is on the WEB is a preview of
+    # a printed volume, not a serialisation of that work. Both facts are true at once and the
+    # split was keeping only the first, so 28 previews were published as web works and 13 of
+    # them reached the feed as releases.
+    is_trial = s.startswith("【試し読み")
+    a, ti = (m.group(1), m.group(2)) if m.group(1) else (m.group(3), m.group(4))
+    a, ti = (a or "").strip(), (ti or "").strip()
+    # (前編)/(後編) is a part of the instalment, not a different work — keep the parts together
+    # under one title so a two-part 読切 does not become two works.
+    ti = re.sub(r"\s*[（(](?:前編|後編|中編|前篇|後篇)[）)]\s*$", "", ti).strip()
+    return (a, ti, is_trial) if a and ti else None
+
+
 def is_skipped_slot(title):
     """One producer of this fact, used by the release classifier and the series accumulator alike."""
     t = unicodedata.normalize("NFKC", title or "")
@@ -380,7 +407,7 @@ def load_names():
 
 
 def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
-                     contradicted_works, print_candidates, web_works, samples):
+                     contradicted_works, print_candidates, web_works, samples, regenerate=()):
     # ── The published feed, split ────────────────────────────────────────────────────────────────
     #
     # feed.json above is the INTERNAL whole — the acceptance tests and the audit sampler read it,
@@ -481,6 +508,19 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
                                             "generated": str(_today)}, ensure_ascii=False))
                 print(f"  archive {m}: removed {len(_old) - len(_keep)} withheld row(s); "
                       "§5 yields to the content register")
+        if path.exists() and m in regenerate:
+            # Deliberately overridden for this month. The rewrite is announced, and what changed is
+            # counted, which is the opposite of the quiet revision §5 forbids.
+            try:
+                _was = len(json.loads(path.read_text()).get("releases") or [])
+            except (OSError, ValueError):
+                _was = 0
+            # default=jsonable, like every other write here: a release carries date objects and
+            # json.dumps refuses them.
+            path.write_text(json.dumps(payload, ensure_ascii=False, default=jsonable))
+            print(f"  archive {m}: REGENERATED on request, {_was} rows -> {len(by_month[m])}")
+            archived.append((m, "regenerated", len(by_month[m])))
+            continue
         if path.exists():
             # REQUIREMENTS §5, date locking. A published month is a statement about dates that has
             # already been made; a later run must not quietly revise it. So it is never rewritten —
@@ -730,7 +770,20 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="data/build")
+    # REGENERATING AN ARCHIVE OVERRIDES §5, which is why it takes a deliberate flag naming the
+    # month rather than happening because a file was deleted. Date locking exists so that a
+    # published month cannot be quietly revised; correcting a classification is not a revision of
+    # its dates, but it IS a rewrite, and a rewrite should be an act somebody performed and can be
+    # found in the shell history rather than a side effect.
+    ap.add_argument("--regenerate-archive", metavar="YYYY-MM", action="append", default=[],
+                    help="rewrite an already-published month. Overrides the write-once rule; "
+                         "use when a classification fix must reach an archived month.")
     a = ap.parse_args()
+    # Held under a name nothing else uses. `a` is rebound further down main() as a loop variable,
+    # so reading a.regenerate_archive at the end of a 2,900-line function got whatever `a` last
+    # happened to be, which was None. This is the shape adapters/lint/shadowing.py counts, met in
+    # the wild about ten minutes after being written about.
+    ARGS = a
 
     # pixivコミック has two possible sources — the rendered pages and adapters/pixivcomic/ — and
     # they carry the same chapters. The dedup keys on (work, episode, platform) and would collapse
@@ -2028,6 +2081,19 @@ def main():
             print(f"withheld            : {len(_dropped)} release(s) across "
                   f"{len({r['work'] for r in _dropped})} work(s) held back pending review")
 
+    # A 試し読み instalment is a preview of a printed collection, not web publication (§6). The
+    # anthology split further down names its work and author, which is right and stays, but it runs
+    # AFTER this drop, so marking the web status there left every preview in the feed regardless.
+    # The status is set here, where the thing that consumes it can see it.
+    _prev = 0
+    for r in releases:
+        if str(r.get("ep") or "").strip().startswith("【試し読み") and r.get("web") != "promotional-sample-only":
+            r["web"] = "promotional-sample-only"
+            _prev += 1
+    if _prev:
+        print(f"previews            : {_prev} 試し読み instalment(s) held out of the feed as "
+              "promotional samples")
+
     samples = [r for r in releases if r.get("web") == "promotional-sample-only"]
     releases = [r for r in releases if r.get("web") != "promotional-sample-only"]
     releases = [r for r in releases if r.get("is_preferred")]
@@ -2261,43 +2327,38 @@ def main():
     #
     # Both state an author and a title for a work that is not the container. Neither fits the
     # chapter model, and both are works.
-    ANTHOLOGY_EP = re.compile(
-        r"【(?:試し読み|読切|読み切り)】\s*([^［\[]{1,20})[［\[]([^］\]]{1,40})[］\]]"
-        r"|(?:漫画|作画|著者)[：:]\s*(\S{1,16})\s+(.{2,40}?)$")
-
-    def anth_parts(s):
-        """(author, title) for an instalment, whichever shape the container uses."""
-        m = ANTHOLOGY_EP.match((s or "").strip())
-        if not m:
-            return None
-        a, ti = (m.group(1), m.group(2)) if m.group(1) else (m.group(3), m.group(4))
-        a, ti = (a or "").strip(), (ti or "").strip()
-        # (前編)/(後編) is a part of the instalment, not a different work — keep the parts together
-        # under one title so a two-part 読切 does not become two works.
-        ti = re.sub(r"\s*[（(](?:前編|後編|中編|前篇|後篇)[）)]\s*$", "", ti).strip()
-        return (a, ti) if a and ti else None
     COLLECTION = re.compile(r"アンソロジー|短編集|読切シリーズ|読み切りシリーズ|読切集|オムニバス|傑作選")
     # An instalment that names its own author and title IS A WORK, and is recorded as one. It does
     # not fit the model cleanly — it has no series id of its own, its URL belongs to the container,
     # and its "platform" is the container's platform — but a 読切 by 白玉もち called 貝合わせ is not a
     # chapter of anything, and filing it as one loses both the work and its author. Where the
     # categories and the thing disagree, the thing wins.
-    split_anth = 0
+    split_anth = split_trial = 0
     for r in releases:
         parts = anth_parts(r.get("ep"))
         if not parts:
             continue
-        author, title = parts
+        author, title, is_trial = parts
         r["collection"] = r["work"]
         r["work"], r["author"], r["ep"] = title, author, title
         # One instalment, complete in itself. The container may run for years; this did not.
         r["type"], r["kind"] = "oneshot", "oneshot"
         r["kind_basis"] = "an instalment of a collection, complete in one part"
+        if is_trial:
+            # DEFINITIONS §6: a 試し読み is not web publication. The work is real and stays, with
+            # its author; what changes is the claim about where it can be read. This is the same
+            # web_status the platform-level trial rule sets, so the existing drop at the feed
+            # boundary applies with nothing new to remember.
+            r["web"] = "promotional-sample-only"
+            r["type"] = "trial"
+            r["kind_basis"] = "a preview instalment from a printed collection"
+            split_trial += 1
         split_anth += 1
     for r in releases:
         if COLLECTION.search(r.get("work") or ""):
             r["in_collection"] = True
-    print(f"anthology instalments split into their own author and title : {split_anth}")
+    print(f"anthology instalments split into their own author and title : {split_anth} "
+          f"({split_trial} of them previews, kept as print candidates rather than web releases)")
 
     # ── series index (data/build/series.json) ─────────────────────────────────────────────────
     # The feed is a 60-day window, which answers "what updated recently". A reader asking "what can
@@ -2448,7 +2509,15 @@ def main():
                 # work, and a row saying the container has N chapters says nothing true about it.
                 _am = anth_parts(c.get("title"))
                 if _am:
-                    _au, _ti = _am
+                    _au, _ti, _trial = _am
+                    if _trial:
+                        # A preview is not something a reader can read here, so it does not become
+                        # a row in the works tab. The work is real and belongs to the printed
+                        # collection; the collection is what the volumes tab carries. Skipping it
+                        # here is the same judgement the feed makes, made in the second place that
+                        # reads this function, which is why the function returns the fact rather
+                        # than each caller re-deriving it from the title.
+                        continue
                     _k2 = (norm_work(_ti), plat)
                     _b2 = series.setdefault(_k2, {
                         "work": _ti, "platform": plat, "url": None, "feed_url": None,
@@ -2816,7 +2885,7 @@ def main():
         ensure_ascii=False, indent=1, default=jsonable))
 
     write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
-                     contradicted_works, print_candidates, web_works, samples)
+                     contradicted_works, print_candidates, web_works, samples, regenerate=set(ARGS.regenerate_archive))
 
     cl = write_run_record(out, _today, releases, platforms, works, series_rows,
                           claim_trace, dropped_dupes, thin_dropped, resolver_dropped,

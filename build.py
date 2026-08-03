@@ -277,43 +277,73 @@ def _fullness(rec):
     return (has_en, rank, rest)
 
 
-def catalogue_only(works_out, kadokomi="data/source/kadokomi/chapters.yaml"):
-    """Works whose whole basis is a shop listing rather than a web serialisation.
+def set_aside(works_out, kadokomi="data/source/kadokomi/chapters.yaml", sources="data/source"):
+    """Works that reach the reader as nothing, and why. Returns {work: reason}.
 
-    カドコミ lists KADOKAWA's catalogue whether or not the work was ever serialised on the web, so
-    a detail page there is evidence that the volumes are for sale and nothing more. Our seeding read
-    it as evidence of a web work, and 39 of them entered the web list with no chapters, no dates and
-    no URL to read, where they sat as coverage gaps and as work somebody might go and do.
+    A row carrying no chapters is not always a gap in our fetching. Three kinds turned out to be
+    finished states wearing the same face, and each was sitting in the web list as work somebody
+    might go and do.
 
-    Searched five of them: やがて君になる ran in 月刊コミック電撃大王 and finished in 2019, 繭、纏う in
-    コミックビーム, からふるキューシート！ in 電撃だいおうじ, all print and all complete;
-    気になってる人が男じゃなかった is posted on its author's own social accounts and collected by
-    KADOKAWA. None was ever published on カドコミ.
+    A SHOP LISTING. カドコミ lists KADOKAWA's catalogue whether or not a work was ever serialised
+    on the web. Searching five: やがて君になる ran in 月刊コミック電撃大王 and finished in 2019,
+    繭、纏う in コミックビーム, からふるキューシート！ in 電撃だいおうじ, all print and all complete;
+    気になってる人が男じゃなかった is posted on its author's own social accounts. None was published
+    on カドコミ. The test is the platform's own serializationStatus, which reads `unknown` for 144
+    of the 145 works it lists no episodes for and carries a real value for 175 of the 189 it does.
 
-    THE TEST IS THE PLATFORM'S OWN FIELD, not a guess about titles. カドコミ carries
-    serializationStatus, and it says `unknown` for 144 of the 145 works it lists no episodes for,
-    against a real value for 175 of the 189 it does. A work it can say nothing about the
-    serialisation of is a work it does not serialise.
+    AN ANTHOLOGY WHOSE STORIES ARE THEIR OWN ROWS. pixivコミック lists 君は光 and 幼馴染のトロフィー
+    under a collection title, and build.py files each under its real author, so the container ends
+    up holding nothing because everything in it is somewhere better.
 
-    ONLY WHERE THAT IS THE WHOLE STORY. A work carrying any other source keeps its place: the claim
-    is about what WE hold, not about the work. 高音さんと嵐ちゃん is live on ニコニコ漫画 twice a
-    week and appears here because the one episode that platform shows us produced no chapters, so
-    the shop listing really is everything we have on it.
+    AN ANTHOLOGY PUBLISHED AS A TASTER. 一迅プラス's are 試し読み throughout, and a promotional
+    sample is not a release (REQUIREMENTS §5), so the whole list drops and the book itself is a
+    thing to buy rather than to read there.
+
+    ONLY WHERE THAT IS THE WHOLE STORY. A work carrying any other source keeps its place, because
+    the claim is about what WE hold rather than about the work: 高音さんと嵐ちゃん updates twice a
+    week on ニコニコ漫画 and is in this set, because the one episode that platform shows us
+    produced no chapters.
     """
-    p = pathlib.Path(kadokomi)
-    if not p.exists():
-        return set()
-    shelf = {norm_work(w.get("work_title") or "")
-             for w in (yaml.safe_load(p.read_text()) or {}).get("works") or []
-             if not (w.get("chapters") or w.get("episodes")) and w.get("status") == "unknown"}
-    out = set()
+    shelf = set()
+    kp = pathlib.Path(kadokomi)
+    if kp.exists():
+        shelf = {norm_work(w.get("work_title") or "")
+                 for w in (yaml.safe_load(kp.read_text()) or {}).get("works") or []
+                 if not (w.get("chapters") or w.get("episodes")) and w.get("status") == "unknown"}
+
+    # What each source lists for a work, whether or not any of it survived to a release.
+    listed = {}
+    for f in glob.glob(f"{sources}/**/*.yaml", recursive=True):
+        try:
+            d0 = yaml.safe_load(pathlib.Path(f).read_text())
+        except Exception:
+            continue
+        if not isinstance(d0, dict):
+            continue
+        for w in d0.get("works") or []:
+            if isinstance(w, dict) and (w.get("chapters") or w.get("episodes")):
+                listed.setdefault(norm_work(w.get("work_title") or ""), []).extend(
+                    w.get("chapters") or w.get("episodes"))
+
+    out = {}
     for r in works_out:
         if r.get("chapters"):
             continue
+        nw = norm_work(r.get("work") or "")
         plats = {s.get("platform") for s in (r.get("sources") or [])}
-        if norm_work(r.get("work") or "") in shelf and plats <= {"カドコミ"}:
-            out.add(norm_work(r["work"]))
+        if nw in shelf and plats <= {"カドコミ"}:
+            out[r["work"]] = "a カドコミ shop listing for a work it does not serialise"
+            continue
+        chs = listed.get(nw) or []
+        if not chs:
+            continue
+        titles = [str(c.get("title") or "") for c in chs]
+        if all(t.strip().startswith("【試し読み") for t in titles):
+            out[r["work"]] = "an anthology published here only as 試し読み samples"
+        elif all(anth_parts(t) for t in titles):
+            out[r["work"]] = "an anthology whose stories are filed under their own authors"
     return out
+
 
 
 def content_flags():
@@ -995,7 +1025,7 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
              # serialise: the volumes are for sale, nothing was ever published there to read, and
              # they were sitting in the web list as work somebody might go and do.
              "catalogue_listings": [
-                 {"work": r["work"],
+                 {"work": r["work"], "why": r.get("set_aside"),
                   "platform": (r.get("sources") or [{}])[0].get("platform")}
                  for r in catalogue_rows],
          },
@@ -3152,14 +3182,14 @@ def main():
     # A shop listing is not a web work. Held out of the web list rather than deleted: the row is
     # still the truth about what カドコミ sells, and status.html counts what was set aside so the
     # number cannot quietly become a way of losing things.
-    _cat = catalogue_only(works_out)
-    if _cat:
-        catalogue_rows = [r for r in works_out if norm_work(r.get("work")) in _cat]
-        works_out = [r for r in works_out if norm_work(r.get("work")) not in _cat]
-        print(f"catalogue listings  : {len(catalogue_rows)} work(s) held only as カドコミ shop "
-              "entries, with no web serialisation to read")
-    else:
-        catalogue_rows = []
+    _aside = set_aside(works_out)
+    catalogue_rows = [dict(r, set_aside=_aside[r["work"]]) for r in works_out
+                      if r.get("work") in _aside]
+    works_out = [r for r in works_out if r.get("work") not in _aside]
+    if catalogue_rows:
+        import collections as _c
+        for _why, _n in _c.Counter(r["set_aside"] for r in catalogue_rows).most_common():
+            print(f"set aside           : {_n} work(s), {_why}")
 
     series_rows = sorted(works_out,
                          key=lambda r: (r["latest"] or "", r["chapters"]), reverse=True)

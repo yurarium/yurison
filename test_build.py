@@ -187,37 +187,47 @@ def main(s):
                                                   b.norm_work("COMIC FUZ"))]
             s.eq(len(got), 2, "the fuller history survives whichever file is read first")
 
-    # A SHOP LISTING IS NOT A WEB WORK. カドコミ lists KADOKAWA's catalogue whether or not a work
-    # was ever serialised there, and 39 entered the web list with no chapters and nothing to read.
-    # The test is the platform's own serializationStatus, which says `unknown` for what it does not
-    # serialise, rather than a guess about titles.
+    # WHAT REACHES THE READER AS NOTHING, AND WHY. A row with no chapters is not always a gap in
+    # our fetching: 44 of them were finished states wearing the same face, sitting in the web list
+    # as work somebody might go and do. Each kind is decided by data rather than by a title.
     import tempfile, yaml as _yaml
     with tempfile.TemporaryDirectory() as d:
         kf = pathlib.Path(d) / "chapters.yaml"
         kf.write_text(_yaml.safe_dump({"works": [
             {"work_title": "shelf", "status": "unknown", "chapters": []},
             {"work_title": "running", "status": "ongoing", "chapters": []},
-            {"work_title": "read", "status": "unknown",
-             "chapters": [{"updated": "2026-01-01"}]},
+        ]}, allow_unicode=True))
+        src = pathlib.Path(d) / "src"; src.mkdir()
+        (src / "a.yaml").write_text(_yaml.safe_dump({"works": [
+            {"work_title": "taster", "chapters": [
+                {"title": "\u3010\u8a66\u3057\u8aad\u307f\u3011\u767d\u7389\u3082\u3061"
+                          "\uff3b\u8c9d\u5408\u308f\u305b\uff3d"}]},
+            {"work_title": "collection", "chapters": [
+                {"title": "\u6f2b\u753b\uff1a\u72ac\u4e95\u3042\u3086 \u541b\u306f\u5149(\u524d\u7de8)"}]},
+            {"work_title": "ordinary", "chapters": [{"title": "\u7b2c1\u8a71"}]},
         ]}, allow_unicode=True))
         K = {"platform": "\u30ab\u30c9\u30b3\u30df"}
-        rows = [
-            {"work": "shelf", "chapters": 0, "sources": [K]},
-            {"work": "running", "chapters": 0, "sources": [K]},
-            {"work": "read", "chapters": 0, "sources": [K]},
-            {"work": "elsewhere", "chapters": 0, "sources": [K, {"platform": "\u7af9\u30b3\u30df"}]},
-            {"work": "has chapters", "chapters": 12, "sources": [K]},
-        ]
-        got = b.catalogue_only(rows, str(kf))
-        s.check(b.norm_work("shelf") in got, "a listing with no episodes and no status is set aside")
-        s.check(b.norm_work("running") not in got,
-                "a work the platform says it is serialising is not")
-        s.check(b.norm_work("read") not in got, "nor one it lists episodes for")
-        s.check(b.norm_work("elsewhere") not in got,
-                "nor one we hold anywhere else, because the claim is about what WE hold")
-        s.check(b.norm_work("has chapters") not in got, "and never one with chapters")
-        s.eq(b.catalogue_only(rows, str(pathlib.Path(d) / "absent.yaml")), set(),
-             "no カドコミ file means nothing is set aside, rather than everything")
+        rows = [{"work": "shelf", "chapters": 0, "sources": [K]},
+                {"work": "running", "chapters": 0, "sources": [K]},
+                {"work": "elsewhere", "chapters": 0, "sources": [K, {"platform": "\u7af9\u30b3\u30df"}]},
+                {"work": "taster", "chapters": 0, "sources": [{"platform": "P"}]},
+                {"work": "collection", "chapters": 0, "sources": [{"platform": "P"}]},
+                {"work": "ordinary", "chapters": 0, "sources": [{"platform": "P"}]},
+                {"work": "shelf", "chapters": 9, "sources": [K]}]
+        got = b.set_aside(rows, str(kf), str(src))
+        s.check("shop listing" in (got.get("shelf") or ""),
+                "a カドコミ listing with no episodes and no status is set aside, and says why")
+        s.check("running" not in got, "a work the platform says it is serialising is not")
+        s.check("elsewhere" not in got,
+                "nor one we hold anywhere else: the claim is about what WE hold")
+        s.check("\u8a66\u3057\u8aad\u307f" in (got.get("taster") or ""),
+                "an anthology that is samples throughout is set aside as one")
+        s.check("own authors" in (got.get("collection") or ""),
+                "and one whose stories are filed under their own authors, separately")
+        s.check("ordinary" not in got,
+                "a work with ordinary chapters we simply failed to attach is left alone, "
+                "because that IS a gap in our fetching")
+        s.eq(b.set_aside([], str(kf), str(src)), {}, "no works is an empty answer, not a crash")
 
 
 if __name__ == "__main__":

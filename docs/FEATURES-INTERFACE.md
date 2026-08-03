@@ -205,3 +205,38 @@ pressing it then did nothing.
 Border and weight carry the mark and the text colour is left alone. All three together read as an
 alert rather than as a mark, and colour by itself carries the meaning for nobody who cannot see it.
 
+## Search
+
+**Every form of a name is searchable, whichever one is displayed.** The index holds the Japanese
+surface, the kana reading, the English name where there is one, and all three romanisations.
+Japanese was always findable in either language mode because the box matched the stored Japanese;
+English was findable in neither, and 87% of the catalogue renders as romaji in English mode, so a
+reader could search only the text the interface was hiding from them.
+
+The rule matters most once a work has a translation. The interface then shows the English name and
+hides the romanisation, so indexing what is shown would make translating a title lose the romaji
+somebody already knew it by.
+
+Indexing the reading also means a work answers to how it sounds: 百合の花 is found by ゆりのはな
+without knowing the kanji.
+
+**Long vowels: index all three romanisations, fold macrons, leave ASCII doubles alone.** Waingāruzu,
+Waingaaruzu and Waingaruzu each hit exactly because all three are indexed. Macrons fold on top,
+since a reader who sees ā and cannot type it writes a, and ā is never anything but a long a.
+
+Folding ASCII doubles looks symmetrical and is wrong. Titles mix scripts, so collapsing ee turns
+Free into Fre, and ゆり and ゆうり are genuinely different words. The doubled romanisation is
+indexed in full, which covers the same typing without the damage.
+
+**Spacing is not identity**, on both sides of the comparison. Readings arrive word-separated
+(ハル ナツ アキ フユ) and a reader typing ハルナツアキフユ means the same thing, while "bloom into
+you" must still match with its spaces. Both are compared stripped as well as intact, in one place,
+so a field gets the same treatment whether or not it came through the index builder.
+
+Search does not depend on the romanisation toggle either. A preference about display must not
+change which rows exist, or two readers looking at the same database get different answers to one
+question.
+
+**It over-matches rather than under-matching.** Once macrons fold, `yuri` finds works read ユリ and
+ユウリ alike. A reader can see the results and choose; a work that cannot be found is invisible.
+

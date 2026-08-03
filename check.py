@@ -214,6 +214,42 @@ def inv_no_stock_phrasing_in_public_text(ctx):
     return bad
 
 
+def inv_no_withheld_work_is_published(ctx):
+    """A work held back for adult-content review appears in nothing we ship.
+
+    THIS FAILED SILENTLY FOR THE LIFE OF THE PROJECT. adapters/kadokomi/confirm.py has written
+    data/source/kadokomi/withheld.yaml since the first run, its header saying "Not published.
+    Ambiguity on the adult filter fails closed (REQUIREMENTS §6)." Nothing read it, and all five
+    works it named were live on the public site.
+
+    Checked against the DEPLOYED bytes rather than the build, and by substring rather than by
+    field, because the titles turned up in six different published surfaces: the feed, the works
+    list, an archived month, names.json's phrases, run.json's claim trace and meta.json's coverage
+    list. Removing them from the first three looked like it had worked.
+
+    fallback: none. This is the one check that must never degrade to a warning, because the thing
+    it guards is a standing constraint rather than a data-quality target.
+    """
+    reg = {}
+    for f in sorted((ROOT / "data" / "source").rglob("withheld.yaml")):
+        d = _yaml(f, {}) or {}
+        for w in d.get("works") or []:
+            if w.get("work_title"):
+                reg[w["work_title"]] = True
+    if not reg:
+        return []
+    bad = []
+    for f in sorted(SITE.rglob("*.json")):
+        try:
+            txt = f.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            continue
+        for title in reg:
+            if title in txt:
+                bad.append(f"{f.relative_to(SITE)}: {title[:24]}")
+    return bad
+
+
 def inv_archives_unchanged(ctx):
     """A published month is written once. That is what protects its dates (REQUIREMENTS §5).
 
@@ -297,6 +333,7 @@ INVARIANTS = [
     ("readings are stored as kana", inv_readings_are_kana),
     ("English mode has no Japanese", inv_english_mode_has_no_japanese),
     ("no stock phrasing in public text", inv_no_stock_phrasing_in_public_text),
+    ("no withheld work is published", inv_no_withheld_work_is_published),
     ("archives are unchanged", inv_archives_unchanged),
     ("deployed data matches built", inv_deployed_matches_built),
     ("no refutation of print serials", inv_no_refutation_of_print_serials),

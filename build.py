@@ -87,6 +87,32 @@ CHAPTER_NUM_RE = re.compile(r"第[0-9０-９]+[話回]|[0-9０-９]+話|#[0-9０
 HIATUS_FRESH_DAYS = 180
 
 
+def withheld_works():
+    """Titles held back pending human review, from every source that writes a register.
+
+    WHY THIS EXISTS. `adapters/kadokomi/confirm.py` has been writing
+    data/source/kadokomi/withheld.yaml since the start, correctly flagging works whose
+    `ratingLevel` is `adult`. Its own header says "Not published. Ambiguity on the adult filter
+    fails closed (REQUIREMENTS §6)."
+
+    Nothing read it. All five works it named were live on the public site.
+
+    The rating field's meaning is explicitly recorded as unestablished
+    (kadokomi/confirm.py: RATING_SEMANTICS_KNOWN = False), so `adult` is not proof of anything.
+    That is precisely why it fails closed: a work stays out until a person has looked, rather than
+    going out because a flag could not be interpreted.
+    """
+    out = {}
+    for f in sorted(pathlib.Path("data/source").rglob("withheld.yaml")):
+        d = yaml.safe_load(f.read_text()) or {}
+        for w in d.get("works") or []:
+            t = w.get("work_title")
+            if t:
+                out[norm_work(t)] = {"title": t, "reason": w.get("reason"),
+                                     "source": d.get("source") or f.parent.name}
+    return out
+
+
 def is_skipped_slot(title):
     """One producer of this fact, used by the release classifier and the series accumulator alike."""
     t = unicodedata.normalize("NFKC", title or "")
@@ -376,6 +402,7 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
         if len(d) >= 7:
             by_month[d[:7]].append(r)
 
+    _archive_withheld = withheld_works()
     this_month = str(_today)[:7]
     # NOT `warnings` — that name already holds the works with no content_tier, collected at the
     # top of main(). Rebinding it here made the closing line report this block's warning count (0)
@@ -392,6 +419,22 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
             continue
         path = feed_dir / f"{m}.json"
         payload = {"releases": by_month[m], "month": m, "generated": str(_today)}
+        # WITHHELD BEATS WRITE-ONCE. §5's date locking protects a statement about DATES from being
+        # quietly revised. It was never a licence to keep publishing a work that the adult-content
+        # review has held back: an archive is still published, and a row nobody may see is a row
+        # nobody may see whatever month it sits in. So a withheld work is removed from an existing
+        # archive and the removal is stated, which is the opposite of quiet revision.
+        if path.exists() and _archive_withheld:
+            try:
+                _old = json.loads(path.read_text()).get("releases") or []
+            except (OSError, ValueError):
+                _old = []
+            _keep = [r for r in _old if norm_work(r.get("work")) not in _archive_withheld]
+            if len(_keep) != len(_old):
+                path.write_text(json.dumps({"releases": _keep, "month": m,
+                                            "generated": str(_today)}, ensure_ascii=False))
+                print(f"  archive {m}: removed {len(_old) - len(_keep)} withheld row(s); "
+                      "§5 yields to the content register")
         if path.exists():
             # REQUIREMENTS §5, date locking. A published month is a statement about dates that has
             # already been made; a later run must not quietly revise it. So it is never rewritten —
@@ -579,6 +622,12 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
         _s = ", ".join(f"{b['platform']} {b['date']} x{b['releases']}" for b in bulk[:4])
         print(f"bulk re-dating  : {len(bulk)} (platform, date) bucket(s) far above that "
               f"platform's own median — {_s}")
+
+    # run.json and meta.json are DEPLOYED, so a withheld work's title must not survive in a claim
+    # trace or a coverage list either. Six published surfaces carried these titles in all; each was
+    # checked separately because removing them from the first three looked like it had worked.
+    _wh = withheld_works()
+    claim_trace = [t for t in claim_trace if norm_work(t.get("work")) not in _wh]
 
     cl = Counter(t["disposition"] for t in claim_trace)
     (out / "run.json").write_text(json.dumps(
@@ -1891,6 +1940,17 @@ def main():
     # 試し読み-only series are not web publication (DEFINITIONS §6), so they are dropped from the
     # feed outright rather than hidden behind a filter — a hidden entry still inflates totals and
     # the acceptance measure. They remain as print candidates, which is what they actually are.
+    # Withheld before anything else. A work awaiting the adult-content review must not reach the
+    # feed, the works list or the counts, so it is dropped at the same point 試し読み is, and for
+    # the same reason: a hidden row still inflates totals.
+    _withheld = withheld_works()
+    if _withheld:
+        _dropped = [r for r in releases if norm_work(r.get("work")) in _withheld]
+        releases = [r for r in releases if norm_work(r.get("work")) not in _withheld]
+        if _dropped:
+            print(f"withheld            : {len(_dropped)} release(s) across "
+                  f"{len({r['work'] for r in _dropped})} work(s) held back pending review")
+
     samples = [r for r in releases if r.get("web") == "promotional-sample-only"]
     releases = [r for r in releases if r.get("web") != "promotional-sample-only"]
     releases = [r for r in releases if r.get("is_preferred")]
@@ -2054,9 +2114,14 @@ def main():
     # separately rather than being forced through the tankōbon work-merge. Folding them into the
     # main work table is a schema step, not a formatting one, and is deliberately not rushed here.
     web_works = []
+    # meta.json is deployed, so a withheld work must not survive here either. Skipped before the
+    # field checks below, or a work nobody may publish still raises errors about its labelling.
+    _wh_web = withheld_works()
     for f in sorted(glob.glob("data/source/kadokomi/confirmed.yaml")):
         d = yaml.safe_load(open(f)) or {}
         for w in d.get("works") or []:
+            if norm_work(w.get("work_title")) in _wh_web:
+                continue
             if not w.get("marketing_label") and not w.get("content_tier"):
                 errors.append(f"{w.get('work_title')}: confirmed web work with neither axis set")
             if w.get("marketing_label") and not w.get("marketing_label_basis"):
@@ -2547,6 +2612,17 @@ def main():
                          "latest": r["latest"], "partial": r["partial"], "format": r["format"]}
                         for r in rows],
         })
+    # The works list is assembled from the source records rather than from the feed, so filtering
+    # releases does not reach it. Both paths need the register, which is why dropping it in one
+    # place looked like it had worked and had not.
+    _wh = withheld_works()
+    if _wh:
+        _out = [r for r in works_out if norm_work(r.get("work")) in _wh]
+        works_out = [r for r in works_out if norm_work(r.get("work")) not in _wh]
+        if _out:
+            print(f"withheld from works : {len(_out)} work(s) held back pending review: "
+                  + ", ".join(r["work"][:20] for r in _out))
+
     series_rows = sorted(works_out,
                          key=lambda r: (r["latest"] or "", r["chapters"]), reverse=True)
     # AUTOPILOT. Before attaching anything, give every work and author the pipeline currently knows
@@ -2586,6 +2662,12 @@ def main():
     def _fold(t):
         return unicodedata.normalize("NFKC", t or "").replace(" ", "")
 
+    # A withheld work's TITLE must not ship either. names.json is keyed by folded title and is
+    # published, so leaving it here would put the work's name and English rendering on the public
+    # site with only its rows removed. Third path, and the reason each output was checked rather
+    # than the first one being taken as proof.
+    _wh_names = withheld_works()
+    _title_names = {k: v for k, v in _title_names.items() if norm_work(k) not in _wh_names}
     _title_folded = {_fold(k): v for k, v in _title_names.items()}
     _auth_folded = {_fold(k): v for k, v in _auth_names.items()}
 
@@ -2618,10 +2700,14 @@ def main():
                  "show current names.",
          "titles": _title_folded, "authors": _auth_folded,
          # Chapter names, collections and credit lines, keyed folded like the rest.
+         # phrases carries collection and chapter names, and a withheld work's title lands here
+         # too when it names a collection. Filtered on the same register.
+         # phrases carries collection and chapter names, and a withheld work's title lands here
+         # too when it names a collection. Same register, or the title ships anyway.
          "phrases": {_fold(k): v for k, v in (
              (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
               ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}
-         ).items()}},
+         ).items() if norm_work(k) not in _wh_names}},
         ensure_ascii=False, indent=1, default=jsonable))
 
     (out / "series.json").write_text(json.dumps(

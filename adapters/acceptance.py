@@ -85,6 +85,14 @@ def main():
     # a definitional disagreement, not a coverage gap, and conflating the two would misstate both.
     excluded = {norm(r["work"]) for r in feed["releases"]
                 if r.get("web") == "promotional-sample-only"}
+    # Works held back pending the adult-content review are excluded ON PURPOSE, so a yardstick
+    # listing one is a definitional disagreement rather than coverage we lack. Counting them as
+    # misses dropped 百合ナビ from 97.4% to 93.5% and read as a regression, which is exactly the
+    # conflation the comment above warns against.
+    for wf in sorted(pathlib.Path("data/source").rglob("withheld.yaml")):
+        for w in (yaml.safe_load(wf.read_text()) or {}).get("works") or []:
+            if w.get("work_title"):
+                excluded.add(norm(w["work_title"]))
     for pc in feed.get("print_candidates") or []:
         excluded.add(norm(pc.get("work_title")))
     # Works the platform's own full chapter history contradicts. A yardstick reporting an update
@@ -176,6 +184,11 @@ def main():
         n = norm(raw)
         return any(o and n.startswith(o) for o in ours if len(o) >= 2)
 
+    y_hit = [w for w in y_in if y_match(w["raw"])]
+    # Deliberately excluded works are not a coverage gap here either. The webcomics measure
+    # already subtracts them; this one counted them as misses, so withholding five works read as
+    # 百合ナビ falling from 97.4% to 93.5%.
+    y_in = [w for w in y_in if not any(e and e in norm(w["raw"]) for e in excluded)]
     y_hit = [w for w in y_in if y_match(w["raw"])]
     y_w = [w for w in y_in if norm(w["platform"]) in watched]
     y_w_hit = [w for w in y_w if y_match(w["raw"])]

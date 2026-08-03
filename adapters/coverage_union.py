@@ -20,18 +20,16 @@ Usage:  coverage_union.py --out data/coverage
 """
 import argparse, json, pathlib, re
 import unicodedata
+
+import textnorm
 from collections import defaultdict
 
 import yaml
 
 
-def norm(s):
-    # Strip zero-width and bidi control characters: the antenna emits platform names carrying
-    # U+200E/U+200F (竹コミ‎‏‎), which are invisible and silently break every comparison.
-    s = re.sub(r"[\u200b-\u200f\u202a-\u202e\ufeff]", "", s or "")
-    s = unicodedata.normalize("NFKC", s)
-    return re.sub(r"""[\s\-.=、。･・!?,:;'"“”‘’()\[\]{}「」『』【】〈〉《》〔〕~〜_/\\|+*&#@]""",
-                  "", s.strip().lower())
+# One producer of this fact, shared with adapters/webcomics/coverage.py. These two had drifted:
+# identical but for `+`, which this one stripped and the other kept. See adapters/textnorm.py.
+norm = textnorm.norm
 
 
 def main():

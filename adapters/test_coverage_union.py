@@ -25,12 +25,11 @@ def main(s):
     s.eq(cu.norm("百​合"), cu.norm("百合"), "a zero-width space is stripped")
     s.eq(cu.norm("﻿百合"), cu.norm("百合"), "a byte-order mark is stripped")
 
-    # This normaliser strips "+", where webcomics/coverage.py keeps it. The consequence is that
-    # 少年ジャンプ+ normalises to 少年ジャンプ here, so the web platform and the magazine would merge
-    # if both ever appeared as platform names. Neither does today, so it is recorded rather than
-    # changed: which behaviour is correct is a decision about identity, not a tidy-up.
-    s.eq(cu.norm("少年ジャンプ+"), cu.norm("少年ジャンプ"),
-         "the plus is stripped here, unlike in webcomics/coverage.py")
+    # The two normalisers were identical but for "+", which this one stripped. It is applied only
+    # to PLATFORM names, and there the plus is the whole distinction: 少年ジャンプ+ is the web
+    # platform, 少年ジャンプ is the print magazine. Both now share one function.
+    s.ne(cu.norm("少年ジャンプ+"), cu.norm("少年ジャンプ"),
+         "the web platform is not the magazine")
 
 
 if __name__ == "__main__":

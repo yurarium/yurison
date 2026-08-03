@@ -19,6 +19,9 @@ import argparse, html as _html, json, pathlib, re, sys, time, urllib.request
 import unicodedata
 from collections import Counter, defaultdict
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+import textnorm
+
 import yaml
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
@@ -67,13 +70,9 @@ def parse(html):
     return out
 
 
-def norm(s):
-    # Strip zero-width and bidi control characters: the antenna emits platform names carrying
-    # U+200E/U+200F (竹コミ‎‏‎), which are invisible and silently break every comparison.
-    s = re.sub(r"[\u200b-\u200f\u202a-\u202e\ufeff]", "", s or "")
-    s = unicodedata.normalize("NFKC", s)
-    return re.sub(r"""[\s\-.=、。･・!?,:;'"“”‘’()\[\]{}「」『』【】〈〉《》〔〕~〜_/\\|*&#@]""",
-                  "", s.strip().lower())
+# One producer of this fact, shared with adapters/coverage_union.py. See adapters/textnorm.py for
+# why `+` is kept: it is the difference between 少年ジャンプ+ and the magazine.
+norm = textnorm.norm
 
 
 def main():

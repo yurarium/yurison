@@ -1249,6 +1249,33 @@ def main():
     # refutation records the evidence that licensed it, so the "we just failed to capture it"
     # hypothesis stays visible on the technical screen instead of being assumed away.
     claim_trace = []
+    # WORKS THAT ALSO RUN IN PRINT. A web platform's chapter dates cannot refute a claim about one
+    # of these, because the two record different events: コミック百合姫 prints an instalment and
+    # 一迅プラス puts it online weeks later. Sixteen of nineteen refutations were 一迅プラス and eleven
+    # were works on a 百合姫 imprint in our own catalogue; the gaps clustered at magazine intervals
+    # — 14, 28, 31, 35, 36 days — and several were NEGATIVE, the web chapter arriving after the
+    # claim rather than before it.
+    #
+    # REQUIREMENTS §4 already had this: absence is evidence of absence only where the list is known
+    # to be complete. A publisher's web arm is not a complete list of that publisher's output.
+    #
+    # Read from data/source/madb directly rather than from `works`, which is compiled hundreds of
+    # lines below this and would not exist yet.
+    publisher_platforms = {norm_work(x["name"]) for x in
+                           (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {})
+                           .get("platforms") or [] if x.get("publisher")}
+
+    print_serialised = set()
+    for _f in glob.glob("data/source/madb/*.yaml"):
+        try:
+            _d = yaml.safe_load(open(_f)) or {}
+        except Exception:
+            continue
+        _t = _d.get("title")
+        _t = _t.get("ja") if isinstance(_t, dict) else _t
+        if _t:
+            print_serialised.add(norm_work(_t))
+
     contradicted, contradicted_works = 0, []
     CLAIM_DATE_SLACK = 2   # days either side
 
@@ -1344,6 +1371,30 @@ def main():
                 elif len(raw_hist) < 3:
                     plat_hist, held_back = None, (
                         f"only {len(raw_hist)} chapter(s) held — a history of one is not a history")
+            # THE PLATFORM, NOT JUST THE WORK. Matching against MADB only catches serialisations
+            # already collected into volumes — a running one is not there yet, which is why eight
+            # claims survived the first version of this rule with gaps of exactly the same
+            # magazine shape (14, 11, 31, -14, -28). The completeness problem is a property of the
+            # PLATFORM: 一迅プラス, コミックDAYS, webアクション and サンデーうぇぶり are publishers' web
+            # arms, and a publisher's web arm is not a complete list of that publisher's output.
+            # data/platforms.yaml already records which platforms have a publisher.
+            would_refute = (plat_hist and not any(
+                abs((datetime.date.fromisoformat(when)
+                     - datetime.date.fromisoformat(x)).days) <= 7 for x in plat_hist))
+            # Only where we WOULD have refuted. A claim on a publisher's platform for a work we
+            # hold no history of is genuinely untraced, and calling it print-serialised would
+            # assert a magazine origin we have not established — trading one unfounded disposition
+            # for another.
+            if would_refute and (nw in print_serialised
+                                 or norm_work(pn_claim) in publisher_platforms):
+                # Not refuted and not merely untraced: the claim is about a magazine instalment and
+                # the platform we hold cannot speak to it either way.
+                trace(c, w, "print-serialised",
+                      "a magazine-dated claim cannot be confirmed or refuted by a publisher's web "
+                      "arm — the two record different events, and the web chapter typically "
+                      "follows the print instalment by two to five weeks",
+                      platform_latest=max(plat_hist) if plat_hist else None)
+                continue
             if plat_hist and not any(abs((datetime.date.fromisoformat(when)
                                           - datetime.date.fromisoformat(x)).days) <= 7
                                      for x in plat_hist):

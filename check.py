@@ -222,6 +222,42 @@ def inv_deployed_matches_built(ctx):
     return bad
 
 
+def inv_no_refutation_of_print_serials(ctx):
+    """A web platform cannot refute a claim about a work that also runs in a magazine.
+
+    The two record different events. コミック百合姫 prints an instalment and 一迅プラス puts it online
+    weeks later, so the platform's chapter dates say nothing about whether the work published on
+    the claimed date — it published in print. Sixteen of nineteen refutations were 一迅プラス, eleven
+    of them works we hold on a 百合姫 imprint in our own print catalogue, and their gaps clustered at
+    magazine intervals: 14, 28, 31, 35, 36 days, several NEGATIVE because the web chapter came
+    after the claim rather than before it.
+
+    REQUIREMENTS §4 already says absence is evidence of absence only where the list is known to be
+    complete. A publisher's web arm is not a complete list of that publisher's publications; the
+    magazine is.
+
+    fallback: the claim is dispositioned print-serialised, not refuted, and stays open to a source
+    that can actually speak to magazine dates.
+    """
+    run = _load(BUILD / "run.json", {}) or {}
+    refuted = [t for t in (run.get("claims", {}).get("trace") or [])
+               if t.get("disposition") == "refuted"]
+    if not refuted:
+        return []
+    works = _load(BUILD / "works.json", []) or []
+    works = works.get("works") if isinstance(works, dict) else works
+
+    def nm(x):
+        t = x.get("title")
+        return (t.get("ja") if isinstance(t, dict) else t) or ""
+
+    def norm(t):
+        return re.sub(r"[\s　・･!！?？…‥、。,.\-–—〜~\"'’“”()（）\[\]【】]", "", (t or "").lower())
+
+    print_titles = {norm(nm(x)) for x in works}
+    return [t["work"] for t in refuted if norm(t["work"]) in print_titles]
+
+
 INVARIANTS = [
     ("ruby spells the reading", inv_ruby_spells_reading),
     ("no ruby over bare Latin", inv_no_ruby_over_latin),
@@ -231,6 +267,7 @@ INVARIANTS = [
     ("English mode has no Japanese", inv_english_mode_has_no_japanese),
     ("archives are unchanged", inv_archives_unchanged),
     ("deployed data matches built", inv_deployed_matches_built),
+    ("no refutation of print serials", inv_no_refutation_of_print_serials),
 ]
 
 

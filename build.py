@@ -2357,7 +2357,7 @@ def main():
         # ENDED, on the platform's own words rather than on silence.
         #
         # Two firm signals, and only these two. A chapter titled 最終話 is the publisher saying so in
-        # the one place they always say it; カドコミ additionally carries an explicit status field.
+        # the one place they always say it; カドコミ also carries an explicit status field.
         # 会長！今日はサボりましょう！ has a 最終話 dated 2025-01-30 and we filed it `dormant` — which
         # reads as an abandoned series rather than a finished one.
         #

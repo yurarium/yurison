@@ -122,3 +122,32 @@ Unihan is the Unicode licence. Data files derived from a source carry their attr
   cited; the same rule in a central document did not prevent five repeats.
 - **A document that describes a state goes stale; one that records a decision does not.** Prefer
   the latter, and generate the former.
+
+## 11. Public text must not read as machine-written
+
+Almost every word here was drafted by an assistant, and assistants have a house style. A reader who
+knows the tells reads them as a signature, and the project's text should read as the project's.
+
+**In scope:** anything a reader sees, code comments and docstrings, documentation, and commit
+messages from now on. Commit messages already written are history and are left alone — the public
+repository's development history is to be squashed before 1.0 in any case.
+
+`adapters/lint/tics.py` holds the list and the substitutions, in two tiers matching §4's logic:
+reader-facing text is an invariant and must be zero; comments and docs are a budget, because there
+is a backlog and a backlog must not block a build.
+
+**What the lint cannot catch, and you must:**
+
+- **The escalating triple.** Three parallel clauses where two would do, the third adding rhythm
+  rather than content.
+- **The emphatic fragment.** A one-clause sentence dropped after a long one for weight. Sparingly
+  is fine; as a reflex it is a tell.
+- **Restatement as structure.** A paragraph whose last line says what its first line said.
+- **Hedging that carries no information** — "generally", "typically", "often" attached to a claim
+  that is either true or is not.
+- **Symmetry that was not in the facts.** Two options given equal weight because two reads well,
+  when one is obviously right. Give the recommendation.
+
+**Do not flag em dashes.** They are the best-known tell and the wrong rule here: they are used
+deliberately throughout, and a check that fires on every page of correct prose is a check that gets
+switched off. The same goes for bold-lead bullets, which are load-bearing in these documents.

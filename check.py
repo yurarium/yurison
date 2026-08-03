@@ -33,7 +33,13 @@ ROOT = pathlib.Path(__file__).resolve().parent
 BUILD = ROOT / "data" / "build"
 NAMES = ROOT / "data" / "names"
 BUDGETS = ROOT / "docs" / "budgets.json"
-SITE = pathlib.Path.home() / "Development" / "yuri" / "yurarium.github.io" / "kari" / "data"
+SITE_ROOT = pathlib.Path.home() / "Development" / "yuri" / "yurarium.github.io"
+SITE = SITE_ROOT / "kari" / "data"
+
+# Every file a reader can load. The English strings live inside the pages rather than in a
+# resource file, so the pages themselves are the text; there is nowhere else to look.
+READER_TEXT = [SITE_ROOT / "index.html", SITE_ROOT / "README.md",
+               SITE_ROOT / "kari" / "index.html", SITE_ROOT / "kari" / "status.html"]
 
 JAPANESE = re.compile(r"[぀-ヿ一-鿿　-〿＀-￯]")
 KANA = re.compile(r"^[぀-ヿ\s・ー]*$")
@@ -183,6 +189,23 @@ def inv_english_mode_has_no_japanese(ctx):
     return sorted(set(bad))
 
 
+def inv_no_machine_tells_in_reader_text(ctx):
+    """Nothing a reader sees carries the verbal tics of generated text.
+
+    Almost all of this project's prose was drafted by an assistant, and assistants have a house
+    style. A reader who knows the tells reads them as a signature, so they are removed. Only the
+    HARD list is checked here — constructions with no legitimate use — because the invariant is an
+    absolute statement. The ordinary words that are a tell only in bulk are a budget instead.
+
+    fallback: none needed. This reads files that are already written; it cannot degrade a build.
+    """
+    out = subprocess.run(
+        [sys.executable, str(ROOT / "adapters" / "lint" / "tics.py"), "--prose",
+         *[str(f) for f in READER_TEXT if f.exists()]],
+        capture_output=True, text=True, timeout=60)
+    return [l.split(" — ")[0].strip() for l in out.stdout.splitlines() if " — " in l]
+
+
 def inv_archives_unchanged(ctx):
     """A published month is written once. That is what protects its dates (REQUIREMENTS §5).
 
@@ -265,6 +288,7 @@ INVARIANTS = [
     ("every update has a kind", inv_no_unknown_kind),
     ("readings are stored as kana", inv_readings_are_kana),
     ("English mode has no Japanese", inv_english_mode_has_no_japanese),
+    ("no machine tells in reader text", inv_no_machine_tells_in_reader_text),
     ("archives are unchanged", inv_archives_unchanged),
     ("deployed data matches built", inv_deployed_matches_built),
     ("no refutation of print serials", inv_no_refutation_of_print_serials),
@@ -294,6 +318,18 @@ def budget_incomplete_attested_rows(ctx):
                     or not r.get("access_modes")))
 
 
+def budget_machine_tells_in_comments(ctx):
+    try:
+        files = [str(f) for f in list(ROOT.rglob("*.py")) + list(ROOT.rglob("*.md"))
+                 if ".git" not in f.parts and "data" not in f.parts]
+        out = subprocess.run(
+            [sys.executable, str(ROOT / "adapters" / "lint" / "tics.py"), "--comments",
+             "--quiet", *files], capture_output=True, text=True, timeout=120)
+        return int(out.stdout.strip() or 0)
+    except Exception:
+        return 0
+
+
 def budget_shadowed_names(ctx):
     try:
         out = subprocess.run([sys.executable, str(ROOT / "adapters" / "lint" / "shadowing.py"),
@@ -317,6 +353,10 @@ BUDGETS_DEF = [
     ("incomplete attested rows", budget_incomplete_attested_rows,
      "attested releases missing a chapter name, author or access state. The classic sign of a "
      "moved CSS selector — the adapter still returns rows, just emptier ones."),
+    ("machine tells in comments", budget_machine_tells_in_comments,
+     "verbal tics of generated text in comments, docstrings and documentation. Reader-facing text "
+     "is an invariant instead; this is the backlog, and it ratchets down. See adapters/lint/tics.py "
+     "for what is deliberately not flagged."),
     ("shadowed names in build.py", budget_shadowed_names,
      "names rebound more than 300 lines from their first binding. Two shipped bugs came from this; "
      "see adapters/lint/shadowing.py for why the count is not simply falling."),
@@ -364,8 +404,19 @@ def self_test():
         if not fn(c):
             print(f"  self-test FAILED — '{name}' did not catch its canary")
             ok = False
+
+    # The tics invariant reads files rather than ctx, so there is nothing to plant. It carries its
+    # own canaries — and its own counter-cases, which matter more: three of the first four things
+    # it reported were the rules being wrong, not the prose.
+    sub = subprocess.run([sys.executable, str(ROOT / "adapters" / "lint" / "tics.py"),
+                          "--self-test"], capture_output=True, text=True, timeout=60)
+    if sub.returncode != 0:
+        print("  self-test FAILED — 'no machine tells in reader text':")
+        print("   ", sub.stdout.strip().replace("\n", "\n    "))
+        ok = False
+
     if ok:
-        print(f"  self-test passed ({len(probes)} canaries caught)")
+        print(f"  self-test passed ({len(probes)} canaries caught, plus the tics list)")
     return ok
 
 

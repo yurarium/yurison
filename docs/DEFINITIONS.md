@@ -30,18 +30,25 @@ taken on trust.
 
 ## 2. Inclusion test
 
-A work gets a record if **either** axis is satisfied:
+A work gets a record if **any** of these is satisfied:
 
 ```
-INCLUDE IF   content_tier ∈ { canonical-romance, strongly-implied, class-s }
+INCLUDE IF   content_tier ≠ incidental        (i.e. the relationship is central — see §3)
         OR   marketing_label ≠ none
+        OR   a comparator lists it            (presumptive; see below)
 ```
 
-subject to the scope rules (§5) and the exclusions (§6).
+subject to the scope rules (§6) and the exclusions (§7).
 
 Works whose only qualification is `content_tier: incidental` and which carry no marketing label
 are **recorded but excluded from default views**. They are retained because some are historically
 notable, but they do not dominate the database.
+
+**The comparators are a presumption, not a definition.** A work listed by 百合ナビ or Web漫画アンテナ
+is taken as presumptively in scope without further argument. That is a claim about *coverage* — very
+little of interest is absent from both — and not a claim that either site defines the genre. The
+presumption is rebuttable: an attestation (§3) can place a work below the boundary, and the
+exclusions in §7 override it outright.
 
 The two axes are independent by design. `白い部屋のふたり` has canonical content and no label.
 A thin *コミック百合姫* serial has the label and little content. Both belong, described accurately.
@@ -50,17 +57,78 @@ A thin *コミック百合姫* serial has the label and little content. Both bel
 
 ## 3. Axis 1 — `content_tier`
 
-Interpretive. Assigned from Japanese sources; must carry a `basis` (§5).
+Interpretive, and **attested rather than adjudicated**. See
+[RESEARCH-definition.md](RESEARCH-definition.md) for the sources behind this section.
+
+### The boundary is centrality, not romance
+
+Japanese usage does not run a ladder of romantic explicitness. It distinguishes a **broad sense
+(広義)** — an intimate relationship between women, romantic or not — from a **narrow sense (狭義)**,
+which is romantic and is used more or less interchangeably with **GL**. The broad sense is the
+settled outcome of a definitional argument that has already run: the older formulation was about
+female homosexuality and widened to strong relationships between women.
+
+The editors of *コミック百合姫* describe the qualifying test as emotional weight and relational
+depth, not romance, and decline to fix an edge at all — noting that their own creators disagree
+about where it is. Two authors take the same line from different directions: 森島明子 makes 百合
+observer-constituted rather than a property of the characters, and 仲谷鳰 explicitly includes
+characters with no capacity for romantic feeling.
+
+So the outer boundary of this database is:
+
+> **a work primarily concerned with a close relationship between women, of any kind.**
+
+*Of any kind* is meant literally — friendship, sisterhood, rivalry, mentorship, devotion. The
+limiting words are **close** and **primarily concerned**: a work in which the relationship is
+present but peripheral falls below the boundary and is `incidental`.
+
+### Values
 
 | Value | Criterion |
 |---|---|
 | `canonical-romance` | A romantic or sexual relationship between female characters is textually explicit — stated, depicted, or acted upon in the work itself. Not inference. |
 | `strongly-implied` | The relationship is clearly romantic in framing and treatment but never stated outright. The reading is the obvious one, not one of several. |
 | `class-s` | The エス tradition: intense, exclusive, romantically-coded female friendship presented within the conventions that treat it as a phase or an idealised bond rather than a relationship. Its own category, not a weaker `strongly-implied`. |
-| `incidental` | Yuri content is present but peripheral — a background couple, a single scene, a minor character. Excluded from default views when unaccompanied by a label. |
+| `close-relationship` | The relationship is central and close but the work does not present it as romantic, and reading it as romantic would be an addition rather than an interpretation. The 広義 case. |
+| `incidental` | Present but peripheral — a background couple, a single scene, a minor character. Below the boundary; excluded from default views when unaccompanied by a label. |
 
 `class-s` is a *historical-conventional* judgment, not a strength judgment. Assigning it to a
 post-2000 work requires justification in the `basis`.
+
+`close-relationship` is the value this schema previously lacked, and its absence forced a
+mis-coding either way: a work centrally about a non-romantic bond had to be called
+`strongly-implied`, asserting romance it does not make, or `incidental`, denying a centrality it
+plainly has.
+
+**`canonical-romance` is not the same distinction as 狭義/GL.** Ours is an explicitness test — is it
+in the text. The GL line is about whether romance is *settled*: GL presupposes a couple, while a
+work can be unambiguously 百合 and leave the question open on purpose. Where a source draws the GL
+line rather than ours, record what it said and do not translate it.
+
+### It is a list, not a value
+
+A tier is **a claim someone makes**, so the field holds every claim we hold, each with its own
+`basis` (§5):
+
+- Sources may **disagree**, and disagreement is a finding about a contested work rather than a
+  validation failure. This project already records conflict rather than discarding it
+  ([Requirements](REQUIREMENTS.md), source tiers).
+- An attestation **need not name a tier**. A source that says only "this is 百合" attests the outer
+  boundary and nothing finer. Forcing it onto the ladder would reintroduce exactly the judgment
+  this model removes.
+- **Our own reading is an attestation like any other**, recorded as ours, and optional.
+- **No attestation is a legitimate state.** It is not a gap to be filled before the work can be
+  shown.
+
+### Attestations carry a date because the category moved
+
+*コミック百合姫* marketed unrelated work aggressively as 百合 in its early years to widen the
+category, then reversed after around 2010 and returned to romance as its core. A 2007 attestation
+and a 2024 one may therefore disagree without either being wrong.
+
+The project owner independently reports a sense of a step change in volume and tenor around the
+same date — **recorded as an impression, not evidence**, and testable against our own publication
+dates rather than against memory.
 
 ## 4. Axis 2 — `marketing_label`
 

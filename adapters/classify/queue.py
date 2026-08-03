@@ -31,7 +31,10 @@ from collections import Counter
 
 import yaml
 
-TIERS = ["canonical-romance", "strongly-implied", "class-s", "incidental"]
+# DEFINITIONS §3. `close-relationship` is the 広義 case — central and close, not presented as
+# romantic — and its absence used to force a mis-coding either way: strongly-implied asserts
+# romance the work does not make, incidental denies a centrality it plainly has.
+TIERS = ["canonical-romance", "strongly-implied", "class-s", "close-relationship", "incidental"]
 
 
 def norm(s):

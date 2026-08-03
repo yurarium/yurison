@@ -17425,7 +17425,11 @@ names:
     reading_source_kind: analyser
     verified: false
   白装の悪魔/2025年2月期ブロンズルーキー賞:
-    basis: romaji
+    basis: translated
+    en: The White-Clad Devil
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 白
       - しろ
@@ -17449,8 +17453,9 @@ names:
       - null
     - - 賞
       - しょう
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The award label in the catalogue key, /2025年2月期ブロンズルーキー賞, is not part of the title and is dropped,
+      the same as /読み切り elsewhere. The synopsis is a devil who toys with people through whispers, targeting
+      a woman who turns out unmoved by them.
     reading: シロソウ ノ アクマ / 2025 ネン 2 ガツ キ ブロンズ ルーキー ショウ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17459,7 +17464,11 @@ names:
     reading_source_kind: analyser
     verified: false
   百合SMでふたりの気持ちはつながりますか？:
-    basis: romaji
+    basis: translated
+    en: Can Yuri SM Connect Our Feelings?
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 百合
       - ゆり
@@ -17469,8 +17478,8 @@ names:
       - きも
     - - ちはつながりますか？
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The platform's own yomi field confirms the reading straight through. 百合SM is already the loanword
+      pair in Japanese; kept as the same pair in English.
     reading: ユリ SM デ フタリ ノ キモチ ワ ツナガリマス カ？
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17479,12 +17488,16 @@ names:
     reading_source_kind: analyser
     verified: false
   百合にはさまる男は死ねばいい!?:
-    basis: romaji
-    en: Yuri ni Hasamaru Otoko wa Shineba Ii!?
-    en_at: '2026-08-02'
+    basis: translated
+    en: Any Man Who Gets Between Yuri Should Die!?
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Yuri ni Hasamaru Otoko wa Shineba Ii!?
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q124496844
     furigana_spans:
     - - 百合
@@ -17499,8 +17512,9 @@ names:
       - し
     - - ねばいい!?
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A knowing wink at a real fan complaint rather than a literal plot point; the serialised excerpt
+      confirms there is no male rival at all, only two brass-band rivals-turned-something-more over a
+      contested first-trumpet chair. 百合 kept as yuri for the same reason as elsewhere this checkpoint.
     reading: ユリ ニ ハサマル オトコ ワ シネバ イイ ! ?
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17533,12 +17547,16 @@ names:
     reading_source_kind: analyser
     verified: false
   百合オタに百合はご法度です!?:
-    basis: romaji
-    en: Yuri-ota ni Yuri wa Gohatto Desu!?
-    en_at: '2026-08-02'
+    basis: translated
+    en: Yuri Is Forbidden for a Yuri Otaku!?
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Yuri-ota ni Yuri wa Gohatto Desu!?
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q115177263
     furigana_spans:
     - - 百合
@@ -17553,8 +17571,9 @@ names:
       - はっと
     - - です!?
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'The platform''s own tagline calls it a "meta-yuri" comedy: a yuri fan who only wants to watch
+      precious relationships from the sidelines meets a gal who wrecks that worldview by going for her
+      directly. 百合 kept as yuri throughout, the genre self-reference being the whole joke.'
     reading: ユリ オタ ニ ユリ ワ ゴハットデス ! ?
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17564,6 +17583,10 @@ names:
     verified: false
   百合バリズム部:
     basis: romaji
+    en: The Yuri Barizumu Club
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 百合
       - ゆり
@@ -17571,8 +17594,11 @@ names:
       - null
     - - 部
       - ぶ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 百合 and 部, club, translate; バリズム does not resolve to anything findable, coined or punning on
+      something the single available one-shot does not surface enough of to name. The author's own promotion
+      calls it a "変態チックな" (perverted-tinged) one-shot about a company president's daughter in a molecular-gastronomy
+      club hiding a secret, which is not enough to settle what バリズム means, so it is left as the sound
+      it is rather than guessed at.
     reading: ユリ バリズム ブ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17601,7 +17627,11 @@ names:
     reading_source_kind: analyser
     verified: false
   百合ラブスレイブ ふたりだけの放課後:
-    basis: romaji
+    basis: translated
+    en: 'Yuri Love Slave: Just the Two of Us After School'
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 百合
       - ゆり
@@ -17609,8 +17639,9 @@ names:
       - null
     - - 放課後
       - ほうかご
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is a class rep whose interest in yuri gets discovered and used as leverage into
+      a relationship with the classmate holding the secret. スレイブ, slave, is already the English loanword;
+      百合 kept as yuri for the same genre-self-reference reason as elsewhere this checkpoint.
     reading: ユリ ラブスレイブ   フタリ ダケ ノ ホウカゴ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17619,14 +17650,20 @@ names:
     reading_source_kind: analyser
     verified: false
   百合拳:
-    basis: romaji
+    basis: translated
+    en: As the Yuri God Says!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 百合
       - ゆり
     - - 拳
       - けん
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 百合オタクの死神, a yuri-otaku shinigami named Porero, revives a gal who died falling down stairs on
+      condition she wins over the ojousama she loves, per 百合ナビ's review; 百合神さま, the "yuri god", is the
+      narrative's own nickname for the death god rather than a stated proper name, kept translated rather
+      than as a name for that reason.
     reading: ユリケン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17635,7 +17672,11 @@ names:
     reading_source_kind: analyser
     verified: false
   百合神さまの言うとおり!:
-    basis: romaji
+    basis: translated
+    en: Yuri Fist
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 百合
       - ゆり
@@ -17647,8 +17688,10 @@ names:
       - い
     - - うとおり!
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis names the character directly, "Lily of the Yuri Fist", who appears wherever yuri
+      blooms, hates any man who comes between a yuri pair, and loves all yuri; 拳, fist, is the same naming
+      convention as fighting manga like 北斗の拳, and "Yuri Fist" carries it into English the same way. Kept
+      as "yuri" rather than "lily" since the character's whole point is the genre self-reference.
     reading: ユリ カミサマ ノ イウ トオリ !
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17657,7 +17700,11 @@ names:
     reading_source_kind: analyser
     verified: false
   百合華のスパイ学校　入学したら快楽拷問に耐える訓練ばかりなんですが!?:
-    basis: romaji
+    basis: translated
+    en: 'Yurika Spy Academy: I Enrolled, but All the Training Is Enduring Pleasure Torture!?'
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 百合華
       - ゆりか
@@ -17685,8 +17732,9 @@ names:
       - くんれん
     - - ばかりなんですが!?
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 百合華 is stated in the platform's own furigana as ユリカ, Yurika, the coined name of the spy academy
+      itself, kept as a name; the rest of this long, explanatory-style title translates plainly, backed
+      by the synopsis's own tagline, yuri x bondage x spy training fantasy.
     reading: ユリカ ノ スパイ ガッコウ 　 ニュウガク シタラ カイラク ゴウモン ニ タエル クンレン バカリナ ンデスガ ! ?
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17695,7 +17743,11 @@ names:
     reading_source_kind: analyser
     verified: false
   目には目を:
-    basis: romaji
+    basis: translated
+    en: An Eye for an Eye
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 目
       - め
@@ -17705,8 +17757,9 @@ names:
       - め
     - - を
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The Japanese is the same proverb English already has, from Hammurabi's Code by way of Exodus,
+      so this is recovery rather than a judgement call. A newcomer-award one-shot with no synopsis beyond
+      the award notice.
     reading: メ ニ ワ メ ヲ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17715,14 +17768,19 @@ names:
     reading_source_kind: analyser
     verified: false
   相席いいですか?:
-    basis: romaji
+    basis: translated
+    en: Mind If I Share Your Table?
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 相席
       - あいせき
     - - いいですか?
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 相席 is specifically sharing a table with a stranger at a crowded restaurant. The synopsis is
+      an office worker struggling with a subordinate and a student struggling with her part-time job,
+      thrown together by chance over lunch.
     reading: アイセキ イイデス カ ?
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17731,7 +17789,11 @@ names:
     reading_source_kind: analyser
     verified: false
   真先輩の前ではかっこつけられない！:
-    basis: romaji
+    basis: translated
+    en: I Can't Act Cool in Front of Shin-senpai!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 真
       - ま
@@ -17743,8 +17805,9 @@ names:
       - まえ
     - - ではかっこつけられない！
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 真, Shin, is a name and stays one, but the synopsis calls her 真のイケメン女子, the "true" handsome-girl
+      type, punning on her own name meaning genuine; the narrator, who works hard at the same persona,
+      admits she cannot keep it up around the real thing.
     reading: マ センパイ ノ マエ デ ワ カッコ ツケラレナイ！
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17753,14 +17816,19 @@ names:
     reading_source_kind: analyser
     verified: false
   真夏のスピカ:
-    basis: romaji
+    basis: translated
+    en: Midsummer's Spica
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 真夏
       - まなつ
     - - のスピカ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 真夏 (Manatsu, "midsummer") is one childhood friend's own name; Spica, a bright star, sits naturally
+      beside 星子 (Hoshiko, "star child"), the other, who becomes an idol. The synopsis is Manatsu unable
+      to accept how Hoshiko and everyone around her changes once she is famous.
     reading: マナツ ノ スピカ
     reading_at: '2026-08-03'
     reading_basis: analyser
@@ -17769,14 +17837,21 @@ names:
     reading_source_kind: analyser
     verified: false
   真夜中ぱんチ:
-    basis: romaji
+    basis: translated
+    en: Mayonaka Punch
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 真夜中
       - まよなか
     - - ぱんチ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 真夜中ぱんチ is the name of the in-story video channel the cast runs, not just a description, and
+      Crunchyroll's own anime release keeps it romanised rather than translating it as "Midnight Punch";
+      adopted here the same way, since this manga is not itself found under an English licence and is
+      marked ours. The synopsis is a cancelled video creator starting over solo, only to blow up again,
+      until a mysterious girl called Ribu reaches out.
     reading: マヨナカ パン チ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17801,7 +17876,11 @@ names:
     reading_source_kind: analyser
     verified: false
   研究棟の真夜中ごはん:
-    basis: romaji
+    basis: translated
+    en: Midnight Meals at the Research Building
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 研究
       - けんきゅう
@@ -17813,8 +17892,8 @@ names:
       - まよなか
     - - ごはん
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is a grad student who mistakes a labmate cooking ramen for a ghost with a knife
+      in a dim hallway. Plain phrase, nothing to protect.
     reading: ケンキュウ ムネ ノ マヨナカ ゴハン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17823,7 +17902,11 @@ names:
     reading_source_kind: analyser
     verified: false
   硝子の体温:
-    basis: romaji
+    basis: translated
+    en: The Warmth of Glass
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 硝子
       - がらす
@@ -17831,8 +17914,9 @@ names:
       - null
     - - 体温
       - たいおん
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A COMITIA speed-manga entry; the platform's subtitle field names a different work, 泡みたいに 抱きしめて,
+      that won the same event, not this one, so no synopsis for 硝子の体温 itself survives. Plain image, nothing
+      to protect.
     reading: ガラス ノ タイオン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17841,7 +17925,11 @@ names:
     reading_source_kind: analyser
     verified: false
   神の右手:
-    basis: romaji
+    basis: translated
+    en: The Right Hand of God
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 神
       - かみ
@@ -17849,8 +17937,8 @@ names:
       - null
     - - 右手
       - みぎて
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A COMITIA speed-manga runner-up with no synopsis beyond the award notice. Same idiom family
+      as 神様の手 in this same checkpoint, kept consistent.
     reading: カミノ ミギテ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17875,7 +17963,11 @@ names:
     reading_source_kind: analyser
     verified: false
   神様の手:
-    basis: romaji
+    basis: translated
+    en: The Hand of God
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 神
       - かみ
@@ -17885,8 +17977,9 @@ names:
       - null
     - - 手
       - て
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Idiomatic English for extraordinary skill matches the Japanese figure directly. The synopsis
+      is an art-club member who discovers a classmate has been secretly sketching her, and tries to beat
+      that classmate's talent by drawing herself.
     reading: カミサマ ノ テ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17895,7 +17988,11 @@ names:
     reading_source_kind: analyser
     verified: false
   神様やめらんない:
-    basis: romaji
+    basis: translated
+    en: I Can't Stop Being God
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 神
       - かみ
@@ -17903,8 +18000,9 @@ names:
       - さま
     - - やめらんない
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is a girl secretly writing a death-game novel starring her own classmates, and
+      the classmate who happens to read it; 神様, god, reads as the author's own godlike control over her
+      characters' fates, which やめらんない, can't quit, keeps casual and present-tense.
     reading: カミサマ ヤメランナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -17913,14 +18011,19 @@ names:
     reading_source_kind: analyser
     verified: false
   福音のメリテール:
-    basis: romaji
+    basis: translated
+    en: The Gospel of Meritale
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 福音
       - ふくいん
     - - のメリテール
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'メリテール reads as the coined name of the boarding school itself; 福音, gospel, translates plainly.
+      A special one-shot: a transfer student pulled into a terrifying conspiracy at a closed-off school
+      far from the city.'
     reading: フクイン ノ メリテール
     reading_at: '2026-08-02'
     reading_basis: analyser

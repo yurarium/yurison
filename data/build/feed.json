@@ -1,6 +1,2216 @@
 {
  "releases": [
   {
+   "id": "comicfuz:47293",
+   "work": "星屑テレパス",
+   "ep": "４巻 第３９話「瞑目アリア」",
+   "type": "chapter",
+   "adv": true,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "bootstrap",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/viewer/47293",
+   "series_url": "https://comic-fuz.com/manga/2062",
+   "author": "大熊らすこ",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "purchase"
+   ],
+   "became_free": false,
+   "access_changed": null,
+   "date_means": "free-from",
+   "provenance": "attested",
+   "free": false,
+   "ahead_n": 19,
+   "ahead_ep": "５巻 第５６話「彗星エンカウント」",
+   "ahead_next_free": "2026-08-10",
+   "ahead_next_ep": "４巻 第４０話「交信X」",
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 39",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "reading": "ホシクズ テレパス",
+    "ruby": [
+     [
+      "星屑",
+      "ほしくず"
+     ],
+     [
+      "テレパス",
+      null
+     ]
+    ],
+    "romaji": {
+     "macron": "Hoshikuzu Terepasu",
+     "double": "Hoshikuzu Terepasu",
+     "plain": "Hoshikuzu Terepasu"
+    },
+    "basis": "romaji",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "オオクマラ スコ",
+    "ruby": [
+     [
+      "大熊",
+      "おおくま"
+     ],
+     [
+      "らすこ",
+      null
+     ]
+    ],
+    "romaji": {
+     "macron": "Ōkumara Suko",
+     "double": "Ookumara Suko",
+     "plain": "Okumara Suko"
+    },
+    "en": "Rasuko Ookuma",
+    "basis": "romaji",
+    "unverified": true
+   }
+  },
+  {
+   "id": "comicfuz-free:62620",
+   "work": "うさぎはかく語りき",
+   "ep": "第6話(2)",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3572",
+   "author": "鴻巣覚",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "ahead_n": 3,
+   "ahead_ep": "第20話(2)",
+   "ahead_next_free": "2026-08-14",
+   "ahead_next_ep": "第19話(2)",
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 6",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "reading": "ウサギ ワ カク カタリキ",
+    "romaji": {
+     "macron": "Usagi wa Kaku Katariki",
+     "double": "Usagi wa Kaku Katariki",
+     "plain": "Usagi wa Kaku Katariki"
+    },
+    "basis": "romaji",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "コウノス サトリ",
+    "ruby": [
+     [
+      "鴻巣覚",
+      "こうのすさとり"
+     ]
+    ],
+    "romaji": {
+     "macron": "Kōnosu Satori",
+     "double": "Kounosu Satori",
+     "plain": "Konosu Satori"
+    },
+    "en": "Satori Kōnosu",
+    "basis": "romaji",
+    "unverified": true
+   }
+  },
+  {
+   "id": "comicfuz-free:62617",
+   "work": "うさぎはかく語りき",
+   "ep": "第6話(1)",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3572",
+   "author": "鴻巣覚",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "ahead_n": 3,
+   "ahead_ep": "第20話(2)",
+   "ahead_next_free": "2026-08-14",
+   "ahead_next_ep": "第19話(2)",
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 6",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "reading": "ウサギ ワ カク カタリキ",
+    "romaji": {
+     "macron": "Usagi wa Kaku Katariki",
+     "double": "Usagi wa Kaku Katariki",
+     "plain": "Usagi wa Kaku Katariki"
+    },
+    "basis": "romaji",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "コウノス サトリ",
+    "ruby": [
+     [
+      "鴻巣覚",
+      "こうのすさとり"
+     ]
+    ],
+    "romaji": {
+     "macron": "Kōnosu Satori",
+     "double": "Kounosu Satori",
+     "plain": "Konosu Satori"
+    },
+    "en": "Satori Kōnosu",
+    "basis": "romaji",
+    "unverified": true
+   }
+  },
+  {
+   "id": "comicfuz-free:61171",
+   "work": "うさぎはかく語りき",
+   "ep": "第5話(2)",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3572",
+   "author": "鴻巣覚",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "ahead_n": 3,
+   "ahead_ep": "第20話(2)",
+   "ahead_next_free": "2026-08-14",
+   "ahead_next_ep": "第19話(2)",
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 5",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "reading": "ウサギ ワ カク カタリキ",
+    "romaji": {
+     "macron": "Usagi wa Kaku Katariki",
+     "double": "Usagi wa Kaku Katariki",
+     "plain": "Usagi wa Kaku Katariki"
+    },
+    "basis": "romaji",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "コウノス サトリ",
+    "ruby": [
+     [
+      "鴻巣覚",
+      "こうのすさとり"
+     ]
+    ],
+    "romaji": {
+     "macron": "Kōnosu Satori",
+     "double": "Kounosu Satori",
+     "plain": "Konosu Satori"
+    },
+    "en": "Satori Kōnosu",
+    "basis": "romaji",
+    "unverified": true
+   }
+  },
+  {
+   "id": "comicfuz-free:61168",
+   "work": "うさぎはかく語りき",
+   "ep": "第5話(1)",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3572",
+   "author": "鴻巣覚",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "ahead_n": 3,
+   "ahead_ep": "第20話(2)",
+   "ahead_next_free": "2026-08-14",
+   "ahead_next_ep": "第19話(2)",
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 5",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "reading": "ウサギ ワ カク カタリキ",
+    "romaji": {
+     "macron": "Usagi wa Kaku Katariki",
+     "double": "Usagi wa Kaku Katariki",
+     "plain": "Usagi wa Kaku Katariki"
+    },
+    "basis": "romaji",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "コウノス サトリ",
+    "ruby": [
+     [
+      "鴻巣覚",
+      "こうのすさとり"
+     ]
+    ],
+    "romaji": {
+     "macron": "Kōnosu Satori",
+     "double": "Kounosu Satori",
+     "plain": "Konosu Satori"
+    },
+    "en": "Satori Kōnosu",
+    "basis": "romaji",
+    "unverified": true
+   }
+  },
+  {
+   "id": "comicfuz-free:59928",
+   "work": "うさぎはかく語りき",
+   "ep": "第4話(3)",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3572",
+   "author": "鴻巣覚",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "ahead_n": 3,
+   "ahead_ep": "第20話(2)",
+   "ahead_next_free": "2026-08-14",
+   "ahead_next_ep": "第19話(2)",
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 4",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "reading": "ウサギ ワ カク カタリキ",
+    "romaji": {
+     "macron": "Usagi wa Kaku Katariki",
+     "double": "Usagi wa Kaku Katariki",
+     "plain": "Usagi wa Kaku Katariki"
+    },
+    "basis": "romaji",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "コウノス サトリ",
+    "ruby": [
+     [
+      "鴻巣覚",
+      "こうのすさとり"
+     ]
+    ],
+    "romaji": {
+     "macron": "Kōnosu Satori",
+     "double": "Kounosu Satori",
+     "plain": "Konosu Satori"
+    },
+    "en": "Satori Kōnosu",
+    "basis": "romaji",
+    "unverified": true
+   }
+  },
+  {
+   "id": "comicfuz-free:59925",
+   "work": "うさぎはかく語りき",
+   "ep": "第4話(2)",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3572",
+   "author": "鴻巣覚",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "ahead_n": 3,
+   "ahead_ep": "第20話(2)",
+   "ahead_next_free": "2026-08-14",
+   "ahead_next_ep": "第19話(2)",
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 4",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "reading": "ウサギ ワ カク カタリキ",
+    "romaji": {
+     "macron": "Usagi wa Kaku Katariki",
+     "double": "Usagi wa Kaku Katariki",
+     "plain": "Usagi wa Kaku Katariki"
+    },
+    "basis": "romaji",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "コウノス サトリ",
+    "ruby": [
+     [
+      "鴻巣覚",
+      "こうのすさとり"
+     ]
+    ],
+    "romaji": {
+     "macron": "Kōnosu Satori",
+     "double": "Kounosu Satori",
+     "plain": "Konosu Satori"
+    },
+    "en": "Satori Kōnosu",
+    "basis": "romaji",
+    "unverified": true
+   }
+  },
+  {
+   "id": "comicfuz-free:59922",
+   "work": "うさぎはかく語りき",
+   "ep": "第4話(1)",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3572",
+   "author": "鴻巣覚",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "ahead_n": 3,
+   "ahead_ep": "第20話(2)",
+   "ahead_next_free": "2026-08-14",
+   "ahead_next_ep": "第19話(2)",
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 4",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "reading": "ウサギ ワ カク カタリキ",
+    "romaji": {
+     "macron": "Usagi wa Kaku Katariki",
+     "double": "Usagi wa Kaku Katariki",
+     "plain": "Usagi wa Kaku Katariki"
+    },
+    "basis": "romaji",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "コウノス サトリ",
+    "ruby": [
+     [
+      "鴻巣覚",
+      "こうのすさとり"
+     ]
+    ],
+    "romaji": {
+     "macron": "Kōnosu Satori",
+     "double": "Kounosu Satori",
+     "plain": "Konosu Satori"
+    },
+    "en": "Satori Kōnosu",
+    "basis": "romaji",
+    "unverified": true
+   }
+  },
+  {
+   "id": "comicfuz-free:58536",
+   "work": "うさぎはかく語りき",
+   "ep": "第3話(3)",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3572",
+   "author": "鴻巣覚",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "ahead_n": 3,
+   "ahead_ep": "第20話(2)",
+   "ahead_next_free": "2026-08-14",
+   "ahead_next_ep": "第19話(2)",
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 3",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "reading": "ウサギ ワ カク カタリキ",
+    "romaji": {
+     "macron": "Usagi wa Kaku Katariki",
+     "double": "Usagi wa Kaku Katariki",
+     "plain": "Usagi wa Kaku Katariki"
+    },
+    "basis": "romaji",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "コウノス サトリ",
+    "ruby": [
+     [
+      "鴻巣覚",
+      "こうのすさとり"
+     ]
+    ],
+    "romaji": {
+     "macron": "Kōnosu Satori",
+     "double": "Kounosu Satori",
+     "plain": "Konosu Satori"
+    },
+    "en": "Satori Kōnosu",
+    "basis": "romaji",
+    "unverified": true
+   }
+  },
+  {
+   "id": "comicfuz-free:58533",
+   "work": "うさぎはかく語りき",
+   "ep": "第3話(2)",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3572",
+   "author": "鴻巣覚",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "ahead_n": 3,
+   "ahead_ep": "第20話(2)",
+   "ahead_next_free": "2026-08-14",
+   "ahead_next_ep": "第19話(2)",
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 3",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "reading": "ウサギ ワ カク カタリキ",
+    "romaji": {
+     "macron": "Usagi wa Kaku Katariki",
+     "double": "Usagi wa Kaku Katariki",
+     "plain": "Usagi wa Kaku Katariki"
+    },
+    "basis": "romaji",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "コウノス サトリ",
+    "ruby": [
+     [
+      "鴻巣覚",
+      "こうのすさとり"
+     ]
+    ],
+    "romaji": {
+     "macron": "Kōnosu Satori",
+     "double": "Kounosu Satori",
+     "plain": "Konosu Satori"
+    },
+    "en": "Satori Kōnosu",
+    "basis": "romaji",
+    "unverified": true
+   }
+  },
+  {
+   "id": "comicfuz-free:58530",
+   "work": "うさぎはかく語りき",
+   "ep": "第3話(1)",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3572",
+   "author": "鴻巣覚",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "ahead_n": 3,
+   "ahead_ep": "第20話(2)",
+   "ahead_next_free": "2026-08-14",
+   "ahead_next_ep": "第19話(2)",
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 3",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "reading": "ウサギ ワ カク カタリキ",
+    "romaji": {
+     "macron": "Usagi wa Kaku Katariki",
+     "double": "Usagi wa Kaku Katariki",
+     "plain": "Usagi wa Kaku Katariki"
+    },
+    "basis": "romaji",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "コウノス サトリ",
+    "ruby": [
+     [
+      "鴻巣覚",
+      "こうのすさとり"
+     ]
+    ],
+    "romaji": {
+     "macron": "Kōnosu Satori",
+     "double": "Kounosu Satori",
+     "plain": "Konosu Satori"
+    },
+    "en": "Satori Kōnosu",
+    "basis": "romaji",
+    "unverified": true
+   }
+  },
+  {
+   "id": "comicfuz-free:45135",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.20",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 20",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:44910",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.19",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 19",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:44796",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.18",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 18",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:44649",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.17",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 17",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:44454",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.16",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 16",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:44272",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.15",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 15",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:43906",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.14",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 14",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:42937",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.13",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 13",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:42685",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.12",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 12",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:42217",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.11",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 11",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:41851",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.10",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 10",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:41772",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.9",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 9",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:41043",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.8",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 8",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:40467",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.7（2）",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 7",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:40464",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.7（1）",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 7",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:40413",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.6（2）",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 6",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:40410",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.6（1）",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 6",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:40110",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.5",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 5",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:39857",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.4（2）",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 4",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:39854",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.4（1）",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 4",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:39227",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.3（2）",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 3",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "comicfuz-free:39224",
+   "work": "IDOL×IDOL STORY！",
+   "ep": "Episode.3（1）",
+   "type": "access-change",
+   "adv": false,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/3140",
+   "author": "得能正太郎",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "became_free": true,
+   "access_changed": "free-timed -> free",
+   "provenance": "attested",
+   "free": true,
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 3",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "en": "IDOLxIDOL STORY!",
+    "basis": "official-jp",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "トクノウ ショウタロウ",
+    "ruby": [
+     [
+      "得能",
+      "とくのう"
+     ],
+     [
+      "正太郎",
+      "しょうたろう"
+     ]
+    ],
+    "romaji": {
+     "macron": "Tokunō Shōtarō",
+     "double": "Tokunou Shoutarou",
+     "plain": "Tokuno Shotaro"
+    },
+    "en": "Shōtarō Tokunō",
+    "basis": "romaji"
+   }
+  },
+  {
+   "id": "nicovideo:41839:2026-08-03",
+   "work": "安達としまむら",
+   "ep": "第59話「Cherry Blossoms for the Two of Us1」①",
+   "type": "chapter",
+   "adv": true,
+   "web": "serialised",
+   "pub": "2026-08-03",
+   "seen": "2026-08-03",
+   "basis": "observed",
+   "conf": "reported",
+   "why": "work-level update date stated by the platform; chapter not identified",
+   "moved": "",
+   "url": "https://manga.nicovideo.jp/watch/mg1116534",
+   "author": "柚原もけ(漫画) 入間人間(原作) のん(キャラクターデザイン)",
+   "plat": "nicovideo",
+   "plat_name": "ニコニコ漫画",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free"
+   ],
+   "episode_count": 6,
+   "free_episodes": 6,
+   "started": "2019-06-03",
+   "work_level": true,
+   "provenance": "attested",
+   "free": true,
+   "same_title_elsewhere": "カドコミ",
+   "origin_note": "a work of this title also appears on カドコミ. Whether it is the same run is not established — we hold no chapter list on that side to compare, and a shared title is not evidence of a shared work.",
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 59",
+   "kind_inferred": true,
+   "preferred": "ニコニコ漫画",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-03",
+   "work_en": {
+    "reading": "アダチ ト シマムラ",
+    "ruby": [
+     [
+      "安達",
+      "あだち"
+     ],
+     [
+      "としまむら",
+      null
+     ]
+    ],
+    "romaji": {
+     "macron": "Adachi to Shimamura",
+     "double": "Adachi to Shimamura",
+     "plain": "Adachi to Shimamura"
+    },
+    "basis": "romaji",
+    "unverified": true
+   }
+  },
+  {
+   "id": "comicfuz:78593",
+   "work": "江口さんちの純情サキュバス",
+   "ep": "１巻 第９話",
+   "type": "chapter",
+   "adv": true,
+   "web": "serialised",
+   "pub": "2026-08-02",
+   "seen": "2026-08-03",
+   "basis": "bootstrap",
+   "conf": "reported",
+   "why": "",
+   "moved": "",
+   "url": "https://comic-fuz.com/manga/viewer/78593",
+   "series_url": "https://comic-fuz.com/manga/3776",
+   "author": "工藤える",
+   "plat": "comic-fuz",
+   "plat_name": "COMIC FUZ",
+   "ident": "discovery-candidate",
+   "free_from": null,
+   "access_modes": [
+    "free-timed"
+   ],
+   "became_free": true,
+   "access_changed": "purchase -> free-timed",
+   "date_means": "free-from",
+   "provenance": "attested",
+   "free": true,
+   "ahead_n": 4,
+   "ahead_ep": "１巻 番外編",
+   "ahead_next_free": "2026-08-09",
+   "ahead_next_ep": "１巻 第１０話",
+   "kind": "new-chapter",
+   "kind_basis": "episode numbered 9",
+   "kind_inferred": true,
+   "preferred": "COMIC FUZ",
+   "also_on": [],
+   "is_preferred": true,
+   "surfaced": false,
+   "feed_date": "2026-08-02",
+   "work_en": {
+    "reading": "エグチサン チ ノ ジュンジョウ サキュバス",
+    "ruby": [
+     [
+      "江口",
+      "えぐち"
+     ],
+     [
+      "さんちの",
+      null
+     ],
+     [
+      "純情",
+      "じゅんじょう"
+     ],
+     [
+      "サキュバス",
+      null
+     ]
+    ],
+    "romaji": {
+     "macron": "Eguchisan Chi no Junjō Sakyubasu",
+     "double": "Eguchisan Chi no Junjou Sakyubasu",
+     "plain": "Eguchisan Chi no Junjo Sakyubasu"
+    },
+    "basis": "romaji",
+    "unverified": true
+   },
+   "author_en": {
+    "reading": "クドウ エル",
+    "ruby": [
+     [
+      "工藤",
+      "くどう"
+     ],
+     [
+      "える",
+      null
+     ]
+    ],
+    "romaji": {
+     "macron": "Kudō Eru",
+     "double": "Kudou Eru",
+     "plain": "Kudo Eru"
+    },
+    "basis": "romaji",
+    "unverified": true
+   }
+  },
+  {
    "late_discovered": false,
    "discovered_on": null,
    "id": "ganganonline:第90話-1 八尺様リバイバルV",
@@ -267,7 +2477,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-08-01",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -830,7 +3040,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-08-01",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "rendered",
    "conf": "reported",
    "why": "",
@@ -1051,7 +3261,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-08-01",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -1121,7 +3331,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-08-01",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -1188,7 +3398,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-08-01",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -1383,7 +3593,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-31",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -1451,7 +3661,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-31",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -2094,7 +4304,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-31",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -2133,7 +4343,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-31",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -2243,7 +4453,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-30",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -2305,7 +4515,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-30",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -2750,7 +4960,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-30",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -2796,7 +5006,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-30",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -4405,7 +6615,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-28",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -6868,7 +9078,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-28",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -6927,7 +9137,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-28",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -6991,7 +9201,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-28",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -7067,7 +9277,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-28",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -7135,7 +9345,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-27",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -7155,10 +9365,10 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 20,
+   "ahead_n": 19,
    "ahead_ep": "５巻 第５６話「彗星エンカウント」",
-   "ahead_next_free": "2026-08-03",
-   "ahead_next_ep": "４巻 第３９話「瞑目アリア」",
+   "ahead_next_free": "2026-08-10",
+   "ahead_next_ep": "４巻 第４０話「交信X」",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 38",
    "kind_inferred": true,
@@ -8282,7 +10492,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-26",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -8302,10 +10512,10 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 5,
+   "ahead_n": 4,
    "ahead_ep": "１巻 番外編",
-   "ahead_next_free": "2026-08-02",
-   "ahead_next_ep": "１巻 第９話",
+   "ahead_next_free": "2026-08-09",
+   "ahead_next_ep": "１巻 第１０話",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 8",
    "kind_inferred": true,
@@ -8651,7 +10861,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-25",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -9318,7 +11528,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-25",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -9373,7 +11583,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-25",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -9448,7 +11658,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-25",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -9515,7 +11725,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-24",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -9540,7 +11750,7 @@
    "ahead_next_free": "2026-08-14",
    "ahead_next_ep": "第19話(2)",
    "kind": "other",
-   "kind_basis": "reads as a volume, artwork or notice, and only 4 of 67 chapters in this series do (6%) — not how this series names its instalments",
+   "kind_basis": "reads as a volume, artwork or notice, and only 4 of 77 chapters in this series do (5%) — not how this series names its instalments",
    "kind_inferred": true,
    "preferred": "COMIC FUZ",
    "also_on": [],
@@ -9583,7 +11793,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-24",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -10222,7 +12432,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-24",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "platform-stated",
    "conf": "reported",
    "why": "",
@@ -11228,7 +13438,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-24",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -11324,7 +13534,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-24",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -11391,7 +13601,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-23",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -11452,7 +13662,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-23",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -11514,7 +13724,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-23",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -12118,7 +14328,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-23",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -12165,7 +14375,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-23",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -12211,7 +14421,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-23",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -12284,7 +14494,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-23",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -13387,7 +15597,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-21",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -14087,7 +16297,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-21",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "platform-stated",
    "conf": "reported",
    "why": "",
@@ -14182,7 +16392,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-21",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "platform-stated",
    "conf": "reported",
    "why": "",
@@ -14258,7 +16468,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-21",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "platform-stated",
    "conf": "reported",
    "why": "",
@@ -14487,7 +16697,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-21",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -14579,7 +16789,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-21",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -14649,7 +16859,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-21",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -14719,7 +16929,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-21",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -14805,7 +17015,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-21",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -14899,7 +17109,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-21",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -14974,7 +17184,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-21",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -15070,7 +17280,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-20",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -15090,10 +17300,10 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 20,
+   "ahead_n": 19,
    "ahead_ep": "５巻 第５６話「彗星エンカウント」",
-   "ahead_next_free": "2026-08-03",
-   "ahead_next_ep": "４巻 第３９話「瞑目アリア」",
+   "ahead_next_free": "2026-08-10",
+   "ahead_next_ep": "４巻 第４０話「交信X」",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 37",
    "kind_inferred": true,
@@ -15278,9 +17488,7 @@
    "kind_basis": "episode numbered 58",
    "kind_inferred": true,
    "preferred": "カドコミ",
-   "also_on": [
-    "ニコニコ漫画"
-   ],
+   "also_on": [],
    "is_preferred": true,
    "surfaced": false,
    "feed_date": "2026-07-20",
@@ -15944,7 +18152,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-19",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -15964,10 +18172,10 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 5,
+   "ahead_n": 4,
    "ahead_ep": "１巻 番外編",
-   "ahead_next_free": "2026-08-02",
-   "ahead_next_ep": "１巻 第９話",
+   "ahead_next_free": "2026-08-09",
+   "ahead_next_ep": "１巻 第１０話",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 7",
    "kind_inferred": true,
@@ -16033,7 +18241,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-19",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -16053,8 +18261,8 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 2,
-   "ahead_ep": "第36話(2)",
+   "ahead_n": 3,
+   "ahead_ep": "おまけ",
    "ahead_next_free": "2026-08-16",
    "ahead_next_ep": "第36話(1)",
    "kind": "new-chapter",
@@ -16647,7 +18855,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-18",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -17013,7 +19221,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-18",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "rendered",
    "conf": "reported",
    "why": "",
@@ -17314,7 +19522,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-18",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -17394,7 +19602,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-18",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -17442,7 +19650,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-17",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -17510,7 +19718,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-17",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -20189,7 +22397,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-17",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -20268,7 +22476,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -21630,7 +23838,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -21710,7 +23918,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -21756,7 +23964,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -22958,7 +25166,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-14",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -23048,7 +25256,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-14",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -23472,7 +25680,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-14",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -23562,7 +25770,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-14",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -23625,7 +25833,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-13",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -23645,10 +25853,10 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 20,
+   "ahead_n": 19,
    "ahead_ep": "５巻 第５６話「彗星エンカウント」",
-   "ahead_next_free": "2026-08-03",
-   "ahead_next_ep": "４巻 第３９話「瞑目アリア」",
+   "ahead_next_free": "2026-08-10",
+   "ahead_next_ep": "４巻 第４０話「交信X」",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 36",
    "kind_inferred": true,
@@ -24205,7 +26413,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-12",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -24225,10 +26433,10 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 5,
+   "ahead_n": 4,
    "ahead_ep": "１巻 番外編",
-   "ahead_next_free": "2026-08-02",
-   "ahead_next_ep": "１巻 第９話",
+   "ahead_next_free": "2026-08-09",
+   "ahead_next_ep": "１巻 第１０話",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 6",
    "kind_inferred": true,
@@ -24445,7 +26653,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-11",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -25012,7 +27220,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-11",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -25100,7 +27308,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-11",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -25141,7 +27349,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-10",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -26641,7 +28849,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-10",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -26678,7 +28886,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-09",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -26740,7 +28948,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-09",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -35699,7 +37907,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-08",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -37263,7 +39471,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-07",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -37994,7 +40202,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-07",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "platform-stated",
    "conf": "reported",
    "why": "",
@@ -38089,7 +40297,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-07",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "platform-stated",
    "conf": "reported",
    "why": "",
@@ -38165,7 +40373,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-07",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "platform-stated",
    "conf": "reported",
    "why": "",
@@ -38519,7 +40727,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-07",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -38587,7 +40795,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-07",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -38692,7 +40900,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-07",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -38786,7 +40994,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-07",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -38861,7 +41069,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-07",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -38957,7 +41165,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-06",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -38977,10 +41185,10 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 20,
+   "ahead_n": 19,
    "ahead_ep": "５巻 第５６話「彗星エンカウント」",
-   "ahead_next_free": "2026-08-03",
-   "ahead_next_ep": "４巻 第３９話「瞑目アリア」",
+   "ahead_next_free": "2026-08-10",
+   "ahead_next_ep": "４巻 第４０話「交信X」",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 35",
    "kind_inferred": true,
@@ -39501,7 +41709,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-05",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -39521,10 +41729,10 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 5,
+   "ahead_n": 4,
    "ahead_ep": "１巻 番外編",
-   "ahead_next_free": "2026-08-02",
-   "ahead_next_ep": "１巻 第９話",
+   "ahead_next_free": "2026-08-09",
+   "ahead_next_ep": "１巻 第１０話",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 5",
    "kind_inferred": true,
@@ -40155,7 +42363,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-04",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -40475,7 +42683,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-04",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "rendered",
    "conf": "reported",
    "why": "",
@@ -40759,7 +42967,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-03",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -40827,7 +43035,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-03",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -42188,7 +44396,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-03",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -42261,7 +44469,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-02",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -42323,7 +44531,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-02",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -42858,7 +45066,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-07-02",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -44733,7 +46941,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-30",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -45594,7 +47802,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-29",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -45614,10 +47822,10 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 20,
+   "ahead_n": 19,
    "ahead_ep": "５巻 第５６話「彗星エンカウント」",
-   "ahead_next_free": "2026-08-03",
-   "ahead_next_ep": "４巻 第３９話「瞑目アリア」",
+   "ahead_next_free": "2026-08-10",
+   "ahead_next_ep": "４巻 第４０話「交信X」",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 0",
    "kind_inferred": true,
@@ -46358,7 +48566,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-28",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -46378,10 +48586,10 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 5,
+   "ahead_n": 4,
    "ahead_ep": "１巻 番外編",
-   "ahead_next_free": "2026-08-02",
-   "ahead_next_ep": "１巻 第９話",
+   "ahead_next_free": "2026-08-09",
+   "ahead_next_ep": "１巻 第１０話",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 4",
    "kind_inferred": true,
@@ -46447,7 +48655,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-28",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -47991,7 +50199,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-27",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -48698,7 +50906,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-27",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "rendered",
    "conf": "reported",
    "why": "",
@@ -48864,7 +51072,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-26",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -50670,7 +52878,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-25",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -50732,7 +52940,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-25",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -55226,7 +57434,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-23",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -55316,7 +57524,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-23",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -56088,7 +58296,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-22",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -56757,7 +58965,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-21",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -56777,10 +58985,10 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 5,
+   "ahead_n": 4,
    "ahead_ep": "１巻 番外編",
-   "ahead_next_free": "2026-08-02",
-   "ahead_next_ep": "１巻 第９話",
+   "ahead_next_free": "2026-08-09",
+   "ahead_next_ep": "１巻 第１０話",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 3",
    "kind_inferred": true,
@@ -56846,7 +59054,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-21",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -57185,7 +59393,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-20",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -57756,7 +59964,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-19",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -57824,7 +60032,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-19",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -59114,7 +61322,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-18",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -63317,7 +65525,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -63549,7 +65757,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "platform-stated",
    "conf": "reported",
    "why": "",
@@ -63644,7 +65852,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "platform-stated",
    "conf": "reported",
    "why": "",
@@ -63720,7 +65928,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "platform-stated",
    "conf": "reported",
    "why": "",
@@ -63819,7 +66027,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "platform-stated",
    "conf": "reported",
    "why": "",
@@ -63918,7 +66126,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "platform-stated",
    "conf": "reported",
    "why": "",
@@ -64017,7 +66225,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "platform-stated",
    "conf": "reported",
    "why": "",
@@ -64893,7 +67101,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -64932,7 +67140,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -65026,7 +67234,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -65101,7 +67309,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -65199,7 +67407,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -65297,7 +67505,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -65395,7 +67603,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -65493,7 +67701,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-16",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "heuristic",
    "conf": "low",
    "why": "date matched as a pattern in the page, not stated by the platform",
@@ -66180,7 +68388,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-14",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -66200,10 +68408,10 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 5,
+   "ahead_n": 4,
    "ahead_ep": "１巻 番外編",
-   "ahead_next_free": "2026-08-02",
-   "ahead_next_ep": "１巻 第９話",
+   "ahead_next_free": "2026-08-09",
+   "ahead_next_ep": "１巻 第１０話",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 2",
    "kind_inferred": true,
@@ -66269,7 +68477,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-14",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -66289,8 +68497,8 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 2,
-   "ahead_ep": "第36話(2)",
+   "ahead_n": 3,
+   "ahead_ep": "おまけ",
    "ahead_next_free": "2026-08-16",
    "ahead_next_ep": "第36話(1)",
    "kind": "other",
@@ -66328,7 +68536,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-14",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -66598,7 +68806,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-13",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -67264,7 +69472,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-12",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -68124,7 +70332,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-12",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -68204,7 +70412,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-11",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -68266,7 +70474,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-11",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -68672,7 +70880,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-10",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -69196,7 +71404,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-09",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -69286,7 +71494,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-09",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -71782,7 +73990,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-07",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -71802,10 +74010,10 @@
    "date_means": "free-from",
    "provenance": "attested",
    "free": true,
-   "ahead_n": 5,
+   "ahead_n": 4,
    "ahead_ep": "１巻 番外編",
-   "ahead_next_free": "2026-08-02",
-   "ahead_next_ep": "１巻 第９話",
+   "ahead_next_free": "2026-08-09",
+   "ahead_next_ep": "１巻 第１０話",
    "kind": "new-series",
    "kind_basis": "episode numbered 1",
    "kind_inferred": true,
@@ -71871,7 +74079,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-07",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -72137,7 +74345,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-06",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -72873,7 +75081,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-05",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -72941,7 +75149,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-05",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -95383,7 +97591,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-05",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "observed",
    "conf": "reported",
    "why": "work-level update date stated by the platform; chapter not identified",
@@ -95420,7 +97628,7 @@
    "adv": true,
    "web": "serialised",
    "pub": "2026-06-04",
-   "seen": "2026-08-02",
+   "seen": "2026-08-03",
    "basis": "bootstrap",
    "conf": "reported",
    "why": "",
@@ -96124,154 +98332,154 @@
    "name": "webアクション",
    "publisher": "双葉社",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "comic-days",
    "name": "コミックDAYS",
    "publisher": "講談社",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "comic-earthstar",
    "name": "コミック アース・スター",
    "publisher": "アース・スター エンターテイメント",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "comic-gardo",
    "name": "コミックガルド",
    "publisher": "オーバーラップ",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "comic-ogyaaa",
    "name": "COMIC OGYAAA!!",
    "publisher": "一迅社",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "comic-ryu",
    "name": "COMICリュウ",
    "publisher": "",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "comic-seasons",
    "name": "Seasons",
    "publisher": "",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "comic-trail",
    "name": "コミックトレイル",
    "publisher": "白泉社",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "comic-y-ours",
    "name": "COMIC Y-OURS",
    "publisher": "",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "comic-zenon",
    "name": "コミックゼノン",
    "publisher": "コアミックス",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "comicborder",
    "name": "コミックボーダー",
    "publisher": "",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "comics",
    "name": "パイコミックス",
    "publisher": "",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "debut",
    "name": "マガジンデビュー(更新終了)",
    "publisher": "",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "feelweb",
    "name": "FEEL web",
    "publisher": "",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "ichicomi",
    "name": "一迅プラス",
    "publisher": "一迅社",
    "series": 165,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "kuragebunch",
    "name": "くらげバンチ",
    "publisher": "新潮社",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "magcomi",
    "name": "MAGCOMI",
    "publisher": "マッグガーデン",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "mangatime-square",
    "name": "まんがタイムSquare",
    "publisher": "",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "shiori-on",
    "name": "栞",
    "publisher": "",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "shonenjumpplus",
    "name": "少年ジャンプ+",
    "publisher": "集英社",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "sundaywebry",
    "name": "サンデーうぇぶり",
    "publisher": "小学館",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   },
   {
    "id": "tonarinoyj",
    "name": "となりのヤングジャンプ",
    "publisher": "集英社",
    "series": 0,
-   "retrieved": "2026-08-02"
+   "retrieved": "2026-08-03"
   }
  ],
  "contradicted": [],
@@ -96767,6 +98975,13 @@
  },
  "lapsed": [
   {
+   "work": "星屑テレパス",
+   "platform": "COMIC FUZ",
+   "latest_chapter": 4,
+   "behind_by": 63,
+   "status": "lapsed"
+  },
+  {
    "work": "一畳間まんきつ暮らし",
    "platform": "COMIC FUZ",
    "latest_chapter": 5,
@@ -96890,13 +99105,6 @@
    "platform": "ニコニコ漫画",
    "latest_chapter": 16,
    "behind_by": 5,
-   "status": "lapsed"
-  },
-  {
-   "work": "星屑テレパス",
-   "platform": "COMIC FUZ",
-   "latest_chapter": 4,
-   "behind_by": 63,
    "status": "lapsed"
   },
   {

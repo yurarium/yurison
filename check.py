@@ -214,39 +214,54 @@ def inv_no_stock_phrasing_in_public_text(ctx):
     return bad
 
 
-def inv_no_withheld_work_is_published(ctx):
-    """A work held back for adult-content review appears in nothing we ship.
+def inv_content_flags_are_accounted_for(ctx):
+    """Every content flag a source raised is reported, and every withheld one is absent.
 
-    THIS FAILED SILENTLY FOR THE LIFE OF THE PROJECT. adapters/kadokomi/confirm.py has written
-    data/source/kadokomi/withheld.yaml since the first run, its header saying "Not published.
-    Ambiguity on the adult filter fails closed (REQUIREMENTS §6)." Nothing read it, and all five
-    works it named were live on the public site.
+    THE FAILURE THIS REPLACES. adapters/kadokomi/confirm.py wrote a register of works flagged
+    `ratingLevel='adult'` from the project's first run, headed "Not published". Nothing read it,
+    all five were live on the public site, and no number anywhere disagreed. A register nothing
+    consumes is worse than no register: it reads as a control that is working.
 
-    Checked against the DEPLOYED bytes rather than the build, and by substring rather than by
-    field, because the titles turned up in six different published surfaces: the feed, the works
-    list, an archived month, names.json's phrases, run.json's claim trace and meta.json's coverage
-    list. Removing them from the first three looked like it had worked.
+    So this does NOT check that flagged works are withheld. Policy is that they are published,
+    because every platform here is a commercial publisher's web arm. It checks that the register
+    and the published report agree, which is the thing that failed. A flag arriving from a new
+    source, on a platform nobody has thought about, cannot now pass unmentioned: it either appears
+    in run.json's content_flags or this fails.
 
-    fallback: none. This is the one check that must never degrade to a warning, because the thing
-    it guards is a standing constraint rather than a data-quality target.
+    Withholding remains available per entry (`withhold: true`), and where used it is checked
+    against the DEPLOYED bytes by substring, because field-shaped checks missed five of the six
+    surfaces those titles were on.
+
+    fallback: none. This guards a standing constraint rather than a data-quality target.
     """
     reg = {}
     for f in sorted((ROOT / "data" / "source").rglob("withheld.yaml")):
-        d = _yaml(f, {}) or {}
-        for w in d.get("works") or []:
+        for w in (_yaml(f, {}) or {}).get("works") or []:
             if w.get("work_title"):
-                reg[w["work_title"]] = True
-    if not reg:
-        return []
+                reg[w["work_title"]] = bool(w.get("withhold"))
+    run = _load(BUILD / "run.json", {}) or {}
+    reported = {r.get("title"): r for r in (run.get("content_flags") or {}).get("rows") or []}
+
     bad = []
-    for f in sorted(SITE.rglob("*.json")):
-        try:
-            txt = f.read_text(encoding="utf-8", errors="replace")
-        except OSError:
+    for title, withhold in reg.items():
+        if title not in reported:
+            bad.append(f"flagged but not reported anywhere: {title[:30]}")
+        elif bool(reported[title].get("withheld")) != withhold:
+            bad.append(f"report disagrees with the register: {title[:30]}")
+    for title in reported:
+        if title not in reg:
+            bad.append(f"reported as flagged but not in any register: {title[:30]}")
+
+    # A withheld work must be absent from everything served, checked on the bytes.
+    for title, withhold in reg.items():
+        if not withhold:
             continue
-        for title in reg:
-            if title in txt:
-                bad.append(f"{f.relative_to(SITE)}: {title[:24]}")
+        for f in sorted(SITE.rglob("*.json")):
+            try:
+                if title in f.read_text(encoding="utf-8", errors="replace"):
+                    bad.append(f"withheld but published: {f.relative_to(SITE)}: {title[:24]}")
+            except OSError:
+                pass
     return bad
 
 
@@ -333,7 +348,7 @@ INVARIANTS = [
     ("readings are stored as kana", inv_readings_are_kana),
     ("English mode has no Japanese", inv_english_mode_has_no_japanese),
     ("no stock phrasing in public text", inv_no_stock_phrasing_in_public_text),
-    ("no withheld work is published", inv_no_withheld_work_is_published),
+    ("content flags are accounted for", inv_content_flags_are_accounted_for),
     ("archives are unchanged", inv_archives_unchanged),
     ("deployed data matches built", inv_deployed_matches_built),
     ("no refutation of print serials", inv_no_refutation_of_print_serials),

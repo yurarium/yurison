@@ -235,3 +235,40 @@ a test it must assert something; if it cannot, it belongs somewhere the runner d
 **Fixtures live in the repository** and are small enough to read. A fixture nobody can read is a
 fixture nobody can tell is wrong.
 
+## 13. A register nothing reads is worse than no register
+
+`adapters/kadokomi/confirm.py` wrote a list of works flagged on content grounds from the project's
+first run, headed "Not published". Nothing read the file. Every work in it was live on the public
+site, and no number anywhere said otherwise. The failure was not the policy, which was sound; it
+was that a control existed on paper and could not be observed to be doing anything.
+
+**A produced file must have a named consumer, in the same commit.** Writing a register and wiring
+it up later is the same as not writing it, with the added cost that it reads as done.
+
+**Prefer reporting to filtering.** A filter that silently drops rows is unobservable when it stops
+working. A count in `run.json`, surfaced on `status.html` and asserted by `check.py`, fails loudly
+when the number and the register disagree. `content flags are accounted for` is that check, and it
+deliberately does NOT require flagged works to be withheld: it requires the register and the
+published report to agree, because agreement is what failed.
+
+**When you fix an exposure, check every surface separately.** Those five titles reached the public
+site through six paths: the release feed, the works list, an archived month, `names.json`'s phrases
+section, `run.json`'s claim trace and `meta.json`'s coverage list. Each was found only by looking
+at the next one after the previous fix appeared to have worked. Check the DEPLOYED bytes by
+substring; a field-shaped check missed five of the six.
+
+**Write-once yields to content.** REQUIREMENTS §5 protects a published month from having its DATES
+quietly revised. It is not a licence to keep serving a work that has been withheld. Where the two
+conflict, content wins and the removal is printed rather than made silently.
+
+## 14. What the platform guarantees, and what it does not
+
+Every platform in this database is a commercial publisher's own web arm. A reader following a link
+to a serialisation on one is not going to meet unwanted pornographic content, certainly not up
+front, which is why a source's own content rating does not withhold anything by itself.
+
+That guarantee is structural and it is worth stating because it can lapse. It rests on WHERE the
+work is published rather than on any judgement about the work, so it holds only while every source
+is a commercial publisher. **A new source that is not one changes the position**, and the flag
+register plus its check is what makes that visible rather than assumed.
+

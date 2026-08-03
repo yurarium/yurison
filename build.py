@@ -87,20 +87,26 @@ CHAPTER_NUM_RE = re.compile(r"第[0-9０-９]+[話回]|[0-9０-９]+話|#[0-9０
 HIATUS_FRESH_DAYS = 180
 
 
-def withheld_works():
-    """Titles held back pending human review, from every source that writes a register.
+def content_flags():
+    """Works a source has flagged on content grounds, whether or not we act on the flag.
 
-    WHY THIS EXISTS. `adapters/kadokomi/confirm.py` has been writing
-    data/source/kadokomi/withheld.yaml since the start, correctly flagging works whose
-    `ratingLevel` is `adult`. Its own header says "Not published. Ambiguity on the adult filter
-    fails closed (REQUIREMENTS §6)."
+    HOW THIS WENT WRONG, because the shape recurs. adapters/kadokomi/confirm.py has written
+    data/source/kadokomi/withheld.yaml since the first run, flagging works whose `ratingLevel` is
+    `adult`, its header saying they are not published. Nothing read the file. All five were live on
+    the public site, and no count anywhere said otherwise: a register that nothing consumes is
+    worse than no register, because it reads as a control that is working.
 
-    Nothing read it. All five works it named were live on the public site.
+    WHAT THE POLICY IS NOW, per the project owner. Every platform in this database is a commercial
+    publisher's own web arm, and a reader following a link to a serialisation there is not going to
+    meet unwanted pornographic content, certainly not up front. So a rating flag on such a platform
+    does not withhold anything. It is RECORDED and REPORTED instead, so that a less obvious future
+    case cannot fall permanently between the cracks.
 
-    The rating field's meaning is explicitly recorded as unestablished
-    (kadokomi/confirm.py: RATING_SEMANTICS_KNOWN = False), so `adult` is not proof of anything.
-    That is precisely why it fails closed: a work stays out until a person has looked, rather than
-    going out because a flag could not be interpreted.
+    A flag withholds only where its entry says `withhold: true`. That is the deliberate,
+    reviewed decision, and there are none today.
+
+    The count is surfaced in run.json and on status.html, and check.py fails if a flag exists that
+    nothing reports. That is the part that could not fail silently a second time.
     """
     out = {}
     for f in sorted(pathlib.Path("data/source").rglob("withheld.yaml")):
@@ -109,8 +115,14 @@ def withheld_works():
             t = w.get("work_title")
             if t:
                 out[norm_work(t)] = {"title": t, "reason": w.get("reason"),
-                                     "source": d.get("source") or f.parent.name}
+                                     "source": d.get("source") or f.parent.name,
+                                     "withhold": bool(w.get("withhold"))}
     return out
+
+
+def withheld_works():
+    """Only the flags a person has decided to act on. Empty is the normal state."""
+    return {k: v for k, v in content_flags().items() if v["withhold"]}
 
 
 def is_skipped_slot(title):
@@ -629,6 +641,16 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
     _wh = withheld_works()
     claim_trace = [t for t in claim_trace if norm_work(t.get("work")) not in _wh]
 
+    # Every content flag, reported whether or not it withholds anything. This is the whole remedy
+    # for a register nothing read: the flags now have to appear in a published number, and check.py
+    # fails if one exists that nothing accounts for.
+    _flags = content_flags()
+    _published = {norm_work(r["work"]) for r in series_rows}
+    content_flag_rows = sorted(
+        ({"title": v["title"], "source": v["source"], "reason": v["reason"],
+          "withheld": v["withhold"], "published": (k in _published) and not v["withhold"]}
+         for k, v in _flags.items()), key=lambda r: r["title"])
+
     cl = Counter(t["disposition"] for t in claim_trace)
     (out / "run.json").write_text(json.dumps(
         {"generated": str(_today),
@@ -637,6 +659,12 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
          "sources": src_health,
          # Claims never reach the reader. They are inputs, and this is where they end up.
          "claims": {"total": len(claim_trace), "by_disposition": dict(cl), "trace": claim_trace},
+         # Named in full rather than counted, because a number alone cannot be reviewed and the
+         # point of this block is that somebody can look at what was flagged.
+         "content_flags": {"total": len(content_flag_rows),
+                           "withheld": sum(1 for r in content_flag_rows if r["withheld"]),
+                           "published": sum(1 for r in content_flag_rows if r["published"]),
+                           "rows": content_flag_rows},
          "bulk_dated": bulk,
          # Cases the reader-facing interface used to render as doubt, now decided and moved here.
          # A work with no chapters at all is a lead; a volume grouped by title match rather than an

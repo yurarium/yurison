@@ -221,6 +221,8 @@ class NameStore:
 
     def _apply(self, kind, ja, fact):
         cur = self.records[kind].setdefault(ja, {})
+        if fact.pop("supersede", None):
+            self._supersede(cur, fact)
         self._merge_group(cur, fact, "en", "basis", EN_RANK, "en_conflicts")
         self._merge_group(cur, fact, "reading", "reading_basis", READING_RANK, "reading_conflicts",
                           equiv=same_reading)
@@ -237,6 +239,32 @@ class NameStore:
             self._add_candidate(cur, fact)
         self._verify(cur)
         return cur
+
+    def _supersede(self, cur, fact):
+        """Let a reviewer revise their own earlier decision.
+
+        The rank rule treats an equal-ranked different value as a conflict and keeps the older one,
+        which is right when two SOURCES disagree: picking quietly is how a person gets misnamed.
+        It is wrong when the two claims are the same producer changing its mind. Revising a
+        translation in curated.yaml applied cleanly, filed the new wording as a conflict against
+        itself, and left the page showing the wording that had just been rejected.
+
+        So this clears the slot first, and only for a caller that says it is superseding. The old
+        value still goes to the conflict list, because a title that was considered and dropped is
+        worth being able to search for, and because the audit trail is the point of the file.
+        """
+        for value_key, basis_key, conflict_key in (("en", "basis", "en_conflicts"),
+                                                   ("reading", "reading_basis", "reading_conflicts")):
+            new = fact.get(value_key)
+            old = cur.get(value_key)
+            if new is None or old is None or new == old:
+                continue
+            self._push(cur, conflict_key, old, cur.get(basis_key), cur.get(f"{value_key}_source"))
+            cur.pop(value_key, None)
+            cur.pop(basis_key, None)
+            # A conflict list that still holds the value now being adopted reads as a disagreement
+            # with itself, and would be shown as one.
+            cur[conflict_key] = [c for c in cur.get(conflict_key, []) if c.get("value") != new]
 
     @staticmethod
     def _add_candidate(cur, fact):

@@ -27,6 +27,33 @@ def main(s):
     s.eq(len(store.today()), 10, "today() is an ISO date")
     s.check(store.today().count("-") == 2, "and is dashed, so it sorts as a string")
 
+    # SUPERSEDING. Equal rank and a different value is a conflict between sources, and the same
+    # producer revising itself is not: a reworded translation was filed as a conflict against
+    # itself and the page kept showing the wording that had just been rejected.
+    import tempfile
+    tmp = tempfile.TemporaryDirectory()
+    st = store.NameStore(tmp.name)
+    st.record("titles", "私を喰べたい、ひとでなし", en="The Inhuman Girl Who Wants to Eat Me",
+              basis="translated", source="yurarium")
+    st.record("titles", "私を喰べたい、ひとでなし", en="This Monster Wants to Eat Me",
+              basis="translated", source="yurarium", supersede=True)
+    r = st.records["titles"]["私を喰べたい、ひとでなし"]
+    s.eq(r["en"], "This Monster Wants to Eat Me", "the revision is adopted")
+    s.check(any(c["value"] == "The Inhuman Girl Who Wants to Eat Me"
+                for c in r.get("en_conflicts") or []), "the wording it replaced is kept")
+    s.check(not any(c["value"] == "This Monster Wants to Eat Me"
+                    for c in r.get("en_conflicts") or []),
+            "and the adopted wording is not left disagreeing with itself")
+    st.record("titles", "私を喰べたい、ひとでなし", en="This Monster Wants to Eat Me",
+              basis="translated", source="yurarium", supersede=True)
+    s.eq(len(r.get("en_conflicts") or []), 1, "re-applying the same file adds nothing")
+    st.record("titles", "私を喰べたい、ひとでなし", en="A Scanlation Title",
+              basis="translated", source="somewhere-else")
+    s.eq(r["en"], "This Monster Wants to Eat Me",
+         "and a caller that did not ask to supersede still cannot overwrite")
+    st.close()
+    tmp.cleanup()
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "store"))

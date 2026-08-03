@@ -34,6 +34,7 @@ Usage:  curate.py --check              validate the file and stop
 """
 import argparse
 import pathlib
+import re
 import sys
 
 import yaml
@@ -57,8 +58,18 @@ ATTRIBUTION = {
 # string was seen, and seeing it in a community database is the ordinary case.
 SOURCE_KINDS = ("platform", "publisher-jp", "licensor", "community-db", "derived")
 
+# A curated READING is a different claim from a curated name, and only two bases can be curated.
+# `aligned` and `back-converted` describe how a machine derived one, which is not something a
+# person does by hand, and `guessed` is what curation exists to replace.
+READING_ATTRIBUTION = {
+    "surface": ("derived",),                    # the title is already kana; the reading is the name
+    "stated": ("platform", "publisher-jp"),      # a source prints the kana: a yomi field, furigana
+}
+
 KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "reviewed", "note",
-        "candidate_note"}
+        "candidate_note", "reading", "reading_basis"}
+
+KATAKANA = re.compile(r"^[ァ-ヺー・\s]+$")
 
 
 def problems(kind, ja, e):
@@ -72,8 +83,10 @@ def problems(kind, ja, e):
     if unknown:
         out.append(f"{where}: unknown key(s) {sorted(unknown)}")
 
-    if bool(e.get("en")) == bool(e.get("candidate")):
-        out.append(f"{where}: give exactly one of `en` (attributed) or `candidate` (seen, unproven)")
+    if not (e.get("en") or e.get("candidate") or e.get("reading")):
+        out.append(f"{where}: says nothing; give an `en`, a `candidate` or a `reading`")
+    if e.get("en") and e.get("candidate"):
+        out.append(f"{where}: an entry is either attributed (`en`) or seen (`candidate`), not both")
     if not e.get("source"):
         out.append(f"{where}: no source")
     if e.get("source_kind") not in SOURCE_KINDS:
@@ -92,6 +105,20 @@ def problems(kind, ja, e):
             out.append(f"{where}: an attributed name needs the page it was read from")
     elif e.get("basis"):
         out.append(f"{where}: a candidate carries no basis; it is not yet a claim about the work")
+
+    if e.get("reading"):
+        rb = e.get("reading_basis")
+        if rb not in READING_ATTRIBUTION:
+            out.append(f"{where}: reading_basis {rb!r} is not one of {sorted(READING_ATTRIBUTION)}")
+        elif e.get("source_kind") not in READING_ATTRIBUTION[rb]:
+            out.append(f"{where}: reading_basis {rb!r} needs evidence from "
+                       f"{' or '.join(READING_ATTRIBUTION[rb])}, not {e.get('source_kind')!r}")
+        # Readings are stored as katakana throughout, and an invariant checks it at build time.
+        # Catching a hiragana yomi here says which line to fix instead of failing the whole build.
+        if not KATAKANA.match(e["reading"]):
+            out.append(f"{where}: a reading is stored as katakana; got {e['reading']!r}")
+    elif e.get("reading_basis"):
+        out.append(f"{where}: reading_basis with no reading")
     return out
 
 
@@ -136,10 +163,13 @@ def apply(store, doc):
         for ja, e in (doc.get(kind) or {}).items():
             fact = {k: e.get(k) for k in
                     ("en", "candidate", "basis", "source", "source_kind", "source_url", "note",
-                     "candidate_note")}
+                     "candidate_note", "reading", "reading_basis")}
             # `at` is the day the decision was reviewed, not the day this ran. Re-applying the file
             # after a rebuild must not restamp a name as freshly decided.
             fact["at"] = str(e.get("reviewed"))
+            # The file is the decision of record, so re-applying it after an edit must change the
+            # answer rather than filing the new wording as a conflict against the old one.
+            fact["supersede"] = True
             store.record(kind, ja, **fact)
             if e.get("en"):
                 applied += 1

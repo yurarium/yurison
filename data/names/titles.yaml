@@ -6706,9 +6706,13 @@ names:
     reading_source: surface
     verified: true
   ニニンがシノブ伝ぷらす:
-    basis: romaji
+    basis: translated
     en: Ninin ga Shinobuden Plus
     en_at: '2026-08-03'
+    en_conflicts:
+    - basis: romaji
+      source: yurarium
+      value: Ninin ga Shinobuden Plus
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -6720,7 +6724,9 @@ names:
       - null
     note: 'The title is the times table: 二二が四 read ni-ni ga shi, with 四 swapped for シノブ伝. Nothing in English
       does that, and a rendering that dropped it would be a different joke. Romanised rather than translated,
-      with ぷらす spelt Plus because it is the English word.'
+      except that ぷらす is spelt Plus because it is the English word and Purasu would be a romanisation
+      of a loan. Filed as translated for that reason: basis romaji means render from the kana, which would
+      produce Purasu and discard this string.'
     reading: ニニン ガ シノブデン プラス
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -16349,14 +16355,25 @@ names:
     - - 詠
       - えい
     note: 'Reads as ball and song, and is also the two leads'' names: 山崎珠姫 and 武田詠深. Either translation
-      would discard the other, so it is romanised.'
-    reading: タマエイ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+      would discard the other, so it stays romanised.
+
+      Corrected as a READING rather than as an English string. The analyser had 詠 as エイ, giving Tamaei,
+      and the store held Tamayomi as an `en` beside it, which the interface ignores: basis romaji means
+      render from the kana, so the style toggle would otherwise silently do nothing. Fixing the reading
+      fixes the romanisation in all three styles, the furigana and the search index at once. Houbunsha''s
+      own platform states the reading in a yomi field.'
+    reading: タマヨミ
+    reading_at: '2026-08-03'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: タマエイ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: comic-fuz
+    reading_source_kind: platform
+    reading_url: https://comic-fuz.com/manga/441
+    verified: true
   琥珀の貴女:
     basis: romaji
     furigana_spans:
@@ -17858,8 +17875,12 @@ names:
     verified: false
   私を喰べたい、ひとでなし:
     basis: translated
-    en: The Inhuman Girl Who Wants to Eat Me
+    en: This Monster Wants to Eat Me
     en_at: '2026-08-03'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Inhuman Girl Who Wants to Eat Me
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -17871,9 +17892,12 @@ names:
       - た
     - - べたい、ひとでなし
       - null
-    note: 'ひとでなし is an insult meaning brute and literally means not a person, and the synopsis has her
-      mean it both ways: she says she has come to eat the protagonist and will protect her until she is
-      ready. Inhuman is the English word that keeps both.'
+    note: 'ひとでなし is what you call a person who has behaved monstrously, and the joke is that she is one.
+      Monster is the English word that does the same double duty: you monster is something said to people,
+      so the literal reading arrives second, which is the order the title wants. An earlier draft read
+      The Inhuman Girl Who Wants to Eat Me, which had the sense and not the voice, because inhuman in
+      English is literary where ひとでなし is something shouted. The Japanese addresses her (私を喰べたい、ひとでなし is
+      a vocative, not a sentence) and this does not; the register is worth more than the grammar here.'
     reading: ワタシ ヲ タベタイ、 ヒトデナシ
     reading_at: '2026-08-02'
     reading_basis: analyser

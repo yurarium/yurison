@@ -83,6 +83,24 @@ def main(s):
         s.eq(rec["ワインガールズ"]["en"], "Wine Girls", "and does not disturb an applied name")
         st.close()
 
+    # A curated READING. The interface renders basis-romaji titles from the kana, so a wrong
+    # reading cannot be fixed by writing the romanisation into `en`: the string is ignored.
+    R = {"reading": "タマヨミ", "reading_basis": "stated", "source": "comic-fuz",
+         "source_kind": "platform", "source_url": "https://example.invalid/441",
+         "reviewed": "2026-08-03"}
+    s.eq(curate.problems("titles", "球詠", R), [], "a reading stated by the platform")
+    s.check(curate.problems("titles", "球詠", dict(R, reading="たまよみ")),
+            "a hiragana reading is caught here rather than by a build invariant")
+    s.check(curate.problems("titles", "球詠", dict(R, reading_basis="guessed")),
+            "guessed is what curation replaces, so it cannot be curated")
+    s.check(curate.problems("titles", "球詠", dict(R, source_kind="community-db")),
+            "and a community database cannot state a reading either")
+    s.check(curate.problems("titles", "球詠", {"source": "x", "source_kind": "derived",
+                                              "reviewed": "2026-08-03"}),
+            "an entry that says nothing at all")
+    s.check(curate.problems("titles", "球詠", dict(R, reading=None, reading_basis="stated")),
+            "a reading_basis with no reading")
+
     # A key off by one character applies cleanly and names nothing, so the join is checked.
     doc = {"titles": {"球詠": {}, "球詠 ": {}}, "authors": {"まめ魚": {}}}
     s.eq(curate.unmatched(doc, {"球詠"}), ["球詠 "], "a title matching no work is reported")

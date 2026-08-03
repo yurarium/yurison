@@ -18471,14 +18471,18 @@ names:
     reading_source_kind: analyser
     verified: false
   窓辺のあなたへ:
-    basis: romaji
+    basis: translated
+    en: To You, by the Window
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 窓辺
       - まどべ
     - - のあなたへ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A COMITIA speed-manga contest entry with no synopsis beyond the award notice. Plain dedication,
+      nothing to protect.
     reading: マドベ ノ アナタ エ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18487,7 +18491,11 @@ names:
     reading_source_kind: analyser
     verified: false
   竜人ボディガードとお嬢様:
-    basis: romaji
+    basis: translated
+    en: The Dragonkin Bodyguard and the Young Lady
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 竜
       - りゅう
@@ -18497,8 +18505,9 @@ names:
       - null
     - - 嬢様
       - じょうさま
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is a jeweller's daughter and her lifelong dragonkin bodyguard, the once-crybaby
+      heiress now grown into a "power-type young lady" who mines and welds, looked after by a long-lived
+      guardian who has not aged in over a decade.
     reading: リュウニン ボディガード ト オジョウサマ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18526,6 +18535,10 @@ names:
     verified: false
   笑う門だよ福音さん:
     basis: romaji
+    en: Warau Kadoda yo Fukuinsan
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 笑
       - わら
@@ -18539,8 +18552,10 @@ names:
       - ふくいん
     - - さん
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'Breaks the proverb 笑う門には福来る, fortune comes to the laughing household, the same way 蓼食う君も好き好き
+      breaks its own proverb: 福来る, fortune comes, becomes 福音さん, Ms. Fukuin, a name that happens to share
+      the kanji 福 with the proverb''s own punchline. No English proverb shares that shape to swap a name
+      into.'
     reading: ワラウ モンダ ヨ フクインサン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18573,7 +18588,11 @@ names:
     reading_source_kind: analyser
     verified: false
   第十二号蘇生魔術:
-    basis: romaji
+    basis: translated
+    en: Resurrection Magic No. 12
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 第
       - だい
@@ -18585,8 +18604,9 @@ names:
       - そせい
     - - 魔術
       - まじゅつ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A Magazine special one-shot; reader comments reference "the remaining six hundred and fifteen
+      resurrections", so 第十二号 counts one attempt within a much longer sequence rather than naming a twelfth
+      version of anything.
     reading: ダイ ジュウニ ゴウ ソセイ マジュツ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18595,7 +18615,11 @@ names:
     reading_source_kind: analyser
     verified: false
   篠崎志乃は甘くない!:
-    basis: romaji
+    basis: translated
+    en: Shinozaki Shino Isn't Sweet!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 篠崎
       - しのざき
@@ -18607,8 +18631,9 @@ names:
       - あま
     - - くない!
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 甘くない carries the same double sense in Japanese as in English, literally not sweet and idiomatically
+      not soft to deal with, which is why it translates cleanly. The synopsis is a girl who enjoyed being
+      her school's uncontested princess until a "perfect young lady" transfer student arrived.
     reading: シノザキ シノ ワ アマク ナイ !
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18617,14 +18642,20 @@ names:
     reading_source_kind: analyser
     verified: false
   紅殻のパンドラ:
-    basis: romaji
+    basis: licensed
+    en: Pandora in the Crimson Shell
+    en_at: '2026-08-04'
+    en_source: Seven Seas Entertainment
+    en_source_kind: licensor
+    en_url: https://tankobonbon.com/products/9781626921900
     furigana_spans:
     - - 紅殻
       - べにがら
     - - のパンドラ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: sevenseasentertainment.com refuses automated fetches, so cited to a distributor listing that
+      names Seven Seas as publisher, the same workaround used for わたしが恋人になれるわけないじゃん. The full licensed
+      title carries a Ghost Urn subtitle our key does not, since the catalogue holds the base series title.
     reading: ベニガラ ノ パンドラ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18633,7 +18664,12 @@ names:
     reading_source_kind: analyser
     verified: false
   紅茶の魔女の優雅なる宮廷生活 チートをひた隠す最弱魔導師の窓際ライフ:
-    basis: romaji
+    basis: translated
+    en: 'The Tea Witch''s Elegant Court Life: The Sidelined Life of the Weakest Mage Who Hides Her Cheat
+      Powers'
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 紅茶
       - こうちゃ
@@ -18667,8 +18703,9 @@ names:
       - まどぎわ
     - - ライフ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'The synopsis spells out both halves: Remii, the court''s weakest mage, can supposedly only
+      brew good tea, but secretly turns tea leaves into a blade or a cure-all; she wants nothing more
+      than to stay an unnoticed 窓際族, sidelined desk-worker, over elegant tea, and keeps failing to.'
     reading: コウチャ ノ マジョ ノ ユウガナル キュウテイ セイカツ   チート ヲ ヒタ カクス サイジャク マドウシ ノ マドギワ ライフ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18677,7 +18714,11 @@ names:
     reading_source_kind: analyser
     verified: false
   紅魔館の女たち:
-    basis: romaji
+    basis: translated
+    en: The Women of the Scarlet Devil Mansion
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 紅
       - くれない
@@ -18691,8 +18732,10 @@ names:
       - おんな
     - - たち
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'Tagged 東方Project on the platform: a dōjin work set in 紅魔館, the Scarlet Devil Mansion, the lakeside
+      manor from Touhou, home to a vampire mistress and the strong-willed women around her. Scarlet Devil
+      Mansion is the name the fandom itself has used for two decades; there is no central official English
+      licence for Touhou terminology to attribute it to, so this is ours.'
     reading: クレナイ マカン ノ オンナタチ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18702,23 +18745,37 @@ names:
     verified: false
   紗痲 Fallin' Jail:
     basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: シャ マ   Fallin '   Jail
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    en: Shama Fallin' Jail
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 紗痲 is a Vocaloid song by 煮ル果実, adapted here into manga by the producer's own script; 紗痲 is a
+      name and stays one, the same call as 球詠. Fallin' Jail is already English in the source title. The
+      stored reading was flagged uncertain from the analyser alone; commentary discussing the song's own
+      lyrics confirms シャマ (Shama), which this entry now states outright rather than leaving marked uncertain.
+    reading: シャマ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シャ マ   Fallin '   Jail
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     reading_uncertain: true
     verified: false
   紡ぐ乙女と大正の月:
-    basis: romaji
-    en: Tsumugu Otome to Taishō no Tsuki
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Spinning Maiden and the Taishō Moon
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Tsumugu Otome to Taishō no Tsuki
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q97940410
     furigana_spans:
     - - 紡
@@ -18735,6 +18792,8 @@ names:
       - null
     - - 月
       - つき
+    note: The platform's own yomi field confirms the reading straight through. A Taishō-era-set kirara
+      4-koma; 紡ぐ, to spin thread, is plain rather than figurative here.
     reading: ツムグ オトメ ト タイショウ ノ ツキ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -18744,14 +18803,19 @@ names:
     reading_url: http://www.wikidata.org/entity/Q97940410
     verified: false
   終わりのふたり:
-    basis: romaji
+    basis: translated
+    en: The Two of Us at the End
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 終
       - お
     - - わりのふたり
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is a world nearly emptied of people by conflict, where survivors Yuno and Alice
+      live happily together, just the two of them. 終わり keeps its ambiguity between an ending and the end
+      of the world.
     reading: オワリ ノ フタリ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18760,7 +18824,11 @@ names:
     reading_source_kind: analyser
     verified: false
   終末、おやつ食べよ。:
-    basis: romaji
+    basis: translated
+    en: The World's Ending, Let's Have a Snack.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 終末
       - しゅうまつ
@@ -18770,8 +18838,9 @@ names:
       - た
     - - べよ。
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'The platform''s own tagline spells it out plainly: 世界終わりそうだし、おやつ食べない？, the world''s probably
+      ending, so want a snack? Two middle schoolers, 湯のみ (teacup) and カタナ (sword), stay behind on a ruined
+      Earth while classmates evacuate to space.'
     reading: シュウマツ、 オヤツ タベ ヨ。
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18780,14 +18849,17 @@ names:
     reading_source_kind: analyser
     verified: false
   終点まで、ふたりで:
-    basis: romaji
+    basis: translated
+    en: To the Final Stop, Together
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 終点
       - しゅうてん
     - - まで、ふたりで
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 終点 is a train's last stop. A magazine newcomer one-shot with no synopsis beyond its own title.
     reading: シュウテン マデ、 フタリ デ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18796,7 +18868,11 @@ names:
     reading_source_kind: analyser
     verified: false
   結ばれる日/読み切り:
-    basis: romaji
+    basis: translated
+    en: The Day We're Bound Together
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 結
       - むす
@@ -18814,8 +18890,9 @@ names:
       - き
     - - り
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 結ばれる is the passive of 結ぶ, to tie, used idiomatically for a couple coming together; the series
+      blurb is a childhood promise and years of missed connection. /読み切り, the platform's one-shot tag,
+      dropped.
     reading: ムスバレル ヒ / ヨミキリ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18824,7 +18901,11 @@ names:
     reading_source_kind: analyser
     verified: false
   結城友奈は勇者である 勇者部びより Party♪:
-    basis: romaji
+    basis: translated
+    en: 'Yuki Yuna Is a Hero: Hero Club Days, Party♪'
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 結城
       - ゆうき
@@ -18842,8 +18923,11 @@ names:
       - ぶ
     - - びより Party♪
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 結城友奈は勇者である is an established franchise with an English-language anime release under Yuki Yuna
+      Is a Hero; adopted here rather than translated fresh, the way おちこぼれフルーツタルト borrowed Dropout Idol
+      Fruit Tart. This specific 4-koma spinoff of the ゆゆゆい game is not itself found under an English licence,
+      so it is ours to answer for and marked accordingly. 勇者部びより, Hero Club days, uses 日和, a fine or pleasant
+      day, as its second half.
     reading: ユウキ トモナ ワ ユウシャデ アル   ユウシャ ブ ビヨリ   Party ♪
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18852,7 +18936,11 @@ names:
     reading_source_kind: analyser
     verified: false
   結婚したい竜宮さんは上陸しました:
-    basis: romaji
+    basis: translated
+    en: The Marriage-Minded Dragon Palace Princess Has Come Ashore
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 結婚
       - けっこん
@@ -18866,8 +18954,10 @@ names:
       - じょうりく
     - - しました
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 竜宮, the Dragon Palace, is the undersea kingdom of the Urashima Tarō folktale; 竜宮さん nicknames
+      her by where she is from the way オオカミさん and 足羽さん name characters by trait two checkpoints back.
+      The synopsis calls her 姫, princess, of an undersea people, which "princess" makes explicit rather
+      than leaving the folklore reference to carry it alone.
     reading: ケッコン シタイ リュウグウサン ワ ジョウリク シマシタ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18876,7 +18966,11 @@ names:
     reading_source_kind: analyser
     verified: false
   絵筆と黒絹:
-    basis: romaji
+    basis: translated
+    en: Paintbrush and Black Silk
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 絵筆
       - えふで
@@ -18884,8 +18978,8 @@ names:
       - null
     - - 黒絹
       - くろきぬ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is an application to model for a beauty painting, and a reunion with an old friend
+      that reveals a shocking truth. Plain noun pair, nothing to protect.
     reading: エフデ ト クロキヌ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18894,7 +18988,11 @@ names:
     reading_source_kind: analyser
     verified: false
   綺麗な花の遺し方:
-    basis: romaji
+    basis: translated
+    en: How to Leave a Beautiful Flower Behind
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 綺麗
       - きれい
@@ -18910,8 +19008,10 @@ names:
       - null
     - - 方
       - かた
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 遺す specifically means to leave something behind after one's own death or departure, not the
+      plainer 残す; the synopsis is a genius girl resolving to preserve a beautiful girl's appearance forever
+      through an unprecedented human first, so the mortality the verb carries is kept in "leave behind"
+      rather than softened to "preserve".
     reading: キレイナ ハナ ノ ノコシカタ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18920,14 +19020,19 @@ names:
     reading_source_kind: analyser
     verified: false
   縁切鋏:
-    basis: romaji
+    basis: translated
+    en: Scissors That Sever Ties
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 縁切
       - えんきり
     - - 鋏
       - はさみ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 縁切り is the old, specific word for deliberately ending a relationship, historically formalised
+      at 縁切り寺, temples where a wife could sever a marriage. A newcomer-award one-shot with no synopsis
+      beyond the award notice.
     reading: エンキリ ハサミ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18956,7 +19061,11 @@ names:
     reading_source_kind: analyser
     verified: false
   羨望と白百合の君へ。:
-    basis: romaji
+    basis: translated
+    en: To You, Envy and White Lilies
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 羨望
       - せんぼう
@@ -18970,8 +19079,9 @@ names:
       - きみ
     - - へ。
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'An Afternoon-award one-shot: an athletic girl''s own complaint about herself is being too boyish,
+      and the classmate who is her opposite hands her a love letter under what might be a misunderstanding.
+      白百合, white lily, reads as the idealised girlishness the narrator feels she lacks.'
     reading: センボウ ト シラユリ ノ キミ エ。
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18980,7 +19090,11 @@ names:
     reading_source_kind: analyser
     verified: false
   聖さまの思うままに:
-    basis: romaji
+    basis: translated
+    en: As Sei-sama Pleases
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 聖
       - きよし
@@ -18990,14 +19104,20 @@ names:
       - おも
     - - うままに
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: キヨシサマ ノ オモウ ママ ニ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    note: 神崎聖 is described as a 完璧美少女, a perfect beautiful girl, and the stored analyser reading had 聖
+      as Kiyoshi, a reading that leans male; Sei is the far better-attested reading for a female character
+      of this name. -sama is kept rather than dropped, because the title is framing how she is deferred
+      to, matching the synopsis's own "perfect girl" premise.
+    reading: セイサマ ノ オモウ ママ ニ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: キヨシサマ ノ オモウ ママ ニ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   聖女先生の魔法は進んでる！:
     basis: translated
@@ -19030,7 +19150,11 @@ names:
     reading_source_kind: analyser
     verified: false
   肉の女王は愛の月:
-    basis: romaji
+    basis: translated
+    en: The Queen of Flesh Is the Moon of Love
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 肉
       - にく
@@ -19046,8 +19170,9 @@ names:
       - null
     - - 月
       - つき
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 慈島月子, the classmate the narrator resents, has 月, moon, in her own given name, which 愛の月 is playing
+      on; the synopsis is a nonstop SF action one-shot where the two are pulled into another dimension
+      full of man-eating aliens, the key a growth on the back of the hand.
     reading: ニク ノ ジョオウ ワ アイ ノ ツキ
     reading_at: '2026-08-02'
     reading_basis: analyser

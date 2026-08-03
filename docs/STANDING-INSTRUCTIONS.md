@@ -130,14 +130,23 @@ Unihan is the Unicode licence. Data files derived from a source carry their attr
 ## 11. Write so a stranger can use it
 
 Almost every word here was drafted by an assistant, and assistants reach for a small set of
-prefabricated constructions. The problem is not that they identify their author. It is that they
-are bad writing: a sentence spent saying nothing, an abstraction where a fact belongs, rhythm in
-place of content. Enough together and the text lands in the uncanny valley, where a reader feels
+prefabricated constructions. Those constructions are bad writing on their own merits: a sentence
+spent saying nothing, an abstraction where a fact belongs, rhythm in place of content. Identifying
+their author is beside the point. Enough together and the text lands in the uncanny valley, where a reader feels
 the wrongness before naming it and stops trusting the page.
 
 The goal is prose worth reading. That the project is AI-driven is a plain fact of the repository,
 neither hidden nor advertised, and attribution stays. Where a published list of AI tells and the
 reader's experience disagree, follow the reader.
+
+**Scope.** Anything a reader sees. The whole of any repository that goes public, existing text
+included. Code comments and docstrings. Commit messages written from now on; those already written
+are history, and the public development history is to be squashed before 1.0 in any case.
+
+**What enforces it.** `check.py` holds the invariant for public prose, plus budgets for the backlog
+in internal documents, which ship at 1.0 and need the same pass. The `commit-msg` hook applies the
+same list to each new message and blocks, because a person is present who can reword a line. Where
+the rules came from is recorded in `adapters/lint/tics.py`.
 
 **The documentation is part of the deliverable.** The informational foundation and the architecture
 ship in the repository so that a third party can pick the project up and run with it or change it.

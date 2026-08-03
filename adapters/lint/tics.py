@@ -57,6 +57,21 @@ overturned on sight of the README, whose opening paragraph carried two em dashes
 SCOPE. Public prose is the invariant. Code comments and docstrings are the budget: in scope, being
 cleaned, but a backlog must not block a build. Commit messages already written are history.
 
+WHERE THE LIST CAME FROM. The first version was written from memory and was wrong about em dashes,
+so the second was researched. Most useful by a distance is Wikipedia's own editor guidance,
+"Signs of AI writing" (en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), which is maintained by
+people who read suspected machine text all day and is organised by what to look for rather than by
+theory. Four rules here come straight from it: copula avoidance ("serves as", "boasts", "marks a"),
+negative parallelism, the present participle bolted onto a finished sentence to add significance,
+and vague attribution standing in for a source. It also records the caveats that matter, chiefly
+that detection tools are unreliable and that human readers do no better than chance, which is part
+of why this file aims at readability rather than at evading detection.
+
+On density: arXiv 2601.07974 (detector generalisation through linguistic analysis) and 2603.27006
+(how markdown training shapes LLM prose) both find the signal in clustering rather than in any
+single instance. That is why em dashes are a budget internally instead of an error, and why the
+one metric that could not be made to measure clustering honestly was removed rather than shipped.
+
 Usage:  tics.py --prose FILE...      what a reader sees; HARD + raw-text rules + density
         tics.py --comments FILE...   comments, docstrings and .md; reports HARD + SOFT
         tics.py --self-test          prove it catches its own canary

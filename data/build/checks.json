@@ -78,6 +78,12 @@
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage."
   },
   {
+   "name": "three as an organising shape",
+   "value": 28,
+   "budget": 28,
+   "means": "lists of exactly three items, and runs of three bold-led paragraphs, in documents that ship at 1.0. Three reads as rhetoric; four reads as an inventory. When there really are three things, write them as prose or find the fourth that was left out to make the shape work."
+  },
+  {
    "name": "shadowed names in build.py",
    "value": 38,
    "budget": 38,

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# The prose standard applies to commit messages written from now on (STANDING-INSTRUCTIONS §11).
+# Messages already written are history and are not revisited.
+#
+# This is the check-in side of the rule, so it blocks: a person is present who can reword a line.
+# Git's own template comments are stripped first, because "# Please enter the commit message" is
+# not our writing and flagging it would train everyone to pass --no-verify.
+set -uo pipefail
+ROOT="$(git rev-parse --show-toplevel)"
+LINT="$ROOT/adapters/lint/tics.py"
+[ -f "$LINT" ] || exit 0
+
+MSG="$1"
+TMP="$(mktemp --suffix=.md)"
+trap 'rm -f "$TMP"' EXIT
+grep -v '^#' "$MSG" > "$TMP"
+
+# An empty message is git's business, not ours.
+[ -s "$TMP" ] || exit 0
+
+if ! out="$(python3 "$LINT" --prose "$TMP" 2>&1)"; then
+  echo "commit-msg: the message reads as stock phrasing (STANDING-INSTRUCTIONS §11):" >&2
+  echo "$out" | sed "s|$TMP|commit message|" >&2
+  echo "Reword and commit again, or --no-verify if you have a reason." >&2
+  exit 1
+fi

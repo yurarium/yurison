@@ -338,6 +338,23 @@ def budget_stock_phrasing_in_comments(ctx):
         return 0
 
 
+def budget_structural_triples(ctx):
+    """Three used as an organising shape in documents that ship at 1.0.
+
+    Public prose is the invariant. This is the backlog in the internal documents, which become
+    public at 1.0 and so need the same pass. A count, so it ratchets down instead of blocking.
+    """
+    try:
+        files = [str(f) for f in sorted(ROOT.rglob("*.md"))
+                 if ".git" not in f.parts and "data" not in f.parts]
+        out = subprocess.run(
+            [sys.executable, str(ROOT / "adapters" / "lint" / "tics.py"), "--prose", *files],
+            capture_output=True, text=True, timeout=120)
+        return sum(1 for l in out.stdout.splitlines() if l.startswith("STRUCTURE:"))
+    except Exception:
+        return 0
+
+
 def budget_shadowed_names(ctx):
     try:
         out = subprocess.run([sys.executable, str(ROOT / "adapters" / "lint" / "shadowing.py"),
@@ -366,6 +383,10 @@ BUDGETS_DEF = [
      "are a budget here and zero in public text. Public prose is an invariant instead; this is the "
      "backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not "
      "flagged, and why legibility beats camouflage."),
+    ("three as an organising shape", budget_structural_triples,
+     "lists of exactly three items, and runs of three bold-led paragraphs, in documents that ship "
+     "at 1.0. Three reads as rhetoric; four reads as an inventory. When there really are three "
+     "things, write them as prose or find the fourth that was left out to make the shape work."),
     ("shadowed names in build.py", budget_shadowed_names,
      "names rebound more than 300 lines from their first binding. Two shipped bugs came from this; "
      "see adapters/lint/shadowing.py for why the count is not simply falling."),

@@ -5,7 +5,7 @@
 set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 git config core.hooksPath .githooks
-chmod +x .githooks/*.sh .githooks/pre-commit .githooks/pre-push 2>/dev/null || true
+chmod +x .githooks/*.sh .githooks/pre-commit .githooks/pre-push .githooks/commit-msg 2>/dev/null || true
 if [ ! -f .githooks/leak-deny.local ]; then
   cp .githooks/leak-deny.local.example .githooks/leak-deny.local
   echo "seeded .githooks/leak-deny.local (gitignored) — add your real name/email as fixed strings, one per line"

@@ -83,6 +83,8 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from names import inputs, kana  # noqa: E402
 from names.resolver import Fact, HttpCache, Resolver, SourceUnavailable, drive  # noqa: E402
 from names.store import NameStore  # noqa: E402
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+import paths
 
 
 # Japanese function words, as they appear in a romanisation. A Latin string carrying several of
@@ -683,7 +685,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--build", default="data/build")
     ap.add_argument("--out", default="data/names")
-    ap.add_argument("--cache", default=str(pathlib.Path.home() / "workspace/names-cache"))
+    ap.add_argument("--cache", default=str(paths.cache("names-cache")))
     ap.add_argument("--source", choices=list(SOURCES) + ["all"], default="all")
     ap.add_argument("--kind", choices=["authors", "titles", "both"], default="both")
     ap.add_argument("--limit", type=int, default=None, help="stop after N names per source/kind")

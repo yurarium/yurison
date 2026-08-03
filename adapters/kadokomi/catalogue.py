@@ -11,7 +11,7 @@ reads the rendered page rather than calling the disallowed API. Paginated with `
 
 Recorded 2026-08-01: 348 works, against 243 the antenna listed for this platform.
 
-Usage:  catalogue.py --out data/source/kadokomi --cache ~/workspace/kadokomi-cache \
+Usage:  catalogue.py --out data/source/kadokomi --cache $YURI_CACHE/kadokomi-cache \
                      --retrieved 2026-08-01
 """
 import argparse, json, pathlib, re, sys, time, urllib.request

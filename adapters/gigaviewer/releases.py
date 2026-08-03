@@ -18,7 +18,7 @@ Series pages are fetched politely: identified UA, conditional requests, one requ
 Images are never used. The feed offers episode thumbnails as enclosures; those are not a
 publisher-supplied reuse feed and §2 forbids referencing them.
 
-Usage:  releases.py --out data/source/gigaviewer --cache ~/workspace/giga-cache
+Usage:  releases.py --out data/source/gigaviewer --cache $YURI_CACHE/giga-cache
 """
 import argparse, datetime, json, pathlib, re, sys, time, urllib.error, urllib.request
 

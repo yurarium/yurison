@@ -21,8 +21,15 @@ set -uo pipefail
 ALLOW='Yurarium <311755991+yurarium@users.noreply.github.com>'
 
 # Safe-to-commit structural denylist — shapes, not specific values (reveals no real identity):
-#   /home/<user>/ absolute paths; internal tracker-tag formats.
-STRUCT_DENY='/home/[[:alnum:]._-]+/|(^|[^A-Za-z])(BH|IR|PV)-[0-9]|(^|[^A-Za-z])WS[0-9]([^0-9]|$)'
+#   /home/<user>/ absolute paths; home-relative paths naming a personal directory tree;
+#   Path.home() composed with a literal; internal tracker-tag formats.
+#
+# The home-relative patterns were added after an audit found ~/workspace/<x>-cache in 28
+# places across nineteen files. The guard had been passing on all of them: it matched /home/<user>/
+# and nothing else, so a tilde walked straight through. Dot-directories are deliberately allowed —
+# ~/.ssh and ~/.config are conventions everyone shares, whereas ~/Development names one person's
+# working layout. Each pattern is written so it does not match its own source line.
+STRUCT_DENY='/home/[[:alnum:]._-]+/|~/[A-Za-z0-9]|\$HOME/[A-Za-z0-9]|Path\.home\(\)[[:space:]]*/|(^|[^A-Za-z])(BH|IR|PV)-[0-9]|(^|[^A-Za-z])WS[0-9]([^0-9]|$)'
 
 # Out-of-band specific denylist: newline-separated FIXED strings (real name / emails / codenames). Empty
 # when not supplied.
@@ -48,6 +55,13 @@ identity_violation() { [ "$1" != "$ALLOW" ]; }
 
 selftest() {
   printf '/home/canary/x PV-0\n' | content_hits >/dev/null || die "structural matcher missed its canary"
+  # One canary per shape. A single canary only proves the first alternative is live.
+  printf '~/workspace/madb-cache\n' | content_hits >/dev/null || die "missed home-relative path"
+  printf 'x $HOME/Development/x\n' | content_hits >/dev/null || die "missed \$HOME path"
+  printf 'p = Path.home() / "Development"\n' | content_hits >/dev/null || die "missed Path.home() composition"
+  # Counter-cases: shared conventions must NOT trip the guard, or it gets switched off.
+  printf 'put the key in ~/.ssh/id_ed25519\n' | content_hits >/dev/null && die "false positive on ~/.ssh"
+  printf 'GH_CONFIG_DIR=~/.config/gh\n' | content_hits >/dev/null && die "false positive on ~/.config"
   if [ -n "$DENY" ]; then
     local first; first="$(printf '%s\n' "$DENY" | grep -vE '^[[:space:]]*(#|$)' | head -n1)"
     [ -z "$first" ] || printf 'x %s x\n' "$first" | content_hits >/dev/null || die "supplied denylist did not self-match"

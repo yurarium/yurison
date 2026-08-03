@@ -27,13 +27,14 @@ BUDGETS RATCHET ONE WAY. Tier-2 numbers are counts with no correct value, only a
 `--gate` tightens the recorded budget to what was actually measured; loosening one requires editing
 docs/budgets.json by hand, which puts the reason in a commit message where it can be argued with.
 """
-import argparse, json, pathlib, re, subprocess, sys, unicodedata
+import argparse, json, os, pathlib, re, subprocess, sys, unicodedata
 
 ROOT = pathlib.Path(__file__).resolve().parent
 BUILD = ROOT / "data" / "build"
 NAMES = ROOT / "data" / "names"
 BUDGETS = ROOT / "docs" / "budgets.json"
-SITE_ROOT = pathlib.Path.home() / "Development" / "yuri" / "yurarium.github.io"
+# Derived, not written out: the site repo sits beside this one. See adapters/paths.py.
+SITE_ROOT = pathlib.Path(os.environ.get("YURARIUM_SITE") or ROOT.parent / "yurarium.github.io")
 SITE = SITE_ROOT / "kari" / "data"
 
 # Every file a reader can load. The English strings live inside the pages rather than in a

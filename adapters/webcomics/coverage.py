@@ -12,7 +12,7 @@ report — the list of platforms and works we do not yet cover, which is the wor
 
 Fetches are paginated and polite: identified UA, one request per 1.5s, page count capped.
 
-Usage:  coverage.py --out data/coverage --cache ~/workspace/webcomics-cache \
+Usage:  coverage.py --out data/coverage --cache $YURI_CACHE/webcomics-cache \
                     --pages 8 --retrieved 2026-08-01
 """
 import argparse, html as _html, json, pathlib, re, sys, time, urllib.request

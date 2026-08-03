@@ -18,7 +18,7 @@ A work is reported unreached only after all four fail, which is a much stronger 
 one adapter declining to pick it up.
 
 Usage:  releases.py --works data/coverage/remaining.yaml --out data/source/webpages \
-                    --cache ~/workspace/remaining-cache --retrieved 2026-08-01
+                    --cache $YURI_CACHE/remaining-cache --retrieved 2026-08-01
 """
 import argparse, html as _html, json, pathlib, re, subprocess, sys, time
 import urllib.error, urllib.request

@@ -11,7 +11,7 @@ Its URL carries a stale 2017 date; the page itself is current. WordPress permali
 Tier C, discovery only (REQUIREMENTS §1). It says a work exists, where, and roughly when it
 updated. It attests nothing. Output is a candidate list plus a coverage gap — the work queue.
 
-Usage:  webyuri.py --out data/coverage --cache ~/workspace/yurinavi-cache \
+Usage:  webyuri.py --out data/coverage --cache $YURI_CACHE/yurinavi-cache \
                    --retrieved 2026-08-01
 """
 import argparse, json, pathlib, re, sys, time, urllib.request

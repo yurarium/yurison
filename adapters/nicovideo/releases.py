@@ -34,7 +34,7 @@ What this establishes and what it does not:
 Never stored: episode thumbnails, synopsis text, or page images (§2).
 
 Usage:  releases.py --works data/coverage/webcomics-works.yaml --out data/source/nicovideo \
-                    --cache ~/workspace/nico-cache --retrieved 2026-08-01
+                    --cache $YURI_CACHE/nico-cache --retrieved 2026-08-01
 """
 import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
 from collections import Counter

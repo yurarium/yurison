@@ -21,7 +21,7 @@ episode title is the feed `<title>`; the series title comes from the listing, no
 episode.
 
 Usage:  series_feeds.py --platform ichicomi --out data/source/gigaviewer \
-                        --cache ~/workspace/giga-series-cache --retrieved 2026-08-01
+                        --cache $YURI_CACHE/giga-series-cache --retrieved 2026-08-01
 """
 import argparse, datetime, html as _html, json, pathlib, unicodedata, re, sys, time
 import urllib.error, urllib.request

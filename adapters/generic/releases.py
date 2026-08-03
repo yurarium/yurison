@@ -23,7 +23,7 @@ The cost of generality is confidence, and it is paid explicitly:
 
 Usage:  releases.py --works data/coverage/webcomics-works.yaml \
                     --extract data/coverage/extract.yaml --out data/source/webpages \
-                    --cache ~/workspace/generic-cache --retrieved 2026-08-01
+                    --cache $YURI_CACHE/generic-cache --retrieved 2026-08-01
 """
 import argparse, json, pathlib, re, sys, time, unicodedata, urllib.error, urllib.request
 from collections import Counter

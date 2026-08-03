@@ -25,7 +25,7 @@ Output is the same `web_work_chapters` shape the per-series fetcher writes, so t
 without changes.
 
 Usage:  confirm.py --queue data/queue/yurinavi.yaml --out data/source/gigaviewer \
-                   --cache ~/workspace/giga-series-cache --retrieved 2026-08-01
+                   --cache $YURI_CACHE/giga-series-cache --retrieved 2026-08-01
 """
 import argparse, html as _html, json, pathlib, re, sys, time, urllib.error, urllib.request
 from collections import Counter, defaultdict

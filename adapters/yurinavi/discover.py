@@ -10,7 +10,7 @@ in a queue for a human to confirm against the platform, which is what supplies t
 The queue is the point — it is what stops the database silently consisting only of works someone
 else already tagged.
 
-Usage:  discover.py --out data/queue --cache ~/workspace/yurinavi-cache --retrieved 2026-08-01
+Usage:  discover.py --out data/queue --cache $YURI_CACHE/yurinavi-cache --retrieved 2026-08-01
 """
 import argparse, datetime, json, pathlib, re, time, urllib.request
 

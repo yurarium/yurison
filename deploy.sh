@@ -2,7 +2,9 @@
 # Copy compiled data into the site repo. Build first; this does not build for you.
 # The site repo holds artefacts only — records and adapters stay here.
 set -euo pipefail
-SITE="${1:-$HOME/workspace/yurarium.github.io}"
+# Derived from this script's own location, not from one machine's home directory.
+REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SITE="${1:-${YURARIUM_SITE:-$(dirname "$REPO")/yurarium.github.io}}"
 [ -f data/build/index.json ] || { echo "no build output — run ./build.py first" >&2; exit 1; }
 [ -d "$SITE/kari" ] || { echo "site repo not found at $SITE" >&2; exit 1; }
 # feed.json is deliberately NOT copied. It is the internal whole — the acceptance tests and the

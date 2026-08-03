@@ -20,7 +20,7 @@ vocabulary is update-day, audience (男性向け), imprint and magazine.
 Never stored: `shortDescription` / `longDescription` (publisher synopsis, §2) or thumbnail URLs.
 
 Usage:  releases.py --gap data/coverage/webcomics-gap.yaml --out data/source/comicfuz \
-                    --cache ~/workspace/fuz-cache --retrieved 2026-08-01
+                    --cache $YURI_CACHE/fuz-cache --retrieved 2026-08-01
 """
 import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
 from collections import Counter

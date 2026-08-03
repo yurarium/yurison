@@ -9,7 +9,7 @@ URL where openBD supplies one.
 
 No synopsis (内容紹介) or review text is ever stored; that is copyrightable and forbidden by §2.
 
-Usage:  enrich.py --cache ~/workspace/openbd-cache/yurihime.json \
+Usage:  enrich.py --cache $YURI_CACHE/openbd-cache/yurihime.json \
                   --works data/source/madb --out data/source/openbd --retrieved 2026-08-01
 """
 import argparse, glob, json, pathlib, sys

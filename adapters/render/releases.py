@@ -21,7 +21,7 @@ Dates carry `date_basis: rendered` — read from a page the platform drew, which
 feed it published and stronger than a pattern matched in markup.
 
 Usage:  releases.py --targets data/coverage/render-targets.yaml --out data/source/webpages \
-                    --cache ~/workspace/render-cache --retrieved 2026-08-01
+                    --cache $YURI_CACHE/render-cache --retrieved 2026-08-01
 """
 import argparse, html as _html, json, pathlib, re, subprocess, sys, time
 from collections import Counter

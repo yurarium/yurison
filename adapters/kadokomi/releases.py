@@ -15,7 +15,7 @@ marketing_label under DEFINITIONS §4 where the tag is present.
 Never stored: `summary` (publisher synopsis, §2) or thumbnail URLs.
 
 Usage:  releases.py --works data/coverage/webcomics-works.yaml --out data/source/kadokomi \
-                    --cache ~/workspace/kadokomi-cache --retrieved 2026-08-01
+                    --cache $YURI_CACHE/kadokomi-cache --retrieved 2026-08-01
 """
 import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
 from collections import Counter

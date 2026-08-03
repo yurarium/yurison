@@ -37,6 +37,8 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 from names import inputs, kana  # noqa: E402
 from names.store import NameStore  # noqa: E402
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+import paths
 
 HERE = pathlib.Path(__file__).resolve().parent
 
@@ -107,7 +109,7 @@ def run_pass(which, build, out, cache, extra):
         return 2
     cmd = [sys.executable, str(HERE / scripts[which][0]), "--build", build, "--out", out]
     if which == "0":
-        cmd += ["--cache", str(pathlib.Path.home() / "workspace")]
+        cmd += ["--cache", str(paths.CACHE_ROOT)]
     elif which == "2":
         cmd += ["--cache", cache]
     return subprocess.call(cmd + extra)
@@ -117,7 +119,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--build", default="data/build")
     ap.add_argument("--out", default="data/names")
-    ap.add_argument("--cache", default=str(pathlib.Path.home() / "workspace/names-cache"))
+    ap.add_argument("--cache", default=str(paths.cache("names-cache")))
     ap.add_argument("--run", help="comma-separated passes to run, in order (0,1,2)")
     ap.add_argument("--status", action="store_true", help="report progress and stop")
     args, extra = ap.parse_known_args(argv)

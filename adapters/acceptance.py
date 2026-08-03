@@ -30,6 +30,8 @@ import yaml
 
 sys.path.insert(0, "adapters/webcomics")
 from coverage import parse  # noqa: E402
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import paths
 
 THIS_YEAR = 2026
 
@@ -92,7 +94,7 @@ def main():
     print(f"Feed holds : {len(rel)} releases across {len(ours)} distinct works\n")
 
     # ── Web漫画アンテナ ────────────────────────────────────────────────
-    cache = pathlib.Path.home() / "workspace/webcomics-cache"
+    cache = paths.cache("webcomics-cache")
     rows = []
     for f in sorted(cache.glob("page*.html"),
                     key=lambda p: int(re.search(r"\d+", p.name).group())):

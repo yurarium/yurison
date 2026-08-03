@@ -47,6 +47,8 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 from names import inputs, kana  # noqa: E402
 from names.store import NameStore  # noqa: E402
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+import paths
 
 HANDLE = re.compile(r"(?:twitter\.com|x\.com)/(?:#!/)?([A-Za-z0-9_]{2,20})(?=[/?\"'<>\s]|$)")
 PIXIV_USER = re.compile(r"pixiv\.net/users/(\d+)")
@@ -260,7 +262,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--build", default="data/build")
     ap.add_argument("--out", default="data/names")
-    ap.add_argument("--cache", default=str(pathlib.Path.home() / "workspace"))
+    ap.add_argument("--cache", default=str(paths.CACHE_ROOT))
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)
 

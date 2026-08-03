@@ -14,7 +14,7 @@ None of these platforms applies a 百合 tag, so nothing here establishes market
 Never stored: synopsis text or image URLs (§2).
 
 Usage:  releases.py --gap data/coverage/webcomics-gap.yaml --out data/source/webpages \
-                    --cache ~/workspace/webpages-cache --retrieved 2026-08-01
+                    --cache $YURI_CACHE/webpages-cache --retrieved 2026-08-01
 """
 import html as _html
 import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request

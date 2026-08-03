@@ -20,7 +20,7 @@ Two things any future consumer must respect:
   §5 a date is fixed at first sight from evidence held at that point; a forthcoming date is not
   evidence of anything having happened, and must never be stored as a publication date.
 
-Usage:  calendar.py --out data/unwired --cache ~/workspace/yurinavi-cache \
+Usage:  calendar.py --out data/unwired --cache $YURI_CACHE/yurinavi-cache \
                     --retrieved 2026-08-01
 """
 import argparse, json, pathlib, re, sys, time, urllib.request

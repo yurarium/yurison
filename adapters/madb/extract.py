@@ -7,7 +7,7 @@ Reads a pinned MADB release from a local cache, selects 単行本 by imprint, re
 Deterministic: same release tag in, same records out. No judgment, no network, no model calls.
 Classification beyond the mechanical marketing_label is not done here — see docs/REQUIREMENTS.md §6.
 
-Usage:  extract.py --cache ~/workspace/madb-cache/1.2.18 --tag 1.2.18 --out data/source/madb
+Usage:  extract.py --cache $YURI_CACHE/madb-cache/1.2.18 --tag 1.2.18 --out data/source/madb
 """
 import argparse, hashlib, json, pathlib, re, sys, unicodedata
 from collections import Counter, defaultdict

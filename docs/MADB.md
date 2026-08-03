@@ -170,4 +170,4 @@ binding constraint on release coverage.
   `schema:creator`. Adapters must normalise before comparing.
 - Publisher strings carry an embedded reading: `一迅社　∥　イチジンシャ`, split on `∥` with ideographic
   spaces. Some records give the bare name instead.
-- Bulk data is cached outside the repo at `~/workspace/madb-cache/<tag>/` and is not committed.
+- Bulk data is cached outside the repo at `$YURI_CACHE/madb-cache/<tag>/` and is not committed.

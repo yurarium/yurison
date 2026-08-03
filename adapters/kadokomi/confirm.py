@@ -15,7 +15,7 @@ marketing_label under DEFINITIONS §4 — unlike a third-party tag, this is the 
 Never stored: `summary` (publisher synopsis — copyrightable, §2) or any thumbnail URL (§2).
 
 Usage:  confirm.py --queue data/queue/yurinavi.yaml --out data/source/kadokomi \
-                   --cache ~/workspace/kadokomi-cache --retrieved 2026-08-01
+                   --cache $YURI_CACHE/kadokomi-cache --retrieved 2026-08-01
 """
 import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
 

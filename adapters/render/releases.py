@@ -30,6 +30,8 @@ import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 import checkstate  # noqa: E402
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import schedule_text  # noqa: E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "recon"))
 from extract import (CHAPTERISH, norm_date, try_jsonld, try_markup,  # noqa: E402
@@ -233,6 +235,12 @@ def author_near_title(html, title):
     return None
 
 
+def text_of(html):
+    """The DOM as a reader sees it. The schedule is prose on the page, not markup."""
+    t = re.sub(r"<(script|style)\b.*?</\1>", " ", html or "", flags=re.S | re.I)
+    return re.sub(r"\s+", " ", _html.unescape(re.sub(r"<[^>]+>", " ", t)))
+
+
 def carry_over(path, rows):
     """Fold this run's rows into whatever the file already holds, keyed on URL.
 
@@ -310,6 +318,13 @@ def main():
                 au = au or author_near_title(html, t.get("title"))
                 if au:
                     row["author"] = au
+                # WHAT THE PAGE SAYS ABOUT ITSELF. Read from the same DOM as the episodes, because
+                # it is the answer to the question the episode dates only hint at: this platform
+                # shows a rolling window of free chapters, so a run that looks stopped may simply
+                # be one whose free window has moved on. See render/schedule_text.py.
+                sched = schedule_text.read(text_of(html), a.retrieved)
+                if sched:
+                    row["stated_schedule"] = sched
                 rows.append(row)
             else:
                 failed['no dated chapters'] += 1
@@ -339,6 +354,10 @@ def main():
             if w.get("author"):
                 L.append(f"    author: {js(w['author'])}")
             L.append(f"    url: {js(w['url'])}")
+            if w.get("stated_schedule"):
+                L.append("    stated_schedule:")
+                for k2, v2 in sorted(w["stated_schedule"].items()):
+                    L.append(f"      {k2}: {js(v2)}")
             L.append(f"    chapter_count: {len(w['episodes'])}")
             L.append("    chapters:")
             for e in w["episodes"]:

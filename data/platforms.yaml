@@ -1,420 +1,376 @@
-# Platform registry — reading quality and access character.
-#
-# A series is frequently published on more than one platform (19.6% of works on Web漫画アンテナ's
-# 百合 tag, up to six platforms each), and the platforms are not equivalent to read on. Where a work
-# is available in several places, the database should be able to say which is the better one.
-#
-# Factors, per the project owner:
-#   - image resolution
-#   - free chapter availability, including where free but rate-limited (待てば無料 / チケット)
-#
-# `reading_rank` is an editorial judgment, not a fact derived from a source. It is recorded here as
-# curation, kept out of the source layer, and carries no bearing on whether a work is included or
-# how it is classified — only on where a reader is pointed.
-#
-# Scale: 1 best. Unranked platforms are unassessed, not bad.
-#
-# Cross-platform overlap matters more than raw listing counts. Measured overlap per platform is in
-# `data/coverage/platform-overlap.yaml`; `overlap` here is copied from it.
-#
-# Overlap does NOT establish direction — a high-overlap platform may be syndicating others' work or
-# originating work others syndicate, and the antenna data cannot tell them apart. What it measures
-# is UNIQUE CONTRIBUTION: a high-overlap platform adds little unobtainable elsewhere, whichever way
-# the syndication runs. Where direction IS known it is recorded as `syndication:` with its source.
-#
-# High overlap means: low onboarding priority, and a poor `preferred` source.
-
 platforms:
-  - id: kadokomi
-    name: カドコミ
-    publisher: KADOKAWA
-    reading_rank: 1
-    # Platform-wide access model. Recorded as the project owner's knowledge of the service, not
-    # as something read from a field — カドコミ exposes no per-chapter access state we have
-    # established. Applied only where a source supplies no per-chapter value of its own.
-    default_access: free
-    default_access_basis: "project owner, 2026-08-01: カドコミ chapters are free to read"
-    overlap: 0.28
-    watched: true
-    notes: Good resolution; substantial free availability.
+- id: kadokomi
+  name: カドコミ
+  publisher: KADOKAWA
+  reading_rank: 1
+  default_access: free
+  default_access_basis: 'project owner, 2026-08-01: カドコミ chapters are free to read'
+  overlap: 0.28
+  watched: true
+  notes: Good resolution; substantial free availability.
+  host: comic-walker.com
+- id: comic-fuz
+  name: COMIC FUZ
+  publisher: 芳文社
+  reading_rank: 1
+  overlap: 0.38
+  watched: true
+  notes: Good resolution and free availability. Not GigaViewer, no feed, custom SPA — technically the
+    hardest of the high-value targets. Overlap 0.38 and all 34 listed works currently reachable nowhere
+    else watched.
+  host: comic-fuz.com
+- id: nicovideo
+  name: ニコニコ漫画
+  publisher: ドワンゴ
+  reading_rank: 3
+  aliases:
+  - ニコニコ静画
+  overlap: 0.71
+  syndication: Largely but not solely a syndicator (project owner, 2026-08-01). It does originate some
+    content, so it cannot be dismissed outright.
+  former_blocker: 'WRONG, corrected 2026-08-01. It said: episode_item markup carries no per-episode date,
+    so a release cannot be placed on a timeline, and reaching it would need one fetch per episode. The
+    first half is true — episode items really do carry only data-number, a page count and view counters.
+    The conclusion was not. The date is on the same page in div.meta_info, at work level: "2026年07月23日更新  2024年10月24日開始  [
+    4話 無料 ]". Server-rendered, so a plain fetch reaches it, one per work like カドコミ and FUZ. The reasoning
+    error worth remembering: the feed''s unit for an unattested update is "this work updated, on this
+    date", which is what the comparators state and what the interface shows. Work level was always sufficient.
+    Per-episode was a requirement I invented and then declared unmeetable. Checked before building: 百合ナビ
+    claimed 魔女まじょS-WITCH updated 2026-07-23 and the page says 2026年07月23日更新.'
+  granularity_caveat: Work level means no chapter title and no chapter number, so these releases carry
+    type unclassified and cannot establish a chapter kind. "[ N話 無料 ]" states how many episodes are free,
+    not that the newest is, so the free view only counts a work where every episode is.
+  watched: true
+  watched_since: 2026-08-01
+  granularity: work
+  notes: 'The main practical problem in the gap, and largely a mirage. Image quality is notably worse
+    than the origin platforms, and it syndicates a great deal of content published elsewhere. Its 175
+    listings reduce to 91 unreachable-elsewhere, and most of those 91 are expected to originate on platforms
+    not yet watched rather than on ニコニコ itself.
 
-  - id: comic-fuz
-    name: COMIC FUZ
-    publisher: 芳文社
-    reading_rank: 1
-    overlap: 0.38
-    watched: true
-    notes: >-
-      Good resolution and free availability. Not GigaViewer, no feed, custom SPA — technically the
-      hardest of the high-value targets. Overlap 0.38 and all 34 listed works currently reachable
-      nowhere else watched.
+    PREDICTION CONFIRMED (2026-08-01). Onboarding サンデーうぇぶり, webアクション and COMIC FUZ cut ニコニコ''s exclusive
+    count from 91 to 76 without touching ニコニコ at all — its apparent coverage really is largely other platforms''
+    work seen through it. pixivコミック fell 63 → 55 over the same period for the same reason.
 
-  - id: nicovideo
-    name: ニコニコ漫画
-    publisher: ドワンゴ
-    reading_rank: 3
-    aliases: [ニコニコ静画]
-    overlap: 0.71
-    syndication: >-
-      Largely but not solely a syndicator (project owner, 2026-08-01). It does originate some
-      content, so it cannot be dismissed outright.
-    former_blocker: >-
-      WRONG, corrected 2026-08-01. It said: episode_item markup carries no per-episode date, so a
-      release cannot be placed on a timeline, and reaching it would need one fetch per episode.
-      The first half is true — episode items really do carry only data-number, a page count and
-      view counters. The conclusion was not. The date is on the same page in div.meta_info, at
-      work level: "2026年07月23日更新  2024年10月24日開始  [ 4話 無料 ]". Server-rendered, so a
-      plain fetch reaches it, one per work like カドコミ and FUZ.
-      The reasoning error worth remembering: the feed's unit for an unattested update is "this work
-      updated, on this date", which is what the comparators state and what the interface shows.
-      Work level was always sufficient. Per-episode was a requirement I invented and then declared
-      unmeetable.
-      Checked before building: 百合ナビ claimed 魔女まじょS-WITCH updated 2026-07-23 and the page
-      says 2026年07月23日更新.
-    granularity_caveat: >-
-      Work level means no chapter title and no chapter number, so these releases carry type
-      unclassified and cannot establish a chapter kind. "[ N話 無料 ]" states how many episodes are
-      free, not that the newest is, so the free view only counts a work where every episode is.
-    watched: true
-    watched_since: 2026-08-01
-    granularity: work
-    notes: >-
-      The main practical problem in the gap, and largely a mirage. Image quality is notably worse
-      than the origin platforms, and it syndicates a great deal of content published elsewhere.
-      Its 175 listings reduce to 91 unreachable-elsewhere, and most of those 91 are expected to
-      originate on platforms not yet watched rather than on ニコニコ itself.
-
-      PREDICTION CONFIRMED (2026-08-01). Onboarding サンデーうぇぶり, webアクション and COMIC FUZ
-      cut ニコニコ's exclusive count from 91 to 76 without touching ニコニコ at all — its apparent
-      coverage really is largely other platforms' work seen through it. pixivコミック fell 63 → 55
-      over the same period for the same reason.
-
-      So ニコニコ is not a coverage target: onboarding origins erodes it for free. It is worth
-      having only as a fallback source for works genuinely unavailable elsewhere, and it should
-      never be a `preferred` source given the image quality.
-
-  - id: pixivcomic
-    name: pixivコミック
-    publisher: ピクシブ
-    reading_rank: 3
-    overlap: 0.77
-    watched: true
-    watched_since: 2026-08-02
-    adapter: adapters/pixivcomic/
-    blocker: >-
-      Reachable, but only with a browser in the pipeline. Work pages are a pure client shell
-      (__NEXT_DATA__ empty) and the data comes from /api/app/works/..., which returns 403 to a
-      self-identifying non-browser request — so a plain fetch gets nothing, and spoofing the client
-      to get past that is out under §5.
-    reconnaissance_2026_08_01: >-
-      Rendered comic.pixiv.net/works/12066 in a real browser. The page shows everything needed:
-      title, author, the publisher's own 百合 tag, per-episode availability
-      (掲載期間が終了しました vs readable), and 更新日 at work level. No access control is being
-      circumvented by this — a browser is the client the operator serves. What it costs is a
-      rendering step in the pipeline for 131 works, on an ongoing basis.
-      NOT DONE, deliberately: overlap is 0.77, the highest of any platform, so its unique
-      contribution is the smallest of the large targets, and onboarding origin platforms erodes it
-      without touching it. Worth revisiting only after ニコニコ lands and its exclusive count is
-      re-measured.
-    notes: >-
-      CORRECTED 2026-08-01: initially recorded as an origin platform on no evidence. Measured
-      overlap is 0.77 — higher than ニコニコ漫画's 0.71 — so most of what it lists is available
-      elsewhere too. Direction unknown. Lower resolution as well, so its exclusive count should
-      shrink as other platforms are onboarded.
-
-  - id: sundaywebry
-    name: サンデーうぇぶり
-    publisher: 小学館
-    reading_rank: null
-    overlap: 0.02
-    watched: false
-    notes: >-
-      Overlap 0.02 — almost everything it lists appears nowhere else, so its 65 exclusive works are
-      genuinely its own and will not shrink as other platforms come online. The clearest
-      coverage-per-effort target. Reading quality unassessed.
-
-  - id: ichicomi
-    name: 一迅プラス
-    publisher: 一迅社
-    reading_rank: null
-    notes: Unassessed. The 百合姫 line's own platform; the only one that labels its own genres.
-    watched: true
-
-  # Watched via the GigaViewer adapter; reading quality unassessed.
-  - { id: comic-days, access_investigated: 2026-08-01,     name: コミックDAYS,          publisher: 講談社,        reading_rank: null, watched: true }
-  - { id: tonarinoyj, access_investigated: 2026-08-01,     name: となりのヤングジャンプ,  publisher: 集英社,        reading_rank: null, watched: true }
-  - { id: shonenjumpplus, access_investigated: 2026-08-01, name: 少年ジャンプ+,          publisher: 集英社,        reading_rank: null, watched: true }
-  - { id: kuragebunch,    name: くらげバンチ,           publisher: 新潮社,        reading_rank: null, watched: true }
-  - { id: comic-zenon,    name: コミックゼノン,         publisher: コアミックス,  reading_rank: null, watched: true,
-      aliases: [ゼノン編集部] }
-  - { id: magcomi,        name: MAGCOMI,               publisher: マッグガーデン, reading_rank: null, watched: true }
-  - { id: comic-trail,    name: コミックトレイル,       publisher: 白泉社,        reading_rank: null, watched: true }
-  - { id: comic-gardo,    name: コミックガルド,         publisher: オーバーラップ, reading_rank: null, watched: true }
-  - { id: bigcomics,   name: ビッコミ,      publisher: 小学館,  reading_rank: null, overlap: 0.04, watched: true,
-      access_model: "per-chapter, stated in the listing (無料 badge or coin price)",
-      notes: "comici engine, server-rendered work pages, no feed. 25 works, near-fully exclusive." }
-  - { id: takecomic,   name: 竹コミ,        publisher: 竹書房,  reading_rank: null, overlap: 0.27, watched: true,
-      access_model: "per-chapter, stated in the listing",
-      notes: "Same comici engine as ビッコミ — one adapter spec covers both. Typical shape: first
-        few chapters free, latest free, middle paid — different again from FUZ's volume gating." }
-  - { id: yanmaga,     name: ヤンマガWeb,    publisher: 講談社,  reading_rank: null, overlap: 0.38, watched: true,
-      access_model: "per-chapter, data-is-free attribute",
-      notes: "Server-rendered; states per-episode free/paid via data-is-free." }
-  - { id: sundaywebry, access_investigated: 2026-08-01, name: サンデーうぇぶり, publisher: 小学館,  reading_rank: null, overlap: 0.02, watched: true }
-  - { id: comic-action, name: webアクション,  publisher: 双葉社,  reading_rank: null, overlap: 0.50, watched: true }
-  - { id: magapoke,    name: マガポケ,       publisher: 講談社,  reading_rank: null, overlap: 0.76, watched: false,
-      notes: "Nuxt with a hydration payload rather than markup; needs a different approach. 36 works, 14 exclusive." }
-  - { id: championcross, name: チャンピオンクロス, publisher: 秋田書店, reading_rank: null, overlap: 0.11, watched: true,
-      aliases: [ヤンチャンWeb],
-      notes: "comici engine on championcross.jp — not mangacross.jp, which is a different site." }
-  - { id: comic-ogyaaa, name: "COMIC OGYAAA!!", publisher: 一迅社, reading_rank: null, watched: true,
-      aliases: ["COMIC OGYAAA!!"] }
-  - { id: comic-earthstar, name: コミック アース・スター, publisher: アース・スター エンターテイメント, reading_rank: null, watched: true }
-  - { id: kimicomi,   name: キミコミ,       publisher: 一迅社,  reading_rank: null, overlap: 0.62, watched: true }
-  - id: kirarabase
-    name: きららベース
-    publisher: 芳文社
-    reading_rank: null
-    watched: false
-    # NOT a platform. An official channel ON ニコニコ漫画
-    # (manga.nicovideo.jp/official/kirara/), carrying 芳文社's きらら titles. No domain of its own,
-    # which is why none resolved when it was first looked for.
-    channel_of: ニコニコ漫画
-    syndicated: true
-    origin_publisher: 芳文社
-    # NOT uniformly COMIC FUZ. Most of what the channel carries is syndicated from FUZ, but some
-    # of it is native to the channel: 魔女まじょS-WITCH (海老川ケイ) is on ニコニコ漫画 and returns
-    # nothing on comic-fuz.com. So origin must be established per work, not assumed from the
-    # channel. An earlier `likely_home: COMIC FUZ` on this entry was wrong for that reason.
-    origin: per-work
-    notes: >-
-      Most of its works are syndicated appearances rather than original web publication — serialised
-      in the まんがタイムきらら magazines and carried on 芳文社's own COMIC FUZ. Of 18 seen, 4 were in
-      our FUZ set at the outset; FUZ publishes no index, sitemap or robots.txt and its search is a
-      client shell, so the rest cannot be enumerated, and each has to be resolved individually by
-      external search. Five were confirmed that way (data/source/comicfuz/resolved.yaml); at least
-      one turned out not to be on FUZ at all.
-
-# ── Entries the comparators list in a work position that are not works ────────────────────────
-#
-# Web漫画アンテナ's listing is per-URL, and a publisher's channel page updates whenever anything
-# on it updates. So a magazine's own page can appear alongside actual works and be indistinguishable
-# from one — it has a title, it has an update date, and it links somewhere sensible.
-#
-# Left alone, these become phantom works: a row saying "ゆりひめ@ピクシブ updated" tells a reader
-# nothing about what to read, and it inflates coverage with a title no publisher ever serialised.
-#
-# Matched on title, not URL. A URL pattern looked promising and was wrong — /category/ and
-# /manga/official/ paths turned out to be genuine work pages on GetNavi and AlphaPolis.
-  # ── Added 2026-08-02 ──────────────────────────────────────────────────────────────────────
-  # Fifteen platforms were being read by the adapters and had no entry here at all. That is a
-  # data gap rather than a bug: this file is the curated list and it stopped keeping up as
-  # adapters were added. The cost was per-platform metadata (rank, overlap, notes) missing for
-  # most of the database — merge behaviour was unaffected, because crossplatform.py reads
-  # `ranks.get(name) or UNRANKED`, so an absent entry and a null rank are already identical.
-  #
-  # reading_rank is DELIBERATELY UNSET on all of these. It is editorial curation — the project
-  # owner's judgement of reading quality (§5) — and inventing fifteen rankings to fill a table
-  # would fabricate exactly the kind of opinion this file exists to record honestly. Unset
-  # behaves as it did before the entry existed, so nothing changes until someone decides.
-
-  - id: gangan-online
-    name: ガンガンONLINE
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: manga-one
-    name: マンガワン
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: young-champion
-    name: ヤングチャンピオン
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: hanayume-plus
-    name: 花とゆめ+
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: corocoro-online
-    name: コロコロオンライン
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: comic-border
-    name: コミックボーダー
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: heros-web
-    name: HERO'S Web
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: g-comi
-    name: Gコミ
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: raicomi
-    name: ライコミ
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: furacomi-like
-    name: フラコミlike!
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: manga-yomonga
-    name: マンガよもんが
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: manga-time-square
-    name: まんがタイムSquare
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: comic-ogyaaa
-    name: コミックオギャー!!
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: seasons
-    name: Seasons
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
-  - id: mynavi-news
-    name: マイナビニュース
-    reading_rank:
-    watched: true
-    notes: >-
-      Read by an adapter; entry added so the
-      platform has metadata. Rank not yet assigned.
-
+    So ニコニコ is not a coverage target: onboarding origins erodes it for free. It is worth having only as
+    a fallback source for works genuinely unavailable elsewhere, and it should never be a `preferred`
+    source given the image quality.'
+  host: manga.nicovideo.jp
+- id: pixivcomic
+  name: pixivコミック
+  publisher: ピクシブ
+  reading_rank: 3
+  overlap: 0.77
+  watched: true
+  watched_since: 2026-08-02
+  adapter: adapters/pixivcomic/
+  blocker: Reachable, but only with a browser in the pipeline. Work pages are a pure client shell (__NEXT_DATA__
+    empty) and the data comes from /api/app/works/..., which returns 403 to a self-identifying non-browser
+    request — so a plain fetch gets nothing, and spoofing the client to get past that is out under §5.
+  reconnaissance_2026_08_01: 'Rendered comic.pixiv.net/works/12066 in a real browser. The page shows everything
+    needed: title, author, the publisher''s own 百合 tag, per-episode availability (掲載期間が終了しました vs readable),
+    and 更新日 at work level. No access control is being circumvented by this — a browser is the client the
+    operator serves. What it costs is a rendering step in the pipeline for 131 works, on an ongoing basis.
+    NOT DONE, deliberately: overlap is 0.77, the highest of any platform, so its unique contribution is
+    the smallest of the large targets, and onboarding origin platforms erodes it without touching it.
+    Worth revisiting only after ニコニコ lands and its exclusive count is re-measured.'
+  notes: 'CORRECTED 2026-08-01: initially recorded as an origin platform on no evidence. Measured overlap
+    is 0.77 — higher than ニコニコ漫画''s 0.71 — so most of what it lists is available elsewhere too. Direction
+    unknown. Lower resolution as well, so its exclusive count should shrink as other platforms are onboarded.'
+  host: comic.pixiv.net
+- id: sundaywebry
+  name: サンデーうぇぶり
+  publisher: 小学館
+  reading_rank: null
+  overlap: 0.02
+  watched: false
+  notes: Overlap 0.02 — almost everything it lists appears nowhere else, so its 65 exclusive works are
+    genuinely its own and will not shrink as other platforms come online. The clearest coverage-per-effort
+    target. Reading quality unassessed.
+- id: ichicomi
+  name: 一迅プラス
+  publisher: 一迅社
+  reading_rank: null
+  notes: Unassessed. The 百合姫 line's own platform; the only one that labels its own genres.
+  watched: true
+  host: ichicomi.com
+- id: comic-days
+  access_investigated: 2026-08-01
+  name: コミックDAYS
+  publisher: 講談社
+  reading_rank: null
+  watched: true
+  host: comic-days.com
+- id: tonarinoyj
+  access_investigated: 2026-08-01
+  name: となりのヤングジャンプ
+  publisher: 集英社
+  reading_rank: null
+  watched: true
+  host: tonarinoyj.jp
+- id: shonenjumpplus
+  access_investigated: 2026-08-01
+  name: 少年ジャンプ+
+  publisher: 集英社
+  reading_rank: null
+  watched: true
+  host: shonenjumpplus.com
+- id: kuragebunch
+  name: くらげバンチ
+  publisher: 新潮社
+  reading_rank: null
+  watched: true
+  host: kuragebunch.com
+- id: comic-zenon
+  name: コミックゼノン
+  publisher: コアミックス
+  reading_rank: null
+  watched: true
+  aliases:
+  - ゼノン編集部
+  host: comic-zenon.com
+- id: magcomi
+  name: MAGCOMI
+  publisher: マッグガーデン
+  reading_rank: null
+  watched: true
+  host: magcomi.com
+- id: comic-trail
+  name: コミックトレイル
+  publisher: 白泉社
+  reading_rank: null
+  watched: true
+  host: comic-trail.com
+- id: comic-gardo
+  name: コミックガルド
+  publisher: オーバーラップ
+  reading_rank: null
+  watched: true
+  host: comic-gardo.com
+- id: bigcomics
+  name: ビッコミ
+  publisher: 小学館
+  reading_rank: null
+  overlap: 0.04
+  watched: true
+  access_model: per-chapter, stated in the listing (無料 badge or coin price)
+  notes: comici engine, server-rendered work pages, no feed. 25 works, near-fully exclusive.
+  host: bigcomics.jp
+- id: takecomic
+  name: 竹コミ
+  publisher: 竹書房
+  reading_rank: null
+  overlap: 0.27
+  watched: true
+  access_model: per-chapter, stated in the listing
+  notes: 'Same comici engine as ビッコミ — one adapter spec covers both. Typical shape: first few chapters
+    free, latest free, middle paid — different again from FUZ''s volume gating.'
+  host: takecomic.jp
+- id: yanmaga
+  name: ヤンマガWeb
+  publisher: 講談社
+  reading_rank: null
+  overlap: 0.38
+  watched: true
+  access_model: per-chapter, data-is-free attribute
+  notes: Server-rendered; states per-episode free/paid via data-is-free.
+  host: yanmaga.jp
+- id: sundaywebry
+  access_investigated: 2026-08-01
+  name: サンデーうぇぶり
+  publisher: 小学館
+  reading_rank: null
+  overlap: 0.02
+  watched: true
+  host: www.sunday-webry.com
+- id: comic-action
+  name: webアクション
+  publisher: 双葉社
+  reading_rank: null
+  overlap: 0.5
+  watched: true
+  host: comic-action.com
+- id: magapoke
+  name: マガポケ
+  publisher: 講談社
+  reading_rank: null
+  overlap: 0.76
+  watched: false
+  notes: Nuxt with a hydration payload rather than markup; needs a different approach. 36 works, 14 exclusive.
+  host: pocket.shonenmagazine.com
+- id: championcross
+  name: チャンピオンクロス
+  publisher: 秋田書店
+  reading_rank: null
+  overlap: 0.11
+  watched: true
+  aliases:
+  - ヤンチャンWeb
+  notes: comici engine on championcross.jp — not mangacross.jp, which is a different site.
+  host: championcross.jp
+- id: comic-ogyaaa
+  name: COMIC OGYAAA!!
+  publisher: 一迅社
+  reading_rank: null
+  watched: true
+  aliases:
+  - COMIC OGYAAA!!
+  host: comic-ogyaaa.com
+- id: comic-earthstar
+  name: コミック アース・スター
+  publisher: アース・スター エンターテイメント
+  reading_rank: null
+  watched: true
+  host: comic-earthstar.com
+- id: kimicomi
+  name: キミコミ
+  publisher: 一迅社
+  reading_rank: null
+  overlap: 0.62
+  watched: true
+  host: kimicomi.com
+- id: kirarabase
+  name: きららベース
+  publisher: 芳文社
+  reading_rank: null
+  watched: false
+  channel_of: ニコニコ漫画
+  syndicated: true
+  origin_publisher: 芳文社
+  origin: per-work
+  notes: Most of its works are syndicated appearances rather than original web publication — serialised
+    in the まんがタイムきらら magazines and carried on 芳文社's own COMIC FUZ. Of 18 seen, 4 were in our FUZ set at
+    the outset; FUZ publishes no index, sitemap or robots.txt and its search is a client shell, so the
+    rest cannot be enumerated, and each has to be resolved individually by external search. Five were
+    confirmed that way (data/source/comicfuz/resolved.yaml); at least one turned out not to be on FUZ
+    at all.
+- id: gangan-online
+  name: ガンガンONLINE
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: www.ganganonline.com
+- id: manga-one
+  name: マンガワン
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: manga-one.com
+- id: young-champion
+  name: ヤングチャンピオン
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: youngchampion.jp
+- id: hanayume-plus
+  name: 花とゆめ+
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: hanayume.com
+- id: corocoro-online
+  name: コロコロオンライン
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: www.corocoro.jp
+- id: comic-border
+  name: コミックボーダー
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: comicborder.com
+- id: heros-web
+  name: HERO'S Web
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: heros-web.com
+- id: g-comi
+  name: Gコミ
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: g-comi.jp
+- id: raicomi
+  name: ライコミ
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: comicride.jp
+- id: furacomi-like
+  name: フラコミlike!
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: flowercomics.jp
+- id: manga-yomonga
+  name: マンガよもんが
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: www.yomonga.com
+- id: manga-time-square
+  name: まんがタイムSquare
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: mangatime-square.com
+- id: comic-ogyaaa
+  name: コミックオギャー!!
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: comic-ogyaaa.com
+- id: seasons
+  name: Seasons
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: comic-seasons.com
+- id: mynavi-news
+  name: マイナビニュース
+  reading_rank: null
+  watched: true
+  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
+  host: news.mynavi.jp
 not_works:
-  - title: ゆりひめ@ピクシブ
-    url: https://comic.pixiv.net/magazines/206
-    kind: magazine-channel
-    host: pixivコミック
-    origin_magazine: コミック百合姫
-    origin_publisher: 一迅社
-    note: >-
-      A syndication of コミック百合姫 onto pixivコミック carrying most or all of its works, not a
-      work in its own right. Its updates are real — something in 百合姫 updated — but which work
-      is not stated, so it cannot be reported as one. pixivコミック itself is closed to us by
-      operator choice, so the individual works behind it are not reachable there either; they are
-      covered through 一迅社's own channels instead.
-
-# ── Access restricted by geography, not by policy or markup ───────────────────────────────────
-#
-# Recorded separately because it is a different kind of unreachable. A 403 or 412 from these hosts
-# is not bot protection and not a robots decision — the service is licensed for Japan and refuses
-# the request on location. Nothing about the adapter, the user agent or the request rate would
-# change the outcome, so they must not sit in the "retry later" bucket where the first survey put
-# them (project owner, 2026-08-01).
-# ── Platforms that publish no per-chapter dates at all ────────────────────────────────────────
-#
-# A claim about these can be neither confirmed nor contradicted, and that is a property of the
-# platform rather than a gap in our reach. Recorded so the distinction survives: "we have not
-# checked" and "there is nothing to check against" are different states and were being counted as
-# one.
+- title: ゆりひめ@ピクシブ
+  url: https://comic.pixiv.net/magazines/206
+  kind: magazine-channel
+  host: pixivコミック
+  origin_magazine: コミック百合姫
+  origin_publisher: 一迅社
+  note: A syndication of コミック百合姫 onto pixivコミック carrying most or all of its works, not a work in its own
+    right. Its updates are real — something in 百合姫 updated — but which work is not stated, so it cannot
+    be reported as one. pixivコミック itself is closed to us by operator choice, so the individual works behind
+    it are not reachable there either; they are covered through 一迅社's own channels instead.
 no_chapter_dates:
-  - name: ガンガンONLINE
-    host: www.ganganonline.com
-    observed: 2026-08-01
-    detail: >-
-      Its __NEXT_DATA__ chapter objects carry id, status, thumbnailUrl, mainText, subText and an
-      app launch URL — and mainText is "次回更新：8月6日", the date of the NEXT update. There is no
-      publication date on any chapter, rendered or not. A reader on the site cannot see when a
-      given chapter appeared either, so this is not something a better adapter reaches.
-      What it does publish is forward-looking: which day the next instalment is due.
-
-# ── "Blocked" was one label doing four different jobs (corrected 2026-08-01) ──────────────────
-#
-# Re-probed with both a bare and a compatible-token user agent. Of five hosts filed as bot
-# protection, exactly one refuses:
-#
-#   novema.jp (comicグラスト)      403 — GEOBLOCKED (project owner). Not bot protection.
-#   viewer.heros-web.com         503 — DOWN FOR MAINTENANCE (project owner). Temporary; retry.
-#   neetsha.jp (新都社)            200 — never blocked; the first probe hit a transient failure
-#   getnavi.jp                   200 — likewise
-#   sonorama.asahi.com           MOVED, not gone: it became アサコミ at asacomi.jp, which runs
-#                                comici and is now in the webpages registry.
-#
-# So NOTHING here is bot protection. The label was mine and it was wrong five times out of five:
-# one geoblock, one maintenance window, two transient failures, one site rename. What the last
-# three need is fresh work URLs, not access — the recorded targets 404 because they point at the
-# old locations.
+- name: ガンガンONLINE
+  host: www.ganganonline.com
+  observed: 2026-08-01
+  detail: 'Its __NEXT_DATA__ chapter objects carry id, status, thumbnailUrl, mainText, subText and an
+    app launch URL — and mainText is "次回更新：8月6日", the date of the NEXT update. There is no publication
+    date on any chapter, rendered or not. A reader on the site cannot see when a given chapter appeared
+    either, so this is not something a better adapter reaches. What it does publish is forward-looking:
+    which day the next instalment is due.'
 access_notes: see the comment above
-
 geoblocked:
-  - name: ドリコミ+
-    host: drecomi-plus.jp
-    observed: HTTP 403
-  - name: LINEマンガ
-    host: manga.line.me
-    observed: HTTP 412
-    note: >-
-      Also marked 更新終了 by Web漫画アンテナ, so it was already in the needs-nothing bucket. The
-      412 was read as bot protection in the first survey; it is the geoblock.
-  - name: comicグラスト
-    host: novema.jp
-    observed: HTTP 403
-    note: >-
-      Identified as a geoblock by the project owner 2026-08-01, having been filed as bot
-      protection. It answers 403 to every agent because of where the request comes from.
-
-  - name: piccoma
-    host: piccoma.com
-    note: >-
-      Checked 2026-08-01: piccoma appears NOWHERE in our data — not as a platform, not in any
-      candidate URL, not in either comparator's listings. Recorded so the question does not get
-      asked again. Nothing is lost to its geoblock because nothing points at it.
-
+- name: ドリコミ+
+  host: drecomi-plus.jp
+  observed: HTTP 403
+- name: LINEマンガ
+  host: manga.line.me
+  observed: HTTP 412
+  note: Also marked 更新終了 by Web漫画アンテナ, so it was already in the needs-nothing bucket. The 412 was read
+    as bot protection in the first survey; it is the geoblock.
+- name: comicグラスト
+  host: novema.jp
+  observed: HTTP 403
+  note: Identified as a geoblock by the project owner 2026-08-01, having been filed as bot protection.
+    It answers 403 to every agent because of where the request comes from.
+- name: piccoma
+  host: piccoma.com
+  note: 'Checked 2026-08-01: piccoma appears NOWHERE in our data — not as a platform, not in any candidate
+    URL, not in either comparator''s listings. Recorded so the question does not get asked again. Nothing
+    is lost to its geoblock because nothing points at it.'

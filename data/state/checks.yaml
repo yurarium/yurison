@@ -210,9 +210,9 @@ checks:
     last_reached: '2026-08-03'
     result: ok
   ドリコミ+|勇者の旅の裏側で:
-    fails: 2
+    fails: 3
     last_checked: '2026-08-03'
-    note: HTTP 403
+    note: rendered; the page yielded no DOM to read
     result: blocked
   マガポケ|CUTE vs. COOL:
     fails: 0

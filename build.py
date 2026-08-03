@@ -124,6 +124,43 @@ CHAPTER_NUM_RE = re.compile(r"第[0-9０-９]+[話回]|[0-9０-９]+話|#[0-9０
 HIATUS_FRESH_DAYS = 180
 
 
+def host_platforms(platforms):
+    """host -> the one platform that owns it, for hosts owned by exactly one.
+
+    A host with two claimants is not authoritative and is left out: comic-walker.com carries
+    カドコミ and other KADOKAWA brands, so the URL alone cannot say which of them a page belongs
+    to. Only the unambiguous ones are used to correct a label.
+    """
+    import collections
+    seen = collections.defaultdict(set)
+    for p in platforms:
+        if p.get("host") and p.get("name"):
+            seen[p["host"]].add(p["name"])
+    return {h: next(iter(n)) for h, n in seen.items() if len(n) == 1}
+
+
+def platform_of(url, owners):
+    """The platform a URL is on, where that is unambiguous."""
+    if not url or "://" not in str(url):
+        return None
+    return owners.get(str(url).split("/")[2])
+
+
+_STATED = {}
+
+
+def _stated_for(work, platform):
+    """The schedule a platform states for a work, if it states one."""
+    return _STATED.get((norm_work(work or ""), norm_work(platform or "")))
+
+
+def _sched_fits(cadence, when):
+    """Whether a date falls where a stated cadence puts an update. See render/schedule_text.py."""
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters" / "render"))
+    import schedule_text
+    return schedule_text.fits(cadence, when) is True
+
+
 def load_platform_history(files):
     """(work, platform) -> the dates that platform lists for that work, from whole-history sources.
 
@@ -138,13 +175,25 @@ def load_platform_history(files):
     field, so every work in those files keyed on the empty string, matched no claim, and vanished
     without a word. That is why 28 claims read as untraced while their evidence was on disk.
     """
-    out = {}
+    owners = host_platforms(
+        (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("platforms", []))
+    out, misfiled = {}, []
     for f in files:
         d0 = yaml.safe_load(open(f)) or {}
         filewide = d0.get("platform_name") or ""
         for w in d0.get("works") or []:
             ti = norm_work(w.get("work_title") or w.get("title") or "")
-            pn = norm_work(w.get("platform_name") or filewide)
+            label = w.get("platform_name") or filewide
+            # THE PLATFORM IS WHERE WE READ, not where somebody said the work was. The adapters
+            # label a history with the platform the CLAIM named while following whatever URL
+            # actually answered, so a コミックDAYS run arrived filed under マガポケ. That is an
+            # attestation wearing an inference's label, and it is worse than a missing one: a
+            # history can then refute a claim about a platform it never came from. Eleven rows
+            # were wrong this way, and one of them made a live series look dead for 122 days.
+            owner = platform_of(w.get("url"), owners)
+            if owner and label and norm_work(owner) != norm_work(label):
+                misfiled.append((w.get("work_title"), label, owner, w.get("url")))
+            pn = norm_work(owner or label)
             ds = sorted({str(c.get("updated"))[:10] for c in (w.get("chapters") or [])
                          if c.get("updated")})
             if not (ti and pn and ds):
@@ -154,6 +203,8 @@ def load_platform_history(files):
             # refutable claim back into an open one.
             if len(ds) >= len(out.get((ti, pn), ())):
                 out[(ti, pn)] = ds
+    for t, lab, own, u in misfiled:
+        print(f"  note: {t} was filed under {lab} and read from {own} ({u}); using {own}")
     return out
 
 
@@ -1522,6 +1573,19 @@ def main():
         # in a file called claim-resolved.yaml. Fetched, written, and read by nothing.
         + glob.glob("data/source/webpages/*.yaml"))
 
+    # WHAT EACH PLATFORM SAYS ABOUT ITS OWN RHYTHM. GigaViewer prints a work's cadence and its
+    # next update date, and we were inferring both from gaps between the chapters we happened to
+    # capture. See adapters/render/schedule_text.py for why that was not merely redundant.
+    stated_schedule = {}
+    for _sf in glob.glob("data/source/webpages/rendered-*.yaml"):
+        _sd = yaml.safe_load(open(_sf)) or {}
+        _spn = _sd.get("platform_name") or ""
+        for _sw in _sd.get("works") or []:
+            if _sw.get("stated_schedule"):
+                stated_schedule[(norm_work(_sw.get("work_title") or ""),
+                                 norm_work(_sw.get("platform_name") or _spn))] = _sw["stated_schedule"]
+    _STATED.update(stated_schedule)
+
     # Every look adapters/claims/trace.py has taken, keyed the way it writes them. A claim with no
     # history behind it is untraced only if nobody has been; this is how that is known.
     claim_checks = checkstate.load()
@@ -1806,9 +1870,29 @@ def main():
                 # The two are told apart by the check ledger rather than by the history, because
                 # both leave the same absence behind. adapters/claims/trace.py records every look.
                 looked = claim_checks.get(f"{c.get('platform') or ''}|{w}") or {}
-                if held_back:
-                    trace(c, w, "unsettleable", held_back,
-                          chapters_held=len(raw_hist or []), last_looked=looked.get("last_checked"))
+                sched = stated_schedule.get((nw, norm_work(c.get("platform") or ""))) or {}
+                # THE PLATFORM'S OWN SCHEDULE PUTS AN UPDATE HERE. 平良深姉妹はどっちもヤんでる
+                # states 毎月第3金曜 and announces a next update; 2026-07-17 is a third Friday, so
+                # the report matches what the platform says it does. That is corroboration from the
+                # platform and it is not attestation of a chapter, so it gets its own disposition
+                # rather than being called absorbed: no row exists for it in the database.
+                if _sched_fits(sched.get("cadence"), when):
+                    trace(c, w, "scheduled",
+                          f"the platform states it updates {sched['cadence']} and this date falls "
+                          f"where that puts one"
+                          + (f"; it announces the next for {sched['next_update']}"
+                             if sched.get("next_update") else ""),
+                          cadence=sched.get("cadence"), next_update=sched.get("next_update"))
+                elif held_back:
+                    # The cadence rides along even where it does not decide. A gap of 419 days
+                    # reads as a dead series until the same page says the work updates monthly and
+                    # names the next date, at which point it plainly reads as our sample of a
+                    # rolling free window.
+                    trace(c, w, "unsettleable",
+                          held_back + (f"; the platform states it updates {sched['cadence']}"
+                                       if sched.get("cadence") else ""),
+                          chapters_held=len(raw_hist or []), last_looked=looked.get("last_checked"),
+                          cadence=sched.get("cadence"), next_update=sched.get("next_update"))
                 # `error` is left out on purpose: a timeout or a 5xx may pass, and a claim behind
                 # one is still worth another look. The rest are standing conditions: we read the
                 # listing, or the platform will not show it to us, and no number of retries changes
@@ -2964,6 +3048,14 @@ def main():
                          "free": r["free"], "free_timed": r["free_timed"], "priced": r["priced"],
                          "latest": r["latest"], "partial": r["partial"], "format": r["format"]}
                         for r in rows],
+            # WHAT THE PLATFORM SAYS, kept apart from what we work out. The coming-soon view
+            # predicts from each series' own past interval, which is an inference and is labelled
+            # one. A platform that prints 次回無料更新は8/21 has announced a date, and an
+            # announcement and an average are not the same kind of thing.
+            "stated_next": next(
+                (dict(_ss, platform=r["platform"])
+                 for r in rows
+                 for _ss in [_stated_for(best["work"], r["platform"])] if _ss), None),
         })
     # The works list is assembled from the source records rather than from the feed, so filtering
     # releases does not reach it. Both paths need the register, which is why dropping it in one

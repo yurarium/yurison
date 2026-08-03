@@ -29,14 +29,18 @@ names:
     reading_source_kind: analyser
     verified: false
   '#ギャルとギャルの百合':
-    basis: romaji
+    basis: translated
+    en: '#Gyaru and Gyaru Yuri'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - '#ギャルとギャルの'
       - null
     - - 百合
       - ゆり
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: ギャル is a subculture rather than a description, and gyaru is what English-language writing on
+      it uses; girl or gal would name the wrong thing.
     reading: '# ギャル ト ギャル ノ ユリ'
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -606,7 +610,12 @@ names:
     reading_source: surface
     verified: true
   「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい:
-    basis: romaji
+    basis: translated
+    en: They Threw Me Out of the Hero's Party Saying Someone Like Me Could Never Beat the Demon Lord,
+      So Now I'd Like to Take It Easy in the Capital
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 「お
       - null
@@ -1042,7 +1051,11 @@ names:
     reading_source_kind: analyser
     verified: false
   あきらかに年齢を詐称している女子高生VTuber:
-    basis: romaji
+    basis: translated
+    en: The Schoolgirl VTuber Who Is Plainly Lying About Her Age
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - あきらかに
       - null
@@ -1058,8 +1071,7 @@ names:
       - じょしこうせい
     - - VTuber
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: '詐称 is misrepresentation with intent, and あきらかに is the joke: everybody can tell.'
     reading: アキラカニ ネンレイ ヲ サショウ シテ イル ジョシコウセイ VTuber
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -1068,7 +1080,11 @@ names:
     reading_source_kind: analyser
     verified: false
   あくまで!アットホームな職場です。:
-    basis: romaji
+    basis: translated
+    en: We're a Demonically Friendly Workplace!
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - あくまで!アットホームな
       - null
@@ -1076,8 +1092,8 @@ names:
       - しょくば
     - - です。
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: あくまで is both to the last and 悪魔, and アットホームな職場です is the stock line in a Japanese job advert
+      that readers have learnt to distrust. The English keeps the advert and the devil.
     reading: アクマデ ! アットホームナ ショクバデス。
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -1990,7 +2006,11 @@ names:
     reading_source_kind: analyser
     verified: false
   かいじゅう色の島:
-    basis: romaji
+    basis: translated
+    en: The Island the Colour of Monsters
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - かいじゅう
       - null
@@ -2300,6 +2320,11 @@ names:
     reading_source_kind: analyser
     verified: false
   きょうはなにしよう？:
+    basis: translated
+    en: What Shall We Do Today?
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     reading: キョウハナニシヨウ？
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2442,7 +2467,11 @@ names:
     reading_source: surface
     verified: true
   このままモブじゃ終われない！:
-    basis: romaji
+    basis: translated
+    en: I Won't End Up a Background Character!
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - このままモブじゃ
       - null
@@ -2450,8 +2479,7 @@ names:
       - お
     - - われない！
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: モブ is the genre's word for someone in the crowd, and the whole premise is refusing to be one.
     reading: コノ ママ モブ ジャ オワレナイ！
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -2495,7 +2523,11 @@ names:
     reading_url: http://www.wikidata.org/entity/Q116180503
     verified: false
   この恋、一旦持ち帰らせていただきます！:
-    basis: romaji
+    basis: translated
+    en: Let Me Take This Love Back to the Office!
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - この
       - null
@@ -2513,8 +2545,8 @@ names:
       - かえ
     - - らせていただきます！
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 持ち帰らせていただきます is what you say in a meeting when you cannot decide on the spot, and the lead is
+      a career woman, so the English keeps the office register rather than the literal carrying home.
     reading: コノ コイ、 イッタン モチカエラセテ イタダキマス！
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -2751,7 +2783,12 @@ names:
     reading_source: surface
     verified: true
   ささやくように恋を唄う:
-    basis: romaji
+    basis: licensed
+    en: Whisper Me a Love Song
+    en_at: '2026-08-03'
+    en_source: Kodansha
+    en_source_kind: licensor
+    en_url: https://kodansha.us/series/whisper-me-a-love-song/
     furigana_spans:
     - - ささやくように
       - null
@@ -2801,7 +2838,11 @@ names:
     reading_source: surface
     verified: true
   しあわせ鳥見んぐ:
-    basis: romaji
+    basis: translated
+    en: Happy Birding
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - しあわせ
       - null
@@ -2809,8 +2850,8 @@ names:
       - とりみ
     - - んぐ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 鳥見んぐ bolts an English -ing onto a Japanese word. English has no way to be foreign to itself,
+      so the pun goes and the plain word stays.
     reading: シアワセ トリミ ン グ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -3033,7 +3074,11 @@ names:
     reading_source: surface
     verified: true
   ぜんぶ壊して地獄で愛して:
-    basis: romaji
+    basis: translated
+    en: Break It All, Love Me in Hell
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ぜんぶ
       - null
@@ -3343,6 +3388,12 @@ names:
     reading_source_kind: analyser
     verified: false
   てくのぱにっくゆにばーす:
+    basis: translated
+    en: Techno Panic Universe
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Katakana English written in hiragana, which is a look rather than a meaning.
     reading: テクノパニックユニバース
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3507,6 +3558,11 @@ names:
     reading_source: surface
     verified: true
   にせものターコイズ:
+    basis: translated
+    en: Imitation Turquoise
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ニセモノターコイズ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3640,6 +3696,12 @@ names:
     reading_source_kind: analyser
     verified: false
   ばっどがーる:
+    basis: translated
+    en: Bad Girl
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: English written in hiragana; the English is recovery.
     reading: バッドガール
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3674,7 +3736,11 @@ names:
     reading_source: surface
     verified: true
   ひきこまり吸血姫の悶々:
-    basis: romaji
+    basis: translated
+    en: The Vexations of a Shut-In Vampire Princess
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ひきこまり
       - null
@@ -3686,8 +3752,8 @@ names:
       - null
     - - 悶々
       - もんもん
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Matches the English release rather than translated fresh. Yen Press publishes it, but its series
+      pages could not be reached, so this is filed as ours and marked accordingly.
     reading: ヒキコマリ キュウケツ ヒメ ノ モンモン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -3734,6 +3800,13 @@ names:
     reading_source_kind: analyser
     verified: false
   ひとりみです:
+    basis: translated
+    en: I'm Single
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ひとりみ is being unattached rather than being alone, and です makes it an introduction. The protagonist
+      is sixty and says it about herself.
     reading: ヒトリミデス
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3810,6 +3883,13 @@ names:
     reading_source_kind: analyser
     verified: false
   ふたりべや:
+    basis: translated
+    en: 'Futaribeya: A Room for Two'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Matches the English release. Seven Seas publishes it and refuses automated fetches, so this
+      is ours rather than attributed.
     reading: フタリベヤ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4360,6 +4440,13 @@ names:
     reading_source: surface
     verified: true
   らぶぶいっ！:
+    basis: translated
+    en: Love Parts!
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 'ぶい is 部位, a part of the body: the synopsis names 部位フェチ outright, and the title reads as Love
+      V until you get the joke. Parts keeps the pun in the same place.'
     reading: ラブブイッ！
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4523,6 +4610,12 @@ names:
     reading_source: surface
     verified: true
   アイドラトリィ:
+    basis: translated
+    en: Idolatry
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The Japanese is the English word, and the pun on アイドル is the same pun in both languages.
     reading: アイドラトリィ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4611,7 +4704,11 @@ names:
     reading_source_kind: analyser
     verified: false
   アフタヌーンティーはいかがですか？ 私と先輩の、不純で一途なふたり暮らし:
-    basis: romaji
+    basis: translated
+    en: Would You Like Afternoon Tea? Living with My Senior, Impure and Devoted
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 'アフタヌーンティーはいかがですか？ '
       - null
@@ -4635,8 +4732,8 @@ names:
       - く
     - - らし
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 不純 and 一途 are placed as a pair that contradicts itself, and the English keeps them adjacent
+      for the same reason.
     reading: アフタヌーン ティー ワ イカガデス カ？   ワタシ ト センパイ ノ、 フジュンデ イチズナ フタリ クラシ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -4799,6 +4896,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ウィキッドスポット:
+    basis: translated
+    en: Wicked Spot
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ウィキッドスポット
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4813,7 +4915,11 @@ names:
     reading_source: surface
     verified: true
   エイティエイトを２でわって:
-    basis: romaji
+    basis: translated
+    en: Eighty-Eight Divided by Two
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - エイティエイトを
       - null
@@ -4821,8 +4927,7 @@ names:
       - に
     - - でわって
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A piano has eighty-eight keys and the story is about a duet, so the arithmetic is the premise.
     reading: エイティエイト ヲ ニ デ ワッテ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -4896,6 +5001,12 @@ names:
     reading_source: surface
     verified: true
   オカルトタイムズ:
+    basis: translated
+    en: Occult Times
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: A school newspaper, so Times is a masthead.
     reading: オカルトタイムズ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4903,6 +5014,13 @@ names:
     reading_source: surface
     verified: true
   オカワリいただけただろうか?:
+    basis: translated
+    en: Would You Like Seconds?
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: おかわり is a second helping, and いただけただろうか is the narration of a television ghost-footage segment.
+      No synopsis is cached, so the food reading is taken and the parody left.
     reading: オカワリイタダケタダロウカ?
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5185,6 +5303,14 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  ガイド役の天使を殴り倒したら、死霊術師になりました　～激カワゴスロリ魔神様、サイコー！～:
+    basis: translated
+    en: 'I Punched Out My Guide Angel and Became a Necromancer: My Adorable Gothic Lolita Demon Lord Is
+      the Best!'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     verified: false
   ガチ恋やめて:
     basis: romaji
@@ -5687,6 +5813,13 @@ names:
     reading_source: surface
     verified: true
   ココロメイク コスメティカ:
+    basis: translated
+    en: 'Heart Make: Cosmetica'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ココロメイク is a magical-girl transformation phrase, so it stays a phrase rather than becoming a
+      sentence.
     reading: ココロメイク コスメティカ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5823,6 +5956,13 @@ names:
     reading_source: surface
     verified: true
   サタノファニ:
+    basis: translated
+    en: Satanophany
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: A coined word rather than a Japanese one, and Satanophany is the spelling the work itself is
+      known by in English.
     reading: サタノファニ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5915,7 +6055,11 @@ names:
     reading_source: surface
     verified: true
   シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～:
-    basis: romaji
+    basis: translated
+    en: 'Shadow Assassins World: I Don''t Cast Much of a Shadow, but I''m the Strongest Ninja'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - シャドウ・アサシンズ・ワールド ～
       - null
@@ -5933,8 +6077,8 @@ names:
       - にんじゃ
     - - やってます～
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 影が薄い means to go unnoticed, and the title puts it next to Shadow on purpose. English has the
+      same shadow to cast.
     reading: シャドウ・ アサシンズ・ ワールド   ～ カゲ ワ ウスイケド、 サイキョウ ニンジャ ヤッテマス ～
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -6054,6 +6198,11 @@ names:
     reading_source: surface
     verified: true
   スカベンジャーズアナザースカイ:
+    basis: translated
+    en: Scavengers Another Sky
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     reading: スカベンジャーズアナザースカイ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6119,14 +6268,17 @@ names:
     reading_url: https://www.mangaupdates.com/series/lx7zwau/sukeban-to-tenkousei-ga-kudaranai-asobi-o-suru-dake-no-hanashi
     verified: false
   スズラン手帖:
-    basis: romaji
+    basis: translated
+    en: The Lily-of-the-Valley Notebook
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - スズラン
       - null
     - - 手帖
       - てちょう
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: スズラン is the flower, not a name.
     reading: スズラン テチョウ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -6365,6 +6517,14 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  タイムトラベル少女 ～ミライのサキ～:
+    basis: translated
+    en: 'Time Travel Girl: Saki from the Future'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: サキ is the character's name and also 先, further ahead, which the Japanese sets against ミライ.
     verified: false
   タコと天使たち:
     basis: romaji
@@ -6612,6 +6772,13 @@ names:
     reading_source_kind: analyser
     verified: false
   ドリーム☆ジャンボ☆ガール:
+    basis: translated
+    en: Dream☆Jumbo☆Girl
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ドリームジャンボ is the name of an actual Japanese lottery, and the story starts with a winning ticket,
+      so it is a brand rather than an adjective.
     reading: ドリーム☆ジャンボ☆ガール
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6699,6 +6866,15 @@ names:
     reading_source: surface
     verified: true
   ニセアイホンアイ:
+    basis: translated
+    en: Fake Love, True Love
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ニセアイ・ホンアイ is 偽愛・本愛, written in kana so the two halves rhyme and the join is not obvious at a
+      glance. The same work is also held under スクエア）。（ニセアイホンアイ, where the magazine's own name has run
+      into the title; that row is left unnamed rather than given a name that would make a scraping fault
+      look deliberate.
     reading: ニセアイホンアイ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6903,14 +7079,17 @@ names:
     reading_source_kind: analyser
     verified: false
   バカに告白:
-    basis: romaji
+    basis: translated
+    en: Confessing to an Idiot
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - バカに
       - null
     - - 告白
       - こくはく
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The idiot is a 運動バカ, someone who is nothing but sport, which the plain word carries.
     reading: バカニ コクハク
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -6919,7 +7098,11 @@ names:
     reading_source_kind: analyser
     verified: false
   バカ女26時:
-    basis: romaji
+    basis: translated
+    en: Idiot Women, 26:00
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - バカ
       - null
@@ -6929,8 +7112,7 @@ names:
       - null
     - - 時
       - じ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 26時 is two in the morning in broadcast scheduling, where the day does not end at midnight.
     reading: バカジョ 26 ジ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -6939,9 +7121,12 @@ names:
     reading_source_kind: analyser
     verified: false
   バクガタリzzZ:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: Baku Tales zzZ
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 獏 is the dream-eating creature, which English borrows as baku, and 語り is the telling of a tale.
     reading: バクガタリ zzZ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -7090,6 +7275,12 @@ names:
     reading_source_kind: analyser
     verified: false
   ビタースイートナイトシェード:
+    basis: translated
+    en: Bittersweet Nightshade
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The plant, which is what the Japanese names.
     reading: ビタースイートナイトシェード
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7140,6 +7331,12 @@ names:
     reading_source_kind: analyser
     verified: false
   ファタールゲーム:
+    basis: translated
+    en: Fatale Game
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The synopsis says femme fatale, so the missing half is deliberate.
     reading: ファタールゲーム
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7154,6 +7351,13 @@ names:
     reading_source: surface
     verified: true
   ファーストペンギン・レクイエム:
+    basis: translated
+    en: First Penguin Requiem
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The first penguin is the one that jumps in before anyone knows what is down there, a Japanese
+      business idiom that English is beginning to share.
     reading: ファーストペンギン・レクイエム
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7212,6 +7416,12 @@ names:
     reading_source: surface
     verified: true
   フレンドガールフレンド:
+    basis: translated
+    en: Friend Girlfriend
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The title is the gap between the two words, which English has too.
     reading: フレンドガールフレンド
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7369,7 +7579,11 @@ names:
     reading_source: surface
     verified: true
   ホームセンターごと呼び出された私の大迷宮リノベーション！:
-    basis: romaji
+    basis: translated
+    en: 'Summoned Along with My Hardware Store: My Great Labyrinth Renovation!'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ホームセンターごと
       - null
@@ -7493,6 +7707,12 @@ names:
     reading_source: surface
     verified: true
   マルボロスカート:
+    basis: translated
+    en: Marlboro Skirt
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The cigarette brand. The protagonist smokes and keeps her skirts put away.
     reading: マルボロスカート
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7550,7 +7770,11 @@ names:
     reading_source: surface
     verified: true
   メイド&ロイドはお嬢様のお役に立ちたい!:
-    basis: romaji
+    basis: translated
+    en: Maid & 'Roid Want to Be of Service to the Young Mistress!
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - メイド&ロイドはお
       - null
@@ -7566,8 +7790,7 @@ names:
       - た
     - - ちたい!
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: メイド&ロイド splits android across the ampersand, and the apostrophe does the same work in English.
     reading: メイド & ロイド ワ オジョウサマ ノ オ ヤク ニ タチタイ !
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -7636,6 +7859,13 @@ names:
     reading_source: surface
     verified: true
   モブヘブン:
+    basis: translated
+    en: Mob Heaven
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Mob is the genre's own word for a character in the background, and the readers this reaches
+      use it in English too.
     reading: モブヘブン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7665,6 +7895,12 @@ names:
     reading_source_kind: analyser
     verified: false
   ユリノコ:
+    basis: translated
+    en: Child of Yuri
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 百合の子, and the story turns on a daughter arriving from the future.
     reading: ユリノコ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7727,6 +7963,12 @@ names:
     reading_source_kind: analyser
     verified: false
   ライバルアライバル:
+    basis: translated
+    en: Rival Arrival
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The Japanese is the English pun.
     reading: ライバルアライバル
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -8291,7 +8533,11 @@ names:
     reading_source_kind: analyser
     verified: false
   上伊那ぼたん、酔へる姿は百合の花:
-    basis: romaji
+    basis: translated
+    en: 'Kamiina Botan: Drunk, She''s a Lily'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 上伊那
       - かみいな
@@ -8311,8 +8557,8 @@ names:
       - null
     - - 花
       - はな
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The saying is 立てば芍薬、座れば牡丹、歩く姿は百合の花, a woman described through three flowers. This swaps walking
+      for drunk, and her given name is 牡丹, the peony the saying has already used.
     reading: カミイナ ボタン、 ヨイ ヘル スガタ ワ ユリ ノ ハナ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8623,14 +8869,19 @@ names:
     reading_source_kind: analyser
     verified: false
   乙女のおかず:
-    basis: romaji
+    basis: translated
+    en: Otome's Side Dish
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 乙女
       - おとめ
     - - のおかず
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: おかず is what you eat with rice and is also slang for what you masturbate to, and 乙女 is both her
+      name and the word for a maiden. The English keeps the innocent reading in front, which is the order
+      the Japanese uses.
     reading: オトメ ノ オカズ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8843,7 +9094,11 @@ names:
     reading_source_kind: analyser
     verified: false
   今夜は夜雀の屋台で:
-    basis: romaji
+    basis: translated
+    en: Tonight, at the Night Sparrow's Stall
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 今夜
       - こんや
@@ -8859,8 +9114,7 @@ names:
       - やたい
     - - で
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 夜雀 is a yokai, and 屋台 is the cart it runs.
     reading: コンヤ ワ ヨル スズメ ノ ヤタイデ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -9720,7 +9974,11 @@ names:
     reading_source_kind: analyser
     verified: false
   冷たくて 柔らか:
-    basis: romaji
+    basis: translated
+    en: Cold and Soft
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 冷
       - つめ
@@ -9878,7 +10136,11 @@ names:
     reading_source_kind: analyser
     verified: false
   創る庭:
-    basis: romaji
+    basis: translated
+    en: The Garden We Make
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 創
       - つく
@@ -10272,7 +10534,11 @@ names:
     reading_source_kind: analyser
     verified: false
   君のせいなんだから、責任とってよね。:
-    basis: romaji
+    basis: translated
+    en: This Is Your Fault, So You'd Better Take Responsibility.
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 君
       - きみ
@@ -10444,7 +10710,11 @@ names:
     reading_source_kind: analyser
     verified: false
   咲きそめコンプレックス:
-    basis: romaji
+    basis: translated
+    en: First-Bloom Complex
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 咲
       - さ
@@ -10632,7 +10902,11 @@ names:
     reading_source_kind: analyser
     verified: false
   堕天使そぷらのちゃんの復讐:
-    basis: romaji
+    basis: translated
+    en: Fallen Angel Soprano's Revenge
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 堕天
       - だてん
@@ -10642,8 +10916,7 @@ names:
       - null
     - - 復讐
       - ふくしゅう
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: そぷらの is the character's given name.
     reading: ダテンシ ソ プラ ノチャン ノ フクシュウ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -10652,7 +10925,11 @@ names:
     reading_source_kind: analyser
     verified: false
   壊していいよ、すいかちゃん:
-    basis: romaji
+    basis: translated
+    en: You Can Break It, Suika
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 壊
       - こわ
@@ -10928,7 +11205,11 @@ names:
     reading_source_kind: analyser
     verified: false
   夢でフラれてはじまる百合:
-    basis: romaji
+    basis: translated
+    en: A Yuri That Starts with a Dream of Rejection
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 夢
       - ゆめ
@@ -11061,7 +11342,11 @@ names:
     reading_url: http://www.wikidata.org/entity/Q15945046
     verified: false
   大崎さんと小森さん:
-    basis: romaji
+    basis: translated
+    en: Osaki and Komori
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 大崎
       - おおさき
@@ -11071,8 +11356,8 @@ names:
       - こもり
     - - さん
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'Names, and the joke is in the characters: 大 in the tall one and 小 in the one who is fifty centimetres
+      shorter. English cannot carry that and should not try.'
     reading: オオサキサン ト コモリサン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -11507,7 +11792,11 @@ names:
     reading_source_kind: analyser
     verified: false
   妄執女と芥川:
-    basis: romaji
+    basis: translated
+    en: The Obsessed Woman and the Akutagawa
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 妄執
       - もうしゅう
@@ -11517,8 +11806,7 @@ names:
       - null
     - - 芥川
       - あくたがわ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 芥川 is the prize rather than the writer, which the synopsis makes explicit.
     reading: モウシュウジョ ト アクタガワ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -11527,7 +11815,11 @@ names:
     reading_source_kind: analyser
     verified: false
   妖怪殲滅のサイコリリー:
-    basis: romaji
+    basis: translated
+    en: Psycho Lily, Slayer of Yokai
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 妖怪
       - ようかい
@@ -11635,14 +11927,17 @@ names:
     reading_source_kind: analyser
     verified: false
   姉妹傭兵:
-    basis: romaji
+    basis: translated
+    en: Sister Mercenaries
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 姉妹
       - しまい
     - - 傭兵
       - ようへい
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'The synopsis puts 姉妹 in quotation marks: they are not related.'
     reading: シマイ ヨウヘイ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -11719,7 +12014,11 @@ names:
     reading_source_kind: analyser
     verified: false
   娘が彼女を連れてきた話:
-    basis: romaji
+    basis: translated
+    en: My Daughter Brought Her Girlfriend Home
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 娘
       - むすめ
@@ -12537,7 +12836,11 @@ names:
     reading_source_kind: analyser
     verified: false
   彼女のカノジョと不純な初恋:
-    basis: romaji
+    basis: translated
+    en: Her Girlfriend and an Impure First Love
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 彼女
       - かのじょ
@@ -12549,8 +12852,7 @@ names:
       - null
     - - 初恋
       - はつこい
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 彼女 and カノジョ are the same word written twice so that one reads as she and the other as girlfriend.
     reading: カノジョ ノ カノジョ ト フジュンナ ハツコイ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -12778,7 +13080,11 @@ names:
     reading_source_kind: analyser
     verified: false
   忍者と殺し屋のふたりぐらし:
-    basis: romaji
+    basis: translated
+    en: A Ninja and an Assassin, Living Together
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 忍者
       - にんじゃ
@@ -12870,9 +13176,12 @@ names:
     reading_source_kind: analyser
     verified: false
   念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: I Finally Got the Body of the Villainess Final Boss!
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ラスボス is glossed over 悪役令嬢, so the two are one thing rather than two.
     reading: ネンガン ノ アクヤク レイジョウ ノ カラダ ヲ テ ニ イレタ ゾ !
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -13466,7 +13775,11 @@ names:
     reading_source_kind: analyser
     verified: false
   悪役令嬢のお嫁さま:
-    basis: romaji
+    basis: translated
+    en: The Villainess's Bride
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 悪役
       - あくやく
@@ -13690,7 +14003,11 @@ names:
     reading_source_kind: analyser
     verified: false
   或いは、私の名探偵:
-    basis: romaji
+    basis: translated
+    en: Or Perhaps, My Great Detective
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: アルイワ、 ワタシ ノ メイタンテイ
@@ -13739,6 +14056,15 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  押しかけ女房、コドモ付き！:
+    basis: translated
+    en: An Uninvited Wife, Child Included!
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 押しかけ女房 is a woman who moves in and declares herself your wife, which is a set phrase rather
+      than a description.
+    verified: false
   押してダメなら描いてみろ:
     basis: romaji
     furigana_spans:
@@ -13760,7 +14086,11 @@ names:
     reading_source_kind: analyser
     verified: false
   拝啓、在りし日に咲く花たちへ:
-    basis: romaji
+    basis: translated
+    en: Dear Flowers That Bloom in Days Gone By
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 拝啓
       - はいけい
@@ -13782,8 +14112,7 @@ names:
       - はな
     - - たちへ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 拝啓 opens a letter, and the story turns on one found in a library book.
     reading: ハイケイ、 アリシ ヒ ニ サク ハナタチ エ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -13992,7 +14321,11 @@ names:
     reading_source_kind: analyser
     verified: false
   推し恋カプリチオ:
-    basis: romaji
+    basis: translated
+    en: Oshi Love Capriccio
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 推
       - お
@@ -14002,8 +14335,8 @@ names:
       - こい
     - - カプリチオ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 推し is the one you follow and champion, and the word has crossed into English fandom writing
+      where fave has not settled. The story is about fandom, so the borrowed word is the accurate one.
     reading: オシ コイ カプリチオ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -14755,14 +15088,17 @@ names:
     reading_source_kind: analyser
     verified: false
   月はタピオカみたいに:
-    basis: romaji
+    basis: translated
+    en: The Moon, Like Tapioca
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 月
       - つき
     - - はタピオカみたいに
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The girl she wakes up as is called ユエ, which is 月, so the moon in the title is a person.
     reading: ツキ ワ タピオカ ミタイニ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -14883,6 +15219,14 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  桃色カンパネラ:
+    basis: translated
+    en: Pink Campanella
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: カンパネラ is the little bell, and the school is a mission school.
     verified: false
   桜の世界:
     basis: romaji
@@ -15174,7 +15518,12 @@ names:
     reading_source_kind: analyser
     verified: false
   死神少女は陰から推しを眺めたい　─悪役にTS転生したけど、こっそり原作キャラを観察しに行きます！─:
-    basis: romaji
+    basis: translated
+    en: 'The Reaper Girl Wants to Watch Her Fave from the Shadows: Reincarnated as the Villain and Gender-Swapped,
+      but I''m Off to Observe the Original Cast in Secret!'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 死神
       - しにがみ
@@ -15214,8 +15563,8 @@ names:
       - い
     - - きます！─
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: TS転生 is a gender swap on reincarnation, which is a genre tag rather than a plot point to spell
+      out.
     reading: シニガミ ショウジョ ワ カゲ カラ オシ ヲ ナガメタイ 　 ─ アクヤク ニ TS テンショウ シタケド、 コッソリ ゲンサク キャラ ヲ カンサツ シ ニ イキマス！ ─
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -15260,7 +15609,11 @@ names:
     reading_source_kind: analyser
     verified: false
   残光再撮:
-    basis: romaji
+    basis: translated
+    en: Afterglow, Reshot
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 残光
       - ざんこう
@@ -15268,8 +15621,8 @@ names:
       - さい
     - - 撮
       - つまみ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 残光 is the light left after the source has gone; the lead photographs girls once they have fallen
+      for her.
     reading: ザンコウ サイ ツマミ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -16216,7 +16569,11 @@ names:
     reading_url: http://www.wikidata.org/entity/Q114792026
     verified: false
   猫に白鳥、蛍に小判:
-    basis: romaji
+    basis: translated
+    en: Swans Before Cats, Coins Before Fireflies
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 猫
       - ねこ
@@ -16232,8 +16589,8 @@ names:
       - null
     - - 小判
       - こばん
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: '猫に小判 is pearls before swine, and the title takes it apart and rebuilds it out of the three
+      characters: 猫目ユナ, 白鳥アコ, 波瀬ホタル. English has a proverb of the same shape to break.'
     reading: ネコ ニ ハクチョウ、 ホタル ニ コバン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -16324,7 +16681,11 @@ names:
     reading_source_kind: analyser
     verified: false
   現実世界でも幸せにしてくださいね？:
-    basis: romaji
+    basis: translated
+    en: Make Me Happy in the Real World Too, Won't You?
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 現実世界
       - げんじつせかい
@@ -16334,8 +16695,7 @@ names:
       - しあわ
     - - せにしてくださいね？
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The line is said to a character in a dating game.
     reading: ゲンジツセカイ デ モ シアワセニ シテ クダサイ ネ？
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -16713,7 +17073,12 @@ names:
     reading_source_kind: analyser
     verified: false
   病弱少女、転生して健康な肉体（最強）を手に入れる　～友達が欲しくて魔境から旅立ったのですが、どうやら私の魔法は少しおかしいようです！？～:
-    basis: romaji
+    basis: translated
+    en: 'The Sickly Girl Reincarnates into a Healthy Body, and It Is the Strongest: I Left the Badlands
+      Wanting Friends, but It Seems My Magic Is a Little Odd!?'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 病弱
       - びょうじゃく
@@ -16773,8 +17138,9 @@ names:
       - すこ
     - - しおかしいようです！？～
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: （最強） is a gloss on 健康な肉体 rather than a separate claim, so the English keeps them in one clause.
+      The same work is also held under a copy of the title that the source page truncated with an ellipsis,
+      which is left unnamed.
     reading: ビョウジャク ショウジョ、 テンショウ シテ ケンコウナ ニクタイ （サイキョウ） ヲ テ ニ イレル 　 ～ トモダチ ガ ホシクテ マキョウ カラ タビダッタ ノデスガ、 ドウ
       ヤラ ワタシ ノ マホウ ワ スコシ オカシイ ヨウデス！？ ～
     reading_at: '2026-08-02'
@@ -17028,7 +17394,11 @@ names:
     reading_source_kind: analyser
     verified: false
   百合のはじまりは奴隷から:
-    basis: romaji
+    basis: translated
+    en: This Yuri Begins with Servitude
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 百合
       - ゆり
@@ -17096,7 +17466,11 @@ names:
     reading_source_kind: analyser
     verified: false
   百合フェチLIFE:
-    basis: romaji
+    basis: translated
+    en: Yuri Fetish Life
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 百合
       - ゆり
@@ -17618,7 +17992,11 @@ names:
     reading_source_kind: analyser
     verified: false
   私のヒーロー:
-    basis: romaji
+    basis: translated
+    en: My Hero
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 私
       - わたし
@@ -18056,7 +18434,11 @@ names:
     reading_source_kind: analyser
     verified: false
   笑顔のたえない職場です。:
-    basis: romaji
+    basis: translated
+    en: A Workplace Where the Smiles Never Stop.
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 笑顔
       - えがお
@@ -18066,8 +18448,8 @@ names:
       - しょくば
     - - です。
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Another line from a Japanese job advert that readers have learnt to read as a warning. Kept
+      flat, because the Japanese is flat.
     reading: エガオ ノ タエナイ ショクバデス。
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18559,7 +18941,11 @@ names:
     reading_source_kind: analyser
     verified: false
   胡蝶の夢:
-    basis: romaji
+    basis: translated
+    en: The Butterfly Dream
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 胡蝶
       - こちょう
@@ -18567,8 +18953,8 @@ names:
       - null
     - - 夢
       - ゆめ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Zhuangzi dreamt he was a butterfly and could not afterwards say which way round it was. The
+      story has a character seeing butterflies that mean something bad.
     reading: コチョウ ノ ユメ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -18823,7 +19209,11 @@ names:
     reading_source_kind: analyser
     verified: false
   英雄少女と呪われの銀姫:
-    basis: romaji
+    basis: translated
+    en: The Hero Girl and the Cursed Silver Princess
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 英雄
       - えいゆう
@@ -19105,14 +19495,17 @@ names:
     reading_source_kind: analyser
     verified: false
   謎のユリイカ:
-    basis: romaji
+    basis: translated
+    en: The Mysterious Eureka
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 謎
       - なぞ
     - - のユリイカ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: ユリイカ is Eureka and opens with ユリ, which is the whole reason the word was chosen.
     reading: ナゾ ノ ユリイカ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -19417,7 +19810,11 @@ names:
     reading_source_kind: analyser
     verified: false
   週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～:
-    basis: romaji
+    basis: translated
+    en: 'Buying a Classmate Once a Week: Our Time Together, and Five Thousand Yen for an Excuse'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 週
       - しゅう
@@ -19613,7 +20010,11 @@ names:
     reading_source_kind: analyser
     verified: false
   銀の河に星の城:
-    basis: romaji
+    basis: translated
+    en: A Castle of Stars on the Silver River
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 銀
       - ぎん
@@ -19629,8 +20030,7 @@ names:
       - null
     - - 城
       - しろ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 銀の河 is the Milky Way.
     reading: ギン ノ カワ ニ ホシ ノ シロ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -19684,7 +20084,11 @@ names:
     reading_source_kind: analyser
     verified: false
   錬金術師のハンドメイド ～フリマやってるだけなのに伝説的な扱いされてました～:
-    basis: romaji
+    basis: translated
+    en: 'The Alchemist''s Handmade Goods: All I Do Is Run a Flea-Market Stall and Somehow I''m a Legend'
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 錬金
       - れんきん
@@ -20163,7 +20567,11 @@ names:
     reading_source_kind: analyser
     verified: false
   骨に願いを、星に呪いを:
-    basis: romaji
+    basis: translated
+    en: A Wish upon the Bones, a Curse upon the Stars
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 骨
       - ほね
@@ -20181,8 +20589,7 @@ names:
       - のろ
     - - いを
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 星に願いを is wish upon a star, and the title swaps what goes where.
     reading: ホネ ニ ネガイ ヲ、 ホシ ニ ノロイ ヲ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -20292,14 +20699,17 @@ names:
     reading_source_kind: analyser
     verified: false
   魔女とくゅらす:
-    basis: romaji
+    basis: translated
+    en: Living with a Witch
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 魔女
       - まじょ
     - - とくゅらす
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: くゅらす is 暮らす with a small ゅ dropped in, which is a look rather than a different word.
     reading: マジョトク ュラス
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -20332,6 +20742,15 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  魔女まじょS-WITCH:
+    basis: translated
+    en: Witch, Witch, S-WITCH
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 魔女 and まじょ are the same word twice, and S-WITCH turns witch into switch, which English does
+      unaided.
     verified: false
   魔女ケイリーのポーション店:
     basis: romaji
@@ -20514,7 +20933,11 @@ names:
     reading_source_kind: analyser
     verified: false
   魔法少女ノ魔女裁判:
-    basis: romaji
+    basis: translated
+    en: The Witch Trial of the Magical Girls
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 魔法
       - まほう
@@ -20572,7 +20995,11 @@ names:
     reading_source_kind: analyser
     verified: false
   魔王城デート大作戦!:
-    basis: romaji
+    basis: translated
+    en: Operation Date at the Demon Lord's Castle!
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 魔王
       - まおう
@@ -20586,8 +21013,7 @@ names:
       - さくせん
     - - '!'
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 大作戦 is the register of a war film applied to an afternoon out, and Operation carries it.
     reading: マオウジョウ デート ダイ サクセン !
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -20636,7 +21062,11 @@ names:
     reading_source_kind: analyser
     verified: false
   黒の世界は白墨に染まる:
-    basis: romaji
+    basis: translated
+    en: A Black World Dyed in Chalk
+    en_at: '2026-08-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 黒
       - くろ

@@ -101,6 +101,20 @@ def main(s):
     s.check(curate.problems("titles", "球詠", dict(R, reading=None, reading_basis="stated")),
             "a reading_basis with no reading")
 
+    # A READING SETTLED BY A REVIEWER, where nothing states one. Ranked below a printed kana and
+    # above what an analyser aligned, and it has to say what it rests on: a reading with no
+    # reasoning behind it is a guess wearing a better label.
+    R2 = {"reading": "タマヨミ", "reading_basis": "researched", "source": "pixiv dictionary",
+          "source_kind": "community-db", "reviewed": "2026-08-03",
+          "note": "readers write the title たまよみ, and 詠 takes よみ in the lead's name 詠深"}
+    s.eq(curate.problems("titles", "球詠", R2), [], "a researched reading with its reasoning")
+    s.check(curate.problems("titles", "球詠", {k: v for k, v in R2.items() if k != "note"}),
+            "and the same reading with none is refused")
+    s.check(not curate.problems("titles", "球詠", dict(R2, source_kind="derived")),
+            "a reviewer's own reasoning is a source it may rest on")
+    s.check(curate.problems("titles", "球詠", dict(R2, source_kind="licensor")),
+            "a licensor does not state Japanese readings, so it is not evidence here")
+
     # A key off by one character applies cleanly and names nothing, so the join is checked.
     doc = {"titles": {"球詠": {}, "球詠 ": {}}, "authors": {"まめ魚": {}}}
     s.eq(curate.unmatched(doc, {"球詠"}), ["球詠 "], "a title matching no work is reported")

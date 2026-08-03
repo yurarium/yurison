@@ -64,6 +64,11 @@ SOURCE_KINDS = ("platform", "publisher-jp", "licensor", "community-db", "derived
 READING_ATTRIBUTION = {
     "surface": ("derived",),                    # the title is already kana; the reading is the name
     "stated": ("platform", "publisher-jp"),      # a source prints the kana: a yomi field, furigana
+    # SETTLED BY A REVIEWER where nothing states it. A community wiki, a bookshop listing or the
+    # way readers write about a work are all evidence about how a title is said, and none of them
+    # is an attribution. This basis says a person weighed that evidence, so it demands a note
+    # saying what was weighed: a reading with no reasoning behind it is a guess wearing a label.
+    "researched": ("community-db", "derived"),
 }
 
 KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "reviewed", "note",
@@ -117,6 +122,8 @@ def problems(kind, ja, e):
         # Catching a hiragana yomi here says which line to fix instead of failing the whole build.
         if not KATAKANA.match(e["reading"]):
             out.append(f"{where}: a reading is stored as katakana; got {e['reading']!r}")
+        if rb == "researched" and not (e.get("note") or "").strip():
+            out.append(f"{where}: a researched reading needs a note saying what it rests on")
     elif e.get("reading_basis"):
         out.append(f"{where}: reading_basis with no reading")
     return out

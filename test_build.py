@@ -187,6 +187,38 @@ def main(s):
                                                   b.norm_work("COMIC FUZ"))]
             s.eq(len(got), 2, "the fuller history survives whichever file is read first")
 
+    # A SHOP LISTING IS NOT A WEB WORK. カドコミ lists KADOKAWA's catalogue whether or not a work
+    # was ever serialised there, and 39 entered the web list with no chapters and nothing to read.
+    # The test is the platform's own serializationStatus, which says `unknown` for what it does not
+    # serialise, rather than a guess about titles.
+    import tempfile, yaml as _yaml
+    with tempfile.TemporaryDirectory() as d:
+        kf = pathlib.Path(d) / "chapters.yaml"
+        kf.write_text(_yaml.safe_dump({"works": [
+            {"work_title": "shelf", "status": "unknown", "chapters": []},
+            {"work_title": "running", "status": "ongoing", "chapters": []},
+            {"work_title": "read", "status": "unknown",
+             "chapters": [{"updated": "2026-01-01"}]},
+        ]}, allow_unicode=True))
+        K = {"platform": "\u30ab\u30c9\u30b3\u30df"}
+        rows = [
+            {"work": "shelf", "chapters": 0, "sources": [K]},
+            {"work": "running", "chapters": 0, "sources": [K]},
+            {"work": "read", "chapters": 0, "sources": [K]},
+            {"work": "elsewhere", "chapters": 0, "sources": [K, {"platform": "\u7af9\u30b3\u30df"}]},
+            {"work": "has chapters", "chapters": 12, "sources": [K]},
+        ]
+        got = b.catalogue_only(rows, str(kf))
+        s.check(b.norm_work("shelf") in got, "a listing with no episodes and no status is set aside")
+        s.check(b.norm_work("running") not in got,
+                "a work the platform says it is serialising is not")
+        s.check(b.norm_work("read") not in got, "nor one it lists episodes for")
+        s.check(b.norm_work("elsewhere") not in got,
+                "nor one we hold anywhere else, because the claim is about what WE hold")
+        s.check(b.norm_work("has chapters") not in got, "and never one with chapters")
+        s.eq(b.catalogue_only(rows, str(pathlib.Path(d) / "absent.yaml")), set(),
+             "no カドコミ file means nothing is set aside, rather than everything")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

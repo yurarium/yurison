@@ -277,6 +277,45 @@ def _fullness(rec):
     return (has_en, rank, rest)
 
 
+def catalogue_only(works_out, kadokomi="data/source/kadokomi/chapters.yaml"):
+    """Works whose whole basis is a shop listing rather than a web serialisation.
+
+    カドコミ lists KADOKAWA's catalogue whether or not the work was ever serialised on the web, so
+    a detail page there is evidence that the volumes are for sale and nothing more. Our seeding read
+    it as evidence of a web work, and 39 of them entered the web list with no chapters, no dates and
+    no URL to read, where they sat as coverage gaps and as work somebody might go and do.
+
+    Searched five of them: やがて君になる ran in 月刊コミック電撃大王 and finished in 2019, 繭、纏う in
+    コミックビーム, からふるキューシート！ in 電撃だいおうじ, all print and all complete;
+    気になってる人が男じゃなかった is posted on its author's own social accounts and collected by
+    KADOKAWA. None was ever published on カドコミ.
+
+    THE TEST IS THE PLATFORM'S OWN FIELD, not a guess about titles. カドコミ carries
+    serializationStatus, and it says `unknown` for 144 of the 145 works it lists no episodes for,
+    against a real value for 175 of the 189 it does. A work it can say nothing about the
+    serialisation of is a work it does not serialise.
+
+    ONLY WHERE THAT IS THE WHOLE STORY. A work carrying any other source keeps its place: the claim
+    is about what WE hold, not about the work. 高音さんと嵐ちゃん is live on ニコニコ漫画 twice a
+    week and appears here because the one episode that platform shows us produced no chapters, so
+    the shop listing really is everything we have on it.
+    """
+    p = pathlib.Path(kadokomi)
+    if not p.exists():
+        return set()
+    shelf = {norm_work(w.get("work_title") or "")
+             for w in (yaml.safe_load(p.read_text()) or {}).get("works") or []
+             if not (w.get("chapters") or w.get("episodes")) and w.get("status") == "unknown"}
+    out = set()
+    for r in works_out:
+        if r.get("chapters"):
+            continue
+        plats = {s.get("platform") for s in (r.get("sources") or [])}
+        if norm_work(r.get("work") or "") in shelf and plats <= {"カドコミ"}:
+            out.add(norm_work(r["work"]))
+    return out
+
+
 def content_flags():
     """Works a source has flagged on content grounds, whether or not we act on the flag.
 
@@ -788,7 +827,7 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
 
 def write_run_record(out, _today, releases, platforms, works, series_rows,
                      claim_trace, dropped_dupes, thin_dropped, resolver_dropped,
-                     filled_author, filled_access, samples):
+                     filled_author, filled_access, samples, catalogue_rows=()):
     # ── The run record ───────────────────────────────────────────────────────────────────────────
     #
     # build.py has always printed its counts to stdout and kept none of them, so nothing could say
@@ -951,6 +990,14 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
                   "platform": (r.get("sources") or [{}])[0].get("platform")}
                  for r in series_rows if not r.get("chapters")],
              "grouping": dict(Counter(w.get("grouping") or "unknown" for w in works)),
+             # Set aside, and counted, because setting things aside is how a number quietly
+             # becomes a way of losing them. These are カドコミ shop entries for works it does not
+             # serialise: the volumes are for sale, nothing was ever published there to read, and
+             # they were sitting in the web list as work somebody might go and do.
+             "catalogue_listings": [
+                 {"work": r["work"],
+                  "platform": (r.get("sources") or [{}])[0].get("platform")}
+                 for r in catalogue_rows],
          },
          # Weeks already trimmed and ready to draw; `trimmed_weeks` says how many came off, so the
          # page can be honest about the window without recomputing anything.
@@ -3102,6 +3149,18 @@ def main():
             print(f"withheld from works : {len(_out)} work(s) held back pending review: "
                   + ", ".join(r["work"][:20] for r in _out))
 
+    # A shop listing is not a web work. Held out of the web list rather than deleted: the row is
+    # still the truth about what カドコミ sells, and status.html counts what was set aside so the
+    # number cannot quietly become a way of losing things.
+    _cat = catalogue_only(works_out)
+    if _cat:
+        catalogue_rows = [r for r in works_out if norm_work(r.get("work")) in _cat]
+        works_out = [r for r in works_out if norm_work(r.get("work")) not in _cat]
+        print(f"catalogue listings  : {len(catalogue_rows)} work(s) held only as カドコミ shop "
+              "entries, with no web serialisation to read")
+    else:
+        catalogue_rows = []
+
     series_rows = sorted(works_out,
                          key=lambda r: (r["latest"] or "", r["chapters"]), reverse=True)
     # AUTOPILOT. Before attaching anything, give every work and author the pipeline currently knows
@@ -3227,7 +3286,7 @@ def main():
 
     cl = write_run_record(out, _today, releases, platforms, works, series_rows,
                           claim_trace, dropped_dupes, thin_dropped, resolver_dropped,
-                          filled_author, filled_access, samples)
+                          filled_author, filled_access, samples, catalogue_rows)
 
     print(f"syndicated      : {sum(1 for r in releases if r.get('syndicated'))}")
     print(f"provenance      : {dict(Counter(r.get('provenance') for r in releases))}")

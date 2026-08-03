@@ -18,22 +18,35 @@ a word list is. The list is deliberately in two tiers, for the same reason check
 
 WHAT IS DELIBERATELY NOT FLAGGED, so it is not "helpfully" added later:
 
-  Em dashes. They are the best-known tell and they would be the wrong rule here — the user writes
-  them, this project's documents use them throughout on purpose, and a rule that fires on every
-  page of correct prose teaches everyone to ignore the tool.
+  Bold-lead bullets and numbered rules, in INTERNAL documents. They are a real tell in the wild and
+  they are load-bearing here, where the point is that a rule can be found and cited. Public text
+  gets no such licence.
 
-  Bold-lead bullets and numbered rules. Also a tell in the wild, also load-bearing in these
-  documents, where the whole point is that a rule can be found and cited.
+  The "short sentence for emphasis." beat, paragraphs that restate their own first line, and
+  elegant variation (swapping in synonyms to avoid repeating a word). Real, and not mechanisable;
+  they are named in STANDING-INSTRUCTIONS §11 as judgement instead.
 
-  Rule-of-three escalation, the "short sentence for emphasis." beat, and paragraphs that restate
-  their own first line. These are real and are the residue this cannot catch; they are a matter of
-  judgement and are named in STANDING-INSTRUCTIONS §11 instead.
+WHAT WAS WRONG THE FIRST TIME, recorded because the reasoning was plausible and still wrong. This
+file originally exempted em dashes, arguing that the user writes them and the project's documents
+use them throughout. That conflated two different things: how the user writes in conversation, and
+what the project publishes. The exemption was overturned on sight of the README, whose opening
+paragraph carried two em dashes and a tricolon.
+
+The research (Wikipedia's "Signs of AI writing", and work on detector generalisation) says the
+signal is DENSITY AND CLUSTERING, not presence. So the em dash is not banned; it is metered. That
+is a third tier, below:
+
+  HARD      constructions with no legitimate use. Invariant, must be zero in public text.
+  SOFT      ordinary words that are a tell only in bulk. Budget.
+  DENSITY   things correct in ones and diagnostic in threes — em dashes, tricolons. Measured per
+            thousand words against a ceiling, and applied to PUBLIC text only, because internal
+            documents are written to be cited rather than read through.
 
 SCOPE. Public-facing prose is the invariant. Code comments and docstrings are the budget: they are
 in scope and are being cleaned, but there is a backlog and a backlog must not block a build. Commit
 messages already written are history and are left alone.
 
-Usage:  tics.py --prose FILE...      what a reader sees; reports HARD only
+Usage:  tics.py --prose FILE...      what a reader sees; HARD + raw-text rules + density
         tics.py --comments FILE...   comments, docstrings and .md; reports HARD + SOFT
         tics.py --self-test          prove it catches its own canary
 Exit 1 if anything is found, so it can gate.
@@ -75,6 +88,18 @@ HARD = [
     (r"\bstands? as (a|an|the)\b", "is"),
     (r"\bwhether you'?re\b|\bwhether you are a\b", "cut"),
     (r"\bfrom .{3,30} to .{3,30}, (the|this|it|we)\b", "cut the sweep; start at the point"),
+    # Copula avoidance: "is/are" replaced by something weightier. One study found a 10% drop in
+    # is/are after 2022. Wikipedia's list names exactly these verbs.
+    (r"\bserves as (a|an|the)\b|\bmarks (a|an|the) (first|significant|pivotal|major)\b", "is"),
+    # Present participle bolted onto a finished sentence to add significance it did not have.
+    (r", (highlighting|underscoring|emphasi[sz]ing|showcasing|reflecting|ensuring|cultivating|"
+     r"solidifying|cementing|marking) ", "end the sentence"),
+    # Significance inflation.
+    (r"\b(pivotal moment|significant shift|broader trends?|evolving landscape|indelible mark|"
+     r"lasting legacy|rich history)\b", "say what happened"),
+    # Vague attribution standing in for a source.
+    (r"\b(observers have|experts (argue|say|note)|industry reports|several sources|many believe)\b",
+     "name the source"),
     (r"[\U0001F300-\U0001FAFF✨⭐⚡]", "no decorative emoji"),  # not on CJK lines: see EVIDENCE
 ]
 
@@ -103,6 +128,7 @@ SOFT = [
     (r"\bis key\b|\bkey to (understanding|unlocking|success)\b|\ba key (part|role|component|aspect)\b", "say what it does"),
     (r"\bwealth of\b", "many, or the number"),
     (r"\bin the ever\b", "cut"),
+    (r"—", "a comma, a full stop, or two sentences"),
 ]
 
 # Evidence is quoted, not written, and must survive the lint unaltered. The scraped pixiv banner
@@ -111,7 +137,42 @@ SOFT = [
 # from the emoji rule — narrow enough to be safe, and it fails visibly rather than silently.
 CJK = re.compile(r"[\u3040-\u30ff\u3400-\u9fff\uff00-\uffef]")
 
+# An em dash ALONE between quotes or tags is not prose: it is the glyph for "no value" in a table
+# cell, which is correct typography and not a tell. `${n ?? '—'}` must survive. Same shape as the
+# CJK exemption above: the rule is about writing, so it has to be able to tell writing from data.
+GLYPH = re.compile(r"""(['"`>])\s*—\s*(['"`<])""")
+
+# Applied in --prose only. The em dash is the one the research puts first, and the instruction here
+# is to avoid it rather than meter it, so in public text it is absolute. In comments and internal
+# documents it is a budget instead (see SOFT): those are already written full of them, and a rule
+# that demands a mass rewrite before the next commit is a rule that gets switched off.
+#
+# Curly quotes are deliberately NOT flagged. They appear on published lists of tells, and they are
+# wanted here: they are correct typography for web text. A lint exists to serve the writing.
+PROSE_ONLY = [
+    (r"—", "a comma, a full stop, or two sentences"),
+]
+
+LIST_OR_HEADING = re.compile(r"\s*(?:[-*+•]|\d+[.)]|#|\||>)")
+
+# A tricolon is a RHETORICAL pattern, so it is counted in prose and not in code. Without this the
+# measure spent itself on JS parameter lists: "kind, raw, existing", "label, cls, why", "idx, feed,
+# series". Sixteen of the first twenty-two hits on the site were signatures, and a measure that
+# reports mostly noise is one nobody reads.
+CODEY = re.compile(r"=>|\bfunction\b|\b(?:const|let|var|return)\b|[{};=]|\$\{")
+
+# Correct in ones, diagnostic in threes. Per thousand words, public text only.
+DENSITY = [
+    # Both forms: "a, b, and c" and the asyndetic "a, b, c". The README's own
+    # "Sources drop titles, platforms delist works, magazines fold" is the second kind, and an
+    # and-only pattern scored it zero.
+    ("tricolons",
+     re.compile(r"\b\w+(?:\s+\w+){0,3},\s+\w+(?:\s+\w+){0,3},\s+(?:and\s+)?\w+(?:\s+\w+){0,3}\b"),
+     2.0),
+]
+
 HARD_RX = [(re.compile(p, re.I), fix) for p, fix in HARD]
+PROSE_RX = [(re.compile(p, re.I), fix) for p, fix in PROSE_ONLY]
 SOFT_RX = [(re.compile(p, re.I), fix) for p, fix in SOFT]
 
 
@@ -128,6 +189,8 @@ def fires(rx, fix, text):
         return None
     if fix.startswith("no decorative") and CJK.search(text):
         return None                   # quoted source data, not our prose
+    if m.group(0) == "—" and GLYPH.search(text):
+        return None                   # the "no value" glyph, not a sentence
     return m.group(0).strip()
 
 
@@ -192,6 +255,29 @@ def comments_of(path):
                 yield base + off, line
 
 
+def measure(paths, extract):
+    """Per-thousand-word rates for the things that are only a tell in bulk."""
+    words, counts = 0, {name: 0 for name, _, _ in DENSITY}
+    for p in paths:
+        p = pathlib.Path(p)
+        if not p.exists() or p.name == "tics.py":
+            continue
+        for _, text in extract(p):
+            words += len(text.split())
+            # Prose only. A bulleted contents list is an enumeration, not a rhetorical triple, and
+            # "sourcing, copyright policy, archival rules" in an index entry is the right way to
+            # write it. Counting those would make the measure fire on correct documents.
+            if LIST_OR_HEADING.match(text) or CODEY.search(text):
+                continue
+            for name, rx, _ in DENSITY:
+                counts[name] += len(rx.findall(text))
+    out = []
+    for name, _, ceiling in DENSITY:
+        rate = 1000.0 * counts[name] / words if words else 0.0
+        out.append((name, counts[name], round(rate, 1), ceiling, rate > ceiling))
+    return words, out
+
+
 def scan(paths, rules, extract):
     hits = []
     for p in paths:
@@ -217,6 +303,10 @@ def self_test():
         # comment (eaten by the tag stripper) and a JS string using a curly apostrophe.
         ("It\u2019s important to note that this is cached.", HARD_RX),
         ("<!-- delves into the rich tapestry -->", HARD_RX),
+        ("The album serves as a testament", HARD_RX),
+        ("It shipped in May, marking a pivotal moment", HARD_RX),
+        ("It shipped, highlighting the need for care", HARD_RX),
+        ("Experts argue that this is so", HARD_RX),
     ]
     ok = True
     for text, rules in canaries:
@@ -235,6 +325,35 @@ def self_test():
         if hit:
             print(f"  FAIL: false positive on {text!r} from {hit}")
             ok = False
+    # The em dash is caught in public text and NOT by the shared list, which comments also use.
+    if not any(fires(rx, fix, "a thing \u2014 and another") for rx, fix in PROSE_RX):
+        print("  FAIL: em dash not caught in prose")
+        ok = False
+    if any(fires(rx, fix, "a thing \u2014 and another") for rx, fix in HARD_RX):
+        print("  FAIL: em dash in HARD would fire on every internal document")
+        ok = False
+    # The no-value glyph must survive; a real em dash on the same shape of line must not.
+    for text, want in (("<td>${n ?? '—'}</td>", False), ("a sentence — and its aside", True)):
+        got = any(fires(rx, fix, text) for rx, fix in PROSE_RX)
+        if got != want:
+            print(f"  FAIL: glyph exemption wrong on {text!r} (got {got}, want {want})")
+            ok = False
+
+    # Curly quotes are wanted. Nothing may flag them.
+    if any(fires(rx, fix, "the reader\u2019s choice \u201cyes\u201d")
+           for rx, fix in HARD_RX + PROSE_RX):
+        print("  FAIL: something flagged a curly quote")
+        ok = False
+    # Tricolon density: rhetoric counts, a function signature does not.
+    rx = DENSITY[0][1]
+    if not rx.findall("sources drop titles, platforms delist works, and magazines fold"):
+        print("  FAIL: tricolon not detected")
+        ok = False
+    for code in ("function badge(label, cls, why) {", "const [idx, feed, series] = x;"):
+        if not CODEY.search(code):
+            print(f"  FAIL: code not excluded from tricolon density: {code!r}")
+            ok = False
+
     print("  tics self-test:", "pass" if ok else "FAIL")
     return ok
 
@@ -251,17 +370,28 @@ def main():
     if a.self_test:
         return 0 if self_test() else 1
 
-    rules = HARD_RX if a.prose else HARD_RX + SOFT_RX
+    rules = (HARD_RX + PROSE_RX) if a.prose else HARD_RX + SOFT_RX
     extract = prose_of if a.prose else comments_of
     hits = scan(a.files, rules, extract)
 
+    over = []
+    if a.prose:
+        words, rates = measure(a.files, extract)
+        over = [r for r in rates if r[4]]
+        if not a.quiet:
+            print(f"-- density over {words} words --")
+            for name, n, rate, ceiling, bad in rates:
+                print(f"   {'OVER' if bad else 'ok  '} {name}: {n} = {rate}/1000 (ceiling {ceiling})")
+
     if a.quiet:
-        print(len(hits))
+        print(len(hits) + len(over))
     else:
         for path, line, found, fix in hits:
-            print(f"{path}:{line}: {found!r} — {fix}")
-        print(f"{len(hits)} tic(s) in {len(a.files)} file(s)")
-    return 1 if hits else 0
+            print(f"{path}:{line}: {found!r} -> {fix}")
+        for name, n, rate, ceiling, _ in over:
+            print(f"DENSITY: {name} at {rate}/1000 exceeds {ceiling}")
+        print(f"{len(hits)} tic(s), {len(over)} density breach(es) in {len(a.files)} file(s)")
+    return 1 if (hits or over) else 0
 
 
 if __name__ == "__main__":

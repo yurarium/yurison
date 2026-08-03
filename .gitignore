@@ -8,3 +8,6 @@ __pycache__/
 # only while a name pass is mid-flight and is replayed into the YAML on the next start, so it is
 # transient state rather than data. The YAML beside it is the thing worth committing.
 data/names/.journal/
+
+# Local preview config; the server is a dev convenience, not project source.
+.claude/

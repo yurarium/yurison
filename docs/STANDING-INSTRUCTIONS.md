@@ -128,26 +128,39 @@ Unihan is the Unicode licence. Data files derived from a source carry their attr
 Almost every word here was drafted by an assistant, and assistants have a house style. A reader who
 knows the tells reads them as a signature, and the project's text should read as the project's.
 
-**In scope:** anything a reader sees, code comments and docstrings, documentation, and commit
-messages from now on. Commit messages already written are history and are left alone — the public
-repository's development history is to be squashed before 1.0 in any case.
+**In scope:** anything a reader sees, the whole of any repository that goes public (existing text
+included, not just new writing), code comments and docstrings, and commit messages from now on.
+Past commit messages are left alone; the public history is to be squashed before 1.0.
 
-`adapters/lint/tics.py` holds the list and the substitutions, in two tiers matching §4's logic:
-reader-facing text is an invariant and must be zero; comments and docs are a budget, because there
-is a backlog and a backlog must not block a build.
+`adapters/lint/tics.py` holds the list and the substitutions, in three tiers:
+
+| | |
+|---|---|
+| **HARD** | Constructions with no legitimate use. Invariant, must be zero. |
+| **SOFT** | Ordinary words that are a tell only in bulk. Budget, ratchets down. |
+| **DENSITY** | Things correct in ones and diagnostic in threes, measured per thousand words. |
+
+**Em dashes are avoided.** Zero in public text; a budget in internal documents, because those are
+already written full of them and a rule demanding a mass rewrite before the next commit is a rule
+that gets switched off. **Curly quotes are wanted** and nothing may flag them: they appear on
+published lists of tells, and they are correct typography for web text. A lint exists to serve the
+writing.
 
 **What the lint cannot catch, and you must:**
 
 - **The escalating triple.** Three parallel clauses where two would do, the third adding rhythm
-  rather than content.
-- **The emphatic fragment.** A one-clause sentence dropped after a long one for weight. Sparingly
-  is fine; as a reflex it is a tell.
+  rather than content. The detector finds the comma-shaped ones; it cannot find three sentences in
+  a row doing the same work.
+- **The emphatic fragment.** A one-clause sentence dropped after a long one for weight.
 - **Restatement as structure.** A paragraph whose last line says what its first line said.
-- **Hedging that carries no information** — "generally", "typically", "often" attached to a claim
+- **Elegant variation.** Reaching for a synonym to avoid repeating a word. Repeat the word.
+- **Hedging that carries no information.** "Generally", "typically", "often" attached to a claim
   that is either true or is not.
 - **Symmetry that was not in the facts.** Two options given equal weight because two reads well,
   when one is obviously right. Give the recommendation.
 
-**Do not flag em dashes.** They are the best-known tell and the wrong rule here: they are used
-deliberately throughout, and a check that fires on every page of correct prose is a check that gets
-switched off. The same goes for bold-lead bullets, which are load-bearing in these documents.
+**A rule this file got wrong, kept as a warning.** The first version of §11 exempted em dashes,
+reasoning that the user writes them and this project's documents are full of them. That conflated
+how the user writes in conversation with what the project publishes, and it survived exactly as
+long as it took someone to read the README. When a style rule is being justified by *our* habits
+rather than by the reader's experience, the rule is about to be wrong.

@@ -73,8 +73,8 @@
   },
   {
    "name": "machine tells in comments",
-   "value": 0,
-   "budget": 0,
+   "value": 891,
+   "budget": 891,
    "means": "verbal tics of generated text in comments, docstrings and documentation. Reader-facing text is an invariant instead; this is the backlog, and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged."
   },
   {

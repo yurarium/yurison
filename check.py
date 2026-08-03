@@ -40,7 +40,8 @@ SITE = SITE_ROOT / "kari" / "data"
 # Every file a reader can load. The English strings live inside the pages rather than in a
 # resource file, so the pages themselves are the text; there is nowhere else to look.
 READER_TEXT = [SITE_ROOT / "index.html", SITE_ROOT / "README.md",
-               SITE_ROOT / "kari" / "index.html", SITE_ROOT / "kari" / "status.html"]
+               SITE_ROOT / "kari" / "index.html", SITE_ROOT / "kari" / "status.html",
+               ROOT / "README.md"]     # this repo goes public at 1.0; its README is public text
 
 JAPANESE = re.compile(r"[぀-ヿ一-鿿　-〿＀-￯]")
 KANA = re.compile(r"^[぀-ヿ\s・ー]*$")
@@ -204,7 +205,12 @@ def inv_no_machine_tells_in_reader_text(ctx):
         [sys.executable, str(ROOT / "adapters" / "lint" / "tics.py"), "--prose",
          *[str(f) for f in READER_TEXT if f.exists()]],
         capture_output=True, text=True, timeout=60)
-    return [l.split(" — ")[0].strip() for l in out.stdout.splitlines() if " — " in l]
+    # Parse on the lint's own markers, not on an em dash: this line used to split on " — " and the
+    # lint's output separator changed, which would have made the invariant silently vacuous. Density
+    # breaches count too, or the measure would report and block nothing.
+    bad = [l.split(" -> ")[0].strip() for l in out.stdout.splitlines() if " -> " in l]
+    bad += [l.strip() for l in out.stdout.splitlines() if l.startswith("DENSITY:")]
+    return bad
 
 
 def inv_archives_unchanged(ctx):

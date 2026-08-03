@@ -4,6 +4,15 @@ The pipeline side is written and tested locally. What remains is the part that n
 the GitHub UI, plus one real piece of engineering. Parked deliberately: interface work is easier to
 iterate on when nothing is pushing to the same repos underneath it.
 
+**Status 2026-08-03.** The first real run happened: `workflow_dispatch` with `skip_browser`. Stage
+0, Stage A, compile, the invariants, the self-test, the unit tests and the field audit all passed.
+It failed closed at *Assert the commit identity* and committed nothing — the workflow set
+`yurarium-bot <noreply@yurarium.github.io>` while `.githooks/leak-guard.sh` permits exactly one
+author string. Fixed by making CI use the permitted identity rather than widening the allowlist.
+
+`SITE_DEPLOY_KEY` is still absent, so section A below is still outstanding and the publish step
+will skip. Until that exists, a scheduled run would update `yurison` and leave the site untouched.
+
 **Nothing here fires on its own.** `.github/workflows/update.yml` is `workflow_dispatch` only — the
 `schedule:` block is commented out. Until someone uncomments it or clicks Run workflow, no
 automated run touches either repo. That is the state to leave it in while the interface is moving.

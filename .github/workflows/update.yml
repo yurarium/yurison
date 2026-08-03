@@ -161,8 +161,13 @@ jobs:
           LEAK_DENY: ${{ secrets.LEAK_DENY }}
         run: |
           chmod +x .githooks/leak-guard.sh
-          git config user.name  "yurarium-bot"
-          git config user.email "noreply@yurarium.github.io"
+          # THE IDENTITY THE GUARD ALLOWS, exactly. .githooks/leak-guard.sh holds a single
+          # permitted author string and treats anything else as a violation — that single value is
+          # the whole design, so CI matches it rather than the allowlist being widened to admit a
+          # second one. The workflow had set "yurarium-bot <noreply@yurarium.github.io>" since it
+          # was written and no run had ever reached this step to disagree.
+          git config user.name  "Yurarium"
+          git config user.email "311755991+yurarium@users.noreply.github.com"
           .githooks/leak-guard.sh identity-config
 
       - name: Commit the sources and the build
@@ -185,8 +190,13 @@ jobs:
           git clone --depth 1 git@github.com:yurarium/yurarium.github.io.git /tmp/site
           ./deploy.sh /tmp/site
           cd /tmp/site
-          git config user.name  "yurarium-bot"
-          git config user.email "noreply@yurarium.github.io"
+          # THE IDENTITY THE GUARD ALLOWS, exactly. .githooks/leak-guard.sh holds a single
+          # permitted author string and treats anything else as a violation — that single value is
+          # the whole design, so CI matches it rather than the allowlist being widened to admit a
+          # second one. The workflow had set "yurarium-bot <noreply@yurarium.github.io>" since it
+          # was written and no run had ever reached this step to disagree.
+          git config user.name  "Yurarium"
+          git config user.email "311755991+yurarium@users.noreply.github.com"
           git add kari/data
           git diff --cached --quiet || git commit -m "kari: data from yurison run ${{ github.run_id }}"
           # Pushed with the deploy key rather than GITHUB_TOKEN, which means this push DOES trigger

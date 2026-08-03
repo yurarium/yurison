@@ -271,14 +271,31 @@ Any one of these excludes the work.
 
 ### The middle band — included, flagged
 
-Works with explicit content that are **not** marketed as pornography — a fair number of 百合姫-line
-and seinen titles — are included, with `explicit_content: true`.
+Works with explicit content that are **not** marketed as pornography are included, with
+`explicit_content: true`. That covers a fair number of 百合姫-line and seinen titles, and also the
+adult anthologies a mainstream publisher runs on its own platform: 一迅プラス carries
+セフレ沼から抜け出せないっ！百合えっちアンソロジー and its like, which are explicit and are not
+pornography by the test above.
 
-That flag has two consequences, applied automatically rather than by judgment:
+**No cover image is referenced** for such a record. That is implemented and checked.
 
-- **no cover image is referenced** for the record
-- outbound links are limited to bibliographic and publisher pages, never to reading or sample
-  pages that would serve the content
+**Linking to the work is fine**, decided by the project owner on 2026-08-03. An earlier version of
+this section said outbound links must go to bibliographic and publisher pages and never to a
+reading page. Two things are wrong with that, and both matter:
+
+- It was never built. Every record links wherever its platform put it, and
+  昨日シたのに覚えてないの？ 百合えっち短編集 has linked to a reading page throughout. A rule
+  nobody implemented is a rule that was doing nothing except making the document untrue, which is
+  the same failure as the withheld register (STANDING-INSTRUCTIONS §13).
+- The reasoning behind it does not survive the platform argument. Every platform here is a
+  commercial publisher's own web arm. A reader following a link to a serialisation on one meets
+  that publisher's own presentation of its own title, gated however the publisher gates it. The
+  danger the rule imagined, a reader landing unawares on explicit content, is a danger about
+  WHERE something is published, and this database only carries one kind of where.
+
+What still excludes a work is the test above: the 成年コミックマーク, an 18禁 or R-18 designation,
+an adult imprint, or distribution restricted to adult channels. Explicit is not the same as
+marketed as pornography, and this section exists to hold the two apart.
 
 ### Consequence for Phase 2
 

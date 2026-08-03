@@ -159,6 +159,35 @@ def withheld_works():
     return {k: v for k, v in content_flags().items() if v["withhold"]}
 
 
+# A title that is BOTH adult-marketed and a collection. Both are required: えっち or セフレ alone
+# appears in story titles, and アンソロジー alone is most of the anthologies we carry. Together they
+# describe how a volume is sold, which is the thing DEFINITIONS §7 turns on.
+ADULT_MARKETED = re.compile(r"えっち|エッチ|セフレ|エロ|官能|18禁|R-?18|成人向")
+COLLECTION_MARK = re.compile(r"アンソロジー|短編集|傑作選|オムニバス|読切集")
+
+
+def marketing_flags(series_rows):
+    """Adult-marketed collections, REPORTED and published.
+
+    一迅プラス publishes explicit yuri anthologies and exposes no rating field, so nothing else in
+    the pipeline can see them. They are not pornography by §7's test and the project owner has
+    decided they are safe to carry and to link to, which settles what happens to them. What was
+    missing is that nothing would have SHOWN them: a category decided once and then invisible is
+    how the withheld register went five works wrong for the life of the project.
+
+    So they appear in the flag report with everything else, marked published, and a fourth arriving
+    from a publisher nobody has thought about turns up in the same place rather than nowhere.
+    """
+    out = {}
+    for r in series_rows:
+        w = r.get("work") or ""
+        if ADULT_MARKETED.search(w) and COLLECTION_MARK.search(w):
+            out[norm_work(w)] = {"title": w, "source": "marketing signal",
+                                 "reason": "adult-marketed collection; §7 explicit, not pornography",
+                                 "withhold": False}
+    return out
+
+
 # An anthology instalment names its own author and title, in one of two shapes. Lifted out of
 # main() so it can be tested: a pattern that decides what counts as a WORK is exactly the kind of
 # thing that must be provable, and inside a 2,900-line function it was reachable by nothing.
@@ -718,7 +747,7 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
     # Every content flag, reported whether or not it withholds anything. This is the whole remedy
     # for a register nothing read: the flags now have to appear in a published number, and check.py
     # fails if one exists that nothing accounts for.
-    _flags = content_flags()
+    _flags = {**content_flags(), **marketing_flags(series_rows)}
     _published = {norm_work(r["work"]) for r in series_rows}
     content_flag_rows = sorted(
         ({"title": v["title"], "source": v["source"], "reason": v["reason"],

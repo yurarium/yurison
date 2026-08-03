@@ -248,8 +248,32 @@ def inv_content_flags_are_accounted_for(ctx):
             bad.append(f"flagged but not reported anywhere: {title[:30]}")
         elif bool(reported[title].get("withheld")) != withhold:
             bad.append(f"report disagrees with the register: {title[:30]}")
-    for title in reported:
-        if title not in reg:
+    # THE BUILD-TIME SIGNAL NEEDS GUARDING TOO. Scoping this check to the file register alone left
+    # the marketing flags reported and unchecked: a fire-drill deleted all three from the report and
+    # this passed, which is the shape the whole invariant exists to catch. So they are recomputed
+    # here from the DEPLOYED works list, using build.py's own patterns rather than a second copy.
+    expect_marketing = set()
+    try:
+        sys.path.insert(0, str(ROOT))
+        import importlib.util
+        _spec = importlib.util.spec_from_file_location("buildpat", ROOT / "build.py")
+        _b = importlib.util.module_from_spec(_spec)
+        _spec.loader.exec_module(_b)
+        for r in (_load(SITE / "series.json", {}) or {}).get("series", []):
+            w = r.get("work") or ""
+            if _b.ADULT_MARKETED.search(w) and _b.COLLECTION_MARK.search(w):
+                expect_marketing.add(w)
+    except Exception as e:
+        bad.append(f"could not recompute the marketing signal: {type(e).__name__}")
+
+    for title in expect_marketing:
+        if title not in reported:
+            bad.append(f"adult-marketed and not reported: {title[:30]}")
+
+    for title, row in reported.items():
+        # The file register records what a SOURCE said; the marketing signal is what the build
+        # noticed. Both must be reported; only the first must exist on disk.
+        if title not in reg and title not in expect_marketing:
             bad.append(f"reported as flagged but not in any register: {title[:30]}")
 
     # A withheld work must be absent from everything served, checked on the bytes.

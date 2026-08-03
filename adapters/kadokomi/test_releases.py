@@ -64,6 +64,20 @@ def main(s):
                                                       {"code": "Z", "title": "ok"}]}}
     s.eq([r["code"] for r in k.ep_rows(junk)], ["Z"], "junk entries are skipped, valid ones kept")
 
+    # WHAT THE PLATFORM ANNOUNCES, out of the payload rather than the prose beside it. カドコミ
+    # carries nextUpdateDateText, and 未定 is itself a statement: a platform saying
+    # it has not settled a date differs from a page that says nothing at all.
+    s.eq(k._next_update({"nextUpdateDateText": "2026/08/10"}), {"next_update": "2026-08-10"},
+         "a whole date needs nothing inferred")
+    s.eq(k._next_update({"nextUpdateDateText": "未定"}), {"next_update_undecided": True},
+         "未定 is recorded as the statement it is")
+    s.eq(k._next_update({"nextUpdateDateText": ""}), None, "an empty field states nothing")
+    s.eq(k._next_update({}), None, "and neither does a missing one")
+    s.eq(k._next_update({"nextUpdateDateText": "2026/02/30"}), None,
+         "a date the calendar does not have is not invented")
+    s.eq(k._next_update({"nextUpdateDateText": "来週くらい"}), None,
+         "and prose where a date should be is not guessed at")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "kadokomi.releases"))

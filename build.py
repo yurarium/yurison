@@ -1577,13 +1577,23 @@ def main():
     # next update date, and we were inferring both from gaps between the chapters we happened to
     # capture. See adapters/render/schedule_text.py for why that was not merely redundant.
     stated_schedule = {}
-    for _sf in glob.glob("data/source/webpages/rendered-*.yaml"):
+    _owners = host_platforms(
+        (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("platforms", []))
+    for _sf in (glob.glob("data/source/webpages/rendered-*.yaml")
+                + ["data/source/kadokomi/chapters.yaml",
+                   "data/source/webpages/ganganonline.yaml"]):
+        if not pathlib.Path(_sf).exists():
+            continue
         _sd = yaml.safe_load(open(_sf)) or {}
         _spn = _sd.get("platform_name") or ""
         for _sw in _sd.get("works") or []:
-            if _sw.get("stated_schedule"):
-                stated_schedule[(norm_work(_sw.get("work_title") or ""),
-                                 norm_work(_sw.get("platform_name") or _spn))] = _sw["stated_schedule"]
+            if not _sw.get("stated_schedule"):
+                continue
+            # Same rule as the histories: the platform is the host we read, and only the file's
+            # own label where the URL cannot say. カドコミ's file names no platform at all.
+            _p = platform_of(_sw.get("url"), _owners) or _sw.get("platform_name") or _spn
+            stated_schedule[(norm_work(_sw.get("work_title") or ""), norm_work(_p))] = \
+                _sw["stated_schedule"]
     _STATED.update(stated_schedule)
 
     # Every look adapters/claims/trace.py has taken, keyed the way it writes them. A claim with no

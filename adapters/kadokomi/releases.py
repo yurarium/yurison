@@ -17,7 +17,8 @@ Never stored: `summary` (publisher synopsis, §2) or thumbnail URLs.
 Usage:  releases.py --works data/coverage/webcomics-works.yaml --out data/source/kadokomi \
                     --cache $YURI_CACHE/kadokomi-cache --retrieved 2026-08-01
 """
-import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
+import argparse
+import datetime, json, pathlib, re, sys, time, urllib.error, urllib.request
 from collections import Counter
 
 import yaml
@@ -102,6 +103,22 @@ def js(v):
     return json.dumps(v, ensure_ascii=False)
 
 
+def _next_update(work):
+    """What カドコミ says about its next chapter for this work, if it says anything."""
+    t = (work.get("nextUpdateDateText") or "").strip()
+    if not t:
+        return None
+    if t == "未定":
+        return {"next_update_undecided": True}
+    m = re.fullmatch(r"(\d{4})/(\d{1,2})/(\d{1,2})", t)
+    if not m:
+        return None
+    try:
+        return {"next_update": datetime.date(*(int(x) for x in m.groups())).isoformat()}
+    except ValueError:
+        return None            # a date the platform prints and the calendar does not have
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--works", required=True, help="Tier C candidate list naming カドコミ works")
@@ -109,6 +126,10 @@ def main():
     ap.add_argument("--cache", required=True)
     ap.add_argument("--retrieved", required=True)
     ap.add_argument("--limit", type=int, default=400)
+    # How stale a cached page may be before it is fetched again. The default keeps a daily run
+    # honest; raising it re-runs the PARSE over pages already held, which is what you want when
+    # the parser has changed and the pages have not.
+    ap.add_argument("--max-age", type=float, default=1)
     a = ap.parse_args()
 
     cache = pathlib.Path(a.cache).expanduser()
@@ -164,7 +185,7 @@ def main():
     works, failed, tagged = [], [], 0
     for code, title in codes.items():
         try:
-            d = work_data(fetch(code, cache))
+            d = work_data(fetch(code, cache, a.max_age))
         except urllib.error.HTTPError as e:
             failed.append((title, f"HTTP {e.code}"))
             continue
@@ -184,6 +205,12 @@ def main():
             "marketing_label": "yuri" if hits else "none",
             "yuri_tags": hits,
             "episodes": ep_rows(d),
+            # THE PLATFORM'S OWN ANNOUNCEMENT, out of the payload rather than the prose beside it.
+            # カドコミ carries nextUpdateDateText, either a whole date or 未定 where it does not
+            # know. 未定 is kept, because a platform saying it has not settled a date is a
+            # different fact from a page that says nothing, and it is the honest answer to a
+            # reader asking when the next chapter lands.
+            "stated_schedule": _next_update(w),
         })
 
     if len(works) < MIN_WORKS:
@@ -207,6 +234,10 @@ def main():
             L.append(f"      url: {js(w['url'])}")
             L.append(f"      retrieved: {a.retrieved}")
             L.append(f"      note: {js('Publisher applies the tag ' + '/'.join(w['yuri_tags']) + ' on カドコミ.')}")
+        if w.get("stated_schedule"):
+            L.append("    stated_schedule:")
+            for k2, v2 in sorted(w["stated_schedule"].items()):
+                L.append(f"      {k2}: {js(v2)}")
         L.append(f"    chapter_count: {len(w['episodes'])}")
         L.append("    chapters:")
         for e in w["episodes"]:

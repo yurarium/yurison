@@ -48,6 +48,29 @@ def main(s):
     s.eq(st.fits("毎月第3金曜", None), None, "and neither does no date")
     s.eq(st.fits("毎月第3金曜", "not-a-date"), None, "or an unparseable one")
 
+    # THE OTHER PLATFORMS. A survey of every page already in the fetch caches found the same fact
+    # worded differently by each: マガポケ and ガンガンONLINE give a month and a day, カドコミ gives
+    # a whole date, and カドコミ also says 未定 where it does not know.
+    s.eq(st.next_update("次回更新：8月6日", "2026-08-03"), "2026-08-06",
+         "ガンガンONLINE's month and day")
+    s.eq(st.next_update("次回更新：1月6日", "2026-12-20"), "2027-01-06",
+         "and it rolls into the next year the same way")
+    s.eq(st.next_update("次回更新予定日：2026/09/14", "2026-08-03"), "2026-09-14",
+         "カドコミ prints the year, so nothing is inferred")
+    s.eq(st.next_update("次回更新予定日：2025/09/14", "2026-08-03"), "2025-09-14",
+         "and a printed year is taken as printed even when it is behind us, "
+         "because there is nothing to resolve")
+    s.eq(st.next_update("次回更新予定日：2026/02/30", "2026-08-03"), None,
+         "a printed date that does not exist is not invented")
+
+    s.check(st.undecided("次回更新予定日：未定"), "未定 is a statement that the date is unsettled")
+    s.check(not st.undecided("次回更新予定日：2026/09/14"), "a date is not 未定")
+    s.check(not st.undecided("nothing here"), "and silence is not 未定 either")
+    s.eq(st.read("次回更新予定日：未定", "2026-08-03"), {"next_update_undecided": True},
+         "which is recorded, because it differs from a page that says nothing")
+    s.eq(st.read("次回更新予定日：2026/09/14", "2026-08-03"), {"next_update": "2026-09-14"},
+         "and is not recorded alongside a date it contradicts")
+
     s.eq(st.read(HERAMI, "2026-08-01"),
          {"cadence": "毎月第3金曜", "next_update": "2026-08-21"}, "both facts off one page")
     s.eq(st.read("nothing at all", "2026-08-01"), None, "and nothing where there is nothing")

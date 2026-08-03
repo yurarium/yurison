@@ -23,8 +23,18 @@ import re
 
 # 無料話更新：毎月第3金曜 / 最新話更新：毎週木曜 / 隔週金曜
 CADENCE = re.compile(r"(?:無料話更新|最新話更新|更新)[：:]\s*([毎隔][週月][^\s<（(]{0,8})")
-# 次回無料更新は8/21(金曜)予定です
-NEXT = re.compile(r"次回(?:無料)?更新は\s*(\d{1,2})[／/](\d{1,2})")
+# The same fact, worded differently by each platform that states it.
+#   マガポケ         次回無料更新は8/21(金曜)予定です      month and day
+#   ガンガンONLINE   次回更新：8月6日                     month and day
+#   カドコミ         次回更新予定日：2026/09/14            a whole date, year included
+NEXT = re.compile(r"次回(?:無料)?更新は\s*(\d{1,2})[／/](\d{1,2})"
+                  r"|次回更新[：:]\s*(\d{1,2})月(\d{1,2})日"
+                  r"|次回更新予定日[：:]\s*(\d{4})/(\d{1,2})/(\d{1,2})")
+
+# カドコミ prints this where it has no date. It is a STATEMENT, not a silence: the platform is
+# saying it does not know when the next chapter lands, which is different from a page that says
+# nothing at all, and it is the honest answer to give a reader asking the same question.
+UNDECIDED = re.compile(r"次回更新予定日[：:]\s*未定")
 
 DOW = {"月": 0, "火": 1, "水": 2, "木": 3, "金": 4, "土": 5, "日": 6}
 NTH = {"第1": 1, "第２": 2, "第2": 2, "第３": 3, "第3": 3, "第４": 4, "第4": 4, "第１": 1}
@@ -36,12 +46,23 @@ def cadence(text):
     return m.group(1) if m else None
 
 
+def undecided(text):
+    """Whether the platform states outright that the next date is not settled."""
+    return bool(UNDECIDED.search(text or ""))
+
+
 def next_update(text, read_on):
     """The announced next update as a date, resolved against the day the page was read."""
     m = NEXT.search(text or "")
     if not m:
         return None
-    mo, day = int(m.group(1)), int(m.group(2))
+    g = [x for x in m.groups() if x is not None]
+    if len(g) == 3:                       # year printed; nothing to infer
+        try:
+            return datetime.date(int(g[0]), int(g[1]), int(g[2])).isoformat()
+        except ValueError:
+            return None
+    mo, day = int(g[0]), int(g[1])
     read = datetime.date.fromisoformat(str(read_on)[:10])
     for year in (read.year, read.year + 1):
         try:
@@ -84,4 +105,6 @@ def read(text, read_on):
     n = next_update(text, read_on)
     if n:
         out["next_update"] = n
+    elif undecided(text):
+        out["next_update_undecided"] = True
     return out or None

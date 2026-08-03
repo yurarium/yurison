@@ -32,10 +32,13 @@ Access, from the same fields:
 Usage:  releases.py --targets data/coverage/render-targets.yaml --out data/source/webpages \
                     --retrieved 2026-08-02
 """
-import argparse, datetime as dt, json, pathlib, re, sys, time
+import argparse, datetime as dt, html as html_mod, json, pathlib, re, sys, time
 import urllib.error, urllib.request
 
 import yaml
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "render"))
+import schedule_text  # noqa: E402
 
 UA = "Mozilla/5.0 (compatible; yurarium/0.1; +https://yurarium.github.io/)"
 PAUSE = 1.0
@@ -54,6 +57,12 @@ def get(url):
         return ""
     finally:
         time.sleep(PAUSE)
+
+
+def _plain(html):
+    """The page as a reader sees it. The announcement is prose, not part of the embedded state."""
+    t = re.sub(r"<(script|style)\b.*?</\1>", " ", html or "", flags=re.S | re.I)
+    return re.sub(r"\s+", " ", html_mod.unescape(re.sub(r"<[^>]+>", " ", t)))
 
 
 def state(html):
@@ -119,7 +128,8 @@ def main():
     works, no_state, empty = [], [], []
     for w in spec.get("works") or []:
         url = w.get("url")
-        D = state(get(url))
+        html = get(url)
+        D = state(html)
         if not D:
             no_state.append(w.get("title") or url)
             continue
@@ -129,7 +139,10 @@ def main():
             continue
         works.append({"work_title": D.get("titleName") or w.get("title"),
                       "author": (D.get("author") or "").strip() or None,
-                      "url": url, "episodes": eps})
+                      "url": url, "episodes": eps,
+                      # 次回更新：8月6日 is printed beside the chapter list. The platform is
+                      # announcing a date; the alternative is us averaging its past intervals.
+                      "stated_schedule": schedule_text.read(_plain(html), a.retrieved)})
 
     if len(works) < MIN_WORKS:
         sys.exit(f"only {len(works)} works resolved (minimum {MIN_WORKS}); not writing")
@@ -156,6 +169,10 @@ def main():
         if w["author"]:
             L.append(f"    author: {js(w['author'])}")
         L.append(f"    url: {js(w['url'])}")
+        if w.get("stated_schedule"):
+            L.append("    stated_schedule:")
+            for k2, v2 in sorted(w["stated_schedule"].items()):
+                L.append(f"      {k2}: {js(v2)}")
         L.append(f"    chapter_count: {len(w['episodes'])}")
         L.append("    chapters:")
         for e in w["episodes"]:

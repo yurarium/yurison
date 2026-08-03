@@ -20,6 +20,7 @@ anything, sys.modules must not leak between suites, and a test that segfaults or
 take the run with it. A process boundary gives all three.
 """
 import argparse
+import ast
 import concurrent.futures
 import os
 import pathlib
@@ -55,9 +56,28 @@ _s.socket.sendto = _refuse
 """
 
 
+def has_code(p):
+    """Whether there is anything in the file to test.
+
+    A package marker is empty by design and an __init__.py that only re-exports has no behaviour of
+    its own. Counting those as untested would leave a number that can never reach zero, and a
+    target nobody can hit is a target everyone stops looking at. Anything with a def, a class or a
+    statement counts.
+    """
+    try:
+        tree = ast.parse(p.read_text(encoding="utf-8", errors="replace"))
+    except SyntaxError:
+        return True                      # unparseable is a problem, not an exemption
+    return any(not isinstance(n, (ast.Import, ast.ImportFrom, ast.Expr))
+               or (isinstance(n, ast.Expr) and not isinstance(n.value, ast.Constant))
+               for n in tree.body)
+
+
 def modules():
     for p in sorted(ROOT.rglob("*.py")):
         if SKIP_DIRS & set(p.parts) or p.name == "test.py":
+            continue
+        if not has_code(p):
             continue
         yield p
 

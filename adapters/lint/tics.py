@@ -257,6 +257,24 @@ DENSITY = [
     ("tricolons", tricolons, 2.0),
 ]
 
+# HOUSE STYLE, and the only rules here that are case-sensitive, which is why they compile
+# separately: everything above uses re.I.
+#
+# `yuri` is a genre and English lowercases genres, including the ones it has borrowed. Nobody
+# writes Science Fiction, and by now nobody writes Manga, Anime or Isekai either. 百合 carries no
+# case in the source language, so a capital is something English would be adding.
+#
+# Matched only in the attributive use, `Yuri manga` and its neighbours, because that is where the
+# genre sense is unambiguous. An imprint keeps its capital (Yuri-Hime COMICS), a title keeps title
+# case (Yuri Yuri Panic), and DEFINITIONS §1 introducing the word in quotation marks is a mention
+# rather than a use. None of those can match this pattern, which is the point of narrowing it.
+CASED = [
+    (r"\bYuri (manga|anime|works?|series|titles?|romance|fiction|publishers?)\b",
+     "lowercase: yuri is a genre, not a proper noun"),
+]
+
+CASED_RX = [(re.compile(p), fix) for p, fix in CASED]
+
 HARD_RX = [(re.compile(p, re.I), fix) for p, fix in HARD]
 PROSE_RX = [(re.compile(p, re.I), fix) for p, fix in PROSE_ONLY]
 SOFT_RX = [(re.compile(p, re.I), fix) for p, fix in SOFT]
@@ -427,6 +445,8 @@ def self_test():
         ("It shipped in May, marking a pivotal moment", HARD_RX),
         ("It shipped, highlighting the need for care", HARD_RX),
         ("Experts argue that this is so", HARD_RX),
+        ("a database of Japanese Yuri manga", CASED_RX),
+        ("Yuri works from the 1970s", CASED_RX),
     ]
     # Counter-cases for the negation rule, which fired on "cannot" until \b was added.
     for text in ("a test cannot be forgotten.", "a notice arrives later", "an option nothing uses"):
@@ -567,7 +587,7 @@ def main():
     if a.self_test:
         return 0 if self_test() else 1
 
-    rules = (HARD_RX + PROSE_RX) if a.prose else HARD_RX + SOFT_RX
+    rules = (HARD_RX + PROSE_RX + CASED_RX) if a.prose else HARD_RX + SOFT_RX + CASED_RX
     extract = prose_of if a.prose else comments_of
     hits = scan(a.files, rules, extract)
 

@@ -27,8 +27,8 @@ to authorised sources. Cover images, synopses and manga stay with the publishers
 Inclusion follows the publication venue: a work first published in Japan qualifies whatever the
 author's nationality.
 
-Yuri classification is recorded on two independent axes, one for what the work contains and one
-for what the publisher called it. Each axis carries its own cited evidence, so a disputed call can
+Every work is classified on two independent axes, one for what it contains and one for what the
+publisher called it. Each axis carries its own cited evidence, so a disputed call can
 be argued from the record.
 
 ## Documents

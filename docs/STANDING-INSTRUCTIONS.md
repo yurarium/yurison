@@ -202,3 +202,36 @@ that the user writes them and these documents are full of them. That conflated h
 in conversation with what the project publishes, and it survived exactly as long as it took someone
 to read the README. When a style rule is being justified by *our* habits rather than by the
 reader's experience, the rule is about to be wrong.
+
+## 12. Every module has a test that runs offline and can be shown to fail
+
+`./test.py` is the whole of it. It discovers suites rather than being told about them, blocks the
+network in every child, and `--canary` inverts every assertion to prove each suite is capable of
+failing. It runs at pre-push and in both workflows.
+
+**A new module ships with its test in the same commit.** `modules without a test` is a budget at
+zero, so a module arriving without one blocks the push. That is the intended friction: a test
+written a week later is written against the code rather than against the requirement.
+
+**Offline is what enforces the factoring.** A module that cannot be tested without a network has
+not separated its logic from its I/O, so the guard turns "well factored" from a judgement somebody
+makes into a condition the machine checks. When a test wants the network, the answer is to split
+the fetch from the logic and test the logic, or to add a fixture. It is never to relax the guard.
+
+**A suite that passes while inverted is asserting nothing.** This is the failure this project meets
+more than any other, and the tooling built to catch it had the bug itself: the first `--canary` run
+reported nine suites healthy when one had been inverted. A suite must emit `CANARY-PROVEN`, and the
+runner treats its absence as unproven rather than as success.
+
+**Test what a bug did, not what the function does.** §8 already requires a check with every fix.
+Prefer the counter-case: five of the nine お休み matches in the corpus are story titles, and pinning
+those is worth more than pinning the four that are notices, because the rule was wrong in that
+direction and will be again.
+
+**A report is not a test.** `acceptance.py` printed coverage percentages and always exited zero, so
+it counted as a suite while coverage could have fallen to zero unnoticed. If a file is collected as
+a test it must assert something; if it cannot, it belongs somewhere the runner does not look.
+
+**Fixtures live in the repository** and are small enough to read. A fixture nobody can read is a
+fixture nobody can tell is wrong.
+

@@ -91,13 +91,46 @@ FEED_TITLE = re.compile(r"<title>([^<]*)</title>")
 FEED_TITLE_INNER = re.compile(r"[（(](.+)[）)]", re.S)
 
 
+CLOSERS = {")": "(", "）": "（"}
+OPENERS = set(CLOSERS.values())
+
+
+def last_bracketed(s):
+    """The contents of the LAST balanced bracket group, or None.
+
+    Scanned rather than matched, because the shapes are not regular. A greedy
+    `[（(](.+)[）)]` spanned from the first opener to the last closer, and on COMIC OGYAAA!! the
+    platform's own name contains brackets:
+
+        COMIC OGYAAA!! (コミックオギャー)｜おもしろい、がうまれるところ（あの子は優しすぎる。）
+
+    so 27 series came back named after the platform and its tagline, with the real title trapped
+    at the end. A non-greedy pattern fixes those and breaks the other direction instead, on a
+    series title that contains brackets of its own: it would return the inner group. Counting
+    depth from the end handles both, and needs no guess about which platform is which.
+    """
+    for i in range(len(s) - 1, -1, -1):
+        if s[i] not in CLOSERS:
+            continue
+        depth = 0
+        for j in range(i, -1, -1):
+            if s[j] in CLOSERS:
+                depth += 1
+            elif s[j] in OPENERS:
+                depth -= 1
+                if depth == 0:
+                    return s[j + 1:i]
+        return None                      # a closer with no opener: malformed, so nothing is claimed
+    return None
+
+
 def feed_series_name(xml):
     """The feed states which series it is: 一迅プラス（大室家）. Used to verify the id we paired."""
     m = FEED_TITLE.search(xml)
     if not m:
         return None
-    inner = FEED_TITLE_INNER.search(m.group(1))
-    return inner.group(1).strip() if inner else None
+    inner = last_bracketed(m.group(1))
+    return inner.strip() if inner else None
 
 
 JST = datetime.timezone(datetime.timedelta(hours=9))

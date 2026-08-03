@@ -1345,6 +1345,28 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  あの子は優しすぎる。:
+    basis: romaji
+    furigana_spans:
+    - - あの
+      - null
+    - - 子
+      - こ
+    - - は
+      - null
+    - - 優
+      - やさ
+    - - しすぎる。
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アノ コ ワ ヤサシ スギル。
+    reading_at: '2026-08-03'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   あやしあやかしあけみちゃん:
     basis: romaji
     en: Ayashi Ayakashi Akemi-chan
@@ -4254,6 +4276,20 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  ゆりゾン:
+    basis: romaji
+    furigana_spans:
+    - - ゆりゾン
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ユリ ゾン
+    reading_at: '2026-08-03'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ゆるゆり:
     reading: ユルユリ
     reading_at: '2026-08-02'
@@ -5676,6 +5712,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  コモドドラゴン:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: コモド ドラゴン
+    reading_at: '2026-08-03'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   コンカフェ嬢は恋を着る:
     basis: romaji
     en: Con Cafe Jou wa Koi wo Kiru
@@ -5736,6 +5783,17 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  サバーキ:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: サバーキ
+    reading_at: '2026-08-03'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   サボりなら保健室でどうぞ？:
     basis: romaji
     furigana_spans:
@@ -17027,6 +17085,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  真夏のスピカ:
+    basis: romaji
+    furigana_spans:
+    - - 真夏
+      - まなつ
+    - - のスピカ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: マナツ ノ スピカ
+    reading_at: '2026-08-03'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   真夜中ぱんチ:
     basis: romaji
     furigana_spans:
@@ -20129,6 +20203,32 @@ names:
       on pen names and coinages
     reading: マショウ ノ オトメ ノ ヤク マワリ
     reading_at: '2026-08-02'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  魔法を捨てたい女の子:
+    basis: romaji
+    furigana_spans:
+    - - 魔法
+      - まほう
+    - - を
+      - null
+    - - 捨
+      - す
+    - - てたい
+      - null
+    - - 女
+      - おんな
+    - - の
+      - null
+    - - 子
+      - こ
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: マホウ ヲ ステタイ オンナノコ
+    reading_at: '2026-08-03'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi

@@ -113,3 +113,49 @@ Everything about our own process: claim dispositions, coverage gaps, source fres
 re-dating, releases per week, and when the record starts.
 
 Linked from the footer, out of the way of the common visit. Obeys the reader's theme.
+
+## Navigation, history and the address bar
+
+**Navigation goes in the URL; preference does not.** What moves a reader somewhere is the tab, the
+period being read, and opening a work's record. Each pushes a history entry, so Back undoes it.
+Everything else stays out: language, theme, romanisation, furigana and compact/detailed are
+preferences, and Back flipping a reader's language would be a bug.
+
+Filters and sort are deliberately not in the URL yet. They carry a weaker expectation than the
+three above, and pushing on every adjustment fills the history stack so that leaving the site takes
+a dozen presses. If they are added, the rule should be to push on the first application of a filter
+and replace on later adjustment of the same one.
+
+**The URL wins over the saved view, and the order is the whole of how.** `restoreView()` clicks the
+saved tab, that click calls `navSync`, and `navSync` rewrites the address from what is on screen.
+Reading `location.search` afterwards therefore returns the view just restored rather than the link
+that was followed. That destroyed every deep link, and it was written into the code by the same
+commit whose comment warned against it. Read the address first, and run the restore with
+`NAV_APPLYING` set so it cannot push an entry of its own.
+
+The address also describes only what is visible. A period means something on the updates tab and an
+open record on the volumes tab, so neither is carried into a URL for a different tab. The DOM keeps
+the record open behind the scenes; the address stops claiming it.
+
+**Shareability is the larger gain.** Before this every address was identical, so no view could be
+linked to at all. Deep links change no indexing posture: `robots.txt` and the `noindex` meta stand.
+
+## Before changing the layout
+
+Ask which of these a control is, because the answer decides where it belongs and whether it is
+navigable:
+
+- **Selects a body of data** (period, tab, a record) is navigation. It goes near the top, it gets a
+  history entry, and it belongs in the URL.
+- **Narrows the current body** (platform, kind, access, search) is a filter. It sits with the other
+  filters and is not in history today.
+- **Changes how the same data looks** (language, theme, romanisation, furigana, compact) is a
+  preference. It is persisted, never in history, and sits apart from the filters.
+- **Leaves the site** (a link to a chapter on the publisher's platform) needs nothing from us. The
+  browser gives it history already, and Back does the right thing.
+
+The period selector was at the foot of the updates tab, below the list it governed, which put the
+most navigational control furthest from every other control and read as an afterthought. It is
+first in the bar now, as a calendar grid rather than an option list, because the list grows by
+twelve entries a year.
+

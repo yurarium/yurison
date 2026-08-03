@@ -272,3 +272,26 @@ work is published rather than on any judgement about the work, so it holds only 
 is a commercial publisher. **A new source that is not one changes the position**, and the flag
 register plus its check is what makes that visible rather than assumed.
 
+## 15. Layout changes ask what kind of control it is
+
+Every control in the interface falls into one of the kinds below, and which one decides where it
+sits, how it persists, and whether Back undoes it. Ask before moving anything.
+
+**Selects a body of data.** The tab, the period, an individual record. This is navigation: it goes
+near the top, it pushes a history entry, and it belongs in the URL so it can be linked to.
+
+**Narrows the current body.** Platform, kind, access, the search box. A filter. It sits with the
+other filters, and today it stays out of history because pushing on every adjustment makes leaving
+the site take a dozen presses.
+
+**Changes how the same data looks.** Language, theme, romanisation, furigana, compact against
+detailed. A preference. It is persisted, it is never in history, and Back must never alter it.
+
+**Leaves the site.** A link to a chapter on the publisher's platform. The browser already gives
+this history for free, and it is worth naming because it is the one case needing no work: the
+reader expects Back, and Back does the right thing without us.
+
+This is the same split that fixed the control bar when the dropdowns read "content, content,
+presentation, content", and the same one that decides what a reader can share a link to. `docs/FEATURES-INTERFACE.md` carries the detail, including why the URL must be read before
+the saved view is restored.
+

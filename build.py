@@ -3466,9 +3466,15 @@ def main():
                 next((dict(_ss, platform=r["platform"])
                       for r in rows
                       for _ss in [_stated_for(best["work"], r["platform"])] if _ss), None),
-                max((r["latest"] for r in rows if r["latest"]), default=None)
-                if not (_state == "unknown" or all(r.get("dates_imported") for r in rows))
-                else None),
+                # From the date we publish as the work's latest, not from the newest any row
+                # holds: ハロー、メランコリック! ended in 2021 and projected from a 2025 import
+                # stamp, so it announced a Saturday four years after its last chapter.
+                #
+                # And only where the work might still be running. A cadence is a statement about a
+                # live serialisation, and a work silent for 1727 days is not one, whatever the
+                # platform's page still says.
+                _merged_latest
+                if _state in ("active", "slow") else None),
         })
     # The works list is assembled from the source records rather than from the feed, so filtering
     # releases does not reach it. Both paths need the register, which is why dropping it in one

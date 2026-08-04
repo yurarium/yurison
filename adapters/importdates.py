@@ -35,14 +35,21 @@ PART = re.compile(r"[\s　]*[(（\[]\s*\d+\s*[)）\]][\s　]*$")
 
 # A whole source migrating. Share of the catalogue is the obvious measure and it is the wrong one:
 # a platform with four weekly slots puts a quarter of everything it holds on each of them, which is
-# a schedule. §4 already names the measure that works, so this uses it at the other scale. On a
-# schedule each work contributes about one chapter; on an import it contributes its back catalogue.
-# 一迅プラス's 2025-08-08 is 13 chapters per series across 152 of them, and コミックDAYS's
-# 2021-06-09 is 45 across 8. A weekly slot is 1.
+# a schedule. The measure that separates them is how many works put MORE THAN ONE instalment on the
+# day. On a schedule almost none do; on an import most do, because most works arrive with a back
+# catalogue.
 #
-# The median, not the mean: one 224-chapter series landing on a day when a hundred others publish
-# once would drag a mean over the line and misread an ordinary Friday as a migration.
+# Measured: 一迅プラス's 2025-08-08 has 155 works and 58% of them multiple, コミックDAYS's 2021-06-09
+# has 8 works and 88%. An ordinary busy day on コミックDAYS, 2026-05-17, has 6 works and 17%, and a
+# weekly slot has none at all.
+#
+# A median was tried and is wrong. Half of 一迅プラス's works contributed a chapter or two to the
+# migration, so the median there is 3, and a threshold high enough to exclude an ordinary day also
+# excluded the largest migration in the data. The straggler is exactly what the platform-wide rule
+# exists to catch: ハロー、メランコリック! ended in 2021 and has one chapter on 2025-08-08, and that
+# one chapter was setting the work's latest.
 SPREAD = 4
+MULTI_SHARE = 0.5
 
 
 def _stem(title):
@@ -77,9 +84,7 @@ def platform_wide(works):
     for d, counts in by_date.items():
         if len(counts) < SPREAD:
             continue
-        counts.sort()
-        median = counts[len(counts) // 2]
-        if median >= RUN:
+        if sum(1 for n in counts if n >= 2) / len(counts) >= MULTI_SHARE:
             out.add(d)
     return out
 

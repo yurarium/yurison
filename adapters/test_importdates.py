@@ -47,7 +47,24 @@ def main(s):
     for i in range(8):
         weekly.append(work(f"w{i}", *[("c%d" % k, "2026-0%d-06" % (k + 1)) for k in range(4)]))
     s.eq(im.platform_wide(weekly), set(),
-         "a shared weekly slot is a schedule, because no one date carries the catalogue")
+         "a shared weekly slot is a schedule: nobody puts two instalments on it")
+
+    # THE STRAGGLER IS THE POINT, and a median missed it. Half of 一迅プラス's works contributed one
+    # or two chapters to its migration, so a threshold on the middle work excluded the whole event.
+    # ハロー、メランコリック! ended in 2021 and has a single chapter on that date, and that one
+    # chapter was setting the work's latest to 2025.
+    migration = [work(f"w{i}", *[("c%d" % k, "2025-08-08") for k in range(4)]) for i in range(5)]
+    migration += [work(f"s{i}", ("only", "2025-08-08")) for i in range(4)]
+    got = im.stamps(migration)
+    s.check(("s0", "2025-08-08") in got,
+            "a work contributing one chapter to a migration is stamped with the rest")
+    s.eq(len([g for g in got if g[1] == "2025-08-08"]), 9, "all nine of them")
+
+    # An ordinary busy day is not a migration: a few works, mostly one instalment each. Measured on
+    # コミックDAYS 2026-05-17, which is 6 works and 17% multiple.
+    busy = [work(f"b{i}", ("one", "2026-05-17")) for i in range(5)]
+    busy.append(work("b5", ("a", "2026-05-17"), ("b", "2026-05-17")))
+    s.eq(im.platform_wide(busy), set(), "one work publishing twice does not make a migration")
 
     # THE COUNTER-CASE THAT SHIPPED BROKEN. GigaViewer splits one instalment across entries
     # published together, so a monthly series puts three rows on its release day. Counting rows

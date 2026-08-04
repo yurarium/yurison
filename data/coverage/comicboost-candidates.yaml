@@ -1,0 +1,65 @@
+# comicブースト works that pass the inclusion test in docs/DEFINITIONS.md and are not yet in
+# the database. Read from the platform's own pages on 2026-08-04; see comicboost-survey.md
+# for the full 161-page pass, including everything excluded and why.
+#
+# comicブースト is 幻冬舎コミックス's own web magazine, so its 百合 search tag is
+# publisher-side evidence and satisfies `marketing_label != none` on its own. Every entry
+# below except あぶくの姉妹 rests on that tag or on the page's own use of the word 百合.
+source: comic-boost
+role: capture-candidates
+retrieved: 2026-08-04
+works:
+  - title: "このはな綺譚"
+    url: https://comic-boost.com/content/00010001
+    why: "Platform tag 百合 on an all-female cast of fox 仲居 at 「此花亭」, so the label alone carries inclusion."
+  - title: "Lily lily rose"
+    url: https://comic-boost.com/content/00090001
+    why: "Platform tag 百合 on 紺野キタ's 「心の再生を描くファンタジックストーリー」 about 凜々 and the woman who takes her in."
+  - title: "御伽楼館"
+    url: https://comic-boost.com/content/00560001
+    why: "Platform tag 百合 on an omnibus whose premise is 「「心にわだかまりを持った少女」にのみ「特別な人形」が貸し出される」."
+  - title: "此花亭奇譚"
+    url: https://comic-boost.com/content/00590001
+    why: "Platform tag 百合 on the companion piece to このはな綺譚, 「もう一つのノスタルジック和風奇譚」."
+  - title: "ふたりはだいたいこんなかんじ"
+    url: https://comic-boost.com/content/00670001
+    why: "The page calls いけだたかし 「「百合と女子の日常」の名手」 and the work 「社会人百合ストーリー」."
+  - title: "推しが妹になりまして。"
+    url: https://comic-boost.com/content/01000001
+    why: "The page's own closing line is 「ハイパー百合ラブコメ開幕☆」, with the idol 花音 becoming the protagonist's stepsister."
+  - title: "デバヤシ・フロム・ユニバース"
+    url: https://comic-boost.com/content/01020001
+    why: "Platform tag 百合 on what the page calls 「ガール･ミーツ･エイリアンガールコメディ」, the two women living together and forming a comedy duo."
+  - title: "ごはんデスよ！ 佐々木さま！"
+    url: https://comic-boost.com/content/01150001
+    why: "Platform tag 百合 on the 死神 and 佐々木さん pairing; single chapter, so a one-shot rather than a serial."
+  - title: "ごはんのおトモに、死神と！"
+    url: https://comic-boost.com/content/01230001
+    why: "Platform tag 百合 on the serial version of the same premise, 吉田さん and the 死神 ミク in 「不思議な共同生活」."
+  - title: "月から火水木と金"
+    url: https://comic-boost.com/content/01270001
+    why: "The page calls it 「\"立ち話\"百合コメディ」, built on 受付嬢 辻さん changing her manner only for 関さん."
+  - title: "みゆきは志津香のとくべつ"
+    url: https://comic-boost.com/content/01390001
+    why: "The page calls it 「ゆるふわ三角関係百合コメディ」 about 幼馴染 志津香 and みゆき."
+  - title: "白妙様、秘密ですよ／読切版"
+    url: https://comic-boost.com/content/01470001
+    why: "The page calls it 「ヴァンパイア百合ストーリー」; one chapter, the 読切版 that preceded the serial below."
+  - title: "おねだりしてみて"
+    url: https://comic-boost.com/content/01550001
+    why: "雪子's 「百合作品集」 in the page's own words, collecting おねだりしてみて and a ふたりべや 特別編."
+  - title: "日常やめたらしたいこと"
+    url: https://comic-boost.com/content/01570001
+    why: "The page describes it as 「特別な世界、シチュエーションの百合に耽溺する雪子の百合作品集」, the lead story about two idols in the same group."
+  - title: "あなたの夜が明けたら"
+    url: https://comic-boost.com/content/01580001
+    why: "The page calls it 「はるかわ陽初の\"百合\"作品集」, and its chapter list names 「いけないと分かっている百合／吸血鬼百合／年の差百合」."
+  - title: "ガールズ イン ザ ヘル"
+    url: https://comic-boost.com/content/01590001
+    why: "The page calls it 「河合朗の百合作品集」, the lead story about 姫子's feelings for 百合果."
+  - title: "白妙様、秘密ですよ"
+    url: https://comic-boost.com/content/01650001
+    why: "The page calls it 「雪子が贈る吸血鬼百合ストーリー連載」; the serial that follows the 読切版 above."
+  - title: "あぶくの姉妹"
+    url: https://comic-boost.com/content/01680001
+    why: "No platform label, but the page makes the sisters the whole engine: 「妹を守るため、今日も「誰か」の命を生贄に」, which is the 広義 close-relationship case in DEFINITIONS 3. Our own reading, recorded as such."

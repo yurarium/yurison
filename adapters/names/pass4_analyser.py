@@ -191,6 +191,20 @@ def attaches_left(pos):
     return pos and (pos[0] in ATTACHES or (len(pos) > 1 and pos[1] in ATTACH_SUB))
 
 
+# Characters that stand for themselves however they are catalogued. 〇 is U+3007 IDEOGRAPHIC NUMBER
+# ZERO, category Nl, so it is a letter as far as Unicode is concerned and slips a guard written
+# around punctuation, symbols and separators. Sudachi then reads 〇〇 as the numeral 零記号, and
+# 限界OLと女子大生が〇〇する話 got レイキゴウ in the middle of its reading. The visually identical
+# ○ (U+25CB) and ◯ (U+25EF) are So and never had the problem, which is why the same work under the
+# other spelling came out right. 々 is deliberately absent: it repeats the character before it and
+# is read, not passed through.
+SELF_STANDING = "〇"
+
+
+def _stands_for_itself(c):
+    return unicodedata.category(c)[0] in "PZS" or c.isascii() or c in SELF_STANDING
+
+
 def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
     """A reading for the whole string, or None if any part of it comes back unreadable.
 
@@ -213,7 +227,7 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
         # kana reading and sailed past a check for empty or unreadable output: 森島 明子 became
         # "Morishima Kigō Akiko" and 100日後に×××する女社長 grew three of them. Punctuation, symbols
         # and separators pass through as themselves whatever the analyser says about them.
-        if surf and all(unicodedata.category(c)[0] in "PZS" or c.isascii() for c in surf):
+        if surf and all(_stands_for_itself(c) for c in surf):
             out.append(surf)
             continue
         if not r or r == "*" or has_kanji(r):
@@ -405,7 +419,7 @@ def furigana_spans(tokenizer, s, mode=None):
         # passes ASCII through, and its ruby from here, which did not: Sudachi reads M as メートル,
         # the SI symbol for metre, so the page showed "M Ken Y Shi" beside めーとる over the M.
         # Latin in a Japanese title is read as letters, and no reader needs furigana over "M".
-        if all(unicodedata.category(c)[0] in "PZS" or c.isascii() for c in surf):
+        if all(_stands_for_itself(c) for c in surf):
             out.append([surf, None])
             continue
         if not r or r == "*" or has_kanji(r):

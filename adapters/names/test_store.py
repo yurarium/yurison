@@ -54,6 +54,27 @@ def main(s):
     st.close()
     tmp.cleanup()
 
+    # SPANS BELONG TO THE READING THEY WERE CUT FROM. pass 4 writes them beside the reading it
+    # derived them from, and a better reading arriving later left ruby spelling something the
+    # record no longer said. 193 records were in that state.
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        st = store.NameStore(d)
+        st.records["titles"]["球詠"] = {
+            "reading": "タマヨミ",
+            "furigana_spans": [["球", "きゅう"], ["詠", "えい"]],
+        }
+        st.records["titles"]["雨夜の月"] = {
+            "reading": "アマヨ ノ ツキ",
+            "furigana_spans": [["雨夜", "あまよ"], ["の", None], ["月", "つき"]],
+        }
+        dropped = st.drop_stale_spans()
+        s.eq(dropped, 1, "the spans that do not spell their reading are dropped")
+        s.check("furigana_spans" not in st.records["titles"]["球詠"],
+                "きゅうえい does not spell タマヨミ, so it goes")
+        s.check("furigana_spans" in st.records["titles"]["雨夜の月"],
+                "and spans that do spell their reading are kept, spacing and all")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "store"))

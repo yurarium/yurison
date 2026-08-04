@@ -164,8 +164,34 @@ class NameStore:
                 # name in flight, which §4 already accepts losing; everything before it is intact.
                 continue
 
+    def drop_stale_spans(self):
+        """Remove furigana spans that no longer spell the reading they sit beside.
+
+        Clearing them as a reading is replaced only helps from now on, and the file already held
+        193 records whose ruby said something their own reading did not. Swept at write time so the
+        file heals rather than needing a migration, and so a pass that forgets to clear them cannot
+        quietly reintroduce the state.
+        """
+        import kana  # local: the store is imported by passes that kana does not need
+        dropped = 0
+        for kind in KINDS:
+            for rec in self.records[kind].values():
+                spans, reading = rec.get("furigana_spans"), rec.get("reading")
+                if not spans or not reading:
+                    continue
+                flat = kana.to_hiragana(reading).replace(" ", "")
+                try:
+                    got = "".join(x[1] or kana.to_hiragana(x[0]) for x in spans).replace(" ", "")
+                except (TypeError, IndexError):
+                    got = None
+                if got != flat:
+                    rec.pop("furigana_spans", None)
+                    dropped += 1
+        return dropped
+
     def compact(self):
         """Write the YAML from memory, then drop the journal it superseded."""
+        self.drop_stale_spans()
         self.root.mkdir(parents=True, exist_ok=True)
         for kind in KINDS:
             self._write_yaml(self.root / f"{kind}.yaml", {
@@ -229,8 +255,16 @@ class NameStore:
         if fact.pop("supersede", None):
             self._supersede(cur, fact)
         self._merge_group(cur, fact, "en", "basis", EN_RANK, "en_conflicts")
+        _reading_was = cur.get("reading")
         self._merge_group(cur, fact, "reading", "reading_basis", READING_RANK, "reading_conflicts",
                           equiv=same_reading)
+        # SPANS BELONG TO THE READING THEY WERE CUT FROM. pass 4 writes furigana_spans beside the
+        # reading it derived them from, and nothing dropped them when a better reading replaced it,
+        # so 193 records held ruby spelling something their own reading no longer said. build.py
+        # notices and re-derives, which is why the page was right while the file was not; a record
+        # that contradicts itself is still a record nobody can trust at a glance.
+        if cur.get("reading") != _reading_was:
+            cur.pop("furigana_spans", None)
         # Fields that are plain observations rather than competing claims: last writer wins, since
         # they cannot contradict each other in a way that misnames anyone.
         for k in ("ja_family", "ja_given", "reading_family", "reading_given",

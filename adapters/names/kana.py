@@ -330,7 +330,14 @@ def title_case(s, particles=True):
 _REVERSE = {}
 for _k, _r in list(DIGRAPH.items()) + list(BASE.items()):
     _REVERSE.setdefault(_r, _k)
-_REVERSE.update({"n": "ん", "shi": "し", "chi": "ち", "tsu": "つ", "fu": "ふ", "ji": "じ"})
+# The line that exists for exactly this: where two kana can produce one romaji, say which one a
+# romanised source meant. `wo` was reaching うぉ, because DIGRAPH is merged first and setdefault
+# lets it keep the key, while を never contests it at all. を romanises as `o`, so nothing in the
+# table ever maps `wo` back to it. Every source that hands us romaji writes the particle `wo`, and
+# kana.PARTICLES and pass2_bulk.JA_PARTICLES both already say so. Five stored readings had
+# あなたが私ウォ変えたから and its like.
+_REVERSE.update({"n": "ん", "shi": "し", "chi": "ち", "tsu": "つ", "fu": "ふ", "ji": "じ",
+                 "wo": "を"})
 _MAX_R = max(len(r) for r in _REVERSE)
 # A macron is length information a plain letter has already thrown away, so expand it back into the
 # kana that would have been written. ē → ei is the Hepburn convention running in reverse.

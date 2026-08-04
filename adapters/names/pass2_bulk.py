@@ -100,6 +100,39 @@ MACRON = re.compile(r"[āīūēōâîûêô]", re.I)
 TOKEN = re.compile(r"[^\W\d_]+", re.UNICODE)
 
 
+def romanises_this(ja, romaji):
+    """True where a romanisation is long enough, and short enough, to be THIS title's.
+
+    MangaUpdates confirms identity on `hit_title`, which may be any of a record's associated
+    titles, and then hands back `record.title`, which romanises the PRIMARY one. Where a series is
+    catalogued under two Japanese names those are different strings, and nothing downstream can
+    tell: the only other test compares Latin against Japanese and passes whatever it is given. So
+    お姉さまと巨人 ～お嬢さまが異世界転生～ took a romanisation covering its first seven characters.
+
+    Length is the one thing the two strings can be compared on without reading either. A kana reads
+    as one mora, a kanji as one to four, and Latin and digits as up to three each; two morae of
+    slack at each end covers elision and the ー. This is deliberately loose. It is here to catch a
+    romanisation belonging to a different work, which is off by a factor, and not to adjudicate a
+    reading, which is somebody else's job.
+    """
+    back = kana.romaji_to_kana(romaji or "")
+    if not back:
+        return True                       # nothing to measure; the other tests still apply
+    lo = hi = 0
+    for c in ja or "":
+        if kana.is_kana(c):
+            lo += 1
+            hi += 1
+        elif "一" <= c <= "鿿" or c == "々":
+            lo += 1
+            hi += 4
+        elif c.isascii() and c.isalnum():
+            hi += 3
+    small = "ャュョぁぃぅぇぉァィゥェォ"
+    morae = sum(1 for c in back if kana.is_kana(c) and c not in small)
+    return max(1, lo - 2) <= morae <= hi + 2
+
+
 def looks_romanised(en, ja):
     """True when a Latin string is a transliteration of the Japanese, not an English name.
 
@@ -210,9 +243,15 @@ AUTHOR_SPARQL = """SELECT ?item ?ja ?jalabel ?en ?kana ?fkana ?gkana ?occ WHERE 
   OPTIONAL { ?item wdt:P735/wdt:P1814 ?gkana }
 }"""
 
-TITLE_SPARQL = """SELECT ?item ?ja ?en ?type WHERE {
+# ?jalabel carries the item's OWN Japanese label, so a match on one of its aliases can be told
+# apart from a match on its name. AUTHOR_SPARQL has selected it since the 古川楊也 / ホシノ カツラ
+# failure and this query never did, which left the title side with the same fault and no way to see
+# it: 彩香ちゃんは弘子先輩を落としたい and its sibling 〜に恋してる are both bound to one item, and it
+# handed the same English label to both.
+TITLE_SPARQL = """SELECT ?item ?ja ?jalabel ?en ?type WHERE {
   VALUES ?ja { %s }
   ?item rdfs:label|skos:altLabel ?ja .
+  OPTIONAL { ?item rdfs:label ?jalabel FILTER(lang(?jalabel)="ja") }
   ?item wdt:P31 ?type .
   ?item rdfs:label ?en FILTER(lang(?en)="en")
 }"""
@@ -332,6 +371,16 @@ class Wikidata(Resolver):
         """
         works = [b for b in group
                  if b.get("type", {}).get("value", "").rsplit("/", 1)[-1] in WORK_TYPES]
+        # AN ALIAS MATCH NAMES THE ITEM, NOT THIS TITLE. A work catalogued under two Japanese names
+        # binds both to one item, and the item's English label belongs to the name it is filed
+        # under. Taking it for the alias publishes one work's English name on another's record.
+        # Rows from before ?jalabel was selected carry none, and are left as they were rather than
+        # discarded: absent is not the same as different, and re-querying settles them.
+        labelled = [b for b in works if b.get("jalabel")]
+        if labelled:
+            works = [b for b in labelled if (b.get("jalabel") or {}).get("value") == ja]
+            if not works:
+                return None
         labels = {}
         for b in works:
             en = (b.get("en") or {}).get("value")
@@ -533,7 +582,12 @@ class MangaUpdates(Resolver):
                               **{"pass": 2}))
 
         if romaji and norm(romaji) != norm(ja):
-            if looks_romanised(romaji, ja):
+            if looks_romanised(romaji, ja) and not romanises_this(ja, romaji):
+                # The record is about a work whose name this is not. Identity was confirmed on an
+                # associated title and the romanisation describes the primary one, so nothing here
+                # can be attributed to the title we asked about.
+                romaji = None
+            if romaji and looks_romanised(romaji, ja):
                 facts.append(Fact(en=romaji, basis="romaji", source_kind="community-db",
                                   source_url=url, **{"pass": 2}))
                 back = kana.romaji_to_kana(romaji)

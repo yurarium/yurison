@@ -8798,7 +8798,11 @@ names:
     reading_source_kind: analyser
     verified: false
   世界をすくってもお腹はすくから:
-    basis: romaji
+    basis: translated
+    en: Even After Saving the World, You Still Get Hungry
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 世界
       - せかい
@@ -8808,8 +8812,9 @@ names:
       - なか
     - - はすくから
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: すくう does double duty in the Japanese, saving the world (救う) and scooping up a meal (掬う), with
+      お腹はすく (空く, an empty stomach) closing the pun; English can't hold both senses in one verb, so the
+      food half is carried in sense rather than sound.
     reading: セカイ ヲ スクッテ モ オナカ ワ スクカラ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8852,12 +8857,16 @@ names:
     reading_source_kind: analyser
     verified: false
   両片想いな双子姉妹:
-    basis: romaji
-    en: Ryōkataomoi na Futago Shimai
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Twin Sisters with Matching One-Sided Crushes
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Ryōkataomoi na Futago Shimai
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q108417379
     furigana_spans:
     - - 両
@@ -8879,7 +8888,11 @@ names:
     reading_url: http://www.wikidata.org/entity/Q108417379
     verified: false
   中一、五月。:
-    basis: romaji
+    basis: translated
+    en: First-Year Middle School, May.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 中一
       - ちゅういち
@@ -8901,7 +8914,11 @@ names:
     reading_source_kind: analyser
     verified: false
   乖花の退鬼師:
-    basis: romaji
+    basis: translated
+    en: The Sundered Blossom's Demon Exorcist
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 乖
       - かい
@@ -8915,8 +8932,9 @@ names:
       - き
     - - 師
       - し
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 乖花 is not a stated name or standard word; read from its kanji, diverge/estrange plus blossom,
+      which fits a girl split between human and oni after a past incident. No source confirms whether
+      it names her or her situation, so the compound is carried into English rather than resolved.
     reading: カイゲ ノ タイキシ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8946,7 +8964,11 @@ names:
     reading_source_kind: analyser
     verified: false
   乙女ケーキ:
-    basis: romaji
+    basis: translated
+    en: Maiden Cake
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 乙女
       - おとめ
@@ -8962,7 +8984,11 @@ names:
     reading_source_kind: analyser
     verified: false
   二人の人魚姫:
-    basis: romaji
+    basis: translated
+    en: The Two Mermaid Princesses
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 二人
       - ふたり
@@ -9008,7 +9034,11 @@ names:
     reading_source_kind: analyser
     verified: false
   亜澄ちゃんと胡蝶ちゃん:
-    basis: romaji
+    basis: translated
+    en: Asumi-chan and Kochou-chan
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 亜澄
       - あすみ
@@ -9028,7 +9058,11 @@ names:
     reading_source_kind: analyser
     verified: false
   人喰い姫のカヴァリエーレ:
-    basis: romaji
+    basis: translated
+    en: The Man-Eating Princess's Cavaliere
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 人喰
       - ひとく
@@ -9038,8 +9072,8 @@ names:
       - ひめ
     - - のカヴァリエーレ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: カヴァリエーレ transliterates the Italian cavaliere rather than the English cognate, and is kept that
+      way rather than smoothed into "cavalier."
     reading: ヒトクイ ヒメ ノ カヴァリエーレ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -9048,7 +9082,11 @@ names:
     reading_source_kind: analyser
     verified: false
   人妻とJK:
-    basis: romaji
+    basis: translated
+    en: Married Woman and JK
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 人妻
       - ひとづま
@@ -9064,7 +9102,11 @@ names:
     reading_source_kind: analyser
     verified: false
   人妻教師が教え子の女子高生にドはまりする話:
-    basis: romaji
+    basis: translated
+    en: The Story of a Married Teacher Getting Hooked on Her Student
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 人妻
       - ひとづま
@@ -9096,7 +9138,11 @@ names:
     reading_source_kind: analyser
     verified: false
   人間のペット飼いたい:
-    basis: romaji
+    basis: translated
+    en: I Want to Keep a Human Pet
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 人間
       - にんげん
@@ -9116,7 +9162,11 @@ names:
     reading_source_kind: analyser
     verified: false
   人魚姫:
-    basis: romaji
+    basis: translated
+    en: The Mermaid Princess
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 人魚姫
       - にんぎょひめ
@@ -9130,7 +9180,11 @@ names:
     reading_source_kind: analyser
     verified: false
   今夜、エーテルで待ちあわせ:
-    basis: romaji
+    basis: translated
+    en: Tonight, Let's Meet in Ether
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 今夜
       - こんや
@@ -9140,8 +9194,8 @@ names:
       - ま
     - - ちあわせ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Ether reads as the game world's own name, capitalized as a place rather than translated as the
+      substance.
     reading: コンヤ、 エーテル デ マチアワセ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -9179,7 +9233,11 @@ names:
     reading_source_kind: analyser
     verified: false
   今宵、悪役令嬢の手をとれたら:
-    basis: romaji
+    basis: translated
+    en: Tonight, If I Could Take the Villainess's Hand
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 今宵
       - こよい
@@ -9205,7 +9263,11 @@ names:
     reading_source_kind: analyser
     verified: false
   今年注目のエースちゃん:
-    basis: romaji
+    basis: translated
+    en: This Year's Ace to Watch
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 今年
       - ことし
@@ -9247,7 +9309,11 @@ names:
     reading_source_kind: analyser
     verified: false
   今日、オアシスで眠る:
-    basis: romaji
+    basis: translated
+    en: Sleeping at the Oasis Today
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 今日
       - きょう
@@ -9267,7 +9333,11 @@ names:
     reading_source_kind: analyser
     verified: false
   今日、小柴葵に会えたら。:
-    basis: romaji
+    basis: translated
+    en: If Only I Could See Koshiba Aoi Today.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 今日
       - きょう
@@ -9320,12 +9390,16 @@ names:
     reading_url: http://www.wikidata.org/entity/Q116233964
     verified: false
   今日もひとつ屋根の下:
-    basis: romaji
-    en: Kyō mo Hitotsu Yane no Shita
-    en_at: '2026-08-02'
+    basis: translated
+    en: Under the Same Roof, Today Too
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Kyō mo Hitotsu Yane no Shita
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q115264596
     furigana_spans:
     - - 今日

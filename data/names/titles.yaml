@@ -1,7 +1,11 @@
 generated: '2026-08-04'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
-    basis: romaji
+    basis: translated
+    en: '#We''re the Strongest ~The Introverted Exorcist and the Gal JK~'
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - '#うちらが'
       - null
@@ -49,12 +53,16 @@ names:
     reading_source_kind: analyser
     verified: false
   100日後に×××する女社長と新入社員:
-    basis: romaji
-    en: 100-nichi Go ni XXX suru Onna Shachou to Shinyuu Shain
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Female President and the New Employee Who Will ××× in 100 Days
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: 100-nichi Go ni XXX suru Onna Shachou to Shinyuu Shain
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/j6czvg5/100-nichi-go-ni-xxx-suru-onna-shachou-to-shinyuu-shain
     furigana_spans:
     - - '100'
@@ -73,8 +81,9 @@ names:
       - null
     - - 新入社員
       - しんにゅうしゃいん
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The blanked-out word is the source's own censorship, not an omission made here; the synopsis
+      frames the countdown as genuine suspense over what the two of them become, so the blank is doing
+      real work.
     reading: 100 ニチゴ ニ × × × スル オンナ シャチョウ ト シンニュウシャイン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -109,7 +118,11 @@ names:
     reading_source_kind: analyser
     verified: false
   14gの逃避行:
-    basis: romaji
+    basis: translated
+    en: A 14-Gram Escape
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 14gの
       - null
@@ -125,7 +138,11 @@ names:
     reading_source_kind: analyser
     verified: false
   2DK、Gペン、目覚まし時計。:
-    basis: romaji
+    basis: translated
+    en: 2DK, G-Pen, Alarm Clock.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 2DK、Gペン、
       - null
@@ -137,8 +154,9 @@ names:
       - どけい
     - - 。
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 2DK is a real Japanese apartment-listing code, two rooms plus a dining-kitchen, and Gペン names
+      the specific pen nib manga is traditionally inked with; kept both as the concrete, specific terms
+      they are rather than generalized.
     reading: 2 DK、 G ペン、 メザマシドケイ。
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -147,7 +165,11 @@ names:
     reading_source_kind: analyser
     verified: false
   30まで独りだったら一緒に暮らそうって言ったよね?:
-    basis: romaji
+    basis: translated
+    en: You Said If We're Still Single at 30, We'd Live Together, Remember?
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 30まで
       - null
@@ -177,7 +199,11 @@ names:
     reading_source_kind: analyser
     verified: false
   4時半、コインランドリーにて:
-    basis: romaji
+    basis: translated
+    en: 4:30, at the Laundromat
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - '4'
       - null
@@ -240,12 +266,17 @@ names:
     script: latin
     verified: false
   F30のきみ:
-    basis: romaji
+    basis: translated
+    en: You, on an F30 Canvas
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - F30のきみ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: F30 is a standard Japanese canvas size, F for figure paintings, kept as the real sizing code
+      rather than a vague size description; the synopsis is a pencil sketch of a classmate that comes
+      to life.
     reading: F 30 ノ キミ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -301,18 +332,22 @@ names:
     reading_source_kind: analyser
     verified: false
   JSさんとOLちゃん:
-    basis: romaji
-    en: JS-san to OL-chan
-    en_at: '2026-08-02'
+    basis: translated
+    en: JS-san and OL-chan
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: JS-san to OL-chan
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/8guv8kw/js-san-to-ol-chan
     furigana_spans:
     - - JSさんとOLちゃん
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The honorifics run backwards from what their ages would suggest, さん for the child, ちゃん for the
+      adult; kept as the source has it rather than corrected, since the mismatch is plainly deliberate.
     reading: JSサン ト OLチャン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -321,7 +356,11 @@ names:
     reading_source_kind: analyser
     verified: false
   Killer♡Twinkle～アンチはステージに上がれません♡～:
-    basis: romaji
+    basis: translated
+    en: Killer♡Twinkle ~Anti-Fans Don't Get to Take the Stage♡~
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - Killer♡Twinkle～アンチはステージに
       - null
@@ -348,7 +387,11 @@ names:
     script: latin
     verified: false
   Mな王子の愛し方:
-    basis: romaji
+    basis: translated
+    en: How to Love an M Prince
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - Mな
       - null
@@ -381,14 +424,18 @@ names:
     script: latin
     verified: false
   OL Vtuberと推しJKちゃん:
-    basis: romaji
-    en: OL Vtuber to Oshi JK-chan
-    en_at: '2026-08-02'
+    basis: translated
+    en: The OL VTuber and Her Favorite JK
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: OL Vtuber to Oshi JK-chan
     en_corroborated:
     - mangaupdates
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q115886487
     furigana_spans:
     - - OL Vtuberと
@@ -407,9 +454,13 @@ names:
     reading_source_kind: analyser
     verified: false
   Queentopia Project【タテスク】:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: Queentopia Project
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 【タテスク】 marks the vertical-scroll edition; dropped as with the other 【タテスク】 titles this run.
+      The title itself is already English.
     reading: Queentopia   Project 【タテスク】
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -418,7 +469,11 @@ names:
     reading_source_kind: analyser
     verified: false
   Qyootie Q! ―麒麟娘と婚約事情―:
-    basis: romaji
+    basis: translated
+    en: Qyootie Q! —The Kirin Girl and Our Engagement—
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - Qyootie Q! ―
       - null
@@ -453,9 +508,14 @@ names:
     script: latin
     verified: false
   SHWD《シュード》:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: SHWD
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The furigana glosses the acronym as Shudo; kept as the acronym itself, the way the synopsis
+      names the in-story organization, rather than spelling out a pronunciation guide as if it were the
+      title.
     reading: SHWD 《シュード》
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -473,9 +533,14 @@ names:
     script: latin
     verified: false
   T.Tラバーズ。:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: T.T. Lovers.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: T.T reads as an initialism for table tennis, the synopsis's actual subject, and ラバーズ puns on
+      rubber, the paddle-surface material, as much as on lovers; kept the initials rather than spelling
+      the sport out.
     reading: T . T ラバーズ。
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -520,7 +585,11 @@ names:
     script: latin
     verified: false
   Where I Belong(第96回新人コミック大賞・佳作):
-    basis: romaji
+    basis: translated
+    en: Where I Belong
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 'Where '
       - null
@@ -546,8 +615,9 @@ names:
       - かさく
     - - )
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The parenthetical is Big Comics' own award badge on the series listing; dropped as promotional
+      framing rather than part of the title, same handling as the other Big Comics badge titles this run.
+      The title itself is already English.
     reading: Where   I   Belong ( ダイ 96 カイ シンジン コミック タイショウ・ カサク )
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -603,6 +673,14 @@ names:
     script: latin
     verified: true
   †でぃすてにぃ・ふれんず†:
+    basis: translated
+    en: †Disteny Friends†
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: でぃすてにぃ deliberately misspells 運命, destiny, in the overwrought chuunibyou register the synopsis's
+      protagonist is written in; kept the misspelling and the dagger symbols rather than correcting or
+      dropping either.
     reading: †ディステニィ・フレンズ†
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -665,12 +743,16 @@ names:
     reading_source_kind: analyser
     verified: false
   「触れたい」は恋の始まり:
-    basis: romaji
-    en: Furetai Wa Koi No Hajimari
-    en_at: '2026-08-02'
+    basis: translated
+    en: '"I Want to Touch You" Is Where Love Begins'
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Furetai Wa Koi No Hajimari
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/phvd7u2/furetai-wa-koi-no-hajimari
     furigana_spans:
     - - 「

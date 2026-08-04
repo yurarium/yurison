@@ -78,6 +78,26 @@ def main(s):
                                          "私の本"),
             "characters separated by a particle are not a compound")
 
+    # A VOLUME IS NOT A CHAPTER. 巻 was missing from the counter list, so ４巻 第３９話 matched the
+    # bare-number branch as chapter four and the real chapter fell into the subtitle and was
+    # romanised: "Ch. 4 Maki Dai 39Wa". 53 chapter names begin with a volume number.
+    plain = lambda t: t                                                      # noqa: E731
+    s.eq(p4.chapter_en("４巻 第３９話「瞑目アリア」", plain), 'Vol. 4, Ch. 39 “瞑目アリア”',
+         "the volume is read off the front and the chapter inside is read as a chapter")
+    s.eq(p4.chapter_en("2巻 第26話", plain), "Vol. 2, Ch. 26", "and full-width digits are the same")
+    s.eq(p4.chapter_en("3巻発売フェア", plain), "Vol. 3 発売フェア",
+         "a volume followed by something that is not a chapter keeps the volume")
+    s.eq(p4.chapter_en("第12話 テスト", plain), "Ch. 12 テスト",
+         "a chapter with no volume is unchanged")
+
+    # A CIRCLED DIGIT IS A PART MARKER. NFKC folds it into the number beside it, so Step.14① came
+    # out "Step.141", which reads as chapter one hundred and forty-one.
+    s.eq(p4.part_marks("Step.14①"), "Step.14 (1)", "the part is bracketed, not absorbed")
+    s.eq(p4.part_marks("第90話②"), "第90話 (2)", "wherever it sits")
+    s.eq(p4.part_marks("no marker here"), "no marker here", "and a name without one is untouched")
+    s.eq(p4.chapter_en("第90話②", plain), "Ch. 90-2",
+         "a chapter-shaped name still hyphenates its part, which is the form that sorts")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "pass4_analyser"))

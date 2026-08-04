@@ -536,8 +536,21 @@ CHAPTER_PAT = re.compile(
     r"\s*(?:話|回|話目|幕|章|球|服|皿|輪|侵略|角|限|節|夜|日目|冊目|泊目|軒目)?"
     r"\s*([-.][0-9]+)?\s*(.*)$")
 EXTRA_PAT = re.compile(r"^\s*(?:【?(番外編|特別編|おまけ|最終話|最終回|前編|後編|中編|完結)】?)\s*(.*)$")
+
+# A VOLUME, WHICH IS NOT A CHAPTER. 巻 was absent from the counter list above, so ４巻 第３９話 matched
+# the bare-number branch as chapter four and the real chapter fell into the subtitle and was
+# romanised: "Ch. 4 Maki Dai 39Wa". Read off the front first, so what follows is judged on its own.
+VOLUME_PAT = re.compile(r"^\s*([0-9]+)\s*巻\s*(.*)$")
 EXTRA_EN = {"番外編": "Extra", "特別編": "Special", "おまけ": "Bonus", "最終話": "Final",
             "最終回": "Final", "前編": "Part 1", "後編": "Part 2", "中編": "Part 2", "完結": "End"}
+
+
+def part_marks(s):
+    """Circled digits written as a bracketed part, so NFKC cannot fold them into a neighbour."""
+    out = s or ""
+    for c, d in CIRCLED.items():
+        out = out.replace(c, f" ({d})")
+    return out.strip()
 
 
 def chapter_en(name, romanise_rest):
@@ -556,18 +569,35 @@ def chapter_en(name, romanise_rest):
     for c, d in CIRCLED.items():
         n = n.replace(c, "-" + d)
     n = unicodedata.normalize("NFKC", n).replace("\u2212", "-").replace("\uff0d", "-").strip()
+
+    # A leading volume number is taken off the front and put back at the end, so the chapter inside
+    # is read as a chapter. Without this "2巻 第26話" came out "Ch. 2 Maki Dai 26Wa": the volume
+    # became the chapter and the chapter became scenery. 53 names begin this way.
+    vol = None
+    mv = VOLUME_PAT.match(n)
+    if mv:
+        vol, n = mv.group(1), mv.group(2).strip()
+        if not n:
+            return latinise(f"Vol. {vol}")
+
     m = CHAPTER_PAT.match(n)
     if m and (m.group(1) is not None) and ("話" in n or "回" in n or n.lstrip().startswith(("#", "＃"))
                                            or re.match(r"^\s*第", n)):
         num = m.group(1) + (m.group(2) or "")
         rest = (m.group(3) or "").strip()
         tail = romanise_rest(rest) if rest else ""
-        return latinise(f"Ch. {num}" + (f" {tail}" if tail else ""))
+        out = f"Ch. {num}" + (f" {tail}" if tail else "")
+        return latinise((f"Vol. {vol}, " + out) if vol else out)
+    if vol:
+        # 3巻発売フェア and its like: a volume and then something that is not a chapter at all.
+        tail = romanise_rest(n) if n else ""
+        return latinise(f"Vol. {vol}" + (f" {tail}" if tail else ""))
     m = EXTRA_PAT.match(n)
     if m:
         rest = (m.group(2) or "").strip()
         tail = romanise_rest(rest) if rest else ""
-        return latinise(EXTRA_EN[m.group(1)] + (f" {tail}" if tail else ""))
+        out = EXTRA_EN[m.group(1)] + (f" {tail}" if tail else "")
+        return latinise((f"Vol. {vol}, " + out) if vol else out)
     return None
 
 
@@ -694,7 +724,11 @@ def fill_chapters(names_seen, quiet=False):
             if is_credit_line(x):
                 en = credit_en(tok, modes, x)
             else:
-                en = romanise_ja(tok, modes, x)
+                # A CIRCLED DIGIT IS A PART MARKER, and NFKC flattens it into the number beside it:
+                # Step.14① came out "Step.141", which reads as chapter one hundred and forty-one.
+                # chapter_en converts them for its own matching and this path never did, so a name
+                # it does not recognise lost the distinction entirely.
+                en = romanise_ja(tok, modes, part_marks(x))
         if en and en != x:
             names[x] = en
             added += 1

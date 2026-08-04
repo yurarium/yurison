@@ -5260,14 +5260,20 @@ names:
     verified: true
   伊実:
     basis: romaji
+    furigana_spans:
+    - - 伊実
+      - これざね
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
+    reading: コレザネ
     reading_at: '2026-08-04'
+    reading_basis: analyser
     reading_pass: 4
     reading_refuted: A Chinese webcomic creator. The National Diet Library records the name deliberately
       without kana, as it does for names that are not Japanese, so furigana is the wrong apparatus and
       there is nothing to replace the guess with.
     reading_source: sudachi
+    reading_source_kind: analyser
     verified: false
   伊月クロ:
     basis: romaji
@@ -14884,14 +14890,22 @@ names:
     verified: true
   角川青羽:
     basis: romaji
+    furigana_spans:
+    - - 角川
+      - かどかわ
+    - - 青羽
+      - あおば
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
+    reading: カドカワ アオバ
     reading_at: '2026-08-04'
+    reading_basis: analyser
     reading_pass: 4
     reading_refuted: Not a person. The credit is 角川青羽（上海）文化創意有限公司, the Shanghai KADOKAWA company that
       produced the edition, which NDL records as a corporate body with the transcription field empty.
       カドカワ アオバ reads it as somebody's name.
     reading_source: sudachi
+    reading_source_kind: analyser
     verified: false
   誇大逸:
     basis: romaji

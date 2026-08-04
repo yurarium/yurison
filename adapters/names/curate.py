@@ -35,6 +35,7 @@ Usage:  curate.py --check              validate the file and stop
 import argparse
 import pathlib
 import re
+import unicodedata
 import sys
 
 import yaml
@@ -145,6 +146,17 @@ def check(doc):
     return out
 
 
+def _fold(t):
+    """Width-folded, for deciding whether a curated key names a work we hold.
+
+    NFKC only. build.py's lookup also strips spaces, and this deliberately does not: a key that
+    differs by a full-width bracket is one work under two spellings and applies correctly, while a
+    key with a stray space is a typo that happens to apply. The first should pass silently and the
+    second is worth a reader's attention, so they are not folded together here.
+    """
+    return unicodedata.normalize("NFKC", t or "")
+
+
 def unmatched(doc, known):
     """Curated keys that name no work we hold.
 
@@ -154,7 +166,13 @@ def unmatched(doc, known):
     assumed. Authors are not checked here: an author may legitimately be curated before any of
     their work is, and the same is not true of a title.
     """
-    return sorted(k for k in (doc.get("titles") or {}) if k not in known)
+    # Folded, because a work reaches us under more than one spelling and only one of them can be
+    # on display. ギャルメイドと悪役令嬢 is stored 勝たん！～ by one platform and 勝たん!～ by another,
+    # and the curated key stopped naming a work we hold the moment the interface picked the other
+    # spelling. NFKC folds the pair without touching the words, which is how the name lookup in
+    # build.py joins them too.
+    fold = {_fold(k) for k in known}
+    return sorted(k for k in (doc.get("titles") or {}) if k not in known and _fold(k) not in fold)
 
 
 def known_titles(build="data/build"):

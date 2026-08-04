@@ -59,7 +59,7 @@ def main(argv=None):
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--works", default="data/source/webpages/sitemap-magapoke.yaml")
-    ap.add_argument("--out", default="data/source/magapoke-lengths.yaml")
+    ap.add_argument("--out", default="data/coverage/magapoke-lengths.yaml")
     ap.add_argument("--pause", type=float, default=1.2)
     a = ap.parse_args(argv)
 

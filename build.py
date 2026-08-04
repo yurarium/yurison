@@ -19,6 +19,7 @@ import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402
+import importdates  # noqa: E402
 
 # REQUIREMENTS §1. A field whose provenance is not here fails the build.
 # Tier A/B attesting sources only. Discovery-only sources (Tier C/D) never appear here — they feed
@@ -2831,6 +2832,10 @@ def main():
             continue
         if not isinstance(_d, dict) or _d.get("record_type") != "web_work_chapters":
             continue
+        # Which of this source's dates are it importing a back catalogue rather than publishing.
+        # Computed per file because the signature is a property of the source: 一迅プラス put 1972
+        # chapters across 152 series on 2025-08-08, and ゆるゆり began in 2008.
+        _stamped = importdates.stamps(_d.get("works") or [])
         # comicfuz and kadokomi predate the platform_name convention and state only `source`.
         _SRC_PLAT = {"comicfuz": "COMIC FUZ", "kadokomi": "カドコミ"}
         _fp = (_d.get("platform_name") or _d.get("platform")
@@ -2995,6 +3000,10 @@ def main():
                             "author"):
                     if c.get(fld) and not slot.get(fld):
                         slot[fld] = c[fld]
+                # A date only counts as an import where EVERY source giving it says so. One source
+                # importing a chapter another source watched appear does not unmake the observation.
+                if (w.get("work_title"), str(c.get("updated") or "")[:10]) not in _stamped:
+                    slot["date_observed"] = True
 
     # Collapse each bucket's merged chapters into the row the interface reads.
     for row in series.values():
@@ -3003,9 +3012,18 @@ def main():
         row["chapters"] = len(chs)
         dated = [c for c in chs if c.get("updated")]
         row["dated"] = len(dated)
-        row["first"] = str(dated[0]["updated"])[:10] if dated else None
-        row["latest"] = str(dated[-1]["updated"])[:10] if dated else None
-        row["latest_ep"] = (dated[-1].get("title") or "").strip() if dated else ""
+        # THE HEADLINE DATES COME FROM CHAPTERS SOMEBODY WATCHED APPEAR. A platform importing its
+        # back catalogue stamps every chapter with the day it imported, and that date is real and
+        # is kept (§4); it is simply not a publication date, and 34 works were reading `active` or
+        # `slow` on one. Where a whole run is stamped there is nothing better in this row, so the
+        # stamp still shows and the row says so, and the merge across platforms prefers a source
+        # that watched something happen.
+        observed = [c for c in dated if c.get("date_observed")]
+        face = observed or dated
+        row["dates_imported"] = bool(dated) and not observed
+        row["first"] = str(face[0]["updated"])[:10] if face else None
+        row["latest"] = str(face[-1]["updated"])[:10] if face else None
+        row["latest_ep"] = (face[-1].get("title") or "").strip() if face else ""
         row["free"] = sum(1 for c in chs if "free" in (c.get("access_modes") or []))
         row["free_timed"] = sum(1 for c in chs if "free-timed" in (c.get("access_modes") or []))
         row["priced"] = sum(1 for c in chs if "purchase" in (c.get("access_modes") or []))
@@ -3220,7 +3238,19 @@ def main():
         by_title[key if key not in distinct else f"{key}|{row['platform']}"].append(row)
 
     for _k, rows in by_title.items():
-        rows.sort(key=lambda r: (r["chapters"], r["latest"] or ""), reverse=True)
+        # A row whose every date is an import stamp cannot speak for the work's state, so it loses
+        # to any row that can, however many chapters it holds. 一迅プラス holds all 77 chapters of
+        # ナメられたくないナメカワさん at 2025-08-08 and コミックDAYS watched the run end in 2022.
+        rows.sort(key=lambda r: (not r.get("dates_imported"), r["chapters"], r["latest"] or ""),
+                  reverse=True)
+        # The sources that hold an observed date, where any does. This is what stops a known
+        # import stamp being published as the work's latest when another source knows better.
+        # Where every source is an import stamp we do not know when this work last updated, and
+        # taking the newest stamp is the worst of the answers available: 2DK、Gペン、目覚まし時計。
+        # read `dormant` off コミックDAYS's 105 chapters while displaying 一迅プラス's 2026-06-05,
+        # so the headline date contradicted the state beside it. Falling back to the row that
+        # decided the state keeps the two saying the same thing.
+        _dr = [r for r in rows if not r.get("dates_imported")] or rows[:1]
         best = rows[0]
         works_out.append({
             "work": best["work"],
@@ -3229,9 +3259,9 @@ def main():
             # adding them would report 135 chapters for a 121-chapter work.
             "chapters": best["chapters"],
             "partial": all(r["partial"] for r in rows),
-            "latest": max((r["latest"] for r in rows if r["latest"]), default=None),
+            "latest": max((r["latest"] for r in _dr if r["latest"]), default=None),
             "latest_ep": best["latest_ep"],
-            "first": min((r["first"] for r in rows if r["first"]), default=None),
+            "first": min((r["first"] for r in _dr if r["first"]), default=None),
             "state": best["state"], "oneshot": best["oneshot"],
             # Why we say it ended, carried up with the state. A state without its basis is the
             # thing this project keeps having to unpick.
@@ -3343,7 +3373,15 @@ def main():
 
     _named_w = _named_a = 0
     for r in series_rows + releases:
-        t = _title_names.get(r.get("work")) or _title_folded.get(_fold(r.get("work")))
+        # AN EXACT MATCH IS NOT AUTOMATICALLY THE BETTER ONE. The same work reaches us spelled
+        # 勝たん！～ and 勝たん!～, and the store holds a record for each: the curated one carries
+        # the translation, the other only an automatic reading. Taking the exact hit first meant
+        # whichever spelling the interface happened to display decided whether the work had an
+        # English name at all. Both candidates are considered and the fuller wins, which is the
+        # same rule fold_map already applies to records that fold together.
+        _cands = [x for x in (_title_names.get(r.get("work")),
+                              _title_folded.get(_fold(r.get("work")))) if x]
+        t = max(_cands, key=_fullness) if _cands else None
         if t:
             r["work_en"] = t
             _named_w += 1

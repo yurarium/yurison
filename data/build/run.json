@@ -1,9 +1,9 @@
 {
  "generated": "2026-08-04",
- "releases": 1363,
+ "releases": 1359,
  "platforms": 22,
  "works": 302,
- "series_rows": 983,
+ "series_rows": 982,
  "sources": [
   {
    "source": "comicfuz",
@@ -99,8 +99,8 @@
  "claims": {
   "total": 434,
   "by_disposition": {
-   "absorbed": 371,
-   "open": 2,
+   "absorbed": 370,
+   "open": 3,
    "print-serialised": 25,
    "unsettleable": 28,
    "phantom": 1,
@@ -492,8 +492,13 @@
     "url": "https://comic-gardo.com/episode/2550912966011803878",
     "claimed": "2026-07-28",
     "source": "webcomics.jp",
-    "disposition": "absorbed",
-    "why": "the platform attests this work on this date"
+    "disposition": "open",
+    "why": "we hold no chapter history for this work on this platform",
+    "chapters_held": 0,
+    "also_attested_elsewhere": false,
+    "traceable": true,
+    "last_looked": null,
+    "blocked": null
    },
    {
     "work": "球詠",
@@ -4487,7 +4492,7 @@
    },
    {
     "week": "2026-06-21",
-    "n": 132
+    "n": 131
    },
    {
     "week": "2026-06-28",
@@ -4495,11 +4500,11 @@
    },
    {
     "week": "2026-07-05",
-    "n": 226
+    "n": 225
    },
    {
     "week": "2026-07-12",
-    "n": 106
+    "n": 105
    },
    {
     "week": "2026-07-19",
@@ -4507,7 +4512,7 @@
    },
    {
     "week": "2026-07-26",
-    "n": 108
+    "n": 107
    },
    {
     "week": "2026-08-02",
@@ -4515,16 +4520,16 @@
    }
   ],
   "trimmed_weeks": 3,
-  "pre_tracking_releases": 1310,
+  "pre_tracking_releases": 1306,
   "tracking_from": "2026-08-01"
  },
  "access_modes": {
-  "purchase": 564,
-  "free": 676,
+  "purchase": 562,
+  "free": 674,
   "free-timed": 99
  },
  "update_kinds": {
-  "new-chapter": 1269,
+  "new-chapter": 1265,
   "final": 8,
   "new-series": 44,
   "oneshot": 21,
@@ -4532,13 +4537,13 @@
   "skipped": 1
  },
  "identification": {
-  "discovery-candidate": 1050,
+  "discovery-candidate": 1046,
   "platform-genre": 313
  },
  "collapsed": {
   "duplicate_chapters": 50,
   "thin_sitemap": 8,
-  "resolver": 50,
+  "resolver": 54,
   "samples": 49
  },
  "filled": {

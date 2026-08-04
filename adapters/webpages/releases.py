@@ -77,9 +77,23 @@ def untruncated(target_title, html):
         return target_title
     og = _html.unescape(m.group(1)).strip()
     stem = TRUNCATED.sub("", target_title).strip()
-    if stem and textnorm.norm(og).startswith(textnorm.norm(stem)) and len(og) > len(target_title):
-        return og
-    return target_title
+    if not stem or not textnorm.norm(og).startswith(textnorm.norm(stem)):
+        return target_title
+    # THE TAIL IS CUT AT THE DECORATION, not taken whole. youngchampion.jp states the bare title in
+    # og:title; comic-gardo states "<work> - <author> / <episode>". Taking the whole string put the
+    # author into the work's name. The separator is only honoured PAST the stem, so a title
+    # containing one of these marks keeps it.
+    # The result is the platform's own string throughout, never ours spliced onto theirs: the
+    # listing wrote 切り札です! and the page writes 切り札です！, and keeping our half of the join
+    # would publish a title neither source states. The stem's length indexes into og safely,
+    # because a half-width mark and a full-width one are each one character.
+    tail = og[len(stem):]
+    for sep in (" - ", " | ", "｜"):
+        if sep in tail:
+            og = og[:len(stem) + tail.index(sep)]
+            break
+    og = og.strip()
+    return og if len(og) > len(stem) else target_title
 
 def episodes(html, eng, base, page_url=None, fetch=None):
     # comici is read by the shared module, not by this file's selectors. Its access model has three

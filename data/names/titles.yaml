@@ -11631,7 +11631,11 @@ names:
     reading_source_kind: analyser
     verified: false
   何かが至りません:
-    basis: romaji
+    basis: translated
+    en: Something Is Lacking
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 何
       - なん
@@ -11641,8 +11645,12 @@ names:
       - いた
     - - りません
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'A one-shot on となりのヤングジャンプ by 田中火蛾, and the platform publishes no synopsis for it: the page
+      carries only the award, COMITIA150「4時間スピード漫画賞」大賞, so the title has to be read on its own. 至らない is
+      the ordinary word for one''s own shortcomings, as in 至らない点, and the polite negative 至りません is the
+      register of an apology at work, where the speaker names a failing without saying whose. 何か leaves
+      the subject as vague as the Japanese does. A literal reading, something does not arrive, is available
+      and does not fit that register.'
     reading: ナン カ ガ イタリマセン
     reading_at: '2026-08-02'
     reading_basis: analyser

@@ -76,6 +76,15 @@ def main(s):
          "and a page with no og:title leaves the truncation as it found it")
     s.eq(wp.untruncated("", page), "", "an empty title asks for nothing")
 
+    # THE RECOVERED TAIL IS CUT AT THE DECORATION. comic-gardo states "<work> - <author> /
+    # <episode>" in og:title, so taking the whole string put the author into the work's name.
+    deco = f'<meta property="og:title" content="{FULL} - \u3042\u3089\u305f / \u7b2c1\u8a71">'
+    s.eq(wp.untruncated(CUT, deco), FULL, "the author and episode are not taken into the title")
+    # The separator is honoured only past the stem, so a title carrying one keeps it.
+    keeps = "A - B"
+    s.eq(wp.untruncated("A - B...", f'<meta property="og:title" content="A - B and more">'),
+         "A - B and more", "a separator inside the stem is not a cut point")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "webpages.releases"))

@@ -7008,12 +7008,16 @@ names:
     reading_source: surface
     verified: true
   ハウリング・ブレイズ　葬焔の剣士と不死の魔女:
-    basis: romaji
-    en: 'Howling Blaze: Souen no Kenshi to Fushi no Majo'
-    en_at: '2026-08-02'
+    basis: translated
+    en: 'Howling Blaze: The Cremation-Flame Swordswoman and the Undying Witch'
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: 'Howling Blaze: Souen no Kenshi to Fushi no Majo'
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/8t0hfc9/howling-blaze-souen-no-kenshi-to-fushi-no-majo
     furigana_spans:
     - - ハウリング・ブレイズ　
@@ -7034,8 +7038,9 @@ names:
       - null
     - - 魔女
       - まじょ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 葬焔 is a coined compound, funeral plus flame, read as cremation fire; the synopsis's protagonist
+      hunts demon-spawned monsters, which fits a fire built for burning the dead rather than an ordinary
+      blaze.
     reading: ハウリング・ ブレイズ 　 ソウ ホノオ ノ ケンシ ト フシ ノ マジョ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -7044,7 +7049,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ハグフレンド(スピリッツ賞・佳作):
-    basis: romaji
+    basis: translated
+    en: Hug Friend
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ハグフレンド(スピリッツ
       - null
@@ -7056,8 +7065,9 @@ names:
       - かさく
     - - )
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The parenthetical is Big Comics' own award badge on the series listing, present in the page's
+      own title tag; dropped as promotional framing rather than part of the title, same handling as the
+      other Big Comics badge titles this run.
     reading: ハグフレンド ( スピリッツ ショウ・ カサク )
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -7066,12 +7076,16 @@ names:
     reading_source_kind: analyser
     verified: false
   ハナちゃん匂いかがせて:
-    basis: romaji
-    en: Hana-chan Nioi Kagasete
-    en_at: '2026-08-02'
+    basis: translated
+    en: Hana-chan, Let Me Smell You
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Hana-chan Nioi Kagasete
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/x57kmdf/hana-chan-nioi-kagasete
     furigana_spans:
     - - ハナちゃん
@@ -7088,6 +7102,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/x57kmdf/hana-chan-nioi-kagasete
     verified: false
   ハルとアリア:
+    basis: translated
+    en: Haru and Aria
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ハルトアリア
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7095,6 +7114,14 @@ names:
     reading_source: surface
     verified: true
   ハルのレジスタ:
+    basis: translated
+    en: Haru's Regista
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: レジスタ is the Italian football term for a deep-lying playmaker, kept rather than translated since
+      the synopsis is a soccer story built around the position itself, not a generic word needing an English
+      gloss.
     reading: ハルノレジスタ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7102,6 +7129,11 @@ names:
     reading_source: surface
     verified: true
   ハロー、メランコリック!:
+    basis: translated
+    en: Hello, Melancholic!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ハロー、メランコリック!
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7109,7 +7141,11 @@ names:
     reading_source: surface
     verified: true
   ハートは腐らない:
-    basis: romaji
+    basis: translated
+    en: Hearts Don't Rot
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ハートは
       - null
@@ -7183,7 +7219,11 @@ names:
     reading_source_kind: analyser
     verified: false
   バズーカを持った天使:
-    basis: romaji
+    basis: translated
+    en: The Angel with a Bazooka
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - バズーカを
       - null
@@ -7221,6 +7261,11 @@ names:
     reading_source_kind: analyser
     verified: false
   バニーズクエスト:
+    basis: translated
+    en: Bunnies' Quest
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: バニーズクエスト
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7228,6 +7273,11 @@ names:
     reading_source: surface
     verified: true
   パパのセクシードール:
+    basis: translated
+    en: Papa's Sexy Doll
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: パパノセクシードール
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7242,12 +7292,16 @@ names:
     reading_source: surface
     verified: true
   ヒトゴトですから!:
-    basis: romaji
-    en: Hitogoto Desu kara!
-    en_at: '2026-08-02'
+    basis: translated
+    en: Because It's Not My Problem!
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Hitogoto Desu kara!
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/w0nhc4d/hitogoto-desu-kara
     reading: ヒトゴトデスカラ!
     reading_at: '2026-08-02'
@@ -7256,7 +7310,11 @@ names:
     reading_source: surface
     verified: true
   ヒモとは絡みづらい:
-    basis: romaji
+    basis: translated
+    en: Hard to Get Tangled Up with a Freeloader
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ヒモとは
       - null
@@ -7264,8 +7322,9 @@ names:
       - から
     - - みづらい
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: ヒモ literally means string or cord before it means a freeloader living off someone; 絡む, to get
+      tangled, sits on top of the literal sense as much as the idiomatic one, a pun English can echo since
+      strings and tangling already go together.
     reading: ヒモ ト ワ カラミヅライ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -7274,7 +7333,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ヒモ吸血鬼が出ていかない:
-    basis: romaji
+    basis: translated
+    en: The Freeloading Vampire Won't Leave
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ヒモ
       - null
@@ -7296,6 +7359,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ヒロイン.:
+    basis: translated
+    en: Heroine.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ヒロイン.
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7303,7 +7371,11 @@ names:
     reading_source: surface
     verified: true
   ヒーローさんと元女幹部さん:
-    basis: romaji
+    basis: translated
+    en: Hero-san and the Former Lady Boss
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ヒーローさんと
       - null
@@ -7336,7 +7408,11 @@ names:
     reading_source: surface
     verified: true
   ピアノを弾くカエルたち:
-    basis: romaji
+    basis: translated
+    en: The Piano-Playing Frogs
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ピアノを
       - null
@@ -7354,6 +7430,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ファイティングガールズ:
+    basis: translated
+    en: Fighting Girls
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ファイティングガールズ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7361,7 +7442,11 @@ names:
     reading_source: surface
     verified: true
   ファインダーの先に:
-    basis: romaji
+    basis: translated
+    en: Beyond the Viewfinder
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ファインダーの
       - null
@@ -7392,6 +7477,11 @@ names:
     reading_source: surface
     verified: true
   ファッションガールヒーロー:
+    basis: translated
+    en: Fashion Girl Hero
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ファッションガールヒーロー
     reading_at: '2026-08-02'
     reading_basis: surface

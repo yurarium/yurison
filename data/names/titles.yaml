@@ -5571,7 +5571,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは:
-    basis: romaji
+    basis: translated
+    en: 'Galaxy Puu-chan: Hello from the Edge of the Universe'
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 'ギャラクシーぷーちゃん '
       - null
@@ -5589,12 +5593,16 @@ names:
     reading_source_kind: analyser
     verified: false
   ギャルと委員長が偶然再会する話:
-    basis: romaji
-    en: Gal to Iinchou ga Guuzen Saikai suru Hanashi
-    en_at: '2026-08-02'
+    basis: translated
+    en: A Gal and the Class President Reunite by Chance
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Gal to Iinchou ga Guuzen Saikai suru Hanashi
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/xz6y700/gal-to-iinchou-ga-guuzen-saikai-suru-hanashi
     furigana_spans:
     - - ギャルと
@@ -5621,12 +5629,16 @@ names:
     reading_source_kind: analyser
     verified: false
   ギャルメイドと悪役令嬢 ～おじょーさまのハッピーエンドしか勝たん！～:
-    basis: romaji
-    en: Gyaru Maid to Akuyaku Reijou ~Ojou-sama no Happy End shika Katan!~
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Gal Maid and the Villainess ~Nothing Beats the Young Lady's Happy Ending!~
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Gyaru Maid to Akuyaku Reijou ~Ojou-sama no Happy End shika Katan!~
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/8ov0tyc/gyaru-maid-to-akuyaku-reijou-ojou-sama-no-happy-end-shika-katan
     furigana_spans:
     - - ギャルメイドと
@@ -5651,7 +5663,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ギャル推しJKはギャルになりたい:
-    basis: romaji
+    basis: translated
+    en: The Gal-Obsessed JK Wants to Be a Gal
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ギャル
       - null
@@ -5669,6 +5685,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ギャングスタガールズ:
+    basis: translated
+    en: Gangsta Girls
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ギャングスタガールズ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5676,12 +5697,16 @@ names:
     reading_source: surface
     verified: true
   クズ浪人生、人生が辛いので夜のお姉さんを呼んでみた:
-    basis: romaji
-    en: Kuzu Rōninsei, Jinsei ga Tsurai node Yoru no Onē-san o Yondemita
-    en_at: '2026-08-02'
+    basis: translated
+    en: I'm a Loser Ronin Student, So I Tried Calling a Lady of the Night
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Kuzu Rōninsei, Jinsei ga Tsurai node Yoru no Onē-san o Yondemita
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q115959618
     furigana_spans:
     - - クズ
@@ -5748,7 +5773,11 @@ names:
     reading_source_kind: analyser
     verified: false
   クラス全員で百合カプを守る話:
-    basis: romaji
+    basis: translated
+    en: The Whole Class Protects a Yuri Couple
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - クラス
       - null
@@ -5776,6 +5805,11 @@ names:
     reading_source_kind: analyser
     verified: false
   クリーンミート:
+    basis: translated
+    en: Clean Meat
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: クリーンミート
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5783,7 +5817,11 @@ names:
     reading_source: surface
     verified: true
   クレアちゃん飼育日記―カブトムシ少女にお世話されてます―:
-    basis: romaji
+    basis: translated
+    en: Claire-chan's Care Diary ~Being Cared for by a Beetle Girl~
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - クレアちゃん
       - null
@@ -5811,6 +5849,11 @@ names:
     reading_source_kind: analyser
     verified: false
   クール・エイド:
+    basis: translated
+    en: Kool-Aid
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: クール・エイド
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5818,6 +5861,11 @@ names:
     reading_source: surface
     verified: true
   ケイヤクシマイ:
+    basis: translated
+    en: Contract Sisters
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ケイヤクシマイ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5825,6 +5873,11 @@ names:
     reading_source: surface
     verified: true
   ケモノとワルツ:
+    basis: translated
+    en: Waltz with the Beast
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ケモノトワルツ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5832,7 +5885,11 @@ names:
     reading_source: surface
     verified: true
   ケーキも花も宝石も:
-    basis: romaji
+    basis: translated
+    en: Cakes and Flowers and Jewels Too
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ケーキも
       - null
@@ -5854,6 +5911,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ゲームフレンド:
+    basis: translated
+    en: Game Friend
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ゲームフレンド
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5947,7 +6009,11 @@ names:
     reading_source_kind: analyser
     verified: false
   コモドドラゴン:
-    basis: romaji
+    basis: translated
+    en: Komodo Dragon
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: コモド ドラゴン
@@ -5958,12 +6024,16 @@ names:
     reading_source_kind: analyser
     verified: false
   コンカフェ嬢は恋を着る:
-    basis: romaji
-    en: Con Cafe Jou wa Koi wo Kiru
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Concept Café Girl Wears Love
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Con Cafe Jou wa Koi wo Kiru
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/nsk6eha/con-cafe-jou-wa-koi-wo-kiru
     furigana_spans:
     - - コンカフェ
@@ -5980,8 +6050,9 @@ names:
       - き
     - - る
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 着る, to wear clothes, is an odd verb to pair with 恋, love, where 恋をする would be the plain phrasing;
+      the mismatch is deliberate, tying the fashion-obsessed protagonist's love life to the clothes she
+      talks about with everyone she meets.
     reading: コンカフェ ジョウ ワ コイ ヲ キル
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -5990,6 +6061,11 @@ names:
     reading_source_kind: analyser
     verified: false
   サウナにハマりました:
+    basis: translated
+    en: I Got Hooked on Saunas
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: サウナニハマリマシタ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5997,6 +6073,11 @@ names:
     reading_source: surface
     verified: true
   サキュバスじゃないモン!:
+    basis: translated
+    en: I'm Not a Succubus!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: サキュバスジャナイモン!
     reading_at: '2026-08-02'
     reading_basis: surface

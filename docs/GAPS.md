@@ -146,6 +146,25 @@ issue-contents relation, is the only remaining lead inside MADB.
 
 ---
 
+## 4a. マガポケ is captured ten chapters at a time
+
+Every マガポケ record holds ten chapters and is marked partial, because the adapter reads the free
+window and the free window is ten chapters deep. `adapters/magapoke.py` reads the episode list the series
+page publishes, and across 22 series it states runs of up to 63 where we hold 10. The result is in
+`data/source/magapoke-lengths.yaml`.
+
+This changes no work's state, and the reason is worth writing down. 将来的に死んでくれ looked like
+the case that would: 42 episodes stated against our 10, filed dormant on a date from 2019. But the
+episode we call newest is the 42nd, so the date was right all along and only the count was wrong.
+The same holds for every work where マガポケ is the only source. Where our count is higher than the
+stated one, the chapters came from コミックDAYS, which carries the same series in full.
+
+So this is an undercount and not a staleness, and it matters for chapter counts rather than for
+completion. Closing it means capturing each episode's title and date, which the free window does
+not expose; the episode ids are known, so the cost is one fetch per episode.
+
+---
+
 ## 5. Conflated title/author — 13 remaining
 
 百合ナビ's WEB連載 cells run title and author together. 40 of 53 split against titles we hold; 13

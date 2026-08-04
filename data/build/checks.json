@@ -53,8 +53,10 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 0,
-   "examples": []
+   "violations": 1,
+   "examples": [
+    "series.json"
+   ]
   },
   {
    "name": "no refutation of print serials",

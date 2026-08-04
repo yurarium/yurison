@@ -1,4 +1,585 @@
 source: hand review
 role: completion-verdicts
-retrieved: 2026-08-04
-works: {}
+retrieved: '2026-08-04'
+works:
+  好きな女の子が私にだけなぜか厳しい:
+    verdict: completed
+    basis: チャンピオンクロスの作品ページ自身のJSONに "status":"完結" とある。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://championcross.jp/series/c114fa5271ac7
+  結ばれる日/読み切り:
+    verdict: completed
+    basis: チャンピオンクロスの作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。最初から一本で終わる読み切りとして公開されたもので、続きは予定されていない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://championcross.jp/series/5a9c775449635
+  オートクチュールの果たし状/読み切り:
+    verdict: completed
+    basis: チャンピオンクロスの作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。最初から一本で終わる読み切りとして公開されたもので、続きは予定されていない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://championcross.jp/series/957d9214c3166
+  ダブルピース/読み切り:
+    verdict: completed
+    basis: チャンピオンクロスの作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。最初から一本で終わる読み切りとして公開されたもので、続きは予定されていない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://championcross.jp/series/b66656c873d76
+  海は荒れども、風は吹く/読み切り:
+    verdict: completed
+    basis: チャンピオンクロスの作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。最初から一本で終わる読み切りとして公開されたもので、続きは予定されていない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://championcross.jp/series/701179c397505
+  吸えない吸血鬼の蔵書票/読み切り:
+    verdict: completed
+    basis: チャンピオンクロスの作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。最初から一本で終わる読み切りとして公開されたもので、続きは予定されていない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://championcross.jp/series/b0028823615fa
+  ガラスノキック/読み切り:
+    verdict: completed
+    basis: チャンピオンクロスの作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。最初から一本で終わる読み切りとして公開されたもので、続きは予定されていない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://championcross.jp/series/e7725cd6cc1a4
+  隣人/読み切り:
+    verdict: completed
+    basis: ヤンチャンWeb（ヤングチャンピオン）の作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://youngchampion.jp/series/f82a97494ac07
+  ランチメイト症候群(スピリッツ賞・奨励賞):
+    verdict: completed
+    basis: ビッコミの作品ページ自身のJSONに "status":"読み切り" とある。新人賞の入選作として一回きり掲載されたもので、続きは予定されていない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://bigcomics.jp/series/a40dfbeee9e5b
+  恋は族車に乗って(ヤングスペリオール新人賞・佳作):
+    verdict: completed
+    basis: ビッコミの作品ページ自身のJSONに "status":"読み切り" とある。新人賞の入選作として一回きり掲載されたもので、続きは予定されていない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://bigcomics.jp/series/70aa2bf74a1ec
+  白けた夜(ヤングスペリオール新人賞・佳作):
+    verdict: completed
+    basis: ビッコミの作品ページ自身のJSONに "status":"読み切り" とある。新人賞の入選作として一回きり掲載されたもので、続きは予定されていない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://bigcomics.jp/series/c0dcac7a0fd15
+  おカネしか勝たん(第94回新人コミック大賞・佳作):
+    verdict: completed
+    basis: ビッコミの作品ページ自身のJSONに "status":"読み切り" とある。新人賞の入選作として一回きり掲載されたもので、続きは予定されていない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://bigcomics.jp/series/b202bac863b25
+  Where I Belong(第96回新人コミック大賞・佳作):
+    verdict: completed
+    basis: ビッコミの作品ページ自身のJSONに "status":"読み切り" とある。新人賞の入選作として一回きり掲載されたもので、続きは予定されていない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://bigcomics.jp/series/31b64c99f600f
+  殺し屋メイドは茨姫の夢を見る:
+    verdict: completed
+    basis: ライコミの作品ページ自身のJSONに "status":"読み切り" とある。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comicride.jp/series/b59a539f01669
+  紡ぐ乙女と大正の月:
+    verdict: completed
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧で、最新の2話が「最終話［上］」「最終話［下］」と名付けられている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-fuz.com/manga/1964
+  ほうかご再テンセイ！:
+    verdict: completed
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧で、最新の2話が「ep.final（１）」「ep.final（２）」と名付けられている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-fuz.com/manga/2979
+  アネモネは熱を帯びる:
+    verdict: completed
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧で、最新の2話が「Final episode(1)」「Final episode(2)」と名付けられている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-fuz.com/manga/2430
+  飛野さんのバカ:
+    verdict: completed
+    basis: GANMA!の作品ページ自身のJSON-LDに distributionLabel:"完結" とあり、画面にも「完結 badge」が表示される。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://ganma.jp/hinosannobaka
+  両片想いな双子姉妹:
+    verdict: continuing
+    basis: カドコミの作品ページ自身のAPIデータに "serializationStatus":"ongoing" とある。更新が止まって見えても、掲載元は連載中の扱いのままにしている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-walker.com/detail/KC_000549_S
+  ゾンビ姫に抱っこ！【タテスク】:
+    verdict: continuing
+    basis: カドコミの作品ページ自身のAPIデータに "serializationStatus":"ongoing" とある。更新が止まって見えても、掲載元は連載中の扱いのままにしている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-walker.com/detail/KC_004473_S
+  リリィ・リリィ・ラ・ラ・ランド:
+    verdict: continuing
+    basis: カドコミの作品ページ自身のAPIデータに "serializationStatus":"ongoing" とある。更新が止まって見えても、掲載元は連載中の扱いのままにしている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-walker.com/detail/KC_001234_S
+  平民の私ですが公爵令嬢様をたぶらかして生きています:
+    verdict: continuing
+    basis: カドコミの作品ページ自身のAPIデータに "serializationStatus":"ongoing" とある。更新が止まって見えても、掲載元は連載中の扱いのままにしている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-walker.com/detail/KC_005892_S
+  ゆり×こちょ！:
+    verdict: continuing
+    basis: カドコミの作品ページ自身のAPIデータに "serializationStatus":"ongoing" とある。更新が止まって見えても、掲載元は連載中の扱いのままにしている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-walker.com/detail/KC_006549_S
+  蝶と帝国:
+    verdict: continuing
+    basis: カドコミの作品ページ自身のAPIデータに "serializationStatus":"ongoing" とある。更新が止まって見えても、掲載元は連載中の扱いのままにしている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-walker.com/detail/KC_002168_S
+  カフェーリリーの窓辺にて:
+    verdict: completed
+    basis: カドコミの作品ページに「読切」バッジが付いている。最初から一本で終わる読み切りとして公開された。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-walker.com/detail/KC_003916_S
+  ネコ様の言うとおり:
+    verdict: completed
+    basis: カドコミの作品ページに「読切」バッジが付いている。最初から一本で終わる読み切りとして公開された。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-walker.com/detail/KC_005452_S
+  剣道娘は異世界でも斬り結ぶ【タテスク】:
+    verdict: unsettled
+    basis: カドコミの作品ページを見たが、serializationStatusは"unknown"で、読切バッジも完結を示す表示もない。
+    reviewed: '2026-08-04'
+  リリーズ【タテスク】:
+    verdict: unsettled
+    basis: カドコミの作品ページを見たが、serializationStatusは"unknown"で、読切バッジも完結を示す表示もない。
+    reviewed: '2026-08-04'
+  白月光プロジェクト～あの時の彼女を取り戻す～【タテスク】:
+    verdict: unsettled
+    basis: カドコミの作品ページを見たが、serializationStatusは"unknown"で、読切バッジも完結を示す表示もない。
+    reviewed: '2026-08-04'
+  修羅の箱庭:
+    verdict: unsettled
+    basis: カドコミの作品ページを見たが、serializationStatusは"unknown"で、読切バッジも完結を示す表示もない。
+    reviewed: '2026-08-04'
+  三角形の壊し方:
+    verdict: unsettled
+    basis: ダ・ヴィンチニュースの紹介記事を読んだが、連載の完結に触れる記述はない。カドコミ側のページはこの作品では確認できていない。
+    reviewed: '2026-08-04'
+  相席いいですか?:
+    verdict: completed
+    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://tonarinoyj.jp/episode/14079602755399113146
+  ラブライブ!flowers*ー蓮ノ空女学院スクールアイドルクラブー:
+    verdict: completed
+    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://tonarinoyj.jp/episode/14079602755582006280
+  【今日の10ページ】世界の終わりにエロ本と先生と。:
+    verdict: completed
+    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://magcomi.com/episode/2550689798372256224
+  【今日の10ページ】お前なんか拾わなければよかった:
+    verdict: completed
+    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://magcomi.com/episode/2550689798450194685
+  【今日の10ページ】Mock Love:
+    verdict: completed
+    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://magcomi.com/episode/2550689798539255616
+  【今日の10ページ】田内梢と着付けについて:
+    verdict: completed
+    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://magcomi.com/episode/2550689798875666937
+  【今日の10ページ】BREAD NEW DAY:
+    verdict: completed
+    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://magcomi.com/episode/2550912964518979930
+  【今日の10ページ】サウナに閉じ込められた二人:
+    verdict: completed
+    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://magcomi.com/episode/2550912965753560009
+  【今日の10ページ】ちゅーしたらどんなお願いも叶えてくれるお稲荷様のハレちゃん:
+    verdict: completed
+    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://magcomi.com/episode/2550912965753560014
+  ヒトゴトですから!:
+    verdict: completed
+    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://feelweb.jp/episode/3269754496401056068
+  月とすっぴん:
+    verdict: completed
+    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://feelweb.jp/episode/3269754496401056101
+  まとう君、ほころぶ私:
+    verdict: completed
+    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://feelweb.jp/episode/2550689798763776115
+  100日後に×××する女社長と新入社員:
+    verdict: completed
+    basis: 少年ジャンプ+の最新話ページ自体が「[連載終了のお知らせ]」という表題で、説明文にも「＜完結済み＞」とある。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://shonenjumpplus.com/episode/4856001361115849222
+  スケバンと転校生:
+    verdict: completed
+    basis: webアクションの話数フィードで「最終回 かわいい言葉を言って！」の回があり、そのあとの回は「特別編」という番外編になっている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-action.com/episode/2550912964773195333
+  夜のクラゲは泳げない:
+    verdict: completed
+    basis: コミックDAYSの話数フィードに「最終話　これからの４人（後編）」の回があり、直前の「これからの４人（前編）」の続きとして本編を締めくくっている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-days.com/episode/2550912964975167551
+  彩香ちゃんは弘子先輩に恋してる:
+    verdict: completed
+    basis: webアクションの話数フィードに「最終話」の回があり、そのあとは「特別編」が断続的に追加されているだけである。本編は最終話で終わっている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-action.com/episode/2550912966035871884
+  たとえとどかぬ糸だとしても:
+    verdict: completed
+    basis: コミックDAYSの話数フィードに「最終話（１）」「最終話（２）」の回が含まれている。既刊の紙のコミックをまとめて配信したもので、最後まで含めて公開されている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-days.com/episode/3269754496321225448
+  割り切った関係ですから。:
+    verdict: completed
+    basis: コミックDAYSの話数フィードで、最新の回が「エピローグ」と題されている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-days.com/episode/3269754496560050237
+  あの子は優しすぎる。:
+    verdict: completed
+    basis: COMIC OGYAAA!!の話数フィードは「前編」「後編」の2話のみで構成されており、両方そろっている。前編だけで後編を欠く他作品とは違い、この2話で完結する構成である。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://comic-ogyaaa.com/episode/2550912964509398509
+  死の天使は涙を流す/ジャンプTOON新創刊記念出張掲載:
+    verdict: completed
+    basis: 少年ジャンプ+の全4話がいずれも「ジャンプTOON新創刊記念出張掲載」という肩書き付きで、雑誌創刊記念の一回限りの出張掲載として公開された。このような企画掲載は元々その回数で区切られており、続きが予定される性質のものではない。
+    source_kind: derived
+    reviewed: '2026-08-04'
+  やきゅうみようよ!:
+    verdict: unsettled
+    basis: サンデーうぇぶりの話数フィードを見ると、唯一の話が「前編」と題されている。後編にあたる回はフィードに存在せず、完結を示す語もない。
+    reviewed: '2026-08-04'
+  岐阜の善き魔女:
+    verdict: unsettled
+    basis: MAGCOMIの話数フィードを見ると、唯一の話は「7ページ連載予告マンガ」であり、本編ではなく連載の予告漫画である。
+    reviewed: '2026-08-04'
+  ガンバレッド×シスターズ:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  その恋よきにはからえ!:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  愛されてもいいんだよ:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  今日、小柴葵に会えたら。:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  ワケあって社長令嬢に拾われました:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  全部君のせいだ:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  殺し屋やめたい!:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  ハナちゃん匂いかがせて:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  大好きな親友がVチューバーの自分にガチ恋してた話:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  SAL:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  魔女の孫と七人のメイド:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  ベイビー車中ハッカーズ:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  アウトサイダーパラダイス:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  瀬戸さんを笑わせたい紬ちゃん:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  最果てのセレナード:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  JSさんとOLちゃん:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  サバーキ:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  欠けた月とドーナッツ:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  セメルパルス semelparous:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  ハロー、メランコリック!:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  おそとごはんをご一緒に:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  2DK、Gペン、目覚まし時計。:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  君と綴るうたかた:
+    verdict: unsettled
+    basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  クズ浪人生、人生が辛いので夜のお姉さんを呼んでみた:
+    verdict: unsettled
+    basis: GANMA!の作品ページを見たが、飛野さんのバカにあった「完結 badge」はなく、distributionLabelは「隔週 月曜日更新」のまま残っている。GANMA!自体が更新を止めた（更新終了）ことと、この作品自体が完結したことは別の話で、後者を示す表示は見当たらない。
+    reviewed: '2026-08-04'
+  将来的に死んでくれ:
+    verdict: continuing
+    basis: マガポケの同じURLを開くと、ページ自体のタイトルが「第42話」になっている。手元で把握している10話をはるかに超えて配信が続いている。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://pocket.shonenmagazine.com/title/00195/episode/296085
+  マルジナルテイラ:
+    verdict: unsettled
+    basis: ヤンマガWebのページを見たが、他話への一覧や完結を示す表示は確認できず、キャッシュにある1話分のページだけでは判断できない。
+    reviewed: '2026-08-04'
+  年下の先輩:
+    verdict: unsettled
+    basis: ヤンマガWebのページを見たが、他話への一覧や完結を示す表示は確認できず、キャッシュにある1話分のページだけでは判断できない。
+    reviewed: '2026-08-04'
+  すぐ泣く先輩:
+    verdict: unsettled
+    basis: ヤンマガWebのページを見たが、他話への一覧や完結を示す表示は確認できず、キャッシュにある1話分のページだけでは判断できない。
+    reviewed: '2026-08-04'
+  研究棟の真夜中ごはん:
+    verdict: unsettled
+    basis: ファイアCROSSのページで「完結」の語が3回出るが、いずれも「原作小説完結記念イラスト」であり、原作小説の完結を指すもので、この漫画自体の完結を示すものではない。
+    reviewed: '2026-08-04'
+  ナナシの転生:
+    verdict: unsettled
+    basis: ファイアCROSSのページを見たが、完結や連載終了を示す語はない。
+    reviewed: '2026-08-04'
+  プリンセ「ス」:
+    verdict: unsettled
+    basis: コミックノヴァのページを見たが、完結や連載終了を示す語はない。
+    reviewed: '2026-08-04'
+  猫魔法が世界に革命を起こすそうですよ?:
+    verdict: unsettled
+    basis: コミックノヴァのページを見たが、完結や連載終了を示す語はない。
+    reviewed: '2026-08-04'
+  ロイヤルテーラー ―王宮の裁縫師―:
+    verdict: unsettled
+    basis: ゼロサムオンラインのページを見たが、完結や連載終了を示す語はない。
+    reviewed: '2026-08-04'
+  宵子の肖像:
+    verdict: unsettled
+    basis: COMIC熱帯のページを見たが、完結や連載終了を示す語はない。
+    reviewed: '2026-08-04'
+  鬼売れアイドルが今日も私を推してくる:
+    verdict: unsettled
+    basis: マンガよもんがのページにある「公開終了」は各話の無料公開期限を示すテンプレート表示で、日付は空のままであり、連載の完結を示すものではない。
+    reviewed: '2026-08-04'
+  百合にはさまる男は死ねばいい!?:
+    verdict: unsettled
+    basis: ダ・ヴィンチニュースの紹介記事を読んだが、連載の完結に触れる記述はない。
+    reviewed: '2026-08-04'
+  レズっ娘クラブ ONE TiME ONLY:
+    verdict: completed
+    basis: マンガParkの作品ページで、著者名の下のタグ欄に押せない（unclickable）「完結」の丸ボタンが表示されている。/series や /all_chapters といったナビゲーションのリンクとは別で、この作品専用のステータス表示である。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://manga-park.com/title/70312
+  どっちにしろ、どつぼ:
+    verdict: completed
+    basis: マンガParkの作品ページで、著者名の下のタグ欄に押せない（unclickable）「完結」の丸ボタンが表示されている。/series や /all_chapters といったナビゲーションのリンクとは別で、この作品専用のステータス表示である。
+    source_kind: platform
+    reviewed: '2026-08-04'
+    source_url: https://manga-park.com/title/64859
+  女子校だからセーフ:
+    verdict: unsettled
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧を全話確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  伊勢さんと志摩さん:
+    verdict: unsettled
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧を全話確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  けいおん！Ｓｈｕｆｆｌｅ:
+    verdict: unsettled
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧を全話確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  推しVが教え子で私がママで！？:
+    verdict: unsettled
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧を全話確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  こはる日和。:
+    verdict: unsettled
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧を全話確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  夜と海:
+    verdict: unsettled
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧を全話確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  すわっぷ⇔すわっぷ:
+    verdict: unsettled
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧を全話確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  恋する小惑星（アステロイド）:
+    verdict: unsettled
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧を全話確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  最果てのともだち:
+    verdict: unsettled
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧を全話確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  コンカフェ嬢は恋を着る:
+    verdict: unsettled
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧を全話確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  ヲトメは義母に恋してる:
+    verdict: unsettled
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧を全話確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  姫と女勇者が結ばれるための12の聖行為:
+    verdict: unsettled
+    basis: COMIC FUZの作品ページに埋め込まれた話数一覧を全話確認したが、最終話や完結を示す語はどの回にもない。
+    reviewed: '2026-08-04'
+  私は君を泣かせたい:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  彩香ちゃんは弘子先輩を落としたい:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  悪魔のモカちゃん:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  角野兎はかわいい夢を見続ける?:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  幕末女子高生 鬼と夜明け:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  アラサー美女は地味女に餌付けされる:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  ぱりあんの園:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  声優ラジオのウラオモテ:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  不死犠コネクト:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  どうしようもなく辛かったよ:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  あなたが私を変えたから:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  親友に好きな人ができたらしい:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  ガチ恋カウント2.9:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  ギャル推しJKはギャルになりたい:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  私と彼女のかわいい恋のはじめ方:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  幼馴染BIGLOVE:
+    verdict: unsettled
+    basis: pixivコミックの公式作品API（works/v5）を確認したが、連載状況を示すフィールド自体が存在せず、話数一覧にも完結を示す話数名はない。
+    reviewed: '2026-08-04'
+  スクールゾーン:
+    verdict: unsettled
+    basis: pixivコミックの話数一覧で、最新の投稿が「読者の皆様にお知らせ」という告知回になっている。本文は画像のビューアでしか読めず内容を確認できていないが、通常の話数とは違う告知回で終わっている点は記録しておく。
+    reviewed: '2026-08-04'

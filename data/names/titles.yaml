@@ -4895,7 +4895,11 @@ names:
     reading_source: surface
     verified: true
   イトが搦ム:
-    basis: romaji
+    basis: translated
+    en: The Thread Ensnares
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - イトが
       - null
@@ -4903,8 +4907,8 @@ names:
       - からみ
     - - ム
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 搦む is a heavier, more ensnaring word for tangling than the everyday 絡む; the protagonist's own
+      name, 糸井, opens with 糸, thread, so the title reads as a pun on her rather than a generic warning.
     reading: イト ガ カラミム
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -4913,6 +4917,11 @@ names:
     reading_source_kind: analyser
     verified: false
   イヴとイヴたち:
+    basis: translated
+    en: Eve and the Eves
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: イヴトイヴタチ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4920,7 +4929,11 @@ names:
     reading_source: surface
     verified: true
   ウは宇宙ヤバイのウ!:
-    basis: romaji
+    basis: translated
+    en: U Is for "Space Is Crazy," U!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ウは
       - null
@@ -4928,8 +4941,8 @@ names:
       - うちゅう
     - - ヤバイのウ!
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Mimics the alphabet-primer joke format, where a letter gets a sample phrase built around it;
+      kept that shape rather than smoothing it into a plain sentence.
     reading: ウ ワ ウチュウ ヤバイ ノ ウ !
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -4950,6 +4963,14 @@ names:
     reading_source: surface
     verified: true
   ウチらのっぺらぼう:
+    basis: translated
+    en: We're Faceless Ghosts
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: のっぺらぼう is the specific yokai with no face, not a generic word for facelessness; kept its usual
+      English gloss, faceless ghost, rather than the loanword, since the synopsis wasn't reachable to
+      tell whether the folklore creature itself is meant literally.
     reading: ウチラノッペラボウ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4978,6 +4999,11 @@ names:
     reading_source_kind: analyser
     verified: false
   エクストリームスーパーダーリン:
+    basis: translated
+    en: Extreme Super Darling
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: エクストリームスーパーダーリン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4985,6 +5011,11 @@ names:
     reading_source: surface
     verified: true
   エクソシストエンジェル:
+    basis: translated
+    en: Exorcist Angel
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: エクソシストエンジェル
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4992,7 +5023,11 @@ names:
     reading_source: surface
     verified: true
   エリオと電気人形:
-    basis: romaji
+    basis: translated
+    en: Erio and the Electric Doll
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - エリオと
       - null
@@ -5010,12 +5045,16 @@ names:
     reading_source_kind: analyser
     verified: false
   エルフとひとつ屋根の下:
-    basis: romaji
-    en: Elf to Hitotsu Yane no Shita
-    en_at: '2026-08-02'
+    basis: translated
+    en: Under One Roof with an Elf
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Elf to Hitotsu Yane no Shita
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/eaqr5n7/elf-to-hitotsu-yane-no-shita
     furigana_spans:
     - - エルフとひとつ
@@ -5036,6 +5075,11 @@ names:
     reading_source_kind: analyser
     verified: false
   エンパシー:
+    basis: translated
+    en: Empathy
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: エンパシー
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5070,7 +5114,11 @@ names:
     reading_source: surface
     verified: true
   オカ研とエスパーと:
-    basis: romaji
+    basis: translated
+    en: The Occult Club and an Esper
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - オカ
       - null
@@ -5088,12 +5136,16 @@ names:
     reading_source_kind: analyser
     verified: false
   オタクには人生を積むことしかできない:
-    basis: romaji
-    en: Otaku ni wa Jinsei wo Tsumu Koto Shika Dekinai
-    en_at: '2026-08-02'
+    basis: translated
+    en: All an Otaku Can Do Is Stack Up Lives
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Otaku ni wa Jinsei wo Tsumu Koto Shika Dekinai
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/nxhr795/otaku-ni-wa-jinsei-wo-tsumu-koto-shika-dekinai
     furigana_spans:
     - - オタクには
@@ -5106,6 +5158,9 @@ names:
       - つ
     - - むことしかできない
       - null
+    note: 積む, to stack or pile up, is not the ordinary verb for living a life; the synopsis uses the same
+      word directly for repeatedly rewinding to save an idol who's fallen on hard times, so the title's
+      phrasing is doing the same odd, deliberate thing.
     reading: オタク ニ ワ ジンセイ ウォ ツム コト シカ デキナイ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -5114,7 +5169,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/nxhr795/otaku-ni-wa-jinsei-wo-tsumu-koto-shika-dekinai
     verified: false
   オタクサキュバスの才能がありすぎる！:
-    basis: romaji
+    basis: translated
+    en: The Otaku Succubus Has Too Much Talent!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - オタクサキュバスの
       - null
@@ -5139,7 +5198,11 @@ names:
     reading_source: surface
     verified: true
   オトメの帝国:
-    basis: romaji
+    basis: translated
+    en: The Maiden Empire
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - オトメの
       - null
@@ -5155,12 +5218,15 @@ names:
     reading_source_kind: analyser
     verified: false
   オフィスのつづきはリビングで【タテスク】:
-    basis: romaji
+    basis: translated
+    en: The Office Continues in the Living Room
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - オフィスのつづきはリビングで【タテスク】
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 【タテスク】 marks the vertical-scroll edition; dropped as with the other 【タテスク】 titles this run.
     reading: オフィス ノ ツヅキ ワ リビング デ 【タテスク】
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -5169,12 +5235,16 @@ names:
     reading_source_kind: analyser
     verified: false
   オンニって呼んでもいいですか？:
-    basis: romaji
-    en: Unnie tte Yonde Mo Ii desu ka?
-    en_at: '2026-08-02'
+    basis: translated
+    en: Can I Call You Onni?
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Unnie tte Yonde Mo Ii desu ka?
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/q5hurdv/unnie-tte-yonde-mo-ii-desu-ka
     furigana_spans:
     - - オンニって
@@ -5183,8 +5253,8 @@ names:
       - よ
     - - んでもいいですか？
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: オンニ is Korean, 언니, a younger woman's term for an older female friend; kept as onni rather than
+      translated to "big sister," matching the K-pop fandom setting the synopsis is built around.
     reading: オンニ ッテ ヨンデ モ イイデス カ？
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -5193,7 +5263,11 @@ names:
     reading_source_kind: analyser
     verified: false
   オートクチュールの果たし状/読み切り:
-    basis: romaji
+    basis: translated
+    en: A Haute Couture Duel Challenge
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - オートクチュールの
       - null
@@ -5213,8 +5287,8 @@ names:
       - き
     - - り
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The suffix is Champion Cross's own oneshot marker, present in the page's own title tag; dropped
+      as promotional framing rather than part of the title.
     reading: オートクチュール ノ ハタシジョウ / ヨミキリ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -5223,7 +5297,11 @@ names:
     reading_source_kind: analyser
     verified: false
   カウントダウンは10から数える:
-    basis: romaji
+    basis: translated
+    en: The Countdown Starts from Ten
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - カウントダウンは10から
       - null
@@ -5273,7 +5351,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/3to8wh6/kanaria-wa-kiraboshi-no-yume-wo-miru
     verified: false
   カフェーリリーの窓辺にて:
-    basis: romaji
+    basis: translated
+    en: By the Window of Café Lily
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - カフェーリリーの
       - null

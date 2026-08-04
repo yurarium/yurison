@@ -90,6 +90,33 @@ def main(s):
     s.check(kana.align("「触れたい」は恋の始まり", "「フレタイ」ワコイノハジマリ"),
             "and one that keeps them is matched as written")
 
+    # THREE MORE WAYS THE SAME CHARACTER IS WRITTEN ONE WAY AND READ ANOTHER, each of which cost
+    # a whole title its furigana.
+    s.check(kana.align("ゆりづくしの教室で", "ユリズクシノキョウシツデ"),
+            "四つ仮名: づ and ず are one sound, and a reading records the sound")
+    s.check(kana.align("アラサー美女は地味女に餌付けされる", "アラサアビジョワジミオンナニエズケサレル"),
+            "a long vowel written ー and spelled out as a vowel are the same reading")
+    s.check(kana.align("阿佐ヶ谷サキュバス同人物語", "アサガヤサキュバスドウニンモノガタリ"),
+            "ヶ in a place name is read が, not as a small ケ")
+    s.check(kana.align("竹ヶ原", "タケガハラ") and kana.align("竹ヶ原", "タケカハラ"),
+            "and it takes either voicing, because both occur in real names")
+
+    # A CHARACTER NOBODY CAN SEE. Three titles are stored with げ written as け followed by
+    # U+3099 COMBINING VOICED SOUND MARK. The mark is not kana, so it fell out of every comparison
+    # and left the surface one character longer than its reading, and the title lost its furigana.
+    s.check(kana.align("銀玉の価値を上\u3051\u3099る方法", "ギンダマノカチヲアゲルホウホウ"),
+            "a decomposed kana aligns the same as the composed one it renders as")
+
+    # THE COMPARISON IS ASYMMETRIC AND ITS CALLERS MUST KNOW IT. A surface は may sound like わ;
+    # a surface わ is never written は. Passing reading and surface the wrong way round rejected
+    # correct ruby on three titles while the alignment that produced it was right.
+    spans = kana.align("あの子は優しすぎる。", "アノコワヤサシスギル。")
+    s.check(kana.ruby_spells(spans, "アノコワヤサシスギル。"),
+            "ruby carrying the surface's は spells a reading that records ワ")
+    s.check(kana.ruby_spells(kana.align("阿佐ヶ谷サキュバス同人物語", "アサガヤサキュバスドウニンモノガタリ"),
+                             "アサガヤサキュバスドウニンモノガタリ"),
+            "and ruby over ヶ spells a reading that records ガ")
+
     # THE COUNTER-CASE. The substitution must not invent an alignment: a reading that genuinely
     # does not spell the surface still fails, because ruby over the wrong character is the thing
     # this whole function is careful about.
@@ -97,6 +124,10 @@ def main(s):
          "a reading that does not spell the surface is still refused")
     s.eq(kana.align("あの子は優しすぎる。", "アノコワゼンゼンチガウ"), None,
          "and a partial match past the anchor does not carry it")
+    s.eq(kana.align("ゆりづくしの教室で", "ユリズクシノキョウシツ"), None,
+         "a reading missing the end of the title is still refused")
+    s.eq(kana.align("アラサー美女", "アラサイビジョ"), None,
+         "and ー stands for the vowel it lengthens, not for any vowel")
 
 
 if __name__ == "__main__":

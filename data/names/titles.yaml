@@ -2068,11 +2068,16 @@ names:
     en_url: https://www.mangaupdates.com/series/otyofae/onee-sama-to-kyojin
     note: お姉さま, oneesama, is the bond-term the two leads use for each other directly in the synopsis,
       not a family relation; kept as the address term rather than translated to "big sister."
-    reading: オネエ サマ ト キョジン
-    reading_at: '2026-08-02'
-    reading_basis: back-converted
+    reading: オネエサマ ト キョジン ～ オジョウサマ ガ イセカイ テンセイ ～
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: back-converted
+      source: mangaupdates
+      value: オネエ サマ ト キョジン
     reading_pass: 2
-    reading_source: mangaupdates
+    reading_source: derived
+    reading_source_kind: derived
     reading_url: https://www.mangaupdates.com/series/otyofae/onee-sama-to-kyojin
     verified: false
   お姉さまと巨人 ～お嬢さまが異世界転生～:
@@ -5412,7 +5417,12 @@ names:
     note: Cited to the distributor's catalogue entry, which names Seven Seas as publisher and the Musshu
       manga rather than the Mikami Teren novels. sevenseasentertainment.com refuses automated fetches,
       so its own page could not be read.
-    verified: true
+    reading: ワタシ ガ コイビト ニ ナレル ワケ ナイ ジャン、 ムリムリ !(※ ムリ ジャ ナカッタ !?)
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_source: derived
+    reading_source_kind: derived
+    verified: false
   わたしたちの終わりと:
     basis: romaji
     en: Watashitachi no Owari to
@@ -6359,12 +6369,16 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ガイド ヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウ ジュツシ ニ ナリマシタ   ～ ゲキカワゴスロリ マジンサマ、 サイコー ! ～
+    reading: ガイドヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ ～ ゲキカワ ゴスロリ マジンサマ、 サイコー !～
     reading_at: '2026-08-04'
-    reading_basis: analyser
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ガイド ヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウ ジュツシ ニ ナリマシタ   ～ ゲキカワゴスロリ マジンサマ、 サイコー ! ～
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   ガイド役の天使を殴り倒したら、死霊術師になりました　～激カワゴスロリ魔神様、サイコー！～:
     basis: translated
@@ -6373,6 +6387,11 @@ names:
     en_at: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
+    reading: ガイドヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ ～ ゲキカワ ゴスロリ マジンサマ、 サイコー !～
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   ガチ恋やめて:
     basis: translated
@@ -7947,6 +7966,11 @@ names:
     en_source: yurarium
     en_source_kind: derived
     note: サキ is the character's name and also 先, further ahead, which the Japanese sets against ミライ.
+    reading: タイムトラベル ショウジョ ～ ミライ ノ サキ ～
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   タコと天使たち:
     basis: translated
@@ -15482,34 +15506,26 @@ names:
     en_source_kind: derived
     note: The bracket is the punchline and stays bracketed. 女友達 is spaced as girl friend because girlfriend
       is the thing she is not, yet.
+    reading: カレシ ノ オンナトモダチ ガ グイグイ クル ( ワタシ ニ )
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   彼氏の女友達がぐいぐい来る（私に）:
     basis: romaji
-    furigana_spans:
-    - - 彼氏
-      - かれし
-    - - の
-      - null
-    - - 女友達
-      - おんなともだち
-    - - がぐいぐい
-      - null
-    - - 来
-      - く
-    - - る（
-      - null
-    - - 私
-      - わたし
-    - - に）
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カレシ ノ オンナトモダチ ガ グイグイ クル （ワタシ ニ）
+    reading: カレシ ノ オンナトモダチ ガ グイグイ クル ( ワタシ ニ )
     reading_at: '2026-08-04'
-    reading_basis: analyser
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カレシ ノ オンナトモダチ ガ グイグイ クル （ワタシ ニ）
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   徒然日和:
     basis: translated
@@ -15721,12 +15737,16 @@ names:
     en_source: yurarium
     en_source_kind: derived
     note: ラスボス is glossed over 悪役令嬢, so the two are one thing rather than two.
-    reading: ネンガン ノ アクヤク レイジョウ ノ カラダ ヲ テ ニ イレタ ゾ !
+    reading: ネンガン ノ アクヤク レイジョウ ( ラスボス ) ノ カラダ ヲ テ ニ イレタ ゾ !
     reading_at: '2026-08-04'
-    reading_basis: analyser
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ネンガン ノ アクヤク レイジョウ ノ カラダ ヲ テ ニ イレタ ゾ !
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   念願の悪役令嬢の身体を手に入れたぞ!:
     basis: translated
@@ -16745,6 +16765,11 @@ names:
     en_source_kind: derived
     note: 押しかけ女房 is a woman who moves in and declares herself your wife, which is a set phrase rather
       than a description.
+    reading: オシカケ ニョウボウ、 コドモ ツキ !
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   押してダメなら描いてみろ:
     basis: romaji
@@ -18168,6 +18193,11 @@ names:
     en_source: yurarium
     en_source_kind: derived
     note: カンパネラ is the little bell, and the school is a mission school.
+    reading: モモイロ カンパネラ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   桜の世界:
     basis: romaji
@@ -23028,23 +23058,18 @@ names:
     en_source: wikidata
     en_source_kind: community-db
     en_url: http://www.wikidata.org/entity/Q140734119
-    furigana_spans:
-    - - 見
-      - み
-    - - 'えてますよ! '
-      - null
-    - - 愛沢
-      - あいざわ
-    - - さん
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミエテマス ヨ !   アイザワサン
+    reading: ミエテマス ヨ ! アイザワサン
     reading_at: '2026-08-04'
-    reading_basis: analyser
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ミエテマス ヨ !   アイザワサン
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   見えてますよ！愛沢さん:
     basis: translated
@@ -23054,6 +23079,11 @@ names:
     en_source_kind: derived
     note: '見えてます looks like the joke about something showing, and the synopsis settles it: the protagonist
       sees ghosts and has spent years pretending she cannot.'
+    reading: ミエテマス ヨ ! アイザワサン
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   親友に好きな人ができたらしい:
     basis: translated
@@ -24611,6 +24641,11 @@ names:
     en_source_kind: derived
     note: 魔女 and まじょ are the same word twice, and S-WITCH turns witch into switch, which English does
       unaided.
+    reading: マジョ マジョ S-WITCH
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   魔女ケイリーのポーション店:
     basis: translated

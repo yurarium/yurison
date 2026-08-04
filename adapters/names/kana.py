@@ -1,4 +1,5 @@
 import re
+import unicodedata
 #!/usr/bin/env python3
 """Kana as the stored form of a reading, and the three romanisation styles derived from it.
 
@@ -425,6 +426,31 @@ def romaji_to_kana(s):
 PARTICLE_SOUND = {"は": "わ", "へ": "え", "を": "お"}
 
 
+# 四つ仮名: ぢ and づ merged with じ and ず in speech, and a reading records the sound. ゆりづくし
+# reads ユリズクシ, so a comparison that keeps them apart rejects a correct reading.
+YOTSU = {"ぢ": "じ", "づ": "ず"}
+
+
+def _expand_choonpu(t):
+    """Replace ー with the vowel it lengthens, so アラサー and アラサア compare equal.
+
+    A reading may spell a long vowel either way and both are right. The surface keeps the bar
+    because that is how the title is written; the reading often spells the vowel out.
+    """
+    out = []
+    for c in t:
+        if c in "ーｰ" and out:
+            r = BASE.get(to_hiragana(out[-1])) or DIGRAPH.get(to_hiragana(out[-1])) or ""
+            out.append({"a": "あ", "i": "い", "u": "う", "e": "え", "o": "お"}.get(r[-1:], c))
+        else:
+            out.append(c)
+    return "".join(out)
+
+
+# ヶ in a place name is a genitive marker read か or が, not a small ケ: 阿佐ヶ谷 is アサガヤ.
+KE_SMALL = {"ヶ": ("か", "が"), "ケ": ("か", "が", "け")}
+
+
 def _anchor_eq(read, text):
     """Does this stretch of the reading spell this run of surface kana?
 
@@ -441,9 +467,35 @@ def _anchor_eq(read, text):
     title that fails to align gets no furigana at all, which is why one unmatched character costs
     the whole line.
     """
-    keep = lambda t: "".join(PARTICLE_SOUND.get(c, c) for c in to_hiragana(t)
-                             if is_kana(c))                                  # noqa: E731
-    return keep(read) == keep(text)
+    return _same_kana(read, text)
+
+
+def _kana_seq(t):
+    """The comparable kana of a string: composed, long vowels spelled out, ぢづ folded, the rest
+    dropped. Punctuation goes because a reading may or may not repeat the surface's."""
+    t = to_hiragana(_expand_choonpu(unicodedata.normalize("NFC", t or "")))
+    return [YOTSU.get(c, c) for c in t if is_kana(c)]
+
+
+def _same_kana(read, text):
+    """Does this stretch of reading spell this stretch of surface?
+
+    ONE DEFINITION, because four callers asked it and each had drifted. A surface writes は and a
+    reading records わ; ー and the vowel it lengthens are the same sound; ヶ in a place name is が.
+    Every one of those is the same kind of fact, that Japanese is written one way and read another,
+    and a comparison that knows some of them and not others calls correct furigana a contradiction.
+    """
+    a, b = _kana_seq(read), _kana_seq(text)
+    if len(a) != len(b):
+        return False
+    for x, y in zip(a, b):
+        if x == y or PARTICLE_SOUND.get(y) == x:
+            continue
+        alt = KE_SMALL.get(to_katakana(y))
+        if alt and x in alt:
+            continue
+        return False
+    return True
 
 
 def _kana_eq(a, b):
@@ -458,6 +510,12 @@ def align(surface, reading):
     """
     if not surface or not reading:
         return None
+    # COMPOSED, because a decomposed kana is a different string that looks identical. Three titles
+    # are stored with げ written け + U+3099 COMBINING VOICED SOUND MARK, and the combining mark is
+    # not kana, so it fell out of every comparison and left the run one character longer than its
+    # reading. 銀玉の価値を上げる方法 lost its furigana to a character nobody can see.
+    surface = unicodedata.normalize("NFC", surface)
+    reading = unicodedata.normalize("NFC", reading)
     if not any(not is_kana(c) and (c.isalnum() or "一" <= c <= "鿿") for c in surface):
         return [(surface, None)]                      # nothing to annotate
 
@@ -603,6 +661,6 @@ def ruby_spells(spans, reading):
     """
     if not spans or not reading:
         return False
-    got = "".join(x[1] or x[0] for x in spans)
-    keep = lambda t: "".join(PARTICLE_SOUND.get(c, c) for c in to_hiragana(t) if is_kana(c))
-    return keep(got) == keep(reading)
+    # Reading first, surface second. The rules are asymmetric: a SURFACE は may sound like わ, and
+    # not the other way round, so passing them the wrong way round rejects correct ruby.
+    return _same_kana(reading, "".join(x[1] or x[0] for x in spans))

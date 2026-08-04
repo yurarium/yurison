@@ -633,6 +633,20 @@ def load_names():
     def render(k_ja, rec, is_person=False):
         out = {}
         rd = rec.get("reading")
+        # FURIGANA OVER A PERSON'S NAME HAS TO REST ON SOMETHING. An analyser is at its weakest on
+        # pen names and it does not decline: 古川楊也 is stored ホシノ カツラ, which is a different
+        # person's name, and it was being printed over theirs. A title read wrongly is an error; a
+        # name read wrongly misnames somebody, so the two do not get the same benefit of the doubt.
+        #
+        # A reading a source states, or that a person researched and cited, gets furigana. A
+        # machine's guess does not, and nothing replaces it: the name renders as the Japanese it
+        # is, which is what a reader would see in print.
+        #
+        # The FURIGANA only. The romanisation stays, because it is a different claim in a different
+        # place: Latin letters beside a name are how a reader without Japanese finds the person at
+        # all, and a romanisation is labelled as ours already. Suppressing both took 400 author
+        # names out of English rendering entirely, which trades one wrong for a worse one.
+        _guessed_person = is_person and rec.get("reading_basis") in ("analyser", "back-converted")
         if rd:
             out["reading"] = rd
             # Furigana per KANJI RUN, not stacked over the whole title. pass 4 stores spans it
@@ -668,7 +682,7 @@ def load_names():
                     else:
                         _exp.append([_t, _x])
                 sp = _exp
-            if sp and any(x[1] for x in sp):
+            if sp and any(x[1] for x in sp) and not _guessed_person:
                 out["ruby"] = sp
             # Personal names take particles=False — と in a name is 都 or 斗, never the particle.
             # latinise here too. It was applied to `en` and not to the romanisations, so a title

@@ -53,6 +53,31 @@ def main(s):
     s.check(on is None or all(p4.is_kana_ch(c) or c in "ー・" for c in on),
             f"a Unihan reading is kana or absent, got {on!r}")
 
+    # THE FAILURE `fell_back` CANNOT SEE. Sudachi reports trouble only when it has no reading at
+    # all. With no entry for a compound it reads each character as its own token, and each reading
+    # is defensible alone: 葬焔 came back ソウ ホノオ, an on beside a kun, and nothing had failed so
+    # nothing was flagged. Both halves of the test are needed, because adjacent single-character
+    # tokens are ordinary: 100日後 is 日 + 後 reading ニチ ゴ, and there are 43 such pairs in the
+    # catalogue against 4 that mix kinds.
+    class FakeTok:
+        def __init__(self, pairs):
+            self.pairs = pairs
+
+        def tokenize(self, s, mode=None):
+            return [type("M", (), {"surface": (lambda self, v=a: v),
+                                   "reading_form": (lambda self, v=b: v)})()
+                    for a, b in self.pairs]
+
+    s.check(p4.unrecognised_compound(FakeTok([("葬", "ソウ"), ("焔", "ホノオ")]), "葬焔"),
+            "a compound split into an on reading and a kun reading is flagged")
+    s.check(not p4.unrecognised_compound(FakeTok([("日", "ニチ"), ("後", "ゴ")]), "日後"),
+            "two on readings side by side are how a compound normally reads")
+    s.check(not p4.unrecognised_compound(FakeTok([("職場", "ショクバ")]), "職場"),
+            "a 重箱 reading the analyser knows arrives whole and cannot be caught this way")
+    s.check(not p4.unrecognised_compound(FakeTok([("私", "ワタシ"), ("の", "ノ"), ("本", "ホン")]),
+                                         "私の本"),
+            "characters separated by a particle are not a compound")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "pass4_analyser"))

@@ -205,6 +205,55 @@ def _stands_for_itself(c):
     return unicodedata.category(c)[0] in "PZS" or c.isascii() or c in SELF_STANDING
 
 
+def _reading_kind(c, r):
+    """`on`, `kun`, or None for how this reading of this character is catalogued by Unihan."""
+    import kana as _k
+    on, kun = (_k._unihan().get(c) or ["", ""])[:2]
+
+    def variants(x):
+        x = _k.to_katakana((x or "").strip())
+        if not x:
+            return set()
+        out = {x}
+        if len(x) > 1:
+            out.add(x[:-1] + "ッ")                     # 促音便
+        head = _k.RENDAKU.get(x[0])
+        for v in ([head] if isinstance(head, str) else head or []):
+            out.add(v + x[1:])                         # 連濁
+        return out
+
+    r = _k.to_katakana(r or "")
+    if r in variants(on):
+        return "on"
+    if r in variants(kun):
+        return "kun"
+    return None
+
+
+def unrecognised_compound(tokenizer, s, mode=None):
+    """Did the analyser read a compound one character at a time, mixing an on and a kun reading?
+
+    The failure `fell_back` cannot see. Sudachi only reports trouble when it has no reading at all;
+    where it has no entry for a COMPOUND it quietly reads each character as its own token, and each
+    reading is defensible on its own. 葬焔 came back ソウ ホノオ, an on reading beside a kun one,
+    and the record carried no flag because nothing had failed.
+
+    Both halves of the test are needed. Adjacent single-character tokens are ordinary: 100日後 is
+    日 + 後 and reads ニチ ゴ correctly, and there are 43 such pairs against 4 that mix kinds. A
+    Sino-Japanese compound takes on readings throughout, so a compound the analyser split AND read
+    with one of each is the shape worth a person's attention. 職場 and お嬢様 are 重箱 and 湯桶
+    readings and cannot be caught this way, which is correct: the analyser knows them, so they
+    arrive as one token and are right.
+    """
+    import kana as _k
+    toks = [(m.surface(), m.reading_form()) for m in tokenizer.tokenize(s, mode)]
+    for (sa, ra), (sb, rb) in zip(toks, toks[1:]):
+        if len(sa) == 1 and len(sb) == 1 and _k.has_kanji(sa) and _k.has_kanji(sb):
+            if {_reading_kind(sa, ra), _reading_kind(sb, rb)} == {"on", "kun"}:
+                return True
+    return False
+
+
 def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
     """A reading for the whole string, or None if any part of it comes back unreadable.
 
@@ -316,7 +365,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int)
     ap.add_argument("--dry-run", action="store_true")
+    # RE-DERIVE WHAT THIS PASS ITSELF PRODUCED. Normally it only fills in a missing reading, so a
+    # fix to how it reads never reaches the records it already wrote. Only `analyser` readings are
+    # refreshed: a stated or researched one outranks this pass anyway, and the store would refuse
+    # the overwrite, so offering it would be noise.
+    ap.add_argument("--refresh", action="store_true",
+                    help="re-derive readings this pass produced, so a fix to it reaches them")
     a = ap.parse_args()
+    refresh = a.refresh
 
     try:
         from sudachipy import Dictionary
@@ -343,7 +399,9 @@ def main():
                 seen.add(r["author"].strip())
 
         todo = [s for s in sorted(seen)
-                if s and not (names.get(s) or {}).get("reading")
+                if s and (not (names.get(s) or {}).get("reading")
+                          or (refresh
+                              and (names.get(s) or {}).get("reading_basis") == "analyser"))
                 # A name already in Latin has nothing to read. Worse, the analyser does not
                 # decline — it reads the SPACE between the words as 記号, so "Sal Jiang" came back
                 # "サル キゴウ jiang". Asking a Japanese analyser to read English is our error, not
@@ -374,7 +432,7 @@ def main():
                         "reading_source_kind": "analyser",
                         # Never true. This is the labelled guess §5d permits, not a claim.
                         "verified": False})
-            if uncertain:
+            if uncertain or unrecognised_compound(tok, s, modes[0]):
                 rec["reading_uncertain"] = True
             rec.setdefault("basis", "romaji")
             rec["note"] = ("reading guessed by a morphological analyser, not stated by any source; "
@@ -489,7 +547,7 @@ def chapter_en(name, romanise_rest):
     return None
 
 
-def fill_missing(strings, kind, quiet=False):
+def fill_missing(strings, kind, quiet=False, refresh=False):
     """Give every string a reading if one can be found. Idempotent, offline, safe to call always.
 
     THIS IS THE AUTOPILOT. Everything else in this directory is a pass someone runs; this is the one
@@ -510,7 +568,8 @@ def fill_missing(strings, kind, quiet=False):
     doc = yaml.safe_load(f.read_text()) or {}
     names = doc.setdefault("names", {})
     todo = [s for s in strings
-            if s and not (names.get(s) or {}).get("reading")
+            if s and (not (names.get(s) or {}).get("reading")
+                      or (refresh and (names.get(s) or {}).get("reading_basis") == "analyser"))
             and has_japanese(s) and not (kind == "authors" and is_credit_line(s))]
     if not todo:
         return 0
@@ -530,7 +589,7 @@ def fill_missing(strings, kind, quiet=False):
         rec.update({"reading": r, "reading_at": today, "reading_basis": "analyser",
                     "reading_pass": 4, "reading_source": "sudachi",
                     "reading_source_kind": "analyser", "verified": False})
-        if uncertain:
+        if uncertain or unrecognised_compound(tok, s, modes[0]):
             rec["reading_uncertain"] = True
         rec.setdefault("basis", "romaji")
         rec["note"] = ("reading guessed by a morphological analyser, not stated by any source; "

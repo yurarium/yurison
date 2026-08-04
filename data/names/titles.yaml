@@ -1677,7 +1677,11 @@ names:
     reading_source_kind: analyser
     verified: false
   おそとごはんをご一緒に:
-    basis: romaji
+    basis: translated
+    en: Let's Share an Outdoor Meal Together
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - おそとごはんをご
       - null
@@ -1710,12 +1714,16 @@ names:
     reading_source: surface
     verified: true
   おとなになっても:
-    basis: romaji
-    en: Otona ni Natte mo (SHIMURA Takako)
-    en_at: '2026-08-02'
+    basis: translated
+    en: Even After Becoming an Adult
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Otona ni Natte mo (SHIMURA Takako)
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/z6nl2wk/otona-ni-natte-mo-shimura-takako
     reading: オトナニナッテモ
     reading_at: '2026-08-02'
@@ -1724,6 +1732,11 @@ names:
     reading_source: surface
     verified: true
   おぼろとまち:
+    basis: translated
+    en: Oboro and Machi
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: オボロトマチ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -1731,7 +1744,11 @@ names:
     reading_source: surface
     verified: true
   おもいあいノ石人間:
-    basis: romaji
+    basis: translated
+    en: The Stone Person of Mutual Love
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - おもいあいノ
       - null
@@ -1739,8 +1756,8 @@ names:
       - いし
     - - 人間
       - にんげん
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: おもいあい reads as 想い合い, feelings held for each other; kept the ノ as a stylized katakana の rather
+      than smoothing it into plain possessive grammar.
     reading: オモイ アイ ノ イシ ニンゲン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -1749,7 +1766,11 @@ names:
     reading_source_kind: analyser
     verified: false
   おカネしか勝たん(第94回新人コミック大賞・佳作):
-    basis: romaji
+    basis: translated
+    en: Nothing Beats Money
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - おカネしか
       - null
@@ -1775,8 +1796,8 @@ names:
       - かさく
     - - )
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The parenthetical is Big Comics' own award badge on the series listing; dropped as promotional
+      framing rather than part of the title, same handling as the other Big Comics badge titles this run.
     reading: オ カネ シカ カタン ( ダイ 94 カイ シンジン コミック タイショウ・ カサク )
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -1871,16 +1892,19 @@ names:
     reading_source_kind: analyser
     verified: false
   お姉さんは女子小学生に興味があります。:
-    basis: romaji
-    en: Onē-san wa Joshi Shōgakusei ni Kyōmi ga Arimasu.
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Onee-san Is Interested in Elementary School Girls.
+    en_at: '2026-08-04'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Onee-san wa Joshi Shougakusei ni Kyoumi ga arimasu.
+    - basis: romaji
+      source: wikidata
+      value: Onē-san wa Joshi Shōgakusei ni Kyōmi ga Arimasu.
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q65234284
     furigana_spans:
     - - お
@@ -1909,7 +1933,11 @@ names:
     reading_source_kind: analyser
     verified: false
   お嬢様、懺悔する。:
-    basis: romaji
+    basis: translated
+    en: The Young Lady Confesses.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - お
       - null
@@ -1931,7 +1959,11 @@ names:
     reading_source_kind: analyser
     verified: false
   お嬢様だってすね毛は生える:
-    basis: romaji
+    basis: translated
+    en: Even Young Ladies Grow Leg Hair
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - お
       - null
@@ -1957,7 +1989,11 @@ names:
     reading_source_kind: analyser
     verified: false
   お嬢様マッチングアプリ:
-    basis: romaji
+    basis: translated
+    en: The Young Lady's Matching App
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - お
       - null
@@ -1975,12 +2011,16 @@ names:
     reading_source_kind: analyser
     verified: false
   お菊さんはいちゃ憑きたい:
-    basis: romaji
-    en: Okiku-san wa Icha Tsukitai
-    en_at: '2026-08-02'
+    basis: translated
+    en: Okiku Wants to Get Cozy (and Haunt You)
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Okiku-san wa Icha Tsukitai
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/h86igq5/okiku-san-wa-icha-tsukitai
     furigana_spans:
     - - お
@@ -1993,6 +2033,9 @@ names:
       - つ
     - - きたい
       - null
+    note: 憑きたい, wanting to possess or haunt, is swapped in for 付きたい, the closing verb of いちゃつく, to get
+      cozy or canoodle; a natural pun for a ghost, since haunting and getting attached to someone are
+      the same verb here.
     reading: オキク サン ワ イチャ ツキタイ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -2001,7 +2044,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/h86igq5/okiku-san-wa-icha-tsukitai
     verified: false
   お葉花を愛でる:
-    basis: romaji
+    basis: translated
+    en: Doting on Kunika
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - お
       - null
@@ -2049,6 +2096,14 @@ names:
     reading_source_kind: analyser
     verified: false
   かけあうつきひ:
+    basis: translated
+    en: Trading Lines, Day by Day
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 掛け合い is the manzai term for the back-and-forth banter between two comedians, matching the synopsis's
+      pair of friends chasing a comedy career together; つきひ, days and months, also spells out from 月 and
+      陽/日, both leads' own names, run together.
     reading: カケアウツキヒ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2056,14 +2111,18 @@ names:
     reading_source: surface
     verified: true
   かたわれの女神:
-    basis: romaji
+    basis: translated
+    en: The Goddess Who Was My Other Half
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - かたわれの
       - null
     - - 女神
       - めがみ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 片割れ is the word for one half of a matched pair; the synopsis is finding a earring that used
+      to match one an ex-girlfriend wore, so the title's other half is literal before it's romantic.
     reading: カタワレ ノ メガミ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -2072,7 +2131,11 @@ names:
     reading_source_kind: analyser
     verified: false
   かっこいい彼女:
-    basis: romaji
+    basis: translated
+    en: My Cool Girlfriend
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - かっこいい
       - null
@@ -2095,7 +2158,11 @@ names:
     reading_source: surface
     verified: true
   かわいいのなにが悪いの？:
-    basis: romaji
+    basis: translated
+    en: What's Wrong with Being Cute?
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - かわいいのなにが
       - null
@@ -2113,7 +2180,11 @@ names:
     reading_source_kind: analyser
     verified: false
   かわいい同盟:
-    basis: romaji
+    basis: translated
+    en: The Cute Alliance
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - かわいい
       - null
@@ -2129,7 +2200,11 @@ names:
     reading_source_kind: analyser
     verified: false
   かわいい親友の落とし方:
-    basis: romaji
+    basis: translated
+    en: How to Win Over Your Cute Best Friend
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - かわいい
       - null
@@ -2153,7 +2228,11 @@ names:
     reading_source_kind: analyser
     verified: false
   かんかく/2024年7月期ブロンズルーキー賞:
-    basis: romaji
+    basis: translated
+    en: Sense
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - かんかく/2024
       - null
@@ -2169,8 +2248,10 @@ names:
       - null
     - - 賞
       - しょう
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The suffix is Shonen Jump+'s own contest badge, present in the page's own title tag; dropped
+      as promotional framing rather than part of the title. かんかく is written in kana, most likely 感覚, sense
+      or feeling, fitting a grief story about an ex-girlfriend showing up at a funeral, though nothing
+      confirms it over 間隔, interval.
     reading: カン カク / 2024 ネン 7 ガツ キ ブロンズ ルーキー ショウ
     reading_at: '2026-08-02'
     reading_basis: analyser

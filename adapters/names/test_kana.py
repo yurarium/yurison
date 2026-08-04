@@ -57,6 +57,24 @@ def main(s):
     s.check(bad is None or "".join(t for t, _ in bad) == "君の名は",
             "a mismatched reading does not corrupt the surface")
 
+    # JUKUGO-RUBY. Splitting a compound's reading across its characters, so じょう sits over 情
+    # rather than over 純情. Accepted only when it is certain, because a reading placed over the
+    # wrong character is worse than one placed over the whole word: the reader cannot tell.
+    s.eq(kana.jukugo_split("純情", "ジュンジョウ"), [("純", "ジュン"), ("情", "ジョウ")],
+         "a compound splits where each part is a reading of its character")
+    s.eq(kana.jukugo_split("学校", "ガッコウ"), [("学", "ガッ"), ("校", "コウ")],
+         "and 促音便 is a sound change, not a different word")
+    s.eq(kana.jukugo_split("雨夜", "アマヨ"), None,
+         "a split the table cannot support is declined rather than guessed")
+    s.eq(kana.jukugo_split("純", "ジュン"), None, "one character is already its own ruby")
+    s.eq(kana.jukugo_split("純情", ""), None, "and no reading splits into nothing")
+    # THE PROPERTY THAT MATTERS. Whatever comes back must still spell the reading, or the ruby
+    # contradicts the romanisation built from the same string.
+    for word, rd in (("純情", "ジュンジョウ"), ("悪役", "アクヤク"), ("令嬢", "レイジョウ")):
+        got = kana.jukugo_split(word, rd)
+        s.eq("".join(x[1] for x in got), rd, f"the split of {word} still spells its reading")
+        s.eq("".join(x[0] for x in got), word, f"and still spells {word}")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "kana"))

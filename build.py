@@ -651,6 +651,20 @@ def load_names():
                 got = _kana.align(k_ja, rd.replace(" ", ""))
                 if got:
                     sp = [[t, _kana.to_hiragana(x) if x else None] for t, x in got]
+            # JUKUGO-RUBY, where the split can be established. The layout rules distinguish a
+            # reading placed over a whole compound (group-ruby) from one where each character
+            # carries its own (jukugo-ruby), and prefer the latter: it puts じょう over 情 rather
+            # than over 純情, and it gives the line somewhere to break. Where the split cannot be
+            # worked out the run stays a group, which is the fallback the rules themselves name.
+            if sp:
+                _exp = []
+                for _t, _x in sp:
+                    _parts = _kana.jukugo_split(_t, _x) if _x and len(_t) > 1 else None
+                    if _parts:
+                        _exp.extend([[_c, _kana.to_hiragana(_r)] for _c, _r in _parts])
+                    else:
+                        _exp.append([_t, _x])
+                sp = _exp
             if sp and any(x[1] for x in sp):
                 out["ruby"] = sp
             # Personal names take particles=False — と in a name is 都 or 斗, never the particle.

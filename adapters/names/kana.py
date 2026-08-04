@@ -463,3 +463,85 @@ def align(surface, reading):
         return None
 
     return solve(0, 0)
+
+
+# Per-character readings, for splitting a compound's reading across its characters (jukugo-ruby).
+# One on-reading and one kun-reading each, which is thin: 純 is listed シュン and 純情 is ジュンジョウ.
+# So a split is never trusted on the table alone. It has to reconstruct the stored reading exactly,
+# and it has to be the only way of doing so.
+_UNIHAN = None
+
+# 連濁: the second element of a compound often voices its first consonant, 花火 ハナ+ヒ -> ハナビ.
+RENDAKU = {"カ": "ガ", "キ": "ギ", "ク": "グ", "ケ": "ゲ", "コ": "ゴ",
+           "サ": "ザ", "シ": "ジ", "ス": "ズ", "セ": "ゼ", "ソ": "ゾ",
+           "タ": "ダ", "チ": "ヂ", "ツ": "ヅ", "テ": "デ", "ト": "ド",
+           "ハ": ["バ", "パ"], "ヒ": ["ビ", "ピ"], "フ": ["ブ", "プ"],
+           "ヘ": ["ベ", "ペ"], "ホ": ["ボ", "ポ"]}
+
+
+def _unihan():
+    global _UNIHAN
+    if _UNIHAN is None:
+        import json
+        import pathlib
+        p = pathlib.Path(__file__).resolve().parents[2] / "data" / "names" / "unihan-on.json"
+        try:
+            _UNIHAN = (json.loads(p.read_text()) or {}).get("readings") or {}
+        except OSError:
+            _UNIHAN = {}
+    return _UNIHAN
+
+
+def char_readings(c):
+    """Every katakana reading one character might take here, including regular sound changes.
+
+    促音便 (the final mora becoming ッ before a voiceless consonant, 学校 ガク+コウ -> ガッコウ) and
+    連濁 are both included, because a compound that undergoes either is still the same two
+    characters and refusing it would just push a correct split into the fallback.
+    """
+    out = set()
+    for r in _unihan().get(c) or []:
+        r = to_katakana((r or "").strip())
+        if not r or not kana_only(r):
+            continue
+        out.add(r)
+        if len(r) > 1:
+            out.add(r[:-1] + "ッ")                      # 促音便
+        head = RENDAKU.get(r[0])
+        for v in ([head] if isinstance(head, str) else head or []):
+            out.add(v + r[1:])                          # 連濁
+    return out
+
+
+def jukugo_split(surface, reading):
+    """[(character, reading)] splitting one kanji run across its characters, or None.
+
+    None wherever the split is not certain: no partition found, or more than one. A wrong split is
+    worse than no split, because it puts a reading over a character it does not belong to and the
+    reader has no way to tell. Falling back leaves the run annotated as a group, which is what the
+    layout rules call for when the parts cannot be worked out.
+    """
+    surface, reading = surface or "", to_katakana(reading or "")
+    if len(surface) < 2 or not reading:
+        return None
+    cand = [char_readings(c) for c in surface]
+    if not all(cand):
+        return None
+
+    found = []
+
+    def walk(i, pos, acc):
+        if len(found) > 1:
+            return
+        if i == len(surface):
+            if pos == len(reading):
+                found.append(list(acc))
+            return
+        for r in cand[i]:
+            if reading.startswith(r, pos):
+                acc.append((surface[i], r))
+                walk(i + 1, pos + len(r), acc)
+                acc.pop()
+
+    walk(0, 0, [])
+    return found[0] if len(found) == 1 else None

@@ -12839,12 +12839,16 @@ names:
     reading_url: http://www.wikidata.org/entity/Q115118144
     verified: false
   彩香ちゃんは弘子先輩を落としたい:
-    basis: romaji
-    en: Ayaka-chan wa Hiroko-senpai ni Koishiteru
-    en_at: '2026-08-02'
+    basis: translated
+    en: Ayaka Wants to Make Senior Hiroko Fall for Her
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Ayaka-chan wa Hiroko-senpai ni Koishiteru
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q115118144
     furigana_spans:
     - - 彩香
@@ -12861,6 +12865,10 @@ names:
       - お
     - - としたい
       - null
+    note: 落とす here is the courtship sense, to win someone over; the same work is currently titled differently
+      on pixiv, 彩香ちゃんは弘子先輩に恋してる, "Ayaka is in love with Senior Hiroko", whose own synopsis confirms the
+      same pairing and plot, so this is a rename the catalogue has not caught up with rather than a different
+      work. Honorific dropped on the given name, senpai kept for the workplace senior.
     reading: アヤカ チャン ワ ヒロコ センパイ ニ コイシテル
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -12870,7 +12878,11 @@ names:
     reading_url: http://www.wikidata.org/entity/Q115118144
     verified: false
   影と花:
-    basis: romaji
+    basis: translated
+    en: Shadow and Flower
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 影
       - かげ
@@ -12878,8 +12890,9 @@ names:
       - null
     - - 花
       - はな
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is a boys-forbidden, all-girls boarding school deep in the mountains west of Tokyo
+      where, without exception, every student is a ninja; 影, shadow, for the ninja half, 花, flower, the
+      common figure for the girls themselves.
     reading: カゲ ト ハナ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -12888,7 +12901,11 @@ names:
     reading_source_kind: analyser
     verified: false
   彼なんかより、私のほうがいいでしょ？:
-    basis: romaji
+    basis: translated
+    en: I'm Better Than Some Guy, Aren't I?
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 彼
       - かれ
@@ -12898,8 +12915,8 @@ names:
       - わたし
     - - のほうがいいでしょ？
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is a girl who realises her childhood best friend has become more than a friend
+      to her only once that friend gets a boyfriend, and resolves to make her own claim first.
     reading: カレ ナンカ ヨリ、 ワタシ ノ ホウ ガ イイデショ？
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -12949,7 +12966,11 @@ names:
     reading_source_kind: analyser
     verified: false
   彼女の願い、私の望み:
-    basis: romaji
+    basis: translated
+    en: Her Wish, My Desire
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 彼女
       - かのじょ
@@ -12967,8 +12988,9 @@ names:
       - のぞ
     - - み
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: '願い and 望み are near-synonyms, kept as two different English words for the same reason the Japanese
+      uses two: to mark whose wish is whose. The synopsis is a woman visiting a late friend''s family
+      home to carry out the friend''s dying wish.'
     reading: カノジョ ノ ネガイ、 ワタシ ノ ノゾミ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -12977,7 +12999,11 @@ names:
     reading_source_kind: analyser
     verified: false
   彼女は悪魔:
-    basis: romaji
+    basis: translated
+    en: She Is a Devil
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 彼女
       - かのじょ
@@ -12985,8 +13011,8 @@ names:
       - null
     - - 悪魔
       - あくま
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A Young Jump newcomer-award runner-up entry with no synopsis beyond the award notice. Plain
+      declarative, nothing to protect.
     reading: カノジョ ワ アクマ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -13019,7 +13045,11 @@ names:
     reading_source_kind: analyser
     verified: false
   彼女は誰時:
-    basis: romaji
+    basis: translated
+    en: She Is Twilight
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 彼女
       - かのじょ
@@ -13029,8 +13059,10 @@ names:
       - だれ
     - - 時
       - とき
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 誰時, tasokare-doki, is the classical word for twilight, literally "who's-that time", the dim
+      light in which you cannot make out a face; 彼女, she, shares its own kanji 彼 with that phrase's older
+      form 誰そ彼. The synopsis is a woman worn down by unpaid overtime who buys a talking doll at a flea
+      market, and the ambiguity of what, or who, it really is.
     reading: カノジョ ワ ダレ トキ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -13076,14 +13108,19 @@ names:
     reading_source_kind: analyser
     verified: false
   徒然日和:
-    basis: romaji
+    basis: translated
+    en: An Idle Fine Day
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 徒然
       - つれづれ
     - - 日和
       - ひより
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 徒然, tsurezure, is idleness in the register of the Tsurezuregusa; 日和 is the same "a fine day
+      for X" construction as 晴れ晴れ日和 and 怨霊日和 elsewhere this evening. The synopsis is four rural high schoolers
+      somewhere between friends and lovers, where nothing much happens and that is the point.
     reading: ツレヅレ ヒヨリ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -13092,7 +13129,11 @@ names:
     reading_source_kind: analyser
     verified: false
   徒花の約束:
-    basis: romaji
+    basis: translated
+    en: The Promise of a Fruitless Flower
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 徒花
       - あだばな
@@ -13100,8 +13141,9 @@ names:
       - null
     - - 約束
       - やくそく
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 徒花, adabana, is the classical term for a flower that blooms without ever bearing fruit, the
+      traditional figure for a doomed or unfulfilled love. The synopsis is a girl rumoured to have a difficult
+      home life, gently drawn out of her suffocating days by the school's popular girl.
     reading: アダバナ ノ ヤクソク
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -13110,7 +13152,11 @@ names:
     reading_source_kind: analyser
     verified: false
   御羊ちゃんは触りたい:
-    basis: romaji
+    basis: translated
+    en: Little Miss Sheep Wants to Touch
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 御
       - お
@@ -13122,8 +13168,10 @@ names:
       - さわ
     - - りたい
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 御羊, Miss Sheep, does not obviously match either name in the synopsis, 愛依 or 兎子 (rabbit child);
+      kept literal rather than guessing which of them it names. The synopsis is secretly dating childhood
+      friends, one unable to stop fantasising about her cool girlfriend until she finally reaches for
+      her hand.
     reading: オ ヒツジチャン ワ サワリタイ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -13132,7 +13180,11 @@ names:
     reading_source_kind: analyser
     verified: false
   心に依りて:
-    basis: romaji
+    basis: translated
+    en: Relying on the Heart
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 心
       - こころ
@@ -13142,8 +13194,9 @@ names:
       - よ
     - - りて
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 依りて is the classical form of により, by means of; ヨリ, the servant who keeps caring for her late
+      master's android after his death, shares that word's sound with her own name, which the title is
+      very likely leaning on.
     reading: ココロ ニ ヨリテ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -13181,6 +13234,10 @@ names:
     verified: false
   志乃と恋:
     basis: romaji
+    en: Shino and Ren
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 志乃
       - しの
@@ -13188,17 +13245,28 @@ names:
       - null
     - - 恋
       - こい
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: シノ ト コイ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    note: The stored reading had 恋 as こい, love, the plain word; the platform's own page glosses it directly
+      as 恋(レン), the second girl's given name, which happens to be written with the kanji for love. Kept
+      romaji rather than translated, since "Shino and Ren" and "Shino and Love" are both real readings
+      the title is built to hold at once, and choosing either would drop the pun the deliberate ambiguity
+      is making.
+    reading: シノ ト レン
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シノ ト コイ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   志摩風さんのAクイック:
-    basis: romaji
+    basis: translated
+    en: Shimakaze's A-Quick
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 志摩
       - しま
@@ -13206,8 +13274,8 @@ names:
       - ふう
     - - さんのAクイック
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Aクイック, A-quick, is a standard volleyball attack technique, kept as the sport's own term rather
+      than translated; the tags confirm a sports setting. Honorific dropped, name kept.
     reading: シマフウサン ノ A クイック
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -13216,14 +13284,18 @@ names:
     reading_source_kind: analyser
     verified: false
   忘れないでね:
-    basis: romaji
+    basis: translated
+    en: Don't Forget Me, Okay?
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 忘
       - わす
     - - れないでね
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A Shinman Award entry with no synopsis beyond the author's other credits. Plain request, nothing
+      to protect.
     reading: ワスレナイデ ネ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -13232,14 +13304,19 @@ names:
     reading_source_kind: analyser
     verified: false
   忠犬ねーね:
-    basis: romaji
+    basis: translated
+    en: Loyal Dog Nee-Nee
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 忠犬
       - ちゅうけん
     - - ねーね
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: ねーね is childish baby-talk for onee-chan, big sister, kept as the nickname address it is rather
+      than translated to "sis", the way senpai and sensei have stayed loanwords elsewhere this evening.
+      A Young Jump newcomer-award entry with no synopsis beyond the author's own credits.
     reading: チュウケン ネー ネ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -13262,7 +13339,11 @@ names:
     reading_source_kind: analyser
     verified: false
   念願の悪役令嬢の身体を手に入れたぞ!:
-    basis: romaji
+    basis: translated
+    en: I Finally Got the Villainess Body I've Always Wanted!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 念願
       - ねんがん
@@ -13286,8 +13367,8 @@ names:
       - い
     - - れたぞ!
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis is a sickly girl reincarnated as an otome game's villainess, delighted just to
+      be healthy, obliviously breaking every flag meant to lead to her own defeat.
     reading: ネンガン ノ アクヤク レイジョウ ノ カラダ ヲ テ ニ イレタ ゾ !
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -13328,7 +13409,11 @@ names:
     reading_source_kind: analyser
     verified: false
   性別不明な殺し屋さんがカワイすぎる。:
-    basis: romaji
+    basis: translated
+    en: The Gender-Unclear Assassin Is Too Cute.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 性別
       - せいべつ
@@ -13344,8 +13429,8 @@ names:
       - や
     - - さんがカワイすぎる。
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The platform's own yomi field confirms the reading straight through. Plain phrase, nothing to
+      protect.
     reading: セイベツ フメイナ コロシヤサン ガ カワイ スギル。
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -13354,7 +13439,11 @@ names:
     reading_source_kind: analyser
     verified: false
   性悪天才幼馴染との勝負に負けて初体験を全部奪われる話:
-    basis: romaji
+    basis: translated
+    en: The Story of Losing a Bet to My Cruel Genius Childhood Friend, and Having All My Firsts Taken
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 性悪
       - しょうわる
@@ -13384,8 +13473,9 @@ names:
       - null
     - - 話
       - はなし
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'The synopsis is a Sneaker Award gold-prize light novel comicalised: a childhood friend who
+      wears the mask of a perfect, talented honour student while secretly despising everyone, and the
+      girl who challenges her to reclaim her dignity, only to lose one precious thing at a time.'
     reading: ショウワル テンサイ オサナナジミ ト ノ ショウブ ニ マケテ ハツタイケン ヲ ゼンブ ウバワレル ハナシ
     reading_at: '2026-08-02'
     reading_basis: analyser

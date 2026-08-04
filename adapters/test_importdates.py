@@ -19,17 +19,18 @@ def work(title, *pairs):
 def main(s):
     # ONE SERIES IMPORTED ON ITS OWN. §4's shape: one work contributing several entries at one
     # instant, while everything around it publishes normally.
-    one = [work("imported", ("1", "2025-08-08"), ("2", "2025-08-08"), ("3", "2025-08-08")),
+    one = [work("imported", *[(str(k), "2025-08-08") for k in range(6)]),
            work("normal", ("1", "2025-08-01"), ("2", "2025-08-08"))]
     got = im.stamps(one)
-    s.check(("imported", "2025-08-08") in got, "a run of three by one work on one date is a stamp")
+    s.check(("imported", "2025-08-08") in got,
+            "a back catalogue arriving from one work on one date is a stamp")
     s.check(("normal", "2025-08-08") not in got,
             "and a work publishing one chapter that day is not caught by its neighbour")
 
     # A WHOLE PLATFORM MIGRATING. Most works arrive with a back catalogue, and the point of the
     # platform-wide rule is the straggler: a work that put only one chapter on the migration date
     # is still an import, and the per-work rule alone would let it through.
-    wide = [work(f"w{i}", *[("c%d" % k, "2025-08-08") for k in range(4)],
+    wide = [work(f"w{i}", *[("c%d" % k, "2025-08-08") for k in range(6)],
                  *[("new", "2026-01-%02d" % (i + 1))]) for i in range(7)]
     wide.append(work("straggler", ("only", "2025-08-08"), ("new", "2026-02-02")))
     got = im.stamps(wide)
@@ -48,6 +49,24 @@ def main(s):
     s.eq(im.platform_wide(weekly), set(),
          "a shared weekly slot is a schedule, because no one date carries the catalogue")
 
+    # THE COUNTER-CASE THAT SHIPPED BROKEN. GigaViewer splits one instalment across entries
+    # published together, so a monthly series puts three rows on its release day. Counting rows
+    # made every ordinary update look like an import and filed きみが死ぬまで恋をしたい, which
+    # updates monthly, as dormant. Quoted from that work's コミックDAYS feed.
+    split = [work("きみが死ぬまで恋をしたい",
+                  ("第23話 わたしのままで(3)", "2022-03-17"),
+                  ("第23話 わたしのままで(2)", "2022-03-17"),
+                  ("第23話 わたしのままで(1)", "2022-03-17"),
+                  ("第24話 ここにいるよ(2)", "2022-04-17"),
+                  ("第24話 ここにいるよ(1)", "2022-04-17"))]
+    s.eq(im.stamps(split), set(),
+         "an instalment split across entries is one release, not a run of three")
+    # And the same work's real import is still caught, because those are distinct instalments.
+    dump = [work("きみが死ぬまで恋をしたい",
+                 *[(f"第{k}話 なにか({p})", "2021-06-09") for k in range(1, 7) for p in (1, 2)])]
+    s.check(("きみが死ぬまで恋をしたい", "2021-06-09") in im.stamps(dump),
+            "while six instalments arriving at once still reads as a back catalogue")
+
     # A source with nothing in it decides nothing.
     s.eq(im.stamps([]), set(), "no works, no stamps")
     s.eq(im.platform_wide([work("empty")]), set(), "and no dated chapters, no stamps")
@@ -56,8 +75,8 @@ def main(s):
 
     # THE REAL CASE, from the file this was written for. Shortened, keeping the proportions:
     # 2025-08-08 carries most of the source across many series, and recent chapters are genuine.
-    ichi = [work("ゆるゆり", *[("%d" % k, "2025-08-08") for k in range(6)]),
-            work("大室家", *[("%d" % k, "2025-08-08") for k in range(5)]),
+    ichi = [work("ゆるゆり", *[("%d" % k, "2025-08-08") for k in range(8)]),
+            work("大室家", *[("%d" % k, "2025-08-08") for k in range(7)]),
             work("彩純ちゃん", ("1", "2025-08-08"), ("2", "2025-08-08"),
                  ("33", "2026-04-17"), ("34", "2026-06-17"))]
     got = im.stamps(ichi)

@@ -17,10 +17,21 @@ show instead is build.py's to work out from every source it holds. A stamp on th
 is not a licence to invent a better one.
 """
 import collections
+import re
 
-# One work contributing this many entries at one timestamp. §4's threshold is 3, measured against a
-# feed where one timestamp carried 25 entries from 3 works.
-RUN = 3
+# One work contributing this many CHAPTERS at one timestamp. Chapters, not entries: GigaViewer
+# splits an instalment into parts published together, so 第23話 わたしのままで(1)(2)(3) is three
+# entries and one release. Counting entries made an ordinary monthly update look like an import and
+# filed きみが死ぬまで恋をしたい, which updates every month, as dormant.
+#
+# §4's threshold is 3, measured on a feed whose entries are whole chapters. Five here, because a
+# series imported on its own arrives with its back catalogue rather than with three instalments,
+# and because the platform-wide rule below catches migrations regardless of what any one work
+# contributed.
+RUN = 5
+
+# Trailing part markers on an instalment split across entries: (1), （2）, [3].
+PART = re.compile(r"[\s　]*[(（\[]\s*\d+\s*[)）\]][\s　]*$")
 
 # A whole source migrating. Share of the catalogue is the obvious measure and it is the wrong one:
 # a platform with four weekly slots puts a quarter of everything it holds on each of them, which is
@@ -34,9 +45,24 @@ RUN = 3
 SPREAD = 4
 
 
+def _stem(title):
+    """An instalment's name with its part marker removed, so its parts count once."""
+    return PART.sub("", str(title or "")).strip()
+
+
 def _dates(work):
     return [str(c["updated"])[:10] for c in (work.get("chapters") or [])
             if isinstance(c, dict) and c.get("updated")]
+
+
+def _chapters_per_date(work):
+    """{date: how many distinct instalments this work put there}."""
+    seen = collections.defaultdict(set)
+    for c in (work.get("chapters") or []):
+        if isinstance(c, dict) and c.get("updated"):
+            d = str(c["updated"])[:10]
+            seen[d].add(_stem(c.get("title")) or c.get("url") or len(seen[d]))
+    return {d: len(v) for d, v in seen.items()}
 
 
 def platform_wide(works):
@@ -45,7 +71,7 @@ def platform_wide(works):
     for w in works:
         if not isinstance(w, dict):
             continue
-        for d, n in collections.Counter(_dates(w)).items():
+        for d, n in _chapters_per_date(w).items():
             by_date[d].append(n)
     out = set()
     for d, counts in by_date.items():
@@ -71,8 +97,7 @@ def stamps(works):
         if not isinstance(w, dict):
             continue
         title = w.get("work_title")
-        ds = _dates(w)
-        for d, n in collections.Counter(ds).items():
+        for d, n in _chapters_per_date(w).items():
             if n >= RUN or d in wide:
                 out.add((title, d))
     return out

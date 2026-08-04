@@ -52,7 +52,22 @@ def jsonable(o):
 # trailing （完）. Split finales are common — 最終話①②③, 最終話-1, 最終話前編/後編, 最終話［上］［下］ —
 # and every part matches, so a series can carry the label on more than one day. That is left alone:
 # each part genuinely is part of the ending, and picking one as the "real" last would be a guess.
-FINAL_RE = re.compile(r"最終(話|回|幕|エピソード)|[（(]完[）)]\s*$")
+# A finale, said in the title. 最終話 and its variants, and a bracketed 完 in any of the brackets
+# Japanese publishers reach for: 男装メイドは尽くしたい ends 4話②＜完＞ and read as dormant for a
+# year because only round brackets were accepted. Not anchored to the end, because マンガPark's
+# listing appends view counts to the title (`4話②＜完＞ 23 24`) and an anchor made the marker
+# invisible on the one source that dates the work correctly. The bracket pair is specific enough
+# to carry it: across every chapter we hold, exactly two works match, and both have ended.
+# 完全版 and similar cannot match, because the closing bracket must follow the 完 itself.
+# Sites that publish a read-through of a book they are selling, an instalment at a time, and look
+# exactly like a serialisation to a scraper. ダ・ヴィンチニュース numbers them 第1回, 第2回 and one
+# of them says 全4回連載でお届けします outright: it is a 試し読み of a finished tankobon, not the
+# work's publication. Counted as chapters they gave 三角形の壊し方 eleven instalments and a run of
+# dates that decided its state. Book shops elsewhere do the same thing with tidier markup, so this
+# list is expected to grow rather than to have caught them all.
+PROMO_HOSTS = ("ddnavi.com", "123hon.com")
+
+FINAL_RE = re.compile(r"最終(話|回|幕|エピソード)|[（(＜<〈\[【]\s*完\s*[）)＞>〉\]】]")
 # Announcements and artwork typed as chapters upstream — they are not story instalments.
 NON_STORY_RE = re.compile(r"告知|お知らせ|カバー|PV|特報|予告|特典|コミックス第[0-9０-９]+巻|重版")
 # Extras and side stories count on the CHAPTER side: おまけ, 番外編 and 外伝 are content a reader
@@ -324,6 +339,8 @@ def set_aside(works_out, kadokomi="data/source/kadokomi/chapters.yaml", sources=
                  for w in (yaml.safe_load(kp.read_text()) or {}).get("works") or []
                  if not (w.get("chapters") or w.get("episodes")) and w.get("status") == "unknown"}
 
+    # Works every one of whose listings is a shop's read-through of a book it sells.
+    promo_only, promo_seen = {}, set()
     # What each source lists for a work, whether or not any of it survived to a release.
     listed = {}
     for f in glob.glob(f"{sources}/**/*.yaml", recursive=True):
@@ -335,8 +352,11 @@ def set_aside(works_out, kadokomi="data/source/kadokomi/chapters.yaml", sources=
             continue
         for w in d0.get("works") or []:
             if isinstance(w, dict) and (w.get("chapters") or w.get("episodes")):
-                listed.setdefault(norm_work(w.get("work_title") or ""), []).extend(
-                    w.get("chapters") or w.get("episodes"))
+                _nw = norm_work(w.get("work_title") or "")
+                listed.setdefault(_nw, []).extend(w.get("chapters") or w.get("episodes"))
+                _is_promo = any(h in (w.get("url") or "") for h in PROMO_HOSTS)
+                promo_seen.add(_nw)
+                promo_only[_nw] = promo_only.get(_nw, True) and _is_promo
 
     out = {}
     for r in works_out:
@@ -346,6 +366,9 @@ def set_aside(works_out, kadokomi="data/source/kadokomi/chapters.yaml", sources=
         plats = {s.get("platform") for s in (r.get("sources") or [])}
         if nw in shelf and plats <= {"カドコミ"}:
             out[r["work"]] = "a カドコミ shop listing for a work it does not serialise"
+            continue
+        if promo_only.get(nw) and nw in promo_seen:
+            out[r["work"]] = "a book shop's 試し読み read-through, not a serialisation"
             continue
         chs = listed.get(nw) or []
         if not chs:
@@ -1726,6 +1749,18 @@ def main():
         for _c in (yaml.safe_load(_cc.read_text()) or {}).get("claims") or []:
             completion_claims[norm_work(_c.get("work") or "")] = _c.get("seen")
 
+    # A licensed shop stating the series is finished. Ranked above the antenna's tag, because
+    # BOOK☆WALKER sells the publisher's edition and describes its own stock, where an aggregator
+    # infers from what stopped appearing. It settles works no platform will speak about, and it
+    # corrects inference: こはる日和。 and すわっぷ⇔すわっぷ both stopped printing years before
+    # their last chapter, which read as a print edition ending under a story that continued. The
+    # shop says both are finished, and an explicit statement beats a shape in the data.
+    shop_completed = {}
+    _bw = pathlib.Path("data/coverage/bookwalker-completion.yaml")
+    if _bw.exists():
+        for _c in (yaml.safe_load(_bw.read_text()) or {}).get("works") or []:
+            shop_completed[norm_work(_c.get("work") or "")] = _c
+
     # Every look adapters/claims/trace.py has taken, keyed the way it writes them. A claim with no
     # history behind it is untraced only if nobody has been; this is how that is known.
     claim_checks = checkstate.load()
@@ -3081,8 +3116,13 @@ def main():
         # on the page at all. The line between "ended" and "hiatus that may never resume" is real
         # and this does not try to guess it: without one of the two signals a quiet work stays
         # `dormant`, which describes the observation instead of inferring an intention.
-        _final = bool(row.get("latest_ep")
-                      and FINAL_RE.search(unicodedata.normalize("NFKC", row["latest_ep"])))
+        # Matched on the folded form, because a title may spell its numbers full-width, and
+        # quoted from the raw one where that also matches, so the basis says what the page says
+        # rather than what NFKC made of it: ＜完＞ folds to <完> and the publisher wrote neither.
+        _ep_raw = row.get("latest_ep") or ""
+        _fm = FINAL_RE.search(unicodedata.normalize("NFKC", _ep_raw)) if _ep_raw else None
+        _fm_shown = (FINAL_RE.search(_ep_raw) or _fm) if _fm else None
+        _final = bool(_fm)
         _completed = row.pop("completed_src", None)
         _running = row.get("running_src")
         if not row["latest"]:
@@ -3091,7 +3131,11 @@ def main():
             row["state"] = "oneshot"
         elif _final or _completed:
             row["state"] = "completed"
-            row["completed_basis"] = ("the newest chapter is titled 最終話" if _final
+            # Quoting what was actually found. The pattern accepts 最終話 and a bracketed 完
+            # alike, and a basis naming the wrong one is a citation to something the page does
+            # not say.
+            row["completed_basis"] = (f"the newest chapter is titled {_fm_shown.group(0)}"
+                                      if _final
                                       else _completed)
         else:
             # Skipped slots bear on this twice over, and in opposite directions.
@@ -3157,6 +3201,12 @@ def main():
                     # Looking showed the opposite. Kept, so the next pass does not pay to find it
                     # again, and so the state says a person checked rather than that nobody had.
                     row["state_basis"] = f"reviewed and found still running: {_rev['basis']}"
+                    continue
+                _shop = shop_completed.get(norm_work(row.get("work") or ""))
+                if _shop:
+                    row["state"] = "completed"
+                    row["completed_basis"] = (
+                        f"BOOK☆WALKER lists this series as 完結 ({_shop.get('url')})")
                     continue
                 _seen = completion_claims.get(norm_work(row.get("work") or ""))
                 if _seen and row["latest"] <= str(_seen)[:10]:
@@ -3252,6 +3302,22 @@ def main():
         # decided the state keeps the two saying the same thing.
         _dr = [r for r in rows if not r.get("dates_imported")] or rows[:1]
         best = rows[0]
+        # THE STATE HAS TO DESCRIBE THE WORK, NOT ONE PLATFORM'S COPY OF IT. `best` is a single
+        # row and the headline date is merged across every row, so a work still updating on one
+        # platform read `dormant` off another that was behind: きみが死ぬまで恋をしたい shipped
+        # dormant beside a chapter three weeks old, and nine more shipped `slow` beside chapters a
+        # week old. Only the age-based states are recomputed. `completed`, `oneshot` and anything a
+        # reviewer decided rest on evidence rather than on arithmetic, and are left alone.
+        _merged_latest = max((r["latest"] for r in _dr if r["latest"]), default=None)
+        _state, _state_basis = best["state"], best.get("state_basis")
+        if _state in ("active", "slow", "dormant") and _merged_latest:
+            _age = (datetime.date.today()
+                    - datetime.date.fromisoformat(_merged_latest)).days
+            _recomputed = "active" if _age <= 45 else ("slow" if _age <= 365 else "dormant")
+            if _recomputed != _state:
+                _state = _recomputed
+                _state_basis = (f"no chapter for {_age} days on any platform we watch; the newest "
+                                f"we hold is {_merged_latest}")
         works_out.append({
             "work": best["work"],
             "author": next((r["author"] for r in rows if r["author"]), ""),
@@ -3262,7 +3328,7 @@ def main():
             "latest": max((r["latest"] for r in _dr if r["latest"]), default=None),
             "latest_ep": best["latest_ep"],
             "first": min((r["first"] for r in _dr if r["first"]), default=None),
-            "state": best["state"], "oneshot": best["oneshot"],
+            "state": _state, "oneshot": best["oneshot"],
             # Why we say it ended, carried up with the state. A state without its basis is the
             # thing this project keeps having to unpick.
             # THE BASIS HAS TO DESCRIBE THE STATE BEING PUBLISHED. `state` comes from `best`, and
@@ -3274,7 +3340,10 @@ def main():
             "completed_basis": _basis_of(best, rows, "completed_basis"),
             # Same reasoning for a paused series: the state travels with what it rests on, and
             # the skipped slots themselves are kept as dated evidence rather than summarised away.
-            "state_basis": _basis_of(best, rows, "state_basis"),
+            # A recomputed state brings its own reason. Taking the row's would publish one
+            # platform's explanation for a state that platform did not decide.
+            "state_basis": (_state_basis if _state != best["state"]
+                            else _basis_of(best, rows, "state_basis")),
             "skipped": sorted(
                 {(x.get("date"), x.get("title")) for r in rows for x in (r.get("skipped") or [])},
                 reverse=True),

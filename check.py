@@ -350,6 +350,35 @@ def inv_deployed_matches_built(ctx):
     return bad
 
 
+def inv_state_agrees_with_its_own_date(ctx):
+    """A work's published state must be consistent with the date published beside it.
+
+    State is decided from one platform's row and the headline date is merged across all of them, so
+    the two can disagree without anything looking wrong. きみが死ぬまで恋をしたい shipped as
+    `dormant` beside a latest chapter of 2026-07-18, three weeks old, because コミックDAYS was
+    behind and its row won the sort. A reader seeing that sees the database contradict itself.
+
+    The thresholds are build.py's: active within 45 days, slow within a year, dormant beyond it.
+    This does not recompute the state, which would only restate the same arithmetic; it checks that
+    whatever decided it did not leave a date behind that says something else.
+    """
+    import datetime
+    today = datetime.date.today()
+    bad = []
+    for r in ctx["series"]:
+        st, lat = r.get("state"), r.get("latest")
+        if st not in ("active", "slow", "dormant") or not lat:
+            continue
+        try:
+            age = (today - datetime.date.fromisoformat(str(lat)[:10])).days
+        except ValueError:
+            continue
+        want = "active" if age <= 45 else ("slow" if age <= 365 else "dormant")
+        if want != st:
+            bad.append(f"{r.get('work')}: {st} beside a chapter {age} days old")
+    return bad
+
+
 def inv_no_refutation_of_print_serials(ctx):
     """A web platform cannot refute a claim about a work that also runs in a magazine.
 
@@ -399,6 +428,7 @@ INVARIANTS = [
     ("archives are unchanged", inv_archives_unchanged),
     ("deployed data matches built", inv_deployed_matches_built),
     ("no refutation of print serials", inv_no_refutation_of_print_serials),
+    ("state agrees with its own date", inv_state_agrees_with_its_own_date),
 ]
 
 

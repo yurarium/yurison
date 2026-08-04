@@ -1322,6 +1322,32 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  あなたの夜が明けたら:
+    basis: translated
+    en: When Your Night Breaks
+    en_at: '2026-08-04'
+    en_source: derived
+    en_source_kind: derived
+    furigana_spans:
+    - - あなたの
+      - null
+    - - 夜
+      - よる
+    - - が
+      - null
+    - - 明
+      - あ
+    - - けたら
+      - null
+    note: 夜が明ける is dawn breaking; the conditional keeps the title's if-and-when. A 作品集 title, so it reads
+      as a phrase rather than as a sentence about anyone in particular.
+    reading: アナタ ノ ヨル ガ アケタラ
+    reading_at: '2026-08-04'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   あなたの未来を許さない:
     basis: translated
     en: I Won't Forgive Your Future
@@ -1858,6 +1884,24 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  おねだりしてみて:
+    basis: translated
+    en: Try Asking Me Nicely
+    en_at: '2026-08-04'
+    en_source: derived
+    en_source_kind: derived
+    furigana_spans:
+    - - おねだりしてみて
+      - null
+    note: おねだり is wheedling for something you want, and してみて is an invitation to have a go. Coaxing rather
+      than begging, which is the register of the collection.
+    reading: オ ネダリ シテ ミテ
+    reading_at: '2026-08-04'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   おぼろとまち:
     basis: translated
     en: Oboro and Machi
@@ -2976,6 +3020,28 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ごはんのおトモに、死神と！:
+    basis: translated
+    en: A Side of Death, Please
+    en_at: '2026-08-04'
+    en_source: derived
+    en_source_kind: derived
+    furigana_spans:
+    - - ごはんのおトモに、
+      - null
+    - - 死神
+      - しにがみ
+    - - と！
+      - null
+    note: ごはんのおトモ is what you eat rice WITH, a condiment or companion dish, and the joke is that the companion
+      here is a 死神. English keeps the menu register the pun needs.
+    reading: ゴハン ノ オ トモ ニ、 シニガミ ト！
+    reading_at: '2026-08-04'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ごめんね柳子:
     basis: translated
     en: Sorry, Yanagiko
@@ -4355,6 +4421,21 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  ふたりはだいたいこんなかんじ:
+    basis: translated
+    en: The Two of Us, More or Less
+    en_at: '2026-08-04'
+    en_source: derived
+    en_source_kind: derived
+    note: だいたいこんなかんじ is the shrug of describing something roughly. The page calls the author a 名手 of 「百合と女子の日常」,
+      and the title is that shrug about a couple.
+    reading: フタリ ワ ダイタイ コンナ カンジ
+    reading_at: '2026-08-04'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ふたりべや:
     basis: translated
     en: 'Futaribeya: A Room for Two'
@@ -4689,6 +4770,21 @@ names:
       run of food-and-desire oneshots rather than a coincidence.
     reading: ミダレタ フタリ ノ ヤラレ メシ
     reading_at: '2026-08-02'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  みゆきは志津香のとくべつ:
+    basis: translated
+    en: Miyuki Is Shizuka's Favourite
+    en_at: '2026-08-04'
+    en_source: derived
+    en_source_kind: derived
+    note: とくべつ as a noun is being someone's special one. Favourite carries that in English without the
+      strain of 'special person', and the page's 三角関係 framing is what makes it a claim.
+    reading: ミユキ ワ シズカ ノ トクベツ
+    reading_at: '2026-08-04'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -6124,6 +6220,21 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ガールズ イン ザ ヘル:
+    basis: translated
+    en: Girls in the Hell
+    en_at: '2026-08-04'
+    en_source: derived
+    en_source_kind: derived
+    note: The Japanese is the English phrase in katakana, definite article and all, so it is transcribed
+      back as written rather than tidied to 'Girls in Hell'.
+    reading: ガールズ   イン   ザ   ヘル
+    reading_at: '2026-08-04'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ガールズ×ヴァンパイア:
     basis: translated
     en: Girls × Vampire
@@ -15981,6 +16092,30 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  推しが妹になりまして。:
+    basis: translated
+    en: My Favourite Just Became My Sister.
+    en_at: '2026-08-04'
+    en_source: derived
+    en_source_kind: derived
+    furigana_spans:
+    - - 推
+      - お
+    - - しが
+      - null
+    - - 妹
+      - いもうと
+    - - になりまして。
+      - null
+    note: 推し is the one you champion, and なりまして。 is the polite announcement of a fait accompli. The full
+      stop is the title's and is kept.
+    reading: オシ ガ イモウト ニ ナリマシテ。
+    reading_at: '2026-08-04'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   推しが死んだのでタイムリープして生存ルート確保します!:
     basis: translated
     en: My Oshi Died, So I'm Time-Leaping to Secure Her Survival Route!
@@ -16294,6 +16429,26 @@ names:
       other until a whole cured ham leg from their father abroad gets them cooking together.
     reading: シンマイ シマイ ノ フタリ ゴハン
     reading_at: '2026-08-02'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  日常やめたらしたいこと:
+    basis: translated
+    en: What I'd Do If I Quit Ordinary Life
+    en_at: '2026-08-04'
+    en_source: derived
+    en_source_kind: derived
+    furigana_spans:
+    - - 日常
+      - にちじょう
+    - - やめたらしたいこと
+      - null
+    note: 日常をやめる is giving up the everyday. The page describes 特別な世界、シチュエーション, so the title is about what
+      the ordinary is being given up FOR.
+    reading: ニチジョウ ヤメタラ シタイ コト
+    reading_at: '2026-08-04'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -16850,6 +17005,34 @@ names:
       piano classroom, pulled into a spiral of intense feeling by a transfer student's playing.
     reading: サイハテ ノ セレナード
     reading_at: '2026-08-02'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  月から火水木と金:
+    basis: translated
+    en: Monday, Then Tuesday Through Friday
+    en_at: '2026-08-04'
+    en_source: derived
+    en_source_kind: derived
+    furigana_spans:
+    - - 月
+      - つき
+    - - から
+      - null
+    - - 火
+      - ひ
+    - - 水木
+      - みずき
+    - - と
+      - null
+    - - 金
+      - きん
+    note: The days of the week by their kanji, 月 to 金, split so the week starts and then runs on. A 受付嬢
+      comedy of small daily encounters, which is what the enumeration is doing.
+    reading: ツキ カラ ヒ ミズキ ト キン
+    reading_at: '2026-08-04'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -19170,6 +19353,62 @@ names:
       strange, violent dynamic.
     reading: シロ ト クロ ～ Black   &   White ～
     reading_at: '2026-08-02'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  白妙様、秘密ですよ:
+    basis: translated
+    en: It's Our Secret, Lady Shirotae
+    en_at: '2026-08-04'
+    en_source: derived
+    en_source_kind: derived
+    furigana_spans:
+    - - 白妙
+      - しろたえ
+    - - 様
+      - さま
+    - - 、
+      - null
+    - - 秘密
+      - ひみつ
+    - - ですよ
+      - null
+    note: 白妙 is the vampire's name and 様 the address; 秘密ですよ is telling someone a thing is to be kept between
+      you. English fronts the secret because that is where the ですよ puts the weight.
+    reading: シロタエサマ、 ヒミツデス ヨ
+    reading_at: '2026-08-04'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  白妙様、秘密ですよ／読切版:
+    basis: translated
+    en: It's Our Secret, Lady Shirotae (One-Shot)
+    en_at: '2026-08-04'
+    en_source: derived
+    en_source_kind: derived
+    furigana_spans:
+    - - 白妙
+      - しろたえ
+    - - 様
+      - さま
+    - - 、
+      - null
+    - - 秘密
+      - ひみつ
+    - - ですよ／
+      - null
+    - - 読切
+      - よみきり
+    - - 版
+      - ばん
+    note: The same work's 読切版, which is the one-shot that preceded the serial. Rendered as a parenthetical
+      because the slash is the platform's filing, not part of the name.
+    reading: シロタエサマ、 ヒミツデス ヨ ／ ヨミキリ バン
+    reading_at: '2026-08-04'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi

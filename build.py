@@ -3394,6 +3394,17 @@ def main():
         # reviewer decided rest on evidence rather than on arithmetic, and are left alone.
         _merged_latest = max((r["latest"] for r in _dr if r["latest"]), default=None)
         _state, _state_basis = best["state"], best.get("state_basis")
+        # EVERY DATE THIS WORK HAS IS A STAMP. Not a work that went quiet: a work whose whole run
+        # arrived on the day a platform imported it, so its dates say when we were told about it
+        # and nothing about when it published. あなたの夜が明けたら is a 作品集 posted in one day and
+        # read "no chapter for 550 days", which is the same sentence a stalled serialisation gets.
+        # `completed` and `oneshot` are untouched, because they rest on evidence rather than on
+        # arithmetic over these dates.
+        if (_state in ("active", "slow", "dormant")
+                and all(r.get("dates_imported") for r in rows)):
+            _state = "unknown"
+            _state_basis = ("every chapter we hold arrived on the day a platform imported the "
+                            "series, so nothing here says when it last published")
         if _state in ("active", "slow", "dormant") and _merged_latest:
             _age = (datetime.date.today()
                     - datetime.date.fromisoformat(_merged_latest)).days

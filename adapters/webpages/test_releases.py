@@ -49,6 +49,33 @@ def main(s):
                      "https://x.jp/s/1", lambda u: ""), [],
          "an engine named comici on a page that is not comici falls through rather than misreading")
 
+    # A TRUNCATED TITLE, REPAIRED FROM THE PAGE'S OWN. youngchampion.jp cuts a listing at a fixed
+    # length and appends an ellipsis, so 公爵令嬢の籠絡ミッション arrived with its second half gone
+    # and no full-length copy anywhere in the catalogue to recover it from. The page states the
+    # whole thing in og:title.
+    FULL = ("\u516c\u7235\u4ee4\u5b22\u306e\u7c60\u7d61\u30df\u30c3\u30b7\u30e7\u30f3"
+            "\uff5e\u9b54\u738b\u3068\u306e\u653f\u7565\u7d50\u5a5a\u304c\u3001"
+            "\u4eba\u985e\u6700\u5f8c\u306e\u5207\u308a\u672d\u3067\u3059\uff01\u2026"
+            "\u3063\u3066\u3001\u9b54\u738b\u304c\u5973\u306e\u5b50\u306e\u5834\u5408"
+            "\u306f\u3069\u3046\u3059\u308c\u3070\u3044\u3044\u306e\u3067\u3059\u304b"
+            "\uff01\uff1f\uff5e")
+    CUT = FULL[:34].replace("\uff01", "!") + "..."
+    page = f'<meta property="og:title" content="{FULL}">'
+    s.eq(wp.untruncated(CUT, page), FULL, "the page's own title replaces a truncated one")
+    # The prefix is tested on the comparison form: the listing wrote a half-width mark where the
+    # page writes a full-width one, which is the single case this exists for.
+    s.check("!" in CUT and "\uff01" in FULL, "the fixture really does mix the two marks")
+
+    # A title that was not cut is left alone, whatever og:title says. マガポケ puts the episode and
+    # the platform in its og:title, so firing on every difference would swap a correct title for a
+    # decorated one.
+    s.eq(wp.untruncated("\u79c1\u306b\u5929\u4f7f",
+                         '<meta property="og:title" content="\u79c1\u306b\u5929\u4f7f | 1 / X">'),
+         "\u79c1\u306b\u5929\u4f7f", "an untruncated title is never replaced")
+    s.eq(wp.untruncated("\u5207\u308c\u305f...", "<html></html>"), "\u5207\u308c\u305f...",
+         "and a page with no og:title leaves the truncation as it found it")
+    s.eq(wp.untruncated("", page), "", "an empty title asks for nothing")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "webpages.releases"))

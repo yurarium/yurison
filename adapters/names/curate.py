@@ -74,7 +74,12 @@ READING_ATTRIBUTION = {
 KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "reviewed", "note",
         "candidate_note", "reading", "reading_basis"}
 
-KATAKANA = re.compile(r"^[ァ-ヺー・\s]+$")
+# What a reading may contain. Katakana and the marks that ride along with it: a title's own
+# punctuation stays in its reading, and 100日後 keeps its digits, so a rule allowing katakana alone
+# rejects readings the store already holds. What it still refuses is kanji and hiragana, which is
+# the whole point of the check.
+KATAKANA = re.compile(r"^[ァ-ヺー・\s0-9０-９A-Za-zＡ-Ｚａ-ｚ"
+                      r"!-/:-@\[-`{-~！-／：-＠［-｀｛-～、。〜…]+$")
 
 
 def problems(kind, ja, e):

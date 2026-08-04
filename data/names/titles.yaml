@@ -1754,15 +1754,18 @@ names:
     en_at: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    note: とうとし is the classical form of 尊い, precious or noble, the same word fan slang shortens to tōtoi
-      for a pairing too wholesome to bear; いと doubles as 糸, thread, and as an intensifier, very. Kept
-      the archaic form rather than modernizing it, since the title is reaching for that register on purpose.
-    reading: イトトウトシ
-    reading_at: '2026-08-02'
-    reading_basis: surface
+    note: 糸 and 尊し. The long vowel in トウトシ is real; the join before it was not marked.
+    reading: イト トウトシ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: surface
+      source: surface
+      value: イトトウトシ
     reading_pass: 1
-    reading_source: surface
-    verified: true
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: false
   いなりの結婚:
     basis: translated
     en: Inari's Marriage
@@ -2080,12 +2083,15 @@ names:
     verified: false
   お姉さまと巨人 ～お嬢さまが異世界転生～:
     basis: translated
-    en: Oneesama and the Giant ~The Young Lady's Isekai Reincarnation~
+    en: Onee-sama and the Giant ~The Young Lady's Isekai Reincarnation~
     en_at: '2026-08-04'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Onee-sama to Kyojin
+    - basis: translated
+      source: yurarium
+      value: Oneesama and the Giant ~The Young Lady's Isekai Reincarnation~
     en_pass: 2
     en_source: yurarium
     en_source_kind: derived
@@ -2713,12 +2719,19 @@ names:
     en_at: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
-    reading: キョウハナニシヨウ？
-    reading_at: '2026-08-02'
-    reading_basis: surface
+    note: は is the topic particle and is said ワ, which an unsegmented surface reading cannot show. キョウ
+      and シヨウ are both genuine long vowels.
+    reading: キョウ ワ ナニ シヨウ？
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: surface
+      source: surface
+      value: キョウハナニシヨウ？
     reading_pass: 1
-    reading_source: surface
-    verified: true
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: false
   きーちゃんともんもん:
     basis: translated
     en: Ki-chan and Monmon
@@ -3543,8 +3556,12 @@ names:
     verified: false
   すぐ泣く先輩:
     basis: translated
-    en: The Senior Who Cries Easily
+    en: The Senpai Who Cries Easily
     en_at: '2026-08-04'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Senior Who Cries Easily
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -4059,15 +4076,18 @@ names:
     en_at: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    note: 透明, transparent, kept literal rather than smoothed to invisible; the synopsis is a horror-comedy
-      set in a haunted house, where see-through reads as more ambiguous, and possibly more literal, than
-      simply unseen.
-    reading: トウメイナオトウサン
-    reading_at: '2026-08-02'
-    reading_basis: surface
+    note: 透明な父さん. Both long vowels are real; only the joins were missing.
+    reading: トウメイ ナ オトウサン
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: surface
+      source: surface
+      value: トウメイナオトウサン
     reading_pass: 1
-    reading_source: surface
-    verified: true
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: false
   ときときチャンネル:
     basis: translated
     en: Tokitoki Channel
@@ -5128,12 +5148,18 @@ names:
     en_at: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    reading: ヤキュウミヨウヨ!
-    reading_at: '2026-08-02'
-    reading_basis: surface
+    note: 野球 見ようよ. The trailing ヨ is the sentence-final particle and stands apart.
+    reading: ヤキュウ ミヨウ ヨ!
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: surface
+      source: surface
+      value: ヤキュウミヨウヨ!
     reading_pass: 1
-    reading_source: surface
-    verified: true
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: false
   やさしい教師の躾けかた。:
     basis: translated
     en: How to Train a Kind Teacher.
@@ -5694,8 +5720,12 @@ names:
     verified: false
   アフタヌーンティーはいかがですか？ 私と先輩の、不純で一途なふたり暮らし:
     basis: translated
-    en: Would You Like Afternoon Tea? Living with My Senior, Impure and Devoted
+    en: Would You Like Afternoon Tea? Living with My Senpai, Impure and Devoted
     en_at: '2026-08-03'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Would You Like Afternoon Tea? Living with My Senior, Impure and Devoted
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -5939,15 +5969,18 @@ names:
     en_at: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    note: のっぺらぼう is the specific yokai with no face, not a generic word for facelessness; kept its usual
-      English gloss, faceless ghost, rather than the loanword, since the synopsis wasn't reachable to
-      tell whether the folklore creature itself is meant literally.
-    reading: ウチラノッペラボウ
-    reading_at: '2026-08-02'
-    reading_basis: surface
+    note: のっぺらぼう is the faceless yokai and carries its own long vowel; ウチラ is separate.
+    reading: ウチラ ノッペラボウ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: surface
+      source: surface
+      value: ウチラノッペラボウ
     reading_pass: 1
-    reading_source: surface
-    verified: true
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: false
   エイティエイトを２でわって:
     basis: translated
     en: Eighty-Eight Divided by Two
@@ -6076,14 +6109,19 @@ names:
     en_at: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
-    note: おかわり is a second helping, and いただけただろうか is the narration of a television ghost-footage segment.
-      No synopsis is cached, so the food reading is taken and the parody left.
-    reading: オカワリイタダケタダロウカ?
-    reading_at: '2026-08-02'
-    reading_basis: surface
+    note: おかわり, いただけた and だろうか are three words, and running them together produced one unreadable string.
+      ロウ in だろうか is a real long vowel.
+    reading: オカワリ イタダケタ ダロウカ？
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: surface
+      source: surface
+      value: オカワリイタダケタダロウカ?
     reading_pass: 1
-    reading_source: surface
-    verified: true
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: false
   オカ研とエスパーと:
     basis: translated
     en: The Occult Club and an Esper
@@ -9434,12 +9472,19 @@ names:
     en_at: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    reading: マユノウタ
-    reading_at: '2026-08-02'
-    reading_basis: surface
+    note: 繭の唄 written in katakana. ノ is the genitive particle and ウタ is 唄, so there is no long vowel in
+      the title at all; the reading is segmented to say so.
+    reading: マユ ノ ウタ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: surface
+      source: surface
+      value: マユノウタ
     reading_pass: 1
-    reading_source: surface
-    verified: true
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: false
   マルジナルテイラ:
     basis: translated
     en: Marginal Tailor
@@ -11862,8 +11907,12 @@ names:
     verified: false
   先輩と後輩、大暴れの週末:
     basis: translated
-    en: 'Senior and Junior: A Wild Weekend'
+    en: 'Senpai and Kouhai: A Wild Weekend'
     en_at: '2026-08-04'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Senior and Junior: A Wild Weekend'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -11892,8 +11941,12 @@ names:
     verified: false
   先輩の特別:
     basis: translated
-    en: The Senior's Something Special
+    en: Senpai's Something Special
     en_at: '2026-08-04'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Senior's Something Special
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -12050,6 +12103,78 @@ names:
     reading: コウシャク レイジョウ ノ ロウラク ミッション ～ マオウ ト ノ セイリャク ケッコン ガ、 ジンルイ サイゴ ノ キリフダデス !…．． ッテ、 マオウ ガ オンナノコ ノ
       バアイ ワ ドウ . . .
     reading_at: '2026-08-02'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です！…って、魔王が女の子の場合はどうすればいいのですか！？～:
+    basis: translated
+    en: 'The Duke''s Daughter''s Seduction Mission: A Political Marriage to the Demon Lord Is Humanity''s
+      Last Card, but What Am I Supposed to Do If the Demon Lord Is a Girl?!'
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 公爵
+      - こうしゃく
+    - - 令嬢
+      - れいじょう
+    - - の
+      - null
+    - - 籠絡
+      - ろうらく
+    - - ミッション～
+      - null
+    - - 魔王
+      - まおう
+    - - との
+      - null
+    - - 政略
+      - せいりゃく
+    - - 結婚
+      - けっこん
+    - - が、
+      - null
+    - - 人類
+      - じんるい
+    - - 最後
+      - さいご
+    - - の
+      - null
+    - - 切
+      - き
+    - - り
+      - null
+    - - 札
+      - ふだ
+    - - です！…って、
+      - null
+    - - 魔王
+      - まおう
+    - - が
+      - null
+    - - 女
+      - おんな
+    - - の
+      - null
+    - - 子
+      - こ
+    - - の
+      - null
+    - - 場合
+      - ばあい
+    - - はどうすればいいのですか！？～
+      - null
+    note: 'Only translatable once the key was repaired: youngchampion.jp truncates its listing at a fixed
+      length, so the second half of the title, which is the whole joke, was missing until it was recovered
+      from the page''s own og:title. 籠絡 is winning somebody over by working on them rather than seducing
+      them outright, and the synopsis supports the scheming reading: Cecilia marries the demon lord to
+      stop humanity being wiped out and finds the demon lord has a secret. 切り札 is the trump card, kept
+      as a card so the gamble survives.'
+    reading: コウシャク レイジョウ ノ ロウラク ミッション ～ マオウ ト ノ セイリャク ケッコン ガ、 ジンルイ サイゴ ノ キリフダデス！…．． ッテ、 マオウ ガ オンナノコ ノ
+      バアイ ワ ドウ スレバ イイ ノデス カ！？ ～
+    reading_at: '2026-08-04'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -13352,8 +13477,12 @@ names:
     verified: false
   夕子先輩は育てられない:
     basis: translated
-    en: Senior Yuko Can't Grow Things
+    en: Yuko-senpai Can't Grow Things
     en_at: '2026-08-04'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Senior Yuko Can't Grow Things
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -14979,14 +15108,17 @@ names:
       - しかばね
     - - 同士
       - どうし
-    note: 同士 is the word for comrades sharing a status or cause; a COMITIA speed-manga runner-up with
-      no synopsis beyond the award notice.
-    reading: シカバネドウシ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    note: 同士 carries its own long vowel; the join after 屍 was not marked.
+    reading: シカバネ ドウシ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シカバネドウシ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   岐阜の善き魔女:
     basis: translated
@@ -15178,8 +15310,12 @@ names:
     verified: false
   年下の先輩:
     basis: translated
-    en: The Senior Who's Younger Than Me
+    en: The Senpai Who's Younger Than Me
     en_at: '2026-08-04'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Senior Who's Younger Than Me
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -15363,12 +15499,15 @@ names:
     verified: false
   彩香ちゃんは弘子先輩に恋してる:
     basis: translated
-    en: Ayaka Is in Love with Senior Hiroko
+    en: Ayaka Is in Love with Hiroko-senpai
     en_at: '2026-08-04'
     en_conflicts:
     - basis: romaji
       source: wikidata
       value: Ayaka-chan wa Hiroko-senpai ni Koishiteru
+    - basis: translated
+      source: yurarium
+      value: Ayaka Is in Love with Senior Hiroko
     en_pass: 2
     en_source: yurarium
     en_source_kind: derived
@@ -15402,12 +15541,15 @@ names:
     verified: false
   彩香ちゃんは弘子先輩を落としたい:
     basis: translated
-    en: Ayaka Wants to Make Senior Hiroko Fall for Her
+    en: Ayaka Wants to Make Hiroko-senpai Fall for Her
     en_at: '2026-08-04'
     en_conflicts:
     - basis: romaji
       source: wikidata
       value: Ayaka-chan wa Hiroko-senpai ni Koishiteru
+    - basis: translated
+      source: yurarium
+      value: Ayaka Wants to Make Senior Hiroko Fall for Her
     en_pass: 2
     en_source: yurarium
     en_source_kind: derived
@@ -15428,7 +15570,7 @@ names:
     - - としたい
       - null
     note: 落とす here is the courtship sense, to win someone over; the same work is currently titled differently
-      on pixiv, 彩香ちゃんは弘子先輩に恋してる, "Ayaka is in love with Senior Hiroko", whose own synopsis confirms the
+      on pixiv, 彩香ちゃんは弘子先輩に恋してる, "Ayaka is in love with Hiroko-senpai", whose own synopsis confirms the
       same pairing and plot, so this is a rename the catalogue has not caught up with rather than a different
       work. Honorific dropped on the given name, senpai kept for the workplace senior.
     reading: アヤカ チャン ワ ヒロコ センパイ ニ コイシテル
@@ -21808,8 +21950,12 @@ names:
     verified: false
   私の知ってるお姉さん:
     basis: translated
-    en: The Big Sister I Know
+    en: The Onee-san I Know
     en_at: '2026-08-04'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Big Sister I Know
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -22812,6 +22958,34 @@ names:
       emotionally open, which is why baring rather than showing.'
     reading: フク ワル ウチラ ノ ヒミツゴト !
     reading_at: '2026-08-02'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  腹割るウチらの秘密ごと！:
+    basis: translated
+    en: Our Secret About Baring Our Bellies!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 腹
+      - ふく
+    - - 割
+      - わ
+    - - るウチらの
+      - null
+    - - 秘密
+      - ひみつ
+    - - ごと！
+      - null
+    note: '腹を割る is idiomatic for being completely open with someone, and the synopsis is literal about
+      the belly too: a gal self-conscious about stomach fat and a classmate secretly hiding strong abs
+      team up to train together. Bare carries the same double sense in English, physically exposed and
+      emotionally open, which is why baring rather than showing.'
+    reading: フク ワル ウチラ ノ ヒミツゴト！
+    reading_at: '2026-08-04'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi

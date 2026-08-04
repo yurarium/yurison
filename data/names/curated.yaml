@@ -516,7 +516,7 @@ titles:
     source_kind: derived
   アフタヌーンティーはいかがですか？ 私と先輩の、不純で一途なふたり暮らし:
     basis: translated
-    en: Would You Like Afternoon Tea? Living with My Senior, Impure and Devoted
+    en: Would You Like Afternoon Tea? Living with My Senpai, Impure and Devoted
     note: 不純 and 一途 are placed as a pair that contradicts itself, and the English keeps them adjacent
       for the same reason.
     reviewed: '2026-08-03'
@@ -1994,7 +1994,7 @@ titles:
     note: 臨死 is the same word in 臨死体験, near-death experience. A magazine one-shot with no synopsis
       beyond its own title.
 
-  腹割るウチらの秘密ごと!:
+  腹割るウチらの秘密ごと！:
     en: Our Secret About Baring Our Bellies!
     basis: translated
     source: yurarium
@@ -2332,7 +2332,7 @@ titles:
       gender-neutral in Japanese; wizard is used here as the equally neutral English default.
 
   私の知ってるお姉さん:
-    en: The Big Sister I Know
+    en: The Onee-san I Know
     basis: translated
     source: yurarium
     source_kind: derived
@@ -4263,17 +4263,17 @@ titles:
       The synopsis is a boys-forbidden, all-girls boarding school deep in the mountains west of Tokyo where, without exception, every student is a ninja; 影, shadow, for the ninja half, 花, flower, the common figure for the girls themselves.
 
   彩香ちゃんは弘子先輩を落としたい:
-    en: Ayaka Wants to Make Senior Hiroko Fall for Her
+    en: Ayaka Wants to Make Hiroko-senpai Fall for Her
     basis: translated
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
     note: >-
-      落とす here is the courtship sense, to win someone over; the same work is currently titled differently on pixiv, 彩香ちゃんは弘子先輩に恋してる, "Ayaka is in love with Senior Hiroko", whose own synopsis confirms the same pairing and plot, so this is a rename the catalogue has not caught up with rather than a different work. Honorific dropped on the given name, senpai kept for the workplace senior.
+      落とす here is the courtship sense, to win someone over; the same work is currently titled differently on pixiv, 彩香ちゃんは弘子先輩に恋してる, "Ayaka is in love with Hiroko-senpai", whose own synopsis confirms the same pairing and plot, so this is a rename the catalogue has not caught up with rather than a different work. Honorific dropped on the given name, senpai kept for the workplace senior.
   # --- 2026-08-04 batch sixteen: continuing the queue -----------------------------------------
 
   彩香ちゃんは弘子先輩に恋してる:
-    en: Ayaka Is in Love with Senior Hiroko
+    en: Ayaka Is in Love with Hiroko-senpai
     basis: translated
     source: yurarium
     source_kind: derived
@@ -4345,7 +4345,7 @@ titles:
       BIGLOVE is already English in the source title. The synopsis is a childhood friend who used to seem angelic turning out, on reunion, to be a gal, and the daily life of the odd-couple pair that follows.
 
   年下の先輩:
-    en: 'The Senior Who''s Younger Than Me'
+    en: 'The Senpai Who''s Younger Than Me'
     basis: translated
     source: yurarium
     source_kind: derived
@@ -4844,7 +4844,7 @@ titles:
       偏重 is placing excessive, imbalanced weight on one thing; a newcomer-award entry with no synopsis beyond the award notice to say what the surface is being weighed against.
 
   夕子先輩は育てられない:
-    en: 'Senior Yuko Can''t Grow Things'
+    en: 'Yuko-senpai Can''t Grow Things'
     basis: translated
     source: yurarium
     source_kind: derived
@@ -5188,14 +5188,14 @@ titles:
       入味 is the Chinese cooking term for flavor soaking into an ingredient over time, used here as the title's hook rather than a stray word.
 
   先輩の特別:
-    en: 'The Senior''s Something Special'
+    en: 'Senpai''s Something Special'
     basis: translated
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
 
   先輩と後輩、大暴れの週末:
-    en: 'Senior and Junior: A Wild Weekend'
+    en: 'Senpai and Kouhai: A Wild Weekend'
     basis: translated
     source: yurarium
     source_kind: derived
@@ -7644,7 +7644,7 @@ titles:
       The parenthetical is Big Comics' own award badge on the series listing; dropped as promotional framing rather than part of the title, same handling as the other Big Comics badge titles this run.
 
   すぐ泣く先輩:
-    en: The Senior Who Cries Easily
+    en: The Senpai Who Cries Easily
     basis: translated
     source: yurarium
     source_kind: derived
@@ -7803,7 +7803,7 @@ titles:
     reviewed: '2026-08-04'
 
   お姉さまと巨人 ～お嬢さまが異世界転生～:
-    en: 'Oneesama and the Giant ~The Young Lady''s Isekai Reincarnation~'
+    en: 'Onee-sama and the Giant ~The Young Lady''s Isekai Reincarnation~'
     basis: translated
     source: yurarium
     source_kind: derived
@@ -8549,3 +8549,97 @@ titles:
     reviewed: '2026-08-04'
 
 
+
+  # --- titles that were waiting on a repaired key ---------------------------------------------
+
+  公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です！…って、魔王が女の子の場合はどうすればいいのですか！？～:
+    en: 'The Duke''s Daughter''s Seduction Mission: A Political Marriage to the Demon Lord Is Humanity''s Last Card, but What Am I Supposed to Do If the Demon Lord Is a Girl?!'
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-04'
+    note: >-
+      Only translatable once the key was repaired: youngchampion.jp truncates its listing at a
+      fixed length, so the second half of the title, which is the whole joke, was missing until it
+      was recovered from the page's own og:title. 籠絡 is winning somebody over by working on them
+      rather than seducing them outright, and the synopsis supports the scheming reading: Cecilia
+      marries the demon lord to stop humanity being wiped out and finds the demon lord has a
+      secret. 切り札 is the trump card, kept as a card so the gamble survives.
+
+  # --- readings that had no word boundaries to stop a false long vowel ------------------------
+  #
+  # A title already written in kana takes its reading from its own surface, so no morphology is
+  # applied and the romaniser has no boundaries to respect. It then reads every ○＋ウ as a long
+  # vowel, which is right inside a word and wrong across a join: マユノウタ came out Mayunōta when
+  # the ノ is the genitive and the ウ opens ウタ. Segmenting the reading fixes the vowel and the
+  # run-together words at once, because the romaniser already respects a space.
+
+  マユノウタ:
+    reading: マユ ノ ウタ
+    reading_basis: researched
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-04'
+    note: >-
+      繭の唄 written in katakana. ノ is the genitive particle and ウタ is 唄, so there is no long
+      vowel in the title at all; the reading is segmented to say so.
+
+  いととうとし:
+    reading: イト トウトシ
+    reading_basis: researched
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-04'
+    note: 糸 and 尊し. The long vowel in トウトシ is real; the join before it was not marked.
+
+  きょうはなにしよう？:
+    reading: キョウ ワ ナニ シヨウ？
+    reading_basis: researched
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-04'
+    note: >-
+      は is the topic particle and is said ワ, which an unsegmented surface reading cannot show.
+      キョウ and シヨウ are both genuine long vowels.
+
+  とうめいなおとうさん:
+    reading: トウメイ ナ オトウサン
+    reading_basis: researched
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-04'
+    note: 透明な父さん. Both long vowels are real; only the joins were missing.
+
+  やきゅうみようよ!:
+    reading: ヤキュウ ミヨウ ヨ!
+    reading_basis: researched
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-04'
+    note: 野球 見ようよ. The trailing ヨ is the sentence-final particle and stands apart.
+
+  ウチらのっぺらぼう:
+    reading: ウチラ ノッペラボウ
+    reading_basis: researched
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-04'
+    note: のっぺらぼう is the faceless yokai and carries its own long vowel; ウチラ is separate.
+
+  オカワリいただけただろうか?:
+    reading: オカワリ イタダケタ ダロウカ？
+    reading_basis: researched
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-04'
+    note: >-
+      おかわり, いただけた and だろうか are three words, and running them together produced one
+      unreadable string. ロウ in だろうか is a real long vowel.
+
+  屍同士:
+    reading: シカバネ ドウシ
+    reading_basis: researched
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-04'
+    note: 同士 carries its own long vowel; the join after 屍 was not marked.

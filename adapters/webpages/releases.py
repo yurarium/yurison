@@ -21,6 +21,7 @@ import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 import comici  # noqa: E402
+import textnorm  # noqa: E402
 from collections import Counter
 
 import yaml
@@ -43,6 +44,42 @@ def fetch(url, cache):
     f.write_text(t)
     return t
 
+
+TRUNCATED = re.compile(r"(?:\.{2,}|\u2026)\s*$")
+OG_TITLE = re.compile(r'<meta[^>]+property="og:title"[^>]+content="([^"]*)"')
+
+
+def untruncated(target_title, html):
+    """The page's own name for the work, where the one we were given is a truncation of it.
+
+    The target list is built from listings, and a listing truncates. youngchampion.jp cuts at a
+    fixed character count and appends an ellipsis, so 公爵令嬢の籠絡ミッション arrived with its
+    second half missing and no full-length copy anywhere else in the catalogue to recover it from.
+    The page states the whole thing in og:title.
+
+    ONLY WHERE IT IS A TRUNCATION, tested by prefix. og:title is not reliably a bare work name:
+    マガポケ puts the episode and the platform in it, so taking it wherever it differs would trade
+    a truncated title for a decorated one. A page whose og:title begins with what we were given,
+    minus a trailing ellipsis, is stating the same name at greater length and nothing else is.
+
+    THE PREFIX IS TESTED ON THE COMPARISON FORM. The listing wrote 切り札です! with a half-width
+    mark and the page writes 切り札です！ with a full-width one, so a literal prefix test fails on
+    the one case it exists for. textnorm folds that difference and keeps the words.
+    """
+    # ONLY A VISIBLY TRUNCATED TITLE IS REPAIRED. Without this the rule fires on
+    # 私に天使が舞い降りた！, whose og:title is the same name followed by the episode and the
+    # platform, and swaps a correct title for a decorated one. A trailing ellipsis is the platform
+    # saying it cut the string, and it is the only invitation to go looking for the rest.
+    if not target_title or not TRUNCATED.search(target_title):
+        return target_title
+    m = OG_TITLE.search(html or "")
+    if not m:
+        return target_title
+    og = _html.unescape(m.group(1)).strip()
+    stem = TRUNCATED.sub("", target_title).strip()
+    if stem and textnorm.norm(og).startswith(textnorm.norm(stem)) and len(og) > len(target_title):
+        return og
+    return target_title
 
 def episodes(html, eng, base, page_url=None, fetch=None):
     # comici is read by the shared module, not by this file's selectors. Its access model has three
@@ -134,7 +171,8 @@ def main():
             # comici states the author in the page title as "作品 - 作者 | プラットフォーム".
             # It was never read, so every comici platform reported chapters with no author.
             au = re.search(r"<title>[^<|]*?\s+-\s+([^<|]+?)\s*\|", html)
-            row = {"work_title": tgt["title"], "url": tgt["url"], "episodes": eps}
+            row = {"work_title": untruncated(tgt["title"], html), "url": tgt["url"],
+                   "episodes": eps}
             if au:
                 row["author"] = _html.unescape(au.group(1).strip())
             works.append(row)

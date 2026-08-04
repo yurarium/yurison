@@ -57,14 +57,24 @@ ATTRIBUTION = {
 
 # A source_kind may be named here without being usable as evidence: a candidate records where a
 # string was seen, and seeing it in a community database is the ordinary case.
-SOURCE_KINDS = ("platform", "publisher-jp", "licensor", "community-db", "derived")
+SOURCE_KINDS = ("platform", "publisher-jp", "licensor", "community-db", "derived",
+                # A national cataloguing authority, and the person themselves. Both state readings
+                # and neither is a publisher or a platform, so neither fitted the list before.
+                "national-library", "author")
 
 # A curated READING is a different claim from a curated name, and only two bases can be curated.
 # `aligned` and `back-converted` describe how a machine derived one, which is not something a
 # person does by hand, and `guessed` is what curation exists to replace.
 READING_ATTRIBUTION = {
     "surface": ("derived",),                    # the title is already kana; the reading is the name
-    "stated": ("platform", "publisher-jp"),      # a source prints the kana: a yomi field, furigana
+    # A SOURCE PRINTS THE KANA: a yomi field, furigana in a byline, a cataloguer's transcription.
+    #
+    # `national-library` is the National Diet Library, which records dcndl:creatorTranscription
+    # beside dc:creator for every book it holds. That is a national cataloguing authority stating
+    # how a name is read, and it is the only route that reaches most pen names at all: 79 of 82
+    # author readings settled this way came from it. `author` is the artist's own page, which is
+    # better still and is rarer, because most of them never write their name in kana.
+    "stated": ("platform", "publisher-jp", "national-library", "author", "licensor"),
     # SETTLED BY A REVIEWER where nothing states it. A community wiki, a bookshop listing or the
     # way readers write about a work are all evidence about how a title is said, and none of them
     # is an attribution. This basis says a person weighed that evidence, so it demands a note
@@ -77,7 +87,8 @@ READING_ATTRIBUTION = {
 # arguments in one field, or lose one: 55 of the 60 reading corrections landed on titles that
 # already had a curated translation with its own note. Two decisions, two reasons.
 KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "reviewed", "note",
-        "candidate_note", "reading", "reading_basis", "reading_note", "reading_source_kind"}
+        "candidate_note", "reading", "reading_basis", "reading_note", "reading_source_kind",
+        "reading_refuted", "en_refuted"}
 
 # What a reading may contain. Katakana and the marks that ride along with it: a title's own
 # punctuation stays in its reading, and 100日後 keeps its digits, so a rule allowing katakana alone
@@ -97,6 +108,23 @@ def problems(kind, ja, e):
     if not isinstance(e, dict):
         return [f"{kind}/{ja}: expected a mapping, got {type(e).__name__}"]
     where = f"{kind}/{ja}"
+
+    # REFUTED WITHOUT A REPLACEMENT, checked first because every other rule here assumes the entry
+    # is proposing something. Research sometimes shows a reading is wrong and cannot say what is
+    # right: カドコミ files 妻木都 under つ, which disproves the stored ムキ and leaves 都 unresolved.
+    # There was no way to record that, so a reading known to be wrong stayed and was rendered.
+    # 古川楊也 was published as "HOSHINO Katsura", which is a different person.
+    if isinstance(e, dict) and (e.get("reading_refuted") or e.get("en_refuted")):
+        bad = list(set(e) - KEYS)
+        if bad:
+            out.append(f"{where}: unknown key(s) {sorted(bad)}")
+        if e.get("reading") or e.get("en"):
+            out.append(f"{where}: a refutation cannot also propose a value")
+        if not (e.get("reading_note") or e.get("note") or "").strip():
+            out.append(f"{where}: a refutation has to say what disproved the reading")
+        if not e.get("reviewed"):
+            out.append(f"{where}: no reviewed date; this is a decision somebody made")
+        return out
 
     unknown = set(e) - KEYS
     if unknown:
@@ -259,6 +287,24 @@ def apply(store, doc):
             # answer rather than filing the new wording as a conflict against the old one.
             fact["supersede"] = True
             store.record(kind, ja, **fact)
+            # A refutation removes what is there and puts nothing in its place, so the name renders
+            # as the Japanese it is. record() has no way to express an absence, so it is done here.
+            if e.get("reading_refuted") or e.get("en_refuted"):
+                rec = store.records[kind].get(ja) or {}
+                why = str(e.get("reading_note") or e.get("note") or "")[:300]
+                if e.get("reading_refuted"):
+                    for f in ("reading", "reading_basis", "reading_source_kind", "furigana_spans",
+                              "reading_uncertain"):
+                        rec.pop(f, None)
+                    rec["reading_refuted"] = why
+                # An English name can be somebody else's too, and by the same route: MangaUpdates
+                # gave 古川楊也 the author page of hoshino-katsura, so the database published a
+                # different person's name in English beside their work.
+                if e.get("en_refuted"):
+                    for f in ("en", "basis", "en_source", "en_source_kind", "en_url", "en_at",
+                              "en_pass", "en_conflicts"):
+                        rec.pop(f, None)
+                    rec["en_refuted"] = why
             if e.get("en"):
                 applied += 1
             else:

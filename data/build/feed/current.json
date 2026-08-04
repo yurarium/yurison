@@ -127,16 +127,25 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "オオクマラ スコ",
+    "reading": "オオクマ ラスコ",
+    "ruby": [
+     [
+      "大熊",
+      "おおくま"
+     ],
+     [
+      "らすこ",
+      null
+     ]
+    ],
     "romaji": {
-     "macron": "Ōkumara Suko",
-     "double": "Ookumara Suko",
-     "plain": "Okumara Suko"
+     "macron": "Ōkuma Rasuko",
+     "double": "Ookuma Rasuko",
+     "plain": "Okuma Rasuko"
     },
     "en": "Rasuko Ookuma",
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -2546,14 +2555,19 @@
    },
    "author_en": {
     "reading": "ルカコ",
+    "ruby": [
+     [
+      "瑠夏子",
+      "るかこ"
+     ]
+    ],
     "romaji": {
      "macron": "Rukako",
      "double": "Rukako",
      "plain": "Rukako"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -2640,15 +2654,20 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "スズカ ライカ",
+    "reading": "スズミ ライカ",
+    "ruby": [
+     [
+      "涼海来夏",
+      "すずみらいか"
+     ]
+    ],
     "romaji": {
-     "macron": "Suzuka Raika",
-     "double": "Suzuka Raika",
-     "plain": "Suzuka Raika"
+     "macron": "Suzumi Raika",
+     "double": "Suzumi Raika",
+     "plain": "Suzumi Raika"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -2941,16 +2960,25 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "マメ サカナ",
+    "reading": "マメザカナ",
+    "ruby": [
+     [
+      "まめ",
+      null
+     ],
+     [
+      "魚",
+      "ざかな"
+     ]
+    ],
     "romaji": {
-     "macron": "Mame Sakana",
-     "double": "Mame Sakana",
-     "plain": "Mame Sakana"
+     "macron": "Mamezakana",
+     "double": "Mamezakana",
+     "plain": "Mamezakana"
     },
     "en": "Zakana Mame",
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -3401,14 +3429,23 @@
    },
    "author_en": {
     "reading": "タテヤマ ケータ",
+    "ruby": [
+     [
+      "館山",
+      "たてやま"
+     ],
+     [
+      "けーた",
+      null
+     ]
+    ],
     "romaji": {
      "macron": "Tateyama Kēta",
      "double": "Tateyama Keeta",
      "plain": "Tateyama Keta"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -4787,16 +4824,28 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "スナ イズミ ブン",
+    "reading": "サイズミ フミ",
+    "ruby": [
+     [
+      "砂",
+      "さ"
+     ],
+     [
+      "泉",
+      "いずみ"
+     ],
+     [
+      "文",
+      "ふみ"
+     ]
+    ],
     "romaji": {
-     "macron": "Suna Izumi Bun",
-     "double": "Suna Izumi Bun",
-     "plain": "Suna Izumi Bun"
+     "macron": "Saizumi Fumi",
+     "double": "Saizumi Fumi",
+     "plain": "Saizumi Fumi"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true,
-    "uncertain": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -7958,6 +8007,20 @@
    },
    "author_en": {
     "reading": "ヤサシイ ナイゾウ",
+    "ruby": [
+     [
+      "優",
+      "やさ"
+     ],
+     [
+      "しい",
+      null
+     ],
+     [
+      "内臓",
+      "ないぞう"
+     ]
+    ],
     "romaji": {
      "macron": "Yasashii Naizō",
      "double": "Yasashii Naizou",
@@ -7965,8 +8028,7 @@
     },
     "en": "Yasashii Naizo",
     "basis": "romaji",
-    "reading_basis": "back-converted",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -8574,6 +8636,12 @@
    },
    "author_en": {
     "reading": "ヘイ",
+    "ruby": [
+     [
+      "塀",
+      "へい"
+     ]
+    ],
     "romaji": {
      "macron": "Hei",
      "double": "Hei",
@@ -8581,8 +8649,7 @@
     },
     "en": "Hey",
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -9060,16 +9127,25 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "タイマ",
+    "reading": "トウマ",
+    "ruby": [
+     [
+      "当",
+      "とう"
+     ],
+     [
+      "麻",
+      "ま"
+     ]
+    ],
     "romaji": {
-     "macron": "Taima",
-     "double": "Taima",
-     "plain": "Taima"
+     "macron": "Tōma",
+     "double": "Touma",
+     "plain": "Toma"
     },
     "en": "Touma",
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -9139,6 +9215,16 @@
    },
    "author_en": {
     "reading": "ツムギ メメ",
+    "ruby": [
+     [
+      "紬",
+      "つむぎ"
+     ],
+     [
+      "めめ",
+      null
+     ]
+    ],
     "romaji": {
      "macron": "Tsumugi Meme",
      "double": "Tsumugi Meme",
@@ -9146,8 +9232,7 @@
     },
     "en": "TSUMUGI Meme",
     "basis": "romaji",
-    "reading_basis": "back-converted",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -9306,14 +9391,23 @@
    },
    "author_en": {
     "reading": "イワミ キヨコ",
+    "ruby": [
+     [
+      "岩見",
+      "いわみ"
+     ],
+     [
+      "樹代子",
+      "きよこ"
+     ]
+    ],
     "romaji": {
      "macron": "Iwami Kiyoko",
      "double": "Iwami Kiyoko",
      "plain": "Iwami Kiyoko"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -10039,16 +10133,25 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "オオクマラ スコ",
+    "reading": "オオクマ ラスコ",
+    "ruby": [
+     [
+      "大熊",
+      "おおくま"
+     ],
+     [
+      "らすこ",
+      null
+     ]
+    ],
     "romaji": {
-     "macron": "Ōkumara Suko",
-     "double": "Ookumara Suko",
-     "plain": "Okumara Suko"
+     "macron": "Ōkuma Rasuko",
+     "double": "Ookuma Rasuko",
+     "plain": "Okuma Rasuko"
     },
     "en": "Rasuko Ookuma",
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -10302,6 +10405,16 @@
    },
    "author_en": {
     "reading": "アオト ヒビキ",
+    "ruby": [
+     [
+      "あおと",
+      null
+     ],
+     [
+      "響",
+      "ひびき"
+     ]
+    ],
     "romaji": {
      "macron": "Aoto Hibiki",
      "double": "Aoto Hibiki",
@@ -10309,8 +10422,7 @@
     },
     "en": "AOTO Hibiki",
     "basis": "romaji",
-    "reading_basis": "back-converted",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -11209,14 +11321,19 @@
    },
    "author_en": {
     "reading": "ルカコ",
+    "ruby": [
+     [
+      "瑠夏子",
+      "るかこ"
+     ]
+    ],
     "romaji": {
      "macron": "Rukako",
      "double": "Rukako",
      "plain": "Rukako"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -11303,15 +11420,20 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "スズカ ライカ",
+    "reading": "スズミ ライカ",
+    "ruby": [
+     [
+      "涼海来夏",
+      "すずみらいか"
+     ]
+    ],
     "romaji": {
-     "macron": "Suzuka Raika",
-     "double": "Suzuka Raika",
-     "plain": "Suzuka Raika"
+     "macron": "Suzumi Raika",
+     "double": "Suzumi Raika",
+     "plain": "Suzumi Raika"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -14585,6 +14707,16 @@
    },
    "author_en": {
     "reading": "フシミ ダイキ",
+    "ruby": [
+     [
+      "伏見",
+      "ふしみ"
+     ],
+     [
+      "ダイキ",
+      null
+     ]
+    ],
     "romaji": {
      "macron": "Fushimi Daiki",
      "double": "Fushimi Daiki",
@@ -14592,8 +14724,7 @@
     },
     "en": "FUSHIMI Daiki",
     "basis": "romaji",
-    "reading_basis": "back-converted",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -14673,15 +14804,24 @@
     "reading_basis": "researched"
    },
    "author_en": {
-    "reading": "トゲ オドロシー",
+    "reading": "オドロオ ドロシー",
+    "ruby": [
+     [
+      "棘尾",
+      "おどろお"
+     ],
+     [
+      "どろしー",
+      null
+     ]
+    ],
     "romaji": {
-     "macron": "Toge Odoroshī",
-     "double": "Toge Odoroshii",
-     "plain": "Toge Odoroshi"
+     "macron": "Odorō Doroshī",
+     "double": "Odoroo Doroshii",
+     "plain": "Odoro Doroshi"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -15095,14 +15235,23 @@
    },
    "author_en": {
     "reading": "イガラシ ジュン",
+    "ruby": [
+     [
+      "五十嵐",
+      "いがらし"
+     ],
+     [
+      "純",
+      "じゅん"
+     ]
+    ],
     "romaji": {
      "macron": "Igarashi Jun",
      "double": "Igarashi Jun",
      "plain": "Igarashi Jun"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -15174,14 +15323,27 @@
    },
    "author_en": {
     "reading": "スズキ フミエ",
+    "ruby": [
+     [
+      "鈴",
+      "すず"
+     ],
+     [
+      "木",
+      "き"
+     ],
+     [
+      "二三江",
+      "ふみえ"
+     ]
+    ],
     "romaji": {
      "macron": "Suzuki Fumie",
      "double": "Suzuki Fumie",
      "plain": "Suzuki Fumie"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -16681,14 +16843,23 @@
    },
    "author_en": {
     "reading": "タテヤマ ケータ",
+    "ruby": [
+     [
+      "館山",
+      "たてやま"
+     ],
+     [
+      "けーた",
+      null
+     ]
+    ],
     "romaji": {
      "macron": "Tateyama Kēta",
      "double": "Tateyama Keeta",
      "plain": "Tateyama Keta"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -17111,16 +17282,21 @@
     "reading_basis": "surface"
    },
    "author_en": {
-    "reading": "フルベ リョ",
+    "reading": "フルベ リョウ",
+    "ruby": [
+     [
+      "古部亮",
+      "ふるべりょう"
+     ]
+    ],
     "romaji": {
-     "macron": "Furube Ryo",
-     "double": "Furube Ryo",
+     "macron": "Furube Ryō",
+     "double": "Furube Ryou",
      "plain": "Furube Ryo"
     },
     "en": "FURUBE Ryo",
     "basis": "romaji",
-    "reading_basis": "back-converted",
-    "unverified": true
+    "reading_basis": "stated"
    }
   }
  ],

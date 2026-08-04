@@ -9192,3 +9192,90 @@ titles:
       an on reading and a kun reading side by side, which is what it produces when it does not
       know the word and reads the characters separately. 焔 is ほのお on its own and えん in a
       compound, as in 火焔.
+
+  # --- readings settled by the project owner ----------------------------------------------------
+  #
+  # Eight the uncertain-reading flag put in front of a reader. Four were wrong in the way the flag
+  # is built to catch, a compound split and read with an on and a kun side by side. Three were
+  # right and needed the segmentation fixed, and one was right and had lost half its title. That
+  # ratio is the flag working: it asks for a look rather than asserting an error.
+
+  "夢後のグレイ":
+    reading: "ボウゴ ノ グレイ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      夢後 is ぼうご, both characters on. The analyser split the compound and gave 夢 its kun reading, producing ユメゴ, which is the shape it returns when it has no entry for a word.
+
+  "白装の悪魔/2025年2月期ブロンズルーキー賞":
+    reading: "ハクショウ ノ アクマ / 2025 ネン 2 ガツ キ ブロンズ ルーキー ショウ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      白装 is はくしょう. シロソウ pairs the kun reading of 白 with the on reading of 装, which is not how the compound is read.
+
+  "銀青のプルースト":
+    reading: "ギンセイ ノ プルースト"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      銀青 is ぎんせい. ギンアオ reads 青 as its kun, which a Sino-Japanese compound does not take after 銀.
+
+  "潮滅に沈む翡翠、北のまちの黒曜":
+    reading: "チョウメツ ニ シズム ヒスイ、 キタ ノ マチ ノ コクヨウ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      潮滅 is ちょうめつ. シオ メツ is the kun reading of 潮 beside the on reading of 滅, the two read as separate characters rather than as the coinage they form.
+
+  "ママ活女":
+    reading: "ママカツ オンナ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      ママ活 is a term in its own right and reads ままかつ, so the title is ままかつ + おんな. The sounds were already right and only the word boundary was wrong: the analyser had no entry for ママ活 and split it, which is why the detector flagged an on and a kun side by side.
+
+  "不死犠コネクト":
+    reading: "フシギ コネクト"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      不死犠 is ふしぎ, a coinage on 不思議 written with 不死 for the story's immortality. The sounds were right and the segmentation split them.
+
+  "濡鴉の魔女":
+    reading: "ヌレガラス ノ マジョ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      濡鴉 is ぬれがらす, the wet-raven black. The reading was right and was flagged because it was assembled character by character, which is a reason to check rather than a fault in itself.
+
+  "紗痲 Fallin' Jail":
+    reading: "シャマ Fallin' Jail"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      紗痲 is しゃま. The reading was right and dropped the Latin half of the title, which is kept in a reading everywhere else in this file.

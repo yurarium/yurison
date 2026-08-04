@@ -75,6 +75,23 @@ def main(s):
         s.check("furigana_spans" in st.records["titles"]["雨夜の月"],
                 "and spans that do spell their reading are kept, spacing and all")
 
+    # THE DOUBT WAS ABOUT A READING THAT HAS BEEN REPLACED. The mark says a machine was unsure,
+    # and pass 4 sets it on the record rather than through record(), so a better reading arriving
+    # later left it in place: eight titles a person had settled stayed in the review queue, and a
+    # budget that cannot fall is not a ratchet.
+    with tempfile.TemporaryDirectory() as d:
+        st = store.NameStore(d)
+        st.records["titles"]["夢後のグレイ"] = {
+            "reading": "ボウゴ ノ グレイ", "reading_basis": "researched",
+            "reading_uncertain": True}
+        st.records["titles"]["まだ機械のまま"] = {
+            "reading": "キカイ", "reading_basis": "analyser", "reading_uncertain": True}
+        s.eq(st.drop_settled_doubt(), 1, "the doubt does not outlive the reading it was about")
+        s.check(not st.records["titles"]["夢後のグレイ"].get("reading_uncertain"),
+                "a researched reading is somebody's answer, not a thing to keep asking about")
+        s.check(st.records["titles"]["まだ機械のまま"].get("reading_uncertain"),
+                "and a reading still the analyser's keeps its mark")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "store"))

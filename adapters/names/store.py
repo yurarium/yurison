@@ -188,9 +188,27 @@ class NameStore:
                     dropped += 1
         return dropped
 
+    def drop_settled_doubt(self):
+        """Remove the uncertain mark from readings that are no longer the analyser's.
+
+        The mark says a machine was unsure, and it is set on the record rather than passed through
+        record(), so a better reading arriving later left it in place: eight titles a person had
+        settled stayed in the review queue, and a budget that cannot fall is not a ratchet. Swept
+        at write time, so it heals whatever route replaced the reading.
+        """
+        cleared = 0
+        for kind in KINDS:
+            for rec in self.records[kind].values():
+                if (rec.get("reading_uncertain")
+                        and rec.get("reading_basis") not in ("analyser", "back-converted")):
+                    rec.pop("reading_uncertain", None)
+                    cleared += 1
+        return cleared
+
     def compact(self):
         """Write the YAML from memory, then drop the journal it superseded."""
         self.drop_stale_spans()
+        self.drop_settled_doubt()
         self.root.mkdir(parents=True, exist_ok=True)
         for kind in KINDS:
             self._write_yaml(self.root / f"{kind}.yaml", {

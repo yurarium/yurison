@@ -7776,6 +7776,11 @@ names:
     reading_source: surface
     verified: true
   マーメイドライン:
+    basis: translated
+    en: Mermaid Line
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: マーメイドライン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7783,6 +7788,13 @@ names:
     reading_source: surface
     verified: true
   マーモリス:
+    basis: translated
+    en: Marmoris
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Not a Japanese word; reads as an invented Latinate name in the original already, so transliterated
+      as the coined word it is rather than translated as if it meant something.
     reading: マーモリス
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7790,6 +7802,11 @@ names:
     reading_source: surface
     verified: true
   ミッドナイト・エクスプレス:
+    basis: translated
+    en: Midnight Express
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ミッドナイト・エクスプレス
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7797,7 +7814,11 @@ names:
     reading_source: surface
     verified: true
   ミラちゃんが生き返った:
-    basis: romaji
+    basis: translated
+    en: Mira-chan Came Back to Life
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ミラちゃんが
       - null
@@ -7819,6 +7840,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ムショカノジョ:
+    basis: translated
+    en: Prison Girlfriend
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ムショカノジョ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7855,6 +7881,13 @@ names:
     reading_source_kind: analyser
     verified: false
   メイドのデューデ:
+    basis: translated
+    en: The Maid's Dyūde
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: デューデ isn't a word or a name attested anywhere reachable about this oneshot, only a contest theme
+      of "maid"; メイド translates plainly, and デューデ is carried in transliteration rather than guessed at.
     reading: メイドノデューデ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7862,6 +7895,11 @@ names:
     reading_source: surface
     verified: true
   メイドのベル:
+    basis: translated
+    en: The Maid's Bell
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: メイドノベル
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7876,7 +7914,11 @@ names:
     reading_source: surface
     verified: true
   メンヘラさんと市松さん:
-    basis: romaji
+    basis: translated
+    en: Menhera-san and Ichimatsu-san
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - メンヘラさんと
       - null
@@ -7884,8 +7926,9 @@ names:
       - いちまつ
     - - さん
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: メンヘラ is internet slang for someone whose emotional instability is played up rather than a clinical
+      term; kept as menhera, the way tsundere and yandere are kept, rather than flattened to a clinical-sounding
+      English phrase.
     reading: メンヘラサン ト イチマツサン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -7901,6 +7944,13 @@ names:
     reading_source: surface
     verified: true
   モデルチェンジ:
+    basis: translated
+    en: Model Change
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The synopsis's protagonist was literally a top model before the invasion began, so the title's
+      ordinary meaning (a product's next revision) sits over the word's other sense on purpose.
     reading: モデルチェンジ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7908,6 +7958,11 @@ names:
     reading_source: surface
     verified: true
   モノクロ-おなじゆめをみてる-:
+    basis: translated
+    en: Monochrome - We're Having the Same Dream -
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: モノクロ-オナジユメヲミテル-
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7929,7 +7984,11 @@ names:
     reading_source: surface
     verified: true
   ヤンデレめる子ちゃんはせんぱいがお好き:
-    basis: romaji
+    basis: translated
+    en: Yandere Meruko-chan Likes Her Senpai
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ヤンデレめる
       - null
@@ -7964,7 +8023,11 @@ names:
     reading_source: surface
     verified: true
   ユリ暴力教室:
-    basis: romaji
+    basis: translated
+    en: Yuri's Violent Classroom
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ユリ
       - null
@@ -7972,8 +8035,10 @@ names:
       - ぼうりょく
     - - 教室
       - きょうしつ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 暴力教室 is not a generic phrase; it is the standing Japanese release title for Blackboard Jungle,
+      reused here as a stock phrase the way other titles this run borrow a known title's shape. No synopsis
+      was reachable to confirm whether Yuri is a given name or something else, so it was read as the plainer
+      option.
     reading: ユリ ボウリョク キョウシツ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -7982,6 +8047,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ユードットエフエム:
+    basis: translated
+    en: U.FM
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ユードットエフエム
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7989,7 +8059,11 @@ names:
     reading_source: surface
     verified: true
   ライオンと不時着(第17回NC佳作):
-    basis: romaji
+    basis: translated
+    en: The Lion and the Crash Landing
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ライオンと
       - null
@@ -8009,8 +8083,8 @@ names:
       - かさく
     - - )
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The parenthetical is Champion Cross's own contest-placement badge, present in the page's own
+      title tag; dropped as promotional framing rather than part of the title.
     reading: ライオン ト フジチャク ( ダイ 17 カイ NC カサク )
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8039,7 +8113,11 @@ names:
     reading_source: surface
     verified: true
   ラブライブ!flowers*ー蓮ノ空女学院スクールアイドルクラブー:
-    basis: romaji
+    basis: translated
+    en: 'Love Live! flowers*: Hasunosora Jyogakuin School Idol Club'
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ラブライブ!flowers*ー
       - null
@@ -8055,8 +8133,9 @@ names:
       - がくいん
     - - スクールアイドルクラブー
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The manga itself carries no English license; the romanization follows Crunchyroll's own for
+      the franchise's TV anime, announced under the title Love Live! Hasunosora Jyogakuin School Idol
+      Club, since the manga is set in the same fiction rather than a separate work needing its own name.
     reading: ラブライブ ! flowers *ー レン ノ ソラ オンナ ガクイン スクールアイドルクラブー
     reading_at: '2026-08-02'
     reading_basis: analyser

@@ -3741,18 +3741,25 @@ names:
     reading_source: surface
     verified: true
   ぱりあんの園:
-    basis: romaji
-    en: Parian no Sono
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Garden of Pari-An
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Parian no Sono
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/ch5e7s2/parian-no-sono
     furigana_spans:
     - - ぱりあんの
       - null
     - - 園
       - その
+    note: Pari-An is the school's own nickname, from 聖巴里杏女学院, its full name using 巴里, an old ateji spelling
+      of Paris, plus 杏, kept as the coined proper noun rather than translated as if it meant something
+      on its own.
     reading: パリアン ノ ソノ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -3761,6 +3768,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/ch5e7s2/parian-no-sono
     verified: false
   ひかりのすむところ:
+    basis: translated
+    en: Where the Light Lives
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ヒカリノスムトコロ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3794,7 +3806,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ひたひたキャット/25年12月期JUMP新世界漫画賞/週刊少年ジャンプ:
-    basis: romaji
+    basis: translated
+    en: Hitahita Cat
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ひたひたキャット/25
       - null
@@ -3822,8 +3838,10 @@ names:
       - しょうねん
     - - ジャンプ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The suffix is Shonen Jump+'s own contest badge, present in the page's own title tag; dropped
+      as promotional framing rather than part of the title. ひたひた itself is onomatopoeia for a steady,
+      soft approach, footsteps or lapping water, with no single English word for it, so kept as the sound
+      it is.
     reading: ヒタヒタ キャット / 25 ネン 12 ガツ キ JUMP シンセカイ マンガ ショウ / シュウカン ショウネン ジャンプ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -3874,6 +3892,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/6qnfucf/hina-chan-ga-ikiteru-nara
     verified: false
   ひみつのまんが:
+    basis: translated
+    en: The Secret Manga
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ヒミツノマンガ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3881,12 +3904,16 @@ names:
     reading_source: surface
     verified: true
   ひめちゃんは重い女:
-    basis: romaji
-    en: Hime-chan wa Omoi Onna
-    en_at: '2026-08-02'
+    basis: translated
+    en: Hime-chan Is a Heavy Woman
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Hime-chan wa Omoi Onna
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/fi7cqkw/hime-chan-wa-omoi-onna
     furigana_spans:
     - - ひめちゃんは
@@ -3897,6 +3924,9 @@ names:
       - null
     - - 女
       - おんな
+    note: 重い女 is an idiom for someone whose feelings in a relationship are overwhelming or clingy, not
+      a comment on literal weight; kept literal since "heavy" carries a version of the same sense in English,
+      being too much to bear.
     reading: ヒメ チャン ワ オモイ オンナ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -3905,7 +3935,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/fi7cqkw/hime-chan-wa-omoi-onna
     verified: false
   ふたりの告白:
-    basis: romaji
+    basis: translated
+    en: The Two of Them Confess
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ふたりの
       - null
@@ -3935,6 +3969,11 @@ names:
     reading_source: surface
     verified: true
   ふたりエスケープ:
+    basis: translated
+    en: Escape for Two
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: フタリエスケープ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3942,7 +3981,11 @@ names:
     reading_source: surface
     verified: true
   ふたり暮らしのおとりよせ日和:
-    basis: romaji
+    basis: translated
+    en: A Good Day for Living Together and Mail-Order Treats
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ふたり
       - null
@@ -3962,7 +4005,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ふたり異世界人:
-    basis: romaji
+    basis: translated
+    en: Two People from Another World
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ふたり
       - null
@@ -3980,6 +4027,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ふつうのあたしたち:
+    basis: translated
+    en: The Ordinary Us
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: フツウノアタシタチ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4009,6 +4061,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/jjpxdy0/furachi-na-rinri-chan
     verified: false
   ふわもみ:
+    basis: translated
+    en: Fluffy Squeeze
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: フワモミ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4016,6 +4073,11 @@ names:
     reading_source: surface
     verified: true
   ぷれいめ～と:
+    basis: translated
+    en: Playmate
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: プレイメ～ト
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4023,7 +4085,11 @@ names:
     reading_source: surface
     verified: true
   ほうかご再テンセイ！:
-    basis: romaji
+    basis: translated
+    en: After-School Re-Reincarnation!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ほうかご
       - null
@@ -4041,16 +4107,19 @@ names:
     reading_source_kind: analyser
     verified: false
   ほぐして、癒衣さん。:
-    basis: romaji
-    en: Hogushite, Yui-san
-    en_at: '2026-08-02'
+    basis: translated
+    en: Loosen Up, Yui-san.
+    en_at: '2026-08-04'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Hogushite, Yui-san.
+    - basis: romaji
+      source: wikidata
+      value: Hogushite, Yui-san
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q134966079
     furigana_spans:
     - - ほぐして、
@@ -4061,8 +4130,8 @@ names:
       - ころも
     - - さん。
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 癒衣, the masseuse's name, is written with healing and garment rather than ordinary name kanji,
+      a coined name fitting her role rather than a real surname.
     reading: ホグシテ、 イエ コロモサン。
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -4071,6 +4140,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ほしくずプラネタリウム:
+    basis: translated
+    en: Stardust Planetarium
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ホシクズプラネタリウム
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4078,6 +4152,11 @@ names:
     reading_source: surface
     verified: true
   ぽかぽかたいわん！:
+    basis: translated
+    en: Warm and Cozy Taiwan!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ポカポカタイワン！
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4085,6 +4164,11 @@ names:
     reading_source: surface
     verified: true
   まい・えんぷてぃ・らぶ:
+    basis: translated
+    en: My Empty Love
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: マイ・エンプティ・ラブ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4092,7 +4176,11 @@ names:
     reading_source: surface
     verified: true
   また明日、あの席で。:
-    basis: romaji
+    basis: translated
+    en: See You Tomorrow, at That Same Seat.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - また
       - null

@@ -10277,7 +10277,11 @@ names:
     reading_source_kind: analyser
     verified: false
   半熟女子:
-    basis: romaji
+    basis: translated
+    en: Half-Baked Girls
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 半熟
       - はんじゅく
@@ -10293,7 +10297,11 @@ names:
     reading_source_kind: analyser
     verified: false
   南山除妖録:
-    basis: romaji
+    basis: translated
+    en: Chronicle of Nanshan's Demon Exorcism
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 南山
       - なんざん
@@ -10313,7 +10321,11 @@ names:
     reading_source_kind: analyser
     verified: false
   友達100人できるかな:
-    basis: romaji
+    basis: translated
+    en: Can I Make 100 Friends?
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 友達
       - ともだち
@@ -10323,8 +10335,8 @@ names:
       - にん
     - - できるかな
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Quotes 友達100人できるかな straight from 一年生になったら, the well-known children's song sung at Japanese school
+      entrance ceremonies.
     reading: トモダチ 100ニン デキル カ ナ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -10353,7 +10365,11 @@ names:
     reading_source_kind: analyser
     verified: false
   友達をゾンビにしてそれから:
-    basis: romaji
+    basis: translated
+    en: I Turned My Friend Into a Zombie, and Then
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 友達
       - ともだち
@@ -10369,7 +10385,11 @@ names:
     reading_source_kind: analyser
     verified: false
   古川に捧ぐ。:
-    basis: romaji
+    basis: translated
+    en: Dedicated to Furukawa.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 古川
       - ふるかわ
@@ -10389,7 +10409,11 @@ names:
     reading_source_kind: analyser
     verified: false
   同じ時を生きたい:
-    basis: romaji
+    basis: translated
+    en: I Want to Live in the Same Time
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 同
       - おな
@@ -10413,7 +10437,11 @@ names:
     reading_source_kind: analyser
     verified: false
   同星生殖:
-    basis: romaji
+    basis: translated
+    en: Same-Star Reproduction
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 同
       - どう
@@ -10421,8 +10449,8 @@ names:
       - せい
     - - 生殖
       - せいしょく
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Homophonous with 同性生殖, same-sex reproduction (both どうせい); likely deliberate, but nothing beyond
+      the title itself confirms it, so the written 星, star, is kept rather than swapped for the pun.
     reading: ドウセイ セイショク
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -10431,7 +10459,11 @@ names:
     reading_source_kind: analyser
     verified: false
   名前のつかない日常:
-    basis: romaji
+    basis: translated
+    en: An Everyday Life With No Name
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 名前
       - なまえ
@@ -10439,8 +10471,8 @@ names:
       - null
     - - 日常
       - にちじょう
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'The platform''s own subtitle names it directly: an asexual narrator and the junior who "loves
+      everybody".'
     reading: ナマエ ノ ツカナイ ニチジョウ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -10449,7 +10481,11 @@ names:
     reading_source_kind: analyser
     verified: false
   向かいの学校でデスゲームやってるっぽい:
-    basis: romaji
+    basis: translated
+    en: Looks Like They're Running a Death Game at the School Across the Street
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 向
       - む
@@ -10469,12 +10505,16 @@ names:
     reading_source_kind: analyser
     verified: false
   君としらない夏になる:
-    basis: romaji
-    en: Kimi to Shiranai Natsu ni Naru
-    en_at: '2026-08-02'
+    basis: translated
+    en: It Becomes an Unknown Summer With You
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Kimi to Shiranai Natsu ni Naru
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q123408707
     furigana_spans:
     - - 君
@@ -10522,7 +10562,11 @@ names:
     reading_source_kind: analyser
     verified: false
   君と綴るうたかた:
-    basis: romaji
+    basis: translated
+    en: The Fleeting Moments I Write With You
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 君
       - きみ
@@ -10532,8 +10576,7 @@ names:
       - つづ
     - - るうたかた
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: うたかた, foam on water, is the same classical word for impermanence as 泡沫 earlier this evening.
     reading: キミ ト ツヅル ウタカタ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -10542,7 +10585,11 @@ names:
     reading_source_kind: analyser
     verified: false
   君にかわいいと叫びたい:
-    basis: romaji
+    basis: translated
+    en: I Want to Shout 'You're Cute!' at You
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 君
       - きみ
@@ -10562,14 +10609,18 @@ names:
     reading_source_kind: analyser
     verified: false
   君になれたら:
-    basis: romaji
+    basis: translated
+    en: If I Could Become You
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 君
       - きみ
     - - になれたら
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A changeling story, per the platform's own description; the synopsis is an ordinary girl whose
+      devoted fandom for a rising idol is her whole reason for living.
     reading: キミ ニ ナレタラ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -10578,7 +10629,11 @@ names:
     reading_source_kind: analyser
     verified: false
   君に惹かれた理由:
-    basis: romaji
+    basis: translated
+    en: The Reason I Was Drawn to You
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 君
       - きみ
@@ -10624,14 +10679,18 @@ names:
     reading_source_kind: analyser
     verified: false
   君のためのカーテンコール:
-    basis: romaji
+    basis: translated
+    en: A Curtain Call for You
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 君
       - きみ
     - - のためのカーテンコール
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A high-school theatre story about a girl who avoids standing out and the transfer student who
+      never does anything else.
     reading: キミ ノ タメ ノ カーテンコール
     reading_at: '2026-08-02'
     reading_basis: analyser

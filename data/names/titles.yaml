@@ -4439,6 +4439,15 @@ names:
     reading_source_kind: analyser
     verified: false
   ゆるゆり:
+    basis: translated
+    en: YuruYuri
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: No current English licensor; ALC Publishing released two volumes in 2012 before folding, under
+      this exact romanization, which is also what the anime and every English-language write-up of the
+      franchise use. Kept as the established name rather than translated to something like "Easygoing
+      Yuri."
     reading: ユルユリ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4446,7 +4455,11 @@ names:
     reading_source: surface
     verified: true
   よくばれ! 人間さん:
-    basis: romaji
+    basis: translated
+    en: Be Greedy! Human-san
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 'よくばれ! '
       - null
@@ -4464,6 +4477,11 @@ names:
     reading_source_kind: analyser
     verified: false
   よわいものクラブ:
+    basis: translated
+    en: The Weak Ones' Club
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ヨワイモノクラブ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4471,6 +4489,11 @@ names:
     reading_source: surface
     verified: true
   らぶ あんど ぴーす:
+    basis: translated
+    en: Love and Peace
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ラブ アンド ピース
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4492,6 +4515,11 @@ names:
     reading_source: surface
     verified: true
   れーこ:
+    basis: translated
+    en: Reiko
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: レーコ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4600,6 +4628,11 @@ names:
     reading_source_kind: analyser
     verified: false
   わたしのかわいいおんなのこ:
+    basis: translated
+    en: My Cute Girl
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ワタシノカワイイオンナノコ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4607,12 +4640,16 @@ names:
     reading_source: surface
     verified: true
   わたしのために脱ぎなさいっ！:
-    basis: romaji
-    en: Watashi no Tame ni Nuginasai!
-    en_at: '2026-08-02'
+    basis: translated
+    en: Take It Off for Me!
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Watashi no Tame ni Nuginasai!
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/af9pjxd/watashi-no-tame-ni-nuginasai
     furigana_spans:
     - - わたしのために
@@ -4631,6 +4668,11 @@ names:
     reading_source_kind: analyser
     verified: false
   わたしのミューズ:
+    basis: translated
+    en: My Muse
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ワタシノミューズ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4665,6 +4707,14 @@ names:
     reading_source: surface
     verified: true
   アイ・ヘイ・チュー:
+    basis: translated
+    en: I Hate Chu
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Reads as "I hate you" with the final word swapped for chu, the kiss sound effect; the synopsis
+      is built on exactly that contradiction, hating someone while wanting to kiss them, so the pun is
+      the title's whole joke.
     reading: アイ・ヘイ・チュー
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4679,6 +4729,11 @@ names:
     reading_source: surface
     verified: true
   アウトサイダーパラダイス:
+    basis: translated
+    en: Outsider Paradise
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: アウトサイダーパラダイス
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4686,7 +4741,11 @@ names:
     reading_source: surface
     verified: true
   アオハルに憑き物:
-    basis: romaji
+    basis: translated
+    en: Something's Haunting My Aoharu
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - アオハルに
       - null
@@ -4696,8 +4755,8 @@ names:
       - null
     - - 物
       - もの
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: アオハル is the stylized, katakana reading of 青春, youth, distinct enough from the plain word that
+      it's become its own flavor of title shorthand; kept rather than translated to "youth" outright.
     reading: アオハル ニ ツキモノ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -4706,9 +4765,13 @@ names:
     reading_source_kind: analyser
     verified: false
   アサルトリリィ League of Gardens -full bloom-:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: 'Assault Lily: League of Gardens -full bloom-'
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: League of Gardens and full bloom are already English in the source title; only アサルトリリィ itself
+      needed translating, to Assault Lily, the franchise's own established English name.
     reading: アサルトリリィ   League   of   Gardens   - full   bloom -
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -4717,6 +4780,11 @@ names:
     reading_source_kind: analyser
     verified: false
   アダとエイヴァ:
+    basis: translated
+    en: Ada and Ava
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: アダトエイヴァ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4724,7 +4792,11 @@ names:
     reading_source: surface
     verified: true
   アネモネは熱を帯びる:
-    basis: romaji
+    basis: translated
+    en: The Anemone Runs a Fever
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - アネモネは
       - null
@@ -4736,8 +4808,9 @@ names:
       - お
     - - びる
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 熱を帯びる carries both a literal fever and figurative heat; the synopsis's love interest is frail
+      and often ill, so the title likely means both at once rather than settling for the romantic reading
+      alone.
     reading: アネモネ ワ ネツ ヲ オビル
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -4784,6 +4857,11 @@ names:
     reading_source_kind: analyser
     verified: false
   アプリコットファズ:
+    basis: translated
+    en: Apricot Fuzz
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: アプリコットファズ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4791,12 +4869,16 @@ names:
     reading_source: surface
     verified: true
   アラサー美女は地味女に餌付けされる:
-    basis: romaji
-    en: Arasaa Bijo wa Jimi Onna ni Ezukesareru
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Thirtysomething Beauty Gets Tamed with Food by the Plain Girl
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Arasaa Bijo wa Jimi Onna ni Ezukesareru
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/eis0t1t/arasaa-bijo-wa-jimi-onna-ni-ezukesareru
     furigana_spans:
     - - アラサー
@@ -4815,6 +4897,8 @@ names:
       - えづ
     - - けされる
       - null
+    note: 餌付け is specifically feeding an animal to tame it, not just cooking for someone; the title keeps
+      that edge rather than softening it to something like "won over."
     reading: アラサア ビジョ ワ ジミ オンナ ニ エズケサレル
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -4823,12 +4907,16 @@ names:
     reading_url: https://www.mangaupdates.com/series/eis0t1t/arasaa-bijo-wa-jimi-onna-ni-ezukesareru
     verified: false
   アンドロイドは地雷系の夢を見る。:
-    basis: romaji
-    en: Android wa Jiraikei no Yume o Miru.
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Android Dreams of Jirai-kei.
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Android wa Jiraikei no Yume o Miru.
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/l2sdljl/android-wa-jiraikei-no-yume-o-miru
     furigana_spans:
     - - アンドロイドは
@@ -4847,8 +4935,10 @@ names:
       - み
     - - る。
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Echoes アンドロイドは電気羊の夢を見るか, the Japanese title of Do Androids Dream of Electric Sheep?, but as
+      a statement rather than the original's question. 地雷系, landmine-type, is a specific fashion and mood
+      subculture, closer to goth-adjacent emotional fragility than the English word landmine suggests,
+      kept rather than translated.
     reading: アンドロイド ワ ジライケイ ノ ユメ ヲ ミル。
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -4857,7 +4947,11 @@ names:
     reading_source_kind: analyser
     verified: false
   アンドロイドは経験人数に入りますか？？:
-    basis: romaji
+    basis: translated
+    en: Does an Android Count Toward Your Number of Partners??
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - アンドロイドは
       - null
@@ -4922,6 +5016,9 @@ names:
     en_at: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
+    note: Nagashiro Rouge's earlier anthology イヴとイヴ, singular, was licensed by Seven Seas as Eve and Eve
+      and is now out of print; this is a later, separate collection under a pluralized title, a new oneshot
+      plus reprinted stories, not the same book, so filed as ours rather than as the same license.
     reading: イヴトイヴタチ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7659,11 +7756,20 @@ names:
     reading_source: surface
     verified: true
   ハロー、メランコリック!:
-    basis: translated
+    basis: licensed
     en: Hello, Melancholic!
     en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Hello, Melancholic!
+    en_source: Seven Seas Entertainment
+    en_source_kind: licensor
+    en_url: https://www.penguinrandomhouse.com/books/707055/hello-melancholic-vol-1-by-yayoi-ohsawa/
+    note: 'Caught after the fact: filed translated in an earlier batch, but this is Yayoi Ohsawa''s series,
+      licensed by Seven Seas in 2021, three volumes. The English title happened to land on the same words
+      as the literal translation, which is what let it through the first time; refiled licensed against
+      Penguin Random House''s listing, since sevenseasentertainment.com blocks automated fetches.'
     reading: ハロー、メランコリック!
     reading_at: '2026-08-02'
     reading_basis: surface

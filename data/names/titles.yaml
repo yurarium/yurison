@@ -4114,12 +4114,16 @@ names:
     reading_source_kind: analyser
     verified: false
   まとう君、ほころぶ私:
-    basis: romaji
-    en: Matou Kimi, Hokorobu Watashi
-    en_at: '2026-08-02'
+    basis: translated
+    en: You Who Wear It, and I Who Come Undone
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Matou Kimi, Hokorobu Watashi
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/81bnixb/matou-kimi-hokorobu-watashi
     furigana_spans:
     - - まとう
@@ -4130,8 +4134,9 @@ names:
       - null
     - - 私
       - わたし
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: ほころぶ is a flower easing open or a seam fraying, both at once; paired against 纏う, to wear or
+      drape oneself, for the girl in the synopsis who wears a kimono to work, the title sets the one who's
+      put-together against the one coming apart.
     reading: マトウ キミ、 ホコロブ ワタシ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -4140,6 +4145,13 @@ names:
     reading_source_kind: analyser
     verified: false
   まるせっせんす:
+    basis: romaji
+    en: Marusessensu
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Not a standard word or a name attested anywhere reachable about this series; kept in transliteration
+      rather than guessed at.
     reading: マルセッセンス
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4147,6 +4159,12 @@ names:
     reading_source: surface
     verified: true
   みぞれちゃん、:
+    basis: translated
+    en: Mizore-chan,
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Kept the trailing comma; the Japanese ends on it too.
     reading: ミゾレチャン、
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4154,6 +4172,11 @@ names:
     reading_source: surface
     verified: true
   みだれたふたりのみたされごはん:
+    basis: translated
+    en: The Disheveled Pair's Satisfying Meal
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ミダレタフタリノミタサレゴハン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4161,7 +4184,11 @@ names:
     reading_source: surface
     verified: true
   みだれた二人のやられめし:
-    basis: romaji
+    basis: translated
+    en: The Disheveled Pair's Meal of Surrender
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - みだれた
       - null
@@ -4169,8 +4196,9 @@ names:
       - ふたり
     - - のやられめし
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: やられ, being done in or overcome, carries the same innuendo it does in casual speech; shares a
+      title pattern, 乱れた…めし/ごはん, with みだれたふたりのみたされごはん, evidently the same imprint's house style for this
+      run of food-and-desire oneshots rather than a coincidence.
     reading: ミダレタ フタリ ノ ヤラレ メシ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -4179,12 +4207,17 @@ names:
     reading_source_kind: analyser
     verified: false
   むちむち漫画家の完全勝利メシ 最強ボディで余命も担当編集もぶっ飛ばす!:
-    basis: romaji
-    en: Muchimuchi Mangakka no Kanzen Shouri Meshi Saikyou Body de Yomei mo Tantou Henshuu mo Buttobasu!
-    en_at: '2026-08-02'
+    basis: translated
+    en: 'The Chubby Mangaka''s Total-Victory Meal: Blow Away Your Remaining Lifespan and Your Editor with
+      the Ultimate Body!'
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Muchimuchi Mangakka no Kanzen Shouri Meshi Saikyou Body de Yomei mo Tantou Henshuu mo Buttobasu!
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/kpjmbls/muchimuchi-mangakka-no-kanzen-shouri-meshi-saikyou-body-de-yomei-mo-tantou-henshuu-mo-buttobasu
     furigana_spans:
     - - むちむち
@@ -4249,6 +4282,11 @@ names:
     reading_source_kind: analyser
     verified: false
   もっとヒーローになりたい:
+    basis: translated
+    en: I Want to Be More of a Hero
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: モットヒーローニナリタイ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4256,6 +4294,11 @@ names:
     reading_source: surface
     verified: true
   ももいろモンタージュ:
+    basis: translated
+    en: Peach-Colored Montage
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: モモイロモンタージュ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4263,6 +4306,11 @@ names:
     reading_source: surface
     verified: true
   もらったもの:
+    basis: translated
+    en: What I Was Given
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: モラッタモノ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4292,6 +4340,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/wmjgub7/yagate-kimi-ni-naru
     verified: false
   やきゅうみようよ!:
+    basis: translated
+    en: Let's Watch Baseball!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ヤキュウミヨウヨ!
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4299,7 +4352,11 @@ names:
     reading_source: surface
     verified: true
   やさしい教師の躾けかた。:
-    basis: romaji
+    basis: translated
+    en: How to Train a Kind Teacher.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - やさしい
       - null
@@ -4321,7 +4378,11 @@ names:
     reading_source_kind: analyser
     verified: false
   やしろの魔王:
-    basis: romaji
+    basis: translated
+    en: Yashiro's Demon King
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - やしろの
       - null
@@ -4337,12 +4398,16 @@ names:
     reading_source_kind: analyser
     verified: false
   ゆうやけトリップ:
-    basis: romaji
-    en: Yūyake Trip
-    en_at: '2026-08-02'
+    basis: translated
+    en: Sunset Trip
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Yūyake Trip
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q106093833
     reading: ユウヤケトリップ
     reading_at: '2026-08-02'
@@ -4351,6 +4416,13 @@ names:
     reading_source: surface
     verified: true
   ゆめぐりゆりめぐり:
+    basis: translated
+    en: Hot Spring Tour, Yuri Tour
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Puns 湯巡り, touring hot springs, against ゆり巡り, built the same way; the synopsis is exactly that,
+      a girl trying to lure her crush into a hot-spring circuit, so both halves of the pun are literal.
     reading: ユメグリユリメグリ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4358,6 +4430,11 @@ names:
     reading_source: surface
     verified: true
   ゆめみるがらくた:
+    basis: translated
+    en: Junk That Dreams
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ユメミルガラクタ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4365,6 +4442,11 @@ names:
     reading_source: surface
     verified: true
   ゆり×こちょ！:
+    basis: translated
+    en: Yuri × Tickle!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ユリ×コチョ！
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4372,12 +4454,16 @@ names:
     reading_source: surface
     verified: true
   ゆりづくしの教室で:
-    basis: romaji
-    en: Yurizukushi no Kyoushitsu de
-    en_at: '2026-08-02'
+    basis: translated
+    en: In a Classroom Full of Yuri
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Yurizukushi no Kyoushitsu de
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/4c9cbig/yurizukushi-no-kyoushitsu-de
     furigana_spans:
     - - ゆりづくしの
@@ -4426,11 +4512,16 @@ names:
     verified: false
   ゆりゾン:
     basis: romaji
+    en: Yurizon
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ゆりゾン
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Reads as a contraction, most likely yuri plus zone with the vowel dropped, but nothing reachable
+      about this series confirms it over yuri plus horizon, which the synopsis's world-changing sci-fi
+      turn would also fit; kept as the coined word rather than guessed apart.
     reading: ユリ ゾン
     reading_at: '2026-08-03'
     reading_basis: analyser

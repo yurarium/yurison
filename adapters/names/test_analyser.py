@@ -98,6 +98,22 @@ def main(s):
     s.eq(p4.chapter_en("第90話②", plain), "Ch. 90-2",
          "a chapter-shaped name still hyphenates its part, which is the form that sorts")
 
+    # THE CACHE INVALIDATES ITSELF. Every entry in phrases.yaml is derived, and the file was
+    # written once per string and never revisited, so a fix to the renderer never reached what it
+    # had already rendered. Three faults in one day came from that, each correct and invisible
+    # until the file was emptied by hand. The fingerprint has to move when the renderer moves, and
+    # stay put when it does not; a version number somebody remembers to bump is the same bug.
+    before = p4.renderer_fingerprint()
+    s.eq(p4.renderer_fingerprint(), before, "the same renderer fingerprints the same")
+    was = p4.EXTRA_EN["番外編"]
+    try:
+        p4.EXTRA_EN["番外編"] = "Side story"
+        s.check(p4.renderer_fingerprint() != before,
+                "changing what a chapter renders as changes the fingerprint")
+    finally:
+        p4.EXTRA_EN["番外編"] = was
+    s.eq(p4.renderer_fingerprint(), before, "and putting it back puts the fingerprint back")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "pass4_analyser"))

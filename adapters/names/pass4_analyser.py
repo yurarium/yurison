@@ -692,6 +692,33 @@ def romanise_ja(tok, modes, text):
     return latinise(_k.title_case(_k.romanise(r, "macron")))
 
 
+def renderer_fingerprint():
+    """What the chapter and credit renderer currently is, as a short hash.
+
+    THE CACHE HAD NO INVALIDATION. phrases.yaml is written once per string and every entry in it is
+    derived, so a fix to how a string is rendered never reached the strings already rendered. That
+    cost three separate faults in one day: a name stayed "Ōkumara Suko" after its reading was
+    sourced, a credit line stayed "Iruma Ningen" while the person in it was right, and a chapter
+    stayed "Ch. 4 Maki Dai 39Wa" after 巻 was understood. Each fix was correct and invisible, and
+    each time the file had to be emptied by hand for it to land.
+
+    Hashing the renderer means the file invalidates itself: change how a string is rendered and
+    every string is rendered again, without anyone remembering to. The alternative is a version
+    number somebody has to bump, which is the same bug one level up.
+    """
+    import hashlib
+    import inspect
+    parts = []
+    for fn in (chapter_en, part_marks, credit_en, romanise_ja, latinise):
+        try:
+            parts.append(inspect.getsource(fn))
+        except (OSError, TypeError):
+            parts.append(repr(fn))
+    parts += [CHAPTER_PAT.pattern, EXTRA_PAT.pattern, VOLUME_PAT.pattern,
+              repr(sorted(EXTRA_EN.items())), repr(sorted(CIRCLED.items()))]
+    return hashlib.sha256("".join(parts).encode("utf-8")).hexdigest()[:16]
+
+
 def fill_chapters(names_seen, quiet=False):
     """English for chapter names and credit lines, stored beside titles and authors.
 
@@ -709,9 +736,25 @@ def fill_chapters(names_seen, quiet=False):
     doc.setdefault("note", "Chapter names and credit lines rendered for the English view. Structure "
                            "is translated (第12話 -> Ch. 12, 原作 -> story); names are romanised.")
     names = doc.setdefault("names", {})
+    # EVERY ENTRY HERE IS DERIVED, so when the renderer changes they are all stale. Dropped rather
+    # than patched: nothing can say which of them a given change touches, and re-deriving is cheap
+    # beside shipping a wrong one. This is the invalidation the cache never had.
+    fp = renderer_fingerprint()
+    carried = ()
+    if doc.get("renderer") != fp:
+        # RE-RENDERED, NOT DISCARDED. The file accumulates across runs and holds strings this build
+        # is not looking at, from an archived month or a work that has since moved; emptying it
+        # dropped 第３６話　うさぎの国の乙女 and left it rendering as Japanese on an English page.
+        # The keys go back into the queue so everything is redone and nothing is lost, which is the
+        # same rule the source writers learned: a pass must not delete what it is not looking at.
+        carried = tuple(names)
+        names.clear()
+        doc["renderer"] = fp
+        if not quiet and carried:
+            print(f"  chapter renderer changed; re-rendering {len(carried)} phrase(s)")
     # Also strings that are only Japanese PUNCTUATION — IDOL×IDOL STORY！ has no kana or kanji and
     # still reads as Japanese typography on an English page.
-    todo = [x for x in names_seen
+    todo = [x for x in set(names_seen) | set(carried)
             if x and x not in names and (has_japanese(x) or latinise(x) != x)]
     if not todo:
         return 0

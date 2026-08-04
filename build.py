@@ -3102,9 +3102,13 @@ def main():
                 # weakness visible instead of leaving it implied.
                 row["state_basis"] = (
                     f"no chapter for {age} days, and nothing states it has ended")
-                # A PLATFORM SAYING IT IS RUNNING IS NOT SILENCE. Our copy of its chapter list may
-                # simply be behind, which a hand review of these rows found repeatedly: マガポケ's
-                # page for 将来的に死んでくれ is at 第42話 while we hold ten chapters ending in 2019.
+                # A PLATFORM SAYING IT IS RUNNING IS NOT SILENCE. It does not make a quiet work
+                # active, because a serialisation can be open and on hiatus at once, and the
+                # silence is still what we observed. What it does is say the silence is ours: the
+                # publisher has not ended this, so the reader is owed the distinction between a
+                # work nobody has closed and a work nobody has touched. カドコミ marks six of its
+                # ten dormant works ongoing, and it is also what keeps an aggregator's 完結 tag
+                # from closing a work the platform itself still calls running.
                 if row.pop("running_src", None):
                     row["state_basis"] = (
                         f"no chapter for {age} days in what we hold, but the platform still marks "

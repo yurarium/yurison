@@ -1,0 +1,26 @@
+# How long a platform says a series is, where the platform says it and we hold less.
+#
+# A count is not a chapter list, and this is not one: there are no titles and no dates here. What
+# it does is stop a partial capture being published as a complete series, which is how
+# ベイビー車中ハッカーズ came to say "2 chapters, complete, dormant since October 2024" about a work
+# that is at its nineteenth instalment.
+#
+# `holds_last` records whether the newest chapter WE hold is the newest the platform lists. It is
+# what separates a capture that is short from a capture that is behind. マガポケ's records are short
+# and not behind: we hold ten of 将来的に死んでくれ's 42 episodes and the one we call newest is the
+# 42nd, so its dates are right and only its count is wrong.
+source: hand-checked
+role: series-length
+retrieved: 2026-08-04
+works:
+  - work: ベイビー車中ハッカーズ
+    platform: ヤンジャン＋
+    url: https://ynjn.jp/allEpisodeList/16787
+    episodes_stated: 47
+    instalments_stated: 19
+    holds_last: false
+    note: >-
+      47 episode rows covering 19 instalments, counted in the rendered page. The list is built
+      client-side and carries no dates at all, so the count is all this platform offers. We hold
+      two chapters, from となりのヤングジャンプ, which was a promotional posting for the work's
+      print run in ウルトラジャンプ rather than the serialisation.

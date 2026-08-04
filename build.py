@@ -1796,6 +1796,23 @@ def main():
             for _c in (yaml.safe_load(_bw.read_text()) or {}).get("works") or []:
                 shop_completed[norm_work(_c.get("work") or "")] = _c
 
+    # WHAT A PLATFORM SAYS ITS OWN SERIES IS LONG, where it says it and we hold less. Neither file
+    # carries titles or dates, so neither can fill in the chapters we lack. What they stop is a
+    # partial capture being published as a whole series: ベイビー車中ハッカーズ read "2 chapters,
+    # complete, dormant since October 2024" about a work at its nineteenth instalment.
+    stated_len = {}
+    for _lf in ("data/coverage/series-lengths.yaml", "data/coverage/magapoke-lengths.yaml"):
+        _lp = pathlib.Path(_lf)
+        if not _lp.exists():
+            continue
+        for _w in (yaml.safe_load(_lp.read_text()) or {}).get("works") or []:
+            _len_key = norm_work(_w.get("work") or _w.get("work_title") or "")
+            _len_n = _w.get("episodes_stated")
+            if _len_key and _len_n:
+                stated_len[_len_key] = {"n": _len_n, "url": _w.get("url"),
+                                  "holds_last": _w.get("holds_last"),
+                                  "last_episode_url": _w.get("last_episode_url")}
+
     # Every look adapters/claims/trace.py has taken, keyed the way it writes them. A claim with no
     # history behind it is untraced only if nobody has been; this is how that is known.
     claim_checks = checkstate.load()
@@ -3168,12 +3185,31 @@ def main():
         # quoted from the raw one where that also matches, so the basis says what the page says
         # rather than what NFKC made of it: ＜完＞ folds to <完> and the publisher wrote neither.
         _ep_raw = row.get("latest_ep") or ""
+        # A capture the platform itself says is short cannot claim to be the series. Marked partial
+        # so the count reads as ours rather than as the work's, and where we are not holding the
+        # platform's newest chapter the silence is ours too, so no state is inferred from it.
+        _sl = stated_len.get(norm_work(row.get("work") or ""))
+        _short = bool(_sl and _sl["n"] > (row.get("chapters") or 0))
+        if _short:
+            row["partial"] = True
+            row["chapters_stated"] = _sl["n"]
+            _at_end = _sl.get("holds_last")
+            if _at_end is None and _sl.get("last_episode_url"):
+                _at_end = (row.get("url") or "").rstrip("/") == _sl["last_episode_url"]
+            row["_capture_behind"] = not _at_end
         _fm = FINAL_RE.search(unicodedata.normalize("NFKC", _ep_raw)) if _ep_raw else None
         _fm_shown = (FINAL_RE.search(_ep_raw) or _fm) if _fm else None
         _final = bool(_fm)
         _completed = row.pop("completed_src", None)
         _running = row.get("running_src")
-        if not row["latest"]:
+        if row.pop("_capture_behind", False) and not (_final or _completed):
+            # The platform lists chapters past the newest we hold, so our newest is not the
+            # series' newest and its age measures our capture rather than the work.
+            row["state"] = "unknown"
+            row["state_basis"] = (
+                f"{_sl['n']} chapters are listed on the platform and we hold {row['chapters']}, "
+                f"none of them the newest, so nothing here says when this last updated")
+        elif not row["latest"]:
             row["state"] = "unknown"
         elif row["oneshot"]:
             row["state"] = "oneshot"
@@ -3372,6 +3408,10 @@ def main():
             # The BEST-KNOWN length, not a sum: every source is describing the same story, and
             # adding them would report 135 chapters for a 121-chapter work.
             "chapters": best["chapters"],
+            # What the platform says the series is long, where we hold less. Published so the
+            # count can read as "what we have" rather than as the length of the work.
+            **({"chapters_stated": best["chapters_stated"]}
+               if best.get("chapters_stated") else {}),
             "partial": all(r["partial"] for r in rows),
             "latest": max((r["latest"] for r in _dr if r["latest"]), default=None),
             "latest_ep": best["latest_ep"],

@@ -8345,7 +8345,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ワンコと距離の測り方:
-    basis: romaji
+    basis: translated
+    en: How to Keep Your Distance from a Puppy
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ワンコと
       - null
@@ -8359,8 +8363,8 @@ names:
       - null
     - - 方
       - かた
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The synopsis's ワンコ is the clingy childhood friend, not an animal, an affectionate label for
+      someone who crowds people the way a dog does.
     reading: ワンコ ト キョリ ノ ハカリカタ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8385,7 +8389,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ヲトメは義母に恋してる:
-    basis: romaji
+    basis: translated
+    en: The Maiden Is in Love with Her Stepmother
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ヲトメは
       - null
@@ -8407,6 +8415,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ヴァンピアーズ:
+    basis: translated
+    en: Vampires
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ヴァンピアーズ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -8414,7 +8427,11 @@ names:
     reading_source: surface
     verified: true
   一夜で堕ちる恋なんて:
-    basis: romaji
+    basis: translated
+    en: As If Love Falls in a Single Night
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 一夜
       - いちや
@@ -8428,8 +8445,8 @@ names:
       - こい
     - - なんて
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: なんて carries the skepticism, a dismissive "as if," that the bare phrase would lose if flattened
+      to a plain statement.
     reading: イチヤ デ オチル コイ ナンテ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8438,7 +8455,11 @@ names:
     reading_source_kind: analyser
     verified: false
   一夜の願い:
-    basis: romaji
+    basis: translated
+    en: A Night's Wish
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 一夜
       - いちや
@@ -8458,7 +8479,11 @@ names:
     reading_source_kind: analyser
     verified: false
   一条ヒヨコはピアノだけ:
-    basis: romaji
+    basis: translated
+    en: Ichijou Hiyoko Only Has Piano
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 一条
       - いちじょう
@@ -8531,7 +8556,11 @@ names:
     reading_source_kind: analyser
     verified: false
   三年坂:
-    basis: romaji
+    basis: translated
+    en: Three-Year Slope
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 三
       - さん
@@ -8539,8 +8568,8 @@ names:
       - ねん
     - - 坂
       - さか
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Names the real urban legend, several slopes across Japan share it, that falling on the slope
+      kills you within three years; kept literal rather than romanized so the curse reads as what it is.
     reading: サン ネン サカ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8549,7 +8578,11 @@ names:
     reading_source_kind: analyser
     verified: false
   三木と日野:
-    basis: romaji
+    basis: translated
+    en: Miki and Hino
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 三木
       - みき
@@ -8567,7 +8600,11 @@ names:
     reading_source_kind: analyser
     verified: false
   三角形の壊し方:
-    basis: romaji
+    basis: translated
+    en: How to Break a Triangle
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 三角形
       - さんかっけい
@@ -8623,12 +8660,16 @@ names:
     reading_source_kind: analyser
     verified: false
   上杉くんは女の子をやめたい:
-    basis: romaji
-    en: Uesugi-kun wa Onnanoko o Yametai
-    en_at: '2026-08-02'
+    basis: translated
+    en: Uesugi-kun Wants to Stop Being a Girl
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Uesugi-kun wa Onnanoko o Yametai
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q130739438
     furigana_spans:
     - - 上杉
@@ -8652,7 +8693,11 @@ names:
     reading_url: http://www.wikidata.org/entity/Q130739438
     verified: false
   下僕さんと主ちゃんの日常～主のためなら何でもします～:
-    basis: romaji
+    basis: translated
+    en: The Daily Life of Servant-san and Master-chan ~I'd Do Anything for My Master~
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 下僕
       - げぼく
@@ -8684,7 +8729,11 @@ names:
     reading_source_kind: analyser
     verified: false
   下部七花はかく語りき:
-    basis: romaji
+    basis: translated
+    en: Thus Spoke Shimobe Nanaka
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 下部
       - かぶ
@@ -8698,8 +8747,8 @@ names:
       - かた
     - - りき
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Borrows the Japanese title convention for Also sprach Zarathustra, ツァラトゥストラはかく語りき, as a stock
+      pastiche form rather than a literal claim about the character.
     reading: カブ ナナ ハナ ワ カク カタリキ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8708,7 +8757,11 @@ names:
     reading_source_kind: analyser
     verified: false
   不思議なゆりこさん:
-    basis: romaji
+    basis: translated
+    en: The Mysterious Yuriko
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 不思議
       - ふしぎ
@@ -8724,7 +8777,12 @@ names:
     reading_source_kind: analyser
     verified: false
   不揃いの連理:
-    basis: romaji
+    basis: licensed
+    en: Assorted Entanglements
+    en_at: '2026-08-04'
+    en_source: Yen Press
+    en_source_kind: licensor
+    en_url: https://yenpress.com/series/assorted-entanglements
     furigana_spans:
     - - 不揃
       - ふぞろ
@@ -8732,8 +8790,8 @@ names:
       - null
     - - 連理
       - れんり
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 連理 alone points to 連理の枝, the classical image of two branches grown into one, a bond too tangled
+      to separate; Yen Press's title keeps that tangle rather than the branches.
     reading: フゾロイ ノ レンリ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8742,9 +8800,13 @@ names:
     reading_source_kind: analyser
     verified: false
   不死犠コネクト:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: Undying Sacrifice Connect
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 不死犠 is a coined compound, not a standard word; read from its parts, undying (不死) plus sacrifice/victim
+      (犠), against a synopsis set at a night school for the undead.
     reading: フシ ギ コネクト
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8754,7 +8816,11 @@ names:
     reading_uncertain: true
     verified: false
   世が夜なら!:
-    basis: romaji
+    basis: translated
+    en: If the World Were Night!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 世
       - よ
@@ -8764,8 +8830,8 @@ names:
       - よる
     - - なら!
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Swaps 世 for 夜 in the idiom 世が世なら, if times were different; the vampire dropped into modern Tokyo
+      makes the substitution literal rather than wistful.
     reading: ヨ ガ ヨルナラ !
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -8774,7 +8840,11 @@ names:
     reading_source_kind: analyser
     verified: false
   世界で一番おっぱいが好き！:
-    basis: romaji
+    basis: translated
+    en: The World's Number One Breast Lover!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 世界
       - せかい

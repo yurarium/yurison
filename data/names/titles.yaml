@@ -6018,6 +6018,11 @@ names:
     reading_source: surface
     verified: true
   サニーサイド:
+    basis: translated
+    en: Sunny Side
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: サニーサイド
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6026,8 +6031,12 @@ names:
     verified: true
   サバーキ:
     basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    en: Sabāki
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Not a word or a name attested anywhere reachable about this series; kept in transliteration
+      rather than guessed at.
     reading: サバーキ
     reading_at: '2026-08-03'
     reading_basis: analyser
@@ -6036,7 +6045,11 @@ names:
     reading_source_kind: analyser
     verified: false
   サボりなら保健室でどうぞ？:
-    basis: romaji
+    basis: translated
+    en: Skip Class in the Nurse's Office, Why Don't You?
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - サボりなら
       - null
@@ -6054,6 +6067,11 @@ names:
     reading_source_kind: analyser
     verified: false
   シスターグレイ:
+    basis: translated
+    en: Sister Grey
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: シスターグレイ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6061,12 +6079,16 @@ names:
     reading_source: surface
     verified: true
   シャイなあの子に懐かれたい:
-    basis: romaji
-    en: Shy na Ano Ko ni Natsukaretai
-    en_at: '2026-08-02'
+    basis: translated
+    en: I Want the Shy Girl to Get Attached to Me
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Shy na Ano Ko ni Natsukaretai
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/vgiewrt/shy-na-ano-ko-ni-natsukaretai
     furigana_spans:
     - - シャイなあの
@@ -6089,6 +6111,13 @@ names:
     reading_source_kind: analyser
     verified: false
   シャッターチャンス:
+    basis: translated
+    en: Shutter Chance
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The Japanese loanword for a photo opportunity, built from shutter rather than the English phrase;
+      kept literal since a synopsis wasn't reachable to argue for anything else.
     reading: シャッターチャンス
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6096,6 +6125,11 @@ names:
     reading_source: surface
     verified: true
   シャトルシスターズ:
+    basis: translated
+    en: Shuttle Sisters
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: シャトルシスターズ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6135,6 +6169,11 @@ names:
     reading_source_kind: analyser
     verified: false
   シュガーガール・ドリップ:
+    basis: translated
+    en: Sugar Girl Drip
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: シュガーガール・ドリップ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6142,6 +6181,13 @@ names:
     reading_source: surface
     verified: true
   シュナイダーラリー:
+    basis: translated
+    en: Schneider Rally
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Names the seaplane race the synopsis is built around; likely echoes the real early-20th-century
+      Schneider Trophy races, kept as the proper noun it reads as.
     reading: シュナイダーラリー
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6149,7 +6195,11 @@ names:
     reading_source: surface
     verified: true
   シルフの花姫:
-    basis: romaji
+    basis: translated
+    en: The Sylph's Flower Princess
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - シルフの
       - null
@@ -6167,6 +6217,11 @@ names:
     reading_source_kind: analyser
     verified: false
   シンデレラクエスト:
+    basis: translated
+    en: Cinderella Quest
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: シンデレラクエスト
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6174,6 +6229,14 @@ names:
     reading_source: surface
     verified: true
   シンデレラコスプレイション:
+    basis: translated
+    en: Cinderella Cosplayation
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Coined from シンデレラ, Cinderella, and コスプレ, cosplay, matching the synopsis's own phrase for the
+      arc, レイヤー界の「シンデレラストーリー」, a Cinderella story in the cosplay world; kept as the blended coinage rather
+      than split into two words.
     reading: シンデレラコスプレイション
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6181,7 +6244,11 @@ names:
     reading_source: surface
     verified: true
   シンデレラ穢れない!:
-    basis: romaji
+    basis: translated
+    en: Cinderella, Undefiled!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - シンデレラ
       - null
@@ -6206,6 +6273,13 @@ names:
     reading_source: surface
     verified: true
   ジュリア・イン・ザ・ボックス！:
+    basis: translated
+    en: Julia in the Box!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Echoes jack-in-the-box; Julia is the sheltered rich girl of the synopsis, and the title's shape
+      suggests she's the surprise popping out of her box rather than the phrase being literal.
     reading: ジュリア・イン・ザ・ボックス！
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6213,7 +6287,11 @@ names:
     reading_source: surface
     verified: true
   スウィングが無ければ意味が無い:
-    basis: romaji
+    basis: translated
+    en: It Doesn't Mean Anything Without Swing
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - スウィングが
       - null
@@ -6239,6 +6317,13 @@ names:
     reading_source_kind: analyser
     verified: false
   スウィートヒート!:
+    basis: translated
+    en: Sweetheart!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Puns on the wrestling term heat, crowd excitement built by a feud, since the synopsis is a womens'-wrestling
+      romance where the two leads are rivals in the ring and a couple at home.
     reading: スウィートヒート!
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6289,6 +6374,11 @@ names:
     reading_source_kind: analyser
     verified: false
   スクールゾーン:
+    basis: translated
+    en: School Zone
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: スクールゾーン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -6296,18 +6386,25 @@ names:
     reading_source: surface
     verified: true
   スケバンと転校生:
-    basis: romaji
-    en: Sukeban to Tenkousei ga Kudaranai Asobi o Suru dake no Hanashi
-    en_at: '2026-08-02'
+    basis: licensed
+    en: The Delinquent and the Transfer Student
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Sukeban to Tenkousei ga Kudaranai Asobi o Suru dake no Hanashi
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
-    en_url: https://www.mangaupdates.com/series/lx7zwau/sukeban-to-tenkousei-ga-kudaranai-asobi-o-suru-dake-no-hanashi
+    en_source: Seven Seas Entertainment
+    en_source_kind: licensor
+    en_url: https://www.penguinrandomhouse.com/books/814540/the-delinquent-and-the-transfer-student-vol-1-by-fujichika/
     furigana_spans:
     - - スケバンと
       - null
     - - 転校生
       - てんこうせい
+    note: Fujichika's series, licensed by Seven Seas with volumes releasing from June 2026; sevenseasentertainment.com
+      blocks automated fetches, so cited through Penguin Random House's listing, which names Seven Seas
+      as the imprint directly.
     reading: スケバン ト テンコウセイ ガ クダラナイ アソビ オ スル ダケ ノ ハナシ
     reading_at: '2026-08-02'
     reading_basis: back-converted

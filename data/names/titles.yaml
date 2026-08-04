@@ -5312,6 +5312,14 @@ names:
     reading_source_kind: analyser
     verified: false
   カルネアデス:
+    basis: translated
+    en: Carneades
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Names the ancient Greek philosopher known for the plank of Carneades, a thought experiment about
+      justifying self-preservation at someone else's expense; fits a synopsis about an angel enforcing
+      her own justice against a demon she's ordered to hunt down.
     reading: カルネアデス
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5319,7 +5327,11 @@ names:
     reading_source: surface
     verified: true
   カレンダーの裏側:
-    basis: romaji
+    basis: translated
+    en: Behind the Calendar
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - カレンダーの
       - null
@@ -5335,6 +5347,11 @@ names:
     reading_source_kind: analyser
     verified: false
   カワセミとブルー:
+    basis: translated
+    en: The Kingfisher and Blue
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: カワセミトブルー
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5361,7 +5378,11 @@ names:
     en_source_kind: derived
     verified: false
   ガチ恋やめて:
-    basis: romaji
+    basis: translated
+    en: Stop the Gachi-Koi
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ガチ
       - null
@@ -5379,7 +5400,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ガチ恋カウント2.9:
-    basis: romaji
+    basis: translated
+    en: 'Gachi-Koi Count: 2.9'
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ガチ
       - null
@@ -5387,8 +5412,9 @@ names:
       - こい
     - - カウント2.9
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: ガチ恋, falling for a performer for real rather than as fan service, kept as the fandom term it
+      is; 2.9 reads as a wrestling pin count stopped just short of the 3 that would end the match, fitting
+      the synopsis's pro-wrestling setting.
     reading: ガチ コイ カウント 2.9
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -5397,7 +5423,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ガチ百合生徒会長の花園:
-    basis: romaji
+    basis: translated
+    en: The Hardcore Yuri Student Council President's Garden
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ガチ
       - null
@@ -5421,7 +5451,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ガラスノキック/読み切り:
-    basis: romaji
+    basis: translated
+    en: Glass Kick
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ガラスノキック/
       - null
@@ -5433,8 +5467,8 @@ names:
       - き
     - - り
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The suffix is Champion Cross's own oneshot marker, present in the page's own title tag; dropped
+      as promotional framing rather than part of the title.
     reading: ガラスノキック / ヨミキリ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -5443,6 +5477,14 @@ names:
     reading_source_kind: analyser
     verified: false
   ガンバレッド×シスターズ:
+    basis: translated
+    en: Gun Red × Sisters
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ガンバレッド reads as a coined codename, gun plus red, paired with the synopsis's own title for the
+      vampire-hunting priestess, Red Sister; not confirmed directly, but nothing else in reach fits as
+      well.
     reading: ガンバレッド×シスターズ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5450,6 +5492,11 @@ names:
     reading_source: surface
     verified: true
   ガールズ×ヴァンパイア:
+    basis: translated
+    en: Girls × Vampire
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ガールズ×ヴァンパイア
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5457,6 +5504,11 @@ names:
     reading_source: surface
     verified: true
   ガールズライブイン・ライブハウス:
+    basis: translated
+    en: Girls Live in the Live House
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ガールズライブイン・ライブハウス
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5464,6 +5516,11 @@ names:
     reading_source: surface
     verified: true
   ガールミートガール:
+    basis: translated
+    en: Girl Meets Girl
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ガールミートガール
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5471,14 +5528,18 @@ names:
     reading_source: surface
     verified: true
   キミが吠えるための歌を、:
-    basis: romaji
-    en: Kimi ga Hoeru Tame no Uta wo,
-    en_at: '2026-08-02'
+    basis: translated
+    en: A Song for You to Howl,
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Kimi ga Hoeru Tame no Uta wo,
     en_corroborated:
     - mangaupdates
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q137900620
     furigana_spans:
     - - キミが
@@ -5491,8 +5552,9 @@ names:
       - うた
     - - を、
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 吠える, to howl or bark, is an odd verb for singing; the synopsis has the protagonist hiding a
+      voice she's ashamed of, so a song built to let her roar rather than hide fits the choice. Kept the
+      trailing comma, since the Japanese ends on it too.
     reading: キミ ガ ホエル タメ ノ ウタ ヲ、
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -5501,6 +5563,11 @@ names:
     reading_source_kind: analyser
     verified: false
   キャッチユー・キャッチミー:
+    basis: translated
+    en: Catch You, Catch Me
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: キャッチユー・キャッチミー
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5508,7 +5575,11 @@ names:
     reading_source: surface
     verified: true
   キャバ嬢だけどJDに落とされました:
-    basis: romaji
+    basis: translated
+    en: I'm a Hostess, but I Was Made to Fall for a JD
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - キャバ
       - null
@@ -5530,14 +5601,18 @@ names:
     reading_source_kind: analyser
     verified: false
   キャンディ ふたりの約束:
-    basis: romaji
+    basis: translated
+    en: 'Candy: Our Promise'
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - キャンディ ふたりの
       - null
     - - 約束
       - やくそく
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'Translated from Chinese: the author is Shí Yī''èr of the Chinese studio Mùxīng, per the platform''s
+      own credit; the katakana キャンディ glosses 糖果, candy, directly in the source title.'
     reading: キャンディ   フタリ ノ ヤクソク
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -5546,6 +5621,11 @@ names:
     reading_source_kind: analyser
     verified: false
   キュートアグレッション:
+    basis: translated
+    en: Cute Aggression
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: キュートアグレッション
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5553,6 +5633,11 @@ names:
     reading_source: surface
     verified: true
   キラキラさん:
+    basis: translated
+    en: Sparkly-san
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: キラキラサン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5560,7 +5645,11 @@ names:
     reading_source: surface
     verified: true
   キラメキRESTART→:
-    basis: romaji
+    basis: translated
+    en: Sparkle RESTART→
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: キラメキ RESTART →

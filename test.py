@@ -75,7 +75,11 @@ def has_code(p):
 
 def modules():
     for p in sorted(ROOT.rglob("*.py")):
-        if SKIP_DIRS & set(p.parts) or p.name == "test.py":
+        # A hidden directory is somebody's working space, not part of the project. An agent left
+        # .tmp-c2/q.py in the tree mid-run and it counted as an untested module, which failed a
+        # budget over a file nobody had written for this repository.
+        if (SKIP_DIRS & set(p.parts) or p.name == "test.py"
+                or any(part.startswith(".") and part not in (".", "..") for part in p.parts)):
             continue
         if not has_code(p):
             continue

@@ -117,6 +117,22 @@ def main(s):
                              "アサガヤサキュバスドウニンモノガタリ"),
             "and ruby over ヶ spells a reading that records ガ")
 
+    # WHICH TWO VOWELS MAKE THE LONG ONE. 女王 is ジョ オ ウ. Taking the オ into ジョ leaves the ウ
+    # as a syllable of its own and gives jōu, which romanises nothing: the long vowel is オウ.
+    s.eq(kana.romanise("ジョオウ", "macron"), "joō", "the long vowel is the pair that ends the run")
+    s.eq(kana.romanise("ジョオウサマ", "macron"), "joōsama", "and the rest of the word follows it")
+    s.eq(kana.romanise("ジョオウ", "double"), "joou", "the doubled style is unaffected either way")
+
+    # A VOWEL KANA ONLY DEFERS TO WHAT FOLLOWS IT. Where nothing follows that would lengthen it,
+    # the ordinary merge stands, which is most of the language.
+    s.eq(kana.romanise("コオリ", "macron"), "kōri", "こおり is kōri; the オ has nothing to defer to")
+    s.eq(kana.romanise("オオキイ", "macron"), "ōkii", "and おおきい keeps its long ō")
+    s.eq(kana.romanise("トオル", "macron"), "tōru", "as does とおる")
+    s.eq(kana.romanise("ジョウ", "macron"), "jō", "a plain じょう is one long vowel, not two")
+
+    # ー IS NOT A VOWEL and cannot begin a long vowel of its own, so it never defers.
+    s.eq(kana.romanise("オーウチ", "macron"), "ōuchi", "オー holds its lengthening across a following ウ")
+
     # THE COUNTER-CASE. The substitution must not invent an alignment: a reading that genuinely
     # does not spell the surface still fails, because ruby over the wrong character is the thing
     # this whole function is careful about.

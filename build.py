@@ -174,6 +174,55 @@ def _stated_for(work, platform):
     return _STATED.get((norm_work(work or ""), norm_work(platform or "")))
 
 
+
+def credit_parts(ja):
+    """The people named in a credit line, or None where it is not one.
+
+    Shipped so the interface can compose the line from its parts under the reader's own choices.
+    A phrase rendered at build time is one fixed string: it cannot follow a macron preference, and
+    it cannot follow a family-name-first preference either, because both are the reader's to make.
+    """
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+        from names.inputs import split_authors
+    except Exception:                                                       # noqa: BLE001
+        return None
+    parts = [(n or "").strip() for n, _role in split_authors(ja or "")]
+    return parts if len(parts) > 1 and all(parts) else None
+
+
+def _recompose_credit(ja, phrase, authors):
+    """A credit line rendered from its people, or the phrase we already had.
+
+    The line is only rebuilt when EVERY person in it has a rendering of their own. A line that is
+    half recomposed and half romanised whole reads as neither, and the reader cannot tell which
+    part to trust.
+    """
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+        from names.inputs import split_authors
+    except Exception:                                                       # noqa: BLE001
+        return phrase
+    parts = [(n or "").strip() for n, _role in split_authors(ja or "")]
+    if len(parts) < 2 or not all(parts):
+        return phrase
+    out = []
+    for n in parts:
+        rec = authors.get(n) or {}
+        # The ROMANISATION, not `en`. For a person `en` is written given-then-family, and the
+        # interface shows a single author as the romanisation, family first: composing a line from
+        # `en` put "Hitoma Iruma" beside "Kawakami Shion" in the same string.
+        #
+        # Macron style, because a phrase is rendered once at build time and cannot follow the
+        # reader's choice of macron, doubled or plain the way a single name does. That is a real
+        # limitation of pre-rendering a line rather than its parts.
+        shown = ((rec.get("romaji") or {}).get("macron")) or rec.get("en")
+        if not shown:
+            return phrase
+        out.append(shown)
+    return ", ".join(out)
+
+
 def _basis_of(best, rows, field):
     """The reason for the state we are publishing, taken from the row that state came from.
 
@@ -3607,7 +3656,22 @@ def main():
          # too when it names a collection. Filtered on the same register.
          # phrases carries collection and chapter names, and a withheld work's title lands here
          # too when it names a collection. Same register, or the title ships anyway.
-         "phrases": {_fold(k): v for k, v in (
+         # A CREDIT LINE IS COMPOSED FROM THE PEOPLE IN IT, where we know them. The phrase map is
+         # written once per string by the analyser and never revisited, so it romanises the whole
+         # line as one run and no later correction reaches it: 入間人間 has a sourced reading of
+         # イルマ ヒトマ and its credit line still read "Iruma Ningen"; 柚原もけ came out
+         # "Yuhara mo Ke" because the analyser broke a name it had never seen. Recomposed from the
+         # author store, and left alone where any of the people are unknown, because half a line
+         # composed and half romanised whole would be worse than either.
+         # The people in each credit line, keyed like the phrases, so the interface can render a
+         # line from its parts and follow the reader's romanisation style and name order. The
+         # composed phrase stays as the fallback for a line whose people we do not all know.
+         "credit_parts": {_fold(k): _cp for k, _cp in (
+             (k, credit_parts(k)) for k in (
+                 (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
+                  ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {})
+         ) if _cp},
+         "phrases": {_fold(k): _recompose_credit(k, v, _auth_names) for k, v in (
              (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
               ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}
          ).items() if norm_work(k) not in _wh_names}},

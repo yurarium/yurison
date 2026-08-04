@@ -221,7 +221,17 @@ def morae(reading):
             if nxt == PROLONG:
                 long, i = PROLONG, i + 1
             elif nxt in LENGTHENS.get(v, ()):
-                long, i = nxt, i + 1
+                # A VOWEL KANA THAT WILL ITSELF BE LENGTHENED BELONGS TO WHAT FOLLOWS IT, not to
+                # what precedes. 女王 is ジョ オ ウ, and taking the オ into ジョ leaves the ウ
+                # stranded as its own syllable: jōu, which is not a romanisation of anything. The
+                # long vowel there is オウ, so the answer is joō.
+                #
+                # Only where the lengthener is a written vowel. ー is not a vowel and cannot start
+                # a long vowel of its own, so オーウチ keeps its merge and stays Ōuchi.
+                nxt2 = s[i + 1] if i + 1 < n else None
+                nv = (BASE.get(nxt) or "")[-1:]
+                if not (nxt2 and nv and nxt2 in LENGTHENS.get(nv, ())):
+                    long, i = nxt, i + 1
         out.append({"r": r, "v": v, "long": long})
     return out
 

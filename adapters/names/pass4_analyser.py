@@ -361,6 +361,20 @@ def is_credit_line(s):
     return any(r in s for r in ROLE)
 
 
+def _split_authors():
+    """inputs.split_authors, imported however this file happens to be run.
+
+    inputs.py imports kana relatively, so it loads as part of the package and not as a bare module,
+    and this file is run both ways: as a script from the repository root and as an import from the
+    suite.
+    """
+    import importlib, pathlib as _pl, sys as _sys
+    root = str(_pl.Path(__file__).resolve().parents[1])
+    if root not in _sys.path:
+        _sys.path.insert(0, root)
+    return importlib.import_module("names.inputs").split_authors
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int)
@@ -396,7 +410,17 @@ def main():
             if kind == "titles":
                 seen.add(r["work"])
             elif r.get("author"):
-                seen.add(r["author"].strip())
+                # THE PEOPLE INSIDE A CREDIT LINE ARE PEOPLE. Only the whole string was added, so
+                # anyone who never appears alone got no record of their own, was never researched,
+                # and was romanised as part of a run the analyser mis-segmented: 柚原もけ came out
+                # "Yuhara mo Ke" and 猫屋敷ぷしお "Nekoyashikipu Shio". 入間人間 has a sourced
+                # reading and its credit line still said "Iruma Ningen", because the line was
+                # romanised whole and never consulted it.
+                raw = r["author"].strip()
+                seen.add(raw)
+                for _nm, _role in _split_authors()(raw):
+                    if _nm and _nm.strip():
+                        seen.add(_nm.strip())
 
         todo = [s for s in sorted(seen)
                 if s and (not (names.get(s) or {}).get("reading")

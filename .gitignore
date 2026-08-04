@@ -11,3 +11,6 @@ data/names/.journal/
 
 # Local preview config; the server is a dev convenience, not project source.
 .claude/
+
+# Scratch directories an agent or a run leaves behind. Never part of the project.
+.tmp-*/

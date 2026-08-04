@@ -217,27 +217,37 @@ def main():
             if c.get("title"):
                 prev[norm(c["title"])] = c
 
-    titles, urls = {}, {}
+    titles, urls, tags = {}, {}, {}
     for e in entries:
         titles.setdefault(norm(e["title"]), e["title"])
         # URLs must be carried here, not only in the gap report. The gap excludes anything already
         # reachable, so adapters that resolve work pages from it lose access to a work the moment
         # its platform is onboarded — which is the opposite of what should happen.
         urls.setdefault(norm(e["title"]), []).append(e["work_url"])
+        # THE TAGS WERE PARSED AND THEN DROPPED. The antenna marks a finished serialisation 完結,
+        # and that is the only completion signal available for most platforms: of the works it
+        # tags, 48 disagreed with the state we had inferred from silence alone. Carried through so
+        # something can read it. It is a claim by an aggregator and not an attestation, which is
+        # for the consumer to weigh.
+        tags.setdefault(norm(e["title"]), set()).update(e.get("tags") or [])
     carried = 0
     for k, c in prev.items():
         if k not in platforms_of:
             platforms_of[k] = set(c.get("platforms") or [])
             titles.setdefault(k, c.get("title"))
             urls.setdefault(k, list(c.get("urls") or []))
+            tags.setdefault(k, set(c.get("tags") or []))
             carried += 1
         else:
             platforms_of[k] |= set(c.get("platforms") or [])
             urls.setdefault(k, []).extend(c.get("urls") or [])
+            tags.setdefault(k, set()).update(c.get("tags") or [])
     for k, ps in sorted(platforms_of.items()):
         W.append(f"  - title: {json.dumps(titles.get(k, k), ensure_ascii=False)}")
         W.append(f"    platforms: {json.dumps(sorted(p for p in ps if p), ensure_ascii=False)}")
         W.append(f"    urls: {json.dumps(sorted(set(u for u in urls.get(k, []) if u)), ensure_ascii=False)}")
+        if tags.get(k):
+            W.append(f"    tags: {json.dumps(sorted(tags[k]), ensure_ascii=False)}")
     W.append("")
     (out / "webcomics-works.yaml").write_text("\n".join(W))
 

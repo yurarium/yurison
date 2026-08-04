@@ -229,6 +229,23 @@ def main(s):
                 "because that IS a gap in our fetching")
         s.eq(b.set_aside([], str(kf), str(src)), {}, "no works is an empty answer, not a crash")
 
+    # A BASIS MUST EXPLAIN THE STATE BEING PUBLISHED. `state` is read off the best row and these
+    # used to take the first basis any row carried, so はなにあらし published `active`, its last
+    # chapter a month old, above a sentence saying no chapter had appeared for 2946 days: one
+    # platform holds 169 chapters ending last month, another holds 3 ending in 2018.
+    best = {"state": "active", "state_basis": None}
+    rows = [best, {"state": "dormant", "state_basis": "silent for 2946 days"}]
+    s.eq(b._basis_of(best, rows, "state_basis"), None,
+         "a basis from a row that disagrees about the state is not borrowed")
+    agrees = [best, {"state": "active", "state_basis": "a chapter last month"}]
+    s.eq(b._basis_of(best, agrees, "state_basis"), "a chapter last month",
+         "one from a row that agrees is")
+    own = {"state": "active", "state_basis": "its own reason"}
+    s.eq(b._basis_of(own, [own] + rows, "state_basis"), "its own reason",
+         "and the row's own basis wins over any other")
+    s.eq(b._basis_of({"state": "slow"}, [], "completed_basis"), None,
+         "no rows is no basis, not a crash")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

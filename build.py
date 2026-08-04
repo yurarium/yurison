@@ -154,6 +154,18 @@ def _stated_for(work, platform):
     return _STATED.get((norm_work(work or ""), norm_work(platform or "")))
 
 
+def _basis_of(best, rows, field):
+    """The reason for the state we are publishing, taken from the row that state came from.
+
+    `best` first, because that is the row `state` is read off. Falling back to another row only
+    where it agrees about the state, so a basis never explains a different platform's answer.
+    """
+    if best.get(field):
+        return best[field]
+    return next((r.get(field) for r in rows
+                 if r.get(field) and r.get("state") == best.get("state")), None)
+
+
 def _with_cadence_date(stated, latest):
     """Turn a stated rhythm into the date it next puts an update on.
 
@@ -1696,6 +1708,17 @@ def main():
                 _sw["stated_schedule"]
     _STATED.update(stated_schedule)
 
+    # WHAT THE ANTENNA SAYS HAS FINISHED. A claim rather than an attestation, and the only
+    # completion signal that reaches most platforms: probing one dormant work on each of ten
+    # platforms found the platform itself marking completion on two. Weighed below against how long
+    # the work has actually been silent, because a lead plus a long silence is evidence where
+    # either alone is not.
+    completion_claims = {}
+    _cc = pathlib.Path("data/source/comparators/completion.yaml")
+    if _cc.exists():
+        for _c in (yaml.safe_load(_cc.read_text()) or {}).get("claims") or []:
+            completion_claims[norm_work(_c.get("work") or "")] = _c.get("seen")
+
     # Every look adapters/claims/trace.py has taken, keyed the way it writes them. A claim with no
     # history behind it is untraced only if nobody has been; this is how that is known.
     claim_checks = checkstate.load()
@@ -3058,6 +3081,23 @@ def main():
                                       f"chapter, newest {_after[-1]}")
             else:
                 row["state"] = "active" if age <= 45 else ("slow" if age <= 365 else "dormant")
+                # SILENCE IS NOT A BASIS ON ITS OWN, and until now dormant carried none at all:
+                # 150 works asserted it with nothing behind them. Saying what it rests on makes the
+                # weakness visible instead of leaving it implied.
+                row["state_basis"] = f"no chapter for {age} days, and nothing states it has ended"
+                # THE ANTENNA SAYS IT FINISHED. An aggregator's tag is a lead, so it does not carry
+                # a live series on its own; joined to a year of silence it is better evidence than
+                # the silence alone, which is all `dormant` ever had.
+                _seen = completion_claims.get(norm_work(row.get("work") or ""))
+                if _seen and age > 365:
+                    row["state"] = "completed"
+                    row["completed_basis"] = (
+                        f"the comparator lists this work as 完結, seen {_seen}, and no chapter has "
+                        f"appeared for {age} days")
+                elif _seen:
+                    row["state_basis"] = (
+                        f"the comparator lists this work as 完結, seen {_seen}, but a chapter "
+                        f"appeared {age} days ago, so it is not treated as ended")
             if _after:
                 row["skipped_since_chapter"] = len(_after)
     # Where a work runs on several platforms, each row says so, so a reader on one can see the rest.
@@ -3143,11 +3183,16 @@ def main():
             "state": best["state"], "oneshot": best["oneshot"],
             # Why we say it ended, carried up with the state. A state without its basis is the
             # thing this project keeps having to unpick.
-            "completed_basis": next((r.get("completed_basis") for r in rows
-                                     if r.get("completed_basis")), None),
+            # THE BASIS HAS TO DESCRIBE THE STATE BEING PUBLISHED. `state` comes from `best`, and
+            # these took the first basis any row carried, so a work could publish one platform's
+            # state beside another platform's reason for it. はなにあらし read `active` with its
+            # last chapter a month old, above a line saying no chapter had appeared for 2946 days:
+            # サンデーうぇぶり has 169 chapters ending last month, pixivコミック has 3 ending in
+            # 2018, and the row took the state from one and the sentence from the other.
+            "completed_basis": _basis_of(best, rows, "completed_basis"),
             # Same reasoning for a paused series: the state travels with what it rests on, and
             # the skipped slots themselves are kept as dated evidence rather than summarised away.
-            "state_basis": next((r.get("state_basis") for r in rows if r.get("state_basis")), None),
+            "state_basis": _basis_of(best, rows, "state_basis"),
             "skipped": sorted(
                 {(x.get("date"), x.get("title")) for r in rows for x in (r.get("skipped") or [])},
                 reverse=True),

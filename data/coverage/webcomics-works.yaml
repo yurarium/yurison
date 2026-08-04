@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-02
+retrieved: 2026-08-04
 record_type: candidate_works
-works: 1200
+works: 317
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -32,6 +32,7 @@ candidates:
   - title: "30まで独りだったら一緒に暮らそうって言ったよね?"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/4ad31024142fd"]
+    tags: ["同居人・居候", "現代", "百合"]
   - title: "3分待って むぎ先輩"
     platforms: ["裏サンデー"]
     urls: ["https://urasunday.com/title/2335"]
@@ -62,6 +63,7 @@ candidates:
   - title: "DOUBLE HELIX BLOSSOM"
     platforms: ["コロコロオンライン"]
     urls: ["https://www.corocoro.jp/title/65"]
+    tags: ["バディ", "異能・超能力", "百合", "警察", "近未来SF"]
   - title: "ep.9"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2550689798901526126"]
@@ -71,12 +73,15 @@ candidates:
   - title: "Gesso,"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008729_S"]
+    tags: ["百合", "読み切り"]
   - title: "GURU"
     platforms: ["コミックDAYS", "マガポケ"]
     urls: ["https://comic-days.com/episode/12207421983430012575", "https://pocket.shonenmagazine.com/title/03068"]
+    tags: ["百合", "魔法少女"]
   - title: "IDOL×IDOL STORY!"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/3140"]
+    tags: ["アイドル", "百合"]
   - title: "JCがサキュバスに先祖返りした話"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/46293"]
@@ -92,6 +97,7 @@ candidates:
   - title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
     platforms: ["チャンピオンクロス"]
     urls: ["https://championcross.jp/series/21fe5b3d50300"]
+    tags: ["アイドル", "百合"]
   - title: "misterioso"
     platforms: ["LINEマンガ(更新終了)"]
     urls: ["https://manga.line.me/product/periodic?id=Z0001543"]
@@ -107,6 +113,7 @@ candidates:
   - title: "OL Vtuberと推しJKちゃん"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/0e7fd362c2c11"]
+    tags: ["VTuber", "百合"]
   - title: "Queentopia Project【タテスク】"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008652_S"]
@@ -119,6 +126,7 @@ candidates:
   - title: "résonance"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/12207421983793418075"]
+    tags: ["百合", "読み切り"]
   - title: "SAL"
     platforms: ["webアクション"]
     urls: ["https://comic-action.com/episode/3269754496854129401"]
@@ -137,6 +145,7 @@ candidates:
   - title: "T.Tラバーズ。"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005506_S"]
+    tags: ["百合"]
   - title: "Weg nach innen"
     platforms: ["ヤンマガWeb"]
     urls: ["https://yanmaga.jp/comics/Weg_nach_innen"]
@@ -155,6 +164,7 @@ candidates:
   - title: "あくまで!アットホームな職場です。"
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/cad403cdddf52"]
+    tags: ["ギャグ・コメディ", "ファンタジー", "仕事", "悪魔", "百合", "社畜・過重労働者"]
   - title: "あこがれを結んで"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204074"]
@@ -164,6 +174,7 @@ candidates:
   - title: "あたし達って付き合ってるよね!?"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_011928_S"]
+    tags: ["ラブコメ", "女子高生", "百合"]
   - title: "あなたが私を変えたから"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/10873"]
@@ -173,12 +184,14 @@ candidates:
   - title: "あなたのとなり"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019441_S"]
+    tags: ["百合", "読み切り"]
   - title: "あなたの夜が明けたら"
     platforms: ["comicブースト"]
     urls: ["https://comic-boost.com/content/01580001"]
   - title: "あなたの未来を許さない"
     platforms: ["コミックPASH! neo"]
     urls: ["https://comicpash.jp/series/37aae26103d8a"]
+    tags: ["チートなし", "百合"]
   - title: "あのこのにおい"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/316190246942043648"]
@@ -191,6 +204,7 @@ candidates:
   - title: "あの子とふたりで。"
     platforms: ["COMIC OGYAAA!!", "pixivコミック"]
     urls: ["https://comic-ogyaaa.com/episode/2550912965818317820", "https://comic.pixiv.net/works/12066"]
+    tags: ["同棲", "百合"]
   - title: "あの子のシザーは誰のもの"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/10044607041198524920"]
@@ -224,6 +238,7 @@ candidates:
   - title: "いとしこいし"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983774250544"]
+    tags: ["百合"]
   - title: "いととうとし"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912966048555512"]
@@ -236,6 +251,7 @@ candidates:
   - title: "うさぎはかく語りき"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/3572"]
+    tags: ["バトル", "獣人", "現代ファンタジー", "百合"]
   - title: "うそつきのんちゃん、地獄に堕ちろ"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17106371859967550978"]
@@ -245,6 +261,7 @@ candidates:
   - title: "うまいものだけ食べて生きます。/読み切り"
     platforms: ["ヤングアニマルWeb"]
     urls: ["https://younganimal.com/series/061d7bbd35a86"]
+    tags: ["料理・グルメ", "百合", "読み切り"]
   - title: "うみねこには負けない!"
     platforms: ["ヤンマガWeb"]
     urls: ["https://yanmaga.jp/comics/%E3%81%86%E3%81%BF%E3%81%AD%E3%81%93%E3%81%AB%E3%81%AF%E8%B2%A0%E3%81%91%E3%81%AA%E3%81%84%EF%BC%81"]
@@ -269,6 +286,7 @@ candidates:
   - title: "おちこぼれフルーツタルト"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/53909"]
+    tags: ["4コマ", "アイドル", "アニメ化", "百合"]
   - title: "おとなになっても"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/10834108156680395825"]
@@ -299,12 +317,15 @@ candidates:
   - title: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
     platforms: ["ライコミ"]
     urls: ["https://comicride.jp/series/7b86cbca64ebe"]
+    tags: ["アニメ化", "コミカライズ", "バトル", "ファンタジー", "ホラー", "勇者", "残酷・グロテスク", "百合", "追放", "魔王"]
   - title: "お姉さまと巨人 ～お嬢さまが異世界転生～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_003240_S"]
+    tags: ["チートなし", "ファンタジー", "反社・ヤクザ", "姉妹", "残酷・グロテスク", "異種族・人外", "百合", "転生"]
   - title: "お姉さんは女子小学生に興味があります。"
     platforms: ["ニコニコ漫画", "竹コミ‎‏‎"]
     urls: ["https://manga.nicovideo.jp/comic/31194", "https://takecomic.jp/series/2ff377e5bc873"]
+    tags: ["おねロリ", "お色気・微エロ", "ギャグ・コメディ", "完結", "百合"]
   - title: "お姫様のお姫様"
     platforms: ["チャンピオンクロス"]
     urls: ["https://mangacross.jp/comics/princess"]
@@ -317,6 +338,7 @@ candidates:
   - title: "お嬢様、懺悔する。"
     platforms: ["コミックトレイル"]
     urls: ["https://comic-trail.com/episode/2551460909758971055"]
+    tags: ["百合"]
   - title: "お終いのシェアハウス"
     platforms: ["FEEL web"]
     urls: ["https://feelweb.jp/episode/2550912965114503692"]
@@ -326,15 +348,18 @@ candidates:
   - title: "お菊さんはいちゃ憑きたい"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_002468_S", "https://manga.nicovideo.jp/comic/54197"]
+    tags: ["お色気・微エロ", "幽霊", "異種族・人外", "百合"]
   - title: "お葉花を愛でる"
     platforms: ["チャンピオンクロス"]
     urls: ["https://championcross.jp/series/46c8d0a17ed62"]
+    tags: ["百合"]
   - title: "お風呂で○○する人は、美容室で大変な目に遭うらしい/読み切り"
     platforms: ["ヤングアニマルWeb"]
     urls: ["https://younganimal.com/series/8e1eef4347853"]
   - title: "かいじゅう色の島"
     platforms: ["pixivコミック", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_000243_S", "https://comic.pixiv.net/works/5470"]
+    tags: ["田舎", "百合"]
   - title: "かけあうつきひ"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/3269754496548998028"]
@@ -374,6 +399,7 @@ candidates:
   - title: "きみが死ぬまで恋をしたい"
     platforms: ["pixivコミック", "コミックDAYS", "ニコニコ漫画", "マガポケ", "一迅プラス"]
     urls: ["https://comic-days.com/episode/3269754496323193503", "https://comic.pixiv.net/works/5424", "https://ichicomi.com/episode/2550912965923204442", "https://manga.nicovideo.jp/comic/56065", "https://pocket.shonenmagazine.com/title/01049"]
+    tags: ["アニメ化", "ファンタジー", "学園", "百合"]
   - title: "きみと世界の終りを訪ねて"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/8149"]
@@ -422,6 +448,7 @@ candidates:
   - title: "このままモブじゃ終われない!"
     platforms: ["COMIC FUZ", "ニコニコ漫画"]
     urls: ["https://comic-fuz.com/manga/3700", "https://manga.nicovideo.jp/comic/67095"]
+    tags: ["サキュバス", "百合"]
   - title: "この世で一番素敵な終わり方"
     platforms: ["pixivコミック", "ニコニコ漫画", "マガポケ", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/9346", "https://ichicomi.com/episode/2550912965923202442", "https://manga.nicovideo.jp/comic/63468", "https://pocket.shonenmagazine.com/title/02260"]
@@ -431,15 +458,18 @@ candidates:
   - title: "この恋、一旦持ち帰らせていただきます!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008367_S"]
+    tags: ["百合", "社会人"]
   - title: "この湯で、あなたと"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019740_S"]
+    tags: ["百合"]
   - title: "この百合はフィクションです"
     platforms: ["マンガPark", "ヤングアニマルWeb"]
     urls: ["https://manga-park.com/title/64829", "https://younganimal.com/series/bc9c55151dde2"]
   - title: "この願いが叶うなら"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983782300804"]
+    tags: ["百合"]
   - title: "こはる日和。"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/390"]
@@ -470,12 +500,15 @@ candidates:
   - title: "さかなでは足もつかない"
     platforms: ["MAGCOMI"]
     urls: ["https://magcomi.com/episode/12207421983866622005"]
+    tags: ["百合", "群像劇", "読み切り"]
   - title: "さきゅりふぁいす!"
     platforms: ["pixivコミック", "キミコミ"]
     urls: ["https://comic.pixiv.net/works/10782", "https://kimicomi.com/series/617d2958d4953"]
+    tags: ["お色気・微エロ", "ギャグ・コメディ", "百合"]
   - title: "ささやくように恋を唄う"
     platforms: ["pixivコミック", "コミックDAYS", "ニコニコ漫画", "マガポケ", "一迅プラス"]
     urls: ["https://comic-days.com/episode/3269754496321192668", "https://comic.pixiv.net/works/5758", "https://ichicomi.com/episode/2550912965923203770", "https://manga.nicovideo.jp/comic/56012", "https://pocket.shonenmagazine.com/title/01045"]
+    tags: ["アニメ化", "女子高生", "百合", "音楽"]
   - title: "さよなら"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/3270296674384339730"]
@@ -500,6 +533,7 @@ candidates:
   - title: "しゅがー・みーつ・がーる!"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/3108"]
+    tags: ["女子高生", "学園", "料理・グルメ", "百合"]
   - title: "しょうもない女"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/4856001361535681694"]
@@ -518,6 +552,7 @@ candidates:
   - title: "すべては拳から始まる(青年漫画賞・入選)"
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/b62e5ec6aa51f"]
+    tags: ["百合", "読み切り"]
   - title: "すわっぷ⇔すわっぷ"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/374"]
@@ -530,6 +565,7 @@ candidates:
   - title: "ぜんぶ壊して地獄で愛して"
     platforms: ["pixivコミック", "コミックDAYS", "ニコニコ漫画", "マガポケ", "一迅プラス"]
     urls: ["https://comic-days.com/episode/14079602755160898551", "https://comic.pixiv.net/works/9628", "https://ichicomi.com/episode/2550912965923204194", "https://manga.nicovideo.jp/comic/65189", "https://pocket.shonenmagazine.com/title/02367"]
+    tags: ["女子高生", "百合"]
   - title: "そこに虹がなくても"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/316190246907573867"]
@@ -539,6 +575,7 @@ candidates:
   - title: "その手紙代行します!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_014260_S"]
+    tags: ["百合", "読み切り"]
   - title: "その気になれば世界だってぶっ壊せる"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/316190247127500935"]
@@ -554,21 +591,25 @@ candidates:
   - title: "それが君になる"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983782291889"]
+    tags: ["百合"]
   - title: "それはただの夏の一日"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983529195736"]
   - title: "たとえとどかぬ糸だとしても"
     platforms: ["コミックDAYS", "一迅プラス"]
     urls: ["https://comic-days.com/episode/3269754496321225448", "https://ichicomi.com/episode/2550912965923204597"]
+    tags: ["百合"]
   - title: "たびみまん"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_004388_S"]
   - title: "たゆたうふたり"
     platforms: ["Gコミ"]
     urls: ["https://g-comi.jp/series/fef424c168c44"]
+    tags: ["先輩と後輩", "大学生", "百合"]
   - title: "たゆたう恋の散り際に"
     platforms: ["pixivコミック", "ニコニコ漫画", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/13224", "https://ichicomi.com/episode/2551460909671541131", "https://manga.nicovideo.jp/comic/77731"]
+    tags: ["学園", "百合"]
   - title: "つまらない"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2550689798380877479"]
@@ -584,15 +625,18 @@ candidates:
   - title: "てくのぱにっくゆにばーす"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2551460909679507683"]
+    tags: ["SF", "ギャグ・コメディ", "ロボ・人造人間", "大学生", "教師", "発明", "百合"]
   - title: "できそこないの姫君たち"
     platforms: ["ストーリアダッシュ(更新終了)", "竹コミ‎‏‎"]
     urls: ["https://storia.takeshobo.co.jp/manga/himegimi/", "https://takecomic.jp/series/21c8e22896612"]
+    tags: ["百合"]
   - title: "とうめいなおとうさん"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/3270296674393348526"]
   - title: "ときときチャンネル"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007121_S"]
+    tags: ["SF", "ギャグ・コメディ", "コミカライズ", "シュール", "動画配信者", "同居人・居候", "現代", "百合"]
   - title: "ときめけ魔法幼女ココピュア"
     platforms: ["ストーリアダッシュ(更新終了)", "ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/61103", "https://storia.takeshobo.co.jp/manga/cocopure/"]
@@ -617,15 +661,18 @@ candidates:
   - title: "どれが恋かがわからない"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_001190_S", "https://manga.nicovideo.jp/comic/56504"]
+    tags: ["大学生", "恋愛", "百合"]
   - title: "ないしょのおふたりさま。"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_001599_S", "https://manga.nicovideo.jp/comic/62478"]
   - title: "なとりとしずは"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/12207421983745504350"]
+    tags: ["女子高生", "百合", "運動系部活"]
   - title: "にせものターコイズ"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/12207421983913735230"]
+    tags: ["百合", "読み切り"]
   - title: "ねこみたいなのとわたし"
     platforms: ["となりのヤングジャンプ", "ヤンジャン+"]
     urls: ["https://tonarinoyj.jp/episode/2550912964681656283", "https://ynjn.jp/title/18229"]
@@ -662,6 +709,7 @@ candidates:
   - title: "ばっどがーる"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/53991"]
+    tags: ["4コマ", "アニメ化", "女子高生", "百合"]
   - title: "ぱりあんの園"
     platforms: ["NewsCrunch", "pixivコミック"]
     urls: ["https://comic.pixiv.net/works/10121", "https://wanibooks-newscrunch.com/comic/56192"]
@@ -671,21 +719,25 @@ candidates:
   - title: "ひきこまり吸血姫の悶々"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/1593"]
+    tags: ["アニメ化", "ギャグ・コメディ", "吸血鬼・ヴァンパイア", "百合"]
   - title: "ひたひたキャット/25年12月期JUMP新世界漫画賞/週刊少年ジャンプ"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17107094914454630645"]
   - title: "ひとりみです"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006607_S"]
+    tags: ["おばあちゃん", "ヒューマンドラマ", "百合"]
   - title: "ひなちゃんが生きてるなら"
     platforms: ["pixivコミック", "ニコニコ漫画", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/13226", "https://ichicomi.com/episode/2551460909885349908", "https://manga.nicovideo.jp/comic/78555"]
+    tags: ["ホラー", "幼なじみ", "田舎", "百合"]
   - title: "ひなゆり冒険記"
     platforms: ["COMICリュウ", "LINEマンガ(更新終了)", "pixivコミック"]
     urls: ["https://comic.pixiv.net/works/8810", "https://manga.line.me/product/periodic?id=S122504", "https://www.comic-ryu.jp/series/hinayuriboukenki/"]
   - title: "ひみつのまんが"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/12207421983906425557"]
+    tags: ["百合", "読み切り"]
   - title: "ひめちゃんは重い女"
     platforms: ["COMIC FUZ", "pixivコミック"]
     urls: ["https://comic-fuz.com/manga/2436", "https://comic.pixiv.net/works/7050"]
@@ -698,6 +750,7 @@ candidates:
   - title: "ふたりべや"
     platforms: ["comicブースト", "pixivコミック"]
     urls: ["https://comic-boost.com/content/00230001", "https://comic.pixiv.net/works/5364"]
+    tags: ["4コマ", "日常", "百合"]
   - title: "ふたりエスケープ"
     platforms: ["pixivコミック", "ニコニコ漫画", "マガポケ", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/6858", "https://ichicomi.com/episode/2550912965923203429", "https://manga.nicovideo.jp/comic/56064", "https://pocket.shonenmagazine.com/title/01357"]
@@ -719,6 +772,7 @@ candidates:
   - title: "ぷれいめ～と"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008613_S"]
+    tags: ["百合"]
   - title: "ほうかご再テンセイ!"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/2979"]
@@ -746,12 +800,14 @@ candidates:
   - title: "まとう君、ほころぶ私"
     platforms: ["FEEL web"]
     urls: ["https://feelweb.jp/episode/2550689798763776115"]
+    tags: ["百合"]
   - title: "まほまほ ~魔法少女と魔法使い~"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/39341"]
   - title: "まるせっせんす"
     platforms: ["COMIC OGYAAA!!", "pixivコミック"]
     urls: ["https://comic-ogyaaa.com/episode/12207421983372421766", "https://comic.pixiv.net/works/12886"]
+    tags: ["サスペンス", "姉妹", "犯罪", "百合"]
   - title: "みぞれちゃん、"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/3269754496571931493"]
@@ -770,6 +826,7 @@ candidates:
   - title: "むちむち漫画家の完全勝利メシ 最強ボディで余命も担当編集もぶっ飛ばす!"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/1c1afe76da717"]
+    tags: ["料理・グルメ", "漫画家・絵描き", "片思い", "百合"]
   - title: "もし、恋が見えたなら"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_000031_S", "https://manga.nicovideo.jp/comic/47959"]
@@ -818,15 +875,18 @@ candidates:
   - title: "ゆりでなる♡えすぽわーる"
     platforms: ["COMICリュウ"]
     urls: ["https://www.comic-ryu.jp/series/yuridenaruespoir/"]
+    tags: ["女子高生", "百合"]
   - title: "ゆりでなる♥えすぽわーる"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/42275"]
   - title: "ゆりひめ@ピクシブ"
     platforms: ["pixivコミックマガジン"]
     urls: ["https://comic.pixiv.net/magazines/206"]
+    tags: ["百合"]
   - title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
     platforms: ["pixivコミック", "webアクション", "がうがうモンスター"]
     urls: ["https://comic-action.com/episode/2550912964579811935", "https://comic.pixiv.net/works/11081", "https://gaugau.futabanet.jp/list/work/u4FdNLFgU91kEXBufRsVlnzEw"]
+    tags: ["ギャグ・コメディ", "女子高生", "宇宙人", "百合"]
   - title: "ゆりゾン"
     platforms: ["COMIC OGYAAA!!"]
     urls: ["https://comic-ogyaaa.com/episode/2550912965728497650"]
@@ -836,6 +896,7 @@ candidates:
   - title: "ゆるゆり"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204125"]
+    tags: ["女子中学生", "日常", "架空の部活", "癒やし・ほっこり", "百合"]
   - title: "よくばれ! 人間さん"
     platforms: ["webアクション", "がうがうモンスター", "ニコニコ漫画"]
     urls: ["https://comic-action.com/episode/2550689798308133909", "https://gaugau.futabanet.jp/list/work/X1HDTUSrTpBYa6OPj8gl06hrH", "https://manga.nicovideo.jp/comic/68048"]
@@ -848,6 +909,7 @@ candidates:
   - title: "らぶぶいっ!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008372_S"]
+    tags: ["お色気・微エロ", "異種族・人外", "百合"]
   - title: "れーこ"
     platforms: ["MAGCOMI"]
     urls: ["https://magcomi.com/episode/2550912965318241018"]
@@ -857,6 +919,7 @@ candidates:
   - title: "わたしが恋人になれるわけないじゃん、ムリムリ!(※ムリじゃなかった!?)"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/47265"]
+    tags: ["アニメ化", "ラブコメ", "女子高生", "完結", "百合"]
   - title: "わたしたちの終わりと"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_003931_S"]
@@ -866,9 +929,11 @@ candidates:
   - title: "わたしのかわいいおんなのこ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008733_S"]
+    tags: ["百合", "読み切り"]
   - title: "わたしのために脱ぎなさいっ!"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_000188_S", "https://manga.nicovideo.jp/comic/34328"]
+    tags: ["エロ", "女子高生", "漫画家・絵描き", "百合"]
   - title: "わたしのミューズ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008370_S"]
@@ -878,9 +943,11 @@ candidates:
   - title: "アイドラトリィ"
     platforms: ["コミックDAYS", "マガポケ"]
     urls: ["https://comic-days.com/episode/2551460909661028261", "https://pocket.shonenmagazine.com/title/02901"]
+    tags: ["アイドル", "ギャグ・コメディ", "推し活", "百合"]
   - title: "アイ・ヘイ・チュー"
     platforms: ["pixivコミック", "マガポケ"]
     urls: ["https://comic.pixiv.net/works/13324", "https://pocket.shonenmagazine.com/title/03273"]
+    tags: ["ラブコメ", "悪魔", "百合"]
   - title: "アウトサイダーパラダイス"
     platforms: ["webアクション", "がうがうモンスター", "ニコニコ漫画"]
     urls: ["https://comic-action.com/episode/14079602755364921614", "https://gaugau.futabanet.jp/list/work/YR1W3l5jLfQqUStbRmXq8e8oR", "https://manga.nicovideo.jp/comic/65506"]
@@ -899,9 +966,11 @@ candidates:
   - title: "アフタヌーンティーはいかがですか? 私と先輩の、不純で一途なふたり暮らし"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007220_S"]
+    tags: ["百合"]
   - title: "アプリコットファズ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005629_S"]
+    tags: ["完結", "百合"]
   - title: "アマデウス"
     platforms: ["マンガワン"]
     urls: ["https://manga-one.com/viewer/283424"]
@@ -920,6 +989,7 @@ candidates:
   - title: "イジめてイジられて"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_019052_S", "https://manga.nicovideo.jp/comic/83472"]
+    tags: ["お色気・微エロ", "フェチ・性癖", "ラブコメ", "百合"]
   - title: "イタズラっ子世に憚らず!!"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/2268"]
@@ -935,15 +1005,18 @@ candidates:
   - title: "ウは宇宙ヤバイのウ!"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/135220287d820"]
+    tags: ["SF", "コミカライズ", "女子高生", "百合"]
   - title: "ウィキッドスポット"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005923_S"]
+    tags: ["百合"]
   - title: "ウチらのっぺらぼう"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/3270296674372505597"]
   - title: "エイティエイトを2でわって"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/3423"]
+    tags: ["4コマ", "ギャグ・コメディ", "百合", "音楽"]
   - title: "エクストリームスーパーダーリン"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965919401743"]
@@ -956,6 +1029,7 @@ candidates:
   - title: "エルフとひとつ屋根の下"
     platforms: ["チャンピオンクロス"]
     urls: ["https://championcross.jp/series/72ba4fac7c0f4"]
+    tags: ["エルフ・ハーフエルフ", "百合"]
   - title: "エンドロールの後には最高の旅を"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/68902"]
@@ -965,18 +1039,22 @@ candidates:
   - title: "オカルトタイムズ"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/03282"]
+    tags: ["百合"]
   - title: "オカワリいただけただろうか?"
     platforms: ["pixivコミック", "webアクション", "がうがうモンスター"]
     urls: ["https://comic-action.com/episode/2550912964909179818", "https://comic.pixiv.net/works/11565", "https://gaugau.futabanet.jp/list/work/EnQ4mmd2IQQHmeBN3H2KsMU5P"]
+    tags: ["女子高生", "妖怪", "現代", "百合"]
   - title: "オカ研とエスパーと"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/14079602755417847910"]
   - title: "オタクには人生を積むことしかできない"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/2550689798616042670"]
+    tags: ["やり直し", "タイムループ", "推し活", "百合"]
   - title: "オタクサキュバスの才能がありすぎる!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_016705_S"]
+    tags: ["サキュバス", "百合", "読み切り"]
   - title: "オトメの帝国"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/13932016480029123951"]
@@ -995,18 +1073,22 @@ candidates:
   - title: "カナリアは綺羅星の夢をみる"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/11180", "https://ichicomi.com/episode/2550912965923203862"]
+    tags: ["大正", "性風俗・娼館", "百合"]
   - title: "カフェーリリーの窓辺にて"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_003916_S"]
   - title: "カムパネルラの塔"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005943_S"]
+    tags: ["ファッション・服飾", "病人", "百合"]
   - title: "カメラ、はじめてもいいですか?"
     platforms: ["COMIC Y-OURS"]
     urls: ["https://comic-y-ours.com/episode/2551460909788144785"]
+    tags: ["写真", "百合"]
   - title: "カルネアデス"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005553_S"]
+    tags: ["アクション", "完結", "百合"]
   - title: "カレンダーの裏側"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2551460910059540917"]
@@ -1016,6 +1098,7 @@ candidates:
   - title: "ガイド役の天使を殴り倒したら、死霊術師になりました ～激カワゴスロリ魔神様、サイコー!～"
     platforms: ["コミック アース・スター"]
     urls: ["https://comic-earthstar.com/episode/2550912965247413858"]
+    tags: ["VR", "アクション", "ネクロマンサー", "宗教", "犬", "百合"]
   - title: "ガチ恋やめて"
     platforms: ["ヤンマガWeb"]
     urls: ["https://yanmaga.jp/comics/%E3%82%AC%E3%83%81%E6%81%8B%E3%82%84%E3%82%81%E3%81%A6"]
@@ -1034,6 +1117,7 @@ candidates:
   - title: "ガールズ×ヴァンパイア"
     platforms: ["チャンピオンクロス"]
     urls: ["https://championcross.jp/series/f30e2f58bbbdf"]
+    tags: ["吸血鬼・ヴァンパイア", "百合"]
   - title: "ガールズ イン ザ ヘル"
     platforms: ["comicブースト"]
     urls: ["https://comic-boost.com/content/01590001"]
@@ -1043,12 +1127,15 @@ candidates:
   - title: "ガールミートガール"
     platforms: ["アサコミ", "ソノラマプラス(更新終了)"]
     urls: ["http://sonorama.asahi.com/series/GMG-story.html", "https://asacomi.jp/series/d67c4f256e18f"]
+    tags: ["百合"]
   - title: "キジとイナサ"
     platforms: ["コミックエッセイ劇場"]
     urls: ["https://www.comic-essay.com/episode/a1006/"]
+    tags: ["異種族・人外", "百合"]
   - title: "キミが吠えるための歌を、"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923203479"]
+    tags: ["百合"]
   - title: "キャッチユー・キャッチミー"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/3269754496613350277"]
@@ -1070,12 +1157,14 @@ candidates:
   - title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
     platforms: ["マンガワン"]
     urls: ["https://manga-one.com/manga/27253/chapter/307792"]
+    tags: ["SF", "ギャグ・コメディ", "シュール", "フルカラー", "同居人・居候", "姉妹", "宇宙人", "漫画家・絵描き", "百合"]
   - title: "ギャルだけど、クールな貴女を笑わせたい!【タテヨミ】"
     platforms: ["LINEマンガ(更新終了)"]
     urls: ["https://manga.line.me/product/periodic?id=S137703"]
   - title: "#ギャルとギャルの百合"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2550912965814192510"]
+    tags: ["女子高生", "恋愛", "百合"]
   - title: "ギャルとネクラの吸血関係"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/60565"]
@@ -1106,30 +1195,35 @@ candidates:
   - title: "クレアちゃん飼育日記―カブトムシ少女にお世話されてます―"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_016896_S"]
+    tags: ["百合"]
   - title: "クール・エイド"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/2551460909765781155"]
   - title: "ケイヤクシマイ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_001277_S"]
+    tags: ["同棲", "女子高生", "百合", "社会人"]
   - title: "ケモノ/2022年8月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/316112896954051106"]
   - title: "ケモノとワルツ"
     platforms: ["コミックグロウル"]
     urls: ["https://comic-growl.com/series/5ec689382839e"]
+    tags: ["百合"]
   - title: "ケーキも花も宝石も"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_001294_S", "https://manga.nicovideo.jp/comic/67186"]
   - title: "ゲームフレンド"
     platforms: ["ゼノン編集部"]
     urls: ["https://comic-zenon.com/episode/12207421983889328876"]
+    tags: ["百合", "読み切り"]
   - title: "ココと嘘吐く小指/2024年4月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17106371883871790625"]
   - title: "ココロメイク コスメティカ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_009488_S"]
+    tags: ["百合"]
   - title: "コモドドラゴン"
     platforms: ["COMIC OGYAAA!!"]
     urls: ["https://comic-ogyaaa.com/episode/2550912966036266046"]
@@ -1148,6 +1242,7 @@ candidates:
   - title: "サタノファニ"
     platforms: ["ヤンマガWeb"]
     urls: ["https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B"]
+    tags: ["エロ", "バトル", "偉人・歴史上の人物", "百合", "裏社会", "雑学・豆知識"]
   - title: "サニーサイド"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17107094912231079369"]
@@ -1157,6 +1252,7 @@ candidates:
   - title: "サボりなら保健室でどうぞ?"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/10956", "https://ichicomi.com/episode/2550912965923203807"]
+    tags: ["不良・ヤンキー", "百合"]
   - title: "シスターグレイ"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/316190247109747187"]
@@ -1175,9 +1271,11 @@ candidates:
   - title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/2550912964518073379"]
+    tags: ["VR", "スキル制", "ブロ・シスマンス", "中二病", "先生と生徒・師弟", "女子高生", "忍者", "暗殺者・殺し屋", "百合"]
   - title: "シュガーガール・ドリップ"
     platforms: ["コミックDAYS", "マガポケ", "ヤンマガWeb"]
     urls: ["https://comic-days.com/episode/2550689798430551657", "https://pocket.shonenmagazine.com/title/02604", "https://yanmaga.jp/comics/%E3%82%B7%E3%83%A5%E3%82%AC%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB_%E3%83%89%E3%83%AA%E3%83%83%E3%83%97"]
+    tags: ["サスペンス", "百合"]
   - title: "シュナイダーラリー"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/86a4f1e41d627"]
@@ -1202,9 +1300,11 @@ candidates:
   - title: "スウィートヒート!"
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/12543272212d3"]
+    tags: ["プロ選手", "同棲", "格闘技", "百合"]
   - title: "スカベンジャーズアナザースカイ"
     platforms: ["ヤンチャンWeb"]
     urls: ["https://youngchampion.jp/series/81d9b296d7bc7"]
+    tags: ["アクション", "ディストピア", "ミリタリー", "幽霊", "残酷・グロテスク", "百合"]
   - title: "スクールゾーン"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/4617"]
@@ -1214,9 +1314,11 @@ candidates:
   - title: "スズラン手帖"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984000326432"]
+    tags: ["百合"]
   - title: "ステラ・ステップ"
     platforms: ["pixivコミック", "キミコミ"]
     urls: ["https://comic.pixiv.net/works/10790", "https://kimicomi.com/series/8acb58b98ca8f"]
+    tags: ["百合"]
   - title: "ストライク・オア・ガター"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/13933686331772859573"]
@@ -1238,6 +1340,7 @@ candidates:
   - title: "セイ少女黙示録 ですぺあ"
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/2c1db177ce231"]
+    tags: ["バトル", "ファンタジー", "残酷・グロテスク", "百合"]
   - title: "セカンドバレンタイン"
     platforms: ["フラコミlike!"]
     urls: ["https://flowercomics.jp/title/2258"]
@@ -1250,6 +1353,7 @@ candidates:
   - title: "セフレ沼から抜け出せないっ!百合えっちアンソロジー"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984000326421"]
+    tags: ["百合"]
   - title: "セメルパルス semelparous"
     platforms: ["コミックDAYS", "一迅プラス"]
     urls: ["https://comic-days.com/episode/3269754496321218334", "https://ichicomi.com/episode/2550912965923203150"]
@@ -1274,6 +1378,7 @@ candidates:
   - title: "タイムトラベル少女 ～ミライのサキ～"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/77287"]
+    tags: ["百合"]
   - title: "タコと天使たち"
     platforms: ["キミコミ", "ニコニコ漫画"]
     urls: ["https://kimicomi.com/series/a5503338d0099", "https://manga.nicovideo.jp/comic/56753"]
@@ -1289,6 +1394,7 @@ candidates:
   - title: "ダメ犬彼女"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006666_S"]
+    tags: ["お色気・微エロ", "ラブコメ", "学園", "百合"]
   - title: "ダルマ・マイノリティ"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/3269754496571931465"]
@@ -1304,6 +1410,7 @@ candidates:
   - title: "ツイてるギャルとミエてる陰キャ"
     platforms: ["きら星ポータル"]
     urls: ["https://kirapo.jp/meteor/titles/tuimie"]
+    tags: ["百合", "読み切り"]
   - title: "ツインスター・サイクロン・ランナウェイ"
     platforms: ["pixivコミック", "カドコミ", "コミックグロウル", "ニコニコ漫画"]
     urls: ["https://comic-growl.com/series/30c62ea12ae04", "https://comic-walker.com/detail/KC_005969_S", "https://comic.pixiv.net/works/10978", "https://manga.nicovideo.jp/comic/70232"]
@@ -1334,6 +1441,7 @@ candidates:
   - title: "ドリーム☆ジャンボ☆ガール"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/02758"]
+    tags: ["ギャグ・コメディ", "マネー", "百合"]
   - title: "ドロップアウトサキュバス"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204500"]
@@ -1343,6 +1451,7 @@ candidates:
   - title: "ナキノン"
     platforms: ["HERO'S Web"]
     urls: ["https://heros-web.com/series/696d291fa1769"]
+    tags: ["幽霊", "百合"]
   - title: "ナナシの転生"
     platforms: ["ファイアCROSS"]
     urls: ["https://firecross.jp/ebook/series/541"]
@@ -1358,9 +1467,11 @@ candidates:
   - title: "ニセアイホンアイ"
     platforms: ["まんがタイムSquare"]
     urls: ["https://mangatime-square.com/episode/12207421984001577937"]
+    tags: ["百合"]
   - title: "ニニンがシノブ伝ぷらす"
     platforms: ["カドコミ", "コミックNewtype(更新終了)", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_003297_S", "https://comic.webnewtype.com/contents/shinobuden_plus/", "https://manga.nicovideo.jp/comic/49574"]
+    tags: ["お色気・微エロ", "ギャグ・コメディ", "忍者", "百合"]
   - title: "ネイルちゃんと深爪さん。 シリーズ"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/7810"]
@@ -1376,9 +1487,11 @@ candidates:
   - title: "ハウリング・ブレイズ 葬焔の剣士と不死の魔女"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019658_S"]
+    tags: ["バトル", "現代ファンタジー", "百合"]
   - title: "ハグフレンド(スピリッツ賞・佳作)"
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/6464eb02d70cd"]
+    tags: ["百合", "読み切り"]
   - title: "ハッピーアワーガールズ"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/40721"]
@@ -1391,6 +1504,7 @@ candidates:
   - title: "ハルとアリア"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008695_S"]
+    tags: ["百合"]
   - title: "ハロー、メランコリック!"
     platforms: ["コミックDAYS", "マガポケ"]
     urls: ["https://comic-days.com/episode/3269754496561198469", "https://pocket.shonenmagazine.com/title/01544"]
@@ -1403,12 +1517,15 @@ candidates:
   - title: "バカに告白"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006660_S"]
+    tags: ["ラブコメ", "学園", "百合"]
   - title: "バカ女26時"
     platforms: ["pixivコミック", "ヤンジャン+"]
     urls: ["https://comic.pixiv.net/works/9913", "https://ynjn.jp/title/12102"]
+    tags: ["海外", "現代", "百合"]
   - title: "バクガタリzzZ"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/12795"]
+    tags: ["不動産", "女子高生", "擬人化", "百合"]
   - title: "バズーカを持った天使"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923203867"]
@@ -1442,9 +1559,11 @@ candidates:
   - title: "ビタースイートナイトシェード"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/9253191255561725561"]
+    tags: ["百合", "読み切り"]
   - title: "ピアノを弾くカエルたち"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/12207421983850437692"]
+    tags: ["百合", "読み切り"]
   - title: "ファイティングガールズ"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17106567268201279039"]
@@ -1454,15 +1573,18 @@ candidates:
   - title: "ファタールゲーム"
     platforms: ["コミックDAYS", "マガポケ"]
     urls: ["https://comic-days.com/episode/2550912965726740557", "https://pocket.shonenmagazine.com/title/03056"]
+    tags: ["漫画家・絵描き", "百合"]
   - title: "ファッションガールヒーロー"
     platforms: ["ゼノン編集部"]
     urls: ["https://comic-zenon.com/episode/2550689798333988462"]
   - title: "ファーストペンギン・レクイエム"
     platforms: ["くらげバンチ"]
     urls: ["https://kuragebunch.com/episode/12207421983893652478"]
+    tags: ["ホラー", "現代ファンタジー", "異能・超能力", "百合"]
   - title: "フェアウェイの声をきかせて"
     platforms: ["チャンピオンクロス"]
     urls: ["https://championcross.jp/series/8178b4fc09df9"]
+    tags: ["スポーツ", "女子高生", "百合", "運動系部活", "青春"]
   - title: "フツーと化け物"
     platforms: ["pixivコミック", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_001384_S", "https://comic.pixiv.net/works/9665"]
@@ -1472,6 +1594,7 @@ candidates:
   - title: "フレンドガールフレンド"
     platforms: ["マンガPark", "花とゆめ+"]
     urls: ["https://hanayume.com/series/f3ce082d639de", "https://manga-park.com/title/100223"]
+    tags: ["うぶ恋・ピュア恋", "女子高生", "百合"]
   - title: "フードコートで、また明日。"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005741_S"]
@@ -1493,9 +1616,11 @@ candidates:
   - title: "プロジェクト・ユリフォーミング!"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/69335"]
+    tags: ["百合"]
   - title: "ベイビー車中ハッカーズ"
     platforms: ["となりのヤングジャンプ", "ヤンジャン+"]
     urls: ["https://tonarinoyj.jp/episode/2550912964606721429", "https://ynjn.jp/title/16787"]
+    tags: ["ブロ・シスマンス", "女子高生", "旅・紀行", "百合", "車"]
   - title: "ベリアル"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008577_S"]
@@ -1517,9 +1642,11 @@ candidates:
   - title: "ホームセンターごと呼び出された私の大迷宮リノベーション!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006431_S"]
+    tags: ["ダンジョン", "ファンタジー", "召喚", "手芸・工作・DIY", "異世界", "百合"]
   - title: "ボイタボイネ"
     platforms: ["MAGCOMI", "pixivコミック"]
     urls: ["https://comic.pixiv.net/works/12194", "https://magcomi.com/episode/2551460909687451648"]
+    tags: ["百合"]
   - title: "ボドカン!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_000614_S"]
@@ -1541,12 +1668,14 @@ candidates:
   - title: "マユノウタ"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912966077881821"]
+    tags: ["ホラー", "百合"]
   - title: "マルジナルテイラ"
     platforms: ["ヤンマガWeb"]
     urls: ["https://yanmaga.jp/comics/%E3%83%9E%E3%83%AB%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A4%E3%83%A9"]
   - title: "マルボロスカート"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019445_S"]
+    tags: ["百合", "読み切り"]
   - title: "マーモリス"
     platforms: ["ゼノン編集部"]
     urls: ["https://comic-zenon.com/episode/4856001361489767244"]
@@ -1562,6 +1691,7 @@ candidates:
   - title: "ムショカノジョ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019393_S"]
+    tags: ["百合", "読み切り"]
   - title: "メイドのデューデ"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2550912965378889801"]
@@ -1574,6 +1704,7 @@ candidates:
   - title: "メイド&ロイドはお嬢様のお役に立ちたい!"
     platforms: ["マンガワン"]
     urls: ["https://manga-one.com/manga/28129/chapter/355684"]
+    tags: ["百合"]
   - title: "メンヘラさんと市松さん"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/02250"]
@@ -1601,6 +1732,7 @@ candidates:
   - title: "ユリノコ"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_005941_S", "https://manga.nicovideo.jp/comic/70137"]
+    tags: ["百合"]
   - title: "ユリ暴力教室"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/4856001361097263091"]
@@ -1616,9 +1748,11 @@ candidates:
   - title: "ラスボス姫は男装勇者にリア恋営業をかけられる!?"
     platforms: ["フラコミlike!", "マンガワン"]
     urls: ["https://flowercomics.jp/title/1409", "https://manga-one.com/viewer/268349"]
+    tags: ["悪役", "百合"]
   - title: "ラブかライクか分からない!"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/70757"]
+    tags: ["4コマ", "幼なじみ", "百合"]
   - title: "ラブライブ!flowers*ー蓮ノ空女学院スクールアイドルクラブー"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/14079602755582006280"]
@@ -1637,6 +1771,7 @@ candidates:
   - title: "リリィズコンプレックス"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005531_S"]
+    tags: ["エロ", "百合"]
   - title: "リリィ・トライアングル"
     platforms: ["ツイ4"]
     urls: ["https://sai-zen-sen.jp/comics/twi4/lily/"]
@@ -1670,9 +1805,11 @@ candidates:
   - title: "レンアイ♥女子課"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983782047505"]
+    tags: ["百合"]
   - title: "ロイヤルテーラー ―王宮の裁縫師―"
     platforms: ["ゼロサムオンライン"]
     urls: ["https://zerosumonline.com/detail/royaltailor"]
+    tags: ["ファッション・服飾", "生産系", "男装", "百合"]
   - title: "ロックは淑女の嗜みでして"
     platforms: ["マンガPark", "ヤングアニマルWeb"]
     urls: ["https://manga-park.com/title/67724", "https://younganimal.com/series/88091737601a5"]
@@ -1691,9 +1828,11 @@ candidates:
   - title: "ワインガールズ"
     platforms: ["キミコミ"]
     urls: ["https://kimicomi.com/series/f42014b3e7df6"]
+    tags: ["擬人化", "百合"]
   - title: "ワケあって社長令嬢に拾われました"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/3269754496559854961"]
+    tags: ["百合"]
   - title: "ワタシが主人公になった日"
     platforms: ["ヤンジャン+"]
     urls: ["https://ynjn.jp/title/18766"]
@@ -1724,6 +1863,7 @@ candidates:
   - title: "七限目は忍者修行です!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007122_S"]
+    tags: ["忍者", "百合"]
   - title: "三年坂"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_004855_S"]
@@ -1736,15 +1876,18 @@ candidates:
   - title: "上伊那ぼたん、酔へる姿は百合の花"
     platforms: ["チャンピオンクロス", "ニコニコ漫画"]
     urls: ["https://championcross.jp/series/ae4257e66bab5", "https://manga.nicovideo.jp/comic/58777"]
+    tags: ["アニメ化", "大学生", "百合"]
   - title: "上杉くんは女の子をやめたい"
     platforms: ["ちゃおプラス"]
     urls: ["https://ciao.shogakukan.co.jp/comics/title/00577/episode/22025"]
+    tags: ["BL", "TS", "三角関係", "同性愛・LGBTQ+", "女装", "幼なじみ", "恋愛", "現代", "百合", "青春"]
   - title: "下僕さんと主ちゃんの日常～主のためなら何でもします～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_002112_S"]
   - title: "下部七花はかく語りき"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/12207421983885192770"]
+    tags: ["百合", "読み切り"]
   - title: "不思議なゆりこさん"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/2550689798663938691"]
@@ -1760,12 +1903,15 @@ candidates:
   - title: "世界で一番おっぱいが好き!"
     platforms: ["カドコミ", "ニコニコ漫画", "マンガボックス"]
     urls: ["https://comic-walker.com/detail/KC_000034_S", "https://manga.nicovideo.jp/comic/30902", "https://www.mangabox.me/reader/262412/"]
+    tags: ["百合"]
   - title: "世界をすくってもお腹はすくから"
     platforms: ["Gコミ"]
     urls: ["https://g-comi.jp/series/58238b3987c11"]
+    tags: ["ファンタジー", "百合"]
   - title: "世界一可愛い私の幼馴染が隠れてVTuberをしているらしい"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_016982_S"]
+    tags: ["VTuber", "百合"]
   - title: "両片想いな双子姉妹"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_000549_S", "https://manga.nicovideo.jp/comic/48388"]
@@ -1778,24 +1924,29 @@ candidates:
   - title: "乙女のおかず"
     platforms: ["コミックDAYS", "ヤンマガWeb"]
     urls: ["https://comic-days.com/episode/12207421983352147752", "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"]
+    tags: ["エロ", "ギャグ・コメディ", "女子高生", "日常", "百合"]
   - title: "二人の人魚姫"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/4856001361503670604"]
   - title: "亜澄ちゃんと胡蝶ちゃん"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983722174969"]
+    tags: ["ラブコメ", "百合"]
   - title: "人喰い姫のカヴァリエーレ"
     platforms: ["ゼノン編集部"]
     urls: ["https://comic-zenon.com/episode/4856001361223043384"]
   - title: "人妻とJK"
     platforms: ["キミコミ", "ニコニコ漫画"]
     urls: ["https://kimicomi.com/series/01e004cee82d9", "https://manga.nicovideo.jp/comic/51899"]
+    tags: ["エロ", "人妻", "女子高生", "年の差", "恋愛", "百合"]
   - title: "人妻教師が教え子の女子高生にドはまりする話"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_006978_S", "https://manga.nicovideo.jp/comic/74091"]
+    tags: ["コミカライズ", "人妻", "女子高生", "教師", "百合"]
   - title: "『人斬り』少女、公爵令嬢の護衛になる"
     platforms: ["ライコミ"]
     urls: ["https://comicride.jp/series/b95a6b1493469"]
+    tags: ["ファンタジー", "ブロ・シスマンス", "武士・侍", "百合"]
   - title: "人間のペット飼いたい"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/4856001361163769575"]
@@ -1805,15 +1956,18 @@ candidates:
   - title: "今夜、エーテルで待ちあわせ"
     platforms: ["Seasons"]
     urls: ["https://comic-seasons.com/episode/2551460909766158255"]
+    tags: ["百合"]
   - title: "今宵、悪役令嬢の手をとれたら"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965913104445"]
   - title: "今年注目のエースちゃん"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/b53a116d9f0e7"]
+    tags: ["マイナースポーツ", "女子高生", "百合", "運動系部活"]
   - title: "今日、お姉さんとエッチしない? 百合アンソロジー"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984000326426"]
+    tags: ["百合"]
   - title: "今日から未来"
     platforms: ["HERO'S Web", "pixivコミック", "ニコニコ漫画"]
     urls: ["https://comic.pixiv.net/works/6489", "https://manga.nicovideo.jp/comic/69451", "https://viewer.heros-web.com/episode/10834108156700245168"]
@@ -1862,6 +2016,7 @@ candidates:
   - title: "今日はカノジョがいないから"
     platforms: ["pixivコミック", "コミックDAYS", "ニコニコ漫画", "マガポケ", "ヤンマガWeb", "一迅プラス"]
     urls: ["https://comic-days.com/episode/3270296674372407715", "https://comic.pixiv.net/works/9018", "https://ichicomi.com/episode/2550912965923203802", "https://manga.nicovideo.jp/comic/56450", "https://pocket.shonenmagazine.com/title/01839", "https://yanmaga.jp/comics/%E4%BB%8A%E6%97%A5%E3%81%AF%E3%82%AB%E3%83%8E%E3%82%B8%E3%83%A7%E3%81%8C%E3%81%84%E3%81%AA%E3%81%84%E3%81%8B%E3%82%89"]
+    tags: ["お色気・微エロ", "エロ", "三角関係", "女子高生", "浮気・不倫", "百合"]
   - title: "今日もひとつ屋根の下"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/7578"]
@@ -1880,18 +2035,21 @@ candidates:
   - title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008429_S"]
+    tags: ["VTuber", "お色気・微エロ", "料理・グルメ", "百合"]
   - title: "伊勢さんと志摩さん"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/875"]
   - title: "会長と副会長"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983782306950"]
+    tags: ["百合"]
   - title: "会長!今日はサボりましょう!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_001602_S"]
   - title: "伽藍の姫-がらんのひめ-"
     platforms: ["pixivコミック", "ニコニコ漫画", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/10090", "https://ichicomi.com/episode/2550912965919401424", "https://manga.nicovideo.jp/comic/65650"]
+    tags: ["ポストアポカリプス", "ロボ・人造人間", "百合"]
   - title: "佐々木さんが消えた日の歌"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/9324146138974020727"]
@@ -1907,9 +2065,11 @@ candidates:
   - title: "作りたい女と食べたい女"
     platforms: ["pixivコミック", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_002798_S", "https://comic.pixiv.net/works/7182"]
+    tags: ["実写化", "料理・グルメ", "百合"]
   - title: "侵略のプリマステラ!"
     platforms: ["コミックボーダー"]
     urls: ["https://comicborder.com/episode/12207421983750440973"]
+    tags: ["百合"]
   - title: "保健室はふたりきり"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_003780_S", "https://manga.nicovideo.jp/comic/60939"]
@@ -1919,15 +2079,18 @@ candidates:
   - title: "偏愛至上主義～岩見樹代子作品集～"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983829237027"]
+    tags: ["百合"]
   - title: "偽りのマリィゴールド"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_001781_S"]
   - title: "傷の女"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/12207421983914997657"]
+    tags: ["百合", "読み切り"]
   - title: "僕らのアイは気持ち悪い"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204623"]
+    tags: ["フェチ・性癖", "百合"]
   - title: "先輩と後輩、大暴れの週末"
     platforms: ["くらげバンチ"]
     urls: ["https://kuragebunch.com/episode/2550912965269449845"]
@@ -1946,6 +2109,7 @@ candidates:
   - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
     platforms: ["ヤンチャンWeb"]
     urls: ["https://youngchampion.jp/series/86c1162f34a04"]
+    tags: ["ファンタジー", "令嬢", "百合"]
   - title: "共依存魔法少女"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2550912964575128673"]
@@ -1961,6 +2125,7 @@ candidates:
   - title: "冷たくて 柔らか"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/11800"]
+    tags: ["百合"]
   - title: "冷厳寺さんは今日からおもちゃ"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/14079602755391426512"]
@@ -1979,9 +2144,11 @@ candidates:
   - title: "創る庭"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007254_S"]
+    tags: ["不動産", "同人活動", "百合"]
   - title: "勇者の旅の裏側で"
     platforms: ["ドリコミ+"]
     urls: ["https://drecomi-plus.jp/series/CD00038"]
+    tags: ["ヒーラー・神官", "ファンタジー", "剣士", "百合"]
   - title: "十宵先輩は吸血鬼"
     platforms: ["きら星ポータル"]
     urls: ["https://kirapo.jp/meteor/titles/toyoisenpai"]
@@ -1991,6 +2158,7 @@ candidates:
   - title: "半熟女子"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983782244654"]
+    tags: ["女子高生", "百合"]
   - title: "南山除妖録"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/3270375685341535217"]
@@ -2000,6 +2168,7 @@ candidates:
   - title: "友達からでもいいですか"
     platforms: ["くらげバンチ"]
     urls: ["https://kuragebunch.com/episode/12207421984030246278"]
+    tags: ["成人女性", "百合"]
   - title: "友達が私を理解らせにくるので勝利の女神の力を借りてこっちも理解らせにいきます。"
     platforms: ["ストーリアダッシュ(更新終了)", "ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/61994", "https://storia.takeshobo.co.jp/manga/mesugaki/"]
@@ -2042,6 +2211,7 @@ candidates:
   - title: "君となら、明日を歌えるの"
     platforms: ["カドコミ", "ヤングエースUP(更新終了)"]
     urls: ["https://comic-walker.com/detail/KC_007138_S", "https://web-ace.jp/youngaceup/contents/1000320/"]
+    tags: ["百合"]
   - title: "君と綴るうたかた"
     platforms: ["pixivコミック", "コミックDAYS", "ニコニコ漫画"]
     urls: ["https://comic-days.com/episode/3269754496636469072", "https://comic.pixiv.net/works/7077", "https://manga.nicovideo.jp/comic/56191"]
@@ -2051,6 +2221,7 @@ candidates:
   - title: "君になれたら"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008317_S"]
+    tags: ["アイドル", "百合"]
   - title: "君に惹かれた理由"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/14079602755180542200"]
@@ -2060,6 +2231,7 @@ candidates:
   - title: "君のせいなんだから、責任とってよね。"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/13225", "https://ichicomi.com/episode/2551460909807196614"]
+    tags: ["百合", "社会人"]
   - title: "君のためのカーテンコール"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923203959"]
@@ -2081,6 +2253,7 @@ candidates:
   - title: "吸血少女とウンディーネ"
     platforms: ["pixivコミック", "コミック アース・スター"]
     urls: ["https://comic-earthstar.com/episode/12207421983715032399", "https://comic.pixiv.net/works/13227"]
+    tags: ["現代ファンタジー", "異種族・人外", "百合", "読み切り"]
   - title: "吸血鬼と女子高生"
     platforms: ["ヤンマガWeb"]
     urls: ["https://yanmaga.jp/comics/%E5%90%B8%E8%A1%80%E9%AC%BC%E3%81%A8%E5%A5%B3%E5%AD%90%E9%AB%98%E7%94%9F"]
@@ -2093,9 +2266,11 @@ candidates:
   - title: "咲きそめコンプレックス"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_006662_S", "https://manga.nicovideo.jp/comic/72944"]
+    tags: ["おねロリ", "女子小学生", "女子高生", "年の差", "百合"]
   - title: "喫茶 秘匿異"
     platforms: ["Gコミ"]
     urls: ["https://g-comi.jp/series/82ac8f503cf40"]
+    tags: ["ホラー", "百合", "読み切り"]
   - title: "嘘から始まる恋の夏-squall-"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204356"]
@@ -2117,12 +2292,15 @@ candidates:
   - title: "堕天使そぷらのちゃんの復讐"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006778_S"]
+    tags: ["女子高生", "学園", "百合"]
   - title: "壊していいよ、すいかちゃん"
     platforms: ["COMIC OGYAAA!!", "pixivコミック"]
     urls: ["https://comic-ogyaaa.com/episode/12207421983608495081", "https://comic.pixiv.net/works/13400"]
+    tags: ["女子高生", "格闘技", "異能・超能力", "百合"]
   - title: "声に乗せてファンファーレ"
     platforms: ["pixivコミック", "コミックDAYS"]
     urls: ["https://comic-days.com/episode/12207421983742371464", "https://comic.pixiv.net/works/13440"]
+    tags: ["百合", "読み切り"]
   - title: "声優ラジオのウラオモテ"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/10368"]
@@ -2135,12 +2313,14 @@ candidates:
   - title: "夕子先輩は育てられない"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983742535195"]
+    tags: ["百合"]
   - title: "外側偏重"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/3269754496813482916"]
   - title: "多良さんのウワサ"
     platforms: ["Gコミ"]
     urls: ["https://g-comi.jp/series/f5a28c7f5cc1b"]
+    tags: ["オカルト", "現代ファンタジー", "百合"]
   - title: "多重夢"
     platforms: ["ゼノン編集部"]
     urls: ["https://comic-zenon.com/episode/2550912965765814675"]
@@ -2162,12 +2342,14 @@ candidates:
   - title: "夢でフラれてはじまる百合"
     platforms: ["ニコニコ漫画", "竹コミ‎‏‎"]
     urls: ["https://manga.nicovideo.jp/comic/58368", "https://takecomic.jp/series/8e32550d65684"]
+    tags: ["うぶ恋・ピュア恋", "カップル", "ラブコメ", "女子高生", "恋愛", "片思い", "百合"]
   - title: "夢と恋ではつり合わない"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/12026", "https://ichicomi.com/episode/2550912965923204496"]
   - title: "夢後のグレイ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006383_S"]
+    tags: ["百合"]
   - title: "夢見るメイドのティータイム"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_001520_S"]
@@ -2177,9 +2359,11 @@ candidates:
   - title: "大室家"
     platforms: ["コミックDAYS", "一迅プラス"]
     urls: ["https://comic-days.com/episode/3269754496321185399", "https://ichicomi.com/episode/2550912965923203895"]
+    tags: ["スピンオフ・外伝", "姉妹", "日常", "癒やし・ほっこり", "百合"]
   - title: "大崎さんと小森さん"
     platforms: ["カドコミ", "コミックエッセイ劇場"]
     urls: ["https://comic-walker.com/detail/KC_014277_S", "https://www.comic-essay.com/episode/a1026/"]
+    tags: ["百合"]
   - title: "大正忌憚魔女"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_001474_S", "https://manga.nicovideo.jp/comic/60533"]
@@ -2192,6 +2376,7 @@ candidates:
   - title: "天瀬ましろはイきたくない!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_016898_S"]
+    tags: ["エロ", "百合", "読み切り"]
   - title: "太刀んぼ キルコ"
     platforms: ["マンガワン"]
     urls: ["https://manga-one.com/viewer/285495"]
@@ -2213,6 +2398,7 @@ candidates:
   - title: "女の子合わせ"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983782265302"]
+    tags: ["エロ", "百合"]
   - title: "女同士とかありえないでしょと言い張る女の子を、百日間で徹底的に落とす百合のお話"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/1258"]
@@ -2240,15 +2426,18 @@ candidates:
   - title: "好都合セミフレンド"
     platforms: ["COMIC FUZ", "ニコニコ漫画"]
     urls: ["https://comic-fuz.com/manga/3397", "https://manga.nicovideo.jp/comic/63674"]
+    tags: ["4コマ", "エロ", "同性愛・LGBTQ+", "女子高生", "百合"]
   - title: "妄執女と芥川"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007176_S"]
+    tags: ["作家", "百合"]
   - title: "妄想アカデミズム"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/60564"]
   - title: "妖怪殲滅のサイコリリー"
     platforms: ["マンガワン", "裏サンデー"]
     urls: ["https://manga-one.com/viewer/225633", "https://urasunday.com/title/2565"]
+    tags: ["オカルト", "ホラー", "女子高生", "百合"]
   - title: "姉になりたい義姉VS百合になりたい義妹"
     platforms: ["MAGCOMI", "pixivコミック", "ニコニコ漫画"]
     urls: ["https://comic.pixiv.net/works/8567", "https://magcomi.com/episode/4856001361097282599", "https://manga.nicovideo.jp/comic/62763"]
@@ -2261,6 +2450,7 @@ candidates:
   - title: "姉妹傭兵"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019475_S"]
+    tags: ["百合", "軍人・兵士"]
   - title: "姫と女勇者が結ばれるための12の聖行為"
     platforms: ["COMIC FUZ", "pixivコミック"]
     urls: ["https://comic-fuz.com/manga/2438", "https://comic.pixiv.net/works/8153"]
@@ -2276,21 +2466,25 @@ candidates:
   - title: "姫虐が止まらない白桃さん"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2551460910021695025"]
+    tags: ["百合"]
   - title: "娘が彼女を連れてきた話"
     platforms: ["マンガよもんが"]
     urls: ["https://www.yomonga.com/titles/2532/"]
+    tags: ["百合"]
   - title: "嫌われ魔女令嬢と男装皇子の婚約"
     platforms: ["pixivコミック", "ニコニコ漫画", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/9956", "https://ichicomi.com/episode/2550912965919401625", "https://manga.nicovideo.jp/comic/66292"]
   - title: "子供部屋ドラゴン"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/72638"]
+    tags: ["4コマ", "ギャグ・コメディ", "ドラゴン・竜", "百合", "義理の兄弟姉妹"]
   - title: "宇宙人だった君へ"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2550912964707023897"]
   - title: "安達としまむら"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_004197_S", "https://manga.nicovideo.jp/comic/41839"]
+    tags: ["アニメ化", "コミカライズ", "女子高生", "百合"]
   - title: "宙-CHUU-"
     platforms: ["裏サンデー"]
     urls: ["https://urasunday.com/title/2087"]
@@ -2315,6 +2509,7 @@ candidates:
   - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_002994_S", "https://manga.nicovideo.jp/comic/47294"]
+    tags: ["アニメ化", "ギャグ・コメディ", "ゲーム・eスポーツ", "メスガキ", "令嬢", "動画配信者", "女子高生", "学園", "百合", "青春"]
   - title: "寿命をゆずる友達の話。"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_002199_S"]
@@ -2327,9 +2522,11 @@ candidates:
   - title: "小春と湊 わたしのパートナーは女の子"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923203373"]
+    tags: ["エッセイ", "百合"]
   - title: "小林さんちのメイドラゴン"
     platforms: ["webアクション"]
     urls: ["https://comic-action.com/episode/13933686331613879685"]
+    tags: ["お色気・微エロ", "アニメ化", "ドラゴン・竜", "メイド", "現代ファンタジー", "百合", "社会人"]
   - title: "小柳ちゃんの守り方!"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2550912964579096267"]
@@ -2357,6 +2554,7 @@ candidates:
   - title: "崩れる前のわたしでいさせて"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019408_S"]
+    tags: ["百合", "読み切り"]
   - title: "幕末女子高生 鬼と夜明け"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/9011"]
@@ -2366,6 +2564,7 @@ candidates:
   - title: "平良深姉妹はどっちもヤんでる"
     platforms: ["pixivコミック", "コミックDAYS", "ニコニコ漫画", "マガポケ", "一迅プラス"]
     urls: ["https://comic-days.com/episode/4856001361274266527", "https://comic.pixiv.net/works/9380", "https://ichicomi.com/episode/2550912965923204071", "https://manga.nicovideo.jp/comic/63799", "https://pocket.shonenmagazine.com/title/02257"]
+    tags: ["メイド", "ヤンデレ", "姉妹", "百合"]
   - title: "年下の先輩"
     platforms: ["ヤンマガWeb"]
     urls: ["https://yanmaga.jp/comics/%E5%B9%B4%E4%B8%8B%E3%81%AE%E5%85%88%E8%BC%A9"]
@@ -2378,6 +2577,7 @@ candidates:
   - title: "幼馴染は、にゃあと鳴いてスカートのなか"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_006116_S", "https://manga.nicovideo.jp/comic/70870"]
+    tags: ["ラブコメ", "女子高生", "完結", "猫", "百合"]
   - title: "庭にゾンビ来てるよ"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/10044607041235029728"]
@@ -2390,6 +2590,7 @@ candidates:
   - title: "彩純ちゃんはレズ風俗に興味があります!"
     platforms: ["ニコニコ漫画", "ヤンマガWeb", "一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204004", "https://manga.nicovideo.jp/comic/56286", "https://yanmaga.jp/comics/%E5%BD%A9%E7%B4%94%E3%81%A1%E3%82%83%E3%82%93%E3%81%AF%E3%83%AC%E3%82%BA%E9%A2%A8%E4%BF%97%E3%81%AB%E8%88%88%E5%91%B3%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99"]
+    tags: ["エロ", "性風俗・娼館", "百合"]
   - title: "彩香ちゃんは弘子先輩に恋してる"
     platforms: ["webアクション", "ニコニコ漫画"]
     urls: ["https://comic-action.com/episode/13933686331668792399", "https://manga.nicovideo.jp/comic/48640"]
@@ -2402,9 +2603,11 @@ candidates:
   - title: "彼なんかより、私のほうがいいでしょ?"
     platforms: ["pixivコミック", "カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_006299_S", "https://comic.pixiv.net/works/11817", "https://manga.nicovideo.jp/comic/71625"]
+    tags: ["エロ", "コミカライズ", "女子高生", "百合"]
   - title: "彼女のカノジョと不純な初恋"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_009359_S"]
+    tags: ["恋愛", "百合"]
   - title: "彼女の横で見る世界"
     platforms: ["パイコミックス"]
     urls: ["https://comics.pie.co.jp/series/herside/"]
@@ -2423,6 +2626,7 @@ candidates:
   - title: "彼氏の女友達がぐいぐい来る(私に)"
     platforms: ["pixivコミック", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_016753_S", "https://comic.pixiv.net/works/13373"]
+    tags: ["百合"]
   - title: "徒花の約束"
     platforms: ["カドコミ", "ヤングエースUP(更新終了)"]
     urls: ["https://comic-walker.com/detail/KC_007123_S", "https://web-ace.jp/youngaceup/contents/1000322/"]
@@ -2435,6 +2639,7 @@ candidates:
   - title: "忍者と殺し屋のふたりぐらし"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/54592"]
+    tags: ["アニメ化", "シュール", "忍者", "暗殺者・殺し屋", "百合"]
   - title: "志乃と恋"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_000076_S"]
@@ -2453,6 +2658,7 @@ candidates:
   - title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
     platforms: ["ニコニコ漫画", "マガポケ"]
     urls: ["https://manga.nicovideo.jp/comic/67469", "https://pocket.shonenmagazine.com/title/02328"]
+    tags: ["ギャグ・コメディ", "バトル", "乙女ゲーム", "学園", "悪役令嬢", "無自覚チート", "猫", "百合", "聖女", "転生"]
   - title: "性別「モナリザ」の君へ。"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/12"]
@@ -2474,9 +2680,11 @@ candidates:
   - title: "怪獣ロマンティクス"
     platforms: ["pixivコミック", "マガポケ"]
     urls: ["https://comic.pixiv.net/works/13457", "https://pocket.shonenmagazine.com/title/03196"]
+    tags: ["怪獣", "百合"]
   - title: "怪異部～M県Y市の怪現象について～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006547_S"]
+    tags: ["オカルト", "サスペンス", "デスゲーム", "ホラー", "女子高生", "架空の部活", "残酷・グロテスク", "百合"]
   - title: "恋する小惑星"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/40132"]
@@ -2510,18 +2718,21 @@ candidates:
   - title: "恋より青く"
     platforms: ["COMIC OGYAAA!!"]
     urls: ["https://comic-ogyaaa.com/episode/4856001361171643976"]
+    tags: ["女子高生", "現代", "百合"]
   - title: "恋人の下の名前が呼べなくて困ってます"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204728"]
   - title: "恋愛遺伝子XX 完全版"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983782041919"]
+    tags: ["百合"]
   - title: "恋色の境界"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_006010_S", "https://manga.nicovideo.jp/comic/70400"]
   - title: "悪いが私は百合じゃない"
     platforms: ["pixivコミック", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_004432_S", "https://comic.pixiv.net/works/6356"]
+    tags: ["お色気・微エロ", "エロ", "ギャグ・コメディ", "同性愛・LGBTQ+", "女子高生", "女性向け", "現代", "百合", "青春"]
   - title: "悪いことを考えている"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/12207421983378975217"]
@@ -2534,6 +2745,7 @@ candidates:
   - title: "悪役令嬢のお嫁さま"
     platforms: ["Seasons"]
     urls: ["https://comic-seasons.com/episode/2550912965184704375"]
+    tags: ["婚約破棄", "悪役令嬢", "異種族・人外", "百合"]
   - title: "悪役令嬢の中の人〜断罪された転生者のため嘘つきヒロインに復讐いたします〜"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/7926"]
@@ -2558,6 +2770,7 @@ candidates:
   - title: "愛でたいセンセイ"
     platforms: ["COMIC Y-OURS"]
     urls: ["https://comic-y-ours.com/episode/2551460909791888785"]
+    tags: ["完結", "教師", "百合"]
   - title: "愛の夢"
     platforms: ["少年ジャンプルーキー"]
     urls: ["https://rookie.shonenjump.com/series/X1vJnKYQKqw"]
@@ -2567,6 +2780,7 @@ candidates:
   - title: "或いは、私の名探偵"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007014_S"]
+    tags: ["百合"]
   - title: "戻らない季節。"
     platforms: ["フラコミlike!"]
     urls: ["https://flowercomics.jp/title/3311"]
@@ -2582,9 +2796,11 @@ candidates:
   - title: "押しかけ女房、コドモ付き!"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/67280"]
+    tags: ["4コマ", "同居人・居候", "娘", "日常", "百合"]
   - title: "拝啓、在りし日に咲く花たちへ"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_006092_S", "https://manga.nicovideo.jp/comic/70738"]
+    tags: ["オムニバス・短編集", "女子高生", "百合"]
   - title: "持たない暮らしとコークハイ"
     platforms: ["FEEL web"]
     urls: ["https://feelweb.jp/episode/2550689798763776103"]
@@ -2624,21 +2840,25 @@ candidates:
   - title: "散らないで菊"
     platforms: ["ゼノン編集部"]
     urls: ["https://comic-zenon.com/episode/12207421983944323839"]
+    tags: ["百合", "読み切り"]
   - title: "散り損ないのヒラエス"
     platforms: ["HERO'S Web"]
     urls: ["https://heros-web.com/series/cd04567a696bb"]
+    tags: ["完結", "百合"]
   - title: "文系のきみ、理系のあなた"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204062"]
   - title: "新刊100億冊ください"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/2550912965415315207"]
+    tags: ["オタク", "ブロ・シスマンス", "中二病", "同人活動", "漫画家・絵描き", "百合"]
   - title: "新米勇者のおしながき～乃木若葉は勇者である すぴんあうと4コマ～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_002860_S"]
   - title: "新米姉妹のふたりごはん"
     platforms: ["pixivコミック", "カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_002743_S", "https://comic.pixiv.net/works/3287", "https://manga.nicovideo.jp/comic/18981"]
+    tags: ["ホームドラマ", "レシピ", "女子高生", "実写化", "料理・グルメ", "日常", "百合", "義理の兄弟姉妹", "雑学・豆知識"]
   - title: "日常の片隅で…百合が咲く"
     platforms: ["少年ジャンプルーキー"]
     urls: ["https://rookie.shonenjump.com/series/zGZPbQ8x_Jk"]
@@ -2660,18 +2880,22 @@ candidates:
   - title: "星の体温、巡る夢"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006791_S"]
+    tags: ["百合"]
   - title: "星の指輪"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/3269754496872127411"]
   - title: "星屑テレパス"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/48976"]
+    tags: ["4コマ", "アニメ化", "宇宙人", "実写化", "百合", "青春"]
   - title: "星野ヒバナはみつがれる"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/3612"]
+    tags: ["百合"]
   - title: "映しちゃダメな顔"
     platforms: ["ニコニコ漫画", "一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965919401763", "https://manga.nicovideo.jp/comic/66620"]
+    tags: ["エロ", "役者・声優", "水商売", "百合"]
   - title: "春に手向ける"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/316112896842374419"]
@@ -2687,6 +2911,7 @@ candidates:
   - title: "春雷卓球"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17107094912913096422"]
+    tags: ["スポーツ", "卓球", "女子高生", "百合", "運動系部活"]
   - title: "春風のふり"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007149_S"]
@@ -2699,9 +2924,11 @@ candidates:
   - title: "晴れた日のドレスコード"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/13425", "https://ichicomi.com/episode/2551460909807196609"]
+    tags: ["女子高生", "百合"]
   - title: "暴走!?サキュバスせんぱい"
     platforms: ["Gコミ"]
     urls: ["https://g-comi.jp/series/5448ec9f6077b"]
+    tags: ["お色気・微エロ", "サキュバス", "異世界", "百合"]
   - title: "最低な君が好き"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2550912965974316524"]
@@ -2735,6 +2962,7 @@ candidates:
   - title: "月とすっぴん"
     platforms: ["FEEL web"]
     urls: ["https://feelweb.jp/episode/3269754496401056101"]
+    tags: ["百合"]
   - title: "月とシャンプー"
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/3a2e5c054830e"]
@@ -2744,6 +2972,7 @@ candidates:
   - title: "月はヒツジを数えない"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006665_S"]
+    tags: ["恋愛", "男装", "異世界", "百合"]
   - title: "有美の言う通り"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/2550912964784980464"]
@@ -2762,6 +2991,7 @@ candidates:
   - title: "桃色カンパネラ"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/74044"]
+    tags: ["4コマ", "お色気・微エロ", "異種族・人外", "百合"]
   - title: "桜の世界"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_004943_S"]
@@ -2777,6 +3007,7 @@ candidates:
   - title: "横槍メンゴ新作読切シリーズ"
     platforms: ["ヤンジャン+"]
     urls: ["https://ynjn.jp/title/30352"]
+    tags: ["オムニバス・短編集", "百合"]
   - title: "橙山寮のあの子たち"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/10044607041200248108"]
@@ -2789,6 +3020,7 @@ candidates:
   - title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platforms: ["HERO'S Web"]
     urls: ["https://heros-web.com/series/ec09a10dc9490"]
+    tags: ["お色気・微エロ", "やり直し", "ギャグ・コメディ", "タイムリープ", "ハーレム", "百合"]
   - title: "死の天使は涙を流す/ジャンプTOON新創刊記念出張掲載"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17106371867623738529"]
@@ -2798,12 +3030,15 @@ candidates:
   - title: "残り香に牙"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983947227343"]
+    tags: ["百合", "読み切り"]
   - title: "残光"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2550912965313547927"]
+    tags: ["百合"]
   - title: "残光再撮"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_011927_S"]
+    tags: ["写真", "大学生", "百合"]
   - title: "残存の竜"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923203756"]
@@ -2813,6 +3048,7 @@ candidates:
   - title: "残骸少女、きらきらな世界の底"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983456056454"]
+    tags: ["SF", "ロボ・人造人間", "百合"]
   - title: "殺し屋と宝石とシュトーレン"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/contents/detail/KDCW_CW01204539010000_68/"]
@@ -2849,6 +3085,7 @@ candidates:
   - title: "江口さんちの純情サキュバス"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/3776"]
+    tags: ["サキュバス", "百合"]
   - title: "江畔ノ燕々"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007045_S"]
@@ -2870,6 +3107,7 @@ candidates:
   - title: "浪人なんてろくでもない!"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983829237024"]
+    tags: ["百合", "読み切り"]
   - title: "浮気・NTR百合アンソロジー"
     platforms: ["ストーリアダッシュ(更新終了)"]
     urls: ["https://storia.takeshobo.co.jp/manga/uwakintryuri_anthology/"]
@@ -2891,15 +3129,18 @@ candidates:
   - title: "温室のアトリエ"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/2643"]
+    tags: ["パンデミック", "メンタルヘルス", "百合", "群像劇", "読み切り"]
   - title: "湾田さんと蛇ノ目さん"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/12207421983659791816"]
+    tags: ["百合", "読み切り"]
   - title: "溺れて、愛毒"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204803"]
   - title: "溺愛理想主義～岩見樹代子作品集～"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983829237030"]
+    tags: ["百合"]
   - title: "滅亡カウントダウン"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17107094913049139392"]
@@ -2921,12 +3162,14 @@ candidates:
   - title: "灼熱の卓球娘 REBURN!!"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/b3efcd5f3a6a7"]
+    tags: ["スポーツ", "百合"]
   - title: "灼熱の魔女様の楽しい温泉領地経営 ～魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝..."
     platforms: ["コミック アース・スター"]
     urls: ["https://comic-earthstar.com/episode/14079602755509017037"]
   - title: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
     platforms: ["pixivコミック", "ニコニコ漫画", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/11080", "https://ichicomi.com/episode/2550912965923204144", "https://manga.nicovideo.jp/comic/70413"]
+    tags: ["ファンタジー", "王女・姫", "異世界", "百合", "聖女"]
   - title: "煙に寄せて"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965919401689"]
@@ -2942,24 +3185,28 @@ candidates:
   - title: "犬も歩けば姫に当たる"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/13322"]
+    tags: ["百合"]
   - title: "犬窪ノアとなかよしするまで"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/69545"]
   - title: "狙いはキミだけ!"
     platforms: ["Gコミ"]
     urls: ["https://g-comi.jp/series/192003ee77e21"]
+    tags: ["女子高生", "恋愛", "百合", "読み切り"]
   - title: "狛田さんを困らせたい"
     platforms: ["WEBコミックガンマぷらす(更新終了)"]
     urls: ["https://gammaplus.takeshobo.co.jp/manga/komadasan/"]
   - title: "狼の皮をかぶった羊姫"
     platforms: ["ストーリアダッシュ(更新終了)", "竹コミ‎‏‎"]
     urls: ["https://storia.takeshobo.co.jp/manga/hitsujihime/", "https://takecomic.jp/series/edb5080d3a3a1"]
+    tags: ["百合"]
   - title: "猫とシュガーポット"
     platforms: ["comicブースト"]
     urls: ["https://comic-boost.com/content/01560001"]
   - title: "猫に白鳥、蛍に小判"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006798_S"]
+    tags: ["百合"]
   - title: "猫のまにまに"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_000278_S"]
@@ -2972,15 +3219,18 @@ candidates:
   - title: "獄門撫子此処ニ在リ"
     platforms: ["てれびくんヒーローコミックス", "コロコロオンライン"]
     urls: ["https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/", "https://www.corocoro.jp/title/773"]
+    tags: ["ざまぁ", "オカルト", "コミカライズ", "チート", "女子高生", "妖怪", "現代", "百合", "頭脳戦・心理戦"]
   - title: "王の由縁"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/4856001361121205038"]
   - title: "現実世界でも幸せにしてくださいね?"
     platforms: ["pixivコミック", "ニコニコ漫画", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/11079", "https://ichicomi.com/episode/2550912965923204058", "https://manga.nicovideo.jp/comic/70414"]
+    tags: ["ハーレム", "百合"]
   - title: "球詠"
     platforms: ["COMIC FUZ", "ニコニコ漫画"]
     urls: ["https://comic-fuz.com/manga/441", "https://manga.nicovideo.jp/comic/22768"]
+    tags: ["アニメ化", "スポーツ", "女子高生", "百合", "野球"]
   - title: "琥珀の貴女"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_004475_S"]
@@ -2999,6 +3249,7 @@ candidates:
   - title: "田所さん"
     platforms: ["キミコミ", "コミックヴァルキリー(更新終了)", "ニコニコ漫画"]
     urls: ["https://kimicomi.com/series/a869ecfca8da9", "https://manga.nicovideo.jp/comic/41133", "https://manga.nicovideo.jp/comic/43388", "https://www.comic-valkyrie.com/tadokorosan"]
+    tags: ["百合"]
   - title: "田所さん(2)"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/55102"]
@@ -3008,12 +3259,15 @@ candidates:
   - title: "由花緒リニューアル"
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/9a5ca4fa0d6af"]
+    tags: ["百合", "読み切り"]
   - title: "男装メイドは尽くしたい"
     platforms: ["マンガPark", "花とゆめ+"]
     urls: ["https://hanayume.com/series/1191c17a3f374", "https://manga-park.com/title/91107"]
+    tags: ["百合"]
   - title: "画家の肖像"
     platforms: ["ゼノン編集部"]
     urls: ["https://comic-zenon.com/episode/12207421983944323781"]
+    tags: ["百合", "読み切り"]
   - title: "異世界女子監獄"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_000943_S"]
@@ -3026,12 +3280,14 @@ candidates:
   - title: "異種族女子に〇〇する話"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/7840"]
+    tags: ["学園", "完結", "異種族・人外", "百合"]
   - title: "疲れきった女が死ぬほど癒やされるために。"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_003466_S"]
   - title: "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..."
     platforms: ["コミックガルド"]
     urls: ["https://comic-gardo.com/episode/2550912966011803878"]
+    tags: ["学園", "無自覚チート", "異世界", "百合", "転生"]
   - title: "病月"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_004384_S"]
@@ -3041,6 +3297,7 @@ candidates:
   - title: "白き乙女の人狼"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/d8e8c084c4c6c"]
+    tags: ["百合"]
   - title: "白き乙女の人狼(ウェアウルフ)"
     platforms: ["LINEマンガ(更新終了)"]
     urls: ["https://manga.line.me/product/periodic?id=S132974"]
@@ -3068,6 +3325,7 @@ candidates:
   - title: "百合SMでふたりの気持ちはつながりますか?"
     platforms: ["COMIC FUZ", "pixivコミック", "ニコニコ漫画"]
     urls: ["https://comic-fuz.com/manga/2391", "https://comic.pixiv.net/works/7194", "https://manga.nicovideo.jp/comic/56323"]
+    tags: ["フェチ・性癖", "百合"]
   - title: "【百合】となりの席の地味な奴"
     platforms: ["LINE マンガ インディーズ"]
     urls: ["https://manga.line.me/indies/product/detail?id=12480"]
@@ -3077,6 +3335,7 @@ candidates:
   - title: "百合のはじまりは奴隷から"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005678_S"]
+    tags: ["三角関係", "女子高生", "百合"]
   - title: "百合オタに百合はご法度です!?"
     platforms: ["pixivコミック", "webアクション", "ニコニコ漫画"]
     urls: ["https://comic-action.com/episode/13933686331613879665", "https://comic.pixiv.net/works/6699", "https://manga.nicovideo.jp/comic/48142"]
@@ -3086,6 +3345,7 @@ candidates:
   - title: "百合フェチLIFE"
     platforms: ["Gコミ"]
     urls: ["https://g-comi.jp/series/7e3c698bca968"]
+    tags: ["エロ", "百合"]
   - title: "百合ラブスレイブ ふたりだけの放課後"
     platforms: ["キミコミ"]
     urls: ["https://kimicomi.com/series/9485e36b66a9d"]
@@ -3095,6 +3355,7 @@ candidates:
   - title: "百合神さまの言うとおり!"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/5b8e11d2274cc"]
+    tags: ["百合"]
   - title: "百合華のスパイ学校 入学したら快楽拷問に耐える訓練ばかりなんですが!?"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_001401_S"]
@@ -3107,6 +3368,7 @@ candidates:
   - title: "真先輩の前ではかっこつけられない!"
     platforms: ["カドコミ", "ヤングエースUP(更新終了)"]
     urls: ["https://comic-walker.com/detail/KC_006747_S", "https://web-ace.jp/youngaceup/contents/1000289/"]
+    tags: ["ラブコメ", "百合"]
   - title: "真夏のスピカ"
     platforms: ["COMIC OGYAAA!!"]
     urls: ["https://comic-ogyaaa.com/episode/316190246984111706"]
@@ -3137,33 +3399,39 @@ candidates:
   - title: "神絵師のおしごと"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/68352"]
+    tags: ["4コマ", "オタク", "ギャグ・コメディ", "現代", "百合"]
   - title: "福音のメリテール"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2550689798701554557"]
   - title: "私がモテないのはどう考えてもお前らが悪い!"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/29"]
+    tags: ["アニメ化", "ギャグ・コメディ", "ボーイミーツガール", "女子高生", "学園", "日常", "現代", "百合"]
   - title: "私が負けヒロインなんて認めませんわ!"
     platforms: ["きら星ポータル"]
     urls: ["https://kirapo.jp/meteor/titles/watamake"]
   - title: "私だけが宮地美雪を愛している"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/e060f5eef826c"]
+    tags: ["百合"]
   - title: "私だって青春したいですよ、本当は。"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/12809", "https://ichicomi.com/episode/2550912966077881812"]
+    tags: ["百合"]
   - title: "私と彼女のかわいい恋のはじめ方"
     platforms: ["pixivコミック", "コミックDAYS"]
     urls: ["https://comic-days.com/episode/2550912964588371530", "https://comic.pixiv.net/works/10693"]
   - title: "私に天使が舞い降りた!"
     platforms: ["pixivコミック", "ニコニコ漫画", "マガポケ"]
     urls: ["https://comic.pixiv.net/works/4810", "https://manga.nicovideo.jp/comic/56284", "https://pocket.shonenmagazine.com/title/01052"]
+    tags: ["4コマ", "アニメ化", "女子小学生", "日常", "百合"]
   - title: "私のみだらな傀儡"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17107094911687896748"]
   - title: "私のヒーロー"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/12207421983805333018"]
+    tags: ["最近のコメント数"]
   - title: "私のブルーガーネット"
     platforms: ["マンガPark"]
     urls: ["https://manga-park.com/title/98459"]
@@ -3182,6 +3450,7 @@ candidates:
   - title: "私の推しは悪役令嬢。"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/7319", "https://ichicomi.com/episode/2550912965923202772"]
+    tags: ["アニメ化", "コミカライズ", "乙女ゲーム", "令嬢", "小説家になろう", "悪役令嬢", "百合", "転生"]
   - title: "私の推しは悪役令嬢。 メイドキッチン"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/9851", "https://ichicomi.com/episode/2550912965919401600"]
@@ -3191,6 +3460,7 @@ candidates:
   - title: "私の百合はお仕事です!"
     platforms: ["pixivコミック", "コミックDAYS", "ニコニコ漫画", "マガポケ", "一迅プラス"]
     urls: ["https://comic-days.com/episode/3269754496323200170", "https://comic.pixiv.net/works/4015", "https://ichicomi.com/episode/2550912965923203016", "https://manga.nicovideo.jp/comic/56014", "https://pocket.shonenmagazine.com/title/01050"]
+    tags: ["アニメ化", "カフェ・喫茶店", "百合"]
   - title: "私の瞳に生きるまで/2024年4月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17106371883871799675"]
@@ -3200,6 +3470,7 @@ candidates:
   - title: "私の魂を食べて下さい!"
     platforms: ["COMICリュウ"]
     urls: ["https://www.comic-ryu.jp/series/watashinotamashiiwotabetekudasai/"]
+    tags: ["お色気・微エロ", "獣人", "百合"]
   - title: "私の魔法使い"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/4855956445047167861"]
@@ -3212,6 +3483,7 @@ candidates:
   - title: "私を喰べたい、ひとでなし"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_003258_S", "https://manga.nicovideo.jp/comic/49677"]
+    tags: ["アニメ化", "女子高生", "妖怪", "異種族・人外", "百合"]
   - title: "私、エリート天使ですが難攻不落なJKに困ってます!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_000458_S"]
@@ -3221,6 +3493,7 @@ candidates:
   - title: "秒速11.2kmでともに"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/12207421983850437714"]
+    tags: ["百合", "読み切り"]
   - title: "程遠い君の星まで"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/4856001361130667551"]
@@ -3233,6 +3506,7 @@ candidates:
   - title: "竜人ボディガードとお嬢様"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008416_S"]
+    tags: ["百合"]
   - title: "笑う門だよ福音さん"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/4856001361097279910"]
@@ -3260,12 +3534,14 @@ candidates:
   - title: "終末、おやつ食べよ。"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008775_S"]
+    tags: ["百合", "読み切り"]
   - title: "終末は私の家でパンを食べませんか?"
     platforms: ["きら星ポータル"]
     urls: ["https://kirapo.jp/meteor/titles/syumatupan"]
   - title: "終点まで、ふたりで"
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/1323acdbab2aa"]
+    tags: ["百合", "読み切り"]
   - title: "終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/56538"]
@@ -3296,12 +3572,14 @@ candidates:
   - title: "聖さまの思うままに"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/12207421983765928461"]
+    tags: ["女子高生", "百合"]
   - title: "肉の女王は愛の月"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/14079602755227529683"]
   - title: "胡蝶の夢"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019442_S"]
+    tags: ["百合", "読み切り"]
   - title: "脱いでもいいよね?"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005755_S"]
@@ -3311,6 +3589,7 @@ candidates:
   - title: "腹割るウチらの秘密ごと!"
     platforms: ["pixivコミック", "まんがタイムSquare"]
     urls: ["https://comic.pixiv.net/works/11664", "https://mangatime-square.com/episode/12207421983656607506"]
+    tags: ["4コマ", "百合", "運動・筋トレ"]
   - title: "臨死"
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/ae25feca1b999"]
@@ -3338,6 +3617,7 @@ candidates:
   - title: "英雄少女と呪われの銀姫"
     platforms: ["となりのヤングジャンプ", "ヤンジャン+"]
     urls: ["https://tonarinoyj.jp/episode/2551460910044575820", "https://ynjn.jp/title/27600"]
+    tags: ["ファンタジー", "百合"]
   - title: "葬られたきみへ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005851_S"]
@@ -3347,6 +3627,7 @@ candidates:
   - title: "藤髪の魔女"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/2649"]
+    tags: ["百合"]
   - title: "蝶と帝国"
     platforms: ["pixivコミック", "カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_002168_S", "https://comic.pixiv.net/works/9237", "https://manga.nicovideo.jp/comic/63033"]
@@ -3359,12 +3640,15 @@ candidates:
   - title: "裏世界ピクニック"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/38"]
+    tags: ["アニメ化", "オカルト", "コミカライズ", "ホラー", "同性愛・LGBTQ+", "恋愛", "現代ファンタジー", "百合"]
   - title: "見えてますよ!愛沢さん"
     platforms: ["キミコミ", "ニコニコ漫画"]
     urls: ["https://kimicomi.com/series/330f3ad1270c8", "https://manga.nicovideo.jp/comic/60277"]
+    tags: ["アイドル", "ホラー", "女子高生", "幽霊", "百合"]
   - title: "見える子ちゃん"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/37662"]
+    tags: ["オカルト", "ホラー", "女子高生", "幽霊", "百合"]
   - title: "親友に好きな人ができたらしい"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/11352"]
@@ -3374,21 +3658,26 @@ candidates:
   - title: "「触れたい」は恋の始まり"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/5a87d01128492"]
+    tags: ["学園", "百合"]
   - title: "誰かオオカミさんのしつけ方知りませんか⁉"
     platforms: ["ニコニコ漫画", "一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983347947242", "https://manga.nicovideo.jp/comic/76631"]
+    tags: ["ラブコメ", "女子高生", "現代", "百合"]
   - title: "謎のユリイカ"
     platforms: ["マンガよもんが"]
     urls: ["https://www.yomonga.com/titles/2546/"]
+    tags: ["百合"]
   - title: "負けない冬に春が咲く"
     platforms: ["くらげバンチ"]
     urls: ["https://kuragebunch.com/episode/2550912965761324907"]
   - title: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/73060"]
+    tags: ["お色気・微エロ", "ラブコメ", "学園", "百合", "糖度高め"]
   - title: "貴女へささげるサディスティック"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/ae1cf555c8b01"]
+    tags: ["エロ", "先生と生徒・師弟", "女子高生", "教師", "百合"]
   - title: "賭けっ娘"
     platforms: ["きら星ポータル"]
     urls: ["https://kirapo.jp/meteor/titles/kakekko"]
@@ -3398,6 +3687,7 @@ candidates:
   - title: "超深宇宙より愛をこめて"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/11521", "https://ichicomi.com/episode/2550912965923204780"]
+    tags: ["女子高生", "学園", "宇宙人", "百合"]
   - title: "超深宇宙より愛をこめて【読み切り版】"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965919401588"]
@@ -3407,15 +3697,19 @@ candidates:
   - title: "足が大好き足羽さん/読み切り"
     platforms: ["チャンピオンクロス"]
     urls: ["https://championcross.jp/series/860136c646c03"]
+    tags: ["百合", "読み切り"]
   - title: "踊り場にスカートが鳴る"
     platforms: ["pixivコミック", "ニコニコ漫画", "マガポケ", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/7648", "https://ichicomi.com/episode/2550912965923203632", "https://manga.nicovideo.jp/comic/56067", "https://pocket.shonenmagazine.com/title/01646"]
+    tags: ["女子高生", "男装", "百合", "運動系部活"]
   - title: "転生王女と天才令嬢の魔法革命"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_003176_S", "https://manga.nicovideo.jp/comic/49048"]
+    tags: ["アニメ化", "ファンタジー", "令嬢", "国家経営・内政", "完結", "王宮・貴族社会", "異世界", "百合", "転生", "魔法使い"]
   - title: "転生王女と天才令嬢の魔法革命 【タテスク】"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_010238_S"]
+    tags: ["百合"]
   - title: "辿り着けない星"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/2550912965308422121"]
@@ -3431,33 +3725,40 @@ candidates:
   - title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
     platforms: ["ヤンチャンWeb"]
     urls: ["https://youngchampion.jp/series/e95df2815bad1"]
+    tags: ["コミカライズ", "女子高生", "百合"]
   - title: "運命のヤマダダダダダダダダダダ"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/72312"]
+    tags: ["ギャグ・コメディ", "百合"]
   - title: "運命は役に立たない"
     platforms: ["マンガPark", "花とゆめ+"]
     urls: ["https://hanayume.com/series/ca4ef0eb47ea3", "https://manga-park.com/title/101442"]
+    tags: ["百合"]
   - title: "遠山えま百合集 センセイとの時間。"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965919401307"]
   - title: "酒と鬼は二合まで"
     platforms: ["pixivコミック", "ニコニコ漫画", "ビッコミ"]
     urls: ["https://bigcomics.jp/series/dd9141c4d469c", "https://comic.pixiv.net/works/10005", "https://manga.nicovideo.jp/comic/66651"]
+    tags: ["大学生", "料理・グルメ", "現代", "異種族・人外", "百合"]
   - title: "重しれー女"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2551460909961119395"]
   - title: "量子の娘たち"
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/ebdafc2131db0"]
+    tags: ["百合", "読み切り"]
   - title: "銀の河に星の城"
     platforms: ["フラコミlike!"]
     urls: ["https://flowercomics.jp/title/2780"]
+    tags: ["百合"]
   - title: "銀玉の価値を上げる方法"
     platforms: ["くらげバンチ"]
     urls: ["https://kuragebunch.com/episode/2551460909836381475"]
   - title: "銀輪ボイス"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/de0a74a9b5715"]
+    tags: ["サトリ", "女子高生", "百合", "自転車"]
   - title: "銀青のプルースト"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17106567265233237158"]
@@ -3476,18 +3777,21 @@ candidates:
   - title: "限界OLさんは悪役令嬢さまに仕えたい"
     platforms: ["pixivコミック", "ニコニコ漫画", "ヤンチャンWeb"]
     urls: ["https://comic.pixiv.net/works/8722", "https://manga.nicovideo.jp/comic/60556", "https://youngchampion.jp/series/90af950945671"]
+    tags: ["ファンタジー", "中世ヨーロッパ風", "乙女ゲーム", "召喚", "悪役令嬢", "百合"]
   - title: "限界OLと女子大生が〇〇する話"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_000099_S", "https://manga.nicovideo.jp/comic/65405"]
   - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/2349"]
+    tags: ["百合"]
   - title: "除霊師ハルカは幽霊が怖い!"
     platforms: ["MAGKAN"]
     urls: ["https://kansai.mag-garden.co.jp/series/76bb18d479f8c"]
   - title: "陰キャギャルでもイキがりたい!"
     platforms: ["pixivコミック", "ニコニコ漫画", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/9888", "https://ichicomi.com/episode/2550912965923204503", "https://manga.nicovideo.jp/comic/65853"]
+    tags: ["女子高生", "百合"]
   - title: "隣人/読み切り"
     platforms: ["ヤンチャンWeb"]
     urls: ["https://youngchampion.jp/series/f82a97494ac07"]
@@ -3500,6 +3804,7 @@ candidates:
   - title: "雨夜の月"
     platforms: ["コミックDAYS", "マガポケ", "ヤンマガWeb"]
     urls: ["https://comic-days.com/episode/3269632237276869027", "https://pocket.shonenmagazine.com/title/02202", "https://yanmaga.jp/comics/%E9%9B%A8%E5%A4%9C%E3%81%AE%E6%9C%88"]
+    tags: ["アニメ化", "女子高生", "百合", "障害者", "音楽"]
   - title: "雪が溶けたらおんなじ制服"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/02913"]
@@ -3527,6 +3832,7 @@ candidates:
   - title: "顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_005942_S", "https://manga.nicovideo.jp/comic/70139"]
+    tags: ["お色気・微エロ", "現代", "百合"]
   - title: "飛んで回らない"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/316190247034404776"]
@@ -3539,21 +3845,25 @@ candidates:
   - title: "飴色紅茶館歓談"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983774027772"]
+    tags: ["百合"]
   - title: "香り屋さんの纏さん"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/2286"]
   - title: "香原さんのふぇちのーと"
     platforms: ["ニコニコ漫画", "竹コミ‎‏‎"]
     urls: ["https://manga.nicovideo.jp/comic/56509", "https://takecomic.jp/series/4e4bb1b935407"]
+    tags: ["お色気・微エロ", "エロ", "ギャグ・コメディ", "ヒューマンドラマ", "フェチ・性癖", "百合"]
   - title: "骨に願いを、星に呪いを"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/13345", "https://ichicomi.com/episode/2551460909961555949"]
+    tags: ["サスペンス", "百合"]
   - title: "高音さんと嵐ちゃん"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_005076_S", "https://manga.nicovideo.jp/comic/64278"]
   - title: "鬼売れアイドルが今日も私を推してくる"
     platforms: ["マンガよもんが"]
     urls: ["https://www.yomonga.com/titles/2514/"]
+    tags: ["百合"]
   - title: "魔女ってバイト代出ます?"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2551460909862300153"]
@@ -3563,6 +3873,7 @@ candidates:
   - title: "魔女とくゅらす"
     platforms: ["HERO'S Web"]
     urls: ["https://heros-web.com/series/2b64bc0622a2a"]
+    tags: ["お色気・微エロ", "ギャグ・コメディ", "日常", "現代ファンタジー", "百合", "群像劇", "魔女"]
   - title: "魔女の孫と七人のメイド"
     platforms: ["webアクション"]
     urls: ["https://comic-action.com/episode/11341664176597608929"]
@@ -3578,18 +3889,22 @@ candidates:
   - title: "魔性のメロ女に堕とされる百合アンソロジー"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983882061356"]
+    tags: ["百合"]
   - title: "魔性の乙女の役廻り"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/2706e9d937d5f"]
+    tags: ["女子中学生", "完結", "百合"]
   - title: "魔法を捨てたい女の子"
     platforms: ["COMIC OGYAAA!!"]
     urls: ["https://comic-ogyaaa.com/episode/3269754496893316619"]
   - title: "魔法使いの作庭/よみきり"
     platforms: ["花とゆめ+"]
     urls: ["https://hanayume.com/series/96cd6ffadb9ee"]
+    tags: ["百合", "読み切り"]
   - title: "魔法少女にあこがれて"
     platforms: ["ニコニコ漫画", "竹コミ‎‏‎"]
     urls: ["https://manga.nicovideo.jp/comic/40675", "https://takecomic.jp/series/0d7dee548d547"]
+    tags: ["お色気・微エロ", "アニメ化", "エロ", "ギャグ・コメディ", "バトル", "変態", "怪人", "百合", "魔法少女"]
   - title: "魔法少女リインカーネーション"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2551460909881731454"]
@@ -3599,6 +3914,7 @@ candidates:
   - title: "魔王城デート大作戦!"
     platforms: ["キミコミ", "コミックヴァルキリー(更新終了)"]
     urls: ["https://kimicomi.com/series/0cd32d6a7efc2", "https://www.comic-valkyrie.com/dateoperation"]
+    tags: ["百合"]
   - title: "魔界にただいま"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/2550689798845851404"]
@@ -3608,6 +3924,7 @@ candidates:
   - title: "黒の世界は白墨に染まる"
     platforms: ["マンガよもんが"]
     urls: ["https://www.yomonga.com/titles/2558/"]
+    tags: ["百合"]
   - title: "黒百合ミステリー"
     platforms: ["ちゃおプラス"]
     urls: ["https://ciao.shogakukan.co.jp/comics/title/00253/episode/5565"]

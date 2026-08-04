@@ -87,9 +87,10 @@ def inv_ruby_spells_reading(ctx):
         rd, rb = we.get("reading"), we.get("ruby")
         if not rd or not rb:
             continue
-        flat = kana.to_hiragana(rd).replace(" ", "")
-        got = "".join(x[1] or kana.to_hiragana(x[0]) for x in rb).replace(" ", "")
-        if got != flat:
+        # kana.ruby_spells is the definition of the question: a particle is written as it is
+        # spelled and read as it sounds, so a literal comparison calls correct ruby a
+        # contradiction. Putting わ over は would be the actual error.
+        if not kana.ruby_spells(rb, rd):
             bad.append(r["work"])
     return bad
 

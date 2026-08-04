@@ -196,9 +196,10 @@ def test_ruby_spells_the_reading():
         rd, rb = we.get("reading"), we.get("ruby")
         if not rd or not rb:
             continue
-        flat = kana.to_hiragana(rd).replace(" ", "")
-        got = "".join(x[1] or kana.to_hiragana(x[0]) for x in rb).replace(" ", "")
-        if got != flat:
+        # kana.ruby_spells, not a string comparison: furigana writes a particle as it is spelled
+        # and the reading records it as it sounds, so は under アノコワ is right and わ over は
+        # would be the error.
+        if not kana.ruby_spells(rb, rd):
             bad.append(r["work"])
     assert not bad, f"ruby does not spell the reading for {len(bad)}: {bad[:3]}"
     print(f"  ok    ruby spells the reading, all rows that have both")

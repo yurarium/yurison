@@ -75,6 +75,29 @@ def main(s):
         s.eq("".join(x[1] for x in got), rd, f"the split of {word} still spells its reading")
         s.eq("".join(x[0] for x in got), word, f"and still spells {word}")
 
+    # A TITLE THAT FAILS TO ALIGN GETS NO FURIGANA AT ALL, so one unmatched character costs the
+    # whole line. 169 of 842 kanji titles were in that state, and between them two causes account
+    # for it: a particle spelled as it sounds, and punctuation the reading drops.
+    s.eq(kana.align("あの子は優しすぎる。", "アノコワヤサシスギル。"),
+         [("あの", None), ("子", "コ"), ("は", None), ("優", "ヤサ"), ("しすぎる。", None)],
+         "the topic は reads ワ, and still anchors")
+    s.check(kana.align("うさぎはかく語りき", "ウサギワカクカタリキ"),
+            "including where it sits inside a longer run of kana")
+    s.check(kana.align("この恋を星には願わない", "コノコイオホシニワネガワナイ"),
+            "and を reading オ does the same")
+    s.check(kana.align("「触れたい」は恋の始まり", "フレタイワコイノハジマリ"),
+            "a reading that drops the surface's brackets still anchors")
+    s.check(kana.align("「触れたい」は恋の始まり", "「フレタイ」ワコイノハジマリ"),
+            "and one that keeps them is matched as written")
+
+    # THE COUNTER-CASE. The substitution must not invent an alignment: a reading that genuinely
+    # does not spell the surface still fails, because ruby over the wrong character is the thing
+    # this whole function is careful about.
+    s.eq(kana.align("雨夜の月", "ゼンゼンチガウヨミ"), None,
+         "a reading that does not spell the surface is still refused")
+    s.eq(kana.align("あの子は優しすぎる。", "アノコワゼンゼンチガウ"), None,
+         "and a partial match past the anchor does not carry it")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "kana"))

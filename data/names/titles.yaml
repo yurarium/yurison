@@ -1261,11 +1261,16 @@ names:
     en_source: yurarium
     en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/eimgju3/anata-ga-watashi-wo-kaetakara
-    reading: アナタ ガ ワタシ ウォ カエタカラ
-    reading_at: '2026-08-02'
-    reading_basis: back-converted
+    reading: アナタ ガ ワタシ ヲ カエタカラ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: back-converted
+      source: mangaupdates
+      value: アナタ ガ ワタシ ウォ カエタカラ
     reading_pass: 2
-    reading_source: mangaupdates
+    reading_source: derived
+    reading_source_kind: derived
     reading_url: https://www.mangaupdates.com/series/eimgju3/anata-ga-watashi-wo-kaetakara
     verified: false
   あなたが私を照らすから。:
@@ -1362,11 +1367,16 @@ names:
     en_url: https://www.mangaupdates.com/series/rnfnn7n/anata-no-mirai-wo-yurusanai
     note: Comicalizes a Shōsetsuka ni Narō web novel by Syousa.; Japanese source material on a Japanese
       platform, not a translated work.
-    reading: アナタ ノ ミライ ウォ ユルサナイ
-    reading_at: '2026-08-02'
-    reading_basis: back-converted
+    reading: アナタ ノ ミライ ヲ ユルサナイ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: back-converted
+      source: mangaupdates
+      value: アナタ ノ ミライ ウォ ユルサナイ
     reading_pass: 2
-    reading_source: mangaupdates
+    reading_source: derived
+    reading_source_kind: derived
     reading_url: https://www.mangaupdates.com/series/rnfnn7n/anata-no-mirai-wo-yurusanai
     verified: false
   あのこのにおい:
@@ -2021,6 +2031,13 @@ names:
     reading_pass: 2
     reading_source: mangaupdates
     reading_url: https://www.mangaupdates.com/series/otyofae/onee-sama-to-kyojin
+    verified: false
+  お姉さまと巨人 ～お嬢さまが異世界転生～:
+    reading: オネエサマ ト キョジン ～ オジョウサマ ガ イセカイ テンセイ ～
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   お姉さまの言うとおり？:
     basis: romaji
@@ -2841,11 +2858,16 @@ names:
     en_source: yurarium
     en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/82k97c8/kono-koi-wo-hoshi-ni-wa-negawanai
-    reading: コノ コイ ウォ ホシ ニ ワ ネガワナイ
-    reading_at: '2026-08-02'
-    reading_basis: back-converted
+    reading: コノ コイ ヲ ホシ ニ ワ ネガワナイ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: back-converted
+      source: mangaupdates
+      value: コノ コイ ウォ ホシ ニ ワ ネガワナイ
     reading_pass: 2
-    reading_source: mangaupdates
+    reading_source: derived
+    reading_source_kind: derived
     reading_url: https://www.mangaupdates.com/series/82k97c8/kono-koi-wo-hoshi-ni-wa-negawanai
     verified: false
   この湯で、あなたと:
@@ -5829,11 +5851,16 @@ names:
     note: 積む, to stack or pile up, is not the ordinary verb for living a life; the synopsis uses the same
       word directly for repeatedly rewinding to save an idol who's fallen on hard times, so the title's
       phrasing is doing the same odd, deliberate thing.
-    reading: オタク ニ ワ ジンセイ ウォ ツム コト シカ デキナイ
-    reading_at: '2026-08-02'
-    reading_basis: back-converted
+    reading: オタク ニ ワ ジンセイ ヲ ツム コト シカ デキナイ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: back-converted
+      source: mangaupdates
+      value: オタク ニ ワ ジンセイ ウォ ツム コト シカ デキナイ
     reading_pass: 2
-    reading_source: mangaupdates
+    reading_source: derived
+    reading_source_kind: derived
     reading_url: https://www.mangaupdates.com/series/nxhr795/otaku-ni-wa-jinsei-wo-tsumu-koto-shika-dekinai
     verified: false
   オタクサキュバスの才能がありすぎる！:
@@ -5990,11 +6017,16 @@ names:
     en_url: https://www.mangaupdates.com/series/3to8wh6/kanaria-wa-kiraboshi-no-yume-wo-miru
     note: 綺羅星 is stars as a figure for brilliance. The children are raised as weapons, so the canary is
       the bird taken down the mine as much as the one that sings.
-    reading: カナリア ワ キラボシ ノ ユメ ウォ ミル
-    reading_at: '2026-08-02'
-    reading_basis: back-converted
+    reading: カナリア ワ キラボシ ノ ユメ ヲ ミル
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: back-converted
+      source: mangaupdates
+      value: カナリア ワ キラボシ ノ ユメ ウォ ミル
     reading_pass: 2
-    reading_source: mangaupdates
+    reading_source: derived
+    reading_source_kind: derived
     reading_url: https://www.mangaupdates.com/series/3to8wh6/kanaria-wa-kiraboshi-no-yume-wo-miru
     verified: false
   カフェーリリーの窓辺にて:

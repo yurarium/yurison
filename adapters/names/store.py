@@ -179,12 +179,11 @@ class NameStore:
                 spans, reading = rec.get("furigana_spans"), rec.get("reading")
                 if not spans or not reading:
                     continue
-                flat = kana.to_hiragana(reading).replace(" ", "")
                 try:
-                    got = "".join(x[1] or kana.to_hiragana(x[0]) for x in spans).replace(" ", "")
+                    ok = kana.ruby_spells(spans, reading)
                 except (TypeError, IndexError):
-                    got = None
-                if got != flat:
+                    ok = False
+                if not ok:
                     rec.pop("furigana_spans", None)
                     dropped += 1
         return dropped

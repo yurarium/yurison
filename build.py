@@ -648,8 +648,7 @@ def load_names():
             # reading wins, because it is the thing other passes corroborate and the thing the
             # romanisation is built from, and the ruby is re-derived from it.
             sp = rec.get("furigana_spans")
-            flat = _kana.to_hiragana(rd).replace(" ", "")
-            if sp and "".join(x[1] or _kana.to_hiragana(x[0]) for x in sp).replace(" ", "") != flat:
+            if sp and not _kana.ruby_spells(sp, rd):
                 sp = None
             if not sp:
                 got = _kana.align(k_ja, rd.replace(" ", ""))

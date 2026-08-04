@@ -9105,3 +9105,77 @@ titles:
     reviewed: '2026-08-04'
     note: >-
       The same work's 読切版, which is the one-shot that preceded the serial. Rendered as a parenthetical because the slash is the platform's filing, not part of the name.
+
+  # --- readings left behind by a fixed fault --------------------------------------------------
+  #
+  # The reverse romaji table could not reach を at all: `wo` was claimed by うぉ, so five readings
+  # spelled the particle ウォ. The table is fixed, and these five were converted before it was, and
+  # the romaji they came from has since been superseded by an English name, so there is nothing to
+  # re-derive them from. ヲ is what the rest of the file writes.
+
+  "あなたが私を変えたから":
+    reading: "アナタ ガ ワタシ ヲ カエタカラ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      を is read お and written ヲ in a katakana reading. ウォ came from a reverse
+      table in which を was unreachable, and is not a reading of anything here.
+
+  "あなたの未来を許さない":
+    reading: "アナタ ノ ミライ ヲ ユルサナイ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      を is read お and written ヲ in a katakana reading. ウォ came from a reverse
+      table in which を was unreachable, and is not a reading of anything here.
+
+  "この恋を星には願わない":
+    reading: "コノ コイ ヲ ホシ ニ ワ ネガワナイ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      を is read お and written ヲ in a katakana reading. ウォ came from a reverse
+      table in which を was unreachable, and is not a reading of anything here.
+
+  "オタクには人生を積むことしかできない":
+    reading: "オタク ニ ワ ジンセイ ヲ ツム コト シカ デキナイ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      を is read お and written ヲ in a katakana reading. ウォ came from a reverse
+      table in which を was unreachable, and is not a reading of anything here.
+
+  "カナリアは綺羅星の夢をみる":
+    reading: "カナリア ワ キラボシ ノ ユメ ヲ ミル"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      を is read お and written ヲ in a katakana reading. ウォ came from a reverse
+      table in which を was unreachable, and is not a reading of anything here.
+
+  "お姉さまと巨人 ～お嬢さまが異世界転生～":
+    reading: オネエサマ ト キョジン ～ オジョウサマ ガ イセカイ テンセイ ～
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      The stored reading covered only the first seven characters, because MangaUpdates confirmed
+      identity on an associated title and returned the primary title's romanisation. The guard for
+      that is in place; this record was written before it and is corrected here.

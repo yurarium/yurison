@@ -1,0 +1,87 @@
+# Dormant works on GigaViewer platforms, as targets for their per-series Atom feeds.
+#
+# `dormant` rests on silence, and a hand review of all 121 found the answer in the series
+# feed 19 times: we hold ten chapters and the feed holds forty, the last of them titled
+# 最終話. The detection was never the problem; the capture was. This names the works whose
+# chapter list is worth refetching in full.
+role: completion-probe-targets
+retrieved: 2026-08-04
+candidates:
+  - title: "SAL"
+    platform: comic-action
+    url: "https://comic-action.com/episode/14079602755480532354"
+  - title: "アウトサイダーパラダイス"
+    platform: comic-action
+    url: "https://comic-action.com/episode/2550912964668507941"
+  - title: "大好きな親友がVチューバーの自分にガチ恋してた話"
+    platform: comic-action
+    url: "https://comic-action.com/episode/14079602755421458385"
+  - title: "魔女の孫と七人のメイド"
+    platform: comic-action
+    url: "https://comic-action.com/episode/11341664176612435028"
+  - title: "2DK、Gペン、目覚まし時計。"
+    platform: comic-days
+    url: "https://comic-days.com/episode/3269754496561197733"
+  - title: "おそとごはんをご一緒に"
+    platform: comic-days
+    url: "https://comic-days.com/episode/2550912964681023083"
+  - title: "その恋よきにはからえ!"
+    platform: comic-days
+    url: "https://comic-days.com/episode/3269754496519423949"
+  - title: "セメルパルス semelparous"
+    platform: comic-days
+    url: "https://comic-days.com/episode/3269754496660785248"
+  - title: "ハロー、メランコリック!"
+    platform: comic-days
+    url: "https://comic-days.com/episode/3269754496561198469"
+  - title: "ワケあって社長令嬢に拾われました"
+    platform: comic-days
+    url: "https://comic-days.com/episode/3269754496746874571"
+  - title: "今日、小柴葵に会えたら。"
+    platform: comic-days
+    url: "https://comic-days.com/episode/3269754496845606190"
+  - title: "君と綴るうたかた"
+    platform: comic-days
+    url: "https://comic-days.com/episode/10044607041234348123"
+  - title: "愛されてもいいんだよ"
+    platform: comic-days
+    url: "https://comic-days.com/episode/3269754496332137928"
+  - title: "最果てのセレナード"
+    platform: comic-days
+    url: "https://comic-days.com/episode/2550912965173786483"
+  - title: "欠けた月とドーナッツ"
+    platform: comic-days
+    url: "https://comic-days.com/episode/3270375685304509944"
+  - title: "殺し屋やめたい!"
+    platform: comic-days
+    url: "https://comic-days.com/episode/3270375685451467169"
+  - title: "瀬戸さんを笑わせたい紬ちゃん"
+    platform: comic-days
+    url: "https://comic-days.com/episode/2550912964638789637"
+  - title: "サバーキ"
+    platform: comic-ogyaaa
+    url: "https://comic-ogyaaa.com/episode/2550689798875510910"
+  - title: "ハナちゃん匂いかがせて"
+    platform: comicborder
+    url: "https://comicborder.com/episode/316112896941774091"
+  - title: "JSさんとOLちゃん"
+    platform: feelweb
+    url: "https://feelweb.jp/episode/3269754496334725363"
+  - title: "岐阜の善き魔女"
+    platform: magcomi
+    url: "https://magcomi.com/episode/316190247005502982"
+  - title: "やきゅうみようよ!"
+    platform: sundaywebry
+    url: "https://www.sunday-webry.com/episode/3269754496551508658"
+  - title: "ガンバレッド×シスターズ"
+    platform: sundaywebry
+    url: "https://www.sunday-webry.com/episode/3269754496551508625"
+  - title: "女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました"
+    platform: sundaywebry
+    url: "https://www.sunday-webry.com/episode/3269754496551508177"
+  - title: "ベイビー車中ハッカーズ"
+    platform: tonarinoyj
+    url: "https://tonarinoyj.jp/episode/2550912964759341318"
+  - title: "全部君のせいだ"
+    platform: tonarinoyj
+    url: "https://tonarinoyj.jp/episode/3270296674427703430"

@@ -183,6 +183,31 @@ def js(v):
     return json.dumps(v, ensure_ascii=False)
 
 
+def carry_over(path, series_ids):
+    """Works already in the file that this run did not resolve, so a partial run keeps them.
+
+    A run's targets come from the listing page or from --candidates, and both can be narrower than
+    what the file already holds: probing 26 dormant works rewrote comic-days from 109 series to 13
+    and tonarinoyj from 84 to 2. Keyed on series_id, because that is what a feed is fetched by.
+
+    A series this run resolved is replaced, because a fresh feed beats an old one. A series it did
+    not resolve is kept, because not fetching a feed is not a finding about the work.
+    """
+    f = pathlib.Path(path)
+    if not f.exists():
+        return []
+    old = yaml.safe_load(f.read_text()) or {}
+    keep = []
+    for w in (old.get("works") or []):
+        if str(w.get("series_id")) in {str(x) for x in series_ids}:
+            continue
+        w = dict(w, episodes=w.get("chapters") or [])
+        w.pop("chapters", None)
+        w.pop("chapter_count", None)
+        keep.append(w)
+    return keep
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--platform", required=True)
@@ -363,6 +388,10 @@ def main():
     if not works:
         sys.exit("HEALTH: no series returned episodes. Refusing to write.")
 
+    resolved_now = len(works)
+    # Everything this run did not resolve, written back unchanged. See carry_over.
+    works += carry_over(out / f"{p['id']}-series-feeds.yaml", [w["series_id"] for w in works])
+
     L = [f"# {p['name']} — per-series Atom feeds, one per work.",
          "#",
          "# The platform-wide /atom holds about twenty entries across everything it publishes,",
@@ -374,7 +403,7 @@ def main():
          "source: gigaviewer", f"platform: {p['id']}", f"platform_name: {js(p['name'])}",
          f"publisher: {js(p.get('publisher', ''))}", f"retrieved: {a.retrieved}",
          "record_type: web_work_chapters", "identification_mode: platform-genre",
-         f"series_resolved: {len(works)}", "works:"]
+         f"series_resolved: {resolved_now}", f"series_held: {len(works)}", "works:"]
     for w in works:
         L.append(f"  - work_title: {js(w['work_title'])}")
         L.append(f"    series_id: {js(w['series_id'])}")

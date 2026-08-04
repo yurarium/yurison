@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja"
+  data-route="core:viewer"
+  data-media="action"
+  data-enabled-feature-names="[&quot;SeriesLikesPerPeriod::RecordPerEpisode&quot;,&quot;Point&quot;,&quot;Purchase::ViaWeb&quot;,&quot;UserAccount&quot;]"
+  data-cdn-root="https://cdn.comic-action.com"
+  data-root-uri="https://comic-action.com"
+  data-gtm-data-layer="{&quot;episode&quot;:{&quot;episode_id&quot;:&quot;11341664176612435028&quot;,&quot;episode_title&quot;:&quot;第一章&quot;,&quot;magazine_label_title&quot;:null,&quot;series_title&quot;:&quot;魔女の孫と七人のメイド&quot;,&quot;henshubu&quot;:null,&quot;can_read&quot;:true,&quot;content_id&quot;:&quot;majonomago_002&quot;,&quot;magazine_label_id&quot;:null,&quot;magazine_label&quot;:null,&quot;series_ongoing&quot;:0,&quot;readable_product_id&quot;:&quot;11341664176612435027&quot;,&quot;series_id&quot;:&quot;11341664176597597354&quot;}}"
+  data-revision="afd530b8280099cb5257b96d3a422d38944a56d6"
+  data-env="giga_production2"
+  data-endpoint="/action"
+  data-recaptcha-site-key="6LeO8uMpAAAAAPhhtpOIdpsZCyjWbhTM7HwGIwvJ"
+  data-requested-at-epoch="1785827638"
+  >
+<head>
+    <meta charset="utf-8">
+    <title>第一章 / 魔女の孫と七人のメイド - いくたはな | webアクション</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, viewport-fit=cover">
+<meta property="og:title" content="第一章 / 魔女の孫と七人のメイド - いくたはな | webアクション">
+<meta property="og:url" content="https://comic-action.com/episode/11341664176612435028">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://cdn-img.comic-action.com/public/series-thumbnail/11341664176597597354-cf337eaf2c77b3300b8435cf0987c57d?1707453722">
+<meta property="og:image:width" content="482">
+<meta property="og:image:height" content="482">
+<meta property="og:site_name" content="webアクション｜双葉社発のマンガサイト">
+<meta property="og:description" content="祖母の遺産を相続することになった女子高生を待ち受けていたのは、巨大なお屋敷とメイドたち!実は祖母は「魔女」で、メイドたちは人狼・吸血鬼・淫魔・メデューサ……など全員、人ならざる者だった！">
+    <meta name="description" content="祖母の遺産を相続することになった女子高生を待ち受けていたのは、巨大なお屋敷とメイドたち!実は祖母は「魔女」で、メイドたちは人狼・吸血鬼・淫魔・メデューサ……など全員、人ならざる者だった！">
+    <meta name="thumbnail" content="https://cdn-img.comic-action.com/public/series-thumbnail/11341664176597597354-cf337eaf2c77b3300b8435cf0987c57d?1707453722">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@webcomicaction">
+<meta name="twitter:title" content="第一章 / 魔女の孫と七人のメイド - いくたはな | webアクション">
+<meta name="twitter:description" content="受け継いだ
+のは、
+お屋敷と
+人外のメイド達">
+<meta name="twitter:image" content="https://cdn-img.comic-action.com/public/episode-thumbnail/11341664176612435028-1913a596efd33c63bd1470fb0a634595?1708051151">
+<link rel="canonical" href="https://comic-action.com/episode/11341664176612435028" />
+    <link rel="apple-touch-icon" href="https://cdn.comic-action.com/images/apple-touch-icon.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" href="https://cdn.comic-action.com/images/apple-touch-icon.png?1785812437">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.comic-action.com/images/apple-touch-icon-76.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://cdn.comic-action.com/images/apple-touch-icon-76.png?1785812437">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://cdn.comic-action.com/images/apple-touch-icon-114.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://cdn.comic-action.com/images/apple-touch-icon-114.png?1785812437">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://cdn.comic-action.com/images/apple-touch-icon-120.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://cdn.comic-action.com/images/apple-touch-icon-120.png?1785812437">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://cdn.comic-action.com/images/apple-touch-icon-144.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cdn.comic-action.com/images/apple-touch-icon-144.png?1785812437">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://cdn.comic-action.com/images/apple-touch-icon-152.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://cdn.comic-action.com/images/apple-touch-icon-152.png?1785812437">
+    <link rel="apple-touch-icon" sizes="167x167" href="https://cdn.comic-action.com/images/apple-touch-icon-167.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="167x167" href="https://cdn.comic-action.com/images/apple-touch-icon-167.png?1785812437">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.comic-action.com/images/apple-touch-icon-180.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://cdn.comic-action.com/images/apple-touch-icon-180.png?1785812437">
+      <link rel="icon" type="image/png" sizes="36x36" href="https://cdn.comic-action.com/images/android-icon-36.png?1785812437">
+      <link rel="icon" type="image/png" sizes="48x48" href="https://cdn.comic-action.com/images/android-icon-48.png?1785812437">
+      <link rel="icon" type="image/png" sizes="72x72" href="https://cdn.comic-action.com/images/android-icon-72.png?1785812437">
+      <link rel="icon" type="image/png" sizes="96x96" href="https://cdn.comic-action.com/images/android-icon-96.png?1785812437">
+      <link rel="icon" type="image/png" sizes="144x144" href="https://cdn.comic-action.com/images/android-icon-144.png?1785812437">
+      <link rel="icon" type="image/png" sizes="192x192" href="https://cdn.comic-action.com/images/android-icon-192.png?1785812437">
+      <link rel="icon" sizes="256x256" href="https://cdn.comic-action.com/images/favicon.ico?1785812437">
+      <link rel="shortcut icon" href="https://cdn.comic-action.com/images/favicon.ico?1785812437">
+    <meta name="msapplication-TileImage" content="https://cdn.comic-action.com/images/mstile-144.png?1785812437"/>
+    <meta name="msapplication-TileColor" content="#000000"/>
+        <link rel="preload" href="https://cdn-img.comic-action.com/public/page/2/11341664176612490943-25264983535de454dfc3c2074480b2da" as="fetch" crossorigin="anonymous" class="test-fetch-pageimage">
+        <link rel="preload" href="https://cdn-img.comic-action.com/public/page/2/11341664176612490944-b0777b0967fb895345759825e4492790" as="fetch" crossorigin="anonymous" class="test-fetch-pageimage">
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="https://comic-action.com/atom/series/11341664176597597354">
+    <link rel="alternate" type="application/rss+xml" title="RSS2.0" href="https://comic-action.com/rss/series/11341664176597597354">
+      <link rel="alternate" type="application/atom+xml" title="Atom (無料話のみ)" href="https://comic-action.com/atom/series/11341664176597597354?free_only=1">
+      <link rel="alternate" type="application/rss+xml" title="RSS2.0 (無料話のみ)" href="https://comic-action.com/rss/series/11341664176597597354?free_only=1">
+    <link rel="alternate" type="application/json+oembed" href="https://comic-action.com/episode/11341664176612435028/oembed.json" />
+    <link id='styleSheetCssElement' rel="stylesheet" href="https://cdn.comic-action.com/css/action.css?1785812551">
+<script type="module">!function(e,t,n){!("noModule"in(t=e.createElement("script")))&&"onbeforeload"in t&&(n=!1,e.addEventListener("beforeload",function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()},!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove())}(document)</script>
+    <script async id="bundleJsElement" src="https://cdn.comic-action.com/js/bundle.js?1785812583" type="module" crossorigin="anonymous"></script>
+  </head>
+  <body
+    id="page-viewer"
+    class="" data-bookmark-blogparts-uri="https://comic-action.com/episode/11341664176612435028" ><script>
+  // GTMのdataLayerに値をセットする
+  // GTMのスクリプトが読み込まれる前に実行する必要があるので注意する
+  if (!window.dataLayer) window.dataLayer = [];
+  window.dataLayer.push({
+      giga: JSON.parse(document.documentElement.getAttribute('data-gtm-data-layer') || '{}')
+  });
+</script>
+<!-- Google Tag Manager -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD328X6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PD328X6');</script>
+<!-- End Google Tag Manager -->
+<section class="js-login-modal-container js-modal-container" style="display:none">
+  <div class="modal-window-container modal-open">
+    <div class="js-login-modal modal-window">
+      <button class="js-login-modal-close-button modal-close-button">
+        <img src="https://cdn.comic-action.com/images/user/close-button.png?1785812437" alt="閉じる"/>
+      </button>
+      <div class="setting-inner js-show-for-guest" style="display: none;">
+        <form action="https://comic-action.com/user_account/login" name="login" method="POST" role="dialog">
+          <h2>ログイン</h2>
+          <p class="js-login-error-message error-message" role="alert"></p>
+          <p><input name="email_address" type="text" autocomplete="username" data-override-type-on-modal-open="email" placeholder="メールアドレス"  aria-label="メールアドレス" tabindex="1" required /></p>
+          <p><input name="password" type="text" autocomplete="current-password" data-override-type-on-modal-open="password" placeholder="パスワード" aria-label="パスワード" minlength="6" tabindex="2" required pattern="[\x20-\x7e]+" /></p>
+          <input class="js-modal-return-location" name="return_location_path" type="hidden" value="/" />
+          <div class="common-button-container">
+            <button class="common-button" type="submit" tabindex="3">ログイン</button>
+          </div>
+          <a class="text-link" href="https://comic-action.com/password_reset">パスワードをお忘れの方へ</a>
+        </form>      </div>
+      <div class="setting-footer">
+        <p>
+          初めての方は<button class="js-signup-button" type="button">新規会員登録</button>
+            <p class="attention">無料会員登録（初回）で150ptプレゼント！</p>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="js-signup-modal-container js-modal-container" style="display: none;">
+  <div class="modal-window-container modal-open">
+    <div class="modal-window js-signup-modal">
+      <button class="js-signup-modal-close-button modal-close-button">
+        <img src="https://cdn.comic-action.com/images/user/close-button.png?1785812437" alt="閉じる">
+      </button>
+      <div class="setting-inner">        <form
+          name="signup"
+          action="https://comic-action.com/signup_mail_sent"
+          method="POST"
+          data-recaptcha-action="signup"
+          data-recaptcha-site-key="6LeO8uMpAAAAAPhhtpOIdpsZCyjWbhTM7HwGIwvJ"
+          class="js-submit-once">          <h2>新規会員登録</h2>
+            <p class="description">無料会員登録（初回）で<strong class="color">150ptプレゼント！</strong></p>
+          <p><input type="text" autocomplete="username" data-override-type-on-modal-open="email" name="email_address" placeholder="メールアドレス" aria-label="メールアドレス" tabindex="1" required /></p>
+          <p><input type="password" name="password" placeholder="パスワード" aria-label="パスワード" tabindex="2" minlength="8" maxlength="64" required /></p>
+          <input class="js-modal-return-location" type="hidden" name="return_location_path" value="/" />
+          <div id="agreement">
+            <p class="input-content">
+              <input type="checkbox" name="agreement" id="input-agreement" tabindex="3" required />
+              <label class="checkbox-label" for="input-agreement"><a href="https://comic-action.com/article/terms_of_service" target="_blank" rel="noopener noreferrer">利用規約</a>に同意する</label>
+            </p>
+          </div>
+          <div class="common-button-container">
+            <button class="common-button" type="submit" tabindex="4">新規会員登録</button>
+          </div>        </form>
+      </div>
+      <div class="setting-footer">
+        <p>アカウントをお持ちの方は<button class="js-login-button" type="button">ログイン</button></p>
+      </div>
+    </div>
+  </div>
+</section>
+<header id="top" class="header js-header">
+  <div class="header-container secret">
+    <div id="react-header-root" class="header_container">
+    </div>
+  </div>
+</header>
+<script id='episode-json' type='text/json' data-value='{&quot;readableProduct&quot;:{&quot;isPublic&quot;:true,&quot;number&quot;:2,&quot;typeName&quot;:&quot;episode&quot;,&quot;id&quot;:&quot;11341664176612435028&quot;,&quot;pointGettableEpisodeWhenCompleteReading&quot;:null,&quot;hasPurchased&quot;:false,&quot;toc&quot;:null,&quot;series&quot;:{&quot;thumbnailUri&quot;:&quot;https://cdn-scissors.gigaviewer.com/image/scale/6bd4543eacb1142003330cf7540c08cba64361b8/enlarge=0;height=484;no_unsharpmask=1;quality=90;version=1;width=484/https%3A%2F%2Fcdn-img.comic-action.com%2Fpublic%2Fseries-thumbnail%2F11341664176597597354-cf337eaf2c77b3300b8435cf0987c57d%3F1707453722&quot;,&quot;title&quot;:&quot;\u9b54\u5973\u306e\u5b6b\u3068\u4e03\u4eba\u306e\u30e1\u30a4\u30c9&quot;,&quot;id&quot;:&quot;11341664176597597354&quot;},&quot;showSquareThumbnailInRecommendation&quot;:true,&quot;permalink&quot;:&quot;https://comic-action.com/episode/11341664176612435028&quot;,&quot;pageStructure&quot;:{&quot;pages&quot;:[{&quot;hide&quot;:&quot;spread&quot;,&quot;type&quot;:&quot;other&quot;},{&quot;type&quot;:&quot;link&quot;,&quot;linkPosition&quot;:&quot;front&quot;},{&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490943-25264983535de454dfc3c2074480b2da&quot;,&quot;height&quot;:1200,&quot;contentStart&quot;:&quot;majonomago_002&quot;,&quot;type&quot;:&quot;main&quot;,&quot;width&quot;:846},{&quot;width&quot;:846,&quot;type&quot;:&quot;main&quot;,&quot;height&quot;:1200,&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490944-b0777b0967fb895345759825e4492790&quot;},{&quot;width&quot;:846,&quot;type&quot;:&quot;main&quot;,&quot;height&quot;:1200,&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490945-ae2b4bb9a300de0f568b40abe05afd87&quot;},{&quot;height&quot;:1200,&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490946-b461c75551071d660582003faf389860&quot;,&quot;width&quot;:846,&quot;type&quot;:&quot;main&quot;},{&quot;type&quot;:&quot;main&quot;,&quot;width&quot;:846,&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490947-319a38fe27aea6bacd577ce5edb31241&quot;,&quot;height&quot;:1200},{&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490948-542c4e5e0ac0685bfb0e468d72628901&quot;,&quot;height&quot;:1200,&quot;type&quot;:&quot;main&quot;,&quot;width&quot;:846},{&quot;width&quot;:846,&quot;type&quot;:&quot;main&quot;,&quot;height&quot;:1200,&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490950-cd30a77ce6085385b8d09bf8c681923d&quot;},{&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490951-673b4c485e9d9774eee8899ce6431c0b&quot;,&quot;height&quot;:1200,&quot;type&quot;:&quot;main&quot;,&quot;width&quot;:846},{&quot;type&quot;:&quot;main&quot;,&quot;width&quot;:846,&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490952-8736fee4e28a34aa0a69438061e1a328&quot;,&quot;height&quot;:1200},{&quot;height&quot;:1200,&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490953-2934d1d335443ec095e336d64d670f45&quot;,&quot;width&quot;:846,&quot;type&quot;:&quot;main&quot;},{&quot;width&quot;:846,&quot;type&quot;:&quot;main&quot;,&quot;height&quot;:1200,&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490955-f30030f4dc7263e55e715996b9c7b728&quot;},{&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490956-72b99c6cf432dd4447a2ab18c8805f7a&quot;,&quot;height&quot;:1200,&quot;type&quot;:&quot;main&quot;,&quot;width&quot;:846},{&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490957-d46912f325dde3cd53df2e5f8910009f&quot;,&quot;height&quot;:1200,&quot;type&quot;:&quot;main&quot;,&quot;width&quot;:846},{&quot;width&quot;:846,&quot;type&quot;:&quot;main&quot;,&quot;height&quot;:1200,&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490958-679cd8a4b2f45948a3656e3dae18855a&quot;},{&quot;width&quot;:846,&quot;type&quot;:&quot;main&quot;,&quot;height&quot;:1200,&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490959-55b3fd2ae7eb8841985611c1049b6e23&quot;},{&quot;height&quot;:1200,&quot;src&quot;:&quot;https://cdn-img.comic-action.com/public/page/2/11341664176612490961-ae9ce8cd958798cd402307059354a95f&quot;,&quot;contentEnd&quot;:&quot;majonomago_002&quot;,&quot;width&quot;:846,&quot;type&quot;:&quot;main&quot;},{&quot;linkPosition&quot;:&quot;back&quot;,&quot;type&quot;:&quot;link&quot;},{&quot;linkPosition&quot;:&quot;back&quot;,&quot;type&quot;:&quot;link&quot;},{&quot;type&quot;:&quot;other&quot;},{&quot;type&quot;:&quot;backMatter&quot;}],&quot;readingDirection&quot;:&quot;rtl&quot;,&quot;startPosition&quot;:&quot;latter&quot;,&quot;choJuGiga&quot;:&quot;baku&quot;},&quot;publishedAt&quot;:&quot;2024-02-16T03:00:00Z&quot;,&quot;finishReadingNotificationUri&quot;:null,&quot;title&quot;:&quot;\u7b2c\u4e00\u7ae0&quot;,&quot;prevReadableProductUri&quot;:&quot;https://comic-action.com/episode/11341664176597608929&quot;,&quot;imageUrisDigest&quot;:&quot;ea0a0e8fc9a6b89af68ed1d500e7a79c2dc8ded4&quot;,&quot;nextReadableProductUri&quot;:null}}'></script>
+<script
+  class="js-valve"
+  data-service="action" data-result="ng"  data-giga_author="4856001361003854802"  data-giga_series="11341664176597597354"  data-giga_episode="11341664176612435028"
+  data-unit-paths='["/4374287/action_pc_e_1_3025_0_no","/4374287/action_pc_e_2_3025_0_no","/4374287/action_pc_e_3_3025_0_no","/4374287/action_pc_e_4_3025_0_no"]'
+>
+  (valve = window.valve || []).push(function(v) {
+    var pageKeyValues = {}; pageKeyValues["giga_author"] = "4856001361003854802";  pageKeyValues["giga_series"] = "11341664176597597354";  pageKeyValues["giga_episode"] = "11341664176612435028";
+    v.config({
+      service: "action",
+      disableHatenaContentMatch: true,
+      pageKeyValues: pageKeyValues,
+      content: {
+        result: "ng"
+      }
+    });
+      var adSize = {
+        "mappings": [
+          [[350, 450], [[300, 250]]],
+          [[0, 0], ["fluid"]]
+        ]
+      };
+      v.defineDFPSlot({
+        unit:   "/4374287/action_pc_e_1_3025_0_no",
+        sizes:  adSize,
+        slotId: "div-gpt-episode-front-11341664176612435028-pc-0",
+        lazy: true
+      });
+      v.defineDFPSlot({
+        unit:   "/4374287/action_pc_e_2_3025_0_no",
+        sizes:  adSize,
+        slotId: "div-gpt-episode-front-11341664176612435028-pc-1",
+        lazy: true
+      });
+      v.defineDFPSlot({
+        unit:   "/4374287/action_pc_e_3_3025_0_no",
+        sizes:  adSize,
+        slotId: "div-gpt-episode-back-11341664176612435028-pc-0",
+        lazy: true
+      });
+      v.defineDFPSlot({
+        unit:   "/4374287/action_pc_e_4_3025_0_no",
+        sizes:  adSize,
+        slotId: "div-gpt-episode-back-11341664176612435028-pc-1",
+        lazy: true
+      });
+    v.sealDFPSlots();
+  });
+</script><section class="viewer js-viewer " data-json-url="https://comic-action.com/episode/11341664176612435028.json"><span class="viewer-close-fullscreen"><a class="js-viewer-btn-close-fullscreen" href="#" title="全画面表示を終了する"><span>全画面表示を終了する</span></a></span><div id="content" class="content-horizontal"><div class="content-inner scroll-horizontal js-horizontal-viewer "><div
+        style='opacity: 0;'
+        class="js-direction-guide direction-guide direction-guide-horizontal rtl"
+      ><p>ヨコに読みます</p></div><div class="js-slide-to-transit-guide slide-to-transit-guide hide"><div class="previous-modal"><a class="previous-link js-add-query-parameter-from-to-uri" href="https://comic-action.com/episode/11341664176597608929">前の話を読む</a></div></div><div class="page-navigation"><a class="page-navigation-backward rtl js-slide-backward" style="display: none;"><span class="icon-label">→</span></a><a class="page-navigation-forward rtl js-slide-forward"><span class="icon-label">←</span></a></div><div class="image-container js-viewer-content" dir="rtl"><div class="page-area js-page-area" dir="ltr"><div class="page js-page page-ad js-page-ad hidden"><div class="ad-nav-area-wrap page-content"><div class="ad-nav-area-content page-upper"><div id="div-gpt-episode-front-11341664176612435028-pc-0" class="js-ad-container ad-container" data-back-gpt-ad-unit-path="/4374287/action_pc_e_1_3025_0_no"></div><div id="div-gpt-episode-front-11341664176612435028-pc-1" class="js-ad-container ad-container" data-back-gpt-ad-unit-path="/4374287/action_pc_e_2_3025_0_no"></div></div></div></div></div><div class="page-area js-page-area" dir="ltr"><div class="page js-page front-link-page link-page js-link-page js-front-link-page link-page-full hidden"><div class="link-page-content"><div class="link-slot"><img class='js-load-image-after-init' data-src="https://cdn-img.comic-action.com/public/link-slot-series/2550668106002912349-74bf1934bce2daa3a48d11e99d18a137?1708495394"><a
+            class="gtm-front-page1-number1"
+            href="https://www.futabasha.co.jp/book/97845754404610000000?type=1"
+              target="_blank"
+              rel="noopener noreferrer"
+          ><p>詳細ページへのリンク</p></a></div></div></div></div><div class="page-area js-page-area" dir="ltr"><div class="page js-page back-link-page link-page js-link-page js-back-link-page link-page-full hidden"><div class="link-page-content"><div class="link-slot"><img class='js-load-image-after-init' data-src="https://cdn-img.comic-action.com/public/link-slot-series/2550668106002881349-16247dd193c9756d76b3cf77f3ac4c3b?1708494431"><a
+            class="gtm-back-page1-number1"
+            href="https://comic-action.com/episode/4856001361003856913"
+          ><p>詳細ページへのリンク</p></a></div></div></div></div><div class="page-area js-page-area" dir="ltr"><div class="page js-page back-link-page link-page js-link-page js-back-link-page link-page-full hidden"><div class="link-page-content"><div class="link-slot"><img class='js-load-image-after-init' data-src="https://cdn-img.comic-action.com/public/uploaded-content/link_slot_group/8886eb4f50129576240ff92ed0746f11"><a
+            class="gtm-back-page2-number1"
+            href="https://comic-action.com/episode/2551460909935953142"
+          ><p>詳細ページへのリンク</p></a></div></div></div></div><div class="page-area js-page-area" dir="ltr"><div class="page js-page page-ad js-page-ad hidden"><div class="ad-nav-area-wrap page-content"><div class="ad-nav-area-content page-upper"><div id="div-gpt-episode-back-11341664176612435028-pc-0" class="js-ad-container ad-container" data-back-gpt-ad-unit-path="/4374287/action_pc_e_3_3025_0_no"></div><div id="div-gpt-episode-back-11341664176612435028-pc-1" class="js-ad-container ad-container" data-back-gpt-ad-unit-path="/4374287/action_pc_e_4_3025_0_no"></div></div></div></div></div><div id="viewer-colophon"class="page-area back-matter-area js-page-area js-back-matter-area " dir="ltr"><div class="back-matter js-back-matter hidden"><div class="back-matter-content"><div class="viewer-colophon-info-wrapper"><div class="viewer-colophon-info"><div class="viewer-colophon-episode-likes js-colophon-episode-likes-container"><p class="episode-like-text">この話が面白かったら</p><button
+    class="episode-like-button js-colophon-episode-likes-button "
+    type="button"
+    data-episode-id="11341664176612435028"
+    aria-label="いいね！"><?xml version="1.0" encoding="utf-8"?><svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg"><circle  class="viewer-like-color-bg" cx="70" cy="70" r="70" fill="#94C4EF"/><path class="viewer-like-color-border" fill-rule="evenodd" clip-rule="evenodd" d="M70 133C104.794 133 133 104.794 133 70C133 35.2061 104.794 7 70 7C35.2061 7 7 35.2061 7 70C7 104.794 35.2061 133 70 133ZM70 140C108.66 140 140 108.66 140 70C140 31.3401 108.66 0 70 0C31.3401 0 0 31.3401 0 70C0 108.66 31.3401 140 70 140Z" fill="#1E88E5"/><path class="viewer-like-color" d="M91.3326 115.774C92.1306 115.774 92.7606 116.348 92.7606 117.202C92.7606 118.056 92.1306 118.63 91.3326 118.63C90.5346 118.63 89.9046 118.056 89.9046 117.202C89.9046 116.348 90.5346 115.774 91.3326 115.774ZM90.2546 114.22L89.8766 107.794C89.8766 107.766 89.8766 107.738 89.8766 107.724C89.8766 107.066 90.4086 106.646 91.3466 106.646C92.2706 106.646 92.8166 107.066 92.8166 107.724C92.8166 107.738 92.8166 107.766 92.8166 107.794L92.4386 114.22C92.4106 114.738 92.0466 115.074 91.3466 115.074C90.6186 115.074 90.2826 114.738 90.2546 114.22Z" fill="#1E88E5"/><path class="viewer-like-color" d="M76.7166 115.536L76.6746 115.522C76.5346 115.83 76.3666 116.096 76.1986 116.32C75.9606 116.628 75.6666 116.782 75.3586 116.782C75.1066 116.782 74.8406 116.67 74.6446 116.46C74.3786 116.194 74.2666 115.858 74.2666 115.55C74.2666 115.256 74.3506 114.99 74.5326 114.766C75.0646 114.08 75.7786 113.268 76.6746 112.302C76.6886 111.77 76.7026 111.168 76.7166 110.622C76.2546 110.664 75.7926 110.748 75.4286 110.776C75.4006 110.776 75.3726 110.776 75.3446 110.776C74.7846 110.776 74.4346 110.398 74.4066 109.782C74.4066 109.74 74.4066 109.698 74.4066 109.656C74.4066 109.026 74.7286 108.648 75.2466 108.592C75.6806 108.536 76.2546 108.494 76.8006 108.438C76.8006 108.018 76.8146 107.57 76.8426 107.08C76.8706 106.45 77.3886 106.142 78.0186 106.156C78.6206 106.17 79.0546 106.506 79.0546 107.108C79.0546 107.122 79.0546 107.15 79.0546 107.164C79.0406 107.57 79.0266 107.92 78.9986 108.284C79.4046 108.354 79.5586 108.592 79.5586 109.026C79.5586 109.362 79.3766 109.796 78.9006 110.244L78.9566 110.314C80.4546 108.816 81.8126 108.158 83.2406 108.158C85.3126 108.158 86.8246 109.474 86.8246 113.002C86.8246 113.772 86.6986 114.64 86.5306 115.298C86.8106 115.508 87.0906 115.774 87.3846 116.096C87.5946 116.32 87.7206 116.642 87.7206 116.964C87.7206 117.258 87.6226 117.552 87.4266 117.804C87.1886 118.098 86.9086 118.224 86.6286 118.224C86.3626 118.224 86.1246 118.112 85.9566 117.916C85.8586 117.804 85.7606 117.692 85.6626 117.594C85.0046 118.49 84.0806 118.84 82.7226 118.84C80.9586 118.84 79.6006 117.916 79.6006 116.222C79.6006 114.57 80.8606 113.562 82.5546 113.562C83.2126 113.562 83.8286 113.702 84.3746 113.954C84.4446 113.632 84.4866 113.156 84.4866 112.554C84.4866 111.812 84.3046 111.168 83.9966 110.818C83.7586 110.538 83.3806 110.412 83.0446 110.412C81.9806 110.412 80.6926 111.21 78.9006 113.114C78.9146 114.948 78.9146 116.6 78.9286 118.196C78.9286 118.854 78.5086 119.12 77.7806 119.12C77.7526 119.12 77.7386 119.12 77.7246 119.12C77.0946 119.106 76.6326 118.728 76.6186 118.154C76.6186 118.042 76.6186 117.916 76.6186 117.776C76.6186 117.118 76.6466 116.292 76.7166 115.536ZM83.9266 115.998C83.5486 115.662 83.0726 115.522 82.6386 115.522C82.0926 115.522 81.7146 115.802 81.7146 116.208C81.7146 116.586 82.0506 116.866 82.6386 116.866C83.2826 116.866 83.7446 116.628 83.9266 115.998Z" fill="#1E88E5"/><path class="viewer-like-color" d="M67.7566 114.108C67.5606 115.466 67.0846 116.656 66.5386 117.412C66.0206 118.14 65.2226 118.462 64.5506 118.462C63.7946 118.462 63.1926 118.182 62.6606 117.636C61.8906 116.894 61.2606 115.522 61.0366 113.156C60.9106 111.854 60.8686 110.16 60.8686 108.312C60.8686 107.584 61.2886 107.164 62.0866 107.164C62.9686 107.164 63.3326 107.57 63.3326 108.34C63.3326 110.062 63.3466 111.84 63.4586 112.946C63.5426 113.758 63.6546 114.472 63.8786 114.976C64.0606 115.41 64.2706 115.592 64.5086 115.592C64.7186 115.592 64.8726 115.438 65.0126 115.074C65.1666 114.682 65.2926 114.108 65.3906 113.548C65.4746 113.002 65.8526 112.722 66.4126 112.722C66.5386 112.722 66.6506 112.736 66.7906 112.764C67.4206 112.876 67.7706 113.24 67.7706 113.842C67.7706 113.926 67.7706 114.01 67.7566 114.108ZM73.3566 115.48C73.3706 115.55 73.3706 115.606 73.3706 115.676C73.3706 116.362 73.0206 116.894 72.3346 117.006C72.2226 117.02 72.1106 117.034 71.9986 117.034C71.3826 117.034 70.9206 116.684 70.8366 115.998C70.5986 113.954 69.9826 111.63 68.8766 109.782C68.7506 109.544 68.6806 109.32 68.6806 109.096C68.6806 108.648 68.9326 108.256 69.3806 108.074C69.5906 107.976 69.8146 107.934 70.0246 107.934C70.4306 107.934 70.8226 108.13 71.0886 108.564C72.2506 110.426 73.1886 113.38 73.3566 115.48Z" fill="#1E88E5"/><path class="viewer-like-color" d="M53.7566 114.108C53.5606 115.466 53.0846 116.656 52.5386 117.412C52.0206 118.14 51.2226 118.462 50.5506 118.462C49.7946 118.462 49.1926 118.182 48.6606 117.636C47.8906 116.894 47.2606 115.522 47.0366 113.156C46.9106 111.854 46.8686 110.16 46.8686 108.312C46.8686 107.584 47.2886 107.164 48.0866 107.164C48.9686 107.164 49.3326 107.57 49.3326 108.34C49.3326 110.062 49.3466 111.84 49.4586 112.946C49.5426 113.758 49.6546 114.472 49.8786 114.976C50.0606 115.41 50.2706 115.592 50.5086 115.592C50.7186 115.592 50.8726 115.438 51.0126 115.074C51.1666 114.682 51.2926 114.108 51.3906 113.548C51.4746 113.002 51.8526 112.722 52.4126 112.722C52.5386 112.722 52.6506 112.736 52.7906 112.764C53.4206 112.876 53.7706 113.24 53.7706 113.842C53.7706 113.926 53.7706 114.01 53.7566 114.108ZM59.3566 115.48C59.3706 115.55 59.3706 115.606 59.3706 115.676C59.3706 116.362 59.0206 116.894 58.3346 117.006C58.2226 117.02 58.1106 117.034 57.9986 117.034C57.3826 117.034 56.9206 116.684 56.8366 115.998C56.5986 113.954 55.9826 111.63 54.8766 109.782C54.7506 109.544 54.6806 109.32 54.6806 109.096C54.6806 108.648 54.9326 108.256 55.3806 108.074C55.5906 107.976 55.8146 107.934 56.0246 107.934C56.4306 107.934 56.8226 108.13 57.0886 108.564C58.2506 110.426 59.1886 113.38 59.3566 115.48Z" fill="#1E88E5"/><g class="viewer-like-hand"><path class="viewer-like-color" fill-rule="evenodd" clip-rule="evenodd" d="M73.4819 31.9254C73.4086 32.3705 73.3169 32.9852 73.2026 33.7519L73.1992 33.7748C72.7923 36.504 72.1314 40.9375 71.1704 45.0658C70.6888 47.1343 70.1204 49.1783 69.4508 50.9201C68.8075 52.5939 67.9728 54.2588 66.8316 55.3154C64.9706 57.0385 62.3651 58.5528 59.6752 59.6846C57.6461 60.5384 55.4811 61.2114 53.4288 61.5888L55.5796 86.271C56.1764 86.2896 56.9042 86.312 57.7328 86.3368C60.1115 86.4082 63.3188 86.5002 66.6348 86.5826C73.3596 86.7497 80.2768 86.8688 81.8861 86.7286L82.4574 86.6788L82.4707 86.6777L94.1629 85.6588C95.3226 85.5578 96.1808 84.5358 96.0797 83.3761C96.0203 82.6939 95.6442 82.116 95.1005 81.7736C94.3842 81.3226 94.0294 80.4694 94.2147 79.6435C94.3999 78.8175 95.0851 78.1976 95.9254 78.0957C97.3597 77.9218 98.409 76.6384 98.2825 75.1871L98.0787 72.8487C98.0075 72.0313 97.5809 71.3323 96.9572 70.8875C96.319 70.4323 96.0056 69.6464 96.1553 68.877C96.3051 68.1076 96.8905 67.4966 97.6528 67.3141C98.9274 67.009 99.8212 65.8055 99.704 64.4604L99.6021 63.2912C99.5309 62.4738 99.1043 61.7748 98.4805 61.33C97.8424 60.8749 97.5289 60.0889 97.6787 59.3195C97.8285 58.5501 98.4139 57.9392 99.1762 57.7567C100.451 57.4515 101.345 56.248 101.227 54.903L101.024 52.5646C100.894 51.082 99.5878 49.9849 98.1052 50.1141L80.0872 51.6841C79.5105 51.7344 78.9402 51.5323 78.5239 51.13C78.1076 50.7278 77.8859 50.1648 77.9163 49.5867C78.0373 47.2855 78.1552 44.4509 78.1725 41.9228C78.1905 39.2898 78.0919 37.2858 77.8804 36.4553C77.4401 34.7265 76.7537 32.9385 75.8531 32.0068C75.4565 31.5965 75.1361 31.4734 74.8557 31.4609C74.6101 31.45 74.1644 31.5143 73.4819 31.9254ZM53.7413 88.2137L53.6758 90.2126C52.6641 90.1794 51.8367 89.3957 51.7489 88.3873L49.279 60.0427C49.1831 58.9423 49.9974 57.9725 51.0978 57.8766C53.1805 57.6952 55.7079 57.0142 58.1239 55.9977C60.5479 54.9777 62.7047 53.6851 64.1141 52.3803C64.5459 51.9805 65.1147 51.0524 65.7172 49.485C66.2935 47.9855 66.8133 46.14 67.2745 44.1589C68.1962 40.1996 68.8371 35.9073 69.2464 33.162L69.2495 33.1411C69.3682 32.3445 69.4702 31.6607 69.5528 31.169C69.5937 30.9251 69.6357 30.6928 69.6781 30.5044C69.698 30.4158 69.7284 30.2895 69.7713 30.1597C69.7918 30.0977 69.831 29.9858 69.894 29.8579C69.8948 29.8562 69.8958 29.8541 69.8969 29.8518C69.9327 29.7785 70.1097 29.4159 70.5009 29.1212C71.9739 28.0118 73.4949 27.3962 75.034 27.4649C76.6015 27.5348 77.8309 28.2975 78.7292 29.2268C80.4182 30.9743 81.3016 33.6812 81.7567 35.4681C82.1191 36.8911 82.1896 39.4384 82.1724 41.9502C82.1601 43.7583 82.0982 45.7035 82.0209 47.5005L97.758 46.1292C101.441 45.8082 104.687 48.534 105.008 52.2173L105.212 54.5557C105.411 56.8411 104.438 58.9566 102.792 60.3109C103.224 61.1001 103.504 61.9901 103.587 62.944L103.689 64.1132C103.888 66.3986 102.915 68.5141 101.268 69.8684C101.701 70.6576 101.981 71.5475 102.064 72.5015L102.267 74.8399C102.481 77.2933 101.344 79.5523 99.4714 80.8826C99.7906 81.5369 99.9976 82.26 100.065 83.0288C100.357 86.3893 97.8706 89.3509 94.5101 89.6437L82.818 90.6626L82.7929 90.6647L82.2333 90.7135C80.335 90.8789 73.0931 90.7443 66.5355 90.5813C63.2103 90.4987 59.9957 90.4065 57.6128 90.335C56.4212 90.2993 55.4373 90.2687 54.7512 90.247C54.4081 90.2362 54.1394 90.2276 53.9564 90.2217L53.677 90.2126C53.6768 90.2126 53.6758 90.2126 53.7413 88.2137Z" fill="#1E88E5"/><path class="viewer-like-color" d="M34 61.3714L45.6921 60.3526L48.1618 88.6943L36.4697 89.7131L34 61.3714Z" fill="#1E88E5"/><path class="viewer-like-color" fill-rule="evenodd" clip-rule="evenodd" d="M32.0075 61.545C31.9117 60.4446 32.726 59.4748 33.8264 59.3789L45.5185 58.3601C46.6189 58.2642 47.5887 59.0785 47.6846 60.1789L50.1542 88.5206C50.2501 89.621 49.4358 90.5908 48.3354 90.6867L36.6433 91.7056C35.5429 91.8014 34.5731 90.9871 34.4772 89.8867L32.0075 61.545ZM36.1661 63.1902L38.2885 87.547L45.9957 86.8754L43.8733 62.5186L36.1661 63.1902Z" fill="#1E88E5"/></g></svg></button></div><p class="viewer-colophon-next-episode "><a class="top-link js-viewer-top-link" href="https://comic-action.com/">トップページへ</a></p><div class="viewer-colophon-update-container"></div><p class="viewer-colophon-bonus-mission js-colophon-earned-points-container" style="display: none">
+            ポイント獲得しました <strong class="js-colophon-earned-points"></strong></p></div></div><aside class="viewer-colophon-recommend js-viewer-recommended-series-list"><h3 class="viewer-colophon-recommend-title"><strong>NEW</strong> 無料配信中のおすすめ作品</h3><ul class="gtm-viewer-colophon-recommend-list viewer-colophon-recommend-list"><li data-series-id="4856001361020612536"><a href="https://comic-action.com/episode/12207421983997521519"><img class='js-load-image-after-init' data-src="https://cdn-scissors.gigaviewer.com/image/scale/d95410e70519270249a0f2cd6b61749086c49ee3/enlarge=0;height=380;no_unsharpmask=1;quality=90;version=1;width=380/https%3A%2F%2Fcdn-img.comic-action.com%2Fpublic%2Fseries-sub-thumbnail-square-with-logo%2F4856001361020612536-d478f763597599832a44f762685683bc" alt="月出づる街の人々"/></a></li><li data-series-id="14079602755325959107"><a href="https://comic-action.com/episode/12207421983881261156"><img class='js-load-image-after-init' data-src="https://cdn-scissors.gigaviewer.com/image/scale/da4aed3d0f6d6aabbcd5c64c0c1557daac527de1/enlarge=0;height=220;no_unsharpmask=1;quality=90;version=1;width=380/https%3A%2F%2Fcdn-img.comic-action.com%2Fpublic%2Fseries-thumbnail%2F14079602755325959107-b759187bbba4a13c0be108d553ca5d1e%3F1730297394" alt="DOGA"/></a></li><li data-series-id="2551460909932261093"><a href="https://comic-action.com/episode/12207421983858403371"><img class='js-load-image-after-init' data-src="https://cdn-scissors.gigaviewer.com/image/scale/644d8911b572b840f34b31b45ca7f810b88b9cfb/enlarge=0;height=380;no_unsharpmask=1;quality=90;version=1;width=380/https%3A%2F%2Fcdn-img.comic-action.com%2Fpublic%2Fseries-sub-thumbnail-square-with-logo%2F2551460909932261093-e0ff3f2244ba6b96afeac66bf94cb64b%3F1765789542" alt="果ての王宮"/></a></li></ul></aside></div></div></div></div></div></div></section><div class="viewer-offline hidden"><div class='js-download-button download-button'
+    role="button"
+    data-type="episode"
+    data-id="11341664176612435028">オフラインで読む β</div><progress class='js-download-progress hidden'></progress></div>
+<section class="episode-header">
+  <div class="episode-header-notice gtm-episode-header-notice"></div>
+  <div class="episode-header-container">
+    <div class="episode-header-title-wrapper">
+      <h1 class="episode-header-title">第一章</h1>
+        <p class="episode-header-date">
+          2024年02月16日
+        </p>
+    </div>
+    <dl class="episode-header-share">
+      <dt>
+        シェアして応援しよう！
+      </dt>
+      <dd class="hb">
+        <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-counter" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+      </dd><dd class="x">
+        <a href="https://twitter.com/intent/tweet?text=%E7%AC%AC%E4%B8%80%E7%AB%A0%20%2F%20%E9%AD%94%E5%A5%B3%E3%81%AE%E5%AD%AB%E3%81%A8%E4%B8%83%E4%BA%BA%E3%81%AE%E3%83%A1%E3%82%A4%E3%83%89%20-%20%E3%81%84%E3%81%8F%E3%81%9F%E3%81%AF%E3%81%AA%20%7C%20web%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%20%5B%20https%3A%2F%2Fcomic-action.com%2Fepisode%2F11341664176612435028%20%5D" class="giga-x-share-button action-x-share-button" target="_blank" rel="nofollow noopener">
+          <i></i><span>ポスト</span>
+        </a>
+      </dd><dd class="fb">
+        <div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">シェア</a></div>
+      </dd><dd class="line">
+        <div class="line-it-button" style="display: none;" data-type="share-b" data-lang="ja" ></div>
+      </dd><dd>
+          <div class="embed">
+            <button type="button" class="embed-button js-embed-button" title="コードをブログに埋め込む">埋め込む</button>
+          </div>
+      </dd><dd class="rss">
+        <a href="https://comic-action.com/rss/series/11341664176597597354" title="この作品のRSSフィードを表示する" rel="alternate" type="application/rss+xml"><span>RSSフィード</span></a>
+      </dd>
+    </dl>
+  </div>
+    <div class="embed-code hidden js-embed-code">
+      <div class="embed-code-inner">
+        <button type="button" class="copy-url js-copy-url-button">コピー</button>
+        <input id="share-url" readonly size="45" class="share-url js-share-url-textarea" value="&lt;iframe src=&quot;https://comic-action.com/episode/11341664176612435028/embed&quot; width=&quot;560&quot; height=&quot;400&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;allowfullscreen&quot; style=&quot;max-width:100%;&quot;&gt;&lt;/iframe&gt;">
+        <p class="copy-message hidden js-copied-message">クリップボードにコピーしました</p>
+      </div>
+    </div>
+</section>
+<section class="series-information type-episode">
+  <div class="series-header scroll-position">
+    <div class="series-header-image-wrapper">
+      <img intrinsicsize="484x484" data-src="https://cdn-scissors.gigaviewer.com/image/scale/6bd4543eacb1142003330cf7540c08cba64361b8/enlarge=0;height=484;no_unsharpmask=1;quality=90;version=1;width=484/https%3A%2F%2Fcdn-img.comic-action.com%2Fpublic%2Fseries-thumbnail%2F11341664176597597354-cf337eaf2c77b3300b8435cf0987c57d%3F1707453722" alt="魔女の孫と七人のメイド" class="js-lazyload series-header-image js-series-header-image" />
+    </div>
+    <h1 class="series-header-title">魔女の孫と七人のメイド</h1>
+    <h2 class="series-header-author">いくたはな</h2>
+    <p class="series-header-description">
+      祖母の遺産を相続することになった女子高生を待ち受けていたのは、巨大なお屋敷とメイドたち!実は祖母は「魔女」で、メイドたちは人狼・吸血鬼・淫魔・メデューサ……など全員、人ならざる者だった！
+    </p>
+    <div class="fan-letter-button-wrapper">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdb8ECVPvpTsgruEhjv2LK8hMMcTLge1bI-hFYdl4yYJQU4_w/viewform?entry.428363373=%E9%AD%94%E5%A5%B3%E3%81%AE%E5%AD%AB%E3%81%A8%E4%B8%83%E4%BA%BA%E3%81%AE%E3%83%A1%E3%82%A4%E3%83%89" target="_blank" rel="noopener noreferrer" class="fan-letter-button">
+        ファンレターを送る
+      </a>
+    </div>
+  </div>
+  <div class="series-contents" id="series-contents">
+    <div class="offline-banner hidden">
+        <div class="offline-banner-inner">
+          <svg viewBox="0 0 564.8 556.67" xmlns="http://www.w3.org/2000/svg"><path d="m258.87 460.37 36.57 36.63 36.56-36.63a51.72 51.72 0 0 0 -73.13 0z"/><path d="m558.27 518.5-224.84-224.84h.05l-54.66-54.66-229.82-229.82-26.18 26.14 129.18 129.21a359.87 359.87 0 0 0 -112.56 76.41l36.56 36.57a308.26 308.26 0 0 1 115.94-73.06l41.51 41.55a257 257 0 0 0 -120.87 68.13l36.57 36.56a205.89 205.89 0 0 1 129.21-59.77l55.89 55.89a155.21 155.21 0 0 0 -148.52 40.46l36.57 36.57a103.53 103.53 0 0 1 146.28 0l21.36-21.35 142.19 142.2z"/><path d="m514.87 277.51 36.57-36.57c-84.17-84.17-199.83-118.14-309.44-101.94l47.83 47.83a309.48 309.48 0 0 1 225.04 90.68z"/><path d="m478.3 314.08a257.12 257.12 0 0 0 -131.55-70.51l101 101z"/></svg>
+          <p>現在、オフラインで閲覧しています。</p>
+        </div>
+    </div>
+  <div
+    class="js-readable-products-pagination readable-products-pagination"
+    data-aggregate-id="11341664176597597354"
+    data-type="episode"
+    data-show-tab="false"
+  >
+    <span class="loading-text">ローディング中…</span>
+  </div>
+  </div>
+  <div class="series-sidebar">
+    <div class="series-book-details test-series-book-details">
+      <h3 class="series-book-details-title">コミックス情報</h3>
+      <div class="series-book-detail">
+        <div class="book-cover-content">
+          <a href="https://www.futabasha.co.jp/book/97845754404610000000?type=1" target="_blank" rel="noopener noreferrer"><img class="book-cover-image" src="https://cdn-scissors.gigaviewer.com/image/scale/8ca093439d28028e1890c109ba26c782f228977b/enlarge=0;height=316;no_unsharpmask=1;quality=90;version=1;width=200/https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F51rzeegmG5L._SL160_.jpg" alt="単行本2月15日発売!" /></a>
+        </div>
+        <p>単行本2月15日発売!</p>
+        <p class="author-name">いくたはな</p>
+      </div>
+    </div>
+      <div class="series-profile-details">
+        <ul>
+          <li class="series-profile-details-card">
+            <div class="series-profile-details-author">
+              <div class="series-profile-details-name">
+                <div class="series-profile-details-avatar">
+                  <img src="https://cdn-img.comic-action.com/public/series-author-thumbnail/11341664176597597354-6f12f4437132e46f751c0aa760b7f86d?1707453770" alt="いくたはな">
+                </div>
+                <h4>いくたはな</h4>
+              </div>
+            </div>
+            <p class="series-profile-details-bio">2017年にエッセイマンガでデビュー。現在、幕末志士×女子高生の活劇『鬼と夜明け』を「路草」にて連載中。主な著書に戦国×女子高生漫画『龍と虎』（竹書房）や『懐かないかのじょ。』（KADOKAWA）。<a href="https://twitter.com/suitondiary" target="_blank" rel="noopener noreferrer">https://twitter.com/suitondiary</a></p>
+          </li>
+        </ul>
+      </div>
+    <div class="series-bookmark-comments test-hatenabookmark-comment">
+      <div class="series-bookmark-comments-target"></div>
+    </div>
+  </div>
+</section>
+<div id="fb-root"></div>
+<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+<div id="react-footer-root"></div>
+  </body>
+</html>

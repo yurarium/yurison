@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ja"
+  data-route="core:viewer"
+  data-media="comicdays"
+  data-enabled-feature-names="[&quot;Point&quot;,&quot;Purchase::ViaWeb&quot;,&quot;UserAccount&quot;,&quot;Rental::DeliverViaRental&quot;,&quot;Rental::Ticket::Web&quot;]"
+  data-cdn-root="https://cdn.comic-days.com"
+  data-root-uri="https://comic-days.com"
+  data-gtm-data-layer="{&quot;episode&quot;:{&quot;magazine_label_title&quot;:&quot;月刊コミックREX&quot;,&quot;magazine_label_id&quot;:&quot;3269754496344619420&quot;,&quot;series_title&quot;:&quot;今日、小柴葵に会えたら。&quot;,&quot;readable_product_id&quot;:&quot;3269754496320104228&quot;,&quot;can_read&quot;:false,&quot;magazine_label&quot;:&quot;月刊コミックREX&quot;,&quot;episode_title&quot;:&quot;第7話 「ユキドケ」(1)&quot;,&quot;series_ongoing&quot;:0,&quot;series_id&quot;:&quot;3269754496315964445&quot;,&quot;episode_id&quot;:&quot;3269754496320104229&quot;,&quot;henshubu&quot;:null,&quot;content_id&quot;:&quot;14398_0016&quot;}}"
+  data-revision="afd530b8280099cb5257b96d3a422d38944a56d6"
+  data-env="giga_production2"
+  data-endpoint="/comicdays"
+  data-recaptcha-site-key="6LcB_iAeAAAAAHp8xFjZeiVLeUMOzNJ_zdZn9vSe"
+  data-requested-at-epoch="1785827522"
+  >
+<head>
+    <meta charset="utf-8">
+    <title>今日、小柴葵に会えたら。 - 竹岡葉月/フライ / 第7話 「ユキドケ」(1) | コミックDAYS</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, viewport-fit=cover">
+<meta property="og:title" content="今日、小柴葵に会えたら。 - 竹岡葉月/フライ / 第7話 「ユキドケ」(1) | コミックDAYS">
+<meta property="og:url" content="https://comic-days.com/episode/3269754496320104229">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://cdn-img.comic-days.com/public/series-thumbnail/3269754496315964445-2d712a668c6847f5e26e4d62231dbec7?1648775339">
+<meta property="og:image:width" content="482">
+<meta property="og:image:height" content="482">
+<meta property="og:site_name" content="コミックDAYS">
+<meta property="og:description" content="周囲からの評価が大事な「養殖女子」成田佐穂子が気になるのは、周りを気にせず素の自分を出せる「天然女子」小柴葵。着飾らない姿がキラキラして見える葵と仲良くなりたい一心で、佐穂子がとった行動は…キスだった――。「政宗くんのリベンジ」原作・竹岡葉月と人気イラストレーター・フライが織りなすパンチドランク・ラブストーリー開幕!!">
+    <meta name="thumbnail" content="https://cdn-img.comic-days.com/public/series-thumbnail/3269754496315964445-2d712a668c6847f5e26e4d62231dbec7?1648775339">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@comicdays_team">
+<meta name="twitter:title" content="今日、小柴葵に会えたら。 - 竹岡葉月/フライ / 第7話 「ユキドケ」(1) | コミックDAYS">
+<meta name="twitter:description" content="養殖女と天然女の淡い青春を描く、パンチ・ドランク・ラブストーリー">
+<meta name="twitter:image" content="https://cdn-img.comic-days.com/public/episode-thumbnail/3269754496320104229-149571d2f07e3e0dfdd3dcc0ed62e10e?1622535199">
+    <meta name="apple-itunes-app" content="app-id=1288398252">
+<link rel="canonical" href="https://comic-days.com/episode/3269754496320104229" />
+    <link rel="apple-touch-icon" href="https://cdn.comic-days.com/images/apple-touch-icon.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" href="https://cdn.comic-days.com/images/apple-touch-icon.png?1785812437">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.comic-days.com/images/apple-touch-icon-76.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://cdn.comic-days.com/images/apple-touch-icon-76.png?1785812437">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://cdn.comic-days.com/images/apple-touch-icon-114.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://cdn.comic-days.com/images/apple-touch-icon-114.png?1785812437">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://cdn.comic-days.com/images/apple-touch-icon-120.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://cdn.comic-days.com/images/apple-touch-icon-120.png?1785812437">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://cdn.comic-days.com/images/apple-touch-icon-144.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cdn.comic-days.com/images/apple-touch-icon-144.png?1785812437">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://cdn.comic-days.com/images/apple-touch-icon-152.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://cdn.comic-days.com/images/apple-touch-icon-152.png?1785812437">
+    <link rel="apple-touch-icon" sizes="167x167" href="https://cdn.comic-days.com/images/apple-touch-icon-167.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="167x167" href="https://cdn.comic-days.com/images/apple-touch-icon-167.png?1785812437">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.comic-days.com/images/apple-touch-icon-180.png?1785812437">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://cdn.comic-days.com/images/apple-touch-icon-180.png?1785812437">
+      <link rel="icon" type="image/png" sizes="36x36" href="https://cdn.comic-days.com/images/android-icon-36.png?1785812437">
+      <link rel="icon" type="image/png" sizes="48x48" href="https://cdn.comic-days.com/images/android-icon-48.png?1785812437">
+      <link rel="icon" type="image/png" sizes="72x72" href="https://cdn.comic-days.com/images/android-icon-72.png?1785812437">
+      <link rel="icon" type="image/png" sizes="96x96" href="https://cdn.comic-days.com/images/android-icon-96.png?1785812437">
+      <link rel="icon" type="image/png" sizes="144x144" href="https://cdn.comic-days.com/images/android-icon-144.png?1785812437">
+      <link rel="icon" type="image/png" sizes="192x192" href="https://cdn.comic-days.com/images/android-icon-192.png?1785812437">
+      <link rel="icon" sizes="256x256" href="https://cdn.comic-days.com/images/favicon.ico?1785812437">
+      <link rel="shortcut icon" href="https://cdn.comic-days.com/images/favicon.ico?1785812437">
+    <meta name="msapplication-TileImage" content="https://cdn.comic-days.com/images/mstile-144.png?1785812437"/>
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+        <link rel="preload" href="https://cdn-img.comic-days.com/public/page/2/3269754496321408859-d72ae40d17edb2f1e1a5d9e846e0d466" as="fetch" crossorigin="anonymous" class="test-fetch-pageimage">
+        <link rel="preload" href="https://cdn-img.comic-days.com/public/page/2/3269754496321408860-8ce95de980d6f8de1bfbe645bec20613" as="fetch" crossorigin="anonymous" class="test-fetch-pageimage">
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="https://comic-days.com/atom/series/3269754496315964445">
+    <link rel="alternate" type="application/rss+xml" title="RSS2.0" href="https://comic-days.com/rss/series/3269754496315964445">
+      <link rel="alternate" type="application/atom+xml" title="Atom (無料話のみ)" href="https://comic-days.com/atom/series/3269754496315964445?free_only=1">
+      <link rel="alternate" type="application/rss+xml" title="RSS2.0 (無料話のみ)" href="https://comic-days.com/rss/series/3269754496315964445?free_only=1">
+    <link rel="alternate" type="application/json+oembed" href="https://comic-days.com/episode/3269754496320104229/oembed.json" />
+      <link rel="author" href="https://www.hatena.ne.jp/comicdays_unei/">
+    <link id='styleSheetCssElement' rel="stylesheet" href="https://cdn.comic-days.com/css/comicdays.css?1785812552">
+<script type="module">!function(e,t,n){!("noModule"in(t=e.createElement("script")))&&"onbeforeload"in t&&(n=!1,e.addEventListener("beforeload",function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()},!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove())}(document)</script>
+    <script async id="bundleJsElement" src="https://cdn.comic-days.com/js/bundle.js?1785812583" type="module" crossorigin="anonymous"></script>
+  </head>
+  <body
+    id="page-viewer"
+    class="private" data-bookmark-blogparts-uri="https://comic-days.com/episode/3269754496320104229" ><script>
+  // GTMのdataLayerに値をセットする
+  // GTMのスクリプトが読み込まれる前に実行する必要があるので注意する
+  if (!window.dataLayer) window.dataLayer = [];
+  window.dataLayer.push({
+      giga: JSON.parse(document.documentElement.getAttribute('data-gtm-data-layer') || '{}')
+  });
+</script>
+<!-- Google Tag Manager -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P54P44L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P54P44L');</script>
+<!-- End Google Tag Manager -->
+<div
+  class="js-comicdays-react-login-modal"
+  data-signup-bonus-point="50"
+></div><button class="js-signup-button js-react-login-modal-signup-proxy" type="button" hidden tabindex="-1" aria-hidden="true"></button>
+<section class="js-signup-modal-container js-modal-container" style="display: none;">
+  <div class="modal-window-container modal-open">
+    <div class="modal-window js-signup-modal signup-modal">
+      <button class="js-signup-modal-close-button modal-close-button">
+        <img src="https://cdn.comic-days.com/images/user/close-button.png?1785812437" alt="閉じる">
+      </button>
+      <div class="setting-inner">
+                <form
+          name="signup"
+          action="https://comic-days.com/signup_mail_sent"
+          method="POST"
+          data-recaptcha-action="signup"
+          data-recaptcha-site-key="6LcB_iAeAAAAAHp8xFjZeiVLeUMOzNJ_zdZn9vSe"
+          class="js-submit-once">          <h2>新規会員登録</h2>
+          <p class="description">Webの無料会員登録（初回）で<strong class="color">50ptプレゼント！</strong></p>
+          <p><input type="text" autocomplete="username" data-override-type-on-modal-open="email" name="email_address" placeholder="メールアドレス" aria-label="メールアドレス" tabindex="1" required /></p>
+          <p><input type="text" autocomplete="new-password" data-override-type-on-modal-open="password" name="password" placeholder="パスワード" aria-label="パスワード" tabindex="2" minlength="8" maxlength="64" required /></p>
+          <input class="js-modal-return-location" type="hidden" name="return_location_path" value="/" />
+          <div id="agreement">
+            <p class="input-content">
+              <span id="terms-check" class="consent-check" aria-hidden="true">✓</span>
+              <a href="https://comic-days.com/info/terms_of_service" target="_blank" rel="noopener noreferrer" id="terms-link">利用規約を確認する</a>
+            </p>
+            <p class="input-content">
+              <span id="privacy-check" class="consent-check" aria-hidden="true">✓</span>
+              <a href="https://id.kodansha.co.jp/privacypolicy/index.html" target="_blank" rel="noopener noreferrer" id="privacy-link">講談社のプライバシーポリシーを確認する</a>
+            </p>
+          </div>
+          <p class="agreement-notice">規約に同意のうえご登録をお願いします</p>
+          <div class="common-button-container">
+            <button class="common-button" type="submit" id="signup-submit-button" disabled>新規会員登録</button>
+          </div>
+        </form>
+      </div>
+      <div class="setting-footer">
+        <p>アカウントをお持ちの方は<button class="js-login-button" type="button">ログイン</button></p>
+      </div>
+    </div>
+  </div>
+</section>
+  <div class="smartapp-android hidden">
+  <button id="smartapp-close-btn" class="smartapp-close-btn">
+    <div class="smartapp-close-btn-content"><span>閉じる</span></div>
+  </button>
+  <div class="smartapp-info">
+    <div class="smartapp-info-contents">
+      <div class="smartapp-appicon">
+        <img src="https://cdn.comic-days.com/images/android-icon-144.png?1785812437" alt="コミックDAYS">
+      </div>
+      <div class="smartapp-info-text">
+        <h3 class="smartapp-info-text-title">コミックDAYS</h3>
+        <p>Kodansha Ltd.</p>
+        <p class="smartapp-info-text-store">
+          無料<span>─</span>Google Play
+        </p>
+      </div>
+    </div>
+    <a id="smartapp-view-btn" class="smartapp-view-btn" href="#">表示</a>
+  </div>
+</div>
+<header class="header js-header js-hide-on-days-app">
+  <div class="header-container ">
+    <nav>
+      <h1 class="header-logo"><a href="/"><span>コミックDAYS</span></a></h1>
+      <h2 class="header-description">
+  <p class="header-copy">たくさん読める講談社のマンガWEB</p>
+</h2>
+      <ul class="header-nav">
+        <li><a href="/#days-original" class="js-smooth-scrolling-link">無料連載</a></li>
+        <li><a href="https://comic-days.com/newcomer"><span>読み切り・新人</span></a></li>
+        <li>
+          <a class="js-show-for-guest header-nav-history-link" style="display: none;" href="/history">
+            <span>履歴</span>            <span class="header-history-badge" style="display: none;"></span>
+          </a>
+        </li>
+        <li><a class="js-show-for-guest js-login-button login-button" style="display: none;" href="#">ログイン・登録</a></li>
+        <li>
+          <a class="js-show-for-logged-in mypage-button" style="display: none;" href="https://comic-days.com/my">
+            <span class="mypage-and-point">
+              <span>マイページ</span>
+              <span class="point"><span class="js-user-point-total">-</span>pt</span>
+            </span>            <span class="header-history-badge" style="display: none;"></span>
+          </a>
+        </li>
+        <li><a class="search-button" href="/search"><span>検索</span></a></li>
+        <li class="premium-button-container">
+          <a class="premium js-smooth-scrolling-link js-show-for-premium  js-show-for-premium-more" style="display: none;" href="/#days-premium">プレミアム</a>
+          <a class="premium js-recommend-premium" style="display: none;" href="/premium"><span class="free-budge">¥0</span><span>プレミアム体験</span></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<script id='episode-json' type='text/json' data-value='{&quot;readableProduct&quot;:{&quot;publishedAt&quot;:&quot;2021-06-02T15:00:00Z&quot;,&quot;finishReadingNotificationUri&quot;:null,&quot;imageUrisDigest&quot;:null,&quot;title&quot;:&quot;\u7b2c7\u8a71 \u300c\u30e6\u30ad\u30c9\u30b1\u300d(1)&quot;,&quot;id&quot;:&quot;3269754496320104229&quot;,&quot;pointGettableEpisodeWhenCompleteReading&quot;:null,&quot;series&quot;:{&quot;id&quot;:&quot;3269754496315964445&quot;,&quot;title&quot;:&quot;\u4eca\u65e5\u3001\u5c0f\u67f4\u8475\u306b\u4f1a\u3048\u305f\u3089\u3002&quot;,&quot;thumbnailUri&quot;:&quot;https://cdn-scissors.gigaviewer.com/image/scale/5e789a2035f59dc2cb11dbc04fd4e8d2a40bc92b/enlarge=0;height=484;no_unsharpmask=1;quality=90;version=1;width=484/https%3A%2F%2Fcdn-img.comic-days.com%2Fpublic%2Fseries-thumbnail%2F3269754496315964445-2d712a668c6847f5e26e4d62231dbec7%3F1648775339&quot;},&quot;pageStructure&quot;:null,&quot;showSquareThumbnailInRecommendation&quot;:false,&quot;permalink&quot;:&quot;https://comic-days.com/episode/3269754496320104229&quot;,&quot;toc&quot;:null,&quot;isPublic&quot;:false,&quot;typeName&quot;:&quot;episode&quot;,&quot;nextReadableProductUri&quot;:null,&quot;number&quot;:16,&quot;hasPurchased&quot;:false,&quot;prevReadableProductUri&quot;:&quot;https://comic-days.com/episode/3269754496320104225&quot;}}'></script>
+<section class="private-viewer js-viewer none-app" data-json-url="https://comic-days.com/episode/3269754496320104229.json">
+  <div id="content">
+  <div class="content">
+      <div class="episode-not-found-thumb-container">
+        <img src="https://cdn-img.comic-days.com/public/episode-thumbnail/3269754496320104229-149571d2f07e3e0dfdd3dcc0ed62e10e?1622535199" alt="第7話 「ユキドケ」(1)" class="episode-not-found-thumb"/>
+      </div>
+    <h1 class="episode-title">第7話 「ユキドケ」(1)</h1>
+        <div class="read-button-container">
+          <button title="ログインして読む 50ポイント" class="common-button read-button js-show-for-guest js-login-button" style="display: none;"><span>ログインして読む</span><span>50pt</span></button>
+          <button
+            title="購入して読む 50ポイント"
+            class="common-button read-button js-show-for-logged-in js-purchase-point-purchase-button js-purchase-point-use-button"
+            style="display: none;"
+            data-buy-price="50"
+            data-test-id="purchase-button"
+          ><span>購入して読む</span><span>50pt</span></button>
+            <button title="まとめ買い" class="common-button read-button js-show-for-logged-in js-bulk-purchase-modal-button" style="display: none;"><span>まとめ買い</span></button>
+        </div>
+  </div><div class="js-episode-signup-container episode-signup-container" style="display: none;">
+  <div class="episode-signup-box">
+    <p class="episode-signup-message">会員登録（初回）で<span>50pt プレゼント！</span></p>
+    <button title="新規会員登録する" class="episode-signup-link js-signup-button"><span>新規会員登録する</span></button>
+  </div>
+</div>  </div>
+</section>
+<section class="js-purchase-point-purchase-modal-container js-modal-container" style="display: none;">
+  <div class="modal-window-container">
+    <div class="payment-modal-window modal-window js-purchase-point-purchase-modal">
+      <button class="js-purchase-point-purchase-modal-close-button modal-close-button">
+        <img src="https://cdn.comic-days.com/images/user/close-button.png?1785812437" alt="閉じる">
+      </button>
+      <div class="setting-inner">
+        <div class="js-point-container">
+          <h2 class="point-icon">購入する</h2>
+          <div class="modal-point-container">
+            <div class="total-point-container">                <h3>現在の保有ポイント</h3>              <p class="js-current-point">-pt</p>
+            </div>
+            <div class="readable-product-point-container js-readable-product-point-container" data-readable-product-price="50">
+              <h3>この話のポイント</h3>
+              <p>50pt</p>
+            </div>
+            <div class="minus-point-container">
+              <h3>ポイントが足りません！</h3>
+              <p class="js-point-needed">-pt</p>
+            </div>
+          </div>
+          <div class="common-button-container">
+            <form name="point-purchase-page" action="https://comic-days.com/point" method="GET">              <input type="hidden" name="return_location_path" value="https://comic-days.com/episode/3269754496320104229#purchase">
+              <input type="hidden" name="abort_return_location_path" value="https://comic-days.com/episode/3269754496320104229#purchase">
+              <input type="hidden" name="point_needed" value="" class="js-insufficient-point-raw" />
+              <button class="common-button color-button" type="submit"><img src="https://cdn.comic-days.com/images/i-point.svg?1785812437" class="point-icon">ポイントを購入する</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="js-purchase-point-use-modal-container js-modal-container" style="display: none;">
+  <div class="modal-window-container">
+    <div class="payment-modal-window modal-window js-purchase-point-use-modal">
+      <button class="js-purchase-point-use-modal-close-button modal-close-button">
+        <img src="https://cdn.comic-days.com/images/user/close-button.png?1785812437" alt="閉じる">
+      </button>
+      <div class="setting-inner">
+        <h2>
+            話を購入する
+        </h2>
+        <p class="description">この話を読みますか？</p>
+        <div class="modal-point-container">
+          <div class="total-point-container">              <h3>現在の保有ポイント</h3>            <p class="js-current-point">-pt</p>
+          </div>
+          <div class="readable-product-point-container">
+            <h3>この話のポイント</h3>
+            <p>50pt</p>
+          </div>
+        </div>
+        <div class="common-button-container">
+          <button class="common-button color-button js-purchase-button" data-purchase-endpoint="https://comic-days.com/api/purchase/3269754496320104228" data-buy-price="50">購入して読む</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <section class="js-bulk-purchase-modal-container js-modal-container" style="display: none;">
+  <div class="modal-window-container">
+    <div class="payment-modal-window modal-window js-bulk-purchase-modal">
+      <div class="bulk-purchase-progress js-bulk-purchase-progress hidden">
+        <p class="progress-title js-progress-title">ただいま購入処理中です</p>
+        <p class="progress-title js-progress-title-done purchase-complete hidden">完了しました</p>
+        <progress class="js-bulk-purchase-progress-val" max="100"></progress>        <p class="progress-description">このままお待ちください</p>
+        <p class="progress-notice">通信状況によって、5〜20秒ほど時間のかかることがあります</p>
+        <p class="progress-error js-progress-error hidden">まとめ買いに失敗しました。すべて、または一部の購入処理はキャンセルされています。通信環境を確認の上、マイページより購入された話をご確認ください。</p>
+      </div>
+      <button class="js-bulk-purchase-modal-close-button modal-close-button">
+        <img src="https://cdn.comic-days.com/images/user/close-button.png?1785812437" alt="閉じる">
+      </button>
+      <div class="setting-inner bulk-purchase js-bulk-purchase-div">
+        <h2 class="bulk-purchase-series-title">今日、小柴葵に会えたら。</h2>
+        <div class="bulk-purchase-content-wrapper">
+          <div class="bulk-purchase-head">
+            <p>
+              <button type="button" class="js-bulk-purchase-deselect-all">選択を解除</button>
+              <span> ｜ </span>
+              <button type="button" class="js-bulk-purchase-select-all">全てを選択</button>
+            </p>
+          </div>
+          <div class="js-bulk-purchase-list-wrapper"></div>
+        </div>
+        <div class="bulk-purchase-footer">
+          <div class="bulk-purchase-pager">
+            <button class="prev js-purchase-previous-button" data-previous-episodes-list-endpoint="">
+              <span class="pager-label">前の10件へ</span>
+            </button>
+            <button class="next js-purchase-next-button" data-next-episodes-list-endpoint="">
+              <span class="pager-label">次の10件へ</span>
+            </button>
+          </div>
+          <div class="bulk-purchase-footer-container">
+            <ul class="bulk-purchase-point-list">
+              <li class="selecting">
+                <span class="title"><span class="js-selected-episode-count"></span>話を選択中</span>
+                <span class="point"><span class="js-total-point"></span>pt</span>
+              </li>
+              <li class="total-point">
+                <span class="title">保有ポイント</span>
+                <span class="point js-bulk-purchase-point"></span>
+              </li>
+            </ul>
+            <div class="bulk-purchase-button-wrapper">
+              <button class="common-button color-button js-bulk-purchase-button" data-purchase-endpoint="https://comic-days.com/api/purchase/bulk">まとめて購入</button>
+              <form class="js-purchase-point-button" style="display: none;" action="https://comic-days.com/point" method="GET">                <input type="hidden" name="return_location_path" value="https://comic-days.com/episode/3269754496320104229#bulk-purchase">
+                <input type="hidden" name="abort_return_location_path" value="https://comic-days.com/episode/3269754496320104229#bulk-purchase">
+                <input type="hidden" name="point_needed" value="" class="js-bulk-purchase-insufficient-point-raw" />
+                <button class="common-button color-button" type="submit"><img src="https://cdn.comic-days.com/images/i-point.svg?1785812437" class="point-icon">ポイントを購入</button>
+              </form>
+            </div>
+            <div class="bulk-purchase-shortage-message js-bulk-purchase-shortage-message" style="display: none;">
+              ポイントが足りません
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="episode-header">
+  <div class="episode-header-notice gtm-episode-header-notice"></div>
+  <div class="episode-header-container">
+    <div class="episode-header-title-wrapper">
+      <h1 class="episode-header-title">第7話 「ユキドケ」(1)</h1>
+        <p class="episode-header-date">
+          2021年06月03日
+        </p>
+    </div>
+    <dl class="episode-header-share">
+      <dt>
+        シェアして応援しよう！
+      </dt>
+      <dd class="hb">
+        <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-counter" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+      </dd><dd class="x">
+        <a href="https://twitter.com/intent/tweet?text=%E4%BB%8A%E6%97%A5%E3%80%81%E5%B0%8F%E6%9F%B4%E8%91%B5%E3%81%AB%E4%BC%9A%E3%81%88%E3%81%9F%E3%82%89%E3%80%82%20-%20%E7%AB%B9%E5%B2%A1%E8%91%89%E6%9C%88%2F%E3%83%95%E3%83%A9%E3%82%A4%20%2F%20%E7%AC%AC7%E8%A9%B1%20%E3%80%8C%E3%83%A6%E3%82%AD%E3%83%89%E3%82%B1%E3%80%8D%281%29%20%7C%20%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AFDAYS%20%23%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AFDAYS%E3%81%A7%E8%AA%AD%E3%82%80%E2%86%93%0A%5B%20https%3A%2F%2Fcomic-days.com%2Fepisode%2F3269754496320104229%20%5D" class="giga-x-share-button " target="_blank" rel="nofollow noopener">
+          <i></i><span>ポスト</span>
+        </a>
+      </dd><dd class="fb">
+        <div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">シェア</a></div>
+      </dd><dd class="line">
+        <div class="line-it-button" style="display: none;" data-type="share-b" data-lang="ja" ></div>
+      </dd><dd>
+          <div class="embed">
+            <button type="button" class="embed-button js-embed-button" title="コードをブログに埋め込む">埋め込む</button>
+          </div>
+      </dd><dd class="rss">
+        <a href="https://comic-days.com/rss/series/3269754496315964445" title="この作品のRSSフィードを表示する" rel="alternate" type="application/rss+xml"><span>RSSフィード</span></a>
+      </dd>
+    </dl>
+  </div>
+    <div class="embed-code hidden js-embed-code">
+      <div class="embed-code-inner">
+        <button type="button" class="copy-url js-copy-url-button">コピー</button>
+        <input id="share-url" readonly size="45" class="share-url js-share-url-textarea" value="&lt;iframe src=&quot;https://comic-days.com/episode/3269754496320104229/embed&quot; width=&quot;560&quot; height=&quot;400&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;allowfullscreen&quot; style=&quot;max-width:100%;&quot;&gt;&lt;/iframe&gt;">
+        <p class="copy-message hidden js-copied-message">クリップボードにコピーしました</p>
+      </div>
+    </div>
+</section>
+<section class="series-information type-episode">
+  <div class="series-header scroll-position">
+    <div class="series-header-image-wrapper">
+      <img intrinsicsize="484x484" data-src="https://cdn-scissors.gigaviewer.com/image/scale/5e789a2035f59dc2cb11dbc04fd4e8d2a40bc92b/enlarge=0;height=484;no_unsharpmask=1;quality=90;version=1;width=484/https%3A%2F%2Fcdn-img.comic-days.com%2Fpublic%2Fseries-thumbnail%2F3269754496315964445-2d712a668c6847f5e26e4d62231dbec7%3F1648775339" alt="今日、小柴葵に会えたら。" class="js-lazyload series-header-image js-series-header-image" />
+    </div>
+    <h1 class="series-header-title">今日、小柴葵に会えたら。</h1>
+    <h2 class="series-header-author">竹岡葉月/フライ</h2>
+    <p class="series-header-description">
+      周囲からの評価が大事な「養殖女子」成田佐穂子が気になるのは、周りを気にせず素の自分を出せる「天然女子」小柴葵。着飾らない姿がキラキラして見える葵と仲良くなりたい一心で、佐穂子がとった行動は…キスだった――。「政宗くんのリベンジ」原作・竹岡葉月と人気イラストレーター・フライが織りなすパンチドランク・ラブストーリー開幕!!
+    </p>
+  </div>
+  <div class="series-contents" id="series-contents">
+    <div class="offline-banner hidden">
+        <div class="offline-banner-inner">
+          <svg viewBox="0 0 564.8 556.67" xmlns="http://www.w3.org/2000/svg"><path d="m258.87 460.37 36.57 36.63 36.56-36.63a51.72 51.72 0 0 0 -73.13 0z"/><path d="m558.27 518.5-224.84-224.84h.05l-54.66-54.66-229.82-229.82-26.18 26.14 129.18 129.21a359.87 359.87 0 0 0 -112.56 76.41l36.56 36.57a308.26 308.26 0 0 1 115.94-73.06l41.51 41.55a257 257 0 0 0 -120.87 68.13l36.57 36.56a205.89 205.89 0 0 1 129.21-59.77l55.89 55.89a155.21 155.21 0 0 0 -148.52 40.46l36.57 36.57a103.53 103.53 0 0 1 146.28 0l21.36-21.35 142.19 142.2z"/><path d="m514.87 277.51 36.57-36.57c-84.17-84.17-199.83-118.14-309.44-101.94l47.83 47.83a309.48 309.48 0 0 1 225.04 90.68z"/><path d="m478.3 314.08a257.12 257.12 0 0 0 -131.55-70.51l101 101z"/></svg>
+          <p>現在、オフラインで閲覧しています。</p>
+        </div>
+    </div>
+  <div
+    class="js-readable-products-pagination readable-products-pagination"
+    data-aggregate-id="3269754496315964445"
+    data-type="episode"
+    data-show-tab="false"
+    data-volume-name="単行本"
+    data-episode-bundle-volume="true"
+    data-volume-help-text="話を単行本単位でまとめてご購入いただけます"
+    data-rental-term="259200"
+    data-event-ticket-name="いつでもチケット"
+    data-show-event-ticket="1"
+  >
+    <span class="loading-text">ローディング中…</span>
+  </div>
+  </div>
+  <div class="series-sidebar">
+    <div class="series-bookmark-comments test-hatenabookmark-comment">
+      <div class="series-bookmark-comments-target"></div>
+    </div>
+  </div>
+</section>
+  <section
+    class="js-viewer-bottom-recommend viewer-bottom-recommend gtm-viewer-bottom-recommend-area hidden"
+    data-viewer-bottom-recommend-endpoint="https://comic-days.com/api/recommend/bottom/3269754496315964445?type=episode"
+    test-bottom-recommend-section
+  ></section>
+<div id="fb-root"></div>
+<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+<footer class="footer js-hide-on-days-app">
+  <div class="footer-comicdays-container">
+    <div class="footer-comicdays-box">
+      <h1 class="footer-logo"><a href="/"><span>コミックDAYS</span></a></h1>
+    </div>
+  </div>
+  <div class="footer-navi-container">
+    <div class="footer-button-container">
+      <div class="footer-button-info">
+        <h2>最新情報を配信中!</h2>
+        <ul class="button-box">
+          <li><a href="/blog/" class="blog-button"><span>編集部ブログ</span></a></li>
+          <li>
+            <a href="https://twitter.com/comicdays_team" target="_blank" rel="noopener noreferrer" class="social-button">
+              <p>
+                コミックDAYS
+                <span>@comicdays_team</span>
+              </p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-button-app">
+        <h2>アプリもあります</h2>
+        <ul class="button-box">
+          <li class="apple-button"><a href="https://days.onelink.me/BXzb/web001" target="_blank" rel="noopener noreferrer"><img src="https://cdn.comic-days.com/images/banner/app_appstore_ja.svg?1785812437" alt="App Storeからダウンロードする"></a></li>
+          <li class="android-button"><a href="https://days.onelink.me/BXzb/web001" target="_blank" rel="noopener noreferrer"><img src="https://cdn.comic-days.com/images/banner/app_googleplay_ja.png?1785812437" alt="Google Playからダウンロードする"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-link-container">
+      <ul>
+        <li><a href="/info/archive/category/%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B">お知らせ</a></li>
+        <li><a href="/info/help">ヘルプ／使い方</a></li>
+      </ul>
+      <ul>
+        <li><a href="/info/terms_of_service">利用規約</a></li>
+        <li><a href="https://id.kodansha.co.jp/privacypolicy/index.html">プライバシーポリシー</a></li>
+        <li><a href="https://tbl.kodansha.co.jp/">外部送信について</a></li>
+        <li><a href="/info/sct">特定商取引法の表示</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <a href="https://comic-days.com/info/ABJ"><img class="abj-mark" src="https://cdn.comic-days.com/images/abj-mark-days.svg?1785812437" alt="ABJマーク"></a>
+    <p>コミックDAYSは正規版配信サイトマークを取得したサービスです。</p>
+    <p>&copy; <a href="http://www.kodansha.co.jp/" target="_blank" rel="noopener noreferrer">KODANSHA Ltd.</a> All rights reserved. このサイトのデータの著作権は講談社が保有します。無断複製転載放送等は禁止します。</p>
+  </div>
+</footer>
+  <!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '388337405075401');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=388337405075401&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code --><!-- Global site tag (gtag.js) - Google Ads: 767163033 -->
+<!-- Global site tag (gtag.js) - Google Ads: 692345804 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-767163033"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-767163033');
+  gtag('config', 'AW-692345804');
+</script><!-- SmartNews Ads Pixel Code -->
+<script type="text/javascript">
+!function(){if(window.SmartnewsAds=window.SmartnewsAds||{},!window.SmartnewsAds.p){var e=window.SmartnewsAds.p=function(){e.callMethod?e.callMethod.apply(e,arguments):e.queue.push(arguments)};window.SmartnewsAds._p||(window.SmartnewsAds._p=e),e.push=e,e.version="1.0.0",e.queue=[];var n=document.createElement("script");n.async=!0,n.src="//cdn.smartnews-ads.com/i/pixel.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(n,s)}}();
+SmartnewsAds.p("f229b7f26f8d278d933e996f", "PageView");
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://i.smartnews-ads.com/p?id=f229b7f26f8d278d933e996f&e=PageView" />
+</noscript><!-- Yahoo! サイトジェネラルタグ --><script async src="https://s.yimg.jp/images/listing/tool/cv/ytag.js"></script>
+<script>
+window.yjDataLayer = window.yjDataLayer || [];
+function ytag() { yjDataLayer.push(arguments); }
+ytag({"type":"ycl_cookie"});
+</script>
+<!-- Yahoo Code for your Target List -->
+<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+var yahoo_retargeting_id = '4RTDUWCXTD';
+var yahoo_retargeting_label = '';
+var yahoo_retargeting_page_type = '';
+var yahoo_retargeting_items = [{item_id: '', category_id: '', price: '', quantity: ''}];
+/* ]]> */
+</script>
+<script type="text/javascript" language="javascript" src="https://b92.yahoo.co.jp/js/s_retargeting.js"></script><!-- Yahoo Code for your Target List -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var yahoo_ss_retargeting_id = 1001052632;
+var yahoo_sstag_custom_params = window.yahoo_sstag_params;
+var yahoo_ss_retargeting = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://s.yimg.jp/images/listing/tool/cv/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="https://b97.yahoo.co.jp/pagead/conversion/1001052632/?guid=ON&script=0&disvt=false"/>
+</div>
+</noscript><script>
+  ytag({
+    "type":"yss_retargeting",
+    "config": {
+      "yahoo_ss_retargeting_id": "1001104658",
+      "yahoo_sstag_custom_params": {
+      }
+    }
+  });
+</script>
+  <div
+    class="js-terms-consent-modal-wrapper"
+    data-current-terms-of-service-version="20260601"
+  ></div>
+  </body>
+</html>

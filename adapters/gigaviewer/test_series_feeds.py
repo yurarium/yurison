@@ -84,6 +84,24 @@ def main(s):
     s.check(len(sf.series_ids("<html>nothing</html>")) == 0,
             "a page with no thumbnails yields no ids rather than raising")
 
+    # A NARROWER RUN MUST NOT DELETE THE WIDER ONE'S WORK. Probing 26 dormant works rewrote
+    # comic-days from 109 series to 13 and tonarinoyj from 84 to 2, because the writer replaced the
+    # whole file with whatever that run resolved.
+    import pathlib as _pl, tempfile
+    with tempfile.TemporaryDirectory() as d:
+        f = _pl.Path(d) / "p-series-feeds.yaml"
+        f.write_text('works:\n'
+                     '  - work_title: "kept"\n    series_id: "111"\n    chapters: []\n'
+                     '  - work_title: "refetched"\n    series_id: "222"\n    chapters: []\n')
+        got = sf.carry_over(f, ["222"])
+        s.eq([w["work_title"] for w in got], ["kept"],
+             "a series this run did not resolve is kept, because not fetching is not a finding")
+        s.eq(got[0]["episodes"], [], "and comes back in the shape the writer takes")
+        s.eq(sf.carry_over(f, [111, 222]), [],
+             "the id is compared as text, so a number resolves the same series as a string")
+        s.eq(sf.carry_over(_pl.Path(d) / "absent.yaml", []), [],
+             "a platform with no file yet carries nothing over")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "series_feeds"))

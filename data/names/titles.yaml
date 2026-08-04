@@ -3395,14 +3395,19 @@ names:
     reading_source: surface
     verified: true
   てぇてぇ二人:
-    basis: romaji
+    basis: translated
+    en: Teetee, the Two of Them
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - てぇてぇ
       - null
     - - 二人
       - ふたり
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: てぇてぇ is fan slang, a slurred, breathless version of 尊い, precious or sacred, said about a pairing
+      that's too wholesome to bear; kept as the slang rather than translated to "precious," since the
+      word is specifically the internet shorthand.
     reading: テェテェ フタリ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -3424,13 +3429,17 @@ names:
     reading_source: surface
     verified: true
   できそこないの姫君たち:
-    basis: romaji
-    en: Dekisokonai no Himegimi-tachi
-    en_at: '2026-08-02'
+    basis: licensed
+    en: Failed Princesses
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Dekisokonai no Himegimi-tachi
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
-    en_url: https://www.mangaupdates.com/series/sesnnp1/dekisokonai-no-himegimi-tachi
+    en_source: Seven Seas Entertainment
+    en_source_kind: licensor
+    en_url: https://www.penguinrandomhouse.com/books/701492/failed-princesses-vol-1-by-ajiichi/
     furigana_spans:
     - - できそこないの
       - null
@@ -3440,6 +3449,8 @@ names:
       - くん
     - - たち
       - null
+    note: Ajiichi's series, licensed by Seven Seas since 2019 with all six volumes released; sevenseasentertainment.com
+      blocks automated fetches, cited through Penguin Random House's listing instead.
     reading: デキソコナイ ノ ヒメギミ タチ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -3448,6 +3459,14 @@ names:
     reading_url: https://www.mangaupdates.com/series/sesnnp1/dekisokonai-no-himegimi-tachi
     verified: false
   とうめいなおとうさん:
+    basis: translated
+    en: The Transparent Dad
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 透明, transparent, kept literal rather than smoothed to invisible; the synopsis is a horror-comedy
+      set in a haunted house, where see-through reads as more ambiguous, and possibly more literal, than
+      simply unseen.
     reading: トウメイナオトウサン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3455,6 +3474,14 @@ names:
     reading_source: surface
     verified: true
   ときときチャンネル:
+    basis: translated
+    en: Tokitoki Channel
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Comicalizes a Seiun Award-winning short story by Iori Miyazawa, unrelated to his separately
+      licensed Otherside Picnic despite the shared author; ときとき doubles 時, time, the way a cutesy streaming-channel
+      name might, kept rather than expanded to "time-time."
     reading: トキトキチャンネル
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3462,6 +3489,11 @@ names:
     reading_source: surface
     verified: true
   ときめきライラック:
+    basis: translated
+    en: Heart-Fluttering Lilac
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: トキメキライラック
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3491,12 +3523,16 @@ names:
     reading_url: https://www.mangaupdates.com/series/pslz4ss/tonari-no-kyuuketsuki-san
     verified: false
   どうしようもなく辛かったよ:
-    basis: romaji
-    en: Dou Shiyou mo Naku Tsurakatta yo
-    en_at: '2026-08-02'
+    basis: translated
+    en: It Was Unbearably Hard
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Dou Shiyou mo Naku Tsurakatta yo
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/c3umr6o/dou-shiyou-mo-naku-tsurakatta-yo
     furigana_spans:
     - - どうしようもなく
@@ -3505,6 +3541,8 @@ names:
       - つら
     - - かったよ
       - null
+    note: Comicalizes chapter four of a prose novel that won the 17th Shousetsu Gendai prize for new writers;
+      a Japanese-language award for a Japanese-language novel, not a translated work.
     reading: ドウ シヨウ モ ナク ツラカッタ ヨ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -3531,6 +3569,13 @@ names:
     reading_source_kind: analyser
     verified: false
   どっちにしろ、どつぼ:
+    basis: translated
+    en: Either Way, It's a Pit
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: どつぼにはまる is the idiom this borrows from, being stuck in a hole with no good way out; the synopsis's
+      affair with no clean ending fits that shape rather than a literal pit.
     reading: ドッチニシロ、ドツボ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3538,12 +3583,16 @@ names:
     reading_source: surface
     verified: true
   どれが恋かがわからない:
-    basis: romaji
-    en: Dore ga Koi Ka ga Wakaranai
-    en_at: '2026-08-02'
+    basis: translated
+    en: I Can't Tell Which One Is Love
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Dore ga Koi Ka ga Wakaranai
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/mc8fvf7/dore-ga-koi-ka-ga-wakaranai
     furigana_spans:
     - - どれが
@@ -3560,12 +3609,16 @@ names:
     reading_url: https://www.mangaupdates.com/series/mc8fvf7/dore-ga-koi-ka-ga-wakaranai
     verified: false
   ないしょのおふたりさま。:
-    basis: romaji
-    en: Naisho no Ofutari-sama.
-    en_at: '2026-08-02'
+    basis: translated
+    en: Our Little Secret.
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Naisho no Ofutari-sama.
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/hu5qa6z/naisho-no-ofutari-sama
     reading: ナイショノオフタリサマ。
     reading_at: '2026-08-02'
@@ -3574,6 +3627,11 @@ names:
     reading_source: surface
     verified: true
   なとりとしずは:
+    basis: translated
+    en: Natori and Shizuha
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ナトリトシズハ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3609,6 +3667,11 @@ names:
     reading_source: surface
     verified: true
   ねこみたいなのとわたし:
+    basis: translated
+    en: The Cat-Like Thing and Me
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ネコミタイナノトワタシ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3616,7 +3679,11 @@ names:
     reading_source: surface
     verified: true
   ねむれる友達:
-    basis: romaji
+    basis: translated
+    en: My Sleeping Friend
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ねむれる
       - null
@@ -3632,7 +3699,11 @@ names:
     reading_source_kind: analyser
     verified: false
   のっぽと不登校:
-    basis: romaji
+    basis: translated
+    en: The Tall Girl and the School Refuser
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - のっぽと
       - null
@@ -3673,7 +3744,11 @@ names:
     reading_source: surface
     verified: true
   はなぢの思い:
-    basis: romaji
+    basis: translated
+    en: Nosebleed Feelings
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - はなぢの
       - null
@@ -3691,6 +3766,14 @@ names:
     reading_source_kind: analyser
     verified: false
   はなにあらし:
+    basis: translated
+    en: A Storm Upon the Blossoms
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 花に嵐 is a standing idiom, the pairing half of 月に叢雲、花に嵐, good fortune drawing bad luck the way
+      blossoms draw storms; the synopsis is two girlfriends hiding a relationship they're anxious might
+      be disrupted, which is exactly what the idiom is for.
     reading: ハナニアラシ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3698,6 +3781,14 @@ names:
     reading_source: surface
     verified: true
   はなものがたり:
+    basis: translated
+    en: Hana's Story
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 花城, the widow's surname, opens with 花, flower, the same word the title's はな spells out; the
+      newly cosmetics-curious grandmother story makes both the name and the flower reading plausible at
+      once.
     reading: ハナモノガタリ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3705,6 +3796,11 @@ names:
     reading_source: surface
     verified: true
   はなれないよ:
+    basis: translated
+    en: I Won't Let Go
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ハナレナイヨ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3712,14 +3808,18 @@ names:
     reading_source: surface
     verified: true
   はるい駈歩:
-    basis: romaji
+    basis: translated
+    en: Harui's Canter
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - はるい
       - null
     - - 駈歩
       - かけあし
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 駈歩, kakeaho, is the equestrian term for a canter; kept as the specific gait rather than a generic
+      word for riding, matching a synopsis built around horseback riding.
     reading: ハル イ カケアシ
     reading_at: '2026-08-02'
     reading_basis: analyser

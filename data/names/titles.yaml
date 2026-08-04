@@ -1807,12 +1807,16 @@ names:
     reading_source_kind: analyser
     verified: false
   お姉さまと巨人 ～お嬢さまが異世界転生～:
-    basis: romaji
-    en: Onee-sama to Kyojin
-    en_at: '2026-08-02'
+    basis: translated
+    en: Oneesama and the Giant ~The Young Lady's Isekai Reincarnation~
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Onee-sama to Kyojin
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/otyofae/onee-sama-to-kyojin
     furigana_spans:
     - - お
@@ -1835,6 +1839,8 @@ names:
       - てんしょう
     - - ～
       - null
+    note: お姉さま, oneesama, is the bond-term the two leads use for each other directly in the synopsis,
+      not a family relation; kept as the address term rather than translated to "big sister."
     reading: オネエ サマ ト キョジン
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -2649,12 +2655,16 @@ names:
     reading_source_kind: analyser
     verified: false
   この願いが叶うなら:
-    basis: romaji
-    en: Kono Negai ga Kanau nara
-    en_at: '2026-08-02'
+    basis: translated
+    en: If This Wish Comes True
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Kono Negai ga Kanau nara
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/ue7z0do/kono-negai-ga-kanau-nara
     furigana_spans:
     - - この
@@ -2675,7 +2685,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/ue7z0do/kono-negai-ga-kanau-nara
     verified: false
   こはる日和。:
-    basis: romaji
+    basis: translated
+    en: Koharu Weather.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - こはる
       - null
@@ -2683,8 +2697,9 @@ names:
       - ひより
     - - 。
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 小春日和, an Indian-summer spell of mild weather in early winter, is a real seasonal term; the protagonist's
+      given name, こはる, Koharu, is a homophone for 小春, so the title puns her name into the idiom rather
+      than using either plainly.
     reading: コハル ヒヨリ。
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -2693,7 +2708,11 @@ names:
     reading_source_kind: analyser
     verified: false
   こもぐちゃんに食べられたい！:
-    basis: romaji
+    basis: translated
+    en: I Want to Be Eaten by Komogu-chan!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - こもぐちゃんに
       - null
@@ -2711,7 +2730,11 @@ names:
     reading_source_kind: analyser
     verified: false
   これがうさぎのお仕事ですか?:
-    basis: romaji
+    basis: translated
+    en: Is This the Rabbit's Job?
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - これがうさぎのお
       - null
@@ -2719,8 +2742,8 @@ names:
       - しごと
     - - ですか?
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Echoes ご注文はうさぎですか？, Is the Order a Rabbit?, closely enough that it reads as a direct pastiche
+      of the established title rather than a coincidence.
     reading: コレ ガ ウサギ ノ オ シゴトデス カ ?
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -2738,12 +2761,16 @@ names:
     en_url: http://www.wikidata.org/entity/Q120336493
     verified: false
   ごくちゅう!:
-    basis: romaji
-    en: Gokuchū!
-    en_at: '2026-08-02'
+    basis: translated
+    en: Behind Bars!
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Gokuchū!
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q113159240
     reading: ゴクチュウ!
     reading_at: '2026-08-02'
@@ -2752,7 +2779,11 @@ names:
     reading_source: surface
     verified: true
   ごめんね柳子:
-    basis: romaji
+    basis: translated
+    en: Sorry, Yanagiko
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ごめんね
       - null
@@ -2768,6 +2799,11 @@ names:
     reading_source_kind: analyser
     verified: false
   さえちゃんのとなり:
+    basis: translated
+    en: Beside Sae-chan.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: サエチャンノトナリ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2775,7 +2811,11 @@ names:
     reading_source: surface
     verified: true
   さかなでは足もつかない:
-    basis: romaji
+    basis: translated
+    en: No Feet to Stand On, Even as a Fish
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - さかなでは
       - null
@@ -2783,8 +2823,9 @@ names:
       - あし
     - - もつかない
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 足がつかない is the idiom for being out of your depth, unable to touch bottom; the synopsis's mermaid
+      has no feet at all, so the title is holding the idiom and the literal fact at once, a Little Mermaid
+      retelling where she stabs the prince rather than dissolving into foam.
     reading: サカナ デ ワ アシ モ ツカナイ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -2793,6 +2834,13 @@ names:
     reading_source_kind: analyser
     verified: false
   さきゅりふぁいす!:
+    basis: translated
+    en: Succrifice!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Blends サキュバス, succubus, and サクリファイス, sacrifice, sharing sounds between the two; Succrifice keeps
+      the same blend in English rather than spelling out both words.
     reading: サキュリファイス!
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2827,6 +2875,11 @@ names:
     reading_source_kind: analyser
     verified: false
   さよなら:
+    basis: translated
+    en: Goodbye
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: サヨナラ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2834,7 +2887,11 @@ names:
     reading_source: surface
     verified: true
   さよならミュージアム:
-    basis: romaji
+    basis: translated
+    en: Goodbye, Museum
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - さよならミュージアム
       - null
@@ -2848,6 +2905,11 @@ names:
     reading_source_kind: analyser
     verified: false
   さよならローズガーデン:
+    basis: translated
+    en: Goodbye, Rose Garden
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: サヨナラローズガーデン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2877,12 +2939,16 @@ names:
     reading_source_kind: analyser
     verified: false
   しかばね少女と愛が重い聖騎士の討伐学園ライフ:
-    basis: romaji
-    en: Shikabane Shoujo to Ai ga Omoi Sei-kishi no Toubatsu Gakuen Life
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Corpse Girl and the Clingy Paladin's Monster-Hunting School Life
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Shikabane Shoujo to Ai ga Omoi Sei-kishi no Toubatsu Gakuen Life
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/hn0j54f/shikabane-shoujo-to-ai-ga-omoi-sei-kishi-no-toubatsu-gakuen-life
     furigana_spans:
     - - しかばね
@@ -2921,7 +2987,11 @@ names:
     reading_source_kind: analyser
     verified: false
   したたかな細胞:
-    basis: romaji
+    basis: translated
+    en: Tenacious Cells
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - したたかな
       - null
@@ -2937,7 +3007,11 @@ names:
     reading_source_kind: analyser
     verified: false
   しのちゃんは見ている:
-    basis: romaji
+    basis: translated
+    en: Shino-chan Is Watching.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - しのちゃんは
       - null
@@ -2955,6 +3029,13 @@ names:
     reading_source_kind: analyser
     verified: false
   しまいずまい:
+    basis: translated
+    en: Sisters, Living Together
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Reads as 姉妹住まい, sisters' dwelling, run together into one word; kept split into two English phrases
+      since the compound doesn't carry into a single word as cleanly.
     reading: シマイズマイ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2962,6 +3043,11 @@ names:
     reading_source: surface
     verified: true
   しゅがー・みーつ・がーる！:
+    basis: translated
+    en: Sugar Meets Girl!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: シュガー・ミーツ・ガール！
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2969,6 +3055,13 @@ names:
     reading_source: surface
     verified: true
   じょしまん。:
+    basis: translated
+    en: Girl Mangaka.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: じょしまん contracts 女子, girl, and 漫画家, mangaka; kept as the contraction's plain meaning rather than
+      invented wordplay, since nothing in the synopsis argues for anything cleverer.
     reading: ジョシマン。
     reading_at: '2026-08-02'
     reading_basis: surface

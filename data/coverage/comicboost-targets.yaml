@@ -1,0 +1,12 @@
+# comicブースト series pages to read.
+#
+# The host was filed `strategy: none` in extract.yaml with 15 exclusive works, so this is a
+# coverage gap rather than a single record. Seeded with the work that needed an anchor; the
+# platform's own sitemap lists 161 content pages, which is where the rest would come from once
+# there is a way to tell which of them are in scope.
+source: comic-boost
+role: capture-targets
+retrieved: 2026-08-04
+works:
+  - title: "百合にはさまる男は死ねばいい!?"
+    url: https://comic-boost.com/content/01280001

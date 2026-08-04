@@ -65,7 +65,11 @@ def jsonable(o):
 # work's publication. Counted as chapters they gave 三角形の壊し方 eleven instalments and a run of
 # dates that decided its state. Book shops elsewhere do the same thing with tidier markup, so this
 # list is expected to grow rather than to have caught them all.
-PROMO_HOSTS = ("ddnavi.com", "123hon.com")
+#
+# コミックノヴァ was on this list on the strength of looking similar, and it does not belong: it is
+# 一二三書房's own weekly serialisation, numbered 第N話, which withdraws older chapters with
+# 「公開は終了しました」. That is why our capture of it looks thin, and thin is not promotional.
+PROMO_HOSTS = ("ddnavi.com",)
 
 FINAL_RE = re.compile(r"最終(話|回|幕|エピソード)|[（(＜<〈\[【]\s*完\s*[）)＞>〉\]】]")
 # Announcements and artwork typed as chapters upstream — they are not story instalments.
@@ -1781,11 +1785,16 @@ def main():
     # corrects inference: こはる日和。 and すわっぷ⇔すわっぷ both stopped printing years before
     # their last chapter, which read as a print edition ending under a story that continued. The
     # shop says both are finished, and an explicit statement beats a shape in the data.
+    # Both passes, because the question is the same one and only the queue differed: the first
+    # asked about works that had gone quiet, the second about works merely slowing down, and a
+    # shop saying 完結 answers either. Ten of the 94 slow works carry it.
     shop_completed = {}
-    _bw = pathlib.Path("data/coverage/bookwalker-completion.yaml")
-    if _bw.exists():
-        for _c in (yaml.safe_load(_bw.read_text()) or {}).get("works") or []:
-            shop_completed[norm_work(_c.get("work") or "")] = _c
+    for _bwf in ("data/coverage/bookwalker-completion.yaml",
+                 "data/coverage/bookwalker-completion-slow.yaml"):
+        _bw = pathlib.Path(_bwf)
+        if _bw.exists():
+            for _c in (yaml.safe_load(_bw.read_text()) or {}).get("works") or []:
+                shop_completed[norm_work(_c.get("work") or "")] = _c
 
     # Every look adapters/claims/trace.py has taken, keyed the way it writes them. A claim with no
     # history behind it is untraced only if nobody has been; this is how that is known.
@@ -2916,6 +2925,19 @@ def main():
             # chapter on that platform invisible: the work read as 158 chapters with nothing paid,
             # and the platform as 96% free. Undated chapters count towards length and access; they
             # simply cannot contribute a first or latest date.
+            # A promotional read-through is not a serialisation. ダ・ヴィンチニュース numbers the
+            # instalments 第1回, 第2回 and one of ours says 全4回連載でお届けします outright: it is a
+            # 試し読み of a finished tankobon. Counted as chapters it gave 三角形の壊し方 eleven
+            # instalments and a run of dates that decided its state.
+            #
+            # Skipped whole rather than kept dateless, because taking the link and dropping the
+            # dates would still list the shop as somewhere the work is published, which is the
+            # claim being retracted. Every work reached this way has a real home elsewhere; the
+            # last one without a home in our data, 百合にはさまる男は死ねばいい!?, is anchored to
+            # comicブースト now. コミックノヴァ is NOT this kind of site and is not listed: it is a
+            # publisher's own weekly serialisation that withdraws its older chapters.
+            if any(h in (w.get("url") or "") for h in PROMO_HOSTS):
+                continue
             chs = list(w.get("chapters") or [])
             # カドコミ dates a not-yet-released chapter 9999-12-31, and コミックFUZ carries 公開予定
             # rows months out. Neither has been published, so neither can be the latest chapter —

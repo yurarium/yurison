@@ -1,0 +1,41 @@
+# comicブースト, read from its own server-rendered chapter lists.
+#
+# Reconnaissance filed this host `strategy: none`, which was wrong: the pages are plain
+# HTML and the dates are stated per chapter. Some of what it carries is 出張掲載, a run
+# posted in one day to mark a tankobon, and those dates are left as they are. A date
+# shared by a whole run is the signature importdates.py already looks for.
+source: webpages
+platform: comic-boost
+platform_name: "comicブースト"
+publisher: フレックス
+retrieved: 2026-08-04
+record_type: web_work_chapters
+identification_mode: known-work
+date_basis: stated
+date_confidence: reported
+works:
+  - work_title: "百合にはさまる男は死ねばいい！？"
+    url: "https://comic-boost.com/content/01280001"
+    chapter_count: 7
+    chapters:
+      - title: "第7話"
+        updated: 2023-05-19
+        access_modes: ["free"]
+      - title: "第6話"
+        updated: 2023-05-19
+        access_modes: ["free"]
+      - title: "第5話"
+        updated: 2023-05-19
+        access_modes: ["free"]
+      - title: "第4話"
+        updated: 2023-05-19
+        access_modes: ["free"]
+      - title: "第3話"
+        updated: 2023-05-19
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: 2023-05-19
+        access_modes: ["free"]
+      - title: "第1話"
+        updated: 2023-05-19
+        access_modes: ["free"]

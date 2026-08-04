@@ -72,15 +72,23 @@ READING_ATTRIBUTION = {
     "researched": ("community-db", "derived"),
 }
 
+# `reading_note` is separate from `note` because one entry can carry two decisions. A work whose
+# English was chosen for one reason and whose reading was corrected for another had to put both
+# arguments in one field, or lose one: 55 of the 60 reading corrections landed on titles that
+# already had a curated translation with its own note. Two decisions, two reasons.
 KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "reviewed", "note",
-        "candidate_note", "reading", "reading_basis"}
+        "candidate_note", "reading", "reading_basis", "reading_note", "reading_source_kind"}
 
 # What a reading may contain. Katakana and the marks that ride along with it: a title's own
 # punctuation stays in its reading, and 100日後 keeps its digits, so a rule allowing katakana alone
 # rejects readings the store already holds. What it still refuses is kanji and hiragana, which is
 # the whole point of the check.
+# A reading keeps the title's own bracketed labels and censoring marks verbatim, because they are
+# part of the string rather than something to pronounce: 【タテスク】 and the 〇 of 〇〇する話 both
+# appear in readings the store already holds.
 KATAKANA = re.compile(r"^[ァ-ヺー・\s0-9０-９A-Za-zＡ-Ｚａ-ｚ"
-                      r"!-/:-@\[-`{-~！-／：-＠［-｀｛-～、。〜…]+$")
+                      r"!-/:-@\[-`{-~！-／：-＠［-｀｛-～、。〜…【】〇○◯"
+                      r"─━♪♭♯★☆♡♥◎△▽※＆]+$")
 
 
 def problems(kind, ja, e):
@@ -119,16 +127,22 @@ def problems(kind, ja, e):
 
     if e.get("reading"):
         rb = e.get("reading_basis")
+        # The reading's own attribution where it is given, and the entry's otherwise. An entry
+        # whose translation came from a licensor may still have worked its reading out here, and a
+        # licensor does not state Japanese readings, so that entry has to say so rather than
+        # inherit a field offered for something else. Falling back to `derived` automatically was
+        # tried and is wrong: it would let a licensor stand as evidence for a reading by silence.
+        rsk = e.get("reading_source_kind") or e.get("source_kind")
         if rb not in READING_ATTRIBUTION:
             out.append(f"{where}: reading_basis {rb!r} is not one of {sorted(READING_ATTRIBUTION)}")
-        elif e.get("source_kind") not in READING_ATTRIBUTION[rb]:
+        elif rsk not in READING_ATTRIBUTION[rb]:
             out.append(f"{where}: reading_basis {rb!r} needs evidence from "
                        f"{' or '.join(READING_ATTRIBUTION[rb])}, not {e.get('source_kind')!r}")
         # Readings are stored as katakana throughout, and an invariant checks it at build time.
         # Catching a hiragana yomi here says which line to fix instead of failing the whole build.
         if not KATAKANA.match(e["reading"]):
             out.append(f"{where}: a reading is stored as katakana; got {e['reading']!r}")
-        if rb == "researched" and not (e.get("note") or "").strip():
+        if rb == "researched" and not ((e.get("reading_note") or e.get("note") or "").strip()):
             out.append(f"{where}: a researched reading needs a note saying what it rests on")
     elif e.get("reading_basis"):
         out.append(f"{where}: reading_basis with no reading")
@@ -237,7 +251,7 @@ def apply(store, doc):
         for ja, e in (doc.get(kind) or {}).items():
             fact = {k: e.get(k) for k in
                     ("en", "candidate", "basis", "source", "source_kind", "source_url", "note",
-                     "candidate_note", "reading", "reading_basis")}
+                     "candidate_note", "reading", "reading_basis", "reading_note")}
             # `at` is the day the decision was reviewed, not the day this ran. Re-applying the file
             # after a rebuild must not restamp a name as freshly decided.
             fact["at"] = str(e.get("reviewed"))

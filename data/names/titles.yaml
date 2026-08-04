@@ -25,12 +25,16 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: '# ウチラ ガ サイキョウ   ～ カゲ キャ ジョレイシ ト ギャル JK ～'
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: '# ウチラ ガ サイキョウ   ～ インキャ ジョレイシ ト ギャル JK ～'
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: '# ウチラ ガ サイキョウ   ～ カゲ キャ ジョレイシ ト ギャル JK ～'
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   '#ギャルとギャルの百合':
     basis: translated
@@ -2345,12 +2349,16 @@ names:
       - しま
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カイジュウショク ノ シマ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: カイジュウ イロ ノ シマ
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カイジュウショク ノ シマ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   かけあうつきひ:
     basis: translated
@@ -3160,12 +3168,16 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コモ グチャン ニ タベラレタイ！
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: コモグチャン ニ タベラレタイ！
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: コモ グチャン ニ タベラレタイ！
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   これがうさぎのお仕事ですか?:
     basis: translated
@@ -3369,12 +3381,16 @@ names:
       - null
     note: 鳥見んぐ bolts an English -ing onto a Japanese word. English has no way to be foreign to itself,
       so the pun goes and the plain word stays.
-    reading: シアワセ トリミ ン グ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: シアワセ トリミング
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シアワセ トリミ ン グ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   しかばね少女と愛が重い聖騎士の討伐学園ライフ:
     basis: translated
@@ -4814,12 +4830,16 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ホウ カ ゴ サイ テンセイ！
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ホウカゴ サイ テンセイ！
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ホウ カ ゴ サイ テンセイ！
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   ほぐして、癒衣さん。:
     basis: translated
@@ -4847,12 +4867,16 @@ names:
       - null
     note: 癒衣, the masseuse's name, is written with healing and garment rather than ordinary name kanji,
       a coined name fitting her role rather than a real surname.
-    reading: ホグシテ、 イエ コロモサン。
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ホグシテ、 ユイサン。
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ホグシテ、 イエ コロモサン。
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   ほしくずプラネタリウム:
     basis: translated
@@ -5199,12 +5223,16 @@ names:
       - まおう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヤ シロ ノ マオウ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ヤシロ ノ マオウ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ヤ シロ ノ マオウ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   ゆうやけトリップ:
     basis: translated
@@ -5907,12 +5935,16 @@ names:
       - null
     note: 搦む is a heavier, more ensnaring word for tangling than the everyday 絡む; the protagonist's own
       name, 糸井, opens with 糸, thread, so the title reads as a pun on her rather than a generic warning.
-    reading: イト ガ カラミム
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: イト ガ カラム
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: イト ガ カラミム
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   イヴとイヴたち:
     basis: translated
@@ -7690,12 +7722,17 @@ names:
     note: Fujichika's series, licensed by Seven Seas with volumes releasing from June 2026; sevenseasentertainment.com
       blocks automated fetches, so cited through Penguin Random House's listing, which names Seven Seas
       as the imprint directly.
-    reading: スケバン ト テンコウセイ ガ クダラナイ アソビ オ スル ダケ ノ ハナシ
-    reading_at: '2026-08-02'
-    reading_basis: back-converted
+    reading: スケバン ト テンコウセイ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: back-converted
+      source: mangaupdates
+      value: スケバン ト テンコウセイ ガ クダラナイ アソビ オ スル ダケ ノ ハナシ
     reading_pass: 2
-    reading_source: mangaupdates
-    reading_url: https://www.mangaupdates.com/series/lx7zwau/sukeban-to-tenkousei-ga-kudaranai-asobi-o-suru-dake-no-hanashi
+    reading_source: Seven Seas Entertainment
+    reading_source_kind: licensor
+    reading_url: https://www.penguinrandomhouse.com/books/814540/the-delinquent-and-the-transfer-student-vol-1-by-fujichika/
     verified: false
   スズラン手帖:
     basis: translated
@@ -8146,12 +8183,16 @@ names:
       - かのじょ
     note: 駄犬, a good-for-nothing dog, is slang for someone clingy and a little pathetic but endearing
       anyway; the synopsis uses the word directly, so it anchors the title's dog rather than being incidental.
-    reading: ダメケン カノジョ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ダメイヌ カノジョ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ダメケン カノジョ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   ダルマ・マイノリティ:
     basis: translated
@@ -8981,12 +9022,16 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒーローサン ト ガンニョ カンブサン
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ヒーローサン ト モト オンナ カンブサン
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ヒーローサン ト ガンニョ カンブサン
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   ビタースイートナイトシェード:
     basis: translated
@@ -9919,12 +9964,16 @@ names:
     note: The manga itself carries no English license; the romanization follows Crunchyroll's own for
       the franchise's TV anime, announced under the title Love Live! Hasunosora Jyogakuin School Idol
       Club, since the manga is set in the same fiction rather than a separate work needing its own name.
-    reading: ラブライブ ! flowers *ー レン ノ ソラ オンナ ガクイン スクールアイドルクラブー
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ラブライブ ! flowers *ー ハス ノ ソラ ジョガクイン スクールアイドルクラブー
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ラブライブ ! flowers *ー レン ノ ソラ オンナ ガクイン スクールアイドルクラブー
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   ランチメイト症候群(スピリッツ賞・奨励賞):
     basis: translated
@@ -10088,12 +10137,16 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: レズッ ムスメ クラブ   ONE   TiME   ONLY
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: レズッコ クラブ   ONE   TiME   ONLY
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: レズッ ムスメ クラブ   ONE   TiME   ONLY
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   レチタティーヴォ:
     basis: translated
@@ -10499,12 +10552,16 @@ names:
     - - です！
       - null
     note: 限目 is a school period, and the joke is that there are only six.
-    reading: ナナゲン メ ワ ニンジャ シュギョウデス！
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ナナゲンメ ワ ニンジャ シュギョウデス！
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ナナゲン メ ワ ニンジャ シュギョウデス！
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   三年坂:
     basis: translated
@@ -10521,12 +10578,16 @@ names:
       - さか
     note: Names the real urban legend, several slopes across Japan share it, that falling on the slope
       kills you within three years; kept literal rather than romanized so the curse reads as what it is.
-    reading: サン ネン サカ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: サンネンザカ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: サン ネン サカ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   三木と日野:
     basis: translated
@@ -10603,12 +10664,16 @@ names:
       - はな
     note: The saying is 立てば芍薬、座れば牡丹、歩く姿は百合の花, a woman described through three flowers. This swaps walking
       for drunk, and her given name is 牡丹, the peony the saying has already used.
-    reading: カミイナ ボタン、 ヨイ ヘル スガタ ワ ユリ ノ ハナ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: カミイナ ボタン、 ヨエル スガタ ワ ユリ ノ ハナ
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カミイナ ボタン、 ヨイ ヘル スガタ ワ ユリ ノ ハナ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   上杉くんは女の子をやめたい:
     basis: translated
@@ -12092,12 +12157,16 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゼンブクン ノ セイダ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ゼンブ キミ ノ セイダ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ゼンブクン ノ セイダ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう...:
     basis: romaji
@@ -13296,12 +13365,16 @@ names:
       - がんぼう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シオウテン レイシ ノ ガンボウ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: シオウテン レイコ ノ ガンボウ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シオウテン レイシ ノ ガンボウ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   土居ちゃんはけしからん:
     basis: translated
@@ -13401,12 +13474,16 @@ names:
     - - 復讐
       - ふくしゅう
     note: そぷらの is the character's given name.
-    reading: ダテンシ ソ プラ ノチャン ノ フクシュウ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ダテンシ ソプラノチャン ノ フクシュウ
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ダテンシ ソ プラ ノチャン ノ フクシュウ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   壊していいよ、すいかちゃん:
     basis: translated
@@ -13905,12 +13982,16 @@ names:
       - か
     note: 大室, Ōmuro, is the family's own surname, kept as a name; the synopsis is three sisters, the household's
       daily chaos, and the secrets each of the outer two is keeping from the others.
-    reading: オウムロ ケ
-    reading_at: '2026-08-02'
-    reading_basis: back-converted
+    reading: オオムロ ケ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: back-converted
+      source: wikidata
+      value: オウムロ ケ
     reading_pass: 2
-    reading_source: wikidata
-    reading_source_kind: community-db
+    reading_source: yurarium
+    reading_source_kind: derived
     reading_url: http://www.wikidata.org/entity/Q15945046
     verified: false
   大崎さんと小森さん:
@@ -14040,12 +14121,16 @@ names:
     note: イく in katakana carries the same double sense as English "come", to go and to climax; the synopsis
       is an earnest angel sent to Earth to investigate "ecchi things" who starts feeling exactly that
       at a girl's house. The pun survives the translation almost exactly intact.
-    reading: アマガセ マ シロ ワ イキタク ナイ！
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: アマガセ マシロ ワ イキタク ナイ！
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: アマガセ マ シロ ワ イキタク ナイ！
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   奈落の花園:
     basis: translated
@@ -15194,12 +15279,16 @@ names:
     note: Gifu is the real prefecture the story is set in, kept as the place name it is. The synopsis
       is a perfectionist high schooler who survives a suicide attempt meeting a small witch, a story of
       loss and rebuilding.
-    reading: ギフ ノ ゼンキ マジョ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ギフ ノ ヨキ マジョ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ギフ ノ ゼンキ マジョ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   崖っぷち令嬢は黒騎士様を惚れさせたい！:
     basis: translated
@@ -15288,12 +15377,16 @@ names:
       鬼, demon, is very likely leaning on Hijikata's own historical nickname, "the demon vice-commander"
       of the Shinsengumi, the way 夜明け, dawn, likely leans on Ryōma's own association with a new era for
       Japan; school rules forbid the romance the two find themselves drawn into.
-    reading: バクマツ ジョシコウセイ   オニト ヨアケ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: バクマツ ジョシコウセイ   オニ ト ヨアケ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: バクマツ ジョシコウセイ   オニト ヨアケ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   平民の私ですが公爵令嬢様をたぶらかして生きています:
     basis: translated
@@ -15627,12 +15720,16 @@ names:
       on pixiv, 彩香ちゃんは弘子先輩に恋してる, "Ayaka is in love with Hiroko-senpai", whose own synopsis confirms the
       same pairing and plot, so this is a rename the catalogue has not caught up with rather than a different
       work. Honorific dropped on the given name, senpai kept for the workplace senior.
-    reading: アヤカ チャン ワ ヒロコ センパイ ニ コイシテル
-    reading_at: '2026-08-02'
-    reading_basis: back-converted
+    reading: アヤカチャン ワ ヒロコ センパイ ヲ オトシタイ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: back-converted
+      source: wikidata
+      value: アヤカ チャン ワ ヒロコ センパイ ニ コイシテル
     reading_pass: 2
-    reading_source: wikidata
-    reading_source_kind: community-db
+    reading_source: yurarium
+    reading_source_kind: derived
     reading_url: http://www.wikidata.org/entity/Q115118144
     verified: false
   影と花:
@@ -15930,12 +16027,16 @@ names:
       kept literal rather than guessing which of them it names. The synopsis is secretly dating childhood
       friends, one unable to stop fantasising about her cool girlfriend until she finally reaches for
       her hand.
-    reading: オ ヒツジチャン ワ サワリタイ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: オヒツジチャン ワ サワリタイ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: オ ヒツジチャン ワ サワリタイ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   心に依りて:
     basis: translated
@@ -16837,12 +16938,16 @@ names:
     note: 中の人 is the idiom for whoever is inside a costume or mascot; the synopsis is the villainess Remilia's
       own original soul, watching from within as "Emi", the reincarnator who took her body, is falsely
       condemned, waking up to take revenge herself.
-    reading: アクヤク レイジョウ ノ ナカ ノ ヒト 〜 ダンザイ サレタ テンショウシャ ノ タメ ウソツキ ヒロイン ニ フクシュウ イタシマス 〜
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: アクヤク レイジョウ ノ ナカ ノ ヒト 〜 ダンザイ サレタ テンセイシャ ノ タメ ウソツキ ヒロイン ニ フクシュウ イタシマス 〜
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: アクヤク レイジョウ ノ ナカ ノ ヒト 〜 ダンザイ サレタ テンショウシャ ノ タメ ウソツキ ヒロイン ニ フクシュウ イタシマス 〜
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   悪魔のモカちゃん:
     basis: translated
@@ -17125,12 +17230,16 @@ names:
     note: 抱き寝, sleeping while hugging something, gets the tacked-on ーター that mimics an English device-name
       suffix like -inator or -tron; kept in the same register English already has for that joke rather
       than left as plain description. A newcomer-award one-shot with no synopsis beyond the award notice.
-    reading: ダキ ネー ター
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ダキネーター
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ダキ ネー ター
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   押しかけ女房、コドモ付き！:
     basis: translated
@@ -17608,12 +17717,16 @@ names:
     note: 'A hyperbolic fan request, matching the synopsis: a woman who quits her job to write BL doujinshi
       discovers her own teenage niece is a fan of hers online, without either knowing who the other really
       is.'
-    reading: シンカン イチレイレイオクサツ クダサイ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: シンカン ヒャクオクサツ クダサイ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シンカン イチレイレイオクサツ クダサイ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   新米勇者のおしながき～乃木若葉は勇者である すぴんあうと４コマ～:
     basis: romaji
@@ -18006,12 +18119,16 @@ names:
     note: The synopsis names all ten stories in the anthology, an author's first collection built entirely
       around 百合えっち, yuri ecchi, kept as the paired loanwords English fandom already uses for the same
       thing.
-    reading: キノウシタ ノ ニ オボエテナイ ノ？   ユリ エッチ タンペンシュウ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: キノウ シタ ノニ オボエテナイ ノ？   ユリ エッチ タンペンシュウ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: キノウシタ ノ ニ オボエテナイ ノ？   ユリ エッチ タンペンシュウ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   昼のひもので夜もすがら:
     basis: translated
@@ -18908,12 +19025,16 @@ names:
       - null
     note: TS転生 is a gender swap on reincarnation, which is a genre tag rather than a plot point to spell
       out.
-    reading: シニガミ ショウジョ ワ カゲ カラ オシ ヲ ナガメタイ 　 ─ アクヤク ニ TS テンショウ シタケド、 コッソリ ゲンサク キャラ ヲ カンサツ シ ニ イキマス！ ─
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: シニガミ ショウジョ ワ カゲ カラ オシ ヲ ナガメタイ 　 ─ アクヤク ニ TS テンセイ シタケド、 コッソリ ゲンサク キャラ ヲ カンサツ シ ニ イキマス！ ─
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シニガミ ショウジョ ワ カゲ カラ オシ ヲ ナガメタイ 　 ─ アクヤク ニ TS テンショウ シタケド、 コッソリ ゲンサク キャラ ヲ カンサツ シ ニ イキマス！ ─
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   残り香に牙:
     basis: translated
@@ -18974,12 +19095,16 @@ names:
       - つまみ
     note: 残光 is the light left after the source has gone; the lead photographs girls once they have fallen
       for her.
-    reading: ザンコウ サイ ツマミ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ザンコウ サイサツ
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ザンコウ サイ ツマミ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   残存の竜:
     basis: translated
@@ -19089,12 +19214,16 @@ names:
       rather than swapped for the English fairy-tale title, since nothing confirms the story means the
       specific tale rather than the image. The synopsis is an executed assassin who wakes into another
       world resolved to kill no one again, only for a haughty young lady to claim her as a servant.
-    reading: コロシヤ メイド ワ ウバラ ヒメ ノ ユメ ヲ ミル
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: コロシヤ メイド ワ イバラヒメ ノ ユメ ヲ ミル
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: コロシヤ メイド ワ ウバラ ヒメ ノ ユメ ヲ ミル
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   殺し殺され三角関係に私が今から入るんですか？:
     basis: translated
@@ -19733,12 +19862,16 @@ names:
     note: Two gem epithets in parallel, likely naming two characters the way 頂のリヴィーツァ and others have.
       翡翠 is both jade and, separately, the kingfisher; kept as jade, the more common reading in isolation,
       with no synopsis beyond the magazine credit to settle it either way.
-    reading: シオ メツ ニ シズム カワセミ、 キタ ノ マチ ノ コクヨウ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: シオ メツ ニ シズム ヒスイ、 キタ ノ マチ ノ コクヨウ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シオ メツ ニ シズム カワセミ、 キタ ノ マチ ノ コクヨウ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     reading_uncertain: true
     verified: false
   濡鴉の魔女:
@@ -19750,12 +19883,16 @@ names:
     note: 濡鴉 likely echoes 濡れ羽色, "wet-feather colour", the classical description for glossy jet-black
       hair; kept literal since a newcomer-award one-shot with no synopsis beyond the award notice gives
       nothing to confirm which sense is meant.
-    reading: ジュカラス ノ マジョ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ヌレガラス ノ マジョ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ジュカラス ノ マジョ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     reading_uncertain: true
     verified: false
   瀬戸さんを笑わせたい紬ちゃん:
@@ -20105,12 +20242,16 @@ names:
       - ひめ
     note: The Japanese inverts 羊の皮をかぶった狼, and English has the same idiom to invert, so the title survives
       intact. Aki is the wolf serving in the sheep kingdom. Replaces a stored romanisation.
-    reading: オウカミ ノ カワ オ カブッタ ヒツジヒメ
-    reading_at: '2026-08-02'
-    reading_basis: back-converted
+    reading: オオカミ ノ カワ オ カブッタ ヒツジヒメ
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: back-converted
+      source: wikidata
+      value: オウカミ ノ カワ オ カブッタ ヒツジヒメ
     reading_pass: 2
-    reading_source: wikidata
-    reading_source_kind: community-db
+    reading_source: yurarium
+    reading_source_kind: derived
     reading_url: http://www.wikidata.org/entity/Q114792026
     verified: false
   猫に白鳥、蛍に小判:
@@ -20209,12 +20350,16 @@ names:
     note: The synopsis is a cat-folk court mage sacked over the belief that beastfolk cannot use magic
       at all, who takes on a disgraced dog-folk apprentice to prove otherwise. そうですよ carries the hearsay
       tone the English question mark keeps.
-    reading: ネコマ ホウ ガ セカイ ニ カクメイ ヲ オコス ソウデス ヨ ?
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ネコ マホウ ガ セカイ ニ カクメイ ヲ オコス ソウデス ヨ ?
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ネコマ ホウ ガ セカイ ニ カクメイ ヲ オコス ソウデス ヨ ?
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   獄門撫子此処ニ在リ:
     basis: translated
@@ -20616,12 +20761,16 @@ names:
     note: 〇〇 is a blank in the Japanese title itself, the same device as 限界OLと女子大生が〇〇する話; the synopsis
       confirms it, an expansion of a one-page web comic literally subtitled "(working title)" about interspecies
       girls and a human high schooler.
-    reading: イ シュゾク ジョシ ニ レイキゴウ スル ハナシ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: イシュゾク ジョシ ニ 〇〇 スル ハナシ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: イ シュゾク ジョシ ニ レイキゴウ スル ハナシ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   疲れきった女が死ぬほど癒やされるために。:
     basis: romaji
@@ -21085,6 +21234,30 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  百合にはさまる男は死ねばいい！？:
+    basis: romaji
+    furigana_spans:
+    - - 百合
+      - ゆり
+    - - にはさまる
+      - null
+    - - 男
+      - おとこ
+    - - は
+      - null
+    - - 死
+      - し
+    - - ねばいい！？
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ユリ ニ ハサマル オトコ ワ シネバ イイ！？
+    reading_at: '2026-08-04'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   百合のはじまりは奴隷から:
     basis: translated
     en: This Yuri Begins with Servitude
@@ -21457,12 +21630,16 @@ names:
       - null
     note: The synopsis is a grad student who mistakes a labmate cooking ramen for a ghost with a knife
       in a dim hallway. Plain phrase, nothing to protect.
-    reading: ケンキュウ ムネ ノ マヨナカ ゴハン
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ケンキュウトウ ノ マヨナカ ゴハン
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ケンキュウ ムネ ノ マヨナカ ゴハン
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   硝子の体温:
     basis: translated
@@ -21502,12 +21679,16 @@ names:
       - みぎて
     note: A COMITIA speed-manga runner-up with no synopsis beyond the award notice. Same idiom family
       as 神様の手 in this same checkpoint, kept consistent.
-    reading: カミノ ミギテ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: カミ ノ ミギテ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カミノ ミギテ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   神ゲーってそういうことですか:
     basis: romaji
@@ -22422,12 +22603,17 @@ names:
     note: sevenseasentertainment.com refuses automated fetches, so cited to a distributor listing that
       names Seven Seas as publisher, the same workaround used for わたしが恋人になれるわけないじゃん. The full licensed
       title carries a Ghost Urn subtitle our key does not, since the catalogue holds the base series title.
-    reading: ベニガラ ノ パンドラ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: コウカク ノ パンドラ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ベニガラ ノ パンドラ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: Seven Seas Entertainment
+    reading_source_kind: licensor
+    reading_url: https://tankobonbon.com/products/9781626921900
     verified: false
   紅茶の魔女の優雅なる宮廷生活 チートをひた隠す最弱魔導師の窓際ライフ:
     basis: translated
@@ -22502,12 +22688,16 @@ names:
       manor from Touhou, home to a vampire mistress and the strong-willed women around her. Scarlet Devil
       Mansion is the name the fandom itself has used for two decades; there is no central official English
       licence for Touhou terminology to attribute it to, so this is ours.'
-    reading: クレナイ マカン ノ オンナタチ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: コウマカン ノ オンナタチ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: クレナイ マカン ノ オンナタチ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   紗痲 Fallin' Jail:
     basis: romaji
@@ -22694,12 +22884,16 @@ names:
       Fruit Tart. This specific 4-koma spinoff of the ゆゆゆい game is not itself found under an English licence,
       so it is ours to answer for and marked accordingly. 勇者部びより, Hero Club days, uses 日和, a fine or pleasant
       day, as its second half.
-    reading: ユウキ トモナ ワ ユウシャデ アル   ユウシャ ブ ビヨリ   Party ♪
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ユウキ ユウナ ワ ユウシャ デ アル   ユウシャブ ビヨリ   Party ♪
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ユウキ トモナ ワ ユウシャデ アル   ユウシャ ブ ビヨリ   Party ♪
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   結婚したい竜宮さんは上陸しました:
     basis: translated
@@ -22799,12 +22993,16 @@ names:
     note: 縁切り is the old, specific word for deliberately ending a relationship, historically formalised
       at 縁切り寺, temples where a wife could sever a marriage. A newcomer-award one-shot with no synopsis
       beyond the award notice.
-    reading: エンキリ ハサミ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: エンキリバサミ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: エンキリ ハサミ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   繭、纏う:
     basis: romaji
@@ -23034,16 +23232,17 @@ names:
       - ひみつ
     - - ごと!
       - null
-    note: '腹を割る is idiomatic for being completely open with someone, and the synopsis is literal about
-      the belly too: a gal self-conscious about stomach fat and a classmate secretly hiding strong abs
-      team up to train together. Bare carries the same double sense in English, physically exposed and
-      emotionally open, which is why baring rather than showing.'
-    reading: フク ワル ウチラ ノ ヒミツゴト !
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    note: 腹を割る is はらをわる; ふく is 腹 only in Sino-Japanese compounds.
+    reading: ハラ ワル ウチラ ノ ヒミツゴト !
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: フク ワル ウチラ ノ ヒミツゴト !
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   腹割るウチらの秘密ごと！:
     basis: translated
@@ -23066,12 +23265,16 @@ names:
       the belly too: a gal self-conscious about stomach fat and a classmate secretly hiding strong abs
       team up to train together. Bare carries the same double sense in English, physically exposed and
       emotionally open, which is why baring rather than showing.'
-    reading: フク ワル ウチラ ノ ヒミツゴト！
+    reading: ハラ ワル ウチラ ノ ヒミツゴト！
     reading_at: '2026-08-04'
-    reading_basis: analyser
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: フク ワル ウチラ ノ ヒミツゴト！
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   臨死:
     basis: translated
@@ -23914,12 +24117,17 @@ names:
       - かくめい
     note: Yen Press's own series page credits Piero Karasu, Yuri Kisaragi and Harutsugu Nadaka, matching
       鴉ぴえろ, きさらぎゆり and 南高春告 in the platform's byline.
-    reading: テンショウ オウジョ ト テンサイ レイジョウ ノ マホウ カクメイ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: テンセイ オウジョ ト テンサイ レイジョウ ノ マホウ カクメイ
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: テンショウ オウジョ ト テンサイ レイジョウ ノ マホウ カクメイ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: Yen Press
+    reading_source_kind: licensor
+    reading_url: https://yenpress.com/series/the-magical-revolution-of-the-reincarnated-princess-and-the-genius-young-lady-manga
     verified: false
   転生王女と天才令嬢の魔法革命 【タテスク】:
     basis: licensed
@@ -23950,12 +24158,17 @@ names:
     note: タテスク marks KADOKAWA's own vertical-scroll, full-colour re-edition of the same series under the
       same creative team on comic-walker.com, a separate catalogue entry for a separate serialisation
       track rather than a different work, so it carries the same licensed title as 転生王女と天才令嬢の魔法革命.
-    reading: テンショウ オウジョ ト テンサイ レイジョウ ノ マホウ カクメイ   【タテスク】
+    reading: テンセイ オウジョ ト テンサイ レイジョウ ノ マホウ カクメイ   【タテスク】
     reading_at: '2026-08-03'
-    reading_basis: analyser
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: テンショウ オウジョ ト テンサイ レイジョウ ノ マホウ カクメイ   【タテスク】
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: Yen Press
+    reading_source_kind: licensor
+    reading_url: https://yenpress.com/series/the-magical-revolution-of-the-reincarnated-princess-and-the-genius-young-lady-manga
     verified: false
   辿り着けない星:
     basis: translated
@@ -24150,12 +24363,16 @@ names:
     note: 遠山えま is the author's own name, a well-known shoujo mangaka; Ema Tōyama is the spelling her English-language
       Kodansha credits use. The synopsis is her first yuri anthology, five stories of teacher-and-student
       pairings plus a new epilogue.
-    reading: エンザン エ マ ヒャク ゴウシュウ 　 センセイ ト ノ ジカン。
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: トオヤマ エマ ユリシュウ 　 センセイ ト ノ ジカン。
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: エンザン エ マ ヒャク ゴウシュウ 　 センセイ ト ノ ジカン。
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   酒と鬼は二合まで:
     basis: translated
@@ -24181,12 +24398,16 @@ names:
     note: 合 is a traditional sake-measuring unit with no clean English equivalent, rendered as cups; the
       title puts sake and the demon under the same limit. The synopsis is a would-be bartender who takes
       in a glittery gal housemate secretly hiding that she is an oni.
-    reading: サケ ト オニワ ニ ゴウ マデ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: サケ ト オニ ワ ニ ゴウ マデ
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: サケ ト オニワ ニ ゴウ マデ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   重しれー女:
     basis: romaji
@@ -24204,12 +24425,16 @@ names:
     note: The anthology's own stated theme is おもしれー女, slang for "what an interesting woman"; this title
       respells the おも with 重, heavy, which is read the same おも. The pun is the title, and English has
       no word that means both heavy and interesting.
-    reading: オモシ レー オンナ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: オモシレー オンナ
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: オモシ レー オンナ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   量子の娘たち:
     basis: translated
@@ -24505,12 +24730,16 @@ names:
     note: 〇〇 is a blank left in the Japanese title itself, a deliberate tease; the synopsis reveals it
       is tidying a messy apartment, ordinary next to what the blank implies, and filling it in would spoil
       the bait the title is setting rather than translate it.
-    reading: ゲンカイ OL ト ジョシダイセイ ガ レイキゴウ スル ハナシ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ゲンカイ OL ト ジョシダイセイ ガ 〇〇 スル ハナシ
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ゲンカイ OL ト ジョシダイセイ ガ レイキゴウ スル ハナシ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした:
     basis: translated
@@ -24958,12 +25187,16 @@ names:
     note: 香原 is the protagonist's surname, kept as a name and the honorific dropped per the project's
       usual practice. ふぇちのーと is フェチノート spelled soft and cute; the synopsis is a quiet first-year who keeps
       an observation diary of her classmates' hidden embarrassing fetishes.
-    reading: カハラサン ノ フェ チ ノー ト
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: カハラサン ノ フェチノート
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カハラサン ノ フェ チ ノー ト
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   骨に願いを、星に呪いを:
     basis: translated
@@ -25123,12 +25356,16 @@ names:
     - - とくゅらす
       - null
     note: くゅらす is 暮らす with a small ゅ dropped in, which is a look rather than a different word.
-    reading: マジョトク ュラス
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: マジョ ト クュラス
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: マジョトク ュラス
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   魔女の孫と七人のメイド:
     basis: translated
@@ -25523,12 +25760,16 @@ names:
     note: 黄道寮 (Ecliptic Dormitory) is the invented name of the girls' dorm where residents address each
       other by zodiac sign; 星座な日々 is deliberately loose grammar, a noun pressed into an adjective, which
       "constellation days" carries into English.
-    reading: オウドウ リョウ ノ セイザナ ヒビ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: コウドウリョウ ノ セイザナ ヒビ
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: オウドウ リョウ ノ セイザナ ヒビ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   黒の世界は白墨に染まる:
     basis: translated
@@ -25579,12 +25820,16 @@ names:
       - かのじょ
     note: '限定 is the same "period-limited" word used on time-boxed merchandise, applied here to a relationship:
       the synopsis has Sumie propose that she and Akira date for exactly seven days.'
-    reading: ナナ カカン ゲンテイ カノジョ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ナノカカン ゲンテイ カノジョ
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ナナ カカン ゲンテイ カノジョ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
 note: 'Readings and English renderings, keyed by the exact Japanese string. NAMES-PLAN §8.1: the stored
   form is the KANA READING, never a romanised string — Yuri / Yuuri / Yuri are all derivable from kana

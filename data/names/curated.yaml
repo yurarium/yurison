@@ -231,6 +231,11 @@ titles:
     reviewed: '2026-08-03'
     note: 限目 is a school period, and the joke is that there are only six.
 
+    reading: "ナナゲンメ ワ ニンジャ シュギョウデス！"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      限目 is げんめ; the split leaves 目 as its own word.
   世界一可愛い私の幼馴染が隠れてVTuberをしているらしい:
     en: Apparently My Childhood Friend, the Cutest in the World, Is Secretly a VTuber
     basis: translated
@@ -375,6 +380,11 @@ titles:
       title survives intact. Aki is the wolf serving in the sheep kingdom. Replaces a stored
       romanisation.
 
+    reading: "オオカミ ノ カワ オ カブッタ ヒツジヒメ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      狼 is おおかみ; オウカミ is a back-conversion of "ō" to the wrong kana.
   # --- the rest of the latest tab ------------------------------------------------------------
 
   '#ギャルとギャルの百合':
@@ -413,6 +423,11 @@ titles:
     reviewed: '2026-08-03'
     source: yurarium
     source_kind: derived
+    reading: "カイジュウ イロ ノ シマ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      色 attached to a kana stem is いろ; しょく belongs to Sino-Japanese compounds.
   きょうはなにしよう？:
     basis: translated
     en: What Shall We Do Today?
@@ -449,6 +464,11 @@ titles:
     reviewed: '2026-08-03'
     source: yurarium
     source_kind: derived
+    reading: "シアワセ トリミング"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      鳥見んぐ is a pun on とりみんぐ; ん and ぐ are not words.
   ぜんぶ壊して地獄で愛して:
     basis: translated
     en: Break It All, Love Me in Hell
@@ -710,6 +730,11 @@ titles:
     reviewed: '2026-08-03'
     source: yurarium
     source_kind: derived
+    reading: "カミイナ ボタン、 ヨエル スガタ ワ ユリ ノ ハナ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      酔へる is historical kana for 酔える, よえる; the analyser read へ as a separate mora.
   乙女のおかず:
     basis: translated
     en: Otome's Side Dish
@@ -757,6 +782,11 @@ titles:
     reviewed: '2026-08-03'
     source: yurarium
     source_kind: derived
+    reading: "ダテンシ ソプラノチャン ノ フクシュウ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      そぷらのちゃん is one name, Soprano-chan.
   壊していいよ、すいかちゃん:
     basis: translated
     en: You Can Break It, Suika
@@ -881,6 +911,11 @@ titles:
     reviewed: '2026-08-03'
     source: yurarium
     source_kind: derived
+    reading: "シニガミ ショウジョ ワ カゲ カラ オシ ヲ ナガメタイ 　 ─ アクヤク ニ TS テンセイ シタケド、 コッソリ ゲンサク キャラ ヲ カンサツ シ ニ イキマス！ ─"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      TS転生 is TSてんせい.
   残光再撮:
     basis: translated
     en: Afterglow, Reshot
@@ -889,6 +924,11 @@ titles:
     reviewed: '2026-08-03'
     source: yurarium
     source_kind: derived
+    reading: "ザンコウ サイサツ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      再撮 is さいさつ; つまみ is 撮 in isolation, never in a Sino-Japanese compound.
   猫に白鳥、蛍に小判:
     basis: translated
     en: Swans Before Cats, Coins Before Fireflies
@@ -984,6 +1024,11 @@ titles:
     reviewed: '2026-08-03'
     source: yurarium
     source_kind: derived
+    reading: "マジョ ト クュラス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The boundary falls after 魔女; the current split produces a nonsense first token.
   魔女まじょS-WITCH:
     basis: translated
     en: Witch, Witch, S-WITCH
@@ -1037,6 +1082,11 @@ titles:
       one clause. The same work is also held under a copy of the title that the source page
       truncated with an ellipsis, which is left unnamed.
 
+    reading: "ビョウジャク ショウジョ、 テンセイ シテ ケンコウナ ニクタイ （サイキョウ） ヲ テ ニ イレル 　 ～ トモダチ ガ ホシクテ マキョウ カラ タビダッタ ノデスガ、 ドウ ヤラ ワタシ ノ マホウ ワ スコシ オカシイ ヨウデス！？ ～"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      転生して is てんせいして.
   # --- works that were showing a romanisation ------------------------------------------------
   #
   # These were skipped by the first two rounds because the queue was chosen with the filter "has
@@ -1173,6 +1223,7 @@ titles:
     source_kind: derived
     reading: ゴクモン ナデシコ ココ ニ アリ
     reading_basis: researched
+    reading_source_kind: derived
     reviewed: '2026-08-03'
     note: >-
       獄門撫子 is the protagonist's name, from a clan of monster-eating exorcists out of Kyoto per
@@ -1226,6 +1277,11 @@ titles:
       限定 is the same "period-limited" word used on time-boxed merchandise, applied here to a
       relationship: the synopsis has Sumie propose that she and Akira date for exactly seven days.
 
+    reading: "ナノカカン ゲンテイ カノジョ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      七日間 is なのかかん; ナナカカン is not a form the counter takes.
   黄道寮の星座な日々:
     en: The Zodiac Dorm's Constellation Days
     basis: translated
@@ -1237,6 +1293,11 @@ titles:
       each other by zodiac sign; 星座な日々 is deliberately loose grammar, a noun pressed into an
       adjective, which "constellation days" carries into English.
 
+    reading: "コウドウリョウ ノ セイザナ ヒビ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The publisher's own page slug is `koudouryo`; 黄道 in the zodiac sense is こうどう.
   魔界にただいま:
     en: Home Again in the Demon Realm
     basis: translated
@@ -1386,6 +1447,11 @@ titles:
       usual practice. ふぇちのーと is フェチノート spelled soft and cute; the synopsis is a quiet first-year
       who keeps an observation diary of her classmates' hidden embarrassing fetishes.
 
+    reading: "カハラサン ノ フェチノート"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      ふぇちのーと is one word, fechi-nōto.
   飴色紅茶館歓談:
     en: Conversations at the Amber Tea House
     basis: translated
@@ -1529,6 +1595,7 @@ titles:
     source_kind: derived
     reading: インキャ ギャル デモ イキガリタイ
     reading_basis: researched
+    reading_source_kind: derived
     reviewed: '2026-08-03'
     note: >-
       陰キャ is the slang antonym of 陽キャ, and both are read on the truncated on'yomi イン/ヨウ rather
@@ -1560,6 +1627,11 @@ titles:
       is tidying a messy apartment, ordinary next to what the blank implies, and filling it in would
       spoil the bait the title is setting rather than translate it.
 
+    reading: "ゲンカイ OL ト ジョシダイセイ ガ 〇〇 スル ハナシ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      Same 〇 fault.
   限界OLさんは悪役令嬢さまに仕えたい:
     en: The Burned-Out Office Worker Wants to Serve the Villainess
     basis: translated
@@ -1668,6 +1740,11 @@ titles:
       title respells the おも with 重, heavy, which is read the same おも. The pun is the title, and
       English has no word that means both heavy and interesting.
 
+    reading: "オモシレー オンナ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      重しれー is おもしれー, a colloquial 面白い, one word.
   酒と鬼は二合まで:
     en: 'Sake and the Demon, Two Cups at Most'
     basis: translated
@@ -1679,6 +1756,11 @@ titles:
       title puts sake and the demon under the same limit. The synopsis is a would-be bartender who
       takes in a glittery gal housemate secretly hiding that she is an oni.
 
+    reading: "サケ ト オニ ワ ニ ゴウ マデ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      鬼 and the particle は were glued into オニワ.
   遠山えま百合集　センセイとの時間。:
     en: 'Ema Tōyama''s Yuri Collection: Time with Sensei'
     basis: translated
@@ -1690,6 +1772,11 @@ titles:
       English-language Kodansha credits use. The synopsis is her first yuri anthology, five stories
       of teacher-and-student pairings plus a new epilogue.
 
+    reading: "トオヤマ エマ ユリシュウ 　 センセイ ト ノ ジカン。"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The author is Tōyama Ema, and 百合集 is ゆりしゅう, not 百 + 合集.
   透明な薄い水色に:
     en: Into a Transparent Pale Blue
     basis: translated
@@ -1734,6 +1821,11 @@ titles:
       Yen Press's own series page credits Piero Karasu, Yuri Kisaragi and Harutsugu Nadaka, matching
       鴉ぴえろ, きさらぎゆり and 南高春告 in the platform's byline.
 
+    reading: "テンセイ オウジョ ト テンサイ レイジョウ ノ マホウ カクメイ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      転生 is てんせい; テンショウ is not a reading the compound takes.
   転生王女と天才令嬢の魔法革命 【タテスク】:
     en: The Magical Revolution of the Reincarnated Princess and the Genius Young Lady
     basis: licensed
@@ -1747,6 +1839,11 @@ titles:
       serialisation track rather than a different work, so it carries the same licensed title as
       転生王女と天才令嬢の魔法革命.
 
+    reading: "テンセイ オウジョ ト テンサイ レイジョウ ノ マホウ カクメイ   【タテスク】"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      Same title, same 転生 fault.
   踊り場にスカートが鳴る:
     en: A Skirt Rustles on the Landing
     basis: translated
@@ -1847,6 +1944,7 @@ titles:
     source_kind: derived
     reading: カクノ ウサギ ワ カワイイ ユメ オ ミ ツズケル
     reading_basis: researched
+    reading_source_kind: derived
     reviewed: '2026-08-04'
     note: >-
       角野兎 is the protagonist's name, kept as a name; the synopsis has her summoned to save a world
@@ -2006,6 +2104,11 @@ titles:
       abs team up to train together. Bare carries the same double sense in English, physically
       exposed and emotionally open, which is why baring rather than showing.
 
+    reading: "ハラ ワル ウチラ ノ ヒミツゴト！"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      Full-width variant of the same title.
   腹ぺここぺ子はニクと棲む!:
     en: Starving Kopeko Lives with Meat!
     basis: translated
@@ -2047,6 +2150,7 @@ titles:
     source_kind: derived
     reading: セイサマ ノ オモウ ママ ニ
     reading_basis: researched
+    reading_source_kind: derived
     reviewed: '2026-08-04'
     note: >-
       神崎聖 is described as a 完璧美少女, a perfect beautiful girl, and the stored analyser reading
@@ -2076,6 +2180,11 @@ titles:
       formalised at 縁切り寺, temples where a wife could sever a marriage. A newcomer-award one-shot
       with no synopsis beyond the award notice.
 
+    reading: "エンキリバサミ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      鋏 rendakus to ばさみ as the second element of a compound.
   綺麗な花の遺し方:
     en: How to Leave a Beautiful Flower Behind
     basis: translated
@@ -2122,6 +2231,11 @@ titles:
       under an English licence, so it is ours to answer for and marked accordingly. 勇者部びより, Hero
       Club days, uses 日和, a fine or pleasant day, as its second half.
 
+    reading: "ユウキ ユウナ ワ ユウシャ デ アル   ユウシャブ ビヨリ   Party ♪"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The character is Yūki Yūna; 勇者部 is ゆうしゃぶ; デ was glued to ユウシャ.
   結ばれる日/読み切り:
     en: The Day We're Bound Together
     basis: translated
@@ -2180,6 +2294,7 @@ titles:
     source_kind: derived
     reading: シャマ
     reading_basis: researched
+    reading_source_kind: derived
     reviewed: '2026-08-04'
     note: >-
       紗痲 is a Vocaloid song by 煮ル果実, adapted here into manga by the producer's own script; 紗痲
@@ -2200,6 +2315,11 @@ titles:
       Scarlet Devil Mansion is the name the fandom itself has used for two decades; there is no
       central official English licence for Touhou terminology to attribute it to, so this is ours.
 
+    reading: "コウマカン ノ オンナタチ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      紅魔館 is こうまかん; 紅 takes こう in the compound, not くれない.
   紅茶の魔女の優雅なる宮廷生活 チートをひた隠す最弱魔導師の窓際ライフ:
     en: "The Tea Witch's Elegant Court Life: The Sidelined Life of the Weakest Mage Who Hides Her Cheat Powers"
     basis: translated
@@ -2224,6 +2344,11 @@ titles:
       full licensed title carries a Ghost Urn subtitle our key does not, since the catalogue holds
       the base series title.
 
+    reading: "コウカク ノ パンドラ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The title is こうかくのパンドラ, punning on 攻殻機動隊.
   篠崎志乃は甘くない!:
     en: Shinozaki Shino Isn't Sweet!
     basis: translated
@@ -2538,6 +2663,11 @@ titles:
     note: A COMITIA speed-manga runner-up with no synopsis beyond the award notice. Same idiom family
       as 神様の手 in this same checkpoint, kept consistent.
 
+    reading: "カミ ノ ミギテ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      神 and the particle の were glued into カミノ.
   硝子の体温:
     en: The Warmth of Glass
     basis: translated
@@ -2559,6 +2689,11 @@ titles:
       The synopsis is a grad student who mistakes a labmate cooking ramen for a ghost with a knife in
       a dim hallway. Plain phrase, nothing to protect.
 
+    reading: "ケンキュウトウ ノ マヨナカ ゴハン"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      棟 is とう in 研究棟; むね is the standalone kun reading.
   真夜中ぱんチ:
     en: Mayonaka Punch
     basis: translated
@@ -2799,6 +2934,11 @@ titles:
       synopsis confirms it, an expansion of a one-page web comic literally subtitled "(working
       title)" about interspecies girls and a human high schooler.
 
+    reading: "イシュゾク ジョシ ニ 〇〇 スル ハナシ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      〇 was expanded to its Unicode name ("zero symbol"); it is a censoring mark with no reading. The sibling entry using ○○ leaves it unread.
   異世界温泉の和菓子屋JK:
     en: The Isekai Hot Spring's Wagashi Shop Girl
     basis: translated
@@ -2826,6 +2966,7 @@ titles:
     source_kind: derived
     reading: ユカオ リニューアル
     reading_basis: researched
+    reading_source_kind: derived
     reviewed: '2026-08-04'
     note: >-
       由花緒 is a given name, and the stored reading had split it as two ordinary words, 由花
@@ -2895,6 +3036,11 @@ titles:
       all, who takes on a disgraced dog-folk apprentice to prove otherwise. そうですよ carries the
       hearsay tone the English question mark keeps.
 
+    reading: "ネコ マホウ ガ セカイ ニ カクメイ ヲ オコス ソウデス ヨ ?"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The word boundary falls between 猫 and 魔法; 魔法 is まほう.
   猫の日:
     en: Cat Day
     basis: translated
@@ -3043,6 +3189,11 @@ titles:
       hair; kept literal since a newcomer-award one-shot with no synopsis beyond the award notice
       gives nothing to confirm which sense is meant.
 
+    reading: "ヌレガラス ノ マジョ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      濡鴉 is ぬれがらす; ジュカラス mixes an on reading with a kun reading.
   潮滅に沈む翡翠、北のまちの黒曜:
     en: 'Jade Sinking in the Dying Tide, Obsidian of the Northern Town'
     basis: translated
@@ -3054,6 +3205,11 @@ titles:
       have. 翡翠 is both jade and, separately, the kingfisher; kept as jade, the more common reading in
       isolation, with no synopsis beyond the magazine credit to settle it either way.
 
+    reading: "シオ メツ ニ シズム ヒスイ、 キタ ノ マチ ノ コクヨウ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      Paired with 黒曜 (obsidian), 翡翠 is the gemstone ひすい, not the bird かわせみ.
   滅亡カウントダウン:
     en: Countdown to Extinction
     basis: translated
@@ -3295,6 +3451,11 @@ titles:
       wakes into another world resolved to kill no one again, only for a haughty young lady to claim
       her as a servant.
 
+    reading: "コロシヤ メイド ワ イバラヒメ ノ ユメ ヲ ミル"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      茨姫 (Briar Rose) is いばらひめ; うばら is archaic and unused here.
   殺し屋やめたい!:
     en: I Want to Quit Being an Assassin!
     basis: translated
@@ -3441,6 +3602,7 @@ titles:
     source_kind: derived
     reading: アズキ ワ テン ニ サキウ
     reading_basis: researched
+    reading_source_kind: derived
     reviewed: '2026-08-04'
     note: >-
       The platform's own synopsis glosses 梓月 directly as あづき, Azuki, correcting the stored
@@ -3638,6 +3800,11 @@ titles:
     note: >-
       The synopsis names all ten stories in the anthology, an author's first collection built entirely around 百合えっち, yuri ecchi, kept as the paired loanwords English fandom already uses for the same thing.
 
+    reading: "キノウ シタ ノニ オボエテナイ ノ？   ユリ エッチ タンペンシュウ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      昨日 and シた were glued; のに is one particle.
   春風のふり:
     en: Pretending to Be a Spring Breeze
     basis: translated
@@ -3727,6 +3894,7 @@ titles:
     source_kind: derived
     reading: アケビ チャン ノ セーラーフク
     reading_basis: researched
+    reading_source_kind: derived
     reviewed: '2026-08-04'
     note: >-
       Adopted from the anime's English release rather than translated fresh, unlicensed manga marked ours, the same shape as several titles this evening. The stored reading had 明日 as アス, asu, tomorrow; the platform's own episode title spells it 明日（あけび）ちゃん directly, and the series feed gives her full name as 明日小路, Akebi Komichi, both of which the reading now follows.
@@ -3758,6 +3926,11 @@ titles:
     note: >-
       A hyperbolic fan request, matching the synopsis: a woman who quits her job to write BL doujinshi discovers her own teenage niece is a fan of hers online, without either knowing who the other really is.
 
+    reading: "シンカン ヒャクオクサツ クダサイ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      100億 is ひゃくおく, not the digits read one-zero-zero.
   新・魔法科高校の劣等生 キグナスの乙女たち:
     en: 'The New Irregular at Magic High School: Maidens of Cygnus'
     basis: translated
@@ -3880,6 +4053,11 @@ titles:
     note: >-
       抱き寝, sleeping while hugging something, gets the tacked-on ーター that mimics an English device-name suffix like -inator or -tron; kept in the same register English already has for that joke rather than left as plain description. A newcomer-award one-shot with no synopsis beyond the award notice.
 
+    reading: "ダキネーター"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The title is a single coined word, dakinētā.
   抱かれたい女〜JDだけどアラサー女子に買われています〜:
     en: The Woman Who Wants to Be Held ~A College Girl, Bought by a Woman in Her Thirties~
     basis: translated
@@ -3971,6 +4149,11 @@ titles:
     note: >-
       中の人 is the idiom for whoever is inside a costume or mascot; the synopsis is the villainess Remilia's own original soul, watching from within as "Emi", the reincarnator who took her body, is falsely condemned, waking up to take revenge herself.
 
+    reading: "アクヤク レイジョウ ノ ナカ ノ ヒト 〜 ダンザイ サレタ テンセイシャ ノ タメ ウソツキ ヒロイン ニ フクシュウ イタシマス 〜"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      転生者 is てんせいしゃ.
   悪役令嬢とギャルメイド:
     en: The Villainess and Her Gal Maid
     basis: translated
@@ -4177,6 +4360,7 @@ titles:
     source_kind: derived
     reading: シノ ト レン
     reading_basis: researched
+    reading_source_kind: derived
     reviewed: '2026-08-04'
     note: >-
       The stored reading had 恋 as こい, love, the plain word; the platform's own page glosses it directly as 恋(レン), the second girl's given name, which happens to be written with the kanji for love. Kept romaji rather than translated, since "Shino and Ren" and "Shino and Love" are both real readings the title is built to hold at once, and choosing either would drop the pun the deliberate ambiguity is making.
@@ -4199,6 +4383,11 @@ titles:
     note: >-
       御羊, Miss Sheep, does not obviously match either name in the synopsis, 愛依 or 兎子 (rabbit child); kept literal rather than guessing which of them it names. The synopsis is secretly dating childhood friends, one unable to stop fantasising about her cool girlfriend until she finally reaches for her hand.
 
+    reading: "オヒツジチャン ワ サワリタイ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      おひつじ is one word (as in おひつじ座); the honorific お does not stand alone.
   徒花の約束:
     en: The Promise of a Fruitless Flower
     basis: translated
@@ -4270,6 +4459,11 @@ titles:
     reviewed: '2026-08-04'
     note: >-
       落とす here is the courtship sense, to win someone over; the same work is currently titled differently on pixiv, 彩香ちゃんは弘子先輩に恋してる, "Ayaka is in love with Hiroko-senpai", whose own synopsis confirms the same pairing and plot, so this is a rename the catalogue has not caught up with rather than a different work. Honorific dropped on the given name, senpai kept for the workplace senior.
+    reading: "アヤカチャン ワ ヒロコ センパイ ヲ オトシタイ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The stored reading is the reading of the sibling title 〜に恋してる, not of this one.
   # --- 2026-08-04 batch sixteen: continuing the queue -----------------------------------------
 
   彩香ちゃんは弘子先輩に恋してる:
@@ -4371,6 +4565,11 @@ titles:
     note: >-
       幕末, Bakumatsu, the end of the Edo period, kept as the historical term English already uses for it. The synopsis is a high schooler carrying the souls of Sakamoto Ryōma and Hijikata Toshizō, and 鬼, demon, is very likely leaning on Hijikata's own historical nickname, "the demon vice-commander" of the Shinsengumi, the way 夜明け, dawn, likely leans on Ryōma's own association with a new era for Japan; school rules forbid the romance the two find themselves drawn into.
 
+    reading: "バクマツ ジョシコウセイ   オニ ト ヨアケ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      鬼 and the particle と were glued into オニト.
   崩れる前のわたしでいさせて:
     en: Let Me Stay Who I Was Before I Fell Apart
     basis: translated
@@ -4398,6 +4597,11 @@ titles:
     note: >-
       Gifu is the real prefecture the story is set in, kept as the place name it is. The synopsis is a perfectionist high schooler who survives a suicide attempt meeting a small witch, a story of loss and rebuilding.
 
+    reading: "ギフ ノ ヨキ マジョ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      善き is the classical attributive よき; ゼンキ reads it as a noun compound.
   屍同士:
     en: Fellow Corpses
     basis: translated
@@ -4698,6 +4902,11 @@ titles:
     note: >-
       イく in katakana carries the same double sense as English "come", to go and to climax; the synopsis is an earnest angel sent to Earth to investigate "ecchi things" who starts feeling exactly that at a girl's house. The pun survives the translation almost exactly intact.
 
+    reading: "アマガセ マシロ ワ イキタク ナイ！"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      ましろ is one given name.
   天才を描く:
     en: Drawing a Genius
     basis: translated
@@ -4735,6 +4944,11 @@ titles:
     note: >-
       大室, Ōmuro, is the family's own surname, kept as a name; the synopsis is three sisters, the household's daily chaos, and the secrets each of the outer two is keeping from the others.
 
+    reading: "オオムロ ケ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      大室 is おおむろ; オウムロ is a back-conversion of "ō" to the wrong kana.
   大好きな親友がVチューバーの自分にガチ恋してた話:
     en: The Story of My Beloved Best Friend Being Seriously in Love with My VTuber Persona
     basis: translated
@@ -4918,6 +5132,11 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
 
+    reading: "シオウテン レイコ ノ ガンボウ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The character is Shiōten Reiko; 〜子 in a female given name is こ.
   嘘から始まる恋の夏-squall-:
     en: A Summer of Love That Begins With a Lie -Squall-
     basis: translated
@@ -5178,6 +5397,11 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
 
+    reading: "ゼンブ キミ ノ セイダ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      全部 and 君 are separate words; the analyser merged them and read 君 as くん.
   入味 この娘と食卓を囲む日から:
     en: 'Flavor Soaks In: From the Day I Started Sharing a Table With This Girl'
     basis: translated
@@ -5552,6 +5776,11 @@ titles:
     note: >-
       Names the real urban legend, several slopes across Japan share it, that falling on the slope kills you within three years; kept literal rather than romanized so the curse reads as what it is.
 
+    reading: "サンネンザカ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      三年坂 is さんねんざか, a single place name with rendaku.
   一条ヒヨコはピアノだけ:
     en: Ichijou Hiyoko Only Has Piano
     basis: translated
@@ -5672,6 +5901,11 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
 
+    reading: "レズッコ クラブ   ONE   TiME   ONLY"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      〜っ娘 is 〜っこ; the group it is named after writes itself レズっ娘 = れずっこ.
   ルミナス＝ブルー:
     en: Luminous = Blue
     basis: translated
@@ -5738,6 +5972,11 @@ titles:
     note: >-
       The manga itself carries no English license; the romanization follows Crunchyroll's own for the franchise's TV anime, announced under the title Love Live! Hasunosora Jyogakuin School Idol Club, since the manga is set in the same fiction rather than a separate work needing its own name.
 
+    reading: "ラブライブ ! flowers *ー ハス ノ ソラ ジョガクイン スクールアイドルクラブー"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      蓮ノ空女学院 is はすのそらじょがくいん; 女学院 is じょがくいん in every school name.
   ライオンと不時着(第17回NC佳作):
     en: The Lion and the Crash Landing
     basis: translated
@@ -6023,6 +6262,11 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
 
+    reading: "ヒーローサン ト モト オンナ カンブサン"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The prefix 元 meaning "former" is もと; ガンニョ reads 元女 as a compound that does not exist.
   ヒロイン.:
     en: Heroine.
     basis: translated
@@ -6271,6 +6515,11 @@ titles:
     note: >-
       駄犬, a good-for-nothing dog, is slang for someone clingy and a little pathetic but endearing anyway; the synopsis uses the word directly, so it anchors the title's dog rather than being incidental.
 
+    reading: "ダメイヌ カノジョ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      ダメ犬 is だめいぬ; the on reading けん does not attach to a katakana stem.
   ダブルピース/読み切り:
     en: Double Peace
     basis: translated
@@ -6432,6 +6681,11 @@ titles:
     note: >-
       Fujichika's series, licensed by Seven Seas with volumes releasing from June 2026; sevenseasentertainment.com blocks automated fetches, so cited through Penguin Random House's listing, which names Seven Seas as the imprint directly.
 
+    reading: "スケバン ト テンコウセイ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The reading carries a longer title than the one stored; the tail has no counterpart in the name.
   スクールゾーン:
     en: School Zone
     basis: translated
@@ -6974,6 +7228,11 @@ titles:
     note: >-
       搦む is a heavier, more ensnaring word for tangling than the everyday 絡む; the protagonist's own name, 糸井, opens with 糸, thread, so the title reads as a pun on her rather than a generic warning.
 
+    reading: "イト ガ カラム"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      搦ム is からむ in historical kana; カラミム reads the stem twice.
   アンドロイドは経験人数に入りますか？？:
     en: Does an Android Count Toward Your Number of Partners??
     basis: translated
@@ -7167,6 +7426,11 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
 
+    reading: "ヤシロ ノ マオウ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      やしろ (社) is one word.
   やさしい教師の躾けかた。:
     en: How to Train a Kind Teacher.
     basis: translated
@@ -7289,6 +7553,11 @@ titles:
     note: >-
       癒衣, the masseuse's name, is written with healing and garment rather than ordinary name kanji, a coined name fitting her role rather than a real surname.
 
+    reading: "ホグシテ、 ユイサン。"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      癒衣 is a given name; ゆい is the ordinary reading, and イエコロモ is two isolated kun readings.
   ほうかご再テンセイ！:
     en: After-School Re-Reincarnation!
     basis: translated
@@ -7296,6 +7565,11 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
 
+    reading: "ホウカゴ サイ テンセイ！"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      ほうかご is 放課後 written in kana, one word.
   ぷれいめ～と:
     en: Playmate
     basis: translated
@@ -7786,6 +8060,11 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
 
+    reading: "コモグチャン ニ タベラレタイ！"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      こもぐちゃん is one name.
   こはる日和。:
     en: Koharu Weather.
     basis: translated
@@ -8550,6 +8829,11 @@ titles:
 
 
 
+    reading: "# ウチラ ガ サイキョウ   ～ インキャ ジョレイシ ト ギャル JK ～"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      陰キャ is いんキャ, an established coinage from 陰気なキャラ.
   # --- titles that were waiting on a repaired key ---------------------------------------------
 
   公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です！…って、魔王が女の子の場合はどうすればいいのですか！？～:
@@ -8577,6 +8861,7 @@ titles:
   マユノウタ:
     reading: マユ ノ ウタ
     reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
@@ -8587,6 +8872,7 @@ titles:
   いととうとし:
     reading: イト トウトシ
     reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
@@ -8595,6 +8881,7 @@ titles:
   きょうはなにしよう？:
     reading: キョウ ワ ナニ シヨウ？
     reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
@@ -8605,6 +8892,7 @@ titles:
   とうめいなおとうさん:
     reading: トウメイ ナ オトウサン
     reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
@@ -8613,6 +8901,7 @@ titles:
   やきゅうみようよ!:
     reading: ヤキュウ ミヨウ ヨ!
     reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
@@ -8621,6 +8910,7 @@ titles:
   ウチらのっぺらぼう:
     reading: ウチラ ノッペラボウ
     reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
@@ -8629,6 +8919,7 @@ titles:
   オカワリいただけただろうか?:
     reading: オカワリ イタダケタ ダロウカ？
     reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
@@ -8639,6 +8930,7 @@ titles:
   屍同士:
     reading: シカバネ ドウシ
     reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
@@ -8665,6 +8957,7 @@ titles:
     source: derived
     reading: ナナシ ノ テンセイ
     reading_basis: researched
+    reading_source_kind: derived
     source: derived
     source_kind: derived
     reviewed: '2026-08-04'
@@ -8680,6 +8973,7 @@ titles:
     source: derived
     reading: ナナシ ノ テンセイ クイーンズ ブレイド
     reading_basis: researched
+    reading_source_kind: derived
     source: derived
     source_kind: derived
     reviewed: '2026-08-04'
@@ -8689,3 +8983,21 @@ titles:
       separately rather than treated as one title truncated. Both carried the same English, which
       claimed the shorter Japanese title says Queen's Blade when it does not; each now renders the
       title it actually has.
+
+
+  # --- readings corrected against the mechanical pass ----------------------------
+  #
+  # An analyser reading is a machine's best effort, and these are wrong in one
+  # particular way: a valid reading of the characters in isolation applied to a
+  # compound that does not take it. 転生 as テンショウ is the shape, and it recurred
+  # six times. Segmented, because the romaniser places boundaries on the spaces.
+
+  "腹割るウチらの秘密ごと!":
+    reading: "ハラ ワル ウチラ ノ ヒミツゴト !"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    note: >-
+      腹を割る is はらをわる; ふく is 腹 only in Sino-Japanese compounds.

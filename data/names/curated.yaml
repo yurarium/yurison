@@ -9,7 +9,25 @@
 # than only with the result.
 
 titles:
-
+  ゆりゾン:
+    en: YURISON
+    basis: official-jp
+    source: comic-ogyaaa
+    source_kind: platform
+    source_url: https://comic-ogyaaa.com/episode/2551460909730247441
+    reading: ユリゾン
+    reading_basis: surface
+    reading_source_kind: derived
+    reviewed: '2026-08-04'
+    note: >-
+      The work's own Latin form, set on its splash art and carried through the platform's own
+      content_id for every episode, YURISON_001 and so on. It is not a romanisation of the kana,
+      which would be Yurizon: ゾン is written with ゾ and styled with an s. An official form
+      outranks anything we derive, which is what the distinction is for. It replaces a reading of
+      the characters made here, which guessed at yuri plus zone.
+    reading_note: >-
+      The title is kana throughout, so the reading is the title. It was stored as two words,
+      ユリ ゾン, which romanised as "Yuri Zon" and split a name that is one word.
   # --- attributed to a licensor -------------------------------------------------------------
 
   安達としまむら:
@@ -7373,15 +7391,6 @@ titles:
     note: >-
       No current English licensor; ALC Publishing released two volumes in 2012 before folding, under this exact romanization, which is also what the anime and every English-language write-up of the franchise use. Kept as the established name rather than translated to something like "Easygoing Yuri."
 
-  ゆりゾン:
-    en: Yurizon
-    basis: romaji
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      Reads as a contraction, most likely yuri plus zone with the vowel dropped, but nothing reachable about this series confirms it over yuri plus horizon, which the synopsis's world-changing sci-fi turn would also fit; kept as the coined word rather than guessed apart.
-
   ゆりづくしの教室で:
     en: In a Classroom Full of Yuri
     basis: translated
@@ -12505,3 +12514,1359 @@ authors:
       The artist's own handle is @ichigokanato15, so 神戸 is カナト rather than the stored コウベ.
       That is enough to disbelieve the guess and not enough to state a reading, since the handle
       does not settle how the whole name is written in kana.
+
+  # People who appear only inside a credit line, researched once they had records of their own.
+
+  "鴉ぴえろ":
+    reading: "カラス ピエロ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784040764863"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was already right. 87 other records give the same kana unsegmented as カラスピエロ.
+
+  "花ヶ田":
+    reading: "ハナガタ"
+    reading_basis: stated
+    reading_source_kind: author
+    source: "author"
+    source_kind: author
+    source_url: "https://www.pixiv.net/en/artworks/140699927"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Artist's own pixiv account is hanagata. One unit, no family/given boundary. NDL's 創成魔法の再現者 record agrees (https://ndlsearch.ndl.go.jp/books/R100000137-I9784824017659); NDL's 私の推しは悪役令嬢。連載版 records say ハナケダ and are wrong.
+
+  "夜の羊雲":
+    reading: "ヨルノヒツジグモ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A22627800000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      One unit, no boundary. NDL's book record writes it word-spaced as ヨル ノ ヒツジグモ.
+
+  "古田朋大":
+    reading: "フルタ トモヒロ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033374588"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right. Namesake ceramics researcher also present in NDL with no reading.
+
+  "柚原もけ":
+    reading: "ユズハラ モケ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I030715643"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      安達としまむら公式コミックアンソロジー, the example work.
+
+  "林星悟":
+    reading: "ハヤシ ショウゴ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032588339"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      ステラ・ステップ, the example work.
+
+  "西馬ごめゆき":
+    reading: "ニシマ ゴメユキ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033445772"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Found by title; the creator index files this artist with a birth-year suffix.
+
+  "岡野く仔":
+    reading: "オカノ クコ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034323842"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right.
+
+  "南方純":
+    reading: "ミナカタ スナオ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I030190539"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      The example work itself, THE COMIC edition, マイクロマガジン社.
+
+  "遠野めざ":
+    reading: "トオノ メザ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033474587"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      バカ女26時, the example work. Kana were right, the boundary was missing.
+
+  "狐印":
+    reading: "コイン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784824017963"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      The example work's volume 2, so identity is direct rather than inferred from 防振り.
+
+  "志田":
+    reading: "サネダ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A24329800000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Positional pairing on the example work: ばたっち / 星崎崑 / 志田 to バタッチ / ホシザキコン / サネダ.
+
+  "桃田ロウ":
+    reading: "モモタ ロウ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033967083"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right.
+
+  "笹塔五郎":
+    reading: "ササ トウゴロウ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031722989"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Kana were right, the boundary was in the wrong place.
+
+  "珠樹みつね":
+    reading: "タマキ ミツネ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784049722307"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right. Positional pairing on the example work's volume 1.
+
+  "桜河ゆう":
+    reading: "オウカワ ユウ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784049722307"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Same record, third position: 桜河　ゆう to オウカワ　ユウ.
+
+  "東方Project":
+    reading: "トウホウプロジェクト"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A13099200000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      A franchise credited as originator, not a person.
+
+  "神無月羽兎":
+    reading: "カンナヅキ ハト"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A18437800000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      NDL's own book records normalise this to カンナズキ, ハト.
+
+  "空山トキ":
+    reading: "ソラヤマ トキ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033648981"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right.
+
+  "泉乃せん":
+    reading: "イズミノ セン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033395195"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Confirmed again by the 月刊少年シリウス issue records that carry the example work.
+
+  "小林湖底":
+    reading: "コバヤシ コテイ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000001-I11213366710"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right. ひきこまり吸血姫, the example series.
+
+  "羽田 宇佐":
+    reading: "ハネダ ウサ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032625176"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      週に一度クラスメイトを買う話, the example work. Not the same surname reading as 羽田遼亮.
+
+  "二三　夏一":
+    reading: "フミ ナツイチ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034353142"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      わたくし、負けませんので。, the example work.
+
+  "絵本奈央":
+    reading: "エモト ナオ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I028081464"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right.
+
+  "三河ごーすと":
+    reading: "ミカワ ゴースト"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I023582167"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Reading stated by the source cited.
+
+  "朱白あおい":
+    reading: "アカシロ アオイ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784868052142"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      The example work; positional pairing across all four credited names.
+
+  "柳井伸彦":
+    reading: "ヤナイ ノブヒコ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784868052142"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right. Fourth position on the same record.
+
+  "青乃下":
+    reading: "アオノ シモ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034041075"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      私の推しは悪役令嬢。, the example work, 一迅社.
+
+  "川田暁生":
+    reading: "カワダ アキオ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I030631814"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      The example work's e-book records agree (カワダアキオ).
+
+  "本間リョウタ":
+    reading: "ホンマ リョウタ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033562857"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right. T.Tラバーズ。, the example work.
+
+  "深津":
+    reading: "フカツ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A25950900000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right. Positional pairing on 紗痲 Fallin' Jail【分冊版】1: 深津 / 煮ル果実 / WOOMA to フカツ / ニルカジツ / ウーマ.
+
+  "ぴよぴよ丸":
+    reading: "ピヨピヨマル"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034235006"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      One unit, no boundary. ウは宇宙ヤバイのウ!, the example work.
+
+  "裏海マユ":
+    reading: "リガイ マユ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032575813"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      お父さんが早く死にますように。, ファンギルド. Corroborated by the artist's own X handle @whiterigai.
+
+  "猫屋敷ぷしお":
+    reading: "ネコヤシキ プシオ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784049523676"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Positional pairing: 入間　人間 / 猫屋敷　ぷしお to イルマ　ヒトマ / ネコヤシキ　プシオ.
+
+  "羽田遼亮":
+    reading: "ハタ リョウスケ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784065449530"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      The example work, volume 11; all four credited names pair cleanly.
+
+  "蔵王大志":
+    reading: "ザオウ タイシ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031725994"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right.
+
+  "望月けい":
+    reading: "モチヅキ ケイ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A16789600000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right. Identity confirmed by the 人間よ強欲であれ : 望月けい画集 record, which spells it モチズキ, ケイ under NDL's づ normalisation.
+
+  "七橋楽":
+    reading: "ナナハシ ラク"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034145587"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      幼馴染は、にゃあと鳴いてスカートのなか, the example work.
+
+  "司馬漬け":
+    reading: "シバズケ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033260709"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      ふたり暮らしのおとりよせ日和, the example work. One unit, no boundary.
+
+  "ピザ萬":
+    reading: "ピザマン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A16587000000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      The example work, chapter 1. One unit, no boundary.
+
+  "犬甘あんず":
+    reading: "イヌカイ アンズ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033161239"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right. The example work.
+
+  "島崎無印":
+    reading: "シマザキ ムジルシ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032813276"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right. エリオと電気人形, the example work.
+
+  "鈴音れな":
+    reading: "スズノネ レナ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031637553"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      百合ラブスレイブ, the example work.
+
+  "倉田英之":
+    reading: "クラタ ヒデユキ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A22059600000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right. NOMADS ノーマッズ; the creator index also holds several unrelated academics under these characters.
+
+  "洲央":
+    reading: "スオウ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033632738"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      崖っぷち令嬢は黒騎士様を惚れさせたい!, the example work, 一迅社. One unit, no boundary.
+
+  "恵茂田喜々":
+    reading: "エモダ キキ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033318653"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      君のためのカーテンコール, the example work.
+
+  "我孫子楽人":
+    reading: "アビコ カナト"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033630105"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      きみの絶滅する前に, 講談社, the artist's only catalogued book. A モーニング 2026年21号 issue record gives the same reading.
+
+  "羽流木はない":
+    reading: "ワルギ ハナイ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A22862500000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Conflict worth a human look. Sixty publisher records say ワルギハナイ; fourteen NDL book records say ワルギ, ワナイ, which cannot be right because the given name is written in kana as はない.
+
+  "臼井ともみ":
+    reading: "ウスイ トモミ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I029251097"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right.
+
+  "「真夜中ぱんチ」製作委員会":
+    reading: "マヨナカパンチセイサクイインカイ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A21870300000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      A production committee, not a person.
+
+  "大倉ナタ":
+    reading: "オオクラ ナタ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033022884"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right. ニーディガールオーバードーズ anthology, 秋田書店.
+
+  "藤居にこ":
+    reading: "フジイ ニコ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033472451"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right. 夜のクラゲは泳げない, the example work.
+
+  "駿馬京":
+    reading: "シュンメ ケイ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032542328"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      きみと観たいレースがある, the example work. Found by title; the creator index files this writer with a birth-year suffix.
+
+  "矢立肇":
+    reading: "ヤダテ ハジメ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I000002956104"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Conflict worth a human look. All 27 NDL records say ヤダテ; general usage and the ニコニコ大百科 headword say ヤタテ, from 芭蕉's 矢立の初め. Sunrise publishes no furigana. Consider leaving this one blank until a licensor source settles it.
+
+  "倉瀬しの":
+    reading: "クラセ シノ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034569979"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right.
+
+  "月並甲介":
+    reading: "ツキナミ コウスケ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031186031"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      The example work. Kana were right, the boundary was in the wrong place.
+
+  "尾花沢軒栄":
+    reading: "オバナザワ ケンエイ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I026436627"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      アサルトリリィ : 一柳隊、出撃します!, and the example work carries the same reading.
+
+  "電撃G'sマガジン":
+    reading: "デンゲキジーズマガジン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A24599800000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      A magazine, not a person. The reading comes from NDL's 電撃Ｇ’ｓマガジン編集部 heading, デンゲキジーズマガジンヘンシュウブ, with 編集部 removed.
+
+  "筒井テツ":
+    reading: "ツツイ テツ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031381125"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Guess was right. 推しが隣で授業に集中できない!, the example work.
+
+  "蛙田あめこ":
+    reading: "カエルダ アメコ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I029506989"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      The example work, オーバーラップ.
+
+  "三弥カズトモ":
+    reading: "ミヤ カズトモ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I029478689"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      その者。のちに…, アース・スターエンターテイメント; 剣と魔法の税金対策 e-books agree with ミヤカズトモ.
+
+  "塩こうじ":
+    reading: "シオコウジ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784040764801"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; NDL treats it as one unit, no boundary
+
+  "羽柴実里":
+    reading: "ハシバ ミサト"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I09D129210000d0000000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work, paired with zinbei ジンベエ; space from the written name
+
+  "南高春告":
+    reading: "ナダカ ハルツグ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031217131"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; surname and given name both misread by the guesser
+
+  "渡辺零":
+    reading: "ワタナベ レイ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032542328"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      heading is from きみと観たいレースがある; the same writer is credited 原作 on サバーキ
+
+  "藤川よつ葉":
+    reading: "フジカワ ヨツバ"
+    reading_basis: stated
+    reading_source_kind: author
+    source: "author"
+    source_kind: author
+    source_url: "https://lit.link/en/fujikawayotsuba"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      own link page and X handle both romanise Fujikawa; NDL's authority heading says フジガワ, so the author's own form is preferred
+
+  "りんご水":
+    reading: "リンゴスイ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034392235"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; one unit
+
+  "南部くまこ":
+    reading: "ナンブ クマコ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000136-I1970304959855939592"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      heading is from KADOKAWA children's titles, matched on the pen name only
+
+  "波多ヒロ":
+    reading: "ハタ ヒロ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784041175651"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is volume 2 of the example work
+
+  "大鷹シン":
+    reading: "オオタカ シン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034353215"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work
+
+  "彩乃浦助":
+    reading: "アヤノ ウラスケ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I08X10000000042395500"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; NDL's heading 彩乃, 浦助 puts the boundary after 彩乃
+
+  "星崎崑":
+    reading: "ホシザキ コン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031647512"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      heading is from the light novels; same author writes the example work
+
+  "時任せつな":
+    reading: "トキトウ セツナ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784046603739"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is volume 2 of the example work
+
+  "花宮みぃ":
+    reading: "ハナミヤ ミィ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034681750"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      heading is from 芳文社 titles, matched on the pen name only
+
+  "銃爺":
+    reading: "ガンジイ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "publisher-jp"
+    source_kind: publisher-jp
+    source_url: "https://shogakukan-comic.jp/author?cd=15957"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Shogakukan's author page for the example work prints ガンジイ; NDL agrees at R100000137-I09D151700000d0000000, though its magazine records say ガンジー
+
+  "恥谷きゆう":
+    reading: "ハジタニ キユウ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784049722307"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work
+
+  "今安":
+    reading: "ジンアン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784046857583"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; creators 小畠　泪 and 今安 pair with オバタ　ルイ and ジンアン. Creator search returns only academic namesakes
+
+  "デス山ハナ子":
+    reading: "デスヤマ ハナコ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784048119917"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is volume 3 of the example work
+
+  "和ふー":
+    reading: "ワフー"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034363049"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; NDL gives no boundary
+
+  "五色安未":
+    reading: "ゴシキ アミ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033907724"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work
+
+  "伍長":
+    reading: "ゴチョウ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I06A0000000001037022S"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      volume 4 of the example series; creators 空山　トキ and 伍長 pair with ソラヤマトキ and ゴチョウ
+
+  "右腹":
+    reading: "ミギハラ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033957935"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; one unit
+
+  "新城一":
+    reading: "シンジョウ ハジメ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I06Z0139915510001000I"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      magazine and 分冊版 records give シンジョウハジメ; NDL's authority heading 新城, 一 fixes the boundary
+
+  "久賀　フーナ":
+    reading: "クガ フーナ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784824018199"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      26 records under クガフーナ; boundary is the full-width space already in the credit
+
+  "能代リョウ":
+    reading: "ノシロ リョウ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034011848"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work
+
+  "糀もろみ":
+    reading: "コウジ モロミ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033905579"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work
+
+  "さわやか鮫肌":
+    reading: "サワヤカサメハダ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A23774700000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; NDL gives no boundary
+
+  "破賀ミチル":
+    reading: "ハガ ミチル"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034363229"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work
+
+  "りんご飴サード":
+    reading: "リンゴアメ サード"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034666209"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; NDL's own spacing
+
+  "志瑞祐":
+    reading: "シミズ ユウ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I029925165"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      24 records under the heading 志瑞, 祐; the author's X handle @shimizuMFJ agrees
+
+  "王月よう":
+    reading: "オウズキ ヨウ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032482150"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work
+
+  "煮ル果実":
+    reading: "ニル カジツ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034663002"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; NDL's own spacing
+
+  "佐島勤":
+    reading: "サトウ ツトム"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000136-I1970867909773172271"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      22 records under 佐島, 勤 including the example series
+
+  "陣ノ内康暉":
+    reading: "ジンノウチ コウキ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034589307"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work
+
+  "川上しをん":
+    reading: "カワカミ シオン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034566690"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      the national bibliography record for the example work reads シオン; KADOKAWA's own 分冊版 metadata supplies カワカミシヲン, kept here as a variant
+
+  "倫理きよ":
+    reading: "リンリ キヨ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I029147998"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      transcription is on an earlier title under the same heading 倫理, きよ; the example work carries the heading with the field blank
+
+  "潮一葉":
+    reading: "ウシオ ヒトハ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784065449530"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is volume 11 of the example work
+
+  "日之下あかめ":
+    reading: "ヒノシタ アカメ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I029476413"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      heading is from エーゲ海を渡る花たち and 河畔の街のセリーヌ
+
+  "米田タロウ":
+    reading: "ヨネダ タロウ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034545724"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work
+
+  "柚子桃":
+    reading: "ユズモモ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033260709"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; NDL treats it as one unit
+
+  "耳式":
+    reading: "ミミシキ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A22496500000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; 30 records agree
+
+  "田中まさみ":
+    reading: "タナカ マサミ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A16587000000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      22 records for the example series give タナカマサミ; space from the written name
+
+  "月夜 涙":
+    reading: "ツキヨ ルイ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I030353242"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      29 records under 月夜, 涙
+
+  "黒イ森":
+    reading: "クロイ モリ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032813276"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; NDL's own spacing
+
+  "あらおし悠":
+    reading: "アラオシ ユウ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I000011266393"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      28 records under あらおし, 悠
+
+  "森山大輔":
+    reading: "モリヤマ ダイスケ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031414283"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      heading 森山, 大輔, 1971-; birth year dropped from the reading
+
+  "紗嶋":
+    reading: "サジマ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034771830"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; one unit
+
+  "後谷戸隆":
+    reading: "ウシロヤト タカシ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032035379"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      heading 後谷戸, 隆, 1986-; birth year dropped from the reading
+
+  "錫江":
+    reading: "スズエ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A23082100000"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      26 records for the example work; one unit
+
+  "新島あん":
+    reading: "ニイジマ アン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032756864"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work
+
+  "動画投稿少女":
+    reading: "ドウガトウコウショウジョ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033567569"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      a collective pseudonym for the anime committee, not a personal name; NDL spaces it as three words but there is no family/given boundary to mark
+
+  "娘太丸":
+    reading: "コタマル"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I023585526"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      11 records including 結城友奈は勇者である娘太丸アートワークス, the same artist as the example work; one unit
+
+  "朝霧咲":
+    reading: "アサギリ サク"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033918778"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; heading 朝霧, 咲, 2004-
+
+  "桐原のん":
+    reading: "キリハラ ノン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033430756"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      heading from other titles, matched on the pen name only; the example work is a ジャンプTOON one-shot
+
+  "サンクス仮面":
+    reading: "サンクス カメン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032987553"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      heading from サトム・フォーリンラブ; NDL's own spacing
+
+  "蛙田アメコ":
+    reading: "カエルダ アメコ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I2530000D0048560050A1"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      14 records give カエルダアメコ; space from the written name
+
+  "田中天":
+    reading: "タナカ タカシ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I000009949153"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      heading 田中, 天, 1977-, the tabletop RPG writer behind ナイトウィザード and アリアンロッド; birth year dropped
+
+  "浅野龍哉":
+    reading: "アサノ タツヤ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000136-I1971993809756396736"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      heading from 指輪物語 浅野龍哉作品集, the artist who also works with 大塚英志
+
+  "阿羅本景":
+    reading: "アラモト ケイ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031186031"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work; the author's X handle @aramotokei agrees
+
+  "宮原都":
+    reading: "ミヤハラ ミヤコ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032593581"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      the example work carries the heading 宮原, 都, whose transcription is on 一度だけでも、後悔してます。
+
+  "菅原こゆび":
+    reading: "スガワラ コユビ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031381125"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      record is the example work
+
+  "りりうら世都":
+    reading: "リリウラ ヨミヤ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    source: "national-library"
+    source_kind: national-library
+    source_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031717560"
+    reviewed: '2026-08-04'
+    reading_note: >-
+      nine records for the example work under りりうら, 世都
+
+  伊実:
+    reading_refuted: true
+    reviewed: '2026-08-04'
+    reading_note: >-
+      A Chinese webcomic creator. The National Diet Library records the name deliberately without kana, as it does for names that are not Japanese, so furigana is the wrong apparatus and there is nothing to replace the guess with.
+
+  角川青羽:
+    reading_refuted: true
+    reviewed: '2026-08-04'
+    reading_note: >-
+      Not a person. The credit is 角川青羽（上海）文化創意有限公司, the Shanghai KADOKAWA company that produced the edition, which NDL records as a corporate body with the transcription field empty. カドカワ アオバ reads it as somebody's name.

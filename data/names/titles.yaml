@@ -5263,24 +5263,33 @@ names:
     reading_source_kind: analyser
     verified: false
   ゆりゾン:
-    basis: romaji
-    en: Yurizon
+    basis: official-jp
+    en: YURISON
     en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
-    furigana_spans:
-    - - ゆりゾン
-      - null
-    note: Reads as a contraction, most likely yuri plus zone with the vowel dropped, but nothing reachable
-      about this series confirms it over yuri plus horizon, which the synopsis's world-changing sci-fi
-      turn would also fit; kept as the coined word rather than guessed apart.
-    reading: ユリ ゾン
+    en_conflicts:
+    - basis: romaji
+      source: yurarium
+      value: Yurizon
+    en_source: comic-ogyaaa
+    en_source_kind: platform
+    en_url: https://comic-ogyaaa.com/episode/2551460909730247441
+    note: 'The work''s own Latin form, set on its splash art and carried through the platform''s own content_id
+      for every episode, YURISON_001 and so on. It is not a romanisation of the kana, which would be Yurizon:
+      ゾン is written with ゾ and styled with an s. An official form outranks anything we derive, which is
+      what the distinction is for. It replaces a reading of the characters made here, which guessed at
+      yuri plus zone.'
+    reading: ユリゾン
     reading_at: '2026-08-04'
-    reading_basis: analyser
+    reading_basis: surface
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ユリ ゾン
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: comic-ogyaaa
+    reading_source_kind: platform
+    reading_url: https://comic-ogyaaa.com/episode/2551460909730247441
+    verified: true
   ゆるゆり:
     basis: translated
     en: YuruYuri

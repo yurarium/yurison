@@ -2976,7 +2976,11 @@ names:
     reading_source: surface
     verified: true
   じわじわ百合になっていくJK:
-    basis: romaji
+    basis: translated
+    en: The JKs Slowly Turning Into Yuri
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - じわじわ
       - null
@@ -2994,7 +2998,11 @@ names:
     reading_source_kind: analyser
     verified: false
   すき焼き定食なんかキライだ:
-    basis: romaji
+    basis: translated
+    en: I Hate Sukiyaki Set Meals, or Whatever
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - すき
       - null
@@ -3016,7 +3024,11 @@ names:
     reading_source_kind: analyser
     verified: false
   すぐ泣く先輩:
-    basis: romaji
+    basis: translated
+    en: The Senior Who Cries Easily
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - すぐ
       - null
@@ -3036,7 +3048,11 @@ names:
     reading_source_kind: analyser
     verified: false
   すべては拳から始まる(青年漫画賞・入選):
-    basis: romaji
+    basis: translated
+    en: Everything Starts with a Fist
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - すべては
       - null
@@ -3060,8 +3076,8 @@ names:
       - にゅうせん
     - - )
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The parenthetical is Big Comics' own award badge on the series listing; dropped as promotional
+      framing rather than part of the title, same handling as the other Big Comics badge titles this run.
     reading: スベテ ワ コブシ カラ ハジマル ( セイネン マンガ ショウ・ ニュウセン )
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -3070,7 +3086,11 @@ names:
     reading_source_kind: analyser
     verified: false
   すわっぷ⇔すわっぷ:
-    basis: romaji
+    basis: translated
+    en: Swap ⇔ Swap
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - すわっぷ⇔すわっぷ
       - null
@@ -3084,6 +3104,11 @@ names:
     reading_source_kind: analyser
     verified: false
   ぜんぜんかわいくない:
+    basis: translated
+    en: Not Cute At All
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ゼンゼンカワイクナイ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3121,7 +3146,11 @@ names:
     reading_source_kind: analyser
     verified: false
   そこに虹がなくても:
-    basis: romaji
+    basis: translated
+    en: Even If There's No Rainbow There
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - そこに
       - null
@@ -3139,12 +3168,16 @@ names:
     reading_source_kind: analyser
     verified: false
   その恋よきにはからえ!:
-    basis: romaji
-    en: Sono Koi Yoki ni Hakarae!
-    en_at: '2026-08-02'
+    basis: translated
+    en: As for That Romance, Handle It As You See Fit!
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Sono Koi Yoki ni Hakarae!
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/edrqrj5/sono-koi-yoki-ni-hakarae
     furigana_spans:
     - - その
@@ -3153,8 +3186,9 @@ names:
       - こい
     - - よきにはからえ!
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: よきにはからえ is stock jidaigeki dialogue, a lord's dismissive order to a retainer to use their own
+      judgment; the synopsis's history teacher is a Sengoku-era otaku who consults an imagined Uesugi
+      Kenshin for advice, so the phrase is her own voice rather than an incidental idiom.
     reading: ソノ コイ ヨキ ニ ハカラエ !
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -3163,7 +3197,11 @@ names:
     reading_source_kind: analyser
     verified: false
   その手紙代行します！:
-    basis: romaji
+    basis: translated
+    en: I'll Ghostwrite That Letter for You!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - その
       - null
@@ -3183,7 +3221,11 @@ names:
     reading_source_kind: analyser
     verified: false
   その気になれば世界だってぶっ壊せる:
-    basis: romaji
+    basis: translated
+    en: If I Wanted To, I Could Smash the Whole World
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - その
       - null
@@ -3209,12 +3251,16 @@ names:
     reading_source_kind: analyser
     verified: false
   その矛先、知らぬが愛矢:
-    basis: romaji
-    en: Sono Hokosaki, Shiranu ga Manaya
-    en_at: '2026-08-02'
+    basis: translated
+    en: Where It's Aimed, and Aiya Doesn't Know
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Sono Hokosaki, Shiranu ga Manaya
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/7tesksb/sono-hokosaki-shiranu-ga-manaya
     furigana_spans:
     - - その
@@ -3231,8 +3277,8 @@ names:
       - まな
     - - 矢
       - や
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 知らぬが愛矢 puns on the idiom 知らぬが仏, ignorance is bliss, literally not knowing is Buddha, with 仏
+      swapped for 愛矢, a name that sounds close enough to slot into the fixed phrase's shape.
     reading: ソノ ホコサキ、 シラヌガ マナ ヤ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -3241,12 +3287,16 @@ names:
     reading_source_kind: analyser
     verified: false
   その花の名はキラキラ:
-    basis: romaji
-    en: Sono Hana no Na wa Kirakira
-    en_at: '2026-08-02'
+    basis: translated
+    en: That Flower's Name Is Sparkle
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Sono Hana no Na wa Kirakira
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/nv69qa2/sono-hana-no-na-wa-kirakira
     furigana_spans:
     - - その
@@ -3267,12 +3317,16 @@ names:
     reading_url: https://www.mangaupdates.com/series/nv69qa2/sono-hana-no-na-wa-kirakira
     verified: false
   それが君になる:
-    basis: romaji
-    en: Sore ga Kimi ni Naru
-    en_at: '2026-08-02'
+    basis: translated
+    en: That Becomes You
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Sore ga Kimi ni Naru
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/4c4v54t/sore-ga-kimi-ni-naru
     furigana_spans:
     - - それが
@@ -3289,7 +3343,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/4c4v54t/sore-ga-kimi-ni-naru
     verified: false
   それはただの夏の一日:
-    basis: romaji
+    basis: translated
+    en: It Was Just an Ordinary Summer Day
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - それはただの
       - null
@@ -3309,12 +3367,16 @@ names:
     reading_source_kind: analyser
     verified: false
   たとえとどかぬ糸だとしても:
-    basis: romaji
-    en: Tatoe Todokanu Ito da to shite mo
-    en_at: '2026-08-02'
+    basis: translated
+    en: Even If This Thread Never Reaches
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Tatoe Todokanu Ito da to shite mo
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/w6pzw7m/tatoe-todokanu-ito-da-to-shite-mo
     furigana_spans:
     - - たとえとどかぬ
@@ -3338,6 +3400,11 @@ names:
     reading_source: surface
     verified: true
   たゆたうふたり:
+    basis: translated
+    en: Two Adrift
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: タユタウフタリ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3381,6 +3448,11 @@ names:
     reading_url: https://www.mangaupdates.com/series/hlx920o/tayutau-koi-no-chirigiwa-ni
     verified: false
   つまらない:
+    basis: translated
+    en: Boring
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ツマラナイ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3388,6 +3460,11 @@ names:
     reading_source: surface
     verified: true
   つめあと:
+    basis: translated
+    en: Claw Marks
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ツメアト
     reading_at: '2026-08-02'
     reading_basis: surface

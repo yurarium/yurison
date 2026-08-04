@@ -122,6 +122,29 @@ def main(s):
     s.eq(curate.unmatched({"authors": {"だれか": {}}}, set()), [],
          "an author may be curated before any of their work is")
 
+    # A DECISION IS NOT WORK OUTSTANDING, whichever way it went. §5a keeps some titles romanised
+    # on purpose, and reporting those as pending asks somebody to redo a thing that is finished.
+    # The queue reported 27 when 6 were real: 21 were settled romanisations.
+    import json as _json
+    with tempfile.TemporaryDirectory() as d:
+        b = pathlib.Path(d); (b / "feed").mkdir()
+        (b / "feed" / "names.json").write_text(_json.dumps({"titles": {
+            "decided": {"basis": "romaji", "romaji": {"macron": "Decided"}},
+            "translated": {"basis": "translated", "en": "Translated"},
+            "untouched": {"basis": "romaji", "romaji": {"macron": "Untouched"}}}}))
+        (b / "feed" / "current.json").write_text(_json.dumps({"releases": [
+            {"work": "decided", "pub": "2026-08-01"}, {"work": "translated", "pub": "2026-08-01"},
+            {"work": "untouched", "pub": "2026-08-01"}]}))
+        (b / "series.json").write_text(_json.dumps({"series": []}))
+        cf = b / "curated.yaml"
+        cf.write_text('titles:\n  decided:\n    basis: romaji\n')
+        rows = curate.todo(str(b), curated=str(cf))
+        works = [w for _, w, _ in rows]
+        s.check("untouched" in works, "a romanisation nobody has looked at is still work to do")
+        s.check("decided" not in works,
+                "one a reviewer settled as romaji is finished, and drops out")
+        s.check("translated" not in works, "as does a translated title, as before")
+
     # The shipped file must itself pass, or the check is a thing that only tests fixtures.
     s.eq(curate.check(curate.load()), [], "the file in the repository validates")
     s.eq(curate.unmatched(curate.load(), curate.known_titles()), [],

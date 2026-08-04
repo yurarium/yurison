@@ -163,7 +163,7 @@ def known_titles(build="data/build"):
     return out
 
 
-def todo(build="data/build", limit=None):
+def todo(build="data/build", limit=None, curated=None):
     """Works still showing a romanisation, most recently updated first.
 
     WHY THIS IS A FUNCTION AND NOT A QUERY SOMEBODY TYPES. The queue for the first two rounds of
@@ -188,10 +188,19 @@ def todo(build="data/build", limit=None):
     for w in {s["work"] for s in json.loads(pathlib.Path(f"{build}/series.json").read_text())["series"]}:
         latest.setdefault(w, "")
 
+    # A DECISION ALREADY MADE IS NOT WORK OUTSTANDING, whichever way it went. §5a keeps a title
+    # romanised where translating is the wrong answer, and 球詠 and ぬるめた are as settled as any
+    # translation is. Leaving them in the queue would report a finished state as pending, which is
+    # the same category error this project met in the claim dispositions: it asks somebody to go
+    # and do a thing that has been done and cannot be improved by doing again.
+    #
+    # The test is whether the work appears in curated.yaml at all, rather than what its basis says,
+    # because that is exactly the record of a person having decided.
+    decided = set((load(curated) if curated else load()).get("titles") or {})
     out = []
     for work, when in latest.items():
         rec = names.get(fold(work)) or {}
-        if rec.get("basis") in ("official-jp", "licensed", "translated"):
+        if rec.get("basis") in ("official-jp", "licensed", "translated") or work in decided:
             continue
         out.append((when, work, (rec.get("romaji") or {}).get("macron") or rec.get("en")))
     out.sort(key=lambda x: (x[0] or "", x[1]), reverse=True)

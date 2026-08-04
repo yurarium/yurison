@@ -3456,11 +3456,19 @@ def main():
             # predicts from each series' own past interval, which is an inference and is labelled
             # one. A platform that prints 次回無料更新は8/21 has announced a date, and an
             # announcement and an average are not the same kind of thing.
+            # A CADENCE IS PROJECTED FROM THE LAST CHAPTER, so it is only as good as that date.
+            # 頂のリヴィーツァ carries 毎週木曜 and a newest chapter from August 2024, and the
+            # arithmetic dutifully produced 2024-08-22 and called it overdue, which is true and
+            # useless. Where we have just said we cannot date the work, or where every date it has
+            # is a platform's import stamp, projecting from it contradicts what we said. The
+            # platform's own announced date is untouched: that is a statement, not arithmetic.
             "stated_next": _with_cadence_date(
                 next((dict(_ss, platform=r["platform"])
                       for r in rows
                       for _ss in [_stated_for(best["work"], r["platform"])] if _ss), None),
-                max((r["latest"] for r in rows if r["latest"]), default=None)),
+                max((r["latest"] for r in rows if r["latest"]), default=None)
+                if not (_state == "unknown" or all(r.get("dates_imported") for r in rows))
+                else None),
         })
     # The works list is assembled from the source records rather than from the feed, so filtering
     # releases does not reach it. Both paths need the register, which is why dropping it in one

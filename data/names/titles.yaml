@@ -1327,7 +1327,11 @@ names:
     reading_source_kind: analyser
     verified: false
   あの子が泳いでいた水槽:
-    basis: romaji
+    basis: translated
+    en: The Fish Tank She Used to Swim In
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - あの
       - null
@@ -1351,12 +1355,16 @@ names:
     reading_source_kind: analyser
     verified: false
   あの子とふたりで。:
-    basis: romaji
-    en: Ano Ko to Futari de.
-    en_at: '2026-08-02'
+    basis: translated
+    en: Just the Two of Us, with Her.
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Ano Ko to Futari de.
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/1kk7ga9/ano-ko-to-futari-de
     furigana_spans:
     - - あの
@@ -1375,7 +1383,11 @@ names:
     reading_source_kind: analyser
     verified: false
   あの子は優しすぎる。:
-    basis: romaji
+    basis: translated
+    en: That Girl Is Too Kind.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - あの
       - null
@@ -1397,13 +1409,20 @@ names:
     reading_source_kind: analyser
     verified: false
   あやしあやかしあけみちゃん:
-    basis: romaji
-    en: Ayashi Ayakashi Akemi-chan
-    en_at: '2026-08-02'
+    basis: translated
+    en: Suspicious, Ayakashi, Akemi-chan
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Ayashi Ayakashi Akemi-chan
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/59y8ct1/ayashi-ayakashi-akemi-chan
+    note: あやし, あやかし, and あけみ chain together on their shared opening sound; あやかし, a catch-all term for
+      Japanese supernatural apparitions, kept rather than translated so the echo across all three words
+      survives.
     reading: アヤシアヤカシアケミチャン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -1413,7 +1432,11 @@ names:
     reading_source: surface
     verified: true
   あんたが悪い:
-    basis: romaji
+    basis: translated
+    en: You're the One Who's Wrong
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - あんたが
       - null
@@ -1431,6 +1454,13 @@ names:
     reading_source_kind: analyser
     verified: false
   いちこえ、にふり、タチアオイ:
+    basis: translated
+    en: One Call, Two Waves, Hollyhock
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: タチアオイ, hollyhock, likely echoes the protagonist's own given name, アオイ; kept the three-part list
+      structure of the title rather than smoothing it into a single phrase.
     reading: イチコエ、ニフリ、タチアオイ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -1438,12 +1468,16 @@ names:
     reading_source: surface
     verified: true
   いっそ、恋だったらよかったのに:
-    basis: romaji
-    en: Isso, Koi dattara yokatta no ni
-    en_at: '2026-08-02'
+    basis: translated
+    en: I Almost Wish It Had Just Been Love
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Isso, Koi dattara yokatta no ni
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/upp625m/isso-koi-dattara-yokatta-no-ni
     furigana_spans:
     - - いっそ、
@@ -1462,7 +1496,11 @@ names:
     reading_source_kind: analyser
     verified: false
   いつかのLo-fiみゅーじっく:
-    basis: romaji
+    basis: translated
+    en: That Someday's Lo-fi Music
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - いつかのLo-fiみゅーじっく
       - null
@@ -1476,7 +1514,11 @@ names:
     reading_source_kind: analyser
     verified: false
   いつか星座になるまで:
-    basis: romaji
+    basis: translated
+    en: Until We Become a Constellation Someday
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - いつか
       - null
@@ -1494,7 +1536,11 @@ names:
     reading_source_kind: analyser
     verified: false
   いつも彼女の掌の上/タイザン5漫画賞:
-    basis: romaji
+    basis: translated
+    en: Always in the Palm of Her Hand
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - いつも
       - null
@@ -1514,8 +1560,8 @@ names:
       - まんが
     - - 賞
       - しょう
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The suffix is Shonen Jump+'s own contest badge, present in the page's own title tag; dropped
+      as promotional framing rather than part of the title.
     reading: イツモ カノジョ ノ テノヒラ ノ ウエ / タイザン 5 マンガ ショウ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -1524,6 +1570,11 @@ names:
     reading_source_kind: analyser
     verified: false
   いとしこいし:
+    basis: translated
+    en: Dear and Longed For
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: イトシコイシ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -1531,6 +1582,14 @@ names:
     reading_source: surface
     verified: true
   いととうとし:
+    basis: translated
+    en: A Thread, So Precious
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: とうとし is the classical form of 尊い, precious or noble, the same word fan slang shortens to tōtoi
+      for a pairing too wholesome to bear; いと doubles as 糸, thread, and as an intensifier, very. Kept
+      the archaic form rather than modernizing it, since the title is reaching for that register on purpose.
     reading: イトトウトシ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -1538,7 +1597,11 @@ names:
     reading_source: surface
     verified: true
   いなりの結婚:
-    basis: romaji
+    basis: translated
+    en: Inari's Marriage
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - いなりの
       - null
@@ -1554,14 +1617,18 @@ names:
     reading_source_kind: analyser
     verified: false
   いばら姫:
-    basis: romaji
+    basis: translated
+    en: Briar Rose
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - いばら
       - null
     - - 姫
       - ひめ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: いばら姫 is the standard Japanese title for the Sleeping Beauty fairy tale, Dornröschen/Briar Rose
+      rather than a literal description; kept as the established fairy-tale name.
     reading: イバラ ヒメ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -1600,7 +1667,11 @@ names:
     reading_source: surface
     verified: true
   うそつきのんちゃん、地獄に堕ちろ:
-    basis: romaji
+    basis: translated
+    en: Liar Non-chan, Go to Hell
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - うそつきのんちゃん、
       - null
@@ -1622,12 +1693,16 @@ names:
     reading_source_kind: analyser
     verified: false
   うみねこには負けない!:
-    basis: romaji
-    en: Umineko ni wa Makenai!
-    en_at: '2026-08-02'
+    basis: translated
+    en: Won't Lose to the Seagulls!
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Umineko ni wa Makenai!
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/890r7sr/umineko-ni-wa-makenai
     furigana_spans:
     - - うみねこには
@@ -1646,6 +1721,11 @@ names:
     reading_source_kind: analyser
     verified: false
   おかえりるうちゃん:
+    basis: translated
+    en: Welcome Back, Ruu-chan.
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: オカエリルウチャン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -1653,7 +1733,11 @@ names:
     reading_source: surface
     verified: true
   おしえごと 同人教師と天才ギャル:
-    basis: romaji
+    basis: translated
+    en: 'Teaching Sessions: The Doujin Teacher and the Genius Gal'
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 'おしえごと '
       - null

@@ -3088,16 +3088,26 @@ def main():
                 # THE ANTENNA SAYS IT FINISHED. An aggregator's tag is a lead, so it does not carry
                 # a live series on its own; joined to a year of silence it is better evidence than
                 # the silence alone, which is all `dormant` ever had.
+                # PERSUASIVE UNLESS SOMETHING CONTRADICTS IT, which is the project owner's
+                # reading and a better test than the age of the silence. A tag was first honoured
+                # only past a year, which threw away exactly the cases it fits best: a series is
+                # tagged 完結 when it ends, so the tag is freshest while the last chapter is still
+                # recent. Sixteen works read `slow` for that reason alone, and three read `active`
+                # on a final chapter or an incidental one.
+                #
+                # What would contradict it is a chapter published AFTER we saw the tag. Across all
+                # 90 tagged works there is not one, so nothing in our own data argues against any
+                # of them. Where there is one, the tag is stale and the work speaks for itself.
                 _seen = completion_claims.get(norm_work(row.get("work") or ""))
-                if _seen and age > 365:
+                if _seen and row["latest"] <= str(_seen)[:10]:
                     row["state"] = "completed"
                     row["completed_basis"] = (
                         f"the comparator lists this work as 完結, seen {_seen}, and no chapter has "
-                        f"appeared for {age} days")
+                        f"appeared since; the newest we hold is {row['latest']}")
                 elif _seen:
                     row["state_basis"] = (
-                        f"the comparator lists this work as 完結, seen {_seen}, but a chapter "
-                        f"appeared {age} days ago, so it is not treated as ended")
+                        f"the comparator listed this work as 完結 on {_seen}, and a chapter has "
+                        f"appeared since, on {row['latest']}, so the tag is not acted on")
             if _after:
                 row["skipped_since_chapter"] = len(_after)
     # Where a work runs on several platforms, each row says so, so a reader on one can see the rest.

@@ -2179,14 +2179,19 @@ names:
     reading_source_kind: analyser
     verified: false
   きさらぎ異聞:
-    basis: romaji
+    basis: translated
+    en: A Kisaragi Variant
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - きさらぎ
       - null
     - - 異聞
       - いぶん
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: きさらぎ駅, Kisaragi Station, is a well-known Japanese urban legend about a phantom train stop, named
+      directly in the synopsis; 異聞 marks this as a variant telling of an existing tale rather than an
+      original one.
     reading: キサラギ イブン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -2195,12 +2200,16 @@ names:
     reading_source_kind: analyser
     verified: false
   きたない君がいちばんかわいい:
-    basis: romaji
-    en: Kitanai Kimi ga Ichiban Kawaii
-    en_at: '2026-08-02'
+    basis: translated
+    en: You're the Cutest When You're Filthy
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Kitanai Kimi ga Ichiban Kawaii
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q97179405
     furigana_spans:
     - - きたない
@@ -2218,6 +2227,14 @@ names:
     reading_url: http://www.wikidata.org/entity/Q97179405
     verified: false
   きみがわるい！:
+    basis: translated
+    en: It's Your Fault!
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Written in kana without the disambiguating kanji, so it could as easily be 気味が悪い, how creepy,
+      as 君が悪い, it's your fault; the synopsis's disappointing-anniversary comedy points at blame rather
+      than horror, but the ambiguity is likely deliberate.
     reading: キミガワルイ！
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2264,12 +2281,16 @@ names:
     en_url: https://www.mangaupdates.com/series/tw25st8/kimi-to-board-game-ga-tsukuritai
     verified: false
   きみと世界の終りを訪ねて:
-    basis: romaji
-    en: Kimi to Sekai no Owari o Tazunete
-    en_at: '2026-08-02'
+    basis: translated
+    en: Visiting the End of the World with You
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Kimi to Sekai no Owari o Tazunete
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/3rrspjj/kimi-to-sekai-no-owari-o-tazunete
     furigana_spans:
     - - きみと
@@ -2286,6 +2307,9 @@ names:
       - たず
     - - ねて
       - null
+    note: The android and clone leads are named Liberta and Speranza, Italian for liberty and hope; not
+      translated, since they read as chosen names rather than ordinary words, but worth noting for a post-apocalyptic
+      pairing.
     reading: キミ ト セカイ ノ オワリ オ タズネテ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -2294,12 +2318,16 @@ names:
     reading_url: https://www.mangaupdates.com/series/3rrspjj/kimi-to-sekai-no-owari-o-tazunete
     verified: false
   きみと観たいレースがある:
-    basis: romaji
-    en: Kimi to Mitai Race ga aru
-    en_at: '2026-08-02'
+    basis: translated
+    en: There's a Race I Want to Watch with You
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Kimi to Mitai Race ga aru
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/wx3ntcg/kimi-to-mitai-race-ga-aru
     furigana_spans:
     - - きみと
@@ -2318,6 +2346,11 @@ names:
     reading_source_kind: analyser
     verified: false
   きみのためなら:
+    basis: translated
+    en: For Your Sake
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: キミノタメナラ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2355,6 +2388,11 @@ names:
     reading_source: surface
     verified: true
   きーちゃんともんもん:
+    basis: translated
+    en: Ki-chan and Monmon
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: キーチャントモンモン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2362,6 +2400,11 @@ names:
     reading_source: surface
     verified: true
   ぎゅっとにぎって:
+    basis: translated
+    en: Give My Hand a Tight Squeeze
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: ギュットニギッテ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2369,6 +2412,11 @@ names:
     reading_source: surface
     verified: true
   くちびるへのリビドー:
+    basis: translated
+    en: Libido for Lips
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     reading: クチビルヘノリビドー
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2404,14 +2452,18 @@ names:
     reading_url: http://www.wikidata.org/entity/Q131751566
     verified: false
   くゆらす女々:
-    basis: romaji
+    basis: translated
+    en: Two Women, Curling Smoke
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - くゆらす
       - null
     - - 女々
       - おんなおんな
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 女々 doubles 女, woman, an unusual way to write it that also echoes 女々しい, being weak-willed or
+      hesitant; くゆらす, letting smoke curl, matches the synopsis's two coworkers bonding over cigars.
     reading: クユラス オンナオンナ
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -2420,6 +2472,13 @@ names:
     reading_source_kind: analyser
     verified: false
   ぐがぐもぐるてん:
+    basis: romaji
+    en: Gugagumoguruten
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Opens with 具我, Guga, the protagonist's own surname, but the rest doesn't resolve into anything
+      attested about this invented-folklore setting; kept in transliteration rather than guessed at.
     reading: グガグモグルテン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2427,7 +2486,11 @@ names:
     reading_source: surface
     verified: true
   ぐるぐる目の渦原さん:
-    basis: romaji
+    basis: translated
+    en: Dizzy-Eyed Uzuhara-san
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ぐるぐる
       - null
@@ -2439,8 +2502,8 @@ names:
       - うずはら
     - - さん
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Her own surname carries 渦, whirlpool, matching the spiral-eyed dizziness (ぐるぐる目) the title puts
+      on her.
     reading: グルグル メ ノ ウズハラサン
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -2449,14 +2512,19 @@ names:
     reading_source_kind: analyser
     verified: false
   けいおん！Ｓｈｕｆｆｌｅ:
-    basis: romaji
+    basis: licensed
+    en: K-ON! Shuffle
+    en_at: '2026-08-04'
+    en_source: Yen Press
+    en_source_kind: licensor
+    en_url: https://yenpress.com/titles/9781975363116-k-on-shuffle-vol-1
     furigana_spans:
     - - けいおん！
       - null
     - - Ｓｈｕｆｆｌｅ
       - しゃっふる
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Kakifly's own spin-off of K-ON!, same universe and creator, different cast and school; licensed
+      by Yen Press with volumes releasing since 2023.
     reading: ケイオン！ シャッフル
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -2465,7 +2533,11 @@ names:
     reading_source_kind: analyser
     verified: false
   こいにこいするこに恋す:
-    basis: romaji
+    basis: translated
+    en: Falling for a Girl Who's in Love with Love
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - こいにこいするこに
       - null
@@ -2473,8 +2545,9 @@ names:
       - こい
     - - す
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 恋に恋する子に恋す run together as a tongue-twister, love-in-love-with-love, a girl (子), fall-in-love;
+      the synopsis spells the idiom out directly, 恋に恋する姫宮さん, so the title is that phrase extended one
+      step further.
     reading: コイ ニ コイ スル コ ニ コイス
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -2483,6 +2556,14 @@ names:
     reading_source_kind: analyser
     verified: false
   ことのことのは:
+    basis: romaji
+    en: Koto no Kotonoha
+    en_at: '2026-08-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Reads as playing on 言葉, kotoba, words, broken into こと and は the way 音楽（ことば）, music glossed as
+      words, is glossed directly in the synopsis, and possibly also on 琴, koto, the instrument; kept in
+      transliteration since the exact shape of the wordplay isn't confirmed by anything reachable.
     reading: コトノコトノハ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2511,12 +2592,16 @@ names:
     reading_source_kind: analyser
     verified: false
   この世で一番素敵な終わり方:
-    basis: romaji
-    en: Konoyo de Ichiban Suteki na Owarikata
-    en_at: '2026-08-02'
+    basis: translated
+    en: The Most Wonderful Way to End in This World
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Konoyo de Ichiban Suteki na Owarikata
     en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: http://www.wikidata.org/entity/Q116180503
     furigana_spans:
     - - この
@@ -2578,12 +2663,16 @@ names:
     reading_source_kind: analyser
     verified: false
   この恋を星には願わない:
-    basis: romaji
-    en: Kono Koi wo Hoshi ni wa Negawanai
-    en_at: '2026-08-02'
+    basis: translated
+    en: I Won't Wish This Love on a Star
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Kono Koi wo Hoshi ni wa Negawanai
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/82k97c8/kono-koi-wo-hoshi-ni-wa-negawanai
     furigana_spans:
     - - この
@@ -2631,12 +2720,16 @@ names:
     reading_source_kind: analyser
     verified: false
   この百合はフィクションです:
-    basis: romaji
-    en: Kono Yuri wa Fiction desu
-    en_at: '2026-08-02'
+    basis: translated
+    en: This Yuri Is Fiction
+    en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Kono Yuri wa Fiction desu
     en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
+    en_source: yurarium
+    en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/wxg2jzk/kono-yuri-wa-fiction-desu
     furigana_spans:
     - - この

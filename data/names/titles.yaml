@@ -8404,29 +8404,42 @@ names:
     verified: true
   ナナシの転生:
     basis: translated
-    en: 'Nanashi''s Reincarnation: Queen''s Blade'
+    en: Nanashi's Reincarnation
     en_at: '2026-08-04'
-    en_source: yurarium
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Nanashi''s Reincarnation: Queen''s Blade'
+    en_source: derived
     en_source_kind: derived
     furigana_spans:
     - - ナナシの
       - null
     - - 転生
       - てんしょう
-    note: Same series as ナナシの転生クイーンズブレイド, listed under a second, shorter work_title on the same platform;
-      the page's own title tag reads identically for both, so both catalogue keys got the same English
-      title.
-    reading: ナナシ ノ テンショウ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    note: 転生 is てんせい. The analyser returned テンショウ, which is a reading 転生 does not take in modern Japanese
+      and which no dictionary gives for the compound; the word means reincarnation and is read tensei
+      throughout. Segmented as ナナシ / ノ / テンセイ so the romanisation renders three words rather than one.
+    reading: ナナシ ノ テンセイ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ナナシ ノ テンショウ
+    - basis: researched
+      source: derived
+      value: ナナシノテンセイ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   ナナシの転生クイーンズブレイド:
     basis: translated
     en: 'Nanashi''s Reincarnation: Queen''s Blade'
     en_at: '2026-08-04'
+    en_corroborated:
+    - derived
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -8436,14 +8449,23 @@ names:
       - てんしょう
     - - クイーンズブレイド
       - null
-    note: Queen's Blade is the established English name for the franchise this isekai is patterned on,
-      per the synopsis's own reference to the anime クイーンズブレイド伝説; kept rather than retranslated.
-    reading: ナナシ ノ テンショウ クイーンズ ブレイド
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    note: Same correction as ナナシの転生, which shares the stem. The two are separate series on firecross,
+      541 and 581, running in 2024 and 2025 respectively, so they are curated separately rather than treated
+      as one title truncated. Both carried the same English, which claimed the shorter Japanese title
+      says Queen's Blade when it does not; each now renders the title it actually has.
+    reading: ナナシ ノ テンセイ クイーンズ ブレイド
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ナナシ ノ テンショウ クイーンズ ブレイド
+    - basis: researched
+      source: derived
+      value: ナナシノテンセイクイーンズブレイド
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   ナメられたくないナメカワさん:
     basis: translated

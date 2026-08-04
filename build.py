@@ -689,8 +689,20 @@ def load_names():
                 forms.setdefault(b, v)   # live claim first, so a superseded one cannot displace it
         if forms:
             out["en_forms"] = forms
+        # HOW THE READING WAS ARRIVED AT, not merely whether to doubt it. The store distinguishes
+        # a reading the source states, one taken from the kana surface, one a person researched and
+        # wrote a note for, and one an analyser produced; all four shipped as a single boolean, so
+        # a decision somebody made was displayed as indistinguishable from a machine's guess. That
+        # is the same category error the English side avoids by naming licensed, official,
+        # translated and romaji separately: a researched reading is an opinion, and an opinion with
+        # a reason behind it is not a guess.
+        if rec.get("reading_basis"):
+            out["reading_basis"] = rec["reading_basis"]
         # False is meaningful and must survive; missing is not the same as verified.
-        if rec.get("verified") is False:
+        # A researched reading is exempt: somebody looked the word up and said why, which is
+        # exactly what the mark is asking for, so marking it would ask for work already done.
+        if rec.get("verified") is False and rec.get("reading_basis") not in ("researched",
+                                                                             "stated"):
             out["unverified"] = True
         # A reading assembled character by character because nothing could read the word. Weaker
         # than an ordinary guess and marked separately: 抱き寝ーター came out カカエきネーター, where

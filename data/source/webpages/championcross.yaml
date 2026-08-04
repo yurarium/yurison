@@ -6,11 +6,12 @@ platform: championcross
 platform_name: "チャンピオンクロス"
 publisher: "秋田書店"
 engine: comici
-retrieved: 2026-08-02
+retrieved: 2026-08-04
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "上伊那ぼたん、酔へる姿は百合の花"
+    status: "連載中"
     author: "塀"
     url: "https://championcross.jp/series/ae4257e66bab5"
     chapter_count: 75
@@ -241,6 +242,7 @@ works:
         updated: "2026-07-28"
         access_modes: ["free"]
   - work_title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
+    status: "連載中"
     author: "田中こめ"
     url: "https://championcross.jp/series/21fe5b3d50300"
     chapter_count: 13
@@ -285,6 +287,7 @@ works:
         updated: "2026-07-19"
         access_modes: ["purchase"]
   - work_title: "ガールズ×ヴァンパイア"
+    status: "連載中"
     author: "みかみてれん,千種みのり"
     url: "https://championcross.jp/series/f30e2f58bbbdf"
     chapter_count: 16
@@ -338,6 +341,7 @@ works:
         updated: "2026-07-15"
         access_modes: ["purchase"]
   - work_title: "フェアウェイの声をきかせて"
+    status: "完結"
     author: "椎葉裕巳"
     url: "https://championcross.jp/series/8178b4fc09df9"
     chapter_count: 67
@@ -544,6 +548,7 @@ works:
         updated: "2025-07-06"
         access_modes: ["purchase"]
   - work_title: "お葉花を愛でる"
+    status: "連載中"
     author: "柴田賢志郎"
     url: "https://championcross.jp/series/46c8d0a17ed62"
     chapter_count: 40
@@ -669,6 +674,7 @@ works:
         updated: "2026-06-03"
         access_modes: ["purchase"]
   - work_title: "足が大好き足羽さん/読み切り"
+    status: "読み切り"
     author: "園河ソノ"
     url: "https://championcross.jp/series/860136c646c03"
     chapter_count: 1
@@ -677,6 +683,7 @@ works:
         updated: "2026-05-30"
         access_modes: ["free"]
   - work_title: "エルフとひとつ屋根の下"
+    status: "完結"
     author: "いくたはな"
     url: "https://championcross.jp/series/72ba4fac7c0f4"
     chapter_count: 28

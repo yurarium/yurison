@@ -2914,15 +2914,24 @@ def main():
             bucket = series.setdefault(key, {
                 "work": title, "platform": plat, "url": None, "feed_url": None,
                 "author": "", "chapters": {}, "upcoming": 0,
-                "partial": True, "oneshot_src": False, "completed_src": None, "_srcs": set(),
+                "partial": True, "oneshot_src": False, "completed_src": None,
+                "running_src": None, "_srcs": set(),
             })
             bucket["_srcs"].add(_d.get("platform") or _d.get("source") or "")
             bucket["oneshot_src"] = bucket["oneshot_src"] or oneshot_src
             # The platform's own statement that the serialisation is over, where it makes one.
             # カドコミ's serializationStatus takes three values across the works we hold — unknown
             # 217, ongoing 92, finished 91 — so `finished` is a real assertion and not a default.
-            if str(w.get("status") or "").lower() == "finished":
+            # カドコミ answers in English and comici in Japanese, in a field of the same name.
+            # comici has no value meaning "we do not know": a page carrying the field has answered,
+            # which is why 連載中 is worth recording as well and not only its opposite.
+            platform_status = str(w.get("status") or "")
+            if platform_status.lower() == "finished" or platform_status == "完結":
                 bucket["completed_src"] = "the platform marks the serialisation finished"
+            elif platform_status == "読み切り":
+                bucket["oneshot_src"] = True
+            elif platform_status in ("ongoing", "連載中"):
+                bucket["running_src"] = "the platform marks the serialisation as running"
             # Partial only if EVERY source for this row is partial. One full history is enough to
             # make the count real, whatever else also saw a slice of it.
             bucket["partial"] = bucket["partial"] and bool(partial)
@@ -3057,6 +3066,7 @@ def main():
         _final = bool(row.get("latest_ep")
                       and FINAL_RE.search(unicodedata.normalize("NFKC", row["latest_ep"])))
         _completed = row.pop("completed_src", None)
+        _running = row.get("running_src")
         if not row["latest"]:
             row["state"] = "unknown"
         elif row["oneshot"]:
@@ -3090,7 +3100,15 @@ def main():
                 # SILENCE IS NOT A BASIS ON ITS OWN, and until now dormant carried none at all:
                 # 150 works asserted it with nothing behind them. Saying what it rests on makes the
                 # weakness visible instead of leaving it implied.
-                row["state_basis"] = f"no chapter for {age} days, and nothing states it has ended"
+                row["state_basis"] = (
+                    f"no chapter for {age} days, and nothing states it has ended")
+                # A PLATFORM SAYING IT IS RUNNING IS NOT SILENCE. Our copy of its chapter list may
+                # simply be behind, which a hand review of these rows found repeatedly: マガポケ's
+                # page for 将来的に死んでくれ is at 第42話 while we hold ten chapters ending in 2019.
+                if row.pop("running_src", None):
+                    row["state_basis"] = (
+                        f"no chapter for {age} days in what we hold, but the platform still marks "
+                        f"the serialisation as running")
                 # THE ANTENNA SAYS IT FINISHED. An aggregator's tag is a lead, so it does not carry
                 # a live series on its own; joined to a year of silence it is better evidence than
                 # the silence alone, which is all `dormant` ever had.

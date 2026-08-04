@@ -49,6 +49,35 @@ TRUNCATED = re.compile(r"(?:\.{2,}|\u2026)\s*$")
 OG_TITLE = re.compile(r'<meta[^>]+property="og:title"[^>]+content="([^"]*)"')
 
 
+def carry_over(path, urls):
+    """Works already in the file that this run did not reach, so a partial run keeps them.
+
+    The writer replaced each site's file with whatever the run happened to fetch, and the targets
+    come from the gap report, which shrinks as coverage improves. Re-running to collect one new
+    field therefore deleted works: a pass that reached 65 dropped 49 from the catalogue, and their
+    curated names became strays pointing at nothing. The same fault was fixed in the render adapter
+    for the same reason.
+
+    A work reached this time is replaced, because a fresh reading beats an old one. A work not
+    reached is kept, because not looking at a page is not a finding about it.
+    """
+    p = pathlib.Path(path)
+    if not p.exists():
+        return []
+    old = yaml.safe_load(p.read_text()) or {}
+    keep = []
+    for w in (old.get("works") or []):
+        if w.get("url") in set(urls):
+            continue
+        # The file names the list `chapters` and the run names it `episodes`. The writer takes the
+        # run's shape, so a carried work is handed back in it.
+        w = dict(w, episodes=w.get("chapters") or [])
+        w.pop("chapters", None)
+        w.pop("chapter_count", None)
+        keep.append(w)
+    return keep
+
+
 def untruncated(target_title, html):
     """The page's own name for the work, where the one we were given is a truncation of it.
 
@@ -187,6 +216,15 @@ def main():
             au = re.search(r"<title>[^<|]*?\s+-\s+([^<|]+?)\s*\|", html)
             row = {"work_title": untruncated(tgt["title"], html), "url": tgt["url"],
                    "episodes": eps}
+            # THE PLATFORM'S OWN WORD ON THE SERIALISATION, which nothing was reading. comici
+            # states 完結, 読み切り or 連載中 in the page's data, and a hand review of 121 dormant
+            # works found it settled every one of the fourteen on these platforms. It is an
+            # attestation rather than a tag somebody applied, so it belongs in the source record.
+            # `eng` is the engine's SPEC, not its name: comparing it to a string was quietly
+            # false everywhere and the field was collected for nothing. site["engine"] is the name.
+            st = comici.status(html) if site["engine"] == "comici" else None
+            if st:
+                row["status"] = st
             if au:
                 row["author"] = _html.unescape(au.group(1).strip())
             works.append(row)
@@ -210,8 +248,12 @@ def main():
              f"engine: {site['engine']}", f"retrieved: {a.retrieved}",
              "record_type: web_work_chapters", "identification_mode: discovery-candidate",
              "works:"]
-        for w in works:
+        # Everything this run did not reach, written back unchanged. See carry_over.
+        _path = out / f"{site['id']}.yaml"
+        for w in works + carry_over(_path, [x["url"] for x in works]):
             L.append(f"  - work_title: {js(w['work_title'])}")
+            if w.get("status"):
+                L.append(f"    status: {js(w['status'])}")
             if w.get("author"):
                 L.append(f"    author: {js(w['author'])}")
             L.append(f"    url: {js(w['url'])}")

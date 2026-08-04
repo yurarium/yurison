@@ -107,3 +107,25 @@ def chapters(html, page_url, fetch):
                     ded.setdefault((r["title"], r["updated"]), r)
                 return list(ded.values())
     return rows(html)
+
+# The platform's own word for where a serialisation stands, carried in the page's data and not in
+# anything a reader sees. Three values across 251 cached pages, and every one is an assertion:
+# 連載中 120, 読み切り 66, 完結 65. There is no fourth meaning "we do not know", so a page that
+# carries the field has answered.
+#
+# ESCAPED, which is why it went unread. comici serves its data inside a Next.js flight payload, so
+# the JSON arrives with its quotes backslashed: \"status\":\"完結\". A pattern written for
+# ordinary JSON matches nothing and reports the field absent, which is what happened when this was
+# first checked by hand. Both forms are accepted, because the escaping is a property of the
+# delivery rather than of the fact.
+STATUS = re.compile(r'\\?"status\\?"\s*:\s*\\?"([^"\\]+)\\?"')
+
+FINISHED = "完結"
+ONESHOT = "読み切り"
+RUNNING = "連載中"
+
+
+def status(html):
+    """What the platform says about the serialisation, or None where it says nothing."""
+    m = STATUS.search(html or "")
+    return m.group(1) if m else None

@@ -6,14 +6,15 @@ platform: hanayume
 platform_name: "花とゆめ+"
 publisher: "白泉社"
 engine: comici
-retrieved: 2026-08-02
+retrieved: 2026-08-04
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "フレンドガールフレンド"
+    status: "連載中"
     author: "瑠夏子"
     url: "https://hanayume.com/series/f3ce082d639de"
-    chapter_count: 29
+    chapter_count: 30
     chapters:
       - title: "#1"
         updated: "2026-04-20"
@@ -102,7 +103,11 @@ works:
       - title: "＃15②"
         updated: "2026-07-27"
         access_modes: ["purchase"]
+      - title: "おまけ"
+        updated: "2026-08-03"
+        access_modes: ["free"]
   - work_title: "運命は役に立たない"
+    status: "連載中"
     author: "まめ魚"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
     chapter_count: 14
@@ -150,6 +155,7 @@ works:
         updated: "2026-08-02"
         access_modes: ["purchase"]
   - work_title: "魔法使いの作庭/よみきり"
+    status: "読み切り"
     author: "勇魚とり"
     url: "https://hanayume.com/series/96cd6ffadb9ee"
     chapter_count: 1
@@ -158,6 +164,7 @@ works:
         updated: "2026-07-04"
         access_modes: ["free"]
   - work_title: "男装メイドは尽くしたい"
+    status: "完結"
     author: "瑠夏子"
     url: "https://hanayume.com/series/1191c17a3f374"
     chapter_count: 7

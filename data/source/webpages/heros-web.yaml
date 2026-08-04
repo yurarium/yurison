@@ -6,11 +6,12 @@ platform: heros-web
 platform_name: "HERO'S Web"
 publisher: "ヒーローズ"
 engine: comici
-retrieved: 2026-08-02
+retrieved: 2026-08-04
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "魔女とくゅらす"
+    status: "連載中"
     author: "柴田康平"
     url: "https://heros-web.com/series/2b64bc0622a2a"
     chapter_count: 34
@@ -118,6 +119,7 @@ works:
         updated: "2026-07-22"
         access_modes: ["purchase"]
   - work_title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
+    status: "連載中"
     author: "朱白あおい,糀もろみ,村田真哉,柳井伸彦"
     url: "https://heros-web.com/series/ec09a10dc9490"
     chapter_count: 25
@@ -198,6 +200,7 @@ works:
         updated: "2026-07-17"
         access_modes: ["purchase"]
   - work_title: "ナキノン"
+    status: "完結"
     author: "根岸岳春"
     url: "https://heros-web.com/series/696d291fa1769"
     chapter_count: 22
@@ -269,6 +272,7 @@ works:
         updated: "2026-05-15"
         access_modes: ["purchase"]
   - work_title: "散り損ないのヒラエス"
+    status: "連載中"
     author: "にたもと"
     url: "https://heros-web.com/series/cd04567a696bb"
     chapter_count: 23

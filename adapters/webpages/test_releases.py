@@ -85,6 +85,38 @@ def main(s):
     s.eq(wp.untruncated("A - B...", f'<meta property="og:title" content="A - B and more">'),
          "A - B and more", "a separator inside the stem is not a cut point")
 
+    # THE PLATFORM'S OWN SERIALISATION STATUS, escaped inside a Next.js flight payload. Written for
+    # ordinary JSON the pattern matches nothing and reports the field absent, which is exactly what
+    # happened when this was first checked by hand against a page that plainly carried it.
+    import comici as _c
+    # One backslash, as the page carries it. The fixture is quoted from a real championcross page
+    # rather than typed, because writing two by mistake is how this test first failed.
+    s.eq(_c.status(r'\"seriesWaitOn\":0,\"status\":\"完結\",\"numFavorite\":371'),
+         "完結", "the escaped form is read")
+    s.eq(_c.status('{"status":"連載中"}'), "連載中", "and so is the plain one")
+    s.eq(_c.status("<html>no data here</html>"), None, "a page that says nothing returns nothing")
+    s.eq(_c.status(""), None, "and so does an empty one")
+
+    # A PARTIAL RUN MUST NOT DELETE WHAT IT DID NOT LOOK AT. The targets come from the gap report,
+    # which shrinks as coverage improves, and the writer replaced each site's whole file with
+    # whatever that run fetched. Re-running to collect one new field dropped 49 works and left
+    # their curated names pointing at nothing.
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        f = pathlib.Path(d) / "site.yaml"
+        f.write_text('works:\n'
+                     '  - work_title: "kept"\n    url: "https://x/1"\n    chapters: []\n'
+                     '  - work_title: "refetched"\n    url: "https://x/2"\n    chapters: []\n')
+        got = wp.carry_over(f, ["https://x/2"])
+        s.eq([w["work_title"] for w in got], ["kept"],
+             "a work this run did not reach is kept, because not looking is not a finding")
+        s.eq(got[0]["episodes"], [],
+             "and comes back in the shape the writer takes, which names the list episodes")
+        s.eq(wp.carry_over(f, ["https://x/1", "https://x/2"]), [],
+             "and a work it did reach is left to the fresh reading")
+        s.eq(wp.carry_over(pathlib.Path(d) / "absent.yaml", []), [],
+             "a site with no file yet carries nothing over")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "webpages.releases"))

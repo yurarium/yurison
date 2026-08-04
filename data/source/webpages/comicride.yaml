@@ -6,11 +6,12 @@ platform: comicride
 platform_name: "ライコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-08-02
+retrieved: 2026-08-04
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
+    status: "連載中"
     author: "南方純,kiki,キンタ"
     url: "https://comicride.jp/series/7b86cbca64ebe"
     chapter_count: 72
@@ -232,6 +233,7 @@ works:
         updated: "2026-07-29"
         access_modes: ["purchase"]
   - work_title: "『人斬り』少女、公爵令嬢の護衛になる"
+    status: "連載中"
     author: "スメラギ,笹塔五郎,ミユキルリア"
     url: "https://comicride.jp/series/b95a6b1493469"
     chapter_count: 48

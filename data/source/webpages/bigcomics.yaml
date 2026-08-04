@@ -6,11 +6,12 @@ platform: bigcomics
 platform_name: "ビッコミ"
 publisher: "小学館"
 engine: comici
-retrieved: 2026-08-02
+retrieved: 2026-08-04
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "酒と鬼は二合まで"
+    status: "連載中"
     author: "羽柴実里,zinbei"
     url: "https://bigcomics.jp/series/dd9141c4d469c"
     chapter_count: 54
@@ -178,6 +179,7 @@ works:
         updated: "2026-07-15"
         access_modes: ["purchase"]
   - work_title: "あくまで!アットホームな職場です。"
+    status: "連載中"
     author: "たるはる"
     url: "https://bigcomics.jp/series/cad403cdddf52"
     chapter_count: 18
@@ -237,6 +239,7 @@ works:
         updated: "2026-07-27"
         access_modes: ["purchase"]
   - work_title: "ハグフレンド(スピリッツ賞・佳作)"
+    status: "読み切り"
     author: "固形石鹸苑子"
     url: "https://bigcomics.jp/series/6464eb02d70cd"
     chapter_count: 1
@@ -245,6 +248,7 @@ works:
         updated: "2026-06-26"
         access_modes: ["free"]
   - work_title: "すべては拳から始まる(青年漫画賞・入選)"
+    status: "読み切り"
     author: "小森モコ"
     url: "https://bigcomics.jp/series/b62e5ec6aa51f"
     chapter_count: 1
@@ -253,6 +257,7 @@ works:
         updated: "2026-06-12"
         access_modes: ["free"]
   - work_title: "量子の娘たち"
+    status: "読み切り"
     author: "鈴木マ球"
     url: "https://bigcomics.jp/series/ebdafc2131db0"
     chapter_count: 1
@@ -261,6 +266,7 @@ works:
         updated: "2026-06-13"
         access_modes: ["free"]
   - work_title: "セイ少女黙示録 ですぺあ"
+    status: "連載中"
     author: "中村汚濁"
     url: "https://bigcomics.jp/series/2c1db177ce231"
     chapter_count: 31
@@ -359,6 +365,7 @@ works:
         updated: "2026-05-22"
         access_modes: ["purchase"]
   - work_title: "由花緒リニューアル"
+    status: "読み切り"
     author: "浄土るる"
     url: "https://bigcomics.jp/series/9a5ca4fa0d6af"
     chapter_count: 1
@@ -367,6 +374,7 @@ works:
         updated: "2026-05-27"
         access_modes: ["free"]
   - work_title: "終点まで、ふたりで"
+    status: "読み切り"
     author: "はな羽芽"
     url: "https://bigcomics.jp/series/1323acdbab2aa"
     chapter_count: 1
@@ -375,6 +383,7 @@ works:
         updated: "2026-05-27"
         access_modes: ["free"]
   - work_title: "スウィートヒート!"
+    status: "連載中"
     author: "小雨日和"
     url: "https://bigcomics.jp/series/12543272212d3"
     chapter_count: 24

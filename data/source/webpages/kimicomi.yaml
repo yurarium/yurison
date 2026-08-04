@@ -6,14 +6,15 @@ platform: kimicomi
 platform_name: "キミコミ"
 publisher: "一迅社"
 engine: comici
-retrieved: 2026-08-02
+retrieved: 2026-08-04
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "魔王城デート大作戦!"
+    status: "連載中"
     author: "涼海来夏"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
-    chapter_count: 2
+    chapter_count: 3
     chapters:
       - title: "OPERATION1"
         updated: "2026-07-20"
@@ -21,7 +22,11 @@ works:
       - title: "OPERATION2"
         updated: "2026-07-27"
         access_modes: ["free"]
+      - title: "OPERATION3"
+        updated: "2026-08-03"
+        access_modes: ["purchase"]
   - work_title: "ワインガールズ"
+    status: "連載中"
     author: "真田一輝"
     url: "https://kimicomi.com/series/f42014b3e7df6"
     chapter_count: 16
@@ -75,6 +80,7 @@ works:
         updated: "2026-08-02"
         access_modes: ["purchase"]
   - work_title: "見えてますよ! 愛沢さん"
+    status: "連載中"
     author: "棘尾どろしー"
     url: "https://kimicomi.com/series/330f3ad1270c8"
     chapter_count: 35
@@ -185,6 +191,7 @@ works:
         updated: "2026-07-23"
         access_modes: ["purchase"]
   - work_title: "田所さん"
+    status: "完結"
     author: "TATSUBON"
     url: "https://kimicomi.com/series/a869ecfca8da9"
     chapter_count: 29
@@ -277,9 +284,10 @@ works:
         updated: "2026-07-13"
         access_modes: ["purchase"]
   - work_title: "ステラ・ステップ"
+    status: "連載中"
     author: "りんご水,林星悟,餡こたく"
     url: "https://kimicomi.com/series/8acb58b98ca8f"
-    chapter_count: 24
+    chapter_count: 25
     chapters:
       - title: "Step.0"
         updated: "2025-08-22"
@@ -337,7 +345,7 @@ works:
         access_modes: ["free-timed"]
       - title: "Step.11①"
         updated: "2026-03-16"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "Step.11②"
         updated: "2026-04-06"
         access_modes: ["purchase"]
@@ -349,11 +357,15 @@ works:
         access_modes: ["purchase"]
       - title: "Step.13①"
         updated: "2026-06-22"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "Step.13②"
         updated: "2026-07-06"
         access_modes: ["free"]
+      - title: "Step.14①"
+        updated: "2026-08-03"
+        access_modes: ["free"]
   - work_title: "人妻とJK"
+    status: "連載中"
     author: "焼肉定食"
     url: "https://kimicomi.com/series/01e004cee82d9"
     chapter_count: 42
@@ -485,6 +497,7 @@ works:
         updated: "2026-06-08"
         access_modes: ["purchase"]
   - work_title: "さきゅりふぁいす!"
+    status: "連載中"
     author: "南瓜かぷちー"
     url: "https://kimicomi.com/series/617d2958d4953"
     chapter_count: 23

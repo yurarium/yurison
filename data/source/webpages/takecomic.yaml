@@ -6,11 +6,12 @@ platform: takecomic
 platform_name: "竹コミ"
 publisher: "竹書房"
 engine: comici
-retrieved: 2026-08-02
+retrieved: 2026-08-04
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "狼の皮をかぶった羊姫"
+    status: "連載中"
     author: "ミト"
     url: "https://takecomic.jp/series/edb5080d3a3a1"
     chapter_count: 7
@@ -37,6 +38,7 @@ works:
         updated: "2026-07-31"
         access_modes: ["purchase"]
   - work_title: "夢でフラれてはじまる百合"
+    status: "連載中"
     author: "ヒジキ"
     url: "https://takecomic.jp/series/8e32550d65684"
     chapter_count: 55
@@ -207,6 +209,7 @@ works:
         updated: "2026-07-24"
         access_modes: ["free"]
   - work_title: "お姉さんは女子小学生に興味があります。"
+    status: "完結"
     author: "柚木涼太"
     url: "https://takecomic.jp/series/2ff377e5bc873"
     chapter_count: 64
@@ -404,6 +407,7 @@ works:
         updated: "2025-10-17"
         access_modes: ["purchase"]
   - work_title: "むちむち漫画家の完全勝利メシ 最強ボディで余命も担当編集もぶっ飛ばす!"
+    status: "連載中"
     author: "夏鈴糖"
     url: "https://takecomic.jp/series/1c1afe76da717"
     chapter_count: 19
@@ -466,6 +470,7 @@ works:
         updated: "2026-07-18"
         access_modes: ["purchase"]
   - work_title: "魔法少女にあこがれて"
+    status: "連載中"
     author: "小野中彰大"
     url: "https://takecomic.jp/series/0d7dee548d547"
     chapter_count: 68
@@ -675,6 +680,7 @@ works:
         updated: "2026-07-17"
         access_modes: ["free"]
   - work_title: "灼熱の卓球娘 REBURN!!"
+    status: "連載中"
     author: "朝野やぐら"
     url: "https://takecomic.jp/series/b3efcd5f3a6a7"
     chapter_count: 26
@@ -758,6 +764,7 @@ works:
         updated: "2026-07-17"
         access_modes: ["purchase"]
   - work_title: "白き乙女の人狼"
+    status: "連載中"
     author: "アジイチ,王月よう"
     url: "https://takecomic.jp/series/d8e8c084c4c6c"
     chapter_count: 47
@@ -904,6 +911,7 @@ works:
         updated: "2026-07-10"
         access_modes: ["purchase"]
   - work_title: "貴女へささげるサディスティック"
+    status: "連載中"
     author: "ななつ藤"
     url: "https://takecomic.jp/series/ae1cf555c8b01"
     chapter_count: 13
@@ -948,6 +956,7 @@ works:
         updated: "2026-07-10"
         access_modes: ["free"]
   - work_title: "今年注目のエースちゃん"
+    status: "連載中"
     author: "ゔぇじたぶる"
     url: "https://takecomic.jp/series/b53a116d9f0e7"
     chapter_count: 17
@@ -1004,6 +1013,7 @@ works:
         updated: "2026-07-10"
         access_modes: ["purchase"]
   - work_title: "ウは宇宙ヤバイのウ!"
+    status: "連載中"
     author: "宮澤伊織,ぴよぴよ丸,今井哲也"
     url: "https://takecomic.jp/series/135220287d820"
     chapter_count: 18
@@ -1063,6 +1073,7 @@ works:
         updated: "2026-07-09"
         access_modes: ["purchase"]
   - work_title: "魔性の乙女の役廻り"
+    status: "完結"
     author: "サスケ"
     url: "https://takecomic.jp/series/2706e9d937d5f"
     chapter_count: 14
@@ -1110,6 +1121,7 @@ works:
         updated: "2025-10-17"
         access_modes: ["purchase"]
   - work_title: "OL Vtuberと推しJKちゃん"
+    status: "連載中"
     author: "しのぎあさ"
     url: "https://takecomic.jp/series/0e7fd362c2c11"
     chapter_count: 20
@@ -1175,6 +1187,7 @@ works:
         updated: "2026-05-29"
         access_modes: ["purchase"]
   - work_title: "銀輪ボイス"
+    status: "連載中"
     author: "もくふう"
     url: "https://takecomic.jp/series/de0a74a9b5715"
     chapter_count: 19
@@ -1237,6 +1250,7 @@ works:
         updated: "2026-02-07"
         access_modes: ["purchase"]
   - work_title: "私だけが宮地美雪を愛している"
+    status: "連載中"
     author: "スズオ"
     url: "https://takecomic.jp/series/e060f5eef826c"
     chapter_count: 18
@@ -1296,6 +1310,7 @@ works:
         updated: "2026-07-03"
         access_modes: ["purchase"]
   - work_title: "百合神さまの言うとおり!"
+    status: "連載中"
     author: "橘まなり"
     url: "https://takecomic.jp/series/5b8e11d2274cc"
     chapter_count: 13
@@ -1340,6 +1355,7 @@ works:
         updated: "2026-07-03"
         access_modes: ["purchase"]
   - work_title: "30まで独りだったら一緒に暮らそうって言ったよね?"
+    status: "連載中"
     author: "くずしろ"
     url: "https://takecomic.jp/series/4ad31024142fd"
     chapter_count: 8
@@ -1369,6 +1385,7 @@ works:
         updated: "2026-07-03"
         access_modes: ["purchase"]
   - work_title: "香原さんのふぇちのーと"
+    status: "連載中"
     author: "鬼無サケル"
     url: "https://takecomic.jp/series/4e4bb1b935407"
     chapter_count: 16
@@ -1422,6 +1439,7 @@ works:
         updated: "2026-04-17"
         access_modes: ["purchase"]
   - work_title: "「触れたい」は恋の始まり"
+    status: "連載中"
     author: "くも子"
     url: "https://takecomic.jp/series/5a87d01128492"
     chapter_count: 22
@@ -1493,6 +1511,7 @@ works:
         updated: "2026-06-19"
         access_modes: ["free"]
   - work_title: "できそこないの姫君たち"
+    status: "完結"
     author: "アジイチ"
     url: "https://takecomic.jp/series/21c8e22896612"
     chapter_count: 3

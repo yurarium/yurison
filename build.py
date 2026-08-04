@@ -1713,6 +1713,12 @@ def main():
     # platforms found the platform itself marking completion on two. Weighed below against how long
     # the work has actually been silent, because a lead plus a long silence is evidence where
     # either alone is not.
+    # A PERSON LOOKED AND WROTE DOWN WHICH PAGE. Ranked above the antenna's tag, which is a lead
+    # under DEFINITIONS §5, because a cited publisher page is not. See adapters/completion.py.
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+    import completion as _comp
+    reviewed = {norm_work(w): e for w, e in _comp.verdicts().items()}
+
     completion_claims = {}
     _cc = pathlib.Path("data/source/comparators/completion.yaml")
     if _cc.exists():
@@ -3098,6 +3104,20 @@ def main():
                 # What would contradict it is a chapter published AFTER we saw the tag. Across all
                 # 90 tagged works there is not one, so nothing in our own data argues against any
                 # of them. Where there is one, the tag is stale and the work speaks for itself.
+                _rev = reviewed.get(norm_work(row.get("work") or ""))
+                if _rev and _rev.get("verdict") == "completed":
+                    row["state"] = "completed"
+                    row["completed_basis"] = (
+                        f"{_rev['basis']} ({_rev.get('source') or _rev.get('source_kind')}"
+                        + (f", {_rev['source_url']}" if _rev.get("source_url") else "") + ")")
+                    if _rev.get("ended_on"):
+                        row["ended_on"] = str(_rev["ended_on"])
+                    continue
+                if _rev and _rev.get("verdict") == "continuing":
+                    # Looking showed the opposite. Kept, so the next pass does not pay to find it
+                    # again, and so the state says a person checked rather than that nobody had.
+                    row["state_basis"] = f"reviewed and found still running: {_rev['basis']}"
+                    continue
                 _seen = completion_claims.get(norm_work(row.get("work") or ""))
                 if _seen and row["latest"] <= str(_seen)[:10]:
                     row["state"] = "completed"

@@ -8205,34 +8205,19 @@ names:
     en_source: yurarium
     en_source_kind: derived
     en_url: https://www.mangaupdates.com/series/8t0hfc9/howling-blaze-souen-no-kenshi-to-fushi-no-majo
-    furigana_spans:
-    - - ハウリング・ブレイズ　
-      - null
-    - - 葬
-      - そう
-    - - 焔
-      - ほのお
-    - - の
-      - null
-    - - 剣士
-      - けんし
-    - - と
-      - null
-    - - 不死
-      - ふし
-    - - の
-      - null
-    - - 魔女
-      - まじょ
     note: 葬焔 is a coined compound, funeral plus flame, read as cremation fire; the synopsis's protagonist
       hunts demon-spawned monsters, which fits a fire built for burning the dead rather than an ordinary
       blaze.
-    reading: ハウリング・ ブレイズ 　 ソウ ホノオ ノ ケンシ ト フシ ノ マジョ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ハウリング・ ブレイズ 　 ソウエン ノ ケンシ ト フシ ノ マジョ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ハウリング・ ブレイズ 　 ソウ ホノオ ノ ケンシ ト フシ ノ マジョ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   ハグフレンド(スピリッツ賞・佳作):
     basis: translated

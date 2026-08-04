@@ -9179,3 +9179,16 @@ titles:
       The stored reading covered only the first seven characters, because MangaUpdates confirmed
       identity on an associated title and returned the primary title's romanisation. The guard for
       that is in place; this record was written before it and is corrected here.
+
+  "ハウリング・ブレイズ　葬焔の剣士と不死の魔女":
+    reading: ハウリング・ ブレイズ 　 ソウエン ノ ケンシ ト フシ ノ マジョ
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      葬焔 is a coinage and reads そうえん, both characters on. The analyser returned ソウ ホノオ,
+      an on reading and a kun reading side by side, which is what it produces when it does not
+      know the word and reads the characters separately. 焔 is ほのお on its own and えん in a
+      compound, as in 火焔.

@@ -303,6 +303,40 @@ The test is mechanical, using Japanese publishing's own objective signals:
 
 Any one of these excludes the work.
 
+### The test is a designation, never a judgement
+
+Decided by the project owner on 2026-08-05, when the retailer corpus made the question unavoidable.
+
+Nothing here asks whether a work IS pornography. Every signal above is a fact printed on an object
+or recorded by a shop, checkable by two people who disagree about the work itself. What follows
+from that admits far more than a judgement would.
+
+**Doujinshi is a publication mode, not a content classification.** Treating "is this doujin" as a
+proxy for "is this pornography" is a category error. Most yuri doujinshi is R-18, so the
+designation excludes most of it anyway; one carrying no designation is admissible on exactly the
+same terms as a commercial work. Excluding the category wholesale would drop admissible works to
+spare us a judgement we do not have to make.
+
+**Age-gating at retail is evidence and is recorded.** `age_gated` takes `gated`, `open` or
+`not-stocked`, per retailer. BOOK☆WALKER keeps R18 on a separate store and コミックシーモア files
+アダルト as its own genre, so both answer it directly. It varies between shops, which is itself
+informative, and it settles publishers whose output is adult-adjacent without anyone deciding what
+a given book "really is".
+
+**A work with no designation is admitted, not excluded.** Where the content is explicit it carries
+`explicit_content`, and where a reader would reasonably not want it unannounced it is kept out of
+default views, which §2 already does for `incidental`. Three dispositions rather than two is what
+makes the line hold: excluding on suspicion would mean a rule reading "we thought it looked like
+pornography", and that is the thing this section exists to avoid.
+
+**A bibliographic record is not the work.** A title, a publisher and an ISBN may be held for
+something no page of which would ever be shown. The cover rule already encodes this by refusing any
+cover on an `explicit_content` record, and that distinction is what lets the corpus be honest about
+what exists without hosting any of it.
+
+The residue is small and real: a work no shop gates, carrying no mark, from a publisher whose other
+output is adult. Nothing objective remains to appeal to, so it is admitted and flagged.
+
 **The test binds the work, not the edition.** Added 2026-08-04, from a case the retailer survey
 turned up. A pornographic work can be reissued with the genitalia erased, titled 【棒消し修正版】,
 【白抜き修正版】 or 【全年齢版】, and that edition carries no 成年コミックマーク, no R-18
@@ -316,9 +350,11 @@ The best evidence for the pairing is the seller's own catalogue rather than the 
 one marked -全年齢版- filed 青年マンガ, which states the twin instead of leaving it to be inferred
 from a phrase. Where that is available, use it.
 
-The title marker is what scales, and it is a floor. It catches only the editions that announce
-themselves, and it needs its counter-cases held out by name: 加筆修正版 is an authorial revision and
-完全版 is a collected reissue, neither of which says anything about content.
+**This is the one rule excluding a work that carries no signal of its own, so it is the narrowest.**
+It requires the counterpart to be IDENTIFIED, as an author page identifies it by listing both
+editions side by side. A censorship marker in a title is a lead to check and never a verdict alone:
+加筆修正版 is an authorial revision and 完全版 a collected reissue, and a work whose sibling nobody
+has found is admitted like any other.
 
 ### The middle band — included, flagged
 

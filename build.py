@@ -1268,6 +1268,7 @@ def main():
             src[wid][name] = r
 
     overlay = {r["work_id"]: r for r in load_dir("data/overlay")} if pathlib.Path("data/overlay").exists() else {}
+    undated_works = 0
 
     works, errors, warnings = [], [], []
     for wid, by_source in sorted(src.items()):
@@ -1325,7 +1326,22 @@ def main():
                 "note": "First known 単行本. Magazine serialisation not attested by current sources.",
             }
         else:
-            errors.append(f"{wid}: missing first_publication (DEFINITIONS §6) — no date in any source")
+            # A WORK THAT EXISTS IS RECORDED WHETHER OR NOT WE CAN DATE IT (§6, 2026-08-05).
+            # The scope test asks WHERE a work was first published and the date is not part of it.
+            # Refusing an undated work is the database asserting that something it can see does not
+            # exist, on the strength of a field the source does not hold: BOOK☆WALKER states no
+            # ISBN at all and a print date on 31.7% of volumes, and the absence is meaningful
+            # because every volume without one is digital-only with no print edition to date.
+            #
+            # The absence is STATED rather than left empty, and never filled with a delivery date
+            # or an import stamp standing in for one. A count, so it ratchets down as dates are
+            # found rather than blocking the corpus on them.
+            w["first_publication"] = {"venue": None, "date": None,
+                                      "country": base.get("first_publication_country") or "JP",
+                                      "date_basis": "no-date-attested",
+                                      "note": "No source consulted states a publication date. "
+                                              "Recorded undated rather than dated by inference."}
+            undated_works += 1
 
         # Classification. marketing_label is mechanical; content_tier is never automated (§6).
         for axis in ("marketing_label", "content_tier"):
@@ -3871,6 +3887,8 @@ def main():
                         "slow": "within a year", "dormant": "older than a year"}},
         ensure_ascii=False, indent=1, default=jsonable))
     _st = Counter(r["state"] for r in series_rows)
+    if undated_works:
+        print(f"undated works   : {undated_works} recorded with no attested publication date")
     print(f"series index    : {len(series_rows)} (work, platform) rows across "
           f"{len({k[0] for k in series})} works — {dict(_st)}"
           f"{f'  [{_out_of_scope} out-of-scope rows dropped]' if _out_of_scope else ''}")

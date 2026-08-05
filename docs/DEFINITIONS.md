@@ -240,8 +240,26 @@ irrelevant.
 | Simultaneous multi-territory release | Out if the Japanese edition is a translation; in if the Japanese text is the original |
 | Doujinshi sold at a Japanese event or shop | In scope in principle — deferred to Phase 2 (§7) |
 
-`first_publication` (venue, date, country) is therefore a **required field**, because it *is* the
-inclusion test.
+`first_publication` is therefore a **required field**, because it *is* the inclusion test. But read
+what the test asks: it turns on WHERE, and the date is not part of it.
+
+**A work that exists is recorded whether or not we can date it.** Decided by the project owner on
+2026-08-05. The venue and country are required, because those answer the scope question. The date
+is recorded where it can be attested and its absence is stated where it cannot, as
+`first_publication.date_basis`, never as an empty field pretending nobody looked.
+
+This is not a loosening; it is the rule saying what it always meant. The retailer corpus made the
+difference visible: BOOK☆WALKER states no ISBN anywhere and a print edition date on 31.7% of
+volumes, and the absence is meaningful rather than careless, because every volume without one is a
+digital-only product with no print edition to date. コミックシーモア states a delivery date that
+ran 128 months from the printing in the worst case. Refusing those works would have been the
+database asserting that a work it can see does not exist, on the strength of a field neither shop
+holds.
+
+What must never happen is a date invented to fill the field. A shop's delivery date, a platform's
+import stamp and a first-of-the-month standing in for a month-precision record are all facts about
+somebody's catalogue rather than about the manga, and each has already produced a wrong answer
+here. An undated work says it is undated.
 
 It is also **permanent**. Once a work's publication has been attested, that fact stays in the
 database even if every source that attested it stops carrying the work. Scope is judged on whether

@@ -3233,6 +3233,7 @@ def main():
             platform_status = str(w.get("status") or "")
             if platform_status.lower() == "finished" or platform_status == "完結":
                 bucket["completed_src"] = "the platform marks the serialisation finished"
+                bucket["completed_src_ja"] = "プラットフォームが連載終了と表示している"
             elif platform_status == "読み切り":
                 bucket["oneshot_src"] = True
             elif platform_status in ("ongoing", "連載中"):
@@ -3446,6 +3447,13 @@ def main():
             row["completed_basis"] = (f"the newest chapter is titled {_fm_shown.group(0)}"
                                       if _final
                                       else _completed)
+            # THE SAME EVIDENCE IN THE READER'S LANGUAGE. The site is bilingual and every one of
+            # these sentences was English, so a Japanese reader was shown prose they could not use
+            # in the one place the interface explains itself. Written beside the English at the
+            # moment the finding is made, rather than translated later from the sentence.
+            row["completed_basis_ja"] = (f"最新話の題が{_fm_shown.group(0)}"
+                                         if _final
+                                         else (bucket.get("completed_src_ja") or _completed))
         else:
             # Skipped slots bear on this twice over, and in opposite directions.
             #
@@ -3472,7 +3480,9 @@ def main():
                 # 150 works asserted it with nothing behind them. Saying what it rests on makes the
                 # weakness visible instead of leaving it implied.
                 row["state_basis"] = (
-                    f"no chapter for {age} days, and nothing states it has ended")
+                    f"no chapter for {age} day{'' if age == 1 else 's'}, "
+                    f"and nothing states it has ended")
+                row["state_basis_ja"] = f"{age}日間新しい話がなく、終了したとする情報もない"
                 # A PLATFORM SAYING IT IS RUNNING IS NOT SILENCE. It does not make a quiet work
                 # active, because a serialisation can be open and on hiatus at once, and the
                 # silence is still what we observed. What it does is say the silence is ours: the
@@ -3482,8 +3492,10 @@ def main():
                 # from closing a work the platform itself still calls running.
                 if row.pop("running_src", None):
                     row["state_basis"] = (
-                        f"no chapter for {age} days in what we hold, but the platform still marks "
-                        f"the serialisation as running")
+                        f"no chapter for {age} day{'' if age == 1 else 's'} in what we hold, but "
+                        f"the platform still marks the serialisation as running")
+                    row["state_basis_ja"] = (
+                        f"{age}日間新しい話がないが、プラットフォームは連載中と表示している")
                 # THE ANTENNA SAYS IT FINISHED. An aggregator's tag is a lead, so it does not carry
                 # a live series on its own; joined to a year of silence it is better evidence than
                 # the silence alone, which is all `dormant` ever had.
@@ -3643,8 +3655,8 @@ def main():
             _recomputed = "active" if _age <= 45 else ("slow" if _age <= 365 else "dormant")
             if _recomputed != _state:
                 _state = _recomputed
-                _state_basis = (f"no chapter for {_age} days on any platform we watch; the newest "
-                                f"we hold is {_merged_latest}")
+                _state_basis = (f"no chapter for {_age} day{'' if _age == 1 else 's'} on any "
+                                f"platform we watch; the newest we hold is {_merged_latest}")
         works_out.append({
             "work": best["work"],
             "author": next((r["author"] for r in rows if r["author"]), ""),
@@ -3671,12 +3683,16 @@ def main():
             # サンデーうぇぶり has 169 chapters ending last month, pixivコミック has 3 ending in
             # 2018, and the row took the state from one and the sentence from the other.
             "completed_basis": _basis_of(best, rows, "completed_basis"),
+            # The Japanese travels with the English, from the same row, by the same rule.
+            "completed_basis_ja": _basis_of(best, rows, "completed_basis_ja"),
             # Same reasoning for a paused series: the state travels with what it rests on, and
             # the skipped slots themselves are kept as dated evidence rather than summarised away.
             # A recomputed state brings its own reason. Taking the row's would publish one
             # platform's explanation for a state that platform did not decide.
             "state_basis": (_state_basis if _state != best["state"]
                             else _basis_of(best, rows, "state_basis")),
+            "state_basis_ja": (None if _state != best["state"]
+                               else _basis_of(best, rows, "state_basis_ja")),
             "skipped": sorted(
                 {(x.get("date"), x.get("title")) for r in rows for x in (r.get("skipped") or [])},
                 reverse=True),

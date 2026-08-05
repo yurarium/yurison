@@ -634,6 +634,57 @@ def norm_work(s):
                   "", s.strip().lower())
 
 
+def best_known_length(rows):
+    """The most chapters any one source holds for a work.
+
+    Not a sum, because every source describes the same story and adding them reported 135 chapters
+    for a 121-chapter work. Not the state-deciding row's count either, which is what this used to
+    take: that row is chosen for its DATES, and the source with the best dates is often not the
+    source with the most chapters. ナメられたくないナメカワさん is the case the sort's own comment
+    cites, where コミックDAYS watched the run end in 2022 and 一迅プラス holds all 77 chapters, and
+    the work was published as 29 chapters long. How long the work is and when it last published are
+    two questions, and one row cannot be trusted to answer both.
+    """
+    return max((r.get("chapters") or 0 for r in rows), default=0)
+
+
+def can_testify(chapters):
+    """Whether one source file has seen enough of a work to say its dates were observed.
+
+    Import stamps are detected per file, by looking for a run of instalments sharing a timestamp.
+    A file holding one chapter of a work cannot see a run, so it never reports one, and reading
+    that inability as an observation is how a thin source overturns a stamp two fuller sources
+    agree on. sitemap-magapoke.yaml holds a single chapter of ハロー、メランコリック！ at 2021-11-11
+    and did exactly that, leaving the work `dormant` off the day 講談社 loaded it onto the platform,
+    with 【track1】 shown as its newest episode.
+
+    More than one distinct date is the test. A single date across every chapter a file holds is the
+    import signature itself, not evidence against it.
+    """
+    return len({str(c.get("updated") or "")[:10] for c in (chapters or [])
+                if c.get("updated")}) > 1
+
+
+_WORK_ALIASES = None
+
+
+def work_alias(title):
+    """The canonical title where two sources write one work differently.
+
+    Curated in `data/work-aliases.yaml` and not derived, because nothing in a title says whether a
+    bracketed suffix marks another edition of this work or a different work: 【タテスク】 is the
+    first and 【読み切り版】 is the second. Matched after `norm_work`, so a source need not
+    reproduce width or punctuation to be recognised.
+    """
+    global _WORK_ALIASES                                                    # noqa: PLW0603
+    if _WORK_ALIASES is None:
+        p = pathlib.Path("data/work-aliases.yaml")
+        rows = (yaml.safe_load(p.read_text()) or {}).get("aliases") or [] if p.exists() else []
+        _WORK_ALIASES = {norm_work(r["variant"]): r["canonical"] for r in rows
+                         if r.get("variant") and r.get("canonical")}
+    return _WORK_ALIASES.get(norm_work(title), title)
+
+
 def load_dir(p):
     return [yaml.safe_load(open(f)) for f in sorted(glob.glob(f"{p}/*.yaml"))]
 
@@ -1851,8 +1902,18 @@ def main():
     # asked about works that had gone quiet, the second about works merely slowing down, and a
     # shop saying 完結 answers either. Ten of the 94 slow works carry it.
     shop_completed = {}
+    # The third file asks about works whose every date is an import stamp, which is a different
+    # question again: those read `unknown` because our dates say when we were told about the work,
+    # so the shop is the only party in a position to say whether it ended. All four it answered are
+    # marked by the volume tag rather than by 【完結】 in the title, so the title-only reader this
+    # module used to be could not have found any of them.
     for _bwf in ("data/coverage/bookwalker-completion.yaml",
-                 "data/coverage/bookwalker-completion-slow.yaml"):
+                 "data/coverage/bookwalker-completion-slow.yaml",
+                 "data/coverage/bookwalker-completion-unknown.yaml",
+                 # The second shop. DEFINITIONS §2 admits a licensed retailer as a comparator, and
+                 # a shop describing its own stock is the same kind of claim whichever shop makes
+                 # it. Read from the 百合・GL genre capture's own row flag.
+                 "data/coverage/cmoa-completion.yaml"):
         _bw = pathlib.Path(_bwf)
         if _bw.exists():
             for _c in (yaml.safe_load(_bw.read_text()) or {}).get("works") or []:
@@ -2990,7 +3051,7 @@ def main():
         _fp = (_d.get("platform_name") or _d.get("platform")
                or _SRC_PLAT.get(_d.get("source"), "") or "")
         for w in _d.get("works") or []:
-            title = (w.get("work_title") or "").strip()
+            title = work_alias((w.get("work_title") or "").strip())
             if not title:
                 continue
             plat = (w.get("platform_name") or _fp or "").strip()
@@ -3032,8 +3093,17 @@ def main():
             # chapters inside a publishing window, マガポケ draws twenty and hides the rest, and a
             # sitemap knows a handful of URLs. Presenting "2 話" for 裏世界ピクニック — which has
             # ninety — would be the interface asserting our coverage as a fact about the manga.
+            #
+            # PARTIAL IS A PROPERTY OF THE ROUTE, NOT OF THE PLATFORM, and マガポケ is why that
+            # distinction now has to be made. Three routes read its page and all three saw the
+            # free window; the feed it publishes per series carries the whole run, and its item
+            # count agrees with the series page's own episode_id_list. Naming the platform here
+            # would have gone on calling 私の百合はお仕事です! ten chapters long while a file on
+            # disk held all 147. The three page-reading files stay named, so nothing they claim
+            # alone is promoted, and `bucket["partial"]` already requires EVERY source for a row
+            # to be partial before the count is hedged.
             partial = _d.get("source") in ("sitemap",) or _d.get("platform") in (
-                "pixivcomic", "ganganonline", "magapoke", "mangaone", "backfill", "remaining",
+                "pixivcomic", "ganganonline", "mangaone", "backfill", "remaining",
                 "corocoro") or str(_f).endswith(("sitemap-magapoke.yaml", "magapoke-deep.yaml",
                                                  "rendered-magapoke.yaml", "rendered-mangaone.yaml"))
             # A one-shot is knowable from the record itself, and has to be: almost every 読切 is
@@ -3109,6 +3179,7 @@ def main():
                 bucket["feed_url"] = bucket["feed_url"] or _wurl
             elif _wurl:
                 bucket["url"] = bucket["url"] or _wurl
+            _can_testify = can_testify(chs)
             for c in chs:
                 # An instalment that names its own author and title is filed as its own work, not
                 # as a chapter of the container. Same reasoning as the feed: 貝合わせ by 白玉もち is a
@@ -3164,7 +3235,20 @@ def main():
                         slot[fld] = c[fld]
                 # A date only counts as an import where EVERY source giving it says so. One source
                 # importing a chapter another source watched appear does not unmake the observation.
-                if (w.get("work_title"), str(c.get("updated") or "")[:10]) not in _stamped:
+                #
+                # BUT SILENCE IS NOT TESTIMONY. `_stamped` is computed per file, so a file holding
+                # one chapter of a work cannot see a run and never reports one, and the old test
+                # read that inability as an observation. sitemap-magapoke.yaml holds a single
+                # chapter of ハロー、メランコリック！ at 2021-11-11, and that one row unmade the stamp
+                # both files holding all 40 chapters agreed on, so the work read `dormant` off the
+                # day 講談社 loaded it onto the platform and showed 【track1】 as its newest episode.
+                #
+                # A source may say a date was observed only where it holds enough of the work to
+                # have noticed an import: more than one distinct date for that work in that file.
+                # One date across every chapter a file holds is the signature itself, not evidence
+                # against it.
+                if _can_testify and (w.get("work_title"),
+                                     str(c.get("updated") or "")[:10]) not in _stamped:
                     slot["date_observed"] = True
 
     # Collapse each bucket's merged chapters into the row the interface reads.
@@ -3264,9 +3348,20 @@ def main():
         _final = bool(_fm)
         _completed = row.pop("completed_src", None)
         _running = row.get("running_src")
-        if row.pop("_capture_behind", False) and not (_final or _completed):
+        _behind_rev = reviewed.get(norm_work(row.get("work") or "")) if row.get("_capture_behind") \
+            else None
+        if row.pop("_capture_behind", False) and not (_final or _completed) \
+                and not (_behind_rev and _behind_rev.get("verdict") == "completed"):
             # The platform lists chapters past the newest we hold, so our newest is not the
             # series' newest and its age measures our capture rather than the work.
+            #
+            # A HAND REVIEW OUTRANKS THIS, which is why the verdict is consulted before the branch
+            # rather than in the `else` below where the other review checks sit. `unknown` here is
+            # a statement about our capture, and a cited page saying the series finished is a
+            # statement about the work; the two are not in competition. 惑星クローゼット is the
+            # case: pixivコミック lists 37 chapters against the 3 we hold, so the row read `unknown`
+            # while BOOK☆WALKER tagged all four volumes 完結. Reaching the review only through the
+            # `else` made a short capture able to suppress the better evidence.
             row["state"] = "unknown"
             row["state_basis"] = (
                 f"{_sl['n']} chapters are listed on the platform and we hold {row['chapters']}, "
@@ -3395,6 +3490,13 @@ def main():
               if v["_srcs"] != {"remaining"} or v["chapters"] > _real[k[0]]}
 
     _cands |= {norm_work(r["work"]) for r in releases}
+    # A work with a print record HAS been assessed: it is in the print corpus under a publisher's
+    # imprint, with a marketing_label and a basis. Leaving it out of scope made in-scope-ness
+    # depend on having a release inside the feed window, which a work whose whole run carries one
+    # import stamp can never have. 月が綺麗ですね, 徒然日和, 乙女ケーキ and マーメイドライン all left
+    # the database that way: 一迅プラス stamped their runs 2026-06-05 and 2025-08-08, no release
+    # fell in the window, and four works we hold both in print and on the web silently vanished.
+    _cands |= {norm_work(w["title"]["ja"]) for w in works if w.get("title", {}).get("ja")}
     # An instalment is in scope because the collection it appeared in was assessed, not because a
     # discovery list names it — 貝合わせ appears on no candidate list and is nonetheless a work we
     # hold, attested, with its own author.
@@ -3479,12 +3581,14 @@ def main():
             "work": best["work"],
             "author": next((r["author"] for r in rows if r["author"]), ""),
             # The BEST-KNOWN length, not a sum: every source is describing the same story, and
-            # adding them would report 135 chapters for a 121-chapter work.
-            "chapters": best["chapters"],
+            # adding them would report 135 chapters for a 121-chapter work. See the function.
+            "chapters": best_known_length(rows),
             # What the platform says the series is long, where we hold less. Published so the
-            # count can read as "what we have" rather than as the length of the work.
-            **({"chapters_stated": best["chapters_stated"]}
-               if best.get("chapters_stated") else {}),
+            # count can read as "what we have" rather than as the length of the work. Taken across
+            # every row for the same reason the length is: whichever source states it, states it.
+            **({"chapters_stated": max(r["chapters_stated"] for r in rows
+                                       if r.get("chapters_stated"))}
+               if any(r.get("chapters_stated") for r in rows) else {}),
             "partial": all(r["partial"] for r in rows),
             "latest": max((r["latest"] for r in _dr if r["latest"]), default=None),
             "latest_ep": best["latest_ep"],

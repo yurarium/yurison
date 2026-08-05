@@ -41,6 +41,16 @@ def main(s):
 
     s.eq(wp.episodes("", ENG, "https://x.jp"), [], "an empty page yields nothing")
 
+    # コミックノヴァ leaves the previous state of its list in a comment next to the live one, and
+    # the stale copy carries a real date and a real link, so it parses cleanly and is wrong. The
+    # counter-case is the point: a live block that merely CONTAINS a comment must still be read.
+    s.eq(wp.episodes(li("第1話", 2026, 8, 3) + "<!--" + li("第特別掲載話", 2026, 8, 3) + "-->",
+                     ENG, "https://x.jp"),
+         wp.episodes(li("第1話", 2026, 8, 3), ENG, "https://x.jp"),
+         "a commented-out episode block is not an episode")
+    s.eq(len(wp.episodes(li("第1話<!-- ruby -->", 2026, 8, 3), ENG, "https://x.jp")), 1,
+         "and a live block is still read when a comment sits inside it")
+
     # A comici page is routed to the shared parser, not to these selectors. The engine name alone
     # is not enough: the page must actually look like comici, or a misconfigured registry entry
     # would send an ordinary page down the wrong path.

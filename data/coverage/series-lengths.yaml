@@ -9,6 +9,33 @@
 # what separates a capture that is short from a capture that is behind. マガポケ's records are short
 # and not behind: we hold ten of 将来的に死んでくれ's 42 episodes and the one we call newest is the
 # 42nd, so its dates are right and only its count is wrong.
+#
+# `episodes_stated` counts rows in the platform's own list, the unit our `chapters` also counts, so
+# the two are comparable. `instalments_stated` counts numbered instalments, which a platform may
+# split across several rows; it is recorded where that is all the platform numbers, and build.py
+# does not read it. Do not promote one to the other. 冷たくて 柔らか's fifteen instalments are
+# somewhere over thirty rows, and 15 published against a capture of 5 rows would be a made-up
+# number in the wrong unit.
+#
+# WHAT EACH PLATFORM SAYS, checked 2026-08-04 against a page per platform:
+#
+#   マンガワン        全23話 above the chapter list, on every series page. Paginated ten rows at a
+#                    time and the total covers all pages, including 先読 rows released early to
+#                    paying readers and PR rows.
+#   コロコロオンライン  全102チャプター above the chapter list.
+#   pixivコミック      no total, but the list enumerates the whole run: withdrawn episodes stay in
+#                    it as ranges reading 第４話〜第６７話 掲載期間が終了しました. Where every row
+#                    is a numbered 第N話 and the expanded numbering runs 1..N with no gaps, the
+#                    count is read; where the run is numbered any other way it is not. The rows a
+#                    reader can open are exactly the chapters we hold, on all 23 works checked,
+#                    so the first row being one of ours is what settles `holds_last`.
+#   ガンガンONLINE     nothing. `__NEXT_DATA__` carries a `chapters` array holding the readable
+#                    window and no count: 裏世界ピクニック, at 第90話, gives nine rows.
+#   サンデーうぇぶり    nothing. The episode page carries no list and no count, and the series feed
+#                    holds only what is readable now.
+#   コミックDAYS       nothing on the page, but /atom/series/<id> is the whole run rather than a
+#                    window, so there is nothing to state: サタノファニ's 337 entries are the 337
+#                    chapters we hold.
 source: hand-checked
 role: series-length
 retrieved: 2026-08-04
@@ -24,3 +51,155 @@ works:
       client-side and carries no dates at all, so the count is all this platform offers. We hold
       two chapters, from となりのヤングジャンプ, which was a promotional posting for the work's
       print run in ウルトラジャンプ rather than the serialisation.
+
+  # pixivコミック. Counted from the rendered episode list, where a withdrawn stretch stays on the
+  # page as a range and the numbering therefore covers the whole run.
+  - work: ふたりべや
+    platform: pixivコミック
+    url: https://comic.pixiv.net/works/5364
+    episodes_stated: 68
+    holds_last: true
+    note: >-
+      第６８話, then 第４話〜第６７話 掲載期間が終了しました, then 第３話 down to 第１話. We hold the
+      four a reader can open, and the newest of them is the platform's newest, so this work was
+      publishing "4 chapters, completed" about a series at its sixty-eighth.
+  - work: 惑星クローゼット
+    platform: pixivコミック
+    url: https://comic.pixiv.net/works/5365
+    episodes_stated: 37
+    holds_last: false
+    note: >-
+      第４話〜第３７話 掲載期間が終了しました above 第３話 down to 第１話. Everything we hold is
+      dated 2018-12-18, which is the day pixiv loaded the run rather than the day anything was
+      published, and the platform lists 34 episodes past our newest.
+  - work: かいじゅう色の島
+    platform: pixivコミック
+    url: https://comic.pixiv.net/works/5470
+    episodes_stated: 33
+    holds_last: true
+    note: >-
+      第33話 dated 2026-07-24, 第2話〜第32話 withdrawn, then 第1話 from 2019. The two readable
+      episodes are the two we hold and the newer of them is the platform's newest.
+  - work: 声優ラジオのウラオモテ
+    platform: pixivコミック
+    url: https://comic.pixiv.net/works/10368
+    episodes_stated: 28
+    holds_last: false
+    note: >-
+      第４話〜第２８話 掲載期間が終了しました sits above the three episodes we hold, so 25 episodes
+      have appeared since the 2024-04-23 date this work was filed dormant on.
+  - work: 幕末女子高生 鬼と夜明け
+    platform: pixivコミック
+    url: https://comic.pixiv.net/works/9011
+    episodes_stated: 16
+    holds_last: true
+    note: >-
+      Numbered in kanji: 第一話 to 第五話, 第六話〜第十五話 withdrawn, 第十六話 on 2023-07-10, which
+      is the newest we hold.
+  - work: バカ女26時
+    platform: pixivコミック
+    url: https://comic.pixiv.net/works/9913
+    instalments_stated: 31
+    holds_last: true
+    note: >-
+      EPISODE 01 to EPISODE 31, with EPISODE 02②〜EPISODE 24 withdrawn as one range. The
+      instalments are numbered and the rows are not: EPISODE 02 alone is split into ① and ②, so
+      how many rows the withdrawn stretch covers is not on the page. We hold nine rows and the
+      newest, EPISODE 31, is the platform's newest.
+  - work: ギャル推しJKはギャルになりたい
+    platform: pixivコミック
+    url: https://comic.pixiv.net/works/11397
+    instalments_stated: 20
+    holds_last: false
+    note: >-
+      第15話〜第20話 掲載期間が終了しました above 第14話 down to 第1話, where 第2～3話 and 第4～5話
+      are single rows carrying two instalments each. So the numbering reaches 20 and the row count
+      does not follow from it. We hold 12 rows covering instalments 1 to 14.
+  - work: 冷たくて 柔らか
+    platform: pixivコミック
+    url: https://comic.pixiv.net/works/11800
+    instalments_stated: 15
+    holds_last: true
+    note: >-
+      Rows are parts rather than instalments: 1-①, 1-②, 1-③, then 2-①〜14-② withdrawn, then 15-①
+      and 15-②. Fifteen instalments at two or three parts each, and the page does not say how many
+      parts the withdrawn stretch holds. Our five rows are the five a reader can open and 15-② is
+      the platform's newest.
+
+  # マンガワン. 全N話 is printed above the chapter list on every series page.
+  - work: 妖怪殲滅のサイコリリー
+    platform: マンガワン
+    url: https://manga-one.com/manga/2565/chapter/225633
+    episodes_stated: 23
+    holds_last: true
+    note: >-
+      全23話, over three pages of ten. Our newest, 第13話(後編) on 2026-07-30, is the newest
+      published row; the only row above it is 第14話(前編), badged 先読 and dated 2026-08-06, which
+      is a chapter released early to paying readers and so a schedule rather than a release.
+  - work: かわいい同盟
+    platform: マンガワン
+    url: https://manga-one.com/manga/26962/chapter/290902
+    episodes_stated: 27
+    holds_last: true
+    note: >-
+      全27話. Above our newest, 第20話 on 2026-04-10, the platform lists 休載のお知らせ from the
+      same day and 第21話 badged 先読 with no date at all, so nothing published has gone past us.
+      The 休載 notice is the platform saying the series is on hiatus.
+  - work: ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは
+    platform: マンガワン
+    url: https://manga-one.com/manga/27253/chapter/307792
+    episodes_stated: 14
+    holds_last: true
+    note: >-
+      全14話. Our newest is 第8話(後編) on 2026-07-19, and the row above it is 第9話(前編), 先読 and
+      dated 2026-08-16.
+  - work: 私の焦がれる彼女
+    platform: マンガワン
+    url: https://manga-one.com/manga/27454/chapter/316774
+    episodes_stated: 7
+    holds_last: true
+    note: >-
+      全7話, all on one page. The seventh is 第7話, 先読 and undated; our newest is 第6話 on
+      2026-04-01.
+  - work: メイド&ロイドはお嬢様のお役に立ちたい!
+    platform: マンガワン
+    url: https://manga-one.com/manga/28129/chapter/355684
+    episodes_stated: 8
+    holds_last: true
+    note: >-
+      全8話, all on one page, of which the eighth is Memory5(前編) 先読 dated 2026-08-15. So the
+      seven we hold are every row published, and the count the platform states includes one it has
+      scheduled.
+  - work: 付き合ってあげてもいいかな
+    platform: マンガワン
+    url: https://manga-one.com/manga/603/chapter/70173
+    episodes_stated: 170
+    holds_last: true
+    note: >-
+      全170話, ending at 第133話(最終話). Every episode row is 先読 and the two rows we hold are the
+      free PR postings, the newest of which, オンラインくじ第2弾告知PR on 2025-07-04, is the
+      platform's newest row.
+
+  # コロコロオンライン.
+  - work: DOUBLE HELIX BLOSSOM
+    platform: コロコロオンライン
+    url: https://www.corocoro.jp/title/65
+    episodes_stated: 102
+    holds_last: true
+    note: >-
+      全102チャプター above the chapter list, counting the numbered episodes and rows such as
+      特別イラスト① together. The middle of the run sits behind 途中話を表示する and the free window
+      is the ends of it. Our newest is 第100話 on 2026-08-01; 第101話 is dated 2026-08-15, which
+      the page also states as 次回更新予定.
+
+  # サンデーうぇぶり.
+  - work: 上杉くんは女の子をやめたい
+    platform: サンデーうぇぶり
+    url: https://www.sunday-webry.com/episode/12207421984039246490
+    instalments_stated: 34
+    holds_last: true
+    note: >-
+      The platform states no total. 34 is the highest number it prints, on the newest episode, and
+      it is a floor rather than a count: the readable set alone carries 第22.5話 and five 番外編
+      outside that numbering, and the withdrawn episodes are dropped from the feed rather than
+      shown as a range the way pixivコミック shows them. We hold all thirteen the feed lists.

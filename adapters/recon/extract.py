@@ -39,6 +39,20 @@ CHAPTERISH = re.compile(
 ISO = re.compile(r"(\d{4})[-/.年](\d{1,2})[-/.月](\d{1,2})")
 # 単行本 release dates are the trap this pass exists to avoid.
 VOLUMEISH = re.compile(r"発売|刊行|単行本|巻")
+# The element a page uses to hold the chapter's own name. マンガPark writes
+# <p class="chapterTitle">3話①</p>, ファイアCROSS <span class="shop-item-info-name">第0話</span>,
+# マンガよもんが <div class="episode-name">Chapter.3 第1話-3</div>. Requiring the node to hold text
+# and nothing else keeps this to the case where the page really has named one element as the title:
+# ダ・ヴィンチニュース wraps its heading round an <a>, so it is left to the flat reading below.
+TITLE_NODE = re.compile(
+    r"<(h[1-6]|p|span|div|a|strong|em|b)\b[^>]*"
+    r'(?:class|id|itemprop)="[^"]*(?:title|name|subtitle|heading)[^"]*"[^>]*>([^<>]+)</\1>', re.I)
+# A text node that is a number and nothing else. It is a like count, a comment count, a price or a
+# position, and it is never a chapter label, because CHAPTERISH needs 話/回/#/episode beside the
+# digits. Dropping these nodes cannot remove the label, which is why the counts are cut here rather
+# than off the end of the assembled title: 'EPISODE 30' is one node, so its 30 survives, while
+# マンガPark's 26 and 8 are nodes of their own and do not.
+COUNTER_NODE = re.compile(r"^[0-9０-９][0-9０-９,，.]*$")
 
 
 def get(url):
@@ -155,10 +169,36 @@ def try_pairs(html):
     return out
 
 
+def block_text(b):
+    """A block flattened to text, with the nodes that are only a counter left out.
+
+    Tags become node boundaries rather than spaces, so a number the page printed in an element of
+    its own stays separable from the label next to it. That boundary is the whole difference
+    between '3話① 26 8' and '3話①'."""
+    parts = [re.sub(r"\s+", " ", s).strip() for s in re.split(r"<[^>]+>", b)]
+    return " ".join(p for p in parts if p and not COUNTER_NODE.match(p))
+
+
+def named_title(b):
+    """The text of the block's own title element, when it holds a chapter label."""
+    for m in TITLE_NODE.finditer(b):
+        t = re.sub(r"\s+", " ", m.group(2)).strip()
+        if t and CHAPTERISH.search(t):
+            return t
+    return None
+
+
 def try_markup(html):
     """Repeated blocks holding a date and an anchor. Reports the container it keyed on so the
-    result is reproducible as a selector rather than a one-off parse."""
-    body = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", html, flags=re.S | re.I)
+    result is reproducible as a selector rather than a one-off parse.
+
+    A row carries `exact` when the title came from the page's own title element. Callers must not
+    trim such a title: it is the name the publisher wrote, and the trimming they apply to a flat
+    run of text would cut a real subtitle."""
+    # Commented-out markup is not content. コミックノヴァ leaves a whole promo box for another work
+    # in a comment, and it was arriving as the chapter '更新！ 第8話 -->'.
+    body = re.sub(r"<!--.*?-->", " ", html, flags=re.S)
+    body = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", body, flags=re.S | re.I)
     best = []
     for tag in ("li", "article", "div", "tr", "a"):
         blocks = re.split(rf"(?=<{tag}\b)", body)
@@ -168,7 +208,7 @@ def try_markup(html):
             d = norm_date(re.sub(r"<[^>]+>", " ", b))
             if not d:
                 continue
-            text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", b)).strip()
+            text = block_text(b)
             if VOLUMEISH.search(text[:160]) and not CHAPTERISH.search(text[:160]):
                 continue
             t = CHAPTERISH.search(text)
@@ -177,7 +217,11 @@ def try_markup(html):
             c = re.search(rf'<{tag}[^>]*class="([^"]{{0,60}})"', b)
             if c:
                 cls[c.group(1).split()[0]] += 1
-            found.append({"title": text[:80], "date": d})
+            row = {"title": text[:80], "date": d}
+            named = named_title(b)
+            if named:
+                row["title"], row["exact"] = named[:80], True
+            found.append(row)
         if len(found) > len(best):
             best = found
             best_tag, best_cls = tag, (cls.most_common(1)[0][0] if cls else "")

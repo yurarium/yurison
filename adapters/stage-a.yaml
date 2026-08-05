@@ -65,6 +65,15 @@ commands:
     argv: [adapters/shogakukan/releases.py, --sites, adapters/shogakukan/sites.yaml,
            --out, data/source/webpages, --retrieved, "{R}"]
 
+  # マガポケ publishes a feed per series holding the whole run, so the ten-episode free window the
+  # page draws is no longer what we capture. One request per series, targets read from the work
+  # URLs the other adapters have already written, so a newly discovered work is picked up here
+  # without this list changing.
+  - id: magapoke-feeds
+    optional: true
+    argv: [adapters/magapoke.py, chapters, --out, data/source/webpages/magapoke-feeds.yaml,
+           --retrieved, "{R}"]
+
   - id: sitemap
     optional: true
     argv: [adapters/sitemap/releases.py, --sites, adapters/sitemap/sites.yaml,

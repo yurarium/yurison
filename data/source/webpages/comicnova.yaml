@@ -1,0 +1,29 @@
+# コミックノヴァ (一二三書房) — chapters from server-rendered work pages.
+# Works named by a Tier C yardstick; the platform attests the chapters.
+# This platform applies no 百合 tag, so nothing here establishes marketing_label.
+source: webpages
+platform: comicnova
+platform_name: "コミックノヴァ"
+publisher: "一二三書房"
+engine: comicnova
+retrieved: 2026-08-04
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works:
+  - work_title: "プリンセ「ス」"
+    url: "https://www.123hon.com/nova/web-comic/princess/"
+    chapter_count: 1
+    chapters:
+      - title: "特別掲載"
+        updated: "2022-04-01"
+        url: "https://www.123hon.com/vw/manga_award/princess/sv_pt0006242aefa1d5b9/index.html"
+  - work_title: "猫魔法が世界に革命を起こすそうですよ?"
+    url: "https://www.123hon.com/nova/web-comic/nekomaho/"
+    chapter_count: 2
+    chapters:
+      - title: "第1話(1/2)"
+        updated: "2023-08-11"
+        url: "https://www.123hon.com/vw/nekomaho/sv_pt00064f99aa4dfd17_01a_re/"
+      - title: "第1話(2/2)"
+        updated: "2023-08-25"
+        url: "https://www.123hon.com/vw/nekomaho/sv_pt00064d322845b1b4_01b/"

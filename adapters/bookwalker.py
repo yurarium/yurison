@@ -6,8 +6,12 @@ route we have misses them: the antenna drops a series when it stops updating, CO
 no status field, and NDL tells us when the volumes stopped but not whether the story did. What was
 missing was somebody stating completion about a work nobody is publishing any more.
 
-BOOK☆WALKER states it. A finished series carries 【完結】 in front of its name on its series page,
-and コンカフェ嬢は恋を着る is exactly that case: dormant here, 【完結】 there.
+BOOK☆WALKER states it, in two places, and reading only one of them is how this module spent a
+sweep answering None about works that had plainly ended. A finished series carries 【完結】 in front
+of its name on its series page, and コンカフェ嬢は恋を着る is that case: dormant here, 【完結】 there.
+It also tags the volumes themselves, which is the only signal 惑星クローゼット carries, a series
+that ended in 2020 with no 【完結】 in any title. `status` reads the first and `status_from_list`
+the second, and the sweep asks for both off one page.
 
 THE COUNTER-CASE WAS TESTED FIRST. きみが死ぬまで恋をしたい updates monthly, and its series page
 carries no 完結 anywhere at all, so the marker distinguishes rather than decorates.
@@ -45,6 +49,42 @@ def series_ids(html):
 def page_title(html):
     m = TITLE.search(html or "")
     return re.sub(r"\s+", " ", m.group(1)).strip() if m else ""
+
+
+TAG = re.compile(r'/tag/(\d+)/[^"]*"[^>]*>(.*?)</a>', re.S)
+FINISHED_TAG = "42"
+
+
+def tags(html):
+    """{tag_id: label} from a series page, first label per id."""
+    out = {}
+    for m in TAG.finditer(html or ""):
+        out.setdefault(m.group(1),
+                       re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", m.group(2))).strip())
+    return out
+
+
+def status_from_list(html, work_title):
+    """`completed` where the volume list is tagged finished, otherwise None.
+
+    WHY THIS EXISTS BESIDE `status`. The shop marks completion two ways and this module read only
+    one. 惑星クローゼット carries no 【完結】 in any page title, so `status` answered None about a
+    series that ended in 2020, while its `/series/<id>/list/` page tags every volume 完結 and
+    summarises them as `完結(4)` on tag 42. The whole dormant sweep ran on the title-only reader,
+    so silence there was never the evidence it was taken for.
+
+    THE COUNTER-CASE WAS CHECKED FIRST. きみが死ぬまで恋をしたい, which updates monthly, carries no
+    tag 42 at all on the same page, so the tag distinguishes rather than decorates.
+
+    The page still has to name the work asked about, for the reason `status` gives: a marker read
+    off somebody else's page is a wrong answer with a citation attached.
+    """
+    title = page_title(html)
+    if not title:
+        return None
+    if _fold(work_title) not in _fold(title):
+        return None
+    return "completed" if FINISHED_TAG in tags(html) else None
 
 
 def status(html, work_title):
@@ -97,15 +137,20 @@ def main(argv=None):
             continue
         # Only the first result is read. A shop's search ranks by relevance, and walking further
         # down it to find a 完結 anywhere is how you end up citing a different series.
+        #
+        # The volume list is read rather than the series page, because it carries BOTH signals: the
+        # 【完結】 the title may hold and the 完結 tag the volumes carry. Reading only the title
+        # missed 惑星クローゼット, which ended in 2020 and is tagged but not titled.
         try:
-            html = get(f"https://bookwalker.jp/series/{found[0]}/")
+            html = get(f"https://bookwalker.jp/series/{found[0]}/list/")
         except Exception as e:                                              # noqa: BLE001
             print(f"  skip {w['work'][:22]}: {e}")
             continue
         time.sleep(a.pause)
-        st = status(html, w["work"])
+        st = status(html, w["work"]) or status_from_list(html, w["work"])
         if st == "completed":
             rows.append({"work": w["work"], "series": found[0], "title": page_title(html),
+                         "marker": "title" if FINISHED in page_title(html) else "volume-tag",
                          "latest_chapter": w.get("latest")})
         else:
             unmarked += 1
@@ -123,6 +168,7 @@ def main(argv=None):
         L.append(f"  - work: {js(r['work'])}")
         L.append(f"    url: {js('https://bookwalker.jp/series/' + r['series'] + '/')}")
         L.append(f"    shop_title: {js(r['title'].split(' - ')[0])}")
+        L.append(f"    marker: {js(r.get('marker'))}")
         L.append(f"    latest_chapter: {js(r.get('latest_chapter'))}")
     L.append("")
     pathlib.Path(a.out).write_text("\n".join(L))

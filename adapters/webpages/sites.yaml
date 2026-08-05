@@ -133,6 +133,25 @@ sites:
     min_works: 1
     verified: 2026-08-02
 
+  # コミックノヴァ — 一二三書房's own web arm. It was being read by the generic heuristic pass,
+  # which cannot see this platform's chapter labels: the page names each instalment in a
+  # span.story-num and the label is not always numbered. プリンセ「ス」's only instalment is
+  # labelled 特別掲載, so the heuristic found nothing chapter-shaped, fell below its floor of two
+  # and dropped a real work; 猫魔法 came through with a chapter reconstructed out of a promo box.
+  # Reading the element the platform itself names as the label answers both.
+  #
+  # `min_episodes: 1` because a 特別掲載 is one instalment and that is the whole work. The floor
+  # of two belongs to heuristic extraction, where one dated thing on a page is usually the volume;
+  # a label read from the platform's own element is not a guess and owes no corroboration.
+  - id: comicnova
+    name: コミックノヴァ
+    publisher: 一二三書房
+    host: www.123hon.com
+    engine: comicnova
+    min_episodes: 1
+    min_works: 1
+    verified: 2026-08-04
+
 engines:
   comici:
     block: '(?=<div data-e2e="eli" class="series-eplist-item")'
@@ -148,6 +167,16 @@ engines:
     # no access at all, so both forms are accepted.
     free: 'series-eplist-item-access-text[^"]*mode-free|series-eplist-item-access[^>]*>\s*(?:<[^>]*>\s*)*無料'
     paid: 'series-eplist-item-access-paid|series-eplist-item-access[^>]*>\s*(?:<[^>]*>\s*)*<path'
+
+  comicnova:
+    block: '(?=<span class="story-num">)'
+    # The date is required by the TITLE selector rather than checked afterwards, because this
+    # platform withdraws instalments in place: 猫魔法's 第2話 through 第12話 keep their labels and
+    # replace the date with 公開は終了しました。 A row with no date is not a dated release, and
+    # emitting one would put eleven undated chapters into a release feed.
+    title: '<span class="story-num">([^<]*)</span>[\s　]*(?=\d{4}年\d{1,2}月\d{1,2}日更新)'
+    date: '(\d{4})年(\d{1,2})月(\d{1,2})日更新'
+    url: 'class="btn"><a href="([^"]+)"'
 
   yanmaga:
     block: '(?=<li class="mod-episode-item")'

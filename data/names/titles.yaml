@@ -1,4 +1,4 @@
-generated: '2026-08-04'
+generated: '2026-08-05'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -495,14 +495,18 @@ names:
     script: latin
     verified: false
   SHWD《シュード》:
-    basis: translated
+    basis: licensed
     en: SHWD
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
-    note: The furigana glosses the acronym as Shudo; kept as the acronym itself, the way the synopsis
-      names the in-story organization, rather than spelling out a pronunciation guide as if it were the
-      title.
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: SHWD
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/shwd/
+    note: The licensor's own catalogue entry, which states the Japanese title as ＳＨＷＤ《シュード》. An English
+      reader meets the work under this name.
     reading: SHWD 《シュード》
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -1136,11 +1140,16 @@ names:
     reading_source_kind: analyser
     verified: false
   あきらかに年齢を詐称している女子高生VTuber:
-    basis: translated
-    en: The Schoolgirl VTuber Who Is Plainly Lying About Her Age
-    en_at: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: High school girl VTuber who clearly lies about her age
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Schoolgirl VTuber Who Is Plainly Lying About Her Age
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn.comic-walker.com/integration/cdpf/resources/009434/54410ec9-085b-4cc7-812a-64a138fa0137.jpg
     furigana_spans:
     - - あきらかに
       - null
@@ -1156,7 +1165,7 @@ names:
       - じょしこうせい
     - - VTuber
       - null
-    note: '詐称 is misrepresentation with intent, and あきらかに is the joke: everybody can tell.'
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: アキラカニ ネンレイ ヲ サショウ シテ イル ジョシコウセイ VTuber
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -1231,19 +1240,22 @@ names:
     reading_source_kind: analyser
     verified: false
   あたし達って付き合ってるよね!?:
-    basis: translated
-    en: We're Going Out, Aren't We?!
-    en_at: '2026-08-03'
+    basis: official-jp
+    en: WE ARE DATING, RIGHT!?
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: wikidata
       value: Atashitachi tte Tsukiatteru yo ne!?
+    - basis: translated
+      source: yurarium
+      value: We're Going Out, Aren't We?!
     en_corroborated:
     - mangaupdates
     en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: http://www.wikidata.org/entity/Q139987202
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn.comic-walker.com/integration/cdpf/resources/011928/99fa1075-a222-48c0-9827-a28d61c5a311.jpg
     furigana_spans:
     - - あたし
       - null
@@ -1259,7 +1271,7 @@ names:
       - あ
     - - ってるよね!?
       - null
-    note: よね is asking for agreement while assuming it, which the English tag question does too.
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: アタシタチ ッテ ツキアッテル ヨ ネ ! ?
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -1759,11 +1771,16 @@ names:
     reading_source_kind: analyser
     verified: false
   うさぎはかく語りき:
-    basis: translated
-    en: Thus Spoke the Rabbit
-    en_at: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: ALSO SPRACH FOR RABBIT
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Thus Spoke the Rabbit
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://img.comic-fuz.com/c/1CL2d7/oh.webp
     furigana_spans:
     - - うさぎはかく
       - null
@@ -1771,9 +1788,8 @@ names:
       - かた
     - - りき
       - null
-    note: 'かく語りき is the phrasing of ツァラトゥストラはかく語りき, so the English carries the allusion by matching the
-      formula the same book is known by in English. うさぎ is the animal rather than a character: the platform
-      synopsis has 人喰いうさぎ infesting the underground and a rabbit-eared girl beside the protagonist.'
+    note: 'The work''s own Latin title, set on its series art. art only; `FOR RABBIT` stands where the
+      は of the Japanese sits, inside the title plate:'
     reading: ウサギ ワ カク カタリキ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -1920,17 +1936,22 @@ names:
     reading_source: surface
     verified: true
   おとなになっても:
-    basis: translated
-    en: Even After Becoming an Adult
-    en_at: '2026-08-04'
+    basis: licensed
+    en: Even Though We’re Adults
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Otona ni Natte mo (SHIMURA Takako)
+    - basis: translated
+      source: yurarium
+      value: Even After Becoming an Adult
     en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: https://www.mangaupdates.com/series/z6nl2wk/otona-ni-natte-mo-shimura-takako
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/even-though-were-adults/
+    note: The licensor's own catalogue entry, which states the Japanese title as おとなになっても. An English
+      reader meets the work under this name.
     reading: オトナニナッテモ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -2553,20 +2574,22 @@ names:
     en_url: https://www.mangaupdates.com/series/tw25st8/kimi-to-board-game-ga-tsukuritai
     verified: false
   きみと世界の終りを訪ねて:
-    basis: translated
-    en: Visiting the End of the World with You
-    en_at: '2026-08-04'
+    basis: official-jp
+    en: Keep the END
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Kimi to Sekai no Owari o Tazunete
+    - basis: translated
+      source: yurarium
+      value: Visiting the End of the World with You
     en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: https://www.mangaupdates.com/series/3rrspjj/kimi-to-sekai-no-owari-o-tazunete
-    note: The android and clone leads are named Liberta and Speranza, Italian for liberty and hope; not
-      translated, since they read as chosen names rather than ordinary words, but worth noting for a post-apocalyptic
-      pairing.
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://ichicomi.com/episode/2550912965923204364
+    note: The work's own Latin title, set on its series art. set as the main title with the Japanese below
+      it; the foot repeats `Keep the END just a little longer / presented by KORUSE / published by ICHIJINSHA`
     reading: キミ ト セカイ ノ オワリ オ タズネテ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -2974,17 +2997,20 @@ names:
     reading_source_kind: analyser
     verified: false
   この百合はフィクションです:
-    basis: translated
-    en: This Yuri Is Fiction
-    en_at: '2026-08-04'
+    basis: official-jp
+    en: This GL is fiction
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Kono Yuri wa Fiction desu
+    - basis: translated
+      source: yurarium
+      value: This Yuri Is Fiction
     en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: https://www.mangaupdates.com/series/wxg2jzk/kono-yuri-wa-fiction-desu
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://manga-park.com/static/t/1e0t/i/1$wrOWwgw.jpg
     furigana_spans:
     - - この
       - null
@@ -2992,8 +3018,7 @@ names:
       - ゆり
     - - はフィクションです
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'The work''s own Latin title, set on its series art. art only; note **GL**, not *yuri*:'
     reading: コノ ユリ ワ フィクションデス
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -3275,11 +3300,18 @@ names:
     reading_source_kind: analyser
     verified: false
   さよならローズガーデン:
-    basis: translated
-    en: Goodbye, Rose Garden
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: Goodbye, My Rose Garden
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Goodbye, Rose Garden
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/goodbye-my-rose-garden/
+    note: The licensor's own catalogue entry, which states the Japanese title as さよならローズガーデン. An English
+      reader meets the work under this name.
     reading: サヨナラローズガーデン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -3287,11 +3319,16 @@ names:
     reading_source: surface
     verified: true
   しあわせ鳥見んぐ:
-    basis: translated
-    en: Happy Birding
-    en_at: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: HAPPINESS BIRD WITHIN YOU.
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Happy Birding
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://img.comic-fuz.com/c/1CSlK_/oP.webp
     furigana_spans:
     - - しあわせ
       - null
@@ -3299,8 +3336,7 @@ names:
       - とりみ
     - - んぐ
       - null
-    note: 鳥見んぐ bolts an English -ing onto a Japanese word. English has no way to be foreign to itself,
-      so the pun goes and the plain word stays.
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: シアワセ トリミング
     reading_at: '2026-08-03'
     reading_basis: researched
@@ -3308,6 +3344,8 @@ names:
     - basis: analyser
       source: sudachi
       value: シアワセ トリミ ン グ
+    reading_corroborated:
+    - series-art
     reading_pass: 4
     reading_source: yurarium
     reading_source_kind: derived
@@ -3860,11 +3898,18 @@ names:
     reading_source: surface
     verified: true
   たゆたうふたり:
-    basis: translated
-    en: Two Adrift
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: A Couple Drifting in the Wind
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Two Adrift
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/a-couple-drifting-in-the-wind/
+    note: The licensor's own catalogue entry, which states the Japanese title as たゆたうふたり. An English reader
+      meets the work under this name.
     reading: タユタウフタリ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4399,11 +4444,17 @@ names:
     reading_url: https://www.mangaupdates.com/series/ch5e7s2/parian-no-sono
     verified: false
   ひかりのすむところ:
-    basis: translated
-    en: Where the Light Lives
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Where the light lives.
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Where the Light Lives
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912965923184092-2e15647e1ef13dfc77c0aec0ce76c460
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: ヒカリノスムトコロ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -4609,11 +4660,18 @@ names:
     reading_source: surface
     verified: true
   ふたりエスケープ:
-    basis: translated
-    en: Escape for Two
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: Futari Escape
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Escape for Two
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/futari-escape/
+    note: The licensor's own catalogue entry, which states the Japanese title as ふたりエスケープ. An English
+      reader meets the work under this name.
     reading: フタリエスケープ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5232,11 +5290,16 @@ names:
     reading_url: https://www.mangaupdates.com/series/4c9cbig/yurizukushi-no-kyoushitsu-de
     verified: false
   ゆりゆりぱにっく～尊すぎる事案が発生しています!～:
-    basis: translated
-    en: 'Yuri Yuri Panic: An Excessively Precious Situation Is Occurring!'
-    en_at: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: 'Yuri Yuri Panic: A Case of Extreme Cuteness Has Occurred!'
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Yuri Yuri Panic: An Excessively Precious Situation Is Occurring!'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/yuri-yuri-panic-a-case-of-extreme-cuteness-has-occurred/
     furigana_spans:
     - - ゆりゆりぱにっく～
       - null
@@ -5252,9 +5315,8 @@ names:
       - はっせい
     - - しています!～
       - null
-    note: ゆりゆり is a coinage and stays. The subtitle is fandom slang (尊い) inside a police blotter frame
-      (事案が発生しています), and the joke is the collision, so the English keeps the bureaucratic register rather
-      than smoothing it.
+    note: The licensor's own catalogue entry, which states the Japanese title as ゆりゆりぱにっく～尊すぎる事案が発生しています！～.
+      An English reader meets the work under this name.
     reading: ユリ ユリ パニック ～ トウト スギル ジアン ガ ハッセイ シテ イマス ! ～
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -5341,11 +5403,17 @@ names:
     reading_source: surface
     verified: true
   らぶ あんど ぴーす:
-    basis: translated
-    en: Love and Peace
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: LOVE & PEACE
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Love and Peace
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.comic-days.com/public/episode-thumbnail/14079602755274553787-ed279bd3bacdee673f1794f7001b236e
+    note: 'The work''s own Latin title, set on its series art. art only, under the logo:'
     reading: ラブ アンド ピース
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -5791,11 +5859,16 @@ names:
     reading_source_kind: analyser
     verified: false
   アンドロイドは経験人数に入りますか？？:
-    basis: translated
-    en: Does an Android Count Toward Your Number of Partners??
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: Does it Count if You Lose Your Virginity to an Android?
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Does an Android Count Toward Your Number of Partners??
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/does-it-count-if-you-lose-your-virginity-to-an-android/
     furigana_spans:
     - - アンドロイドは
       - null
@@ -5809,8 +5882,8 @@ names:
       - はい
     - - りますか？？
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The licensor's own catalogue entry, which states the Japanese title as アンドロイドは経験人数に入りますか？？.
+      An English reader meets the work under this name.
     reading: アンドロイド ワ ケイケン ニンズウ ニ ハイリマス カ？？
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -5940,11 +6013,17 @@ names:
     reading_source_kind: analyser
     verified: false
   エクストリームスーパーダーリン:
-    basis: translated
+    basis: official-jp
     en: Extreme Super Darling
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Extreme Super Darling
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912965919360703-7f0e5f00bed1d2752443413dd2446999
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: エクストリームスーパーダーリン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7289,6 +7368,20 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  サルビアのブーケ:
+    basis: romaji
+    furigana_spans:
+    - - サルビアのブーケ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: サルビア ノ ブーケ
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   シスターグレイ:
     basis: translated
     en: Sister Grey
@@ -7496,13 +7589,17 @@ names:
     reading_source: surface
     verified: true
   ジュリア・イン・ザ・ボックス！:
-    basis: translated
-    en: Julia in the Box!
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
-    note: Echoes jack-in-the-box; Julia is the sheltered rich girl of the synopsis, and the title's shape
-      suggests she's the surprise popping out of her box rather than the phrase being literal.
+    basis: official-jp
+    en: Julia in the box!
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Julia in the Box!
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912965919360550-2c5cce614f5bc6926d1b98909c192056
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: ジュリア・イン・ザ・ボックス！
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7660,11 +7757,17 @@ names:
     reading_source_kind: analyser
     verified: false
   ステラ・ステップ:
-    basis: translated
-    en: Stella Step
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Stella` / `Step`, split above and below the katakana
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Stella Step
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-public.comici.jp/series/1646812/20250624122143882D17345FE433856874F936436F772ABB7.webp
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: ステラ・ステップ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7696,11 +7799,18 @@ names:
     reading_source: surface
     verified: true
   スピカをつかまえて:
-    basis: translated
-    en: Catch Spica
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: Chasing Spica
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Catch Spica
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/chasing-spica/
+    note: The licensor's own catalogue entry, which states the Japanese title as スピカをつかまえて. An English
+      reader meets the work under this name.
     reading: スピカヲツカマエテ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -8294,11 +8404,17 @@ names:
     reading_source: surface
     verified: true
   ドロップアウト・サキュバス！:
-    basis: translated
-    en: Dropout Succubus!
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Drop out♡Succubus!
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Dropout Succubus!
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912965923184524-ff9c441c82bcb2a2c5647ab257deec06
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: ドロップアウト・サキュバス！
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -8394,19 +8510,22 @@ names:
     reading_source_kind: derived
     verified: false
   ナメられたくないナメカワさん:
-    basis: translated
-    en: Namekawa-san Doesn't Want to Be Underestimated
-    en_at: '2026-08-04'
+    basis: licensed
+    en: Namekawa-san Won’t Take a Licking!
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: wikidata
       value: Nameraretakunai Namekawa-san
+    - basis: translated
+      source: yurarium
+      value: Namekawa-san Doesn't Want to Be Underestimated
     en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: http://www.wikidata.org/entity/Q106689033
-    note: 'Shares its root with her own surname: ナメられる, to be looked down on, and ナメカワ both carry ナメ,
-      the pun the reinvention plot is built around.'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/namekawa-san-wont-take-a-licking/
+    note: The licensor's own catalogue entry, which states the Japanese title as ナメられたくないナメカワさん. An English
+      reader meets the work under this name.
     reading: ナメラレタクナイナメカワサン
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -8432,15 +8551,19 @@ names:
     reading_source: surface
     verified: true
   ニニンがシノブ伝ぷらす:
-    basis: translated
-    en: Ninin ga Shinobuden Plus
-    en_at: '2026-08-03'
+    basis: official-jp
+    en: 2×2＝SHINOBUDEN+
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: yurarium
       value: Ninin ga Shinobuden Plus
-    en_source: yurarium
-    en_source_kind: derived
+    - basis: translated
+      source: yurarium
+      value: Ninin ga Shinobuden Plus
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn.comic-walker.com/integration/cdpf/resources/003297/1bd91869-65b9-4a18-ad9f-2ae9f55d17dc.jpg
     furigana_spans:
     - - ニニンがシノブ
       - null
@@ -8448,11 +8571,7 @@ names:
       - でん
     - - ぷらす
       - null
-    note: 'The title is the times table: 二二が四 read ni-ni ga shi, with 四 swapped for シノブ伝. Nothing in English
-      does that, and a rendering that dropped it would be a different joke. Romanised rather than translated,
-      except that ぷらす is spelt Plus because it is the English word and Purasu would be a romanisation
-      of a loan. Filed as translated for that reason: basis romaji means render from the kana, which would
-      produce Purasu and discard this string.'
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: ニニン ガ シノブデン プラス
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -8645,6 +8764,22 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ハロー、メランコリック！:
+    basis: licensed
+    en: Hello, Melancholic!
+    en_at: '2026-08-05'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/hello-melancholic/
+    note: The licensor's own catalogue entry, which states the Japanese title as ハロー、メランコリック!. An English
+      reader meets the work under this name.
+    reading: ハロー、 メランコリック！
+    reading_at: '2026-08-04'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ハートは腐らない:
     basis: translated
     en: Hearts Don't Rot
@@ -8876,13 +9011,18 @@ names:
     reading_source: surface
     verified: true
   ヒーローさんと元女幹部さん:
-    basis: translated
-    en: Hero-san and the Former Lady Boss
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: licensed
+    en: Superwomen in Love! Honey Trap and Rapid Rabbit
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Hero-san and the Former Lady Boss
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/superwomen-in-love-honey-trap-and-rapid-rabbit/
+    note: The licensor's own catalogue entry, which states the Japanese title as ヒーローさんと元女幹部さん. An English
+      reader meets the work under this name.
     reading: ヒーローサン ト モト オンナ カンブサン
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -8890,6 +9030,8 @@ names:
     - basis: analyser
       source: sudachi
       value: ヒーローサン ト ガンニョ カンブサン
+    reading_corroborated:
+    - sevenseasentertainment.com
     reading_pass: 4
     reading_source: yurarium
     reading_source_kind: derived
@@ -9076,11 +9218,16 @@ names:
     reading_source: surface
     verified: true
   フードコートで、また明日。:
-    basis: translated
-    en: See You Tomorrow, at the Food Court.
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: SEE YOU TOMORROW, AT THE FOOD COURT.
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: See You Tomorrow, at the Food Court.
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn.comic-walker.com/integration/cdpf/resources/005741/25002c5d-1d1b-4af8-9de2-254559378bcc.jpg
     furigana_spans:
     - - フードコートで、また
       - null
@@ -9088,8 +9235,7 @@ names:
       - あす
     - - 。
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: フード コート デ、 マタ アス。
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -9384,11 +9530,17 @@ names:
     reading_source: surface
     verified: true
   マジックアワー:
-    basis: translated
-    en: Magic Hour
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: MAGIC HOUR
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Magic Hour
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912965923183855-984b1275596e501338247c536f0c2dc9
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: マジックアワー
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -10366,12 +10518,17 @@ names:
     reading_source_kind: analyser
     verified: false
   七限目は忍者修行です！:
-    basis: translated
-    en: Seventh Period Is Ninja Training!
-    en_at: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
-    note: 限目 is a school period, and the joke is that there are only six.
+    basis: official-jp
+    en: THE SEVENTH PERIOD IS NINJA TRAINING!
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Seventh Period Is Ninja Training!
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn.comic-walker.com/integration/cdpf/resources/007122/b644bbca-683c-46a9-88a8-16e68a6755a8.jpg
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: ナナゲンメ ワ ニンジャ シュギョウデス！
     reading_at: '2026-08-03'
     reading_basis: researched
@@ -10379,6 +10536,8 @@ names:
     - basis: analyser
       source: sudachi
       value: ナナゲン メ ワ ニンジャ シュギョウデス！
+    reading_corroborated:
+    - series-art
     reading_pass: 4
     reading_source: yurarium
     reading_source_kind: derived
@@ -10633,6 +10792,26 @@ names:
     note: Swaps 世 for 夜 in the idiom 世が世なら, if times were different; the vampire dropped into modern Tokyo
       makes the substitution literal rather than wistful.
     reading: ヨ ガ ヨルナラ !
+    reading_at: '2026-08-04'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  世が夜なら！:
+    basis: romaji
+    furigana_spans:
+    - - 世
+      - よ
+    - - が
+      - null
+    - - 夜
+      - よる
+    - - なら！
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ヨ ガ ヨルナラ！
     reading_at: '2026-08-04'
     reading_basis: analyser
     reading_pass: 4
@@ -11233,19 +11412,22 @@ names:
     reading_source_kind: analyser
     verified: false
   今日はカノジョがいないから:
-    basis: translated
-    en: My Girlfriend Isn't Here Today
-    en_at: '2026-08-03'
+    basis: licensed
+    en: My Girlfriend’s Not Here Today
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: wikidata
       value: Kyō wa Kanojo ga Inai kara
+    - basis: translated
+      source: yurarium
+      value: My Girlfriend Isn't Here Today
     en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: http://www.wikidata.org/entity/Q116233964
-    note: カノジョ in katakana is the girlfriend rather than the pronoun, and the synopsis turns on the relationship
-      being kept off school grounds.
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/my-girlfriends-not-here-today/
+    note: The licensor's own catalogue entry, which states the Japanese title as 今日はカノジョがいないから. An English
+      reader meets the work under this name.
     reading: キョウ ワ カノジョ ガ イナイ カラ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -11747,17 +11929,21 @@ names:
     reading_source_kind: analyser
     verified: false
   僕らのアイは気持ち悪い:
-    basis: translated
-    en: Our Love Is Disgusting
-    en_at: '2026-08-04'
+    basis: official-jp
+    en: OUR "LOVE" IS DISGUSTING.
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: wikidata
       value: Bokura no Ai wa Kimochi Warui
+    - basis: translated
+      source: yurarium
+      value: Our Love Is Disgusting
     en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: http://www.wikidata.org/entity/Q139731086
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912965923184075-37f955d0cf6786d07b4296ad27b4b59b
+    note: 'The work''s own Latin title, set on its series art. art only, 4x crop:'
     reading: ボクラ ノ アイ ワ キモチ ワルイ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -12581,17 +12767,20 @@ names:
     reading_source_kind: analyser
     verified: false
   君としらない夏になる:
-    basis: translated
-    en: It Becomes an Unknown Summer With You
-    en_at: '2026-08-04'
+    basis: licensed
+    en: Throw Away the Suit Together
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: wikidata
       value: Kimi to Shiranai Natsu ni Naru
+    - basis: translated
+      source: yurarium
+      value: It Becomes an Unknown Summer With You
     en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: http://www.wikidata.org/entity/Q123408707
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/throw-away-the-suit-together/
     furigana_spans:
     - - 君
       - きみ
@@ -12601,6 +12790,8 @@ names:
       - なつ
     - - になる
       - null
+    note: The licensor's own catalogue entry, which states the Japanese title as 君としらない夏になる. An English
+      reader meets the work under this name.
     reading: キミ ト シラナイ ナツ ニ ナル
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -12638,11 +12829,16 @@ names:
     reading_source_kind: analyser
     verified: false
   君と綴るうたかた:
-    basis: translated
-    en: The Fleeting Moments I Write With You
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: The Summer You Were There
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Fleeting Moments I Write With You
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/the-summer-you-were-there/
     furigana_spans:
     - - 君
       - きみ
@@ -12652,7 +12848,8 @@ names:
       - つづ
     - - るうたかた
       - null
-    note: うたかた, foam on water, is the same classical word for impermanence as 泡沫 earlier this evening.
+    note: The licensor's own catalogue entry, which states the Japanese title as 君と綴るうたかた. An English
+      reader meets the work under this name.
     reading: キミ ト ツヅル ウタカタ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -13023,6 +13220,37 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  嘘つき花嫁と同性結婚論:
+    basis: licensed
+    en: The Lying Bride and the Same-Sex Marriage Debate
+    en_at: '2026-08-05'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/the-lying-bride-and-the-same-sex-marriage-debate/
+    furigana_spans:
+    - - 嘘
+      - うそ
+    - - つき
+      - null
+    - - 花嫁
+      - はなよめ
+    - - と
+      - null
+    - - 同性
+      - どうせい
+    - - 結婚
+      - けっこん
+    - - 論
+      - ろん
+    note: The licensor's own catalogue entry, which states the Japanese title as 嘘つき花嫁と同性結婚論. An English
+      reader meets the work under this name.
+    reading: ウソツキ ハナヨメ ト ドウセイ ケッコン ロン
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   嘘の理由:
     basis: romaji
     furigana_spans:
@@ -13384,11 +13612,16 @@ names:
     reading_source_kind: analyser
     verified: false
   夜と海:
-    basis: translated
+    basis: official-jp
     en: Night and Sea
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Night and Sea
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://img.comic-fuz.com/c/1Ck6x5/nD.webp
     furigana_spans:
     - - 夜
       - よる
@@ -13396,8 +13629,7 @@ names:
       - null
     - - 海
       - うみ
-    note: The platform's own yomi field confirms the reading straight through. Plain noun pair, nothing
-      to protect.
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: ヨル ト ウミ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -13513,11 +13745,16 @@ names:
     reading_source_kind: analyser
     verified: false
   夢でフラれてはじまる百合:
-    basis: translated
-    en: A Yuri That Starts with a Dream of Rejection
-    en_at: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: A Yuri Love Story That Begins with Getting Dumped in a Dream
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: A Yuri That Starts with a Dream of Rejection
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/a-yuri-love-story-that-begins-with-getting-dumped-in-a-dream/
     furigana_spans:
     - - 夢
       - ゆめ
@@ -13525,8 +13762,8 @@ names:
       - null
     - - 百合
       - ゆり
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The licensor's own catalogue entry, which states the Japanese title as 夢でフラれてはじまる百合. An English
+      reader meets the work under this name.
     reading: ユメ デ フラレテ ハジマル ユリ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -13605,11 +13842,16 @@ names:
     reading_source_kind: analyser
     verified: false
   大好きな親友がVチューバーの自分にガチ恋してた話:
-    basis: translated
-    en: The Story of My Beloved Best Friend Being Seriously in Love with My VTuber Persona
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: MY BEST FRIEND IS IN LOVE WITH MY VTUBER
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Story of My Beloved Best Friend Being Seriously in Love with My VTuber Persona
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.comic-action.com/public/series-thumbnail/4856001361584720983-b229503c79c6ee552ad451439ccca210
     furigana_spans:
     - - 大好
       - だいす
@@ -13633,9 +13875,7 @@ names:
       - null
     - - 話
       - はなし
-    note: ガチ恋, gachi-koi, is fan slang for genuine, unironic romantic devotion to an idol or VTuber; the
-      synopsis is the person behind a VTuber persona unable to admit the truth to the best friend who
-      confesses being her biggest fan.
+    note: 'The work''s own Latin title, set on its series art. volume cover, set vertically:'
     reading: ダイスキナ シンユウ ガ ブイチューバー ノ ジブン ニ ガチ コイ シテタ ハナシ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -13899,11 +14139,16 @@ names:
     reading_source_kind: analyser
     verified: false
   女ともだちと結婚してみた。:
-    basis: translated
-    en: I Tried Marrying My Girl Friend.
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: I Married My Female Friend
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: I Tried Marrying My Girl Friend.
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/i-married-my-female-friend/
     furigana_spans:
     - - 女
       - おんな
@@ -13913,8 +14158,8 @@ names:
       - けっこん
     - - してみた。
       - null
-    note: The synopsis is a promise between friends, "if we're both still single in five years, let's
-      marry", coming true between two women who were never lovers, and the marriage that follows.
+    note: The licensor's own catalogue entry, which states the Japanese title as 女ともだちと結婚してみた。. An English
+      reader meets the work under this name.
     reading: オンナ トモダチ ト ケッコン シテ ミタ。
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -14506,18 +14751,21 @@ names:
   安達としまむら:
     basis: licensed
     en: Adachi and Shimamura
-    en_at: '2026-08-03'
-    en_source: Yen Press
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: licensed
+      source: sevenseasentertainment.com
+      value: Adachi and Shimamura (Light Novel)
+    en_source: sevenseasentertainment.com
     en_source_kind: licensor
-    en_url: https://yenpress.com/series/adachi-and-shimamura-manga
+    en_url: https://sevenseasentertainment.com/series/adachi-and-shimamura-light-novel/
     furigana_spans:
     - - 安達
       - あだち
     - - としまむら
       - null
-    note: Yen Press publishes the Yuzuhara Moke manga; Seven Seas publishes Iruma Hitoma's light novels.
-      Both use the same English title, so the split does not affect the string, but the catalogued work
-      here is the manga and the manga's licensor is the one cited.
+    note: The licensor's own catalogue entry, which states the Japanese title as 安達としまむら. An English reader
+      meets the work under this name.
     reading: アダチ ト シマムラ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -14632,11 +14880,16 @@ names:
     reading_source_kind: analyser
     verified: false
   対ありでした。 ～お嬢さまは格闘ゲームなんてしない～:
-    basis: translated
-    en: There Was a Versus Mode. ~A Young Lady Would Never Play Fighting Games~
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: Young Ladies Don’t Play Fighting Games
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: There Was a Versus Mode. ~A Young Lady Would Never Play Fighting Games~
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/young-ladies-dont-play-fighting-games/
     furigana_spans:
     - - 対
       - たい
@@ -14650,10 +14903,8 @@ names:
       - かくとう
     - - ゲームなんてしない～
       - null
-    note: 対あり, "there is a versus option", is fighting-game terminology for a match mode, kept as the
-      gaming phrase it is. The synopsis is a commoner who idolises her school's most refined young lady,
-      only to catch her secretly playing fighting games, and gets challenged to a match herself once fighting-game
-      calluses give her away as an experienced player.
+    note: The licensor's own catalogue entry, which states the Japanese title as 対ありでした。 ～お嬢さまは格闘ゲームなんてしない～.
+      An English reader meets the work under this name.
     reading: タイ アリデシタ。   ～ オジョウサマ ワ カクトウ ゲーム ナンテ シナイ ～
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -14714,11 +14965,16 @@ names:
     reading_url: http://www.wikidata.org/entity/Q48759731
     verified: false
   小春と湊 わたしのパートナーは女の子:
-    basis: translated
-    en: 'Koharu and Minato: My Partner Is a Girl'
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: 'Koharu and Minato: Happy Life with My Girlfriend'
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Koharu and Minato: My Partner Is a Girl'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/koharu-and-minato-happy-life-with-my-girlfriend/
     furigana_spans:
     - - 小春
       - こはる
@@ -14734,8 +14990,8 @@ names:
       - null
     - - 子
       - こ
-    note: 'A real couple''s own social-media essay comic, now also serialised in Comic Yurihime per the
-      synopsis: a long-distance pair, ten years apart in age, finally moving in together.'
+    note: The licensor's own catalogue entry, which states the Japanese title as 小春と湊 わたしのパートナーは女の子. An
+      English reader meets the work under this name.
     reading: コハル ト ミナト   ワタシ ノ パートナー ワ オンナノコ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -14745,18 +15001,22 @@ names:
     verified: false
   小林さんちのメイドラゴン:
     basis: licensed
-    en: Miss Kobayashi's Dragon Maid
-    en_at: '2026-08-04'
-    en_source: Seven Seas Entertainment
+    en: Miss Kobayashi’s Dragon Maid
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: licensed
+      source: Seven Seas Entertainment
+      value: Miss Kobayashi's Dragon Maid
+    en_source: sevenseasentertainment.com
     en_source_kind: licensor
-    en_url: https://www.penguinrandomhouse.com/books/700921/miss-kobayashis-dragon-maid-vol-1-by-coolkyousinnjya/
+    en_url: https://sevenseasentertainment.com/series/miss-kobayashis-dragon-maid/
     furigana_spans:
     - - 小林
       - こばやし
     - - さんちのメイドラゴン
       - null
-    note: sevenseasentertainment.com refuses automated fetches, so cited to a distributor listing that
-      names Seven Seas as publisher, the same workaround used elsewhere for this licensor.
+    note: The licensor's own catalogue entry, which states the Japanese title as 小林さんちのメイドラゴン. An English
+      reader meets the work under this name.
     reading: コバヤシサン チ ノ メイドラゴン
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -15241,11 +15501,16 @@ names:
     reading_source_kind: analyser
     verified: false
   彩純ちゃんはレズ風俗に興味があります！:
-    basis: translated
-    en: Asumi Is Interested in Lesbian Sex Work!
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: Asumi-chan is Interested in Lesbian Brothels!
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Asumi Is Interested in Lesbian Sex Work!
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/asumi-chan-is-interested-in-lesbian-brothels/
     furigana_spans:
     - - 彩純
       - あすみ
@@ -15259,9 +15524,8 @@ names:
       - きょうみ
     - - があります！
       - null
-    note: The stored reading gives her name as あすみ, Asumi. The synopsis is a woman who regrets a kiss
-      she once shared with a childhood friend, and a search for that friend that leads to an unexpected
-      address.
+    note: The licensor's own catalogue entry, which states the Japanese title as 彩純ちゃんはレズ風俗に興味があります！.
+      An English reader meets the work under this name.
     reading: アスミチャン ワ レズ フウゾク ニ キョウミ ガ アリマス！
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -15270,9 +15534,9 @@ names:
     reading_source_kind: analyser
     verified: false
   彩香ちゃんは弘子先輩に恋してる:
-    basis: translated
-    en: Ayaka Is in Love with Hiroko-senpai
-    en_at: '2026-08-04'
+    basis: official-jp
+    en: AYAKA is in LOVE×LOVE×LOVE with HIROKO
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: wikidata
@@ -15280,14 +15544,14 @@ names:
     - basis: translated
       source: yurarium
       value: Ayaka Is in Love with Senior Hiroko
+    - basis: translated
+      source: yurarium
+      value: Ayaka Is in Love with Hiroko-senpai
     en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: http://www.wikidata.org/entity/Q115118144
-    note: The platform's own subtitle names a TV drama adaptation, "あやひろ" (Aya-Hiro), confirming this
-      is the same pairing as 彩香ちゃんは弘子先輩を落としたい, curated last checkpoint under the title the catalogue held
-      then; that key is left as recorded rather than merged, since both are separate rows in the catalogue
-      for what reads as one work under two titles over time.
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.comic-action.com/public/series-thumbnail/13933686331667100482-ac182f9bec61f508287f1676904ef6cc
+    note: 'The work''s own Latin title, set on its series art. volume 3 cover:'
     reading: アヤカ チャン ワ ヒロコ センパイ ニ コイシテル
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -15375,11 +15639,16 @@ names:
     reading_source_kind: analyser
     verified: false
   彼女のカノジョと不純な初恋:
-    basis: translated
-    en: Her Girlfriend and an Impure First Love
-    en_at: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: MY GUILTY FIRST LOVE WITH ANOTHER GIRL'S GIRLFRIEND
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Her Girlfriend and an Impure First Love
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn.comic-walker.com/integration/cdpf/resources/009359/f52ddbe4-8845-4520-954f-504bc1985354.jpg
     furigana_spans:
     - - 彼女
       - かのじょ
@@ -15391,7 +15660,7 @@ names:
       - null
     - - 初恋
       - はつこい
-    note: 彼女 and カノジョ are the same word written twice so that one reads as she and the other as girlfriend.
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: カノジョ ノ カノジョ ト フジュンナ ハツコイ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -15537,19 +15806,23 @@ names:
     reading_source_kind: derived
     verified: false
   徒然日和:
-    basis: translated
-    en: An Idle Fine Day
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: Our Wonderful Days
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: An Idle Fine Day
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/our-wonderful-days/
     furigana_spans:
     - - 徒然
       - つれづれ
     - - 日和
       - ひより
-    note: 徒然, tsurezure, is idleness in the register of the Tsurezuregusa; 日和 is the same "a fine day
-      for X" construction as 晴れ晴れ日和 and 怨霊日和 elsewhere this evening. The synopsis is four rural high schoolers
-      somewhere between friends and lovers, where nothing much happens and that is the point.
+    note: The licensor's own catalogue entry, which states the Japanese title as 徒然日和. An English reader
+      meets the work under this name.
     reading: ツレヅレ ヒヨリ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -16204,11 +16477,16 @@ names:
     reading_source_kind: analyser
     verified: false
   恋より青く:
-    basis: translated
-    en: Bluer Than Love
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: A Love Yet to Bloom
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Bluer Than Love
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/a-love-yet-to-bloom/
     furigana_spans:
     - - 恋
       - こい
@@ -16218,9 +16496,8 @@ names:
       - あお
     - - く
       - null
-    note: 青い carries "unripe" or "immature" as well as literally blue, which the title may be leaning
-      on; the synopsis calls the two leads' bond a "nameless relationship", not quite friendship and not
-      named as romance either, which fits either reading.
+    note: The licensor's own catalogue entry, which states the Japanese title as 恋より青く. An English reader
+      meets the work under this name.
     reading: コイ ヨリ アオク
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -16882,6 +17159,27 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  捏造トラップ-NTR-:
+    basis: licensed
+    en: 'NTR: Netsuzou Trap'
+    en_at: '2026-08-05'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/ntr-netsuzou-trap/
+    furigana_spans:
+    - - 捏造
+      - ねつぞう
+    - - トラップ-NTR-
+      - null
+    note: The licensor's own catalogue entry, which states the Japanese title as 捏造トラップーNTRー. An English
+      reader meets the work under this name.
+    reading: ネツゾウ トラップ - NTR -
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   捨てられエルフさんは世界で一番強くて可愛い！:
     basis: translated
     en: The Discarded Elf Is the Strongest, Cutest Girl in the World!
@@ -17285,11 +17583,16 @@ names:
     reading_source_kind: analyser
     verified: false
   新米姉妹のふたりごはん:
-    basis: translated
-    en: The Rookie Sisters' Meals for Two
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Let's have a meal together!
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Rookie Sisters' Meals for Two
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn.comic-walker.com/integration/cdpf/resources/002743/e6387263-772e-4f4f-ab5e-2be512f84390.jpg
     furigana_spans:
     - - 新米
       - しんまい
@@ -17297,8 +17600,7 @@ names:
       - しまい
     - - のふたりごはん
       - null
-    note: The synopsis is two girls made stepsisters overnight by their parents' remarriage, wary of each
-      other until a whole cured ham leg from their father abroad gets them cooking together.
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: シンマイ シマイ ノ フタリ ゴハン
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -17541,6 +17843,30 @@ names:
       she means, growing drawn to a transfer student.'
     reading: ハル ニ タムケル
     reading_at: '2026-08-04'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  春の光に呑まれても:
+    basis: romaji
+    furigana_spans:
+    - - 春
+      - はる
+    - - の
+      - null
+    - - 光
+      - ひかり
+    - - に
+      - null
+    - - 呑
+      - の
+    - - まれても
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ハル ノ ヒカリ ニ ノマレテ モ
+    reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -18291,6 +18617,29 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  楽園の条件:
+    basis: licensed
+    en: The Conditions of Paradise (Series)
+    en_at: '2026-08-05'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/the-conditions-of-paradise/
+    furigana_spans:
+    - - 楽園
+      - らくえん
+    - - の
+      - null
+    - - 条件
+      - じょうけん
+    note: The licensor's own catalogue entry, which states the Japanese title as 楽園の条件. An English reader
+      meets the work under this name.
+    reading: ラクエン ノ ジョウケン
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   橙山寮のあの子たち:
     basis: translated
     en: Those Girls at Touyama Dormitory
@@ -18353,11 +18702,16 @@ names:
     reading_source_kind: analyser
     verified: false
   欠けた月とドーナッツ:
-    basis: translated
-    en: The Waning Moon and the Donut
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: Doughnuts Under a Crescent Moon
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Waning Moon and the Donut
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/doughnuts-under-a-crescent-moon/
     furigana_spans:
     - - 欠
       - か
@@ -18367,9 +18721,8 @@ names:
       - つき
     - - とドーナッツ
       - null
-    note: 欠けた月 is a moon missing a piece rather than specifically a crescent, which sits the image beside
-      a donut with a bite out of it; the synopsis is an office worker unable to take the step into the
-      "normal" romance she wants, helped by a strict senior coworker on a bad night.
+    note: The licensor's own catalogue entry, which states the Japanese title as 欠けた月とドーナッツ. An English
+      reader meets the work under this name.
     reading: カケタ ツキ ト ドーナッツ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -18410,17 +18763,20 @@ names:
     reading_source_kind: analyser
     verified: false
   死に戻り王女は生き延びるために百合ハーレムを作ることにした:
-    basis: translated
-    en: The Princess Who Returns by Death Decided to Build a Yuri Harem to Survive
-    en_at: '2026-08-04'
+    basis: licensed
+    en: The Death Defying Princess Creates a Yuri Harem to Survive
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: wikidata
       value: Shinimodori Ōjo wa Ikinobiru Tame ni Yuri Harem o Tsukuru Koto ni Shita
+    - basis: translated
+      source: yurarium
+      value: The Princess Who Returns by Death Decided to Build a Yuri Harem to Survive
     en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: http://www.wikidata.org/entity/Q130379759
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/the-death-defying-princess-creates-a-yuri-harem-to-survive/
     furigana_spans:
     - - 死
       - し
@@ -18450,9 +18806,8 @@ names:
       - つく
     - - ることにした
       - null
-    note: 死に戻り is the death-loop mechanic popularised in English by Re:Zero's own "Return by Death", recovered
-      here rather than invented; 百合ハーレム, yuri harem, is kept as yuri for the same genre-self-awareness
-      reason as the rest of this evening's 百合 titles.
+    note: The licensor's own catalogue entry, which states the Japanese title as 死に戻り王女は生き延びるために百合ハーレムを作ることにした.
+      An English reader meets the work under this name.
     reading: シ ニ モドリ オウジョ ワ イキノビル タメ ニ ユリ ハーレム ヲ ツクル コト ニ シタ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -18618,11 +18973,16 @@ names:
     reading_source_kind: derived
     verified: false
   残存の竜:
-    basis: translated
-    en: The Surviving Dragon
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Remaining Dragon
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Surviving Dragon
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912965923184515-3e4fde0cfe66cbad2ad1a6837d3bd92e
     furigana_spans:
     - - 残存
       - ざんぞん
@@ -18630,9 +18990,7 @@ names:
       - null
     - - 竜
       - りゅう
-    note: 'Ironic against its own synopsis: a girl sent as a sacrifice to a dragon on "Remnant Island"
-      finds the dragon long gone, and tries to get home with a local girl''s help before collapsing on
-      the day of departure.'
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: ザンゾン ノ リュウ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -19185,6 +19543,29 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  海猫荘days:
+    basis: licensed
+    en: Days of Love at Seagull Villa
+    en_at: '2026-08-05'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/days-of-love-at-seagull-villa/
+    furigana_spans:
+    - - 海猫
+      - うみねこ
+    - - 荘
+      - そう
+    - - days
+      - null
+    note: The licensor's own catalogue entry, which states the Japanese title as 海猫荘days. An English reader
+      meets the work under this name.
+    reading: ウミネコソウ days
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   清田さんは汚されたい!?:
     basis: translated
     en: Kiyota Wants to Be Defiled!?
@@ -19685,6 +20066,26 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  犬神さんと猫山さん:
+    basis: romaji
+    furigana_spans:
+    - - 犬神
+      - いぬがみ
+    - - さんと
+      - null
+    - - 猫山
+      - ねこやま
+    - - さん
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: イヌガミサン ト ネコヤマサン
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   狙いはキミだけ!:
     basis: translated
     en: You're My Only Target!
@@ -19707,19 +20108,22 @@ names:
     reading_source_kind: analyser
     verified: false
   狼の皮をかぶった羊姫:
-    basis: translated
-    en: A Sheep Princess in Wolf's Clothing
-    en_at: '2026-08-03'
+    basis: licensed
+    en: Sheep Princess in Wolf’s Clothing
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: wikidata
       value: Ōkami no Kawa o Kabutta Hitsujihime
+    - basis: translated
+      source: yurarium
+      value: A Sheep Princess in Wolf's Clothing
     en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: http://www.wikidata.org/entity/Q114792026
-    note: The Japanese inverts 羊の皮をかぶった狼, and English has the same idiom to invert, so the title survives
-      intact. Aki is the wolf serving in the sheep kingdom. Replaces a stored romanisation.
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/sheep-princess-in-wolfs-clothing/
+    note: The licensor's own catalogue entry, which states the Japanese title as 狼の皮をかぶった羊姫. An English
+      reader meets the work under this name.
     reading: オオカミ ノ カワ オ カブッタ ヒツジヒメ
     reading_at: '2026-08-03'
     reading_basis: researched
@@ -19727,6 +20131,8 @@ names:
     - basis: back-converted
       source: wikidata
       value: オウカミ ノ カワ オ カブッタ ヒツジヒメ
+    reading_corroborated:
+    - sevenseasentertainment.com
     reading_pass: 2
     reading_source: yurarium
     reading_source_kind: derived
@@ -20018,6 +20424,26 @@ names:
       to be the one coddled, upending the admiration the title''s junior→senior setup implies. Honorific
       dropped, name kept.'
     reading: アマエ サセテ ヒナモリサン !
+    reading_at: '2026-08-04'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  甘えさせて雛森さん！:
+    basis: romaji
+    furigana_spans:
+    - - 甘
+      - あま
+    - - えさせて
+      - null
+    - - 雛森
+      - ひなもり
+    - - さん！
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アマエ サセテ ヒナモリサン！
     reading_at: '2026-08-04'
     reading_basis: analyser
     reading_pass: 4
@@ -20482,12 +20908,16 @@ names:
     reading_source_kind: analyser
     verified: false
   白と黒～Black & White～:
-    basis: official-jp
-    en: Black & White
-    en_at: '2026-08-04'
-    en_source: COMICリュエル&COMICジャルダン
-    en_source_kind: platform
-    en_url: https://comic.j-nbooks.jp/series/b334c297c6024
+    basis: licensed
+    en: 'Black and White: Tough Love at the Office'
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: official-jp
+      source: COMICリュエル&COMICジャルダン
+      value: Black & White
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/black-and-white-tough-love-at-the-office/
     furigana_spans:
     - - 白
       - しろ
@@ -20497,10 +20927,8 @@ names:
       - くろ
     - - ～Black & White～
       - null
-    note: The platform's own title already carries an English half, 白と黒～Black & White～; recorded from
-      that rather than translated fresh. The two leads' surnames are 白川, Shirakawa, and 黒田, Kuroda, white
-      and black built into the names themselves, matching the synopsis's bank colleagues locked into a
-      strange, violent dynamic.
+    note: The licensor's own catalogue entry, which states the Japanese title as 白と黒~Black & White~. An
+      English reader meets the work under this name.
     reading: シロ ト クロ ～ Black   &   White ～
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -20779,11 +21207,16 @@ names:
     reading_source_kind: analyser
     verified: false
   百合バリズム部:
-    basis: romaji
-    en: The Yuri Barizumu Club
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: YURIBALISMBU
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: romaji
+      source: yurarium
+      value: The Yuri Barizumu Club
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912965923184621-8b5f7115d75885badfd4af6f76725ede
     furigana_spans:
     - - 百合
       - ゆり
@@ -20791,11 +21224,7 @@ names:
       - null
     - - 部
       - ぶ
-    note: 百合 and 部, club, translate; バリズム does not resolve to anything findable, coined or punning on
-      something the single available one-shot does not surface enough of to name. The author's own promotion
-      calls it a "変態チックな" (perverted-tinged) one-shot about a company president's daughter in a molecular-gastronomy
-      club hiding a secret, which is not enough to settle what バリズム means, so it is left as the sound
-      it is rather than guessed at.
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: ユリ バリズム ブ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -21318,11 +21747,16 @@ names:
     reading_source_kind: analyser
     verified: false
   私だって青春したいですよ、本当は。:
-    basis: translated
-    en: I Want a Youth Too, Honestly.
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: The truth is, I want to enjoy my youth too.
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: I Want a Youth Too, Honestly.
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912966077785019-b848daf93629b05d38b588831e70982c
     furigana_spans:
     - - 私
       - わたし
@@ -21336,9 +21770,7 @@ names:
       - ほんとう
     - - は。
       - null
-    note: だって carries the "even I" contrast, and 本当は the admission under a front of not caring; the synopsis
-      is a self-described background character drawn to the popular classmate she used to dislike, once
-      the two land on the same committee.
+    note: 'The work''s own Latin title, set on its series art. volume 1 cover:'
     reading: ワタシダ ッテ セイシュン シタイデス ヨ、 ホントウ ワ。
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -21543,11 +21975,15 @@ names:
     verified: false
   私の推しは悪役令嬢。:
     basis: licensed
-    en: I'm in Love with the Villainess
-    en_at: '2026-08-04'
-    en_source: Seven Seas Entertainment
+    en: I’m in Love with the Villainess (Manga)
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: licensed
+      source: Seven Seas Entertainment
+      value: I'm in Love with the Villainess
+    en_source: sevenseasentertainment.com
     en_source_kind: licensor
-    en_url: https://tankobonbon.com/en-us/products/9781648278006
+    en_url: https://sevenseasentertainment.com/series/im-in-love-with-the-villainess-manga/
     furigana_spans:
     - - 私
       - わたし
@@ -21563,9 +21999,8 @@ names:
       - れいじょう
     - - 。
       - null
-    note: sevenseasentertainment.com refuses automated fetches; cited to the same distributor workaround
-      used elsewhere for this licensor, which names the original Japanese title alongside the English
-      one and confirms the match.
+    note: The licensor's own catalogue entry, which states the Japanese title as 私の推しは悪役令嬢。. An English
+      reader meets the work under this name.
     reading: ワタシ ノ オシ ワ アクヤク レイジョウ。
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -21887,6 +22322,24 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  立花館To Lieあんぐる:
+    basis: romaji
+    furigana_spans:
+    - - 立花
+      - りっか
+    - - 館
+      - かん
+    - - To Lieあんぐる
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: リッカカン To   Lie アン グル
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   竜人ボディガードとお嬢様:
     basis: translated
     en: The Dragonkin Bodyguard and the Young Lady
@@ -22156,17 +22609,20 @@ names:
     reading_source_kind: derived
     verified: false
   紡ぐ乙女と大正の月:
-    basis: translated
-    en: The Spinning Maiden and the Taishō Moon
-    en_at: '2026-08-04'
+    basis: official-jp
+    en: A DRIFT GIRL AND A NOBLE MOON
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: wikidata
       value: Tsumugu Otome to Taishō no Tsuki
+    - basis: translated
+      source: yurarium
+      value: The Spinning Maiden and the Taishō Moon
     en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: http://www.wikidata.org/entity/Q97940410
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://img.comic-fuz.com/c/1Bide3/la.webp
     furigana_spans:
     - - 紡
       - つむ
@@ -22182,8 +22638,7 @@ names:
       - null
     - - 月
       - つき
-    note: The platform's own yomi field confirms the reading straight through. A Taishō-era-set kirara
-      4-koma; 紡ぐ, to spin thread, is plain rather than figurative here.
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: ツムグ オトメ ト タイショウ ノ ツキ
     reading_at: '2026-08-02'
     reading_basis: back-converted
@@ -22460,6 +22915,43 @@ names:
       白百合, white lily, reads as the idealised girlishness the narrator feels she lacks.'
     reading: センボウ ト シラユリ ノ キミ エ。
     reading_at: '2026-08-04'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  羽山先生と寺野先生は付き合っている:
+    basis: licensed
+    en: Our Teachers are Dating!
+    en_at: '2026-08-05'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/our-teachers-are-dating/
+    furigana_spans:
+    - - 羽山
+      - はやま
+    - - 先生
+      - せんせい
+    - - と
+      - null
+    - - 寺野
+      - てらの
+    - - 先生
+      - せんせい
+    - - は
+      - null
+    - - 付
+      - つ
+    - - き
+      - null
+    - - 合
+      - あ
+    - - っている
+      - null
+    note: The licensor's own catalogue entry, which states the Japanese title as 羽山先生と寺野先生は付き合っている. An
+      English reader meets the work under this name.
+    reading: ハヤマ センセイ ト テラノ センセイ ワ ツキアッテ イル
+    reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -22901,18 +23393,22 @@ names:
     reading_source_kind: analyser
     verified: false
   葬られたきみへ:
-    basis: translated
-    en: To You Who Were Buried
-    en_at: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: To You Who Were Buried.
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: To You Who Were Buried
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn.comic-walker.com/integration/cdpf/resources/005851/0b964113-351a-43d6-b011-572f91a292d2.jpg
     furigana_spans:
     - - 葬
       - ほうむ
     - - られたきみへ
       - null
-    note: 'The synopsis is a one-shot: the moon will strike the Earth within a decade, and against that
-      ending a girl named Necro confesses to Kiri, who takes it half as a joke until Necro dies.'
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: ホウムラレタ キミ エ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -23093,6 +23589,37 @@ names:
     reading_basis: researched
     reading_source: derived
     reading_source_kind: derived
+    verified: false
+  親がうるさいので後輩(♀)と偽装結婚してみた。:
+    basis: licensed
+    en: I Married My Best Friend to Shut My Parents Up
+    en_at: '2026-08-05'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/i-married-my-best-friend-to-shut-my-parents-up/
+    furigana_spans:
+    - - 親
+      - おや
+    - - がうるさいので
+      - null
+    - - 後輩
+      - こうはい
+    - - (♀)と
+      - null
+    - - 偽装
+      - ぎそう
+    - - 結婚
+      - けっこん
+    - - してみた。
+      - null
+    note: The licensor's own catalogue entry, which states the Japanese title as 親がうるさいので後輩(♀)と偽装結婚してみた。.
+      An English reader meets the work under this name.
+    reading: オヤ ガ ウルサイ ノデ コウハイ ( ♀ ) ト ギソウ ケッコン シテ ミタ。
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
     verified: false
   親友に好きな人ができたらしい:
     basis: translated
@@ -23303,11 +23830,16 @@ names:
     reading_source_kind: analyser
     verified: false
   超深宇宙より愛をこめて:
-    basis: translated
-    en: From the Deepest Space, with Love
-    en_at: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Big love from ultra deep space
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: From the Deepest Space, with Love
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912965923183753-e70085c3b50d66d5085017fd69209c7a
     furigana_spans:
     - - 超
       - ちょう
@@ -23321,8 +23853,7 @@ names:
       - あい
     - - をこめて
       - null
-    note: より愛をこめて is the standard Japanese rendering of "with love from", the From Russia with Love formula;
-      the synopsis is an alien princess arriving to claim a withdrawn high schooler as her bride.
+    note: 'The work''s own Latin title, set on its series art. volume 1 cover:'
     reading: チョウシン ウチュウ ヨリ アイ ヲ コメテ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -23540,11 +24071,16 @@ names:
     reading_source_kind: analyser
     verified: false
   透明な薄い水色に:
-    basis: translated
-    en: Into a Transparent Pale Blue
-    en_at: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: Transparent Light Blue
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Into a Transparent Pale Blue
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/transparent-light-blue/
     furigana_spans:
     - - 透明
       - とうめい
@@ -23558,9 +24094,8 @@ names:
       - みずいろ
     - - に
       - null
-    note: Grammatically incomplete, ending on に with no stated destination, which the English keeps rather
-      than resolving. The synopsis is a girl unable to confess to her childhood friend, left behind when
-      their other childhood friend confesses to the same girl first.
+    note: The licensor's own catalogue entry, which states the Japanese title as 透明な薄い水色に. An English
+      reader meets the work under this name.
     reading: トウメイナ ウスイ ミズイロ ニ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -23941,11 +24476,16 @@ names:
     reading_source_kind: analyser
     verified: false
   限界OLさんは悪役令嬢さまに仕えたい:
-    basis: translated
-    en: The Burned-Out Office Worker Wants to Serve the Villainess
-    en_at: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: The Fed-Up Office Lady Wants to Serve the Villainess
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Burned-Out Office Worker Wants to Serve the Villainess
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/the-fed-up-office-lady-wants-to-serve-the-villainess/
     furigana_spans:
     - - 限界
       - げんかい
@@ -23961,9 +24501,8 @@ names:
       - つか
     - - えたい
       - null
-    note: 悪役令嬢 is villainess, the isekai stock character English fandom already names this way. The synopsis
-      is a laid-off temp worker summoned into the otome game she was playing, as the attendant of the
-      game's scheming villainess.
+    note: The licensor's own catalogue entry, which states the Japanese title as 限界OLさんは悪役令嬢さまに仕えたい. An
+      English reader meets the work under this name.
     reading: ゲンカイ OLサン ワ アクヤク レイジョウサマ ニ ツカエタイ
     reading_at: '2026-08-04'
     reading_basis: analyser
@@ -24613,11 +25152,16 @@ names:
     reading_source_kind: derived
     verified: false
   魔女の孫と七人のメイド:
-    basis: translated
-    en: The Witch's Granddaughter and the Seven Maids
-    en_at: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: The Witch's Granddaughter and Seven Maids` — no *the* before *Seven*
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Witch's Granddaughter and the Seven Maids
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.comic-action.com/public/series-thumbnail/11341664176597597354-cf337eaf2c77b3300b8435cf0987c57d
     furigana_spans:
     - - 魔女
       - まじょ
@@ -24633,8 +25177,7 @@ names:
       - にん
     - - のメイド
       - null
-    note: 'The synopsis names the seven directly: a high schooler inherits her witch grandmother''s estate
-      and its staff of a werewolf, a vampire, a succubus, a medusa and others, all non-human.'
+    note: 'The work''s own Latin title, set on its series art. volume cover:'
     reading: マジョ ノ マゴ ト ナナニン ノ メイド
     reading_at: '2026-08-04'
     reading_basis: analyser

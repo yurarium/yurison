@@ -146,22 +146,89 @@ issue-contents relation, is the only remaining lead inside MADB.
 
 ---
 
-## 4a. マガポケ is captured ten chapters at a time
+## 4a. マガポケ was captured ten chapters at a time (closed 2026-08-04)
 
-Every マガポケ record holds ten chapters and is marked partial, because the adapter reads the free
-window and the free window is ten chapters deep. `adapters/magapoke.py` reads the episode list the series
-page publishes, and across 22 series it states runs of up to 63 where we hold 10. The result is in
-`data/source/magapoke-lengths.yaml`.
+Kept because of what it cost to find the way through, and because the shape recurs: three separate
+adapters read the same page and all three saw the same ten chapters, so the ceiling looked like a
+property of the platform.
 
-This changes no work's state, and the reason is worth writing down. 将来的に死んでくれ looked like
-the case that would: 42 episodes stated against our 10, filed dormant on a date from 2019. But the
-episode we call newest is the 42nd, so the date was right all along and only the count was wrong.
-The same holds for every work where マガポケ is the only source. Where our count is higher than the
-stated one, the chapters came from コミックDAYS, which carries the same series in full.
+**What the gap was.** Every マガポケ record held ten chapters and was marked partial, because the
+adapters read the free window and the free window is ten chapters deep. `adapters/magapoke.py` read
+the episode list the series page publishes, and across 22 series it stated runs of up to 63 where
+we held 10.
 
-So this is an undercount and not a staleness, and it matters for chapter counts rather than for
-completion. Closing it means capturing each episode's title and date, which the free window does
-not expose; the episode ids are known, so the cost is one fetch per episode.
+That was an undercount, and the reason is worth keeping. Our newest chapter was still the
+newest chapter. 将来的に死んでくれ
+looked like the case that would change a work's state: 42 episodes stated against our 10, filed
+dormant on a date from 2019. The episode we call newest is the 42nd, so the date was right all
+along and only the count was wrong. That held. Of the 37 series now captured in full, 14 gained
+chapters, two gained a state they could not previously derive, and exactly one gained a date:
+私に天使が舞い降りた! begins on 2020-03-11 rather than 2025-02-18. The rest already had a full
+history from コミックDAYS, which carries the same series.
+
+**What closed it.** Not the episode pages, though they would have worked. An episode page states
+`episode_name` and a `start_time` in its own data layer, so the run was rebuildable at one fetch
+per episode, or about 600 requests. That same data layer also names `rss_feed_url`, and the feed at
+`https://mgpk-cdn.magazinepocket.com/static/rss/<title_id>/feed.xml` carries the whole series:
+title, date, author and URL for every episode, in one request. 37 series, 1,956 chapters, 37
+requests. It is also the better posture, since REQUIREMENTS §5 asks for the listing rather than the
+reader page.
+
+**Why the feed can be trusted.** It was checked against both things already held. The item count
+equals the series page's own `episode_id_list`, and where it does not, the extra item is one the
+feed has scheduled and the page has yet to publish. That is REQUIREMENTS §5's "a future date is a schedule, never a
+release" arriving from a second direction. And all 202 chapters previously captured by rendering
+the page agree with it on title and date.
+
+**What the dates are worth.** `<pubDate>`, a publication date by the format's definition, and still
+carrying the import signature §5 describes: all 40 episodes of ハロー、メランコリック! are dated
+2021-11-11, and 46 of きたない君がいちばんかわいい's 63 are dated 2022-03-10. Those are the days
+講談社 loaded a finished series onto the platform. `adapters/importdates.py` already marks such a
+date unfit to headline a series and does so here without changes; 102 (work, date) pairs in the new
+file trip it.
+
+**What is still missing.** Access. The feed states none, so a chapter outside the ten-episode
+window the rendered page covers says nothing about access rather than saying free.
+
+---
+
+## 4b. What the other platforms say about how long a series is
+
+The same question asked of every platform that leaves a work marked partial. The answers are in
+`data/coverage/series-lengths.yaml`, which build.py already reads; what belongs here is which
+platforms are worth asking and which are settled.
+
+**マンガワン prints 全23話 above the chapter list**, on every series page, over pagination that
+serves ten rows at a time. The total covers the whole run, including PR rows and the 先読 rows
+released early to paying readers. All six partial works are now stated.
+
+**コロコロオンライン prints 全102チャプター** in the same position, counting numbered episodes and
+extras such as 特別イラスト① alike.
+
+**pixivコミック states no total and lists one anyway.** A withdrawn stretch stays in the episode
+list as a range reading 第４話〜第６７話 掲載期間が終了しました, so the numbering covers the whole
+run even where almost none of it can be opened. Reading it needs care, because the row is not the
+unit on every work: 冷たくて 柔らか numbers fifteen instalments across rows called 1-① to 15-②, and
+ギャル推しJK gives two instalments one row as 第2～3話. Where every row is a plain 第N話 and the
+expanded numbering runs 1..N with no gaps, the count is the platform's own and five of the 23
+partial works give it. The rest are recorded as instalment counts or not at all. One check comes
+free: the rows a signed-out reader can open are exactly the chapters we hold, on all 23, so a
+disagreement there would mean the capture had drifted.
+
+**ガンガンONLINE states nothing**, which finishes the entry §3 opened about its dates. Its
+`__NEXT_DATA__` carries a `chapters` array holding the readable window and no count of any kind:
+裏世界ピクニック, at 第90話, gives nine rows. There is nothing further to fetch and nothing to
+render, and the four works on it stay uncounted.
+
+**サンデーうぇぶり states nothing.** The episode page carries neither a list nor a total, and
+`/atom/series/<id>` holds only what is readable now, so a withdrawn middle leaves no trace at all.
+上杉くん's newest is numbered 第34話 against thirteen entries in the feed, and that number is a
+floor rather than a count, since the feed also carries 第22.5話 and five 番外編 outside the
+numbering.
+
+**コミックDAYS needs no statement.** `/atom/series/<id>` is the whole run rather than a window:
+サタノファニ's 337 entries are the 337 chapters we hold, so the work is marked partial by the
+adapter's own caution rather than by anything the platform withholds.
 
 ---
 

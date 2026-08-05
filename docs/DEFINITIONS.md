@@ -50,6 +50,29 @@ little of interest is absent from both — and not a claim that either site defi
 presumption is rebuttable: an attestation (§3) can place a work below the boundary, and the
 exclusions in §7 override it outright.
 
+**A licensed retailer's yuri shelf is a comparator.** Decided by the project owner on 2026-08-04.
+A shop that stocks the publisher's edition and files it under its own 百合 genre is making an
+editorial claim about scope, of the same kind as 百合ナビ making one, and it enters here on the same
+terms: presumptive, rebuttable, and never a `marketing_label` (§4).
+
+A retailer stands above an aggregator without becoming publisher-side. It sells the licensed
+edition and answers for its own stock, so its filing is a matter of record instead of an opinion
+about someone else's book. It is still the shop's classification and not the publisher's.
+
+Record which comparator admitted a work, so a reader can tell whether it is here because a
+publisher called it yuri or because a shop shelved it there. The shelves in use are
+コミックシーモア genre 37 (百合・GL) and BOOK☆WALKER tag 14 (百合), measured in
+[retailer-recon.md](../data/coverage/retailer-recon.md).
+
+Two hazards come with them, both established by measurement rather than anticipated:
+
+- **A shop shelves editions, not works.** The same work can sit on the yuri shelf in a censored
+  edition and on the adult shelf uncensored. §7 governs, and governs the work.
+- **A taxonomy that omits yuri is not a source without yuri.** コミックシーモア lists 27 top-level
+  genres, gives one to BL and one to グリム童話 at 587 titles, and gives none to yuri at 1,869,
+  which is reachable only from a work page. Absence of a category is not evidence of absent stock,
+  and reconnaissance that reads only the advertised taxonomy will conclude otherwise.
+
 The two axes are independent by design. `白い部屋のふたり` has canonical content and no label.
 A thin *コミック百合姫* serial has the label and little content. Both belong, described accurately.
 
@@ -145,9 +168,20 @@ Objective and verifiable from publisher-side evidence.
 which is a defensible inference but an inference nonetheless.
 
 **Only publisher- or platform-side labelling counts.** A third-party site filing a work under 百合
-— an aggregator tag, a tracking site's category — is evidence toward `content_tier`, never toward
-this axis. The whole value of `marketing_label` is that it records what the publisher did, and it
-is worthless the moment other people's opinions are mixed into it.
+— an aggregator tag, a tracking site's category, a shop's genre shelf — is evidence toward
+`content_tier`, never toward this axis. The whole value of `marketing_label` is that it records
+what the publisher did, and it is worthless the moment other people's opinions are mixed into it.
+
+A licensed retailer is covered by that sentence and is named in it deliberately, because the
+temptation to treat a shop as publisher-side is real: it sells the publisher's edition, so its
+stock is a matter of record. What it shelves that edition under is still its own decision. A work
+admitted on a retailer's shelf (§2) carries `marketing_label: none` unless a publisher-side signal
+is found separately, and `none` continues to mean what §4 says it means, which is nothing about
+content.
+
+The imprint a retailer reports is a different matter. An imprint is the publisher's own, so
+コミックシーモア naming 百合姫コミックス on a work is publisher-side evidence that happens to have
+reached us through a shop, and it counts here on its own merits.
 
 ### `marketing_label: none` means nothing about content
 
@@ -268,6 +302,23 @@ The test is mechanical, using Japanese publishing's own objective signals:
 - distribution restricted to adult channels
 
 Any one of these excludes the work.
+
+**The test binds the work, not the edition.** Added 2026-08-04, from a case the retailer survey
+turned up. A pornographic work can be reissued with the genitalia erased, titled 【棒消し修正版】,
+【白抜き修正版】 or 【全年齢版】, and that edition carries no 成年コミックマーク, no R-18
+designation and no adult imprint, so it passes every signal above while its uncensored twin sits on
+the same shop's adult shelf.
+
+Where an edition exists whose counterpart meets any signal above, the work is excluded.
+
+The best evidence for the pairing is the seller's own catalogue rather than the title string. On
+コミックシーモア an author's page lists both editions of the same work, one filed アダルトマンガ and
+one marked -全年齢版- filed 青年マンガ, which states the twin instead of leaving it to be inferred
+from a phrase. Where that is available, use it.
+
+The title marker is what scales, and it is a floor. It catches only the editions that announce
+themselves, and it needs its counter-cases held out by name: 加筆修正版 is an authorial revision and
+完全版 is a collected reissue, neither of which says anything about content.
 
 ### The middle band — included, flagged
 

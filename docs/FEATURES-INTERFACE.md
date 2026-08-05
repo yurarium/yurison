@@ -4,8 +4,10 @@ What the reader-facing site does and why. Layer 3 of the authority order: it may
 [Requirements](REQUIREMENTS.md) or [Definitions](DEFINITIONS.md), and the invariants in `check.py`
 enforce the parts of it that admit a correct answer.
 
-This is a **record of decisions**, not a plan. `INTERFACE-PLAN.md` was the plan; all four of its
-topics are built and it is kept only as history.
+This is a **record of decisions**, not a plan. An earlier `INTERFACE-PLAN.md` covered four topics,
+all of which are built and described here; that file is gone. The name now holds a new plan,
+[INTERFACE-PLAN.md](INTERFACE-PLAN.md), for the interface once the print and retailer captures
+land. Anything there moves here as it ships.
 
 ---
 

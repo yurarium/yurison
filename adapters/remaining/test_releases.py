@@ -54,6 +54,17 @@ def main(s):
         s.check("更新日" not in r["title"], "the date's own label is trimmed off the chapter name")
     s.eq(rm.from_generic("<html></html>"), [], "a page with nothing extractable yields nothing")
 
+    # Where the page names the element holding the chapter's title, try_markup marks the row exact
+    # and this route must take it whole rather than cutting it down. The like and comment counts
+    # beside a chapter used to end up in its name: 'Episode.3 -1 0 0' on フラコミlike!.
+    listed = ('<ul><li><div class="episode-name">Episode.3 -1</div>'
+              '<span>14</span><span>0</span><time>2025/12/26</time></li>'
+              '<li><div class="episode-name">Episode.3 -2</div>'
+              '<span>0</span><span>0</span><time>2026/01/09</time></li></ul>')
+    got = [r["title"] for r in rm.from_generic(listed)]
+    s.eq(got, ["Episode.3 -1", "Episode.3 -2"],
+         "a named title element is taken whole, counts and all trailing furniture left behind")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "remaining.releases"))

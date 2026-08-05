@@ -519,6 +519,27 @@ def budget_structural_triples(ctx):
         return 0
 
 
+def budget_scraped_counters_in_chapter_names(ctx):
+    """Chapter names ending in the like and comment counts the source page printed beside them.
+
+    193 of these were stored as chapter names: '3話① 26 8' on マンガPark, '第4話 3,203 3' on
+    コロコロオンライン. The extraction flattened a chapter's block into one run of text, so a count
+    written in an element of its own ran into the name next to it.
+
+    Counted where a reader meets a chapter name, which is the feed's own `ep` and each series'
+    latest chapter. That is narrower than the source files hold, and deliberately: it is the
+    number that says how many damaged names are on the page rather than in the data.
+
+    It is a count rather than an invariant because a chapter name may legitimately end in a
+    number. pixivコミック numbers its chapters EPISODE 01 to EPISODE 30. So the shape measured is
+    the narrow one that cannot be a name: two bare numbers, separated by a space, at the end.
+    """
+    pat = re.compile(r"\s\d[\d,]*\s+\d[\d,]*$")
+    names = [r.get("ep") or "" for r in ctx["releases"]]
+    names += [r.get("latest_ep") or "" for r in ctx["series"]]
+    return sum(1 for n in names if pat.search(n))
+
+
 def budget_shadowed_names(ctx):
     try:
         out = subprocess.run([sys.executable, str(ROOT / "adapters" / "lint" / "shadowing.py"),
@@ -559,6 +580,10 @@ BUDGETS_DEF = [
      "lists of exactly three items, and runs of three bold-led paragraphs, in documents that ship "
      "at 1.0. Three reads as rhetoric; four reads as an inventory. When there really are three "
      "things, write them as prose or find the fourth that was left out to make the shape work."),
+    ("scraped counters in chapter names", budget_scraped_counters_in_chapter_names,
+     "chapter names ending in the view or like counts printed next to them on the source page. A "
+     "rise means an extractor has gone back to flattening a chapter block into one run of text "
+     "instead of reading the element the page names as the title."),
     ("shadowed names in build.py", budget_shadowed_names,
      "names rebound more than 300 lines from their first binding. Two shipped bugs came from this; "
      "see adapters/lint/shadowing.py for why the count is not simply falling."),

@@ -246,6 +246,41 @@ def main(s):
     s.eq(b._basis_of({"state": "slow"}, [], "completed_basis"), None,
          "no rows is no basis, not a crash")
 
+    # SILENCE IS NOT TESTIMONY. Import stamps are found per file by spotting a run of instalments
+    # sharing a timestamp, so a file holding one chapter of a work cannot see one and never reports
+    # one. Reading that inability as an observation let sitemap-magapoke.yaml, holding a single
+    # chapter of ハロー、メランコリック！ at 2021-11-11, overturn the stamp two files holding all 40
+    # chapters agreed on. The work read `dormant` off the day the publisher loaded it, and showed
+    # 【track1】, its first chapter, as its newest.
+    # HOW LONG A WORK IS AND WHEN IT LAST PUBLISHED ARE TWO QUESTIONS. The row chosen to answer the
+    # second is chosen for its dates, and the source with the best dates is routinely not the one
+    # holding the most chapters. ナメられたくないナメカワさん published as 29 chapters because
+    # コミックDAYS watched its run end, while 一迅プラス holds all 77.
+    s.eq(b.best_known_length([{"chapters": 29}, {"chapters": 77}]), 77,
+         "the work is as long as the best-informed source says")
+    s.eq(b.best_known_length([{"chapters": 121}, {"chapters": 14}]), 121,
+         "and sources are never summed, because they describe one story")
+    s.eq(b.best_known_length([]), 0, "no rows, no length")
+    s.eq(b.best_known_length([{}]), 0, "and a row with no count contributes none")
+
+    s.check(not b.can_testify([{"title": "第1話", "updated": "2021-11-11"}]),
+            "one chapter cannot tell an import from a publication")
+    s.check(not b.can_testify([{"updated": "2021-11-11"}] * 40),
+            "and neither can forty that all share one date, which is the signature itself")
+    s.check(b.can_testify([{"updated": "2021-11-11"}, {"updated": "2021-11-18"}]),
+            "two distinct dates is a source that watched something happen")
+    s.check(not b.can_testify([]), "no chapters, nothing to say")
+    s.check(not b.can_testify([{"title": "第1話"}, {"title": "第2話"}]),
+            "and chapters carrying no date at all say nothing either")
+
+    # Aliases resolve one work written two ways, and leave everything else alone.
+    s.eq(b.work_alias("念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"),
+         "念願の悪役令嬢の身体を手に入れたぞ!",
+         "マガポケ's ruby gloss in the title names the work コミックDAYS carries without it")
+    s.eq(b.work_alias("超深宇宙より愛をこめて【読み切り版】"), "超深宇宙より愛をこめて【読み切り版】",
+         "a one-shot beside its serialisation is NOT the same work and is not aliased")
+    s.eq(b.work_alias("citrus+"), "citrus+", "and a sequel keeps its own title")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

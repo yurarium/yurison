@@ -1,0 +1,26 @@
+# One work written two ways, and the title the database uses for it.
+#
+# WHY THIS IS CURATED AND NOT A RULE. FEATURES-INTERFACE §2 says a work is one row with several
+# sources. Two platforms writing the same title differently break that silently: the row splits,
+# the chapter history splits with it, and the shorter half reads `unknown` because it is a partial
+# view of something we already hold in full.
+#
+# A general rule cannot decide these. `norm_work` deliberately keeps `+`, because stripping it
+# merged citrus with citrus+ and filed the sequel's releases under the original, and it keeps
+# bracketed contents for the same reason: 超深宇宙より愛をこめて【読み切り版】 is a different work
+# from the serialisation it sits beside, while 【タテスク】 is the same work in another format.
+# Nothing in the string says which, so each is decided on its evidence and recorded here.
+#
+# `variant` is matched after norm_work, so width, spacing and punctuation need not be reproduced
+# exactly. Adding a row merges two rows in the build: check the chapter count afterwards, because
+# two coverages of one story should dedupe to the longer, never sum.
+aliases:
+  - variant: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
+    canonical: "念願の悪役令嬢の身体を手に入れたぞ!"
+    note: >-
+      マガポケ prints the ruby gloss (ラスボス) over 悪役令嬢 in the title and コミックDAYS does not,
+      so one work stood as two rows of 111 and 87 chapters. Same author, same story, and the
+      chapter titles align: マガポケ's 【第101話】飛行戦闘 continues the run コミックDAYS carries to
+      第８７話. The canonical form is the one without the gloss, which is what the print edition and
+      the other platforms use.
+    retrieved: 2026-08-04

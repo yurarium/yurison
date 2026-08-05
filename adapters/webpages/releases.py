@@ -132,6 +132,13 @@ def episodes(html, eng, base, page_url=None, fetch=None):
     # reading and only the first ten chapters. One engine, one parser.
     if eng.get("engine_name") == "comici" and comici.is_comici(html):
         return comici.chapters(html, page_url, fetch or (lambda u: ""))
+    # Commented-out markup is not content. コミックノヴァ keeps the previous state of its episode
+    # list in a comment beside the live one, and the stale copy parses just as well: the 猫魔法
+    # record carried a third chapter called 第第1話(1/2)話, which is the template's own placeholder
+    # with the label substituted into it twice. adapters/recon/extract.py met the identical fault
+    # on the identical pages and was fixed the same way; this is the second parser, so it needs
+    # the same rule rather than the same bug.
+    html = re.sub(r"<!--.*?-->", " ", html or "", flags=re.S)
     out = []
     for b in re.split(eng["block"], html)[1:]:
         tm = re.search(eng["title"], b)

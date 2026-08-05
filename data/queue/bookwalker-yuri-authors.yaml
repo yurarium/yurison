@@ -1,0 +1,4118 @@
+# Authors named on BOOK☆WALKER's 百合 shelf who are NEW to this database. CANDIDATES.
+#
+# WHERE THEY CAME FROM. data/queue/bookwalker-yuri.yaml, the shelf capture beside this file. A
+# name is here because the shop printed it and because nothing in data/names/ or in the built
+# corpus already holds it, compared on the folded form (width, case and spacing).
+#
+# WHY THEY ARE NOT IN data/names/. The works they are attached to are candidates, so the people
+# are too. Nothing here is applied to anything; adapters/names/curate.py is the route into the
+# store and it takes hand-reviewed entries only. The fields below are shaped to that schema so a
+# row that survives review can be moved across without being re-derived.
+#
+# THREE ROUTES TO A READING, AND ONE OF THEM COSTS A REQUEST.
+#   surface   the name is already kana, so the kana IS the reading. No source, no doubt.
+#   latin     the name is written in Latin script and has no kana reading to state.
+#   stated    the National Diet Library records dcndl:creatorTranscription beside dc:creator.
+#             `?creator=` on the OpenSearch API. The HTML record pages return 503; the API does
+#             not, so anything wanting a second look wants it from the API.
+#
+# NOTHING HERE IS GUESSED. A name NDL has never catalogued is `unresolved`, which is a finding and
+# not a gap: most of these artists publish on the web, their work has no ISBN, and the library
+# holds nothing. Deriving a reading from the characters instead is the one thing this must not do.
+# Where NDL states a reading that is not compositional it is kept as stated and flagged, because
+# pen names frequently are not compositional and the analyser would be wrong rather than the shop.
+#
+# TWO KINDS OF SILENCE, WHICH MEAN DIFFERENT THINGS TO WHOEVER RESUMES.
+#   attempted: true   NDL was asked and stated nothing. Asking again will not help.
+#   attempted: false  nobody has asked yet. This is where a later run picks up.
+# This pass is capped, so most rows carry the second. The cap and the ordering are recorded below.
+
+source: bookwalker.jp
+role: discovery-candidates
+record_type: author_reading_candidates
+retrieved: 2026-08-04
+from_capture: "data/queue/bookwalker-yuri.yaml"
+reading_lookup: "https://ndlsearch.ndl.go.jp/api/opensearch?creator="
+ordering: "kanji-bearing names first, most shelf works first; kana and Latin names are settled without a request and do not consume the cap"
+attempt_cap: 60
+counts:
+  names: 536
+  resolved: 187
+  unresolved_attempted: 62
+  unresolved_not_attempted: 287
+authors:
+  "あとき":
+    works: 45
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アトキ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "【English Ver.】 UNCONNECTED MARKETEERS ET CETERA-虹龍洞えとせとら"
+  "桜庭友紀":
+    works: 19
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "サクラバ ユウキ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 1 record(s), e.g. '魂の関所にて' (ジーオーティー)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%A1%9C%E5%BA%AD%E5%8F%8B%E7%B4%80"
+    reviewed: "2026-08-04"
+    example_work: "そして彼女は頁をめくる"
+  "ｋｉｒｅｒｏ":
+    works: 14
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "Anniversary with You"
+  "やナい":
+    works: 13
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヤナイ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "HAPPY百合セット"
+  "Rion Nomiya":
+    works: 11
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "Curiosity Killed the Cat"
+  "ザコザコＹ":
+    works: 11
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%82%B6%E3%82%B3%E3%82%B6%E3%82%B3%EF%BC%B9"
+    reviewed: "2026-08-04"
+    example_work: "[English ver ]Ayakashi in the Rain"
+  "Ayu Inui":
+    works: 10
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "A Tender Romance Treat With Care"
+  "桜木晶":
+    works: 10
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "サクラギ アキラ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 18 record(s), e.g. '裏切られた黒猫は幸せな魔法具ライフを目指したい' (フロンティアワークス)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%A1%9C%E6%9C%A8%E6%99%B6"
+    reviewed: "2026-08-04"
+    example_work: "あの娘パンツ穿いてなくない？"
+  "玉置ロコ":
+    works: 10
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%8E%89%E7%BD%AE%E3%83%AD%E3%82%B3"
+    reviewed: "2026-08-04"
+    example_work: "おにくのほん"
+  "志真":
+    works: 9
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%BF%97%E7%9C%9F"
+    reviewed: "2026-08-04"
+    example_work: "JKリフレと女教師【百合】"
+  "はちや":
+    works: 8
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ハチヤ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "そして、ふたりは"
+  "梅原うめ":
+    works: 8
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "ウメハラ ウメ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 19 record(s), e.g. '公式コミックアンソロジー86-エイティシックス-' (KADOKAWA)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%A2%85%E5%8E%9F%E3%81%86%E3%82%81"
+    reviewed: "2026-08-04"
+    example_work: "おくびょうウサギはお互い様【同人版】"
+  "秋月ルコ":
+    works: 8
+    route: "lookup"
+    attempted: true
+    status: "conflicting"
+    reading_note: "NDL carries more than one transcription for this written name, which may be two people. Left unresolved on purpose. Readings seen: アキズキ ルコ / アキヅキルコ"
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%A7%8B%E6%9C%88%E3%83%AB%E3%82%B3"
+    reviewed: "2026-08-04"
+    example_work: "KISSES-キスにまつわる百合漫画短編集-"
+  "ななせ悠":
+    works: 7
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "ナナセ ハルカ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 2 record(s), e.g. '陽光ヲ待ツ' (集英社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%AA%E3%81%AA%E3%81%9B%E6%82%A0"
+    reviewed: "2026-08-04"
+    example_work: "DillyDilly-メイド百合再録集-"
+  "ギロチン":
+    works: 7
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ギロチン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "乙女コンプレックス 再録集3"
+  "廿楽":
+    works: 7
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%BB%BF%E6%A5%BD"
+    reviewed: "2026-08-04"
+    example_work: "2か月の夢"
+  "明日部結衣":
+    works: 7
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "アスベ ユイ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 4 record(s), e.g. 'Ｈｏｐ\\u3000Ｓｔｅｐ\\u3000Ｓｉｎｇ！\\u3000～ＶＲアイドルストーリー～(003)' (講談社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%98%8E%E6%97%A5%E9%83%A8%E7%B5%90%E8%A1%A3"
+    reviewed: "2026-08-04"
+    example_work: "あのこの花が欲しい"
+  "東雲水生":
+    works: 7
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "シノノメ ミズオ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 20 record(s), e.g. '貴女依存症【単行本版・描き下ろし特典付き】（1）' (グループ・ゼロ)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%9D%B1%E9%9B%B2%E6%B0%B4%E7%94%9F"
+    reviewed: "2026-08-04"
+    example_work: "百合心中　猫目堂ココロ譚　豪華版"
+  "浅海まい":
+    works: 7
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%B5%85%E6%B5%B7%E3%81%BE%E3%81%84"
+    reviewed: "2026-08-04"
+    example_work: "BLOODY by DAY by DAY"
+  "若（わか）":
+    works: 7
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E8%8B%A5%EF%BC%88%E3%82%8F%E3%81%8B%EF%BC%89"
+    reviewed: "2026-08-04"
+    example_work: "わたしたちそれぞれ。水曜日の百合。短編集"
+  "Japalp112":
+    works: 6
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "Double Clutch Hearts 1巻"
+  "やまもとまも":
+    works: 6
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヤマモトマモ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ドラマチックLOVE"
+  "山葵るお":
+    works: 6
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%B1%B1%E8%91%B5%E3%82%8B%E3%81%8A"
+    reviewed: "2026-08-04"
+    example_work: "Valentine with…"
+  "春結千晶":
+    works: 6
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%98%A5%E7%B5%90%E5%8D%83%E6%99%B6"
+    reviewed: "2026-08-04"
+    example_work: "これが私たちの生きる道 まとめ"
+  "あまか":
+    works: 5
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アマカ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ゆりクッキング"
+  "いろまるちず":
+    works: 5
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "イロマルチズ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ある雨の日のこと"
+  "五葉":
+    works: 5
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E4%BA%94%E8%91%89"
+    reviewed: "2026-08-04"
+    example_work: "あたしはおかずじゃないんだが？"
+  "岩下継":
+    works: 5
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "イワシタ ケイ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 3 record(s), e.g. '仕事の後は恋しよう' (イースト・プレス)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%B2%A9%E4%B8%8B%E7%B6%99"
+    reviewed: "2026-08-04"
+    example_work: "センセイはJKギャルのもの"
+  "嵩乃朔":
+    works: 5
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "タカノ サク"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 7 record(s), e.g. 'OLさんと猫のはなし' (KADOKAWA)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%B5%A9%E4%B9%83%E6%9C%94"
+    reviewed: "2026-08-04"
+    example_work: "キメラ少女と不死の引きこもり魔女 1巻 百合オメガバース奇譚"
+  "扇城ひな":
+    works: 5
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%89%87%E5%9F%8E%E3%81%B2%E3%81%AA"
+    reviewed: "2026-08-04"
+    example_work: "Good bye memory on a far day"
+  "栗原さくら":
+    works: 5
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%A0%97%E5%8E%9F%E3%81%95%E3%81%8F%E3%82%89"
+    reviewed: "2026-08-04"
+    example_work: "お嬢さまは死んでいる。"
+  "桜都あるす":
+    works: 5
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%A1%9C%E9%83%BD%E3%81%82%E3%82%8B%E3%81%99"
+    reviewed: "2026-08-04"
+    example_work: "あこがれmeetsガール"
+  "櫻井亜矢子":
+    works: 5
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "サクライ アヤコ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 1 record(s), e.g. 'クズ女子が本気の恋に落ちるまで-NOiPA編-' (ジーオーティー)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%AB%BB%E4%BA%95%E4%BA%9C%E7%9F%A2%E5%AD%90"
+    reviewed: "2026-08-04"
+    example_work: "西園寺薫子と使用人椿の一生"
+  "江口":
+    works: 5
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%B1%9F%E5%8F%A3"
+    reviewed: "2026-08-04"
+    example_work: "Epicurean"
+  "紙魚いりこ":
+    works: 5
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%B4%99%E9%AD%9A%E3%81%84%E3%82%8A%E3%81%93"
+    reviewed: "2026-08-04"
+    example_work: "いりぺそ　change the world book"
+  "西沢5ミリ":
+    works: 5
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "ニシザワ 5ミリ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 6 record(s), e.g. '元カノに幻想を抱くなバーカ : 西沢5ミリ短編集' (KADOKAWA). Not katakana as stated; recorded as NDL carries it and needs review."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E8%A5%BF%E6%B2%A25%E3%83%9F%E3%83%AA"
+    reviewed: "2026-08-04"
+    example_work: "他人のセックスを想像するな"
+  "うん仔":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "ウンコ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 1 record(s), e.g. 'キタノステラ\\u3000：\\u3000北海道×グルメ×旅' (あきの 実)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%86%E3%82%93%E4%BB%94"
+    reviewed: "2026-08-04"
+    example_work: "その柔らかさで突き落として。"
+  "かやこ":
+    works: 4
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "カヤコ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "Beautiful My Dear"
+  "さんけ":
+    works: 4
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "サンケ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "となりに並んで"
+  "しおやてるこ":
+    works: 4
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "シオヤテルコ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "アタシのセンパイ【電子版特典付】"
+  "つた":
+    works: 4
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ツタ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "きりさめまりさの帰り道"
+  "どらいれもん":
+    works: 4
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ドライレモン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "イロハモミジ物語～姉に彼氏になってもらう話～"
+  "ラブハンター権田原":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%83%A9%E3%83%96%E3%83%8F%E3%83%B3%E3%82%BF%E3%83%BC%E6%A8%A9%E7%94%B0%E5%8E%9F"
+    reviewed: "2026-08-04"
+    example_work: "メンヘラストーカーの恋"
+  "夜":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%A4%9C"
+    reviewed: "2026-08-04"
+    example_work: "エイリアンズ"
+  "寄田みゆき":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "ヨリタ ミユキ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 19 record(s), e.g. '愛と青春の発熱' (講談社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%AF%84%E7%94%B0%E3%81%BF%E3%82%86%E3%81%8D"
+    reviewed: "2026-08-04"
+    example_work: "あのこがわたしを女にする　寄田みゆき百合短編集"
+  "新野みら":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%96%B0%E9%87%8E%E3%81%BF%E3%82%89"
+    reviewed: "2026-08-04"
+    example_work: "あしたも、あなたと。"
+  "朝日夜":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "アサヒ ヨル"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 7 record(s), e.g. '一生折れない自信のつくり方 : マンガでわかる!' (アチーブメント出版)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%9C%9D%E6%97%A5%E5%A4%9C"
+    reviewed: "2026-08-04"
+    example_work: "ギャルとぼっち 3巻"
+  "枝吉":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%9E%9D%E5%90%89"
+    reviewed: "2026-08-04"
+    example_work: "「私の彼女を抱いてくれ！」と言われた実録百合漫画"
+  "海鮮丼":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%B5%B7%E9%AE%AE%E4%B8%BC"
+    reviewed: "2026-08-04"
+    example_work: "いぬのおねえさん"
+  "瀬田せた":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "セタ セタ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 1 record(s), e.g. '百合鍵 : 先輩の秘密をのぞいてみた' (KADOKAWA)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%80%AC%E7%94%B0%E3%81%9B%E3%81%9F"
+    reviewed: "2026-08-04"
+    example_work: "ゆりかべ【単行本版】1"
+  "犬丸":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "イヌマル"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 1 record(s), e.g. 'アーシェラ将軍と秘書サディ' (少年画報社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%8A%AC%E4%B8%B8"
+    reviewed: "2026-08-04"
+    example_work: "アーシェラ将軍と秘書サディ"
+  "真田ハイジ":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "サナダ ハイジ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 19 record(s), e.g. 'XLサイズな彼に奥まで満たされH 大きな愛に包み込まれる蜜夜' (ぶんか社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%9C%9F%E7%94%B0%E3%83%8F%E3%82%A4%E3%82%B8"
+    reviewed: "2026-08-04"
+    example_work: "私に体、売ってみない？【単行本版】"
+  "舞村そうじ":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E8%88%9E%E6%9D%91%E3%81%9D%E3%81%86%E3%81%98"
+    reviewed: "2026-08-04"
+    example_work: "あした世界が終わるなら"
+  "雪尾ゆき":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "ユキオ ユキ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 4 record(s), e.g. 'この契約は恋まで届きますか?' (芳文社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E9%9B%AA%E5%B0%BE%E3%82%86%E3%81%8D"
+    reviewed: "2026-08-04"
+    example_work: "へんたいよくできました"
+  "青柳七生":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "アオヤギナナオ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 1 record(s), e.g. 'チョコと堅物' (祥伝社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E9%9D%92%E6%9F%B3%E4%B8%83%E7%94%9F"
+    reviewed: "2026-08-04"
+    example_work: "こうしてすきになってく"
+  "鰓子9":
+    works: 4
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E9%B0%93%E5%AD%909"
+    reviewed: "2026-08-04"
+    example_work: "HimetoOjisama 1"
+  "７":
+    works: 4
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "Crushing On You"
+  "あーねすと":
+    works: 3
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アーネスト"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ぱちゅ♡ありtake2　あーねすとROOM総集編"
+  "しぐま":
+    works: 3
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "シグマ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "イケメン女子とイケメン女子"
+  "たけの野々":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%9F%E3%81%91%E3%81%AE%E9%87%8E%E3%80%85"
+    reviewed: "2026-08-04"
+    example_work: "P-0004"
+  "とうわ":
+    works: 3
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "トウワ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "シングルマザーとフリーター"
+  "とらん":
+    works: 3
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "トラン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "Urge"
+  "やまこ":
+    works: 3
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヤマコ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ナツコさんのおもいで"
+  "コミックニュータイプ":
+    works: 3
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "コミックニュータイプ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "お酒のせいにはしませんから　百合×飲酒アンソロジー"
+  "サカグチカリン":
+    works: 3
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "サカグチカリン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "awkward"
+  "タケシス":
+    works: 3
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "タケシス"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "LOVESHISHAMO"
+  "ドスコイ":
+    works: 3
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ドスコイ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "キッカケは告白です！"
+  "ナニカシイラ":
+    works: 3
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ナニカシイラ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "デキアイ 伝え！電子楽器倶楽部　単行本"
+  "パデラポッロのりお":
+    works: 3
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "パデラポッロノリオ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "この私が3Pですの！？"
+  "ヨシジマシウ":
+    works: 3
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヨシジマシウ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ゆりゆりうさぎ 一巻 うさ子さんとぴょん子さんの日常"
+  "一ノらい":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E4%B8%80%E3%83%8E%E3%82%89%E3%81%84"
+    reviewed: "2026-08-04"
+    example_work: "恋を知らないをして"
+  "九地":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E4%B9%9D%E5%9C%B0"
+    reviewed: "2026-08-04"
+    example_work: "その日までおあずけ"
+  "夜子":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%A4%9C%E5%AD%90"
+    reviewed: "2026-08-04"
+    example_work: "【SNS版】百合人狼ゲーム シーズン1"
+  "平尾アウリ":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "ヒラオ アウリ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 18 record(s), e.g. '推しが武道館いってくれたら死ぬ【連載版】第53話' (徳間書店(COMICリュウ／COMICユニコーン))."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%B9%B3%E5%B0%BE%E3%82%A2%E3%82%A6%E3%83%AA"
+    reviewed: "2026-08-04"
+    example_work: "わびさび　平尾アウリ作品集"
+  "揚立しの":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "アゲタテ シノ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 13 record(s), e.g. 'あちらのお客様から' (芳文社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%8F%9A%E7%AB%8B%E3%81%97%E3%81%AE"
+    reviewed: "2026-08-04"
+    example_work: "きみの秘密は私のもの 私の秘密は私のもの-総集編-"
+  "星宗介":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%98%9F%E5%AE%97%E4%BB%8B"
+    reviewed: "2026-08-04"
+    example_work: "これが愛かよ"
+  "春風ふつう":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%98%A5%E9%A2%A8%E3%81%B5%E3%81%A4%E3%81%86"
+    reviewed: "2026-08-04"
+    example_work: "My friends forever"
+  "桜那えいか":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%A1%9C%E9%82%A3%E3%81%88%E3%81%84%E3%81%8B"
+    reviewed: "2026-08-04"
+    example_work: "ゆりっと♡かんちがい 1"
+  "江川広実":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "エガワ ヒロミ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 19 record(s), e.g. 'シークレットガーデン' (ぶんか社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%B1%9F%E5%B7%9D%E5%BA%83%E5%AE%9F"
+    reviewed: "2026-08-04"
+    example_work: "ゆりにん～レズビアンカップル妊活奮闘記～"
+  "深水チロリ":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "フカミズ チロリ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 5 record(s), e.g. 'アオヨビ : 青春予備校' (双葉社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%B7%B1%E6%B0%B4%E3%83%81%E3%83%AD%E3%83%AA"
+    reviewed: "2026-08-04"
+    example_work: "Petit Lys"
+  "百乃モト":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "モモノ モト"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 18 record(s), e.g. '茜色のキスは屋上で' (一迅社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%99%BE%E4%B9%83%E3%83%A2%E3%83%88"
+    reviewed: "2026-08-04"
+    example_work: "キミ恋リミット【新装版】"
+  "百合姫編集部":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%99%BE%E5%90%88%E5%A7%AB%E7%B7%A8%E9%9B%86%E9%83%A8"
+    reviewed: "2026-08-04"
+    example_work: "ゆるゆり10周年記念本　ゆるゆりX"
+  "色緒サトル":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "no-record"
+    reading_note: "NDL holds no record under this name. Most of these artists publish on the web and their work has no ISBN, so this is silence rather than a negative finding."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E8%89%B2%E7%B7%92%E3%82%B5%E3%83%88%E3%83%AB"
+    reviewed: "2026-08-04"
+    example_work: "裸手ックスアレルギー"
+  "蒼樹めい":
+    works: 3
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "アオキメイ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 4 record(s), e.g. '俺は恋する女の子 1' (集英社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E8%92%BC%E6%A8%B9%E3%82%81%E3%81%84"
+    reviewed: "2026-08-04"
+    example_work: "だから私は君に夢中 １巻"
+  "ＳｏＮ":
+    works: 3
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "いつでもれみさく"
+  "Namaniku":
+    works: 2
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "Love Only the Body Omnibus（1）"
+  "おきぬ":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "オキヌ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "マドレーヌが分かつまで"
+  "かずといずみ":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "カズトイズミ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "くろよめ"
+  "くるくる姫":
+    works: 2
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "クルクル ヒメ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 2 record(s), e.g. 'それは、春の嵐のように' (一迅社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%8F%E3%82%8B%E3%81%8F%E3%82%8B%E5%A7%AB"
+    reviewed: "2026-08-04"
+    example_work: "それは、春の嵐のように: 1【イラスト特典付】"
+  "こよぬい":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "コヨヌイ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "化狸ノ記録帳"
+  "ささだあすか":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ササダアスカ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "きらきらのなつ ささだあすか短篇集"
+  "さと":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "サト"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "天使とストーカー １"
+  "しだらちより":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "シダラチヨリ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "世界が終わるその日に。"
+  "しゅなか":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "シュナカ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "てあとるりりぃ"
+  "たそがれ":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "タソガレ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "めがみさまのおねがいっ！"
+  "なびすこ":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ナビスコ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "今日も代返してください。"
+  "はるかわ陽":
+    works: 2
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "ハルカワ ハル"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 19 record(s), e.g. 'あなたの夜が明けたら' (幻冬舎コミックス)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%AF%E3%82%8B%E3%81%8B%E3%82%8F%E9%99%BD"
+    reviewed: "2026-08-04"
+    example_work: "あなたの夜が明けたら 【電子限定おまけ付き】"
+  "はるしおん":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ハルシオン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "竜宮城へようこそ(1)"
+  "ぴりぷん":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ピリプン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "schadenliebe 1"
+  "ぽぬむら":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ポヌムラ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "幼なじみのふたり"
+  "みずき":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ミズキ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "Not there yet"
+  "めりくも":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "メリクモ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "MERRY-LAND めりくも再録短編集 1巻"
+  "もずくず":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "モズクズ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "とびっきりデコレーション！"
+  "もちと":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "モチト"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "宵堕ちて"
+  "やまじえびね":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヤマジエビネ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ナイト・ワーカー"
+  "るうと":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ルウト"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "2人の蒼とあおい vol.1"
+  "わたげもどき":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ワタゲモドキ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ハーフアップちゃんは人たらし(1)"
+  "イシガミ アキラ":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "イシガミ アキラ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "二人の早さで"
+  "インド僧":
+    works: 2
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "インドソウ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 14 record(s), e.g. '異世界系ファンタジー\\u3000ガンガンいこうぜ！大ボリューム試し読みパック(001)' (講談社)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%82%A4%E3%83%B3%E3%83%89%E5%83%A7"
+    reviewed: "2026-08-04"
+    example_work: "あやの浮気者っ！"
+  "カコベン":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "カコベン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "あなたと百合を描きたい"
+  "カワヅ":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "カワヅ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "つかず、はなれず"
+  "ガゥ":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ガゥ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ぶっきらぼうな君には振り向かせたい人がいる 1"
+  "キスガエ":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "キスガエ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "コトノハ"
+  "スルメ王子":
+    works: 2
+    route: "lookup"
+    attempted: true
+    status: "stated"
+    reading: "スルメ オウジ"
+    reading_basis: "stated"
+    reading_source_kind: "national-library"
+    reading_note: "NDL states this transcription beside the name on 1 record(s), e.g. 'マンガでわかるいつもうまくいく人の習慣' (泰文堂)."
+    source: "NDL Search OpenSearch"
+    source_url: "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%82%B9%E3%83%AB%E3%83%A1%E7%8E%8B%E5%AD%90"
+    reviewed: "2026-08-04"
+    example_work: "女2人でラブホに行った話。"
+  "ヒマワリソウヤ":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヒマワリソウヤ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "poco a poco　少女と音楽と秘密の花園【単行本版】"
+  "ポルリン":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ポルリン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "フーリッシュ!"
+  "マシーナリーとも子":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "フリコフリークフリースタイル 1"
+  "ヨルモ":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヨルモ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ペンライトより光って-アンコール-"
+  "レム":
+    works: 2
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "レム"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "XION　百合セレクション"
+  "一ノ瀬けい":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "あっとまーく・あーとわーく"
+  "上嶋ハルキ":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "サキュバス卒業試験が難関すぎるんだが！？"
+  "久遠憐":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "その痛みに恋と名付けた"
+  "今井伊紀":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "カラスの目 １"
+  "伊さらこてん":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "元ヤンちゃんとゆるふわ彼女"
+  "伊藤白熊":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "お嬢様と心中"
+  "冬虫カイコ":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "少女の繭"
+  "北条KOZ":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "木の葉隠し"
+  "城之内寧々":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "百合色ミュージアム【合本版】"
+  "夏目じん":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "アイドルにガチ恋してもいいですか？ 1巻"
+  "大島永遠":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "姉妹的恋愛論＋"
+  "大朋めがね":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "ひみつ。"
+  "大野とう":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "初恋の不一致　総集編"
+  "天宮らいか":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "発情アイドルは運命のドルオタと付き合いたい 1"
+  "嬉野うちゃ":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "ミニチュアガーデンポイズンリリー"
+  "宇野ジニア":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "木曜日のアイスクリーム 【合本版】 朝＋夜"
+  "安蔵くんこ":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "おんすて！～日常系短編集～"
+  "山名沢湖":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "かんむりふたつ"
+  "快晴":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "GLはこういうのが好きっていう漫画 #1"
+  "悠夜アキハル":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "この両思いは未完成～両想いなのに貴女の言葉は信じられないとフられました～"
+  "日野雄飛":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "ふつうのともだち"
+  "服部雀":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "【電子特典付き】さざめとりお"
+  "朝陰":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "お隣さんに困ってます"
+  "柊エリサ":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "同級生がメイドになった百合 1"
+  "桃田やんちー":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "アオイくん♀がイケメンすぎてつらい ～Blooming Love～"
+  "棚木防衛":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "コトネまみれ 1"
+  "樹生ナト":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "虫籠の娘～学園監禁～"
+  "河津ケント":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "パーリーモンスター"
+  "沼地どろまる":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "百合の怖い話"
+  "海月:モトキ":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "私の彼女は私に興味がなさすぎる"
+  "海月：モトキ":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "なんで私の安息の地で見知らぬギャルが泣いてるの"
+  "珠奈ににこ":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "新人女性漫画家がネットセックスに沼ってVTuberになった話"
+  "百合えもん":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "ハッピー同棲百合漫画日和"
+  "百田ちなこ":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "クールな凛子さん、あざと可愛い後輩に溺愛される【タテヨミ】"
+  "砕梁":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "傍らの秘密"
+  "福沢エス":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "予定は未定"
+  "秋60":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "同じ所で眠るまで待って"
+  "糸原あき":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "卵のつれづれ"
+  "紺野キタ":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "夜鳴く鳥の悲しさは"
+  "蒼井":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "林檎はキスで真っ赤に染まる"
+  "蒼井紫":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "#ふれない"
+  "蓬餅":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "死人に口無し 短編"
+  "賀東アリ":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "【合本版】王族フレンズ"
+  "釘ヲ":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "ねじとくぎの日常"
+  "雨隠ギド":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "ピュア百合アンソロジーひらり、無料マガジンVol.0"
+  "雪原しづき":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "あの頃の私へ。（１）"
+  "雪狸":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "雪狸短編集 しゅうまつに結婚しよう"
+  "高尾　まこと":
+    works: 2
+    route: "lookup"
+    attempted: false
+    example_work: "世界で一番、誰よりも。 1巻"
+  "Ｗａｔａｐｉｋｉ":
+    works: 2
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "おまとめゆずせん！"
+  "ClassicalBambi":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "Stellallite(1)"
+  "Climb Studio":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "愛に囚われて【タテヨミ】"
+  "EMODELAS：エモ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "Whisper， My button."
+  "EPUM":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "私たちの一線【タテヨミ】"
+  "Isshi Shikibu":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "アポロジー"
+  "Minha":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "兄の彼女【タテスク】"
+  "NARUE":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "元号百合アンソロジー"
+  "ROROICHI":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "バレンタインに告白したいおんなのこ １"
+  "bokkun":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "か～～～～えろっ！"
+  "cak":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "私が殺しました"
+  "isana":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "Die Sekundenzeiger Tickt Ticking away with the second hand"
+  "kanju":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "strawberry syrup"
+  "kiwami":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "not:just:anymore"
+  "naka":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "地獄で会おうと言ったはいいが。"
+  "omoyu":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "恋慕のプリズム 1"
+  "sasa熊":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ラブかライクか分からない！　１巻"
+  "sorani":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "SM百合えっちアンソロジー『ナイショのオシオキ』【単話】"
+  "あいそえる":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アイソエル"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ぬるまゆ"
+  "あおい華葉":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "真夜中だけのおともだち"
+  "あかまる":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アカマル"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "私たちは恋を描けない　（１）"
+  "あきやま":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アキヤマ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "キリング・ミー！　１"
+  "あきやまえんま":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アキヤマエンマ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "さよならじゃねーよ、ばか。"
+  "あきらんぬ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アキランヌ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "絶対に主従が逆転する百合えっちアンソロジー『春を待つ庭で』【単話】"
+  "あさがお":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アサガオ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "百合好きの男子高校生の話"
+  "あさだ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アサダ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "おやすみレンアイ【連載版】"
+  "あずせ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アズセ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ヴァルキリードライヴ セイレーン -ブレイクアウト-"
+  "あぴ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アピ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "吸血鬼に飼われた少女の10年後＋創作百合まとめ 1"
+  "あらふじぺす":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アラフジペス"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "天然タラシの女の子とタラされたくない女の子の話 vol.1"
+  "あんじんねこ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アンジンネコ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "明日香と美咲 1"
+  "いづみやおとは":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "イヅミヤオトハ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "Ｓｉｓ［秘密の恋心］"
+  "いもだ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "イモダ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "寮で同部屋のクール女子に溺愛されています 1巻"
+  "うた":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ウタ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "エルフがお嬢様の私服をなんとかする話"
+  "えすえす":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "エスエス"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "バリキャリと新卒"
+  "おしおしお":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "オシオシオ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "すれ違い巨大感情百合アンソロジー【イラスト特典付】"
+  "おすもと":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "オスモト"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "それでもコイツをフってやる！ 1"
+  "お茶殻":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "webまとめ"
+  "かいばしら":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "カイバシラ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "思ってたのと違うあの子の話【電子特典付き】"
+  "かがちさく":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "カガチサク"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "White Lilies in Love　BRIDE's　新婚百合アンソロジー"
+  "かしい 葵":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "悪役令嬢に転生したので、国外追放回避の為ヒロインに優しく接したいが、ヒロインが鈍臭くてボケボケなので厳しく接してツッコミまくっていたら、案の定卒業パーティーで婚約者である王子から断罪されている最中です"
+  "かずまこを":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "カズマコヲ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "純水ルミネッセンス"
+  "かみま":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "カミマ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "アザミの森"
+  "かわく":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "カワク"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "アップルパルフェ おねロリ百合アンソロジー"
+  "きぎたつみ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "キギタツミ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "共鳴するエコー"
+  "きづきあきら":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "キヅキアキラ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "エビスさんとホテイさん"
+  "きらた":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "キラタ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "オレは男装女子じゃない！"
+  "ぐらんで":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "グランデ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "YURITIGHTS【イラスト集】【1】"
+  "こがねい千鶴":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "少女たちの記憶"
+  "こずみっく":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "コズミック"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ワンナイト百合アンソロジー『旅先ワンナイト』【単話】"
+  "ささみりせ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ササミリセ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "この関西人がウザすぎる!!～なにわギャルとイケズ京男に振り回されています～【分冊版】"
+  "さとうメメ子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "てるもこ！〜輝夜×妹紅再録集〜"
+  "ざんか":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ザンカ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "吸血鬼ちゃんとメイドさん"
+  "ししにご":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "シシニゴ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ワンナイト百合アンソロジー『ある、失恋した夜に』【単話】"
+  "じゅんた":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ジュンタ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "サ活女子のすすめ【分冊版】"
+  "すずしろ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "スズシロ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "メイドスケーター　単話版"
+  "せきはら":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "セキハラ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "甘やかし百合えっちアンソロジー『素直なキモチの伝え方』【単話】"
+  "ちこれ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "チコレ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "悪戯プライバシー"
+  "ちゃば高":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ひかるとなら遊園地"
+  "ちやほ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "チヤホ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "絶対に主従が逆転する百合えっちアンソロジー『アクマでもアナタのモノ。』【単話】"
+  "ちょぼらうにょぽみ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "チョボラウニョポミ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "きゅぽぽんぬ♡宇宙忍者カンパニー 連載版"
+  "つづら涼":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "サイドチェンジ"
+  "とよだ伽玖":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "唯一無二の天使たち"
+  "どぅろく":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ドゥロク"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "PANDEMIC PANIC GIRL"
+  "なごり 悠":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "魔女様と猫ちゃん~魔法の箒~"
+  "にび":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ニビ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "王子に婚約破棄された令嬢が、王妃に返り咲くまで"
+  "ねこころね":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ネココロネ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "絶対に主従が逆転する百合えっちアンソロジー『雨がくれたもの』【単話】"
+  "ねこすきっぷ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ネコスキップ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "幼馴染を選ばない奴は〇〇だ！ 1 猫宮side 総集編+書き下ろし本"
+  "ねりけし":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ネリケシ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "友情の撮り方"
+  "のちお":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ノチオ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "マイノリティ・ラヴァーズ"
+  "はにみ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ハニミ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "やわらかな命日【イラスト特典付】"
+  "はねこと":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ハネコト"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ストロベリーパルフェ おねロリ百合アンソロジー【イラスト特典付】"
+  "はやしこ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ハヤシコ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "月の光を背に"
+  "はるキャベツ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ハルキャベツ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "日なたのシルベチカ(1)"
+  "はる原":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "夕焼けの赤い色は"
+  "ぱちお":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "パチオ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "百合印の缶詰 Collections 1～3 短編まとめ"
+  "ぴらそん":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ピラソン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "はるか咲きそふ、刻どきの　１巻"
+  "ふかさくえみ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "フカサクエミ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "購買のプロキオン"
+  "ふじた":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "フジタ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ゆるゆりアンソロジー　10周年記念ver."
+  "ぶーち":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ブーチ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "「違うあおい」の嘘と恋"
+  "べにしゃけ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ベニシャケ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "さよなら、私の神様"
+  "ぺんたごん":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ペンタゴン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ぴゅあJKの日常っ！"
+  "ほしな":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ホシナ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "平民の私が高慢な悪役令嬢に絡まれているのですが、どうすればいいですか？"
+  "まきたこん":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "マキタコン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "いろんな百合まとめ"
+  "まこしー":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "マコシー"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "教えてもらいたガール 1"
+  "まちの宵子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "少女神使 上巻 神使って神様の使い！？"
+  "まみむ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "マミム"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "さしみちゃん"
+  "まるかな正麺":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "創作百合特集 1"
+  "まるとと":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "マルトト"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "カルトシンドローム"
+  "まんが: 銃爺":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "獄門撫子此処ニ在リ（１）"
+  "まんの":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "マンノ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ちょっとエッチなギャル　アンソロジーコミック"
+  "みぃぬ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ミィヌ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "バウムクーヘンエイト"
+  "みさき天夢":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "寂しすぎる女社長がレズ風俗嬢に秒で落ちる話"
+  "みずのゆめ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ミズノユメ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "口裏合わせの勉強会"
+  "みつきりこ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ミツキリコ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "吸血鬼な私とクリスチャンな彼女(1)"
+  "みつき和美":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ゆめゆめうつつ"
+  "みやまき":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ミヤマキ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "より撮りみどり"
+  "みんたろう":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ミンタロウ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "SHIBUYA　ギャル百合アンソロジー"
+  "むぎちゃ ぽよこ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ムギチャ ポヨコ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "光の魔法菓子と婚約破棄～少女の魔法菓子が令嬢を魅了する～"
+  "むっちりむうにい":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ムッチリムウニイ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "純潔ロマンス"
+  "やまだしゅら":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヤマダシュラ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "せめて、ミルクだけはお願いします！？"
+  "やまのせりか":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヤマノセリカ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "オグナンジェ"
+  "ゆるゆり資料集編纂室":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ゆるゆり資料集"
+  "よっしゃあっ！":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヨッシャアッ！"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "竜王さまの気ままな異世界ライフ１"
+  "よとぎ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヨトギ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "後輩マネの全身管理でスケベ汁が止まらない私 1"
+  "らずべりぃ。":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ラズベリィ。"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "幼なじみが絶対に結ばれる百合アンソロジー『青春は柑橘の味』【単話】"
+  "るいす・まくられん":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ルイス・マクラレン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "しっかりメイドのぽんこつお嬢さま観察日記"
+  "るべ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ルベ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ワンナイト百合アンソロジー『ズルい人』【単話】"
+  "わが":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ワガ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "【同人版】ノウ・ニューユー（リセット地点でまちあわせ・番外編）"
+  "わたりさえ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ワタリサエ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "お嬢様はラブコメの主人公になりたい！ 【連載版】"
+  "わっきげん":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ワッキゲン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "JKが呪いのバイブについて話す話"
+  "アキラ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アキラ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "夏の光と山の闇 - THE SECRET LIGHT AMOUNG US -"
+  "アッチあい":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "アッチアイ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "このかけがえのない地獄【電子限定特典付き】"
+  "アナ・Ｃ・サンチェス":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "オルターエゴ"
+  "イコール":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "イコール"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "むすんでひらいて"
+  "ウメ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ウメ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "コピー本総集編2011-2015"
+  "エェコ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "エェコ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "親友は、私の名前で不倫中"
+  "オオハチ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "オオハチ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "とりこのため息【連載版】"
+  "カザマアヤミ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "カザマアヤミ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "星をふたりで"
+  "カヅチ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "カヅチ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "女の子が女の子のママになる話"
+  "カネコナオヤ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "カネコナオヤ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "TS学園の日常【単話版】"
+  "カバー":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "カバー"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ちょっとエッチなギャル　アンソロジーコミック"
+  "ガウス":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ガウス"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "添木　完全版"
+  "コヨミギンカ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "コヨミギンカ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "一切合切シリーズ"
+  "サトミヒロシ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "サトミヒロシ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "砂漠で溺れるような恋をしている。"
+  "シウ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "シウ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "アンドロイドの短編集 1"
+  "シギサワカヤ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "シギサワカヤ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "君だけが光"
+  "ショウマケイト":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ショウマケイト"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "友達が私を理解らせにくるので勝利の女神の力を借りてこっちも理解らせにいきます。 【連載版】"
+  "ジョセフ鶴屋":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "友達だって分からせたい！【単話版】"
+  "セッテりゃ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "セッテリャ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "こたつでみかんを(1)改訂版"
+  "ソーダ水":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "即百合堕ち2コマ"
+  "ナオダツボコ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ナオダツボコ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "嘘つきピアスホール（百合同人誌）"
+  "ネコハリコ22":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ユリ恋・short short"
+  "ノビル":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ノビル"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ウェザー少女"
+  "ハマノーン":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ハマノーン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "えろ勉"
+  "ヒロアキ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヒロアキ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "凛としてカレンな花のように: 1"
+  "ホシィェモ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ホシィェモ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "悪マ的眷属エルエルちゃん"
+  "マシマロまろん":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "マシマロマロン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "ハッピーバレンタイン 1"
+  "マトマ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "マトマ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "寿命をゆずる友だちの話。"
+  "マナタ マユム":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "マナタ マユム"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "「愛することはない」と言われましても、そもそもその必要はございません。"
+  "ムググ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ムググ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "しつこいあの子"
+  "メジカラシーン":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "メジカラシーン"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "お姉ちゃんと夏休み"
+  "モルダウ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "モルダウ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "普通ガール"
+  "ヤマトバンビーズ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヤマトバンビーズ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "所沢さんは177cm"
+  "ユキムラ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ユキムラ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "傷心"
+  "ヨウハ":
+    works: 1
+    route: "surface"
+    attempted: true
+    status: "stated-by-the-name-itself"
+    reading: "ヨウハ"
+    reading_basis: "surface"
+    reading_source_kind: "derived"
+    reading_note: "The name is written in kana, so the kana is the reading."
+    source: "surface"
+    example_work: "プチフール ヨウハセレクション"
+  "ラブ美":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "百合というにはあさましい（1）"
+  "七瀬八":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "私の可愛い翼ちゃん"
+  "三倉ゆめ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "FES部の雑談"
+  "三松 真由美":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "夫のためにレズ風俗に行きました"
+  "三浦コズミ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "高嶺の花とふつうの子【合本版】"
+  "上城たすく":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "天蓋の中はふたりの"
+  "上村なびあ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "YURI ENGLISH"
+  "中島楓":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "【English ver】The Monsters of Summer"
+  "中憲人":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "雑な生活"
+  "中村たいやき":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "明日また会いましょう"
+  "中村キヨ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "お母さん二人いてもいいかな！？"
+  "乃樹愛":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "冬木先輩と夏井"
+  "久島さおね":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "小田ちゃんと福村さん"
+  "久遠ねむ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ろくでもないわたしたち わたしのはなし 01"
+  "乙女☆妄想族":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "女の子のナイショの話"
+  "二星":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "かわいいねこメイド １"
+  "今村陽子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ほんとのかのじょ"
+  "伊吹天花":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "処女と黒い一角獣"
+  "伊東しおり":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "結び目～あなたとの出会い～"
+  "佐倉ノゾム":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "32歳のふたりとごはんと 1"
+  "作: 荒井チェイサー":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "1枚で読む百合SS"
+  "倉岡ダイキ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "紫のけむり"
+  "倉藤風星":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "こんな百合が欲しかった詰め百合短編集"
+  "六番目の課長":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "溺れるクジラ"
+  "六畳間":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "幸福観音"
+  "内藤隆":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "黒髪巫女とマリアウィッチ 総集編"
+  "冬佳千秋":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "創作百合 1 AtoA"
+  "冬島暮":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "幼馴染の異常かわいい妹ちゃん 【連載版】"
+  "冬芽沙也":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "「わたくしこそが王となりますゆえ、此度の縁談はお断りさせていただきますわ。かわいい妹が待っておりますの」"
+  "北野ささくれ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "BERSERKER(1)"
+  "卯蟹うか":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "いえない秘密の愛し方 【連載版】"
+  "古紫正美":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "I know， you know…"
+  "吉田　真百合":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ライカの星"
+  "吉田ばな":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "マッチングアプリ百合アンソロジー"
+  "名宵":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "やればできること"
+  "和花知夜":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "無能だった私と君の転生逃亡記1"
+  "咲月晴":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ひたいに降る白"
+  "喜月かこ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "私の魂を食べて下さい！（１）【電子限定特典ペーパー付き】"
+  "四ツ原フリコ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ライカ、パブロフ、ポチハチ公"
+  "土岐はるひこ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "好キ好キ大好キ死ンデモ愛シテル！"
+  "坂街透":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "拝啓　好きな人へ"
+  "壇九（TANJIU)":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ＳＱ 1　君の名前から始まる"
+  "夏目りく":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "繋ぎ繋がれスパイラル"
+  "夏野 なえ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "悪女の秘密のお仕事"
+  "大崎ペコ丸":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ぐだぐだするき！　1"
+  "大沢あまね":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "彼女×彼女"
+  "大野安之":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ゆめのかよいじ【雑誌掲載版】"
+  "天日昇":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "大人になるってこと"
+  "天谷":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "I love my friend"
+  "奏手ユミチ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "エンドレスルーム"
+  "奥一":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "推しの百合を絶対に邪魔させない騎士たち"
+  "姉井戸":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "悪役令嬢と愛のためならなんでもする女　姉井戸・百合作品集"
+  "宇河弘樹":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "二輪乃花"
+  "宮田ワルツ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "【単話売】お隣さんとシュガーキス"
+  "宮繭子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "貧乏お嬢様と金髪ヤンキーメイド(1)"
+  "富沢義彦":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ハイパースーツ・ガジェッティア"
+  "寝路":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ばけーしょん魔王とペット"
+  "小川ますみ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "小川ますみ 短編集"
+  "小湊悠":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "お嬢とジャンク飯"
+  "小田マサシ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "緋色のナナ"
+  "小鳥彩花":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "【単話売】恋は嵐と海賊船で"
+  "屋乃啓人":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "スレチガイも恋のうち　―屋乃啓人ショートコミック詰め合わせ！―"
+  "山北東":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "エプロン"
+  "山本 和音":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ウェイバーズ １"
+  "岡藤真依":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "フォーゲット・ミー・ノット【電子限定特典付】"
+  "川内":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "私の女神が今日も推せる 【電子単行本版】"
+  "川村マユ見":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "春風 -友達とエアセックスしてみた-"
+  "川浪いずみ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ワンナイト百合アンソロジー『深夜3時の歌舞伎町』【単話】"
+  "川邑司":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "CPL"
+  "幌山　あき":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "マーブルビターチョコレート"
+  "廻ラコ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "縁切りの巫女さまシリーズ"
+  "志方彼方":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "能面 battle girl納言 vol.1 美少女空手家バトルストーリー"
+  "恋ドロ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "恋ドロ作品集 vol.1"
+  "悠夜":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "私に落ちないなんて言わせないよ？"
+  "惚れた女の遺言.mp3":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "現役グラドル美大生が現役大人気AV女優さんのおマ◯コを舐めさせて頂く漫画 全1巻"
+  "戌理ネオ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "幼なじみ百合（新装版） 1巻"
+  "所ケメコ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ハニー★カルテット"
+  "掃除朋具":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "双子百合えっちアンソロジー"
+  "日明":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "自重して！南さん"
+  "早乙女さしみ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "花なら赤のゼラニウム"
+  "星崎レオ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "花の三騎士【分冊版】"
+  "星野蒼一朗":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "うどみょん１"
+  "時和輝":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "線の上で前を向く"
+  "服部芳生":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "あわつぶキラキラ"
+  "未勇":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "不即不離の従犯"
+  "朱村咲":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ブルーダイヤモンド"
+  "杉谷エコ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "愛焦がれキャラメリゼ　１巻"
+  "松本陽介":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "完璧麗華さまは友達作りがおヘタ（１）"
+  "架神恭介":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "おいしい大秘境カナダ"
+  "柏":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "夜雨対牀"
+  "染野ヨトリ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "（泣き虫）ツンねこちゃん と （いじわる）デレねこさん"
+  "柾塚ちい":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "さよならクローゼット"
+  "栗山 こがね":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "シンデレラが可愛すぎるので私が幸せにしてみせます！"
+  "桐山はるか":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ガラスの靴を脱ぎ捨てて【イラスト特典付】"
+  "桑田乃梨子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "箱庭コスモス"
+  "桜家ゆきの":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "キスをするまで何度でも"
+  "桜荘司":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "変態発明家と同棲することになりました"
+  "梅ノ木　びの":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "マユミの肉"
+  "森永みるく":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "お姫様のひみつ"
+  "椎茸丸":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "偏愛のその先に"
+  "楓":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "レディリモーネに捧ぐ"
+  "楠見らんま":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "センセイのジジョウ"
+  "橋本みつる":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "さらば友よ"
+  "橘沙羅":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "マジカルくるみエール！ vol.1"
+  "比谷ツバキ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "花達の幸福論 1 百合の園"
+  "水森崇史":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "野球の上手い女の子が守備勝負を始めるようです(1)"
+  "水溜あいまい子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "デイ・ドリーマー・ガールズ"
+  "水瀬るるう":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "これはよい抱き枕 水瀬るるう百合作品集"
+  "水鳥なや":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "「うにクエ！」転生したらあかりだけスライムだった件 特装版小冊子電子版"
+  "江坂あお":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "蜜飼い"
+  "池田理代子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ふたりぽっち"
+  "沢田　かに":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "のだ　１"
+  "河合朗":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ガールズ イン ザ ヘル 【電子限定おまけ付き】"
+  "流砂":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "奈緒と碧～二人の恋愛物語～ 1巻"
+  "浅見百合子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "奏　青春バンド百合アンソロジー"
+  "浜野りんご":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "CottonCandy"
+  "海産物":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "アイドルが甘いモノを食べるお話"
+  "海老川ケイ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "魔女まじょＳ－ＷＩＴＣＨ　１巻"
+  "海野アロイ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "猫魔法が世界に革命を起こすそうですよ？【分冊版】"
+  "深山はな":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "一端の子"
+  "澄谷ゼニコ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "魔女が恋する5秒前【イラスト特典付】"
+  "瀧":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "くちびるに愛をこめて"
+  "瀬戸かもめ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "地上の果ての偃師たちへ"
+  "灰泥きし":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ラストページは君と 1"
+  "烏美壱子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "少女狂恋フォリ・ア・ドゥ"
+  "煮汁":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "クダンノフォークロア"
+  "熱海天使":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "百合癖シチュ100 vol.1"
+  "燈河佑":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "YuRe：Log 百合短編集"
+  "片倉アコ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "山茶花は恋を愛する"
+  "犬居なぎ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "放課後のキミは猫"
+  "狐豆△":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "収納魔法が切実に欲しいと願っていたら、転生してしまった【分冊版】（コミック）"
+  "猫扮装":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "私の魔法少女 1巻 敵の女幹部に追加戦士になってほしい魔法少女の話"
+  "猿醤":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ねこいばなものがたり"
+  "珠虫さとり":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "短編集あなたがいる惑星"
+  "琴吹はるき":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "春待ちスノードロップ"
+  "田崎ぎん":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "私の推しは居候ＡＩ １"
+  "田滝ききき":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "バイトやめたい 1"
+  "由井ひな子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "豹藤さんは攻略（おと）したい"
+  "由多ちゆ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "くらいもり、しろいみち"
+  "由木":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "あかねとすみれ 1"
+  "白山凛":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "もう一人の李梨花"
+  "白縫ちせ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "かなたんちゃんねる"
+  "百茶":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "今日の先輩と後輩は ①"
+  "真木野いくら":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "王子様がすぎる"
+  "磯本つよし":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ガールズライド"
+  "磯谷友紀":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "さようならむつきちゃん"
+  "福原ヒロ子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "真紅に燃ゆ"
+  "秋片":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "恋の煙"
+  "稲本いねこ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "夕日の見えるバルコニーで、君と×× 1"
+  "空くれない":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "かっさい！　１巻"
+  "竹内未来":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "乙女帝國"
+  "箕田":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "月形家の二人遊び"
+  "米宮イナホ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "純蒸パイルバンカー"
+  "紅月陽":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "Animation～アニメーション～"
+  "紺":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "同級生の推し作家と両想いになった結果 1"
+  "結川カズノ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "エクレアSpecial　雑草譚　結川カズノ百合作品傑作選"
+  "結木ユウ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "私達は、真実の愛を見つけた。"
+  "綱凪さめまる":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "女子高生がバチバチに両片想いを拗らせる話"
+  "綺月るり":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "REFACTORS -1-"
+  "綿桐 さや":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "須波優子と百合な人びと"
+  "緜":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "泣き顔百合アンソロジー"
+  "編: 乙女☆妄想族":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "女の子のナイショの話"
+  "練りこみ藤吉郎":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "獅子とうさぎ 上"
+  "縞野やえ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ゆめよりすてきな"
+  "羽印":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "百合漫画短編集"
+  "翠星ちょこ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "創作百合フェスタアンソロジー 白群の空に君を描いている。"
+  "脚本: アサダアツシ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "チェイサーゲームW 水魚の交わり 【公式シナリオブック】"
+  "芥文絵":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "妹ができました。"
+  "茜　りう":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ゲーセンでよく見かける同じ機種やってるあの子 1巻"
+  "菅原キク":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "旧約マザーグール【分冊版】"
+  "菜種梅雨":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "永遠亭の姫様による盆栽の育て方"
+  "萠田まく":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "うみと人魚ヒメ"
+  "葉月双":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "悪役令嬢アウトレイジ【タテスク】"
+  "葦梛曜":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "Smile0"
+  "葵季むつみ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "甘やかし百合えっちアンソロジー『二番目のテソロ』【単話】"
+  "葵日向":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "黒い百合には棘がある"
+  "薗田かんきつ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ざこのみなさんお大事に　１巻"
+  "藍藤 唯":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "死神聖女　1"
+  "藤たまき":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "この世にただひとり"
+  "裕喜。":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "Flower fizz"
+  "西倉新久":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "多分洋々 西倉新久短編集"
+  "西山香葉子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "少女十色"
+  "谷垣ゆき":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "八重へ"
+  "貴山アスカ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "惑星のアミーガ"
+  "辻森　悠":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "転生少女の三ツ星レシピ（１）　～崖っぷち食堂の副料理長、はじめました～"
+  "道雪葵":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "悪役令嬢は天使のようなライバル美少女に愛を誓われる"
+  "郭斯特Guo Si Te":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "今日も彼女はこんなに可愛い 【タテヨミ】"
+  "酉村":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "夢で笑って。"
+  "鈴木りつ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "鈴木りつ短編集　考幻学入門"
+  "鈴木有布子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "愛に愛らし愛しいあなた"
+  "長乃　あきら":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "星と海のメルヒェン"
+  "長倉けいこ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "とろとろ・姫あわせ"
+  "阿部川キネコ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "うつゆり 【電子限定 完全版】"
+  "雁須磨子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "私の嫌いなおともだち"
+  "雛原えみ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ワンナイト百合アンソロジー『送られオオカミ』【単話】"
+  "雨乃けい":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ゆりつめ"
+  "雫市だいち～":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "三つ巴は乱れて当然"
+  "雲呑めお":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "コスプレ百合えっちアンソロジー"
+  "霧島":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "白昼夢のお姉さん"
+  "青い":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ハクせつシリーズ 1巻 わたシノ愛シノお姫サマ"
+  "青い小指":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "傷のきらめき"
+  "青井はな":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "モモイロデイズ"
+  "須藤佑実":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "包帯少女期間"
+  "風呂川ツカサ":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "私、魔法少女、わたし。"
+  "馬場彩玖":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ちりおちさくはな"
+  "高坂 はしやん":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "アイドル総選挙4位だった私が魔王を倒すんですか？"
+  "高江洲 弥":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "リボンと棘　高江洲弥作品集"
+  "高野裕也":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "千才姉妹 1巻"
+  "鳥トマト":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "アッコちゃんは世界一"
+  "鵤れいし":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "スパッツちゃんと触手ちゃん 1"
+  "鶴丸":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "夏美のマル秘身代わり日記 男子寮潜入48時間"
+  "鹿吉てとら":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "レズビアン風俗の女たち"
+  "鹿遊":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "かわいい先パイ。"
+  "黄井ぴかち":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ピロートークは服を着て"
+  "黒丸恭介":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ゆりっとファンタジー"
+  "黒白音子":
+    works: 1
+    route: "lookup"
+    attempted: false
+    example_work: "ゆりいろ恋もよう"
+  "ＥＤ":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "リリウム・テラリウム【イラスト特典付】"
+  "Ｆｉｆｉｒｕｕ":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "ツンアリチビマリ全編"
+  "ＩＮＵ":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "ヴァルキリードライヴ ビクニズム"
+  "ＰＩＫＯ":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "警察官とお姉さん【連載版】 1巻"
+  "ＴＯＮＯ":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "ピンク・ラッシュ"
+  "ＵＭＩＮ":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "密蜂"
+  "ｍａｊｏｃｃｏｉｄ":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "ここは天国じゃないけど"
+  "ｎｏｎｃｏ":
+    works: 1
+    route: "latin"
+    attempted: true
+    status: "latin-script"
+    reading_note: "Written in Latin script; there is no kana reading to state."
+    example_work: "のんべれケ。おかわり！！"

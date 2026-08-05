@@ -147,12 +147,19 @@ def from_generic(html):
         d = g.get("date")
         if not d or not CHAPTERISH.search(t):
             continue
-        m = CHAPTERISH.search(t)
-        lab = re.split(r"\s\d{4}[-/.年]|\s+\d{2,}(?:\s|$)", t[m.start(): m.end() + 40])[0].strip()
-        # Rendered pages put the date's own label next to the chapter, and the generic extractor
-        # swept it into the title: "第1話 ぐっすん！…別れは出会いのシグナル 更新日:". Strip that and the
-        # other furniture words that sit in the same position.
-        lab = re.sub(r"\s*(更新日|公開日|配信日|更新)\s*[:：]?\s*$", "", lab).strip()
+        if g.get("exact"):
+            # try_markup read this off the element the page names as the chapter's title, so it is
+            # the label rather than a run of text to be cut down. Trimming it would take a real
+            # subtitle with the furniture.
+            lab = t
+        else:
+            m = CHAPTERISH.search(t)
+            lab = re.split(r"\s\d{4}[-/.年]|\s+\d{2,}(?:\s|$)",
+                           t[m.start(): m.end() + 40])[0].strip()
+            # Rendered pages put the date's own label next to the chapter, and the generic
+            # extractor swept it into the title: "第1話 ぐっすん！…別れは出会いのシグナル 更新日:".
+            # Strip that and the other furniture words that sit in the same position.
+            lab = re.sub(r"\s*(更新日|公開日|配信日|更新)\s*[:：]?\s*$", "", lab).strip()
         # A date in the future is 公開予定 — announced, not published. コミックFUZ carries these months
         # ahead, and one arrived here as しゅがー・みーつ・がーる! "updating" on 2026-08-25.
         if d > TODAY:

@@ -76,25 +76,32 @@ def episodes(html, strategy):
         date = g.get("date")
         if not date or not CHAPTERISH.search(title):
             continue
-        # The label is buried in a run of scraped text that also carries the date and whatever
-        # counters the site prints next to it — マンガPark yields "第1話① 6178 67 2023/1/24".
-        # Keep the chapter part and cut at the first thing that is plainly not part of a title:
-        # a date, or a bare run of three or more digits, which is a view or comment count.
-        m = CHAPTERISH.search(title)
-        label = title[max(0, m.start() - 4): m.end() + 40]
-        label = re.split(r"\s\d{4}[-/.年]\d{1,2}|\s\d{3,}\b", label)[0]
-        # Markup in the window means we ran off the end of the episode list. The +40 is speculative
-        # — it exists to catch a subtitle — and every episode but the LAST is bounded by the next
-        # one, so the last is the only one that can over-run. GANMA! prints its author block
-        # straight after the list, and 飛野さんのバカ's fifth episode came out as
-        # '配信 第5話 作家 <img alt="author avatar" loading="la', stopping only at the character cap
-        # while its four siblings were a clean '配信 第N話'.
-        # A tag is never part of a chapter title, so its presence is proof the tail is not a
-        # subtitle. Drop the speculative part rather than trying to clean it: what follows an
-        # over-run is another section of the page, not a damaged version of what we wanted.
-        if "<" in label:
-            label = title[max(0, m.start() - 4): m.end()]
-        label = label.strip(" 　·・|/-")
+        if g.get("exact"):
+            # The page named the element holding the chapter's own title, so this IS the label and
+            # is taken whole. What follows reconstructs a label from a run of scraped text, and
+            # applied to a real title it cuts a subtitle off. マンガPark, ファイアCROSS and
+            # マンガよもんが all arrive here.
+            label = title
+        else:
+            # The label is buried in a run of scraped text that also carries the date and whatever
+            # counters the site prints next to it — マンガPark yields "第1話① 6178 67 2023/1/24".
+            # Keep the chapter part and cut at the first thing that is plainly not part of a title:
+            # a date, or a bare run of three or more digits, which is a view or comment count.
+            m = CHAPTERISH.search(title)
+            label = title[max(0, m.start() - 4): m.end() + 40]
+            label = re.split(r"\s\d{4}[-/.年]\d{1,2}|\s\d{3,}\b", label)[0]
+            # Markup in the window means we ran off the end of the episode list. The +40 is
+            # speculative, existing to catch a subtitle, and every episode but the LAST is bounded
+            # by the next one, so the last is the only one that can over-run. GANMA! prints its
+            # author block straight after the list, and 飛野さんのバカ's fifth episode came out as
+            # '配信 第5話 作家 <img alt="author avatar" loading="la', stopping only at the character
+            # cap while its four siblings were a clean '配信 第N話'.
+            # A tag is never part of a chapter title, so its presence is proof the tail is not a
+            # subtitle. Drop the speculative part rather than trying to clean it: what follows an
+            # over-run is another section of the page, not a damaged version of what we wanted.
+            if "<" in label:
+                label = title[max(0, m.start() - 4): m.end()]
+            label = label.strip(" 　·・|/-")
         k = (label, date)
         if k in seen:
             continue

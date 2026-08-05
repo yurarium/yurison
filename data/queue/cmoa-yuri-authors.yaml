@@ -1,0 +1,4941 @@
+# CANDIDATE AUTHOR READINGS — names from data/queue/cmoa-yuri.yaml that data/names does not hold.
+#
+# WHY THESE ARE NOT IN data/names. They belong to works nobody has admitted. A reading recorded
+# here is a finding about a name; recording it in the store would assert that the name is one this
+# database carries, and 1,860 shelf rows are candidates rather than works. When a work is admitted,
+# its author's entry moves across as a copy rather than as a fresh decision.
+#
+# THE FIELD SHAPE IS adapters/names/curate.py's, deliberately, so that move is mechanical:
+# `reading_basis: stated` with `reading_source_kind: national-library` is what that module already
+# demands of a reading the National Diet Library states. curate.py does not read this file.
+#
+# NOTHING HERE IS GUESSED. NDL OpenSearch `?creator=` is the route, reading
+# `dcndl:creatorTranscription` beside `dc:creator`, and a name it does not attest is `unresolved`,
+# which is a finding. A reading derived from the characters would be a guess wearing a label, and
+# pen names are where that goes wrong: NDL's own transcription is kept even where it is not
+# compositional, because pen names frequently are not.
+#
+# WHAT `status` MEANS, and the distinction matters to whoever resumes:
+#   resolved       NDL states one reading and every record agrees.
+#   unresolved / no-record     asked, and NDL holds no record under that exact name. Most of these
+#                              artists publish on the web, so their work has no ISBN and no
+#                              cataloguer has ever seen it. Silence is about NDL, not about them.
+#   unresolved / conflicting   asked, and NDL's records disagree. One may be a different person.
+#   unresolved / not-attempted NOT ASKED. This run was capped at 60 lookups.
+#
+# HOW THE 60 WERE CHOSEN. Descending by how many shelf titles the author has, among authors with
+# at least one title from a publisher that is not a doujinshi distributor. That ordering buys the
+# most works per resolved name and it also has much the best hit rate, since a book with an ISBN is
+# the only kind of thing NDL holds. Resuming continues down the same order.
+#
+# ndlsearch.ndl.go.jp's HTML record pages were returning 503 throughout; the API answered normally.
+# Requests went out as yurarium/0.1 (bibliographic database; +https://yurarium.github.io/) at 1.6s intervals.
+source: ndl-opensearch
+role: discovery-only
+record_type: author_reading_candidates
+retrieved: 2026-08-04
+attempt_cap: 60
+attempted: 60
+resolved: 34
+unresolved_attempted: 26
+unattempted: 842
+authors_total: 902
+authors:
+  一ノらい:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 12
+    shelf_titles_commercial: 11
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E4%B8%80%E3%83%8E%E3%82%89%E3%81%84
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  雪尾ゆき:
+    status: resolved
+    reason: null
+    shelf_titles: 12
+    shelf_titles_commercial: 9
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E9%9B%AA%E5%B0%BE%E3%82%86%E3%81%8D
+    reviewed: '2026-08-04'
+    ndl_records: 4
+    reading: ユキオ ユキ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 4 record(s) under 雪尾, ゆき, all giving this transcription. この契約は恋まで届きますか? (芳文社); この契約は恋まで届きますか? (芳文社); へんたいよくできました (一迅社)
+  せきはら:
+    status: resolved
+    reason: null
+    shelf_titles: 11
+    shelf_titles_commercial: 11
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%9B%E3%81%8D%E3%81%AF%E3%82%89
+    reviewed: '2026-08-04'
+    ndl_records: 20
+    reading: セキハラ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 20 record(s) under せきはら, all giving this transcription. 悪夢の楽園 (一迅社); 悪役令嬢が恐怖の覇王と政略結婚する罰は甘すぎませんか!? (KADOKAWA); 悪役令嬢が恐怖の覇王と政略結婚する罰は甘すぎませんか!? (KADOKAWA)
+  らいおん小屋:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 11
+    shelf_titles_commercial: 11
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%82%89%E3%81%84%E3%81%8A%E3%82%93%E5%B0%8F%E5%B1%8B
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  東雲水生:
+    status: resolved
+    reason: null
+    shelf_titles: 11
+    shelf_titles_commercial: 11
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%9D%B1%E9%9B%B2%E6%B0%B4%E7%94%9F
+    reviewed: '2026-08-04'
+    ndl_records: 20
+    reading: シノノメ ミズオ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 20 record(s) under 東雲水生, all giving this transcription. 貴女依存症【単行本版・描き下ろし特典付き】（1） (グループ・ゼロ); 貴女依存症【単行本版・描き下ろし特典付き】（2） (グループ・ゼロ); 貴女依存症【単行本版・描き下ろし特典付き】（3） (グループ・ゼロ)
+  寄田みゆき:
+    status: resolved
+    reason: null
+    shelf_titles: 10
+    shelf_titles_commercial: 10
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%AF%84%E7%94%B0%E3%81%BF%E3%82%86%E3%81%8D
+    reviewed: '2026-08-04'
+    ndl_records: 19
+    reading: ヨリタ ミユキ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 19 record(s) under 寄田, みゆき, all giving this transcription. 愛と青春の発熱 (講談社); 愛なんてナイなんて (講談社); イケない体験(001) (講談社)
+  桜木晶:
+    status: resolved
+    reason: null
+    shelf_titles: 10
+    shelf_titles_commercial: 10
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%A1%9C%E6%9C%A8%E6%99%B6
+    reviewed: '2026-08-04'
+    ndl_records: 18
+    reading: サクラギ アキラ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 18 record(s) under 桜木, 晶, all giving this transcription. 裏切られた黒猫は幸せな魔法具ライフを目指したい (フロンティアワークス); 裏切られた黒猫は幸せな魔法具ライフを目指したい (フロンティアワークス); 裏切られた黒猫は幸せな魔法具ライフを目指したい (フロンティアワークス)
+  玉置ロコ:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 10
+    shelf_titles_commercial: 1
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%8E%89%E7%BD%AE%E3%83%AD%E3%82%B3
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  梅原うめ:
+    status: resolved
+    reason: null
+    shelf_titles: 9
+    shelf_titles_commercial: 9
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%A2%85%E5%8E%9F%E3%81%86%E3%82%81
+    reviewed: '2026-08-04'
+    ndl_records: 19
+    reading: ウメハラ ウメ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: 'NDL OpenSearch, 19 record(s) under 梅原, うめ, all giving this transcription. 公式コミックアンソロジー86-エイティシックス- (KADOKAWA); 転生少女の底辺から始める幸せスローライフ : THE COMIC (マイクロマガジン社); 転生少女の底辺から始める幸せスローライフ : THE
+      COMIC (マイクロマガジン社)'
+  秋月ルコ:
+    status: unresolved
+    reason: conflicting
+    shelf_titles: 9
+    shelf_titles_commercial: 9
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%A7%8B%E6%9C%88%E3%83%AB%E3%82%B3
+    reviewed: '2026-08-04'
+    ndl_records: 10
+    ndl_readings_seen:
+    - アキズキ ルコ
+    - アキヅキルコ
+    reading_note: NDL's records disagree about this name; one of them may be a different person. Kept unresolved rather than picked.
+  ヨルモ:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 8
+    shelf_titles_commercial: 8
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%83%A8%E3%83%AB%E3%83%A2
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  寝路:
+    status: resolved
+    reason: null
+    shelf_titles: 8
+    shelf_titles_commercial: 8
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%AF%9D%E8%B7%AF
+    reviewed: '2026-08-04'
+    ndl_records: 10
+    reading: ネジ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: 'NDL OpenSearch, 10 record(s) under 寝路, all giving this transcription. #消えたい僕は君に１５０字の愛をあげる (アルファポリス); #消えたい僕は君に150字の愛をあげる (アルファポリス); 九頭竜さんの推しは小さい (KADOKAWA)'
+  嵩乃朔:
+    status: resolved
+    reason: null
+    shelf_titles: 8
+    shelf_titles_commercial: 7
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%B5%A9%E4%B9%83%E6%9C%94
+    reviewed: '2026-08-04'
+    ndl_records: 7
+    reading: タカノ サク
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 7 record(s) under 嵩乃, 朔, all giving this transcription. OLさんと猫のはなし (KADOKAWA); OLさんと猫のはなし (KADOKAWA); 吸血鬼ちゃん×後輩ちゃん (KADOKAWA)
+  平尾アウリ:
+    status: resolved
+    reason: null
+    shelf_titles: 8
+    shelf_titles_commercial: 8
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%B9%B3%E5%B0%BE%E3%82%A2%E3%82%A6%E3%83%AA
+    reviewed: '2026-08-04'
+    ndl_records: 18
+    reading: ヒラオ アウリ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 18 record(s) under 平尾アウリ, all giving this transcription. 推しが武道館いってくれたら死ぬ【連載版】第53話 (徳間書店(COMICリュウ／COMICユニコーン)); 推しが武道館いってくれたら死ぬ【連載版】第54話 (徳間書店(COMICリュウ／COMICユニコーン)); 推しが武道館いってくれたら死ぬ【連載版】第55話
+      (徳間書店(COMICリュウ／COMICユニコーン))
+  森永みるく:
+    status: resolved
+    reason: null
+    shelf_titles: 8
+    shelf_titles_commercial: 8
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%A3%AE%E6%B0%B8%E3%81%BF%E3%82%8B%E3%81%8F
+    reviewed: '2026-08-04'
+    ndl_records: 15
+    reading: モリナガ ミルク
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 15 record(s) under 森永, みるく, all giving this transcription. お姫様のひみつ (新書館); Girl friends (双葉社); Girl friends (双葉社)
+  片倉アコ:
+    status: resolved
+    reason: null
+    shelf_titles: 8
+    shelf_titles_commercial: 7
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%89%87%E5%80%89%E3%82%A2%E3%82%B3
+    reviewed: '2026-08-04'
+    ndl_records: 13
+    reading: カタクラ アコ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 13 record(s) under 片倉, アコ, all giving this transcription. 明日の君に花束を (一迅社); ハッピーエンドがはじまらない【単話】（１） (祥伝社); ハッピーエンドがはじまらない【単話】（２） (祥伝社)
+  犬は魚:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 8
+    shelf_titles_commercial: 8
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%8A%AC%E3%81%AF%E9%AD%9A
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  くもすずめ:
+    status: resolved
+    reason: null
+    shelf_titles: 7
+    shelf_titles_commercial: 7
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%8F%E3%82%82%E3%81%99%E3%81%9A%E3%82%81
+    reviewed: '2026-08-04'
+    ndl_records: 6
+    reading: クモスズメ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 6 record(s) under くもすずめ, all giving this transcription. 裏路地浪漫屋物語 (ジーオーティー); しおりを探すページたち (一迅社); しおりを探すページたち (一迅社)
+  そそう支部:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 7
+    shelf_titles_commercial: 7
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%9D%E3%81%9D%E3%81%86%E6%94%AF%E9%83%A8
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  はるしおん:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 7
+    shelf_titles_commercial: 3
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%AF%E3%82%8B%E3%81%97%E3%81%8A%E3%82%93
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  岩下継:
+    status: resolved
+    reason: null
+    shelf_titles: 7
+    shelf_titles_commercial: 3
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%B2%A9%E4%B8%8B%E7%B6%99
+    reviewed: '2026-08-04'
+    ndl_records: 3
+    reading: イワシタ ケイ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 3 record(s) under 岩下, 継, all giving this transcription. 仕事の後は恋しよう (イースト・プレス); 仕事の後は抱きしめて (イースト・プレス); 仕事の後はぬくもりを (イースト・プレス)
+  沼地どろまる:
+    status: resolved
+    reason: null
+    shelf_titles: 7
+    shelf_titles_commercial: 3
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%B2%BC%E5%9C%B0%E3%81%A9%E3%82%8D%E3%81%BE%E3%82%8B
+    reviewed: '2026-08-04'
+    ndl_records: 20
+    reading: ヌマチ ドロマル
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 20 record(s) under 沼地, どろまる, all giving this transcription. 生きてるだけでえらい!ってハイネさんが言うから (KADOKAWA); 生きてるだけでえらい!ってハイネさんが言うから (KADOKAWA); 課金済ガールフレンド (一迅社)
+  瀬田せた:
+    status: resolved
+    reason: null
+    shelf_titles: 7
+    shelf_titles_commercial: 3
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%80%AC%E7%94%B0%E3%81%9B%E3%81%9F
+    reviewed: '2026-08-04'
+    ndl_records: 1
+    reading: セタ セタ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: 'NDL OpenSearch, 1 record(s) under 瀬田, せた, all giving this transcription. 百合鍵 : 先輩の秘密をのぞいてみた (KADOKAWA)'
+  高嶋ひろみ:
+    status: resolved
+    reason: null
+    shelf_titles: 7
+    shelf_titles_commercial: 7
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E9%AB%98%E5%B6%8B%E3%81%B2%E3%82%8D%E3%81%BF
+    reviewed: '2026-08-04'
+    ndl_records: 9
+    reading: タカシマ ヒロミ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 9 record(s) under 高嶋, ひろみ, all giving this transcription. あさがおと加瀬さん。 (新書館); エプロンと加瀬さん。 (新書館); おべんとうと加瀬さん。 (新書館)
+  あまか:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 6
+    shelf_titles_commercial: 4
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%82%E3%81%BE%E3%81%8B
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  いろまるちず:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 6
+    shelf_titles_commercial: 1
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%84%E3%82%8D%E3%81%BE%E3%82%8B%E3%81%A1%E3%81%9A
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  めの:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 6
+    shelf_titles_commercial: 6
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%82%81%E3%81%AE
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  切符:
+    status: resolved
+    reason: null
+    shelf_titles: 6
+    shelf_titles_commercial: 6
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%88%87%E7%AC%A6
+    reviewed: '2026-08-04'
+    ndl_records: 9
+    reading: キップ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: 'NDL OpenSearch, 9 record(s) under 切符, all giving this transcription. 切符イラストレーションズ : Ticketchan Express Illust Station (SBクリエイティブ); 聖女の力で婚約者を奪われたけど、やり直すからには好きにはさせない【分冊版】　1 (KADOKAWA);
+      聖女の力で婚約者を奪われたけど、やり直すからには好きにはさせない【分冊版】　2 (KADOKAWA)'
+  山葵るお:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 6
+    shelf_titles_commercial: 6
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%B1%B1%E8%91%B5%E3%82%8B%E3%81%8A
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  後藤悠希:
+    status: resolved
+    reason: null
+    shelf_titles: 6
+    shelf_titles_commercial: 6
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%BE%8C%E8%97%A4%E6%82%A0%E5%B8%8C
+    reviewed: '2026-08-04'
+    ndl_records: 1
+    reading: ゴトウ ユウキ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 1 record(s) under 後藤, 悠希, all giving this transcription. 恋に煩い (一迅社)
+  志真:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 6
+    shelf_titles_commercial: 6
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%BF%97%E7%9C%9F
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  明日部結衣:
+    status: resolved
+    reason: null
+    shelf_titles: 6
+    shelf_titles_commercial: 4
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%98%8E%E6%97%A5%E9%83%A8%E7%B5%90%E8%A1%A3
+    reviewed: '2026-08-04'
+    ndl_records: 4
+    reading: アスベ ユイ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: 'NDL OpenSearch, 4 record(s) under 明日部　結衣, all giving this transcription. Ｈｏｐ　Ｓｔｅｐ　Ｓｉｎｇ！　～ＶＲアイドルストーリー～(003) (講談社); Hop Step Sing! : VRアイドルストーリー (講談社); Hop Step Sing! : VRアイドルストーリー (講談社)'
+  桐山はるか:
+    status: resolved
+    reason: null
+    shelf_titles: 6
+    shelf_titles_commercial: 6
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%A1%90%E5%B1%B1%E3%81%AF%E3%82%8B%E3%81%8B
+    reviewed: '2026-08-04'
+    ndl_records: 1
+    reading: キリヤマ ハルカ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 1 record(s) under 桐山, はるか, all giving this transcription. ガラスの靴を脱ぎ捨てて (一迅社)
+  野中友:
+    status: resolved
+    reason: null
+    shelf_titles: 6
+    shelf_titles_commercial: 6
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E9%87%8E%E4%B8%AD%E5%8F%8B
+    reviewed: '2026-08-04'
+    ndl_records: 2
+    reading: ノナカ ユウ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 2 record(s) under 野中, 友, all giving this transcription. ときめく、はじめての。 (一迅社); ハミングガール (一迅社)
+  黄井ぴかち:
+    status: resolved
+    reason: null
+    shelf_titles: 6
+    shelf_titles_commercial: 5
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E9%BB%84%E4%BA%95%E3%81%B4%E3%81%8B%E3%81%A1
+    reviewed: '2026-08-04'
+    ndl_records: 6
+    reading: オウイ ピカチ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 6 record(s) under 黄井, ぴかち, all giving this transcription. デミライフ! (一迅社); デミライフ! (一迅社); 羽山先生と寺野先生は付き合っている (一迅社)
+  たけの野々:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 5
+    shelf_titles_commercial: 4
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%9F%E3%81%91%E3%81%AE%E9%87%8E%E3%80%85
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  やまこ:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 5
+    shelf_titles_commercial: 5
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%82%84%E3%81%BE%E3%81%93
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  七坂なな:
+    status: resolved
+    reason: null
+    shelf_titles: 5
+    shelf_titles_commercial: 5
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E4%B8%83%E5%9D%82%E3%81%AA%E3%81%AA
+    reviewed: '2026-08-04'
+    ndl_records: 3
+    reading: ナナサカ ナナ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: 'NDL OpenSearch, 3 record(s) under 七坂, なな, all giving this transcription. ネイルちゃんと深爪さん。 : アンソロジーコミック (宙出版); 三日月のカルテ (一迅社); 三日月のカルテ (一迅社)'
+  中村たいやき:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 5
+    shelf_titles_commercial: 2
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E4%B8%AD%E6%9D%91%E3%81%9F%E3%81%84%E3%82%84%E3%81%8D
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  乙ひより:
+    status: resolved
+    reason: null
+    shelf_titles: 5
+    shelf_titles_commercial: 5
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E4%B9%99%E3%81%B2%E3%82%88%E3%82%8A
+    reviewed: '2026-08-04'
+    ndl_records: 6
+    reading: オツ ヒヨリ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: 'NDL OpenSearch, 6 record(s) under 乙, ひより, all giving this transcription. お友達からはじめましょう。 (一迅社); お友達からはじめましょう。 (一迅社); オレンジイエロー : 短編集 (一迅社)'
+  五葉:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 5
+    shelf_titles_commercial: 5
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E4%BA%94%E8%91%89
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  大島永遠:
+    status: resolved
+    reason: null
+    shelf_titles: 5
+    shelf_titles_commercial: 4
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E5%A4%A7%E5%B3%B6%E6%B0%B8%E9%81%A0
+    reviewed: '2026-08-04'
+    ndl_records: 20
+    reading: オオシマ トワ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 20 record(s) under 大島, 永遠, all giving this transcription. きみがローファーをはいたら (秋田書店); きみがローファーをはいたら (秋田書店); きみがローファーをはいたら (秋田書店)
+  深水チロリ:
+    status: resolved
+    reason: null
+    shelf_titles: 5
+    shelf_titles_commercial: 5
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E6%B7%B1%E6%B0%B4%E3%83%81%E3%83%AD%E3%83%AA
+    reviewed: '2026-08-04'
+    ndl_records: 5
+    reading: フカミズ チロリ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: 'NDL OpenSearch, 5 record(s) under 深水, チロリ, all giving this transcription. アオヨビ : 青春予備校 (双葉社); 大魔女とちいさなべーべちゃん (朝日新聞社); 初恋無双 (KADOKAWA)'
+  百乃モト:
+    status: resolved
+    reason: null
+    shelf_titles: 5
+    shelf_titles_commercial: 5
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E7%99%BE%E4%B9%83%E3%83%A2%E3%83%88
+    reviewed: '2026-08-04'
+    ndl_records: 18
+    reading: モモノ モト
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 18 record(s) under 百乃, モト, all giving this transcription. 茜色のキスは屋上で (一迅社); 姉フレンド（60号） (講談社); 姉フレンド（61号） (講談社)
+  蓬餅:
+    status: resolved
+    reason: null
+    shelf_titles: 5
+    shelf_titles_commercial: 1
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E8%93%AC%E9%A4%85
+    reviewed: '2026-08-04'
+    ndl_records: 7
+    reading: ヨモギモチ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 7 record(s) under 蓬餅, all giving this transcription. 百合にはさまる男は死ねばいい!? (幻冬舎コミックス); 百合にはさまる男は死ねばいい!? (幻冬舎コミックス); 百合にはさまる男は死ねばいい!? (幻冬舎コミックス)
+  西沢5ミリ:
+    status: resolved
+    reason: null
+    shelf_titles: 5
+    shelf_titles_commercial: 1
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E8%A5%BF%E6%B2%A25%E3%83%9F%E3%83%AA
+    reviewed: '2026-08-04'
+    ndl_records: 6
+    reading: ニシザワ 5ミリ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: 'NDL OpenSearch, 6 record(s) under 西沢, 5ミリ, all giving this transcription. 元カノに幻想を抱くなバーカ : 西沢5ミリ短編集 (KADOKAWA); 恋愛代行 (集英社); 恋愛代行 (集英社)'
+  香川悠作:
+    status: resolved
+    reason: null
+    shelf_titles: 5
+    shelf_titles_commercial: 5
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E9%A6%99%E5%B7%9D%E6%82%A0%E4%BD%9C
+    reviewed: '2026-08-04'
+    ndl_records: 2
+    reading: カガワ ユウサク
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 2 record(s) under 香川, 悠作, all giving this transcription. ネイルちゃんと深爪さん。 (宙出版); ネイルちゃんと深爪さん。 (宙出版)
+  Be編集部:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=Be%E7%B7%A8%E9%9B%86%E9%83%A8
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  こめら:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%93%E3%82%81%E3%82%89
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  さと:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 4
+    shelf_titles_commercial: 1
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%95%E3%81%A8
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  つつい:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%A4%E3%81%A4%E3%81%84
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  とうわ:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 4
+    shelf_titles_commercial: 1
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%81%A8%E3%81%86%E3%82%8F
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  ゆりりん:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%82%86%E3%82%8A%E3%82%8A%E3%82%93
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  よしむらかな:
+    status: resolved
+    reason: null
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%82%88%E3%81%97%E3%82%80%E3%82%89%E3%81%8B%E3%81%AA
+    reviewed: '2026-08-04'
+    ndl_records: 5
+    reading: ヨシムラ カナ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: 'NDL OpenSearch, 5 record(s) under よしむら, かな, all giving this transcription. アラーニァ : murciélago byproduct (スクウェア・エニックス); アラーニァ : murciélago byproduct (スクウェア・エニックス); アラーニァ : murciélago byproduct
+      (スクウェア・エニックス)'
+  キスガエ:
+    status: resolved
+    reason: null
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%82%AD%E3%82%B9%E3%82%AC%E3%82%A8
+    reviewed: '2026-08-04'
+    ndl_records: 19
+    reading: キスガエ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 19 record(s) under キスガエ, all giving this transcription. ピエタとトランジ【分冊版】　11 (KADOKAWA); ピエタとトランジ【分冊版】　19 (KADOKAWA); ピエタとトランジ【分冊版】　15 (KADOKAWA)
+  ナニカシイラ:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 4
+    shelf_titles_commercial: 2
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%83%8A%E3%83%8B%E3%82%AB%E3%82%B7%E3%82%A4%E3%83%A9
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  パデラポッロのりお:
+    status: resolved
+    reason: null
+    shelf_titles: 4
+    shelf_titles_commercial: 3
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%83%91%E3%83%87%E3%83%A9%E3%83%9D%E3%83%83%E3%83%AD%E3%81%AE%E3%82%8A%E3%81%8A
+    reviewed: '2026-08-04'
+    ndl_records: 3
+    reading: パデラポッロ ノリオ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 3 record(s) under パデラポッロのりお, all giving this transcription. ご主人様には吸わせません! (竹書房); ご主人様には吸わせません! (竹書房); 宝くじで3億円当たったのでヒモ美少女飼い始めました (ぶんか社)
+  ヤマトバンビーズ:
+    status: unresolved
+    reason: no-record
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E3%83%A4%E3%83%9E%E3%83%88%E3%83%90%E3%83%B3%E3%83%93%E3%83%BC%E3%82%BA
+    reviewed: '2026-08-04'
+    ndl_records: 0
+  三国ハヂメ:
+    status: unresolved
+    reason: conflicting
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E4%B8%89%E5%9B%BD%E3%83%8F%E3%83%82%E3%83%A1
+    reviewed: '2026-08-04'
+    ndl_records: 20
+    ndl_readings_seen:
+    - ミクニ ハジメ
+    - ミクニハヂメ
+    reading_note: NDL's records disagree about this name; one of them may be a different person. Kept unresolved rather than picked.
+  三浦コズミ:
+    status: resolved
+    reason: null
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+    source: ndl-opensearch
+    source_url: https://ndlsearch.ndl.go.jp/api/opensearch?cnt=20&creator=%E4%B8%89%E6%B5%A6%E3%82%B3%E3%82%BA%E3%83%9F
+    reviewed: '2026-08-04'
+    ndl_records: 6
+    reading: ミウラ コズミ
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_note: NDL OpenSearch, 6 record(s) under 三浦コズミ, all giving this transcription. アラフォー、恋で若返る　vol.1 (小学館); 美味しいカラダの作り方～イケメンシェフにじらされて愛されて～ (小学館); 突然何となく隣の席の同僚とキスしたくなりました。 (大洋図書)
+  倉田嘘:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  夜:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  大島智:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 3
+  新野みら:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 1
+  春日沙生:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  枝吉:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  河合朗:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  浜野りんご:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  源久也:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  真田ハイジ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  福沢エス:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 2
+  空色の音:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  紙魚いりこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  蒼樹めい:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 1
+  青柳七生:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  須藤佑実:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  飴野:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  鰓子9:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 1
+  くるくる姫:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  しおやてるこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  ねが:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  ねこ太:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  りおん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  アキココット:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  イシガミ アキラ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 1
+  ヒマワリソウヤ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  ヨウハ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  ヨシジマシウ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 1
+  南崎いく:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  城之内寧々:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  大宮宮美:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  大朋めがね:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  嬉野うちゃ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 2
+  嶋水えけ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  悠夜:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  滝島朝香:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  犬丸:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  百合えもん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  紺野キタ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 2
+  菅原キク:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  藤井三和子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  鈴木有布子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  雨隠ギド:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  黒霧操:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  あいそえる:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 1
+  いづみやおとは:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  おぎ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  おしおしお:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  おのだ南:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  かずといずみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  かやこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  くうねりん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  げしゅまろ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  こるり:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  さかもと麻乃:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  ささだあすか:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  さつま揚げ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  しぐれうい:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  しだらちより:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  すこやか:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  せんり真保:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  たみふる:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  てーるすーぷ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  とい天津:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  とこのま:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  はにみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  はるかわ陽:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  ひだかなみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  ぴりぷん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  ふかさくえみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  みずき:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 1
+  むっちりむうにい:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  もずくず:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  やまだしゅら:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 1
+  よしのかや:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  アンブル編集部:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  カザマアヤミ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  キッカイキ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  コキリン:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  ショウマケイト:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  ストーリアダッシュ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  ソーダ水:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 1
+  ナナセミオリ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  ミャオギレ刑事:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  ユキムラ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  リカチ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  ロクロイチ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  中村ユキチ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  久川はる:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  井原リオ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  井村瑛:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  今村陽子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  仲原椿:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  伊予嶺つく:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  佐野トリ庭:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  冬島暮:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  冬虫カイコ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  卯蟹うか:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  原初:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  吉田ばな:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  名宵:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 1
+  和泉キリフ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  四ツ原フリコ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  圭島ユウ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  大沢あまね:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  天児鳥子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  安蔵くんこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 1
+  寺山電:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  山田あこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  日坂水柯:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  星井七億:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  柳川麻衣:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  桑田乃梨子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  桜庭友紀:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  椎名晴美:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  樹生ナト:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  橋本みつる:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  橘沙羅:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 1
+  橘田いずみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  水鳥なや:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  江川広実:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  深山はな:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  玄鉄絢:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  珠奈ににこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  甘崎 水菓:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  田中琳:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  田仲みのる:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  由井ひな子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  百合姫編集部:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  百田ちなこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  目玉焼き:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  磯谷友紀:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  秋60:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  秋月伊槻:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  秋片:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  空倉シキジ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  篠房六郎:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  米宮イナホ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  結川カズノ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  葵季むつみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  藤たまき:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  西あすか:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  邪武丸:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 1
+  雁須磨子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  雛原えみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  雪狸:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  雫市だいち～:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 1
+  青井はな:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  高坂はしやん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  高橋依摘:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  鴒:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  2C＝がろあ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  2c=がろあ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  4kaえんぴつ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  EMODELAS：エモ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  LEN［Aー7］:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  R-指定（CreepyNuts）:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  TOもえ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  comicGAGA編集部:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  sasa熊:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  yui／サウスのサウス:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  あいかわももこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  あきらんぬ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  あぐ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  あさがお:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  あさぎ龍:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  あさみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  あまどり協奏曲:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  いけだたかし:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  いとう:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  えもともか。:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  おたき:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  お久しぶり:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  かしい葵:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  かねだなつみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  かぼちゃ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  かもたま:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  かも仮面:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  かるは:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  かわく:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  きぎたつみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  きづきあきら:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  くみちょう:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ぐるめ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  こがねい千鶴:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  こじかあんよ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  こすずめ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  こずみっく:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ころりよ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  さかなや:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  さかもとびん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  しおむすび:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ししにご:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  しばあめ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  すと:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  すどおかおる:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  すらだまみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  たじ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  たねこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ちか:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ちこれ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ちやほ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ちりぬいろは:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  つづら涼:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ときとうちふゆ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  とらふぐ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  なおいまい:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  にび:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  にむ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ねこころね:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  のこみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  のちむゆ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  はねこと:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  はみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  はやしこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ばふぁこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ひあるろん＆達磨:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ひそな:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ひるのつき子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  びよら:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ふじた:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  べにしゃけ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ぺそー:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ほしな:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ほなみ彩:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ほまでり:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ぽぽ田んぽぽ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  まえばる蒔乃:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ましまる:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  まつだひかり:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  まりまりも:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  みくた:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  みさき天夢:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  みしぇ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  みずあそう:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  みんたろう:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  むぎちゃぽよこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  むらきたまりこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  めざし:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  もけ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  もし:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  もちづきさき:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  もなか:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  もんちゃん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  やまじえびね:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ゆめみつき:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ゆり山:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ゆるゆり資料集編纂室:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  よぬりめ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  らずべりぃ。:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  りったん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  りんご飴ツイン:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  るべ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ろうか:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  わたりさえ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  わに:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  わんぽ道中:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  アウェイ田:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  アサギユメ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  アラカワシン:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  イクニゴマキナコ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  イケダケイスケ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  イコール:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ウミノモクズ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  カオミン:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ガオシ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ガレットワークス:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  キム・ジョンゴン:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  コガネイチ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  コミックシャイニー編集部:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  コヨミギンカ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  サトウナンキ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  サトミヒロシ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ジョン・シラ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ジリアンタマキ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ステファン・セジク:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  タカノユウ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  タケシス:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  タツノコッソ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  チェシャ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ツナミノユウ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  テギル:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ナヲコ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ネギたぬ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ネコハリコ22:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  バナナ果肉園:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ヒラツカしの:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ヒロアキ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ヒロタシンタロウ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ピリオデストラクション:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ホシィェモ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ホダン:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ポルリン:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  マシュー正木:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  マナタマユム:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  マリコ・タマキ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  マルイノ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ミズユ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ミヅタナシコ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  メジカラシーン:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  モレロ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  モロやん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ヨシザワ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ラリアット:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ランラリー:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  一花ハナ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  三倉ゆめ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  三田織:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  上村なびあ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  上林眞:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  上田香子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  両角潤香:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  中村明日美子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  中村朱里:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  乙佳佐明:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  乙女☆妄想族:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  九条歩:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  乾和音:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  今井:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  伊さらこてん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  伊東しおり:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  伊東ハチ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  伊藤誠:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  佐喜ハジメ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  八汐ごよう:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  八色:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  再田ニカ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  冬空:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  冬芽沙也:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  凡竜:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  剛田ナギ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  千之ナイフ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  千岡ななえ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  千歳あさひ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  卯崎ひとみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  双葉草:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  古街キッカ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  古賀由人:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  司貴:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  吉成綾加:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  吉沢蛍:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  吐兎モロノブ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  喜月かこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  四位広猫:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  坂口蜜柑:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  塩井こぬ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  夏猫:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  夏目:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  夏野なえ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  多キ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  大庭直仁:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  天乃咲哉:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  天宮らいか:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  奈友:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  奏手ユミチ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  妄朧亭:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  宇佐楢春（GA文庫／SBクリエイティブ刊）:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  宇河弘樹:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  安田剛助:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  安田剛助・文尾文:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  宮下未紀:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  宮田ワルツ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  寺本薫:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  小川ますみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  小川麻衣子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  小杉光太郎:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  小林湖底（GA文庫／SBクリエイティブ刊）:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  小鬼３６℃:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  小鳥彩花:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  小鳩ねねこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  山口悟:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  山東ユカ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  山野でこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  岡ぱや:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  岡崎マサムネ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  岡藤真依:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  川井マコト:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  川内:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  川浪いずみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  市川なつを:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  市川毬央:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  廻ラコ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  彩社長:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  後藤羽矢子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  御影石材:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  志水はつみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  恋狸(HJ文庫／ホビージャパン刊):
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  慎結:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  戸崎映:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  所ケメコ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  掃除朋具:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  政長:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  散田島子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  日吉ハナ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  日野雄飛:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  早乙女さしみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  春名ヒスイ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  春愛:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  曙霖:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  木馬:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  未来電機:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  東385:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  松井トミー:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  松山せいじ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  松本トモキ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  林家志弦:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  柏木ツキコ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  柴田五十鈴:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  栗山こがね:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  桜家ゆきの:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  桜野いつき:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  梅咲しゃきこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  森井暁正:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  森奈津子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  椎隆子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  椿あす:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  楠見らんま:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  楽時たらひ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  樺山:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  檜山ユキ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  武川慎:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  武若丸:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  歩芽川ゆい:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  水溜あいまい子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  水瀬るるう:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  永井三郎:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  江口心:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  江姉:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  江成いちこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  池中織奈:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  河合 朗:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  津ノ守坂ソロリティ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  浅井裕:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  浅見百合子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  浦あられ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  海島千本:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  海月れおな:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  消火器:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  深海紺:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  清水ひかりの:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  澄谷ゼニコ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  澤村鞠子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  瀬尾みいのすけ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  火野遥人:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  烏美壱子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  煮汁:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  猫村:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  猿醤:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  珠月まや:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  甘咲イロハ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  甘露アメ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  田口ケンジ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  由多ちゆ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  由多暁:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  白山凛:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  白米所:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  白縫ちせ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  百合原明:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  真昼てく:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  真西まり:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  石川ヒロヂ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  石見翔子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  砂音鈴:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  磯本つよし:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  神崎春子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  秋山はる:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  秋月かづ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  秋路:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  竹内佐千子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  筍:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  篠ヒロフミ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  粉山カタ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  紀ノ上晟一:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  結うき。:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  綺月るり:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  綾北まご:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  綾瀬マナ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  緋色の雨:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  緜:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  縞野やえ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  織生あや:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  背川昇:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  胡原おみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  舞方パーク:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  般若:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  芥文絵:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  荒井チェイサー:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  葵日向:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  蓮冥:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  蓮城はに:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  蕗:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  蕗屋文字:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  藤村都矢:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  藤沢誠:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  西UKO:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  西尾雄太:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  西畑けい:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  詩原ヒロ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  谷村まりか:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  轟斗ソラ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  辻柚那:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  近藤笑真:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  速瀬羽柴:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  道雪葵:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  郭斯特Guo Si Te:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  酉村:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  野田のんだ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  金原瑞人:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  金田陽介:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  金魚鉢でめ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  釜田:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  長倉けいこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  阿木絢子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  雁屋雪祢:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  雲呑めお:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  音叉茶:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  須河篤志:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  須藤祐美:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  香月 稜:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  馬場彩玖:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  高上優里子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  高山ちびこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  高崎ゆうき:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  高木信孝:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  髙橋きの:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  鰓子9でん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  鰯づくし:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  鳥居すみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  鳩春:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  鳳青良:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  鹿嵐:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  黒布直導:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  黒柾志西:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  やナい:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 15
+    shelf_titles_commercial: 0
+  Ayu Inui:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 12
+    shelf_titles_commercial: 12
+  やまもとまも:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 12
+    shelf_titles_commercial: 0
+  Rion Nomiya:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 11
+    shelf_titles_commercial: 11
+  はちや:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 8
+    shelf_titles_commercial: 0
+  春結千晶:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 8
+    shelf_titles_commercial: 0
+  浅海まい:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 8
+    shelf_titles_commercial: 0
+  若（わか）:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 8
+    shelf_titles_commercial: 0
+  Japalp112:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 7
+    shelf_titles_commercial: 0
+  ななせ悠:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 7
+    shelf_titles_commercial: 0
+  上嶋ハルキ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 6
+    shelf_titles_commercial: 0
+  どらいれもん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 5
+    shelf_titles_commercial: 0
+  廿楽:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 5
+    shelf_titles_commercial: 0
+  栗原さくら:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 5
+    shelf_titles_commercial: 0
+  櫻井亜矢子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 5
+    shelf_titles_commercial: 0
+  Team Gaji:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  Usagisan-Books:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  Waterfall:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 4
+  うん仔:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 0
+  ぽぬむら:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 0
+  ラブハンター権田原:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 0
+  海鮮丼:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 4
+    shelf_titles_commercial: 0
+  NANOKA:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  Namaniku:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  sorani:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 3
+  おきぬ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 0
+  さんけ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 0
+  しぐま:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 0
+  ぱちお:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 0
+  みぃぬ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 0
+  ドスコイ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 0
+  夜子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 0
+  星宗介:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 0
+  未勇:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 0
+  桜那えいか:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 0
+  色緒サトル:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 0
+  ＴＡＴＳＵＢＯＮ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 3
+    shelf_titles_commercial: 0
+  434 Not Found:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  Aji:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  CHI-RAN:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  Hitoto*:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  JAMTOON:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  Liar-soft:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  SIRIUS:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  irua:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  isya:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  lino:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  nishi:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  tonito:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 2
+  あんじんねこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  お茶殻:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  たみちん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  みずのゆめ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  めりくも:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  もちと:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  やや様X:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  るうと:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  わたげもどき:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  オオハチ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  カコベン:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  ガゥ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  サカグチカリン:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  ハマノーン:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  ブリリアント・ブラウン:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  マシーナリーとも子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  一ノ瀬けい:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  久遠憐:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  九地:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  今井伊紀:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  低東走:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  八切そう:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  北条KOZ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  夏目じん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  大野とう:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  宇野ジニア:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  快晴:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  朝日夜:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  朝陰:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  桃田やんちー:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  棚木防衛:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  由木:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  砕梁:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  糸原あき:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  紺:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  羽印:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  翠星ちょこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  英みすな:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  茜りう:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  蒼井:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  蒼井紫:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  賀東アリ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  雪原しづき:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  霧島:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  高尾まこと:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 2
+    shelf_titles_commercial: 0
+  A luo:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  AKIKO:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Ajiflower:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  BARAM:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  BBTAN:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  C nai si:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Cheomji:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ClassicalBambi:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  Climb Studio:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Cocoa:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  DOG:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ED:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  EPUM:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Gyechasooyeol:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Haya.:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ITOYOKO:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Isshi Shikibu:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Jing yuan she:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  KOUGI:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  KUJIRA:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Kana◇ami:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  LIBROCK COMICS:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  LOSA:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Lee Geumsan:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  MANJOGYEONG:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Miss P.M.:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Mytyl:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  NEON.B:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  PITO:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  PP:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Pi-ko:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  Qi qi:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  ROROICHI:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  RYUGONG:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  SukeraSparo:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  TETRA:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  TONO:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  UMIN:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  Wan zhi:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Wen rou de hei an xiong ba jing:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Woo Yeonhui:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  YUI_7:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  Yu yan wen hua:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  bokkun:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  cak:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  eunsu:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  isana:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  kanju:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  kurimo.:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  majoccoid:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  naka:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  naturalsoft:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  nonco:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  omoyu:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  oyk:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  qureate:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  racco:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  sheepfold:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 1
+  あさだ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  あぴ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  あらふじぺす:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  いもだ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  おすもと:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  かみしまあきら:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  かみま:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  くるるんぴ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  くろしばすこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ぐらんで:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  さゆり:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ししお:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  しゅなか:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  しゅんせ竣瀬:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  たそがれ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  たんれ～:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ちゃば高:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  とよだたつき:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  とよだ伽玖:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  とりから:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  どぅろく:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  なごり悠:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ねこすきっぷ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ねこばす:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  のおとも:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  のちお:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  はとぼし:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  はるキャベツ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ばしら:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ぶち:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  まきたこん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  まこしー:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  まちの宵子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  まなお:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  まみむ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  まるかな正麺:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  まるとと:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  みつきりこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  みみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  みやまき:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  やまのせりか:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ゆざめ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  よとぎ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  りーるー:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  わが:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  アオバ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  アサダアツシ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  イトウモロコ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  エルトリア:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ガウス:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  シウ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ジョセフ鶴屋:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  スルメ王子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ナオダツボコ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ブミィ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  マシマロまろん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ムググ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  モルダウ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  ラブ美:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  上城たすく:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  乃樹愛:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  乃黒ゆん:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  久島さおね:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  久遠ねむ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  二星:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  倉岡ダイキ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  倉藤風星:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  六番目の課長:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  六畳間:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  内藤隆:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  冬佳千秋:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  冬元はつみ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  北野ささくれ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  十前透:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  南国ばなな:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  古紫正美:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  司馬舞:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  咲月晴:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  団栗ぷこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  園田うき:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  土岐はるひこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  坂街透:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  境井ラク:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  夏ソラわか:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  大野安之:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  天谷:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  宝町歌織:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  宮繭子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  小楼ひな:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  山北東:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  山田二三:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  彩瀬ありす:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  志方彼方:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  恋ドロ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  惚れた女の遺言.mp3:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  戌理ネオ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  新井春巻:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  日明:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  明aki:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  明田やる:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  星空の下:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  服部芳生:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  服部雀:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  松山洋:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  松島幸太朗:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  架神恭介:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  柊エリサ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  柏:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  染野ヨトリ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  柾塚ちい:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  梅ノ木びの:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  椎茸丸:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  此木零一:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  比谷ツバキ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  水森崇史:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  江坂あお:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  流砂:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  海産物:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  瀧:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  瀬戸かもめ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  火加減:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  灰泥きし:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  熱海天使:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  燈河佑:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  猫扮装:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  猫目:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  由島苺:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  白瀬一華:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  百茶:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  益田学昭:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  真木野いくら:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  稲本いねこ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  竹内未来:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  紅月陽:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  紺色3号:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  結木ユウ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  綱凪さめまる:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  練りこみ藤吉郎:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  美澄零:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  若瀬紺:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  萠田まく:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  葦梛曜:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  蓬夜もよ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  藤井あん子:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  藤本透:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  西沢5㍉:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  軍艦あまえび:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  鈴宮きりは:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  鈴木健也:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  雨乃けい:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  青い:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  青い小指:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  風呂川ツカサ:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  高野裕也:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  鵤れいし:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  鹿遊:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0
+  黒丸恭介:
+    status: unresolved
+    reason: not-attempted
+    shelf_titles: 1
+    shelf_titles_commercial: 0

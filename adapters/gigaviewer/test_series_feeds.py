@@ -103,5 +103,15 @@ def main(s):
              "a platform with no file yet carries nothing over")
 
 
+    # THE BANNER IS ABOUT THE SERIES; THE BUTTON IS ABOUT THE CHAPTER. 一迅プラス prints
+    # 「作品チケット対象です」 on every chapter page of a series it runs tickets on, so matching that
+    # answered "readable on a ticket" for chapters that cost points: 映しちゃダメな顔 reported 19 of
+    # them where all 19 are point purchases and a reader can open two.
+    s.check(sf.TICKET_RE.search("チケットで読む（無料）"),
+            "the button on a chapter is what says that chapter is ticket-readable")
+    s.check(not sf.TICKET_RE.search("この作品は作品チケット対象です"),
+            "and a statement about the series is not evidence about any chapter of it")
+    s.check(not sf.TICKET_RE.search("80ptで購入して読む"), "a price is not a ticket")
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "series_feeds"))

@@ -218,13 +218,21 @@ def unmatched(doc, known):
 
 
 def known_titles(build="data/build"):
-    """Every Japanese title the build knows, from the feed and the series list alike."""
+    """Every Japanese title the build knows, from the feed, its archives and the series list.
+
+    THE ARCHIVES ARE PART OF THE ANSWER. This read `current.json`, which is a rolling window of
+    fourteen days, so a work that updated in July and has no series row of its own stopped being a
+    work we hold the moment the window moved past it. Three curated titles failed the check that
+    way overnight, with nothing about them or about the corpus having changed.
+    """
     import json
     out = set()
-    for path, key in ((f"{build}/feed/current.json", "releases"), (f"{build}/series.json", "series")):
+    paths = [(f"{build}/feed/current.json", "releases"), (f"{build}/series.json", "series")]
+    paths += [(str(f), "releases") for f in sorted(pathlib.Path(f"{build}/feed").glob("[0-9]*.json"))]
+    for path, key in paths:
         p = pathlib.Path(path)
         if p.exists():
-            out |= {r["work"] for r in json.loads(p.read_text())[key] if r.get("work")}
+            out |= {r["work"] for r in json.loads(p.read_text()).get(key) or [] if r.get("work")}
     return out
 
 

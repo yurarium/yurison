@@ -78,7 +78,12 @@ def series_ids(html):
 #
 # Every field check passed those rows: they had a chapter, an author, a date and a platform. Only
 # reading the list showed it.
-TICKET_RE = re.compile(r"チケットで読む（無料）|作品チケット[^。]{0,12}対象")
+# THE BUTTON, NOT THE BANNER. `作品チケット対象です` is a statement about the SERIES and 一迅プラス
+# prints it on every chapter page of one, so matching it answered "ticket-readable" for chapters
+# that cost points. 映しちゃダメな顔 came out as 19 chapters free on a daily ticket when all 19 are
+# point purchases and a reader can open two. `チケットで読む（無料）` is the affordance on the
+# chapter itself, which is the only per-chapter evidence of the two.
+TICKET_RE = re.compile(r"チケットで読む（無料）")
 # A second route to reading a paid chapter for nothing, and one コミックDAYS does not use: the
 # platform states the date it becomes free. 一迅プラス shows 「8月13日に無料公開予定」 on a chapter
 # that costs 165pt today. That chapter is not a purchase in any sense a reader cares about — it is
@@ -359,9 +364,25 @@ def main():
                 got = _free_on(probe["url"])
                 if got:
                     scheduled[probe["url"]] = got
+            # THE SCHEDULED TEST RUNS FIRST, and this is why.
+            #
+            # `作品チケット対象です` is a statement about the SERIES and 一迅プラス prints it on every
+            # chapter page, so the ticket probe answered yes for chapters that cost money.
+            # 映しちゃダメな顔 came out as 19 chapters readable on a daily ticket where a reader can
+            # open two, and 第21話 among them states 「8月6日に無料公開予定」, which is the platform
+            # saying outright that it is not free yet.
+            #
+            # A chapter naming a date it BECOMES free is not free now, whatever banner shares the
+            # page with it. So that test is asked first and the ticket test gets what it does not
+            # answer. Ordering, not a new probe: both answers were already fetched.
             for e in eps:
                 if e.get("url") in free_ids:
                     e["access_modes"] = ["free"]
+                elif scheduled.get(e.get("url")):
+                    e["access_modes"] = ["purchase"]
+                    e["free_from"] = scheduled[e["url"]]
+                    e["access_note"] = ("先行 — costs money now; the platform states a date it "
+                                        "becomes free")
                 elif e.get("url") in ticket_urls:
                     e["access_modes"] = ["free-timed"]
                 elif scheduled:

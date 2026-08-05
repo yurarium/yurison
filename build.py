@@ -225,6 +225,18 @@ def _recompose_credit(ja, phrase, authors):
     return ", ".join(out)
 
 
+def readable_now(chapter, today=None):
+    """Whether this chapter can be opened at no cost TODAY.
+
+    A chapter that names the day it becomes free is not free before that day, whatever mode the
+    capture filed it under. 一迅プラス prints 作品チケット対象です on every page of a series it runs
+    tickets on, so the ticket probe answered yes for chapters that cost points; the adapter matches
+    the per-chapter button now, and this is the backstop that reads what the row itself states.
+    """
+    when = str(chapter.get("free_from") or "")[:10]
+    return not (when and when > (today or datetime.date.today().isoformat()))
+
+
 def _basis_of(best, rows, field):
     """The reason for the state we are publishing, taken from the row that state came from.
 
@@ -3339,9 +3351,12 @@ def main():
         row["first"] = str(face[0]["updated"])[:10] if face else None
         row["latest"] = str(face[-1]["updated"])[:10] if face else None
         row["latest_ep"] = (face[-1].get("title") or "").strip() if face else ""
-        row["free"] = sum(1 for c in chs if "free" in (c.get("access_modes") or []))
-        row["free_timed"] = sum(1 for c in chs if "free-timed" in (c.get("access_modes") or []))
-        row["priced"] = sum(1 for c in chs if "purchase" in (c.get("access_modes") or []))
+        row["free"] = sum(1 for c in chs
+                          if "free" in (c.get("access_modes") or []) and readable_now(c))
+        row["free_timed"] = sum(1 for c in chs
+                                if "free-timed" in (c.get("access_modes") or []) and readable_now(c))
+        row["priced"] = sum(1 for c in chs
+                            if "purchase" in (c.get("access_modes") or []) or not readable_now(c))
         if not row["author"]:
             row["author"] = next((c["author"] for c in reversed(chs) if c.get("author")), "")
         # The link is the newest chapter that has one; the work-level url only if it is a page.

@@ -7,7 +7,7 @@
 #
 # A merged entry keeps `merged_into` and stays resolvable, because an address published
 # once has to keep working. See adapters/identity.py.
-generated: 2026-08-05
+generated: 2026-08-06
 works:
   - id: w00001
     title: "娘が彼女を連れてきた話"
@@ -6055,6 +6055,50 @@ works:
     title: null
     anchors:
       - "madb:madb-t-ff3af6b3539a"
+  - id: w01479
+    title: "ぜんぶ壊して地獄で愛して"
+    anchors:
+      - "web:https://comic-days.com/episode/12207421983938230504"
+  - id: w01480
+    title: "今日はカノジョがいないから"
+    anchors:
+      - "web:https://comic-days.com/episode/12207421983667002955"
+  - id: w01481
+    title: "君のせいなんだから、責任とってよね。"
+    anchors:
+      - "web:https://ichicomi.com/episode/12207421983947227367"
+  - id: w01482
+    title: "平良深姉妹はどっちもヤんでる"
+    anchors:
+      - "web:https://comic-days.com/episode/12207421983452483805"
+  - id: w01483
+    title: "好子さんのいる地獄で死にたい"
+    anchors:
+      - "web:https://comic-days.com/episode/2550912965061330991"
+  - id: w01484
+    title: "女ともだちと結婚してみた。"
+    anchors:
+      - "web:https://comic-days.com/episode/14079602755371999401"
+  - id: w01485
+    title: "気をつけなよ、お姉さん。"
+    anchors:
+      - "web:https://comic-days.com/episode/4856001361405160078"
+  - id: w01486
+    title: "同じ時を生きたい"
+    anchors:
+      - "web:https://comic-days.com/episode/4856001361263880703"
+  - id: w01487
+    title: "甘えさせて雛森さん!"
+    anchors:
+      - "web:https://comic-days.com/episode/4856001361078076369"
+  - id: w01488
+    title: "ことのことのは"
+    anchors:
+      - "web:https://comic-days.com/episode/316190247014733519"
+  - id: w01489
+    title: "きたない君がいちばんかわいい"
+    anchors:
+      - "web:https://comic-days.com/episode/3269754496777379299"
 
 # Related works. A relation and not a merge: whether a one-shot beside a
 # serialisation is a distinct work, an instalment the run absorbed, or a story a
@@ -6068,14 +6112,46 @@ works:
 # 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
 # one-shot after the run it came before.
 related:
+  - a: w00055
+    b: w01479
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-06
+  - a: w00056
+    b: w01480
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-06
+  - a: w00067
+    b: w01481
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-06
   - a: w00156
     b: w00486
     note: "same title and a shared author on one platform"
     retrieved: 2026-08-04
+  - a: w00200
+    b: w01482
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-06
   - a: w00225
     b: w00281
     note: "same title and a shared author on one platform"
     retrieved: 2026-08-04
+  - a: w00783
+    b: w01484
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-06
+  - a: w00830
+    b: w01485
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-06
+  - a: w00855
+    b: w01487
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-06
+  - a: w00943
+    b: w01489
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-06
   - a: w00978
     b: w01228
     note: "one print record matches both titles and a shared author"

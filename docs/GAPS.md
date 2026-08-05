@@ -322,3 +322,28 @@ rather than because somebody added a line.
 
 Same shape as the ledger and the landmark declaration, and wants doing with them: the producer
 states its own condition instead of a reader inferring it.
+
+### A staging file read as a record
+
+`adapters/yomonga/releases.py` takes `data/source/webpages/generic-www-yomonga-com.yaml` as its
+input: the generic pass produces a work list from the page, and the named adapter refines it into
+`yomonga.yaml`. Two stages of one pipeline, which is fine.
+
+What is not fine is that the intermediate sits in `data/source/webpages/`, and the build reads
+every file there. So a half-parsed staging file is a record beside the refined one, and both
+describe the same five works and the same twenty-four rows. The staging rows are worse:
+`Chapter.1_1巻 第1話-1` where the refined file has `Chapter.16 第15話`, and the mangled
+`07Chapter.12第6話-2` that reaches the phrase store and the renderer.
+
+This is why chapter names needed a rule for index prefixes that a platform never actually prints.
+The rule earns its place anyway, because コミックDAYS and マガポケ do prefix their own row numbers,
+but this particular shape is our own staging output being read as though a platform had published
+it.
+
+**The fix is that an intermediate is not a source.** Either the generic pass writes a host it is
+staging for into `data/queue/`, which exists so nothing there becomes a record by accident, or the
+build prefers the refined file where both describe a host. The first is truer to what the file is.
+
+There is a second hand-maintained list behind it: `adapters/generic/releases.py` skips hosts served
+by a real engine using a set written by hand, so a new dedicated adapter does not claim its own
+host until somebody remembers. Same class as the gap list itself.

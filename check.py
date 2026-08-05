@@ -568,30 +568,29 @@ def budget_scraped_counters_in_chapter_names(ctx):
     return sum(1 for n in names if pat.search(n))
 
 
-def budget_undated_retailer_candidates(ctx):
-    """Rows admitted from a retailer shelf that still cannot become work records.
+def budget_unreadable_bookwalker_rows(ctx):
+    """Rows admitted from BOOK☆WALKER that still cannot become work records.
 
     THIS IS THE CONSUMER FOR data/queue/bookwalker-volumes.yaml, and it exists because a produced
-    file with no consumer reads as done while doing nothing (STANDING-INSTRUCTIONS §13). The
-    capture states, per admitted row, whether the shop gave a `first_publication` date. DEFINITIONS
-    §6 makes that field the inclusion test, so a row without one is a candidate and not a work, and
-    this counts how many are in that position.
+    file with no consumer reads as done while doing nothing (STANDING-INSTRUCTIONS §13).
 
-    IT COUNTS ROWS NOBODY HAS ASKED ABOUT YET AS UNDATED, because they are: the capture is
-    resumable and an unfetched row has no date for the same reason a fetched one might not. Two
-    silences with different remedies, so `first_publication_basis` in the file distinguishes them
-    and this number does not have to.
-
-    A count, so it ratchets down. Most of these rows are digital-first and the shop states no
-    publication date for them at all, so the number has a floor well above zero that no amount of
-    fetching will reach, and the direction is the thing worth watching.
+    WHAT MAKES A ROW READABLE IS A VENUE, NOT A DATE. §6 was amended on 2026-08-05: the scope test
+    turns on WHERE a work was first published, and a work that exists is recorded whether or not
+    anyone can date it, with the absence stated as `first_publication.date_basis`. So this counts
+    rows with no venue, which is rows nobody has fetched yet plus the few whose series page listed
+    nothing readable. Counting undated rows instead would park this number near 1,500 for ever and
+    report finished work as a debt, because 1,500 of these titles are digital-only and have no
+    print edition anywhere to carry a date.
 
     ONE BUDGET PER SHOP, not one over both. `undated cmoa candidates` counts the other half of the
-    same queue through the same helper. Folding cmoa's 1,844 rows into this number would have read
-    as the budget loosening by 1,839 on the day the second capture started, which is a ratchet
-    saying nothing about either shop.
+    same queue. Folding cmoa's 1,844 rows into this number would have read as the budget loosening
+    by 1,839 on the day the second capture started, which is a ratchet saying nothing about either
+    shop.
+
+    A count, so it ratchets down, and unlike the date it really does reach zero when the capture
+    completes.
     """
-    return _undated_retailer_rows("data/queue/bookwalker-volumes.yaml", "bookwalker.jp")
+    return _retailer_rows("data/queue/bookwalker-volumes.yaml", "bookwalker.jp", "venue")
 
 
 def budget_undated_cmoa_candidates(ctx):
@@ -604,8 +603,15 @@ def budget_undated_cmoa_candidates(ctx):
     return _undated_retailer_rows("data/queue/cmoa-volumes.yaml", "cmoa.jp")
 
 
-def _undated_retailer_rows(cap, shop):
-    """Admitted rows for one shop that no capture has given a `first_publication_date`."""
+def _retailer_rows(cap, shop, field):
+    """Admitted rows for one shop that no capture has given `field` a value for.
+
+    `field` is `date` or `venue` of the row's `first_publication`. BOTH SHAPES ARE READ, because
+    the two captures moved to a nested `first_publication:` block at different times and a reader
+    that knows only one of them reports every row in the other file as missing the field. That is
+    the silent-plausible failure: a budget that quietly counts the whole queue looks exactly like a
+    capture that has not started (STANDING-INSTRUCTIONS §4).
+    """
     import yaml as _yaml
     try:
         admitted = _yaml.safe_load((ROOT / "data/queue/admitted.yaml").read_text())
@@ -620,7 +626,13 @@ def _undated_retailer_rows(cap, shop):
     except Exception:                                                       # noqa: BLE001
         return total
     return total - sum(1 for w in (doc.get("works") or [])
-                       if w.get("first_publication_date"))
+                       if (w.get("first_publication") or {}).get(field)
+                       or w.get(f"first_publication_{field}"))
+
+
+def _undated_retailer_rows(cap, shop):
+    """Admitted rows for one shop that no capture has given a publication date."""
+    return _retailer_rows(cap, shop, "date")
 
 
 def budget_shadowed_names(ctx):
@@ -663,12 +675,13 @@ BUDGETS_DEF = [
      "adapters that fetch from a host, write into data/source, and have nothing to refuse on. A "
      "host serving nonsense replaces the last good capture and reports success. adapters/ledger.py "
      "reports the damage afterwards; a floor prevents it."),
-    ("undated bookwalker candidates", budget_undated_retailer_candidates,
-     "rows admitted from BOOK☆WALKER's shelf with no first publication date, which DEFINITIONS §6 "
-     "makes the inclusion test, so none of them can become a work record. Falls as "
-     "adapters/recon/bookwalker_volumes.py works through the queue. It will not reach zero: the "
-     "shop states no publication date at all for a digital-first title, and the remainder needs a "
-     "source that is not this shop."),
+    ("unreadable bookwalker rows", budget_unreadable_bookwalker_rows,
+     "rows admitted from BOOK☆WALKER's shelf with no first publication VENUE, which is what §6's "
+     "scope test turns on since the 2026-08-05 amendment. A row without one has not been fetched "
+     "yet, or its series page listed nothing readable. Falls as "
+     "adapters/recon/bookwalker_volumes.py works through the queue, and reaches zero when it "
+     "finishes. The date is deliberately not what is counted: 1,500 of these titles are "
+     "digital-only, have no print edition anywhere, and are complete records without one."),
     ("undated cmoa candidates", budget_undated_cmoa_candidates,
      "the same count for the コミックシーモア half of the queue, falling as adapters/cmoa_volumes.py "
      "works through it. Its floor is high and known: cmoa states an ISBN or an 出版年月 only where "

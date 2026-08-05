@@ -377,3 +377,32 @@ publisher's own author pages carry the same `publisher-jp` evidence the openBD r
 for kana. Anthology contributor lists name people the shelf captures reach and the corpus does not.
 
 The 179 whose pronunciation is unconfirmed are a different problem and are already marked as such.
+
+### 先読み is read as free on 一迅プラス
+
+`ひなちゃんが生きてるなら` 第8話 is 先読み: the page says 「165ptで今すぐ読める！」 and
+「2026年08月27日に無料公開予定」. We record it `free-timed`, and the interface counts that as free,
+so a reader is told the newest chapter costs nothing when it costs 165 points for another three
+weeks.
+
+**The rule is already written and already correct.** `adapters/gigaviewer/series_feeds.py` says in
+as many words that a chapter which is paid now and free on a stated date is `purchase` and not
+`free-timed`, and that `free-timed` means readable RIGHT NOW at no cost, merely rate-limited. That
+comment was written after the same mistake told a reader every chapter of ゆりゆりぱにっく was free
+when 18 of 24 cost 80pt.
+
+**What defeats it is the order of the tests.** Ticket eligibility is checked before the scheduled
+branch, so a 先読み chapter that is also ticket-listed is settled as `free-timed` and never reaches
+the check that would call it `purchase`. The scheduled set is built by probing chapters already
+classified `paid`, so a chapter the ticket test claimed is never probed, and the branch that knows
+about 無料公開予定 cannot see it.
+
+The bisection compounds it. It assumes ticket eligibility opens with age and finds a single
+boundary, and this work is not monotonic: 第8話 and 第6話 to 第3話 read as ticket while 第7話, 第2話
+and 第1話 read as unconditionally free. A boundary search over a non-monotonic sequence returns an
+answer with no warning that its assumption failed.
+
+The fix is to read each chapter's own state rather than infer it: 先読み and 無料公開予定 are stated
+on the episode page, so a chapter carrying either is `purchase` whatever the ticket probe said, and
+the scheduled test runs before the ticket test rather than after it. Both shapes want a fixture in
+`adapters/gigaviewer/test_series_feeds.py` quoting this page.

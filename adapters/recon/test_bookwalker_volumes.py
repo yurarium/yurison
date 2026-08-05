@@ -159,7 +159,7 @@ def main(s):
     d = bv.volume(DIGITAL_VOLUME)
     s.eq(d["printed"], None, "a digital-first imprint states no print date")
     s.eq(d["delivered"], "2025-10-24", "only the day the shop began selling it")
-    s.eq(bv.first_publication([d]), (None, "shop-delivery-date-only"),
+    s.eq(bv.first_publication([d]), (None, "no-print-date-stated"),
          "and a delivery date is NOT promoted into a first publication date")
 
     # THE DELIVERY DATE IS NOT EVEN A CONSISTENT BOUND, which is why it cannot stand in.
@@ -183,8 +183,59 @@ def main(s):
     s.eq(bv.first_publication([]), (None, "no-volumes-found"),
          "no volumes is not a work with no date; it is a work nobody read")
     s.eq(bv.first_publication([{"printed": None, "delivered": None}]),
-         (None, "no-date-stated"),
-         "and a volume stating neither date is distinguished from one stating the wrong kind")
+         (None, "no-print-date-stated"),
+         "and a volume read but undated is not the same state as a volume nobody read")
+
+    # THE TWO SILENCES, WHICH IS WHAT §6 NOW HANGS ON. "The shop states no print date" and "there
+    # is no print edition" are different sentences, and only the second explains itself. They are
+    # told apart by what the row's own imprint does across the WHOLE capture, so the counter-case
+    # is a print imprint that happens to be silent about one book: that must NOT be filed as
+    # digital-only, because the imprint's own record contradicts it.
+    digital = [{"imprint": "百合コレ", "publisher": "ナンバーナイン", "printed": None,
+                "delivered": "2025-10-24"} for _ in range(6)]
+    printy = [{"imprint": "百合姫コミックス", "publisher": "一迅社", "printed": "2021-11-01",
+               "delivered": "2021-10-18"} for _ in range(5)]
+    silent = [{"imprint": "百合姫コミックス", "publisher": "一迅社", "printed": None,
+               "delivered": "2024-06-25"}]
+    corpus = [{"store": "単行本", "first_publication_date": None, "volumes": digital},
+              {"store": "単行本", "first_publication_date": "2021-11-01", "volumes": printy},
+              {"store": "単行本", "first_publication_date": None, "volumes": silent}]
+    stats = bv.imprint_print_dates(corpus)
+    s.eq(stats["百合コレ"], (6, 0), "the imprint's record is counted over every volume of it read")
+    s.eq(stats["百合姫コミックス"], (6, 5), "including the volumes belonging to other works")
+    s.eq(bv.date_basis(corpus[0], stats)[0], "no-print-edition",
+         "an imprint that dates none of its volumes is digital-only, and that explains the gap")
+    s.eq(bv.date_basis(corpus[2], stats)[0], "no-print-date-stated",
+         "THE COUNTER-CASE: a print imprint silent about one book is not thereby digital-only")
+    s.eq("digital-only" in bv.date_basis(corpus[0], stats)[1].lower(), True,
+         "and the row carries the sentence that explains itself")
+    s.eq("unresolved" in bv.date_basis(corpus[2], stats)[1], True,
+         "while the unexplained one says it is unresolved rather than implying an answer")
+    s.eq(bv.date_basis(corpus[1], stats)[0], "print-base-edition", "a dated work states its date")
+
+    # BELOW THE THRESHOLD NOBODY CAN TELL, and saying so beats guessing in either direction. Four
+    # undated volumes from an unknown label is not evidence that the label prints nothing.
+    thin = [{"store": "単行本", "first_publication_date": None,
+             "volumes": [{"imprint": "ちいさなレーベル", "publisher": "某社", "printed": None,
+                          "delivered": "2024-01-01"} for _ in range(4)]}]
+    s.eq(bv.date_basis(thin[0], bv.imprint_print_dates(thin))[0], "print-edition-unknown",
+         "too few volumes to tell a digital-only imprint from a silence")
+    s.eq(bv.MIN_IMPRINT_VOLUMES, 5, "and the threshold is stated rather than left to a magic number")
+
+    # THE LABEL FALLS BACK TO THE PUBLISHER WHERE THE SHOP RENDERS NO IMPRINT. 178 admitted rows
+    # carry the shop's ―― for an absent label, and pooling them under one empty key would let
+    # ナンバーナイン's record answer for 一迅社's.
+    s.eq(bv.imprint_key({"imprint": None, "publisher": "ライトリーズン"}), "ライトリーズン",
+         "no imprint, so the publisher is the grouping")
+    s.eq(bv.imprint_key({"imprint": "百合コレ", "publisher": "ナンバーナイン"}), "百合コレ",
+         "and the imprint wins where the shop states one")
+    s.eq(bv.imprint_key({}), None, "with nothing to group by, nothing is grouped")
+
+    # A CHAPTER SERIAL EXPLAINS ITSELF TOO, and never by way of its 更新 date.
+    b, note = bv.date_basis({"store": "話・連載", "first_publication_date": None, "volumes": []},
+                            stats)
+    s.eq(b, "chapter-serial", "sold by the chapter, so there is no volume and no print edition")
+    s.eq("更新" in note, True, "and the note names the date the shop does state, to rule it out")
 
     # THE COUNTER-CASE THAT WOULD HAVE CONDEMNED THE WHOLE SHELF. Every page on this site carries
     # BW_R18_BASE_URL in its head. A designation test run over the markup rather than over the
@@ -314,7 +365,6 @@ def main(s):
                     [bv.volume(PRINT_VOLUME), bv.volume(DIGITAL_VOLUME)],
                     completed="completed", series_read=True)
     s.eq(r["first_publication_date"], "2025-12-31", "the only print date on offer")
-    s.eq(r["first_publication_country"], "JP", "stated only where there is a date to state it for")
     s.eq(r["first_publication_venue"], "小学館", "the publisher of the volume that gave the date")
 
     # THE VENUE IS FOUND BY THE DATE, NOT BY POSITION. The row list is sorted on printed-or-
@@ -334,8 +384,8 @@ def main(s):
     s.eq(r["dates_stated"], 1, "and the row says how many of them the shop dated")
     s.eq(r["isbns_stated"], 0, "which for ISBNs is always none")
     s.eq(bv.work_row({"shop_id": "1", "url": "https://bookwalker.jp/series/1/"}, [],
-                     None, True)["first_publication_country"], None,
-         "no date, no country: absence is a state rather than a default")
+                     None, True)["first_publication_venue"], None,
+         "a work nobody read has no venue either: absence is a state, not a default")
 
 
 if __name__ == "__main__":

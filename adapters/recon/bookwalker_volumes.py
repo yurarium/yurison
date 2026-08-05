@@ -45,7 +45,27 @@ volume's own title, its imprint and its publisher. Any of those can carry a mark
 title did not, and a work whose volume 3 is an 【R-18版】 is excluded on volume 3. Exclusions are
 counted with their reason and the title is written nowhere.
 """
+import collections
 import re
+
+# What kind of venue the date came from, per basis, in build.py's vocabulary.
+VENUE_TYPE = {
+    "print-base-edition": "tankobon-imprint",
+    "no-print-edition": "digital-imprint",
+    "chapter-serial": "chapter-serial-imprint",
+    "no-print-date-stated": "imprint",
+    "print-edition-unknown": "imprint",
+    "no-volumes-found": None,
+}
+
+# WHY JP IS ASSERTED, AND THE CASE IT WOULD GET WRONG. Every row here is a Japanese-language book
+# from a Japanese publisher on a Japanese store, which is evidence about where it was published
+# rather than proof. §6 puts a Korean webtoon localised to a Japanese platform OUT of scope, and
+# such a title would pass this test, so the basis is recorded and a promotion step has to look at
+# the publishers rather than take the country on trust.
+COUNTRY_BASIS = ("Japanese-language edition from a Japanese publisher on the shop's Japanese "
+                 "store. Not a check against §6's localisation exclusion, which needs the "
+                 "publisher examined.")
 
 # The volume information table. One dt per field, values in the dd that follows. The 話・連載 store
 # renders a different template with the same dt/dd shape and a shorter table, so both classes are
@@ -231,11 +251,89 @@ def first_publication(volumes):
     dated = [v["printed"] for v in volumes if v.get("printed")]
     if dated:
         return min(dated), "print-base-edition"
-    if any(v.get("delivered") for v in volumes):
-        return None, "shop-delivery-date-only"
     if volumes:
-        return None, "no-date-stated"
+        # Refined later against what the imprint does elsewhere. See `date_basis`: an undated row
+        # is either a format with no print edition to date or a silence nothing explains, and the
+        # difference is not visible from one work's own pages.
+        return None, "no-print-date-stated"
     return None, "no-volumes-found"
+
+
+# How many volumes an imprint must contribute before its silence is read as a fact about the
+# imprint. At five, an imprint that really dated half its volumes clears the bar 97 times in a
+# hundred, and below it the honest answer is that nobody can tell yet.
+MIN_IMPRINT_VOLUMES = 5
+
+
+def imprint_key(row):
+    """What to group a row by when asking whether its publisher issues print editions.
+
+    The imprint where the shop states one, the publisher where it does not. 178 admitted rows carry
+    the shop's ―― for an absent label, and pooling those into a single imprint called nothing would
+    put ナンバーナイン's output and 一迅社's in the same bucket and let one answer for the other.
+    """
+    return row.get("imprint") or row.get("publisher") or None
+
+
+def imprint_print_dates(rows):
+    """`{imprint: (volumes read, volumes stating 底本発行日)}` across the whole capture."""
+    out = {}
+    for r in rows:
+        for v in r.get("volumes") or []:
+            k = imprint_key(v)
+            if not k:
+                continue
+            read, dated = out.get(k, (0, 0))
+            out[k] = (read + 1, dated + (1 if v.get("printed") else 0))
+    return out
+
+
+def date_basis(row, stats):
+    """Why a work has the date it has, or why it has none. `(basis, note)`.
+
+    TWO SILENCES THAT MEAN DIFFERENT THINGS, which is the whole point of this function. "The shop
+    states no print date" and "there is no print edition" are different sentences and only the
+    second explains itself, so an undated row is sorted between them on evidence rather than left
+    in one heap. The evidence is what the row's own imprint does across the rest of the capture:
+    百合コレ states 底本発行日 on none of its volumes because ナンバーナイン publishes no print
+    editions, and まんがタイムKRコミックス states it on every one.
+
+    WHAT `no-print-date-stated` DOES NOT CLAIM. It does not say a print edition exists. 百合姫
+    コミックス is a print imprint that also sells 特装版小冊子電子版 and 【単話】 splits, which are
+    digital-only products from a printing house, and they land here. The label says what is known,
+    which is that the imprint's own record does not account for the silence.
+    """
+    if row.get("store") == "話・連載":
+        return ("chapter-serial",
+                "Sold by the chapter on the shop's 話・連載 store. There are no volumes and no "
+                "print edition, and the only date the shop states is 更新, the day the latest "
+                "chapter went up, which is the most recent publication rather than the first.")
+    if row["first_publication_date"]:
+        return ("print-base-edition",
+                "The earliest 底本発行日 across the work's volumes, which is the publication date "
+                "of the print edition the file was made from. A serialised work appeared in a "
+                "magazine before its tankōbon and this shop never mentions the magazine, so this "
+                "is the earliest publication the shop attests rather than the work's first.")
+    if not (row.get("volumes") or []):
+        return ("no-volumes-found",
+                "The series page listed nothing this capture could read. Nobody has an answer "
+                "about this work yet, which is not the same as the shop having none.")
+    k = imprint_key((row.get("volumes") or [{}])[0]) or imprint_key(row)
+    read, dated = stats.get(k, (0, 0))
+    if read >= MIN_IMPRINT_VOLUMES and dated == 0:
+        return ("no-print-edition",
+                f"Digital-only. The shop states 底本発行日 on none of the {read} volumes it holds "
+                f"under {k}, so there is no print edition for it to carry a publication date. The "
+                f"absence is the format rather than a gap in the shop's record.")
+    if dated:
+        return ("no-print-date-stated",
+                f"The shop states no 底本発行日 for this work, and {k} does state one on {dated} "
+                f"of its {read} volumes elsewhere, so the imprint being digital-only does not "
+                f"account for it. Whether a print edition exists is unresolved.")
+    return ("print-edition-unknown",
+            f"The shop states no 底本発行日 for this work, and it holds too few volumes under {k} "
+            f"({read}) to tell a digital-only imprint from a silence. Undecided rather than "
+            f"negative.")
 
 
 def healthy(asked, usable):
@@ -329,8 +427,13 @@ def work_row(row, volumes, completed=None, series_read=False, serial=None):
         "last_updated": (serial or {}).get("updated"),
         "first_publication_date": date,
         "first_publication_basis": basis,
-        "first_publication_country": "JP" if date else None,
-        "first_publication_venue": dated_vol.get("publisher") if dated_vol else None,
+        # WHERE, WHICH IS WHAT THE SCOPE TEST ACTUALLY ASKS (§6, amended 2026-08-05). The venue and
+        # the country are required of every record; the date is recorded where it is attested and
+        # its absence is stated where it is not. So the venue is filled for an undated work too,
+        # from the publisher the shop names, which it names on every volume.
+        "first_publication_venue": ((dated_vol or {}).get("publisher")
+                                    or (serial or {}).get("publisher")
+                                    or (vols[0].get("publisher") if vols else None)),
         "first_publication_volume": dated_vol.get("title") if dated_vol else None,
         "completed": completed,
         "dates_stated": sum(1 for v in vols if v.get("printed")),
@@ -373,20 +476,34 @@ HEADER = """\
 #   isbn        Never stated, on any of the 870. The shop sells files. openBD and NDL are both
 #               keyed on ISBN, so neither is reachable from this shelf.
 #
-# WHAT first_publication_basis MEANS.
-#   print-base-edition                 the earliest 底本発行日 across the work's volumes
-#   shop-delivery-date-only            volumes were read and the shop stated no print date
-#   no-date-stated                     volumes were read and the shop stated no date at all
-#   chapter-serial-no-publication-date the work is sold by the chapter on the shop's 話・連載
-#                                      store, which has no volumes and no print edition. Its one
-#                                      date is 更新, the day the LATEST chapter went up, so it
-#                                      answers §6 in the wrong direction and is kept apart under
-#                                      `last_updated`.
-#   no-volumes-found                   the series page listed nothing this pass could read
+# A WORK THAT EXISTS IS RECORDED WHETHER OR NOT WE CAN DATE IT (§6, amended 2026-08-05). The scope
+# test turns on WHERE, so `venue` and `country` are filled for every row here and the date is
+# recorded where the shop attests one. An undated row states WHY, and two of the reasons are not
+# the same reason:
+#
+#   print-base-edition      dated. The earliest 底本発行日 across the work's volumes.
+#   no-print-edition        UNDATED AND EXPLAINED. The shop states 底本発行日 on none of the
+#                           volumes it holds under this imprint, across the whole capture, so the
+#                           title is digital-only and there is no print edition to carry a date.
+#                           The absence is the format.
+#   chapter-serial          UNDATED AND EXPLAINED. Sold by the chapter on the 話・連載 store: no
+#                           volumes, no print edition, and one date, 更新, which is the day the
+#                           LATEST chapter went up. Kept apart under `last_updated` and never
+#                           promoted, because it answers §6 in the wrong direction.
+#   no-print-date-stated    UNDATED AND UNEXPLAINED. The imprint DOES state 底本発行日 elsewhere,
+#                           so digital-only does not account for this one. It does not claim a
+#                           print edition exists: 百合姫コミックス is a print imprint that also
+#                           sells 特装版小冊子電子版 and 【単話】 splits, and those land here.
+#   print-edition-unknown   UNDATED AND UNDECIDED. Too few volumes read under the imprint to tell
+#                           a digital-only label from a silence.
+#   no-volumes-found        not read. The series page listed nothing this pass could parse, which
+#                           is this capture having no answer rather than the shop having none.
 #
 # EVEN print-base-edition IS THE VOLUME'S DATE AND NOT ALWAYS THE WORK'S. A serialised work was
-# published in a magazine before its tankōbon and this shop never mentions the magazine. Whether a
-# tankōbon date satisfies §6 for a serialised work is a decision for whoever promotes these rows.
+# published in a magazine before its tankōbon and this shop never mentions the magazine.
+#
+# NO DATE IS EVER INVENTED TO FILL THE FIELD. 配信開始日 stays `delivered` on the volume and is
+# never promoted, and the measurement below is why.
 #
 # EXCLUSIONS ARE COUNTED AND NEVER NAMED, as in admitted.yaml. A volume page shows the volume's
 # own title, imprint and publisher, any of which can carry a designation the series title did not.
@@ -411,6 +528,10 @@ def _write(path, state):
 
     works = state["works"]
     rows = list(works.values())
+    # Built once over every row, because the question it answers is about an imprint's record
+    # across the whole capture rather than about any one work.
+    stats = imprint_print_dates(rows)
+    bases = collections.Counter(date_basis(r, stats)[0] for r in rows)
     dated = [r for r in rows if r["first_publication_date"]]
     L = [HEADER.rstrip("\n"), "",
          "source: bookwalker.jp",
@@ -423,16 +544,13 @@ def _write(path, state):
          f"works_captured: {len(rows)}",
          "counts:"]
     for k, n in [
-            ("with_first_publication_date", len(dated)),
-            ("without_date_shop_delivery_only",
-             sum(1 for r in rows if r["first_publication_basis"] == "shop-delivery-date-only")),
-            ("without_date_none_stated",
-             sum(1 for r in rows if r["first_publication_basis"] == "no-date-stated")),
-            ("without_date_no_volumes",
-             sum(1 for r in rows if r["first_publication_basis"] == "no-volumes-found")),
-            ("without_date_chapter_serial",
-             sum(1 for r in rows
-                 if r["first_publication_basis"] == "chapter-serial-no-publication-date")),
+            ("with_a_date", len(dated)),
+            ("undated_no_print_edition", bases["no-print-edition"]),
+            ("undated_chapter_serial", bases["chapter-serial"]),
+            ("undated_no_print_date_stated", bases["no-print-date-stated"]),
+            ("undated_print_edition_unknown", bases["print-edition-unknown"]),
+            ("unread_no_volumes_found", bases["no-volumes-found"]),
+            ("with_a_venue", sum(1 for r in rows if r["first_publication_venue"])),
             ("volumes_read", sum(r["volumes_found"] for r in rows)),
             ("volumes_with_print_date", sum(r["dates_stated"] for r in rows)),
             ("volumes_with_isbn", sum(r["isbns_stated"] for r in rows)),
@@ -454,13 +572,22 @@ def _write(path, state):
     L.append("works:")
     for sid in sorted(works):
         r = works[sid]
+        basis, note = date_basis(r, stats)
         L.append(f"  - shop_id: {js(r['shop_id'])}")
         for k in ("url", "id_kind", "store", "series_read", "volumes_found", "chapters",
-                  "last_updated", "first_publication_date", "first_publication_basis",
-                  "first_publication_country", "first_publication_venue",
-                  "first_publication_volume", "completed", "dates_stated", "isbns_stated",
+                  "last_updated", "completed", "dates_stated", "isbns_stated",
                   "imprint", "publisher", "authors", "shop_genre"):
             L.append(f"    {k}: {js(r.get(k))}")
+        # Shaped as build.py writes it, so a promotion step maps rather than re-derives.
+        L.append("    first_publication:")
+        L.append(f"      date: {js(r['first_publication_date'])}")
+        L.append(f"      date_basis: {js(basis)}")
+        L.append(f"      venue: {js(r['first_publication_venue'])}")
+        L.append(f"      venue_type: {js(VENUE_TYPE.get(basis))}")
+        L.append(f"      venue_volume: {js(r['first_publication_volume'])}")
+        L.append(f"      country: {js('JP' if r['first_publication_venue'] else None)}")
+        L.append(f"      country_basis: {js(COUNTRY_BASIS if r['first_publication_venue'] else None)}")
+        L.append(f"      note: {js(note)}")
         L.append("    volumes:")
         for v in r["volumes"]:
             L.append(f"      - uuid: {js(v.get('uuid'))}")

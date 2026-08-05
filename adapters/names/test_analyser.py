@@ -85,6 +85,35 @@ def main(s):
     s.eq(p4.chapter_en("４巻 第３９話「瞑目アリア」", plain), 'Vol. 4, Ch. 39 “瞑目アリア”',
          "the volume is read off the front and the chapter inside is read as a chapter")
     s.eq(p4.chapter_en("2巻 第26話", plain), "Vol. 2, Ch. 26", "and full-width digits are the same")
+
+    # THE SAME LABEL, WRAPPED. A bracket around a chapter label is punctuation, and CHAPTER_PAT
+    # anchors at the start, so a wrapper made it miss and the whole thing was romanised. 186
+    # phrases read "( Dai 18Wa ) Shippai no Tatsujin" and "[Dai 100Wa]shin Awasete".
+    s.eq(p4.chapter_en("【第100話】心合わせて", plain), "Ch. 100 心合わせて",
+         "a chapter in a lenticular bracket is a chapter")
+    s.eq(p4.chapter_en("（第18話）失敗の達人", plain), "Ch. 18 失敗の達人",
+         "and one in full-width parentheses is the same statement")
+    s.eq(p4.chapter_en("[#49]Pair", plain), "Ch. 49 Pair",
+         "a hash label in half-width brackets too")
+
+    # A PLATFORM'S ROW INDEX IS NOT THE WORK'S CHAPTER NUMBER. コミックDAYS prefixes its own row number: "100.第94話しんゆうのたのみ" is row 100 carrying chapter 94, and it rendered
+    # "Ch. 100 . Dai 94 Hanashi ...", wrong in the number as well as the romanising.
+    s.eq(p4.chapter_en("100.第94話しんゆうのたのみ", plain), "Ch. 94 しんゆうのたのみ",
+         "the work's own label outranks the list position it sits at")
+    s.eq(p4.chapter_en("1.第1話", plain), "Ch. 1", "even where the two agree")
+
+    # THE FALLBACK AGAIN. Where what follows the prefix is not a chapter label, the prefix stays.
+    s.eq(p4.chapter_en("12.普通の話", plain), "Ch. 12 普通の話",
+         "a bare number keeps its place when nothing better is claimed")
+    s.check("." not in (p4.chapter_en("12.普通の話", plain) or "").split(" ", 2)[-1][:1],
+            "and the separator belongs to neither the number nor the subtitle")
+
+    # THE FALLBACK, and it is the reason this is safe. A bracket whose contents are not a chapter
+    # is left exactly as it was, so a wrapper nobody anticipated costs nothing.
+    s.eq(p4.chapter_en("【お知らせ】更新", plain), None,
+         "a notice in a bracket is not a chapter and is not made into one")
+    s.eq(p4.chapter_en("（前編）はじまり", plain), "Part 1 はじまり",
+         "and a bracketed part marker still reads as the part it is")
     s.eq(p4.chapter_en("3巻発売フェア", plain), "Vol. 3 発売フェア",
          "a volume followed by something that is not a chapter keeps the volume")
     s.eq(p4.chapter_en("第12話 テスト", plain), "Ch. 12 テスト",

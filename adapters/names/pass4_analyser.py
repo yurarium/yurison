@@ -535,7 +535,19 @@ CHAPTER_PAT = re.compile(
     r"([0-9]+(?:[-−.][0-9]+)?)"
     r"\s*(?:話|回|話目|幕|章|球|服|皿|輪|侵略|角|限|節|夜|日目|冊目|泊目|軒目)?"
     r"\s*([-.][0-9]+)?\s*(.*)$")
-EXTRA_PAT = re.compile(r"^\s*(?:【?(番外編|特別編|おまけ|最終話|最終回|前編|後編|中編|完結)】?)\s*(.*)$")
+EXTRA_PAT = re.compile(
+    r"^\s*[【（(\[]?\s*(番外編|特別編|おまけ|最終話|最終回|前編|後編|中編|完結)\s*[】）)\]]?\s*(.*)$")
+
+# THE SAME LABEL, WRAPPED. 【第100話】心合わせて and （第18話）失敗の達人 say exactly what 第100話 心合わせて
+# says, and the bracket is punctuation around it. CHAPTER_PAT anchors at the start, so a wrapper
+# made it miss entirely and the whole label was romanised: "[Dai 100Wa]shin Awasete",
+# "( Dai 18Wa ) Shippai no Tatsujin", "( Dai 17 Hanashi ) Doki!". 186 phrases read that way.
+#
+# The wrapper is unwrapped and its contents offered to the same pattern, so there is one producer
+# of what a chapter label is. Where the contents are NOT a chapter the unwrapping is discarded and
+# the name renders exactly as before, which is the fallback: a bracket this does not understand
+# costs nothing.
+WRAPPED_PAT = re.compile(r"^\s*[【（(\[]\s*([^】）)\]]+?)\s*[】）)\]]\s*(.*)$")
 
 # A VOLUME, WHICH IS NOT A CHAPTER. 巻 was absent from the counter list above, so ４巻 第３９話 matched
 # the bare-number branch as chapter four and the real chapter fell into the subtitle and was
@@ -580,11 +592,36 @@ def chapter_en(name, romanise_rest):
         if not n:
             return latinise(f"Vol. {vol}")
 
+    # A PLATFORM'S ROW INDEX IS NOT THE WORK'S CHAPTER NUMBER. コミックDAYS and マガポケ prefix their own
+    # row number to the label the work uses: "100.第94話しんゆうのたのみ" is row 100 carrying chapter
+    # 94. The leading integer matched first and the real label fell into the subtitle, so it read
+    # "Ch. 100 . Dai 94 Hanashi Shin Yū no Ta Nomi", wrong in the number as well as the romanising.
+    #
+    # An explicit 第N話 or #N outranks a bare leading integer, because one is the work saying what
+    # this chapter is and the other is a list saying where it sits. Where the remainder is NOT such
+    # a label the prefix is left alone, which keeps "07Chapter.5" and its like as they were.
+    mi = re.match(r"^\s*[0-9]+\s*[.．]\s*(.+)$", n)
+    if mi:
+        inner = mi.group(1).strip()
+        if re.match(r"^\s*(?:第\s*[0-9]+|[#＃]\s*[0-9]+)", inner):
+            n = inner
+
+    # Unwrap a bracketed label before matching. Only where the contents parse as a chapter: a
+    # bracket around anything else is left alone and the name renders as it did.
+    mw = WRAPPED_PAT.match(n)
+    if mw:
+        inner, after = mw.group(1).strip(), mw.group(2).strip()
+        if CHAPTER_PAT.match(inner) and ("話" in inner or "回" in inner
+                                         or re.match(r"^\s*[#＃第]", inner)):
+            n = (inner + " " + after).strip()
+
     m = CHAPTER_PAT.match(n)
     if m and (m.group(1) is not None) and ("話" in n or "回" in n or n.lstrip().startswith(("#", "＃"))
                                            or re.match(r"^\s*第", n)):
         num = m.group(1) + (m.group(2) or "")
-        rest = (m.group(3) or "").strip()
+        # The separator between a number and its subtitle belongs to neither. "12.普通の話"
+        # left the dot at the front of the subtitle and rendered "Ch. 12 .普通の話".
+        rest = re.sub(r"^[\s.．・:：、,\-−–—]+", "", (m.group(3) or "")).strip()
         tail = romanise_rest(rest) if rest else ""
         out = f"Ch. {num}" + (f" {tail}" if tail else "")
         return latinise((f"Vol. {vol}, " + out) if vol else out)
@@ -715,6 +752,7 @@ def renderer_fingerprint():
         except (OSError, TypeError):
             parts.append(repr(fn))
     parts += [CHAPTER_PAT.pattern, EXTRA_PAT.pattern, VOLUME_PAT.pattern,
+              WRAPPED_PAT.pattern,
               repr(sorted(EXTRA_EN.items())), repr(sorted(CIRCLED.items()))]
     return hashlib.sha256("".join(parts).encode("utf-8")).hexdigest()[:16]
 

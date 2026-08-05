@@ -3,25 +3,23 @@
 source: madb
 source_version: "1.2.18"
 retrieved: 2026-08-05
-work_id: C328528
+work_id: madb-t-eb8231d65b48
 route: isbn-from-capture
-grouping: title-match
-madb_id: C328528
-madb_url: https://mediaarts-db.artmuseums.go.jp/id/C328528
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
 record_type: manga_book_series
 title:
   ja: "トワ・エ・モア"
-  yomi: "Toi et moi"
-creator: ""
-publisher: "コンパス"
-imprint: "コンパスアンソロジーコミックシリーズ"
-volume_count: 3
-first_published: 1996-11
+  yomi: "トワ エ モア"
+creator: "仲藤ぬい / ナカトウヌイ"
+publisher: "講談社"
+imprint: "KCデラックス"
+volume_count: 2
+first_published: 2024-03
 last_published: 2025-08-01
 volumes:
-  - madb_id: M323266
-    isbn: "4906407684"
-    published: 1996-11
   - madb_id: M966645
     number: "1"
     isbn: "9784065350621"
@@ -40,7 +38,7 @@ admitted_by:
 marketing_label: none
 marketing_label_basis:
   source: madb
-  url: https://mediaarts-db.artmuseums.go.jp/id/C328528
+  url: 
   retrieved: 2026-08-05
   note: >-
     Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified

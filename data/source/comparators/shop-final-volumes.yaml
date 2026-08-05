@@ -1,0 +1,1991 @@
+# Which volume ended a series, where the shop says the series ended and how long it is.
+#
+# A CLAIM under DEFINITIONS §5, not an attestation: a retailer is Tier C and this is a
+# lead. Keyed by ISBN, because an ISBN identifies an edition and a title identifies
+# nothing. See adapters/shopfinal.py for what has to hold before a work appears here.
+source: "cmoa.jp"
+shelf: "genre 37 (百合・GL)"
+role: final-volume-claims
+retrieved: 2026-08-05
+claims: 207
+finished_works: 382
+# Series the shop marks 完結, by every ISBN on them. A work joins on whichever volume we
+# hold. Whether the series ended is one fact the shop states; how much of its shelf we
+# read has no bearing on it, so no count has to agree before it is recorded.
+finished:
+  - shop_id: "83870"
+    volumes: 10
+    isbns: ["9784040665566"]
+  - shop_id: "92436"
+    volumes: 4
+    isbns: ["9784040672489"]
+  - shop_id: "126733"
+    volumes: 6
+    isbns: ["9784040690261"]
+  - shop_id: "144064"
+    volumes: 3
+    isbns: ["9784040698007"]
+  - shop_id: "223361"
+    volumes: 1
+    isbns: ["9784041113738"]
+  - shop_id: "264741"
+    volumes: 2
+    isbns: ["9784046822277"]
+  - shop_id: "83272"
+    volumes: 1
+    isbns: ["9784047285651"]
+  - shop_id: "91347"
+    volumes: 2
+    isbns: ["9784048690607"]
+  - shop_id: "235863"
+    volumes: 3
+    isbns: ["9784048995047"]
+  - shop_id: "293427"
+    volumes: 3
+    isbns: ["9784048996235"]
+  - shop_id: "98145"
+    volumes: 1
+    isbns: ["9784054062023"]
+  - shop_id: "72426"
+    volumes: 6
+    isbns: ["9784063145182"]
+  - shop_id: "320963"
+    volumes: 4
+    isbns: ["9784065235133"]
+  - shop_id: "228696"
+    volumes: 4
+    isbns: ["9784065247501"]
+  - shop_id: "249368"
+    volumes: 2
+    isbns: ["9784065288078"]
+  - shop_id: "254649"
+    volumes: 10
+    isbns: ["9784065294239"]
+  - shop_id: "264068"
+    volumes: 3
+    isbns: ["9784065296486"]
+  - shop_id: "288408"
+    volumes: 2
+    isbns: ["9784065350621"]
+  - shop_id: "296392"
+    volumes: 4
+    isbns: ["9784065360323"]
+  - shop_id: "69981"
+    volumes: 20
+    isbns: ["9784088791234"]
+  - shop_id: "327848"
+    volumes: 3
+    isbns: ["9784088845883"]
+  - shop_id: "86057"
+    volumes: 3
+    isbns: ["9784091254795"]
+  - shop_id: "106248"
+    volumes: 7
+    isbns: ["9784091266859"]
+  - shop_id: "144504"
+    volumes: 13
+    isbns: ["9784091282248"]
+  - shop_id: "167439"
+    volumes: 14
+    isbns: ["9784091287557"]
+  - shop_id: "170722"
+    volumes: 4
+    isbns: ["9784091291035"]
+  - shop_id: "47283"
+    volumes: 4
+    isbns: ["9784091572882"]
+  - shop_id: "181216"
+    volumes: 9
+    isbns: ["9784091575739"]
+  - shop_id: "75223"
+    volumes: 4
+    isbns: ["9784091860880"]
+  - shop_id: "103813"
+    volumes: 3
+    isbns: ["9784091872456"]
+  - shop_id: "123773"
+    volumes: 5
+    isbns: ["9784091892928"]
+  - shop_id: "142002"
+    volumes: 2
+    isbns: ["9784091898333"]
+  - shop_id: "245860"
+    volumes: 4
+    isbns: ["9784098511778"]
+  - shop_id: "150672"
+    volumes: 5
+    isbns: ["9784098600908"]
+  - shop_id: "123688"
+    volumes: 3
+    isbns: ["9784107719362"]
+  - shop_id: "82311"
+    volumes: 8
+    isbns: ["9784199501159"]
+  - shop_id: "100724"
+    volumes: 1
+    isbns: ["9784199504389"]
+  - shop_id: "121244"
+    volumes: 4
+    isbns: ["9784199505317"]
+  - shop_id: "126069"
+    volumes: 11
+    isbns: ["9784199505478"]
+  - shop_id: "125449"
+    volumes: 2
+    isbns: ["9784199505485"]
+  - shop_id: "132204"
+    volumes: 13
+    isbns: ["9784199505485"]
+  - shop_id: "142069"
+    volumes: 2
+    isbns: ["9784199506062"]
+  - shop_id: "226797"
+    volumes: 2
+    isbns: ["9784199507496"]
+  - shop_id: "343427"
+    volumes: 4
+    isbns: ["9784253009027"]
+  - shop_id: "208184"
+    volumes: 2
+    isbns: ["9784253229715"]
+  - shop_id: "217910"
+    volumes: 4
+    isbns: ["9784253291118"]
+  - shop_id: "280537"
+    volumes: 1
+    isbns: ["9784253320474"]
+  - shop_id: "324823"
+    volumes: 1
+    isbns: ["9784334106607"]
+  - shop_id: "330636"
+    volumes: 1
+    isbns: ["9784334107185"]
+  - shop_id: "87707"
+    volumes: 3
+    isbns: ["9784344832565"]
+  - shop_id: "207034"
+    volumes: 4
+    isbns: ["9784344846920"]
+  - shop_id: "213814"
+    volumes: 1
+    isbns: ["9784344847682"]
+  - shop_id: "213815"
+    volumes: 1
+    isbns: ["9784344847699"]
+  - shop_id: "213816"
+    volumes: 1
+    isbns: ["9784344847705"]
+  - shop_id: "268019"
+    volumes: 12
+    isbns: ["9784344852242"]
+  - shop_id: "57392"
+    volumes: 1
+    isbns: ["9784396763381"]
+  - shop_id: "170950"
+    volumes: 4
+    isbns: ["9784396791315"]
+  - shop_id: "193678"
+    volumes: 3
+    isbns: ["9784396791513"]
+  - shop_id: "205916"
+    volumes: 1
+    isbns: ["9784396791650"]
+  - shop_id: "219812"
+    volumes: 3
+    isbns: ["9784396791834"]
+  - shop_id: "92723"
+    volumes: 1
+    isbns: ["9784403621819"]
+  - shop_id: "100031"
+    volumes: 1
+    isbns: ["9784403621857"]
+  - shop_id: "100034"
+    volumes: 1
+    isbns: ["9784403621918"]
+  - shop_id: "100037"
+    volumes: 1
+    isbns: ["9784403621970"]
+  - shop_id: "105084"
+    volumes: 1
+    isbns: ["9784403622045"]
+  - shop_id: "190677"
+    volumes: 1
+    isbns: ["9784403622953"]
+  - shop_id: "196314"
+    volumes: 1
+    isbns: ["9784403623004"]
+  - shop_id: "212606"
+    volumes: 2
+    isbns: ["9784403623127"]
+  - shop_id: "235916"
+    volumes: 1
+    isbns: ["9784403623370"]
+  - shop_id: "101119"
+    volumes: 1
+    isbns: ["9784403671333"]
+  - shop_id: "100038"
+    volumes: 1
+    isbns: ["9784403671357"]
+  - shop_id: "80024"
+    volumes: 1
+    isbns: ["9784403671401"]
+  - shop_id: "100027"
+    volumes: 1
+    isbns: ["9784403671418"]
+  - shop_id: "90361"
+    volumes: 1
+    isbns: ["9784403671456"]
+  - shop_id: "89831"
+    volumes: 1
+    isbns: ["9784403671463"]
+  - shop_id: "72043"
+    volumes: 1
+    isbns: ["9784403671500"]
+  - shop_id: "72041"
+    volumes: 1
+    isbns: ["9784403671517"]
+  - shop_id: "47976"
+    volumes: 1
+    isbns: ["9784403671548"]
+  - shop_id: "100028"
+    volumes: 1
+    isbns: ["9784403671586"]
+  - shop_id: "100029"
+    volumes: 1
+    isbns: ["9784403671616"]
+  - shop_id: "94990"
+    volumes: 1
+    isbns: ["9784403671623"]
+  - shop_id: "100030"
+    volumes: 1
+    isbns: ["9784403671630"]
+  - shop_id: "100032"
+    volumes: 1
+    isbns: ["9784403671654"]
+  - shop_id: "100025"
+    volumes: 1
+    isbns: ["9784403671661"]
+  - shop_id: "100033"
+    volumes: 1
+    isbns: ["9784403671678"]
+  - shop_id: "100035"
+    volumes: 1
+    isbns: ["9784403671692"]
+  - shop_id: "100036"
+    volumes: 1
+    isbns: ["9784403671708"]
+  - shop_id: "105086"
+    volumes: 1
+    isbns: ["9784403671739"]
+  - shop_id: "133706"
+    volumes: 1
+    isbns: ["9784403671760"]
+  - shop_id: "149634"
+    volumes: 1
+    isbns: ["9784403671784"]
+  - shop_id: "245900"
+    volumes: 1
+    isbns: ["9784403671883"]
+  - shop_id: "14580"
+    volumes: 5
+    isbns: ["9784575834376"]
+  - shop_id: "85797"
+    volumes: 1
+    isbns: ["9784575834772"]
+  - shop_id: "52487"
+    volumes: 2
+    isbns: ["9784575840582"]
+  - shop_id: "71457"
+    volumes: 3
+    isbns: ["9784575840841"]
+  - shop_id: "228191"
+    volumes: 3
+    isbns: ["9784575856415"]
+  - shop_id: "86290"
+    volumes: 1
+    isbns: ["9784592142690"]
+  - shop_id: "151871"
+    volumes: 5
+    isbns: ["9784757557611"]
+  - shop_id: "244216"
+    volumes: 4
+    isbns: ["9784757579156"]
+  - shop_id: "247251"
+    volumes: 4
+    isbns: ["9784757579866"]
+  - shop_id: "316680"
+    volumes: 4
+    isbns: ["9784757596856"]
+  - shop_id: "191219"
+    volumes: 4
+    isbns: ["9784758020763"]
+  - shop_id: "195877"
+    volumes: 7
+    isbns: ["9784758021104"]
+  - shop_id: "202806"
+    volumes: 3
+    isbns: ["9784758021449"]
+  - shop_id: "207708"
+    volumes: 4
+    isbns: ["9784758021548"]
+  - shop_id: "211211"
+    volumes: 4
+    isbns: ["9784758021821"]
+  - shop_id: "215585"
+    volumes: 7
+    isbns: ["9784758022026"]
+  - shop_id: "222819"
+    volumes: 7
+    isbns: ["9784758022620"]
+  - shop_id: "222826"
+    volumes: 1
+    isbns: ["9784758022651"]
+  - shop_id: "228203"
+    volumes: 3
+    isbns: ["9784758022880"]
+  - shop_id: "228371"
+    volumes: 4
+    isbns: ["9784758022958"]
+  - shop_id: "230578"
+    volumes: 1
+    isbns: ["9784758023092"]
+  - shop_id: "230576"
+    volumes: 1
+    isbns: ["9784758023146"]
+  - shop_id: "230577"
+    volumes: 1
+    isbns: ["9784758023153"]
+  - shop_id: "233667"
+    volumes: 2
+    isbns: ["9784758023269"]
+  - shop_id: "233804"
+    volumes: 1
+    isbns: ["9784758023450"]
+  - shop_id: "237495"
+    volumes: 7
+    isbns: ["9784758023696"]
+  - shop_id: "239537"
+    volumes: 3
+    isbns: ["9784758023764"]
+  - shop_id: "240674"
+    volumes: 1
+    isbns: ["9784758023771"]
+  - shop_id: "239536"
+    volumes: 3
+    isbns: ["9784758023788"]
+  - shop_id: "259962"
+    volumes: 1
+    isbns: ["9784758024921"]
+  - shop_id: "259963"
+    volumes: 1
+    isbns: ["9784758024938"]
+  - shop_id: "267721"
+    volumes: 5
+    isbns: ["9784758025416"]
+  - shop_id: "267719"
+    volumes: 3
+    isbns: ["9784758025423"]
+  - shop_id: "269835"
+    volumes: 3
+    isbns: ["9784758025546"]
+  - shop_id: "284274"
+    volumes: 4
+    isbns: ["9784758026055"]
+  - shop_id: "280252"
+    volumes: 2
+    isbns: ["9784758026208"]
+  - shop_id: "280251"
+    volumes: 3
+    isbns: ["9784758026215"]
+  - shop_id: "282398"
+    volumes: 3
+    isbns: ["9784758026352"]
+  - shop_id: "284415"
+    volumes: 1
+    isbns: ["9784758026475"]
+  - shop_id: "290583"
+    volumes: 2
+    isbns: ["9784758026970"]
+  - shop_id: "296986"
+    volumes: 2
+    isbns: ["9784758027335"]
+  - shop_id: "299349"
+    volumes: 3
+    isbns: ["9784758027526"]
+  - shop_id: "299348"
+    volumes: 3
+    isbns: ["9784758027533"]
+  - shop_id: "301625"
+    volumes: 3
+    isbns: ["9784758027632"]
+  - shop_id: "306283"
+    volumes: 3
+    isbns: ["9784758027977"]
+  - shop_id: "312402"
+    volumes: 3
+    isbns: ["9784758028394"]
+  - shop_id: "316891"
+    volumes: 1
+    isbns: ["9784758028660"]
+  - shop_id: "199636"
+    volumes: 3
+    isbns: ["9784758035156"]
+  - shop_id: "72289"
+    volumes: 5
+    isbns: ["9784758062862"]
+  - shop_id: "224904"
+    volumes: 4
+    isbns: ["9784758069663"]
+  - shop_id: "1132"
+    volumes: 3
+    isbns: ["9784758070027"]
+  - shop_id: "1133"
+    volumes: 1
+    isbns: ["9784758070041"]
+  - shop_id: "7849"
+    volumes: 1
+    isbns: ["9784758070058"]
+  - shop_id: "1134"
+    volumes: 1
+    isbns: ["9784758070065"]
+  - shop_id: "1135"
+    volumes: 1
+    isbns: ["9784758070072"]
+  - shop_id: "14277"
+    volumes: 1
+    isbns: ["9784758070119"]
+  - shop_id: "21425"
+    volumes: 1
+    isbns: ["9784758070171"]
+  - shop_id: "14278"
+    volumes: 1
+    isbns: ["9784758070188"]
+  - shop_id: "14279"
+    volumes: 1
+    isbns: ["9784758070218"]
+  - shop_id: "5124"
+    volumes: 1
+    isbns: ["9784758070232"]
+  - shop_id: "5125"
+    volumes: 1
+    isbns: ["9784758070249"]
+  - shop_id: "21426"
+    volumes: 1
+    isbns: ["9784758070256"]
+  - shop_id: "12382"
+    volumes: 3
+    isbns: ["9784758070331"]
+  - shop_id: "12381"
+    volumes: 2
+    isbns: ["9784758070348"]
+  - shop_id: "26110"
+    volumes: 1
+    isbns: ["9784758070355"]
+  - shop_id: "72396"
+    volumes: 2
+    isbns: ["9784758070393"]
+  - shop_id: "21427"
+    volumes: 3
+    isbns: ["9784758070430"]
+  - shop_id: "42624"
+    volumes: 2
+    isbns: ["9784758070461"]
+  - shop_id: "72381"
+    volumes: 1
+    isbns: ["9784758070508"]
+  - shop_id: "29052"
+    volumes: 1
+    isbns: ["9784758070522"]
+  - shop_id: "33569"
+    volumes: 1
+    isbns: ["9784758070539"]
+  - shop_id: "33572"
+    volumes: 1
+    isbns: ["9784758070546"]
+  - shop_id: "42627"
+    volumes: 1
+    isbns: ["9784758070577"]
+  - shop_id: "29051"
+    volumes: 1
+    isbns: ["9784758070584"]
+  - shop_id: "48674"
+    volumes: 1
+    isbns: ["9784758070607"]
+  - shop_id: "48673"
+    volumes: 1
+    isbns: ["9784758070614"]
+  - shop_id: "27260"
+    volumes: 1
+    isbns: ["9784758070645"]
+  - shop_id: "27259"
+    volumes: 1
+    isbns: ["9784758070669"]
+  - shop_id: "27262"
+    volumes: 1
+    isbns: ["9784758070676"]
+  - shop_id: "30787"
+    volumes: 1
+    isbns: ["9784758070737"]
+  - shop_id: "33571"
+    volumes: 1
+    isbns: ["9784758070768"]
+  - shop_id: "42626"
+    volumes: 1
+    isbns: ["9784758070812"]
+  - shop_id: "49773"
+    volumes: 1
+    isbns: ["9784758070829"]
+  - shop_id: "72390"
+    volumes: 1
+    isbns: ["9784758070850"]
+  - shop_id: "44282"
+    volumes: 1
+    isbns: ["9784758070911"]
+  - shop_id: "37713"
+    volumes: 1
+    isbns: ["9784758070928"]
+  - shop_id: "45789"
+    volumes: 1
+    isbns: ["9784758070935"]
+  - shop_id: "72389"
+    volumes: 2
+    isbns: ["9784758070973"]
+  - shop_id: "37712"
+    volumes: 1
+    isbns: ["9784758070997"]
+  - shop_id: "72392"
+    volumes: 1
+    isbns: ["9784758071000"]
+  - shop_id: "72397"
+    volumes: 1
+    isbns: ["9784758071017"]
+  - shop_id: "86045"
+    volumes: 2
+    isbns: ["9784758071116"]
+  - shop_id: "47406"
+    volumes: 1
+    isbns: ["9784758071123"]
+  - shop_id: "72385"
+    volumes: 1
+    isbns: ["9784758071130"]
+  - shop_id: "72295"
+    volumes: 2
+    isbns: ["9784758071161"]
+  - shop_id: "72391"
+    volumes: 1
+    isbns: ["9784758071178"]
+  - shop_id: "49775"
+    volumes: 1
+    isbns: ["9784758071185"]
+  - shop_id: "87061"
+    volumes: 1
+    isbns: ["9784758071192"]
+  - shop_id: "47407"
+    volumes: 1
+    isbns: ["9784758071277"]
+  - shop_id: "49774"
+    volumes: 1
+    isbns: ["9784758071314"]
+  - shop_id: "48672"
+    volumes: 1
+    isbns: ["9784758071321"]
+  - shop_id: "44281"
+    volumes: 1
+    isbns: ["9784758071390"]
+  - shop_id: "77399"
+    volumes: 2
+    isbns: ["9784758071420"]
+  - shop_id: "79935"
+    volumes: 1
+    isbns: ["9784758071529"]
+  - shop_id: "72294"
+    volumes: 1
+    isbns: ["9784758071550"]
+  - shop_id: "72293"
+    volumes: 1
+    isbns: ["9784758071567"]
+  - shop_id: "72395"
+    volumes: 1
+    isbns: ["9784758071574"]
+  - shop_id: "72297"
+    volumes: 5
+    isbns: ["9784758071635"]
+  - shop_id: "72398"
+    volumes: 2
+    isbns: ["9784758071642"]
+  - shop_id: "47408"
+    volumes: 1
+    isbns: ["9784758071710"]
+  - shop_id: "72380"
+    volumes: 1
+    isbns: ["9784758071741"]
+  - shop_id: "72394"
+    volumes: 1
+    isbns: ["9784758071765"]
+  - shop_id: "72386"
+    volumes: 3
+    isbns: ["9784758071857"]
+  - shop_id: "72387"
+    volumes: 1
+    isbns: ["9784758071864"]
+  - shop_id: "72296"
+    volumes: 1
+    isbns: ["9784758071871"]
+  - shop_id: "72292"
+    volumes: 1
+    isbns: ["9784758071925"]
+  - shop_id: "79934"
+    volumes: 1
+    isbns: ["9784758071949"]
+  - shop_id: "77401"
+    volumes: 1
+    isbns: ["9784758071970"]
+  - shop_id: "79936"
+    volumes: 1
+    isbns: ["9784758071987"]
+  - shop_id: "72256"
+    volumes: 3
+    isbns: ["9784758072076"]
+  - shop_id: "72379"
+    volumes: 1
+    isbns: ["9784758072120"]
+  - shop_id: "76141"
+    volumes: 2
+    isbns: ["9784758072137"]
+  - shop_id: "72299"
+    volumes: 1
+    isbns: ["9784758072168"]
+  - shop_id: "72291"
+    volumes: 1
+    isbns: ["9784758072182"]
+  - shop_id: "85821"
+    volumes: 1
+    isbns: ["9784758072199"]
+  - shop_id: "72382"
+    volumes: 6
+    isbns: ["9784758072243"]
+  - shop_id: "72393"
+    volumes: 1
+    isbns: ["9784758072250"]
+  - shop_id: "85820"
+    volumes: 1
+    isbns: ["9784758072434"]
+  - shop_id: "85822"
+    volumes: 1
+    isbns: ["9784758072465"]
+  - shop_id: "75183"
+    volumes: 4
+    isbns: ["9784758072564"]
+  - shop_id: "79937"
+    volumes: 1
+    isbns: ["9784758072571"]
+  - shop_id: "75179"
+    volumes: 2
+    isbns: ["9784758072861"]
+  - shop_id: "77400"
+    volumes: 1
+    isbns: ["9784758072885"]
+  - shop_id: "75180"
+    volumes: 1
+    isbns: ["9784758072953"]
+  - shop_id: "75177"
+    volumes: 1
+    isbns: ["9784758072960"]
+  - shop_id: "77398"
+    volumes: 1
+    isbns: ["9784758072984"]
+  - shop_id: "79938"
+    volumes: 1
+    isbns: ["9784758073059"]
+  - shop_id: "80792"
+    volumes: 1
+    isbns: ["9784758073202"]
+  - shop_id: "80793"
+    volumes: 1
+    isbns: ["9784758073301"]
+  - shop_id: "81841"
+    volumes: 1
+    isbns: ["9784758073332"]
+  - shop_id: "85135"
+    volumes: 1
+    isbns: ["9784758073455"]
+  - shop_id: "85137"
+    volumes: 1
+    isbns: ["9784758073523"]
+  - shop_id: "85133"
+    volumes: 1
+    isbns: ["9784758073530"]
+  - shop_id: "85134"
+    volumes: 1
+    isbns: ["9784758073547"]
+  - shop_id: "86645"
+    volumes: 1
+    isbns: ["9784758073653"]
+  - shop_id: "86646"
+    volumes: 2
+    isbns: ["9784758073660"]
+  - shop_id: "87630"
+    volumes: 1
+    isbns: ["9784758073738"]
+  - shop_id: "87631"
+    volumes: 1
+    isbns: ["9784758073745"]
+  - shop_id: "87632"
+    volumes: 1
+    isbns: ["9784758073752"]
+  - shop_id: "87633"
+    volumes: 1
+    isbns: ["9784758073769"]
+  - shop_id: "90848"
+    volumes: 3
+    isbns: ["9784758073813"]
+  - shop_id: "90849"
+    volumes: 1
+    isbns: ["9784758073820"]
+  - shop_id: "90850"
+    volumes: 1
+    isbns: ["9784758073837"]
+  - shop_id: "92463"
+    volumes: 1
+    isbns: ["9784758073899"]
+  - shop_id: "92464"
+    volumes: 1
+    isbns: ["9784758073929"]
+  - shop_id: "94635"
+    volumes: 1
+    isbns: ["9784758073974"]
+  - shop_id: "95887"
+    volumes: 1
+    isbns: ["9784758074063"]
+  - shop_id: "95888"
+    volumes: 1
+    isbns: ["9784758074070"]
+  - shop_id: "95889"
+    volumes: 1
+    isbns: ["9784758074100"]
+  - shop_id: "95890"
+    volumes: 1
+    isbns: ["9784758074117"]
+  - shop_id: "96906"
+    volumes: 1
+    isbns: ["9784758074124"]
+  - shop_id: "100134"
+    volumes: 1
+    isbns: ["9784758074131"]
+  - shop_id: "99236"
+    volumes: 2
+    isbns: ["9784758074148"]
+  - shop_id: "96907"
+    volumes: 1
+    isbns: ["9784758074247"]
+  - shop_id: "98637"
+    volumes: 8
+    isbns: ["9784758074346"]
+  - shop_id: "100135"
+    volumes: 1
+    isbns: ["9784758074476"]
+  - shop_id: "101560"
+    volumes: 1
+    isbns: ["9784758074506"]
+  - shop_id: "101561"
+    volumes: 1
+    isbns: ["9784758074513"]
+  - shop_id: "101562"
+    volumes: 1
+    isbns: ["9784758074681"]
+  - shop_id: "104371"
+    volumes: 1
+    isbns: ["9784758074766"]
+  - shop_id: "103366"
+    volumes: 2
+    isbns: ["9784758074803"]
+  - shop_id: "103367"
+    volumes: 2
+    isbns: ["9784758074810"]
+  - shop_id: "104372"
+    volumes: 2
+    isbns: ["9784758074827"]
+  - shop_id: "104373"
+    volumes: 1
+    isbns: ["9784758074971"]
+  - shop_id: "105640"
+    volumes: 2
+    isbns: ["9784758075015"]
+  - shop_id: "107453"
+    volumes: 1
+    isbns: ["9784758075053"]
+  - shop_id: "107454"
+    volumes: 2
+    isbns: ["9784758075077"]
+  - shop_id: "112374"
+    volumes: 1
+    isbns: ["9784758075343"]
+  - shop_id: "112408"
+    volumes: 2
+    isbns: ["9784758075367"]
+  - shop_id: "113787"
+    volumes: 1
+    isbns: ["9784758075428"]
+  - shop_id: "113788"
+    volumes: 1
+    isbns: ["9784758075435"]
+  - shop_id: "115990"
+    volumes: 1
+    isbns: ["9784758075558"]
+  - shop_id: "115665"
+    volumes: 1
+    isbns: ["9784758075572"]
+  - shop_id: "121448"
+    volumes: 1
+    isbns: ["9784758075978"]
+  - shop_id: "121449"
+    volumes: 1
+    isbns: ["9784758075985"]
+  - shop_id: "121451"
+    volumes: 1
+    isbns: ["9784758076005"]
+  - shop_id: "121452"
+    volumes: 1
+    isbns: ["9784758076111"]
+  - shop_id: "122685"
+    volumes: 1
+    isbns: ["9784758076166"]
+  - shop_id: "125033"
+    volumes: 1
+    isbns: ["9784758076340"]
+  - shop_id: "127628"
+    volumes: 2
+    isbns: ["9784758076517"]
+  - shop_id: "129206"
+    volumes: 1
+    isbns: ["9784758076579"]
+  - shop_id: "129207"
+    volumes: 1
+    isbns: ["9784758076586"]
+  - shop_id: "129208"
+    volumes: 1
+    isbns: ["9784758076616"]
+  - shop_id: "130350"
+    volumes: 2
+    isbns: ["9784758076715"]
+  - shop_id: "130351"
+    volumes: 16
+    isbns: ["9784758076722"]
+  - shop_id: "130352"
+    volumes: 1
+    isbns: ["9784758076814"]
+  - shop_id: "131743"
+    volumes: 1
+    isbns: ["9784758076869"]
+  - shop_id: "131745"
+    volumes: 1
+    isbns: ["9784758076944"]
+  - shop_id: "131744"
+    volumes: 2
+    isbns: ["9784758076951"]
+  - shop_id: "131742"
+    volumes: 1
+    isbns: ["9784758076968"]
+  - shop_id: "131746"
+    volumes: 2
+    isbns: ["9784758076975"]
+  - shop_id: "134712"
+    volumes: 1
+    isbns: ["9784758077118"]
+  - shop_id: "133154"
+    volumes: 1
+    isbns: ["9784758077125"]
+  - shop_id: "140824"
+    volumes: 1
+    isbns: ["9784758077514"]
+  - shop_id: "139065"
+    volumes: 1
+    isbns: ["9784758077521"]
+  - shop_id: "140825"
+    volumes: 1
+    isbns: ["9784758077637"]
+  - shop_id: "142179"
+    volumes: 1
+    isbns: ["9784758077712"]
+  - shop_id: "142180"
+    volumes: 1
+    isbns: ["9784758077729"]
+  - shop_id: "142181"
+    volumes: 1
+    isbns: ["9784758077743"]
+  - shop_id: "153010"
+    volumes: 3
+    isbns: ["9784758078405"]
+  - shop_id: "162123"
+    volumes: 2
+    isbns: ["9784758078771"]
+  - shop_id: "166132"
+    volumes: 4
+    isbns: ["9784758078917"]
+  - shop_id: "164200"
+    volumes: 3
+    isbns: ["9784758079037"]
+  - shop_id: "170952"
+    volumes: 5
+    isbns: ["9784758079181"]
+  - shop_id: "173322"
+    volumes: 2
+    isbns: ["9784758079280"]
+  - shop_id: "177653"
+    volumes: 4
+    isbns: ["9784758079655"]
+  - shop_id: "183178"
+    volumes: 4
+    isbns: ["9784758079808"]
+  - shop_id: "136437"
+    volumes: 1
+    isbns: ["9784776796350"]
+  - shop_id: "136438"
+    volumes: 1
+    isbns: ["9784776796367"]
+  - shop_id: "40824"
+    volumes: 8
+    isbns: ["9784778320058"]
+  - shop_id: "18616"
+    volumes: 1
+    isbns: ["9784778320614"]
+  - shop_id: "157323"
+    volumes: 1
+    isbns: ["9784781617183"]
+  - shop_id: "138186"
+    volumes: 2
+    isbns: ["9784785961091"]
+  - shop_id: "211880"
+    volumes: 1
+    isbns: ["9784785967796"]
+  - shop_id: "272682"
+    volumes: 1
+    isbns: ["9784785974381"]
+  - shop_id: "333017"
+    volumes: 2
+    isbns: ["9784785980085"]
+  - shop_id: "228158"
+    volumes: 3
+    isbns: ["9784799215371"]
+  - shop_id: "273786"
+    volumes: 2
+    isbns: ["9784799217993"]
+  - shop_id: "211703"
+    volumes: 3
+    isbns: ["9784801971011"]
+  - shop_id: "221943"
+    volumes: 2
+    isbns: ["9784801972759"]
+  - shop_id: "221944"
+    volumes: 2
+    isbns: ["9784801972766"]
+  - shop_id: "223202"
+    volumes: 5
+    isbns: ["9784801973077"]
+  - shop_id: "253893"
+    volumes: 5
+    isbns: ["9784801978690"]
+  - shop_id: "270700"
+    volumes: 4
+    isbns: ["9784801980716"]
+  - shop_id: "276607"
+    volumes: 4
+    isbns: ["9784801981584"]
+  - shop_id: "293561"
+    volumes: 3
+    isbns: ["9784801983144"]
+  - shop_id: "302644"
+    volumes: 3
+    isbns: ["9784801984301"]
+  - shop_id: "310192"
+    volumes: 3
+    isbns: ["9784801985261"]
+  - shop_id: "79549"
+    volumes: 1
+    isbns: ["9784832233140"]
+  - shop_id: "199186"
+    volumes: 4
+    isbns: ["9784832237360"]
+  - shop_id: "216447"
+    volumes: 3
+    isbns: ["9784832238015"]
+  - shop_id: "216721"
+    volumes: 1
+    isbns: ["9784832238039"]
+  - shop_id: "223398"
+    volumes: 3
+    isbns: ["9784832238404"]
+  - shop_id: "235564"
+    volumes: 3
+    isbns: ["9784832238824"]
+  - shop_id: "237149"
+    volumes: 3
+    isbns: ["9784832239005"]
+  - shop_id: "184363"
+    volumes: 1
+    isbns: ["9784832240179"]
+  - shop_id: "70705"
+    volumes: 2
+    isbns: ["9784832240193"]
+  - shop_id: "70702"
+    volumes: 3
+    isbns: ["9784832240735"]
+  - shop_id: "69997"
+    volumes: 1
+    isbns: ["9784832240759"]
+  - shop_id: "104920"
+    volumes: 1
+    isbns: ["9784832241114"]
+  - shop_id: "70699"
+    volumes: 2
+    isbns: ["9784832241121"]
+  - shop_id: "70706"
+    volumes: 1
+    isbns: ["9784832241602"]
+  - shop_id: "70704"
+    volumes: 2
+    isbns: ["9784832241800"]
+  - shop_id: "70701"
+    volumes: 2
+    isbns: ["9784832241817"]
+  - shop_id: "70712"
+    volumes: 2
+    isbns: ["9784832241824"]
+  - shop_id: "70695"
+    volumes: 1
+    isbns: ["9784832241831"]
+  - shop_id: "70678"
+    volumes: 8
+    isbns: ["9784832241879"]
+  - shop_id: "70707"
+    volumes: 2
+    isbns: ["9784832241947"]
+  - shop_id: "70679"
+    volumes: 1
+    isbns: ["9784832241954"]
+  - shop_id: "70708"
+    volumes: 2
+    isbns: ["9784832242067"]
+  - shop_id: "70700"
+    volumes: 1
+    isbns: ["9784832242234"]
+  - shop_id: "70698"
+    volumes: 2
+    isbns: ["9784832242388"]
+  - shop_id: "70711"
+    volumes: 1
+    isbns: ["9784832242760"]
+  - shop_id: "70696"
+    volumes: 1
+    isbns: ["9784832243132"]
+  - shop_id: "156570"
+    volumes: 2
+    isbns: ["9784832249820"]
+  - shop_id: "260101"
+    volumes: 2
+    isbns: ["9784832258921"]
+  - shop_id: "308668"
+    volumes: 2
+    isbns: ["9784832259652"]
+  - shop_id: "334039"
+    volumes: 2
+    isbns: ["9784832259898"]
+  - shop_id: "223625"
+    volumes: 9
+    isbns: ["9784832272828"]
+  - shop_id: "231690"
+    volumes: 2
+    isbns: ["9784832273177"]
+  - shop_id: "246521"
+    volumes: 3
+    isbns: ["9784832273924"]
+  - shop_id: "256628"
+    volumes: 3
+    isbns: ["9784832274280"]
+  - shop_id: "261703"
+    volumes: 4
+    isbns: ["9784832274457"]
+  - shop_id: "278488"
+    volumes: 2
+    isbns: ["9784832274990"]
+  - shop_id: "69998"
+    volumes: 1
+    isbns: ["9784832279339"]
+  - shop_id: "70697"
+    volumes: 1
+    isbns: ["9784832279698"]
+  - shop_id: "70710"
+    volumes: 1
+    isbns: ["9784832279728"]
+  - shop_id: "69996"
+    volumes: 1
+    isbns: ["9784832279926"]
+  - shop_id: "290834"
+    volumes: 2
+    isbns: ["9784832295520"]
+  - shop_id: "329098"
+    volumes: 2
+    isbns: ["9784832296527"]
+  - shop_id: "208079"
+    volumes: 2
+    isbns: ["9784846210083"]
+  - shop_id: "279979"
+    volumes: 1
+    isbns: ["9784847035180"]
+  - shop_id: "166170"
+    volumes: 1
+    isbns: ["9784847068324"]
+  - shop_id: "278709"
+    volumes: 3
+    isbns: ["9784864682107"]
+  - shop_id: "177293"
+    volumes: 5
+    isbns: ["9784864686518"]
+  - shop_id: "222714"
+    volumes: 3
+    isbns: ["9784864688130"]
+  - shop_id: "149859"
+    volumes: 1
+    isbns: ["9784865894318"]
+  - shop_id: "149861"
+    volumes: 1
+    isbns: ["9784865894653"]
+  - shop_id: "151118"
+    volumes: 1
+    isbns: ["9784865894943"]
+  - shop_id: "155521"
+    volumes: 1
+    isbns: ["9784865895032"]
+  - shop_id: "309546"
+    volumes: 3
+    isbns: ["9784868050223"]
+# Which volume ENDED each series, where the stated count agrees with what was read.
+finals:
+  - isbn: "9784041113738"
+    volume: 1
+    volumes: 1
+    shop_id: "223361"
+  - isbn: "9784047285651"
+    volume: 1
+    volumes: 1
+    shop_id: "83272"
+  - isbn: "9784054062023"
+    volume: 1
+    volumes: 1
+    shop_id: "98145"
+  - isbn: "9784199504389"
+    volume: 1
+    volumes: 1
+    shop_id: "100724"
+  - isbn: "9784253320474"
+    volume: 1
+    volumes: 1
+    shop_id: "280537"
+  - isbn: "9784334106607"
+    volume: 1
+    volumes: 1
+    shop_id: "324823"
+  - isbn: "9784334107185"
+    volume: 1
+    volumes: 1
+    shop_id: "330636"
+  - isbn: "9784344847682"
+    volume: 1
+    volumes: 1
+    shop_id: "213814"
+  - isbn: "9784344847699"
+    volume: 1
+    volumes: 1
+    shop_id: "213815"
+  - isbn: "9784344847705"
+    volume: 1
+    volumes: 1
+    shop_id: "213816"
+  - isbn: "9784396763381"
+    volume: 1
+    volumes: 1
+    shop_id: "57392"
+  - isbn: "9784396791650"
+    volume: 1
+    volumes: 1
+    shop_id: "205916"
+  - isbn: "9784403621819"
+    volume: 1
+    volumes: 1
+    shop_id: "92723"
+  - isbn: "9784403621857"
+    volume: 1
+    volumes: 1
+    shop_id: "100031"
+  - isbn: "9784403621918"
+    volume: 1
+    volumes: 1
+    shop_id: "100034"
+  - isbn: "9784403621970"
+    volume: 1
+    volumes: 1
+    shop_id: "100037"
+  - isbn: "9784403622045"
+    volume: 1
+    volumes: 1
+    shop_id: "105084"
+  - isbn: "9784403622953"
+    volume: 1
+    volumes: 1
+    shop_id: "190677"
+  - isbn: "9784403623004"
+    volume: 1
+    volumes: 1
+    shop_id: "196314"
+  - isbn: "9784403623370"
+    volume: 1
+    volumes: 1
+    shop_id: "235916"
+  - isbn: "9784403671333"
+    volume: 1
+    volumes: 1
+    shop_id: "101119"
+  - isbn: "9784403671357"
+    volume: 1
+    volumes: 1
+    shop_id: "100038"
+  - isbn: "9784403671401"
+    volume: 1
+    volumes: 1
+    shop_id: "80024"
+  - isbn: "9784403671418"
+    volume: 1
+    volumes: 1
+    shop_id: "100027"
+  - isbn: "9784403671456"
+    volume: 1
+    volumes: 1
+    shop_id: "90361"
+  - isbn: "9784403671463"
+    volume: 1
+    volumes: 1
+    shop_id: "89831"
+  - isbn: "9784403671500"
+    volume: 1
+    volumes: 1
+    shop_id: "72043"
+  - isbn: "9784403671517"
+    volume: 1
+    volumes: 1
+    shop_id: "72041"
+  - isbn: "9784403671548"
+    volume: 1
+    volumes: 1
+    shop_id: "47976"
+  - isbn: "9784403671586"
+    volume: 1
+    volumes: 1
+    shop_id: "100028"
+  - isbn: "9784403671616"
+    volume: 1
+    volumes: 1
+    shop_id: "100029"
+  - isbn: "9784403671623"
+    volume: 1
+    volumes: 1
+    shop_id: "94990"
+  - isbn: "9784403671630"
+    volume: 1
+    volumes: 1
+    shop_id: "100030"
+  - isbn: "9784403671654"
+    volume: 1
+    volumes: 1
+    shop_id: "100032"
+  - isbn: "9784403671661"
+    volume: 1
+    volumes: 1
+    shop_id: "100025"
+  - isbn: "9784403671678"
+    volume: 1
+    volumes: 1
+    shop_id: "100033"
+  - isbn: "9784403671692"
+    volume: 1
+    volumes: 1
+    shop_id: "100035"
+  - isbn: "9784403671708"
+    volume: 1
+    volumes: 1
+    shop_id: "100036"
+  - isbn: "9784403671739"
+    volume: 1
+    volumes: 1
+    shop_id: "105086"
+  - isbn: "9784403671760"
+    volume: 1
+    volumes: 1
+    shop_id: "133706"
+  - isbn: "9784403671784"
+    volume: 1
+    volumes: 1
+    shop_id: "149634"
+  - isbn: "9784403671883"
+    volume: 1
+    volumes: 1
+    shop_id: "245900"
+  - isbn: "9784575834772"
+    volume: 1
+    volumes: 1
+    shop_id: "85797"
+  - isbn: "9784592142690"
+    volume: 1
+    volumes: 1
+    shop_id: "86290"
+  - isbn: "9784758022651"
+    volume: 1
+    volumes: 1
+    shop_id: "222826"
+  - isbn: "9784758023092"
+    volume: 1
+    volumes: 1
+    shop_id: "230578"
+  - isbn: "9784758023146"
+    volume: 1
+    volumes: 1
+    shop_id: "230576"
+  - isbn: "9784758023153"
+    volume: 1
+    volumes: 1
+    shop_id: "230577"
+  - isbn: "9784758023450"
+    volume: 1
+    volumes: 1
+    shop_id: "233804"
+  - isbn: "9784758023771"
+    volume: 1
+    volumes: 1
+    shop_id: "240674"
+  - isbn: "9784758024921"
+    volume: 1
+    volumes: 1
+    shop_id: "259962"
+  - isbn: "9784758024938"
+    volume: 1
+    volumes: 1
+    shop_id: "259963"
+  - isbn: "9784758026475"
+    volume: 1
+    volumes: 1
+    shop_id: "284415"
+  - isbn: "9784758028660"
+    volume: 1
+    volumes: 1
+    shop_id: "316891"
+  - isbn: "9784758070041"
+    volume: 1
+    volumes: 1
+    shop_id: "1133"
+  - isbn: "9784758070058"
+    volume: 1
+    volumes: 1
+    shop_id: "7849"
+  - isbn: "9784758070065"
+    volume: 1
+    volumes: 1
+    shop_id: "1134"
+  - isbn: "9784758070072"
+    volume: 1
+    volumes: 1
+    shop_id: "1135"
+  - isbn: "9784758070119"
+    volume: 1
+    volumes: 1
+    shop_id: "14277"
+  - isbn: "9784758070171"
+    volume: 1
+    volumes: 1
+    shop_id: "21425"
+  - isbn: "9784758070188"
+    volume: 1
+    volumes: 1
+    shop_id: "14278"
+  - isbn: "9784758070218"
+    volume: 1
+    volumes: 1
+    shop_id: "14279"
+  - isbn: "9784758070232"
+    volume: 1
+    volumes: 1
+    shop_id: "5124"
+  - isbn: "9784758070249"
+    volume: 1
+    volumes: 1
+    shop_id: "5125"
+  - isbn: "9784758070256"
+    volume: 1
+    volumes: 1
+    shop_id: "21426"
+  - isbn: "9784758070355"
+    volume: 1
+    volumes: 1
+    shop_id: "26110"
+  - isbn: "9784758070508"
+    volume: 1
+    volumes: 1
+    shop_id: "72381"
+  - isbn: "9784758070522"
+    volume: 1
+    volumes: 1
+    shop_id: "29052"
+  - isbn: "9784758070539"
+    volume: 1
+    volumes: 1
+    shop_id: "33569"
+  - isbn: "9784758070546"
+    volume: 1
+    volumes: 1
+    shop_id: "33572"
+  - isbn: "9784758070577"
+    volume: 1
+    volumes: 1
+    shop_id: "42627"
+  - isbn: "9784758070584"
+    volume: 1
+    volumes: 1
+    shop_id: "29051"
+  - isbn: "9784758070607"
+    volume: 1
+    volumes: 1
+    shop_id: "48674"
+  - isbn: "9784758070614"
+    volume: 1
+    volumes: 1
+    shop_id: "48673"
+  - isbn: "9784758070645"
+    volume: 1
+    volumes: 1
+    shop_id: "27260"
+  - isbn: "9784758070669"
+    volume: 1
+    volumes: 1
+    shop_id: "27259"
+  - isbn: "9784758070676"
+    volume: 1
+    volumes: 1
+    shop_id: "27262"
+  - isbn: "9784758070737"
+    volume: 1
+    volumes: 1
+    shop_id: "30787"
+  - isbn: "9784758070768"
+    volume: 1
+    volumes: 1
+    shop_id: "33571"
+  - isbn: "9784758070812"
+    volume: 1
+    volumes: 1
+    shop_id: "42626"
+  - isbn: "9784758070829"
+    volume: 1
+    volumes: 1
+    shop_id: "49773"
+  - isbn: "9784758070850"
+    volume: 1
+    volumes: 1
+    shop_id: "72390"
+  - isbn: "9784758070911"
+    volume: 1
+    volumes: 1
+    shop_id: "44282"
+  - isbn: "9784758070928"
+    volume: 1
+    volumes: 1
+    shop_id: "37713"
+  - isbn: "9784758070935"
+    volume: 1
+    volumes: 1
+    shop_id: "45789"
+  - isbn: "9784758070997"
+    volume: 1
+    volumes: 1
+    shop_id: "37712"
+  - isbn: "9784758071000"
+    volume: 1
+    volumes: 1
+    shop_id: "72392"
+  - isbn: "9784758071017"
+    volume: 1
+    volumes: 1
+    shop_id: "72397"
+  - isbn: "9784758071123"
+    volume: 1
+    volumes: 1
+    shop_id: "47406"
+  - isbn: "9784758071130"
+    volume: 1
+    volumes: 1
+    shop_id: "72385"
+  - isbn: "9784758071178"
+    volume: 1
+    volumes: 1
+    shop_id: "72391"
+  - isbn: "9784758071185"
+    volume: 1
+    volumes: 1
+    shop_id: "49775"
+  - isbn: "9784758071192"
+    volume: 1
+    volumes: 1
+    shop_id: "87061"
+  - isbn: "9784758071277"
+    volume: 1
+    volumes: 1
+    shop_id: "47407"
+  - isbn: "9784758071314"
+    volume: 1
+    volumes: 1
+    shop_id: "49774"
+  - isbn: "9784758071321"
+    volume: 1
+    volumes: 1
+    shop_id: "48672"
+  - isbn: "9784758071390"
+    volume: 1
+    volumes: 1
+    shop_id: "44281"
+  - isbn: "9784758071529"
+    volume: 1
+    volumes: 1
+    shop_id: "79935"
+  - isbn: "9784758071550"
+    volume: 1
+    volumes: 1
+    shop_id: "72294"
+  - isbn: "9784758071567"
+    volume: 1
+    volumes: 1
+    shop_id: "72293"
+  - isbn: "9784758071574"
+    volume: 1
+    volumes: 1
+    shop_id: "72395"
+  - isbn: "9784758071710"
+    volume: 1
+    volumes: 1
+    shop_id: "47408"
+  - isbn: "9784758071741"
+    volume: 1
+    volumes: 1
+    shop_id: "72380"
+  - isbn: "9784758071765"
+    volume: 1
+    volumes: 1
+    shop_id: "72394"
+  - isbn: "9784758071864"
+    volume: 1
+    volumes: 1
+    shop_id: "72387"
+  - isbn: "9784758071871"
+    volume: 1
+    volumes: 1
+    shop_id: "72296"
+  - isbn: "9784758071925"
+    volume: 1
+    volumes: 1
+    shop_id: "72292"
+  - isbn: "9784758071949"
+    volume: 1
+    volumes: 1
+    shop_id: "79934"
+  - isbn: "9784758071970"
+    volume: 1
+    volumes: 1
+    shop_id: "77401"
+  - isbn: "9784758071987"
+    volume: 1
+    volumes: 1
+    shop_id: "79936"
+  - isbn: "9784758072120"
+    volume: 1
+    volumes: 1
+    shop_id: "72379"
+  - isbn: "9784758072168"
+    volume: 1
+    volumes: 1
+    shop_id: "72299"
+  - isbn: "9784758072182"
+    volume: 1
+    volumes: 1
+    shop_id: "72291"
+  - isbn: "9784758072199"
+    volume: 1
+    volumes: 1
+    shop_id: "85821"
+  - isbn: "9784758072250"
+    volume: 1
+    volumes: 1
+    shop_id: "72393"
+  - isbn: "9784758072434"
+    volume: 1
+    volumes: 1
+    shop_id: "85820"
+  - isbn: "9784758072465"
+    volume: 1
+    volumes: 1
+    shop_id: "85822"
+  - isbn: "9784758072571"
+    volume: 1
+    volumes: 1
+    shop_id: "79937"
+  - isbn: "9784758072885"
+    volume: 1
+    volumes: 1
+    shop_id: "77400"
+  - isbn: "9784758072953"
+    volume: 1
+    volumes: 1
+    shop_id: "75180"
+  - isbn: "9784758072960"
+    volume: 1
+    volumes: 1
+    shop_id: "75177"
+  - isbn: "9784758072984"
+    volume: 1
+    volumes: 1
+    shop_id: "77398"
+  - isbn: "9784758073059"
+    volume: 1
+    volumes: 1
+    shop_id: "79938"
+  - isbn: "9784758073202"
+    volume: 1
+    volumes: 1
+    shop_id: "80792"
+  - isbn: "9784758073301"
+    volume: 1
+    volumes: 1
+    shop_id: "80793"
+  - isbn: "9784758073332"
+    volume: 1
+    volumes: 1
+    shop_id: "81841"
+  - isbn: "9784758073455"
+    volume: 1
+    volumes: 1
+    shop_id: "85135"
+  - isbn: "9784758073523"
+    volume: 1
+    volumes: 1
+    shop_id: "85137"
+  - isbn: "9784758073530"
+    volume: 1
+    volumes: 1
+    shop_id: "85133"
+  - isbn: "9784758073547"
+    volume: 1
+    volumes: 1
+    shop_id: "85134"
+  - isbn: "9784758073653"
+    volume: 1
+    volumes: 1
+    shop_id: "86645"
+  - isbn: "9784758073738"
+    volume: 1
+    volumes: 1
+    shop_id: "87630"
+  - isbn: "9784758073745"
+    volume: 1
+    volumes: 1
+    shop_id: "87631"
+  - isbn: "9784758073752"
+    volume: 1
+    volumes: 1
+    shop_id: "87632"
+  - isbn: "9784758073769"
+    volume: 1
+    volumes: 1
+    shop_id: "87633"
+  - isbn: "9784758073820"
+    volume: 1
+    volumes: 1
+    shop_id: "90849"
+  - isbn: "9784758073837"
+    volume: 1
+    volumes: 1
+    shop_id: "90850"
+  - isbn: "9784758073899"
+    volume: 1
+    volumes: 1
+    shop_id: "92463"
+  - isbn: "9784758073929"
+    volume: 1
+    volumes: 1
+    shop_id: "92464"
+  - isbn: "9784758073974"
+    volume: 1
+    volumes: 1
+    shop_id: "94635"
+  - isbn: "9784758074063"
+    volume: 1
+    volumes: 1
+    shop_id: "95887"
+  - isbn: "9784758074070"
+    volume: 1
+    volumes: 1
+    shop_id: "95888"
+  - isbn: "9784758074100"
+    volume: 1
+    volumes: 1
+    shop_id: "95889"
+  - isbn: "9784758074117"
+    volume: 1
+    volumes: 1
+    shop_id: "95890"
+  - isbn: "9784758074124"
+    volume: 1
+    volumes: 1
+    shop_id: "96906"
+  - isbn: "9784758074131"
+    volume: 1
+    volumes: 1
+    shop_id: "100134"
+  - isbn: "9784758074247"
+    volume: 1
+    volumes: 1
+    shop_id: "96907"
+  - isbn: "9784758074476"
+    volume: 1
+    volumes: 1
+    shop_id: "100135"
+  - isbn: "9784758074506"
+    volume: 1
+    volumes: 1
+    shop_id: "101560"
+  - isbn: "9784758074513"
+    volume: 1
+    volumes: 1
+    shop_id: "101561"
+  - isbn: "9784758074681"
+    volume: 1
+    volumes: 1
+    shop_id: "101562"
+  - isbn: "9784758074766"
+    volume: 1
+    volumes: 1
+    shop_id: "104371"
+  - isbn: "9784758074971"
+    volume: 1
+    volumes: 1
+    shop_id: "104373"
+  - isbn: "9784758075053"
+    volume: 1
+    volumes: 1
+    shop_id: "107453"
+  - isbn: "9784758075343"
+    volume: 1
+    volumes: 1
+    shop_id: "112374"
+  - isbn: "9784758075428"
+    volume: 1
+    volumes: 1
+    shop_id: "113787"
+  - isbn: "9784758075435"
+    volume: 1
+    volumes: 1
+    shop_id: "113788"
+  - isbn: "9784758075558"
+    volume: 1
+    volumes: 1
+    shop_id: "115990"
+  - isbn: "9784758075572"
+    volume: 1
+    volumes: 1
+    shop_id: "115665"
+  - isbn: "9784758075978"
+    volume: 1
+    volumes: 1
+    shop_id: "121448"
+  - isbn: "9784758075985"
+    volume: 1
+    volumes: 1
+    shop_id: "121449"
+  - isbn: "9784758076005"
+    volume: 1
+    volumes: 1
+    shop_id: "121451"
+  - isbn: "9784758076111"
+    volume: 1
+    volumes: 1
+    shop_id: "121452"
+  - isbn: "9784758076166"
+    volume: 1
+    volumes: 1
+    shop_id: "122685"
+  - isbn: "9784758076340"
+    volume: 1
+    volumes: 1
+    shop_id: "125033"
+  - isbn: "9784758076579"
+    volume: 1
+    volumes: 1
+    shop_id: "129206"
+  - isbn: "9784758076586"
+    volume: 1
+    volumes: 1
+    shop_id: "129207"
+  - isbn: "9784758076616"
+    volume: 1
+    volumes: 1
+    shop_id: "129208"
+  - isbn: "9784758076814"
+    volume: 1
+    volumes: 1
+    shop_id: "130352"
+  - isbn: "9784758076869"
+    volume: 1
+    volumes: 1
+    shop_id: "131743"
+  - isbn: "9784758076944"
+    volume: 1
+    volumes: 1
+    shop_id: "131745"
+  - isbn: "9784758076968"
+    volume: 1
+    volumes: 1
+    shop_id: "131742"
+  - isbn: "9784758077118"
+    volume: 1
+    volumes: 1
+    shop_id: "134712"
+  - isbn: "9784758077125"
+    volume: 1
+    volumes: 1
+    shop_id: "133154"
+  - isbn: "9784758077514"
+    volume: 1
+    volumes: 1
+    shop_id: "140824"
+  - isbn: "9784758077521"
+    volume: 1
+    volumes: 1
+    shop_id: "139065"
+  - isbn: "9784758077637"
+    volume: 1
+    volumes: 1
+    shop_id: "140825"
+  - isbn: "9784758077712"
+    volume: 1
+    volumes: 1
+    shop_id: "142179"
+  - isbn: "9784758077729"
+    volume: 1
+    volumes: 1
+    shop_id: "142180"
+  - isbn: "9784758077743"
+    volume: 1
+    volumes: 1
+    shop_id: "142181"
+  - isbn: "9784776796350"
+    volume: 1
+    volumes: 1
+    shop_id: "136437"
+  - isbn: "9784776796367"
+    volume: 1
+    volumes: 1
+    shop_id: "136438"
+  - isbn: "9784778320614"
+    volume: 1
+    volumes: 1
+    shop_id: "18616"
+  - isbn: "9784781617183"
+    volume: 1
+    volumes: 1
+    shop_id: "157323"
+  - isbn: "9784785967796"
+    volume: 1
+    volumes: 1
+    shop_id: "211880"
+  - isbn: "9784785974381"
+    volume: 1
+    volumes: 1
+    shop_id: "272682"
+  - isbn: "9784832233140"
+    volume: 1
+    volumes: 1
+    shop_id: "79549"
+  - isbn: "9784832238039"
+    volume: 1
+    volumes: 1
+    shop_id: "216721"
+  - isbn: "9784832240179"
+    volume: 1
+    volumes: 1
+    shop_id: "184363"
+  - isbn: "9784832240759"
+    volume: 1
+    volumes: 1
+    shop_id: "69997"
+  - isbn: "9784832241114"
+    volume: 1
+    volumes: 1
+    shop_id: "104920"
+  - isbn: "9784832241602"
+    volume: 1
+    volumes: 1
+    shop_id: "70706"
+  - isbn: "9784832241831"
+    volume: 1
+    volumes: 1
+    shop_id: "70695"
+  - isbn: "9784832241954"
+    volume: 1
+    volumes: 1
+    shop_id: "70679"
+  - isbn: "9784832242234"
+    volume: 1
+    volumes: 1
+    shop_id: "70700"
+  - isbn: "9784832242760"
+    volume: 1
+    volumes: 1
+    shop_id: "70711"
+  - isbn: "9784832243132"
+    volume: 1
+    volumes: 1
+    shop_id: "70696"
+  - isbn: "9784832279339"
+    volume: 1
+    volumes: 1
+    shop_id: "69998"
+  - isbn: "9784832279698"
+    volume: 1
+    volumes: 1
+    shop_id: "70697"
+  - isbn: "9784832279728"
+    volume: 1
+    volumes: 1
+    shop_id: "70710"
+  - isbn: "9784832279926"
+    volume: 1
+    volumes: 1
+    shop_id: "69996"
+  - isbn: "9784847035180"
+    volume: 1
+    volumes: 1
+    shop_id: "279979"
+  - isbn: "9784847068324"
+    volume: 1
+    volumes: 1
+    shop_id: "166170"
+  - isbn: "9784865894318"
+    volume: 1
+    volumes: 1
+    shop_id: "149859"
+  - isbn: "9784865894653"
+    volume: 1
+    volumes: 1
+    shop_id: "149861"
+  - isbn: "9784865894943"
+    volume: 1
+    volumes: 1
+    shop_id: "151118"
+  - isbn: "9784865895032"
+    volume: 1
+    volumes: 1
+    shop_id: "155521"

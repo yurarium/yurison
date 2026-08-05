@@ -43,5 +43,31 @@ def main(s):
     s.eq(m.norm("ＹＵＲＩ・花"), m.norm("yuri花"), "width, case and separators fold")
 
 
+    # A TITLE IS NOT AN IDENTIFIER. `トワ・エ・モア` is a コンパス anthology from 1996 with no
+    # creator, and a 講談社 KCデラックス series by 仲藤ぬい from 2024. Matched on the title alone,
+    # the second was filed inside the first and one work held volumes 28 years apart.
+    OLD = {"schema:identifier": "C1", "schema:name": "トワ・エ・モア", "schema:publisher": "コンパス",
+           "schema:brand": "コンパスアンソロジーコミックシリーズ"}
+    NEW = {"schema:identifier": "M2", "schema:name": "トワ・エ・モア", "schema:publisher": "講談社",
+           "schema:brand": "KCデラックス", "schema:creator": "[著]仲藤ぬい"}
+    s.check(not m.agrees(NEW, OLD), "a shared title with nothing else agreeing is not one work")
+    ser = {"C1": OLD}
+    s.eq(m.key_of(NEW, ser, m.title_index(ser))[1], "title-only",
+         "so the volume becomes its own work rather than somebody else's")
+
+    # AND THE CASE THAT MUST SURVIVE IT. 一迅社's yuri line passed to 講談社, so volumes of one
+    # work disagree about the publisher. The creator is what says they are one work.
+    ICH = {"schema:identifier": "C2", "schema:name": "ゆるゆり", "schema:publisher": "一迅社",
+           "schema:creator": "なもり"}
+    KOD = {"schema:identifier": "M3", "schema:name": "ゆるゆり", "schema:publisher": "[発売]講談社",
+           "schema:creator": "[著]なもり / ナモリ"}
+    s.check(m.agrees(KOD, ICH), "a house changing hands does not split a work whose creator agrees")
+    ser2 = {"C2": ICH}
+    s.eq(m.key_of(KOD, ser2, m.title_index(ser2))[1], "title-match", "and the volume still joins")
+    s.eq(m.people(KOD), {"なもり"}, "a role and a trailing reading are not people")
+    s.eq(m.bare_publisher({"schema:publisher": "小学館クリエイティブ(発売)"}),
+         m.bare_publisher({"schema:publisher": "小学館クリエイティブ"}),
+         "a distributor role in a trailing bracket is not a second publisher")
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "madb.extract"))

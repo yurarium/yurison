@@ -1254,6 +1254,24 @@ def main():
                  f"{', '.join(_px_new)}. The adapter replaces the rendered output; delete the "
                  "rendered file once its chapters have been compared against the new source.")
 
+    # A shop's claim about which volume ended a series, keyed by ISBN. Loaded before the work loop
+    # because every volume asks the same question of it.
+    FINAL_VOLUMES, FINISHED_BY_ISBN = {}, {}
+    _fv = pathlib.Path("data/source/comparators/shop-final-volumes.yaml")
+    if _fv.exists():
+        _fvdoc = yaml.safe_load(_fv.read_text()) or {}
+        for _fvrow in (_fvdoc.get("finals") or []):
+            FINAL_VOLUMES[str(_fvrow.get("isbn") or "")] = {
+                "source": _fvdoc.get("source"), "volumes": _fvrow.get("volumes"),
+                "retrieved": str(_fvdoc.get("retrieved") or "")}
+        # And whether the SERIES finished, which is a fact about the series and not about which of
+        # its volumes we hold. A work joins on whichever ISBN it has.
+        for _fnrow in (_fvdoc.get("finished") or []):
+            for _fnisbn in (_fnrow.get("isbns") or []):
+                FINISHED_BY_ISBN[str(_fnisbn)] = {"source": _fvdoc.get("source"),
+                                                  "volumes": _fnrow.get("volumes"),
+                                                  "retrieved": str(_fvdoc.get("retrieved") or "")}
+
     src = defaultdict(dict)
     for d in sorted(glob.glob("data/source/*")):
         name = pathlib.Path(d).name
@@ -1302,8 +1320,26 @@ def main():
             if o.get("cover_url"):
                 m["cover_url"] = o["cover_url"]
             m["openbd"] = "present" if o else "absent"
+            # WHICH VOLUME ENDED THE SERIES, where a shop states both that it ended and how long it
+            # is. A CLAIM (§5): a retailer is Tier C, so it is recorded with whose claim it is and
+            # never merged into the bibliographic fields around it. Keyed by ISBN, so it names an
+            # edition rather than a title.
+            fin = FINAL_VOLUMES.get(re.sub(r"[^0-9Xx]", "", str(v.get("isbn") or "")).upper())
+            if fin:
+                m["final_volume"] = True
+                m["final_volume_basis"] = {"source": fin["source"], "provenance": "claimed",
+                                           "volumes": fin["volumes"],
+                                           "retrieved": fin["retrieved"]}
             vols.append(m)
         w["volumes"] = vols
+        # THE SERIES FINISHED, ON A SHOP'S SAY-SO. Recorded as a claim with whose it is, never
+        # merged into a bibliographic field. 258 print works had no completion information from any
+        # source; the shop has it and we already take its word for which editions these are.
+        _digits = (re.sub(r"[^0-9Xx]", "", str(v.get("isbn") or "")).upper() for v in vols)
+        _fin = next((FINISHED_BY_ISBN[_isbn] for _isbn in _digits if _isbn in FINISHED_BY_ISBN),
+                    None)
+        if _fin:
+            w["completed_claim"] = dict(_fin, provenance="claimed")
 
         # first_publication is the inclusion test and is required (DEFINITIONS §6). What we can
         # attest here is the first 単行本; magazine serialisation is not in the bulk data, so the
@@ -3776,6 +3812,7 @@ def main():
                 "free": 0, "free_timed": 0, "priced": 0,
                 "url": None, "sources": [], "skipped": [], "collection": None,
                 "id": _pid,
+                "completed_claim": _pw2.get("completed_claim"),
                 "print": [{"work_id": _pw2["work_id"], "volumes": _pw2.get("volume_count"),
                            "publisher": _pw2.get("publisher"), "imprint": _pw2.get("imprint"),
                            "first": _fp2.get("date"), "last": _pw2.get("last_published"),
@@ -3783,6 +3820,24 @@ def main():
             })
             _added += 1
         print(f"print-only works added to the works list: {_added}")
+
+        # WHERE THE SHOP DISAGREES WITH A PLATFORM, the platform wins and the disagreement is
+        # counted rather than dropped. A shop marking a series 完結 while its serialisation is
+        # still publishing is a finding about one of the two sources, and silently taking either
+        # side would hide it. The claim rides only on rows where nothing else speaks.
+        _claim_agree = _claim_clash = 0
+        for _crow in series_rows:
+            _held = [_pw.get(_cp["work_id"], {}).get("completed_claim")
+                     for _cp in (_crow.get("print") or [])]
+            if not any(_held):
+                continue
+            if _crow.get("state") in ("completed", "oneshot", "print"):
+                _claim_agree += 1
+            else:
+                _claim_clash += 1
+        if _claim_agree or _claim_clash:
+            print(f"shop completion claims: {_claim_agree} agree with the state we hold, "
+                  f"{_claim_clash} contradict a serialisation still running")
 
     # AUTOPILOT. Before attaching anything, give every work and author the pipeline currently knows
     # about a reading if it does not have one. This is what makes a title that appears overnight

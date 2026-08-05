@@ -436,3 +436,24 @@ Stripping MADB's role brackets off the print credits took uncertain readings fro
 names were `[著]秋山はる` before, which matched nothing in the name store and so counted as
 nothing; they are people now, and five of them have no settled reading. The number went up because
 the data got better, which is the ordinary shape of this measure.
+
+## 11. A shop states ISBNs on first volumes (2026-08-05)
+
+コミックシーモア marks 1,024 of its 1,833 yuri works 完結, and 382 of those join our corpus by
+ISBN. That answers whether a series finished, and 258 works published only in volumes now say so
+where nothing said anything before.
+
+Which volume ENDED a series is a different question and this capture cannot answer it. The rule is
+sound: where the shop states 完結 and states N volumes and N were read, the Nth ended it. In
+practice 207 works pass that test and every one of them has a single volume, so the claim is true
+and says nothing. The cause is that the shop states an ISBN on 618 of 7,262 volumes read, and
+overwhelmingly on the first of a series.
+
+The mechanism is kept because the answer may come from elsewhere. BOOK☆WALKER reads volume pages
+individually and states a delivery date on all of them, so its capture may carry ISBNs deeper into
+a series; that will be visible the moment those rows go through the same route. Until a run reports
+a non-zero count of multi-volume claims, the volume badge is a feature that fires on nothing, and
+`adapters/shopfinal.py` prints that count on every run so it cannot be mistaken for working.
+
+Five works have a shop saying 完結 while a platform is still publishing them. The platform wins and
+the disagreement is counted at build time rather than resolved.

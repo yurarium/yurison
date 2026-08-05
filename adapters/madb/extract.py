@@ -94,6 +94,46 @@ def title_index(series):
     return out
 
 
+def bare_publisher(rec):
+    """A publisher without the cataloguing around it: `[頒布]`, and a trailing `(発売)`."""
+    s = split_reading(primary(rec.get("schema:publisher", "")))
+    return norm(re.sub(r"^\s*\[[^\]]*\]\s*|\s*[（(][^）)]*[）)]\s*$", "", s))
+
+
+def people(rec):
+    """The creators named on a record, without their roles, and without a bare reading."""
+    out = set()
+    for part in re.split(r"\s*/\s*", flat(rec.get("schema:creator", ""))):
+        name = re.sub(r"\[+", "[", re.sub(r"\]+", "]", part))
+        name = re.sub(r"\[[著作画原訳編監修構成脚本案翻・\s]*\]", "", name).strip()
+        # A trailing all-katakana part is the reading of the name before it, not a second person.
+        if name and not re.fullmatch(r"[\u30a0-\u30ff・\s]+", name):
+            out.add(norm(name))
+    return out
+
+
+def agrees(vol, ser):
+    """Whether anything BUT the title says this volume belongs to this series.
+
+    WHY A TITLE IS NOT ENOUGH. `トワ・エ・モア` is a コンパス anthology from 1996 with no creator
+    named, and it is also a 講談社 KCデラックス series by 仲藤ぬい from 2024. Matching on the
+    normalised title alone filed the second inside the first, so one work held volumes 28 years and
+    two publishers apart, and the reader saw an unnumbered 1996 volume sitting above 第1巻 2024.
+
+    Publisher agreement is deliberately loose about the house changing hands: 一迅社's yuri line
+    passed to 講談社 and those volumes disagree about the publisher while plainly being one work.
+    That case is carried by the creator, which does agree, so requiring ANY of the three to agree
+    keeps it while dropping the collision above. Measured over the whole corpus this refuses two
+    volume joins, both of them トワ・エ・モア.
+    """
+    if people(vol) & people(ser):
+        return True
+    if bare_publisher(vol) and bare_publisher(vol) == bare_publisher(ser):
+        return True
+    b = norm(split_reading(primary(vol.get("schema:brand", ""))))
+    return bool(b) and b == norm(split_reading(primary(ser.get("schema:brand", ""))))
+
+
 def key_of(r, series, titles):
     """`(work key, how it was reached)` for one volume.
 
@@ -109,7 +149,9 @@ def key_of(r, series, titles):
     if sid in series:
         return sid, "series-link"
     t = norm(primary(r.get("schema:name", "")))
-    if t in titles:
+    # A title match needs something else to agree with it. Where nothing does, the volume is its
+    # own work rather than somebody else's.
+    if t in titles and agrees(r, series[titles[t]]):
         return titles[t], "title-match"
     return "T:" + t, "title-only"
 

@@ -26,6 +26,8 @@ done
 # One pre-rendered entry page per work, so a citation resolves for a reader with no JavaScript.
 # The generator also deletes stubs whose work has left the corpus: a page that outlives its work
 # asserts something we withdrew, and プリンセ「ス」 left and returned inside one day.
+python3 adapters/status.py
+cp data/build/status.json "$SITE/kari/data/"
 python3 adapters/stubs.py --site "$SITE/kari"
 
 # Re-run the checks AFTER copying, and ship the report last.

@@ -293,3 +293,32 @@ holds these patterns as regexes, so the work is recording the result rather than
 
 Both want doing together: they write to the same per-run record, and between them they cover all
 three. Neither is small, because both touch every capture path.
+
+### The gap list is itself hand-enumerated
+
+`adapters/status.py` returns five hard-coded categories of outstanding work. Anything nobody
+remembered to write into that function is invisible, which is the same fault as the page computing
+its own numbers, one level up: a gap page that shows only the gaps somebody thought of reports clean
+because it never looked.
+
+Four things were measurable on 2026-08-05 and appeared nowhere:
+
+- **23 contested identity anchors and 24 title-only leads.** `identity.py` prints these on every run
+  and stores the leads in a queue nothing reads. A contest is one print record claimed by two web
+  works, which is a decision about whether they are one work. They were 1 and 0 when the module was
+  written that morning and grew with the corpus, silently.
+- **71 of 121 completion verdicts unsettled**, in `data/completion-reviewed.yaml`.
+- **207 rows whose state basis is Japanese prose.** That sentence is what a reader is shown to
+  explain why we say a work ended, and an English reader gets Japanese.
+- **Alias candidates found by eye.** `data/work-aliases.yaml` holds one hand-written entry, and
+  `identity.siblings()` already detects that class automatically with 14 pairs recorded. The build
+  knows how to propose these and does not.
+
+**Invert it.** Rather than a central function enumerating categories, have the things that produce
+work declare it: `identity.py` knows its contests, `curate.py` knows its strays, the completion
+review knows what is unsettled. Each writes a small record of what it left outstanding and
+`status.py` collects them. Then a new source of manual work reaches the page because it exists,
+rather than because somebody added a line.
+
+Same shape as the ledger and the landmark declaration, and wants doing with them: the producer
+states its own condition instead of a reader inferring it.

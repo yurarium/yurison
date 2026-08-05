@@ -216,3 +216,36 @@ is a schedule and never a release.
 - 大洋図書 and キルタイムコミュニケーション are adult-adjacent commercial publishers whose stock is
   filed as ordinary 青年マンガ. They need a per-publisher decision that cannot be made from a
   listing row.
+
+## 10. One bar, three tabs (2026-08-05)
+
+The three tabs had grown three interfaces over the same idea. Updates carried a period, a search
+box, three filters and a layout select; Works carried a search box and four selects; Releases
+carried no controls at all, over 640 volumes. They now share one shape:
+
+```
+[ search .......................... ] [ 絞り込み ▾ ]
+( the filters, collapsed by default )
+[ period ▾ ] [ filter ✕ ] [ filter ✕ ]   条件を消す
+count ................................ [ sort ▾ ] [ 簡易 | 詳細 ]
+```
+
+**Filtering happens above the line, arranging happens on it.** 簡易/詳細 spent its life in the
+filter row looking like a filter. It formats output, so it sits with the output, opposite the
+count, and Works' sort select joins it there.
+
+**The chips exist because the panel is collapsed.** These preferences persist in localStorage, so
+without them a reader returns days later to a narrowed list with nothing on screen saying so. A
+collapsed panel may hide a control; it must not hide a fact.
+
+**The period is a chip that cannot be removed**, because a period always has a value. It opens a
+menu where the others carry a cross, and the chevron is what says which kind of chip it is. Works
+has no period: there is no scope to state, so its chip row starts empty.
+
+**Density is one preference, not three.** The three segmented controls are faces on a single
+hidden `<select>`, the same arrangement the month picker uses. Compact is CSS dropping what a
+reader scanning for a title does not read, so switching costs no render.
+
+Releases gained search, a publisher filter and a period, and opens on the last twelve months
+because the tab answers "what has just come out". The full 640 is one menu entry away and the
+count line says which of the two is on screen.

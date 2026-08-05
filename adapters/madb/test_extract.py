@@ -65,6 +65,20 @@ def main(s):
     ser2 = {"C2": ICH}
     s.eq(m.key_of(KOD, ser2, m.title_index(ser2))[1], "title-match", "and the volume still joins")
     s.eq(m.people(KOD), {"なもり"}, "a role and a trailing reading are not people")
+    # A VOLUME COUNT COUNTS VOLUMES. ささやくように恋を唄う holds four of its volumes twice, a
+    # standard and a special edition differing in the ISBN and nothing else, so counting records
+    # called a 12-volume work 16 volumes long above a list of 12.
+    two_eds = [{"schema:volumeNumber": "9", "schema:datePublished": "2024-04", "schema:isbn": "a"},
+               {"schema:volumeNumber": "9", "schema:datePublished": "2024-04", "schema:isbn": "b"}]
+    s.eq(m.volume_count(two_eds), 1, "two editions of one volume are one volume")
+    s.eq(m.volume_count(two_eds + [{"schema:volumeNumber": "10",
+                                    "schema:datePublished": "2024-08"}]), 2, "and the next is another")
+    s.eq(m.volume_count([{"schema:volumeNumber": "1", "schema:datePublished": "2019-07"},
+                         {"schema:volumeNumber": "1", "schema:datePublished": "2024-11"}]), 2,
+         "a reissue years later is its own volume, not an edition of the first")
+    s.eq(m.volume_count([{"schema:datePublished": "2008-05"}, {"schema:datePublished": "2008-05"}]), 2,
+         "and unnumbered volumes have nothing to match on, so each counts once")
+
     s.eq(m.bare_publisher({"schema:publisher": "小学館クリエイティブ(発売)"}),
          m.bare_publisher({"schema:publisher": "小学館クリエイティブ"}),
          "a distributor role in a trailing bracket is not a second publisher")

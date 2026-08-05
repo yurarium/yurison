@@ -186,6 +186,27 @@ def dedupe(by_series):
     return by_series
 
 
+def volume_count(vs):
+    """How many VOLUMES a work has, which is not how many records describe them.
+
+    ささやくように恋を唄う holds four of its volumes twice, a standard and a special edition of
+    each, differing in the ISBN and in nothing else MADB records. Counting records said the work
+    was 16 volumes long while the list of them showed 12, on the same page.
+
+    Editions are one volume where the number AND the date agree. An unnumbered volume counts once
+    on its own, because there is nothing to match it against.
+    """
+    seen, n = set(), 0
+    for r in vs:
+        num = flat(r.get("schema:volumeNumber", "")).strip()
+        key = (num, flat(r.get("schema:datePublished", "")).strip())
+        if num and key in seen:
+            continue
+        seen.add(key)
+        n += 1
+    return n
+
+
 def work_id(sid):
     """Synthetic ids must be stable and unique. Stripping non-ASCII would erase a Japanese title
     entirely and collapse every title-only work onto one id, so hash the normalised title."""
@@ -237,7 +258,7 @@ def render(sid, vs, series, how, tag, retrieved, route, label, extra=()):
         f"creator: {yaml_str(flat(s.get('schema:creator', '')))}",
         f"publisher: {yaml_str(split_reading(primary(s.get('schema:publisher', ''))))}",
         f"imprint: {yaml_str(split_reading(primary(s.get('schema:brand', ''))))}",
-        f"volume_count: {len(vs)}",
+        f"volume_count: {volume_count(vs)}",
     ]
     if dates:
         L.append(f"first_published: {dates[0]}")

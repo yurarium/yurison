@@ -406,3 +406,28 @@ The fix is to read each chapter's own state rather than infer it: 先読み and 
 on the episode page, so a chapter carrying either is `purchase` whatever the ticket probe said, and
 the scheduled test runs before the ticket test rather than after it. Both shapes want a fixture in
 `adapters/gigaviewer/test_series_feeds.py` quoting this page.
+
+## 10. The ISBN population arrived with no names (2026-08-05)
+
+296 works entered from コミックシーモア's shelf by way of their ISBNs, and no name pass has seen
+any of them. Three budgets were accepted on that basis rather than because the numbers are
+acceptable:
+
+| Budget | Was | Now |
+|---|---|---|
+| works showing a romanisation | 53 | 288 |
+| works without English | 12 | 20 |
+| uncertain readings | 13 | 17 |
+
+The loud one is the first. A work with no English title is shown by a romanisation of its Japanese
+title, so the figure counts works the interface is presenting through a transliteration nobody
+published. That is a queue and not a new normal, and the budget comes back down as the passes run.
+
+What each needs is different. A romanisation is replaced by an English title, which is either a
+licensor's or ours and is marked as ours where it is. A reading is settled by openBD where the
+work has an ISBN, which this population does by construction, so `openbd_reading.py` can reach
+most of it without a title search. Nothing here needs a decision; it needs the passes running over
+a population that has not had them.
+
+The same arrives again when the BOOK☆WALKER capture finishes and its ISBNs go through the same
+route.

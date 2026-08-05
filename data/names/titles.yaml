@@ -1914,20 +1914,17 @@ names:
     en_source: yurarium
     en_source_kind: derived
     note: 糸 and 尊し. The long vowel in トウトシ is real; the join before it was not marked.
-    reading: イトトウトシ
-    reading_at: '2026-08-05'
-    reading_basis: surface
+    reading: イト トウトシ
+    reading_at: '2026-08-04'
+    reading_basis: researched
     reading_conflicts:
     - basis: surface
       source: surface
       value: イトトウトシ
-    - basis: researched
-      source: yurarium
-      value: イト トウトシ
     reading_pass: 1
-    reading_source: surface
+    reading_source: yurarium
     reading_source_kind: derived
-    verified: true
+    verified: false
   いなりの結婚:
     basis: translated
     en: Inari's Marriage
@@ -2918,20 +2915,17 @@ names:
     en_source_kind: derived
     note: は is the topic particle and is said ワ, which an unsegmented surface reading cannot show. キョウ
       and シヨウ are both genuine long vowels.
-    reading: キョウハナニシヨウ？
-    reading_at: '2026-08-05'
-    reading_basis: surface
+    reading: キョウ ワ ナニ シヨウ？
+    reading_at: '2026-08-04'
+    reading_basis: researched
     reading_conflicts:
     - basis: surface
       source: surface
       value: キョウハナニシヨウ？
-    - basis: researched
-      source: yurarium
-      value: キョウ ワ ナニ シヨウ？
     reading_pass: 1
-    reading_source: surface
+    reading_source: yurarium
     reading_source_kind: derived
-    verified: true
+    verified: false
   きーちゃんともんもん:
     basis: translated
     en: Ki-chan and Monmon
@@ -4442,20 +4436,17 @@ names:
     en_source: yurarium
     en_source_kind: derived
     note: 透明な父さん. Both long vowels are real; only the joins were missing.
-    reading: トウメイナオトウサン
-    reading_at: '2026-08-05'
-    reading_basis: surface
+    reading: トウメイ ナ オトウサン
+    reading_at: '2026-08-04'
+    reading_basis: researched
     reading_conflicts:
     - basis: surface
       source: surface
       value: トウメイナオトウサン
-    - basis: researched
-      source: yurarium
-      value: トウメイ ナ オトウサン
     reading_pass: 1
-    reading_source: surface
+    reading_source: yurarium
     reading_source_kind: derived
-    verified: true
+    verified: false
   ときときチャンネル:
     basis: translated
     en: Tokitoki Channel
@@ -5707,20 +5698,17 @@ names:
     en_source: yurarium
     en_source_kind: derived
     note: 野球 見ようよ. The trailing ヨ is the sentence-final particle and stands apart.
-    reading: ヤキュウミヨウヨ!
-    reading_at: '2026-08-05'
-    reading_basis: surface
+    reading: ヤキュウ ミヨウ ヨ!
+    reading_at: '2026-08-04'
+    reading_basis: researched
     reading_conflicts:
     - basis: surface
       source: surface
       value: ヤキュウミヨウヨ!
-    - basis: researched
-      source: yurarium
-      value: ヤキュウ ミヨウ ヨ!
     reading_pass: 1
-    reading_source: surface
+    reading_source: yurarium
     reading_source_kind: derived
-    verified: true
+    verified: false
   やさしい教師の躾けかた。:
     basis: translated
     en: How to Train a Kind Teacher.
@@ -6606,20 +6594,17 @@ names:
     en_source: yurarium
     en_source_kind: derived
     note: のっぺらぼう is the faceless yokai and carries its own long vowel; ウチラ is separate.
-    reading: ウチラノッペラボウ
-    reading_at: '2026-08-05'
-    reading_basis: surface
+    reading: ウチラ ノッペラボウ
+    reading_at: '2026-08-04'
+    reading_basis: researched
     reading_conflicts:
     - basis: surface
       source: surface
       value: ウチラノッペラボウ
-    - basis: researched
-      source: yurarium
-      value: ウチラ ノッペラボウ
     reading_pass: 1
-    reading_source: surface
+    reading_source: yurarium
     reading_source_kind: derived
-    verified: true
+    verified: false
   エイティエイトを２でわって:
     basis: translated
     en: Eighty-Eight Divided by Two
@@ -6756,20 +6741,17 @@ names:
     en_source_kind: derived
     note: おかわり, いただけた and だろうか are three words, and running them together produced one unreadable string.
       ロウ in だろうか is a real long vowel.
-    reading: オカワリイタダケタダロウカ?
-    reading_at: '2026-08-05'
-    reading_basis: surface
+    reading: オカワリ イタダケタ ダロウカ？
+    reading_at: '2026-08-04'
+    reading_basis: researched
     reading_conflicts:
     - basis: surface
       source: surface
       value: オカワリイタダケタダロウカ?
-    - basis: researched
-      source: yurarium
-      value: オカワリ イタダケタ ダロウカ？
     reading_pass: 1
-    reading_source: surface
+    reading_source: yurarium
     reading_source_kind: derived
-    verified: true
+    verified: false
   オカ研とエスパーと:
     basis: translated
     en: The Occult Club and an Esper
@@ -8664,12 +8646,12 @@ names:
     verified: true
   ステラ・ステップ:
     basis: official-jp
-    en: Stella` / `Step`, split above and below the katakana
+    en: Stella Step
     en_at: '2026-08-05'
     en_conflicts:
-    - basis: translated
-      source: yurarium
-      value: Stella Step
+    - basis: official-jp
+      source: series-art
+      value: Stella` / `Step`, split above and below the katakana
     en_source: series-art
     en_source_kind: platform
     en_url: https://cdn-public.comici.jp/series/1646812/20250624122143882D17345FE433856874F936436F772ABB7.webp
@@ -10890,20 +10872,17 @@ names:
     en_source_kind: derived
     note: 繭の唄 written in katakana. ノ is the genitive particle and ウタ is 唄, so there is no long vowel in
       the title at all; the reading is segmented to say so.
-    reading: マユノウタ
-    reading_at: '2026-08-05'
-    reading_basis: surface
+    reading: マユ ノ ウタ
+    reading_at: '2026-08-04'
+    reading_basis: researched
     reading_conflicts:
     - basis: surface
       source: surface
       value: マユノウタ
-    - basis: researched
-      source: yurarium
-      value: マユ ノ ウタ
     reading_pass: 1
-    reading_source: surface
+    reading_source: yurarium
     reading_source_kind: derived
-    verified: true
+    verified: false
   マルジナルテイラ:
     basis: translated
     en: Marginal Tailor
@@ -28284,12 +28263,15 @@ names:
     verified: false
   魔女の孫と七人のメイド:
     basis: official-jp
-    en: The Witch's Granddaughter and Seven Maids` — no *the* before *Seven*
+    en: The Witch's Granddaughter and Seven Maids
     en_at: '2026-08-05'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: The Witch's Granddaughter and the Seven Maids
+    - basis: official-jp
+      source: series-art
+      value: The Witch's Granddaughter and Seven Maids` — no *the* before *Seven*
     en_source: series-art
     en_source_kind: platform
     en_url: https://cdn-img.comic-action.com/public/series-thumbnail/11341664176597597354-cf337eaf2c77b3300b8435cf0987c57d

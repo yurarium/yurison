@@ -125,6 +125,22 @@ SERIAL_PAGE = '''
 <h2 class="p-episode__title a-ttsk-title--icon">全1話</h2>
 '''
 
+# Quoted from https://bookwalker.jp/de07b14596.../ on 2026-08-05, the imprint field as the shop
+# renders it for a book that has none. 43 volumes of this capture were filed under ―― before this
+# fixture existed.
+NO_LABEL_VOLUME = '''
+<script type="application/ld+json">
+{"@context": "http://schema.org", "@type": "Product", "name": "2332"}
+</script>
+<dl class="t-c-detail-about-information__data">
+  <dt>著者</dt><dd><ul><li><a href="https://bookwalker.jp/author/9/">真くん(著者)</a></li></ul></dd>
+  <dt>レーベル</dt><dd>――</dd>
+  <dt>出版社</dt><dd><a href="https://bookwalker.jp/company/9/">ライトリーズン</a></dd>
+  <dt>カテゴリ</dt><dd><a href="https://bookwalker.jp/category/2/">マンガ</a></dd>
+  <dt>配信開始日</dt><dd>2020/11/2</dd>
+</dl>
+'''
+
 # What a fetch that went wrong looks like. It is a page, it is 200, it has a shell, and it states
 # no book. This is the shape the floor exists to tell apart from a quiet day.
 ERROR_SHELL = '''
@@ -231,6 +247,21 @@ def main(s):
          "and the imprint wins where the shop states one")
     s.eq(bv.imprint_key({}), None, "with nothing to group by, nothing is grouped")
 
+    # THE ―― BUG, WHICH SHIPPED HERE AFTER bookwalker_shelf.py HAD ALREADY PAID FOR IT. The shop
+    # renders an absent label as ――, and this module stored it as an imprint on 43 volumes. That
+    # was not merely an ugly field: `imprint_key` then pooled every unlabelled book in the capture
+    # into one bucket, and 2 dated volumes out of 43 unrelated ones were enough to answer
+    # `no-print-date-stated` for all of them.
+    s.eq(bv.label("――"), None, "the shop's rendering of an absent label is not a label")
+    s.eq(bv.label("ーー"), None, "nor the katakana-lengthener form of the same rendering")
+    s.eq(bv.label("百合コレ"), "百合コレ", "and a real label survives, which is the counter-case")
+    s.eq(bv.label("――ダッシュではじまる"), "――ダッシュではじまる",
+         "a title-like label that merely STARTS with the dash is kept: the rule is the whole field")
+    s.eq(bv.volume(NO_LABEL_VOLUME)["imprint"], None, "read off a page, the same answer")
+    s.eq(bv.volume(NO_LABEL_VOLUME)["publisher"], "ライトリーズン", "the publisher is still there")
+    s.eq(bv.imprint_key(bv.volume(NO_LABEL_VOLUME)), "ライトリーズン",
+         "so an unlabelled book groups under its own publisher instead of under ――")
+
     # A CHAPTER SERIAL EXPLAINS ITSELF TOO, and never by way of its 更新 date.
     b, note = bv.date_basis({"store": "話・連載", "first_publication_date": None, "volumes": []},
                             stats)
@@ -327,6 +358,17 @@ def main(s):
              "and the pass that added one work kept the two it never touched")
         s.eq(bv._read(pathlib.Path(tmp) / "absent.yaml", 2438)["works"], {},
              "while a file that is not there resumes from nothing rather than failing")
+
+        # THE CHECKPOINT MUST NOT BE THE THING THAT LOSES THE FILE. `write_text` truncates and then
+        # fills, so a kill inside the gap leaves a half file, `_read` returns blank, and the next
+        # pass rebuilds from nothing. That is the failure the checkpoint exists to prevent, arriving
+        # through the checkpoint. Caught by a poll that read the file mid-write during the real run.
+        s.eq(out.exists(), True, "the file is there after a write")
+        s.eq(sorted(p.name for p in pathlib.Path(tmp).iterdir() if p.suffix == ".partial"), [],
+             "and no .partial is left behind, so the rename happened rather than a copy")
+        bv._write(out, third)
+        s.eq(len(bv._read(out, 2438)["works"]), 3,
+             "a second write over a live file leaves it readable, not half-written")
 
         # A ROW WRITTEN BY AN OLDER VERSION IS RE-DERIVED, NOT TRUSTED. The summary above a row's
         # volumes is a function of those volumes, and a file holding rows from two versions with

@@ -1,0 +1,69 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C336231
+route: isbn-from-capture
+grouping: series-link
+madb_id: C336231
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C336231
+record_type: manga_book_series
+title:
+  ja: "桜Trick"
+  yomi: "サクラ トリック"
+creator: "[著]タチ"
+publisher: "芳文社"
+imprint: "Manga time KR comics　／　Kirara menu"
+volume_count: 8
+first_published: 2012-09
+last_published: 2017-10
+volumes:
+  - madb_id: M383065
+    number: "第1巻"
+    isbn: "9784832241879"
+    published: 2012-09
+  - madb_id: M383066
+    number: "第2巻"
+    isbn: "9784832242685"
+    published: 2013-03
+  - madb_id: M406464
+    number: "第3巻"
+    isbn: "9784832243606"
+    published: 2013-11
+  - madb_id: M419037
+    number: "第4巻"
+    isbn: "9784832244108"
+    published: 2014-03
+  - madb_id: M440863
+    number: "第5巻"
+    isbn: "9784832245075"
+    published: 2015-01
+  - madb_id: M454924
+    number: "第6巻"
+    isbn: "9784832246270"
+    published: 2015-11
+  - madb_id: M474325
+    number: "第7巻"
+    isbn: "9784832247567"
+    published: 2016-11
+  - madb_id: M492963
+    number: "第8巻"
+    isbn: "9784832248731"
+    published: 2017-10
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C336231
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

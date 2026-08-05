@@ -1,0 +1,60 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C273428
+route: isbn-from-capture
+grouping: series-link
+madb_id: C273428
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C273428
+record_type: manga_book_series
+title:
+  ja: "オクターヴ"
+creator: "[著]秋山はる"
+publisher: "講談社"
+imprint: "アフタヌーンKC"
+volume_count: 6
+first_published: 2008-08
+last_published: 2011-01
+volumes:
+  - madb_id: M366562
+    number: "v.1"
+    isbn: "9784063145182"
+    published: 2008-08
+  - madb_id: M366561
+    number: "vol.2"
+    isbn: "9784063145519"
+    published: 2009-02
+  - madb_id: M366560
+    number: "vol.3"
+    isbn: "9784063145847"
+    published: 2009-08
+  - madb_id: M366559
+    number: "vol.4"
+    isbn: "9784063106329"
+    published: 2010-02
+  - madb_id: M366558
+    number: "vol.5"
+    isbn: "9784063106879"
+    published: 2010-08
+  - madb_id: M402222
+    number: "vol.6"
+    isbn: "9784063107272"
+    published: 2011-01
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C273428
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

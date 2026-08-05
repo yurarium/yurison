@@ -1,0 +1,46 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: madb-t-8a8efe83b7b7
+route: isbn-from-capture
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "江口さんちの純情サキュバス"
+  yomi: "エグチサンチ ノ ジュンジョウ サキュバス"
+creator: "工藤える / クドウエル"
+publisher: "芳文社"
+imprint: "Manga time KR comics. Kirara menu"
+volume_count: 2
+first_published: 2025-06-30
+last_published: 2026-06-08
+volumes:
+  - madb_id: M1063697
+    number: "Volume 1"
+    isbn: "9784832296404"
+    published: 2025-06-30
+  - madb_id: M1113560
+    number: "Volume 2"
+    isbn: "9784832297234"
+    published: 2026-06-08
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

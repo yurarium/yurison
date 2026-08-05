@@ -1,0 +1,43 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C438331
+route: isbn-from-capture
+grouping: mixed
+madb_id: C438331
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C438331
+record_type: manga_book_series
+title:
+  ja: "悪役令嬢ですが、ヒロインに攻略されてますわ!? : アンソロジーコミック"
+  yomi: "アクヤク レイジョウ デス ガ 、 ヒロイン ニ コウリャク サレテマスワ!? : アンソロジーコミック"
+creator: ""
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 2
+first_published: 2023-07
+last_published: 2023-07
+volumes:
+  - madb_id: M824805
+    isbn: "9784758035385"
+  - madb_id: M930277
+    number: "2"
+    isbn: "9784758039093"
+    published: 2023-07
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C438331
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

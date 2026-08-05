@@ -1,0 +1,49 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C366836
+route: isbn-from-capture
+grouping: series-link
+madb_id: C366836
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C366836
+record_type: manga_book_series
+title:
+  ja: "私と彼女のお泊まり映画"
+  yomi: "ワタクシ ト カノジョ ノ オトマリ エイガ"
+creator: "[著]安田剛助"
+publisher: "新潮社"
+imprint: "Bunch comics"
+volume_count: 3
+first_published: 2016-12
+last_published: 2018-03
+volumes:
+  - madb_id: M476804
+    number: "1"
+    isbn: "9784107719362"
+    published: 2016-12
+  - madb_id: M484541
+    number: "2"
+    isbn: "9784107720009"
+    published: 2017-08
+  - madb_id: M517219
+    number: "3"
+    isbn: "9784107720580"
+    published: 2018-03
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C366836
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

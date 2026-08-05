@@ -371,6 +371,32 @@ names:
     note: already Latin on the platform's own page; no romanisation involved
     script: latin
     verified: true
+  '[編]乙女☆妄想族':
+    basis: romaji
+    furigana_spans:
+    - - '['
+      - null
+    - - 編
+      - へん
+    - - ']'
+      - null
+    - - 乙女
+      - おとめ
+    - - ☆
+      - null
+    - - 妄想
+      - もうそう
+    - - 族
+      - ぞく
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: '[ ヘン ] オトメ ☆ モウソウゾク'
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   baba:
     basis: stated
     en: baba
@@ -2557,6 +2583,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  はるかわ陽:
+    basis: romaji
+    furigana_spans:
+    - - はるかわ
+      - null
+    - - 陽
+      - ひ
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ハルカ ワ ヒ
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ばたっち:
     basis: romaji
     en_at: '2026-08-02'
@@ -4235,6 +4277,17 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ショウマケイト:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ショウマ ケイト
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ジョーさん。:
     basis: romaji
     en_at: '2026-08-02'
@@ -4622,6 +4675,20 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  パデラポッロのりお:
+    basis: romaji
+    furigana_spans:
+    - - パデラポッロのりお
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: パデラポッロ ノリオ
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ヒジキ:
     basis: romaji
     en: Hijiki
@@ -6914,6 +6981,24 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033769174
     verified: true
+  卯蟹うか:
+    basis: romaji
+    furigana_spans:
+    - - 卯
+      - う
+    - - 蟹
+      - かに
+    - - うか
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ウ カニ ウ カ
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   原川ユキ:
     basis: romaji
     furigana_spans:
@@ -12296,6 +12381,22 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ミト ツバキ
+    reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  水瀬るるう:
+    basis: romaji
+    furigana_spans:
+    - - 水瀬
+      - みなせ
+    - - るるう
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ミナセ ルル ウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4

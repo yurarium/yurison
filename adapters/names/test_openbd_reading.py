@@ -133,6 +133,16 @@ def main(s):
                                   / "data" / "source" / "madb"))
     s.check("東雲水生" in credits, "a credit is found under the name without its role")
     s.check(all(not c.startswith("[") for c in credits), "no credit keeps its role bracket")
+
+    # MADB ALSO PUTS THE NAME IN A BRACKET: `[上田香子][訳]`, with the role in the next group. A
+    # stripper that removed one leading group left `[訳]` standing where a person should be, and a
+    # role is not a person. Which group is the name is decided by what it is spelt out of.
+    s.eq(ob.credit_name("[上田香子][訳]"), "上田香子", "a bracketed name keeps its content")
+    s.eq(ob.credit_name("[作・画]ステファン・セジク"), "ステファン・セジク",
+         "a leading role is still dropped, middle dot and all")
+    s.eq(ob.credit_name("[訳]"), "", "and a credit that is only a role names nobody")
+    s.eq(ob.credit_name("東雲水生"), "東雲水生", "a bare name is untouched")
+    s.eq(ob.credit_name("[[著]]椿木とりか"), "椿木とりか", "a doubled delimiter is still one")
     # AND SOME OF THEM ARE TEN DIGITS. Six books from 2006 and 2007 carry a pre-2007 ISBN-10 in
     # MADB, so a check that every ISBN is thirteen digits is a rule the data itself refutes. It was
     # written that way first and caught here, which is the counter-case being worth more than the

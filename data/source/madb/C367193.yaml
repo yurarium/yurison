@@ -1,0 +1,61 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C367193
+route: isbn-from-capture
+grouping: series-link
+madb_id: C367193
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C367193
+record_type: manga_book_series
+title:
+  ja: "明るい記憶喪失"
+  yomi: "アカルイ キオク ソウシツ"
+creator: "[著]奥たまむし"
+publisher: "KADOKAWA"
+imprint: "MFCキューンシリーズ"
+volume_count: 6
+first_published: 2017-02
+last_published: 2021-01
+volumes:
+  - madb_id: M479805
+    number: "1"
+    isbn: "9784040690261"
+    published: 2017-02
+  - madb_id: M492592
+    number: "2"
+    isbn: "9784040694290"
+    published: 2017-09
+  - madb_id: M517553
+    number: "3"
+    isbn: "9784040697826"
+    published: 2018-03
+  - madb_id: M525227
+    number: "4"
+    isbn: "9784040654805"
+    published: 2019-02
+  - madb_id: M818035
+    number: "5"
+    isbn: "9784040643601"
+    published: 2020-02
+  - madb_id: M830310
+    number: "6"
+    isbn: "9784046801005"
+    published: 2021-01
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C367193
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

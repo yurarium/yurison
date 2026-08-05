@@ -1,0 +1,49 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C449480
+route: isbn-from-capture
+grouping: mixed
+madb_id: C449480
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C449480
+record_type: manga_book_series
+title:
+  ja: "ひめちゃんは重い女"
+  yomi: "ヒメチャン ワ オモイ オンナ"
+creator: "[著]花束葬式"
+publisher: "芳文社"
+imprint: "FUZ comics"
+volume_count: 3
+first_published: 2021-07
+last_published: 2022-08
+volumes:
+  - madb_id: M850917
+    number: "1"
+    isbn: "9784832238404"
+    published: 2021-07
+  - madb_id: M857909
+    number: "2"
+    isbn: "9784832238756"
+    published: 2021-12
+  - madb_id: M873151
+    number: "3"
+    isbn: "9784832239340"
+    published: 2022-08
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C449480
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

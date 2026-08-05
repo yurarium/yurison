@@ -27455,6 +27455,31 @@
    "is_preferred": true,
    "surfaced": false,
    "feed_date": "2026-07-16",
+   "work_en": {
+    "reading": "ウンメイ ノ ヤマダダダダダダダダダダ",
+    "ruby": [
+     [
+      "運",
+      "うん"
+     ],
+     [
+      "命",
+      "めい"
+     ],
+     [
+      "のヤマダダダダダダダダダダ",
+      null
+     ]
+    ],
+    "romaji": {
+     "macron": "Unmei no Yamadadadadadadadadadada",
+     "double": "Unmei no Yamadadadadadadadadadada",
+     "plain": "Unmei no Yamadadadadadadadadadada"
+    },
+    "basis": "romaji",
+    "reading_basis": "analyser",
+    "unverified": true
+   },
    "author_en": {
     "reading": "オニギリパクパク",
     "romaji": {
@@ -51418,13 +51443,15 @@
    "surfaced": false,
    "feed_date": "2026-07-02",
    "work_en": {
-    "reading": "プロジェクト・ユリフォーミング！",
+    "reading": "プロジェクト・ ユリフォーミング !",
     "romaji": {
-     "macron": "Purojekuto Yurifōmingu!",
-     "double": "Purojekuto Yurifoomingu!",
-     "plain": "Purojekuto Yurifomingu!"
+     "macron": "Purojekuto Yurifōmingu !",
+     "double": "Purojekuto Yurifoomingu !",
+     "plain": "Purojekuto Yurifomingu !"
     },
-    "reading_basis": "surface"
+    "basis": "romaji",
+    "reading_basis": "analyser",
+    "unverified": true
    },
    "author_en": {
     "en": "Ouchi Kaeru",
@@ -79284,7 +79311,32 @@
    "also_on": [],
    "is_preferred": true,
    "surfaced": false,
-   "feed_date": "2026-06-16"
+   "feed_date": "2026-06-16",
+   "work_en": {
+    "reading": "ラブ カ ライク カ ワカラナイ !",
+    "ruby": [
+     [
+      "ラブかライクか",
+      null
+     ],
+     [
+      "分",
+      "わ"
+     ],
+     [
+      "からない!",
+      null
+     ]
+    ],
+    "romaji": {
+     "macron": "Rabu Ka Raiku Ka Wakaranai !",
+     "double": "Rabu Ka Raiku Ka Wakaranai !",
+     "plain": "Rabu Ka Raiku Ka Wakaranai !"
+    },
+    "basis": "romaji",
+    "reading_basis": "analyser",
+    "unverified": true
+   }
   },
   {
    "id": "kadokomi:KC_0012770003500021_E",
@@ -88908,24 +88960,7 @@
    "retrieved": "2026-08-03"
   }
  ],
- "contradicted": [
-  {
-   "work": "愛でたいセンセイ",
-   "platform": "COMIC Y-OURS",
-   "claimed": "2026-07-03",
-   "platform_latest": "2026-05-08",
-   "chapters_held": 4,
-   "source": "webcomics.jp"
-  },
-  {
-   "work": "ケモノとワルツ",
-   "platform": "コミックグロウル",
-   "claimed": "2026-07-02",
-   "platform_latest": "2026-04-04",
-   "chapters_held": 29,
-   "source": "webcomics.jp"
-  }
- ],
+ "contradicted": [],
  "print_candidates": [
   {
    "work_title": "セフレ沼から抜け出せないっ！百合えっちアンソロジー",

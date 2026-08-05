@@ -1,0 +1,85 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C422127
+route: isbn-from-capture
+grouping: title-match
+madb_id: C422127
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C422127
+record_type: manga_book_series
+title:
+  ja: "推しが武道館いってくれたら死ぬ"
+  yomi: "オシ ガ ブドウカン イッテクレタラ シヌ"
+creator: "[著]平尾アウリ"
+publisher: "徳間書店"
+imprint: "Ryu comics"
+volume_count: 12
+first_published: 2016-03
+last_published: 2026-01-26
+volumes:
+  - madb_id: M808844
+    number: "1"
+    isbn: "9784199504914"
+    published: 2016-03
+  - madb_id: M808898
+    number: "2"
+    isbn: "9784199505270"
+    published: 2016-10
+  - madb_id: M529510
+    number: "3"
+    isbn: "9784199505706"
+    published: 2017-07
+  - madb_id: M529501
+    number: "4"
+    isbn: "9784199506222"
+    published: 2018-06
+  - madb_id: M521078
+    number: "5"
+    isbn: "9784199506581"
+    published: 2019-01
+  - madb_id: M813460
+    number: "6"
+    isbn: "9784199506895"
+    published: 2019-11
+  - madb_id: M829777
+    number: "7"
+    isbn: "9784199507250"
+    published: 2021-01
+  - madb_id: M859433
+    number: "8"
+    isbn: "9784199507618"
+    published: 2022-01
+  - madb_id: M875089
+    number: "9"
+    isbn: "9784199507892"
+    published: 2022-10
+  - madb_id: M948035
+    number: "10"
+    isbn: "9784199508417"
+    published: 2024-02
+  - madb_id: M1034977
+    number: "11"
+    isbn: "9784199508875"
+    published: 2025-01-03
+  - madb_id: M1094595
+    number: "12"
+    isbn: "9784199509384"
+    published: 2026-01-26
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C422127
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

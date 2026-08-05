@@ -1,0 +1,73 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C450947
+route: isbn-from-capture
+grouping: title-match
+madb_id: C450947
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C450947
+record_type: manga_book_series
+title:
+  ja: "アネモネは熱を帯びる"
+  yomi: "アネモネ ワ ネツ オ オビル"
+creator: "桜木蓮"
+publisher: "芳文社"
+imprint: "Kirara menu"
+volume_count: 9
+first_published: 2021-06
+last_published: 2025-07-13
+volumes:
+  - madb_id: M849074
+    number: "1"
+    isbn: "9784832272828"
+    published: 2021-06
+  - madb_id: M858056
+    number: "2"
+    isbn: "9784832273313"
+    published: 2021-12
+  - madb_id: M870926
+    number: "3"
+    isbn: "9784832273719"
+    published: 2022-06
+  - madb_id: M879077
+    number: "4"
+    isbn: "9784832274242"
+    published: 2022-12
+  - madb_id: M930784
+    number: "5"
+    isbn: "9784832274686"
+    published: 2023-07
+  - madb_id: M945964
+    number: "6"
+    isbn: "9784832295094"
+    published: 2023-12
+  - madb_id: M971374
+    number: "7"
+    isbn: "9784832295599"
+    published: 2024-07
+  - madb_id: M1035112
+    number: "8"
+    isbn: "9784832296039"
+    published: 2025-01-03
+  - madb_id: M1115071
+    number: "9"
+    isbn: "9784832296466"
+    published: 2025-07-13
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C450947
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

@@ -1,0 +1,40 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C366412
+route: isbn-from-capture
+grouping: series-link
+madb_id: C366412
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C366412
+record_type: manga_book_series
+title:
+  ja: "共鳴するエコー"
+  yomi: "キョウメイ スル エコー"
+creator: "[著]きぎたつみ"
+publisher: "芳文社"
+imprint: "Manga time KR comics　／　Tsubomi series"
+volume_count: 1
+first_published: 2010-12
+last_published: 2010-12
+volumes:
+  - madb_id: M478671
+    isbn: "9784832279698"
+    published: 2010-12
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C366412
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

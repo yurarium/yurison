@@ -1357,8 +1357,22 @@ def main():
             w[axis] = val
             w[f"{axis}_basis"] = basis
 
-        if not w.get("marketing_label") and not w.get("content_tier"):
-            errors.append(f"{wid}: fails the inclusion test — neither axis set (DEFINITIONS §2)")
+        # THE THIRD BRANCH OF THE INCLUSION TEST. §2 reads "content_tier ≠ incidental OR
+        # marketing_label ≠ none OR a comparator lists it", and a licensed retailer's yuri shelf is
+        # a comparator (§2, decided 2026-08-04). Such a work carries `marketing_label: none`,
+        # because a shop's shelf is never publisher-side labelling (§4), so the two axes cannot
+        # admit it and the check below would reject a work the test admits.
+        #
+        # It is recorded rather than assumed. §2 requires knowing WHICH comparator admitted a work,
+        # so a reader can tell whether it is here because a publisher called it yuri or because a
+        # shop shelved it there, and the field carries the shelf and the day it was read.
+        admitted = base.get("admitted_by")
+        if admitted:
+            w["admitted_by"] = admitted
+
+        if not w.get("marketing_label") and not w.get("content_tier") and not admitted:
+            errors.append(f"{wid}: fails the inclusion test — neither axis set and no comparator "
+                          f"admits it (DEFINITIONS §2)")
 
         # Media policy (§2): covers only from a permitted host, never on explicit records.
         explicit = bool(ov.get("explicit_content"))

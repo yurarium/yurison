@@ -1,0 +1,50 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: madb-t-2c1cd643afe8
+route: isbn-from-capture
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "夢でフラれてはじまる百合"
+  yomi: "ユメ デ フラレテ ハジマル ユリ"
+creator: "ヒジキ"
+publisher: "竹書房"
+imprint: "Bamboo comics"
+volume_count: 3
+first_published: 2022-12
+last_published: 2024-05
+volumes:
+  - madb_id: M879830
+    number: "1"
+    isbn: "9784801979246"
+    published: 2022-12
+  - madb_id: M934097
+    number: "2"
+    isbn: "9784801981621"
+    published: 2023-09
+  - madb_id: M969651
+    number: "3"
+    isbn: "9784801983168"
+    published: 2024-05
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

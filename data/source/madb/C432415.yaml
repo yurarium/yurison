@@ -1,0 +1,57 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C432415
+route: isbn-from-capture
+grouping: mixed
+madb_id: C432415
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C432415
+record_type: manga_book_series
+title:
+  ja: "神絵師JKとOL腐女子"
+  yomi: "カミエシ ジェーケー ト オーエル フジョシ"
+creator: "[著]さと"
+publisher: "[発売]小学館クリエイティブ"
+imprint: "ヒーローズコミックスふらっと"
+volume_count: 5
+first_published: 2019-06
+last_published: 2022-07
+volumes:
+  - madb_id: M807307
+    number: "1"
+    isbn: "9784864686518"
+    published: 2019-06
+  - madb_id: M821269
+    number: "2"
+    isbn: "9784864687294"
+    published: 2020-06
+  - madb_id: M846381
+    number: "3"
+    isbn: "9784864687829"
+    published: 2021-03
+  - madb_id: M857140
+    number: "4"
+    isbn: "9784864688383"
+    published: 2021-11
+  - madb_id: M873848
+    number: "5"
+    isbn: "9784864688901"
+    published: 2022-07
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C432415
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

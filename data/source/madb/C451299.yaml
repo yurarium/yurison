@@ -1,0 +1,53 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C451299
+route: isbn-from-capture
+grouping: mixed
+madb_id: C451299
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C451299
+record_type: manga_book_series
+title:
+  ja: "同級生の推し作家に百合妄想がバレた結果"
+  yomi: "ドウキュウセイ ノ オシ サッカ ニ ユリ モウソウ ガ バレタ ケッカ"
+creator: "[著]紺色3号"
+publisher: "[頒布]講談社 (発売)"
+imprint: "星海社COMICS"
+volume_count: 4
+first_published: 2021-05
+last_published: 2023-06
+volumes:
+  - madb_id: M847183
+    number: "1"
+    isbn: "9784065235133"
+    published: 2021-05
+  - madb_id: M856367
+    number: "2"
+    isbn: "9784065261484"
+    published: 2021-11
+  - madb_id: M871534
+    number: "3"
+    isbn: "9784065287651"
+    published: 2022-07
+  - madb_id: M928806
+    number: "4"
+    isbn: "9784065322185"
+    published: 2023-06
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C451299
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

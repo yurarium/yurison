@@ -1,0 +1,57 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C422246
+route: isbn-from-capture
+grouping: series-link
+madb_id: C422246
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C422246
+record_type: manga_book_series
+title:
+  ja: "アラーニァ : murciélago byproduct"
+  yomi: "アラーニァ : ムルシエラゴ byproduct"
+creator: "[作画]アラカワシン / [原作]よしむらかな"
+publisher: "スクウェア・エニックス"
+imprint: "ヤングガンガンコミックス"
+volume_count: 5
+first_published: 2018-06
+last_published: 2020-07
+volumes:
+  - madb_id: M531942
+    number: "1"
+    isbn: "9784757557611"
+    published: 2018-06
+  - madb_id: M523425
+    number: "2"
+    isbn: "9784757559592"
+    published: 2019-01
+  - madb_id: M809109
+    number: "3"
+    isbn: "9784757562127"
+    published: 2019-07
+  - madb_id: M816608
+    number: "4"
+    isbn: "9784757564794"
+    published: 2020-01
+  - madb_id: M820968
+    number: "5"
+    isbn: "9784757567641"
+    published: 2020-07
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C422246
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

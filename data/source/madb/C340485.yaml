@@ -1,0 +1,77 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C340485
+route: isbn-from-capture
+grouping: series-link
+madb_id: C340485
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C340485
+record_type: manga_book_series
+title:
+  ja: "あの娘にキスと白百合を"
+  yomi: "アノ コ ニ キス ト シラユリ オ"
+creator: "[著]缶乃"
+publisher: "KADOKAWA"
+imprint: "MFコミックス　／　アライブシリーズ"
+volume_count: 10
+first_published: 2014-05
+last_published: 2019-03
+volumes:
+  - madb_id: M421687
+    number: "1"
+    isbn: "9784040665566"
+    published: 2014-05
+  - madb_id: M446987
+    number: "2"
+    isbn: "9784040672205"
+    published: 2014-12
+  - madb_id: M455894
+    number: "3"
+    isbn: "9784040675381"
+    published: 2015-06
+  - madb_id: M471444
+    number: "4"
+    isbn: "9784040682013"
+    published: 2016-02
+  - madb_id: M479623
+    number: "5"
+    isbn: "9784040685434"
+    published: 2016-09
+  - madb_id: M513535
+    number: "6"
+    isbn: "9784040691268"
+    published: 2017-03
+  - madb_id: M492809
+    number: "7"
+    isbn: "9784040694405"
+    published: 2017-09
+  - madb_id: M517719
+    number: "8"
+    isbn: "9784040698526"
+    published: 2018-03
+  - madb_id: M519755
+    number: "9"
+    isbn: "9784040651293"
+    published: 2018-09
+  - madb_id: M526487
+    number: "第10巻"
+    isbn: "9784040656069"
+    published: 2019-03
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C340485
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

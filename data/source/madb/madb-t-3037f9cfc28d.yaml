@@ -1,0 +1,62 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: madb-t-3037f9cfc28d
+route: isbn-from-capture
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "百合にはさまる男は死ねばいい!?"
+  yomi: "ユリ ニ ハサマル オトコ ワ シネバ イイ !?"
+creator: "蓬餅 / ヨモギモチ"
+publisher: "[頒布]幻冬舎"
+imprint: "バーズコミックス"
+volume_count: 6
+first_published: 2023-05
+last_published: 2024-12-27
+volumes:
+  - madb_id: M928773
+    number: "1"
+    isbn: "9784344852242"
+    published: 2023-05
+  - madb_id: M928832
+    number: "2"
+    isbn: "9784344852259"
+    published: 2023-05
+  - madb_id: M964929
+    number: "3"
+    isbn: "9784344853003"
+    published: 2023-09
+  - madb_id: M947723
+    number: "4"
+    isbn: "9784344853560"
+    published: 2024-01
+  - madb_id: M969542
+    number: "5"
+    isbn: "9784344854147"
+    published: 2024-05
+  - madb_id: M1034359
+    number: "7"
+    isbn: "9784344855182"
+    published: 2024-12-27
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

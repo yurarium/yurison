@@ -1,0 +1,89 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C418294
+route: isbn-from-capture
+grouping: title-match
+madb_id: C418294
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C418294
+record_type: manga_book_series
+title:
+  ja: "付き合ってあげてもいいかな"
+  yomi: "ツキアッテ アゲテモ イイカナ"
+creator: "[著]たみふる"
+publisher: "小学館"
+imprint: "裏少年サンデーコミックス"
+volume_count: 13
+first_published: 2019-01
+last_published: 2025-04-05
+volumes:
+  - madb_id: M524393
+    number: "1"
+    isbn: "9784091287557"
+    published: 2019-01
+  - madb_id: M807317
+    number: "2"
+    isbn: "9784091292353"
+    published: 2019-06
+  - madb_id: M815028
+    number: "3"
+    isbn: "9784091295002"
+    published: 2019-12
+  - madb_id: M819747
+    number: "4"
+    isbn: "9784098500956"
+    published: 2020-04
+  - madb_id: M825816
+    number: "5"
+    isbn: "9784098503001"
+    published: 2020-10
+  - madb_id: M865476
+    number: "6"
+    isbn: "9784098504756"
+    published: 2021-03
+  - madb_id: M853795
+    number: "7"
+    isbn: "9784098506989"
+    published: 2021-09
+  - madb_id: M865812
+    number: "8"
+    isbn: "9784098508921"
+    published: 2022-02
+  - madb_id: M873633
+    number: "9"
+    isbn: "9784098512409"
+    published: 2022-08
+  - madb_id: M881629
+    number: "10"
+    isbn: "9784098516360"
+    published: 2023-02
+  - madb_id: M933295
+    number: "11"
+    isbn: "9784098528233"
+    published: 2023-09
+  - madb_id: M965564
+    number: "12"
+    isbn: "9784098531332"
+    published: 2024-02
+  - madb_id: M1061435
+    number: "14"
+    isbn: "9784098540730"
+    published: 2025-04-05
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C418294
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

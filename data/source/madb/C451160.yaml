@@ -1,0 +1,57 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C451160
+route: isbn-from-capture
+grouping: mixed
+madb_id: C451160
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C451160
+record_type: manga_book_series
+title:
+  ja: "気をつけなよ、お姉さん。"
+  yomi: "キ オ ツケナヨ 、 オネエサン 。"
+creator: "[著]サスケ"
+publisher: "[頒布]講談社"
+imprint: "4コマkingsぱれっとcomics"
+volume_count: 5
+first_published: 2021-08
+last_published: 2023-08
+volumes:
+  - madb_id: M850380
+    number: "1"
+    isbn: "9784758083676"
+    published: 2021-08
+  - madb_id: M867790
+    number: "1"
+    isbn: "9784758069663"
+    published: 2022-04
+  - madb_id: M867791
+    number: "2"
+    isbn: "9784758069670"
+    published: 2022-04
+  - madb_id: M877367
+    number: "3"
+    isbn: "9784758083928"
+    published: 2022-12
+  - madb_id: M931493
+    number: "4"
+    isbn: "9784758084420"
+    published: 2023-08
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C451160
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

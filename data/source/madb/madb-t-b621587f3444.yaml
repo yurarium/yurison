@@ -1,0 +1,54 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: madb-t-b621587f3444
+route: isbn-from-capture
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "色んな女の子とキスをしていたら、百合キスに目覚めてしまいました…。"
+  yomi: "イロンナ オンナノコ ト キス オ シテイタラ 、 ユリ キス ニ メザメテシマイマシタ … 。"
+creator: "betock / "
+publisher: "芳文社"
+imprint: "Manga time KR comics. Kirara menu"
+volume_count: 4
+first_published: 2023-03
+last_published: 2024-09-06
+volumes:
+  - madb_id: M926021
+    number: "1"
+    isbn: "9784832274457"
+    published: 2023-03
+  - madb_id: M929345
+    number: "2"
+    isbn: "9784832274648"
+    published: 2023-06
+  - madb_id: M947396
+    number: "3"
+    isbn: "9784832295186"
+    published: 2024-01
+  - madb_id: M1033092
+    number: "4"
+    isbn: "9784832295704"
+    published: 2024-09-06
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

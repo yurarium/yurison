@@ -154,6 +154,21 @@ def strip_role(name):
     return ROLE_SUFFIX.sub("", (name or "").strip()).strip()
 
 
+def label(value):
+    """The imprint, or None where the shop rendered an absent one as ――.
+
+    Delegated to bookwalker_shelf's pattern rather than restated, because this is one fact about
+    one shop's markup and two copies of it drift. The shelf capture learned it first: 143 of its
+    rows would otherwise have carried a publisher called ――. It reached this module anyway, where
+    43 volumes were filed under ―― as though it were a label, and `imprint_key` then pooled every
+    unlabelled book in the capture into one bucket and let one publisher's record answer for
+    another's.
+    """
+    from recon import bookwalker_shelf as shelf                           # noqa: PLC0415
+    v = (value or "").strip()
+    return None if not v or shelf.NO_LABEL.match(v) else v
+
+
 def volume(html_text, uuid=None):
     """One volume's bibliographic record, or None where the page states no title.
 
@@ -179,7 +194,7 @@ def volume(html_text, uuid=None):
         "series_id": m.group(1) if m else None,
         "series_title": series[0] if series else None,
         "authors": [strip_role(a) for a in t.get("著者", [])],
-        "imprint": (t.get("レーベル") or [None])[0],
+        "imprint": label((t.get("レーベル") or [None])[0]),
         "publisher": (t.get("出版社") or [None])[0],
         "category": (t.get("カテゴリ") or [None])[0],
         # The shop's own two dates, kept apart and neither renamed into the other.
@@ -225,7 +240,7 @@ def warensai(html_text, series_id=None):
         "title": _text(t.group(1)),
         "authors": [n for n in (strip_role(_text(a)) for a in
                                 (INFO_LINK.findall(auth.group(1)) if auth else [])) if n],
-        "imprint": (info.get("レーベル") or [None])[0],
+        "imprint": label((info.get("レーベル") or [None])[0]),
         "publisher": (info.get("出版社") or [None])[0],
         "genre": " ".join(_text(x) for x in
                           (INFO_LINK.findall(tags.group(1)) if tags else [])),
@@ -521,6 +536,7 @@ def _write(path, state):
     thousands already there rather than in place of them.
     """
     import json
+    import os
     import pathlib
 
     def js(v):
@@ -595,7 +611,18 @@ def _write(path, state):
                       "category", "delivered", "printed", "isbn"):
                 L.append(f"        {k}: {js(v.get(k))}")
     L.append("")
-    pathlib.Path(path).write_text("\n".join(L))
+    # WRITTEN ASIDE AND RENAMED, NEVER IN PLACE. `write_text` truncates the file and then fills it,
+    # so a reader during the gap sees a half file and a kill during the gap LEAVES one. This
+    # capture is thousands of fetches long and checkpoints after every work, so it spends a good
+    # part of its life inside that gap, and the whole point of the checkpoint is that an
+    # interruption costs one work rather than the run. A truncated file makes `_read` return blank
+    # and the next pass rebuild from nothing, which is the exact failure the checkpointing exists
+    # to prevent, arriving through the checkpointing itself. os.replace is atomic on the same
+    # filesystem, so a reader sees either the old file or the new one.
+    p = pathlib.Path(path)
+    tmp = p.with_name(p.name + ".partial")
+    tmp.write_text("\n".join(L))
+    os.replace(tmp, p)
 
 
 def _read(path, admitted):
@@ -624,6 +651,12 @@ def _read(path, admitted):
     # shape of seven bugs in this project's history (STANDING-INSTRUCTIONS §3). Re-deriving costs
     # nothing, needs no migration, and makes the summary provably a function of the volumes.
     for w in doc["works"]:
+        # Volumes captured before `label` was applied hold ―― where the shop rendered an absent
+        # imprint. Healed on the way in rather than left for a re-fetch, because the re-fetch would
+        # never come: those rows are already marked done.
+        for v in w.get("volumes") or []:
+            v["imprint"] = label(v.get("imprint"))
+        w["imprint"] = label(w.get("imprint"))
         serial = ({"chapters": w.get("chapters"), "updated": w.get("last_updated"),
                    "imprint": w.get("imprint"), "publisher": w.get("publisher"),
                    "authors": w.get("authors"), "genre": w.get("shop_genre")}

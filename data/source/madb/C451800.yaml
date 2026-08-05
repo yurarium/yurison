@@ -1,0 +1,45 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C451800
+route: isbn-from-capture
+grouping: mixed
+madb_id: C451800
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C451800
+record_type: manga_book_series
+title:
+  ja: "みんな私のはらのなか"
+  yomi: "ミンナ ワタクシ ノ ハラ ノ ナカ"
+creator: "ちさこ"
+publisher: "竹書房"
+imprint: "Bamboo comics"
+volume_count: 2
+first_published: 2021-05
+last_published: 2022-02
+volumes:
+  - madb_id: M848024
+    number: "1"
+    isbn: "9784801972759"
+    published: 2021-05
+  - madb_id: M861371
+    number: "2"
+    isbn: "9784801975378"
+    published: 2022-02
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C451800
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

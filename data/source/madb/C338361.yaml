@@ -1,0 +1,117 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C338361
+route: isbn-from-capture
+grouping: series-link
+madb_id: C338361
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C338361
+record_type: manga_book_series
+title:
+  ja: "MURCIELAGO"
+  yomi: "ムルシエラゴ"
+creator: "[著]よしむらかな"
+publisher: "スクウェア・エニックス"
+imprint: "ヤングガンガンコミックス"
+volume_count: 20
+first_published: 2014-04
+last_published: 2021-10
+volumes:
+  - madb_id: M421109
+    number: "1"
+    isbn: "9784757542907"
+    published: 2014-04
+  - madb_id: M421388
+    number: "2"
+    isbn: "9784757542914"
+    published: 2014-04
+  - madb_id: M437544
+    number: "3"
+    isbn: "9784757544253"
+    published: 2014-09
+  - madb_id: M443067
+    number: "4"
+    isbn: "9784757545649"
+    published: 2015-02
+  - madb_id: M451003
+    number: "5"
+    isbn: "9784757547018"
+    published: 2015-07
+  - madb_id: M456186
+    number: "6"
+    isbn: "9784757548084"
+    published: 2015-11
+  - madb_id: M465139
+    number: "7"
+    isbn: "9784757549234"
+    published: 2016-03
+  - madb_id: M472019
+    number: "8"
+    isbn: "9784757550858"
+    published: 2016-08
+  - madb_id: M478378
+    number: "9"
+    isbn: "9784757552258"
+    published: 2017-01
+  - madb_id: M484519
+    number: "10"
+    isbn: "9784757554306"
+    published: 2017-07
+  - madb_id: M514797
+    number: "11"
+    isbn: "9784757555617"
+    published: 2017-12
+  - madb_id: M531963
+    number: "12"
+    isbn: "9784757557604"
+    published: 2018-06
+  - madb_id: M523412
+    number: "13"
+    isbn: "9784757559585"
+    published: 2019-01
+  - madb_id: M527933
+    number: "14"
+    isbn: "9784757560703"
+    published: 2019-03
+  - madb_id: M809079
+    number: "15"
+    isbn: "9784757562110"
+    published: 2019-07
+  - madb_id: M816624
+    number: "16"
+    isbn: "9784757564787"
+    published: 2020-01
+  - madb_id: M820999
+    number: "17"
+    isbn: "9784757567634"
+    published: 2020-07
+  - madb_id: M829830
+    number: "18"
+    isbn: "9784757570115"
+    published: 2020-12
+  - madb_id: M848620
+    number: "19"
+    isbn: "9784757572683"
+    published: 2021-05
+  - madb_id: M855279
+    number: "20"
+    isbn: "9784757575387"
+    published: 2021-10
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C338361
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

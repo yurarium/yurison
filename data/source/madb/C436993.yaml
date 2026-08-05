@@ -1,0 +1,53 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C436993
+route: isbn-from-capture
+grouping: mixed
+madb_id: C436993
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C436993
+record_type: manga_book_series
+title:
+  ja: "女子校だからセーフ"
+  yomi: "ジョシコウ ダカラ セーフ"
+creator: "[著]おーうち"
+publisher: "芳文社"
+imprint: "FUZ comics"
+volume_count: 4
+first_published: 2020-05
+last_published: 2022-02
+volumes:
+  - madb_id: M820591
+    number: "1"
+    isbn: "9784832237360"
+    published: 2020-05
+  - madb_id: M827743
+    number: "2"
+    isbn: "9784832237728"
+    published: 2020-10
+  - madb_id: M848194
+    number: "3"
+    isbn: "9784832238220"
+    published: 2021-05
+  - madb_id: M862685
+    number: "4"
+    isbn: "9784832238879"
+    published: 2022-02
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C436993
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

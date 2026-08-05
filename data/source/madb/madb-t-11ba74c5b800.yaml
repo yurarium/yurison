@@ -1,0 +1,50 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: madb-t-11ba74c5b800
+route: isbn-from-capture
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "冷たくて柔らか : PiNKY CANDY KiSS"
+  yomi: "ツメタクテ ヤワラカ : ピンキー キャンディ キス"
+creator: "[著]ウオズミアミ"
+publisher: "集英社"
+imprint: "マーガレットコミックス"
+volume_count: 3
+first_published: 2023-06
+last_published: 2024-06
+volumes:
+  - madb_id: M930280
+    number: "1"
+    isbn: "9784088447834"
+    published: 2023-06
+  - madb_id: M946668
+    number: "2"
+    isbn: "9784088448275"
+    published: 2023-12
+  - madb_id: M970429
+    number: "3"
+    isbn: "9784088430232"
+    published: 2024-06
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

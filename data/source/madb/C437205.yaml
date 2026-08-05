@@ -1,0 +1,53 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C437205
+route: isbn-from-capture
+grouping: mixed
+madb_id: C437205
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C437205
+record_type: manga_book_series
+title:
+  ja: "今日から未来"
+  yomi: "キョウ カラ ミライ"
+creator: "[著]吉富昭仁"
+publisher: "[発売]小学館クリエイティブ"
+imprint: "ヒーローズコミックスふらっと"
+volume_count: 4
+first_published: 2020-06
+last_published: 2023-03
+volumes:
+  - madb_id: M821254
+    number: "1"
+    isbn: "9784864687225"
+    published: 2020-06
+  - madb_id: M854596
+    number: "2"
+    isbn: "9784864688123"
+    published: 2021-06
+  - madb_id: M873859
+    number: "3"
+    isbn: "9784864681209"
+    published: 2022-08
+  - madb_id: M930754
+    number: "4"
+    isbn: "9784864681629"
+    published: 2023-03
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C437205
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

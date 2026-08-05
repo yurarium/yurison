@@ -1,0 +1,54 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: madb-t-65594b970240
+route: isbn-from-capture
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "きさらぎ異聞"
+  yomi: "キサラギ イブン"
+creator: "x0o0x / 筒井いつき / ツツイイツキ"
+publisher: "[頒布]講談社"
+imprint: "Howl comics"
+volume_count: 4
+first_published: 2024-02
+last_published: 2025-09-01
+volumes:
+  - madb_id: M946991
+    number: "1"
+    isbn: "9784758026055"
+    published: 2024-02
+  - madb_id: M969905
+    number: "2"
+    isbn: "9784758027151"
+    published: 2024-06
+  - madb_id: M1034113
+    number: "3"
+    isbn: "9784758028158"
+    published: 2025-01-13
+  - madb_id: M1074941
+    number: "4"
+    isbn: "9784758029575"
+    published: 2025-09-01
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

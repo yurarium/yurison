@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C328528
+route: isbn-from-capture
+grouping: title-match
+madb_id: C328528
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C328528
+record_type: manga_book_series
+title:
+  ja: "トワ・エ・モア"
+  yomi: "Toi et moi"
+creator: ""
+publisher: "コンパス"
+imprint: "コンパスアンソロジーコミックシリーズ"
+volume_count: 3
+first_published: 1996-11
+last_published: 2025-08-01
+volumes:
+  - madb_id: M323266
+    isbn: "4906407684"
+    published: 1996-11
+  - madb_id: M966645
+    number: "1"
+    isbn: "9784065350621"
+    published: 2024-03
+  - madb_id: M1074868
+    number: "2"
+    isbn: "9784065404409"
+    published: 2025-08-01
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C328528
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

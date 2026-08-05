@@ -1,0 +1,46 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: madb-t-a1872e333d0e
+route: isbn-from-capture
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "GURU"
+  yomi: "グル"
+creator: "陣ノ内康暉 / ジンノウチコウキ"
+publisher: "講談社"
+imprint: "KCDX. 週刊少年マガジン"
+volume_count: 2
+first_published: 2026-03-06
+last_published: 2026-05-08
+volumes:
+  - madb_id: M1110650
+    number: "1"
+    isbn: "9784065430781"
+    published: 2026-03-06
+  - madb_id: M1113294
+    number: "2"
+    isbn: "9784065437803"
+    published: 2026-05-08
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

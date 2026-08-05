@@ -1,0 +1,49 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C451705
+route: isbn-from-capture
+grouping: mixed
+madb_id: C451705
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C451705
+record_type: manga_book_series
+title:
+  ja: "お下がりのオンナ"
+  yomi: "オサガリ ノ オンナ"
+creator: "[原案協力]舞方パーク / [著]井上和郎"
+publisher: "[頒布]小学館クリエイティブ (発売)"
+imprint: "ヒーローズコミックスふらっと"
+volume_count: 3
+first_published: 2021-06
+last_published: 2022-11
+volumes:
+  - madb_id: M854195
+    number: "vol.1"
+    isbn: "9784864688130"
+    published: 2021-06
+  - madb_id: M866451
+    number: "vol.2"
+    isbn: "9784864688703"
+    published: 2022-02
+  - madb_id: M929746
+    number: "vol.3"
+    isbn: "9784864681520"
+    published: 2022-11
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C451705
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

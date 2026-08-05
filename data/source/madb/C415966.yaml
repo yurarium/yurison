@@ -1,0 +1,44 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C415966
+route: isbn-from-capture
+grouping: series-link
+madb_id: C415966
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C415966
+record_type: manga_book_series
+title:
+  ja: "いちゃらぶしかない百合アンソロジーコミック"
+  yomi: "イチャラブ シカ ナイ ユリ アンソロジー コミック"
+creator: ""
+publisher: "[発売]講談社"
+imprint: "IDコミックス"
+volume_count: 2
+first_published: 2019-03
+last_published: 2021-02
+volumes:
+  - madb_id: M525027
+    isbn: "9784758079174"
+    published: 2019-03
+  - madb_id: M829445
+    number: "2"
+    isbn: "9784758022057"
+    published: 2021-02
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C415966
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

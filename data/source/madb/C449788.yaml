@@ -1,0 +1,53 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C449788
+route: isbn-from-capture
+grouping: mixed
+madb_id: C449788
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C449788
+record_type: manga_book_series
+title:
+  ja: "年下の先輩"
+  yomi: "トシシタ ノ センパイ"
+creator: "[著]檜原フキ"
+publisher: "講談社"
+imprint: "ヤンマガKC"
+volume_count: 4
+first_published: 2021-09
+last_published: 2022-05
+volumes:
+  - madb_id: M852314
+    number: "1"
+    isbn: "9784065247501"
+    published: 2021-09
+  - madb_id: M857214
+    number: "2"
+    isbn: "9784065258767"
+    published: 2021-11
+  - madb_id: M862867
+    number: "3"
+    isbn: "9784065268308"
+    published: 2022-02
+  - madb_id: M870633
+    number: "4"
+    isbn: "9784065277799"
+    published: 2022-05
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C449788
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

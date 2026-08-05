@@ -45,6 +45,24 @@ BATCH = 50
 # `[作画]名前 / [原作]名前` is how MADB writes a credit. The role in brackets is cataloguing.
 ROLE = re.compile(r"^\[[^\]]*\]")
 
+# MADB also writes `[上田香子][訳]`, with the NAME in a bracket and the role in the next one, so
+# stripping one leading group leaves `[訳]` standing where a person should be. A group is a role
+# when it is spelt out of role words and nothing else; anything else in brackets is a name and
+# keeps its content.
+ROLE_ONLY = re.compile(r"^[著作画原訳編監修構成脚本案翻・\s]+$")
+BRACKET = re.compile(r"\[([^\]]*)\]")
+
+
+def credit_name(part):
+    """One credit with its cataloguing notation removed, or '' where it was all notation.
+
+    A doubled delimiter is still one delimiter: MADB writes `[[著]]椿木とりか` as well as `[著]`,
+    and a reader that took the brackets literally found a person called `[著]椿木とりか`.
+    """
+    part = re.sub(r"\[+", "[", re.sub(r"\]+", "]", part))
+    kept = BRACKET.sub(lambda m: "" if ROLE_ONLY.match(m.group(1)) else m.group(1), part)
+    return kept.strip()
+
 
 def contributors(record):
     """`(name, reading)` for everyone openBD lists on one book, dropping anyone it cannot read.
@@ -114,7 +132,7 @@ def madb_credits(source="data/source/madb"):
         d = yaml.safe_load(path.read_text()) or {}
         isbns = [v["isbn"] for v in (d.get("volumes") or []) if v.get("isbn")]
         for part in re.split(r"\s*/\s*", d.get("creator") or ""):
-            who = ROLE.sub("", part).strip()
+            who = credit_name(part)
             if who and isbns:
                 out.setdefault(who, []).extend(isbns)
     return {k: sorted(set(v)) for k, v in out.items()}

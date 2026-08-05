@@ -1,0 +1,50 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: madb-t-394f8e2bada4
+route: isbn-from-capture
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "幼馴染の異常可愛い妹ちゃん"
+  yomi: "オサナナジミ ノ イジョウ カワイイ イモウトチャン"
+creator: "冬島暮 / フユジマクレ"
+publisher: "竹書房"
+imprint: "Bamboo comics"
+volume_count: 3
+first_published: 2024-05
+last_published: 2025-03-28
+volumes:
+  - madb_id: M969655
+    number: "1"
+    isbn: "9784801983144"
+    published: 2024-05
+  - madb_id: M1033043
+    number: "2"
+    isbn: "9784801983878"
+    published: 2024-08-06
+  - madb_id: M1060773
+    number: "3"
+    isbn: "9784801985650"
+    published: 2025-03-28
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

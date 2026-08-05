@@ -1,0 +1,58 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: madb-t-b3091281a3fa
+route: isbn-from-capture
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "どうしたら幼馴染♀の彼女になれますか!?"
+  yomi: "ドウシタラ オサナナジミ ♀ ノ カノジョ ニ ナレマスカ!?"
+creator: "矢坂しゅう / ヤサカシュウ"
+publisher: "竹書房"
+imprint: "Bamboo comics"
+volume_count: 5
+first_published: 2022-10
+last_published: 2025-03-07
+volumes:
+  - madb_id: M876453
+    number: "1"
+    isbn: "9784801978690"
+    published: 2022-10
+  - madb_id: M929039
+    number: "2"
+    isbn: "9784801979758"
+    published: 2023-05
+  - madb_id: M946143
+    number: "3"
+    isbn: "9784801982017"
+    published: 2023-11
+  - madb_id: M972506
+    number: "4"
+    isbn: "9784801983526"
+    published: 2024-07
+  - madb_id: M1057796
+    number: "5"
+    isbn: "9784801985643"
+    published: 2025-03-07
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

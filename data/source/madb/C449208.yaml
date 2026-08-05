@@ -1,0 +1,53 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C449208
+route: isbn-from-capture
+grouping: mixed
+madb_id: C449208
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C449208
+record_type: manga_book_series
+title:
+  ja: "殺し屋やめたい! = I wanna be fired!"
+  yomi: "I wanna be fired!"
+creator: "[著]外木寸"
+publisher: "講談社"
+imprint: "モーニングKC"
+volume_count: 4
+first_published: 2021-10
+last_published: 2023-03
+volumes:
+  - madb_id: M854944
+    number: "1"
+    isbn: "9784065256909"
+    published: 2021-10
+  - madb_id: M859574
+    number: "2"
+    isbn: "9784065260500"
+    published: 2022-01
+  - madb_id: M872147
+    number: "3"
+    isbn: "9784065285404"
+    published: 2022-07
+  - madb_id: M925863
+    number: "4"
+    isbn: "9784065311202"
+    published: 2023-03
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C449208
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

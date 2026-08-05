@@ -1,0 +1,40 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C451629
+route: isbn-from-capture
+grouping: series-link
+madb_id: C451629
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C451629
+record_type: manga_book_series
+title:
+  ja: "今日はまだフツーになれない"
+  yomi: "キョウ ワ マダ フツー ニ ナレナイ"
+creator: "[著]U-temo"
+publisher: "[頒布]講談社"
+imprint: "IDコミックス"
+volume_count: 1
+first_published: 2021-07
+last_published: 2021-07
+volumes:
+  - madb_id: M849966
+    isbn: "9784758022651"
+    published: 2021-07
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C451629
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

@@ -1,0 +1,46 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C420904
+route: isbn-from-capture
+grouping: series-link
+madb_id: C420904
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C420904
+record_type: manga_book_series
+title:
+  ja: "シロップ = syrup : 社会人百合アンソロジー"
+  yomi: "syrup"
+creator: "[漫画]森永みるく [ほか]"
+publisher: "双葉社"
+imprint: "ACTION COMICS"
+volume_count: 3
+first_published: 2019-05
+last_published: 2019-11
+volumes:
+  - madb_id: M527784
+    isbn: "9784575853094"
+    published: 2019-05
+  - madb_id: M809792
+    isbn: "9784575853391"
+    published: 2019-08
+  - madb_id: M813116
+    isbn: "9784575853773"
+    published: 2019-11
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C420904
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

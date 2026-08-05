@@ -1,0 +1,50 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-05
+work_id: C333940
+route: isbn-from-capture
+grouping: series-link
+madb_id: C333940
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C333940
+record_type: manga_book_series
+title:
+  ja: "メバエ"
+  yomi: "メバエ"
+creator: "[著]Flowerchild / [著]ms / [著]あらた伊里 / [著]ぐんのうさ / [著]はっとりみつる / [著]ひげなむち / [著]小鳩ねねこ / [著]朱村咲 / [著]犬丸 / [著]玄鉄絢 / [著]環望 / [著]長月みそか / [著]鳴子ハナハル"
+publisher: "少年画報社"
+imprint: "YKコミックス"
+volume_count: 5
+volumes:
+  - madb_id: M421809
+    number: "volume. 1"
+    isbn: "9784785952761"
+  - madb_id: M435800
+    number: "volume.2"
+    isbn: "9784785953478"
+  - madb_id: M439142
+    number: "volume.3"
+    isbn: "9784785954239"
+  - madb_id: M446268
+    number: "volume.4"
+    isbn: "9784785955366"
+  - madb_id: M459141
+    number: "volume.5"
+    isbn: "9784785956714"
+admitted_by:
+  - comparator: cmoa.jp
+    shelf: "genre 37 (百合・GL)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
+      and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C333940
+  retrieved: 2026-08-05
+  note: >-
+    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
+    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

@@ -29,6 +29,21 @@ INDEX = [{"volumes": [{"isbn": "1"}, {"isbn": "2"}]}]
 
 
 def main(s):
+    # A CAPTURE CAN SUCCEED AND RETURN THE WRONG SHAPE. マガポケ served ten faultless episodes where
+    # the platform published 147, and no row count or staleness could see it.
+    #
+    # THE EXPECTATION IS DECLARED PER SOURCE, and a deviation is a gap in the declaration until
+    # somebody checks. Requiring a date everywhere called 353 COMIC FUZ rows malformed; that
+    # platform publishes none on a coin chapter, so the expectation was what was wrong.
+    s.eq(status.EXPECT["comicfuz"], ("title",),
+         "a source that publishes no date is not expected to return one")
+    s.check("updated" in status.SHAPE, "while the default expects one")
+    c2 = status.connectors(RUN, {"comicfuz": (2384, 2031)})
+    fuz = [x for x in c2 if x["source"] == "comicfuz"][0]
+    s.eq(fuz["malformed"], 353, "rows missing a field a chapter should carry are counted")
+    s.eq([x for x in c2 if x["source"] == "madb"][0]["checked_rows"], 0,
+         "and a source with no chapter rows claims nothing about its shape")
+
     c = status.connectors(RUN)
     s.eq([x["source"] for x in c], ["madb", "comicfuz"],
          "the stalest capture is named first, because staleness is the health one run can show")

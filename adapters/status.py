@@ -54,14 +54,66 @@ def delta(now, before):
     return out
 
 
-def connectors(run):
+# WHAT WE EXPECT EACH SOURCE TO RETURN, declared per source because platforms differ in what they
+# publish. A capture can succeed and return the wrong shape without raising anything: マガポケ served
+# ten faultless episodes where the platform published 147, and no row count or staleness saw it.
+#
+# A DEVIATION IS A GAP IN THE EXPECTATION UNTIL IT IS CHECKED. The first version of this declared
+# a date mandatory everywhere and reported 353 COMIC FUZ rows as malformed. They are not: that
+# platform states no updatedDate on its coin chapters, which build.py has documented since the day
+# dropping them made every paid chapter there invisible. The expectation was wrong, not the
+# capture, so the expectation is what changed. What this measures is agreement with a declaration
+# somebody made, and its value is that a RISE means something moved.
+SHAPE = ("title", "updated")
+EXPECT = {
+    # COMIC FUZ dates a coin chapter two ways and neither is a publication date: some carry none
+    # at all, 70 of 球詠's 228 among them, and others carry a 公開予定 months ahead, which
+    # REQUIREMENTS §5 reads as a schedule. Requiring a date here would report both as damage.
+    "comicfuz": ("title",),
+}
+
+
+def conforms(root):
+    """{source: (rows, rows carrying every field a chapter row should)}.
+
+    Read from the source files rather than from the build, because by the time a row reaches the
+    build the missing field has already been filled in or dropped, and this is asking what the
+    capture actually returned.
+    """
+    out = {}
+    for d in sorted(pathlib.Path(root).glob("*")):
+        if not d.is_dir():
+            continue
+        total = good = 0
+        for f in sorted(d.glob("*.yaml")):
+            try:
+                doc = yaml.safe_load(f.read_text()) or {}
+            except Exception:                                               # noqa: BLE001
+                continue
+            for w in (doc.get("works") or []):
+                if not isinstance(w, dict):
+                    continue
+                for c in (w.get("chapters") or w.get("episodes") or []):
+                    if not isinstance(c, dict):
+                        continue
+                    total += 1
+                    good += all(c.get(k) for k in EXPECT.get(d.name, SHAPE))
+        if total:
+            out[d.name] = (total, good)
+    return out
+
+
+def connectors(run, shape=None):
     """Per-source capture, newest first by age. Staleness is what one run can tell you."""
     out = []
     for s in run.get("sources") or []:
+        tot, good = (shape or {}).get(s.get("source"), (0, 0))
         out.append({"source": s.get("source"), "files": s.get("files"), "works": s.get("works"),
                     "rows": s.get("rows"), "retrieved": s.get("retrieved"),
                     "age_days": s.get("age_days"), "in_scope": bool(s.get("in_scope")),
-                    "empty": bool(s.get("empty"))})
+                    "empty": bool(s.get("empty")),
+                    "checked_rows": tot, "well_formed": good,
+                    "malformed": tot - good})
     return sorted(out, key=lambda x: (-(x["age_days"] or 0), x["source"] or ""))
 
 
@@ -139,7 +191,7 @@ def outstanding(series, budgets, queues):
     ]
 
 
-def build(run, checks, series, index, budgets, queues, previous=None):
+def build(run, checks, series, index, budgets, queues, previous=None, shape=None):
     """The whole file. Nothing here is computed twice and nothing is rounded."""
     inv = checks.get("invariants") or []
     _data_inv = [i for i in inv if i.get('name') not in ENGINEERING_CHECKS]
@@ -167,7 +219,7 @@ def build(run, checks, series, index, budgets, queues, previous=None):
             "budgets": [b for b in (checks.get("budgets") or [])
                         if b.get("name") not in ENGINEERING],
         },
-        "connectors": connectors(run),
+        "connectors": connectors(run, shape),
         "outstanding": outstanding(series, budgets, queues),
         "statistics": stats,
     }
@@ -199,7 +251,8 @@ def main(argv=None):
     # Read what this run is about to overwrite. It is the only record of the run before it.
     outp = pathlib.Path(a.out)
     previous = json.loads(outp.read_text()) if outp.exists() else None
-    doc = build(run, checks, series, index, budgets, queues, previous)
+    doc = build(run, checks, series, index, budgets, queues, previous,
+                conforms("data/source"))
     outp.write_text(json.dumps(doc, ensure_ascii=False, indent=1))
     print(f"status: {doc['statistics']['works']} works, {len(doc['connectors'])} connector(s), "
           f"{len(doc['outstanding'])} outstanding group(s) -> {a.out}")

@@ -23,6 +23,11 @@ for f in "$SITE/kari/data"/*.json "$SITE/kari/data/feed"/*.json; do
   src="data/build/${f#"$SITE/kari/data/"}"
   [ -f "$src" ] || { echo "removing stale $f"; rm -f "$f"; }
 done
+# One pre-rendered entry page per work, so a citation resolves for a reader with no JavaScript.
+# The generator also deletes stubs whose work has left the corpus: a page that outlives its work
+# asserts something we withdrew, and プリンセ「ス」 left and returned inside one day.
+python3 adapters/stubs.py --site "$SITE/kari"
+
 # Re-run the checks AFTER copying, and ship the report last.
 #
 # Two of the invariants compare the site against the build, and build.py runs the checks at the end

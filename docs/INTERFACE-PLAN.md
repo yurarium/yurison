@@ -249,3 +249,19 @@ reader scanning for a title does not read, so switching costs no render.
 Releases gained search, a publisher filter and a period, and opens on the last twelve months
 because the tab answers "what has just come out". The full 640 is one menu entry away and the
 count line says which of the two is on screen.
+
+## 11. Backlog (raised 2026-08-05, not started)
+
+Interface work the owner has raised and deferred. Recorded here so it is not carried in anybody's
+head.
+
+- **Sorting of the platform list.** The filter's platform options come out in whatever order the
+  data yields them, which is neither alphabetical nor by size.
+- **Single-chapter works, and whether they are one-shots.** A work holding one chapter may be a
+  読切 or a serialisation we caught at its first instalment, and the state we give it says one of
+  those two things about every one of them.
+- **Latest should cover the last month.** The updates window is 14 days, which cuts the tail off
+  what a reader returning after a few weeks wants to see.
+- **Whether the counts in the tab headers earn their keep.** 更新 206, 発売 640, 作品 1,473: three
+  numbers a reader sees before they have asked anything, and it is not clear what any of them is
+  for.

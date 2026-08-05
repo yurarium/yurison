@@ -260,3 +260,36 @@ exclusion in [DEFINITIONS §2](DEFINITIONS.md) needs settling before rather than
   not as a field read from the site.
 - **百合ナビ 発売日 calendar** sits captured in `data/unwired/`, wired to nothing. It is the
   natural source for a 単行本 release feed, which the catalogue tab does not currently have.
+
+---
+
+## 8. Capture health: three failure modes, one covered
+
+The status page reports whether each source returned rows carrying the fields declared for it. That
+answers one question of three, and the other two are invisible.
+
+**Fields going missing** is covered. Markup changes so a field stops being extracted, the rows
+arrive without it, and the deviation count rises off zero. A total failure to parse shows as an
+empty source.
+
+**Quantity moving is not covered.** マガポケ served ten well-formed episodes where the platform
+published 147, for months, and no row count or staleness could see it because there was nothing to
+compare against. This needs a per-run ledger: what each connector returned last time, kept so this
+run can be measured against it. It is the difference between a status and a delta.
+
+**A selector matching the wrong thing is not covered, and it is the dangerous one.** The rows are
+well-formed, every declared field is present, and every value is wrong. On 2026-08-04 the generic
+extractor flattened a chapter block into one run of text and 193 titles arrived carrying the view
+and comment counts beside them, `3話① 26 8`, faultless by every check we run. The same day,
+コミックノヴァ's commented-out promo box parsed as a real chapter and gave プリンセ「ス」 a 第8話
+that was never published.
+
+**What answers it is a landmark declaration.** Each adapter names the structural features it
+depends on, the class or element or JSON key it keys off, and records at capture time whether each
+was found. `adapters/comicboost.py` depends on an `h4.title` beside a `p.update-date`;
+`adapters/sevenseas.py` on a `div#originaltitle`. A landmark that vanishes IS the page having
+changed, stated directly instead of inferred from the damage downstream. Every adapter already
+holds these patterns as regexes, so the work is recording the result rather than deriving it.
+
+Both want doing together: they write to the same per-run record, and between them they cover all
+three. Neither is small, because both touch every capture path.

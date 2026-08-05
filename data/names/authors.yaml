@@ -32,18 +32,20 @@ names:
     verified: false
   4kaえんぴつ:
     basis: romaji
-    furigana_spans:
-    - - 4kaえんぴつ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 4 ka エンピツ
+    reading: 4ka エンピツ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: 4 ka エンピツ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758027335
+    verified: true
   Acacia:
     basis: stated
     en: Acacia
@@ -1543,20 +1545,20 @@ names:
     verified: true
   さかもと麻乃:
     basis: romaji
-    furigana_spans:
-    - - さかもと
-      - null
-    - - 麻乃
-      - あさの
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サカモト アサノ
+    reading: サカモト マノ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: サカモト アサノ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071765
+    verified: true
   ささた汐:
     basis: romaji
     furigana_spans:
@@ -2394,20 +2396,20 @@ names:
     verified: true
   ねこ太:
     basis: romaji
-    furigana_spans:
-    - - ねこ
-      - null
-    - - 太
-      - ふとし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ネコ フトシ
+    reading: ネコタ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ネコ フトシ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758074476
+    verified: true
   のちゃ:
     basis: romaji
     en_at: '2026-08-02'
@@ -2663,20 +2665,20 @@ names:
     verified: true
   ひるのつき子:
     basis: romaji
-    furigana_spans:
-    - - ひるのつき
-      - null
-    - - 子
-      - こ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒル ノ ツキ コ
+    reading: ヒルノ ツキコ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ヒル ノ ツキ コ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758073660
+    verified: true
   ぴかち:
     basis: romaji
     en_at: '2026-08-02'
@@ -4780,11 +4782,16 @@ names:
       on pen names and coinages
     reading: マシュー マサキ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: マシュー マサキ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071017
+    verified: true
   マツダイヨ:
     basis: romaji
     en_at: '2026-08-02'
@@ -5115,22 +5122,20 @@ names:
     verified: false
   一迅社:
     basis: romaji
-    furigana_spans:
-    - - 一
-      - いち
-    - - 迅
-      - しゅん
-    - - 社
-      - しゃ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イチ シュン シャ
+    reading: イチジンシャ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: イチ シュン シャ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758029858
+    verified: true
   七坂なな:
     basis: romaji
     furigana_spans:
@@ -5220,22 +5225,20 @@ names:
     verified: true
   三国ハヂメ:
     basis: romaji
-    furigana_spans:
-    - - 三
-      - さん
-    - - 国
-      - こく
-    - - ハヂメ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サンコク ハヂメ
+    reading: ミクニ ハジメ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: サンコク ハヂメ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070638
+    verified: true
   三好ミオ:
     basis: romaji
     furigana_spans:
@@ -5500,11 +5503,16 @@ names:
       on pen names and coinages
     reading: ヒサカワ ハル
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ヒサカワ ハル
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758079198
+    verified: true
   久賀　フーナ:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -5532,11 +5540,16 @@ names:
       on pen names and coinages
     reading: オツ ヒヨリ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: オツ ヒヨリ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070171
+    verified: true
   乙川灯:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -5703,20 +5716,20 @@ names:
     verified: true
   井村瑛:
     basis: romaji
-    furigana_spans:
-    - - 井村
-      - いむら
-    - - 瑛
-      - あきら
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イムラ アキラ
+    reading: イムラ エイ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: イムラ アキラ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071864
+    verified: true
   京村秋:
     basis: romaji
     furigana_spans:
@@ -5833,11 +5846,16 @@ names:
       on pen names and coinages
     reading: ナカハラ ツバキ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ナカハラ ツバキ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758074803
+    verified: true
   仲村春:
     basis: romaji
     furigana_spans:
@@ -6139,11 +6157,16 @@ names:
       on pen names and coinages
     reading: クラタ ウソ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: クラタ ウソ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070522
+    verified: true
   倉田英之:
     basis: romaji
     furigana_spans:
@@ -6281,18 +6304,20 @@ names:
     verified: true
   八色:
     basis: romaji
-    furigana_spans:
-    - - 八色
-      - やいろ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヤイロ
+    reading: ヤクサ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ヤイロ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071857
+    verified: true
   公野櫻子:
     basis: romaji
     en: Sakurako Kimino
@@ -6650,27 +6675,32 @@ names:
       on pen names and coinages
     reading: ナンゴク バナナ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ナンゴク バナナ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071079
+    verified: true
   南崎いく:
     basis: romaji
-    furigana_spans:
-    - - 南崎
-      - みなみざき
-    - - いく
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミナミザキ イク
+    reading: ナンザキ イク
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ミナミザキ イク
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758074728
+    verified: true
   南川めぐる:
     basis: romaji
     furigana_spans:
@@ -7077,22 +7107,20 @@ names:
     verified: false
   古街キッカ:
     basis: romaji
-    furigana_spans:
-    - - 古
-      - ふる
-    - - 街
-      - がい
-    - - キッカ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フルガイ キッカ
+    reading: フルツジ キッカ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: フルガイ キッカ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071000
+    verified: true
   古賀亮一:
     basis: romaji
     en: Ryōichi Koga
@@ -7123,20 +7151,20 @@ names:
     verified: true
   古賀由人:
     basis: romaji
-    furigana_spans:
-    - - 古賀
-      - こが
-    - - 由人
-      - よしと
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コガ ヨシト
+    reading: コガ ユウト
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: コガ ヨシト
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758027335
+    verified: true
   古部亮:
     basis: romaji
     en: FURUBE Ryo
@@ -7419,11 +7447,16 @@ names:
       on pen names and coinages
     reading: ヨツハラ フリコ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ヨツハラ フリコ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070782
+    verified: true
   固形石鹸苑子:
     basis: romaji
     furigana_spans:
@@ -7887,11 +7920,16 @@ names:
       on pen names and coinages
     reading: オオキタ ヒロコ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: オオキタ ヒロコ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758073196
+    verified: true
   大塚英志:
     basis: romaji
     en: Eiji Ōtsuka
@@ -8392,11 +8430,16 @@ names:
       on pen names and coinages
     reading: ミヤシタ ミキ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ミヤシタ ミキ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070584
+    verified: true
   宮原 都:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -9529,20 +9572,20 @@ names:
     verified: true
   後藤悠希:
     basis: romaji
-    furigana_spans:
-    - - 後藤
-      - ごとう
-    - - 悠希
-      - ゆき
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゴトウ ユキ
+    reading: ゴトウ ユウキ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ゴトウ ユキ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758077712
+    verified: true
   後谷戸隆:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -9674,11 +9717,16 @@ names:
       on pen names and coinages
     reading: シミズ ハツミ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シミズ ハツミ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758022217
+    verified: true
   志瑞祐:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -9745,20 +9793,20 @@ names:
     verified: true
   慎結:
     basis: romaji
-    furigana_spans:
-    - - 慎
-      - しん
-    - - 結
-      - けつ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シン ケツ
+    reading: シン ユイ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シン ケツ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758073202
+    verified: true
   戌井だいじ:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -10154,20 +10202,20 @@ names:
     verified: true
   春日沙生:
     basis: romaji
-    furigana_spans:
-    - - 春日
-      - かすが
-    - - 沙生
-      - さき
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カスガ サキ
+    reading: カスガ スナオ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カスガ サキ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758074117
+    verified: true
   春木やちか:
     basis: romaji
     furigana_spans:
@@ -10919,20 +10967,20 @@ names:
     verified: true
   東雲水生:
     basis: romaji
-    furigana_spans:
-    - - 東雲
-      - しののめ
-    - - 水生
-      - すいせい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シノノメ スイセイ
+    reading: シノノメ ミズオ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シノノメ スイセイ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=4758070024
+    verified: true
   松井琳:
     basis: romaji
     furigana_spans:
@@ -10956,20 +11004,20 @@ names:
     verified: true
   林家志弦:
     basis: romaji
-    furigana_spans:
-    - - 林家
-      - はやしや
-    - - 志弦
-      - しづる
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハヤシヤ シヅル
+    reading: ハヤシヤ シズル
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ハヤシヤ シヅル
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=4758070008
+    verified: true
   林星悟:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -11009,20 +11057,20 @@ names:
     verified: true
   柏原麻実:
     basis: romaji
-    furigana_spans:
-    - - 柏原
-      - かしわばら
-    - - 麻実
-      - あさみ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カシワバラ アサミ
+    reading: カシワバラ マミ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カシワバラ アサミ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758072311
+    verified: true
   柚原もけ:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -11303,11 +11351,16 @@ names:
       on pen names and coinages
     reading: キリヤマ ハルカ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: キリヤマ ハルカ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758079532
+    verified: true
   桐島豊:
     basis: romaji
     furigana_spans:
@@ -11435,11 +11488,16 @@ names:
       on pen names and coinages
     reading: サクラノ イツキ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: サクラノ イツキ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758021432
+    verified: true
   梅原うめ:
     basis: romaji
     furigana_spans:
@@ -11688,11 +11746,16 @@ names:
       on pen names and coinages
     reading: モリナガ ミルク
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: モリナガ ミルク
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=4758070016
+    verified: true
   森紗はるき:
     basis: romaji
     furigana_spans:
@@ -11780,11 +11843,16 @@ names:
       on pen names and coinages
     reading: ツバキ アス
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ツバキ アス
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070393
+    verified: true
   椿木とりか:
     basis: romaji
     en: Tsubaki Torika
@@ -11824,22 +11892,20 @@ names:
     verified: false
   楽時たらひ:
     basis: romaji
-    furigana_spans:
-    - - 楽
-      - らく
-    - - 時
-      - じ
-    - - たらひ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ラク ジ タラ ヒ
+    reading: ラクジ タラヒ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ラク ジ タラ ヒ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758073929
+    verified: true
   槌居:
     basis: romaji
     en: Tsuchii
@@ -12085,20 +12151,20 @@ names:
     verified: true
   武川慎:
     basis: romaji
-    furigana_spans:
-    - - 武川
-      - むかわ
-    - - 慎
-      - まこと
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ムカワ マコト
+    reading: タケカワ シン
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ムカワ マコト
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758077873
+    verified: true
   武田エミリ:
     basis: romaji
     furigana_spans:
@@ -12126,11 +12192,16 @@ names:
       on pen names and coinages
     reading: タケワカマル
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: タケワカマル
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070515
+    verified: true
   毒田ぺパ子:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -12249,20 +12320,20 @@ names:
     verified: true
   水鳥なや:
     basis: romaji
-    furigana_spans:
-    - - 水鳥
-      - みずとり
-    - - なや
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミズトリナ ヤ
+    reading: ミナドリ ナヤ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ミズトリナ ヤ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758022880
+    verified: true
   氷川翔:
     basis: romaji
     furigana_spans:
@@ -12910,20 +12981,20 @@ names:
     verified: false
   源久也:
     basis: romaji
-    furigana_spans:
-    - - 源
-      - みなもとの
-    - - 久也
-      - ひさや
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミナモトノ ヒサヤ
+    reading: ミナモト ヒサナリ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ミナモトノ ヒサヤ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071642
+    verified: true
   潤海そら:
     basis: romaji
     furigana_spans:
@@ -13113,11 +13184,16 @@ names:
       on pen names and coinages
     reading: ニジル
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ニジル
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758022217
+    verified: true
   爽穂詩三駈:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -13141,11 +13217,16 @@ names:
       on pen names and coinages
     reading: カタクラ アコ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カタクラ アコ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758073455
+    verified: true
   犬井あゆ:
     basis: romaji
     en: Ayu Inui
@@ -13426,22 +13507,20 @@ names:
     verified: true
   珠月まや:
     basis: romaji
-    furigana_spans:
-    - - 珠
-      - たま
-    - - 月
-      - つき
-    - - まや
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タマ ツキ マヤ
+    reading: ミズキ マヤ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: タマ ツキ マヤ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070775
+    verified: true
   珠樹みつね:
     basis: romaji
     furigana_spans:
@@ -13657,11 +13736,16 @@ names:
       on pen names and coinages
     reading: タナカ ミノル
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: タナカ ミノル
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071871
+    verified: true
   田口囁一:
     basis: romaji
     en: Shōichi Taguchi
@@ -13701,11 +13785,16 @@ names:
       on pen names and coinages
     reading: ユイ ヒナコ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ユイ ヒナコ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758073547
+    verified: true
   甲斐冬雪:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -13861,11 +13950,16 @@ names:
       on pen names and coinages
     reading: モモノ モト
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: モモノ モト
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758072786
+    verified: true
   皐月木獏:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -14130,11 +14224,16 @@ names:
       on pen names and coinages
     reading: イワミ ショウコ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: イワミ ショウコ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070362
+    verified: true
   砂泉文:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -15759,11 +15858,16 @@ names:
       on pen names and coinages
     reading: フキ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: フキ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758073769
+    verified: true
   薊瑞貴:
     basis: romaji
     furigana_spans:
@@ -16185,11 +16289,16 @@ names:
       on pen names and coinages
     reading: ニシ アスカ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ニシ アスカ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758076715
+    verified: true
   西ひるめ:
     basis: romaji
     furigana_spans:
@@ -16425,20 +16534,20 @@ names:
     verified: true
   谷村まりか:
     basis: romaji
-    furigana_spans:
-    - - 谷村
-      - たにむら
-    - - まりか
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タニムラ マリ カ
+    reading: タニムラ マリカ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: タニムラ マリ カ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070614
+    verified: true
   貞松龍壱:
     basis: romaji
     en: Ryūichi Sadamatsu
@@ -16739,20 +16848,20 @@ names:
     verified: true
   野中友:
     basis: romaji
-    furigana_spans:
-    - - 野中
-      - のなか
-    - - 友
-      - とも
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ノナカ トモ
+    reading: ノナカ ユウ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ノナカ トモ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758073653
+    verified: true
   野宮りおん:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -17323,11 +17432,16 @@ names:
       on pen names and coinages
     reading: アオイ ハナ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: アオイ ハナ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071413
+    verified: true
   青木ミズ:
     basis: romaji
     furigana_spans:
@@ -17355,11 +17469,16 @@ names:
       on pen names and coinages
     reading: アオキ ミツエ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: アオキ ミツエ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071086
+    verified: true
   青椿トト:
     basis: romaji
     furigana_spans:
@@ -17525,20 +17644,20 @@ names:
     verified: true
   高上優里子:
     basis: romaji
-    furigana_spans:
-    - - 高上
-      - たかうえ
-    - - 優里子
-      - ゆりこ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タカウエ ユリコ
+    reading: タカガミ ユリコ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: タカウエ ユリコ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758072564
+    verified: true
   高崎ゆうき:
     basis: romaji
     furigana_spans:
@@ -17550,11 +17669,16 @@ names:
       on pen names and coinages
     reading: タカサキ ユウキ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: タカサキ ユウキ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071161
+    verified: true
   高橋依摘:
     basis: romaji
     furigana_spans:
@@ -17566,11 +17690,16 @@ names:
       on pen names and coinages
     reading: タカハシ イツミ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: タカハシ イツミ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070737
+    verified: true
   高橋哲哉:
     basis: romaji
     en: TAKAHASHI Tetsuya
@@ -17887,20 +18016,20 @@ names:
     verified: true
   鹿嵐:
     basis: romaji
-    furigana_spans:
-    - - 鹿
-      - しか
-    - - 嵐
-      - あらし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シカ アラシ
+    reading: カナラシ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シカ アラシ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758074681
+    verified: true
   麻貴早人:
     basis: romaji
     en: Hayato Asaki
@@ -17920,22 +18049,20 @@ names:
     verified: true
   黄井ぴかち:
     basis: romaji
-    furigana_spans:
-    - - 黄
-      - き
-    - - 井
-      - い
-    - - ぴかち
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キ イ ピ カチ
+    reading: オウイ ピカチ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: キ イ ピ カチ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758021272
+    verified: true
   黒イ森:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -17986,25 +18113,20 @@ names:
     verified: false
   黒柾志西:
     basis: romaji
-    furigana_spans:
-    - - 黒
-      - くろ
-    - - 柾
-      - まさき
-    - - 志
-      - し
-    - - 西
-      - にし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クロ マサキシ ニシ
+    reading: クロマサ シセイ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: クロ マサキシ ニシ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    reading_uncertain: true
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071741
+    verified: true
   黒瀬一:
     basis: romaji
     furigana_spans:
@@ -18081,22 +18203,20 @@ names:
     verified: false
   黒霧操:
     basis: romaji
-    furigana_spans:
-    - - 黒
-      - くろ
-    - - 霧
-      - きり
-    - - 操
-      - みさお
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クロ キリ ミサオ
+    reading: クロキリ ミサオ
     reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: クロ キリ ミサオ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071550
+    verified: true
   １冊目：叔母さんは神絵師:
     basis: romaji
     furigana_spans:

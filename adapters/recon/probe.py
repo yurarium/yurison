@@ -68,12 +68,21 @@ def is_feed(ct, body):
     return head.startswith("<?xml") or "<rss" in head or "<feed" in head
 
 
-def robots_rules(host):
-    st, _, body = get(f"https://{host}/robots.txt")
-    if st != 200 or not body:
-        return {"present": False, "disallow": []}
+def disallow_rules(body):
+    """Every path `User-agent: *` is told to keep out of, in the order the file lists them.
+
+    EVERY RULE IS KEPT, AND ONCE ONLY TWELVE WERE. This returned `dis[:12]`, which kept the recorded
+    survey short and quietly shortened the rule set `allowed()` matches against. NDL Search
+    publishes thirty rules and `Disallow: /api` is the twenty-ninth, so a robots check on that host
+    reported `/api/opensearch` permitted while the file forbids it, and three rounds of author
+    lookups went out on a route robots refuses. A gate that answers from a cut-down copy of the
+    rules is worse than no gate, because it reads as having checked (STANDING-INSTRUCTIONS §4).
+
+    Parsing is separate from fetching so a test can hold a real robots.txt and assert what it
+    yields. That is also the only way this particular bug could have been caught offline.
+    """
     dis, ua_all = [], False
-    for line in body.splitlines():
+    for line in (body or "").splitlines():
         line = line.split("#")[0].strip()
         if not line:
             continue
@@ -83,7 +92,14 @@ def robots_rules(host):
             ua_all = v == "*"
         elif k == "disallow" and ua_all and v:
             dis.append(v)
-    return {"present": True, "disallow": dis[:12]}
+    return dis
+
+
+def robots_rules(host):
+    st, _, body = get(f"https://{host}/robots.txt")
+    if st != 200 or not body:
+        return {"present": False, "disallow": []}
+    return {"present": True, "disallow": disallow_rules(body)}
 
 
 def allowed(path, dis):

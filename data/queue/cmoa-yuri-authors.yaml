@@ -30,6 +30,20 @@
 #
 # ndlsearch.ndl.go.jp's HTML record pages were returning 503 throughout; the API answered normally.
 # Requests went out as yurarium/0.1 (bibliographic database; +https://yurarium.github.io/) at 1.6s intervals.
+#
+# THE ROUTE IS CLOSED AS OF 2026-08-05, AND THE 842 UNATTEMPTED ROWS ARE STOPPED RATHER THAN
+# OUTSTANDING. https://ndlsearch.ndl.go.jp/robots.txt lists `Disallow: /api` under `User-agent: *`,
+# and the OpenSearch endpoint above is under /api. The 60 rows already attempted went out before
+# anyone read that file. This project takes the same rule literally elsewhere: adapters/kadokomi/
+# routes around a robots-disallowed /api/ at real cost, so resuming here is a decision for the
+# project owner rather than the next run's default. What made it invisible is recorded in
+# adapters/recon/probe.py: the robots parser cut its rule list to twelve entries and /api is the
+# twenty-ninth, so the check that should have refused this route reported it permitted.
+#
+# THE PERMITTED ROUTE TO THE SAME FACT is adapters/names/openbd_reading.py, which reads the kana a
+# publisher registered beside the author's name. It is keyed by ISBN and has no author search, so
+# it reaches a name only through a book we hold an ISBN for. That is nobody on this shelf: these
+# are the authors of works nobody has admitted, and the shelf capture carries no ISBNs.
 source: ndl-opensearch
 role: discovery-only
 record_type: author_reading_candidates

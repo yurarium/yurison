@@ -14,6 +14,18 @@ national-library`, and it is the only route that reaches most pen names at all.
   THE HTML RECORD PAGES ARE NOT AN ALTERNATIVE. ndlsearch.ndl.go.jp returns 503 for them while the
   API answers normally, so anything wanting a second look at a record has to want it from the API.
 
+THE API IS DISALLOWED BY ROBOTS, FOUND 2026-08-05 AND NOT KNOWN WHEN THE ROUNDS ABOVE WERE RUN.
+`https://ndlsearch.ndl.go.jp/robots.txt` lists `Disallow: /api` under `User-agent: *`, and
+`/api/opensearch` is under it. The project already takes that rule literally elsewhere:
+adapters/kadokomi/ routes around a robots-disallowed `/api/` at real cost. So no further creator
+lookups may go out on this route without the project owner deciding otherwise, and the two shelf
+queues in data/queue/ record that they are stopped for this reason rather than finished.
+
+  WHY NOTHING CAUGHT IT. recon/probe.py cut its disallow list to twelve rules before matching, and
+  NDL's `/api` is the twenty-ninth, so the one mechanism that should have refused this route
+  reported it permitted. That is fixed there, with the truncation removed and the parsing split
+  from the fetch so a test can hold this exact file.
+
 WHY THE TWO FIELDS ARE ZIPPED BY POSITION, AND WHERE THAT IS REFUSED. An anthology record lists
 every contributor in `dc:creator` and every transcription in `dcndl:creatorTranscription`, in the
 same order and nowhere joined. 念願の悪役令嬢 gave four names on one record and three of the four
@@ -97,11 +109,11 @@ def records(xml, name):
     return out
 
 
-def resolve(xml, name):
-    """The reading NDL states for this name, with what it rests on, or an unresolved answer.
+def settle(recs):
+    """Whether a set of records agrees on one reading, and which form of it to keep.
 
-    Returns (reading, evidence). `reading` is None where NDL states nothing, and also where its
-    records genuinely disagree: two transcriptions for one written name is a finding to look at
+    Returns (reading, evidence), with `reading` None where the records state nothing and also
+    where they genuinely disagree: two transcriptions for one written name is a finding to look at
     rather than a majority to take, since one of them may belong to somebody else entirely.
 
     WHERE THE BOUNDARY IS NOT A DISAGREEMENT, which cost the first pass two names in six. A book
@@ -112,8 +124,12 @@ def resolve(xml, name):
     the kana, and the split form is preferred as the answer because it carries the boundary the
     other one lost. 灯 is the counter-case and stays conflicting: アカシ and アカリ are different
     kana, and one of them was a different artist.
+
+    IT TAKES RECORDS RATHER THAN A RESPONSE so that a second catalogue can use the same rule.
+    openbd_reading.py answers the same question from a publisher's registration, and a second copy
+    of this rule is the bug STANDING-INSTRUCTIONS §3 names: two producers of one fact, with nothing
+    forcing them to agree. The counter-cases above are why it is worth having only one.
     """
-    recs = records(xml, name)
     if not recs:
         return None, {"status": "no-record", "records": 0}
     ev = {
@@ -134,6 +150,18 @@ def resolve(xml, name):
     if len(forms) > 1:
         out["unsplit_also_seen"] = True
     return best, out
+
+
+def resolve(xml, name):
+    """The reading NDL states for this name, with what it rests on, or an unresolved answer.
+
+    THE ROUTE THIS TAKES IS CURRENTLY CLOSED. `ndlsearch.ndl.go.jp/robots.txt` carries
+    `Disallow: /api` under `User-agent: *`, which covers `/api/opensearch`, so the query this
+    module builds must not be fetched. The parsing stays because the rule and its counter-cases
+    are worth keeping and because a permitted route to the same records may reopen. See
+    `openbd_reading.py`, which answers the same question from a source that permits it.
+    """
+    return settle(records(xml, name))
 
 
 def is_kana(reading):

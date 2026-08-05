@@ -567,6 +567,15 @@ AUTHOR_HEADER = """\
 #   attempted: true   NDL was asked and stated nothing. Asking again will not help.
 #   attempted: false  nobody has asked yet. This is where a later run picks up.
 # This pass is capped, so most rows carry the second. The cap and the ordering are recorded below.
+#
+# THE LOOKUP ROUTE IS CLOSED AS OF 2026-08-05, AND THE 287 UNATTEMPTED ROWS ARE STOPPED RATHER
+# THAN OUTSTANDING. https://ndlsearch.ndl.go.jp/robots.txt lists `Disallow: /api` under
+# `User-agent: *`, and the OpenSearch endpoint above is under /api. The 60 rows already attempted
+# went out before anyone read that file. This project takes the same rule literally elsewhere:
+# adapters/kadokomi/ routes around a robots-disallowed /api/ at real cost, so resuming here is a
+# decision for the project owner rather than the next run's default. adapters/names/
+# openbd_reading.py is the permitted route to the same fact, and it reaches only names attached to
+# a book with an ISBN, which is nobody on this shelf.
 """
 
 
@@ -713,6 +722,22 @@ def authors_main(argv=None):
     print(f"{len(doc['authors'])} names new to us; {len(todo)} lookups this pass "
           f"(cap {a.cap}), {sum(1 for r in doc['authors'].values() if not r['attempted'])} "
           f"not yet attempted")
+
+    # ROBOTS IS ASKED BEFORE THE FIRST REQUEST, not remembered. The 60 rows already in this file
+    # went out on a path ndlsearch.ndl.go.jp/robots.txt forbids, because nothing here looked and
+    # the one thing that could have looked was matching against a truncated copy of the rules
+    # (recon/probe.py, fixed 2026-08-05). Refusing here leaves the rest `attempted: false`, which
+    # is what they are: nobody asked, and on this route nobody may.
+    from recon import probe                                          # noqa: PLC0415
+    import urllib.parse                                              # noqa: PLC0415
+    if todo:
+        path = urllib.parse.urlsplit(ndl_reading.query("x")).path
+        rules = probe.robots_rules("ndlsearch.ndl.go.jp")
+        if rules["present"] and not probe.allowed(path, rules["disallow"]):
+            print(f"Refusing to fetch: robots.txt disallows {path} for User-agent: *. "
+                  f"{len(todo)} name(s) stay unattempted. adapters/names/openbd_reading.py is the "
+                  f"permitted route, and it reaches only names attached to a book with an ISBN.")
+            return 1
 
     for i, name in enumerate(todo, 1):
         url = ndl_reading.query(name)

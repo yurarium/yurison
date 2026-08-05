@@ -3669,118 +3669,12 @@ def main():
 
     series_rows = sorted(works_out,
                          key=lambda r: (r["latest"] or "", r["chapters"]), reverse=True)
-    # AUTOPILOT. Before attaching anything, give every work and author the pipeline currently knows
-    # about a reading if it does not have one. This is what makes a title that appears overnight
-    # render in English by morning with nobody touching it — the alternative is a store that only
-    # grows when someone remembers to run a pass, which is not a database that can be left running.
-    #
-    # Offline, idempotent, and additive only: a name with a reading from a real source is never
-    # overwritten by a guess. If SudachiPy is not installed it does nothing and the interface falls
-    # back to Japanese (§6), which is a documented state rather than a failure.
-    try:
-        sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
-        import pass4_analyser as _p4
-        _p4.fill_missing({r["work"] for r in series_rows}, "titles")
-        _p4.fill_missing({(r.get("author") or "").strip()
-                          for r in series_rows if r.get("author")}, "authors")
-        # Chapter names and credit lines — 202 of the former against 6 titles, so this is most of
-        # what stays Japanese on an English page.
-        # Titles as phrases too, so one whose only Japanese is punctuation (IDOL×IDOL STORY！) is
-        # covered; the title store keys on readings and skips those entirely.
-        _p4.fill_chapters({x for r in releases + series_rows
-                           for x in (r.get("ep"), r.get("latest_ep"), r.get("collection"),
-                                     (r.get("author") or "").strip(),
-                                     r.get("work")) if x})
-    except Exception as e:                      # never let a naming helper break the build
-        print(f"names           : automatic reading pass skipped ({e})")
-
-    # Attach English names and readings. Keyed on the exact Japanese string the store was built
-    # from, so a work or author with no entry simply gets nothing and renders in Japanese (§6).
-    _auth_names, _title_names = load_names()
-
-    # PUNCTUATION-TOLERANT LOOKUP. The store is keyed on the exact Japanese string, and the same
-    # work reaches us with both （私に） and (私に) depending on the platform — full-width and
-    # half-width brackets are different characters, so one variant matched and the other silently
-    # got nothing. NFKC folds the two together without touching the words, so a lookup miss falls
-    # back to the folded key rather than giving up.
-    def _fold(t):
-        return unicodedata.normalize("NFKC", t or "").replace(" ", "")
-
-    # A withheld work's TITLE must not ship either. names.json is keyed by folded title and is
-    # published, so leaving it here would put the work's name and English rendering on the public
-    # site with only its rows removed. Third path, and the reason each output was checked rather
-    # than the first one being taken as proof.
-    _wh_names = withheld_works()
-    _title_names = {k: v for k, v in _title_names.items() if norm_work(k) not in _wh_names}
-    _title_folded, _fold_lost = fold_map(_title_names, _fold)
-    _auth_folded, _a_lost = fold_map(_auth_names, _fold)
-    # Named for what they are rather than reusing a short loop name: `_dropped` is already bound
-    # two thousand lines away in this function, and the shadowing budget counts that.
-    for _folded_key, _folded_dups in _fold_lost + _a_lost:
-        print(f"  note: {_folded_key} has {_folded_dups + 1} records that fold together; "
-              f"kept the fullest")
-
-    _named_w = _named_a = 0
-    for r in series_rows + releases:
-        # AN EXACT MATCH IS NOT AUTOMATICALLY THE BETTER ONE. The same work reaches us spelled
-        # 勝たん！～ and 勝たん!～, and the store holds a record for each: the curated one carries
-        # the translation, the other only an automatic reading. Taking the exact hit first meant
-        # whichever spelling the interface happened to display decided whether the work had an
-        # English name at all. Both candidates are considered and the fuller wins, which is the
-        # same rule fold_map already applies to records that fold together.
-        _cands = [x for x in (_title_names.get(r.get("work")),
-                              _title_folded.get(_fold(r.get("work")))) if x]
-        t = max(_cands, key=_fullness) if _cands else None
-        if t:
-            r["work_en"] = t
-            _named_w += 1
-        _a_raw = (r.get("author") or "").strip()
-        a = _auth_names.get(_a_raw) or _auth_folded.get(_fold(_a_raw))
-        if a:
-            r["author_en"] = a
-            _named_a += 1
-    print(f"names attached  : {_named_w} rows with a title rendering, {_named_a} with an author "
-          f"rendering (store: {len(_title_names)} titles, {len(_auth_names)} authors)")
-
-    # NAMES SHIP SEPARATELY TOO, keyed by the folded string, because an ARCHIVED MONTH IS NEVER
-    # REWRITTEN. That rule exists to stop a published date being revised (§5) and it was silently
-    # freezing everything else with it: 2026-07 was written before any of this existed, so every
-    # row in it showed Japanese only and always would have. Dates are the thing that must not
-    # change; a romanisation improving is the system working.
-    #
-    # So the archive keeps its rows exactly as published and the interface joins the current names
-    # onto them at render time. One file, loaded once, covering every month.
-    (out / "feed" / "names.json").write_text(json.dumps(
-        {"generated": str(_today),
-         "note": "English renderings and readings, keyed by NFKC-folded title/author. Joined onto "
-                 "feed rows at render time so archived months — which are never rewritten — still "
-                 "show current names.",
-         "titles": _title_folded, "authors": _auth_folded,
-         # Chapter names, collections and credit lines, keyed folded like the rest.
-         # phrases carries collection and chapter names, and a withheld work's title lands here
-         # too when it names a collection. Filtered on the same register.
-         # phrases carries collection and chapter names, and a withheld work's title lands here
-         # too when it names a collection. Same register, or the title ships anyway.
-         # A CREDIT LINE IS COMPOSED FROM THE PEOPLE IN IT, where we know them. The phrase map is
-         # written once per string by the analyser and never revisited, so it romanises the whole
-         # line as one run and no later correction reaches it: 入間人間 has a sourced reading of
-         # イルマ ヒトマ and its credit line still read "Iruma Ningen"; 柚原もけ came out
-         # "Yuhara mo Ke" because the analyser broke a name it had never seen. Recomposed from the
-         # author store, and left alone where any of the people are unknown, because half a line
-         # composed and half romanised whole would be worse than either.
-         # The people in each credit line, keyed like the phrases, so the interface can render a
-         # line from its parts and follow the reader's romanisation style and name order. The
-         # composed phrase stays as the fallback for a line whose people we do not all know.
-         "credit_parts": {_fold(k): _cp for k, _cp in (
-             (k, credit_parts(k)) for k in (
-                 (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
-                  ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {})
-         ) if _cp},
-         "phrases": {_fold(k): _recompose_credit(k, v, _auth_names) for k, v in (
-             (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
-              ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}
-         ).items() if norm_work(k) not in _wh_names}},
-        ensure_ascii=False, indent=1, default=jsonable))
+    # THE POPULATION HAS TO BE COMPLETE BEFORE ANYTHING IS ATTACHED TO IT. Identity and the
+    # print-only rows used to run AFTER the naming pass below, so every print work reached
+    # series.json with work_en absent however many names the store held: 楽園の条件 had a
+    # licensed title curated, applied and shipped in names.json, and its row still rendered
+    # Japanese. Two producers of one fact again, and the second one ran too late to see the
+    # first. Nothing here reads a name, so it costs nothing to do it first.
 
     # A work's identifier, so the interface can address it. Minted and stored by
     # adapters/identity.py, which is imported rather than reimplemented: the anchor rule is one
@@ -3851,6 +3745,121 @@ def main():
             })
             _added += 1
         print(f"print-only works added to the works list: {_added}")
+
+    # AUTOPILOT. Before attaching anything, give every work and author the pipeline currently knows
+    # about a reading if it does not have one. This is what makes a title that appears overnight
+    # render in English by morning with nobody touching it — the alternative is a store that only
+    # grows when someone remembers to run a pass, which is not a database that can be left running.
+    #
+    # Offline, idempotent, and additive only: a name with a reading from a real source is never
+    # overwritten by a guess. If SudachiPy is not installed it does nothing and the interface falls
+    # back to Japanese (§6), which is a documented state rather than a failure.
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
+        import pass4_analyser as _p4
+        _p4.fill_missing({r["work"] for r in series_rows}, "titles")
+        _p4.fill_missing({(r.get("author") or "").strip()
+                          for r in series_rows if r.get("author")}, "authors")
+        # Chapter names and credit lines — 202 of the former against 6 titles, so this is most of
+        # what stays Japanese on an English page.
+        # Titles as phrases too, so one whose only Japanese is punctuation (IDOL×IDOL STORY！) is
+        # covered; the title store keys on readings and skips those entirely.
+        _p4.fill_chapters({x for r in releases + series_rows
+                           for x in (r.get("ep"), r.get("latest_ep"), r.get("collection"),
+                                     (r.get("author") or "").strip(),
+                                     r.get("work")) if x})
+    except Exception as e:                      # never let a naming helper break the build
+        print(f"names           : automatic reading pass skipped ({e})")
+
+    # Attach English names and readings. Keyed on the exact Japanese string the store was built
+    # from, so a work or author with no entry simply gets nothing and renders in Japanese (§6).
+    _auth_names, _title_names = load_names()
+
+    # PUNCTUATION-TOLERANT LOOKUP. The store is keyed on the exact Japanese string, and the same
+    # work reaches us with both （私に） and (私に) depending on the platform — full-width and
+    # half-width brackets are different characters, so one variant matched and the other silently
+    # got nothing. NFKC folds the two together without touching the words, so a lookup miss falls
+    # back to the folded key rather than giving up.
+    def _fold(t):
+        return unicodedata.normalize("NFKC", t or "").replace(" ", "")
+
+    # A withheld work's TITLE must not ship either. names.json is keyed by folded title and is
+    # published, so leaving it here would put the work's name and English rendering on the public
+    # site with only its rows removed. Third path, and the reason each output was checked rather
+    # than the first one being taken as proof.
+    _wh_names = withheld_works()
+    _title_names = {k: v for k, v in _title_names.items() if norm_work(k) not in _wh_names}
+    _title_folded, _fold_lost = fold_map(_title_names, _fold)
+    _auth_folded, _a_lost = fold_map(_auth_names, _fold)
+    # Named for what they are rather than reusing a short loop name: `_dropped` is already bound
+    # two thousand lines away in this function, and the shadowing budget counts that.
+    for _folded_key, _folded_dups in _fold_lost + _a_lost:
+        print(f"  note: {_folded_key} has {_folded_dups + 1} records that fold together; "
+              f"kept the fullest")
+
+    _named_w = _named_a = 0
+    for r in series_rows + releases:
+        # AN EXACT MATCH IS NOT AUTOMATICALLY THE BETTER ONE. The same work reaches us spelled
+        # 勝たん！～ and 勝たん!～, and the store holds a record for each: the curated one carries
+        # the translation, the other only an automatic reading. Taking the exact hit first meant
+        # whichever spelling the interface happened to display decided whether the work had an
+        # English name at all. Both candidates are considered and the fuller wins, which is the
+        # same rule fold_map already applies to records that fold together.
+        # Named for what it is rather than reusing `_cands`, which is bound three hundred lines
+        # above as the set of candidate work titles and is still live here.
+        _name_cands = [x for x in (_title_names.get(r.get("work")),
+                                   _title_folded.get(_fold(r.get("work")))) if x]
+        t = max(_name_cands, key=_fullness) if _name_cands else None
+        if t:
+            r["work_en"] = t
+            _named_w += 1
+        _a_raw = (r.get("author") or "").strip()
+        a = _auth_names.get(_a_raw) or _auth_folded.get(_fold(_a_raw))
+        if a:
+            r["author_en"] = a
+            _named_a += 1
+    print(f"names attached  : {_named_w} rows with a title rendering, {_named_a} with an author "
+          f"rendering (store: {len(_title_names)} titles, {len(_auth_names)} authors)")
+
+    # NAMES SHIP SEPARATELY TOO, keyed by the folded string, because an ARCHIVED MONTH IS NEVER
+    # REWRITTEN. That rule exists to stop a published date being revised (§5) and it was silently
+    # freezing everything else with it: 2026-07 was written before any of this existed, so every
+    # row in it showed Japanese only and always would have. Dates are the thing that must not
+    # change; a romanisation improving is the system working.
+    #
+    # So the archive keeps its rows exactly as published and the interface joins the current names
+    # onto them at render time. One file, loaded once, covering every month.
+    (out / "feed" / "names.json").write_text(json.dumps(
+        {"generated": str(_today),
+         "note": "English renderings and readings, keyed by NFKC-folded title/author. Joined onto "
+                 "feed rows at render time so archived months — which are never rewritten — still "
+                 "show current names.",
+         "titles": _title_folded, "authors": _auth_folded,
+         # Chapter names, collections and credit lines, keyed folded like the rest.
+         # phrases carries collection and chapter names, and a withheld work's title lands here
+         # too when it names a collection. Filtered on the same register.
+         # phrases carries collection and chapter names, and a withheld work's title lands here
+         # too when it names a collection. Same register, or the title ships anyway.
+         # A CREDIT LINE IS COMPOSED FROM THE PEOPLE IN IT, where we know them. The phrase map is
+         # written once per string by the analyser and never revisited, so it romanises the whole
+         # line as one run and no later correction reaches it: 入間人間 has a sourced reading of
+         # イルマ ヒトマ and its credit line still read "Iruma Ningen"; 柚原もけ came out
+         # "Yuhara mo Ke" because the analyser broke a name it had never seen. Recomposed from the
+         # author store, and left alone where any of the people are unknown, because half a line
+         # composed and half romanised whole would be worse than either.
+         # The people in each credit line, keyed like the phrases, so the interface can render a
+         # line from its parts and follow the reader's romanisation style and name order. The
+         # composed phrase stays as the fallback for a line whose people we do not all know.
+         "credit_parts": {_fold(k): _cp for k, _cp in (
+             (k, credit_parts(k)) for k in (
+                 (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
+                  ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {})
+         ) if _cp},
+         "phrases": {_fold(k): _recompose_credit(k, v, _auth_names) for k, v in (
+             (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
+              ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}
+         ).items() if norm_work(k) not in _wh_names}},
+        ensure_ascii=False, indent=1, default=jsonable))
 
     (out / "series.json").write_text(json.dumps(
         {"series": series_rows,

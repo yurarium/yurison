@@ -3929,6 +3929,37 @@ def main():
          "platform_meta": plat_meta, "lapsed": lapsed},
         ensure_ascii=False, indent=1, default=jsonable))
 
+    # THE WORK'S OWN IDENTIFIER ON EVERY UPDATE, so a row in the feed can offer the record of the
+    # work it is an instalment of. The feed is keyed by CHAPTER and knew only the chapter's address,
+    # so the updates tab could send a reader to the platform and nowhere else.
+    #
+    # Runs after the identity pass above, which is what puts an id on a series row in the first
+    # place. Matched on the title AND the platform where both are known, because a normalised title
+    # is not an identifier: where two works share one and no platform separates them, the row gets
+    # no id rather than a guess at which work it belongs to. That is identity.py's own rule about a
+    # contested anchor, applied to the same question from the other side.
+    _wid_by_work, _wid_ambiguous = {}, set()
+    for _srow in series_rows:
+        if not _srow.get("id"):
+            continue
+        _wkey = norm_work(_srow.get("work"))
+        if _wid_by_work.get(_wkey) not in (None, _srow["id"]):
+            _wid_ambiguous.add(_wkey)
+        _wid_by_work.setdefault(_wkey, _srow["id"])
+        for _wsrc in (_srow.get("sources") or []):
+            _wid_by_work.setdefault((_wkey, _wsrc.get("platform")), _srow["id"])
+    _wid_linked = 0
+    for _frow in releases:
+        _wkey = norm_work(_frow.get("work"))
+        _found = _wid_by_work.get((_wkey, _frow.get("plat")))
+        if not _found and _wkey not in _wid_ambiguous:
+            _found = _wid_by_work.get(_wkey)
+        if _found:
+            _frow["wid"] = _found
+            _wid_linked += 1
+    print(f"updates carrying their work's identifier: {_wid_linked} of {len(releases)}"
+          f"{f'; {len(_wid_ambiguous)} title(s) shared by more than one work' if _wid_ambiguous else ''}")
+
     write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
                      contradicted_works, print_candidates, web_works, samples, regenerate=set(ARGS.regenerate_archive))
 

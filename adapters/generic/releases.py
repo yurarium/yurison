@@ -137,7 +137,12 @@ def main():
     # Hosts with a dedicated adapter of their own. A heuristic must never shadow a parser that
     # reads the platform's own stated fields — comic-walker.com reached here as
     # "電撃ツイッターマガジン" and was re-scraping カドコミ, whose adapter already does it properly.
-    web |= {"comic-walker.com", "comic-fuz.com", "manga.nicovideo.jp"}
+    # www.yomonga.com has adapters/yomonga/releases.py, which runs from its own work list. The
+    # generic pass kept writing a second file for the same five works, and the build read both, so
+    # a first-pass parse sat beside the refined one as though a platform had published it:
+    # "07Chapter.12第6話-2" against the adapter's "Chapter.16 第15話". See docs/GAPS.md §8.
+    web |= {"comic-walker.com", "comic-fuz.com", "manga.nicovideo.jp", "www.yomonga.com",
+            "yomonga.com"}
 
     plans = {}
     for p in yaml.safe_load(open(a.extract))["platforms"]:

@@ -111,6 +111,18 @@
    "means": "adapters that fetch from a host, write into data/source, and have nothing to refuse on. A host serving nonsense replaces the last good capture and reports success. adapters/ledger.py reports the damage afterwards; a floor prevents it."
   },
   {
+   "name": "undated bookwalker candidates",
+   "value": 2349,
+   "budget": 2349,
+   "means": "rows admitted from BOOK☆WALKER's shelf with no first publication date, which DEFINITIONS §6 makes the inclusion test, so none of them can become a work record. Falls as adapters/recon/bookwalker_volumes.py works through the queue. It will not reach zero: the shop states no publication date at all for a digital-first title, and the remainder needs a source that is not this shop."
+  },
+  {
+   "name": "undated cmoa candidates",
+   "value": 1708,
+   "budget": 1708,
+   "means": "the same count for the コミックシーモア half of the queue, falling as adapters/cmoa_volumes.py works through it. Its floor is high and known: cmoa states an ISBN or an 出版年月 only where a volume was printed, and 754 of the 1,844 rows come from two digital distributors whose pages carry neither."
+  },
+  {
    "name": "three as an organising shape",
    "value": 28,
    "budget": 28,

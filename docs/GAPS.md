@@ -347,3 +347,33 @@ build prefers the refined file where both describe a host. The first is truer to
 There is a second hand-maintained list behind it: `adapters/generic/releases.py` skips hosts served
 by a real engine using a set written by hand, so a new dedicated adapter does not claim its own
 host until somebody remembers. Same class as the gap list itself.
+
+---
+
+## 9. Nobody has looked for the name the person uses
+
+616 author names on the live site are shown as a romanisation we derived from confirmed kana. That
+is mechanical and carries no note, correctly. What it hides is that we never asked whether the
+person writes their own name in Latin script.
+
+A minority of artists do, and they are not quiet about it. A pen name set in Latin on a creator's
+own profile, in the credits of a licensed edition, or on the work's own cover is attestable exactly
+the way a splash-art title was: 49 works gained an English title that way on 2026-08-04, from art
+we had been sitting on.
+
+**The state already exists and has never been reached for people.** `adapters/names/curate.py`
+accepts `stated`, documented as "the person's own rendering, where they wrote it", and every author
+pass so far has filled `reading` from NDL and openBD without once looking for a Latin form. So the
+schema is right, the evidence is out there, and the search has not been run.
+
+What it changes for a reader: a name at `stated` is the person's own and carries nothing of ours,
+the way a licensed title does for a work. Today all 616 are ours by default rather than by finding.
+
+Where to look, in the order likely to pay. The licensed editions print a credit, and
+`data/queue/english-licences.yaml` already holds 87 licences whose pages carry author credits
+nobody has read. Series art and platform profiles are the source that produced the 49 titles, and
+the platform ranking in `data/coverage/splash-titles.md` says which are worth opening. The
+publisher's own author pages carry the same `publisher-jp` evidence the openBD reading route uses
+for kana. Anthology contributor lists name people the shelf captures reach and the corpus does not.
+
+The 179 whose pronunciation is unconfirmed are a different problem and are already marked as such.

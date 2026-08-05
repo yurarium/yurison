@@ -568,6 +568,61 @@ def budget_scraped_counters_in_chapter_names(ctx):
     return sum(1 for n in names if pat.search(n))
 
 
+def budget_undated_retailer_candidates(ctx):
+    """Rows admitted from a retailer shelf that still cannot become work records.
+
+    THIS IS THE CONSUMER FOR data/queue/bookwalker-volumes.yaml, and it exists because a produced
+    file with no consumer reads as done while doing nothing (STANDING-INSTRUCTIONS §13). The
+    capture states, per admitted row, whether the shop gave a `first_publication` date. DEFINITIONS
+    §6 makes that field the inclusion test, so a row without one is a candidate and not a work, and
+    this counts how many are in that position.
+
+    IT COUNTS ROWS NOBODY HAS ASKED ABOUT YET AS UNDATED, because they are: the capture is
+    resumable and an unfetched row has no date for the same reason a fetched one might not. Two
+    silences with different remedies, so `first_publication_basis` in the file distinguishes them
+    and this number does not have to.
+
+    A count, so it ratchets down. Most of these rows are digital-first and the shop states no
+    publication date for them at all, so the number has a floor well above zero that no amount of
+    fetching will reach, and the direction is the thing worth watching.
+
+    ONE BUDGET PER SHOP, not one over both. `undated cmoa candidates` counts the other half of the
+    same queue through the same helper. Folding cmoa's 1,844 rows into this number would have read
+    as the budget loosening by 1,839 on the day the second capture started, which is a ratchet
+    saying nothing about either shop.
+    """
+    return _undated_retailer_rows("data/queue/bookwalker-volumes.yaml", "bookwalker.jp")
+
+
+def budget_undated_cmoa_candidates(ctx):
+    """The same count for data/queue/cmoa-volumes.yaml, which is its named consumer.
+
+    cmoa's silences differ from BOOK☆WALKER's and the file distinguishes them: an ISBN openBD does
+    not hold is reachable through another catalogue, while a title with no print edition has no
+    ISBN to reach it with. Neither shows up here, which is why the basis is in the file.
+    """
+    return _undated_retailer_rows("data/queue/cmoa-volumes.yaml", "cmoa.jp")
+
+
+def _undated_retailer_rows(cap, shop):
+    """Admitted rows for one shop that no capture has given a `first_publication_date`."""
+    import yaml as _yaml
+    try:
+        admitted = _yaml.safe_load((ROOT / "data/queue/admitted.yaml").read_text())
+        total = sum(1 for w in admitted["works"] if w.get("shop") == shop)
+    except Exception:                                                       # noqa: BLE001
+        return 0
+    p = ROOT / cap
+    if not p.exists():
+        return total
+    try:
+        doc = _yaml.safe_load(p.read_text()) or {}
+    except Exception:                                                       # noqa: BLE001
+        return total
+    return total - sum(1 for w in (doc.get("works") or [])
+                       if w.get("first_publication_date"))
+
+
 def budget_shadowed_names(ctx):
     try:
         out = subprocess.run([sys.executable, str(ROOT / "adapters" / "lint" / "shadowing.py"),
@@ -608,6 +663,17 @@ BUDGETS_DEF = [
      "adapters that fetch from a host, write into data/source, and have nothing to refuse on. A "
      "host serving nonsense replaces the last good capture and reports success. adapters/ledger.py "
      "reports the damage afterwards; a floor prevents it."),
+    ("undated bookwalker candidates", budget_undated_retailer_candidates,
+     "rows admitted from BOOK☆WALKER's shelf with no first publication date, which DEFINITIONS §6 "
+     "makes the inclusion test, so none of them can become a work record. Falls as "
+     "adapters/recon/bookwalker_volumes.py works through the queue. It will not reach zero: the "
+     "shop states no publication date at all for a digital-first title, and the remainder needs a "
+     "source that is not this shop."),
+    ("undated cmoa candidates", budget_undated_cmoa_candidates,
+     "the same count for the コミックシーモア half of the queue, falling as adapters/cmoa_volumes.py "
+     "works through it. Its floor is high and known: cmoa states an ISBN or an 出版年月 only where "
+     "a volume was printed, and 754 of the 1,844 rows come from two digital distributors whose "
+     "pages carry neither."),
     ("three as an organising shape", budget_structural_triples,
      "lists of exactly three items, and runs of three bold-led paragraphs, in documents that ship "
      "at 1.0. Three reads as rhetoric; four reads as an inventory. When there really are three "

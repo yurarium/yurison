@@ -240,3 +240,181 @@ def merge(doc, new_rows, page=None, publisher_id=None):
         doc["publishers_captured"] = sorted(set(doc.get("publishers_captured") or [])
                                             | {publisher_id})
     return doc, added
+
+
+# --------------------------------------------------------------------------------------------
+# The work page: what a shelf row does not say.
+#
+# WHY THE WORK PAGE AT ALL. A listing row carries no date, no ISBN and no volume list, and
+# DEFINITIONS §6 makes `first_publication` the inclusion test rather than an ornament on it. So a
+# shelf row cannot become a work record and the page has to be read.
+#
+# ONE REQUEST PER WORK, NOT ONE PER VOLUME. `/title/<id>/` lists ten volumes to a page and prints a
+# synopsis under each, which is text this project may not store. `?disp_mode=easy` on the same URL
+# lists EVERY volume, drops the synopsis entirely, and still carries the 作品情報 block. So the
+# cheap page is also the one that keeps us on the right side of REQUIREMENTS §2, and `work_url()`
+# asks for it.
+#
+# WHAT THE 作品情報 BLOCK DESCRIBES, WHICH IS ONE VOLUME AND NOT THE WORK. ISBN, 配信開始日 and
+# ファイルサイズ belong to the volume the page is showing. On `/title/<id>/` that is volume 1,
+# structurally: volume 1 is the entry whose link is the bare work URL and every later volume links
+# to `/vol/N/`. `work()` returns `detail_volume` so a caller can check that rather than assume it,
+# because attaching volume 7's ISBN to a work's first publication would be silent and wrong.
+#
+# 配信開始日 IS NOT A PUBLICATION DATE and must not be recorded as one. It is the day コミックシーモア
+# started selling the file. For a simultaneous digital release it lands within days of the print
+# on-sale; for a back-catalogue title digitised later it can be years after. 12分のエチュード 1 is
+# openBD 201510 against a 配信開始日 of 2015-09-19, and both are about the same book. The field is
+# kept under its own name, `distribution_started`, so that nothing downstream can mistake the two.
+# The ISBN is what answers publication, through openBD.
+
+_DETAIL = re.compile(r'category_line_f_l_l">\s*([^<]+?)\s*</div>\s*'
+                     r'<div class="category_line_f_r_l"[^>]*>(.*?)</div>', re.S)
+_LINK = re.compile(r'<a href="([^"]*)"[^>]*>(.*?)</a>', re.S)
+# Both list modes. `easy` names each volume in a title_check_box; the detailed mode uses an h3 of
+# its own class. A capture asks for easy, and the other is here so a page saved by hand still reads.
+_VOL_EASY = re.compile(r'<div class="title_check_box">\s*<h3>\s*<a href="([^"]+)"[^>]*>\s*'
+                       r'(.*?)\s*</a>', re.S)
+_VOL_FULL = re.compile(r'title_details_title_name_h2">\s*<a href="([^"]+)"[^>]*>\s*(.*?)\s*</a>',
+                       re.S)
+_VOL_N = re.compile(r"/title/\d+/vol/(\d+)/")
+_RELEASE_TEXT = re.compile(r'vol_release_text">\s*(.*?)\s*</span>', re.S)
+_JP_DATE = re.compile(r"(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日")
+_JP_MONTH = re.compile(r"(\d{4})\s*年\s*(\d{1,2})\s*月")
+# The sub-genre row of the 作品情報 block carries no label of its own, which is where 百合・GL is
+# written. A parser reading only labelled rows drops the one genre this project came for.
+_GENRE_DETAIL = re.compile(r'category_line_f_r_l genre_detail"[^>]*>(.*?)</div>', re.S)
+
+
+def work_url(title_id):
+    """The one page that lists every volume of a work and prints no synopsis under any of them."""
+    return f"{BASE}/title/{title_id}/?page=1&order=up&disp_mode=easy"
+
+
+def volume_url(title_id, n):
+    """A single volume's own page, which is the only place its own ISBN is stated."""
+    return f"{BASE}/title/{title_id}/" if int(n) == 1 else f"{BASE}/title/{title_id}/vol/{n}/"
+
+
+def details(html):
+    """The 作品情報 block as `{label: inner html}`, first occurrence of each label winning.
+
+    The block is served twice, once for each layout, and the two agree. Taking the first is
+    deliberate rather than incidental: a later copy differing would be a page change worth
+    noticing, and `work()` has no way to prefer one, so the count of labels is what a test pins.
+    """
+    out = {}
+    for label, value in _DETAIL.findall(html or ""):
+        out.setdefault(_text(label), value)
+    return out
+
+
+def iso_date(japanese):
+    """`2015年9月19日` as `2015-09-19`, or None. A partial date is not repaired into a whole one."""
+    m = _JP_DATE.search(fold(japanese))
+    if not m:
+        return None
+    return f"{m.group(1)}-{int(m.group(2)):02d}-{int(m.group(3)):02d}"
+
+
+def iso_month(japanese):
+    """`2019年1月` as `2019-01`, the precision the shop states and no more.
+
+    出版年月 is a MONTH and padding it to a day would invent a fact. `first_publication` takes the
+    precision it was given; a date this project made up would be indistinguishable from one a
+    source stated, which is the failure DEFINITIONS §6 cannot afford in the field that IS the
+    inclusion test.
+    """
+    m = _JP_MONTH.search(fold(japanese))
+    return f"{m.group(1)}-{int(m.group(2)):02d}" if m else None
+
+
+def isbn13(raw):
+    """An ISBN as thirteen digits, converting a ten-digit one, or None where it is not an ISBN.
+
+    cmoa states both forms: 一迅社 volumes carry 9784758074803 and 小学館 volumes 4091287557. openBD
+    is keyed on the thirteen-digit form, so a capture that stored what the shop wrote would ask
+    about half its ISBNs in a form the API does not answer, and get nulls that look like books
+    nobody registered.
+    """
+    d = re.sub(r"[^0-9Xx]", "", str(raw or ""))
+    if len(d) == 13 and d.isdigit():
+        return d
+    if len(d) != 10:
+        return None
+    core = "978" + d[:9]
+    check = (10 - sum((1 if i % 2 == 0 else 3) * int(c) for i, c in enumerate(core)) % 10) % 10
+    return core + str(check)
+
+
+def volumes(html, title_id):
+    """Every volume the page lists, as `{volume, name, url}`, in the order it lists them.
+
+    The volume number comes off the LINK and not off the name. A name is a title plus whatever the
+    publisher put after it, and this shelf holds ぼくらのへんたい 1, 12分のエチュード 1巻 and
+    Office Sweet 365(全年齢版) side by side; reading a trailing number out of that would number a
+    work by its own title sooner or later. `/vol/N/` says N, and the bare work URL is volume 1.
+    """
+    found = _VOL_EASY.findall(html or "") or _VOL_FULL.findall(html or "")
+    out, seen = [], set()
+    for href, name in found:
+        m = _VOL_N.search(href)
+        n = int(m.group(1)) if m else 1
+        if n in seen:
+            continue
+        seen.add(n)
+        out.append({"volume": n, "name": _text(name),
+                    "url": f"{BASE}{href.split('?')[0]}" if href.startswith("/") else href})
+    return out
+
+
+def stated_volumes(html):
+    """`(count, completed)` from 全14巻完結 or 1巻まで配信中！, or `(None, False)`.
+
+    The shop's own sentence, kept beside the list rather than derived from it. They disagree where
+    a volume list is paged and the sentence is not, and a disagreement is the thing worth seeing:
+    a capture that only counted `<li>`s would have reported 付き合ってあげてもいいかな as 10 volumes
+    from the default page and said nothing.
+    """
+    t = fold(" ".join(_RELEASE_TEXT.findall(html or "")))
+    m = re.search(r"(\d+)\s*巻", t)
+    return (int(m.group(1)) if m else None), ("完結" in t)
+
+
+def work(html, title_id):
+    """One work page as a record: its volumes, and what the shop states about volume 1.
+
+    Fields the page does not carry come back None or empty rather than guessed, and nothing here
+    classifies: the genre and the imprint are reported as the shop wrote them, for
+    `shelfingest.designated()` to test. A designation the shelf row did not show is the reason this
+    function returns `genre` and `imprint` at all.
+    """
+    d = details(html)
+    vols = volumes(html, title_id)
+    stated, completed = stated_volumes(html)
+    labels = [_text(n) for _, n in _LINK.findall(d.get("雑誌・レーベル", ""))]
+    genres = [_text(n) for _, n in _LINK.findall(d.get("ジャンル", ""))]
+    sub = [_text(n) for row in _GENRE_DETAIL.findall(html or "")
+           for _, n in _LINK.findall(row)]
+    first = vols[0] if vols else None
+    return {
+        "cmoa_title_id": str(title_id),
+        "publisher": (_text(_LINK.search(d["出版社"]).group(2))
+                      if _LINK.search(d.get("出版社", "") or "") else None),
+        "imprint": labels[0] if labels else None,
+        "labels": labels,
+        "genre": genres[0] if genres else None,
+        # Deduplicated because the block is served once per layout, so every genre arrives twice.
+        "genres": list(dict.fromkeys(genres + sub)),
+        "volumes": vols,
+        "volumes_stated": stated,
+        "completed": completed,
+        # Which volume the ISBN and the date below belong to. 1 is the expected answer and the
+        # capture counts anything else rather than filing it as volume 1's.
+        "detail_volume": first["volume"] if first else None,
+        "isbn": isbn13(_text(d.get("ISBN", ""))),
+        # 出版年月 is the shop stating the volume's publication month. Where it is present it
+        # answers DEFINITIONS §6 outright, with no second source needed and no ISBN required.
+        "published": iso_month(_text(d.get("出版年月", ""))),
+        "distribution_started": iso_date(_text(d.get("配信開始日", ""))),
+    }

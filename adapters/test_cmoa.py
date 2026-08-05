@@ -104,6 +104,79 @@ SIDEBAR = """
 </a></li></ul></div>
 """
 
+# A work page, quoted from https://www.cmoa.jp/title/167439/?page=1&order=up&disp_mode=easy as
+# served on 2026-08-05, with the cover, price and cart blocks cut and volumes 3 to 14 removed. Every
+# field the parser reads is here verbatim: the 作品情報 block with both dates and the ISBN, the
+# unlabelled sub-genre row where 百合・GL is written, and the easy-mode volume list.
+#
+# The ISBN is quoted as the shop writes it, which is TEN digits. That is not an oddity of this one
+# page; 一迅社 volumes carry thirteen and 小学館 volumes ten, and openBD answers only the long form.
+WORK_PAGE = """
+<h1 class="title_details_h1">付き合ってあげてもいいかな 1</h1>
+<span class="font_12">作品ラインナップ&emsp;<span class="vol_release_text">全14巻完結</span></span>
+<div id="comic_list">
+  <ul class="title_vol_easy_box clearfix">
+    <li class="title_vol_easy_box_in_th">
+      <div class="title_check_box"><h3>
+        <a href="/title/167439/">付き合ってあげてもいいかな 1</a>
+      </h3></div>
+    </li>
+    <li class="title_vol_easy_box_in_th">
+      <div class="title_check_box"><h3>
+        <a href="/title/167439/vol/2/">付き合ってあげてもいいかな 2</a>
+      </h3></div>
+    </li>
+  </ul>
+</div>
+<div class="related_text_box">
+<div class="category_line"><div class="category_line_f_l_l">ジャンル</div>
+  <div class="category_line_f_r_l"><span class="margin_r5">：</span>
+  <a href="/search/genre/20/">少女マンガ</a></div></div>
+<div class="category_line"><div class="category_line_f_r_l genre_detail">
+  <a href="/search/genre/5/">恋愛</a>&nbsp;/&nbsp;<a href="/search/genre/37/">百合・GL</a>
+  </div></div>
+<div class="category_line"><div class="category_line_f_l_l">出版社</div>
+  <div class="category_line_f_r_l"><span class="margin_r5">：</span>
+  <a href="/search/publisher/22/">小学館</a></div></div>
+<div class="category_line"><div class="category_line_f_l_l">雑誌・レーベル</div>
+  <div class="category_line_f_r_l"><span class="margin_r5">：</span>
+  <a href="/search/magazine/9654/">裏サンデー女子部</a></div></div>
+<div class="category_line"><div class="category_line_f_l_l">配信開始日</div>
+  <div class="category_line_f_r_l"><span class="margin_r5">：</span>2019年1月11日</div></div>
+<div class="category_line"><div class="category_line_f_l_l">出版年月</div>
+  <div class="category_line_f_r_l"><span class="margin_r5">：</span>2019年1月</div></div>
+<div class="category_line"><div class="category_line_f_l_l">ISBN</div>
+  <div class="category_line_f_r_l"><span class="margin_r5">：</span>
+  <pre style="display:inline">4091287557</pre></div></div>
+</div>
+"""
+
+# THE SHAPE MOST OF THIS SHELF IS IN, and the reason the capture cannot answer §6 for it. Quoted
+# from https://www.cmoa.jp/title/222919/ on 2026-08-05. A digital distributor's page states a
+# 配信開始日 and nothing else: no ISBN, no 出版年月. The page's own description says the file is
+# the ebook edition of the author's 個人誌, so an earlier publication exists and the shop does not
+# say when, which is why 配信開始日 must not be read as a publication date.
+DIGITAL_ONLY = """
+<span class="vol_release_text">1巻まで配信中！</span>
+<div id="comic_list"><ul class="title_vol_easy_box clearfix">
+  <li><div class="title_check_box"><h3>
+    <a href="/title/222919/">#ミカちゃんともなちゃん</a>
+  </h3></div></li>
+</ul></div>
+<div class="category_line"><div class="category_line_f_l_l">ジャンル</div>
+  <div class="category_line_f_r_l"><span class="margin_r5">：</span>
+  <a href="/search/genre/20/">少女マンガ</a></div></div>
+<div class="category_line"><div class="category_line_f_l_l">出版社</div>
+  <div class="category_line_f_r_l"><span class="margin_r5">：</span>
+  <a href="/search/publisher/1793/">クロスフォリオ出版</a></div></div>
+<div class="category_line"><div class="category_line_f_l_l">雑誌・レーベル</div>
+  <div class="category_line_f_r_l"><span class="margin_r5">：</span>
+  <a href="/search/magazine/10106/">BLIC-GL</a></div></div>
+<div class="category_line"><div class="category_line_f_l_l">配信開始日</div>
+  <div class="category_line_f_r_l"><span class="margin_r5">：</span>2021年5月28日</div></div>
+"""
+
+
 # The full list at /search/other/?type=publisher, which writes the same numbers full-width.
 OTHER = """
 <li><a href="/search/result/?genre_id=0000037&amp;publisher_id=0001814&amp;breadcrumbs=pi">
@@ -221,6 +294,81 @@ def main(s):
     s.eq(cmoa.is_doujin("ライトリーズン", ["ライトリーズン"]), False,
          "nor is a publisher that reads like one and was never established")
     s.eq(cmoa.is_doujin(None, None), False, "no publisher, no claim")
+
+    # ── The work page, which is where a date has to come from ────────────────────────────────
+    w = cmoa.work(WORK_PAGE, "167439")
+    s.eq(w["publisher"], "小学館", "the publisher a listing row does not carry")
+    s.eq(w["imprint"], "裏サンデー女子部", "and the imprint, kept apart from it")
+    s.eq(w["genres"], ["少女マンガ", "恋愛", "百合・GL"],
+         "百合・GL is in the unlabelled sub-genre row, so a parser reading labels alone loses it")
+    s.eq(w["volumes_stated"], 14, "the shop's own sentence says fourteen volumes")
+    s.eq(w["completed"], True, "and says the series finished")
+    s.eq([v["volume"] for v in w["volumes"]], [1, 2],
+         "while the list on this page names two, which is the disagreement worth seeing")
+    s.eq(w["volumes"][0]["url"], "https://www.cmoa.jp/title/167439/",
+         "volume 1 is the entry whose link is the bare work URL")
+    s.eq(w["volumes"][1]["url"], "https://www.cmoa.jp/title/167439/vol/2/",
+         "and every later volume has a page of its own")
+    s.eq(w["detail_volume"], 1, "so the ISBN and the dates below belong to volume 1")
+    s.eq(w["isbn"], "9784091287557",
+         "the ten-digit ISBN the shop wrote, converted to the form openBD answers")
+    s.eq(w["published"], "2019-01", "出版年月 is a publication date and is kept as a month")
+    s.eq(w["distribution_started"], "2019-01-11",
+         "配信開始日 is the day the shop started selling the file, under its own name")
+
+    # THE COUNTER-CASE, and it is the majority of this shelf rather than an edge. A digital
+    # distributor states a 配信開始日 and nothing else, so the date field must come back empty
+    # rather than borrowing the one date on the page.
+    dig = cmoa.work(DIGITAL_ONLY, "222919")
+    s.eq(dig["isbn"], None, "no ISBN on a page that states none")
+    s.eq(dig["published"], None, "and no publication date invented from the one date present")
+    s.eq(dig["distribution_started"], "2021-05-28", "which is recorded, under its own name")
+    s.eq(dig["volumes_stated"], 1, "1巻まで配信中 says one volume")
+    s.eq(dig["completed"], False, "and says nothing about the series being finished")
+    s.eq(dig["publisher"], "クロスフォリオ出版", "the publisher still reads")
+
+    s.eq(cmoa.work("", "1")["volumes"], [], "an empty page yields no volumes rather than one None")
+    s.eq(cmoa.work("", "1")["isbn"], None, "and no fields guessed from nothing")
+
+    # DATES KEEP THE PRECISION THEY WERE GIVEN. Padding 2019年1月 to a day would put a fact in the
+    # field that decides scope which no source ever stated.
+    s.eq(cmoa.iso_date("2015年9月19日"), "2015-09-19", "a full date, zero-padded")
+    s.eq(cmoa.iso_month("2019年1月"), "2019-01", "a month stays a month")
+    s.eq(cmoa.iso_date("2019年1月"), None, "and a month is not read as a date")
+    s.eq(cmoa.iso_month("２０１９年１月"), "2019-01", "full-width digits are the same date")
+    s.eq(cmoa.iso_date(""), None, "nothing states nothing")
+
+    # ISBN-10 TO 13. Checked against openBD rather than against the algorithm: 4091287557 is
+    # 付き合ってあげてもいいかな 1, and openBD answers for 9784091287557 with pubdate 201901, which
+    # is the same month cmoa states. Two sources, one fact, agreeing.
+    s.eq(cmoa.isbn13("4091287557"), "9784091287557", "a ten-digit ISBN becomes a thirteen")
+    s.eq(cmoa.isbn13("4-09-128755-7"), "9784091287557", "hyphens and all")
+    s.eq(cmoa.isbn13("9784758074803"), "9784758074803", "a thirteen is already one")
+    s.eq(cmoa.isbn13("n/a"), None, "and a field that is not an ISBN yields none")
+    s.eq(cmoa.isbn13(""), None, "nor does an empty one")
+    s.eq(cmoa.isbn13(None), None, "nor a missing one")
+
+    s.eq(cmoa.stated_volumes("<span class=\"vol_release_text\">全14巻完結</span>"), (14, True),
+         "全14巻完結 is fourteen volumes and finished")
+    s.eq(cmoa.stated_volumes("<span class=\"vol_release_text\">3巻まで配信中！</span>"), (3, False),
+         "and 3巻まで配信中 is three volumes and still running")
+    s.eq(cmoa.stated_volumes("nothing of the sort"), (None, False),
+         "a page that does not say gives no count, rather than zero")
+
+    # A VOLUME IS NUMBERED BY ITS LINK, NEVER BY ITS NAME. This shelf holds titles ending in a
+    # number, and reading one out of the name would eventually number a work by its own title.
+    numbered = ('<div class="title_check_box"><h3><a href="/title/9/vol/7/">'
+                'ぼくらの7日間戦争 2</a></h3></div>')
+    s.eq(cmoa.volumes(numbered, "9")[0]["volume"], 7,
+         "the link says seven and the name's trailing 2 is part of the title")
+
+    s.eq(cmoa.work_url("167439"),
+         "https://www.cmoa.jp/title/167439/?page=1&order=up&disp_mode=easy",
+         "the page that lists every volume and prints no synopsis under any of them")
+    s.eq(cmoa.volume_url("167439", 1), "https://www.cmoa.jp/title/167439/",
+         "volume 1 is the work URL itself")
+    s.eq(cmoa.volume_url("167439", 2), "https://www.cmoa.jp/title/167439/vol/2/",
+         "and the rest hang off it")
 
     s.eq(cmoa.shelf_url(3, publisher_id="0001814"),
          "https://www.cmoa.jp/search/result/?genre_id=0000037&sort=14&page=3"

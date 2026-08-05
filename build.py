@@ -21,6 +21,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402
 import identity  # noqa: E402
 import importdates  # noqa: E402
+from names import openbd_reading  # noqa: E402
 
 # REQUIREMENTS §1. A field whose provenance is not here fails the build.
 # Tier A/B attesting sources only. Discovery-only sources (Tier C/D) never appear here — they feed
@@ -3761,7 +3762,14 @@ def main():
             _fp2 = _pw2.get("first_publication") or {}
             series_rows.append({
                 "work": (_pw2.get("title") or {}).get("ja") or "",
-                "author": _pw2.get("creator") or "",
+                # MADB writes a credit as cataloguing notation: `[著]秋山はる`, `[作画]A / [原作]B`,
+                # and `[[著]]椿木とりか` with the delimiter doubled. The work page was showing the
+                # bracket to readers on all 470 print rows. One reader of that notation, in
+                # openbd_reading, because a second copy here would drift from it.
+                "author": " / ".join(
+                    x for x in (openbd_reading.credit_name(part)
+                                for part in re.split(r"\s*/\s*", _pw2.get("creator") or ""))
+                    if x),
                 "chapters": 0, "partial": False, "oneshot": False,
                 "latest": None, "latest_ep": "", "first": _fp2.get("date"),
                 "state": "print", "state_basis": None, "completed_basis": None,

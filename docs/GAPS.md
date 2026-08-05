@@ -431,3 +431,8 @@ a population that has not had them.
 
 The same arrives again when the BOOK☆WALKER capture finishes and its ISBNs go through the same
 route.
+
+Stripping MADB's role brackets off the print credits took uncertain readings from 17 to 22. The
+names were `[著]秋山はる` before, which matched nothing in the name store and so counted as
+nothing; they are people now, and five of them have no settled reading. The number went up because
+the data got better, which is the ordinary shape of this measure.

@@ -101,6 +101,13 @@ def main(s):
     s.eq(p4.chapter_en("100.第94話しんゆうのたのみ", plain), "Ch. 94 しんゆうのたのみ",
          "the work's own label outranks the list position it sits at")
     s.eq(p4.chapter_en("1.第1話", plain), "Ch. 1", "even where the two agree")
+    s.eq(p4.chapter_en("07Chapter.12第6話-2", plain), "Ch. 6-2",
+         "a row index carrying its own word is still a row index")
+
+    # THE PREFIX MUST BE INDEX MATERIAL AND NOTHING ELSE. That is what keeps a real title safe:
+    # 恋する第3惑星 has 第3 in it and is not chapter three of anything.
+    s.eq(p4.chapter_en("恋する第3惑星", plain), None,
+         "a title that happens to contain 第N is not a chapter label")
 
     # THE FALLBACK AGAIN. Where what follows the prefix is not a chapter label, the prefix stays.
     s.eq(p4.chapter_en("12.普通の話", plain), "Ch. 12 普通の話",

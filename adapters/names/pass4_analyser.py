@@ -600,11 +600,15 @@ def chapter_en(name, romanise_rest):
     # An explicit 第N話 or #N outranks a bare leading integer, because one is the work saying what
     # this chapter is and the other is a list saying where it sits. Where the remainder is NOT such
     # a label the prefix is left alone, which keeps "07Chapter.5" and its like as they were.
-    mi = re.match(r"^\s*[0-9]+\s*[.．]\s*(.+)$", n)
-    if mi:
-        inner = mi.group(1).strip()
-        if re.match(r"^\s*(?:第\s*[0-9]+|[#＃]\s*[0-9]+)", inner):
-            n = inner
+    # The prefix is index material and nothing else: digits, separators, and the words a platform
+    # numbers its own rows with. "07Chapter.12第6話-2" carries both numberings and read
+    # "Ch. 07 Chapter . 12 Dai 6Wa - 2". Requiring the prefix to be ONLY index material is what
+    # keeps a real title safe: anything with a word in it that is not one of these is left alone.
+    INDEXY = re.compile(r"^[\s0-9.．\-_#＃]*(?:(?:chapter|episode|ep|ch)[\s.．]*[0-9]*[\s.．\-_]*)*$",
+                        re.I)
+    mi = re.search(r"(第\s*[0-9]+|[#＃]\s*[0-9]+)", n)
+    if mi and mi.start() > 0 and INDEXY.match(n[:mi.start()]):
+        n = n[mi.start():].strip()
 
     # Unwrap a bracketed label before matching. Only where the contents parse as a chapter: a
     # bracket around anything else is left alone and the name renders as it did.

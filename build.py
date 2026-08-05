@@ -19,6 +19,7 @@ import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402
+import identity  # noqa: E402
 import importdates  # noqa: E402
 
 # REQUIREMENTS §1. A field whose provenance is not here fails the build.
@@ -3780,6 +3781,26 @@ def main():
               ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}
          ).items() if norm_work(k) not in _wh_names}},
         ensure_ascii=False, indent=1, default=jsonable))
+
+    # A work's identifier, so the interface can address it. Minted and stored by
+    # adapters/identity.py, which is imported rather than reimplemented: the anchor rule is one
+    # fact and a second copy of it here would drift the moment either side changed. A row with no
+    # id is a work registered since the last identity run, which is a state the interface has to
+    # tolerate rather than a reason to fail the build.
+    _idreg = pathlib.Path("data/identity/works.yaml")
+    if _idreg.exists():
+        _iddoc = yaml.safe_load(_idreg.read_text()) or {}
+        _byanchor = identity.index(_iddoc.get("works") or [])
+        _shared = Counter(r.get("url") for r in series_rows if r.get("url"))
+        _named = 0
+        for _srow in series_rows:
+            _anchor = identity.web_anchor(_srow.get("url"), _srow.get("work"),
+                                          _shared[_srow.get("url")] > 1)
+            _found_id = _byanchor.get(_anchor)
+            if _found_id:
+                _srow["id"] = _found_id
+                _named += 1
+        print(f"work identifiers: {_named} of {len(series_rows)} rows carry one")
 
     (out / "series.json").write_text(json.dumps(
         {"series": series_rows,

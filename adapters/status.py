@@ -103,8 +103,8 @@ def conforms(root):
     return out
 
 
-def connectors(run, shape=None):
-    """Per-source capture, newest first by age. Staleness is what one run can tell you."""
+def connectors(run, shape=None, drops=None):
+    """Per-source capture, newest first by age, with what the ledger says about each."""
     out = []
     for s in run.get("sources") or []:
         tot, good = (shape or {}).get(s.get("source"), (0, 0))
@@ -113,7 +113,8 @@ def connectors(run, shape=None):
                     "age_days": s.get("age_days"), "in_scope": bool(s.get("in_scope")),
                     "empty": bool(s.get("empty")),
                     "checked_rows": tot, "well_formed": good,
-                    "malformed": tot - good})
+                    "malformed": tot - good,
+                    "drop": (drops or {}).get(s.get("source"))})
     return sorted(out, key=lambda x: (-(x["age_days"] or 0), x["source"] or ""))
 
 
@@ -191,7 +192,8 @@ def outstanding(series, budgets, queues):
     ]
 
 
-def build(run, checks, series, index, budgets, queues, previous=None, shape=None):
+def build(run, checks, series, index, budgets, queues, previous=None, shape=None,
+          ledger=None):
     """The whole file. Nothing here is computed twice and nothing is rounded."""
     inv = checks.get("invariants") or []
     _data_inv = [i for i in inv if i.get('name') not in ENGINEERING_CHECKS]
@@ -219,7 +221,11 @@ def build(run, checks, series, index, budgets, queues, previous=None, shape=None
             "budgets": [b for b in (checks.get("budgets") or [])
                         if b.get("name") not in ENGINEERING],
         },
-        "connectors": connectors(run, shape),
+        "connectors": connectors(run, shape,
+                                 {d["source"]: d for d in (ledger or {}).get("drops") or []}),
+        "ledger": {"runs_held": (ledger or {}).get("runs_held", 0),
+                   "previous_at": (ledger or {}).get("previous_at"),
+                   "drops": (ledger or {}).get("drops") or []},
         "outstanding": outstanding(series, budgets, queues),
         "statistics": stats,
     }
@@ -251,8 +257,9 @@ def main(argv=None):
     # Read what this run is about to overwrite. It is the only record of the run before it.
     outp = pathlib.Path(a.out)
     previous = json.loads(outp.read_text()) if outp.exists() else None
+    led = b / "ledger.json"
     doc = build(run, checks, series, index, budgets, queues, previous,
-                conforms("data/source"))
+                conforms("data/source"), json.loads(led.read_text()) if led.exists() else None)
     outp.write_text(json.dumps(doc, ensure_ascii=False, indent=1))
     print(f"status: {doc['statistics']['works']} works, {len(doc['connectors'])} connector(s), "
           f"{len(doc['outstanding'])} outstanding group(s) -> {a.out}")

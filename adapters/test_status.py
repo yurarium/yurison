@@ -99,6 +99,14 @@ def main(s):
     # phrasing is a development requirement and the update has no bearing on it.
     C2 = {"invariants": CHECKS["invariants"] +
           [{"name": "no stock phrasing in public text", "violations": 0}], "budgets": []}
+    # THE LEDGER'S VERDICT TRAVELS WITH THE SOURCE IT IS ABOUT, so the table can show it beside
+    # the row count it contradicts.
+    c3 = status.connectors(RUN, None, {"madb": {"was": 646, "now": 60, "share": 0.907}})
+    s.eq([x["drop"]["was"] for x in c3 if x["source"] == "madb"], [646],
+         "a source the ledger flagged carries what it held before")
+    s.eq([x["drop"] for x in c3 if x["source"] == "comicfuz"], [None],
+         "and one it did not flag carries nothing")
+
     doc = status.build(RUN, C2, SERIES, INDEX, {"x": 1}, {})
     s.eq(len(doc["gate"]["invariants"]), 2, "the data checks are the ones counted")
     s.check("development_checks" not in doc["gate"],

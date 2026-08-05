@@ -105,6 +105,12 @@
    "means": "Python modules no suite covers. Offline tests are the enforcement for factoring as well: a module that cannot be tested without a network has not separated its logic from its I/O, so this number falling is the refactoring, not a proxy for it."
   },
   {
+   "name": "captures with no floor",
+   "value": 11,
+   "budget": 11,
+   "means": "adapters that fetch from a host, write into data/source, and have nothing to refuse on. A host serving nonsense replaces the last good capture and reports success. adapters/ledger.py reports the damage afterwards; a floor prevents it."
+  },
+  {
    "name": "three as an organising shape",
    "value": 28,
    "budget": 28,

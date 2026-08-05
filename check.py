@@ -502,6 +502,34 @@ def budget_untested_modules(ctx):
         return 0
 
 
+def budget_unguarded_captures(ctx):
+    """Adapters that fetch from a host, write into data/source, and have no floor to refuse on.
+
+    A host that is down or serving nonsense is not a rare event, and an adapter without a floor
+    writes whatever it got over the last good capture. Half of them do refuse: comicboost exits on
+    "no series returned chapters", comicfuz on a work count below its minimum. The rest would
+    happily replace 1,952 chapters with nothing and report success.
+
+    This is the prevention half of GAPS §8. adapters/ledger.py is the detection half and reports
+    the damage after the fact; a floor stops it happening. A count, so it ratchets down.
+    """
+    import re as _re
+    n = 0
+    for f in sorted(ROOT.glob("adapters/**/*.py")):
+        if f.name.startswith("test_") or f.name == "testkit.py":
+            continue
+        try:
+            src = f.read_text()
+        except Exception:                                                   # noqa: BLE001
+            continue
+        fetches = "urllib.request" in src or "urlopen(" in src
+        writes = "data/source" in src
+        guarded = bool(_re.search(r"Refusing to write|HEALTH:", src))
+        if fetches and writes and not guarded:
+            n += 1
+    return n
+
+
 def budget_structural_triples(ctx):
     """Three used as an organising shape in documents that ship at 1.0.
 
@@ -576,6 +604,10 @@ BUDGETS_DEF = [
      "Python modules no suite covers. Offline tests are the enforcement for factoring as well: a "
      "module that cannot be tested without a network has not separated its logic from its I/O, so "
      "this number falling is the refactoring, not a proxy for it."),
+    ("captures with no floor", budget_unguarded_captures,
+     "adapters that fetch from a host, write into data/source, and have nothing to refuse on. A "
+     "host serving nonsense replaces the last good capture and reports success. adapters/ledger.py "
+     "reports the damage afterwards; a floor prevents it."),
     ("three as an organising shape", budget_structural_triples,
      "lists of exactly three items, and runs of three bold-led paragraphs, in documents that ship "
      "at 1.0. Three reads as rhetoric; four reads as an inventory. When there really are three "

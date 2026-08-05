@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-05T08:10:34+00:00",
+ "generated": "2026-08-05T08:51:11+00:00",
  "since_last": {
-  "at": "2026-08-05T08:09:18+00:00",
+  "at": "2026-08-05T08:48:28+00:00",
   "statistics": {}
  },
  "means": {
@@ -117,6 +117,12 @@
     "means": "attested releases missing a chapter name, author or access state. The classic sign of a moved CSS selector — the adapter still returns rows, just emptier ones."
    },
    {
+    "name": "captures with no floor",
+    "value": 11,
+    "budget": 11,
+    "means": "adapters that fetch from a host, write into data/source, and have nothing to refuse on. A host serving nonsense replaces the last good capture and reports success. adapters/ledger.py reports the damage afterwards; a floor prevents it."
+   },
+   {
     "name": "scraped counters in chapter names",
     "value": 1,
     "budget": 1,
@@ -136,7 +142,8 @@
    "empty": false,
    "checked_rows": 0,
    "well_formed": 0,
-   "malformed": 0
+   "malformed": 0,
+   "drop": null
   },
   {
    "source": "openbd",
@@ -149,7 +156,8 @@
    "empty": false,
    "checked_rows": 0,
    "well_formed": 0,
-   "malformed": 0
+   "malformed": 0,
+   "drop": null
   },
   {
    "source": "reachable",
@@ -162,7 +170,8 @@
    "empty": false,
    "checked_rows": 0,
    "well_formed": 0,
-   "malformed": 0
+   "malformed": 0,
+   "drop": null
   },
   {
    "source": "comicfuz",
@@ -175,7 +184,8 @@
    "empty": false,
    "checked_rows": 2384,
    "well_formed": 2384,
-   "malformed": 0
+   "malformed": 0,
+   "drop": null
   },
   {
    "source": "gigaviewer",
@@ -188,7 +198,8 @@
    "empty": false,
    "checked_rows": 7994,
    "well_formed": 7994,
-   "malformed": 0
+   "malformed": 0,
+   "drop": null
   },
   {
    "source": "kadokomi",
@@ -201,7 +212,8 @@
    "empty": false,
    "checked_rows": 4927,
    "well_formed": 4927,
-   "malformed": 0
+   "malformed": 0,
+   "drop": null
   },
   {
    "source": "nicovideo",
@@ -214,7 +226,8 @@
    "empty": false,
    "checked_rows": 0,
    "well_formed": 0,
-   "malformed": 0
+   "malformed": 0,
+   "drop": null
   },
   {
    "source": "comparators",
@@ -227,7 +240,8 @@
    "empty": false,
    "checked_rows": 0,
    "well_formed": 0,
-   "malformed": 0
+   "malformed": 0,
+   "drop": null
   },
   {
    "source": "webpages",
@@ -240,9 +254,15 @@
    "empty": false,
    "checked_rows": 7685,
    "well_formed": 7685,
-   "malformed": 0
+   "malformed": 0,
+   "drop": null
   }
  ],
+ "ledger": {
+  "runs_held": 5,
+  "previous_at": "2026-08-05T08:48:15+00:00",
+  "drops": []
+ },
  "outstanding": [
   {
    "kind": "decision",
@@ -509,9 +529,10 @@
   {
    "kind": "debt",
    "key": "data_debts",
-   "count": 5,
+   "count": 6,
    "what": "Bring down counts that may only ratchet downward",
    "rows": {
+    "captures with no floor": 11,
     "incomplete attested rows": 20,
     "scraped counters in chapter names": 1,
     "uncertain readings": 14,

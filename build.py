@@ -3792,7 +3792,16 @@ def main():
         _iddoc = yaml.safe_load(_idreg.read_text()) or {}
         _byanchor = identity.index(_iddoc.get("works") or [])
         _shared = Counter(r.get("url") for r in series_rows if r.get("url"))
-        _named = 0
+        # The print half of a joined work, carried onto the row so the interface can show one work
+        # rather than a web row and a print row a reader has to notice are the same thing. The
+        # registry already holds the join and its evidence; this only reads it.
+        _print_by_id = {}
+        for _e in _iddoc.get("works") or []:
+            _mad = [x[5:] for x in (_e.get("anchors") or []) if x.startswith("madb:")]
+            if _mad and not _e.get("merged_into"):
+                _print_by_id[_e["id"]] = _mad
+        _pw = {w["work_id"]: w for w in works if w.get("work_id")}
+        _named = _joined = 0
         for _srow in series_rows:
             _anchor = identity.web_anchor(_srow.get("url"), _srow.get("work"),
                                           _shared[_srow.get("url")] > 1)
@@ -3800,7 +3809,20 @@ def main():
             if _found_id:
                 _srow["id"] = _found_id
                 _named += 1
-        print(f"work identifiers: {_named} of {len(series_rows)} rows carry one")
+                _eds = [_pw[m] for m in _print_by_id.get(_found_id, []) if m in _pw]
+                if _eds:
+                    _srow["print"] = [{
+                        "work_id": _e2["work_id"],
+                        "volumes": _e2.get("volume_count"),
+                        "publisher": _e2.get("publisher"),
+                        "imprint": _e2.get("imprint"),
+                        "first": (_e2.get("first_publication") or {}).get("date"),
+                        "last": _e2.get("last_published"),
+                        "label": _e2.get("marketing_label"),
+                    } for _e2 in _eds]
+                    _joined += 1
+        print(f"work identifiers: {_named} of {len(series_rows)} rows carry one; "
+              f"{_joined} also carry their print edition")
 
     (out / "series.json").write_text(json.dumps(
         {"series": series_rows,

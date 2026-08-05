@@ -3824,6 +3824,34 @@ def main():
         print(f"work identifiers: {_named} of {len(series_rows)} rows carry one; "
               f"{_joined} also carry their print edition")
 
+        # THE PRINT-ONLY POPULATION JOINS THE WORKS LIST. It used to live in a tab of its own,
+        # which is how one database came to hold two populations a reader had to notice were the
+        # same kind of thing. A work that exists only in print is still a work: it has no chapters
+        # and no serialisation state, and the row says so rather than inventing either.
+        _seen_print = {p2["work_id"] for r2 in series_rows for p2 in (r2.get("print") or [])}
+        _added = 0
+        for _pw2 in works:
+            if _pw2.get("work_id") in _seen_print:
+                continue
+            _pid = _byanchor.get("madb:" + str(_pw2.get("work_id")))
+            _fp2 = _pw2.get("first_publication") or {}
+            series_rows.append({
+                "work": (_pw2.get("title") or {}).get("ja") or "",
+                "author": _pw2.get("creator") or "",
+                "chapters": 0, "partial": False, "oneshot": False,
+                "latest": None, "latest_ep": "", "first": _fp2.get("date"),
+                "state": "print", "state_basis": None, "completed_basis": None,
+                "free": 0, "free_timed": 0, "priced": 0,
+                "url": None, "sources": [], "skipped": [], "collection": None,
+                "id": _pid,
+                "print": [{"work_id": _pw2["work_id"], "volumes": _pw2.get("volume_count"),
+                           "publisher": _pw2.get("publisher"), "imprint": _pw2.get("imprint"),
+                           "first": _fp2.get("date"), "last": _pw2.get("last_published"),
+                           "label": _pw2.get("marketing_label")}],
+            })
+            _added += 1
+        print(f"print-only works added to the works list: {_added}")
+
     (out / "series.json").write_text(json.dumps(
         {"series": series_rows,
          "generated": str(_today),

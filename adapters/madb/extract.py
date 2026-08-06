@@ -100,12 +100,23 @@ def bare_publisher(rec):
     return norm(re.sub(r"^\s*\[[^\]]*\]\s*|\s*[（(][^）)]*[）)]\s*$", "", s))
 
 
+def strip_role(part):
+    """One credit with the role marker off it.
+
+    MADB writes `[著]`, doubles the delimiter as `[[著]]`, and puts the role in a bracket of its
+    own after the name in `[上田香子][訳]`. Split out of `people` so that a reader wanting a
+    different rule about WHICH credits count still shares the rule about what a role looks like:
+    `madb/by_title.py` is that reader (STANDING-INSTRUCTIONS §3).
+    """
+    name = re.sub(r"\[+", "[", re.sub(r"\]+", "]", part))
+    return re.sub(r"\[[著作画原訳編監修構成脚本案翻・\s]*\]", "", name).strip()
+
+
 def people(rec):
     """The creators named on a record, without their roles, and without a bare reading."""
     out = set()
     for part in re.split(r"\s*/\s*", flat(rec.get("schema:creator", ""))):
-        name = re.sub(r"\[+", "[", re.sub(r"\]+", "]", part))
-        name = re.sub(r"\[[著作画原訳編監修構成脚本案翻・\s]*\]", "", name).strip()
+        name = strip_role(part)
         # A trailing all-katakana part is the reading of the name before it, not a second person.
         if name and not re.fullmatch(r"[\u30a0-\u30ff・\s]+", name):
             out.add(norm(name))

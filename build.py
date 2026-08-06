@@ -1471,20 +1471,27 @@ def main():
         # the same: an enrichment row written by openbd/enrich.py may hold the BIBLIOGRAPHY's date
         # for an ISBN openBD had nothing on, and reading the row's own `published_basis` is what
         # keeps that from being reported as a registration openBD does not have.
-        dated = [(str(v["published"]), "madb", "madb-tankobon")
-                 for v in vols if v.get("published")]
-        dated += [(str(v["published_openbd"]), "openbd", "openbd-registration")
-                  for v in vols if v.get("published_openbd")]
-        dated += [(str(o["published"]), "openbd", o.get("published_basis") or "openbd-registration")
-                  for o in enrich.values()
-                  if o.get("published") and not any(v.get("published") for v in vols if v.get("isbn") == o.get("isbn"))]
-        # THE BIBLIOGRAPHY REACHED BY TITLE AND A PERSON'S NAME, for a shop's row that states no
-        # ISBN. adapters/madb/by_title.py carries what had to agree before this was written and
-        # the record itself carries the count of what matched, so the join can be withdrawn on
-        # better evidence rather than only trusted (DEFINITIONS §5).
-        dated += [(str(o["published"]), "madb", o.get("published_basis") or "madb-tankobon")
-                  for o in (by_source.get("madb-title", {}).get("volumes") or [])
-                  if o.get("published")]
+        #
+        # ONE BINDING RATHER THAN FOUR. `dated` was assembled by three `+=` statements and gained a
+        # fourth here, and `adapters/lint/shadowing.py` counts each of those as a rebinding of a
+        # name that lives for two thousand lines. Two shipped bugs came from that shape.
+        #
+        # The last of the four is THE BIBLIOGRAPHY REACHED BY TITLE AND A PERSON'S NAME, for a
+        # shop's row that states no ISBN. adapters/madb/by_title.py carries what had to agree
+        # before that was written, and the record carries the count of what matched, so the join
+        # can be withdrawn on better evidence rather than only trusted (DEFINITIONS §5).
+        dated = ([(str(v["published"]), "madb", "madb-tankobon")
+                  for v in vols if v.get("published")]
+                 + [(str(v["published_openbd"]), "openbd", "openbd-registration")
+                    for v in vols if v.get("published_openbd")]
+                 + [(str(o["published"]), "openbd",
+                     o.get("published_basis") or "openbd-registration")
+                    for o in enrich.values()
+                    if o.get("published") and not any(v.get("published") for v in vols
+                                                      if v.get("isbn") == o.get("isbn"))]
+                 + [(str(o["published"]), "madb", o.get("published_basis") or "madb-tankobon")
+                    for o in (by_source.get("madb-title", {}).get("volumes") or [])
+                    if o.get("published")])
         if dated:
             date, via, basis = min(dated)
             w["first_publication"] = {
@@ -3494,6 +3501,14 @@ def main():
                             if "purchase" in (c.get("access_modes") or []) or not readable_now(c))
         if not row["author"]:
             row["author"] = next((c["author"] for c in reversed(chs) if c.get("author")), "")
+        # AND FROM ANY OTHER RECORD OF THE SAME WORK, which is where a byline read off the work's
+        # own page arrives. A chapter list has no room for a fact about the work, so the six
+        # platforms whose adapters only ever read chapters state their author in a record with no
+        # chapters in it at all, and a row assembled purely out of chapters never meets it. This is
+        # the same `author_of` the feed rows are filled from a few hundred lines above, consulted
+        # rather than re-derived.
+        if not row["author"]:
+            row["author"] = author_of.get(norm_work(row["work"]), "")
         # The link is the newest chapter that has one; the work-level url only if it is a page.
         row["url"] = next((c.get("url") for c in reversed(dated) if c.get("url")), None) \
             or next((c.get("url") for c in reversed(chs) if c.get("url")), None) or row["url"]

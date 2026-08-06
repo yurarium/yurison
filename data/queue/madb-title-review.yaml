@@ -1,0 +1,37 @@
+# Rows whose title matched a 単行本 record and whose people did not. NOT RECORDS.
+#
+# A shop and the national bibliography disagreeing about who drew a book is a lead about
+# one of them. The commonest cause here is the bibliography naming nobody on an older
+# import, and the second is an anthology, which has no single author to agree on.
+source: madb-title
+retrieved: 2026-08-06
+role: title-matches-refused
+refused: 27
+works:
+  - {"work_id": "bw-11342823-83e7-4310-b499-1da743f19709", "title": "Day In, Day Out", "creator": "Rion Nomiya", "publisher": "クロスフォリオ出版", "titles_matched": 2, "people_agreed": 0, "bibliography_names": ["[著]内田美奈子"], "why": "no person agreed"}
+  - {"work_id": "bw-125046", "title": "ちゃおデラックスホラー", "creator": "ちゃお編集部", "publisher": "小学館", "titles_matched": 7, "people_agreed": 0, "bibliography_names": [""], "why": "no person agreed"}
+  - {"work_id": "bw-178667", "title": "放課後", "creator": "大島永遠 / 大島智", "publisher": "スイートピー&COCOA BREAK", "titles_matched": 6, "people_agreed": 0, "bibliography_names": ["[原作]東野圭吾", "[著]三浦実子", "[著]槇村さとる", "[著]秋葉凪樹"], "why": "no person agreed"}
+  - {"work_id": "bw-1dacffdb-1437-46df-8496-35ffd0e24fa6", "title": "WITH YOU", "creator": "tsuke", "publisher": "ユーリカ", "titles_matched": 1, "people_agreed": 0, "bibliography_names": ["[著]折原みと"], "why": "no person agreed"}
+  - {"work_id": "bw-268850", "title": "恋の方程式", "creator": "ぐるめ", "publisher": "ぐるめ", "titles_matched": 1, "people_agreed": 0, "bibliography_names": ["[原作]ジョー・リー"], "why": "no person agreed"}
+  - {"work_id": "bw-2944c075-5b37-44ae-b251-8918557b6373", "title": "恋とは呼べない", "creator": "真くん", "publisher": "ライトリーズン", "titles_matched": 3, "people_agreed": 0, "bibliography_names": ["[原作]榎田尤利"], "why": "no person agreed"}
+  - {"work_id": "bw-307179", "title": "龍と虎", "creator": "いくたはな", "publisher": "コルク", "titles_matched": 1, "people_agreed": 0, "bibliography_names": ["育田花"], "why": "no person agreed"}
+  - {"work_id": "bw-349064", "title": "CottonCandy【単話版】", "creator": "浜野りんご", "publisher": "クロスフォリオ出版", "titles_matched": 3, "people_agreed": 0, "bibliography_names": ["[著]牧村久実"], "why": "no person agreed"}
+  - {"work_id": "bw-34f8a644-8e35-4819-b321-58487b184723", "title": "先生", "creator": "嵩乃朔", "publisher": "嵩乃朔", "titles_matched": 33, "people_agreed": 0, "bibliography_names": ["[編]創美社", "[著]水瀬藍", "[著]河原和音", "[著]藍川さき"], "why": "no person agreed"}
+  - {"work_id": "bw-391715", "title": "NOAH", "creator": "ＮＯＡＨ編集部", "publisher": "NOAH編集部", "titles_matched": 3, "people_agreed": 0, "bibliography_names": ["[著]しばの結花"], "why": "no person agreed"}
+  - {"work_id": "bw-403717", "title": "三姉妹", "creator": "あまか", "publisher": "空色の音", "titles_matched": 1, "people_agreed": 0, "bibliography_names": ["[著]岡田まり子"], "why": "no person agreed"}
+  - {"work_id": "bw-4ca96381-b26f-496a-990e-2d01efea3a3a", "title": "ANSWER", "creator": "井上とさず", "publisher": "ライトリーズン", "titles_matched": 2, "people_agreed": 0, "bibliography_names": ["[著]鎌田洋次"], "why": "no person agreed"}
+  - {"work_id": "bw-510617", "title": "秘すれば華なり", "creator": "ふぁゆ瀬", "publisher": "ナンバーナイン", "titles_matched": 3, "people_agreed": 0, "bibliography_names": ["[作画]葛原昏"], "why": "no person agreed"}
+  - {"work_id": "bw-54691", "title": "従姉ヴァレリア", "creator": "福原ヒロ子", "publisher": "ぶんか社", "titles_matched": 2, "people_agreed": 2, "bibliography_names": ["[著]福原ヒロ子"], "why": "agreed, and no agreeing volume states both a date and an ISBN"}
+  - {"work_id": "bw-54706", "title": "真紅に燃ゆ", "creator": "福原ヒロ子", "publisher": "ぶんか社", "titles_matched": 2, "people_agreed": 2, "bibliography_names": ["[著]福原ヒロ子"], "why": "agreed, and no agreeing volume states both a date and an ISBN"}
+  - {"work_id": "bw-6ce7d5c8-bdf9-4927-80b9-c069f6e0ac0d", "title": "sick", "creator": "仁科", "publisher": "ナンバーナイン", "titles_matched": 1, "people_agreed": 0, "bibliography_names": ["[著]倉橋トモ"], "why": "no person agreed"}
+  - {"work_id": "bw-6e9b5f43-196e-4607-b796-fc0f2a0d7a53", "title": "Memories", "creator": "菅野マナミ", "publisher": "一迅社", "titles_matched": 2, "people_agreed": 0, "bibliography_names": ["[著]つづき春", "[著]大友克洋"], "why": "no person agreed"}
+  - {"work_id": "bw-6f157833-e77b-42a9-93f8-9000267a0eac", "title": "罠", "creator": "今井伊紀", "publisher": "ナンバーナイン", "titles_matched": 2, "people_agreed": 0, "bibliography_names": ["[著]杉浦志保", "渡辺かおる"], "why": "no person agreed"}
+  - {"work_id": "bw-89b2ebd2-6284-435b-a80d-81875300eaa7", "title": "ステラのまほうアンソロジーコミック", "creator": "アンソロジー", "publisher": "芳文社", "titles_matched": 1, "people_agreed": 0, "bibliography_names": [""], "why": "no person agreed"}
+  - {"work_id": "bw-8cfbcd13-b5af-47cf-939d-86b3fc17df0a", "title": "春一番", "creator": "つた", "publisher": "ツタブロス", "titles_matched": 1, "people_agreed": 0, "bibliography_names": ["[著]中原千束"], "why": "no person agreed"}
+  - {"work_id": "bw-9d2c3776-c077-4e4f-aef3-ae1ebf389ee9", "title": "Ｓｉｓ［秘密の恋心］", "creator": "いづみやおとは / 卯崎ひとみ / 夏目 / 四位広猫 / 千歳あさひ / 江成いちこ / 香月 稜 / 石見翔子", "publisher": "光文社", "titles_matched": 1, "people_agreed": 0, "bibliography_names": [""], "why": "no person agreed"}
+  - {"work_id": "bw-a1324ef4-30b8-4a51-b473-3ec226b8d0e0", "title": "いじわるしないで", "creator": "桜木晶", "publisher": "ライトリーズン", "titles_matched": 2, "people_agreed": 0, "bibliography_names": ["[著]吉尾アキラ", "美和卯月"], "why": "no person agreed"}
+  - {"work_id": "bw-ba077ec1-d0e2-4daa-9e6f-7a9897848cfc", "title": "約束", "creator": "とらん / ＲＤーＳｏｕｎｄｓ", "publisher": "AM:TIGER", "titles_matched": 3, "people_agreed": 0, "bibliography_names": ["[原作]石田衣良", "[著]藤たまき", "甲斐絵恵子"], "why": "no person agreed"}
+  - {"work_id": "bw-cc2e3972-9615-423d-9958-513bc89fb4ce", "title": "ふたりぽっち", "creator": "池田理代子", "publisher": "フェアベル", "titles_matched": 2, "people_agreed": 2, "bibliography_names": ["[著]池田理代子"], "why": "agreed, and no agreeing volume states both a date and an ISBN"}
+  - {"work_id": "bw-dc7f51c0-6e3a-4b7c-b599-837a9751bcd9", "title": "CottonCandy", "creator": "浜野りんご", "publisher": "クロスフォリオ出版", "titles_matched": 3, "people_agreed": 0, "bibliography_names": ["[著]牧村久実"], "why": "no person agreed"}
+  - {"work_id": "bw-e888bcbf-6fd4-4c2f-8b38-83665061c918", "title": "明けても暮れても", "creator": "野宮りおん", "publisher": "クロスフォリオ出版", "titles_matched": 1, "people_agreed": 0, "bibliography_names": ["倉橋トモ"], "why": "no person agreed"}
+  - {"work_id": "bw-faa4ec44-2e7d-453b-ae4a-328ced9b26e5", "title": "あんハピ♪アンソロジーコミック　吉", "creator": "アンソロジー", "publisher": "芳文社", "titles_matched": 1, "people_agreed": 0, "bibliography_names": [""], "why": "no person agreed"}

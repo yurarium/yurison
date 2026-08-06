@@ -1,0 +1,20 @@
+# A publication date for a BOOK☆WALKER row, from the national bibliography, joined on the title
+# and on a person's name. NOT a record of the shop's edition: see adapters/madb/by_title.py for
+# why a title match alone is refused and what the join had to agree on before this was written.
+source: madb-title
+retrieved: 2026-08-06
+work_id: "bw-307339"
+record_type: volume_enrichment
+madb_release: "1.2.18"
+volumes:
+  - isbn: "9784832238329"
+    published: 2021-06
+    published_basis: madb-tankobon-title-match
+    matched:
+      titles_matched: 8
+      people_agreed: 8
+      volumes_dated: 8
+      rule: >-
+        The folded title matched and at least one person's name agreed. The date is the
+        earliest across every agreeing volume, so a work reissued under a second imprint
+        is dated from its first edition rather than from the one the shop sells.

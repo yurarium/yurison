@@ -510,3 +510,21 @@ merges on it.
 What this population still owes: 1,980 works show a romanisation rather than an English title, up
 from 290, and the readings behind them are the analyser's. That is the same debt the コミックシーモア
 population brought and it is now four times the size.
+
+## 14. BOOK☆WALKER volume counts are understated (2026-08-06)
+
+Checked after 黒の世界は白墨に染まる showed the ingest keeping imprints in titles. The counts are
+short in two ways, one measurable and one not.
+
+**Measurable, and small.** 9 works are shorter here than another source says they are, mostly by
+one volume: 私に天使が舞い降りた! holds 15 against 16, citrus 9 against 10. 吸血鬼の花嫁 is the real
+one, holding 1 against 8.
+
+**Not measurable, and large.** 1,175 works were captured from a single volume page with the series
+page never read, and 931 of those single volumes name a `series_id` in the capture that nothing
+followed. A work recorded as one volume may be a series of unknown length, and the date on its one
+volume is only a first publication if that volume is really the first. The remaining 244 name no
+series and are standalone.
+
+This bears on dating more than on counting. `adapters/recon/bookwalker_volumes.py` already has the
+series-reading path, so the 931 are reachable; nothing has followed them yet.

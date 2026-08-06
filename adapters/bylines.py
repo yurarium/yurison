@@ -3,9 +3,9 @@
 
 WHY THIS EXISTS. 103 works in the corpus name no author, and not one of them is anonymous: the
 platform prints the byline at the top of the page it publishes the work on. The gap is ours. Six of
-the web platforms were read by adapters written to answer a different question — when did each
-chapter appear — and a chapter list has no room for a fact about the work, so the byline beside the
-title was walked past. build.py already reads an author off any source record that carries one
+the web platforms were read by adapters written to answer a different question, which is when
+each chapter appeared. A chapter list has no room for a fact about the work, so the byline beside
+the title was walked past. build.py already reads an author off any source record that carries one
 (`author_of`), so the whole of the fix is a record that carries one.
 
 WHAT A BYLINE IS HERE. The name the platform prints, with the role label it prints beside it kept
@@ -182,7 +182,7 @@ def from_jsonld(page):
     as a `Person`. Recorded as an author it becomes a pen name for the reading passes to work on,
     beside the artists who actually drew the book. The record answers this about itself: the same
     graph names ホビージャパン as the publisher, and a credit that is the publisher's own name is
-    the rights holder rather than a person. Nothing is inferred from the shape of the name.
+    the rights holder. Nothing is inferred from the shape of the name.
     """
     got = []
     for block in _jsonld_blocks(page):
@@ -280,9 +280,9 @@ PIXIV_HEADERS = {"X-Requested-With": "pixivcomic",
 def series_url(url):
     """What to read for this work: its own page, or the endpoint that states what the page draws.
 
-    Kept in one function because the answer is one thing — where the byline is — and splitting it
-    into "the page" and "the API" would give two callers two chances to disagree about which host
-    needs which.
+    Kept in one function because the answer is one thing, which is where the byline is. Splitting
+    it into "the page" and "the API" would give two callers two chances to disagree about which
+    host needs which.
     """
     u = (url or "").strip()
     if u.startswith("https://yanmaga.jp/comics/"):
@@ -344,7 +344,7 @@ def outstanding(items, credit, ident, claimed):
 
     THE SECOND RUN ERASED THE FIRST. The corpus reads this pass's own output, so on the next run
     every work it settled is credited to somebody, drops out of "credited to nobody", and is
-    rewritten out of the file — which unsettles it again. The output oscillates and each half of
+    rewritten out of the file, which unsettles it again. The output oscillates and each half of
     the cycle reports a clean run. bwingest.py met the same shape from the other side and subtracts
     its own previous output; here the fix is to keep asking about what it already answered, which
     also means a page that changes its byline is followed rather than frozen.
@@ -425,7 +425,7 @@ def main(argv=None):
 
     # WHAT THIS PASS ALREADY ANSWERED IS STILL ITS QUESTION. The corpus reads this file, so on the
     # second run every work settled here is credited to somebody and drops out of "credited to
-    # nobody" — and the pass rewrites the file without them, unsettling them again. The output
+    # nobody", and the pass rewrites the file without them, unsettling them again. The output
     # oscillates and each cycle looks like a clean run. bwingest.py met the same shape from the
     # other direction and subtracts its own previous output for the same reason.
     #

@@ -7,8 +7,8 @@ OpenSearch lives. `openbd_reading.py` is keyed by ISBN and has now been asked ab
 corpus states, settling everything it can. That left 609 names carrying a morphological analyser's
 guess or nothing at all, and the plan for them was one web search per artist.
 
-The answer was already on disk. MADB writes a creator as a two-element list — the credit, then
-`{"@value": "ホシノナツミ", "@language": "ja-hrkt"}` — and `madb/extract.py` has had a `reading()`
+The answer was already on disk. MADB writes a creator as a two-element list, the credit followed
+by `{"@value": "ホシノナツミ", "@language": "ja-hrkt"}`, and `madb/extract.py` has had a `reading()`
 function that reads exactly that field since the first commit. It is used for titles and publishers
 and never for people, and `extract.people()` throws the creator's away in one line: "A trailing
 all-katakana part is the reading of the name before it, not a second person." NAMES-PLAN §2 said
@@ -19,7 +19,7 @@ WHAT IT COSTS: no requests at all. The pinned release is already in the cache th
 reads, and a run over it is a re-parse of data we hold.
 
 WHAT IT IS WORTH. A national cataloguing authority stating how a name is said, which under
-`curate.py` is `reading_basis: stated` with `reading_source_kind: national-library` — the same
+`curate.py` is `reading_basis: stated` with `reading_source_kind: national-library`, the same
 standing NDL's `dcndl:creatorTranscription` has, from the other national catalogue. And it reaches
 pen names no analyser could: 九羊ボン is filed クラムボン and 千葉侑生 is filed チバユウ.
 
@@ -73,7 +73,7 @@ def credit_reading(rec):
 
     THE COUNT IS THE TEST, not the content. `extract.primary` returns the first string and
     `extract.reading` the first ja-hrkt value, and on a two-person record those two are not each
-    other's — see the module docstring. So the field is required to hold one of each before either
+    other's; see the module docstring. So the field is required to hold one of each before either
     is read at all.
 
     The role marker comes off the name with the same function `madb/extract.py` uses on it, so a

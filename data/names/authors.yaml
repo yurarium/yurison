@@ -6130,21 +6130,15 @@ names:
     verified: true
   コミックニュータイプ(編):
     basis: romaji
-    furigana_spans:
-    - - コミックニュータイプ(
-      - null
-    - - 編
-      - へん
-    - - )
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コミック ニュータイプ ( ヘン )
     reading_at: '2026-08-06'
-    reading_basis: analyser
     reading_pass: 4
+    reading_refuted: 'コミック ニュータイプ ( ヘン ) is an analyser reading the magazine''s editorial credit as though
+      it were a person, brackets and all: 編 marks the editor of the volume and the name in front of it
+      is カドカワ''s magazine コミックニュータイプ. A magazine''s editorial department has no personal name to read,
+      so nothing replaces the '
     reading_source: sudachi
-    reading_source_kind: analyser
     verified: false
   コルセ:
     basis: romaji
@@ -10547,20 +10541,20 @@ names:
     verified: false
   双葉陽:
     basis: romaji
-    furigana_spans:
-    - - 双葉
-      - ふたば
-    - - 陽
-      - あきら
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フタバ アキラ
+    reading: フタバハル
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: フタバ アキラ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784832295063
+    verified: true
   古川拓:
     basis: romaji
     furigana_spans:
@@ -14767,11 +14761,16 @@ names:
       on pen names and coinages
     reading: ミカゲ セキザイ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ミカゲ セキザイ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784594611941
+    verified: true
   御湯川さらり:
     basis: romaji
     furigana_spans:
@@ -20174,26 +20173,31 @@ names:
     reading_source_kind: analyser
     verified: false
   焔すばる:
-    basis: romaji
-    en: Subaru Homura
-    en_at: '2026-08-02'
+    basis: stated
+    en: Homura Subaru
+    en_at: '2026-08-06'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Subaru Homura
     en_pass: 2
-    en_source: wikidata
-    en_url: http://www.wikidata.org/entity/Q115536784
-    furigana_spans:
-    - - 焔
-      - ほのお
-    - - すばる
-      - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: ホノオ スバル
+    en_source: the artist's own lit.link page
+    en_source_kind: author
+    en_url: https://lit.link/en/homurasubaru
+    note: The artist's own link page, headed 焔すばる☆ and Homura Subaru, describing her as 百合好きマンガ家. Her
+      own rendering, which outranks a computed one.
+    reading: ホムラスバル
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ホノオ スバル
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: the artist's own lit.link page
+    reading_source_kind: author
+    reading_url: https://lit.link/en/homurasubaru
+    verified: true
   焼肉定食:
     basis: romaji
     en: Yakiniku Teishoku
@@ -20682,23 +20686,20 @@ names:
     verified: true
   玄鉄絢:
     basis: romaji
-    furigana_spans:
-    - - 玄
-      - げん
-    - - 鉄
-      - てつ
-    - - 絢
-      - あや
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゲンテツ アヤ
+    reading: クロガネ ケン
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ゲンテツ アヤ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    reading_uncertain: true
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784832279315
+    verified: true
   玉崎たま:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -21612,11 +21613,16 @@ names:
       on pen names and coinages
     reading: サナダ ハイジ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: サナダ ハイジ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758077736
+    verified: true
   真田一輝:
     basis: romaji
     en: Ikki Sanada
@@ -22044,21 +22050,32 @@ names:
     reading_url: http://www.wikidata.org/entity/Q69635628
     verified: true
   福井遥香:
-    basis: romaji
+    basis: stated
+    en: Haruka Fukui
+    en_at: '2026-08-06'
+    en_source: the artist's own site
+    en_source_kind: author
+    en_url: https://fukui-haruka.jimdofree.com/profile-1/
     furigana_spans:
     - - 福井
       - ふくい
     - - 遥香
       - はるか
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Her own site's profile page writes 福井 遥香 HARUKA FUKUI, given name first. The capitals are the
+      page's heading style rather than a preference about the name, so it is recorded in the ordinary
+      case she also uses.
     reading: フクイ ハルカ
-    reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_at: '2026-08-06'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: フクイ ハルカ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: the artist's own site
+    reading_source_kind: author
+    reading_url: https://fukui-haruka.jimdofree.com/profile-1/
+    verified: true
   福原ヒロ子:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -22150,21 +22167,32 @@ names:
     reading_url: https://api.openbd.jp/v1/get?isbn=9784063106329
     verified: true
   秋月ルコ:
-    basis: romaji
+    basis: stated
+    en: AKIDZUKI Luco
+    en_at: '2026-08-06'
+    en_source: the artist's own lit.link page
+    en_source_kind: author
+    en_url: https://lit.link/en/lucoakidzuki
     furigana_spans:
     - - 秋月
       - あきづき
     - - ルコ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'The artist''s own link page gives 秋月ルコ and AKIDZUKI Luco, family name first and in caps, and
+      describes her as a 漫画家 in Tokyo drawing yuri and BL. Her spelling of ルコ is Luco and not Ruko, which
+      is the case NAMES-PLAN §1 is about: a preference no romanisation would find.'
     reading: アキヅキ ルコ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: アキヅキ ルコ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: the artist's own lit.link page
+    reading_source_kind: author
+    reading_url: https://lit.link/en/lucoakidzuki
+    verified: true
   稲本いねこ:
     basis: romaji
     furigana_spans:
@@ -25849,20 +25877,20 @@ names:
     verified: true
   邪武丸:
     basis: romaji
-    furigana_spans:
-    - - 邪
-      - じゃ
-    - - 武丸
-      - たけまる
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ジャ タケマル
+    reading: ヨコシマ タケマル
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ジャ タケマル
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784847038891
+    verified: true
   郷本:
     basis: romaji
     furigana_spans:
@@ -26053,22 +26081,20 @@ names:
     verified: false
   鈴木 健也:
     basis: romaji
-    furigana_spans:
-    - - 鈴木
-      - すずき
-    - - ' '
-      - null
-    - - 健也
-      - けんや
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: スズキ   ケンヤ
+    reading: スズキ ケンヤ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: スズキ   ケンヤ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784047260771
+    verified: true
   鈴木りつ:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest

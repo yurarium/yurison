@@ -64,3 +64,77 @@ Cache: ../names-cache/openbd.json, seeded from ../openbd-cache (410 ISBNs, 275 h
   version leaves the count at 897, and build.py alone is one LOWER than HEAD. Another session is
   working in that area.
 - `uncertain readings` back to 64, on budget, after the refutation loop was closed.
+
+---
+
+# Author readings and missing credits, 2026-08-06 — second checkpoint
+
+Two pockets: works crediting nobody, and readings no source states.
+
+## Works crediting nobody: 103 -> 4
+
+`adapters/bylines.py` reads the byline off the work's own page for the 49 web works, and
+コミックシーモア's contributor line-up plus 一迅社's own book pages for the 49 print anthologies.
+See the commit for the rules tried and rejected. Four are unresolved and each says what was
+searched: プリンセ「ス」, Girls Love vol.2, Wildrose Re: mix and 百合姫selection.
+
+## Readings: 609 unsettled -> 486
+
+| route | settled | evidence |
+|---|---:|---|
+| MADB `ja-hrkt` creator transcription | 105 | `stated` / `national-library` |
+| openBD, over the 40 ISBNs the corpus gained | 6 | `stated` / `publisher-jp` |
+| ヤンマガWeb author pages | 9 | `stated` / `platform` |
+| the artist's own site or link page | 3 | `stated` / `author` |
+
+44 of the MADB 105 and 4 of the ヤンマガWeb 9 corrected the reading on display.
+
+## Routes checked and closed, so the next pass does not pay for them again
+
+- **NDL.** Still `Disallow: /api`, re-read from robots.txt on 2026-08-06.
+- **openBD.** Asked about every ISBN the corpus states. Exhausted until the corpus grows.
+- **MADB.** Exhausted for the 486 that remain: they are web artists the catalogue has no book by.
+  Re-run it whenever a MADB release is pinned or the corpus gains print works.
+- **GigaViewer platforms.** となりのヤングジャンプ, サンデーうぇぶり, 少年ジャンプ+, コミックDAYS,
+  くらげバンチ and 一迅プラス have no author page at all and answer a creator search with titles.
+  カドコミ carries the name with nothing beside it. Only ヤンマガWeb, which runs its own engine,
+  prints a reading, and its nine artists are done.
+- **一迅社.** Its book database and its 百合姫 site carry contributor lists and no readings, which
+  is why the anthology credits above came from it and no reading did.
+
+## The artist's own page: measured, not estimated
+
+Eleven of the most-published unsettled names were worked by hand. Three keep a page stating a
+name: 焔すばる (Homura Subaru, so 焔 is ホムラ and not the ホノオ an analyser produced), 秋月ルコ
+(AKIDZUKI Luco, her own spelling of ルコ) and 福井遥香 (福井 遥香（ふくい はるか）, HARUKA FUKUI).
+Eight do not: 桜庭友紀, 雪尾ゆき, 河合朗, 浅海まい, 寝路, 須藤佑実, 沼地どろまる, 山葵るお have
+an X account or a FANBOX and no page that says how the name is read. A handle is not a byline:
+桜庭友紀 posts as @kyomoneko_2, which romanises nothing.
+
+**So the rate is roughly one in four, and the residue is not a queue.** 486 names at one in four
+is not a plan; it is the shape of the answer, and §5d's unverified mark is what those names are
+for.
+
+## The lead not taken, and why it is written down rather than run
+
+まんが王国 (comic.k-manga.jp) prints a kana reading beside every author it lists:
+「河合朗（かわいろう）」, which disagrees with the カワイ アキラ on display. コミックシーモア and
+DMM do the same on some listings. A licensed retailer is not a community database, and
+`curate.py` names "a bookshop listing" as evidence a reviewer may weigh under `researched`.
+
+It was not run, for one reason: `researched` says a person weighed the evidence, and applying it
+to four hundred names mechanically is a bulk import wearing a reviewer's label. It is worth doing
+as a bounded round over the names where a shop's kana DISAGREES with the analyser, because those
+are the readings a reader is being shown wrongly today, and each of those is a real judgement.
+The shops also disagree with each other. DMM files 桜庭友紀 as さくらばゆうき where another
+listing gives さくらばゆき, which is exactly why it cannot be taken in bulk.
+
+## Groups that are not people
+
+- `コミックニュータイプ(編)`, on 8 works, was rendering the magazine's editorial credit as a
+  person: コミック ニュータイプ ( ヘン ), brackets and all. Refuted.
+- `Be編集部`, on the four 百合＋カノジョ volumes, is the credit both shops give and is a department.
+  Kept as the credit and listed under `not_a_person` in data/source/webpages/bylines.yaml.
+- The 179 BOOK☆WALKER credits whose second part is a doujin circle never reached the store.
+  `Ｍａｇｐｉｅ` and `Usagisan-Books` are in neither data/names nor the corpus, while あとき and
+  やとさきはる are in as people. That trap is closed upstream and stayed closed.

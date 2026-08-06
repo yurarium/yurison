@@ -175,7 +175,7 @@ def main(s):
 
     # THE SECOND RUN ERASED THE FIRST. The corpus reads this pass's output, so a work it settled
     # is credited to somebody on the next run, drops out of the queue, and is written out of the
-    # file — which unsettles it. Both halves of the oscillation report a clean run.
+    # file, which unsettles it. Both halves of the oscillation report a clean run.
     got = [{"w": "settled by this pass", "a": "天乃咲哉"},
            {"w": "credited by the platform", "a": "缶乃"},
            {"w": "nobody", "a": ""}]

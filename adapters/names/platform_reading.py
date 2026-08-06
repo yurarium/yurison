@@ -17,8 +17,8 @@ hand because the shape will be worth reusing the moment a second platform grows 
 THE RUBY IS HIRAGANA AND THE STORE HOLDS KATAKANA, which is a conversion and not a judgement:
 `names/kana.py` already does it for the deterministic pass and is used here rather than repeated.
 
-WHAT IS NOT DONE. The author page states no boundary between family and given name — `うどうあかり`
-is one run — so none is invented, for the reason `madb_reading.py` gives at length.
+WHAT IS NOT DONE. The author page states no boundary between family and given name, since
+`うどうあかり` is one run, so none is invented, for the reason `madb_reading.py` gives at length.
 """
 import pathlib
 import re
@@ -63,8 +63,9 @@ def author_links(page, base="https://yanmaga.jp"):
 def name_and_reading(page):
     """`(name, reading)` from an author page, with the reading as the katakana the store holds.
 
-    Returns None where either half is missing. A page with a name and no ruby is a real state —
-    the platform has not filled the field — and it is silence rather than a reason to derive one.
+    Returns None where either half is missing. A page with a name and no ruby is a real state,
+    where the platform has left the field empty, and that is silence. It is not a licence to derive
+    a reading instead.
     """
     n = AUTHOR_NAME.search(page or "")
     r = AUTHOR_RUBY.search(page or "")

@@ -8666,7 +8666,9 @@ names:
     en_at: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    note: 糸 and 尊し. The long vowel in トウトシ is real; the join before it was not marked.
+    note: とうとし is the classical form of 尊い, precious or noble, the same word fan slang shortens to tōtoi
+      for a pairing too wholesome to bear; いと doubles as 糸, thread, and as an intensifier, very. Kept
+      the archaic form rather than modernizing it, since the title is reaching for that register on purpose.
     reading: イト トウトシ
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -17180,7 +17182,9 @@ names:
     en_at: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    note: 透明な父さん. Both long vowels are real; only the joins were missing.
+    note: 透明, transparent, kept literal rather than smoothed to invisible; the synopsis is a horror-comedy
+      set in a haunted house, where see-through reads as more ambiguous, and possibly more literal, than
+      simply unseen.
     reading: トウメイ ナ オトウサン
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -25364,7 +25368,9 @@ names:
     en_at: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    note: のっぺらぼう is the faceless yokai and carries its own long vowel; ウチラ is separate.
+    note: のっぺらぼう is the specific yokai with no face, not a generic word for facelessness; kept its usual
+      English gloss, faceless ghost, rather than the loanword, since the synopsis wasn't reachable to
+      tell whether the folklore creature itself is meant literally.
     reading: ウチラ ノッペラボウ
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -25894,8 +25900,8 @@ names:
     en_at: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
-    note: おかわり, いただけた and だろうか are three words, and running them together produced one unreadable string.
-      ロウ in だろうか is a real long vowel.
+    note: おかわり is a second helping, and いただけただろうか is the narration of a television ghost-footage segment.
+      No synopsis is cached, so the food reading is taken and the parody left.
     reading: オカワリ イタダケタ ダロウカ？
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -33160,9 +33166,9 @@ names:
       value: 'Nanashi''s Reincarnation: Queen''s Blade'
     en_source: derived
     en_source_kind: derived
-    note: 転生 is てんせい. The analyser returned テンショウ, which is a reading 転生 does not take in modern Japanese
-      and which no dictionary gives for the compound; the word means reincarnation and is read tensei
-      throughout. Segmented as ナナシ / ノ / テンセイ so the romanisation renders three words rather than one.
+    note: 'Listed under a second, shorter work_title on the same platform: firecross runs 541 and 581
+      as separate series, and the page''s own title tag reads identically for both, which is how both
+      catalogue keys came to carry the same English. This one renders the title it actually has.'
     reading: ナナシ ノ テンセイ
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -33185,10 +33191,8 @@ names:
     - derived
     en_source: yurarium
     en_source_kind: derived
-    note: Same correction as ナナシの転生, which shares the stem. The two are separate series on firecross,
-      541 and 581, running in 2024 and 2025 respectively, so they are curated separately rather than treated
-      as one title truncated. Both carried the same English, which claimed the shorter Japanese title
-      says Queen's Blade when it does not; each now renders the title it actually has.
+    note: Queen's Blade is the established English name for the franchise this isekai is patterned on,
+      per the synopsis's own reference to the anime クイーンズブレイド伝説; kept rather than retranslated.
     reading: ナナシ ノ テンセイ クイーンズ ブレイド
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -56465,7 +56469,8 @@ names:
       - しかばね
     - - 同士
       - どうし
-    note: 同士 carries its own long vowel; the join after 屍 was not marked.
+    note: 同士 is the word for comrades sharing a status or cause; a COMITIA speed-manga runner-up with
+      no synopsis beyond the award notice.
     reading: シカバネ ドウシ
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -72443,78 +72448,27 @@ names:
         Wanting Friends, but It Seems My Magic Is a Little Odd!?'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 病弱
-      - びょうじゃく
-    - - 少女
-      - しょうじょ
-    - - 、
-      - null
-    - - 転生
-      - てんしょう
-    - - して
-      - null
-    - - 健康
-      - けんこう
-    - - な
-      - null
-    - - 肉体
-      - にくたい
-    - - （
-      - null
-    - - 最強
-      - さいきょう
-    - - ）を
-      - null
-    - - 手
-      - て
-    - - に
-      - null
-    - - 入
-      - い
-    - - れる　～
-      - null
-    - - 友達
-      - ともだち
-    - - が
-      - null
-    - - 欲
-      - ほ
-    - - しくて
-      - null
-    - - 魔境
-      - まきょう
-    - - から
-      - null
-    - - 旅立
-      - たびだ
-    - - ったのですが、どうやら
-      - null
-    - - 私
-      - わたし
-    - - の
-      - null
-    - - 魔法
-      - まほう
-    - - は
-      - null
-    - - 少
-      - すこ
-    - - しおかしいようです！？～
-      - null
     note: 'The comic-gardo feed''s subtitle gives the plot: super-healthy reincarnated Fiana punches a
       dragon flat and finds her magic is off the charts too, which settles おかしい as "too strong" rather
       than "broken". This work is also catalogued under a second, truncated key — "病弱少女、転生して健康な肉体(最強)を手に入れる
       ～友達が欲しくて魔境から旅立ったのですが、どうやら..." — from a route that cuts the title short and uses half-width punctuation;
       that key is left alone here rather than curated a second time under a corrupted string. See the
-      session report for the class of bug this belongs to.'
-    reading: ビョウジャク ショウジョ、 テンショウ シテ ケンコウナ ニクタイ （サイキョウ） ヲ テ ニ イレル 　 ～ トモダチ ガ ホシクテ マキョウ カラ タビダッタ ノデスガ、 ドウ
+      session report for the class of bug this belongs to. An earlier entry the same day rendered it ''The
+      Sickly Girl Reincarnates into a Healthy Body, and It Is the Strongest: I Left the Badlands Wanting
+      Friends, but It Seems My Magic Is a Little Odd!?''; the two were written as separate keys and YAML
+      kept only this one, so the reading it argued for is recorded here rather than dropped.'
+    reading: ビョウジャク ショウジョ、 テンセイ シテ ケンコウナ ニクタイ （サイキョウ） ヲ テ ニ イレル 　 ～ トモダチ ガ ホシクテ マキョウ カラ タビダッタ ノデスガ、 ドウ
       ヤラ ワタシ ノ マホウ ワ スコシ オカシイ ヨウデス！？ ～
-    reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ビョウジャク ショウジョ、 テンショウ シテ ケンコウナ ニクタイ （サイキョウ） ヲ テ ニ イレル 　 ～ トモダチ ガ ホシクテ マキョウ カラ タビダッタ ノデスガ、 ドウ
+        ヤラ ワタシ ノ マホウ ワ スコシ オカシイ ヨウデス！？ ～
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   病月:
     basis: translated

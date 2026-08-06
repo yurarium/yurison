@@ -1379,9 +1379,9 @@ def main():
     byline_credit = {}
     _bl = pathlib.Path("data/source/webpages/bylines.yaml")
     if _bl.exists():
-        for _r in ((yaml.safe_load(_bl.read_text()) or {}).get("print_works") or []):
-            if _r.get("work_id") and _r.get("author"):
-                byline_credit[_r["work_id"]] = _r["author"]
+        for _credit in ((yaml.safe_load(_bl.read_text()) or {}).get("print_works") or []):
+            if _credit.get("work_id") and _credit.get("author"):
+                byline_credit[_credit["work_id"]] = _credit["author"]
 
     undated_works = 0
     undated_by_basis = {}

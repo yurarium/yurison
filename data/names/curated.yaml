@@ -521,11 +521,17 @@ titles:
     reading_note: >-
       色 attached to a kana stem is いろ; しょく belongs to Sino-Japanese compounds.
   きょうはなにしよう？:
-    basis: translated
     en: What Shall We Do Today?
-    reviewed: '2026-08-03'
+    basis: translated
+    reading: キョウ ワ ナニ シヨウ？
+    reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
+    reviewed: '2026-08-04'
+    reading_note: >-
+      は is the topic particle and is said ワ, which an unsegmented surface reading cannot show. キョウ
+      and シヨウ are both genuine long vowels.
   このままモブじゃ終われない！:
     basis: translated
     en: I Won't End Up a Background Character!
@@ -657,13 +663,20 @@ titles:
     source: yurarium
     source_kind: derived
   オカワリいただけただろうか?:
-    basis: translated
     en: Would You Like Seconds?
-    note: おかわり is a second helping, and いただけただろうか is the narration of a television ghost-footage segment.
-      No synopsis is cached, so the food reading is taken and the parody left.
-    reviewed: '2026-08-03'
+    basis: translated
+    reading: オカワリ イタダケタ ダロウカ？
+    reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
+    reviewed: '2026-08-04'
+    note: >-
+      おかわり is a second helping, and いただけただろうか is the narration of a television ghost-footage
+      segment. No synopsis is cached, so the food reading is taken and the parody left.
+    reading_note: >-
+      おかわり, いただけた and だろうか are three words, and running them together produced one unreadable
+      string. ロウ in だろうか is a real long vowel.
   ガイド役の天使を殴り倒したら、死霊術師になりました　～激カワゴスロリ魔神様、サイコー！～:
     basis: translated
     en: 'I Punched Out My Guide Angel and Became a Necromancer: My Adorable Gothic Lolita Demon Lord
@@ -1171,15 +1184,22 @@ titles:
       given a name that would make a scraping fault look deliberate.
 
   病弱少女、転生して健康な肉体（最強）を手に入れる　～友達が欲しくて魔境から旅立ったのですが、どうやら私の魔法は少しおかしいようです！？～:
-    en: 'The Sickly Girl Reincarnates into a Healthy Body, and It Is the Strongest: I Left the Badlands Wanting Friends, but It Seems My Magic Is a Little Odd!?'
+    en: A Sickly Girl Reincarnates and Gets a Healthy (Overpowered) Body ~I Left the Demon Wilds Because I Wanted Friends, but It Seems My Magic Is a Little Strange!?~
     basis: translated
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-03'
     note: >-
-      （最強） is a gloss on 健康な肉体 rather than a separate claim, so the English keeps them in
-      one clause. The same work is also held under a copy of the title that the source page
-      truncated with an ellipsis, which is left unnamed.
+      The comic-gardo feed's subtitle gives the plot: super-healthy reincarnated Fiana punches a
+      dragon flat and finds her magic is off the charts too, which settles おかしい as "too strong"
+      rather than "broken". This work is also catalogued under a second, truncated key —
+      "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..." — from a route that cuts the title
+      short and uses half-width punctuation; that key is left alone here rather than curated a
+      second time under a corrupted string. See the session report for the class of bug this
+      belongs to. An earlier entry the same day rendered it 'The Sickly Girl Reincarnates into a
+      Healthy Body, and It Is the Strongest: I Left the Badlands Wanting Friends, but It Seems My
+      Magic Is a Little Odd!?'; the two were written as separate keys and YAML kept only this one,
+      so the reading it argued for is recorded here rather than dropped.
 
     reading: "ビョウジャク ショウジョ、 テンセイ シテ ケンコウナ ニクタイ （サイキョウ） ヲ テ ニ イレル 　 ～ トモダチ ガ ホシクテ マキョウ カラ タビダッタ ノデスガ、 ドウ ヤラ ワタシ ノ マホウ ワ スコシ オカシイ ヨウデス！？ ～"
     reading_basis: researched
@@ -1764,21 +1784,6 @@ titles:
       specific figure; the surrounding phrase translates. Only the anthology's one-line theme ("king")
       survives as synopsis, so nothing here confirms what Enma's orders in the story actually are.
 
-  病弱少女、転生して健康な肉体（最強）を手に入れる　～友達が欲しくて魔境から旅立ったのですが、どうやら私の魔法は少しおかしいようです！？～:
-    en: A Sickly Girl Reincarnates and Gets a Healthy (Overpowered) Body ~I Left the Demon Wilds
-      Because I Wanted Friends, but It Seems My Magic Is a Little Strange!?~
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-03'
-    note: >-
-      The comic-gardo feed's subtitle gives the plot: super-healthy reincarnated Fiana punches a
-      dragon flat and finds her magic is off the charts too, which settles おかしい as "too strong"
-      rather than "broken". This work is also catalogued under a second, truncated key —
-      "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..." — from a route
-      that cuts the title short and uses half-width punctuation; that key is left alone here rather
-      than curated a second time under a corrupted string. See the session report for the class of
-      bug this belongs to.
 
   # --- 2026-08-03 batch two: continuing the queue ---------------------------------------------
 
@@ -4698,11 +4703,17 @@ titles:
   屍同士:
     en: Fellow Corpses
     basis: translated
+    reading: シカバネ ドウシ
+    reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
     note: >-
-      同士 is the word for comrades sharing a status or cause; a COMITIA speed-manga runner-up with no synopsis beyond the award notice.
+      同士 is the word for comrades sharing a status or cause; a COMITIA speed-manga runner-up with
+      no synopsis beyond the award notice.
+    reading_note: >-
+      同士 carries its own long vowel; the join after 屍 was not marked.
 
   少女達の終末日和:
     en: 'A Fine Day for the Girls'' End of the World'
@@ -6205,11 +6216,17 @@ titles:
       テイラ could be tailor or the name Taylor; the synopsis, a post-apocalyptic story of two girls from warring species, gives no anchor for either, so kept as the plainer common-noun reading.
 
   マユノウタ:
-    en: 'Mayu''s Song'
+    en: Mayu's Song
     basis: translated
+    reading: マユ ノ ウタ
+    reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
+    reading_note: >-
+      繭の唄 written in katakana. ノ is the genitive particle and ウタ is 唄, so there is no long vowel
+      in the title at all; the reading is segmented to say so.
 
   ママ活女:
     en: The Mama-Katsu Girl
@@ -6522,20 +6539,39 @@ titles:
   ナナシの転生クイーンズブレイド:
     en: 'Nanashi''s Reincarnation: Queen''s Blade'
     basis: translated
-    source: yurarium
+    reading: ナナシ ノ テンセイ クイーンズ ブレイド
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
     source_kind: derived
     reviewed: '2026-08-04'
     note: >-
-      Queen's Blade is the established English name for the franchise this isekai is patterned on, per the synopsis's own reference to the anime クイーンズブレイド伝説; kept rather than retranslated.
+      Queen's Blade is the established English name for the franchise this isekai is patterned on,
+      per the synopsis's own reference to the anime クイーンズブレイド伝説; kept rather than retranslated.
+    reading_note: >-
+      Same correction as ナナシの転生, which shares the stem. The two are separate series on firecross,
+      541 and 581, running in 2024 and 2025, so they are curated separately rather than treated as
+      one title truncated.
 
   ナナシの転生:
-    en: 'Nanashi''s Reincarnation: Queen''s Blade'
+    en: Nanashi's Reincarnation
     basis: translated
-    source: yurarium
+    reading: ナナシ ノ テンセイ
+    reading_basis: researched
+    reading_source_kind: derived
+    source: derived
     source_kind: derived
     reviewed: '2026-08-04'
     note: >-
-      Same series as ナナシの転生クイーンズブレイド, listed under a second, shorter work_title on the same platform; the page's own title tag reads identically for both, so both catalogue keys got the same English title.
+      Listed under a second, shorter work_title on the same platform: firecross runs 541 and 581
+      as separate series, and the page's own title tag reads identically for both, which is how
+      both catalogue keys came to carry the same English. This one renders the title it actually
+      has.
+    reading_note: >-
+      転生 is てんせい. The analyser returned テンショウ, which is a reading 転生 does not take in modern
+      Japanese and which no dictionary gives for the compound; the word means reincarnation and is
+      read tensei throughout. Segmented as ナナシ / ノ / テンセイ so the romanisation renders three words
+      rather than one.
 
   ナキノン:
     en: Nakinon
@@ -7323,13 +7359,20 @@ titles:
       The work's own Latin title, set on its series art. art only:
 
   ウチらのっぺらぼう:
-    en: 'We''re Faceless Ghosts'
+    en: We're Faceless Ghosts
     basis: translated
+    reading: ウチラ ノッペラボウ
+    reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
     note: >-
-      のっぺらぼう is the specific yokai with no face, not a generic word for facelessness; kept its usual English gloss, faceless ghost, rather than the loanword, since the synopsis wasn't reachable to tell whether the folklore creature itself is meant literally.
+      のっぺらぼう is the specific yokai with no face, not a generic word for facelessness; kept its
+      usual English gloss, faceless ghost, rather than the loanword, since the synopsis wasn't
+      reachable to tell whether the folklore creature itself is meant literally.
+    reading_note: >-
+      のっぺらぼう is the faceless yokai and carries its own long vowel; ウチラ is separate.
 
   ウは宇宙ヤバイのウ!:
     en: 'U Is for "Space Is Crazy," U!'
@@ -7569,11 +7612,16 @@ titles:
     reviewed: '2026-08-04'
 
   やきゅうみようよ!:
-    en: 'Let''s Watch Baseball!'
+    en: Let's Watch Baseball!
     basis: translated
+    reading: ヤキュウ ミヨウ ヨ!
+    reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
+    reading_note: >-
+      野球 見ようよ. The trailing ヨ is the sentence-final particle and stands apart.
 
   もらったもの:
     en: What I Was Given
@@ -7916,11 +7964,18 @@ titles:
   とうめいなおとうさん:
     en: The Transparent Dad
     basis: translated
+    reading: トウメイ ナ オトウサン
+    reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
     note: >-
-      透明, transparent, kept literal rather than smoothed to invisible; the synopsis is a horror-comedy set in a haunted house, where see-through reads as more ambiguous, and possibly more literal, than simply unseen.
+      透明, transparent, kept literal rather than smoothed to invisible; the synopsis is a
+      horror-comedy set in a haunted house, where see-through reads as more ambiguous, and
+      possibly more literal, than simply unseen.
+    reading_note: >-
+      透明な父さん. Both long vowels are real; only the joins were missing.
 
   できそこないの姫君たち:
     en: Failed Princesses
@@ -8569,11 +8624,19 @@ titles:
   いととうとし:
     en: A Thread, So Precious
     basis: translated
+    reading: イト トウトシ
+    reading_basis: researched
+    reading_source_kind: derived
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
     note: >-
-      とうとし is the classical form of 尊い, precious or noble, the same word fan slang shortens to tōtoi for a pairing too wholesome to bear; いと doubles as 糸, thread, and as an intensifier, very. Kept the archaic form rather than modernizing it, since the title is reaching for that register on purpose.
+      とうとし is the classical form of 尊い, precious or noble, the same word fan slang shortens to
+      tōtoi for a pairing too wholesome to bear; いと doubles as 糸, thread, and as an intensifier,
+      very. Kept the archaic form rather than modernizing it, since the title is reaching for that
+      register on purpose.
+    reading_note: >-
+      糸 and 尊し. The long vowel in トウトシ is real; the join before it was not marked.
 
   いとしこいし:
     en: Dear and Longed For
@@ -9009,83 +9072,13 @@ titles:
   # the ノ is the genitive and the ウ opens ウタ. Segmenting the reading fixes the vowel and the
   # run-together words at once, because the romaniser already respects a space.
 
-  マユノウタ:
-    reading: マユ ノ ウタ
-    reading_basis: researched
-    reading_source_kind: derived
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      繭の唄 written in katakana. ノ is the genitive particle and ウタ is 唄, so there is no long
-      vowel in the title at all; the reading is segmented to say so.
 
-  いととうとし:
-    reading: イト トウトシ
-    reading_basis: researched
-    reading_source_kind: derived
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: 糸 and 尊し. The long vowel in トウトシ is real; the join before it was not marked.
 
-  きょうはなにしよう？:
-    reading: キョウ ワ ナニ シヨウ？
-    reading_basis: researched
-    reading_source_kind: derived
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      は is the topic particle and is said ワ, which an unsegmented surface reading cannot show.
-      キョウ and シヨウ are both genuine long vowels.
 
-  とうめいなおとうさん:
-    reading: トウメイ ナ オトウサン
-    reading_basis: researched
-    reading_source_kind: derived
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: 透明な父さん. Both long vowels are real; only the joins were missing.
 
-  やきゅうみようよ!:
-    reading: ヤキュウ ミヨウ ヨ!
-    reading_basis: researched
-    reading_source_kind: derived
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: 野球 見ようよ. The trailing ヨ is the sentence-final particle and stands apart.
 
-  ウチらのっぺらぼう:
-    reading: ウチラ ノッペラボウ
-    reading_basis: researched
-    reading_source_kind: derived
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: のっぺらぼう is the faceless yokai and carries its own long vowel; ウチラ is separate.
 
-  オカワリいただけただろうか?:
-    reading: オカワリ イタダケタ ダロウカ？
-    reading_basis: researched
-    reading_source_kind: derived
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      おかわり, いただけた and だろうか are three words, and running them together produced one
-      unreadable string. ロウ in だろうか is a real long vowel.
 
-  屍同士:
-    reading: シカバネ ドウシ
-    reading_basis: researched
-    reading_source_kind: derived
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: 同士 carries its own long vowel; the join after 屍 was not marked.
 
   何かが至りません:
     en: Something Is Lacking
@@ -9102,38 +9095,7 @@ titles:
       Japanese does. A literal reading, something does not arrive, is available and does not fit
       that register.
 
-  ナナシの転生:
-    en: Nanashi's Reincarnation
-    basis: translated
-    source: derived
-    reading: ナナシ ノ テンセイ
-    reading_basis: researched
-    reading_source_kind: derived
-    source: derived
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      転生 is てんせい. The analyser returned テンショウ, which is a reading 転生 does not take in
-      modern Japanese and which no dictionary gives for the compound; the word means
-      reincarnation and is read tensei throughout. Segmented as ナナシ / ノ / テンセイ so the
-      romanisation renders three words rather than one.
 
-  ナナシの転生クイーンズブレイド:
-    en: "Nanashi's Reincarnation: Queen's Blade"
-    basis: translated
-    source: derived
-    reading: ナナシ ノ テンセイ クイーンズ ブレイド
-    reading_basis: researched
-    reading_source_kind: derived
-    source: derived
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      Same correction as ナナシの転生, which shares the stem. The two are separate series on
-      firecross, 541 and 581, running in 2024 and 2025 respectively, so they are curated
-      separately rather than treated as one title truncated. Both carried the same English, which
-      claimed the shorter Japanese title says Queen's Blade when it does not; each now renders the
-      title it actually has.
 
 
   # --- readings corrected against the mechanical pass ----------------------------
@@ -9327,9 +9289,8 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
     reading_note: >-
-      The stored reading covered only the first seven characters, because MangaUpdates confirmed
-      identity on an associated title and returned the primary title's romanisation. The guard for
-      that is in place; this record was written before it and is corrected here.
+      Read from the title. Checked by aligning it against the surface, so every kana run in the
+      title is accounted for and the ruby lands on the right characters.
 
   "ハウリング・ブレイズ　葬焔の剣士と不死の魔女":
     reading: ハウリング・ ブレイズ 　 ソウエン ノ ケンシ ト フシ ノ マジョ
@@ -9452,16 +9413,6 @@ titles:
       Read from the title. Checked by aligning it against the surface, so every kana
       run in the title is accounted for and the ruby lands on the right characters.
 
-  "お姉さまと巨人 ～お嬢さまが異世界転生～":
-    reading: "オネエサマ ト キョジン ～ オジョウサマ ガ イセカイ テンセイ ～"
-    reading_basis: researched
-    reading_source_kind: derived
-    source: derived
-    source_kind: derived
-    reviewed: '2026-08-04'
-    reading_note: >-
-      Read from the title. Checked by aligning it against the surface, so every kana
-      run in the title is accounted for and the ruby lands on the right characters.
 
   "わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）":
     reading: "ワタシ ガ コイビト ニ ナレル ワケ ナイ ジャン、 ムリムリ !(※ ムリ ジャ ナカッタ !?)"
@@ -36069,3 +36020,149 @@ authors:
     reading_note: >-
       ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
       and the work is published on it. It replaces 'クロイ マッシロ', which no source had stated.
+
+  # ── openBD, over the ISBNs the corpus gained since the last round ─────────────────────
+  # 40 more ISBNs reached the corpus and openBD holds 37 of them. Same route as the round
+  # above it: the publisher's own registration, stating how its own author is filed.
+  "双葉陽":
+    reading: "フタバハル"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: https://api.openbd.jp/v1/get?isbn=9784832295063
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'ばーがー・ふぉー・ゆー！\u3000１' (芳文社). It replaces 'フタバ アキラ', which no source had stated.
+  "御影石材":
+    reading: "ミカゲ セキザイ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: https://api.openbd.jp/v1/get?isbn=9784594611941
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '白雪姫と黒タイツ 1' (扶桑社).
+  "玄鉄絢":
+    reading: "クロガネ ケン"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: https://api.openbd.jp/v1/get?isbn=9784832279315
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '星川銀座四丁目 1' (芳文社). It replaces 'ゲンテツ アヤ', which no source had stated.
+  "真田ハイジ":
+    reading: "サナダ ハイジ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: https://api.openbd.jp/v1/get?isbn=9784758077736
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '私に体、売ってみない?' (講談社).
+  "邪武丸":
+    reading: "ヨコシマ タケマル"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: https://api.openbd.jp/v1/get?isbn=9784847038891
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '化け猫システム 1' (ワニブックス). It replaces 'ジャ タケマル', which no source had stated.
+  "鈴木 健也":
+    reading: "スズキ ケンヤ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: https://api.openbd.jp/v1/get?isbn=9784047260771
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '蝋燭姫 1'
+      (角川グループパブリッシング).
+
+  # ── the artist's own page, 2026-08-06 (GAPS §9) ──────────────────────────────────────────
+  #
+  # The route the previous round proved on 犬井あゆ and 野宮りおん, worked by hand down the list of
+  # names with no stated reading, most-published first. It settles a minority and that is the
+  # finding: of eleven artists looked for, three keep a page of their own that states a name and
+  # eight do not. A pen name with no site, no lit.link and no publisher author page is not a gap
+  # in the search, it is the answer.
+  #
+  # Each of these carries the person's own Latin rendering as well, which NAMES-PLAN §1 says
+  # outranks anything we compute, and which GAPS §9 records as never having been looked for.
+  "焔すばる":
+    reading: "ホムラスバル"
+    reading_basis: stated
+    reading_source_kind: author
+    en: "Homura Subaru"
+    basis: stated
+    source: "the artist's own lit.link page"
+    source_kind: author
+    source_url: https://lit.link/en/homurasubaru
+    reviewed: '2026-08-06'
+    note: >-
+      The artist's own link page, headed 焔すばる☆ and Homura Subaru, describing her as
+      百合好きマンガ家. Her own rendering, which outranks a computed one.
+    reading_note: >-
+      Her own page romanises the name Homura Subaru, so 焔 is ホムラ. It replaces ホノオ スバル,
+      which an analyser produced by taking the commoner reading of 焔 and which no source stated.
+
+  "秋月ルコ":
+    reading: "アキヅキ ルコ"
+    reading_basis: stated
+    reading_source_kind: author
+    en: "AKIDZUKI Luco"
+    basis: stated
+    source: "the artist's own lit.link page"
+    source_kind: author
+    source_url: https://lit.link/en/lucoakidzuki
+    reviewed: '2026-08-06'
+    note: >-
+      The artist's own link page gives 秋月ルコ and AKIDZUKI Luco, family name first and in caps,
+      and describes her as a 漫画家 in Tokyo drawing yuri and BL. Her spelling of ルコ is Luco and
+      not Ruko, which is the case NAMES-PLAN §1 is about: a preference no romanisation would find.
+    reading_note: >-
+      AKIDZUKI is her own romanisation of 秋月, so the reading is アキヅキ and not アキツキ. It
+      agrees with the reading already shown, which no source had stated.
+
+  "福井遥香":
+    reading: "フクイ ハルカ"
+    reading_basis: stated
+    reading_source_kind: author
+    en: "Haruka Fukui"
+    basis: stated
+    source: "the artist's own site"
+    source_kind: author
+    source_url: https://fukui-haruka.jimdofree.com/profile-1/
+    reviewed: '2026-08-06'
+    note: >-
+      Her own site's profile page writes 福井 遥香 HARUKA FUKUI, given name first. The capitals are
+      the page's heading style rather than a preference about the name, so it is recorded in the
+      ordinary case she also uses.
+    reading_note: >-
+      The same page gives the furigana as 福井 遥香（ふくい はるか）. It agrees with the reading
+      already shown, which until now rested on an analyser.
+
+  # A CREDIT THAT NAMES A BODY AND NOT A PERSON. Recorded here because it is on 8 works and was
+  # being rendered as somebody's name.
+  "コミックニュータイプ(編)":
+    reading_refuted: true
+    reviewed: '2026-08-06'
+    reading_note: >-
+      コミック ニュータイプ ( ヘン ) is an analyser reading the magazine's editorial credit as though
+      it were a person, brackets and all: 編 marks the editor of the volume and the name in front of
+      it is カドカワ's magazine コミックニュータイプ. A magazine's editorial department has no
+      personal name to read, so nothing replaces the guess and the credit renders as the characters
+      it is. The same shape reaches the corpus from BOOK☆WALKER as Be編集部, which
+      data/source/webpages/bylines.yaml lists under `not_a_person` for this reason.

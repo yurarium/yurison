@@ -38,11 +38,18 @@ ALLOWED_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijin
                    # admits under §2's comparator branch, and every record names the shelf it came
                    # from. The trade is 2,093 works we would otherwise not hold against being wrong
                    # later about some of them.
-                   "bookwalker"}
+                   "bookwalker",
+                   # The national bibliography again, reached by title and a person's name rather
+                   # than by an ISBN, because BOOK☆WALKER states none. A separate directory from
+                   # `madb` and not a second kind of record inside it: what is stored is a date
+                   # for a work another source already holds, and the join it rests on is written
+                   # into the record. See adapters/madb/by_title.py for what had to agree.
+                   "madb-title"}
 
 # Sources carrying work-level records that merge into a work. Others (release feeds) are
 # platform-level and compile separately.
-WORK_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha", "bookwalker"}
+WORK_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha", "bookwalker",
+                "madb-title"}
 
 # REQUIREMENTS §2. Covers may only be referenced from a publisher-supplied reuse feed.
 ALLOWED_COVER_HOSTS = {"cover.openbd.jp"}
@@ -1359,6 +1366,23 @@ def main():
             src[wid][name] = r
 
     overlay = {r["work_id"]: r for r in load_dir("data/overlay")} if pathlib.Path("data/overlay").exists() else {}
+
+    # WHO DREW A BOOK THE BIBLIOGRAPHY CREDITS TO NOBODY. 49 print works, almost all yuri
+    # anthologies, carry `creator: ""` from MADB because the publisher registered the book under no
+    # single author, and openBD's registration for them is empty too. adapters/bylines.py reads the
+    # line-up off the publisher's own book page or the shop's and states it per work_id.
+    #
+    # KEYED ON THE ID, NOT THE TITLE. `author_of` further down carries the same fact for web works
+    # and is keyed on a folded title, which is right there because a work reaches us under several
+    # spellings. Here there is an id, and using it means a subtitle MADB writes and a shop does not
+    # cannot silently attach one book's contributors to another.
+    byline_credit = {}
+    _bl = pathlib.Path("data/source/webpages/bylines.yaml")
+    if _bl.exists():
+        for _r in ((yaml.safe_load(_bl.read_text()) or {}).get("print_works") or []):
+            if _r.get("work_id") and _r.get("author"):
+                byline_credit[_r["work_id"]] = _r["author"]
+
     undated_works = 0
     undated_by_basis = {}
 
@@ -1377,7 +1401,7 @@ def main():
         w = {
             "work_id": wid,
             "title": base["title"],
-            "creator": base.get("creator", ""),
+            "creator": base.get("creator", "") or byline_credit.get(wid, ""),
             "publisher": base.get("publisher", ""),
             "imprint": base.get("imprint", ""),
             "volume_count": base.get("volume_count", 0),
@@ -1441,15 +1465,32 @@ def main():
         # one, and the record says which source it came from rather than blurring them together.
         # PyYAML turns a full ISO date into datetime.date but leaves YYYY-MM a string, so every
         # date is coerced before comparison or the sort raises on mixed types.
-        dated = [(str(v["published"]), "madb") for v in vols if v.get("published")]
-        dated += [(str(v["published_openbd"]), "openbd") for v in vols if v.get("published_openbd")]
-        dated += [(str(o["published"]), "openbd") for o in enrich.values()
+        #
+        # EVERY DATE CARRIES ITS BASIS AND NOT ONLY ITS SOURCE. `date_source` names the file the
+        # value came out of and `date_basis` names what makes it an answer, and the two are not
+        # the same: an enrichment row written by openbd/enrich.py may hold the BIBLIOGRAPHY's date
+        # for an ISBN openBD had nothing on, and reading the row's own `published_basis` is what
+        # keeps that from being reported as a registration openBD does not have.
+        dated = [(str(v["published"]), "madb", "madb-tankobon")
+                 for v in vols if v.get("published")]
+        dated += [(str(v["published_openbd"]), "openbd", "openbd-registration")
+                  for v in vols if v.get("published_openbd")]
+        dated += [(str(o["published"]), "openbd", o.get("published_basis") or "openbd-registration")
+                  for o in enrich.values()
                   if o.get("published") and not any(v.get("published") for v in vols if v.get("isbn") == o.get("isbn"))]
+        # THE BIBLIOGRAPHY REACHED BY TITLE AND A PERSON'S NAME, for a shop's row that states no
+        # ISBN. adapters/madb/by_title.py carries what had to agree before this was written and
+        # the record itself carries the count of what matched, so the join can be withdrawn on
+        # better evidence rather than only trusted (DEFINITIONS §5).
+        dated += [(str(o["published"]), "madb", o.get("published_basis") or "madb-tankobon")
+                  for o in (by_source.get("madb-title", {}).get("volumes") or [])
+                  if o.get("published")]
         if dated:
-            date, via = min(dated)
+            date, via, basis = min(dated)
             w["first_publication"] = {
                 "date": date,
                 "date_source": via,
+                "date_basis": basis,
                 "venue": base.get("venue") or base.get("imprint", "") or base.get("publisher", ""),
                 "venue_type": bookwalker_volumes.VENUE_TYPE.get(base.get("date_basis"))
                               or "tankobon-imprint",

@@ -1,0 +1,266 @@
+# Works whose byline no shape in adapters/bylines.py reaches, settled by reading the page.
+#
+# THE DECISION LIVES HERE AND THE RECORD IS GENERATED, the same relation data/names/curated.yaml
+# has to data/names. adapters/bylines.py merges these into data/source/webpages/bylines.yaml, so
+# the source layer stays something a run produces rather than something a person types into.
+#
+# A HOST WITH THREE WORKS ON IT DOES NOT GET A PARSER. マンガワン states its artist nowhere but
+# the tail of its own `<meta name="description">`, after the synopsis and a full stop. A rule
+# taking the last run of characters is right on all three of ours and wrong the first time a
+# synopsis ends on a character's name, and there is no fourth work here to test it against. So
+# these were read rather than parsed, and each says which page was read.
+#
+# `author` is what the page states. `note` is why it can be believed and what else agrees.
+# `unresolved` is for a work whose author no source states at all, which is a finding and not a
+# gap in this file: it says the search was run and came back empty.
+reviewed: 2026-08-06
+works:
+  - work_title: "かわいい同盟"
+    author: "南文夏"
+    url: "https://manga-one.com/manga/26962/chapter/290902"
+    note: >-
+      マンガワン's own work page names 南文夏 at the end of its description. 小学館's e-comic store
+      files the work under an author page of that name, and コミックナタリー's announcement of the
+      first volume credits it the same way.
+
+  - work_title: "私の焦がれる彼女"
+    author: "奥西チエ"
+    url: "https://manga-one.com/manga/27454/chapter/316774"
+    note: >-
+      マンガワン's own work page names 奥西チエ at the end of its description. Nothing corroborates
+      it: the serial is new, has no 単行本, and appears in no catalogue. The platform is the
+      publisher's own, which is what the name rests on.
+
+  - work_title: "付き合ってあげてもいいかな"
+    author: "たみふる"
+    url: "https://manga-one.com/viewer/70173"
+    note: >-
+      マンガワン's own work page names たみふる at the end of its description, and MADB files the
+      単行本 under [著]たみふる. Two sources, and the agreement is also what shows the description
+      tail on this platform is a byline rather than the last words of a synopsis.
+
+  - work_title: "ロイヤルテーラー ―王宮の裁縫師―"
+    author: "野分なか実"
+    url: "https://ichijin-plus.com/comics/104383228657992"
+    note: >-
+      ゼロサムオンライン draws its work page in the browser and serves no byline. 一迅プラス is the
+      same publisher's other platform, carries the same serial, and prints 野分なか実 beside the
+      title, as do the ZERO-SUMコミックス volumes it lists.
+
+  - work_title: "猫魔法が世界に革命を起こすそうですよ?"
+    author: "海野アロイ / かやこ / ぷらこ"
+    url: "https://manga.nicovideo.jp/comic/71116"
+    note: >-
+      ニコニコ漫画 carries the serial and credits 原作：海野アロイ 漫画：かやこ キャラクター原案：ぷらこ.
+      The work's own page on コミックノヴァ carries no byline but does carry the copyright line
+      ©Aroi Umino ©Kayako, which agrees on the two the copyright names.
+
+  - work_title: "自動車の妖精 パッソちゃんの恩返し"
+    author: "ずんだコロッケ"
+    url: "https://news.mynavi.jp/article/carfairy-58/"
+    note: >-
+      The series index we hold names the author only by an internal id. Every instalment carries
+      著者：ずんだコロッケ over the strip, with the reading ずんだころっけ in the biography beside it.
+
+# ── print works ─────────────────────────────────────────────────────────────────────────────
+#
+# Yuri anthologies. MADB and openBD both file them with an empty creator, because the publisher
+# registered the book under no single author, and コミックシーモア files six of them under
+# `アンソロジー`, which is the word "anthology" rather than a person. The contributors are on the
+# publisher's own book page, and where the publisher no longer carries the book they are on the
+# shop's, under a title the shop spells differently from MADB.
+#
+# WHAT IS RECORDED IS WHO DREW SOMETHING IN THE BOOK. A cover illustrator who contributed no
+# story is not a contributor to the work and is left out; where the publisher lists the same
+# person as cover artist AND contributor, they are in once, in the publisher's own order. The
+# rule matters because it is applied nineteen times below and an inconsistent one would put
+# 蔵王大志 beside eleven people whose manga is in the book and his is not.
+print_works:
+  - work_id: C357167
+    work_title: "ゆるゆり コミックアンソロジー"
+    author: "内村かなめ / 切口からし / 倉田 嘘 / 栗原あおい / すこやか / 奈春 / ねこ太 / 古居すぐり / 間狩 修 / 真西まり / 水鳥なや / 源 久也 / 森島明子 / 八色 / 邪 武丸 / 吉辺あくろ"
+    url: "https://data.ichijinsha.co.jp/detail/75800637"
+    note: >-
+      一迅社's own book page for volume 1, under マンガ：. The work groups eight volumes and this
+      is the line-up of the first; the publisher's page for the others is not in its database.
+
+  - work_id: C450201
+    work_title: "ストロング! : アルコール百合アンソロジー"
+    author: "葵季むつみ / 樫風 / くうねりん / タツノコッソ / のやま / もずくず / 焼肉定食"
+    url: "https://data.ichijinsha.co.jp/detail/75802116"
+    note: >-
+      一迅社's own book page, under 【コミック】. 昆布わかめ drew the cover and ろうか the
+      illustrations; neither has a story in the book, so neither is a contributor to it.
+
+  - work_id: C438075
+    work_title: "乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった…girls patch"
+    author: "おからおから / 亀小屋サト / 館田ダン / 紀奈 / 黒兎ゆう / 櫻井マコト / Nacht / 野中友 / ぺけ"
+    url: "https://data.ichijinsha.co.jp/detail/75802129"
+    note: >-
+      一迅社's own book page, under 【コミック】. The page states nine stories and lists nine
+      people, which is the count checking the list. りいちゅ drew the cover only.
+
+  - work_id: C438331
+    work_title: "悪役令嬢ですが、ヒロインに攻略されてますわ!? : アンソロジーコミック"
+    author: "かわのあきこ / yui/サウスのサウス / 大庭そと / りんご飴ツイン / わに / naturalsoft / ほしな / 大小判 / むらさき / ふじやま / 道雪葵 / かしい葵 / もんちゃん / マナタマユム / 鰯づくし / 冬芽沙也 / 中村朱里"
+    url: "https://data.ichijinsha.co.jp/detail/75803538"
+    note: >-
+      一迅社's own book pages for both volumes we hold, which name each story with its 漫画 and
+      its 原作 separately. Both are kept and in the publisher's order, so 漫画：かわのあきこ
+      原作：yui/サウスのサウス reads as the pair it is. Volume 2 is at /detail/75803909. Note that
+      yui/サウスのサウス carries a slash inside one person's credit, which is the separator this
+      field also uses; it is written as the publisher writes it.
+
+  - work_id: C353604
+    work_title: "百合姫Wildrose"
+    author: "大槻ミゥ / ピエール山本 / 三国ハヂメ / 森島明子 / ロクロイチ / 牛乳リンダ / あくた琳子 / 天野しゅにんた / 百乃モト / 山田酉子 / 田中琳 / くずしろ / 大沢やよい / コダマナオコ / あおと響 / ちさこ / 河合朗 / 南崎いく / 片倉アコ"
+    url: "https://data.ichijinsha.co.jp/detail/75807072"
+    note: >-
+      一迅社's own book pages for the two volumes the corpus holds an ISBN for, Vol.5 and Vol.8
+      (/detail/75807325). The series runs to eight and コミックシーモア files the whole run under
+      `アンソロジー`, so this is the line-up of two volumes rather than of the series.
+
+  - work_id: C357060
+    work_title: "Girls Love"
+    author: "ロクロイチ / 森島明子 / 三国ハヂメ / ピエール山本 / コダマナオコ / 再田ニカ / 天野しゅにんた / 朝槻忍"
+    url: "https://data.ichijinsha.co.jp/detail/75807135"
+    note: >-
+      一迅社's own book page, under 【収録作家陣】. 河井英槻 drew the 表紙 only.
+
+  - work_id: C416085
+    work_title: "パルフェおねロリ百合アンソロジー"
+    author: "伊藤ハチ / なもり / 竹宮ジン / 野中友 / irua / 竹嶋えく / 嵩乃朔 / 焔すばる / いちごイチエ / 黄井ぴかち"
+    url: "https://data.ichijinsha.co.jp/detail/75807730"
+    note: >-
+      一迅社's own book page, under 【執筆作家】. The page's own text is cut off mid-name after
+      黄井ぴかち, at `玉崎た`, so an eleventh contributor is stated and unreadable. 玉崎たま is in
+      the second volume's line-up and is the obvious completion, which is exactly why it is not
+      written in: the page does not say it.
+
+  - work_id: C438652
+    work_title: "パルフェ : おねロリ百合アンソロジー"
+    author: "マルイノ / 未幡 / Hitoto* / 竹嶋えく / めの / 藤枝雅 / 嵩乃朔 / 竹宮ジン / tMnR / 玉崎たま / 焔すばる / irua / もけ / おぎ / 長代ルージュ / げしゅまろ / 岩見樹代子 / 伊藤ハチ / みやびあきの / 辻柚那 / 山田あこ / 久川はる / 七坂なな / さかさな"
+    url: "https://data.ichijinsha.co.jp/detail/75807828"
+    note: >-
+      一迅社's own book pages for the two volumes the corpus holds an ISBN for, パルフェ2 and
+      パルフェ3 (/detail/75807940), under 【執筆作家】 and 【コミック】. しぐれうい, kobuta and
+      椎名くろ drew volume 3's cover and frontispiece and no story.
+
+  - work_id: C416024
+    work_title: "ショコラ : 社会人百合アンソロジー"
+    author: "雨隠ギド / くるくる姫 / 岸虎次郎 / 桐山はるか / 百乃モト / 鹿嵐 / コダマナオコ / 長代ルージュ / 筍 / 大沢やよい / 樺山 / 竹宮ジン / ヨドカワ / 黄井ぴかち / 中村ユキチ / 雨水汐 / トクヲツム / 樫風 / 小鳩ねねこ / 郷本 / シギサワカヤ / しーめ / 原百合子 / 森島明子 / 安田剛助"
+    url: "https://data.ichijinsha.co.jp/detail/75807846"
+    note: >-
+      一迅社's own book pages for both volumes we hold, ショコラ (【執筆作家】) and ショコラ2 at
+      /detail/75807929 (コミックは…). 桐山はるか and 竹宮ジン are in both and appear once.
+      はっとりみつる drew volume 2's cover only.
+
+  - work_id: C415938
+    work_title: "Shibuyaギャル百合アンソロジー"
+    author: "飴野 / 稲葉春 / 折子ポトス / 樫風 / 樺山 / 寝路 / ぺそ太郎 / ましまる / みんたろう / 依子 / ヨルモ"
+    url: "https://data.ichijinsha.co.jp/detail/75807916"
+    note: >-
+      一迅社's own book page. みんたろう drew the cover and also has a story, so is in the
+      contributor list once, where the publisher puts it.
+
+  - work_id: C415966
+    work_title: "いちゃらぶしかない百合アンソロジーコミック"
+    author: "大北真潤 / コダマナオコ / 後藤悠希 / せきはら / タカハシマコ / 三国ハヂメ / 南崎いく / 森島明子 / 雪尾ゆき / 蓮城はに / 焼肉定食 / 野田のんだ / 梅原うめ / 荻野純 / 日野アラシ"
+    url: "https://data.ichijinsha.co.jp/detail/75807917"
+    note: >-
+      一迅社's own book pages for both volumes we hold; volume 2 is at /detail/75802205. Five
+      people are in both books and appear once.
+
+  - work_id: C416144
+    work_title: "レズ風俗アンソロジー"
+    author: "岩見樹代子 / 大沢やよい / 片倉アコ / コダマナオコ / ななつ藤 / 焔すばる / ましまる / 蓮城はに"
+    url: "https://data.ichijinsha.co.jp/detail/75807930"
+    note: >-
+      一迅社's own book page, which states 計8作品 and lists eight people. The count is the list
+      checking itself, and it is the reason this one can be read out of running prose at all.
+
+  - work_id: C415904
+    work_title: "Avalon : Towards the happiness,with you. : 幸福を紡ぐ百合アンソロジー"
+    author: "切符 / 文尾文 / tonito / 玄鉄絢 / ヨルモ / くもすずめ / ヨドカワ / 鳩春 / あさみ / 須藤佑実 / 桜庭友紀"
+    url: "https://www.cmoa.jp/title/160620/"
+    note: >-
+      ジーオーティー's own special page for the series is gone and its book database does not go
+      back to 2019, so this is コミックシーモア's line-up, under the title the shop uses. The shop
+      spells the tenth contributor 須藤祐美 on this volume and 須藤佑実 on the three that follow;
+      須藤佑実 is the spelling the label, the other three volumes and the corpus already use, and
+      it is what is recorded.
+
+  - work_id: C415905
+    work_title: "Avalon～bitter～ : Desire is a sweet and beautiful curse. : 幸福を望む百合アンソロジー"
+    author: "切符 / tonito / おしおしお / 彩社長 / いとう / 消火器 / 須藤佑実 / 滝島朝香 / 猫村 / 日吉ハナ / みかん氏 / ヨドカワ"
+    url: "https://www.cmoa.jp/search/result/?header_word=Avalon%20%E7%99%BE%E5%90%88"
+    note: >-
+      コミックシーモア, under `Avalon bitter`. The publisher's own page for this book no longer
+      exists.
+
+  - work_id: C433194
+    work_title: "Avalon～bloom～ : Ringing bloom,the brilliant days of life. : 幸福を迎える百合アンソロジー"
+    author: "切符 / くもすずめ / 粉山カタ / しぐれうい / 須藤佑実 / 滝島朝香 / 吉田ばな / ヨドカワ / ヨルモ"
+    url: "https://www.cmoa.jp/search/result/?header_word=Avalon%20%E7%99%BE%E5%90%88"
+    note: >-
+      コミックシーモア, under `Avalon -bloom-`. The publisher's own page for this book no longer
+      exists.
+
+  - work_id: C433189
+    work_title: "Avalon Alter～karma～ : Do not pass anyone this crave,because only our sin. : 幸福を求める百合アンソロジー"
+    author: "切符 / お久しぶり / 桜庭友紀 / しぐれうい / 須藤佑実 / 空倉シキジ / 滝島朝香 / みかん氏"
+    url: "https://www.cmoa.jp/search/result/?header_word=Avalon%20%E7%99%BE%E5%90%88"
+    note: >-
+      コミックシーモア, under `Avalon Alter -karma-`. The publisher's own page for this book no
+      longer exists.
+
+  - work_id: C435783
+    work_title: "Qualia"
+    author: "切符 / 海島千本 / さかもとびん / 桐山はるか / 目玉焼き / もし / 金魚鉢でめ / 空倉シキジ / みかん氏 / ヨルモ"
+    url: "https://www.cmoa.jp/search/result/?header_word=Qualia"
+    note: >-
+      コミックシーモア. The corpus holds both volumes, `Qualia -Envy-` and `Qualia -Jealousy-`,
+      and this is the two line-ups with 切符 and 目玉焼き, who are in both, appearing once.
+
+  - work_id: C366420
+    work_title: "SIS"
+    author: "いづみやおとは / 卯崎ひとみ / 夏目 / 四位広猫 / 千歳あさひ / 江成いちこ / 香月 稜 / 石見翔子"
+    url: "https://www.cmoa.jp/search/result/?header_word=Sis%20%E7%A7%98%E5%AF%86%E3%81%AE%E6%81%8B%E5%BF%83"
+    note: >-
+      コミックシーモア, under `Sis［秘密の恋心］`, which carries the same ISBN as the record MADB
+      files as `SIS`. data/queue/identity-review.yaml holds those two as a lead with no person in
+      common to compare; they now have eight, so that lead is settled rather than left open.
+
+unresolved:
+  - work_title: "プリンセ「ス」"
+    url: "https://www.123hon.com/nova/web-comic/princess/"
+    note: >-
+      No source states who drew it. The work's own page on コミックノヴァ carries no byline and no
+      copyright line, unlike its neighbours; it is a 特別掲載 of a 第一回一二三書房マンガ大賞銀賞
+      entry, has no 単行本 and no catalogue record, and the viewer that holds the pages refuses its
+      own metadata files. Searched: the publisher's site and its 単行本 listing, the award
+      announcement, and ニコニコ漫画's コミックノヴァ index, which does not carry the work at all.
+
+  - work_id: C364412
+    work_title: "Girls Love"
+    url: "https://data.ichijinsha.co.jp/detail/75807161"
+    note: >-
+      No source states the line-up. This is the second Girls Love volume, ISBN 9784758071611 from
+      2011; 一迅社's own book database 404s on it as it does on everything of that age, and
+      コミックシーモア files the title under `アンソロジー`, which names nobody. Searched: the
+      publisher's database, its 百合姫 title pages, and コミックシーモア.
+
+  - work_id: C357074
+    work_title: "Wildrose Re: mix"
+    url: "https://data.ichijinsha.co.jp/detail/75807133"
+    note: >-
+      No source states the line-up. ISBN 9784758071338, 2011. Same three places searched, same
+      answer: the publisher's database does not go back that far and the shop files it under
+      `アンソロジー`.
+
+  - work_id: C280370
+    work_title: "百合姫selection"
+    url: "https://data.ichijinsha.co.jp/detail/75807014"
+    note: >-
+      No source states the line-up. ISBN 9784758070140, 2007, and the oldest of the three. Same
+      three places searched, same answer.

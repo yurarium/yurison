@@ -21,13 +21,17 @@ lead, and what to do about it is build.py's to decide, as with the antenna's com
 beside it.
 """
 import pathlib
-import re
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+
+import isbn as _isbn                                                           # noqa: E402
 
 SHELVES = {"cmoa.jp": "genre 37 (百合・GL)", "bookwalker.jp": "tag 14 (百合)"}
 
-
-def isbn13(s):
-    return re.sub(r"[^0-9Xx]", "", str(s or "")).upper()
+# This was a digit-stripper called `isbn13` that did not convert, so a claim keyed on a
+# ten-digit ISBN was keyed on a number no other reader in this repository would produce.
+isbn13 = _isbn.isbn13
 
 
 def final_volume(work):

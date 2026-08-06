@@ -35,8 +35,14 @@ and REQUIREMENTS excludes it outright.
   later is owed the same care: find out what was corrected before excluding it.
 """
 import html as H
+import pathlib
 import re
+import sys
 import unicodedata
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+
+import isbn as _isbn                                                           # noqa: E402
 
 BASE = "https://www.cmoa.jp"
 GENRE_YURI = "37"
@@ -329,22 +335,10 @@ def iso_month(japanese):
     return f"{m.group(1)}-{int(m.group(2)):02d}" if m else None
 
 
-def isbn13(raw):
-    """An ISBN as thirteen digits, converting a ten-digit one, or None where it is not an ISBN.
-
-    cmoa states both forms: 一迅社 volumes carry 9784758074803 and 小学館 volumes 4091287557. openBD
-    is keyed on the thirteen-digit form, so a capture that stored what the shop wrote would ask
-    about half its ISBNs in a form the API does not answer, and get nulls that look like books
-    nobody registered.
-    """
-    d = re.sub(r"[^0-9Xx]", "", str(raw or ""))
-    if len(d) == 13 and d.isdigit():
-        return d
-    if len(d) != 10:
-        return None
-    core = "978" + d[:9]
-    check = (10 - sum((1 if i % 2 == 0 else 3) * int(c) for i, c in enumerate(core)) % 10) % 10
-    return core + str(check)
+# The converter this module used to carry. It now lives in `adapters/isbn.py`, because four
+# modules had a function of this name and two of them only stripped the punctuation, which left
+# a third of the national bibliography unreachable. Re-exported so `cmoa.isbn13` keeps resolving.
+isbn13 = _isbn.isbn13
 
 
 def volumes(html, title_id):

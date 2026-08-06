@@ -29,8 +29,10 @@ import re
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 import extract                                                                 # noqa: E402
+import isbn as _isbn                                                           # noqa: E402
 
 ROUTE = "isbn-from-capture"
 
@@ -46,9 +48,10 @@ LABEL_SHELF = ("none",
 MIN_SHARE = 0.5
 
 
-def isbn13(s):
-    """The digits of an ISBN, which is the form MADB and openBD both key on."""
-    return re.sub(r"[^0-9Xx]", "", str(s or "")).upper()
+# THE FORM AN ISBN IS COMPARED IN, from `adapters/isbn.py`. This was a digit-stripper of the same
+# name, so `select` compared a thirteen-digit want against whatever MADB printed, and MADB prints
+# 126,318 of its 355,323 ISBNs in ten digits. Every one of those records was invisible to it.
+isbn13 = _isbn.isbn13
 
 
 def wanted(paths):

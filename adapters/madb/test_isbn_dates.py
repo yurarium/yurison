@@ -98,6 +98,20 @@ def main(s):
          ("9784091287557", "2019"),
          "a field MADB wrote as a list reads the same, and a bare year is a real precision")
 
+    # THE KEY IS THE THIRTEEN-DIGIT FORM WHICHEVER FORM THE CATALOGUE PRINTED, and until
+    # 2026-08-06 it was not. MADB prints 126,318 of its 355,323 ISBNs in ten digits, so a third of
+    # the national bibliography answered nothing to a thirteen-digit question and read exactly
+    # like a catalogue with no record of the book.
+    s.eq(isbn_dates.pair({"schema:isbn": "4840115222", "schema:datePublished": "2006-04"}),
+         ("9784840115223", "2006-04"),
+         "ハニー＆ハニー, filed by a shop as an ISBN no catalogue holds, in the file all along")
+    s.eq(isbn_dates.pair({"schema:isbn": "4396763387", "schema:datePublished": "2004-08"}),
+         ("9784396763381", "2004-08"), "and フリー・ソウル beside it")
+    # THE COUNTER-CASE. A record whose ISBN field holds something that is not an ISBN is refused,
+    # not keyed on a truncated number that would collide with a real one.
+    s.eq(isbn_dates.pair({"schema:isbn": "978475807480", "schema:datePublished": "2019-01"}), None,
+         "twelve digits is not an ISBN and is not padded into one")
+
     # THE FLOOR. A truncated download and a smaller catalogue look identical from here, and the
     # national bibliography does not shrink.
     s.eq(isbn_dates.healthy({str(i): "2019-01" for i in range(isbn_dates.MIN_DATED)})[0], True,

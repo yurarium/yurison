@@ -23,6 +23,7 @@ landmark declaration as the answer to it.
 import datetime
 import pathlib
 
+import captures  # noqa: E402
 import yaml
 
 # How much a re-fetched source may shrink before it is worth reporting. A capture legitimately
@@ -44,7 +45,10 @@ def snapshot(root):
         newest = ""
         for f in sorted(d.glob("*.yaml")):
             try:
-                doc = yaml.safe_load(f.read_text()) or {}
+                # Shared with every other reader of these files in the same deploy, and cached on
+                # disk between deploys. This pass walks the whole source tree to count rows, which
+                # made it the slowest stage once the other two stopped re-parsing.
+                doc = captures.load(f)
             except Exception:                                               # noqa: BLE001
                 continue
             files += 1

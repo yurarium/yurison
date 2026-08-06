@@ -21,6 +21,7 @@ import glob
 import json
 import pathlib
 
+import captures  # noqa: E402
 import yaml
 
 
@@ -87,7 +88,7 @@ def conforms(root):
         total = good = 0
         for f in sorted(d.glob("*.yaml")):
             try:
-                doc = yaml.safe_load(f.read_text()) or {}
+                doc = captures.load(f)
             except Exception:                                               # noqa: BLE001
                 continue
             for w in (doc.get("works") or []):
@@ -250,7 +251,7 @@ def main(argv=None):
 
     queues = {}
     for f in sorted(glob.glob(f"{a.queues}/*.yaml")):
-        d = yaml.safe_load(pathlib.Path(f).read_text()) or {}
+        d = captures.load(f)
         rows = next((v for v in d.values() if isinstance(v, list)), [])
         queues[pathlib.Path(f).stem] = len(rows)
 

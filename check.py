@@ -55,9 +55,18 @@ def _load(p, default=None):
 
 
 def _yaml(p, default=None):
+    """One parse per file per run, shared with every other reader of it.
+
+    The big queue captures run to megabytes and four budgets plus status.py each loaded them
+    separately, so a deploy parsed the same YAML four or five times and did it again on the next
+    deploy whether or not a capture had run. adapters/captures.py keys a sidecar on the file's size
+    and modification time, so a rewritten capture misses and an untouched one is nearly free.
+    """
     try:
-        import yaml
-        return yaml.safe_load(pathlib.Path(p).read_text())
+        sys.path.insert(0, str(ROOT))
+        from adapters import captures
+        doc = captures.load(p)
+        return doc if doc else (default if doc == {} and not pathlib.Path(p).exists() else doc)
     except Exception:
         return default
 
@@ -660,12 +669,12 @@ def budget_bookwalker_series_unread(ctx):
     reaches zero when it finishes, because every row here has a series id to fetch. Rows naming no
     series are not counted: the shop states none for a standalone volume, which is an answer.
     """
-    import yaml as _yaml
+    from adapters import captures as _cap
 
     sys.path.insert(0, str(ROOT / "adapters"))
     try:
         from recon import bookwalker_volumes as _bv
-        doc = _yaml.safe_load((ROOT / "data/queue/bookwalker-volumes.yaml").read_text()) or {}
+        doc = _cap.load(ROOT / "data/queue/bookwalker-volumes.yaml")
     except Exception:                                                       # noqa: BLE001
         return 0
     works = {str(w["shop_id"]): w for w in (doc.get("works") or []) if w.get("shop_id")}
@@ -681,9 +690,9 @@ def _retailer_rows(cap, shop, field):
     the silent-plausible failure: a budget that quietly counts the whole queue looks exactly like a
     capture that has not started (STANDING-INSTRUCTIONS §4).
     """
-    import yaml as _yaml
+    from adapters import captures as _cap
     try:
-        admitted = _yaml.safe_load((ROOT / "data/queue/admitted.yaml").read_text())
+        admitted = _cap.load(ROOT / "data/queue/admitted.yaml")
         total = sum(1 for w in admitted["works"] if w.get("shop") == shop)
     except Exception:                                                       # noqa: BLE001
         return 0
@@ -691,7 +700,7 @@ def _retailer_rows(cap, shop, field):
     if not p.exists():
         return total
     try:
-        doc = _yaml.safe_load(p.read_text()) or {}
+        doc = _cap.load(p)
     except Exception:                                                       # noqa: BLE001
         return total
     return total - sum(1 for w in (doc.get("works") or [])

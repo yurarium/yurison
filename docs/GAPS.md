@@ -668,13 +668,16 @@ asking JPO, whose contact form is on the site.
 Nothing from Books.or.jp is stored anywhere in this repository, and no adapter for it was written,
 because an adapter whose output may not be used is worse than none.
 
-**How much the question is worth has not been measured.** The site answers one ISBN in several
-minutes under a single-threaded polite fetch, so a sweep of all 49 is hours rather than minutes and
-was not run to the end. What was observed by hand: 少女美学 and voiceful, both 一迅社 2006 volumes
-that neither MADB nor openBD holds, resolve to a book page stating the publisher and 発行年月日.
-Those two are the oldest block, which is the half openBD is weakest on, so the 2024-onward block is
-if anything likelier still. Measuring the rest is worth doing only after the terms question is
-settled, since a negative answer there makes the number academic.
+**How much the question is worth, measured rather than assumed.** A sequential polite sweep of all
+49 was run once. **36 resolve to a book page and every one of the 36 states a publication date**:
+33 on the first pass and 3 more on a retry, across both blocks, including 少女美学 and voiceful
+from 2006 and the 978-4-8251 titles from 2025. 7 returned no record. The remaining 6 are unresolved
+rather than absent, because the host starts refusing a sequential reader after about forty requests
+and the retries were not completed.
+
+So the answer is that Books.or.jp holds at least three quarters of what neither other catalogue
+does, dated, and that a run against it needs a slower schedule than either catalogue we already
+use. Neither of those matters until the terms question is settled.
 
 ## 18. Where the last 57 commercial-imprint rows stand (2026-08-06)
 

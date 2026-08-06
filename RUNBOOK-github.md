@@ -148,9 +148,19 @@ it carries `?free_only=1`, which is where per-chapter access comes from on every
 ```
 adapters/comparators/claims.py    百合ナビ — the acceptance yardstick, never a record
 adapters/yurinavi/*.py
-adapters/openbd/enrich.py         volume-level authors and dates
+adapters/openbd/enrich.py         volume-level dates, from openBD and MADB
 adapters/madb/extract.py
 ```
+
+`enrich.py` wants `--madb-cache <pinned MADB release>` as well as its openBD payload. openBD is a
+publisher's own registration and is thin for older books; the MADB index answers an ISBN openBD
+does not hold, at no request. The pass prints how many dates each catalogue supplied, and it is
+correct for the MADB figure to read nought while every ISBN-bearing record in the corpus is MADB's
+own, because the pass refuses to write MADB's answer back over a record that came from MADB.
+
+The openBD payload is `$YURI_CACHE/openbd-cache/openbd.json`, which `names/openbd_reading.fetch`
+fills and the retailer captures share. Ask it for the corpus's own ISBNs before running this, or
+the pass enriches whatever somebody last happened to fetch.
 
 **Stage C — browser (slow, ~30 min, allowed to fail)**
 

@@ -45,15 +45,15 @@ retrieved: 2026-08-05
 admitted_rows: 1844
 works_captured: 1833
 counts:
-  with_first_publication_date: 573
+  with_first_publication_date: 575
   volumes_read: 7262
-  volumes_with_print_date: 573
+  volumes_with_print_date: 575
   volumes_with_isbn: 618
   marked_completed: 1024
-  by_basis_openbd_registration: 33
-  by_basis_isbn_stated_not_catalogued: 51
-  by_basis_madb_tankobon: 529
+  by_basis_madb_tankobon: 536
+  by_basis_isbn_stated_not_catalogued: 49
   by_basis_shop_delivery_date_only: 1209
+  by_basis_openbd_registration: 28
   by_basis_shop_publication_month: 11
 excluded: {"published on ヤングアンリアルコミックス, an adult imprint": 4, "the shop files it under 青年マンガ 恋愛 百合・GL お色気 ライトアダルト": 3, "the shop files it under 青年マンガ 百合・GL お色気 ライトアダルト": 1, "the shop files it under 青年マンガ 恋愛 学園 百合・GL お色気 ライトアダルト": 1, "the shop files it under 青年マンガ 学園 百合・GL お色気 ライトアダルト": 1, "the shop files it under 青年マンガ 百合・GL 読者体験 お色気 ライトアダルト": 1}
 excluded_ids: ["244158", "244159", "244970", "270604", "270648", "271195", "300231", "309245", "347960", "348544", "348572"]
@@ -70,7 +70,7 @@ works:
     dates_stated: 1
     isbns_stated: 1
     first_publication_date: "2006-04"
-    first_publication_basis: "openbd-registration"
+    first_publication_basis: "madb-tankobon"
     first_publication_country: "JP"
     first_publication_venue: "一迅社"
     volumes:
@@ -79,7 +79,7 @@ works:
         url: "https://www.cmoa.jp/title/1132/"
         isbn: "9784758070027"
         printed: "2006-04"
-        printed_basis: "openbd-registration"
+        printed_basis: "madb-tankobon"
         delivered: "2014-02-14"
       - volume: 2
         title: "初恋姉妹 2巻"
@@ -141,7 +141,7 @@ works:
     dates_stated: 1
     isbns_stated: 1
     first_publication_date: "2006-08"
-    first_publication_basis: "openbd-registration"
+    first_publication_basis: "madb-tankobon"
     first_publication_country: "JP"
     first_publication_venue: "一迅社"
     volumes:
@@ -150,7 +150,7 @@ works:
         url: "https://www.cmoa.jp/title/1135/"
         isbn: "9784758070072"
         printed: "2006-08"
-        printed_basis: "openbd-registration"
+        printed_basis: "madb-tankobon"
         delivered: "2012-08-28"
   - shop_id: "5124"
     url: "https://www.cmoa.jp/title/5124/"
@@ -210,7 +210,7 @@ works:
     dates_stated: 1
     isbns_stated: 1
     first_publication_date: "2006-06"
-    first_publication_basis: "openbd-registration"
+    first_publication_basis: "madb-tankobon"
     first_publication_country: "JP"
     first_publication_venue: "一迅社"
     volumes:
@@ -219,7 +219,7 @@ works:
         url: "https://www.cmoa.jp/title/7849/"
         isbn: "9784758070058"
         printed: "2006-06"
-        printed_basis: "openbd-registration"
+        printed_basis: "madb-tankobon"
         delivered: "2012-08-28"
   - shop_id: "11967"
     url: "https://www.cmoa.jp/title/11967/"
@@ -614,17 +614,19 @@ works:
     completed: false
     volumes_stated: 2
     volumes_found: 2
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2006-04"
+    first_publication_basis: "madb-tankobon"
+    first_publication_country: "JP"
+    first_publication_venue: "KADOKAWA"
     volumes:
       - volume: 1
         title: "ハニー＆ハニー 女の子どうしのラブ･カップル"
         url: "https://www.cmoa.jp/title/28411/"
         isbn: "9784840115223"
+        printed: "2006-04"
+        printed_basis: "madb-tankobon"
         delivered: "2014-09-27"
       - volume: 2
         title: "ハニー＆ハニー デラックス 女の子どうしのラブ・カップル"
@@ -1582,17 +1584,19 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2004-08"
+    first_publication_basis: "madb-tankobon"
+    first_publication_country: "JP"
+    first_publication_venue: "祥伝社"
     volumes:
       - volume: 1
         title: "フリー・ソウル"
         url: "https://www.cmoa.jp/title/57392/"
         isbn: "9784396763381"
+        printed: "2004-08"
+        printed_basis: "madb-tankobon"
         delivered: "2012-10-26"
   - shop_id: "57701"
     url: "https://www.cmoa.jp/title/57701/"
@@ -4253,7 +4257,7 @@ works:
     dates_stated: 1
     isbns_stated: 1
     first_publication_date: "2006-05"
-    first_publication_basis: "openbd-registration"
+    first_publication_basis: "madb-tankobon"
     first_publication_country: "JP"
     first_publication_venue: "白泉社"
     volumes:
@@ -4262,7 +4266,7 @@ works:
         url: "https://www.cmoa.jp/title/86290/"
         isbn: "9784592142690"
         printed: "2006-05"
-        printed_basis: "openbd-registration"
+        printed_basis: "madb-tankobon"
         delivered: "2014-10-31"
   - shop_id: "86645"
     url: "https://www.cmoa.jp/title/86645/"
@@ -34821,7 +34825,7 @@ works:
     dates_stated: 1
     isbns_stated: 1
     first_publication_date: "2005-10"
-    first_publication_basis: "openbd-registration"
+    first_publication_basis: "madb-tankobon"
     first_publication_country: "JP"
     first_publication_venue: "ワニブックス"
     volumes:
@@ -34830,7 +34834,7 @@ works:
         url: "https://www.cmoa.jp/title/279979/"
         isbn: "9784847035180"
         printed: "2005-10"
-        printed_basis: "openbd-registration"
+        printed_basis: "madb-tankobon"
         delivered: "2023-10-25"
   - shop_id: "280250"
     url: "https://www.cmoa.jp/title/280250/"

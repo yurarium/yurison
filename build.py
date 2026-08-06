@@ -225,6 +225,20 @@ def _recompose_credit(ja, phrase, authors):
     return ", ".join(out)
 
 
+VOLUME_NO = re.compile(r"^\s*(?:第\s*)?(?:v(?:ol)?(?:ume)?\s*\.?\s*)?(\d+)\s*(?:巻)?\s*$", re.I)
+
+
+def volume_number(v):
+    """The volume's number as a number, or None where it does not state one.
+
+    MADB writes it a dozen ways: a bare `1`, `vol. 8`, `vol.2`, `volume 1`, `Volume1`, `volume.2`,
+    `Vol. 1`, `v.1`, `第1巻`. 上 and 下 are not numbers, they are how a two-volume set is designated,
+    and they answer None here.
+    """
+    m = VOLUME_NO.match(str(v.get("number") or ""))
+    return int(m.group(1)) if m else None
+
+
 def readable_now(chapter, today=None):
     """Whether this chapter can be opened at no cost TODAY.
 
@@ -1332,16 +1346,8 @@ def main():
             if o.get("cover_url"):
                 m["cover_url"] = o["cover_url"]
             m["openbd"] = "present" if o else "absent"
-            # WHICH VOLUME ENDED THE SERIES, where a shop states both that it ended and how long it
-            # is. A CLAIM (§5): a retailer is Tier C, so it is recorded with whose claim it is and
-            # never merged into the bibliographic fields around it. Keyed by ISBN, so it names an
-            # edition rather than a title.
-            fin = FINAL_VOLUMES.get(re.sub(r"[^0-9Xx]", "", str(v.get("isbn") or "")).upper())
-            if fin:
-                m["final_volume"] = True
-                m["final_volume_basis"] = {"source": fin["source"], "provenance": "claimed",
-                                           "volumes": fin["volumes"],
-                                           "retrieved": fin["retrieved"]}
+            if volume_number(v) is not None:
+                m["number_n"] = volume_number(v)
             vols.append(m)
         w["volumes"] = vols
         # THE SERIES FINISHED, ON A SHOP'S SAY-SO. Recorded as a claim with whose it is, never
@@ -1352,6 +1358,27 @@ def main():
                     None)
         if _fin:
             w["completed_claim"] = dict(_fin, provenance="claimed")
+            # WHICH VOLUME ENDED IT, WITHOUT NEEDING THE SHOP TO NAME IT.
+            #
+            # This was keyed on the ISBN of the last volume, which meant the shop had to state one
+            # there, and コミックシーモア states ISBNs on first volumes. Every claim it could make
+            # was about a one-volume work, where the only volume is not a final volume, so the
+            # feature fired on nothing. BOOK☆WALKER cannot rescue it either: it sells files and
+            # states no ISBN on any of 5,709 volumes read.
+            #
+            # The shop does not have to name the volume. It says the series is COMPLETE and says
+            # how many volumes it has, and our own record says which volume is the Nth. Each side
+            # answers what it knows. 114 works are settled this way where 0 were before.
+            _stated_vols = _fin.get("volumes") or 0
+            if _stated_vols >= 2:
+                for _vol in vols:
+                    if _vol.get("number_n") == _stated_vols:
+                        _vol["final_volume"] = True
+                        _vol["final_volume_basis"] = {"source": _fin["source"],
+                                                      "provenance": "claimed",
+                                                      "volumes": _stated_vols,
+                                                      "retrieved": _fin["retrieved"]}
+                        break
 
         # first_publication is the inclusion test and is required (DEFINITIONS §6). What we can
         # attest here is the first 単行本; magazine serialisation is not in the bulk data, so the

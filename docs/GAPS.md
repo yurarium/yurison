@@ -449,11 +449,15 @@ practice 207 works pass that test and every one of them has a single volume, so 
 and says nothing. The cause is that the shop states an ISBN on 618 of 7,262 volumes read, and
 overwhelmingly on the first of a series.
 
-The mechanism is kept because the answer may come from elsewhere. BOOK☆WALKER reads volume pages
-individually and states a delivery date on all of them, so its capture may carry ISBNs deeper into
-a series; that will be visible the moment those rows go through the same route. Until a run reports
-a non-zero count of multi-volume claims, the volume badge is a feature that fires on nothing, and
-`adapters/shopfinal.py` prints that count on every run so it cannot be mistaken for working.
+**Closed 2026-08-06, and the guess in it was wrong.** BOOK☆WALKER was going to rescue this by
+carrying ISBNs deeper into a series. It carries none: its capture finished at 2,423 works and 5,709
+volumes with an ISBN on not one of them, because the shop sells files, which its own adapter had
+recorded when the capture covered 870.
+
+What settled it was that the shop never had to name the volume. It says the series is COMPLETE and
+says how many volumes it has; our own record says which volume is the Nth. Each side answers what
+it knows, and 121 volumes are marked where 0 were before. Asking the shop for an ISBN it does not
+print was the wrong question, and it took a capture of 2,438 works to notice.
 
 Five works have a shop saying 完結 while a platform is still publishing them. The platform wins and
 the disagreement is counted at build time rather than resolved.

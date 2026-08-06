@@ -213,27 +213,34 @@ def unmatched(doc, known):
     # and the curated key stopped naming a work we hold the moment the interface picked the other
     # spelling. NFKC folds the pair without touching the words, which is how the name lookup in
     # build.py joins them too.
-    fold = {_fold(k) for k in known}
-    return sorted(k for k in (doc.get("titles") or {}) if k not in known and _fold(k) not in fold)
+    # NO ANSWER IS NOT AN EMPTY ANSWER. `known_titles` returns None where the build has not stated
+    # its titles, and folding None into an empty set would report every curated entry as naming
+    # nothing, or, worse in the other direction, let a caller treat silence as agreement.
+    if known is None:
+        raise SystemExit("data/build/titles.json is missing: run build.py before checking the "
+                         "curated names against the corpus")
+    folded = {_fold(k) for k in known}
+    return sorted(k for k in (doc.get("titles") or {}) if k not in known and _fold(k) not in folded)
 
 
 def known_titles(build="data/build"):
-    """Every Japanese title the build knows, from the feed, its archives and the series list.
+    """Every title the build says it knows, folded.
 
-    THE ARCHIVES ARE PART OF THE ANSWER. This read `current.json`, which is a rolling window of
-    fourteen days, so a work that updated in July and has no series row of its own stopped being a
-    work we hold the moment the window moved past it. Three curated titles failed the check that
-    way overnight, with nothing about them or about the corpus having changed.
+    ASKED, NOT REASSEMBLED. This used to union the feed's rolling window with the series list, and
+    later the month archives too, none of which is the corpus: the window forgets a work after a
+    fortnight, the archives hold events, and series.json drops rows the interface will not show.
+    Three curated titles stopped naming works we hold overnight because the window moved, and the
+    three files together still missed 18 works and disagreed with each other about punctuation.
+
+    build.py states the set now, in titles.json, holding titles as it holds them so each consumer
+    folds to its own rule. `None` where the file is absent, so a caller can tell "no answer" from
+    "no titles". Given no answer the check stops and says so: an empty set would pass everything.
     """
     import json
-    out = set()
-    paths = [(f"{build}/feed/current.json", "releases"), (f"{build}/series.json", "series")]
-    paths += [(str(f), "releases") for f in sorted(pathlib.Path(f"{build}/feed").glob("[0-9]*.json"))]
-    for path, key in paths:
-        p = pathlib.Path(path)
-        if p.exists():
-            out |= {r["work"] for r in json.loads(p.read_text()).get(key) or [] if r.get("work")}
-    return out
+    p = pathlib.Path(build) / "titles.json"
+    if not p.exists():
+        return None
+    return set(json.loads(p.read_text()).get("titles") or [])
 
 
 def todo(build="data/build", limit=None, curated=None):

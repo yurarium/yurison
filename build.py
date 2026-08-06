@@ -3953,6 +3953,42 @@ def main():
     #
     # So the archive keeps its rows exactly as published and the interface joins the current names
     # onto them at render time. One file, loaded once, covering every month.
+    # EVERY TITLE THE BUILD KNOWS, STATED ONCE.
+    #
+    # Checks elsewhere need to ask "is this a work we hold", and the only way to ask it was to
+    # reassemble the corpus from artefacts that were never meant to answer it: the feed's rolling
+    # window, which forgets a work after a fortnight; the month archives, which hold events rather
+    # than works; series.json, which drops rows the interface will not show. Three of them together
+    # still missed 18 works and disagreed with a fourth about punctuation. A load-bearing question
+    # deserves a stated answer rather than an inference from leftovers.
+    #
+    # AS THE BUILD HOLDS THEM, not folded. Two consumers fold differently on purpose: the name
+    # lookup here drops spaces so a title joins whatever spacing a platform used, and curate.py
+    # keeps them so a curated key with a stray space stays a typo somebody can find. An artefact
+    # that had already folded would settle that argument for both of them by accident.
+    _known_titles = set()
+    for _row in series_rows:
+        if _row.get("work"):
+            _known_titles.add(_row["work"])
+    for _rel in releases:
+        if _rel.get("work"):
+            _known_titles.add(_rel["work"])
+        if _rel.get("collection"):
+            _known_titles.add(_rel["collection"])
+    for _wk in works:
+        _ja = (_wk.get("title") or {}).get("ja")
+        if _ja:
+            _known_titles.add(_ja)
+    (out / "titles.json").write_text(json.dumps(
+        {"generated": str(_today),
+         "note": "Every title this build knows, as it holds them. The answer to 'is this a work "
+                 "we hold', stated here rather than reassembled from the feed window, the month "
+                 "archives and the series list, none of which is the corpus. Fold as you need: "
+                 "consumers disagree about spaces on purpose.",
+         "count": len(_known_titles),
+         "titles": sorted(_known_titles)}, ensure_ascii=False, indent=1))
+    print(f"titles known to this build: {len(_known_titles)}")
+
     (out / "feed" / "names.json").write_text(json.dumps(
         {"generated": str(_today),
          "note": "English renderings and readings, keyed by NFKC-folded title/author. Joined onto "

@@ -151,5 +151,28 @@ def main(s):
          "and every title in it names a work we hold")
 
 
+    # THE CORPUS IS STATED, NOT REASSEMBLED. known_titles used to union the feed's rolling window
+    # with the series list: three curated titles stopped naming works we hold overnight because the
+    # window moved past them, and nothing about the corpus had changed.
+    with tempfile.TemporaryDirectory() as d:
+        b = pathlib.Path(d)
+        s.eq(curate.known_titles(str(b)), None,
+             "no titles.json is no answer, which is not the same as no titles")
+        # And a caller must not read that silence as agreement.
+        raised = False
+        try:
+            curate.unmatched({"titles": {"anything": {}}}, None)
+        except SystemExit:
+            raised = True
+        s.check(raised, "so checking against no answer refuses rather than passing")
+
+        (b / "titles.json").write_text(_json.dumps({"titles": ["ある作品", "私の百合はお仕事です！"]}))
+        known = curate.known_titles(str(b))
+        s.eq(known, {"ある作品", "私の百合はお仕事です！"}, "and a stated set is read as it stands")
+        s.eq(curate.unmatched({"titles": {"私の百合はお仕事です!": {}}}, known), [],
+             "a half-width variant of a title we hold is that title")
+        s.eq(curate.unmatched({"titles": {"知らない作品": {}}}, known), ["知らない作品"],
+             "and one nobody holds is reported")
+
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

@@ -281,6 +281,32 @@ def main(s):
          "a one-shot beside its serialisation is NOT the same work and is not aliased")
     s.eq(b.work_alias("citrus+"), "citrus+", "and a sequel keeps its own title")
 
+    # AN UNDATED WORK STILL SAYS WHERE, which is what DEFINITIONS §6's scope test actually asks.
+    # This returned `venue: None` on 1,209 records whose sources all named a publisher.
+    fp = b.undated_publication({"venue": "ナンバーナイン", "date_basis": "no-print-edition"})
+    s.eq(fp["venue"], "ナンバーナイン", "the venue the source stated survives having no date")
+    s.eq(fp["country"], "JP", "and so does the country, because WHERE is the inclusion test")
+    s.eq(fp["date"], None, "the date stays null rather than being filled from anything nearby")
+    s.eq(fp["date_basis"], "no-print-edition", "and the record says which silence it is in")
+    s.eq(fp["venue_type"], "digital-imprint", "typed from the basis, not guessed from the venue")
+    s.eq("Digital-only" in fp["note"], True, "with the sentence that explains the term")
+
+    # THE FOUR SILENCES ARE FOUR ANSWERS. Flattening them to one is what this replaced: a work on a
+    # print imprint that dates its other books is unresolved, and a digital-only label is finished
+    # work. Only the second will never gain a date, and the field is how anyone tells them apart.
+    s.ne(b.undated_publication({"date_basis": "no-print-date-stated"})["note"], fp["note"],
+         "an unexplained silence does not read as an explained one")
+    s.eq(b.undated_publication({"date_basis": "no-print-date-stated"})["venue_type"], "imprint",
+         "and it claims no format it has not established")
+
+    # A source that said nothing about why still has to say that much.
+    bare = b.undated_publication({"publisher": "某社"})
+    s.eq(bare["date_basis"], "no-date-attested", "no stated reason is itself the stated reason")
+    s.eq(bare["venue"], "某社", "and the publisher answers for the venue where nothing else does")
+    s.eq(bare["venue_type"], None, "with no venue type, because nothing established one")
+    s.eq(b.undated_publication({})["venue"], None,
+         "a record naming nobody gets null rather than an empty string pretending to be a venue")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

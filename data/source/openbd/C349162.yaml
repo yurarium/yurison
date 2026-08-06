@@ -1,0 +1,39 @@
+# Derived from openBD. Raw payloads are NOT committed — openBD forbids transferring
+# use rights to third parties (REQUIREMENTS §3). No synopsis text is stored (§2).
+source: openbd
+retrieved: 2026-08-06
+work_id: C349162
+record_type: volume_enrichment
+volumes:
+  - isbn: "9784199501159"
+    openbd: present
+    published: 2009-04
+    published_basis: openbd-registration
+  - isbn: "9784199501401"
+    openbd: present
+    published: 2009-10
+    published_basis: openbd-registration
+  - isbn: "9784199501807"
+    openbd: present
+    published: 2010-06
+    published_basis: openbd-registration
+  - isbn: "9784199502170"
+    openbd: present
+    published: 2011-01
+    published_basis: openbd-registration
+  - isbn: "9784199502514"
+    openbd: present
+    published: 2011-07
+    published_basis: openbd-registration
+  - isbn: "9784199503139"
+    openbd: present
+    published: 2012-12
+    published_basis: openbd-registration
+  - isbn: "9784199503498"
+    openbd: present
+    published: 2013-09
+    published_basis: openbd-registration
+  - isbn: "9784199503986"
+    openbd: present
+    published: 2014-06
+    published_basis: openbd-registration

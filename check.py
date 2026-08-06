@@ -408,8 +408,7 @@ def inv_no_refutation_of_print_serials(ctx):
                if t.get("disposition") == "refuted"]
     if not refuted:
         return []
-    works = _load(BUILD / "works.json", []) or []
-    works = works.get("works") if isinstance(works, dict) else works
+    works = ctx["works"]
 
     def nm(x):
         t = x.get("title")
@@ -420,6 +419,40 @@ def inv_no_refutation_of_print_serials(ctx):
 
     print_titles = {norm(nm(x)) for x in works}
     return [t["work"] for t in refuted if norm(t["work"]) in print_titles]
+
+
+def inv_undated_works_say_where_and_why(ctx):
+    """A work with no publication date still states where it was published, and why it is undated.
+
+    DEFINITIONS §6 was amended on 2026-08-05 so that a work that exists is recorded whether or not
+    anyone can date it. What it asks in exchange is the part that got dropped: the scope test turns
+    on WHERE, so the venue and the country are required of every record, and the missing date is
+    stated as `date_basis` rather than left as an empty field pretending nobody looked.
+
+    THE BUILD WROTE `venue: null` ON EVERY UNDATED WORK, contradicting §6 in the same branch whose
+    comment cites it, and 1,209 records carried it. Every one of them had a venue: BOOK☆WALKER
+    names a publisher on every volume it sells and `bwingest.py` had been storing it all along.
+
+    IT ALSO WROTE ONE REASON OVER FOUR. `no-date-attested` stood for an imprint that prints nothing,
+    a chapter serial that has no volumes at all, an imprint that dates its other books and not this
+    one, and too little read to tell those apart. The capture had already sorted them and the
+    build flattened the answer, so a later pass had nothing to aim at.
+
+    So this asks both questions of every undated work. `no-date-attested` is still legitimate, for
+    a source that genuinely said nothing about why, and it is what the fourth branch means.
+
+    fallback: none. This is an invariant because both fields are derivable from records already in
+    hand, so a violation is the build having dropped something rather than a source withholding it.
+    """
+    bad = []
+    for w in ctx["works"]:
+        fp = w.get("first_publication") or {}
+        if fp.get("date"):
+            continue
+        missing = [k for k in ("venue", "country", "date_basis") if not fp.get(k)]
+        if missing:
+            bad.append(f"{w.get('work_id')}: undated and states no {', '.join(missing)}")
+    return bad
 
 
 INVARIANTS = [
@@ -436,6 +469,7 @@ INVARIANTS = [
     ("deployed data matches built", inv_deployed_matches_built),
     ("no refutation of print serials", inv_no_refutation_of_print_serials),
     ("state agrees with its own date", inv_state_agrees_with_its_own_date),
+    ("undated works say where and why", inv_undated_works_say_where_and_why),
 ]
 
 
@@ -715,8 +749,13 @@ def context():
     releases += cur.get("releases", [])
     for f in sorted((BUILD / "feed").glob("[0-9]*-[0-9]*.json")):
         releases += (_load(f, {}) or {}).get("releases", [])
+    # Loaded HERE rather than in each check that wants it, so a canary planted in the context
+    # reaches every one of them. A check that reads its own file off disk cannot be shown a
+    # canary at all, and self_test then reports it healthy without ever having exercised it.
+    works = _load(BUILD / "works.json", []) or []
     return {
         "releases": releases,
+        "works": works.get("works") if isinstance(works, dict) else works,
         "series": (_load(BUILD / "series.json", {}) or {}).get("series", []),
         "names": {k: ((_yaml(NAMES / f"{k}.yaml", {}) or {}).get("names") or {})
                   for k in ("titles", "authors")},
@@ -740,6 +779,8 @@ def self_test():
          lambda c: c["names"]["titles"].update({"カナリア": {"reading": "Kanaria Romaji"}})),
         ("English mode has no Japanese", inv_english_mode_has_no_japanese,
          lambda c: c["releases"].append({"work": "カナリア", "provenance": "attested"})),
+        ("undated works say where and why", inv_undated_works_say_where_and_why,
+         lambda c: c["works"].append({"work_id": "CANARY", "first_publication": {"date": None}})),
     ]
     ok = True
     for name, fn, plant in probes:

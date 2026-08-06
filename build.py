@@ -250,6 +250,41 @@ def volume_number(v):
     return int(m.group(1)) if m else None
 
 
+def undated_publication(base):
+    """`first_publication` for a work no source could date, from the record's own account of why.
+
+    A WORK THAT EXISTS IS RECORDED WHETHER OR NOT WE CAN DATE IT (DEFINITIONS §6, amended
+    2026-08-05). The scope test asks WHERE a work was first published and the date is not part of
+    it, so refusing an undated work would be the database asserting that something it can see does
+    not exist, on the strength of a field the source does not hold.
+
+    THE VENUE IS NOT PART OF THE ABSENCE. This wrote `venue: None` on every undated work and so
+    contradicted §6 in the branch whose comment cites it: WHERE is exactly what an undated work
+    most needs to carry, and 1,209 records went out with it empty while every one of their source
+    records stated a publisher.
+
+    THE REASON IS THE SOURCE'S, NOT A PLACEHOLDER. `no-date-attested` was written over four
+    different silences the capture had already told apart: an imprint that prints nothing, a
+    chapter serial with no volumes at all, an imprint that dates its other books but not this one,
+    and too little read to tell those apart. Each wants something different done about it and the
+    flattened field asked for one thing. `no-date-attested` survives for the source that said
+    nothing about why, which is the only case it was ever true of.
+
+    The vocabulary and the sentence explaining each term are `recon/bookwalker_volumes`', because
+    that is where a capture decides which silence a row is in. Nothing is restated here.
+    """
+    basis = base.get("date_basis") or "no-date-attested"
+    return {
+        "venue": base.get("venue") or base.get("publisher") or None,
+        "date": None,
+        "country": base.get("first_publication_country") or "JP",
+        "date_basis": basis,
+        "venue_type": bookwalker_volumes.VENUE_TYPE.get(basis),
+        "note": bookwalker_volumes.BASIS_NOTE.get(
+            basis, bookwalker_volumes.BASIS_NOTE["no-date-attested"]),
+    }
+
+
 def readable_now(chapter, today=None):
     """Whether this chapter can be opened at no cost TODAY.
 
@@ -1422,39 +1457,13 @@ def main():
                 "note": "First known 単行本. Magazine serialisation not attested by current sources.",
             }
         else:
-            # A WORK THAT EXISTS IS RECORDED WHETHER OR NOT WE CAN DATE IT (§6, 2026-08-05).
-            # The scope test asks WHERE a work was first published and the date is not part of it.
-            # Refusing an undated work is the database asserting that something it can see does not
-            # exist, on the strength of a field the source does not hold: BOOK☆WALKER states no
-            # ISBN at all and a print date on 31.7% of volumes, and the absence is meaningful
-            # because every volume without one is digital-only with no print edition to date.
-            #
             # The absence is STATED rather than left empty, and never filled with a delivery date
-            # or an import stamp standing in for one. A count, so it ratchets down as dates are
-            # found rather than blocking the corpus on them.
-            #
-            # THE VENUE IS NOT PART OF THE ABSENCE, and writing None here contradicted §6 in the
-            # same paragraph that cites it: the scope test turns on WHERE, so the venue and the
-            # country are what an undated work most needs to carry. Every BOOK☆WALKER record
-            # states a venue and 1,209 of them arrived here as null.
-            #
-            # AND THE REASON IS THE SOURCE'S, NOT A PLACEHOLDER. `no-date-attested` was written
-            # over four different silences that the capture had already told apart: an imprint
-            # that prints nothing, a chapter serial with no volumes at all, an imprint that dates
-            # its other books and not this one, and too little read to say. Those want four
-            # different things done about them and the flattened field asked for one.
-            basis = base.get("date_basis") or "no-date-attested"
-            w["first_publication"] = {
-                "venue": base.get("venue") or base.get("publisher") or None,
-                "date": None,
-                "country": base.get("first_publication_country") or "JP",
-                "date_basis": basis,
-                "venue_type": bookwalker_volumes.VENUE_TYPE.get(basis),
-                "note": bookwalker_volumes.BASIS_NOTE.get(
-                    basis, bookwalker_volumes.BASIS_NOTE["no-date-attested"]),
-            }
+            # or an import stamp standing in for one. `undated_publication` carries the reasoning
+            # and the shape; the count here ratchets down as dates are found.
+            w["first_publication"] = undated_publication(base)
             undated_works += 1
-            undated_by_basis[basis] = undated_by_basis.get(basis, 0) + 1
+            _b = w["first_publication"]["date_basis"]
+            undated_by_basis[_b] = undated_by_basis.get(_b, 0) + 1
 
         # Classification. marketing_label is mechanical; content_tier is never automated (§6).
         for axis in ("marketing_label", "content_tier"):

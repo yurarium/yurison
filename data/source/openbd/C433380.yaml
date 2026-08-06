@@ -1,0 +1,43 @@
+# Derived from openBD. Raw payloads are NOT committed — openBD forbids transferring
+# use rights to third parties (REQUIREMENTS §3). No synopsis text is stored (§2).
+source: openbd
+retrieved: 2026-08-06
+work_id: C433380
+record_type: volume_enrichment
+volumes:
+  - isbn: "9784091575739"
+    openbd: present
+    published: 2019-08
+    published_basis: openbd-registration
+  - isbn: "9784091575845"
+    openbd: present
+    published: 2020-01
+    published_basis: openbd-registration
+  - isbn: "9784091575951"
+    openbd: present
+    published: 2020-05
+    published_basis: openbd-registration
+  - isbn: "9784091576101"
+    openbd: present
+    published: 2020-10
+    published_basis: openbd-registration
+  - isbn: "9784091576330"
+    openbd: present
+    published: 2021-05
+    published_basis: openbd-registration
+  - isbn: "9784091576545"
+    openbd: present
+    published: 2021-10
+    published_basis: openbd-registration
+  - isbn: "9784091576774"
+    openbd: present
+    published: 2022-04
+    published_basis: openbd-registration
+  - isbn: "9784091577054"
+    openbd: present
+    published: 2022-11
+    published_basis: openbd-registration
+  - isbn: "9784091577542"
+    openbd: present
+    published: 2023-06
+    published_basis: openbd-registration

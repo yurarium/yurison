@@ -1,78 +1,101 @@
 # Derived from openBD. Raw payloads are NOT committed — openBD forbids transferring
 # use rights to third parties (REQUIREMENTS §3). No synopsis text is stored (§2).
 source: openbd
-retrieved: 2026-08-01
+retrieved: 2026-08-06
 work_id: C341206
 record_type: volume_enrichment
 volumes:
   - isbn: "9784758070553"
     openbd: present
     published: 2009-08
+    published_basis: openbd-registration
   - isbn: "9784758070706"
     openbd: present
     published: 2010-02
+    published_basis: openbd-registration
   - isbn: "9784758070904"
     openbd: present
     published: 2010-07
+    published_basis: openbd-registration
   - isbn: "9784758071215"
     openbd: present
     published: 2011-02
+    published_basis: openbd-registration
   - isbn: "9784758071475"
     openbd: present
     published: 2011-06
+    published_basis: openbd-registration
   - isbn: "9784758071505"
     openbd: present
     published: 2011-07
+    published_basis: openbd-registration
   - isbn: "9784758071451"
     openbd: present
     published: 2011-08
+    published_basis: openbd-registration
   - isbn: "9784758072007"
     openbd: present
     published: 2012-08
+    published_basis: openbd-registration
   - isbn: "9784758072038"
     openbd: present
     published: 2012-08
+    published_basis: openbd-registration
   - isbn: "9784758072526"
     openbd: present
     published: 2013-06
+    published_basis: openbd-registration
   - isbn: "9784758072519"
     openbd: present
     published: 2013-06
+    published_basis: openbd-registration
   - isbn: "9784758072915"
     openbd: present
     published: 2014-02
+    published_basis: openbd-registration
   - isbn: "9784758072908"
     openbd: present
     published: 2014-02
+    published_basis: openbd-registration
   - isbn: "9784758073271"
     openbd: present
     published: 2014-08
+    published_basis: openbd-registration
   - isbn: "9784758073905"
     openbd: present
     published: 2015-02
+    published_basis: openbd-registration
   - isbn: "9784758079747"
     openbd: present
     published: 2019-09
+    published_basis: openbd-registration
   - isbn: "9784758021142"
     openbd: present
     published: 2020-06
+    published_basis: openbd-registration
   - isbn: "9784758021975"
     openbd: present
     published: 2021-01
+    published_basis: openbd-registration
   - isbn: "9784758022866"
     openbd: present
     published: 2021-09
+    published_basis: openbd-registration
   - isbn: "9784758023405"
     openbd: present
     published: 2022-01
+    published_basis: openbd-registration
   - isbn: "9784758024815"
     openbd: present
     published: 2023-01
+    published_basis: openbd-registration
   - isbn: "9784758028196"
     openbd: present
   - isbn: "9784758029834"
     openbd: present
     published: 2025-11
+    published_basis: openbd-registration
   - isbn: "9784758029827"
     openbd: present
     published: 2025-11
+    published_basis: openbd-registration

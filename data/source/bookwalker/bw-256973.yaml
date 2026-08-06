@@ -1,0 +1,66 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-256973"
+record_type: retailer_work_record
+shop_id: "256973"
+shop_url: "https://bookwalker.jp/series/256973/"
+title:
+  ja: "ガールズラブ・オブ・ザ・デッド（コミックノベル「yomuco」）"
+creator: "星井七億(作) / 森島明子(絵)"
+publisher: "パルソラ"
+imprint: "コミックノベル「yomuco」"
+volume_count: 10
+date_basis: "no-print-edition"
+venue: "パルソラ"
+completed: true
+volumes:
+  - title: "ガールズラブ・オブ・ザ・デッド 1巻〈死がふたりを分か……たない？〉"
+    number: 1
+    delivered: "2020-07-17"
+  - title: "ガールズラブ・オブ・ザ・デッド 2巻〈記憶のかけら〉"
+    number: 2
+    delivered: "2020-09-18"
+  - title: "ガールズラブ・オブ・ザ・デッド 3巻〈閉じ込められた恋心〉"
+    number: 3
+    delivered: "2020-12-04"
+  - title: "ガールズラブ・オブ・ザ・デッド 4巻〈芽生えた友情〉"
+    number: 4
+    delivered: "2021-01-22"
+  - title: "ガールズラブ・オブ・ザ・デッド 5巻〈姉妹の絆〉"
+    number: 5
+    delivered: "2021-02-26"
+  - title: "ガールズラブ・オブ・ザ・デッド 6巻〈近づく別れ〉"
+    number: 6
+    delivered: "2021-04-02"
+  - title: "ガールズラブ・オブ・ザ・デッド 7巻〈あの子のところへ〉"
+    number: 7
+    delivered: "2021-07-07"
+  - title: "ガールズラブ・オブ・ザ・デッド 8巻〈ふたり、復讐の夜〉"
+    number: 8
+    delivered: "2021-10-23"
+  - title: "ガールズラブ・オブ・ザ・デッド 9巻〈月がきれいだね〉"
+    number: 9
+    delivered: "2021-10-23"
+  - title: "【最終巻】ガールズラブ・オブ・ザ・デッド 10巻〈死んでも愛してる〉"
+    number: 10
+    delivered: "2021-12-17"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/256973/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

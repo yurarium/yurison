@@ -1,0 +1,56 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-342591"
+record_type: retailer_work_record
+shop_id: "342591"
+shop_url: "https://bookwalker.jp/series/342591/"
+title:
+  ja: "とある魔術の禁書目録外伝　とある科学の心理掌握"
+creator: "鎌池和馬 / 乃木 康仁 / はいむらきよたか(キャラクターデザイン)"
+publisher: "KADOKAWA"
+imprint: "角川コミックス・エース"
+volume_count: 5
+first_published: "2022-02-26"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "とある魔術の禁書目録外伝　とある科学の心理掌握（１）"
+    number: 1
+    published: "2022-02-26"
+    delivered: "2022-02-25"
+  - title: "とある魔術の禁書目録外伝　とある科学の心理掌握（２）"
+    number: 2
+    published: "2023-01-26"
+    delivered: "2023-01-26"
+  - title: "とある魔術の禁書目録外伝　とある科学の心理掌握（３）"
+    number: 3
+    published: "2024-01-10"
+    delivered: "2024-01-10"
+  - title: "とある魔術の禁書目録外伝　とある科学の心理掌握（４）"
+    number: 4
+    published: "2025-02-26"
+    delivered: "2025-02-26"
+  - title: "【最新刊】とある魔術の禁書目録外伝　とある科学の心理掌握（５）"
+    number: 5
+    published: "2026-02-26"
+    delivered: "2026-02-25"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/342591/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

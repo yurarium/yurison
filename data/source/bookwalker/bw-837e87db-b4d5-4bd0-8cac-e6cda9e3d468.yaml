@@ -1,0 +1,39 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-837e87db-b4d5-4bd0-8cac-e6cda9e3d468"
+record_type: retailer_work_record
+shop_id: "837e87db-b4d5-4bd0-8cac-e6cda9e3d468"
+shop_url: "https://bookwalker.jp/de837e87db-b4d5-4bd0-8cac-e6cda9e3d468/"
+title:
+  ja: "新婚百合アンソロジー"
+creator: "かがちさく / つづら涼 / 久川はる / 三浦コズミ / ほか"
+publisher: "KADOKAWA"
+imprint: "単行本コミックス"
+volume_count: 1
+first_published: "2019-02-27"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "White Lilies in Love　BRIDE's　新婚百合アンソロジー"
+    published: "2019-02-27"
+    delivered: "2019-02-27"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/de837e87db-b4d5-4bd0-8cac-e6cda9e3d468/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

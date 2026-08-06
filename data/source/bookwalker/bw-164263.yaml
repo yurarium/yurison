@@ -1,0 +1,100 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-164263"
+record_type: retailer_work_record
+shop_id: "164263"
+shop_url: "https://bookwalker.jp/series/164263/"
+title:
+  ja: "剣士を目指して入学したのに魔法適性9999なんですけど!?"
+creator: "年中麦茶太郎 / iimAn&惟丞 / りいちゅ"
+publisher: "KADOKAWA"
+imprint: "ドラゴンコミックスエイジ"
+volume_count: 16
+first_published: "2018-06-15"
+venue: "KADOKAWA"
+completed: true
+volumes:
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(1)"
+    number: 1
+    published: "2018-06-15"
+    delivered: "2018-06-15"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(2)"
+    number: 2
+    published: "2018-12-07"
+    delivered: "2018-12-07"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(3)"
+    number: 3
+    published: "2019-06-14"
+    delivered: "2019-06-14"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(4)"
+    number: 4
+    published: "2019-12-09"
+    delivered: "2019-12-09"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(5)"
+    number: 5
+    published: "2020-06-09"
+    delivered: "2020-06-09"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(6)"
+    number: 6
+    published: "2020-09-09"
+    delivered: "2020-09-09"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(7)"
+    number: 7
+    published: "2021-01-09"
+    delivered: "2021-01-09"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(8)"
+    number: 8
+    published: "2021-06-09"
+    delivered: "2021-06-08"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(9)"
+    number: 9
+    published: "2022-01-08"
+    delivered: "2022-01-08"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(10)"
+    number: 10
+    published: "2022-07-08"
+    delivered: "2022-07-08"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(11)"
+    number: 11
+    published: "2023-01-07"
+    delivered: "2023-01-07"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(12)"
+    number: 12
+    published: "2023-05-09"
+    delivered: "2023-05-09"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(13)"
+    number: 13
+    published: "2023-09-08"
+    delivered: "2023-09-08"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?(14)"
+    number: 14
+    published: "2024-03-08"
+    delivered: "2024-03-08"
+  - title: "剣士を目指して入学したのに魔法適性9999なんですけど!?　15"
+    number: 15
+    published: "2024-08-09"
+    delivered: "2024-08-08"
+  - title: "【最終巻】剣士を目指して入学したのに魔法適性9999なんですけど!?(16)"
+    number: 16
+    published: "2025-01-09"
+    delivered: "2025-01-09"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/164263/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

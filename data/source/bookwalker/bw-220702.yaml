@@ -1,0 +1,96 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-220702"
+record_type: retailer_work_record
+shop_id: "220702"
+shop_url: "https://bookwalker.jp/series/220702/"
+title:
+  ja: "永世乙女の戦い方"
+creator: "くずしろ"
+publisher: "小学館"
+imprint: "ビッグコミックス"
+volume_count: 15
+first_published: "2019-10-05"
+venue: "小学館"
+completed: false
+volumes:
+  - title: "永世乙女の戦い方（１）"
+    number: 1
+    published: "2019-10-05"
+    delivered: "2019-09-30"
+  - title: "永世乙女の戦い方（２）"
+    number: 2
+    published: "2020-03-04"
+    delivered: "2020-02-28"
+  - title: "永世乙女の戦い方（３）"
+    number: 3
+    published: "2020-08-04"
+    delivered: "2020-07-30"
+  - title: "永世乙女の戦い方（４）"
+    number: 4
+    published: "2021-02-03"
+    delivered: "2021-01-29"
+  - title: "永世乙女の戦い方（５）"
+    number: 5
+    published: "2021-07-05"
+    delivered: "2021-06-30"
+  - title: "永世乙女の戦い方（６）"
+    number: 6
+    published: "2021-12-05"
+    delivered: "2021-11-30"
+  - title: "永世乙女の戦い方（７）"
+    number: 7
+    published: "2022-06-04"
+    delivered: "2022-05-30"
+  - title: "永世乙女の戦い方（８）"
+    number: 8
+    published: "2023-01-02"
+    delivered: "2022-12-28"
+  - title: "永世乙女の戦い方（９）"
+    number: 9
+    published: "2023-07-04"
+    delivered: "2023-06-29"
+  - title: "永世乙女の戦い方（１０）"
+    number: 10
+    published: "2024-01-01"
+    delivered: "2023-12-27"
+  - title: "永世乙女の戦い方（１１）"
+    number: 11
+    published: "2024-08-04"
+    delivered: "2024-07-30"
+  - title: "永世乙女の戦い方（１２）"
+    number: 12
+    published: "2025-02-04"
+    delivered: "2025-01-30"
+  - title: "永世乙女の戦い方（１３）"
+    number: 13
+    published: "2025-08-04"
+    delivered: "2025-07-30"
+  - title: "永世乙女の戦い方（１４）"
+    number: 14
+    published: "2026-02-04"
+    delivered: "2026-01-30"
+  - title: "【最新刊】永世乙女の戦い方（１５）"
+    number: 15
+    published: "2026-07-05"
+    delivered: "2026-06-30"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/220702/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

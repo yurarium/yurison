@@ -1,0 +1,38 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-4e9efca9-b941-425c-8535-6e93b69050c4"
+record_type: retailer_work_record
+shop_id: "4e9efca9-b941-425c-8535-6e93b69050c4"
+shop_url: "https://bookwalker.jp/de4e9efca9-b941-425c-8535-6e93b69050c4/"
+title:
+  ja: "【한국어 ver.】사이좋은 조장들 - 組長達のなかよし"
+creator: "あとき / 싱글벙글환상향 / 어쟤예쁘네 / 그냥계정"
+publisher: "アトキンソン"
+imprint: "アトキンソン"
+volume_count: 1
+date_basis: "no-print-edition"
+venue: "アトキンソン"
+completed: false
+volumes:
+  - title: "【한국어 ver.】사이좋은 조장들 - 組長達のなかよし"
+    delivered: "2025-01-10"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/de4e9efca9-b941-425c-8535-6e93b69050c4/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

@@ -1,0 +1,44 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-22996"
+record_type: retailer_work_record
+shop_id: "22996"
+shop_url: "https://bookwalker.jp/series/22996/"
+title:
+  ja: "レディーズメイド"
+creator: "春夏秋冬鈴"
+publisher: "少年画報社"
+imprint: "TSコミックス"
+volume_count: 2
+first_published: "2011-04-30"
+venue: "少年画報社"
+completed: true
+volumes:
+  - title: "レディーズメイド（１）"
+    number: 1
+    published: "2011-04-30"
+    delivered: "2015-01-23"
+  - title: "【最終巻】レディーズメイド（２）"
+    number: 2
+    published: "2012-09-19"
+    delivered: "2015-01-23"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/22996/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

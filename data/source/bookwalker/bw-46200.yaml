@@ -1,0 +1,66 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-46200"
+record_type: retailer_work_record
+shop_id: "46200"
+shop_url: "https://bookwalker.jp/series/46200/"
+title:
+  ja: "城下町のダンデライオン"
+creator: "春日歩"
+publisher: "芳文社"
+imprint: "まんがタイムKRコミックス"
+volume_count: 8
+first_published: "2013-03-27"
+venue: "芳文社"
+completed: false
+volumes:
+  - title: "城下町のダンデライオン　１巻"
+    number: 1
+    published: "2013-03-27"
+    delivered: "2015-06-05"
+  - title: "城下町のダンデライオン　２巻"
+    number: 2
+    published: "2014-06-27"
+    delivered: "2015-06-05"
+  - title: "城下町のダンデライオン　３巻"
+    number: 3
+    published: "2015-08-27"
+    delivered: "2015-08-28"
+  - title: "城下町のダンデライオン　４巻"
+    number: 4
+    published: "2017-06-11"
+    delivered: "2017-06-09"
+  - title: "城下町のダンデライオン　５巻"
+    number: 5
+    published: "2019-11-09"
+    delivered: "2019-11-01"
+  - title: "城下町のダンデライオン　６巻"
+    number: 6
+    published: "2021-12-11"
+    delivered: "2021-11-26"
+  - title: "城下町のダンデライオン　７巻"
+    number: 7
+    delivered: "2023-04-27"
+  - title: "【最新刊】城下町のダンデライオン　８巻"
+    number: 8
+    delivered: "2025-05-27"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/46200/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

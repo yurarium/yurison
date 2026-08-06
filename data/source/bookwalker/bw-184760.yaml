@@ -1,0 +1,45 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-184760"
+record_type: retailer_work_record
+shop_id: "184760"
+shop_url: "https://bookwalker.jp/series/184760/"
+title:
+  ja: "女子大生が合コンでお姉さんに持ち帰られる話"
+creator: "雪尾ゆき"
+publisher: "雪尾ゆき"
+imprint: "雪尾ゆき"
+volume_count: 3
+date_basis: "print-edition-unknown"
+venue: "雪尾ゆき"
+completed: false
+volumes:
+  - title: "女子大生が合コンでお姉さんに持ち帰られる話"
+    number: 1
+    delivered: "2018-09-06"
+  - title: "女子大生とお姉さん～女子大生が合コンでお姉さんに持ち帰られる話２～"
+    number: 2
+    delivered: "2018-11-29"
+  - title: "【最新刊】女子大生とお姉さんはなかよし～女子大生が合コンでお姉さんに持ち帰られる話３～"
+    number: 3
+    delivered: "2019-02-20"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/184760/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

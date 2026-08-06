@@ -1,0 +1,78 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-84256"
+record_type: retailer_work_record
+shop_id: "84256"
+shop_url: "https://bookwalker.jp/series/84256/"
+title:
+  ja: "[カラー版]なないろ黒蝶～KillerAngel"
+creator: "南部くまこ / モユ"
+publisher: "パルソラ"
+imprint: "コミックノベル「yomuco」"
+volume_count: 14
+date_basis: "no-print-edition"
+venue: "パルソラ"
+completed: true
+volumes:
+  - title: "[カラー版]なないろ黒蝶～KillerAngel　〈女子高生殺し屋集団〉1巻"
+    number: 1
+    delivered: "2016-09-16"
+  - title: "[カラー版]なないろ黒蝶～KillerAngel　〈眼帯の下の紅い目〉3巻"
+    number: 2
+    delivered: "2016-09-16"
+  - title: "[カラー版]なないろ黒蝶～KillerAngel　〈読めない唯一の心〉2巻"
+    number: 3
+    delivered: "2016-09-16"
+  - title: "[カラー版]なないろ黒蝶～KillerAngel　4巻〈報酬30億円のターゲット〉"
+    number: 4
+    delivered: "2017-01-13"
+  - title: "[カラー版]なないろ黒蝶～KillerAngel　〈姉さんを好きなの？〉5巻"
+    number: 5
+    delivered: "2017-02-10"
+  - title: "[カラー版]なないろ黒蝶～KillerAngel　6巻〈会いたい…〉"
+    number: 6
+    delivered: "2017-02-17"
+  - title: "[カラー版]なないろ黒蝶～KillerAngel　7巻〈血だらけのキス〉"
+    number: 7
+    delivered: "2017-03-10"
+  - title: "[カラー版]なないろ黒蝶～KillerAngel　8巻〈美しく残虐な敵〉"
+    number: 8
+    delivered: "2017-03-17"
+  - title: "[カラー版]なないろ黒蝶～KillerAngel　9巻〈崩れ落ちた恋〉"
+    number: 9
+    delivered: "2017-04-07"
+  - title: "[カラー版]なないろ黒蝶～KillerAngel　10巻〈出生の秘密〉"
+    number: 10
+    delivered: "2017-04-14"
+  - title: "[カラー版]なないろ黒蝶～KillerAngel　11巻〈最後の夜のピクニック〉"
+    number: 11
+    delivered: "2017-04-28"
+  - title: "[カラー版]なないろ黒蝶～KillerAngel　12巻〈殺シテヤル〉"
+    number: 12
+    delivered: "2017-04-28"
+  - title: "[カラー版]なないろ黒蝶～KillerAngel　13巻〈自由の羽〉"
+    number: 13
+    delivered: "2017-06-02"
+  - title: "【最終巻】[カラー版]なないろ黒蝶～KillerAngel　14巻〈秘密の夜〉"
+    number: 14
+    delivered: "2017-06-02"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/84256/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

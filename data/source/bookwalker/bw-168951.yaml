@@ -1,0 +1,88 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-168951"
+record_type: retailer_work_record
+shop_id: "168951"
+shop_url: "https://bookwalker.jp/series/168951/"
+title:
+  ja: "どうやら私の身体は完全無敵のようですね"
+creator: "さばねこ / ちゃつふさ / ふーみ"
+publisher: "KADOKAWA"
+imprint: "ドラゴンコミックスエイジ"
+volume_count: 13
+first_published: "2018-08-09"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "どうやら私の身体は完全無敵のようですね　１"
+    number: 1
+    published: "2018-08-09"
+    delivered: "2018-08-09"
+  - title: "どうやら私の身体は完全無敵のようですね　２"
+    number: 2
+    published: "2019-02-09"
+    delivered: "2019-02-08"
+  - title: "どうやら私の身体は完全無敵のようですね　３"
+    number: 3
+    published: "2019-10-09"
+    delivered: "2019-10-09"
+  - title: "どうやら私の身体は完全無敵のようですね　４"
+    number: 4
+    published: "2020-05-09"
+    delivered: "2020-05-09"
+  - title: "どうやら私の身体は完全無敵のようですね　５"
+    number: 5
+    published: "2020-09-09"
+    delivered: "2020-09-09"
+  - title: "どうやら私の身体は完全無敵のようですね　６"
+    number: 6
+    published: "2021-04-09"
+    delivered: "2021-04-09"
+  - title: "どうやら私の身体は完全無敵のようですね　７"
+    number: 7
+    published: "2021-10-08"
+    delivered: "2021-10-08"
+  - title: "どうやら私の身体は完全無敵のようですね　８"
+    number: 8
+    published: "2022-06-09"
+    delivered: "2022-06-09"
+  - title: "どうやら私の身体は完全無敵のようですね　９"
+    number: 9
+    published: "2022-11-09"
+    delivered: "2022-11-08"
+  - title: "どうやら私の身体は完全無敵のようですね　１０"
+    number: 10
+    published: "2023-06-09"
+    delivered: "2023-06-09"
+  - title: "どうやら私の身体は完全無敵のようですね　１１"
+    number: 11
+    published: "2024-02-09"
+    delivered: "2024-02-09"
+  - title: "どうやら私の身体は完全無敵のようですね　１２"
+    number: 12
+    published: "2024-09-09"
+    delivered: "2024-09-09"
+  - title: "【最新刊】どうやら私の身体は完全無敵のようですね　１３"
+    number: 13
+    published: "2025-08-09"
+    delivered: "2025-08-08"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/168951/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

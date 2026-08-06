@@ -1,0 +1,39 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-586d844c-4d5b-4548-bdf1-4c94b4ac21cb"
+record_type: retailer_work_record
+shop_id: "586d844c-4d5b-4548-bdf1-4c94b4ac21cb"
+shop_url: "https://bookwalker.jp/de586d844c-4d5b-4548-bdf1-4c94b4ac21cb/"
+title:
+  ja: "星と海のメルヒェン"
+creator: "長乃　あきら"
+publisher: "KADOKAWA"
+imprint: "あすかコミックスDX"
+volume_count: 1
+first_published: "2025-01-24"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "星と海のメルヒェン"
+    published: "2025-01-24"
+    delivered: "2025-01-24"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/de586d844c-4d5b-4548-bdf1-4c94b4ac21cb/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

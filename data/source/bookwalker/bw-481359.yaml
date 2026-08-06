@@ -1,0 +1,66 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-481359"
+record_type: retailer_work_record
+shop_id: "481359"
+shop_url: "https://bookwalker.jp/series/481359/"
+title:
+  ja: "友達以上、推し未満～アイドルオタク、推し似の美少女に言い寄られています（コミックノベル「yomuco」）"
+creator: "柳川麻衣(作) / ｓｏｎｏ．Ｎ(絵)"
+publisher: "パルソラ"
+imprint: "コミックノベル「yomuco」"
+volume_count: 10
+date_basis: "no-print-edition"
+venue: "パルソラ"
+completed: false
+volumes:
+  - title: "友達以上、推し未満～アイドルオタク、推し似の美少女に言い寄られています 1巻〈推しからのお呼び出し！？〉"
+    number: 1
+    delivered: "2024-07-30"
+  - title: "友達以上、推し未満～アイドルオタク、推し似の美少女に言い寄られています 2巻〈私たちってどんな仲？〉"
+    number: 2
+    delivered: "2024-07-30"
+  - title: "友達以上、推し未満～アイドルオタク、推し似の美少女に言い寄られています 3巻〈デートに潜入〉"
+    number: 3
+    delivered: "2024-07-30"
+  - title: "友達以上、推し未満～アイドルオタク、推し似の美少女に言い寄られています 4巻〈不適切な関係〉"
+    number: 4
+    delivered: "2024-07-30"
+  - title: "友達以上、推し未満～アイドルオタク、推し似の美少女に言い寄られています 5巻〈突然の嵐に〉"
+    number: 5
+    delivered: "2024-07-30"
+  - title: "友達以上、推し未満～アイドルオタク、推し似の美少女に言い寄られています 6巻〈好きな人が塩対応で〉"
+    number: 6
+    delivered: "2024-08-05"
+  - title: "友達以上、推し未満～アイドルオタク、推し似の美少女に言い寄られています 7巻〈最悪すぎる衝撃の事実〉"
+    number: 7
+    delivered: "2024-09-20"
+  - title: "友達以上、推し未満～アイドルオタク、推し似の美少女に言い寄られています 8巻〈距離を置きたいです〉"
+    number: 8
+    delivered: "2024-10-25"
+  - title: "友達以上、推し未満～アイドルオタク、推し似の美少女に言い寄られています 9巻〈付き合うことになったから〉"
+    number: 9
+    delivered: "2025-01-31"
+  - title: "【最新刊】友達以上、推し未満～アイドルオタク、推し似の美少女に言い寄られています 10巻〈怖がらなくても大丈夫〉"
+    number: 10
+    delivered: "2025-02-28"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/481359/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

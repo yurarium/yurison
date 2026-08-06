@@ -1,0 +1,42 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-174153"
+record_type: retailer_work_record
+shop_id: "174153"
+shop_url: "https://bookwalker.jp/series/174153/"
+title:
+  ja: "部長に終りはありません"
+creator: "高橋真弥"
+publisher: "高橋真弥"
+imprint: "高橋真弥"
+volume_count: 2
+date_basis: "print-edition-unknown"
+venue: "高橋真弥"
+completed: false
+volumes:
+  - title: "【最新刊】部長に終りはありません3"
+    number: 1
+    delivered: "2018-09-12"
+  - title: "部長に終りはありません2"
+    number: 2
+    delivered: "2018-09-12"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/174153/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

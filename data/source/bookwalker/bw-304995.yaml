@@ -1,0 +1,63 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-304995"
+record_type: retailer_work_record
+shop_id: "304995"
+shop_url: "https://bookwalker.jp/series/304995/"
+title:
+  ja: "赤ずきんに食べられた狼"
+creator: "椎名晴美"
+publisher: "コンパス"
+imprint: "コンパスコミックス"
+volume_count: 9
+date_basis: "no-print-edition"
+venue: "コンパス"
+completed: true
+volumes:
+  - title: "赤ずきんに食べられた狼（1）"
+    number: 1
+    delivered: "2021-06-24"
+  - title: "赤ずきんに食べられた狼（2）"
+    number: 2
+    delivered: "2021-08-12"
+  - title: "赤ずきんに食べられた狼（3）"
+    number: 3
+    delivered: "2021-09-16"
+  - title: "赤ずきんに食べられた狼（4）"
+    number: 4
+    delivered: "2021-10-14"
+  - title: "赤ずきんに食べられた狼（5）"
+    number: 5
+    delivered: "2021-11-11"
+  - title: "赤ずきんに食べられた狼（6）"
+    number: 6
+    delivered: "2021-12-09"
+  - title: "赤ずきんに食べられた狼（7）"
+    number: 7
+    delivered: "2022-01-27"
+  - title: "赤ずきんに食べられた狼（8）"
+    number: 8
+    delivered: "2023-03-04"
+  - title: "【最終巻】赤ずきんに食べられた狼（9）"
+    number: 9
+    delivered: "2024-04-11"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/304995/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

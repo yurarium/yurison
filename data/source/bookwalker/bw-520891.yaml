@@ -1,0 +1,45 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-520891"
+record_type: retailer_work_record
+shop_id: "520891"
+shop_url: "https://bookwalker.jp/series/520891/"
+title:
+  ja: "これが最後の×××かも"
+creator: "ねじがなめた"
+publisher: "新潮社"
+imprint: "バンチコミックスコラル"
+volume_count: 3
+date_basis: "print-edition-unknown"
+venue: "新潮社"
+completed: true
+volumes:
+  - title: "これが最後の×××かも　1巻"
+    number: 1
+    delivered: "2025-05-09"
+  - title: "これが最後の×××かも　2巻"
+    number: 2
+    delivered: "2025-09-09"
+  - title: "【最終巻】これが最後の×××かも　3巻（完）"
+    number: 3
+    delivered: "2026-01-08"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/520891/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

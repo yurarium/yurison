@@ -1,0 +1,39 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-52ca0d4e-c910-4f71-9f58-4776579d6b5c"
+record_type: retailer_work_record
+shop_id: "52ca0d4e-c910-4f71-9f58-4776579d6b5c"
+shop_url: "https://bookwalker.jp/de52ca0d4e-c910-4f71-9f58-4776579d6b5c/"
+title:
+  ja: "ちょっとエッチなギャル　アンソロジーコミック"
+creator: "まんの(カバーイラスト) / うまくち醤油 / 眞銅七号 / ナスムスビム / 庭トリ / 春待うろ / みな藻 / ゆうみ / よちリョウタ"
+publisher: "KADOKAWA"
+imprint: "電撃コミックスNEXT"
+volume_count: 1
+first_published: "2025-05-27"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "ちょっとエッチなギャル　アンソロジーコミック"
+    published: "2025-05-27"
+    delivered: "2025-05-27"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/de52ca0d4e-c910-4f71-9f58-4776579d6b5c/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

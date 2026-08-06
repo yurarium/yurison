@@ -1,0 +1,38 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-49e172c2-2048-4525-bbd4-f8b5b0f86871"
+record_type: retailer_work_record
+shop_id: "49e172c2-2048-4525-bbd4-f8b5b0f86871"
+shop_url: "https://bookwalker.jp/de49e172c2-2048-4525-bbd4-f8b5b0f86871/"
+title:
+  ja: "TSロリシリーズ"
+creator: "クスミ / 原初 / キッカイキ"
+publisher: "宙出版"
+imprint: "ASTRO COMICS"
+volume_count: 1
+date_basis: "print-edition-unknown"
+venue: "宙出版"
+completed: false
+volumes:
+  - title: "TSしちゃったからスパチャ暮らし求めてVRゲームの実況者になります　～見た目メスガキ、頭脳は修羅～"
+    delivered: "2024-02-10"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/de49e172c2-2048-4525-bbd4-f8b5b0f86871/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

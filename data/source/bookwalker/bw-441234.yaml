@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-441234"
+record_type: retailer_work_record
+shop_id: "441234"
+shop_url: "https://bookwalker.jp/series/441234/"
+title:
+  ja: "ジャガイモ農家の村娘、剣神と謳われるまで。"
+creator: "有郷葉 / たぢまよしかづ / 黒兎　ゆう"
+publisher: "一二三書房"
+imprint: "ノヴァコミックス"
+volume_count: 3
+first_published: "2023-10-13"
+venue: "一二三書房"
+completed: false
+volumes:
+  - title: "ジャガイモ農家の村娘、剣神と謳われるまで。（ノヴァコミックス）１"
+    number: 1
+    published: "2023-10-13"
+    delivered: "2023-10-13"
+  - title: "ジャガイモ農家の村娘、剣神と謳われるまで。（ノヴァコミックス）２"
+    number: 2
+    published: "2024-03-25"
+    delivered: "2024-03-25"
+  - title: "【最新刊】ジャガイモ農家の村娘、剣神と謳われるまで。（ノヴァコミックス）３"
+    number: 3
+    published: "2024-09-25"
+    delivered: "2024-09-25"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/441234/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

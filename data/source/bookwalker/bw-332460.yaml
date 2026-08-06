@@ -1,0 +1,68 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-332460"
+record_type: retailer_work_record
+shop_id: "332460"
+shop_url: "https://bookwalker.jp/series/332460/"
+title:
+  ja: "恋愛ショートアンソロジーコミック（ＢＲＩＤＧＥ　ＣＯＭＩＣＳ）"
+creator: "COMIC BRIDGE編集部(編)"
+publisher: "KADOKAWA"
+imprint: "ＢＲＩＤＧＥ　ＣＯＭＩＣＳ"
+volume_count: 8
+first_published: "2021-09-29"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "たとえばこんな恋愛様式　恋愛ショートアンソロジーコミック"
+    number: 1
+    published: "2021-09-29"
+    delivered: "2021-09-29"
+  - title: "好きになったらだめな人　恋愛ショートアンソロジーコミック"
+    number: 2
+    published: "2021-12-25"
+    delivered: "2021-12-25"
+  - title: "結婚できない好きな人　恋愛ショートアンソロジーコミック"
+    number: 3
+    published: "2022-01-31"
+    delivered: "2022-01-31"
+  - title: "あーー別れてよかった！！！　恋愛ショートアンソロジーコミック"
+    number: 4
+    published: "2022-03-02"
+    delivered: "2022-03-02"
+  - title: "お願い、好きっていわないで　恋愛ショートアンソロジーコミック"
+    number: 5
+    published: "2022-03-02"
+    delivered: "2022-03-02"
+  - title: "【最新刊】わたし、なんで好きだったんだろ　恋愛ショートアンソロジーコミック"
+    number: 6
+    published: "2022-03-28"
+    delivered: "2022-03-28"
+  - title: "いらない男を捨てました　恋愛ショートアンソロジーコミック"
+    number: 7
+    published: "2022-03-28"
+    delivered: "2022-03-28"
+  - title: "ほんとはだめな恋なのに　恋愛ショートアンソロジーコミック"
+    number: 8
+    published: "2022-03-28"
+    delivered: "2022-03-28"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/332460/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

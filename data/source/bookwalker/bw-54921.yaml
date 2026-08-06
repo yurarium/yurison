@@ -1,0 +1,64 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-54921"
+record_type: retailer_work_record
+shop_id: "54921"
+shop_url: "https://bookwalker.jp/series/54921/"
+title:
+  ja: "やがて君になる"
+creator: "仲谷 鳰"
+publisher: "KADOKAWA"
+imprint: "電撃コミックスNEXT"
+volume_count: 7
+first_published: "2016-04-25"
+venue: "KADOKAWA"
+completed: true
+volumes:
+  - title: "やがて君になる(2)"
+    number: 1
+    published: "2016-04-25"
+    delivered: "2016-04-27"
+  - title: "やがて君になる(3)"
+    number: 2
+    published: "2016-11-24"
+    delivered: "2016-11-26"
+  - title: "やがて君になる(4)"
+    number: 3
+    published: "2017-06-27"
+    delivered: "2017-06-27"
+  - title: "やがて君になる(5)"
+    number: 4
+    published: "2018-01-27"
+    delivered: "2018-01-26"
+  - title: "やがて君になる(6)"
+    number: 5
+    published: "2018-09-27"
+    delivered: "2018-09-27"
+  - title: "やがて君になる(7)"
+    number: 6
+    published: "2019-04-27"
+    delivered: "2019-04-26"
+  - title: "【最終巻】やがて君になる(8)"
+    number: 7
+    published: "2019-11-27"
+    delivered: "2019-11-27"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/54921/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

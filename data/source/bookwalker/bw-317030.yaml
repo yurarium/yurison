@@ -1,0 +1,87 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-317030"
+record_type: retailer_work_record
+shop_id: "317030"
+shop_url: "https://bookwalker.jp/series/317030/"
+title:
+  ja: "ゆるゆり　小冊子"
+creator: "なもり"
+publisher: "一迅社"
+imprint: "百合姫コミックス"
+volume_count: 17
+date_basis: "no-print-date-stated"
+venue: "一迅社"
+completed: false
+volumes:
+  - title: "「おみくじフォトグラフ」ゆるゆり 特装版小冊子電子版"
+    number: 1
+    delivered: "2021-08-31"
+  - title: "「お姫様になるまで」ゆるゆり 特装版小冊子電子版"
+    number: 2
+    delivered: "2021-08-31"
+  - title: "「お祝いトゥエンティ」ゆるゆり 特装版小冊子電子版"
+    number: 3
+    delivered: "2021-08-31"
+  - title: "「がちゆり」ゆるゆり 特装版小冊子電子版"
+    number: 4
+    delivered: "2021-08-31"
+  - title: "「ゆるゆり さいしょのほうR」ゆるゆり 特装版小冊子電子版"
+    number: 5
+    delivered: "2021-08-31"
+  - title: "「ゆるゆり なちゅやちゅみ！えぴろぉぐ」ゆるゆり 特装版小冊子電子版"
+    number: 6
+    delivered: "2021-08-31"
+  - title: "「ゆるゆり なちゅやちゅみ！えぴろぉぐ～episode2～」ゆるゆり 特装版小冊子電子版"
+    number: 7
+    delivered: "2021-08-31"
+  - title: "「ゆるゆり ミニFAN BOOK2」ゆるゆり 特装版小冊子電子版"
+    number: 8
+    delivered: "2021-08-31"
+  - title: "「ゆるゆり10.5」ゆるゆり 特装版小冊子電子版"
+    number: 9
+    delivered: "2021-08-31"
+  - title: "「ゆるゆりミニFAN BOOK」ゆるゆり 特装版小冊子電子版"
+    number: 10
+    delivered: "2021-08-31"
+  - title: "「七森中のとある日常」ゆるゆり 特装版小冊子電子版"
+    number: 11
+    delivered: "2021-08-31"
+  - title: "「先生とごらく部」ゆるゆり 特装版小冊子電子版"
+    number: 12
+    delivered: "2021-08-31"
+  - title: "「綾乃ちゃんのおともだち」ゆるゆり 特装版小冊子電子版"
+    number: 13
+    delivered: "2021-08-31"
+  - title: "「特装版ミラクるん　～GO!七森中★ 時空の大冒険！～」ゆるゆり 特装版小冊子電子版"
+    number: 14
+    delivered: "2021-12-27"
+  - title: "「Re:Dear」ゆるゆり 特装版小冊子電子版"
+    number: 15
+    delivered: "2022-12-26"
+  - title: "「ゆるゆりらぼ」ゆるゆり 特装版小冊子電子版"
+    number: 16
+    delivered: "2024-12-24"
+  - title: "【最新刊】「gift,gift,gift.」ゆるゆり 特装版小冊子電子版"
+    number: 17
+    delivered: "2025-10-30"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/317030/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

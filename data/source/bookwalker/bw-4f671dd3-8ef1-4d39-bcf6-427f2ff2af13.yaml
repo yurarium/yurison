@@ -1,0 +1,39 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-4f671dd3-8ef1-4d39-bcf6-427f2ff2af13"
+record_type: retailer_work_record
+shop_id: "4f671dd3-8ef1-4d39-bcf6-427f2ff2af13"
+shop_url: "https://bookwalker.jp/de4f671dd3-8ef1-4d39-bcf6-427f2ff2af13/"
+title:
+  ja: "百合好きの男子高校生の話（ピクシブエッセイ）"
+creator: "あさがお"
+publisher: "KADOKAWA"
+imprint: "ピクシブエッセイ"
+volume_count: 1
+first_published: "2019-11-01"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "百合好きの男子高校生の話"
+    published: "2019-11-01"
+    delivered: "2019-11-01"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/de4f671dd3-8ef1-4d39-bcf6-427f2ff2af13/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

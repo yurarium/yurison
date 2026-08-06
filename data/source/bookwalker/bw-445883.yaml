@@ -1,0 +1,56 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-445883"
+record_type: retailer_work_record
+shop_id: "445883"
+shop_url: "https://bookwalker.jp/series/445883/"
+title:
+  ja: "高音さんと嵐ちゃん（MFC）"
+creator: "なうち"
+publisher: "KADOKAWA"
+imprint: "MFC"
+volume_count: 5
+first_published: "2023-04-21"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "高音さんと嵐ちゃん"
+    number: 1
+    published: "2023-04-21"
+    delivered: "2023-04-21"
+  - title: "高音さんと嵐ちゃん ２"
+    number: 2
+    published: "2023-11-22"
+    delivered: "2023-11-22"
+  - title: "高音さんと嵐ちゃん ３"
+    number: 3
+    published: "2024-06-21"
+    delivered: "2024-06-21"
+  - title: "【最新刊】高音さんと嵐ちゃん ４ 描き下ろし漫画付き電子特装版"
+    number: 4
+    published: "2025-01-23"
+    delivered: "2025-01-23"
+  - title: "高音さんと嵐ちゃん ４"
+    number: 5
+    published: "2025-01-23"
+    delivered: "2025-01-23"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/445883/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

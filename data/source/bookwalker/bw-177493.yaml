@@ -1,0 +1,81 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-177493"
+record_type: retailer_work_record
+shop_id: "177493"
+shop_url: "https://bookwalker.jp/series/177493/"
+title:
+  ja: "創作百合漫画"
+creator: "藤沢誠"
+publisher: "Caramel Crunch"
+imprint: "Caramel Crunch"
+volume_count: 15
+date_basis: "no-print-edition"
+venue: "Caramel Crunch"
+completed: false
+volumes:
+  - title: "あなたと私の物語-再録集-"
+    number: 1
+    delivered: "2018-10-10"
+  - title: "こっちをみてよ"
+    number: 2
+    delivered: "2018-10-10"
+  - title: "てとてを"
+    number: 3
+    delivered: "2018-10-10"
+  - title: "LoveLoveShow!"
+    number: 4
+    delivered: "2018-10-13"
+  - title: "ふわり"
+    number: 5
+    delivered: "2018-10-13"
+  - title: "シロツメ草のおまじない"
+    number: 6
+    delivered: "2018-10-13"
+  - title: "rescue me !"
+    number: 7
+    delivered: "2018-10-16"
+  - title: "さよならのむこうがわ"
+    number: 8
+    delivered: "2018-10-16"
+  - title: "はじまりのうた"
+    number: 9
+    delivered: "2018-10-16"
+  - title: "三年ルール"
+    number: 10
+    delivered: "2018-10-16"
+  - title: "月夜のことだま"
+    number: 11
+    delivered: "2018-10-16"
+  - title: "海のうた"
+    number: 12
+    delivered: "2018-10-16"
+  - title: "その境界をこえて"
+    number: 13
+    delivered: "2018-10-30"
+  - title: "【最新刊】叶わなかった始まりを。"
+    number: 14
+    delivered: "2020-10-10"
+  - title: "矢印のゆくえ"
+    number: 15
+    delivered: "2020-10-10"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/177493/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

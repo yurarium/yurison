@@ -1,0 +1,94 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-2832"
+record_type: retailer_work_record
+shop_id: "2832"
+shop_url: "https://bookwalker.jp/series/2832/"
+title:
+  ja: "ゆゆ式"
+creator: "三上小又"
+publisher: "芳文社"
+imprint: "まんがタイムKRコミックス"
+volume_count: 15
+first_published: "2009-03-26"
+venue: "芳文社"
+completed: false
+volumes:
+  - title: "ゆゆ式　1巻"
+    number: 1
+    published: "2009-03-26"
+    delivered: "2012-12-10"
+  - title: "ゆゆ式　2巻"
+    number: 2
+    published: "2010-02-27"
+    delivered: "2012-12-10"
+  - title: "ゆゆ式　3巻"
+    number: 3
+    published: "2011-03-26"
+    delivered: "2012-12-10"
+  - title: "ゆゆ式　4巻"
+    number: 4
+    published: "2012-03-27"
+    delivered: "2014-05-23"
+  - title: "ゆゆ式　5巻"
+    number: 5
+    published: "2013-04-26"
+    delivered: "2014-09-05"
+  - title: "ゆゆ式　6巻"
+    number: 6
+    published: "2014-05-27"
+    delivered: "2015-06-26"
+  - title: "ゆゆ式　7巻"
+    number: 7
+    published: "2015-05-27"
+    delivered: "2015-06-26"
+  - title: "ゆゆ式　8巻"
+    number: 8
+    published: "2016-06-27"
+    delivered: "2016-07-04"
+  - title: "ゆゆ式　9巻"
+    number: 9
+    published: "2017-09-10"
+    delivered: "2017-09-01"
+  - title: "ゆゆ式　10巻"
+    number: 10
+    published: "2019-02-09"
+    delivered: "2019-02-01"
+  - title: "ゆゆ式　11巻"
+    number: 11
+    published: "2020-09-11"
+    delivered: "2020-09-03"
+  - title: "ゆゆ式　12巻"
+    number: 12
+    published: "2021-12-11"
+    delivered: "2021-11-26"
+  - title: "ゆゆ式　１３巻"
+    number: 13
+    delivered: "2023-03-27"
+  - title: "ゆゆ式　１４巻"
+    number: 14
+    published: "2024-08-09"
+    delivered: "2024-07-25"
+  - title: "【最新刊】ゆゆ式　１５巻"
+    number: 15
+    delivered: "2025-09-27"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/2832/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

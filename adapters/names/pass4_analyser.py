@@ -205,6 +205,18 @@ def _stands_for_itself(c):
     return unicodedata.category(c)[0] in "PZS" or c.isascii() or c in SELF_STANDING
 
 
+def latin_reading(surface):
+    """A token that is Latin, read as itself, or None where it is not Latin.
+
+    Sudachi lowercases: it returns `jk` for `ＪＫ`, so `ＪＫすぷらっしゅ！` was stored with a reading
+    of `jk ス プラッ シュ！`. A reading carries the letters a title actually contains, and the case
+    is the title's rather than the analyser's. Full-width letters fold to the same letters, which is
+    why `2人はS×S` was always right: its `S` was already half-width and never went through this.
+    """
+    folded = unicodedata.normalize("NFKC", surface or "")
+    return folded if folded.isascii() and any(c.isalpha() for c in folded) else None
+
+
 def _reading_kind(c, r):
     """`on`, `kun`, or None for how this reading of this character is catalogued by Unihan."""
     import kana as _k
@@ -279,6 +291,12 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
         if surf and all(_stands_for_itself(c) for c in surf):
             out.append(surf)
             continue
+        # LATIN IS READ AS ITSELF, and Sudachi lowercases it. `ＪＫすぷらっしゅ！` came back with a
+        # reading of `jk ス プラッ シュ！`, and a reading is stored as kana with the Latin a title
+        # actually contains, not with a case the analyser invented: `2人はS×S` keeps its `S` because
+        # the surface was already half-width. Full-width letters fold to the same letters, so the
+        # folded surface is the reading and the analyser's opinion of it is not consulted.
+        r = latin_reading(surf) or r
         if not r or r == "*" or has_kanji(r):
             # PER-TOKEN, not per-string. ガイド役の天使を殴り倒したら、死霊術師になりました～激カワ…
             # parses perfectly except for ONE character: 激, which SudachiDict has no standalone

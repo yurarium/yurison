@@ -151,5 +151,14 @@ def main(s):
     s.eq(p4.renderer_fingerprint(), before, "and putting it back puts the fingerprint back")
 
 
+    # LATIN IS READ AS ITSELF. Sudachi lowercases it, returning `jk` for `ＪＫ`, so `ＪＫすぷらっしゅ！`
+    # was stored with a reading of `jk ス プラッ シュ！`: a case the analyser invented.
+    s.eq(p4.latin_reading("ＪＫ"), "JK", "full-width letters fold to the same letters, cased as written")
+    s.eq(p4.latin_reading("S"), "S", "half-width Latin, which was always right, is unchanged")
+    s.eq(p4.latin_reading("ＦＬＯＳ　ＣＯＭＩＣ"), "FLOS COMIC", "and a run of them, spaces folded too")
+    s.eq(p4.latin_reading("すぷらっしゅ"), None, "kana is not Latin, so the analyser answers for it")
+    s.eq(p4.latin_reading("×"), None, "nor is a symbol carrying no letters")
+    s.eq(p4.latin_reading(""), None, "and an empty surface reads as nothing")
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "pass4_analyser"))

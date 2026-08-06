@@ -1,0 +1,63 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-196902"
+record_type: retailer_work_record
+shop_id: "196902"
+shop_url: "https://bookwalker.jp/series/196902/"
+title:
+  ja: "オフィスに百合は咲きません（コミックノベル「yomuco」）"
+creator: "柳川麻衣 / 綺月るり"
+publisher: "パルソラ"
+imprint: "コミックノベル「yomuco」"
+volume_count: 9
+date_basis: "no-print-edition"
+venue: "パルソラ"
+completed: true
+volumes:
+  - title: "オフィスに百合は咲きません 1巻〈最悪の女〉"
+    number: 1
+    delivered: "2019-03-15"
+  - title: "オフィスに百合は咲きません 2巻〈今夜は帰さない？〉"
+    number: 2
+    delivered: "2019-05-24"
+  - title: "オフィスに百合は咲きません 3巻〈とまどいラブホテル〉"
+    number: 3
+    delivered: "2019-06-21"
+  - title: "オフィスに百合は咲きません 4巻〈彼女はそれに気づかない〉"
+    number: 4
+    delivered: "2019-07-12"
+  - title: "オフィスに百合は咲きません 5巻〈がけっぷちイベント！？〉"
+    number: 5
+    delivered: "2019-09-06"
+  - title: "オフィスに百合は咲きません 6巻〈夜明けのキス〉"
+    number: 6
+    delivered: "2019-10-18"
+  - title: "オフィスに百合は咲きません 7巻〈王子様は突然に〉"
+    number: 7
+    delivered: "2019-11-15"
+  - title: "オフィスに百合は咲きません 8巻〈さよならウェディングドレス〉"
+    number: 8
+    delivered: "2020-01-24"
+  - title: "【最終巻】オフィスに百合は咲きません 9巻〈隣にいてほしいひと〉"
+    number: 9
+    delivered: "2020-02-21"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/196902/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

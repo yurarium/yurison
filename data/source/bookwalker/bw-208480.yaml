@@ -1,0 +1,60 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-208480"
+record_type: retailer_work_record
+shop_id: "208480"
+shop_url: "https://bookwalker.jp/series/208480/"
+title:
+  ja: "オレが私になるまで（MFC）"
+creator: "佐藤　はつき"
+publisher: "KADOKAWA"
+imprint: "MFC"
+volume_count: 6
+first_published: "2019-06-22"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "オレが私になるまで　１"
+    number: 1
+    published: "2019-06-22"
+    delivered: "2019-06-22"
+  - title: "オレが私になるまで　２"
+    number: 2
+    published: "2019-11-22"
+    delivered: "2019-11-22"
+  - title: "オレが私になるまで　３"
+    number: 3
+    published: "2020-08-21"
+    delivered: "2020-08-21"
+  - title: "オレが私になるまで　４"
+    number: 4
+    published: "2021-12-23"
+    delivered: "2021-12-22"
+  - title: "オレが私になるまで　５"
+    number: 5
+    published: "2024-06-21"
+    delivered: "2024-06-21"
+  - title: "【最新刊】オレが私になるまで　６"
+    number: 6
+    published: "2026-05-23"
+    delivered: "2026-05-22"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/208480/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

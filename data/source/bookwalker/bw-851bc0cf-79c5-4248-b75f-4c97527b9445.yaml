@@ -1,0 +1,38 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-851bc0cf-79c5-4248-b75f-4c97527b9445"
+record_type: retailer_work_record
+shop_id: "851bc0cf-79c5-4248-b75f-4c97527b9445"
+shop_url: "https://bookwalker.jp/de851bc0cf-79c5-4248-b75f-4c97527b9445/"
+title:
+  ja: "あのこの花が欲しい 明日部結衣百合短編集（ガレットワークス）"
+creator: "明日部結衣 / ガレットワークス"
+publisher: "クロスフォリオ出版"
+imprint: "ガレットワークス"
+volume_count: 1
+date_basis: "no-print-edition"
+venue: "クロスフォリオ出版"
+completed: false
+volumes:
+  - title: "あのこの花が欲しい 明日部結衣百合短編集"
+    delivered: "2021-08-20"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/de851bc0cf-79c5-4248-b75f-4c97527b9445/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

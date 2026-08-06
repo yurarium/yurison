@@ -29,17 +29,27 @@ from names import openbd_reading  # noqa: E402
 # into a record by accident.
 ALLOWED_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha",
                    "gigaviewer", "kadokomi", "comicfuz", "webpages", "comparators", "nicovideo",
-                   "pixivcomic", "reachable"}
+                   "pixivcomic", "reachable",
+                   # A licensed retailer, admitted as a WORK source on 2026-08-06 by the project
+                   # owner's decision. BOOK☆WALKER states no ISBN, so nothing in Tier A or B can be
+                   # reached from its shelf and there is no catalogue record to promote instead:
+                   # what the shop says is all there is. It carries no marketing_label (§4), it
+                   # admits under §2's comparator branch, and every record names the shelf it came
+                   # from. The trade is 2,093 works we would otherwise not hold against being wrong
+                   # later about some of them.
+                   "bookwalker"}
 
 # Sources carrying work-level records that merge into a work. Others (release feeds) are
 # platform-level and compile separately.
-WORK_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha"}
+WORK_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijinsha", "bookwalker"}
 
 # REQUIREMENTS §2. Covers may only be referenced from a publisher-supplied reuse feed.
 ALLOWED_COVER_HOSTS = {"cover.openbd.jp"}
 
 # Field-level priority when sources disagree (REQUIREMENTS §1: A > B > C).
-PRIORITY = {"madb": 10, "ndl": 10, "openbd": 9, "publisher": 5, "ichijinsha": 5}
+# A retailer sits below every catalogue and every publisher: it answers for its own stock and for
+# nothing else, so anything else that speaks about a field wins.
+PRIORITY = {"madb": 10, "ndl": 10, "openbd": 9, "publisher": 5, "ichijinsha": 5, "bookwalker": 2}
 
 
 def jsonable(o):
@@ -1317,9 +1327,13 @@ def main():
 
     works, errors, warnings = [], [], []
     for wid, by_source in sorted(src.items()):
-        base = by_source.get("madb")
+        # THE PRIMARY IS THE BEST RECORD THERE IS, which is not always the bibliography's. A work
+        # from a retailer's shelf has no MADB record and never will: BOOK☆WALKER states no ISBN, so
+        # nothing keyed on one can reach it. Refusing it here would have meant holding 2,093 fewer
+        # works in order to keep a rule about which file the title came from.
+        base = by_source.get("madb") or by_source.get("bookwalker")
         if not base:
-            errors.append(f"{wid}: no primary (madb) record")
+            errors.append(f"{wid}: no primary record from a work source")
             continue
         ov = overlay.get(wid, {})
 

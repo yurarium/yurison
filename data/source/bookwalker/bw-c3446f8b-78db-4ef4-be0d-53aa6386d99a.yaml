@@ -1,0 +1,38 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-c3446f8b-78db-4ef4-be0d-53aa6386d99a"
+record_type: retailer_work_record
+shop_id: "c3446f8b-78db-4ef4-be0d-53aa6386d99a"
+shop_url: "https://bookwalker.jp/dec3446f8b-78db-4ef4-be0d-53aa6386d99a/"
+title:
+  ja: "創作百合短編まとめ本（ナンバーナイン）"
+creator: "ラブハンター権田原"
+publisher: "ナンバーナイン"
+imprint: "百合コレ"
+volume_count: 1
+date_basis: "no-print-date-stated"
+venue: "ナンバーナイン"
+completed: false
+volumes:
+  - title: "創作百合短編まとめ本(1)"
+    delivered: "2024-04-12"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/dec3446f8b-78db-4ef4-be0d-53aa6386d99a/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

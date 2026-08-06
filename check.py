@@ -153,8 +153,14 @@ def inv_readings_are_kana(ctx):
             rd = v.get("reading")
             if not rd:
                 continue
-            for run in re.findall(r"[A-Za-z]{2,}", rd):
-                if run.lower() not in k.lower():
+            # FOLDED, because ＪＫ and JK are the same letters. A title writes them full-width and
+            # a reading passes them through folded, and comparing raw called that a romanisation:
+            # 先生とＪＫ failed on a reading of センセイ ト JK, which is the surface's own letters.
+            # Folding cannot weaken the test, since a romanisation of kanji appears in the surface
+            # under neither width.
+            surface = unicodedata.normalize("NFKC", k).lower()
+            for run in re.findall(r"[A-Za-z]{2,}", unicodedata.normalize("NFKC", rd)):
+                if run.lower() not in surface:
                     bad.append(f"{kind}:{k[:20]}={rd[:24]}")
                     break
     return bad

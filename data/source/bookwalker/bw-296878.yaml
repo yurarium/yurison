@@ -1,0 +1,56 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-296878"
+record_type: retailer_work_record
+shop_id: "296878"
+shop_url: "https://bookwalker.jp/series/296878/"
+title:
+  ja: "「突然パパになった最強ドラゴンの子育て日記～かわいい娘、ほのぼのと人間界最強に育つ～ THE COMIC」シリーズ"
+creator: "火事屋 / 蛙田アメコ / せんちゃ"
+publisher: "マイクロマガジン社"
+imprint: "ライドコミックス"
+volume_count: 5
+first_published: "2021-05-03"
+venue: "マイクロマガジン社"
+completed: false
+volumes:
+  - title: "突然パパになった最強ドラゴンの子育て日記～かわいい娘、ほのぼのと人間界最強に育つ～ THE COMIC 1"
+    number: 1
+    published: "2021-05-03"
+    delivered: "2021-04-27"
+  - title: "突然パパになった最強ドラゴンの子育て日記～かわいい娘、ほのぼのと人間界最強に育つ～ THE COMIC 2【電子限定おまけ付き】"
+    number: 2
+    published: "2021-12-05"
+    delivered: "2021-11-29"
+  - title: "突然パパになった最強ドラゴンの子育て日記～かわいい娘、ほのぼのと人間界最強に育つ～ THE COMIC 3"
+    number: 3
+    published: "2022-07-07"
+    delivered: "2022-06-29"
+  - title: "突然パパになった最強ドラゴンの子育て日記～かわいい娘、ほのぼのと人間界最強に育つ～ THE COMIC 4"
+    number: 4
+    published: "2023-02-06"
+    delivered: "2023-01-31"
+  - title: "【最新刊】突然パパになった最強ドラゴンの子育て日記～かわいい娘、ほのぼのと人間界最強に育つ〜THE COMIC 5"
+    number: 5
+    published: "2023-10-06"
+    delivered: "2023-09-28"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/296878/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

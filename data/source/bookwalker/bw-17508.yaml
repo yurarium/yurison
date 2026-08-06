@@ -1,0 +1,64 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-17508"
+record_type: retailer_work_record
+shop_id: "17508"
+shop_url: "https://bookwalker.jp/series/17508/"
+title:
+  ja: "幸腹グラフィティ"
+creator: "川井マコト"
+publisher: "芳文社"
+imprint: "まんがタイムKRコミックス"
+volume_count: 7
+first_published: "2013-01-26"
+venue: "芳文社"
+completed: true
+volumes:
+  - title: "幸腹グラフィティ　1巻"
+    number: 1
+    published: "2013-01-26"
+    delivered: "2014-06-27"
+  - title: "幸腹グラフィティ　2巻"
+    number: 2
+    published: "2013-09-27"
+    delivered: "2015-03-20"
+  - title: "幸腹グラフィティ　3巻"
+    number: 3
+    published: "2014-03-27"
+    delivered: "2015-03-20"
+  - title: "幸腹グラフィティ　4巻"
+    number: 4
+    published: "2014-12-25"
+    delivered: "2015-03-20"
+  - title: "幸腹グラフィティ　5巻"
+    number: 5
+    published: "2015-03-27"
+    delivered: "2015-03-27"
+  - title: "幸腹グラフィティ　6巻"
+    number: 6
+    published: "2015-12-26"
+    delivered: "2015-12-26"
+  - title: "【最終巻】幸腹グラフィティ　7巻"
+    number: 7
+    published: "2016-09-27"
+    delivered: "2016-09-27"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/17508/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

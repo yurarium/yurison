@@ -1,0 +1,56 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-4629"
+record_type: retailer_work_record
+shop_id: "4629"
+shop_url: "https://bookwalker.jp/series/4629/"
+title:
+  ja: "彼女とカメラと彼女の季節（モーニング・ツー）"
+creator: "月子"
+publisher: "講談社"
+imprint: "モーニング・ツー"
+volume_count: 5
+first_published: "2012-05-23"
+venue: "講談社"
+completed: true
+volumes:
+  - title: "彼女とカメラと彼女の季節（１）"
+    number: 1
+    published: "2012-05-23"
+    delivered: "2013-04-25"
+  - title: "彼女とカメラと彼女の季節（２）"
+    number: 2
+    published: "2012-12-21"
+    delivered: "2013-04-25"
+  - title: "彼女とカメラと彼女の季節（３）"
+    number: 3
+    published: "2013-07-23"
+    delivered: "2013-08-30"
+  - title: "彼女とカメラと彼女の季節（４）"
+    number: 4
+    published: "2014-03-07"
+    delivered: "2014-04-18"
+  - title: "【最終巻】彼女とカメラと彼女の季節（５）"
+    number: 5
+    published: "2014-09-22"
+    delivered: "2014-10-24"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/4629/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

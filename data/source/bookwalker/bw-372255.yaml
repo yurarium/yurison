@@ -1,0 +1,60 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-372255"
+record_type: retailer_work_record
+shop_id: "372255"
+shop_url: "https://bookwalker.jp/series/372255/"
+title:
+  ja: "ケイヤクシマイ（MFC　キューンシリーズ）"
+creator: "ヒジキ"
+publisher: "KADOKAWA"
+imprint: "MFC　キューンシリーズ"
+volume_count: 6
+first_published: "2022-08-26"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "ケイヤクシマイ 1"
+    number: 1
+    published: "2022-08-26"
+    delivered: "2022-08-26"
+  - title: "ケイヤクシマイ 2"
+    number: 2
+    published: "2023-03-27"
+    delivered: "2023-03-27"
+  - title: "ケイヤクシマイ 3"
+    number: 3
+    published: "2023-12-27"
+    delivered: "2023-12-27"
+  - title: "ケイヤクシマイ 4"
+    number: 4
+    published: "2024-09-27"
+    delivered: "2024-09-27"
+  - title: "ケイヤクシマイ 5"
+    number: 5
+    published: "2025-08-27"
+    delivered: "2025-08-27"
+  - title: "【最新刊】ケイヤクシマイ 6"
+    number: 6
+    published: "2026-06-27"
+    delivered: "2026-06-26"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/372255/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

@@ -1,0 +1,51 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-225096"
+record_type: retailer_work_record
+shop_id: "225096"
+shop_url: "https://bookwalker.jp/series/225096/"
+title:
+  ja: "世界が終わるそのまえに（ガレットワークス）"
+creator: "袴田めら"
+publisher: "クロスフォリオ出版"
+imprint: "ガレットワークス"
+volume_count: 5
+date_basis: "no-print-edition"
+venue: "クロスフォリオ出版"
+completed: true
+volumes:
+  - title: "世界が終わるそのまえに(1)"
+    number: 1
+    delivered: "2019-10-25"
+  - title: "世界が終わるそのまえに(2)"
+    number: 2
+    delivered: "2020-01-31"
+  - title: "世界が終わるそのまえに(3)"
+    number: 3
+    delivered: "2020-04-24"
+  - title: "世界が終わるそのまえに(4)"
+    number: 4
+    delivered: "2020-07-31"
+  - title: "【最終巻】世界が終わるそのまえに(5)"
+    number: 5
+    delivered: "2020-09-25"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/225096/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

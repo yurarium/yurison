@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-433534"
+record_type: retailer_work_record
+shop_id: "433534"
+shop_url: "https://bookwalker.jp/series/433534/"
+title:
+  ja: "後宮一番の悪女（ＦＬＯＳ　ＣＯＭＩＣ）"
+creator: "苗川　采 / 柚原テイル / 三廼(キャラクターデザイン)"
+publisher: "KADOKAWA"
+imprint: "ＦＬＯＳ　ＣＯＭＩＣ"
+volume_count: 3
+first_published: "2024-04-17"
+venue: "KADOKAWA"
+completed: true
+volumes:
+  - title: "後宮一番の悪女 ２"
+    number: 1
+    published: "2024-04-17"
+    delivered: "2024-04-17"
+  - title: "後宮一番の悪女 ３"
+    number: 2
+    published: "2024-12-05"
+    delivered: "2024-12-05"
+  - title: "【最終巻】後宮一番の悪女 ４"
+    number: 3
+    published: "2025-12-17"
+    delivered: "2025-12-17"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/433534/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

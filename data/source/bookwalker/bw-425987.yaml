@@ -1,0 +1,44 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-425987"
+record_type: retailer_work_record
+shop_id: "425987"
+shop_url: "https://bookwalker.jp/series/425987/"
+title:
+  ja: "ホテル・ローレルの渡り鳥たち"
+creator: "赤河左岸"
+publisher: "KADOKAWA"
+imprint: "青騎士コミックス"
+volume_count: 2
+first_published: "2023-07-20"
+venue: "KADOKAWA"
+completed: true
+volumes:
+  - title: "ホテル・ローレルの渡り鳥たち　第1巻"
+    number: 1
+    published: "2023-07-20"
+    delivered: "2023-07-20"
+  - title: "【最終巻】ホテル・ローレルの渡り鳥たち　第2巻"
+    number: 2
+    published: "2024-07-20"
+    delivered: "2024-07-20"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/425987/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

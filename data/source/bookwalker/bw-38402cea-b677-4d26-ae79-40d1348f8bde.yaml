@@ -1,0 +1,38 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-38402cea-b677-4d26-ae79-40d1348f8bde"
+record_type: retailer_work_record
+shop_id: "38402cea-b677-4d26-ae79-40d1348f8bde"
+shop_url: "https://bookwalker.jp/de38402cea-b677-4d26-ae79-40d1348f8bde/"
+title:
+  ja: "たかが貴方の分際で（ナンバーナイン）"
+creator: "星宗介"
+publisher: "ナンバーナイン"
+imprint: "百合コレ"
+volume_count: 1
+date_basis: "no-print-date-stated"
+venue: "ナンバーナイン"
+completed: false
+volumes:
+  - title: "たかが貴方の分際で"
+    delivered: "2025-02-01"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/de38402cea-b677-4d26-ae79-40d1348f8bde/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

@@ -491,3 +491,22 @@ above and would not be right for a caller asking about a specific work. That one
 Two more works show a romanisation as of 2026-08-06, taking the budget to 290. They are
 転生王女と天才令嬢の魔法革命 【タテスク】 and 雨。のち、晴れ！, which a カドコミ run had deleted by
 not carrying over the works it failed to fetch. They are back, and works that exist need names.
+
+## 13. BOOK☆WALKER's shelf, joined presumptively (2026-08-06)
+
+1,737 works entered from BOOK☆WALKER's yuri shelf on the project owner's decision: join on the
+title, watch for edge cases, because being wrong later about a small number does not outweigh
+holding two thousand more. 517 carry a print date the shop states; the rest say why they do not.
+
+This is the first source admitted as a WORK source that is not a catalogue or a publisher. The shop
+states no ISBN on any of 5,709 volumes, so no Tier A or B record is reachable from its shelf and
+there is nothing to promote in its place. `bookwalker` therefore sits in ALLOWED_SOURCES at the
+lowest priority, carries no marketing_label, and every record names the shelf that admitted it.
+
+**402 works are waiting for a person**, in `data/queue/bw-review.yaml`. Their titles already name
+works we hold, which is the strongest lead available here and no kind of identifier at all. Nothing
+merges on it.
+
+What this population still owes: 1,980 works show a romanisation rather than an English title, up
+from 290, and the readings behind them are the analyser's. That is the same debt the コミックシーモア
+population brought and it is now four times the size.

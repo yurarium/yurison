@@ -1,0 +1,42 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-563507"
+record_type: retailer_work_record
+shop_id: "563507"
+shop_url: "https://bookwalker.jp/series/563507/"
+title:
+  ja: "収納魔法が切実に欲しいと願っていたら、転生してしまった（コミック）"
+creator: "狐豆△ / ぽふぽふ / TOBI"
+publisher: "SBクリエイティブ"
+imprint: "ＧＡコミック"
+volume_count: 2
+date_basis: "print-edition-unknown"
+venue: "SBクリエイティブ"
+completed: false
+volumes:
+  - title: "収納魔法が切実に欲しいと願っていたら、転生してしまった（コミック）　１"
+    number: 1
+    delivered: "2026-01-15"
+  - title: "【最新刊】収納魔法が切実に欲しいと願っていたら、転生してしまった（コミック）　２"
+    number: 2
+    delivered: "2026-06-13"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/563507/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

@@ -1,0 +1,54 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-310449"
+record_type: retailer_work_record
+shop_id: "310449"
+shop_url: "https://bookwalker.jp/series/310449/"
+title:
+  ja: "鎧塚さんをバブらせたい"
+creator: "あおと響"
+publisher: "コンパス"
+imprint: "コミックcoral"
+volume_count: 6
+date_basis: "no-print-edition"
+venue: "コンパス"
+completed: true
+volumes:
+  - title: "鎧塚さんをバブらせたい"
+    number: 1
+    delivered: "2021-07-22"
+  - title: "鎧塚さんをバブらせたい（2）"
+    number: 2
+    delivered: "2022-12-31"
+  - title: "鎧塚さんをバブらせたい（3）"
+    number: 3
+    delivered: "2023-06-24"
+  - title: "【最終巻】鎧塚さんをバブらせたい（4）"
+    number: 4
+    delivered: "2023-11-11"
+  - title: "【期間限定　無料お試し版】鎧塚さんをバブらせたい"
+    number: 5
+    delivered: "2026-07-25"
+  - title: "【期間限定　無料お試し版】鎧塚さんをバブらせたい（2）"
+    number: 6
+    delivered: "2026-07-25"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/310449/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

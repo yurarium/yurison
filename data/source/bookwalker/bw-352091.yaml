@@ -1,0 +1,47 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-352091"
+record_type: retailer_work_record
+shop_id: "352091"
+shop_url: "https://bookwalker.jp/series/352091/"
+title:
+  ja: "デバヤシ・フロム・ユニバース"
+creator: "神崎タタミ"
+publisher: "幻冬舎コミックス"
+imprint: "バーズコミックス"
+volume_count: 3
+first_published: "2022-04-24"
+venue: "幻冬舎コミックス"
+completed: true
+volumes:
+  - title: "デバヤシ・フロム・ユニバース (1) 【電子限定おまけ付き】"
+    number: 1
+    published: "2022-04-24"
+    delivered: "2022-04-22"
+  - title: "デバヤシ・フロム・ユニバース (2) 【電子限定おまけ付き】"
+    number: 2
+    published: "2022-11-24"
+    delivered: "2022-11-24"
+  - title: "【最終巻】デバヤシ・フロム・ユニバース (3)"
+    number: 3
+    delivered: "2023-08-24"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/352091/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

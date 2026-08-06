@@ -1,0 +1,97 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-2823"
+record_type: retailer_work_record
+shop_id: "2823"
+shop_url: "https://bookwalker.jp/series/2823/"
+title:
+  ja: "キルミーベイベー"
+creator: "カヅホ"
+publisher: "芳文社"
+imprint: "まんがタイムKRコミックス"
+volume_count: 16
+first_published: "2009-01-27"
+venue: "芳文社"
+completed: false
+volumes:
+  - title: "キルミーベイベー　1巻"
+    number: 1
+    published: "2009-01-27"
+    delivered: "2012-12-10"
+  - title: "キルミーベイベー　2巻"
+    number: 2
+    published: "2010-01-27"
+    delivered: "2012-12-10"
+  - title: "キルミーベイベー　3巻"
+    number: 3
+    published: "2011-02-26"
+    delivered: "2012-12-10"
+  - title: "キルミーベイベー　4巻"
+    number: 4
+    published: "2012-01-27"
+    delivered: "2013-06-28"
+  - title: "キルミーベイベー　5巻"
+    number: 5
+    published: "2013-03-27"
+    delivered: "2014-09-05"
+  - title: "キルミーベイベー　6巻"
+    number: 6
+    published: "2014-03-27"
+    delivered: "2015-05-22"
+  - title: "キルミーベイベー　7巻"
+    number: 7
+    published: "2015-04-27"
+    delivered: "2015-05-22"
+  - title: "キルミーベイベー　8巻"
+    number: 8
+    published: "2016-06-27"
+    delivered: "2016-06-27"
+  - title: "キルミーベイベー　9巻"
+    number: 9
+    published: "2017-11-11"
+    delivered: "2017-10-27"
+  - title: "キルミーベイベー　10巻"
+    number: 10
+    published: "2018-12-12"
+    delivered: "2018-11-27"
+  - title: "キルミーベイベー　11巻"
+    number: 11
+    published: "2020-02-11"
+    delivered: "2020-01-27"
+  - title: "キルミーベイベー　12巻"
+    number: 12
+    published: "2021-04-10"
+    delivered: "2021-03-26"
+  - title: "キルミーベイベー　13巻"
+    number: 13
+    delivered: "2022-07-27"
+  - title: "キルミーベイベー　１４巻"
+    number: 14
+    delivered: "2023-06-27"
+  - title: "キルミーベイベー　１５巻"
+    number: 15
+    published: "2024-10-12"
+    delivered: "2024-09-27"
+  - title: "【最新刊】キルミーベイベー　１６巻"
+    number: 16
+    delivered: "2025-12-25"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/2823/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

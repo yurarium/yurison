@@ -1,0 +1,52 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-322023"
+record_type: retailer_work_record
+shop_id: "322023"
+shop_url: "https://bookwalker.jp/series/322023/"
+title:
+  ja: "殺し屋やめたい（コミックＤＡＹＳ）"
+creator: "外木寸"
+publisher: "講談社"
+imprint: "コミックＤＡＹＳ"
+volume_count: 4
+first_published: "2021-10-13"
+venue: "講談社"
+completed: false
+volumes:
+  - title: "殺し屋やめたい！（１）"
+    number: 1
+    published: "2021-10-13"
+    delivered: "2021-10-13"
+  - title: "殺し屋やめたい！（２）"
+    number: 2
+    published: "2022-01-12"
+    delivered: "2022-01-12"
+  - title: "殺し屋やめたい！（３）"
+    number: 3
+    published: "2022-07-13"
+    delivered: "2022-07-13"
+  - title: "【最新刊】殺し屋やめたい！（４）"
+    number: 4
+    published: "2023-03-08"
+    delivered: "2023-03-08"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/322023/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

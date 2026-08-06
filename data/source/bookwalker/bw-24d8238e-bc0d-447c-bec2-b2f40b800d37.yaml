@@ -1,0 +1,38 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-24d8238e-bc0d-447c-bec2-b2f40b800d37"
+record_type: retailer_work_record
+shop_id: "24d8238e-bc0d-447c-bec2-b2f40b800d37"
+shop_url: "https://bookwalker.jp/de24d8238e-bc0d-447c-bec2-b2f40b800d37/"
+title:
+  ja: "ピュア百合アンソロジーひらり、無料マガジン"
+creator: "雨隠ギド / 高嶋ひろみ / 今村陽子 / 森永みるく / 伊藤ハチ / とい天津 / 文尾文 / 磯谷友紀 / 紺野キタ / カザマアヤミ / 森島明子 / 袴田めら / 四ツ原フリコ / 吉田丸悠 / ふかさくえみ / ささだあすか / 藤たまき / 大沢あまね / ユキムラ / 雁須磨子 / 犬丸 / 橋本みつる / 桑田乃梨子 / ＴＯＮＯ"
+publisher: "新書館"
+imprint: "ひらり、コミックス"
+volume_count: 1
+date_basis: "no-print-date-stated"
+venue: "新書館"
+completed: false
+volumes:
+  - title: "ピュア百合アンソロジーひらり、無料マガジンVol.0"
+    delivered: "2015-08-21"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/de24d8238e-bc0d-447c-bec2-b2f40b800d37/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

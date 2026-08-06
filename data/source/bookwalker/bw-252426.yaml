@@ -1,0 +1,78 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-252426"
+record_type: retailer_work_record
+shop_id: "252426"
+shop_url: "https://bookwalker.jp/series/252426/"
+title:
+  ja: "愛していいのは、カラダだけ"
+creator: "生肉"
+publisher: "ライトリーズン"
+imprint: ""
+volume_count: 14
+date_basis: "no-print-edition"
+venue: "ライトリーズン"
+completed: false
+volumes:
+  - title: "愛していいのは、カラダだけ"
+    number: 1
+    delivered: "2020-06-19"
+  - title: "愛していいのは、カラダだけ2"
+    number: 2
+    delivered: "2020-11-13"
+  - title: "愛していいのは、カラダだけ3"
+    number: 3
+    delivered: "2021-05-27"
+  - title: "愛していいのは、カラダだけ4"
+    number: 4
+    delivered: "2021-06-17"
+  - title: "愛していいのは、カラダだけ5"
+    number: 5
+    delivered: "2022-01-15"
+  - title: "愛していいのは、カラダだけ6"
+    number: 6
+    delivered: "2023-06-09"
+  - title: "愛していいのは、カラダだけ7"
+    number: 7
+    delivered: "2023-11-14"
+  - title: "愛していいのは、カラダだけ8"
+    number: 8
+    delivered: "2024-03-15"
+  - title: "愛していいのは、カラダだけ9"
+    number: 9
+    delivered: "2024-05-22"
+  - title: "愛していいのは、カラダだけ10"
+    number: 10
+    delivered: "2025-02-08"
+  - title: "愛していいのは、カラダだけ11"
+    number: 11
+    delivered: "2025-06-20"
+  - title: "愛していいのは、カラダだけ12"
+    number: 12
+    delivered: "2026-01-16"
+  - title: "愛していいのは、カラダだけ13"
+    number: 13
+    delivered: "2026-03-13"
+  - title: "【最新刊】愛していいのは、カラダだけ14"
+    number: 14
+    delivered: "2026-06-05"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/252426/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

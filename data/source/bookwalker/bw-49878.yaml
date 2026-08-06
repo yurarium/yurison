@@ -1,0 +1,104 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-49878"
+record_type: retailer_work_record
+shop_id: "49878"
+shop_url: "https://bookwalker.jp/series/49878/"
+title:
+  ja: "このはな綺譚"
+creator: "天乃咲哉"
+publisher: "幻冬舎コミックス"
+imprint: "バーズコミックス"
+volume_count: 17
+first_published: "2015-04-24"
+venue: "幻冬舎コミックス"
+completed: false
+volumes:
+  - title: "このはな綺譚 (1)"
+    number: 1
+    published: "2015-04-24"
+    delivered: "2015-07-31"
+  - title: "このはな綺譚 (2)"
+    number: 2
+    published: "2015-10-24"
+    delivered: "2015-10-30"
+  - title: "このはな綺譚 (3)"
+    number: 3
+    published: "2016-03-24"
+    delivered: "2016-04-02"
+  - title: "このはな綺譚（４）"
+    number: 4
+    published: "2016-10-24"
+    delivered: "2016-11-04"
+  - title: "このはな綺譚（５）"
+    number: 5
+    published: "2017-03-24"
+    delivered: "2017-04-01"
+  - title: "このはな綺譚（６）"
+    number: 6
+    published: "2017-09-24"
+    delivered: "2017-09-23"
+  - title: "このはな綺譚 (7)"
+    number: 7
+    published: "2018-06-24"
+    delivered: "2018-06-23"
+  - title: "このはな綺譚 (8) 【電子限定おまけ付き】"
+    number: 8
+    published: "2019-01-24"
+    delivered: "2019-01-24"
+  - title: "このはな綺譚（９）【電子限定おまけ付き】"
+    number: 9
+    published: "2019-08-24"
+    delivered: "2019-08-24"
+  - title: "このはな綺譚（10）【電子限定おまけ付き】"
+    number: 10
+    published: "2020-03-24"
+    delivered: "2020-03-24"
+  - title: "このはな綺譚（11）【電子限定おまけ付き】"
+    number: 11
+    published: "2020-09-24"
+    delivered: "2020-09-24"
+  - title: "このはな綺譚 (12) 【電子限定おまけ付き】"
+    number: 12
+    published: "2021-03-24"
+    delivered: "2021-03-24"
+  - title: "このはな綺譚 (13) 【電子限定おまけ付き】"
+    number: 13
+    published: "2021-12-24"
+    delivered: "2021-12-24"
+  - title: "このはな綺譚 (14) 【電子限定おまけ付き】"
+    number: 14
+    published: "2022-09-24"
+    delivered: "2022-09-24"
+  - title: "このはな綺譚 (15) 【電子限定おまけ付き】"
+    number: 15
+    published: "2023-07-24"
+    delivered: "2023-07-24"
+  - title: "このはな綺譚 (16) 【電子限定おまけ付き】"
+    number: 16
+    published: "2024-08-24"
+    delivered: "2024-08-23"
+  - title: "【最新刊】このはな綺譚 (17) 【電子限定おまけ付き】"
+    number: 17
+    published: "2025-09-24"
+    delivered: "2025-09-24"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/49878/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

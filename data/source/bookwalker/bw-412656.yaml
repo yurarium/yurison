@@ -1,0 +1,57 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-412656"
+record_type: retailer_work_record
+shop_id: "412656"
+shop_url: "https://bookwalker.jp/series/412656/"
+title:
+  ja: "魔法使いロゼの佐渡ライフ"
+creator: "おみなえし"
+publisher: "芳文社"
+imprint: "まんがタイムKRコミックス"
+volume_count: 6
+first_published: "2023-05-26"
+venue: "芳文社"
+completed: false
+volumes:
+  - title: "魔法使いロゼの佐渡ライフ　１巻"
+    number: 1
+    published: "2023-05-26"
+    delivered: "2023-05-11"
+  - title: "魔法使いロゼの佐渡ライフ　２巻"
+    number: 2
+    published: "2023-09-27"
+    delivered: "2023-09-12"
+  - title: "魔法使いロゼの佐渡ライフ　３巻"
+    number: 3
+    published: "2024-04-26"
+    delivered: "2024-04-11"
+  - title: "魔法使いロゼの佐渡ライフ　４巻"
+    number: 4
+    delivered: "2025-01-10"
+  - title: "魔法使いロゼの佐渡ライフ　５巻"
+    number: 5
+    delivered: "2025-07-11"
+  - title: "【最新刊】魔法使いロゼの佐渡ライフ　６巻"
+    number: 6
+    delivered: "2026-03-12"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/412656/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

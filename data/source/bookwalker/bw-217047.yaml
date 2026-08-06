@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-217047"
+record_type: retailer_work_record
+shop_id: "217047"
+shop_url: "https://bookwalker.jp/series/217047/"
+title:
+  ja: "GP-KIDS東方ファンブック"
+creator: "高菜しんの"
+publisher: "GP-KIDS/高菜しんの"
+imprint: "GP-KIDS/高菜しんの"
+volume_count: 4
+date_basis: "print-edition-unknown"
+venue: "GP-KIDS/高菜しんの"
+completed: false
+volumes:
+  - title: "HiGH TiME　-早苗三本勝負-"
+    number: 1
+    delivered: "2019-08-20"
+  - title: "【最新刊】SweetCatastrophe"
+    number: 2
+    delivered: "2019-08-20"
+  - title: "ようじょ早苗とネコさなえ"
+    number: 3
+    delivered: "2019-08-20"
+  - title: "ようじょ早苗の本＜夏＞"
+    number: 4
+    delivered: "2019-08-20"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/217047/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

@@ -1,0 +1,52 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-411030"
+record_type: retailer_work_record
+shop_id: "411030"
+shop_url: "https://bookwalker.jp/series/411030/"
+title:
+  ja: "気になってる人が男じゃなかった（コミックエッセイ）"
+creator: "新井 すみこ"
+publisher: "KADOKAWA"
+imprint: "コミックエッセイ"
+volume_count: 4
+first_published: "2023-04-19"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "気になってる人が男じゃなかった VOL.1【電子特典付き】"
+    number: 1
+    published: "2023-04-19"
+    delivered: "2023-04-19"
+  - title: "気になってる人が男じゃなかった VOL.2【電子特典付き】"
+    number: 2
+    published: "2024-02-27"
+    delivered: "2024-02-27"
+  - title: "気になってる人が男じゃなかった VOL.3【電子特典付き】"
+    number: 3
+    published: "2025-02-20"
+    delivered: "2025-02-20"
+  - title: "【最新刊】気になってる人が男じゃなかった VOL.4【電子特典付き】"
+    number: 4
+    published: "2026-02-19"
+    delivered: "2026-02-19"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/411030/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

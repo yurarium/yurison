@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-474906"
+record_type: retailer_work_record
+shop_id: "474906"
+shop_url: "https://bookwalker.jp/series/474906/"
+title:
+  ja: "煙色のまほろば"
+creator: "後藤うどん"
+publisher: "小学館"
+imprint: "ビッグコミックス"
+volume_count: 3
+first_published: "2024-07-03"
+venue: "小学館"
+completed: true
+volumes:
+  - title: "煙色のまほろば（１）"
+    number: 1
+    published: "2024-07-03"
+    delivered: "2024-06-28"
+  - title: "煙色のまほろば（２）"
+    number: 2
+    published: "2024-12-03"
+    delivered: "2024-11-28"
+  - title: "【最終巻】煙色のまほろば（３）"
+    number: 3
+    published: "2025-06-04"
+    delivered: "2025-05-30"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/474906/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

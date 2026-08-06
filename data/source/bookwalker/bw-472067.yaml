@@ -1,0 +1,51 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-472067"
+record_type: retailer_work_record
+shop_id: "472067"
+shop_url: "https://bookwalker.jp/series/472067/"
+title:
+  ja: "おひゃくどまいり"
+creator: "高尾じんぐ"
+publisher: "幻冬舎コミックス"
+imprint: "バーズコミックス"
+volume_count: 4
+first_published: "2024-05-24"
+venue: "幻冬舎コミックス"
+completed: true
+volumes:
+  - title: "【期間限定　試し読み増量版　閲覧期限2026年8月5日】おひゃくどまいり (1) 【電子限定おまけ付き】"
+    number: 1
+    published: "2024-05-24"
+    delivered: "2026-07-23"
+  - title: "おひゃくどまいり (1) 【電子限定おまけ付き】"
+    number: 2
+    published: "2024-05-24"
+    delivered: "2024-05-23"
+  - title: "おひゃくどまいり (2) 【電子限定おまけ付き】"
+    number: 3
+    published: "2025-02-24"
+    delivered: "2025-02-21"
+  - title: "【最終巻】おひゃくどまいり (3)"
+    number: 4
+    delivered: "2025-09-24"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/472067/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

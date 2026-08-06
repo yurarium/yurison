@@ -1,0 +1,63 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-314852"
+record_type: retailer_work_record
+shop_id: "314852"
+shop_url: "https://bookwalker.jp/series/314852/"
+title:
+  ja: "冬馬くん【単話版】"
+creator: "天野しゅにんた"
+publisher: "クロスフォリオ出版"
+imprint: "ガレットワークス"
+volume_count: 9
+date_basis: "no-print-edition"
+venue: "クロスフォリオ出版"
+completed: true
+volumes:
+  - title: "冬馬くん【単話版】(1)"
+    number: 1
+    delivered: "2018-04-15"
+  - title: "冬馬くん【単話版】(2)"
+    number: 2
+    delivered: "2018-04-15"
+  - title: "冬馬くん【単話版】(3)"
+    number: 3
+    delivered: "2018-04-27"
+  - title: "冬馬くん【単話版】(4)"
+    number: 4
+    delivered: "2018-08-09"
+  - title: "冬馬くん【単話版】(5)"
+    number: 5
+    delivered: "2018-10-26"
+  - title: "冬馬くん【単話版】(6)"
+    number: 6
+    delivered: "2019-02-22"
+  - title: "冬馬くん【単話版】(7)"
+    number: 7
+    delivered: "2019-04-26"
+  - title: "冬馬くん【単話版】(8)"
+    number: 8
+    delivered: "2019-07-26"
+  - title: "【最終巻】冬馬くん【単話版】(9)"
+    number: 9
+    delivered: "2020-01-31"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/314852/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

@@ -1,0 +1,111 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-311871"
+record_type: retailer_work_record
+shop_id: "311871"
+shop_url: "https://bookwalker.jp/series/311871/"
+title:
+  ja: "ひめちゃんは重い女【単話版】"
+creator: "花束葬式"
+publisher: "芳文社"
+imprint: "ＦＵＺコミックス"
+volume_count: 25
+date_basis: "no-print-date-stated"
+venue: "芳文社"
+completed: true
+volumes:
+  - title: "ひめちゃんは重い女【単話版】　１"
+    number: 1
+    delivered: "2021-08-01"
+  - title: "ひめちゃんは重い女【単話版】　２"
+    number: 2
+    delivered: "2021-08-01"
+  - title: "ひめちゃんは重い女【単話版】　３"
+    number: 3
+    delivered: "2021-08-01"
+  - title: "ひめちゃんは重い女【単話版】　４"
+    number: 4
+    delivered: "2021-08-01"
+  - title: "ひめちゃんは重い女【単話版】　５"
+    number: 5
+    delivered: "2021-08-01"
+  - title: "ひめちゃんは重い女【単話版】　６"
+    number: 6
+    delivered: "2021-08-01"
+  - title: "ひめちゃんは重い女【単話版】　７"
+    number: 7
+    delivered: "2021-08-01"
+  - title: "ひめちゃんは重い女【単話版】　８"
+    number: 8
+    delivered: "2021-08-01"
+  - title: "ひめちゃんは重い女【単話版】　１０"
+    number: 9
+    delivered: "2022-01-01"
+  - title: "ひめちゃんは重い女【単話版】　１１"
+    number: 10
+    delivered: "2022-01-01"
+  - title: "ひめちゃんは重い女【単話版】　１２"
+    number: 11
+    delivered: "2022-01-01"
+  - title: "ひめちゃんは重い女【単話版】　１３"
+    number: 12
+    delivered: "2022-01-01"
+  - title: "ひめちゃんは重い女【単話版】　１４"
+    number: 13
+    delivered: "2022-01-01"
+  - title: "ひめちゃんは重い女【単話版】　１５"
+    number: 14
+    delivered: "2022-01-01"
+  - title: "ひめちゃんは重い女【単話版】　１６"
+    number: 15
+    delivered: "2022-01-01"
+  - title: "ひめちゃんは重い女【単話版】　９"
+    number: 16
+    delivered: "2022-01-01"
+  - title: "【最終巻】ひめちゃんは重い女【単話版】　２５"
+    number: 17
+    delivered: "2022-09-01"
+  - title: "ひめちゃんは重い女【単話版】　１７"
+    number: 18
+    delivered: "2022-09-01"
+  - title: "ひめちゃんは重い女【単話版】　１８"
+    number: 19
+    delivered: "2022-09-01"
+  - title: "ひめちゃんは重い女【単話版】　１９"
+    number: 20
+    delivered: "2022-09-01"
+  - title: "ひめちゃんは重い女【単話版】　２０"
+    number: 21
+    delivered: "2022-09-01"
+  - title: "ひめちゃんは重い女【単話版】　２１"
+    number: 22
+    delivered: "2022-09-01"
+  - title: "ひめちゃんは重い女【単話版】　２２"
+    number: 23
+    delivered: "2022-09-01"
+  - title: "ひめちゃんは重い女【単話版】　２３"
+    number: 24
+    delivered: "2022-09-01"
+  - title: "ひめちゃんは重い女【単話版】　２４"
+    number: 25
+    delivered: "2022-09-01"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/311871/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

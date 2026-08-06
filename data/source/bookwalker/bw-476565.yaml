@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-476565"
+record_type: retailer_work_record
+shop_id: "476565"
+shop_url: "https://bookwalker.jp/series/476565/"
+title:
+  ja: "ラララボ☆ ～ギャルと科学と青春と！～"
+creator: "駒込ぴぴ"
+publisher: "小学館"
+imprint: "マンガワンコミックス"
+volume_count: 3
+first_published: "2024-07-16"
+venue: "小学館"
+completed: true
+volumes:
+  - title: "ラララボ☆ ～ギャルと科学と青春と！～（１）"
+    number: 1
+    published: "2024-07-16"
+    delivered: "2024-07-11"
+  - title: "ラララボ☆ ～ギャルと科学と青春と！～（２）"
+    number: 2
+    published: "2024-11-24"
+    delivered: "2024-11-19"
+  - title: "【最終巻】ラララボ☆ ～ギャルと科学と青春と！～（３）"
+    number: 3
+    published: "2025-03-17"
+    delivered: "2025-03-12"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/476565/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

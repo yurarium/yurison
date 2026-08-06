@@ -1,0 +1,56 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-158910"
+record_type: retailer_work_record
+shop_id: "158910"
+shop_url: "https://bookwalker.jp/series/158910/"
+title:
+  ja: "あの娘と目が合うたび私は　社会人百合アンソロジー"
+creator: "はるかわ陽 / 奥たまむし / さつま揚げ / 雪子"
+publisher: "KADOKAWA"
+imprint: "単行本コミックス"
+volume_count: 5
+first_published: "2018-04-27"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "あの娘と目が合うたび私は　社会人百合アンソロジー"
+    number: 1
+    published: "2018-04-27"
+    delivered: "2018-04-27"
+  - title: "あなたの側にいると私は　社会人百合アンソロジー"
+    number: 2
+    published: "2018-10-26"
+    delivered: "2018-10-26"
+  - title: "White Lilies in Love　花香るとき、貴方は。　社会人百合アンソロジー"
+    number: 3
+    published: "2019-04-27"
+    delivered: "2019-04-27"
+  - title: "White Lilies in Love　私が酔いしれるのは、夏の陽射しと貴方だけ。　社会人百合アンソロジー"
+    number: 4
+    published: "2019-07-26"
+    delivered: "2019-07-26"
+  - title: "【最新刊】White Lilies in Love　茜さす恋心を、紅く染めてほしいの貴方に。　社会人百合アンソロジー"
+    number: 5
+    published: "2019-09-27"
+    delivered: "2019-09-27"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/158910/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

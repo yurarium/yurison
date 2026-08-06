@@ -1,0 +1,92 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-189924"
+record_type: retailer_work_record
+shop_id: "189924"
+shop_url: "https://bookwalker.jp/series/189924/"
+title:
+  ja: "付き合ってあげてもいいかな（裏サンデー女子部）"
+creator: "たみふる"
+publisher: "小学館"
+imprint: "裏サンデー女子部"
+volume_count: 14
+first_published: "2019-01-16"
+venue: "小学館"
+completed: true
+volumes:
+  - title: "付き合ってあげてもいいかな（１）"
+    number: 1
+    published: "2019-01-16"
+    delivered: "2019-01-11"
+  - title: "付き合ってあげてもいいかな（２）"
+    number: 2
+    published: "2019-06-17"
+    delivered: "2019-06-12"
+  - title: "付き合ってあげてもいいかな（３）"
+    number: 3
+    published: "2019-12-17"
+    delivered: "2019-12-12"
+  - title: "付き合ってあげてもいいかな（４）"
+    number: 4
+    published: "2020-04-15"
+    delivered: "2020-04-10"
+  - title: "付き合ってあげてもいいかな（５）"
+    number: 5
+    published: "2020-10-21"
+    delivered: "2020-10-16"
+  - title: "付き合ってあげてもいいかな（６）"
+    number: 6
+    published: "2021-03-17"
+    delivered: "2021-03-12"
+  - title: "付き合ってあげてもいいかな（７）"
+    number: 7
+    published: "2021-09-14"
+    delivered: "2021-09-09"
+  - title: "付き合ってあげてもいいかな（８）"
+    number: 8
+    published: "2022-02-22"
+    delivered: "2022-02-17"
+  - title: "付き合ってあげてもいいかな（９）"
+    number: 9
+    published: "2022-08-24"
+    delivered: "2022-08-19"
+  - title: "付き合ってあげてもいいかな（１０）"
+    number: 10
+    published: "2023-02-22"
+    delivered: "2023-02-17"
+  - title: "付き合ってあげてもいいかな（１１）"
+    number: 11
+    published: "2023-09-17"
+    delivered: "2023-09-12"
+  - title: "付き合ってあげてもいいかな（１２）"
+    number: 12
+    published: "2024-02-24"
+    delivered: "2024-02-19"
+  - title: "付き合ってあげてもいいかな（１３）"
+    number: 13
+    published: "2024-10-23"
+    delivered: "2024-10-18"
+  - title: "【最終巻】付き合ってあげてもいいかな（１４）"
+    number: 14
+    published: "2025-04-22"
+    delivered: "2025-04-17"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/189924/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

@@ -1,0 +1,45 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-203612"
+record_type: retailer_work_record
+shop_id: "203612"
+shop_url: "https://bookwalker.jp/series/203612/"
+title:
+  ja: "総集編"
+creator: "桜庭友紀"
+publisher: "PERSONAL COLOR"
+imprint: "PERSONAL COLOR"
+volume_count: 3
+date_basis: "no-print-edition"
+venue: "PERSONAL COLOR"
+completed: false
+volumes:
+  - title: "１の色"
+    number: 1
+    delivered: "2018-08-14"
+  - title: "２の色"
+    number: 2
+    delivered: "2018-08-14"
+  - title: "【最新刊】３の色"
+    number: 3
+    delivered: "2019-05-05"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/203612/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

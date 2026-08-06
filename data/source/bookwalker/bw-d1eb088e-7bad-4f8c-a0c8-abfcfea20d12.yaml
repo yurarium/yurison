@@ -1,0 +1,38 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-d1eb088e-7bad-4f8c-a0c8-abfcfea20d12"
+record_type: retailer_work_record
+shop_id: "d1eb088e-7bad-4f8c-a0c8-abfcfea20d12"
+shop_url: "https://bookwalker.jp/ded1eb088e-7bad-4f8c-a0c8-abfcfea20d12/"
+title:
+  ja: "私の可愛い翼ちゃん"
+creator: "七瀬八"
+publisher: "双葉社"
+imprint: "アクションコミックス"
+volume_count: 1
+date_basis: "no-print-date-stated"
+venue: "双葉社"
+completed: false
+volumes:
+  - title: "私の可愛い翼ちゃん"
+    delivered: "2024-06-20"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
+      Presumptive and rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/ded1eb088e-7bad-4f8c-a0c8-abfcfea20d12/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

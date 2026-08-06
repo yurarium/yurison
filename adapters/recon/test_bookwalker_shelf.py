@@ -91,6 +91,33 @@ WA_ROW = '''
 
 COUNT = '<div class="o-contents-section__search_count">1～60件目/全2153件</div>'
 
+# Quoted from https://bookwalker.jp/series/269861/list/ on 2026-08-06, trimmed. A listing row as
+# the shop really wraps it, followed by what the shop prints AFTER the listing. The wrapper and
+# the cart list inside it are the point: the row ends at its own `</li>`, and the `</li>` of the
+# cart is not it.
+WRAPPED_ROW = '''
+<ul class="m-tile-list"><li class="m-tile">
+<div class="m-book-item ">
+  <div class="m-book-item__tag-box"><span class="a-tag-comic">マンガ</span></div>
+  <p class="m-book-item__title">
+    <a href="https://bookwalker.jp/de084ab05a-417f-4264-8f92-cc5cf12eb6cd/"
+       class="m-book-item__title">安達としまむら 公式コミックアンソロジー</a>
+  </p>
+  <p class="m-book-item__label">電撃コミックスNEXT</p>
+  <ul class="m-book-item__btn-box"><li><a href="/cart/">カートを見る</a></li></ul>
+</div>
+</li></ul>
+'''
+
+# The 関連するシリーズ block, printed after the listing on a series page that has one. It carries
+# `href="https://bookwalker.jp/series/..."`, which is what the last row used to swallow.
+TRAILING = '''
+<div class="relatedseries-advise">
+  <a href="https://bookwalker.jp/series/17875/list/">安達としまむら（電撃文庫）</a>
+  <span class="a-tag-comp">完結</span><span class="ico-txt">シリーズ12冊</span>
+</div>
+'''
+
 FACETS = ('<li><a href="/tag/14/?order=rank&amp;qtag=42" rel="nofollow" data-ga-category="絞り込み"'
           ' data-action-label="ジャンル-完結">完結<span class="search-bookNum">(486)</span></a></li>'
           '<li><a href="/tag/14/?order=rank&amp;qtag=1083" rel="nofollow"'
@@ -201,6 +228,29 @@ def main(s):
     s.eq(f["ジャンル-同人誌・個人出版"][1], "/tag/14/?order=rank&qtag=1083",
          "with the URL the shop gives, so a moved facet is absent rather than silently empty")
     s.eq("ジャンル-存在しない" in f, False, "and a facet that is not there is not there")
+
+    # A ROW ENDS AT ITS OWN `</li>`, AND THAT IS WHAT THE LAST ROW NEVER HAD. Until 2026-08-06 a
+    # row ran to the next row or, for the last one, to the end of the document, so everything the
+    # shop printed after the listing belonged to the final row. On a series page that means the
+    # 関連するシリーズ block, whose `/series/<id>/` link then became the row's identity, and
+    # bookwalker_volumes keeps only rows identified by a volume uuid. A listing is sorted newest
+    # first, so the row this dropped is the OLDEST volume and `first_publication` was chosen from
+    # a set with the first volume missing.
+    last = bs.parse_listing(WRAPPED_ROW + TRAILING)
+    s.eq(len(last), 1, "the last row survives the markup printed after the listing")
+    s.eq(last[0]["id_kind"], "detail",
+         "and is still a volume, not the related series advertised underneath it")
+    s.eq(last[0]["id"], "084ab05a-417f-4264-8f92-cc5cf12eb6cd", "with its own uuid")
+    s.eq(last[0]["completed_marker"], False,
+         "the 完結 tag below the listing belongs to the related series, not to this row")
+    s.eq(last[0]["volumes"], None, "nor does the related series' volume count attach to it")
+    # THE COUNTER-CASE FOR THE `</li>` RULE. A row nests a cart list of its own, so stopping at
+    # the first `</li>` would end the row inside itself and lose whatever the shop prints after
+    # the cart. Reading the label proves the row was not cut short there.
+    s.eq(last[0]["imprint"], "電撃コミックスNEXT", "the whole row is read, cart list and all")
+    # AND THE ROW BEFORE THE LAST ONE, which the old shape got right and must keep getting right.
+    two = bs.parse_listing(WRAPPED_ROW + WRAPPED_ROW + TRAILING)
+    s.eq([r["id_kind"] for r in two], ["detail", "detail"], "two rows, both volumes")
 
     s.eq(bs.parse_listing(""), [], "no page, no rows")
     s.eq(bs.parse_listing('<div class="m-book-item ">no title</div>'), [],

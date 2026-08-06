@@ -36,8 +36,12 @@ import html
 import re
 import unicodedata
 
-# One listing row in the volume store. The trailing space in the class attribute is the shop's.
-ITEM = re.compile(r'<div class="m-book-item\s*">(.*?)(?=<div class="m-book-item\s*">|\Z)', re.S)
+# Where one listing row in the volume store starts. The trailing space in the class attribute is
+# the shop's. Where it ENDS is `item_blocks`, and the two were one regex until 2026-08-06.
+ITEM_START = re.compile(r'<div class="m-book-item\s*">')
+# The row wrapper. The shop nests a cart <ul><li> inside a row, so the close that ends the row is
+# the one at depth zero and not the first one seen.
+LI = re.compile(r"<(/?)li[\s>]")
 SERIES_HREF = re.compile(r'href="https://bookwalker\.jp/series/(\d+)/')
 DETAIL_HREF = re.compile(r'href="https://bookwalker\.jp/de([0-9a-f-]{36})/')
 TITLE_A = re.compile(r'<a[^>]*class="m-book-item__title".*?>\s*(.*?)\s*</a>', re.S)
@@ -165,6 +169,46 @@ def split_imprint(title):
     return title[:m.start()].strip(), m.group(1).strip()
 
 
+def item_blocks(page):
+    """The markup of each listing row, ending where the row's own `</li>` ends it.
+
+    THE BUG THIS EXISTS TO PREVENT, found on 2026-08-06. This was one regex whose row ran to the
+    next row or, for the last row on the page, to the end of the document. So the last row
+    swallowed everything printed after the listing, and a `/series/<id>/list/` link down there
+    became the row's identity. `bookwalker_volumes.py` keeps only rows identified by a volume
+    uuid, so the last row of the listing was dropped.
+
+    What it cost: a listing is sorted 最新刊から, newest first, so the row this dropped is the
+    OLDEST volume. `first_publication` is the earliest 底本発行日 across the volumes read, which
+    means the work's first volume was the one silently missing from the set the date was chosen
+    from. 安達としまむら reads as three volumes starting at volume 2, and it has four starting at
+    volume 1. A shorter count is visible; a date belonging to volume 2 is not.
+
+    What made it invisible: the trailing markup only carries a `/series/` link where the shop has
+    related series to advertise, so most listings parsed correctly and the ones that did not
+    looked like series with one fewer volume. All 16 series that returned nothing at all were
+    one-volume series, where the only row was the last row.
+
+    The end is the row's own `</li>` and not the next row's start, because the last row has no
+    next row and that is the whole of the fault. A row nests a cart `<ul><li>` of its own, so the
+    close that ends the row is the one at depth zero.
+    """
+    page = page or ""
+    starts = [m.end() for m in ITEM_START.finditer(page)]
+    for i, start in enumerate(starts):
+        limit = starts[i + 1] if i + 1 < len(starts) else len(page)
+        end, depth = limit, 0
+        for m in LI.finditer(page, start, limit):
+            if not m.group(1):
+                depth += 1
+            elif depth:
+                depth -= 1
+            else:
+                end = m.start()
+                break
+        yield page[start:end]
+
+
 def parse_listing(page):
     """Every row on one volume-store listing page, in the order the shop lists them.
 
@@ -173,8 +217,7 @@ def parse_listing(page):
     the row's identity would file a series under one of its volumes.
     """
     rows = []
-    for m in ITEM.finditer(page or ""):
-        block = m.group(1)
+    for block in item_blocks(page):
         t = TITLE_A.search(block)
         if not t:
             continue

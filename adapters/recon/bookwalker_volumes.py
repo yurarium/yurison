@@ -433,7 +433,8 @@ def exclusion(vol):
     return None
 
 
-def work_row(row, volumes, completed=None, series_read=False, serial=None, pages_read=None):
+def work_row(row, volumes, completed=None, series_read=False, serial=None, pages_read=None,
+             volumes_stated=None):
     """One admitted work as this capture leaves it: its volumes and what they settle.
 
     `volumes` is every volume this pass read for the work. The order is the shop's on the series
@@ -465,6 +466,11 @@ def work_row(row, volumes, completed=None, series_read=False, serial=None, pages
         # from one read whole. Absent means page one only, and `series_to_follow` asks again where
         # the count sits on a page boundary.
         "pages_read": pages_read,
+        # HOW MANY VOLUMES THE SHOP SAID IT HAD, off the listing's own 全N件. It is not a second
+        # producer of the volume list; it is the number that can contradict it, and a row carrying
+        # it was read by a reader that asked. A row without one was read by a reader that did not,
+        # which is every row captured before 2026-08-06: see `series_unconfirmed`.
+        "volumes_stated": volumes_stated,
         "volumes_found": len(vols),
         "chapters": (serial or {}).get("chapters"),
         "last_updated": (serial or {}).get("updated"),
@@ -536,6 +542,25 @@ def another_page(rows_read, pages_read):
     return rows_read >= SERIES_PAGE and pages_read < MAX_SERIES_PAGES
 
 
+def listing_short(read, stated):
+    """Whether a series listing came back holding fewer volumes than the shop says it holds.
+
+    WHY THE SHOP'S OWN COUNT IS ASKED. Every earlier fault in this reader was silent: page one of
+    a paginated listing looked exactly like a whole listing, and a last row swallowed by the
+    markup underneath it looked exactly like a series with one fewer volume. Both were found by
+    someone noticing a distribution, which is not a mechanism (STANDING-INSTRUCTIONS §4).
+
+    The listing prints 全N件 and `bookwalker_shelf.total` already reads it, so the reader can be
+    made to state whether it agrees with the shop rather than being trusted to. It is not a second
+    producer of the volume list: it is the one number that can contradict it.
+
+    `stated is None` is the shop not saying, which is silence about the count and never a licence
+    to assume the read was whole. A page that states nothing is left for the next pass, because
+    that shape has never been seen and would be the template moving again.
+    """
+    return stated is None or len(read) != stated
+
+
 def series_to_follow(works):
     """`[(shop_id, series_id)]` for captured rows whose series page nobody has read.
 
@@ -582,6 +607,47 @@ def series_to_follow(works):
         elif w.get("pages_read") is None and len(vols) and len(vols) % SERIES_PAGE == 0:
             cut.append((sid, series_id))
     return cut + unread
+
+
+def series_unconfirmed(works):
+    """`[(shop_id, series_id)]` for rows read before the reader compared itself to the shop.
+
+    A THIRD REPAIR CLASS, AND THE ONE THAT WAS INVISIBLE FOR LONGEST. Until 2026-08-06 a listing
+    row ran to the end of the document when it was the last row on the page, so the last row
+    swallowed the 関連するシリーズ block the shop prints underneath and was identified by the
+    series link in it. This module keeps only rows identified by a volume uuid, so the last row of
+    such a listing was dropped, silently, and the listing is sorted 最新刊から.
+
+    THAT MAKES THE MISSING VOLUME THE OLDEST ONE. `first_publication` is the earliest 底本発行日
+    across the volumes read, so the volume that decides the date is exactly the volume that went
+    missing. 安達としまむら reads here as three volumes dated from volume 2; the shop lists four.
+    The 16 series that returned nothing at all were the same fault at one volume, where the only
+    row was also the last.
+
+    WHAT MAKES A ROW CONFIRMED. `volumes_stated`, the listing's own 全N件, which the reader now
+    records and `listing_short` now checks against before a row is written at all. A row without
+    one was captured by a reader that never asked, so its volume list has nothing standing behind
+    it. This is deliberately a repair of every such row rather than of the ones that can be shown
+    to be short: which listings carried a related-series block is not in the file, and re-reading
+    one to find out costs the same request as re-reading it to fix it.
+
+    Rows read at a single volume are not counted here. `series_to_follow` already has those and
+    counting them twice would make one request look like two pieces of work.
+    """
+    out = []
+    for sid in sorted(works):
+        w = works[sid]
+        if w.get("store") == "話・連載" or not w.get("series_read"):
+            continue
+        if w.get("volumes_stated") is not None:
+            continue
+        vols = w.get("volumes") or []
+        named = {v.get("series_id") for v in vols if v.get("series_id")}
+        series_id = (sid if "/series/" in (w.get("url") or "")
+                     else (list(named)[0] if len(named) == 1 else None))
+        if series_id:
+            out.append((sid, series_id))
+    return out
 
 
 # ---------------------------------------------------------------------------------------------
@@ -649,6 +715,17 @@ HEADER = """\
 """
 
 
+# THE ROW FIELDS THIS FILE CARRIES, in the order it writes them. A constant so that
+# `test_bookwalker_volumes.py` can hold it against what `work_row` produces, which is what turns
+# "somebody remembered to add the field in both places" into something the machine checks.
+ROW_SCALARS = ("url", "id_kind", "store", "series_read", "pages_read", "volumes_stated",
+               "volumes_found", "chapters", "last_updated", "completed", "dates_stated",
+               "isbns_stated", "imprint", "publisher", "authors", "shop_genre")
+# The rest of what `work_row` produces, written in a shape of its own rather than as a scalar.
+ROW_SHAPED = ("shop_id", "volumes", "first_publication_date", "first_publication_basis",
+              "first_publication_venue", "first_publication_volume")
+
+
 def _write(path, state):
     """Rewrite the whole file from `state`, which must hold every work ever captured.
 
@@ -664,6 +741,12 @@ def _write(path, state):
     def js(v):
         return json.dumps(v, ensure_ascii=False)
 
+    # EVERY FIELD `work_row` PRODUCES IS WRITTEN, and the field list below is checked against it by
+    # `test_bookwalker_volumes.py` rather than kept in step by hand. `volumes_stated` was added to
+    # `work_row` and not to this list, so the marker saying a listing had been checked against the
+    # shop's own count was dropped on the way to disk. The repair pass then re-read the same 1,879
+    # rows on every run, finished each one, and left the file saying none of them had been read.
+    # Nothing failed: the fetches happened, the volumes were right, and the number never moved.
     works = state["works"]
     rows = list(works.values())
     # Built once over every row, because the question it answers is about an imprint's record
@@ -712,10 +795,7 @@ def _write(path, state):
         r = works[sid]
         basis, note = date_basis(r, stats)
         L.append(f"  - shop_id: {js(r['shop_id'])}")
-        for k in ("url", "id_kind", "store", "series_read", "pages_read",
-                  "volumes_found", "chapters",
-                  "last_updated", "completed", "dates_stated", "isbns_stated",
-                  "imprint", "publisher", "authors", "shop_genre"):
+        for k in ROW_SCALARS:
             L.append(f"    {k}: {js(r.get(k))}")
         # Shaped as build.py writes it, so a promotion step maps rather than re-derives.
         L.append("    first_publication:")
@@ -880,11 +960,15 @@ def main(argv=None):
         return n >= MIN_SAMPLE and not healthy(n, parsed)[0]
 
     def series_listing(series_id):
-        """A series' whole volume list, as `(uuids, pages, first_page_html)`.
+        """A series' whole volume list, as `(uuids, pages, first_page_html, stated)`.
 
         ONE READER FOR ONE LISTING. Both phases below ask this rather than fetching a page each,
         because a listing read two ways is a listing that can be paginated in one of them, which
         is exactly how the truncation above got in.
+
+        A list that does not match the shop's own 全N件 comes back EMPTY, which both callers
+        already treat as a series to leave for the next pass. `listing_short` says why the count
+        is asked at all.
         """
         nonlocal fetched
         uuids, pages, first = [], 0, None
@@ -903,7 +987,12 @@ def main(argv=None):
             # serving the last page again. Stopping on new rows rather than on any rows means that
             # cannot loop.
             if not fresh or not another_page(len(rows), pages):
-                return uuids, pages, first
+                stated = shelf.total(first)
+                if listing_short(uuids, stated):
+                    print(f"  series {series_id}: read {len(uuids)} of the {stated} volume(s) "
+                          f"the shop states; left for the next pass")
+                    return [], pages, first, stated
+                return uuids, pages, first, stated
 
     stopped = None
     for row in todo:
@@ -915,10 +1004,10 @@ def main(argv=None):
             break
         sid = str(row["shop_id"])
         vols, completed, series_read, listed, serial = [], None, False, 0, None
-        pages_read = None
+        pages_read = stated = None
         try:
             if "/series/" in row["url"]:
-                uuids, pages_read, page = series_listing(sid)
+                uuids, pages_read, page, stated = series_listing(sid)
                 series_read = True
                 completed = (bookwalker.status(page, row["title"])
                              or bookwalker.status_from_list(page, row["title"]))
@@ -964,7 +1053,8 @@ def main(argv=None):
                 st["excluded"][r] = st["excluded"].get(r, 0) + 1
             print(f"  {sid}: excluded, {len(reasons)} reason(s)")
             continue
-        st["works"][sid] = work_row(row, vols, completed, series_read, serial, pages_read)
+        st["works"][sid] = work_row(row, vols, completed, series_read, serial,
+                                    pages_read, stated)
         # Checkpointed per work rather than at the end, so an interrupted pass loses one work.
         _write(a.out, st)
 
@@ -974,15 +1064,25 @@ def main(argv=None):
     # this pass's budget and floor so the two cannot together outrun either.
     followed = deepened = 0
     if not stopped and a.follow_series:
-        pending = series_to_follow(st["works"])
-        print(f"{len(pending)} captured row(s) name a series nobody has read")
+        # Damage before discovery, which is the order `series_to_follow` already applies within
+        # itself. A row whose listing was never checked against the shop's own count states a
+        # first publication chosen from a list that may be missing its first volume, and that is
+        # already in the file; a series nobody has opened is only work not yet done.
+        pending, seen = [], set()
+        for job in series_unconfirmed(st["works"]) + series_to_follow(st["works"]):
+            # A row cut at a page boundary is also a row nobody confirmed, and one listing is one
+            # request however many reasons there are to make it.
+            if job[0] not in seen:
+                seen.add(job[0])
+                pending.append(job)
+        print(f"{len(pending)} captured row(s) name a series to read or to confirm")
         for sid, series_id in pending:
             if fetched >= a.max_fetches or thin():
                 stopped = "budget" if fetched >= a.max_fetches else "thin"
                 break
             held = {v.get("uuid"): v for v in st["works"][sid]["volumes"] if v.get("uuid")}
             try:
-                uuids, pages_read, page = series_listing(series_id)
+                uuids, pages_read, page, stated = series_listing(series_id)
                 if not uuids:
                     # The series id came off a volume page, so a list page with nothing on it is
                     # the template having moved or the series having gone. Left unmarked, which
@@ -1025,7 +1125,8 @@ def main(argv=None):
             # about a title the page also mentions.
             completed = (bookwalker.status(page, titles.get(sid) or "")
                          or bookwalker.status_from_list(page, titles.get(sid) or ""))
-            st["works"][sid] = work_row(wrow, vols, completed, True, None, pages_read)
+            st["works"][sid] = work_row(wrow, vols, completed, True, None, pages_read,
+                                        stated)
             followed += 1
             deepened += 1 if len(vols) > before else 0
             _write(a.out, st)

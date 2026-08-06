@@ -518,6 +518,61 @@ def main(s):
     s.eq(bv.series_to_follow(mixed)[0][0], "188653",
          "the row cut at a page boundary is asked first, before the one nobody has read")
 
+    # THE READER STATES WHETHER IT AGREES WITH THE SHOP. Both faults this listing has had were
+    # invisible: page one of a paginated listing and a whole listing look the same, and so do a
+    # series with four volumes read as three and a series that has three. 全N件 is the one number
+    # on the page that can contradict the list, so it is asked rather than the read being trusted.
+    s.eq(bv.listing_short(["a", "b", "c"], 3), False, "three volumes read, three volumes stated")
+    s.eq(bv.listing_short(["a", "b"], 3), True,
+         "and a volume short is a listing to read again rather than a series with two volumes")
+    s.eq(bv.listing_short([], 1), True,
+         "the shape all 16 unreadable series had: one volume stated and none read")
+    # A LISTING THAT STATES NOTHING IS NOT A LISTING THAT AGREES. Silence about the count is the
+    # template having moved, which is how both earlier faults arrived (STANDING-INSTRUCTIONS §4).
+    s.eq(bv.listing_short(["a"], None), True, "no stated count, no agreement")
+    s.eq(bv.listing_short([], None), True, "and nothing read off a page that states nothing")
+    # The counter-case for reading MORE than stated, which would be the pager serving a page
+    # twice. It is a disagreement like any other and not a bonus.
+    s.eq(bv.listing_short(["a", "b", "c", "d"], 3), True, "a volume too many disagrees too")
+
+    # A ROW IS CONFIRMED BY CARRYING THE SHOP'S OWN COUNT, and every row captured before the
+    # reader asked for it carries none. Those rows were read by a reader that dropped the last
+    # row of a listing wherever the shop printed a related-series block underneath, and a listing
+    # is sorted newest first, so the volume dropped is the one the date comes from.
+    unconfirmed = {"1": {"series_read": True, "store": "単行本", "volumes_stated": None,
+                         "url": "https://bookwalker.jp/series/1/",
+                         "volumes": [{"uuid": "a"}, {"uuid": "b"}]},
+                   "2": {"series_read": True, "store": "単行本", "volumes_stated": 2,
+                         "url": "https://bookwalker.jp/series/2/",
+                         "volumes": [{"uuid": "c"}, {"uuid": "d"}]},
+                   "3": {"series_read": False, "store": "単行本",
+                         "url": "https://bookwalker.jp/de3/",
+                         "volumes": [{"uuid": "e", "series_id": "300"}]},
+                   "4": {"series_read": True, "store": "話・連載", "volumes_stated": None,
+                         "url": "https://bookwalker.jp/series/4/", "volumes": []}}
+    conf = dict(bv.series_unconfirmed(unconfirmed))
+    s.eq(conf.get("1"), "1", "a row read before the count was asked for is read again")
+    s.eq("2" in conf, False, "and one that carries the shop's count is not")
+    # THE COUNTER-CASE. An unread row is already `series_to_follow`'s, and counting it here would
+    # make one request look like two pieces of work.
+    s.eq("3" in conf, False, "a row nobody has read is the other list's, not this one's")
+    s.eq("4" in conf, False, "and the 話・連載 store has no volume listing to confirm")
+
+    # WHAT `work_row` PRODUCES IS WHAT `_write` WRITES, held against each other here because
+    # keeping two lists in step by hand is exactly what failed. `volumes_stated` was added to the
+    # row and not to the field list, so the marker saying a listing had been checked against the
+    # shop's own count was dropped on the way to disk. The repair pass then re-read the same 1,879
+    # rows every run, finished each one, and left the file saying none had been read. No fetch
+    # failed and no volume was wrong; the number simply never moved (STANDING-INSTRUCTIONS §4).
+    produced = set(bv.work_row({"shop_id": "1", "url": "https://bookwalker.jp/series/1/"},
+                               [{"uuid": "a", "printed": "2020-01", "publisher": "P",
+                                 "imprint": "I", "title": "T"}],
+                               "completed", True, None, 1, 3))
+    s.eq(sorted(produced - set(bv.ROW_SCALARS) - set(bv.ROW_SHAPED)), [],
+         "every field a row carries is one the file writes")
+    s.eq(sorted((set(bv.ROW_SCALARS) | set(bv.ROW_SHAPED)) - produced), [],
+         "and every field the file writes is one a row carries")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

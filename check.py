@@ -681,6 +681,28 @@ def budget_bookwalker_series_unread(ctx):
     return len(_bv.series_to_follow(works))
 
 
+def budget_bookwalker_listings_unconfirmed(ctx):
+    """BOOK☆WALKER rows whose series listing nothing ever checked against the shop's own count.
+
+    A SEPARATE BUDGET FROM `bookwalker series unread`, for the same reason cmoa has its own: a
+    class discovered today folded into an existing ratchet reads as that ratchet loosening by
+    however many rows the new class holds, which is a number saying nothing about either.
+
+    `series_unconfirmed` carries what went wrong and why every such row has to be read again
+    rather than only the ones that can be shown to be short.
+    """
+    from adapters import captures as _cap
+
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        from recon import bookwalker_volumes as _bv
+        doc = _cap.load(ROOT / "data/queue/bookwalker-volumes.yaml")
+    except Exception:                                                       # noqa: BLE001
+        return 0
+    works = {str(w["shop_id"]): w for w in (doc.get("works") or []) if w.get("shop_id")}
+    return len(_bv.series_unconfirmed(works))
+
+
 def _retailer_rows(cap, shop, field):
     """Admitted rows for one shop that no capture has given `field` a value for.
 
@@ -780,6 +802,14 @@ BUDGETS_DEF = [
      "linked one volume for 1,175 of them and this module read only page one of a paginated "
      "listing for a few more. Falls as adapters/recon/bookwalker_volumes.py --follow-series works "
      "through them, and reaches zero, because every row counted here names a series to fetch."),
+    ("bookwalker listings unconfirmed", budget_bookwalker_listings_unconfirmed,
+     "BOOK☆WALKER rows whose series listing was read before the reader compared what it read "
+     "against the shop's own 全N件. Until 2026-08-06 the last row of a listing swallowed the "
+     "markup printed underneath it and was identified by the related-series link in there, so it "
+     "was dropped; a listing is sorted newest first, so the row dropped is the OLDEST volume and "
+     "`first_publication` is the earliest date across the volumes read. Falls as "
+     "adapters/recon/bookwalker_volumes.py --follow-series re-reads them, and reaches zero, "
+     "because every row counted here names a series to fetch."),
     ("undated cmoa candidates", budget_undated_cmoa_candidates,
      "the same count for the コミックシーモア half of the queue, falling as adapters/cmoa_volumes.py "
      "works through it. Its floor is high and known: cmoa states an ISBN or an 出版年月 only where "

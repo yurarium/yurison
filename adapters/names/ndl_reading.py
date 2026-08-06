@@ -53,7 +53,11 @@ CREATOR = "dc:creator"
 TRANSCRIPTION = "dcndl:creatorTranscription"
 
 _ITEM = re.compile(r"<item>(.*?)</item>", re.S)
-_YEAR = re.compile(r",\s*\d{4}-\d{0,4}\s*$")
+# A birth year on the end of a catalogue name. NDL puts a comma before it, `タケシマ, エク, 1974-`;
+# MADB puts a space, `シノハラケンタ 1974-`. Either separator, because this is one rule about
+# cataloguing furniture and two copies of it would drift. The trailing hyphen is what keeps it off
+# a pen name that merely ends in a number: マポロ 3ゴウ and ヒロpub. 2023 both survive it.
+_YEAR = re.compile(r"[,\s　]\s*\d{4}-\d{0,4}\s*$")
 _SEPARATORS = re.compile(r"[,、\s　・]+")
 
 

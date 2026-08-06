@@ -339,6 +339,20 @@ def shelf_credits(rows, title_key, want, shop="cmoa.jp"):
     return out
 
 
+def outstanding(items, credit, ident, claimed):
+    """What this pass must answer for: what the corpus credits to nobody, plus what it already did.
+
+    THE SECOND RUN ERASED THE FIRST. The corpus reads this pass's own output, so on the next run
+    every work it settled is credited to somebody, drops out of "credited to nobody", and is
+    rewritten out of the file — which unsettles it again. The output oscillates and each half of
+    the cycle reports a clean run. bwingest.py met the same shape from the other side and subtracts
+    its own previous output; here the fix is to keep asking about what it already answered, which
+    also means a page that changes its byline is followed rather than frozen.
+    """
+    return [i for i in items
+            if not (credit(i) or "").strip() or ident(i) in claimed]
+
+
 def groups_among(names):
     """Which of these credits name a body rather than a person, so a reading pass can leave them."""
     return [n for n in names if A_GROUP.search(n or "")]
@@ -407,10 +421,25 @@ def main(argv=None):
         time.sleep(1.5)
         return t
 
-    series = _json.loads((pathlib.Path(a.build) / "series.json").read_text())["series"]
-    wanted = [w for w in series if not (w.get("author") or "").strip() and w.get("url")]
-
     import yaml                                                              # noqa: E402
+
+    # WHAT THIS PASS ALREADY ANSWERED IS STILL ITS QUESTION. The corpus reads this file, so on the
+    # second run every work settled here is credited to somebody and drops out of "credited to
+    # nobody" — and the pass rewrites the file without them, unsettling them again. The output
+    # oscillates and each cycle looks like a clean run. bwingest.py met the same shape from the
+    # other direction and subtracts its own previous output for the same reason.
+    #
+    # So the queue is what the corpus credits to nobody PLUS what this file already claims, and
+    # every one of them is re-read from its page. A work another source starts crediting stays
+    # here harmlessly, because it is the same byline off the same page.
+    mine = yaml.safe_load(pathlib.Path(a.out).read_text()) if pathlib.Path(a.out).exists() else {}
+    claimed = {r["work_title"] for r in ((mine or {}).get("works") or [])}
+    claimed_ids = {r["work_id"] for r in ((mine or {}).get("print_works") or [])}
+
+    series = _json.loads((pathlib.Path(a.build) / "series.json").read_text())["series"]
+    wanted = outstanding([w for w in series if w.get("url")],
+                         lambda w: w.get("author"), lambda w: w["work"], claimed)
+
     rev = yaml.safe_load(pathlib.Path(a.reviewed).read_text()) or {}
     by_hand = {r["work_title"]: r for r in (rev.get("works") or [])}
     # A NAME NOBODY STATES IS AN ANSWER. Held apart from the ones a person settled so that
@@ -441,9 +470,8 @@ def main(argv=None):
     works = _json.loads((pathlib.Path(a.build) / "works.json").read_text())["works"]
     read_print = {r["work_id"]: r for r in (rev.get("print_works") or [])}
     print_rows, print_unread, groups = [], [], []
-    for w in sorted(works, key=lambda x: x["title"]["ja"]):
-        if (w.get("creator") or "").strip():
-            continue
+    for w in outstanding(sorted(works, key=lambda x: x["title"]["ja"]),
+                         lambda x: x.get("creator"), lambda x: x["work_id"], claimed_ids):
         names = shelf_credits(shelf, norm_work, norm_work(w["title"]["ja"]), shop=a.shop)
         if names:
             print_rows.append((w["title"]["ja"], w["work_id"], " / ".join(names), a.shop, ""))

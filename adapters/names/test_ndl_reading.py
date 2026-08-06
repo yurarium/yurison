@@ -79,6 +79,16 @@ def main(s):
     s.eq(nr.resolve(YEARED, "柊ゆたか")[0], "ヒイラギ ユタカ",
          "a birth year is cataloguing apparatus, on the name and on the reading alike")
 
+    # THE SEPARATOR BEFORE THE YEAR IS NOT ALWAYS A COMMA. MADB writes `シノハラケンタ 1974-` with
+    # a space, and madb_reading.py shares this rule rather than carrying a second copy of it.
+    s.eq(nr.spaced("シノハラケンタ 1974-"), "シノハラケンタ",
+         "a space before the year is the same cataloguing apparatus as a comma")
+    # The counter-cases that keep the widened rule off a real name: both end in a number and
+    # neither ends in the hyphen an open birth year carries.
+    s.eq(nr.spaced("マポロ 3ゴウ"), "マポロ 3ゴウ", "a number inside a pen name survives it")
+    s.eq(nr.spaced("ヒロpub. 2023"), "ヒロpub. 2023",
+         "and so does a trailing year with no hyphen after it")
+
     s.eq(nr.resolve(FOUR, "潮一葉")[0], "ウシオ ヒトハ",
          "the third creator gets the third transcription, not the first")
     s.eq(nr.resolve(FOUR, "赤衣丸歩郎")[0], "アカイ マルボロウ", "and the fourth the fourth")

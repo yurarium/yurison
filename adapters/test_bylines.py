@@ -173,6 +173,18 @@ def main(s):
     s.eq(bylines.groups_among(["編集長"]), [],
          "and a word merely containing 編集 is not one")
 
+    # THE SECOND RUN ERASED THE FIRST. The corpus reads this pass's output, so a work it settled
+    # is credited to somebody on the next run, drops out of the queue, and is written out of the
+    # file — which unsettles it. Both halves of the oscillation report a clean run.
+    got = [{"w": "settled by this pass", "a": "天乃咲哉"},
+           {"w": "credited by the platform", "a": "缶乃"},
+           {"w": "nobody", "a": ""}]
+    q = bylines.outstanding(got, lambda x: x["a"], lambda x: x["w"], {"settled by this pass"})
+    s.eq([x["w"] for x in q], ["settled by this pass", "nobody"],
+         "the queue keeps what this pass already answered, so re-running does not undo it")
+    s.eq([x["w"] for x in bylines.outstanding(got, lambda x: x["a"], lambda x: x["w"], set())],
+         ["nobody"], "and holds only the uncredited on a first run, when it has claimed nothing")
+
     # AN UNLISTED HOST IS READ BY NOTHING. Speculative parsing is what this module refuses.
     s.eq(bylines.byline("https://manga-one.com/viewer/290902", BOOST), [],
          "a host with no proven shape returns nothing, whatever the page happens to contain")

@@ -618,3 +618,73 @@ month is evidence about a release date.
 **The premise was wrong too.** citrus is catalogued as 一迅社 and as `[発売]講談社` with no creator
 on either record, and the imprint is IDコミックス on both sides, so the existing third test already
 joins it. Nothing was left for the date to carry.
+
+## 17. A third of the national bibliography answered nothing (2026-08-06)
+
+Four modules had a function called `isbn13`. Two converted a ten-digit ISBN to its thirteen-digit
+form and two only stripped the punctuation out, and the name did not say which was which.
+`madb/isbn_dates.py` was one of the strippers, so the index it builds over metadata101 was keyed on
+the ISBN as the catalogue happened to print it. MADB prints **126,318 of its 355,323 ISBNs in ten
+digits**, 35.5% of the file, because it imported those records from NDLサーチ as they were
+catalogued. Every question this repository asks is thirteen-digit, so a third of the bibliography
+answered nothing and read exactly like a catalogue with no record of the book. `madb/by_isbn.py`
+carried the same stripper under the same name and could not see those records either.
+
+**How it surfaced.** §11 left 51 コミックシーモア works filed `isbn-stated-not-catalogued`, meaning
+the shop states an ISBN and no catalogue asked holds it. Grepping all seven bulk files for the
+ten-digit form of each found two of them: ハニー＆ハニー at 2006-04 and フリー・ソウル at 2004-08.
+
+**Closed.** `adapters/isbn.py` is the one converter and all four modules consume it. The index is
+keyed on the thirteen-digit form and its file is named for that, so a stale index cannot answer.
+The count fell, from 347,875 entries to 346,826. The ten-digit records were always indexed, under
+a key nothing asked for, so what changed is which questions reach them, and the 1,049 lost are
+books the catalogue holds in both forms and now holds once.
+
+**49 remain, and MADB is not where they are.** All seven bulk files were searched for both forms of
+all 51. The remaining 49 are 一迅社 titles in two blocks: 4-7580-70xxx from 2006 to 2010, and
+978-4-8251-xxx and 978-4-7580-99xxx from 2024 onward, which postdate the pinned release. openBD
+answers null for every one.
+
+### 出版書誌データベース (Books.or.jp) holds them, and its terms do not let us store them
+
+REQUIREMENTS §1 lists Books.or.jp as Tier A with its access unverified. It is verified now.
+`robots.txt` is `Disallow:` with nothing after it, `/book-details/<isbn>` serves a server-rendered
+page, and that page states the ISBN, the publisher, 発行年月日 and 発売日: 少女美学, which neither
+MADB nor openBD holds, is 一迅社, 2006年09月, ISBN 9784758070041.
+
+**The terms are the obstacle and they are not ambiguous.** 利用規約 第3条 permits use for
+non-profit purposes, which this is. 第4条 states that the information and images on Books are
+protected by JPO's rights and that reproducing, diverting or selling them by any method without
+the rights holder's permission is not allowed. A publication date copied into a public repository
+is 転用 on the plain reading.
+
+So this is **a decision for the project owner and not a gap to be worked through**. The site
+answers what we need and the terms say we may not take it away with us. STANDING-INSTRUCTIONS §9
+is the rule that applies: read the declaration before depending on it. What would settle it is
+asking JPO, whose contact form is on the site.
+
+Nothing from Books.or.jp is stored anywhere in this repository, and no adapter for it was written,
+because an adapter whose output may not be used is worse than none.
+
+**How much the question is worth has not been measured.** The site answers one ISBN in several
+minutes under a single-threaded polite fetch, so a sweep of all 49 is hours rather than minutes and
+was not run to the end. What was observed by hand: 少女美学 and voiceful, both 一迅社 2006 volumes
+that neither MADB nor openBD holds, resolve to a book page stating the publisher and 発行年月日.
+Those two are the oldest block, which is the half openBD is weakest on, so the 2024-onward block is
+if anything likelier still. Measuring the rest is worth doing only after the terms question is
+settled, since a negative answer there makes the number academic.
+
+## 18. Where the last 61 commercial-imprint rows stand (2026-08-06)
+
+89 undated BOOK☆WALKER rows sat on imprints that print books, so a dated volume with an ISBN
+exists for each and the shop simply does not hold the number. `madb/by_title.py` dated 28 of them
+and 18 more elsewhere in the undated population. What is left, with what each one needs:
+
+| | |
+|---|---|
+| **27** | no 単行本 record under the title in release 1.2.18. Mostly 一迅社's 2024 onward output, which postdates the pinned release, plus ZERO-SUMコミックス light-novel adaptations. A newer release answers these at no cost. |
+| **13** | a digital single sold by the chapter. Nine are the SM百合えっちアンソロジー series, where each 【単話】 is one contributor's story out of an anthology and no volume was ever printed under that title. |
+| **8** | コミックシーモア states an ISBN and no catalogue asked holds it, which is §17's population reached from the other side. Books.or.jp holds them. |
+| **8** | a 小冊子, the booklet given away with a volume. It is not a commercial publication, it has no ISBN, and `identity.fold` deliberately does not fold it onto the work it accompanies. |
+| **3** | the title matched and the join was refused. `Memories` is the refusal working: 大友克洋's MEMORIES and a 1991 大陸書房 book share the folded title and neither is the work. The other two are anthologies MADB credits to nobody. |
+| **2** | an anthology with two dozen contributors and no MADB record under the title. |

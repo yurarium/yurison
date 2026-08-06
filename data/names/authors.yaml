@@ -9013,20 +9013,20 @@ names:
     verified: true
   伊勢海老ボイル:
     basis: romaji
-    furigana_spans:
-    - - 伊勢海老
-      - いせえび
-    - - ボイル
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イセエビ ボイル
+    reading: イセエビボイル
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: イセエビ ボイル
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: ヤンマガWeb
+    reading_source_kind: platform
+    reading_url: https://yanmaga.jp/comics/authors/da2fdfe46360d2d555e96b14ea0826f4
+    verified: true
   伊実:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -9497,11 +9497,16 @@ names:
       on pen names and coinages
     reading: コウサイ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: コウサイ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: ヤンマガWeb
+    reading_source_kind: platform
+    reading_url: https://yanmaga.jp/comics/authors/747240b865970738bd79d754e64b1a94
+    verified: true
   光莉:
     basis: romaji
     furigana_spans:
@@ -12629,20 +12634,20 @@ names:
     verified: true
   宇藤あかり:
     basis: romaji
-    furigana_spans:
-    - - 宇藤
-      - うとう
-    - - あかり
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウトウ アカリ
+    reading: ウドウアカリ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ウトウ アカリ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: ヤンマガWeb
+    reading_source_kind: platform
+    reading_url: https://yanmaga.jp/comics/authors/ab98e06795e9503b3ce831cadf2a6048
+    verified: true
   宇野ジニア:
     basis: romaji
     furigana_spans:
@@ -14443,20 +14448,20 @@ names:
     verified: true
   広瀬海斗:
     basis: romaji
-    furigana_spans:
-    - - 広瀬
-      - ひろせ
-    - - 海斗
-      - かいと
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒロセ カイト
+    reading: ヒロセカイト
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ヒロセ カイト
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: ヤンマガWeb
+    reading_source_kind: platform
+    reading_url: https://yanmaga.jp/comics/authors/8fc199c61b5ec0b00b74e772faa597fe
+    verified: true
   庄司ひろのり:
     basis: romaji
     furigana_spans:
@@ -21270,20 +21275,20 @@ names:
     verified: true
   登坂いさ:
     basis: romaji
-    furigana_spans:
-    - - 登坂
-      - とはん
-    - - いさ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トハン イ サ
+    reading: トサカイサ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: トハン イ サ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: ヤンマガWeb
+    reading_source_kind: platform
+    reading_url: https://yanmaga.jp/comics/authors/750690dc7ebbf3bdb2b368801018e82b
+    verified: true
   白井もも吉:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -24772,22 +24777,20 @@ names:
     verified: false
   藪木英李那:
     basis: romaji
-    furigana_spans:
-    - - 藪木
-      - やぶき
-    - - 英
-      - たけし
-    - - 李那
-      - りな
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヤブキ タケシ リナ
+    reading: ヤブキエリナ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ヤブキ タケシ リナ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: ヤンマガWeb
+    reading_source_kind: platform
+    reading_url: https://yanmaga.jp/comics/authors/0686cb9ffe1a1d1a1cf78d4d70cc8586
+    verified: true
   蘇募ロウ:
     basis: romaji
     en: Soborou
@@ -24932,20 +24935,20 @@ names:
     verified: true
   袴田だるま:
     basis: romaji
-    furigana_spans:
-    - - 袴田
-      - はかまだ
-    - - だるま
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハカマダ ダルマ
+    reading: ハカマダダルマ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ハカマダ ダルマ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: ヤンマガWeb
+    reading_source_kind: platform
+    reading_url: https://yanmaga.jp/comics/authors/b97a4efca29c80083d7c7a0ac75814a7
+    verified: true
   袴田めら:
     basis: romaji
     en: Mera Hakamada
@@ -26375,20 +26378,20 @@ names:
     verified: true
   阿尾手屋:
     basis: romaji
-    furigana_spans:
-    - - 阿尾
-      - あお
-    - - 手屋
-      - たや
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アオ タヤ
+    reading: アオタヤ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: アオ タヤ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: ヤンマガWeb
+    reading_source_kind: platform
+    reading_url: https://yanmaga.jp/comics/authors/e973bf4046e65eeb64ab4dc1c6bff8ef
+    verified: true
   阿東 里枝:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -27902,20 +27905,20 @@ names:
     verified: false
   黒井真白:
     basis: romaji
-    furigana_spans:
-    - - 黒井
-      - くろい
-    - - 真白
-      - まっしろ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クロイ マッシロ
-    reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading: クロイマシロ
+    reading_at: '2026-08-06'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: クロイ マッシロ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: ヤンマガWeb
+    reading_source_kind: platform
+    reading_url: https://yanmaga.jp/comics/authors/fce37d399ff94da3f5d9f4c74e859cb3
+    verified: true
   黒木翔:
     basis: romaji
     furigana_spans:

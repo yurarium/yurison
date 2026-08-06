@@ -35952,3 +35952,120 @@ authors:
     reading_note: >-
       MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       '人魚心中' (心交社). It agrees with the reading already held, which no source had stated.
+
+  # ── readings ヤンマガWeb prints under its own bylines, 2026-08-06 ──────────────────────
+  #
+  # NAMES-PLAN §4a measured 278 cached pages for furigana over a byline and found none, and
+  # that is right about the page a chapter is read on. ヤンマガWeb keeps an author page per
+  # artist and prints the reading under the name there. Every GigaViewer site was checked and
+  # none of them has such a page, so this is one platform's nine artists and not a route.
+  #
+  # Four of the nine correct the guess. 宇藤あかり is ウドウ and not ウトウ, 黒井真白 is マシロ
+  # and not マッシロ, 登坂いさ is トサカ and not トハン, and 藪木英李那 is エリナ rather than
+  # the three elements an analyser found in 英李那.
+  #
+  # Written by adapters/names/platform_reading.py
+  "伊勢海老ボイル":
+    reading: "イセエビボイル"
+    reading_basis: stated
+    reading_source_kind: platform
+    source: "ヤンマガWeb"
+    source_kind: platform
+    source_url: https://yanmaga.jp/comics/authors/da2fdfe46360d2d555e96b14ea0826f4
+    reviewed: '2026-08-06'
+    reading_note: >-
+      ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
+      and the work is published on it. It agrees with the reading already held, which no source
+      had stated.
+  "光彩":
+    reading: "コウサイ"
+    reading_basis: stated
+    reading_source_kind: platform
+    source: "ヤンマガWeb"
+    source_kind: platform
+    source_url: https://yanmaga.jp/comics/authors/747240b865970738bd79d754e64b1a94
+    reviewed: '2026-08-06'
+    reading_note: >-
+      ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
+      and the work is published on it. It agrees with the reading already held, which no source
+      had stated.
+  "宇藤あかり":
+    reading: "ウドウアカリ"
+    reading_basis: stated
+    reading_source_kind: platform
+    source: "ヤンマガWeb"
+    source_kind: platform
+    source_url: https://yanmaga.jp/comics/authors/ab98e06795e9503b3ce831cadf2a6048
+    reviewed: '2026-08-06'
+    reading_note: >-
+      ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
+      and the work is published on it. It replaces 'ウトウ アカリ', which no source had stated.
+  "広瀬海斗":
+    reading: "ヒロセカイト"
+    reading_basis: stated
+    reading_source_kind: platform
+    source: "ヤンマガWeb"
+    source_kind: platform
+    source_url: https://yanmaga.jp/comics/authors/8fc199c61b5ec0b00b74e772faa597fe
+    reviewed: '2026-08-06'
+    reading_note: >-
+      ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
+      and the work is published on it. It agrees with the reading already held, which no source
+      had stated.
+  "登坂いさ":
+    reading: "トサカイサ"
+    reading_basis: stated
+    reading_source_kind: platform
+    source: "ヤンマガWeb"
+    source_kind: platform
+    source_url: https://yanmaga.jp/comics/authors/750690dc7ebbf3bdb2b368801018e82b
+    reviewed: '2026-08-06'
+    reading_note: >-
+      ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
+      and the work is published on it. It replaces 'トハン イ サ', which no source had stated.
+  "藪木英李那":
+    reading: "ヤブキエリナ"
+    reading_basis: stated
+    reading_source_kind: platform
+    source: "ヤンマガWeb"
+    source_kind: platform
+    source_url: https://yanmaga.jp/comics/authors/0686cb9ffe1a1d1a1cf78d4d70cc8586
+    reviewed: '2026-08-06'
+    reading_note: >-
+      ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
+      and the work is published on it. It replaces 'ヤブキ タケシ リナ', which no source had stated.
+  "袴田だるま":
+    reading: "ハカマダダルマ"
+    reading_basis: stated
+    reading_source_kind: platform
+    source: "ヤンマガWeb"
+    source_kind: platform
+    source_url: https://yanmaga.jp/comics/authors/b97a4efca29c80083d7c7a0ac75814a7
+    reviewed: '2026-08-06'
+    reading_note: >-
+      ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
+      and the work is published on it. It agrees with the reading already held, which no source
+      had stated.
+  "阿尾手屋":
+    reading: "アオタヤ"
+    reading_basis: stated
+    reading_source_kind: platform
+    source: "ヤンマガWeb"
+    source_kind: platform
+    source_url: https://yanmaga.jp/comics/authors/e973bf4046e65eeb64ab4dc1c6bff8ef
+    reviewed: '2026-08-06'
+    reading_note: >-
+      ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
+      and the work is published on it. It agrees with the reading already held, which no source
+      had stated.
+  "黒井真白":
+    reading: "クロイマシロ"
+    reading_basis: stated
+    reading_source_kind: platform
+    source: "ヤンマガWeb"
+    source_kind: platform
+    source_url: https://yanmaga.jp/comics/authors/fce37d399ff94da3f5d9f4c74e859cb3
+    reviewed: '2026-08-06'
+    reading_note: >-
+      ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
+      and the work is published on it. It replaces 'クロイ マッシロ', which no source had stated.

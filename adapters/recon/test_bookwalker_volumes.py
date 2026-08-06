@@ -268,6 +268,18 @@ def main(s):
     s.eq(b, "chapter-serial", "sold by the chapter, so there is no volume and no print edition")
     s.eq("更新" in note, True, "and the note names the date the shop does state, to rule it out")
 
+    # ONE DEFINITION OF WHAT A TERM MEANS. build.py writes the same explanation onto a work record,
+    # where the capture's imprint counts are not to hand, so the sentence has to come from here
+    # rather than be typed out a second time.
+    s.eq(note.startswith(bv.BASIS_NOTE["chapter-serial"]), True,
+         "the note a capture writes opens with the term's own definition")
+    s.eq(bv.date_basis(corpus[0], stats)[1].startswith(bv.BASIS_NOTE["no-print-edition"]), True,
+         "and so does the one that then adds which imprint decided it")
+    s.eq(sorted(bv.VENUE_TYPE) == sorted(k for k in bv.BASIS_NOTE if k != "no-date-attested"), True,
+         "every basis a capture can return has both a venue type and a definition")
+    s.eq("no-date-attested" in bv.BASIS_NOTE, True,
+         "including the one no capture returns, which build.py needs for a source that said nothing")
+
     # THE COUNTER-CASE THAT WOULD HAVE CONDEMNED THE WHOLE SHELF. Every page on this site carries
     # BW_R18_BASE_URL in its head. A designation test run over the markup rather than over the
     # stated fields excludes all 2,438 rows and reports the shelf as pornography.
@@ -428,6 +440,83 @@ def main(s):
     s.eq(bv.work_row({"shop_id": "1", "url": "https://bookwalker.jp/series/1/"}, [],
                      None, True)["first_publication_venue"], None,
          "a work nobody read has no venue either: absence is a state, not a default")
+
+    # THE SERIES THE SHELF NEVER LINKED. A row captured at one volume has a first publication drawn
+    # from a sample of one, so the question is which rows still have a series page to open.
+    held = {
+        "one-volume-of-a-series": {"series_read": False, "store": "単行本",
+                                   "volumes": [{"uuid": "u1", "series_id": "555"}]},
+        "already-read": {"series_read": True, "store": "単行本",
+                         "volumes": [{"uuid": "u2", "series_id": "556"}]},
+        "standalone": {"series_read": False, "store": "単行本",
+                       "volumes": [{"uuid": "u3", "series_id": None}]},
+        "chapter-serial": {"series_read": False, "store": "話・連載", "volumes": []},
+        "read-at-three": {"series_read": False, "store": "単行本",
+                          "volumes": [{"uuid": "u4", "series_id": "557"},
+                                      {"uuid": "u5", "series_id": "557"},
+                                      {"uuid": "u6", "series_id": "557"}]},
+        "two-series-named": {"series_read": False, "store": "単行本",
+                             "volumes": [{"uuid": "u7", "series_id": "558"},
+                                         {"uuid": "u8", "series_id": "559"}]},
+    }
+    got = bv.series_to_follow(held)
+    s.eq(("one-volume-of-a-series", "555") in got, True,
+         "a row read at one volume that names a series is work outstanding")
+    s.eq(("already-read", "556") in got, False, "a series already read is not asked for twice")
+    s.eq(any(k == "standalone" for k, _ in got), False,
+         "a volume naming no series is the shop answering, not the shop staying silent")
+    s.eq(any(k == "chapter-serial" for k, _ in got), False,
+         "and a 話・連載 work has no volume list to go and read")
+    # THE COUNTER-CASE. Depth is not the test. A row read at three volumes whose series page nobody
+    # opened may still be missing the fourth, and dropping it because it looks deep enough is how
+    # the fault got here in the first place.
+    s.eq(("read-at-three", "557") in got, True,
+         "a row read at several volumes is still unread as a series")
+    s.eq(any(k == "two-series-named" for k, _ in got), False,
+         "volumes disagreeing about which series they belong to is a question, never a fetch")
+    s.eq(got, sorted(got), "the list is ordered, so a capped pass resumes where it stopped")
+    s.eq(len(got), 2, "and it holds only the rows with something left to read")
+
+    # A SERIES LISTING IS PAGINATED AND THIS MODULE READ PAGE ONE. Six captured rows hold exactly
+    # 60 volumes and nothing holds between 39 and 60, which is a page size showing through as a
+    # property of the shelf. 付き合ってあげてもいいかな【単話】 was recorded at 60 against 133.
+    s.eq(bv.SERIES_PAGE, 60, "the page size is stated rather than left as a magic number")
+    s.eq(bv.series_list_url("188653"), "https://bookwalker.jp/series/188653/list/",
+         "page one is the bare listing path, which is the URL the shelf capture stores")
+    s.eq(bv.series_list_url("188653", 3),
+         "https://bookwalker.jp/series/188653/list/?order=release&qser=188653&page=3",
+         "and a later page copies the pager's own query rather than inventing one")
+    s.eq(bv.another_page(60, 1), True, "a full page may not be the last one")
+    s.eq(bv.another_page(59, 1), False, "a short page is the shop saying there is no more")
+    s.eq(bv.another_page(0, 1), False, "and an empty one certainly is")
+    s.eq(bv.another_page(60, bv.MAX_SERIES_PAGES), False,
+         "with a stop, so a pager that never ends cannot spend a whole run on one series")
+
+    # ROWS READ BEFORE THE PAGER EXISTED ARE ASKED AGAIN, and only those. `pages_read` is what
+    # tells a row cut at 60 from a series that genuinely holds 60, so a row that has been read
+    # whole is never asked a third time.
+    cut = {"188653": {"series_read": True, "store": "単行本", "pages_read": None,
+                      "url": "https://bookwalker.jp/series/188653/",
+                      "volumes": [{"uuid": f"u{i}"} for i in range(60)]},
+           "188654": {"series_read": True, "store": "単行本", "pages_read": 2,
+                      "url": "https://bookwalker.jp/series/188654/",
+                      "volumes": [{"uuid": f"v{i}"} for i in range(60)]},
+           "188655": {"series_read": True, "store": "単行本", "pages_read": None,
+                      "url": "https://bookwalker.jp/series/188655/",
+                      "volumes": [{"uuid": f"w{i}"} for i in range(59)]}}
+    again = dict(bv.series_to_follow(cut))
+    s.eq(again.get("188653"), "188653", "a row sitting exactly on the page size is re-read")
+    s.eq("188654" in again, False, "a row whose pages were counted is not re-read")
+    s.eq("188655" in again, False, "and a row that never reached a page boundary was never cut")
+
+    # DAMAGE BEFORE DISCOVERY. A truncated row states a first publication chosen from a truncated
+    # list, so a capped pass repairs it before it goes looking for series nobody has opened.
+    mixed = dict(cut)
+    mixed["000000"] = {"series_read": False, "store": "単行本",
+                       "url": "https://bookwalker.jp/de000/",
+                       "volumes": [{"uuid": "x", "series_id": "999999"}]}
+    s.eq(bv.series_to_follow(mixed)[0][0], "188653",
+         "the row cut at a page boundary is asked first, before the one nobody has read")
 
 
 if __name__ == "__main__":

@@ -643,6 +643,35 @@ def budget_undated_cmoa_candidates(ctx):
     return _undated_retailer_rows("data/queue/cmoa-volumes.yaml", "cmoa.jp")
 
 
+def budget_bookwalker_series_unread(ctx):
+    """BOOK☆WALKER rows whose series listing nobody has read to the end.
+
+    THIS IS A DATING MEASURE AND NOT A TIDINESS ONE. `first_publication` for these rows is the
+    earliest 底本発行日 across the volumes the capture read, so a work read at one volume has its
+    first publication chosen from a sample of one, and a work read at 60 of 133 from a truncated
+    one. The count is too low in a way anybody can see; the date is wrong in a way nobody can.
+
+    It counts two things that both mean the same request. 1,175 rows were captured from a
+    `/de<uuid>/` link the shelf gave, so their series page was never opened at all, and 931 of them
+    name a series id nothing followed. A further handful were read at exactly the listing's page
+    size, before this module knew the listing paginates.
+
+    `adapters/recon/bookwalker_volumes.py --follow-series` works through them and the number
+    reaches zero when it finishes, because every row here has a series id to fetch. Rows naming no
+    series are not counted: the shop states none for a standalone volume, which is an answer.
+    """
+    import yaml as _yaml
+
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        from recon import bookwalker_volumes as _bv
+        doc = _yaml.safe_load((ROOT / "data/queue/bookwalker-volumes.yaml").read_text()) or {}
+    except Exception:                                                       # noqa: BLE001
+        return 0
+    works = {str(w["shop_id"]): w for w in (doc.get("works") or []) if w.get("shop_id")}
+    return len(_bv.series_to_follow(works))
+
+
 def _retailer_rows(cap, shop, field):
     """Admitted rows for one shop that no capture has given `field` a value for.
 
@@ -722,6 +751,12 @@ BUDGETS_DEF = [
      "adapters/recon/bookwalker_volumes.py works through the queue, and reaches zero when it "
      "finishes. The date is deliberately not what is counted: 1,500 of these titles are "
      "digital-only, have no print edition anywhere, and are complete records without one."),
+    ("bookwalker series unread", budget_bookwalker_series_unread,
+     "BOOK☆WALKER rows whose series listing has not been read to the end, so their volume list "
+     "and the first publication drawn from it rest on whichever volumes were fetched. The shelf "
+     "linked one volume for 1,175 of them and this module read only page one of a paginated "
+     "listing for a few more. Falls as adapters/recon/bookwalker_volumes.py --follow-series works "
+     "through them, and reaches zero, because every row counted here names a series to fetch."),
     ("undated cmoa candidates", budget_undated_cmoa_candidates,
      "the same count for the コミックシーモア half of the queue, falling as adapters/cmoa_volumes.py "
      "works through it. Its floor is high and known: cmoa states an ISBN or an 出版年月 only where "

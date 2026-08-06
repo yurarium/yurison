@@ -258,7 +258,7 @@ def undated_publication(base):
     it, so refusing an undated work would be the database asserting that something it can see does
     not exist, on the strength of a field the source does not hold.
 
-    THE VENUE IS NOT PART OF THE ABSENCE. This wrote `venue: None` on every undated work and so
+    AN UNDATED WORK STILL SAYS WHERE. This wrote `venue: None` on every one of them and so
     contradicted §6 in the branch whose comment cites it: WHERE is exactly what an undated work
     most needs to carry, and 1,209 records went out with it empty while every one of their source
     records stated a publisher.
@@ -1462,8 +1462,8 @@ def main():
             # and the shape; the count here ratchets down as dates are found.
             w["first_publication"] = undated_publication(base)
             undated_works += 1
-            _b = w["first_publication"]["date_basis"]
-            undated_by_basis[_b] = undated_by_basis.get(_b, 0) + 1
+            _undated_basis = w["first_publication"]["date_basis"]
+            undated_by_basis[_undated_basis] = undated_by_basis.get(_undated_basis, 0) + 1
 
         # Classification. marketing_label is mechanical; content_tier is never automated (§6).
         for axis in ("marketing_label", "content_tier"):
@@ -4142,8 +4142,8 @@ def main():
         # WHICH SILENCE, because a total says how far there is to go and nothing about how to get
         # there. `no-print-edition` is finished work and will never fall; `no-date-attested` is
         # the one nobody has an answer for and is what a later pass should be aimed at.
-        for _b, _n in sorted(undated_by_basis.items(), key=lambda kv: -kv[1]):
-            print(f"    {_n:5}  {_b}")
+        for _basis_name, _basis_n in sorted(undated_by_basis.items(), key=lambda kv: -kv[1]):
+            print(f"    {_basis_n:5}  {_basis_name}")
     print(f"series index    : {len(series_rows)} (work, platform) rows across "
           f"{len({k[0] for k in series})} works — {dict(_st)}"
           f"{f'  [{_out_of_scope} out-of-scope rows dropped]' if _out_of_scope else ''}")

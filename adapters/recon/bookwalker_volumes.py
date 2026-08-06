@@ -58,6 +58,42 @@ VENUE_TYPE = {
     "no-volumes-found": None,
 }
 
+# WHAT EACH TERM MEANS, WITHOUT THE CAPTURE'S OWN NUMBERS IN IT. `date_basis` below states the
+# same sentence and then adds which imprint and how many volumes decided it, and build.py states
+# it for a work record where those counts are not to hand.
+#
+# ONE DEFINITION, TWO RESOLUTIONS, and that is the reason this is a constant rather than prose in
+# two files. A term whose meaning is written out wherever it is displayed drifts, and the reader
+# who meets it in `data/source/` and again in `data/queue/` is entitled to the same sentence.
+BASIS_NOTE = {
+    "print-base-edition":
+        "The earliest 底本発行日 across the work's volumes, which is the publication date of the "
+        "print edition the file was made from. A serialised work appeared in a magazine before "
+        "its tankōbon and this shop never mentions the magazine, so this is the earliest "
+        "publication the shop attests rather than the work's first.",
+    "chapter-serial":
+        "Sold by the chapter on the shop's 話・連載 store. There are no volumes and no print "
+        "edition, and the only date the shop states is 更新, the day the latest chapter went up, "
+        "which is the most recent publication rather than the first.",
+    "no-print-edition":
+        "Digital-only. The shop states 底本発行日 on none of the volumes it holds under this "
+        "imprint, so there is no print edition for it to carry a publication date. The absence is "
+        "the format rather than a gap in the shop's record.",
+    "no-print-date-stated":
+        "The shop states no 底本発行日 for this work, and the imprint does state one elsewhere, "
+        "so the imprint being digital-only does not account for it. Whether a print edition "
+        "exists is unresolved.",
+    "print-edition-unknown":
+        "The shop states no 底本発行日 for this work, and the shop holds too few volumes under "
+        "the imprint to tell a digital-only label from a silence. Undecided rather than negative.",
+    "no-volumes-found":
+        "The series page listed nothing this capture could read. Nobody has an answer about this "
+        "work yet, which is not the same as the shop having none.",
+    "no-date-attested":
+        "No source consulted states a publication date, and none of them says why. Recorded "
+        "undated rather than dated by inference.",
+}
+
 # WHY JP IS ASSERTED, AND THE CASE IT WOULD GET WRONG. Every row here is a Japanese-language book
 # from a Japanese publisher on a Japanese store, which is evidence about where it was published
 # rather than proof. §6 puts a Korean webtoon localised to a Japanese platform OUT of scope, and
@@ -318,37 +354,25 @@ def date_basis(row, stats):
     digital-only products from a printing house, and they land here. The label says what is known,
     which is that the imprint's own record does not account for the silence.
     """
+    def said(basis, detail=""):
+        return basis, (BASIS_NOTE[basis] + (f" {detail}" if detail else ""))
+
     if row.get("store") == "話・連載":
-        return ("chapter-serial",
-                "Sold by the chapter on the shop's 話・連載 store. There are no volumes and no "
-                "print edition, and the only date the shop states is 更新, the day the latest "
-                "chapter went up, which is the most recent publication rather than the first.")
+        return said("chapter-serial")
     if row["first_publication_date"]:
-        return ("print-base-edition",
-                "The earliest 底本発行日 across the work's volumes, which is the publication date "
-                "of the print edition the file was made from. A serialised work appeared in a "
-                "magazine before its tankōbon and this shop never mentions the magazine, so this "
-                "is the earliest publication the shop attests rather than the work's first.")
+        return said("print-base-edition")
     if not (row.get("volumes") or []):
-        return ("no-volumes-found",
-                "The series page listed nothing this capture could read. Nobody has an answer "
-                "about this work yet, which is not the same as the shop having none.")
+        return said("no-volumes-found")
     k = imprint_key((row.get("volumes") or [{}])[0]) or imprint_key(row)
     read, dated = stats.get(k, (0, 0))
     if read >= MIN_IMPRINT_VOLUMES and dated == 0:
-        return ("no-print-edition",
-                f"Digital-only. The shop states 底本発行日 on none of the {read} volumes it holds "
-                f"under {k}, so there is no print edition for it to carry a publication date. The "
-                f"absence is the format rather than a gap in the shop's record.")
+        return said("no-print-edition", f"The imprint is {k} and the capture read {read} volumes "
+                                        f"under it, dating none.")
     if dated:
-        return ("no-print-date-stated",
-                f"The shop states no 底本発行日 for this work, and {k} does state one on {dated} "
-                f"of its {read} volumes elsewhere, so the imprint being digital-only does not "
-                f"account for it. Whether a print edition exists is unresolved.")
-    return ("print-edition-unknown",
-            f"The shop states no 底本発行日 for this work, and it holds too few volumes under {k} "
-            f"({read}) to tell a digital-only imprint from a silence. Undecided rather than "
-            f"negative.")
+        return said("no-print-date-stated", f"The imprint is {k}, which states one on {dated} of "
+                                            f"its {read} volumes elsewhere.")
+    return said("print-edition-unknown", f"The imprint is {k} and the capture has read {read} "
+                                         f"volumes under it.")
 
 
 def healthy(asked, usable):
@@ -409,7 +433,7 @@ def exclusion(vol):
     return None
 
 
-def work_row(row, volumes, completed=None, series_read=False, serial=None):
+def work_row(row, volumes, completed=None, series_read=False, serial=None, pages_read=None):
     """One admitted work as this capture leaves it: its volumes and what they settle.
 
     `volumes` is every volume this pass read for the work. The order is the shop's on the series
@@ -437,6 +461,10 @@ def work_row(row, volumes, completed=None, series_read=False, serial=None):
         "id_kind": "series" if "/series/" in row["url"] else "detail",
         "store": "話・連載" if serial else "単行本",
         "series_read": series_read,
+        # HOW MANY LISTING PAGES WERE READ, so a row captured before the pager existed can be told
+        # from one read whole. Absent means page one only, and `series_to_follow` asks again where
+        # the count sits on a page boundary.
+        "pages_read": pages_read,
         "volumes_found": len(vols),
         "chapters": (serial or {}).get("chapters"),
         "last_updated": (serial or {}).get("updated"),
@@ -460,6 +488,100 @@ def work_row(row, volumes, completed=None, series_read=False, serial=None):
         "shop_genre": (serial or {}).get("genre"),
         "volumes": vols,
     }
+
+
+# A SERIES LISTING IS PAGINATED AND THIS MODULE READ PAGE ONE. 60 rows to a page, which is the
+# number `recon/bookwalker_shelf.py` already passes to its own pager for the same listings, so the
+# fact was in the repository and one of the two readers of it did not have it.
+#
+# HOW IT LOOKED WHILE IT WAS WRONG, because that is the part worth keeping. The rows were
+# well-formed, every declared field was present, and the works came back with 60 volumes each.
+# Six rows in the capture hold exactly 60 and nothing at all holds between 39 and 60, which is a
+# page size showing through as a property of the shelf. 付き合ってあげてもいいかな【単話】 was
+# recorded at 60 against 133 elsewhere and read as a long series rather than as a truncation.
+#
+# WHAT IT COST BEYOND THE COUNT. `first_publication` is the earliest 底本発行日 across the volumes
+# read, so a work cut at page one has its first publication chosen from the first 60 the shop
+# happens to sort first. The shop sorts by release, so the damage is bounded here, and bounded is
+# not the same as absent.
+SERIES_PAGE = 60
+# A guard against a pager that never terminates, not a statement about how long a series can be.
+# 20 pages is 1,200 volumes and the longest thing on this shelf is 133.
+MAX_SERIES_PAGES = 20
+
+
+def series_list_url(series_id, page=1):
+    """The shop's listing URL for one page of a series.
+
+    Page one is the bare `/list/` path, which is the URL the shelf capture stores and the one a
+    reader is given. The pager writes its own query, and copying its form rather than inventing a
+    `?page=` on the bare path is what keeps this reading the same listing the shop shows.
+    """
+    base = f"https://bookwalker.jp/series/{series_id}/list/"
+    return base if page <= 1 else f"{base}?order=release&qser={series_id}&page={page}"
+
+
+def another_page(rows_read, pages_read):
+    """Whether a series listing may continue past the page just read.
+
+    THE STOP IS A SHORT PAGE, not a number parsed out of the pager. A pager states the two or
+    three pages around the current one rather than the last, so reading a total off it means
+    trusting a window to name an end it does not know. A page holding fewer rows than the page
+    size is the shop saying there is no more, and it cannot be misread.
+
+    The counter-case that makes this cost something: a series whose length is an exact multiple of
+    60 costs one extra request to find that out. Six rows in the whole capture are in that
+    position and the alternative is being wrong about them.
+    """
+    return rows_read >= SERIES_PAGE and pages_read < MAX_SERIES_PAGES
+
+
+def series_to_follow(works):
+    """`[(shop_id, series_id)]` for captured rows whose series page nobody has read.
+
+    THE SHELF DECIDED WHICH PAGE THIS CAPTURE ASKED FOR, AND FOR 1,175 ROWS IT NAMED A VOLUME.
+    Where the admitted row's URL is a `/de<uuid>/` detail link, the pass fetched that one volume
+    and marked the work done, so the work stands in the file with one volume whether it has one or
+    eight. 吸血鬼の花嫁 is recorded here with one and another source states eight;
+    付き合ってあげてもいいかな【単話】 with 60 against 133.
+
+    WHY THAT IS A DATING FAULT AND NOT ONLY A COUNTING ONE. `first_publication` takes the earliest
+    印刷 date across the volumes read, and a work read at one volume has an earliest date drawn
+    from a sample of one. If the volume the shelf happened to link is not the first, the date on
+    the row is a later volume's and is stated as the work's first publication. A count that is too
+    low is visible; a date that belongs to volume 4 is not.
+
+    THE ANSWER WAS ALREADY IN THE FILE. A volume page's information table names the series the
+    volume belongs to, `volume()` has always read it into `series_id`, and 931 of these rows carry
+    one that nothing ever followed. So this costs no discovery, only the fetches.
+
+    Rows with no `series_id` are not returned and are not a gap in this list: the shop states none
+    for a standalone volume, which is it answering rather than staying silent.
+
+    THE SECOND CLASS IS A SERIES READ WITHOUT ITS PAGER, AND IT COMES FIRST. Rows captured before
+    `another_page` existed stopped at 60 volumes and were marked read, so they carry no
+    `pages_read` and a volume count sitting exactly on the page size. A capped pass repairs those
+    before it goes looking for new ones: a truncated row is damage already in the file and states a
+    first publication chosen from a truncated list, while an unread series is only work not yet
+    done. A row that really does hold a multiple of 60 volumes pays one request once and then
+    carries `pages_read`, so it is never asked a third time.
+    """
+    cut, unread = [], []
+    for sid in sorted(works):
+        w = works[sid]
+        if w.get("store") == "話・連載":
+            continue
+        vols = w.get("volumes") or []
+        named = {v.get("series_id") for v in vols if v.get("series_id")}
+        series_id = (sid if "/series/" in (w.get("url") or "")
+                     else (list(named)[0] if len(named) == 1 else None))
+        if not series_id:
+            continue
+        if not w.get("series_read"):
+            unread.append((sid, series_id))
+        elif w.get("pages_read") is None and len(vols) and len(vols) % SERIES_PAGE == 0:
+            cut.append((sid, series_id))
+    return cut + unread
 
 
 # ---------------------------------------------------------------------------------------------
@@ -590,7 +712,8 @@ def _write(path, state):
         r = works[sid]
         basis, note = date_basis(r, stats)
         L.append(f"  - shop_id: {js(r['shop_id'])}")
-        for k in ("url", "id_kind", "store", "series_read", "volumes_found", "chapters",
+        for k in ("url", "id_kind", "store", "series_read", "pages_read",
+                  "volumes_found", "chapters",
                   "last_updated", "completed", "dates_stated", "isbns_stated",
                   "imprint", "publisher", "authors", "shop_genre"):
             L.append(f"    {k}: {js(r.get(k))}")
@@ -663,7 +786,7 @@ def _read(path, admitted):
                   if w.get("store") == "話・連載" else None)
         blank["works"][str(w["shop_id"])] = work_row(
             {"shop_id": w["shop_id"], "url": w["url"]}, w.get("volumes") or [],
-            w.get("completed"), w.get("series_read"), serial)
+            w.get("completed"), w.get("series_read"), serial, w.get("pages_read"))
     return blank
 
 
@@ -689,6 +812,9 @@ def main(argv=None):
     ap.add_argument("--max-fetches", type=int, default=200,
                     help="requests this pass. The capture resumes, so a cap is a budget and "
                          "never a truncation.")
+    ap.add_argument("--follow-series", action="store_true",
+                    help="after the outstanding rows, open the series page of every captured row "
+                         "that names one and was only ever read at a single volume")
     ap.add_argument("--spread", action="store_true",
                     help="walk the outstanding rows evenly across the queue instead of from the "
                          "front. The queue is sorted by title, and a capped pass down it measures "
@@ -697,6 +823,7 @@ def main(argv=None):
 
     q = yaml.safe_load(pathlib.Path(a.queue).read_text())
     rows = [w for w in q["works"] if w.get("shop") == "bookwalker.jp"]
+    titles = {str(r["shop_id"]): r.get("title") for r in rows}
     st = _read(a.out, len(rows))
     todo = [r for r in rows if str(r["shop_id"]) not in st["works"]]
     if a.spread:
@@ -752,6 +879,32 @@ def main(argv=None):
         n = parsed + unparsed
         return n >= MIN_SAMPLE and not healthy(n, parsed)[0]
 
+    def series_listing(series_id):
+        """A series' whole volume list, as `(uuids, pages, first_page_html)`.
+
+        ONE READER FOR ONE LISTING. Both phases below ask this rather than fetching a page each,
+        because a listing read two ways is a listing that can be paginated in one of them, which
+        is exactly how the truncation above got in.
+        """
+        nonlocal fetched
+        uuids, pages, first = [], 0, None
+        while True:
+            page_html = get(series_list_url(series_id, pages + 1))
+            fetched += 1
+            pages += 1
+            time.sleep(a.pause)
+            if first is None:
+                first = page_html
+            rows = [r["id"] for r in shelf.parse_listing(page_html)
+                    if r["id_kind"] == "detail" and r["id"]]
+            fresh = [u for u in rows if u not in uuids]
+            uuids += fresh
+            # A page repeating what the last one held is a pager that has run past the end and is
+            # serving the last page again. Stopping on new rows rather than on any rows means that
+            # cannot loop.
+            if not fresh or not another_page(len(rows), pages):
+                return uuids, pages, first
+
     stopped = None
     for row in todo:
         if fetched >= a.max_fetches:
@@ -762,16 +915,13 @@ def main(argv=None):
             break
         sid = str(row["shop_id"])
         vols, completed, series_read, listed, serial = [], None, False, 0, None
+        pages_read = None
         try:
             if "/series/" in row["url"]:
-                page = get(f"https://bookwalker.jp/series/{sid}/list/")
-                fetched += 1
-                time.sleep(a.pause)
+                uuids, pages_read, page = series_listing(sid)
                 series_read = True
                 completed = (bookwalker.status(page, row["title"])
                              or bookwalker.status_from_list(page, row["title"]))
-                uuids = [r["id"] for r in shelf.parse_listing(page)
-                         if r["id_kind"] == "detail" and r["id"]]
                 if not uuids:
                     # No volume list. Either the 話・連載 store, whose template this is, or a
                     # series page that changed shape. `warensai` tells those apart by whether the
@@ -814,9 +964,71 @@ def main(argv=None):
                 st["excluded"][r] = st["excluded"].get(r, 0) + 1
             print(f"  {sid}: excluded, {len(reasons)} reason(s)")
             continue
-        st["works"][sid] = work_row(row, vols, completed, series_read, serial)
+        st["works"][sid] = work_row(row, vols, completed, series_read, serial, pages_read)
         # Checkpointed per work rather than at the end, so an interrupted pass loses one work.
         _write(a.out, st)
+
+    # SECOND PHASE: the series a captured row names and nobody opened. `series_to_follow` says why
+    # this is a dating fault rather than a counting one. It runs after the outstanding rows so a
+    # capped pass finishes discovering the shelf before it goes back to deepen it, and it shares
+    # this pass's budget and floor so the two cannot together outrun either.
+    followed = deepened = 0
+    if not stopped and a.follow_series:
+        pending = series_to_follow(st["works"])
+        print(f"{len(pending)} captured row(s) name a series nobody has read")
+        for sid, series_id in pending:
+            if fetched >= a.max_fetches or thin():
+                stopped = "budget" if fetched >= a.max_fetches else "thin"
+                break
+            held = {v.get("uuid"): v for v in st["works"][sid]["volumes"] if v.get("uuid")}
+            try:
+                uuids, pages_read, page = series_listing(series_id)
+                if not uuids:
+                    # The series id came off a volume page, so a list page with nothing on it is
+                    # the template having moved or the series having gone. Left unmarked, which
+                    # means the next pass asks again, rather than written as a one-volume work
+                    # confirmed.
+                    print(f"  {sid}: series {series_id} listed no volumes; left for the next pass")
+                    continue
+                extra = [u for u in uuids if u not in held]
+                if len(uuids) + 1 - len(held) > a.max_fetches - fetched:
+                    # A SERIES IS READ WHOLE OR NOT AT ALL, the same rule the first phase follows.
+                    # Reading six volumes of nine and marking the row `series_read` would settle
+                    # the count and the date on a partial list and never come back to it.
+                    stopped = "budget"
+                    break
+                vols = list(held.values())
+                for u in extra:
+                    v = volume_page(u)
+                    if v:
+                        vols.append(v)
+            except Exception as e:                                        # noqa: BLE001
+                print(f"  {sid}: {type(e).__name__}; left for the next pass")
+                continue
+            if stopped:
+                break
+            reasons = {r for r in (exclusion(v) for v in vols) if r}
+            if reasons:
+                # A volume the shelf never linked can carry a designation the linked one did not,
+                # and the work leaves on it. The row is dropped from the capture rather than left
+                # standing on the volume that looked clean (DEFINITIONS §7).
+                for r in sorted(reasons):
+                    st["excluded"][r] = st["excluded"].get(r, 0) + 1
+                del st["works"][sid]
+                print(f"  {sid}: excluded on a volume the shelf did not link")
+                _write(a.out, st)
+                continue
+            before = len(held)
+            wrow = {"shop_id": sid, "url": st["works"][sid]["url"]}
+            # The title is the shelf's, from admitted.yaml. `work_row` does not carry one, and
+            # `bookwalker.status` wants it to tell a completion tag about THIS series from one
+            # about a title the page also mentions.
+            completed = (bookwalker.status(page, titles.get(sid) or "")
+                         or bookwalker.status_from_list(page, titles.get(sid) or ""))
+            st["works"][sid] = work_row(wrow, vols, completed, True, None, pages_read)
+            followed += 1
+            deepened += 1 if len(vols) > before else 0
+            _write(a.out, st)
 
     ok, got, asked = healthy(parsed + unparsed, parsed)
     print(f"HEALTH: {got} of {asked} volume page(s) stated a title")
@@ -836,6 +1048,12 @@ def main(argv=None):
     print(f"{len(st['works'])} works captured ({dated} with a first publication date, "
           f"{len(st['works']) - dated} without), {fetched} requests this pass, "
           f"{sum(st['excluded'].values())} excluded, {left} rows left -> {a.out}")
+    if a.follow_series:
+        # Both numbers, because they answer different questions. `followed` is how much of the
+        # backlog this pass cleared; `deepened` is how many of those really were longer than the
+        # shelf's one volume, which is the measure of what the fault was worth fixing.
+        print(f"series followed : {followed}, of which {deepened} held volumes the shelf never "
+              f"linked; {len(series_to_follow(st['works']))} still to read")
     return 0
 
 

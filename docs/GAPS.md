@@ -528,3 +528,30 @@ series and are standalone.
 
 This bears on dating more than on counting. `adapters/recon/bookwalker_volumes.py` already has the
 series-reading path, so the 931 are reachable; nothing has followed them yet.
+
+### The listing was paginated and this module read page one (found 2026-08-06)
+
+Following the 931 turned up a fault underneath them, and it is the worse of the two because it was
+invisible. `/series/<id>/list/` serves 60 rows to a page and links the next, and
+`bookwalker_volumes.py` read the first page and stopped. `recon/bookwalker_shelf.py` passes 60 to
+its own pager for the same listings, so the page size was already written down in this repository
+and one of the two readers of it did not have it.
+
+Nothing looked wrong. The rows were well-formed, every declared field was present, and the works
+came back holding 60 volumes. What gave it away was the shape of the distribution: six rows sit at
+exactly 60 and nothing at all sits between 39 and 60, which is a page size showing through as a
+property of the shelf. 付き合ってあげてもいいかな【単話】 read as a 60-volume series and holds 133.
+
+The date pays for it as well as the count. `first_publication` is the earliest 底本発行日 across
+the volumes read, so a work cut at page one has its first publication chosen from whichever 60 the
+shop sorted first.
+
+**What settled it.** One reader for one listing, walking pages until a short page says there is no
+more. A pager states the two or three pages around the current one rather than the last, so reading
+a total off it means trusting a window to name an end it does not know; a short page cannot be
+misread. Rows carry `pages_read`, which is what tells a row cut at 60 from a series that genuinely
+holds 60, and a capped pass repairs those before it goes looking for series nobody has opened.
+
+**`bookwalker series unread` is the budget**, counting both classes, and it reaches zero because
+every row it counts names a series to fetch. The follow is one request per series plus one per
+volume the shelf never linked, so it is a long resumable job rather than a hard one.

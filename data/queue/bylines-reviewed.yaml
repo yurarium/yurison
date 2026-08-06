@@ -231,6 +231,43 @@ print_works:
       files as `SIS`. data/queue/identity-review.yaml holds those two as a lead with no person in
       common to compare; they now have eight, so that lead is settled rather than left open.
 
+  # ── the five whose credit was made of separators ────────────────────────────────────────
+  # `" / "` is what `" / ".join(authors)` produces from an empty list, and it is not empty, so
+  # every count of works crediting nobody walked past these. コミックシーモア files the volume
+  # under `アンソロジー` and names each contributor on the 単話 it sells separately, which is
+  # where these came from: one row per story, each naming its own artist.
+  - work_id: madb-t-f9b5d65adf4f
+    work_title: "ワンナイト百合アンソロジー"
+    author: "るべ / 北斗すい / FLOWERCHILD / 雛原えみ / こずみっく / Dormicum / 川浪いずみ / ししにご"
+    url: "https://www.cmoa.jp/search/result/?header_word=%E3%83%AF%E3%83%B3%E3%83%8A%E3%82%A4%E3%83%88%E7%99%BE%E5%90%88%E3%82%A2%E3%83%B3%E3%82%BD%E3%83%AD%E3%82%B8%E3%83%BC"
+    note: >-
+      コミックシーモア sells each story of this anthology as its own 単話 and credits it there, so
+      the line-up is eight rows rather than one field. The volume itself it files under
+      アンソロジー, which names nobody.
+
+  - work_id: madb-t-be5cc2b8bfa4
+    work_title: "甘やかし百合えっちアンソロジー"
+    author: "結野ちり / 葵季むつみ / ぴかち / しのぎあさ / 三本ひより / せきはら / 生肉"
+    url: "https://www.cmoa.jp/search/result/?header_word=%E7%94%98%E3%82%84%E3%81%8B%E3%81%97%E7%99%BE%E5%90%88%E3%81%88%E3%81%A3%E3%81%A1%E3%82%A2%E3%83%B3%E3%82%BD%E3%83%AD%E3%82%B8%E3%83%BC"
+    note: >-
+      Same route as ワンナイト: one 単話 row per story, each naming its artist.
+
+  - work_id: madb-t-749adc50976e
+    work_title: "絶対に主従が逆転する百合えっちアンソロジー"
+    author: "伊月クロ / あおと響 / あきらんぬ / ねこころね / 優しい内臓 / 工藤える / ちやほ"
+    url: "https://www.cmoa.jp/search/result/?header_word=%E7%B5%B6%E5%AF%BE%E3%81%AB%E4%B8%BB%E5%BE%93%E3%81%8C%E9%80%86%E8%BB%A2%E3%81%99%E3%82%8B%E7%99%BE%E5%90%88%E3%81%88%E3%81%A3%E3%81%A1%E3%82%A2%E3%83%B3%E3%82%BD%E3%83%AD%E3%82%B8%E3%83%BC"
+    note: >-
+      Same route again.
+
+  - work_id: madb-t-251e3e5e8c18
+    work_title: "私たちの恋が花開くとき"
+    author: "鴉ぴえろ / ミズユ / 池中織奈 / パデラポッロのりお / 緋色の雨 / 山東ユカ / 岡崎マサムネ / 東385 / まえばる蒔乃 / ぽぽ田んぽぽ"
+    url: "https://www.cmoa.jp/search/result/?header_word=%E7%A7%81%E3%81%9F%E3%81%A1%E3%81%AE%E6%81%8B%E3%81%8C%E8%8A%B1%E9%96%8B%E3%81%8F%E3%81%A8%E3%81%8D"
+    note: >-
+      コミックシーモア carries the whole line-up on the volume's own row here, under the full title
+      私たちの恋が花開くとき 異世界恋愛百合アンソロジーコミック. 竹書房's バンブーコミックス BCf
+      rather than a 百合姫 book, which is why the shop credits it differently from its neighbours.
+
 unresolved:
   - work_title: "プリンセ「ス」"
     url: "https://www.123hon.com/nova/web-comic/princess/"
@@ -264,3 +301,12 @@ unresolved:
     note: >-
       No source states the line-up. ISBN 9784758070140, 2007, and the oldest of the three. Same
       three places searched, same answer.
+
+  - work_id: madb-t-152d10214034
+    work_title: "Yrhm百合姫20thアンソロジー"
+    url: "https://www.cmoa.jp/search/result/?header_word=%E7%99%BE%E5%90%88%E5%A7%AB20th%E3%82%A2%E3%83%B3%E3%82%BD%E3%83%AD%E3%82%B8%E3%83%BC"
+    note: >-
+      No source names the line-up. コミックシーモア carries the volume and files it under
+      アンソロジー, and unlike its three neighbours it sells no 単話, so there is no per-story row
+      to read a contributor off. Searched: コミックシーモア for the volume and for 単話 under the
+      title, and 一迅社's own book database, which does not carry it.

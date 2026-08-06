@@ -113,7 +113,7 @@
    "name": "captures with no floor",
    "means": "adapters that fetch from a host, write into data/source, and have nothing to refuse on. A host serving nonsense replaces the last good capture and reports success. adapters/ledger.py reports the damage afterwards; a floor prevents it.",
    "budget": 11,
-   "value": 13
+   "value": 11
   },
   {
    "name": "unreadable bookwalker rows",
@@ -130,8 +130,8 @@
   {
    "name": "bookwalker listings unconfirmed",
    "means": "BOOK☆WALKER rows whose series listing was read before the reader compared what it read against the shop's own 全N件. Until 2026-08-06 the last row of a listing swallowed the markup printed underneath it and was identified by the related-series link in there, so it was dropped; a listing is sorted newest first, so the row dropped is the OLDEST volume and `first_publication` is the earliest date across the volumes read. Falls as adapters/recon/bookwalker_volumes.py --follow-series re-reads them, and reaches zero, because every row counted here names a series to fetch.",
-   "budget": 1073,
-   "value": 1797
+   "budget": 1629,
+   "value": 1621
   },
   {
    "name": "undated cmoa candidates",

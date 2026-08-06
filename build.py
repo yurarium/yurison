@@ -22,6 +22,7 @@ import checkstate  # noqa: E402
 import identity  # noqa: E402
 import importdates  # noqa: E402
 from names import openbd_reading  # noqa: E402
+import bylines as _bylines  # noqa: E402
 from recon import bookwalker_volumes  # noqa: E402
 
 # REQUIREMENTS §1. A field whose provenance is not here fails the build.
@@ -1401,7 +1402,11 @@ def main():
         w = {
             "work_id": wid,
             "title": base["title"],
-            "creator": base.get("creator", "") or byline_credit.get(wid, ""),
+            # `or` is not enough: a BOOK☆WALKER row whose authors list is empty comes through as
+            # " / ", which is truthy and names nobody. See adapters/bylines.credited.
+            "creator": (base.get("creator", "")
+                        if _bylines.credited(base.get("creator", "")) else "")
+                       or byline_credit.get(wid, ""),
             "publisher": base.get("publisher", ""),
             "imprint": base.get("imprint", ""),
             "volume_count": base.get("volume_count", 0),

@@ -173,6 +173,13 @@ def main(s):
     s.eq(bylines.groups_among(["編集長"]), [],
          "and a word merely containing 編集 is not one")
 
+    # A CREDIT MADE ONLY OF SEPARATORS NAMES NOBODY, and five works were in that state while
+    # every count of "credited to nobody" walked past them: `" / ".strip()` is truthy.
+    s.eq(bylines.credited(" / "), False, "a shop row with an empty authors list credits nobody")
+    s.eq(bylines.credited(""), False, "and neither does an empty one")
+    s.eq(bylines.credited("缶乃"), True, "a name is a credit")
+    s.eq(bylines.credited("A / B"), True, "and so are two")
+
     # THE SECOND RUN ERASED THE FIRST. The corpus reads this pass's output, so a work it settled
     # is credited to somebody on the next run, drops out of the queue, and is written out of the
     # file, which unsettles it. Both halves of the oscillation report a clean run.

@@ -162,3 +162,14 @@ finished pass. Settled is final, so restarting costs nothing.
 
 It settles TITLES. The keywords field names the author and does not state the author's reading, so
 it does nothing for the 486 names still outstanding.
+
+## A credit made only of separators
+
+Five works read `creator: " / "`, which is what `" / ".join(authors)` produces from an empty list.
+It is not empty, so every count of works crediting nobody walked past them and the byline pass
+never queued them. `adapters/bylines.credited` is the test now, and build.py uses it before falling
+back, so a shop row with no authors in it is treated as the silence it is.
+
+Four of the five were then settled off コミックシーモア, which files each anthology volume under
+`アンソロジー` and names the artist on every 単話 it sells separately: one row per story. The
+fifth, Yrhm百合姫20thアンソロジー, sells no 単話 and stays unresolved.

@@ -339,6 +339,18 @@ def shelf_credits(rows, title_key, want, shop="cmoa.jp"):
     return out
 
 
+# A CREDIT MADE ONLY OF SEPARATORS NAMES NOBODY. bwingest writes `" / ".join(authors)`, and a shop
+# row whose authors list is `["", ""]` comes out as `" / "`, which is not empty and is not a name.
+# Five works were in that state and every count of "credited to nobody" walked past them, because
+# the test everywhere was `.strip()`.
+NOTHING_BUT_SEPARATORS = re.compile(r"^[\s/／、,・]*$")
+
+
+def credited(credit):
+    """Whether a credit line names anybody at all."""
+    return not NOTHING_BUT_SEPARATORS.match(credit or "")
+
+
 def outstanding(items, credit, ident, claimed):
     """What this pass must answer for: what the corpus credits to nobody, plus what it already did.
 
@@ -350,7 +362,7 @@ def outstanding(items, credit, ident, claimed):
     also means a page that changes its byline is followed rather than frozen.
     """
     return [i for i in items
-            if not (credit(i) or "").strip() or ident(i) in claimed]
+            if not credited(credit(i)) or ident(i) in claimed]
 
 
 def groups_among(names):

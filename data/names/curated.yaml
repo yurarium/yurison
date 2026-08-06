@@ -580,13 +580,15 @@ titles:
     reviewed: '2026-08-03'
     source: yurarium
     source_kind: derived
-  ばっどがーる:
-    basis: translated
-    en: Bad Girl
-    note: English written in hiragana; the English is recovery.
-    reviewed: '2026-08-03'
-    source: yurarium
-    source_kind: derived
+  "ばっどがーる":
+    en: "Bad Girl"
+    basis: "licensed"
+    source: "yenpress.com"
+    source_kind: "licensor"
+    source_url: "https://yenpress.com/series/bad-girl"
+    reviewed: '2026-08-06'
+    note: >-
+      Yen Press publishes the work under this name, credited to Nikumaru, which is 肉丸. The English was already right here, hiragana English recovered, and this replaces our recovery with the licensor's own so the attribution matches what it is. The catalogue prints no Japanese title, so the identification rests on the creator and on the synopsis, which is the first-year Yuu and the head of the disciplinary committee.
   ひきこまり吸血姫の悶々:
     basis: translated
     en: The Vexations of a Shut-In Vampire Princess
@@ -11861,6 +11863,818 @@ titles:
     reviewed: '2026-08-06'
     note: >-
       The book's own English title. openBD carries the publisher's registration for 9784046822277 with the title 「ラストサマー・バケーション = LAST SUMMER VACATION」, pairing the Japanese with LAST SUMMER VACATION, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "心の声が漏れやすいメイドさん【単話版】":
+    en: "The Maid Whose Thoughts Slip Out (single chapters)"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      心の声 is the inner voice and 漏れやすい is prone to leaking, so the title names a maid who cannot keep what she is thinking to herself. 【単話版】 is the edition sold a chapter at a time; the shop lists it apart from the collected volumes, so the English says so too.
+
+  "付き合ってあげてもいいかな【単話】":
+    en: "How Do We Relationship? (single chapters)"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      The same work as 付き合ってあげてもいいかな, which Viz Media publishes as How Do We Relationship?. The licensed name carries over; only 【単話】, the chapter-at-a-time edition, is added here, which is why this is filed as ours and the collected row is filed as licensed.
+
+  "男だけど死神姫の嫁になりました（仮）【単話版】":
+    en: "I'm a Man, but I've Become the Reaper Princess's Bride (working title) (single chapters)"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      死神姫 is the reaper princess and （仮） is the note a publisher puts beside a title that has not been settled, which the work keeps as part of its own name. 【単話版】 is the chapter-at-a-time edition.
+
+  "[カラー版]くちびるピアニシモ～放課後の天使たち":
+    en: "Lips Pianissimo: The After-School Angels (colour edition)"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      くちびる is lips and ピアニシモ is the musical pianissimo, kept because the Italian is the borrowing the Japanese made. 放課後の天使たち is the angels of after school. [カラー版] is the colourised edition.
+
+  "ゆりぜん～サロン白百合のあったか薬膳ごはん":
+    en: "Yurizen: Warming Medicinal Cooking at Salon Shirayuri"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      ゆりぜん folds 百合 into 薬膳, the Chinese medicinal cuisine the salon serves, and no English word does both, so the coinage stays and the subtitle explains it. 白百合 is the salon's name and reads as a name, so it is left as Shirayuri instead of being turned into White Lily.
+
+  "リバティ":
+    en: "Liberty"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      Katakana English, so the English is recovery and not interpretation.
+
+  "リバティ【合本版】":
+    en: "Liberty (omnibus)"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      The same work as リバティ. 【合本版】 is the collected edition, several volumes bound as one.
+
+  "放課後":
+    en: "After School"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      Two characters meaning the time after lessons end. Nothing in the phrase is doing anything but naming that.
+
+  "ガレット":
+    en: "Galette"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      French for the flat cake, borrowed into Japanese as the name of this yuri magazine and printed in Latin on its covers. No source states that spelling in a place this project can cite, so it is recorded as ours.
+
+  "ガレットmeets":
+    en: "Galette meets"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      A spin-off title from the same magazine, and half of it is already Latin.
+
+  "君めく夜に焦がれて":
+    en: "Longing for a Night That Feels Like You"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      君めく is a coinage on the suffix めく, which turns a noun into looking or feeling like the thing, so 君めく夜 is a night that has become you. 焦がれて is to burn for something.
+
+  "メガネさんシリーズ":
+    en: "The Miss Glasses Series"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      メガネさん is the character, named for her glasses in the way a nickname works, and シリーズ is the shop's label for the set.
+
+  "創作百合漫画":
+    en: "Original Yuri Comics"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      創作 marks a work as the artist's own invention as against a doujinshi drawn on somebody else's characters, which is the distinction the title is making.
+
+  "English -英語翻訳シリーズ-":
+    en: "English: The English Translation Series"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      The Japanese half names what the series is, a set of the artist's works translated into English. The first word is already the English title.
+
+  "中国語翻訳シリーズ":
+    en: "The Chinese Translation Series"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      The same artist's works translated into Chinese, which is what the title says and all it says.
+
+  "もっと半熟女子":
+    en: "More Soft-Boiled Girls"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      半熟 is soft-boiled, and 半熟女子 sits one character away from 熟女, a mature woman, so the Japanese is holding both. English keeps the egg and loses the second reading, which no rendering recovers. もっと marks this as the further volume of 半熟女子.
+
+  "愛していいのは、カラダだけ":
+    en: "The Only Thing You May Love Is the Body"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      愛していい is being permitted to love, and the comma leaves the permission hanging before だけ narrows it to the body. Writing カラダ in katakana holds the word at arm's length, which English cannot mark and the sentence carries anyway.
+
+  "空色メランコリック":
+    en: "Sky-Blue Melancholic"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      空色 is the colour of the sky as a colour name, and メランコリック is the English word borrowed whole.
+
+  "空色メランコリック【合本版】":
+    en: "Sky-Blue Melancholic (omnibus)"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      The same work as 空色メランコリック, in the collected edition.
+
+  "どうやら私の身体は完全無敵のようですね":
+    en: "It Seems My Body Is Completely Invincible"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      どうやら…ようですね is the speaker working something out about herself and reporting it politely, which the English keeps by starting with It seems. 完全無敵 is invincible without qualification.
+
+  "彼女のくちづけ感染するリビドー":
+    en: "Her Kiss, an Infectious Libido"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      Two noun phrases set side by side with no particle between them, so the English uses a comma where the Japanese uses nothing. 感染する is to be caught in the way an illness is.
+
+  "となりの席の地味な奴":
+    en: "The Plain One in the Next Seat"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      地味 is unshowy in the sense of drawing no attention, and 奴 is a blunt way to refer to a person, which the English carries in One instead of a nicer word.
+
+  "マザーグール":
+    en: "Mother Ghoul"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      A coinage one sound away from マザーグース, Mother Goose, and English holds the same pair, so the joke survives translation intact.
+
+  "ちょっといっぱい！":
+    en: "Just the One!"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      ちょっと一杯 is what you say when proposing a quick drink, and いっぱい written in kana is also a lot of something, so the invitation contains its own contradiction. English keeps the understatement and lets the exclamation mark do the rest.
+
+  "ガールズラブ・オブ・ザ・デッド":
+    en: "Girls Love of the Dead"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      Katakana English throughout, built on the Of the Dead of zombie films.
+
+  "友達以上、推し未満～アイドルオタク、推し似の美少女に言い寄られています":
+    en: "More Than a Friend, Less Than a Fave: An Idol Otaku Is Being Courted by a Girl Who Looks Like Her Fave"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      友達以上、恋人未満 is the set phrase for a relationship past friendship and short of romance, and the title swaps 恋人 for 推し, the performer a fan supports. English has no single word for 推し that a reader would recognise, so fave is used and the subtitle spells the situation out as the Japanese does.
+
+  "森永みるく＆袴田めら百合合同誌":
+    en: "Milk Morinaga & Mera Hakamada: A Joint Yuri Zine"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      合同誌 is a book two or more artists put out together, self-published. Milk Morinaga is the rendering the artist's English-language releases use, so it is kept over a mechanical Morinaga Miruku.
+
+  "騎士系彼女":
+    en: "My Knight-Type Girlfriend"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      系 attaches to a noun to make a type or a style of person, the way 草食系 works, so 騎士系 is a girlfriend of the knightly sort rather than an actual knight.
+
+  "あみちゃんの日記":
+    en: "Ami-chan's Diary"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      A name and a diary. ちゃん stays because it is doing work an English diminutive would not.
+
+  "オフィスに百合は咲きません":
+    en: "No Lilies Bloom in the Office"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      The pun is available in English: 百合 is both the flower and the genre, and lilies carry the same double meaning to a reader of this catalogue.
+
+  "保健室のあの女":
+    en: "That Woman in the Nurse's Office"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      保健室 is the school sick room, staffed by a nurse. あの女 is pointed in a way she is not supposed to hear, which That Woman keeps.
+
+  "落花流水":
+    en: "Falling Blossoms, Flowing Water"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      A four-character idiom for a love that is returned: the blossom falls wanting the stream, the stream carries it wanting the blossom. The image is what the title is for, so it is kept and the meaning is left to the story.
+
+  "赤ずきんに食べられた狼":
+    en: "The Wolf Who Was Eaten by Little Red Riding Hood"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      赤ずきん is the Japanese name of the fairy tale and its heroine, and the title turns the ending round.
+
+  "魔女と使い魔":
+    en: "The Witch and Her Familiar"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      使い魔 is the familiar of Western witchcraft, borrowed as a compound of use and demon.
+
+  "大親友":
+    en: "Best Friends"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      大 intensifies 親友, a close friend, so the pair are as close as the word goes.
+
+  "女子更衣室":
+    en: "The Girls' Changing Room"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      The sign on the door, and the title is the room.
+
+  "ロボットJSにスキはありません！！":
+    en: "The Robot Schoolgirl Leaves No Opening!!"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      JS is 女子小学生, a primary-school girl. スキ is a gap in a guard, and written in kana it is one letter from 好き, so the title reads both as no weakness and as no feelings. English takes the guard reading, which is the one the exclamation marks are for.
+
+  "シナジー":
+    en: "Synergy"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      Katakana English.
+
+  "恋愛ショートアンソロジーコミック":
+    en: "The Short Romance Anthology Comic"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      恋愛 is romance and the rest is the shop's description of the format, borrowed from English already.
+
+  "まんがの作り方":
+    en: "How to Make Manga"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      作り方 is the how-to formula, the same one that titles a recipe.
+
+  "ふわふわ・ふたしか・夢みたい":
+    en: "Fluffy, Uncertain, Dreamlike"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      Three descriptions separated by the interpunct, each a different register: an onomatopoeia, an adjective and a comparison. English keeps the list and the commas do the separating.
+
+  "高嶺の花とふつうの子":
+    en: "The Flower on the High Peak and the Ordinary Girl"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      高嶺の花 is the idiom for someone out of reach, and it is a flower, which matters in a yuri title. Keeping the image keeps the pairing the title is built on.
+
+  "初恋の不一致":
+    en: "First Love, Out of Step"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      不一致 is a failure of two things to match. The English puts the mismatch after the comma because the Japanese noun phrase has no verb to hang it on.
+
+  "花唄メモワール":
+    en: "Flower Song Memoir"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      花唄 is a song about flowers and is read hanauta, which is also 鼻歌, humming to oneself. The written characters choose the flower, so the English follows them.
+
+  "魔法少女三十路":
+    en: "Magical Girl, Thirty"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      三十路 is the road of thirty, the decade rather than the birthday, and the joke is that the genre's heroine is normally fourteen.
+
+  "黒百合短編集":
+    en: "Black Lily: A Short Story Collection"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      黒百合 is the kuroyuri, a real flower of the northern mountains, and it puts a colour on the genre's own name. 短編集 is a collection of short pieces.
+
+  "なかよし おねえさんたち":
+    en: "The Big Sisters Who Get Along"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      なかよし is the state of being on good terms, the word a child's magazine is named for. おねえさん is an older woman addressed as an older sister without being one.
+
+  "ゆるゆり　小冊子":
+    en: "YuruYuri: The Booklet"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-08-06'
+    note: >-
+      The booklet issued alongside ゆるゆり, which this catalogue already holds under the romanisation its English release used. 小冊子 is a slim bound extra.
+
+  "私の女神が今日も推せる ～これからも、いつまでも～":
+    en: "My Goddess is Precious Today, Too"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/my-goddess-is-precious-today-too/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 私の女神が今日も推せる ~これからも、いつまでも~. That is the name an English reader meets the work under.
+
+  "乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった… : 絶体絶命! 破滅寸前編":
+    en: "My Next Life as a Villainess Side Story: On the Verge of Doom! (Manga)"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/my-next-life-as-a-villainess-side-story-on-the-verge-of-doom-manga/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった… 絶体絶命! 破滅寸前編. That is the name an English reader meets the work under.
+
+  "私の可愛い子猫ちゃん":
+    en: "My Cute Little Kitten"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/my-cute-little-kitten/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 私の可愛い子猫ちゃん. That is the name an English reader meets the work under.
+
+  "屋上の百合霊さん":
+    en: "Kindred Spirits on the Roof"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/kindred-spirits-on-the-roof/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 屋上の百合霊さん. That is the name an English reader meets the work under.
+
+  "魔女が恋する5秒前":
+    en: "5 Seconds Before a Witch Falls in Love"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/5-seconds-before-a-witch-falls-in-love/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 魔女が恋する5秒前. That is the name an English reader meets the work under.
+
+  "学園ポリーチェ":
+    en: "Gakuen Polizi"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/gakuen-polizi/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 学園ポリーチェ. That is the name an English reader meets the work under.
+
+  "わたし、二番目の彼女でいいから。":
+    en: "I’m Fine With Being the Second Girlfriend"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/im-fine-with-being-the-second-girlfriend/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as わたし、二番目の彼女でいいから。. That is the name an English reader meets the work under. Carried on Ghost Ship, the licensor's adult line, which is recorded because DEFINITIONS §7 counts an adult imprint as evidence and nothing here decides that question.
+
+  "ご主人様には吸わせません!":
+    en: "I Won’t Let Mistress Suck My Blood"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/i-wont-let-mistress-suck-my-blood/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as ご主人様には吸わせません！. That is the name an English reader meets the work under.
+
+  "一度だけでも、後悔してます。":
+    en: "I Can’t Believe I Slept With You!"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/i-cant-believe-i-slept-with-you/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 一度だけでも、後悔してます。. That is the name an English reader meets the work under.
+
+  "お姫様のひみつ":
+    en: "Secret of the Princess"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/secret-of-the-princess/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as お姫様のひみつ. That is the name an English reader meets the work under.
+
+  "ノス&ザクロ":
+    en: "Noss and Zakuro"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/noss-and-zakuro/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as ノス＆ザクロ. That is the name an English reader meets the work under.
+
+  "まちカドまぞく":
+    en: "The Demon Girl Next Door"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/the-demon-girl-next-door/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as まちカドまぞく. That is the name an English reader meets the work under.
+
+  "最後の制服":
+    en: "The Last Uniform"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/the-last-uniform/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 最後の制服. That is the name an English reader meets the work under.
+
+  "乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった…":
+    en: "My Next Life as a Villainess: All Routes Lead to Doom! (Manga)"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/my-next-life-as-a-villainess-all-routes-lead-to-doom/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった…. That is the name an English reader meets the work under.
+
+  "君に紡ぐ傍白":
+    en: "Monologue Woven For You"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/monologue-woven-for-you/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 君に紡ぐ傍白. That is the name an English reader meets the work under.
+
+  "やがて君になる　公式コミックアンソロジー":
+    en: "Bloom Into You Anthology"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/bloom-into-you-anthology/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as やがて君になる 公式コミックアンソロジー. That is the name an English reader meets the work under.
+
+  "猫とシュガーポット":
+    en: "Cats and Sugar Bowls"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/cats-and-sugar-bowls/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 猫とシュガーポット. That is the name an English reader meets the work under.
+
+  "どうしたら幼馴染の彼女になれますか！？":
+    en: "How Do I Turn My Best Friend Into My Girlfriend?"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/how-do-i-turn-my-best-friend-into-my-girlfriend/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as どうしたら幼馴染の彼女になれますか!?. That is the name an English reader meets the work under.
+
+  "はるかなレシーブ":
+    en: "Harukana Receive"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/harukana-receive/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as はるかなレシーブ. That is the name an English reader meets the work under.
+
+  "ぼっち怪物と盲目少女":
+    en: "Beauty and the Beast Girl"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/beauty-and-the-beast-girl/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as ぼっち怪物と盲目少女. That is the name an English reader meets the work under.
+
+  "おしえて！ ギャル子ちゃん":
+    en: "Please Tell Me! Galko-chan"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/please-tell-me-galko-chan/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as おしえて! ギャル子ちゃん. That is the name an English reader meets the work under.
+
+  "双子百合えっちアンソロジー":
+    en: "Double Your Pleasure – A Twin Yuri Anthology"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/double-your-pleasure-a-twin-yuri-anthology/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 双子百合えっちアンソロジー. That is the name an English reader meets the work under. Carried on Ghost Ship, the licensor's adult line, which is recorded because DEFINITIONS §7 counts an adult imprint as evidence and nothing here decides that question.
+
+  "やがて君になる":
+    en: "Bloom Into You"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/bloom-into-you/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as やがて君になる. That is the name an English reader meets the work under.
+
+  "異世界でも風俗嬢やってみた【単話版】":
+    en: "Call Girl in Another World (single chapters)"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/call-girl-in-another-world/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 異世界でも風俗嬢やってみた. 【単話版】 is the edition sold a chapter at a time, which the shop lists apart from the collected volumes; the licensed name carries and only the edition is added here.
+
+  "私の可愛い子猫ちゃん【合本版】":
+    en: "My Cute Little Kitten (omnibus)"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/my-cute-little-kitten/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 私の可愛い子猫ちゃん. 【合本版】 is the collected edition, several volumes bound as one.
+
+  "MURCIELAGO":
+    en: "Murciélago"
+    basis: "licensed"
+    source: "yenpress.com"
+    source_kind: "licensor"
+    source_url: "https://yenpress.com/series/murcielago"
+    reviewed: '2026-08-06'
+    note: >-
+      Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. The page credits Yoshimurakana, which is よしむらかな, and the Japanese title carries ムルシエラゴ in the katakana beside it. Twenty-seven volumes on each side.
+
+  "MURCIÉLAGO -ムルシエラゴ-":
+    en: "Murciélago"
+    basis: "licensed"
+    source: "yenpress.com"
+    source_kind: "licensor"
+    source_url: "https://yenpress.com/series/murcielago"
+    reviewed: '2026-08-06'
+    note: >-
+      Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. The same work as the row held under MURCIELAGO. Yoshimurakana is よしむらかな, and ムルシエラゴ is the Spanish word written in katakana.
+
+  "あの娘にキスと白百合を":
+    en: "Kiss and White Lily for My Dearest Girl"
+    basis: "licensed"
+    source: "yenpress.com"
+    source_kind: "licensor"
+    source_url: "https://yenpress.com/series/kiss-and-white-lily-for-my-dearest-girl"
+    reviewed: '2026-08-06'
+    note: >-
+      Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Canno, which is 缶乃 in the author's own Latin spelling, and the English is a close rendering of the Japanese. The synopsis names Ayaka and Yurine, who are its leads.
+
+  "明るい記憶喪失":
+    en: "Cheerful Amnesia"
+    basis: "licensed"
+    source: "yenpress.com"
+    source_kind: "licensor"
+    source_url: "https://yenpress.com/series/cheerful-amnesia"
+    reviewed: '2026-08-06'
+    note: >-
+      Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Tamamushi Oku, which is 奥たまむし, and Cheerful Amnesia renders 明るい記憶喪失 word for word. The synopsis names Arisa and Mari.
+
+  "繭、纏う":
+    en: "Cocoon Entwined"
+    basis: "licensed"
+    source: "yenpress.com"
+    source_kind: "licensor"
+    source_url: "https://yenpress.com/series/cocoon-entwined"
+    reviewed: '2026-08-06'
+    note: >-
+      Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Yuriko Hara, which is 原百合子. 繭 is the cocoon and 纏う is to be wrapped in something, which is what Entwined carries.
+
+  "アウト・オブ・ザ・コクーン":
+    en: "Out of the Cocoon"
+    basis: "licensed"
+    source: "yenpress.com"
+    source_kind: "licensor"
+    source_url: "https://yenpress.com/series/out-of-the-cocoon"
+    reviewed: '2026-08-06'
+    note: >-
+      Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Yuriko Hara, 原百合子, and the Japanese title is the English one written in katakana. Yen Press describes it as an anthology of four stories, which is what this is.
+
+  "きんいろモザイク":
+    en: "Kiniro Mosaic"
+    basis: "licensed"
+    source: "yenpress.com"
+    source_kind: "licensor"
+    source_url: "https://yenpress.com/series/kiniro-mosaic"
+    reviewed: '2026-08-06'
+    note: >-
+      Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Yui Hara, which is 原悠衣. The licensor romanises rather than translating, so Kiniro stands where きんいろ, golden, does. The synopsis names Alice, Shino, Aya, Youko, Karen and Honoka.
+
+  "キリング・ミー！":
+    en: "Killing Me!"
+    basis: "licensed"
+    source: "yenpress.com"
+    source_kind: "licensor"
+    source_url: "https://yenpress.com/series/killing-me"
+    reviewed: '2026-08-06'
+    note: >-
+      Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Akiyama, which is あきやま, and the Japanese title is the English one in katakana. The synopsis names the vampire hunter Saki Fujimiya.
+
+  "100日後に咲く百合":
+    en: "Lilies Blooming in 100 Days"
+    basis: "licensed"
+    source: "yenpress.com"
+    source_kind: "licensor"
+    source_url: "https://yenpress.com/series/lilies-blooming-in-100-days-manga"
+    reviewed: '2026-08-06'
+    note: >-
+      Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Muromaki, which is ムロマキ, and the English renders the Japanese closely. Yen Press describes a full-colour collection of a hundred yuri scenes.
+
+  "みかん氏短編集　ハッピーエンドはいらない":
+    en: "I Don't Need a Happy Ending"
+    basis: "licensed"
+    source: "yenpress.com"
+    source_kind: "licensor"
+    source_url: "https://yenpress.com/series/i-don-t-need-a-happy-ending"
+    reviewed: '2026-08-06'
+    note: >-
+      Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Mikanuji, which is みかん氏. ハッピーエンドはいらない is the English title in katakana, and 短編集 says this is the short story collection Yen Press published.
+
+  "ばっどがーる画集":
+    en: "Bad Girl: The Art Book"
+    basis: "licensed"
+    source: "yenpress.com"
+    source_kind: "licensor"
+    source_url: "https://yenpress.com/series/bad-girl"
+    reviewed: '2026-08-06'
+    note: >-
+      Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Nikumaru, which is 肉丸, and this row is the 画集, the art book that goes with the series Yen Press publishes as Bad Girl. The series name is the licensor's; naming this row as its art book is ours.
+
+  "Now loading…!":
+    en: "Now Loading…!"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/now-loading/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's catalogue entry, credited to Mikanuji, which is みかん氏. The page states no Japanese title, so the identification rests on the creator and on the title being the same string with the licensor's own capitals.
+
+  "加瀬さんシリーズ":
+    en: "Kase-san and…"
+    basis: "licensed"
+    source: "sevenseasentertainment.com"
+    source_kind: "licensor"
+    source_url: "https://sevenseasentertainment.com/series/kase-san-and/"
+    reviewed: '2026-08-06'
+    note: >-
+      Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 加瀬さん. Every book in the run is 加瀬さんと plus a noun, which the licensor renders as Kase-san and… with the ellipsis standing in for whichever noun. This row is the series, which the Japanese title marks with シリーズ.
 
 authors:
   ふじい葛西:

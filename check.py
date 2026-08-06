@@ -726,6 +726,20 @@ def budget_shadowed_names(ctx):
 # name, measure, what a rise would mean. The third field exists because a bare number in a JSON
 # file tells a later reader nothing about why it matters or which way is good, and a budget nobody
 # understands is a budget that gets raised to make a build pass.
+# WHICH BUDGETS ARE ABOUT THE SOURCE RATHER THAN THE DATA.
+#
+# These count things in this repository's own Python and Markdown: the prose in its comments, the
+# shape of its sentences, whether a module has a test. None of them can change as a result of
+# deploying, and none says anything about the data being published. They ran on every deploy anyway
+# and were 7.5 of its 8.3 seconds, because they spawn linters over every file in the tree.
+#
+# They are not dropped: `--gate` runs them before a commit, which is when the source can have
+# changed, and a run that skips them says so in checks.json rather than omitting the row. A budget
+# that quietly stops being measured is the failure this project keeps meeting.
+SOURCE_BUDGETS = {"stock phrasing in comments", "three as an organising shape",
+                  "modules without a test", "shadowed names in build.py",
+                  "scraped counters in chapter names"}
+
 BUDGETS_DEF = [
     ("uncertain readings", budget_uncertain_readings,
      "readings assembled character by character because no analyser could read the word. A rise "
@@ -883,10 +897,14 @@ def main():
         else:
             print(f"  ok    {name}")
 
+    # A deploy checks the data it is deploying. The source cannot have changed since the gate ran.
+    skip_source = bool(a.runtime)
     recorded = _load(BUDGETS, {}) or {}
     print("\nbudgets (ratchet down only):")
     loosened, tightened = [], {}
     for name, fn, _why in BUDGETS_DEF:
+        if skip_source and name in SOURCE_BUDGETS:
+            continue
         n = fn(ctx)
         was = recorded.get(name)
         if was is None:
@@ -920,7 +938,12 @@ def main():
         "generated": ctx.get("generated") or "",
         "invariants": [{"name": n, "violations": len(v), "examples": [_unroot(e) for e in v[:5]]}
                        for n, v in [(n, f(ctx)) for n, f in INVARIANTS]],
-        "budgets": [{"name": n, "value": f(ctx), "budget": recorded.get(n), "means": w}
+        # A budget this run did not measure carries `value: null` and says why, so a reader can
+        # tell "nothing to report" from "not asked".
+        "budgets": [{"name": n, "means": w, "budget": recorded.get(n),
+                     "value": None if (skip_source and n in SOURCE_BUDGETS) else f(ctx),
+                     **({"not_measured": "source-quality budget; measured at check-in"}
+                        if skip_source and n in SOURCE_BUDGETS else {})}
                     for n, f, w in BUDGETS_DEF],
         "note": ("Invariants are statements that are either true or the data is broken. At runtime "
                  "a violation degrades to the fallback named in check.py and is counted here; at "

@@ -114,10 +114,71 @@ def ep_rows(data):
                 if dp and not dp.startswith("9999"):
                     row["free_until"] = dp
             out[code] = row
-    return list(out.values())
+    return drop_rotated(list(out.values()))
 
 
 _TODAY = datetime.date.today().isoformat()
+
+_NUM = re.compile(r"(?:Chapter|第|#)\s*(\d+)", re.I)
+
+
+def chapter_no(row):
+    """The chapter's own number, where its title states one."""
+    m = _NUM.search(row.get("title") or "")
+    return int(m.group(1)) if m else None
+
+
+def drop_rotated(rows):
+    """Dates that cannot be publication dates, refused.
+
+    カドコミ's `updateDate` is when the ENTRY last changed, not when the chapter came out, and it
+    moves when a chapter re-enters the free rotation. 悪いが私は百合じゃない reported chapters 1 to
+    28 of a serial that began in 2020 as updated today while its chapter 55 sat at June, so 28
+    chapters of a work whose newest is from June appeared in the feed as new, none of them readable
+    and none carrying a URL.
+
+    A serial's chapter 28 cannot be published after its chapter 55, and that contradiction sits
+    inside the work's own data. So a date later than every higher-numbered chapter's is not a
+    publication date: the chapter is recorded undated, and the timestamp is kept as `rotated_date`
+    so a later pass can tell it from a chapter nobody ever dated. Only the date goes.
+
+    A work whose chapters carry no numbers states no order, so nothing there contradicts anything.
+    """
+    numbered = [(r, chapter_no(r)) for r in rows]
+    for row, num in numbered:
+        if num is None or not row.get("updated"):
+            continue
+        later = [r.get("updated") for r, n in numbered
+                 if n is not None and n > num and r.get("updated")]
+        if later and row["updated"] > max(later):
+            row["rotated_date"] = row.pop("updated")
+    return rows
+
+
+def carry_over(path, resolved_codes):
+    """Works already in the file that this run did not resolve, so a failed fetch keeps them.
+
+    A pass keeps what it did not look at. カドコミ answered 398 of 400 works and the two that
+    returned an error were simply not written, which removed them from the corpus: a transient HTTP
+    error is a fact about a request rather than about a manga. Two curated titles stopped
+    naming works we hold that way, on a run whose only intent was to correct some dates.
+
+    Keyed on `platform_code`, which is what a work is fetched by. A work this run resolved is
+    replaced, because a fresh answer beats a stored one.
+    """
+    f = pathlib.Path(path)
+    if not f.exists():
+        return []
+    old = yaml.safe_load(f.read_text()) or {}
+    keep = []
+    for w in (old.get("works") or []):
+        if str(w.get("platform_code")) in {str(c) for c in resolved_codes}:
+            continue
+        w = dict(w, episodes=w.get("chapters") or [])
+        w.pop("chapters", None)
+        w.pop("chapter_count", None)
+        keep.append(w)
+    return keep
 
 
 def js(v):
@@ -237,6 +298,10 @@ def main():
     if len(works) < MIN_WORKS:
         sys.exit(f"HEALTH: resolved {len(works)} works (< {MIN_WORKS}). Refusing to write.")
 
+    # Everything this run did not resolve, written back unchanged. See carry_over.
+    resolved_now = len(works)
+    works += carry_over(out / "chapters.yaml", [w["platform_code"] for w in works])
+
     L = ["# カドコミ per-work episode lists. Works named by a Tier C yardstick; カドコミ attests them.",
          "# カドコミ DOES apply a 百合 tag, so marketing_label is established where present (§4).",
          "# No synopsis and no image URLs are stored (REQUIREMENTS §2).",
@@ -247,23 +312,32 @@ def main():
         for k in ("platform_code", "url", "status", "marketing_label"):
             if w.get(k):
                 L.append(f"    {k}: {js(w[k])}")
-        L.append(f"    tags: {js(w['tags'])}")
-        L.append(f"    authors: {js([x for x in w['authors'] if x])}")
-        if w["yuri_tags"]:
+        # A CARRIED-OVER WORK IS WHATEVER THE LAST RUN WROTE, not what this one builds, so every
+        # field here is optional. Reading w["yuri_tags"] directly killed the first run that carried
+        # anything, which is a mechanism added without asking what consumes it.
+        L.append(f"    tags: {js(w.get('tags') or [])}")
+        L.append(f"    authors: {js([x for x in (w.get('authors') or []) if x])}")
+        if w.get("yuri_tags"):
             L.append("    marketing_label_basis:")
             L.append("      source: kadokomi")
-            L.append(f"      url: {js(w['url'])}")
+            L.append(f"      url: {js(w.get('url') or '')}")
             L.append(f"      retrieved: {a.retrieved}")
             L.append(f"      note: {js('Publisher applies the tag ' + '/'.join(w['yuri_tags']) + ' on カドコミ.')}")
+        elif w.get("marketing_label_basis"):
+            # Carried from a run that did establish it, kept verbatim including the day it was read.
+            L.append("    marketing_label_basis:")
+            for k2 in ("source", "url", "retrieved", "note"):
+                if w["marketing_label_basis"].get(k2):
+                    L.append(f"      {k2}: {js(w['marketing_label_basis'][k2])}")
         if w.get("stated_schedule"):
             L.append("    stated_schedule:")
             for k2, v2 in sorted(w["stated_schedule"].items()):
                 L.append(f"      {k2}: {js(v2)}")
-        L.append(f"    chapter_count: {len(w['episodes'])}")
+        L.append(f"    chapter_count: {len(w.get('episodes') or [])}")
         L.append("    chapters:")
-        for e in w["episodes"]:
-            L.append(f"      - code: {js(e['code'])}")
-            L.append(f"        title: {js(e['title'])}")
+        for e in (w.get("episodes") or []):
+            L.append(f"      - code: {js(e.get('code') or '')}")
+            L.append(f"        title: {js(e.get('title') or '')}")
             if e.get("subtitle"):
                 L.append(f"        subtitle: {js(e['subtitle'])}")
             if e.get("updated"):
@@ -277,13 +351,19 @@ def main():
                 L.append(f"        opens_on: {js(e['opens_on'])}")
             if e.get("not_yet_delivered"):
                 L.append("        not_yet_delivered: true")
+            # The timestamp that was refused, kept rather than discarded: a later pass can tell a
+            # chapter nobody ever dated from one whose date was a rotation stamp.
+            if e.get("rotated_date"):
+                L.append(f"        rotated_date: {js(e['rotated_date'])}")
     L.append("")
     (out / "chapters.yaml").write_text("\n".join(L))
 
     eps = sum(len(w["episodes"]) for w in works)
     dated = sum(1 for w in works for e in w["episodes"] if e.get("updated"))
     print(f"works targeted : {len(codes)}")
-    print(f"works resolved : {len(works)}  ({tagged} carry a publisher yuri tag)")
+    print(f"works resolved : {resolved_now}  ({tagged} carry a publisher yuri tag)")
+    if len(works) > resolved_now:
+        print(f"carried over   : {len(works) - resolved_now} not reached this run, kept as they were")
     print(f"episodes       : {eps}  ({dated} dated)")
     if failed:
         print(f"failed         : {len(failed)}")

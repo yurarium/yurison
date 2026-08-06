@@ -483,3 +483,7 @@ What remains: `titles.json` states titles, and a title is not an identifier. The
 it under two spellings are folded by each consumer to its own rule, which is right for the callers
 above and would not be right for a caller asking about a specific work. That one should ask
 `data/identity/works.yaml` for an id.
+
+Two more works show a romanisation as of 2026-08-06, taking the budget to 290. They are
+転生王女と天才令嬢の魔法革命 【タテスク】 and 雨。のち、晴れ！, which a カドコミ run had deleted by
+not carrying over the works it failed to fetch. They are back, and works that exist need names.

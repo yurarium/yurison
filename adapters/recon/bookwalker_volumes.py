@@ -864,9 +864,17 @@ def _read(path, admitted):
                    "imprint": w.get("imprint"), "publisher": w.get("publisher"),
                    "authors": w.get("authors"), "genre": w.get("shop_genre")}
                   if w.get("store") == "話・連載" else None)
+        # WHAT IS NOT DERIVABLE FROM THE VOLUMES HAS TO BE CARRIED, and every one of these is a
+        # fact about the READING rather than about the books: whether the listing was opened, how
+        # many pages of it were read, how many volumes the shop said there were, and the shop's
+        # completion tag. `volumes_stated` was missing from this call for one commit, so a pass
+        # confirmed 774 rows, wrote them correctly, and the next pass read them back as
+        # unconfirmed. The round trip is asserted in `test_bookwalker_volumes.py` now, because a
+        # field list kept in step by hand is the thing that failed twice.
         blank["works"][str(w["shop_id"])] = work_row(
             {"shop_id": w["shop_id"], "url": w["url"]}, w.get("volumes") or [],
-            w.get("completed"), w.get("series_read"), serial, w.get("pages_read"))
+            w.get("completed"), w.get("series_read"), serial, w.get("pages_read"),
+            w.get("volumes_stated"))
     return blank
 
 
@@ -1064,12 +1072,14 @@ def main(argv=None):
     # this pass's budget and floor so the two cannot together outrun either.
     followed = deepened = 0
     if not stopped and a.follow_series:
-        # Damage before discovery, which is the order `series_to_follow` already applies within
-        # itself. A row whose listing was never checked against the shop's own count states a
-        # first publication chosen from a list that may be missing its first volume, and that is
-        # already in the file; a series nobody has opened is only work not yet done.
+        # THE FINITE LIST FIRST, AND THAT IS THE WHOLE OF THE REASON. Both lists are damage already
+        # in the file rather than work not yet done, so "damage before discovery" does not choose
+        # between them; `series_to_follow` still applies it within itself. What does choose is that
+        # one list is 16 rows and reaches zero in half a minute while the other is 1,879 and takes
+        # hours. Run the long one first and a capped pass never reaches the short one, so its
+        # budget sits at the same number pass after pass and reads as a pass doing nothing.
         pending, seen = [], set()
-        for job in series_unconfirmed(st["works"]) + series_to_follow(st["works"]):
+        for job in series_to_follow(st["works"]) + series_unconfirmed(st["works"]):
             # A row cut at a page boundary is also a row nobody confirmed, and one listing is one
             # request however many reasons there are to make it.
             if job[0] not in seen:

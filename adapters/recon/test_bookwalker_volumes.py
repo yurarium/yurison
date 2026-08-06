@@ -2,6 +2,7 @@
 """bookwalker_volumes.py: what a shop states about a volume, and what it must not be read as."""
 import pathlib
 import sys
+import tempfile
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
@@ -564,14 +565,32 @@ def main(s):
     # shop's own count was dropped on the way to disk. The repair pass then re-read the same 1,879
     # rows every run, finished each one, and left the file saying none had been read. No fetch
     # failed and no volume was wrong; the number simply never moved (STANDING-INSTRUCTIONS §4).
-    produced = set(bv.work_row({"shop_id": "1", "url": "https://bookwalker.jp/series/1/"},
-                               [{"uuid": "a", "printed": "2020-01", "publisher": "P",
-                                 "imprint": "I", "title": "T"}],
-                               "completed", True, None, 1, 3))
+    row = bv.work_row({"shop_id": "1", "url": "https://bookwalker.jp/series/1/"},
+                      [{"uuid": "a", "printed": "2020-01", "publisher": "P",
+                        "imprint": "I", "title": "T"}],
+                      "completed", True, None, 1, 3)
+    produced = set(row)
     s.eq(sorted(produced - set(bv.ROW_SCALARS) - set(bv.ROW_SHAPED)), [],
          "every field a row carries is one the file writes")
     s.eq(sorted((set(bv.ROW_SCALARS) | set(bv.ROW_SHAPED)) - produced), [],
          "and every field the file writes is one a row carries")
+
+    # AND THE ROUND TRIP, WHICH IS THE ONE THAT WOULD HAVE CAUGHT BOTH. `_read` re-derives every
+    # row through `work_row` on the way in, deliberately, so the summary is provably a function of
+    # the volumes. What that cannot re-derive is the facts about the READING: whether the listing
+    # was opened, how many pages of it were read, what the shop said the count was, and the
+    # completion tag. `volumes_stated` was left out of the write list and then out of the read
+    # call, and each time a pass confirmed hundreds of rows, wrote them correctly, and read them
+    # back as though nothing had happened.
+    with tempfile.TemporaryDirectory() as d:
+        path = pathlib.Path(d) / "capture.yaml"
+        bv._write(path, {"retrieved": "2026-08-06", "admitted": 1, "works": {"1": row},
+                         "excluded": {}, "fetches": {}})
+        back = bv._read(path, 1)["works"]["1"]
+        for field in ("series_read", "pages_read", "volumes_stated", "completed"):
+            s.eq(back.get(field), row.get(field),
+                 f"{field} survives being written and read back")
+        s.eq(back["first_publication_date"], "2020-01", "and the date is re-derived, not stored")
 
 
 if __name__ == "__main__":

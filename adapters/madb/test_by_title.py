@@ -11,6 +11,11 @@ from madb import by_title  # noqa: E402
 COVERS = ["adapters/madb/by_title.py"]
 
 
+def identity_in(keys, want):
+    """Whether a title's lookup keys include this one. Named so a failure reads as a sentence."""
+    return want in keys
+
+
 def rec(name, creator, publisher, brand, date, isbn):
     return {"schema:name": name, "schema:creator": creator, "schema:publisher": publisher,
             "schema:brand": brand, "schema:datePublished": date, "schema:isbn": isbn}
@@ -109,6 +114,30 @@ def main(s):
     s.eq(by_title.dated_volumes(ten)[0][1], "9784840115223", "a ten-digit ISBN is stored as thirteen")
     s.eq(by_title.dated_volumes([rec("作品名", "[著]甲", "出版社", "", "2006-04", "")]), [],
          "and a record with no ISBN supplies no volume to date from")
+
+    # A CATALOGUE AND A SHOP WRITE THE SAME TITLE DIFFERENTLY, in three forms met on real pairs.
+    s.eq(identity_in(by_title.keys("OLと人魚 = The OL and the Mermaid"), "olと人魚"), True,
+         "MADB follows ISBD and prints the English title after ` = `; the shop prints neither")
+    s.eq(identity_in(by_title.keys("Killer Twinkle～アンチはステージに上がれません～"),
+                     "killertwinkle"), True,
+         "the shop keeps the marketing subtitle the catalogue drops")
+    s.eq(identity_in(by_title.keys("ロンリーガールに花束を 樫風短編集"), "ロンリガルに花束を"), True,
+         "and a collection is named for its author on one side and not the other")
+    s.eq(identity_in(by_title.keys("元カノに幻想を抱くなバーカ : 西沢5ミリ短編集"),
+                     "元カノに幻想を抱くなバカ"), True, "which way round it is written either way")
+    # THE COUNTER-CASE THAT KEEPS THE REST HONEST. 小冊子 is a booklet given away with a volume,
+    # so it is a different publication and a rule that cut any trailing word would join it to the
+    # work it accompanies.
+    s.eq(identity_in(by_title.keys("ゆるゆり　小冊子"), "ゆるゆり"), False,
+         "a giveaway booklet keeps its own title and joins nothing")
+    s.eq(identity_in(by_title.keys("ばっどがーる画集"), "ばっどがある"), False,
+         "and so does an art book")
+    # AND THE FULL FORM SURVIVES ALONGSIDE THE STRIPPED ONE, so a catalogue that DID keep the
+    # subtitle still matches. えるくえすと is that case: MADB writes it with a colon and the shop
+    # with tildes, and both fold to the long form.
+    s.eq(identity_in(by_title.keys("えるくえすと！～勇者エルヴィーラは現実世界に転移しました～"),
+                     "えるくえすと勇者エルヴィラは現実世界に転移しました"), True,
+         "the unstripped form is a key too")
 
     s.eq(by_title.match([], {}), ({}, []), "no rows, no answers and nothing to review")
 

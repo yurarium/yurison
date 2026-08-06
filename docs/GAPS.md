@@ -630,9 +630,10 @@ catalogued. Every question this repository asks is thirteen-digit, so a third of
 answered nothing and read exactly like a catalogue with no record of the book. `madb/by_isbn.py`
 carried the same stripper under the same name and could not see those records either.
 
-**How it surfaced.** §11 left 51 コミックシーモア works filed `isbn-stated-not-catalogued`, meaning
-the shop states an ISBN and no catalogue asked holds it. Grepping all seven bulk files for the
-ten-digit form of each found two of them: ハニー＆ハニー at 2006-04 and フリー・ソウル at 2004-08.
+It surfaced through §11, which left 51 コミックシーモア works filed `isbn-stated-not-catalogued`,
+meaning the shop states an ISBN and no catalogue asked holds it. Grepping all seven bulk files for
+the ten-digit form of each found two of them: ハニー＆ハニー at 2006-04 and フリー・ソウル at
+2004-08.
 
 **Closed.** `adapters/isbn.py` is the one converter and all four modules consume it. The index is
 keyed on the thirteen-digit form and its file is named for that, so a stale index cannot answer.
@@ -640,10 +641,11 @@ The count fell, from 347,875 entries to 346,826. The ten-digit records were alwa
 a key nothing asked for, so what changed is which questions reach them, and the 1,049 lost are
 books the catalogue holds in both forms and now holds once.
 
-**49 remain, and MADB is not where they are.** All seven bulk files were searched for both forms of
-all 51. The remaining 49 are 一迅社 titles in two blocks: 4-7580-70xxx from 2006 to 2010, and
-978-4-8251-xxx and 978-4-7580-99xxx from 2024 onward, which postdate the pinned release. openBD
-answers null for every one.
+That leaves 49, and MADB is not where they are: all seven bulk files were searched for both forms
+of all 51. They are 一迅社 titles in two blocks, 4-7580-70xxx from 2006 to 2010 and
+978-4-8251-xxx and 978-4-7580-99xxx from 2024 onward. The second block is not a staleness problem,
+because release 1.2.18 holds 7,379 volumes published in 2026; it is that MADB holds four records in
+the whole of 一迅社's new 978-4-8251 prefix. openBD answers null for every one of the 49.
 
 ### 出版書誌データベース (Books.or.jp) holds them, and its terms do not let us store them
 
@@ -674,17 +676,28 @@ Those two are the oldest block, which is the half openBD is weakest on, so the 2
 if anything likelier still. Measuring the rest is worth doing only after the terms question is
 settled, since a negative answer there makes the number academic.
 
-## 18. Where the last 61 commercial-imprint rows stand (2026-08-06)
+## 18. Where the last 57 commercial-imprint rows stand (2026-08-06)
 
 89 undated BOOK☆WALKER rows sat on imprints that print books, so a dated volume with an ISBN
-exists for each and the shop simply does not hold the number. `madb/by_title.py` dated 28 of them
-and 18 more elsewhere in the undated population. What is left, with what each one needs:
+exists for each and the shop simply does not hold the number. `madb/by_title.py` dated 32 of them,
+and 25 more elsewhere in the undated population where the shop's imprint had said the work was
+digital-only and the bibliography said otherwise. What is left, with what each one needs:
 
 | | |
 |---|---|
-| **27** | no 単行本 record under the title in release 1.2.18. Mostly 一迅社's 2024 onward output, which postdates the pinned release, plus ZERO-SUMコミックス light-novel adaptations. A newer release answers these at no cost. |
-| **13** | a digital single sold by the chapter. Nine are the SM百合えっちアンソロジー series, where each 【単話】 is one contributor's story out of an anthology and no volume was ever printed under that title. |
-| **8** | コミックシーモア states an ISBN and no catalogue asked holds it, which is §17's population reached from the other side. Books.or.jp holds them. |
-| **8** | a 小冊子, the booklet given away with a volume. It is not a commercial publication, it has no ISBN, and `identity.fold` deliberately does not fold it onto the work it accompanies. |
-| **3** | the title matched and the join was refused. `Memories` is the refusal working: 大友克洋's MEMORIES and a 1991 大陸書房 book share the folded title and neither is the work. The other two are anthologies MADB credits to nobody. |
+| **25** | the bibliography holds no 単行本 under the title. Not a title-form problem: the creators ARE in MADB, with 68 records for なもり, 20 for ばったん and 18 for merryhachi, and none of them is the work. 20 of the 25 reached the shop in 2024 or later and 9 of those in 2026, so this is the bibliography's import lag and a later release answers it at no cost. |
+| **12** | a digital single sold by the chapter. Ten are the SM百合えっちアンソロジー series, where each 【単話】 is one contributor's story out of an anthology and nothing was printed under that title. |
+| **9** | a 小冊子 or a 画集: the booklet given away with a volume, and one art book. Not a commercial publication, no ISBN, and `by_title.keys` deliberately does not fold either onto the work it accompanies. |
+| **6** | コミックシーモア states an ISBN and no catalogue asked holds it, which is §17's population reached from the other side. Books.or.jp is where those are. |
+| **3** | the title matched and the join was refused. `Memories` is the refusal working: 大友克洋's MEMORIES and a 1991 大陸書房 book share the folded title and neither is the work. The other two are anthologies MADB credits to nobody, and a record naming nobody agrees with nothing. |
 | **2** | an anthology with two dozen contributors and no MADB record under the title. |
+
+### What the shop's imprint could not tell you
+
+The 25 dated outside the 89 are the more interesting half. Their rows were filed `no-print-edition`
+or `print-edition-unknown`, which is `bookwalker_volumes.py` reasoning from the imprint: a label
+that states 底本発行日 on none of its volumes has no print edition to date. That is sound about the
+LABEL and wrong about these WORKS, because a doujin distributor and a digital-first imprint both
+resell books somebody else printed. 蝋燭姫 and 化け猫システム are 角川 and ワニブックス books that
+ナンバーナイン now sells under 百合コレ, パロスの剣 is a 1987 あすかコミックス volume, and
+お江戸とてシャン is 芳文社's. The imprint was never going to say so; the bibliography does.

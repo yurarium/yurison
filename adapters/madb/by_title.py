@@ -53,7 +53,7 @@ from names.inputs import split_authors                                         #
 BASIS = "madb-tankobon-title-match"
 
 # A run that matches almost nothing has read a truncated dataset or lost a field, rather than
-# meeting a shelf of unpublished books, and the two look identical from here. 46 of the 1,209
+# meeting a shelf of unpublished books, and the two look identical from here. 57 of the 1,209
 # undated rows joined at release 1.2.18. The floor is set well under that because the population
 # shrinks as rows are dated and the last run over it will legitimately match few.
 MIN_MATCHES = 5
@@ -74,6 +74,37 @@ def people(names):
         if bare:
             out.add(bare)
     return out
+
+
+# HOW A CATALOGUE AND A SHOP WRITE THE SAME TITLE DIFFERENTLY. Each of these is a form one side
+# uses and the other does not, and each was read off a real pair before it was written down. A
+# title is matched under every form it can take, so neither side has to have written it the same
+# way, and `identity.fold` still does the width, spacing and punctuation.
+#
+#   = parallel title   MADB follows ISBD and prints the publisher's own English title after ` = `:
+#                      `OLと人魚 = The OL and the Mermaid`, `おやすみシェヘラザード = Nighty
+#                      night,Sheherazade`. The shop prints the Japanese alone.
+#   ～subtitle～        The shop keeps the marketing subtitle the catalogue drops: the shelf has
+#                      `Killer Twinkle～アンチはステージに上がれません～` and MADB `Killer Twinkle`.
+#                      It also covers an edition marker written the same way, `～改訂版～`.
+#   短編集 / 作品集     A collection is titled `ロンリーガールに花束を 樫風短編集` on the shelf and
+#                      `ロンリーガールに花束を` in the catalogue, and the other way round for
+#                      `元カノに幻想を抱くなバーカ : 西沢5ミリ短編集`. Both sides are tried.
+#
+# WHAT IS DELIBERATELY NOT HERE, and it is the counter-case that keeps the rest honest. 小冊子 is
+# not stripped. A booklet given away with a volume is a different publication from the volume, so
+# `ゆるゆり　小冊子` must not join `ゆるゆり`, and a rule that cut any trailing word would.
+PARALLEL_TITLE = re.compile(r"\s=\s.*$")
+SHOP_SUBTITLE = re.compile(r"[～〜~][^～〜~]*[～〜~]\s*$")
+COLLECTION = re.compile(r"[^\s　]*(?:短編集|作品集)\s*$")
+
+
+def keys(title):
+    """Every folded form one title can be looked up under."""
+    stripped = COLLECTION.sub("", SHOP_SUBTITLE.sub("", PARALLEL_TITLE.sub("", title or "")))
+    forms = (title, PARALLEL_TITLE.sub("", title or ""), SHOP_SUBTITLE.sub("", title or ""),
+             COLLECTION.sub("", title or ""), stripped)
+    return {k for k in (identity.fold(f) for f in forms) if k}
 
 
 def credits(record):
@@ -151,12 +182,12 @@ def answer(row, records):
 
 
 def index(records):
-    """Bibliography records grouped by the folded form of their title."""
+    """Bibliography records grouped under every folded form of their title."""
     out = {}
     for r in records:
         name = extract.primary(r.get("schema:name", ""))
-        if name:
-            out.setdefault(identity.fold(name), []).append(r)
+        for key in keys(name):
+            out.setdefault(key, []).append(r)
     return out
 
 
@@ -170,7 +201,13 @@ def match(rows, by_title):
     answers, review = {}, []
     for row in rows:
         title = (row.get("title") or {}).get("ja") or ""
-        records = by_title.get(identity.fold(title), [])
+        # One record can sit under several of a row's forms, and a record counted twice would
+        # report the evidence as twice what it is.
+        found = {}
+        for key in keys(title):
+            for r in by_title.get(key, []):
+                found[id(r)] = r
+        records = list(found.values())
         if not records:
             continue
         got = answer(row, records)

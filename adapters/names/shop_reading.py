@@ -219,6 +219,16 @@ def main(argv=None):
             continue
         found[key] = entry(got[0], got[1], url, unsettled[key], a.reviewed, blurb_furigana(page))
 
+    # THE SAME FLOOR openbd_reading AND madb_reading CARRY. A shop that is down answers every page
+    # with an error, states nothing, and reports a clean run with an empty result, which looks
+    # exactly like a batch of works the shop happens not to carry. Nothing is written into
+    # data/source from here, so the cost of the confusion is a wasted run rather than a lost
+    # capture; it is still worth refusing rather than printing an empty answer.
+    print(f"HEALTH: {len(queue) - misses['no-page']} of {len(queue)} page(s) answered")
+    if queue and misses["no-page"] == len(queue):
+        print("Refusing to write: not one page answered. That is the shop unreachable rather than "
+              "a batch it does not carry, and the two look identical from here.")
+        return 1
     print(f"{len(unsettled)} title(s) with no stated reading, {len(queue)} of them on the shop; "
           f"{len(found)} stated, misses {misses}")
     print(yaml.safe_dump({"titles": found}, allow_unicode=True, sort_keys=True, width=100))

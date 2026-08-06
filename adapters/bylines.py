@@ -485,6 +485,19 @@ def main(argv=None):
             print_unread.append((w["title"]["ja"], w["work_id"],
                                  (nothing.get(w["work_id"], {}).get("note") or "").strip()))
 
+    # A FLOOR, because a host that is down and a shelf of works with no byline arrive in the same
+    # shape: every page unreadable, nothing settled, a file written with an empty `works` and a run
+    # that reports success. The last good capture would be replaced by that. The measured rate is
+    # 48 of 49, so "settled nothing at all while the queue was not empty" is clear of a healthy run
+    # by the whole distance and is what a dead host looks like.
+    print(f"HEALTH: {len(rows)} of {len(wanted)} web work(s) settled, "
+          f"{len(print_rows)} of {len(print_rows) + len(print_unread)} print")
+    if wanted and not rows:
+        print("Refusing to write: not one of the work pages yielded a byline. That is the hosts "
+              "being unreachable or the shapes having all changed at once, rather than every work "
+              "losing its author, and the three look identical from here.")
+        return 1
+
     js = lambda v: _json.dumps(v, ensure_ascii=False)                          # noqa: E731
     L = ["# Who each source says drew the work, for works the corpus credited to nobody.",
          "#",

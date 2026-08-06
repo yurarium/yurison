@@ -99,7 +99,7 @@
   },
   {
    "name": "stock phrasing in comments",
-   "value": 898,
+   "value": 896,
    "budget": 896,
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage."
   },
@@ -122,6 +122,12 @@
    "means": "rows admitted from BOOK☆WALKER's shelf with no first publication VENUE, which is what §6's scope test turns on since the 2026-08-05 amendment. A row without one has not been fetched yet, or its series page listed nothing readable. Falls as adapters/recon/bookwalker_volumes.py works through the queue, and reaches zero when it finishes. The date is deliberately not what is counted: 1,500 of these titles are digital-only, have no print edition anywhere, and are complete records without one."
   },
   {
+   "name": "bookwalker series unread",
+   "value": 16,
+   "budget": 16,
+   "means": "BOOK☆WALKER rows whose series listing has not been read to the end, so their volume list and the first publication drawn from it rest on whichever volumes were fetched. The shelf linked one volume for 1,175 of them and this module read only page one of a paginated listing for a few more. Falls as adapters/recon/bookwalker_volumes.py --follow-series works through them, and reaches zero, because every row counted here names a series to fetch."
+  },
+  {
    "name": "undated cmoa candidates",
    "value": 1271,
    "budget": 1271,
@@ -141,7 +147,7 @@
   },
   {
    "name": "shadowed names in build.py",
-   "value": 41,
+   "value": 40,
    "budget": 40,
    "means": "names rebound more than 300 lines from their first binding. Two shipped bugs came from this; see adapters/lint/shadowing.py for why the count is not simply falling."
   }

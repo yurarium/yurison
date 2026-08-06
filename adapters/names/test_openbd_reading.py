@@ -150,6 +150,60 @@ def main(s):
     s.check(all(i.isdigit() and len(i) in (10, 13) for v in credits.values() for i in v),
             "and every ISBN collected is one, in either of the two lengths in use")
 
+    # WHAT MAY BE ASKED ABOUT IS EVERY ISBN THE CORPUS STATES, not the ones our own credits reach.
+    # Keying the request on `madb_credits` asks openBD only about people we could already name,
+    # and openBD's answer carries the contributor's name beside the reading.
+    s.eq(ob.isbns_in({"volumes": [{"isbn": "9784758070003"}, {"title": "no isbn"}]}),
+         ["9784758070003"], "a volume list is where most of them are")
+    s.eq(ob.isbns_in({"finished": [{"shop_id": "1", "isbns": ["9784758070010", "4758070024"]}]}),
+         ["4758070024", "9784758070010"],
+         "a shop states them in a list, and a 2006 book keeps its ten digits")
+    s.eq(ob.isbns_in({"a": {"b": [{"c": {"isbn": "9784758070027"}}]}}), ["9784758070027"],
+         "and the walk reaches a shape nobody has written yet, which is the point of walking")
+    s.eq(ob.isbns_in({"isbn": "", "volumes": [{"isbn": "not-an-isbn"}]}), [],
+         "a field that is not an ISBN is not collected under a key that says it is")
+    s.eq(ob.isbns_in({"shop_id": "9784758070034"}), [],
+         "and a thirteen-digit number under another name is not an ISBN either")
+
+    # THE QUEUE IS "NOTHING STATED IT", NOT "AN ANALYSER SAID SO". Selecting on the answer already
+    # in the field skips every name with no answer at all, which is how 高良真生 (reading refuted,
+    # nothing in its place) and five MangaUpdates back-conversions counted as settled.
+    s.eq(ob.unsettled({"reading_basis": "analyser", "reading": "コウラ マサオ"}), True,
+         "a machine's guess is not a stated reading")
+    s.eq(ob.unsettled({"reading_refuted": "no source states it"}), True,
+         "and a name whose reading was disproved wants one more than most")
+    s.eq(ob.unsettled({"reading_basis": "back-converted", "reading_source_kind": "community-db"}),
+         True, "a community database may not supply a reading, so one taken from it is not settled")
+    s.eq(ob.unsettled({"reading_basis": "stated", "reading": "ハヤシヤ シズル"}), False,
+         "a source stating it is what settles it")
+    s.eq(ob.unsettled({"reading_basis": "surface", "reading": "アサギユメ"}), False,
+         "and a kana name is its own reading")
+    s.eq(ob.unsettled({"script": "latin", "en": "Sal Jiang"}), False,
+         "a Latin pen name has no kana reading to state")
+    s.eq(ob.unsettled({"script": "latin", "reading": "ウ テモ",
+                       "reading_basis": "back-converted"}), True,
+         "but one already carrying a reading is asked about, because that reading came from "
+         "somewhere")
+
+    # A COLLATIONKEY IS A FILING KEY BEFORE IT IS A READING. JPRO normalises the kana that sort
+    # together, so とりい しづく is filed シズク. Against a kanji name that is invisible and the key
+    # is still the only statement there is; against a kana name it republishes the artist's name
+    # with a different kana in it, and the store already holds とりいしづく at トリイシヅク off the
+    # surface. One artist, two spellings, two readings.
+    s.eq(ob.normalised("とりい しづく", "トリイ シズク"), True,
+         "a filing key that has lost the name's own ヅ is not that name's reading")
+    s.eq(ob.normalised("とりい しづく", "トリイ シヅク"), False,
+         "the same key with the kana intact is the reading, and carries the boundary as well")
+    s.eq(ob.normalised("ささだあすか", "ササダ アスカ"), False,
+         "so what a key may add to a kana name is where it splits")
+    s.eq(ob.normalised("東雲水生", "シノノメ ミズオ"), False,
+         "and a kanji name has no kana of its own to lose")
+
+    shizuku = book("9784758075000", "D", "一迅社", [("とりい, しづく", "トリイ, シズク")])
+    _, unresolved = ob.entries(shizuku, {"とりい しづく": "ト リイ   シ ヅク"}, "2026-08-06")
+    s.eq(unresolved, {"とりい しづく": "filing-key-normalised"},
+         "so the pass declines it and says which kind of silence this is")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

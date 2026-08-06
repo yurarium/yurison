@@ -1,8 +1,10 @@
 {
- "generated": "2026-08-06T10:20:01+00:00",
+ "generated": "2026-08-06T11:45:13+00:00",
  "since_last": {
-  "at": "2026-08-06T09:40:01+00:00",
-  "statistics": {}
+  "at": "2026-08-06T10:20:01+00:00",
+  "statistics": {
+   "volumes": 197
+  }
  },
  "means": {
   "duplicate_chapters": "Merged chapters that two sources described separately",
@@ -134,6 +136,12 @@
     "means": "rows admitted from BOOK☆WALKER's shelf with no first publication VENUE, which is what §6's scope test turns on since the 2026-08-05 amendment. A row without one has not been fetched yet, or its series page listed nothing readable. Falls as adapters/recon/bookwalker_volumes.py works through the queue, and reaches zero when it finishes. The date is deliberately not what is counted: 1,500 of these titles are digital-only, have no print edition anywhere, and are complete records without one."
    },
    {
+    "name": "bookwalker series unread",
+    "value": 16,
+    "budget": 16,
+    "means": "BOOK☆WALKER rows whose series listing has not been read to the end, so their volume list and the first publication drawn from it rest on whichever volumes were fetched. The shelf linked one volume for 1,175 of them and this module read only page one of a paginated listing for a few more. Falls as adapters/recon/bookwalker_volumes.py --follow-series works through them, and reaches zero, because every row counted here names a series to fetch."
+   },
+   {
     "name": "undated cmoa candidates",
     "value": 1271,
     "budget": 1271,
@@ -208,7 +216,7 @@
    "source": "bookwalker",
    "files": 1644,
    "works": 1644,
-   "rows": 4195,
+   "rows": 4392,
    "retrieved": "2026-08-05",
    "age_days": 1,
    "in_scope": true,
@@ -290,8 +298,8 @@
   }
  ],
  "ledger": {
-  "runs_held": 34,
-  "previous_at": "2026-08-06T09:39:31+00:00",
+  "runs_held": 35,
+  "previous_at": "2026-08-06T10:19:31+00:00",
   "drops": []
  },
  "outstanding": [
@@ -1496,9 +1504,10 @@
   {
    "kind": "debt",
    "key": "data_debts",
-   "count": 8,
+   "count": 9,
    "what": "Bring down counts that may only ratchet downward",
    "rows": {
+    "bookwalker series unread": 16,
     "captures with no floor": 11,
     "incomplete attested rows": 17,
     "scraped counters in chapter names": 1,
@@ -1530,7 +1539,7 @@
   },
   "print_works": 2234,
   "print_only": 2076,
-  "volumes": 5505,
+  "volumes": 5702,
   "with_identifier": 3096,
   "chapters": 17680
  }

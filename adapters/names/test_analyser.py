@@ -160,5 +160,52 @@ def main(s):
     s.eq(p4.latin_reading("×"), None, "nor is a symbol carrying no letters")
     s.eq(p4.latin_reading(""), None, "and an empty surface reads as nothing")
 
+    # A KANA NAME IS PASS 1's, AND THE AUTOPILOT IS WHAT RUNS EVERY TIME. `fill_missing` only ever
+    # queued a name with NO reading, so every kana name arriving after the last hand-run pass 1 got
+    # an analyser reading for a question that has no lookup in it. 181 author names were in that
+    # state and three came out wrong: an analyser reading running text takes は as the particle, so
+    # はうあゆ went to the site as Wa u Ayu and はとぼし as Wa Toboshi, under the artists' own work,
+    # and あーねすと gained a sokuon nobody wrote.
+    s.eq(p4.wants_reading("はうあゆ", {"reading": "ワ ウ アユ", "reading_basis": "analyser"}), True,
+         "a kana name carrying a guess is outstanding work, not a filled slot")
+    s.eq(p4.wants_reading("東雲水生", {"reading": "シノノメ スイセイ", "reading_basis": "analyser"}),
+         False, "while a name with kanji keeps its guess, because nothing here can better it")
+    s.eq(p4.wants_reading("東雲水生", {"reading": "シノノメ スイセイ", "reading_basis": "analyser"},
+                          refresh=True), True, "unless a refresh was asked for, which is the flag")
+    # AND THE COUNTER-CASE, which is why the rule is scoped to authors. は is the topic particle in
+    # a title and is said wa, so on six kana titles the analyser is right where the surface is not.
+    # A title is a sentence; a pen name is not.
+    s.eq(p4.wants_reading("きみはシュガー", {"reading": "キミ ワ シュガー",
+                                             "reading_basis": "analyser"}, kind="titles"), False,
+         "a kana title keeps the analyser's particle, because there は really is said wa")
+    s.eq(p4.wants_reading("きみはシュガー", {"reading": "キミ ワ シュガー",
+                                             "reading_basis": "analyser"}, kind="authors"), True,
+         "and the same string as a pen name does not, which is the whole distinction")
+    s.eq(p4.wants_reading("はうあゆ", {"reading": "ハウアユ", "reading_basis": "surface"}), False,
+         "a name pass 1 has already answered is left alone, or every build would churn the file")
+    s.eq(p4.wants_reading("林家志弦", {"reading": "ハヤシヤ シズル", "reading_basis": "stated"}),
+         False, "and a reading a publisher stated is never replaced by a machine")
+    s.eq(p4.wants_reading("あとき", {}), True, "a name with nothing recorded wants a reading")
+
+    # A REFUTATION IS A DECISION, NOT AN EMPTY SLOT, and it looked like one from here. curate.py
+    # removes the reading and records why, and the point of that record is that nothing can replace
+    # it: 時一二 is not a Japanese name and the National Diet Library holds no kana for it on
+    # purpose. The autopilot refilled ten of them on the next build, so 古川楊也 came back as
+    # フルカワ ヨウナリ hours after a reviewer wrote down that it cannot be read.
+    s.eq(p4.wants_reading("古川楊也", {"reading_refuted": "a different person's name"}), False,
+         "a name a reviewer could not settle is finished, not waiting")
+    s.eq(p4.wants_reading("古川楊也", {"reading_refuted": "a different person's name"},
+                          refresh=True), False, "and a refresh does not reopen it either")
+
+    # The rule it is corrected BY is pass 1's own, called rather than copied: two producers of one
+    # fact is what STANDING-INSTRUCTIONS §3 is about, and this fact already had a home.
+    import pass1_kana as p1
+    s.eq(p1.surface_fields("はうあゆ", "authors")["reading"], "ハウアユ",
+         "the name's own kana, which is the whole of the answer")
+    s.eq(p1.surface_fields("はうあゆ", "authors")["reading_basis"], "surface",
+         "recorded as the surface it is")
+    s.eq(p1.surface_fields("東雲水生", "authors"), None,
+         "and a name with kanji is not this rule's business")
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "pass4_analyser"))

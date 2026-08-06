@@ -110,8 +110,8 @@ def forward(root, retired, surviving, depth=2):
     published build, so twenty addresses that resolved in the morning resolved nowhere by the
     evening, which is the exact failure the opaque id was chosen to prevent.
 
-    A redirect and not a copy. The work has one address now, and a second page carrying the same
-    record would be a second address competing with it.
+    It forwards. The work has one address now, and a second page carrying the same record would be
+    a second address competing with it.
     """
     up = "../" * depth
     return "\n".join([

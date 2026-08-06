@@ -58,6 +58,23 @@ def main(s):
             "a candidate carrying a basis is a claim in disguise")
     s.check(curate.check({"titels": {}}), "an unknown top-level key")
 
+    # A NAME THE PERSON WRITES THEMSELVES IS `stated`, AND THE PERSON IS THE EVIDENCE FOR IT.
+    # `author` reached SOURCE_KINDS and READING_ATTRIBUTION in a round that was about readings, and
+    # ATTRIBUTION kept the row whose comment says "the person's own rendering" without the person in
+    # it. GAPS §9 is what that cost: 616 author names are romanisations of ours because the entry
+    # recording a Latin byline could not be written down.
+    OWN = {"en": "Sal Jiang", "basis": "stated", "source": "the artist's own X profile",
+           "source_kind": "author", "source_url": "https://example.invalid/jiangsal",
+           "reviewed": "2026-08-06"}
+    s.eq(curate.problems("authors", "サル・ジャン", OWN), [],
+         "a Latin byline on the artist's own page is theirs, and outranks anything we compute")
+    s.check(curate.problems("authors", "サル・ジャン", dict(OWN, source_url=None)),
+         "and it still needs the page it was read on, because a claim about a person is checkable")
+    s.check(curate.problems("authors", "サル・ジャン", dict(OWN, source_kind="community-db")),
+         "a fan database writing a romanisation is not the person stating a preference")
+    s.check(curate.problems("authors", "サル・ジャン", dict(OWN, basis="licensed")),
+         "and the artist is not a licensor, so the person cannot stand in for a catalogue")
+
     with tempfile.TemporaryDirectory() as d:
         doc = {"titles": {"裏世界ピクニック": LICENSED, "ワインガールズ": OURS,
                           "星屑テレパス": {"candidate": "Stardust Telepath", "source": "Wikipedia",
@@ -173,6 +190,26 @@ def main(s):
              "a half-width variant of a title we hold is that title")
         s.eq(curate.unmatched({"titles": {"知らない作品": {}}}, known), ["知らない作品"],
              "and one nobody holds is reported")
+
+    # A KEY WRITTEN TWICE VALIDATES AND DISAPPEARS. yaml.safe_load keeps the later mapping and drops
+    # the earlier without a word, so the file parses cleanly and holds one of the two decisions. 12
+    # titles were in that state, one pair 8,500 lines apart, because appending is easier than
+    # merging. Read as text, since by the time a dict exists the evidence is gone.
+    with tempfile.TemporaryDirectory() as d:
+        f = pathlib.Path(d) / "curated.yaml"
+        f.write_text("titles:\n  ある話:\n    en: One\n  べつの話:\n    en: Two\n"
+                     "  ある話:\n    en: Three\nauthors:\n  だれか:\n    reading: ダレカ\n")
+        dups = curate.duplicate_keys(f)
+        s.eq([(x[0], x[1]) for x in dups], [("titles", "ある話")], "a key written twice is found")
+        s.eq(dups[0][2], [2, 6], "with both lines, so a reviewer can merge them")
+        s.check(not any(x[1] == "べつの話" for x in dups), "and a key written once is not")
+        # The parser cannot see it, which is the whole reason this reads text.
+        import yaml as _y
+        s.eq(len((_y.safe_load(f.read_text()) or {}).get("titles") or {}), 2,
+             "the loaded file holds two titles where three were written")
+
+        f.write_text("titles:\n  ある話:\n    en: One\n")
+        s.eq(curate.duplicate_keys(f), [], "a clean file reports nothing")
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

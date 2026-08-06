@@ -138,15 +138,89 @@ def madb_credits(source="data/source/madb"):
     return {k: sorted(set(v)) for k, v in out.items()}
 
 
-def guessed_readings(path="data/names/authors.yaml"):
-    """Every name in the store whose reading an analyser assembled rather than a source stating it.
+ISBN = re.compile(r"[0-9]{9}[0-9X]|[0-9]{13}")
+
+
+def isbns_in(node, out=None):
+    """Every ISBN one loaded record states, wherever in the record its shape puts them.
+
+    Kept separate from the directory walk so the collecting can be tested without a tree of files,
+    and so a new record shape can be checked against it by writing the shape down.
+    """
+    out = set() if out is None else out
+    if isinstance(node, dict):
+        for k, v in node.items():
+            if k == "isbn" and isinstance(v, str):
+                out.add(v.strip())
+            elif k == "isbns" and isinstance(v, list):
+                out.update(x.strip() for x in v if isinstance(x, str))
+            else:
+                isbns_in(v, out)
+    elif isinstance(node, list):
+        for v in node:
+            isbns_in(v, out)
+    # Six books from 2006 keep a ten-digit ISBN, so the length is not the test; the shape is.
+    return sorted(i for i in out if ISBN.fullmatch(i))
+
+
+def corpus_isbns(source="data/source"):
+    """Every ISBN the corpus states. This is the population openBD can be asked about.
+
+    WHY NOT `madb_credits`, WHICH ALREADY HANDS BACK ISBNS. That answers a narrower question, and
+    the narrowing loses two whole shapes. A shop states an ISBN for a work MADB does not carry, and
+    51 of those sit in data/source/comparators/shop-final-volumes.yaml. And a credit MADB spells
+    differently from the store, or leaves off a volume altogether, hides a person who is on a book
+    we hold: 49 MADB records carry ISBNs and no creator at all. openBD's answer carries the
+    contributor's own name beside the reading, so asking about an ISBN settles whoever the
+    publisher registered on it, whether or not we knew they were there. Keying the request on our
+    own credits asks openBD only about people we could already name.
+
+    THE WALK IS OVER ANY `isbn` OR `isbns` KEY, rather than over the shapes on disk today. A source
+    arriving with its ISBNs one level deeper would otherwise be collected as nothing, settle no
+    names, and report a clean run, which is the silence STANDING-INSTRUCTIONS §4 is about.
+    """
+    import yaml
+    out = set()
+    for path in sorted(pathlib.Path(source).rglob("*.yaml")):
+        isbns_in(yaml.safe_load(path.read_text()) or {}, out)
+    return sorted(i for i in out if ISBN.fullmatch(i))
+
+
+def unsettled_readings(path="data/names/authors.yaml"):
+    """Every name in the store that no source has stated a reading for, against what it shows now.
 
     This is the queue, and it is generated rather than typed. A hand-picked list of names to fix
     was how the first curation round skipped every work that already carried a machine answer.
+
+    THE TEST IS "NOTHING STATED IT", NOT "AN ANALYSER SAID SO". Selecting on
+    `reading_basis == 'analyser'` reads the answer already in the field and so skips every name
+    with no answer at all: 高良真生 carries a refutation and no reading, five names carry a reading
+    back-converted out of a community database, and on the old filter all six counted as settled
+    and were never asked about. `curate.todo` records the same mistake made the other way round on
+    the title side, where "has no `en`" excluded every work already showing a romanisation.
+
+    A LATIN-SCRIPT PEN NAME WITH NOTHING RECORDED IS OUT, deliberately.
+    `bookwalker_shelf.reading_route` files those as `latin` and says there is no kana reading to
+    state, and putting one there is this project deciding how a name written to be read as it
+    stands is pronounced. One that already carries a reading is IN, because that reading came from
+    somewhere: U-temo holds ウ テモ back-converted out of MangaUpdates, which curate.py refuses as
+    evidence, and the publisher registering the book files it ユウテモ.
     """
     import yaml
     names = (yaml.safe_load(pathlib.Path(path).read_text()) or {}).get("names") or {}
-    return {n: r.get("reading") for n, r in names.items() if r.get("reading_basis") == "analyser"}
+    return {n: r.get("reading") for n, r in names.items() if unsettled(r)}
+
+
+# What counts as settled: a source stated it, or the name is kana and is its own reading. Anything
+# else is a machine's answer or no answer, and both are worth asking a publisher about.
+SETTLED = ("stated", "surface", "researched")
+
+
+def unsettled(record):
+    """Whether one store record still wants a reading. The rule `unsettled_readings` selects on."""
+    if record.get("script") == "latin" and not record.get("reading"):
+        return False
+    return record.get("reading_basis") not in SETTLED
 
 
 def fetch(isbns, cache, offline=False):
@@ -204,6 +278,32 @@ def healthy(payload):
     return (asked == 0 or held * 2 >= asked), held, asked
 
 
+def normalised(name, reading):
+    """Whether a stated reading has lost kana the name itself carries.
+
+    A COLLATIONKEY IS A FILING KEY BEFORE IT IS A READING, and JPRO normalises the kana that sort
+    together. とりい しづく is filed トリイ, シズク; トクヲツム is filed トクオツム; いづみやおとは
+    is filed イズミヤ, オトハ. Against a kanji name that costs nothing anyone can see, and the key
+    is still the only statement of how the name is said. Against a KANA name it is a loss, because
+    there the surface is the reading and no lookup was needed: taking the key over it republishes
+    the artist's name with a different kana in it.
+
+    The pair that shows it: the store holds とりいしづく at トリイシヅク off its own surface, and
+    would have taken トリイ シズク off openBD for とりい しづく. One artist, two spellings, two
+    readings, and nothing in either record to say they are the same person.
+
+    What the key may still add to a kana name is the boundary between the elements, which the
+    surface does not carry: ささだあすか is ササダ アスカ. So agreement on the kana is the test, not
+    agreement on the string.
+    """
+    from names import kana as kana_mod  # noqa: PLC0415
+    if not kana_mod.kana_only(name):
+        return False
+    strip = str.maketrans("", "", " 　・")
+    return (kana_mod.to_katakana(name).translate(strip)
+            != (reading or "").translate(strip))
+
+
 def entries(payload, wanted, reviewed):
     """Curated author entries for the names this payload settles, and why each one is a change.
 
@@ -220,11 +320,17 @@ def entries(payload, wanted, reviewed):
         if not ndl_reading.is_kana(reading):
             unresolved[name] = "not-katakana"
             continue
+        if normalised(name, reading):
+            unresolved[name] = "filing-key-normalised"
+            continue
         first = ev["examples"][0]
         note = (f"openBD carries this reading as the publisher's own collationkey on "
                 f"{ev['records']} volume(s), e.g. {first[0]!r} ({first[1]}).")
         if (guess or "").replace(" ", "") != reading.replace(" ", ""):
-            note += f" It replaces {guess!r}, which an analyser assembled."
+            # NOT "which an analyser assembled". The queue holds readings from more than one
+            # machine now: five were back-converted out of MangaUpdates, which curate.py refuses
+            # as evidence, and naming the wrong producer in the record is worse than naming none.
+            note += f" It replaces {guess!r}, which no source had stated."
         out[name] = {"reading": reading, "reading_basis": "stated",
                      "reading_source_kind": "publisher-jp", "reading_note": note,
                      "source": "openBD", "source_url": query([records(payload, name)[0]["isbn"]]),
@@ -244,12 +350,10 @@ def main(argv=None):
     ap.add_argument("--reviewed", default=datetime.date.today().isoformat())
     a = ap.parse_args(argv)
 
-    guesses = guessed_readings()
-    credits = madb_credits()
-    wanted = {n: g for n, g in guesses.items() if n in credits}
-    isbns = sorted({i for n in wanted for i in credits[n]})
-    print(f"{len(guesses)} guessed readings, {len(wanted)} of them on a book we hold an ISBN for; "
-          f"{len(isbns)} ISBN(s) to ask about")
+    wanted = unsettled_readings()
+    isbns = corpus_isbns()
+    print(f"{len(wanted)} name(s) with no stated reading; asking openBD about {len(isbns)} "
+          f"ISBN(s) the corpus states")
 
     payload = fetch(isbns, a.cache, a.offline)
     ok, held, asked = healthy(payload)

@@ -41,26 +41,45 @@ from names import inputs, kana  # noqa: E402
 from names.store import NameStore  # noqa: E402
 
 
+def surface_fields(ja, kind):
+    """What this pass records for one kana name, or None where the name is not kana.
+
+    IT IS A FUNCTION SO THAT THE AUTOPILOT CAN CALL IT. `pass4_analyser.fill_missing` runs on every
+    build and this pass runs when somebody remembers, so 181 kana-only author names picked up an
+    analyser reading for a question the analyser was never needed for. Three of them came out
+    wrong: はうあゆ was read ワ ウ アユ, because an analyser reading running text takes は as the
+    particle, and はとぼし went the same way; あーねすと gained a sokuon nobody wrote. Those went to
+    the site as Wa u Ayu and Wa Toboshi under the artists' own work.
+
+    A second copy of the rule inside the autopilot would be this project's most repeated bug
+    (STANDING-INSTRUCTIONS §3), so the autopilot consumes this one.
+    """
+    if not kana.kana_only(ja):
+        return None
+    fields = {
+        "reading": kana.to_katakana(ja),
+        "reading_basis": "surface",
+        "source": "surface",
+        "pass": 1,
+    }
+    if kind == "authors":
+        # §5: an author's rendering is a romanisation of the reading and carries no visible
+        # mark. `en` stays absent — the string is generated per reader style, never stored.
+        fields.update(basis="romaji")
+    return fields
+
+
 def run(store, authors, titles):
     stats = collections.Counter()
 
     for kind, names in (("authors", authors), ("titles", titles)):
         for ja in names:
-            if not kana.kana_only(ja):
+            fields = surface_fields(ja, kind)
+            if fields is None:
                 continue
             if store.records[kind].get(ja, {}).get("reading_basis") == "surface":
                 stats[f"{kind}-already"] += 1
                 continue
-            fields = {
-                "reading": kana.to_katakana(ja),
-                "reading_basis": "surface",
-                "source": "surface",
-                "pass": 1,
-            }
-            if kind == "authors":
-                # §5: an author's rendering is a romanisation of the reading and carries no visible
-                # mark. `en` stays absent — the string is generated per reader style, never stored.
-                fields.update(basis="romaji")
             store.record(kind, ja, **fields)
             stats[f"{kind}-resolved"] += 1
             store.maybe_compact()

@@ -660,6 +660,39 @@ def chapter_en(name, romanise_rest):
     return None
 
 
+def wants_reading(s, rec, kind="authors", refresh=False):
+    """Whether the autopilot still owes this string a reading. What `fill_missing` queues on.
+
+    A KANA AUTHOR NAME CARRYING A GUESS IS OUTSTANDING WORK, not a filled slot, and that is the one
+    case this adds to "has no reading at all". Everything else here is additive by design, so a
+    string already holding an analyser reading is left alone unless `refresh` asks for it. A kana
+    name is different in kind: pass 1 answers it exactly, for nothing, and cannot be wrong, so a
+    guess in the slot is not an answer that might improve later but an error waiting to be replaced.
+    181 author names were in that state, three of them read wrongly.
+
+    THE COUNTER-CASE, AND WHY TITLES ARE NOT INCLUDED. 399 kana titles carry an analyser reading
+    too, and on six of them the analyser is RIGHT where the surface is not: は is the topic particle
+    in ワタシはサバサバしてただけなのに and is said wa, which is what the analyser returns and what
+    Hepburn wants. A title is a sentence and a pen name is not, so the same substitution that
+    rescues きみはシュガー is what wrecked はうあゆ. NAMES-PLAN §1 already keeps the two standards
+    apart for this reason, and the rule follows the standard rather than the character.
+    """
+    import kana as _k                                                     # noqa: PLC0415
+    # A REFUTATION IS A DECISION, NOT AN EMPTY SLOT. `curate.py` removes the reading and records
+    # why, and the whole content of that record is that there is nothing to put in its place: 時一二
+    # is not a Japanese name and NDL deliberately holds no kana for it; 角川青羽 is a Shanghai
+    # company rather than a person. The autopilot saw a name with no reading and filled it on the
+    # next build, so 古川楊也 came back as フルカワ ヨウナリ and 陳巧蓉 as チン タクミ ヨウ within
+    # hours of a reviewer saying neither can be read. Ten names were in that loop.
+    if rec.get("reading_refuted"):
+        return False
+    if not rec.get("reading"):
+        return True
+    if rec.get("reading_basis") not in ("analyser", "back-converted"):
+        return False
+    return bool(refresh) or (kind == "authors" and _k.kana_only(s))
+
+
 def fill_missing(strings, kind, quiet=False, refresh=False):
     """Give every string a reading if one can be found. Idempotent, offline, safe to call always.
 
@@ -675,22 +708,49 @@ def fill_missing(strings, kind, quiet=False, refresh=False):
         from sudachipy import Dictionary, SplitMode
     except ImportError:
         return 0
+    import pass1_kana as _pass1
     f = STORE / f"{kind}.yaml"
     if not f.exists():
         return 0
     doc = yaml.safe_load(f.read_text()) or {}
     names = doc.setdefault("names", {})
     todo = [s for s in strings
-            if s and (not (names.get(s) or {}).get("reading")
-                      or (refresh and (names.get(s) or {}).get("reading_basis") == "analyser"))
+            if s and wants_reading(s, names.get(s) or {}, kind, refresh)
             and has_japanese(s) and not (kind == "authors" and is_credit_line(s))]
     if not todo:
         return 0
     tok = Dictionary().create()
     modes = [SplitMode.C, SplitMode.A]
     today = str(datetime.date.today())
-    added = 0
+    added = surfaced = 0
     for s in todo:
+        # A KANA NAME IS PASS 1's, AND PASS 1 RUNS WHEN SOMEBODY REMEMBERS. This one runs on every
+        # build, so every kana name arriving after the last manual pass got an analyser reading for
+        # a question with no lookup in it, and an analyser reading running text takes は as the
+        # particle: はうあゆ went to the site as Wa u Ayu under the artist's own work. 181 author
+        # names were in this state. The rule is pass 1's and is called rather than repeated.
+        # AUTHORS ONLY, for the counter-case `wants_reading` records: は is the topic particle in
+        # a title and is said wa, so the surface is the wrong answer there and the right one here.
+        surface = _pass1.surface_fields(s, kind) if kind == "authors" else None
+        if surface is not None:
+            rec = names.setdefault(s, {})
+            # Additive only, like the rest of this function: a source that stated the reading, or
+            # a reviewer who settled it, is never overwritten by the surface.
+            if (rec.get("reading_basis") or "analyser") in ("analyser", "back-converted"):
+                # Named rather than reusing `f`, which is the store path this function writes back
+                # to and is still live: shadowing it made the whole pass raise on save.
+                for _stale in ("reading_uncertain", "note", "furigana_spans",
+                               "reading_source_kind"):
+                    rec.pop(_stale, None)
+                # `pass` and `source` are NameStore's argument names, which it maps onto
+                # reading_pass and reading_source. This writes the file directly, so it writes the
+                # stored spelling and drops the two that would land beside it as strays.
+                rec.update({k: v for k, v in surface.items() if k not in ("pass", "source")},
+                           reading_at=today, reading_pass=1, reading_source="surface",
+                           verified=True)
+                added += 1
+                surfaced += 1
+            continue
         r, uncertain = analyse_best(tok, s, modes)
         if not r:
             continue
@@ -712,7 +772,11 @@ def fill_missing(strings, kind, quiet=False, refresh=False):
         doc["names"] = names
         f.write_text(yaml.safe_dump(doc, allow_unicode=True, sort_keys=True, width=100))
         if not quiet:
-            print(f"names filled    : {added} new {kind} read automatically (analyser, unverified)")
+            # COUNTED APART BECAUSE THEY ARE DIFFERENT CLAIMS. A surface reading is exact and needs
+            # no marking; an analyser's is a guess and the interface marks it. One number covering
+            # both would have reported the 181 corrections as 181 more guesses.
+            print(f"names filled    : {added - surfaced} new {kind} read automatically "
+                  f"(analyser, unverified), {surfaced} answered by their own kana (surface)")
     return added
 
 if __name__ == "__main__":

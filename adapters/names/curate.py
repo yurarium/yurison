@@ -48,7 +48,13 @@ FILE = pathlib.Path(__file__).resolve().parents[2] / "data" / "names" / "curated
 
 # Which evidence each basis demands. `community-db` is deliberately absent from every row.
 ATTRIBUTION = {
-    "stated": ("platform", "publisher-jp"),      # the person's own rendering, where they wrote it
+    # THE PERSON'S OWN RENDERING, WHERE THEY WROTE IT, and `author` belongs here for the reason the
+    # row is named after. It was left out when `author` joined SOURCE_KINDS, because that round was
+    # about READINGS and READING_ATTRIBUTION got it: the two lists were edited apart and the one
+    # covering the artist's own page kept the artist off it. GAPS §9 is the cost. Every one of the
+    # 616 author names on the site is a romanisation of ours, nobody has looked for the Latin name
+    # the artist writes themselves, and an entry recording one was rejected by this line.
+    "stated": ("platform", "publisher-jp", "author"),
     "official-jp": ("publisher-jp", "platform"),  # the work's own English name
     "licensed": ("licensor",),                    # an English-language licensor's catalogue
     "translated": ("derived",),                   # ours
@@ -223,6 +229,31 @@ def unmatched(doc, known):
     return sorted(k for k in (doc.get("titles") or {}) if k not in known and _fold(k) not in folded)
 
 
+def duplicate_keys(path=None):
+    """Keys written twice in the curated file, which YAML resolves by silently keeping the last.
+
+    A DECISION THAT VALIDATES AND DISAPPEARS. `yaml.safe_load` takes the later mapping and drops the
+    earlier one without a word, so every check downstream reads a file that parses cleanly and holds
+    one of the two entries. 12 titles were in that state, one pair 8,500 lines apart, and appending
+    to this file rather than merging is how they got there.
+
+    Read as TEXT, because the parser is what loses them: by the time a dict exists the evidence is
+    gone. `(section, key, [line numbers])`.
+    """
+    import collections
+    lines = pathlib.Path(path or FILE).read_text().split("\n")
+    section, seen = None, collections.defaultdict(list)
+    for n, line in enumerate(lines, 1):
+        head = re.match(r"^(titles|authors):", line)
+        if head:
+            section = head.group(1)
+            continue
+        key = re.match(r"^  (\S.*?):\s*$", line)
+        if key and section:
+            seen[(section, key.group(1))].append(n)
+    return [(s, k, ns) for (s, k), ns in seen.items() if len(ns) > 1]
+
+
 def known_titles(build="data/build"):
     """Every title the build says it knows, folded.
 
@@ -350,6 +381,12 @@ def main(argv=None):
         return 0
 
     doc = load(a.file)
+    # BEFORE ANYTHING PARSED, because the parser is what loses them. A key written twice validates,
+    # applies cleanly and holds one of the two decisions.
+    dups = duplicate_keys(a.file)
+    for section, key, lines in dups:
+        print(f"  DUPLICATE {section}/{key[:34]}: written at lines "
+              f"{', '.join(str(n) for n in lines)}; YAML keeps the last and drops the rest")
     bad = check(doc)
     for b in bad:
         print(f"  REJECT {b}")
@@ -358,7 +395,7 @@ def main(argv=None):
         print(f"  STRAY  titles/{s}: names no work in the catalogue")
     counts = {k: len(doc.get(k) or {}) for k in ("titles", "authors")}
     print(f"{counts['titles']} title(s), {counts['authors']} author(s); "
-          f"{len(bad)} rejected, {len(stray)} matching nothing")
+          f"{len(bad)} rejected, {len(stray)} matching nothing, {len(dups)} written twice")
     if bad or stray:
         return 1
     if a.apply:

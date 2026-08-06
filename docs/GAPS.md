@@ -350,31 +350,49 @@ host until somebody remembers. Same class as the gap list itself.
 
 ---
 
-## 9. Nobody has looked for the name the person uses
+## 9. The search for the name the person uses has been run once, on eleven names
 
-616 author names on the live site are shown as a romanisation we derived from confirmed kana. That
-is mechanical and carries no note, correctly. What it hides is that we never asked whether the
-person writes their own name in Latin script.
+Most author names on the live site are a romanisation we derived from confirmed kana. That is
+mechanical and carries no note, correctly. What it hid until 2026-08-06 is that nobody had asked
+whether the person writes their own name in Latin script.
 
-A minority of artists do, and they are not quiet about it. A pen name set in Latin on a creator's
-own profile, in the credits of a licensed edition, or on the work's own cover is attestable exactly
-the way a splash-art title was: 49 works gained an English title that way on 2026-08-04, from art
-we had been sitting on.
+**The route works and its rate is now measured rather than guessed.** Eleven of the most-published
+names with no stated reading were worked by hand. Three keep a page of their own that states a
+name: 焔すばる signs Homura Subaru, 秋月ルコ signs AKIDZUKI Luco, and 福井遥香's own site carries
+福井 遥香（ふくい はるか） and HARUKA FUKUI. Each of those settles a Latin byline AND a kana
+reading, and 焔 turned out to be ホムラ where an analyser had produced ホノオ. The other eight have
+an X account or a FANBOX and no page saying how the name is read. **A handle is not a byline**:
+桜庭友紀 posts as @kyomoneko_2, which romanises nothing.
 
-**The state already exists and has never been reached for people.** `adapters/names/curate.py`
-accepts `stated`, documented as "the person's own rendering, where they wrote it", and every author
-pass so far has filled `reading` from NDL and openBD without once looking for a Latin form. So the
-schema is right, the evidence is out there, and the search has not been run.
+So roughly one artist in four keeps a page worth citing. That is worth running and it is not a plan
+for the several hundred names still carrying a machine's guess, which is what §5d's unverified mark
+is for.
 
-What it changes for a reader: a name at `stated` is the person's own and carries nothing of ours,
-the way a licensed title does for a work. Today all 616 are ours by default rather than by finding.
+Where to look next, in the order likely to pay. lit.link, foriio and an artist's own site are what
+produced all three above and are the first thing to try on a name. The licensed editions print a
+credit, and `data/queue/english-licences.yaml` holds 87 licences whose pages carry author credits
+nobody has read. Series art and platform profiles are the source that produced 49 English titles on
+2026-08-04. Anthology contributor lists name people the shelf captures reach and the corpus does
+not, and `data/source/webpages/bylines.yaml` now holds 46 of those lists.
 
-Where to look, in the order likely to pay. The licensed editions print a credit, and
-`data/queue/english-licences.yaml` already holds 87 licences whose pages carry author credits
-nobody has read. Series art and platform profiles are the source that produced the 49 titles, and
-the platform ranking in `data/coverage/splash-titles.md` says which are worth opening. The
-publisher's own author pages carry the same `publisher-jp` evidence the openBD reading route uses
-for kana. Anthology contributor lists name people the shelf captures reach and the corpus does not.
+**The route that is open and unfinished, and it is about titles.** BOOK☆WALKER states the reading
+of a TITLE twice on the page it sells the book from: in its keywords field beside the title, and
+again as furigana in the publisher's blurb, which glosses a surname on first use. 1,548 of the
+3,601 titles with no stated reading have such a page, which makes it the largest single thing left
+in the naming work. `adapters/names/shop_reading.py` reads it and 13 are settled; the shop answers
+about one page every twenty seconds under a polite pause, so the rest is a resumable run. It says
+nothing about an author's reading, because the keywords field names the author without stating how
+the name is said.
+
+**A lead deliberately not taken, recorded so it is decided rather than rediscovered.** まんが王国
+prints a kana reading beside every author it lists, and コミックシーモア and DMM do the same on
+some listings. A licensed retailer is not a community database, and `curate.py` names "a bookshop
+listing" as evidence a reviewer may weigh under `researched`. It was left because `researched` says
+a person weighed the evidence and applying it to four hundred names mechanically is a bulk import
+wearing a reviewer's label. The shops also disagree with each other: DMM files 桜庭友紀 as
+さくらばゆうき where another listing gives さくらばゆき. The bounded version is worth doing, over
+the names where a shop's kana DISAGREES with the analyser, because those are the ones a reader is
+being shown wrongly today.
 
 The 179 whose pronunciation is unconfirmed are a different problem and are already marked as such.
 

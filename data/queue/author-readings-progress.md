@@ -138,3 +138,27 @@ listing gives さくらばゆき, which is exactly why it cannot be taken in bul
 - The 179 BOOK☆WALKER credits whose second part is a doujin circle never reached the store.
   `Ｍａｇｐｉｅ` and `Usagisan-Books` are in neither data/names nor the corpus, while あとき and
   やとさきはる are in as people. That trap is closed upstream and stayed closed.
+
+## The shop states the TITLE's reading in a field, and again in the blurb
+
+Found by the project owner and confirmed on the page. BOOK☆WALKER's `<meta name="keywords">`
+carries the whole title's reading beside the title, and its description glosses a surname with
+furigana in running text on first use. 豹藤さんは攻略（おと）したい states both:
+`ヒョウドウサンハオトシタイ` in the field and `豹藤（ひょうどう）` in the blurb. The analyser had it
+as ヒョウ フジサン ワ コウリャク シタイ, wrong on the surname and blind to the work's own gloss of
+攻略 as おと, from 落とす.
+
+`adapters/names/shop_reading.py` reads both, stores only the extracted pair and never the blurb
+(REQUIREMENTS §2), and checks itself: the reading is the first katakana field that is not the shop
+describing its own catalogue, the fields in front of it must rejoin to the title the page states,
+and a volume number the shop appends to the reading comes off only where the title itself has no
+trailing digits. 100日後に咲く百合 was otherwise about to be published as
+Hyakunichigonisakuyuri001.
+
+**1,548 of the 3,601 titles with no stated reading have a BOOK☆WALKER page**, so this is the
+largest single route left in the naming work. 13 are settled. The shop answers slowly, roughly one
+page every twenty seconds under a polite pause, so the remainder is a resumable run rather than a
+finished pass. Settled is final, so restarting costs nothing.
+
+It settles TITLES. The keywords field names the author and does not state the author's reading, so
+it does nothing for the 486 names still outstanding.

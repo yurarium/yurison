@@ -25,18 +25,19 @@ names:
     en_at: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - '#ふれない'
-      - null
     note: 触れない written in kana is both cannot touch and does not touch, and the title leaves it open.
       The hash is the work's own and marks the title as a tag.
-    reading: '# フレナイ'
+    reading: フレナイ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: '# フレナイ'
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: true
   '#ふれない（百合コレ）':
     basis: romaji
     furigana_spans:
@@ -81,18 +82,19 @@ names:
     en_at: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - '#ミカちゃんともなちゃん'
-      - null
     note: The hash is the work's own and marks the title as a tag, so it stays. Both names keep their
       ちゃん.
-    reading: '# ミカチャン ト モ ナチャン'
+    reading: ミカチャントモナチャン
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: '# ミカチャン ト モ ナチャン'
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: true
   '#ミカちゃんともなちゃん（BLIC-GL）':
     basis: romaji
     furigana_spans:
@@ -183,32 +185,22 @@ names:
     en_source: yenpress.com
     en_source_kind: licensor
     en_url: https://yenpress.com/series/lilies-blooming-in-100-days-manga
-    furigana_spans:
-    - - '100'
-      - null
-    - - 日
-      - にち
-    - - 後
-      - ご
-    - - に
-      - null
-    - - 咲
-      - さ
-    - - く
-      - null
-    - - 百合
-      - ゆり
     note: Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the
       identification is made here on the creator the page credits and on what the series is. Credited
       to Muromaki, which is ムロマキ, and the English renders the Japanese closely. Yen Press describes a
       full-colour collection of a hundred yuri scenes.
-    reading: 100 ニチゴ ニ サク ユリ
-    reading_at: '2026-08-02'
-    reading_basis: analyser
+    reading: ヒャクニチゴニサクユリ
+    reading_at: '2026-08-06'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: 100 ニチゴ ニ サク ユリ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: yenpress.com
+    reading_source_kind: licensor
+    reading_url: https://yenpress.com/series/lilies-blooming-in-100-days-manga
+    verified: true
   100日後に咲く百合（MFC）:
     basis: romaji
     furigana_spans:
@@ -465,29 +457,18 @@ names:
     en_at: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - '1'
-      - null
-    - - 枚
-      - まい
-    - - で
-      - null
-    - - 読
-      - よ
-    - - む
-      - null
-    - - 百合
-      - ゆり
-    - - SS
-      - null
     note: SS is ショートストーリー as Japanese abbreviates it, the very short prose piece fandom writes.
-    reading: 1マイ デ ヨム ユリ SS
+    reading: イチマイデヨムユリエスエス
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: 1マイ デ ヨム ユリ SS
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: true
   1枚で読む百合SS（izure）:
     basis: romaji
     furigana_spans:
@@ -571,23 +552,18 @@ names:
     en_at: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 2か
-      - null
-    - - 月
-      - げつ
-    - - の
-      - null
-    - - 夢
-      - ゆめ
     note: The span is the whole of the title.
-    reading: 2 カゲツ ノ ユメ
+    reading: ニカゲツノユメ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: 2 カゲツ ノ ユメ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: true
   2か月の夢（百合コレ）:
     basis: romaji
     furigana_spans:
@@ -969,29 +945,18 @@ names:
     en_at: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - Anemone-カードが
-      - null
-    - - 導
-      - みちび
-    - - く
-      - null
-    - - 恋
-      - こい
-    - - のお
-      - null
-    - - 話
-      - はなし
-    - - '-'
-      - null
     note: 導く is to guide somebody towards something. The main title is already Latin.
-    reading: Anemone - カード ガ ミチビク コイ ノ オ ハナシ -
+    reading: アネモネカードガミチビクコイノオハナシ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: Anemone - カード ガ ミチビク コイ ノ オ ハナシ -
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: true
   Anemone-カードが導く恋のお話-（ナンバーナイン）:
     basis: romaji
     furigana_spans:
@@ -1231,31 +1196,20 @@ names:
     en_at: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 'BOMBSHELLS '
-      - null
-    - - 天野
-      - あまの
-    - - しゅにんた
-      - null
-    - - 創作
-      - そうさく
-    - - 百合
-      - ゆり
-    - - 再録
-      - さいろく
-    - - 集
-      - しゅう
     note: The Latin word is the work's own and stays capitalised as set. 創作 marks the work as the artist's
       own invention as against fan work built on somebody else's characters, which is the distinction
       the word exists to draw in this scene.
-    reading: BOMBSHELLS   アマノシュ ニンタ ソウサク ユリ サイロクシュウ
+    reading: ボムシェルズアマノシュニンタソウサクユリサイロクシュウ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: BOMBSHELLS   アマノシュ ニンタ ソウサク ユリ サイロクシュウ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: true
   BOMBSHELLS 天野しゅにんた創作百合再録集（BLIC-GL）:
     basis: romaji
     furigana_spans:
@@ -1445,25 +1399,18 @@ names:
     en_at: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - DillyDilly-メイド
-      - null
-    - - 百合
-      - ゆり
-    - - 再録
-      - さいろく
-    - - 集
-      - しゅう
-    - - '-'
-      - null
     note: 再録集 is a book gathering pieces already published elsewhere.
-    reading: DillyDilly - メイド ユリ サイロクシュウ -
+    reading: ディリディリメイドユリサイロクシュウ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: DillyDilly - メイド ユリ サイロクシュウ -
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: true
   DillyDilly-メイド百合再録集-（ナンバーナイン）:
     basis: romaji
     furigana_spans:
@@ -1533,13 +1480,17 @@ names:
     note: The katakana between the dashes is the Latin word read aloud, so it adds nothing to an English
       reader and repeating it would put the same word twice. The Latin is the work's own and stays capitalised
       as set.
-    reading: ENSEMBLE - アンサンブル -
+    reading: アンサンブル
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ENSEMBLE - アンサンブル -
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: true
   ENSEMBLE-アンサンブル-（ナンバーナイン）:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -1600,24 +1551,19 @@ names:
     en_at: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - FES
-      - null
-    - - 部
-      - ぶ
-    - - の
-      - null
-    - - 雑談
-      - ざつだん
     note: 部 is the school club, the after-hours society every Japanese school runs. 雑談 is talk with no
       purpose to it, which small talk carries. The Latin initials are the work's own.
-    reading: FES ブ ノ ザツダン
+    reading: エフイーエスブノザツダン
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: FES ブ ノ ザツダン
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: true
   FES部の雑談（ナンバーナイン）:
     basis: romaji
     furigana_spans:
@@ -1772,21 +1718,18 @@ names:
     en_at: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - Good Girlの
-      - null
-    - - 暴
-      - あば
-    - - きかた
-      - null
     note: 暴く is to bring into the open what somebody was keeping, and かた is the how-to formula.
-    reading: Good   Girl ノ アバキカタ
+    reading: グッドガールノアバキカタ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: Good   Girl ノ アバキカタ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: true
   Good Girlの暴きかた（BLIC-GL）:
     basis: romaji
     furigana_spans:
@@ -1811,21 +1754,18 @@ names:
     en_at: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - HAPPY
-      - null
-    - - 百合
-      - ゆり
-    - - セット
-      - null
     note: セット is a set meal or a bundle, which is what the shop is selling.
-    reading: HAPPY ユリ セット
+    reading: ハッピーユリセット
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: HAPPY ユリ セット
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: true
   HAPPY百合セット（ナンバーナイン）:
     basis: romaji
     furigana_spans:
@@ -84322,13 +84262,18 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒョウ フジサン ワ コウリャク シタイ
+    reading: ヒョウドウサンハオトシタイ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ヒョウ フジサン ワ コウリャク シタイ
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_source: BOOK☆WALKER
+    reading_source_kind: platform
+    reading_url: https://bookwalker.jp/de640f54a8-0664-4c88-8643-7379f85af56d/
+    verified: true
   貝とオルタナロック:
     basis: translated
     en: Shells and Alternative Rock

@@ -7072,7 +7072,7 @@
    "why": "date matched as a pattern in the page, not stated by the platform",
    "moved": "",
    "url": "https://news.mynavi.jp/series/carfairy/",
-   "author": "",
+   "author": "ずんだコロッケ",
    "plat": "news-mynavi-jp",
    "plat_name": "マイナビニュース",
    "ident": "discovery-candidate",
@@ -7080,6 +7080,7 @@
    "access_modes": [],
    "provenance": "attested",
    "free": false,
+   "author_basis": "carried from another record of the same work",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 62",
    "kind_inferred": true,
@@ -7140,6 +7141,16 @@
     },
     "reading_basis": "analyser",
     "unverified": true
+   },
+   "author_en": {
+    "reading": "ズンダコロッケ",
+    "romaji": {
+     "macron": "Zundakorokke",
+     "double": "Zundakorokke",
+     "plain": "Zundakorokke"
+    },
+    "basis": "romaji",
+    "reading_basis": "surface"
    },
    "wid": "w00038"
   },
@@ -11416,23 +11427,11 @@
    "surfaced": false,
    "feed_date": "2026-07-28",
    "work_en": {
-    "reading": "ビョウジャク ショウジョ、 テンショウ シテ ケンコウナ ニクタイ （サイキョウ） ヲ テ ニ イレル 　 ～ トモダチ ガ ホシクテ マキョウ カラ タビダッタ ノデスガ、 ドウ ヤラ ワタシ ノ マホウ ワ スコシ オカシイ ヨウデス！？ ～",
+    "reading": "ビョウジャク ショウジョ、 テンセイ シテ ケンコウナ ニクタイ （サイキョウ） ヲ テ ニ イレル 　 ～ トモダチ ガ ホシクテ マキョウ カラ タビダッタ ノデスガ、 ドウ ヤラ ワタシ ノ マホウ ワ スコシ オカシイ ヨウデス！？ ～",
     "ruby": [
      [
-      "病",
-      "びょう"
-     ],
-     [
-      "弱",
-      "じゃく"
-     ],
-     [
-      "少",
-      "しょう"
-     ],
-     [
-      "女",
-      "じょ"
+      "病弱少女",
+      "び"
      ],
      [
       "、",
@@ -11440,7 +11439,7 @@
      ],
      [
       "転生",
-      "てんしょう"
+      "ょうじゃくしょうじょ、てんせい"
      ],
      [
       "して",
@@ -11460,19 +11459,15 @@
      ],
      [
       "肉体",
-      "にくたい"
+      "に"
      ],
      [
       "（",
       null
      ],
      [
-      "最",
-      "さい"
-     ],
-     [
-      "強",
-      "きょう"
+      "最強",
+      "くたい（さいきょう"
      ],
      [
       "）を",
@@ -11560,17 +11555,16 @@
      ]
     ],
     "romaji": {
-     "macron": "Byōjaku Shōjo, Tenshō Shite Kenkōna Nikutai (Saikyō) o Te ni Ireru ~ Tomodachi ga Hoshikute Makyō kara Tabidatta Nodesuga, Dō Yara Watashi no Mahō wa Sukoshi Okashii Yōdesu!? ~",
-     "double": "Byoujaku Shoujo, Tenshou Shite Kenkouna Nikutai (Saikyou) o Te ni Ireru ~ Tomodachi ga Hoshikute Makyou kara Tabidatta Nodesuga, Dou Yara Watashi no Mahou wa Sukoshi Okashii Youdesu!? ~",
-     "plain": "Byojaku Shojo, Tensho Shite Kenkona Nikutai (Saikyo) o Te ni Ireru ~ Tomodachi ga Hoshikute Makyo kara Tabidatta Nodesuga, Do Yara Watashi no Maho wa Sukoshi Okashi Yodesu!? ~"
+     "macron": "Byōjaku Shōjo, Tensei Shite Kenkōna Nikutai (Saikyō) o Te ni Ireru ~ Tomodachi ga Hoshikute Makyō kara Tabidatta Nodesuga, Dō Yara Watashi no Mahō wa Sukoshi Okashii Yōdesu!? ~",
+     "double": "Byoujaku Shoujo, Tensei Shite Kenkouna Nikutai (Saikyou) o Te ni Ireru ~ Tomodachi ga Hoshikute Makyou kara Tabidatta Nodesuga, Dou Yara Watashi no Mahou wa Sukoshi Okashii Youdesu!? ~",
+     "plain": "Byojaku Shojo, Tensei Shite Kenkona Nikutai (Saikyo) o Te ni Ireru ~ Tomodachi ga Hoshikute Makyo kara Tabidatta Nodesuga, Do Yara Watashi no Maho wa Sukoshi Okashi Yodesu!? ~"
     },
     "en": "A Sickly Girl Reincarnates and Gets a Healthy (Overpowered) Body ~I Left the Demon Wilds Because I Wanted Friends, but It Seems My Magic Is a Little Strange!?~",
     "basis": "translated",
     "en_forms": {
      "translated": "A Sickly Girl Reincarnates and Gets a Healthy (Overpowered) Body ~I Left the Demon Wilds Because I Wanted Friends, but It Seems My Magic Is a Little Strange!?~"
     },
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "researched"
    },
    "wid": "w00059"
   },
@@ -14883,7 +14877,7 @@
    "why": "date matched as a pattern in the page, not stated by the platform",
    "moved": "",
    "url": "https://news.mynavi.jp/series/carfairy/",
-   "author": "",
+   "author": "ずんだコロッケ",
    "plat": "news-mynavi-jp",
    "plat_name": "マイナビニュース",
    "ident": "discovery-candidate",
@@ -14891,6 +14885,7 @@
    "access_modes": [],
    "provenance": "attested",
    "free": false,
+   "author_basis": "carried from another record of the same work",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 6",
    "kind_inferred": true,
@@ -14951,6 +14946,16 @@
     },
     "reading_basis": "analyser",
     "unverified": true
+   },
+   "author_en": {
+    "reading": "ズンダコロッケ",
+    "romaji": {
+     "macron": "Zundakorokke",
+     "double": "Zundakorokke",
+     "plain": "Zundakorokke"
+    },
+    "basis": "romaji",
+    "reading_basis": "surface"
    },
    "wid": "w00038"
   },
@@ -17151,7 +17156,7 @@
    "why": "date matched as a pattern in the page, not stated by the platform",
    "moved": "",
    "url": "https://news.mynavi.jp/series/carfairy/",
-   "author": "",
+   "author": "ずんだコロッケ",
    "plat": "news-mynavi-jp",
    "plat_name": "マイナビニュース",
    "ident": "discovery-candidate",
@@ -17159,6 +17164,7 @@
    "access_modes": [],
    "provenance": "attested",
    "free": false,
+   "author_basis": "carried from another record of the same work",
    "kind": "new-chapter",
    "kind_basis": "episode numbered 5",
    "kind_inferred": true,
@@ -17219,6 +17225,16 @@
     },
     "reading_basis": "analyser",
     "unverified": true
+   },
+   "author_en": {
+    "reading": "ズンダコロッケ",
+    "romaji": {
+     "macron": "Zundakorokke",
+     "double": "Zundakorokke",
+     "plain": "Zundakorokke"
+    },
+    "basis": "romaji",
+    "reading_basis": "surface"
    },
    "wid": "w00038"
   }

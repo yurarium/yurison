@@ -100,8 +100,35 @@ def render(work, depth=2):
     return "\n".join(lines)
 
 
-def written(root, works):
-    """{relative path: html} for every work with an identifier."""
+def forward(root, retired, surviving, depth=2):
+    """A page at a retired identifier that sends a reader to the work it became.
+
+    AN ADDRESS PUBLISHED ONCE HAS TO KEEP RESOLVING. That is why an identifier here is opaque and
+    minted rather than derived from a title: a title changes and an address must not. Two records
+    turning out to be one work retires an id, and `merged_into` in the registry has recorded where
+    it went since the beginning while nothing acted on it. 20 of 26 retired ids were live in a
+    published build, so twenty addresses that resolved in the morning resolved nowhere by the
+    evening, which is the exact failure the opaque id was chosen to prevent.
+
+    A redirect and not a copy. The work has one address now, and a second page carrying the same
+    record would be a second address competing with it.
+    """
+    up = "../" * depth
+    return "\n".join([
+        "<!doctype html>", '<html lang="ja">', "<head>", '<meta charset="utf-8">',
+        '<meta name="robots" content="noindex,nofollow">',
+        f'<link rel="canonical" href="{up}work/{esc(surviving)}/">',
+        f'<meta http-equiv="refresh" content="0; url={up}work/{esc(surviving)}/">',
+        f"<title>{esc(retired)} — Yurarium</title>", "</head>", "<body>",
+        f"<p>This record is now <a href=\"{up}work/{esc(surviving)}/\">{esc(surviving)}</a>.</p>",
+        # The meta refresh serves a reader with no JavaScript; this is for everyone else and is
+        # `replace` so the retired address does not sit in the history behind them.
+        f'<script>location.replace("{up}work/{esc(surviving)}/");</script>',
+        "</body>", "</html>", ""])
+
+
+def written(root, works, merged=None):
+    """{relative path: html} for every work with an identifier, and every id retired into one."""
     out = {}
     for w in works:
         wid = str(w.get("id") or "")
@@ -110,6 +137,21 @@ def written(root, works):
         if not SAFE_ID.match(wid):
             continue
         out[f"{root}/{wid}/index.html"] = render(w)
+    live = {str(w.get("id") or "") for w in works}
+    for retired, surviving in sorted((merged or {}).items()):
+        # Both ends checked: one builds a path and the other builds a URL inside it.
+        if not SAFE_ID.match(str(retired)) or not SAFE_ID.match(str(surviving)):
+            continue
+        # A live id never gets a forwarder, and a chain is followed to whatever is live now: A into
+        # B into C has to land on C rather than on a page that forwards again.
+        if retired in live:
+            continue
+        seen, target = {retired}, str(surviving)
+        while target not in live and target in (merged or {}) and target not in seen:
+            seen.add(target)
+            target = str(merged[target])
+        if target in live:
+            out[f"{root}/{retired}/index.html"] = forward(root, str(retired), target)
     return out
 
 
@@ -123,9 +165,10 @@ def main(argv=None):
     ap.add_argument("--root", default="work")
     a = ap.parse_args(argv)
 
-    works = json.loads(pathlib.Path(a.series).read_text())["series"]
+    doc = json.loads(pathlib.Path(a.series).read_text())
+    works = doc["series"]
     site = pathlib.Path(a.site)
-    files = written(a.root, works)
+    files = written(a.root, works, doc.get("merged") or {})
     for rel, body in files.items():
         p = site / rel
         p.parent.mkdir(parents=True, exist_ok=True)
@@ -145,7 +188,9 @@ def main(argv=None):
                 except OSError:
                     pass
                 removed += 1
-    print(f"work stubs: {len(files)} written, {removed} stale removed")
+    fwd = sum(1 for rel in files if "This record is now" in files[rel])
+    print(f"work stubs: {len(files) - fwd} written, {fwd} forwarding a retired id, "
+          f"{removed} stale removed")
     return 0
 
 

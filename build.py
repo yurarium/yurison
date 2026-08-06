@@ -4115,8 +4115,20 @@ def main():
          ).items() if norm_work(k) not in _wh_names}},
         ensure_ascii=False, indent=1, default=jsonable))
 
+    # WHERE A RETIRED IDENTIFIER WENT, shipped so the interface can follow it. An address published
+    # once has to keep resolving, which is why an id here is opaque and minted; the registry has
+    # recorded `merged_into` since the beginning and nothing outside identity.py read it, so a work
+    # page asked for a retired id rendered a blank page.
+    _merged = {}
+    _idreg2 = pathlib.Path("data/identity/works.yaml")
+    if _idreg2.exists():
+        for _e3 in (yaml.safe_load(_idreg2.read_text()) or {}).get("works") or []:
+            if _e3.get("merged_into"):
+                _merged[str(_e3["id"])] = str(_e3["merged_into"])
+
     (out / "series.json").write_text(json.dumps(
         {"series": series_rows,
+         "merged": _merged,
          "generated": str(_today),
          "note": "Built from full chapter histories in data/source/, not from the 60-day feed "
                  "window. One row per WORK; its platforms are listed as sources, because they "

@@ -246,3 +246,43 @@ cache is what makes this tolerable on repeat runs.
 nothing in the pipeline refreshes it. Either drive that pass with Playwright or accept that only
 each work's newest ~20 chapters get an access state automatically, and mark those rows stale-able
 so they cannot rot unnoticed.
+
+## 11. Merging two records that turn out to be one work
+
+An address published once has to keep resolving. That is why a work's identifier is opaque and
+minted in `adapters/identity.py` rather than derived from its title: a title changes and an address
+must not. Merging is the one operation that retires an identifier, so it is also the one that can
+break an address, and the procedure exists so that it does not.
+
+**Establish that they are one work, on a field that is not the title.** `adapters/madb/extract.agrees`
+is the test: the creator, the publisher or the imprint has to agree. A matching title is the
+strongest lead available and no kind of evidence on its own, which `トワ・エ・モア` demonstrates by
+being a 1996 コンパス anthology and a 2024 講談社 series at once. Where nothing but the title agrees,
+leave the pair undecided. An undecided join costs a duplicate row; a wrong merge is hard to see once
+made.
+
+**Retire the newer identifier into the older**, so the address that has been published longest is
+the one that survives:
+
+```
+python3 adapters/identity.py --merge RETIRED SURVIVING --basis "creator agrees: ..."
+./build.py && ./deploy.sh
+```
+
+**What happens to the retired address.** `identity.py` writes `merged_into` into
+`data/identity/works.yaml`; `build.py` ships the map as `merged` in `series.json`; `adapters/stubs.py`
+writes a page at the retired address that forwards to the survivor, by meta refresh for a reader
+with no JavaScript and by `location.replace` for everyone else; and `app.js` follows the same map
+in `liveId()` for a link followed inside the interface. A chain of merges is followed to whatever is
+live, so A into B into C lands on C.
+
+**Check it after deploying**, because this was recorded in the registry and acted on nowhere for
+some time, and 20 retired identifiers became blank pages in one afternoon:
+
+```
+curl -s https://yurarium.github.io/kari/work/RETIRED/ | grep -c "This record is now"
+```
+
+`adapters/test_stubs.py` covers the forwarder, the chain, and the two guards: a live identifier is
+never turned into a forwarder, and one that is not a well-formed id writes nothing, because a path
+is built from it.

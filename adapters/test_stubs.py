@@ -62,5 +62,32 @@ def main(s):
     s.eq(stubs.summary({"chapters": 3}), "3 chapters", "and only what is known is stated")
 
 
+    # A RETIRED IDENTIFIER STILL RESOLVES. Two records turning out to be one work retires an id, and
+    # an address published once has to keep working: that is why an id here is opaque and minted
+    # rather than derived from a title. `merged_into` recorded where it went from the beginning and
+    # nothing acted on it, so 20 of 26 retired ids became blank pages in one afternoon.
+    rows = [{"id": "w0002", "work": "残った作品", "state": "print", "chapters": 0}]
+    files = stubs.written("work", rows, {"w0001": "w0002"})
+    s.check("work/w0001/index.html" in files, "a retired id gets a page of its own")
+    fwd = files["work/w0001/index.html"]
+    s.check("../../work/w0002/" in fwd, "which points at the work it became")
+    s.check("location.replace" in fwd, "replacing the entry so the dead address is not behind them")
+    s.check('http-equiv="refresh"' in fwd, "and refreshing for a reader with no JavaScript")
+    s.check("残った作品" not in fwd, "a forwarder carries no record, or the work would have two")
+
+    # A CHAIN LANDS ON WHAT IS LIVE. A into B into C has to reach C, not a page that forwards again.
+    chain = stubs.written("work", rows, {"a": "b", "b": "w0002"})
+    s.check("../../work/w0002/" in chain["work/a/index.html"], "a chain is followed to the end")
+
+    # And the guards. A live id is never forwarded, and a path is built from an id so it is checked.
+    s.check("work/w0002/index.html" in stubs.written("work", rows, {"w0002": "w0001"}),
+            "an id that still names a live work keeps its record")
+    s.check("This record is now" not in stubs.written("work", rows, {"w0002": "w0001"})["work/w0002/index.html"],
+            "and is not turned into a forwarder by a stale entry")
+    s.eq([k for k in stubs.written("work", rows, {"../etc": "w0002"})], ["work/w0002/index.html"],
+         "an id that is not an id writes nothing, because a path is built from it")
+    s.eq([k for k in stubs.written("work", rows, {"w0001": "nowhere"})], ["work/w0002/index.html"],
+         "and a target nothing resolves to forwards nowhere rather than to a blank page")
+
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

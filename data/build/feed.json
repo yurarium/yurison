@@ -584,7 +584,11 @@
      "double": "Akirakani Nenrei o Sashou Shite Iru Joshikousei VTuber",
      "plain": "Akirakani Nenrei o Sasho Shite Iru Joshikosei VTuber"
     },
-    "basis": "romaji",
+    "en": "High school girl VTuber who clearly lies about her age",
+    "basis": "official-jp",
+    "en_forms": {
+     "official-jp": "High school girl VTuber who clearly lies about her age"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -6433,7 +6437,11 @@
      "double": "Reijou VTuber wa Meido no Yashoku ni Juurin Sareru ~ Kindan Gohan de Shoku Reposei Haishin ~",
      "plain": "Reijo VTuber wa Meido no Yashoku ni Jurin Sareru ~ Kindan Gohan de Shoku Reposei Haishin ~"
     },
-    "basis": "romaji",
+    "en": "The Young Lady VTuber Is Overwhelmed by Her Maid's Midnight Snacks: Forbidden Food, Reviewed Live",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "The Young Lady VTuber Is Overwhelmed by Her Maid's Midnight Snacks: Forbidden Food, Reviewed Live"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -6549,7 +6557,11 @@
      "double": "Sekaiichi Kawaii Watashi no Osananajimi ga Kakurete VTuber o Shite Irurashii",
      "plain": "Sekaichi Kawai Watashi no Osananajimi ga Kakurete VTuber o Shite Irurashi"
     },
-    "basis": "romaji",
+    "en": "Apparently My Childhood Friend, the Cutest in the World, Is Secretly a VTuber",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "Apparently My Childhood Friend, the Cutest in the World, Is Secretly a VTuber"
+    },
     "reading_basis": "analyser",
     "unverified": true
    }
@@ -8046,7 +8058,11 @@
      "double": "Akirakani Nenrei o Sashou Shite Iru Joshikousei VTuber",
      "plain": "Akirakani Nenrei o Sasho Shite Iru Joshikosei VTuber"
     },
-    "basis": "romaji",
+    "en": "High school girl VTuber who clearly lies about her age",
+    "basis": "official-jp",
+    "en_forms": {
+     "official-jp": "High school girl VTuber who clearly lies about her age"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -10592,7 +10608,11 @@
      "double": "Bakugatari ZzZ",
      "plain": "Bakugatari ZzZ"
     },
-    "basis": "romaji",
+    "en": "Baku Tales zzZ",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "Baku Tales zzZ"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -11547,8 +11567,9 @@
      "plain": "Baddogaru"
     },
     "en": "Bad Girl",
-    "basis": "translated",
+    "basis": "licensed",
     "en_forms": {
+     "licensed": "Bad Girl",
      "translated": "Bad Girl"
     },
     "reading_basis": "surface"
@@ -15406,7 +15427,11 @@
      "double": "Sekaiichi Kawaii Watashi no Osananajimi ga Kakurete VTuber o Shite Irurashii",
      "plain": "Sekaichi Kawai Watashi no Osananajimi ga Kakurete VTuber o Shite Irurashi"
     },
-    "basis": "romaji",
+    "en": "Apparently My Childhood Friend, the Cutest in the World, Is Secretly a VTuber",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "Apparently My Childhood Friend, the Cutest in the World, Is Secretly a VTuber"
+    },
     "reading_basis": "analyser",
     "unverified": true
    }
@@ -16078,16 +16103,29 @@
     "reading_basis": "researched"
    },
    "author_en": {
-    "reading": "ウ テモ",
+    "reading": "ユウテモ",
+    "ruby": [
+     [
+      "U",
+      "ゆ"
+     ],
+     [
+      "-",
+      null
+     ],
+     [
+      "temo",
+      "うても"
+     ]
+    ],
     "romaji": {
-     "macron": "U Temo",
-     "double": "U Temo",
-     "plain": "U Temo"
+     "macron": "Yūtemo",
+     "double": "Yuutemo",
+     "plain": "Yutemo"
     },
     "en": "U-temo",
     "basis": "stated",
-    "reading_basis": "back-converted",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -18352,7 +18390,11 @@
      "double": "Akirakani Nenrei o Sashou Shite Iru Joshikousei VTuber",
      "plain": "Akirakani Nenrei o Sasho Shite Iru Joshikosei VTuber"
     },
-    "basis": "romaji",
+    "en": "High school girl VTuber who clearly lies about her age",
+    "basis": "official-jp",
+    "en_forms": {
+     "official-jp": "High school girl VTuber who clearly lies about her age"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -21289,7 +21331,11 @@
      "double": "Bakugatari ZzZ",
      "plain": "Bakugatari ZzZ"
     },
-    "basis": "romaji",
+    "en": "Baku Tales zzZ",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "Baku Tales zzZ"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -22310,7 +22356,11 @@
      "double": "Killer ♡ Twinkle ~ Anchi wa Suteeji ni Agaremasen ♡ ~",
      "plain": "Killer ♡ Twinkle ~ Anchi wa Suteji ni Agaremasen ♡ ~"
     },
-    "basis": "romaji",
+    "en": "Killer♡Twinkle ~Anti-Fans Don't Get to Take the Stage♡~",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "Killer♡Twinkle ~Anti-Fans Don't Get to Take the Stage♡~"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -24821,7 +24871,11 @@
      "double": "Reijou VTuber wa Meido no Yashoku ni Juurin Sareru ~ Kindan Gohan de Shoku Reposei Haishin ~",
      "plain": "Reijo VTuber wa Meido no Yashoku ni Jurin Sareru ~ Kindan Gohan de Shoku Reposei Haishin ~"
     },
-    "basis": "romaji",
+    "en": "The Young Lady VTuber Is Overwhelmed by Her Maid's Midnight Snacks: Forbidden Food, Reviewed Live",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "The Young Lady VTuber Is Overwhelmed by Her Maid's Midnight Snacks: Forbidden Food, Reviewed Live"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -24937,7 +24991,11 @@
      "double": "Sekaiichi Kawaii Watashi no Osananajimi ga Kakurete VTuber o Shite Irurashii",
      "plain": "Sekaichi Kawai Watashi no Osananajimi ga Kakurete VTuber o Shite Irurashi"
     },
-    "basis": "romaji",
+    "en": "Apparently My Childhood Friend, the Cutest in the World, Is Secretly a VTuber",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "Apparently My Childhood Friend, the Cutest in the World, Is Secretly a VTuber"
+    },
     "reading_basis": "analyser",
     "unverified": true
    }
@@ -28999,8 +29057,29 @@
    "surfaced": false,
    "feed_date": "2026-07-16",
    "work_en": {
+    "reading": "キミ ト ボドゲ ガ ツクリタイ！",
+    "ruby": [
+     [
+      "きみとボドゲが",
+      null
+     ],
+     [
+      "作",
+      "つく"
+     ],
+     [
+      "りたい！",
+      null
+     ]
+    ],
+    "romaji": {
+     "macron": "Kimi to Bodoge ga Tsukuritai!",
+     "double": "Kimi to Bodoge ga Tsukuritai!",
+     "plain": "Kimi to Bodoge ga Tsukuritai!"
+    },
     "en": "Kimi to Board Game ga Tsukuritai!",
     "basis": "romaji",
+    "reading_basis": "analyser",
     "unverified": true
    },
    "author_en": {
@@ -29358,7 +29437,11 @@
      "double": "Akirakani Nenrei o Sashou Shite Iru Joshikousei VTuber",
      "plain": "Akirakani Nenrei o Sasho Shite Iru Joshikosei VTuber"
     },
-    "basis": "romaji",
+    "en": "High school girl VTuber who clearly lies about her age",
+    "basis": "official-jp",
+    "en_forms": {
+     "official-jp": "High school girl VTuber who clearly lies about her age"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -31013,8 +31096,33 @@
    "surfaced": false,
    "feed_date": "2026-07-14",
    "work_en": {
+    "reading": "ゴキゲンヨウ、 イチ キョク イカガ ?",
+    "ruby": [
+     [
+      "ごきげんよう、",
+      null
+     ],
+     [
+      "一",
+      "いち"
+     ],
+     [
+      "局",
+      "きょく"
+     ],
+     [
+      "いかが?",
+      null
+     ]
+    ],
+    "romaji": {
+     "macron": "Gokigen'yō, Ichi Kyoku Ikaga ?",
+     "double": "Gokigen'you, Ichi Kyoku Ikaga ?",
+     "plain": "Gokigen'yo, Ichi Kyoku Ikaga ?"
+    },
     "en": "Gokigenyō, Ikkyoku Ikaga?",
     "basis": "romaji",
+    "reading_basis": "analyser",
     "unverified": true
    },
    "author_en": {
@@ -33647,7 +33755,11 @@
      "double": "Sekaiichi Kawaii Watashi no Osananajimi ga Kakurete VTuber o Shite Irurashii",
      "plain": "Sekaichi Kawai Watashi no Osananajimi ga Kakurete VTuber o Shite Irurashi"
     },
-    "basis": "romaji",
+    "en": "Apparently My Childhood Friend, the Cutest in the World, Is Secretly a VTuber",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "Apparently My Childhood Friend, the Cutest in the World, Is Secretly a VTuber"
+    },
     "reading_basis": "analyser",
     "unverified": true
    }
@@ -34709,8 +34821,9 @@
      "plain": "Baddogaru"
     },
     "en": "Bad Girl",
-    "basis": "translated",
+    "basis": "licensed",
     "en_forms": {
+     "licensed": "Bad Girl",
      "translated": "Bad Girl"
     },
     "reading_basis": "surface"
@@ -44932,7 +45045,11 @@
      "double": "Akirakani Nenrei o Sashou Shite Iru Joshikousei VTuber",
      "plain": "Akirakani Nenrei o Sasho Shite Iru Joshikosei VTuber"
     },
-    "basis": "romaji",
+    "en": "High school girl VTuber who clearly lies about her age",
+    "basis": "official-jp",
+    "en_forms": {
+     "official-jp": "High school girl VTuber who clearly lies about her age"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -49068,7 +49185,11 @@
      "double": "Killer ♡ Twinkle ~ Anchi wa Suteeji ni Agaremasen ♡ ~",
      "plain": "Killer ♡ Twinkle ~ Anchi wa Suteji ni Agaremasen ♡ ~"
     },
-    "basis": "romaji",
+    "en": "Killer♡Twinkle ~Anti-Fans Don't Get to Take the Stage♡~",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "Killer♡Twinkle ~Anti-Fans Don't Get to Take the Stage♡~"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -50550,7 +50671,11 @@
      "double": "Reijou VTuber wa Meido no Yashoku ni Juurin Sareru ~ Kindan Gohan de Shoku Reposei Haishin ~",
      "plain": "Reijo VTuber wa Meido no Yashoku ni Jurin Sareru ~ Kindan Gohan de Shoku Reposei Haishin ~"
     },
-    "basis": "romaji",
+    "en": "The Young Lady VTuber Is Overwhelmed by Her Maid's Midnight Snacks: Forbidden Food, Reviewed Live",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "The Young Lady VTuber Is Overwhelmed by Her Maid's Midnight Snacks: Forbidden Food, Reviewed Live"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -52716,16 +52841,25 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "オ イエ カエル",
+    "reading": "オウチカエル",
+    "ruby": [
+     [
+      "御家",
+      "おうち"
+     ],
+     [
+      "かえる",
+      null
+     ]
+    ],
     "romaji": {
-     "macron": "O Ie Kaeru",
-     "double": "O Ie Kaeru",
-     "plain": "O Ie Kaeru"
+     "macron": "Ōchikaeru",
+     "double": "Ouchikaeru",
+     "plain": "Ochikaeru"
     },
     "en": "Ouchi Kaeru",
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -54438,7 +54572,11 @@
      "double": "Akirakani Nenrei o Sashou Shite Iru Joshikousei VTuber",
      "plain": "Akirakani Nenrei o Sasho Shite Iru Joshikosei VTuber"
     },
-    "basis": "romaji",
+    "en": "High school girl VTuber who clearly lies about her age",
+    "basis": "official-jp",
+    "en_forms": {
+     "official-jp": "High school girl VTuber who clearly lies about her age"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -69971,8 +70109,9 @@
      "plain": "Baddogaru"
     },
     "en": "Bad Girl",
-    "basis": "translated",
+    "basis": "licensed",
     "en_forms": {
+     "licensed": "Bad Girl",
      "translated": "Bad Girl"
     },
     "reading_basis": "surface"
@@ -70752,7 +70891,11 @@
      "double": "Byousoku 11.2 Km de Tomo ni",
      "plain": "Byosoku 11.2 Km de Tomo ni"
     },
-    "basis": "romaji",
+    "en": "Together at 11.2 km/s",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "Together at 11.2 km/s"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -71092,7 +71235,11 @@
      "double": "Killer ♡ Twinkle ~ Anchi wa Suteeji ni Agaremasen ♡ ~",
      "plain": "Killer ♡ Twinkle ~ Anchi wa Suteji ni Agaremasen ♡ ~"
     },
-    "basis": "romaji",
+    "en": "Killer♡Twinkle ~Anti-Fans Don't Get to Take the Stage♡~",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "Killer♡Twinkle ~Anti-Fans Don't Get to Take the Stage♡~"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -72507,7 +72654,11 @@
      "double": "Reijou VTuber wa Meido no Yashoku ni Juurin Sareru ~ Kindan Gohan de Shoku Reposei Haishin ~",
      "plain": "Reijo VTuber wa Meido no Yashoku ni Jurin Sareru ~ Kindan Gohan de Shoku Reposei Haishin ~"
     },
-    "basis": "romaji",
+    "en": "The Young Lady VTuber Is Overwhelmed by Her Maid's Midnight Snacks: Forbidden Food, Reviewed Live",
+    "basis": "translated",
+    "en_forms": {
+     "translated": "The Young Lady VTuber Is Overwhelmed by Her Maid's Midnight Snacks: Forbidden Food, Reviewed Live"
+    },
     "reading_basis": "analyser",
     "unverified": true
    },
@@ -80488,15 +80639,20 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "sasa クマ",
+    "reading": "ササクマ",
+    "ruby": [
+     [
+      "sasa熊",
+      "ささくま"
+     ]
+    ],
     "romaji": {
-     "macron": "Sasa Kuma",
-     "double": "Sasa Kuma",
-     "plain": "Sasa Kuma"
+     "macron": "Sasakuma",
+     "double": "Sasakuma",
+     "plain": "Sasakuma"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "stated"
    }
   },
   {
@@ -83978,8 +84134,9 @@
      "plain": "Baddogaru"
     },
     "en": "Bad Girl",
-    "basis": "translated",
+    "basis": "licensed",
     "en_forms": {
+     "licensed": "Bad Girl",
      "translated": "Bad Girl"
     },
     "reading_basis": "surface"

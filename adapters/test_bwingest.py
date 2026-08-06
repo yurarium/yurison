@@ -61,6 +61,16 @@ def main(s):
     s.eq(bw.strip_imprint("雪解けとアガパンサス（電撃コミックスNEXT）"),
          ("雪解けとアガパンサス", "電撃コミックスNEXT"), "the label comes off and is kept as the imprint")
     s.eq(bw.strip_imprint("ふつうの話")[0], "ふつうの話", "a title without one is untouched")
+    # THE RECORD ANSWERS THE QUESTION ABOUT ITSELF. A word list caught 電撃コミックスNEXT and missed
+    # ナンバーナイン, 百合コレ and orSiS, which are publishers and imprints carrying no such word.
+    s.eq(bw.strip_imprint("黒の世界は白墨に染まる（orSiS）", "ぶんか社", "orSiS"),
+         ("黒の世界は白墨に染まる", "orSiS"), "a bracket holding this record's own imprint is a label")
+    s.eq(bw.strip_imprint("私が殺しました（ナンバーナイン）", "ナンバーナイン", None),
+         ("私が殺しました", "ナンバーナイン"), "and so is one holding its own publisher")
+    s.eq(bw.strip_imprint("白き乙女の人狼（ウェアウルフ）", "竹書房", "バンブーコミックス")[0],
+         "白き乙女の人狼（ウェアウルフ）", "a reading gloss belongs to the title and stays")
+    s.eq(bw.strip_imprint("彼氏の女友達がぐいぐい来る（私に）", "一迅社", "百合姫")[0],
+         "彼氏の女友達がぐいぐい来る（私に）", "and so does a bracket the author wrote")
     s.eq(bw.strip_imprint("わたしが恋人になれるわけないじゃん（※ムリじゃなかった!?）")[0],
          "わたしが恋人になれるわけないじゃん（※ムリじゃなかった!?）",
          "and a bracket that is part of the title is not an edition label")

@@ -38,12 +38,36 @@ IMPRINT_TAIL = re.compile(r"[（(][^）)]{2,30}?(?:コミックス|コミック|
                           r"ノベルス|BOOKS|books)[^）)]{0,12}[）)]\s*$")
 
 
-def strip_imprint(title):
-    """`(title, imprint)`: the work's name, and the edition label the shop put in it."""
-    m = IMPRINT_TAIL.search(title or "")
+# Any trailing bracket, which is only a label if the record itself says so.
+ANY_TAIL = re.compile(r"[（(]([^）)]{1,24})[）)]\s*$")
+
+
+def strip_imprint(title, publisher=None, imprint=None):
+    """`(title, imprint)`: the work's name, and the edition label the shop put in it.
+
+    A WORD IN BRACKETS IS ONLY A LABEL IF THE RECORD SAYS IT IS. Matching on a list of words that
+    look like imprints caught `（電撃コミックスNEXT）` and missed `（ナンバーナイン）`, `（百合コレ）`
+    and `（orSiS）`, which are publishers and imprints carrying no such word: 938 titles end in a
+    bracket and 933 of those brackets hold the record's OWN publisher or imprint. So the record
+    answers the question about itself.
+
+    The five that do not are left alone, and they are why this cannot be done by pattern alone:
+    `白き乙女の人狼（ウェアウルフ）` is a reading gloss and part of the title, and `（英語版）` says
+    which edition a volume is.
+    """
+    raw = (title or "").strip()
+    m = ANY_TAIL.search(raw)
     if not m:
-        return (title or "").strip(), None
-    return title[:m.start()].strip(), m.group(0).strip(" 　()（）")
+        return raw, None
+    label = m.group(1).strip()
+    for own in (imprint, publisher):
+        own = (own or "").strip()
+        if own and (label == own or label in own or own in label):
+            return raw[:m.start()].strip(), label
+    # Not this record's own label. It may still be an edition line naming a comics imprint.
+    if IMPRINT_TAIL.search(raw):
+        return raw[:m.start()].strip(), label
+    return raw, None
 
 
 def title_of(work):
@@ -83,7 +107,7 @@ def volumes_of(work):
 
 def record(work, retrieved):
     """One work as a source record, or None where the capture read nothing about it."""
-    title, from_title = strip_imprint(title_of(work))
+    title, from_title = strip_imprint(title_of(work), work.get("publisher"), work.get("imprint"))
     if not title:
         return None
     vols = volumes_of(work)

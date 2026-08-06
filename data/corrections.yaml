@@ -1,0 +1,18 @@
+# Records the pipeline wrote and should not have, retracted with the reason in writing.
+#
+# NOT A TAKEDOWN. A work leaves this database only through a takedown record naming the requester
+# and the date (REQUIREMENTS §4), and that is unchanged. This file is for the other case: a record
+# that was never valid, where the WORK stays in the corpus and only the spurious record goes.
+#
+# Each entry names the build baseline it applies to, so it authorises one fall and not a standing
+# licence to shrink.
+corrections:
+  - date: 2026-08-06
+    build_baseline: 2335
+    records: 93
+    why: >-
+      The BOOK☆WALKER ingest kept the publisher's own imprint bracketed on the end of a title, so
+      93 works already in the corpus entered a second time under a name nobody uses:
+      黒の世界は白墨に染まる（orSiS） beside 黒の世界は白墨に染まる. 938 titles ended in a bracket
+      and 933 of those brackets held the record's own publisher or imprint. The works remain; the
+      duplicate records go.

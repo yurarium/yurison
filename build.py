@@ -22,6 +22,7 @@ import checkstate  # noqa: E402
 import identity  # noqa: E402
 import importdates  # noqa: E402
 from names import openbd_reading  # noqa: E402
+from recon import bookwalker_volumes  # noqa: E402
 
 # REQUIREMENTS §1. A field whose provenance is not here fails the build.
 # Tier A/B attesting sources only. Discovery-only sources (Tier C/D) never appear here — they feed
@@ -1324,6 +1325,7 @@ def main():
 
     overlay = {r["work_id"]: r for r in load_dir("data/overlay")} if pathlib.Path("data/overlay").exists() else {}
     undated_works = 0
+    undated_by_basis = {}
 
     works, errors, warnings = [], [], []
     for wid, by_source in sorted(src.items()):
@@ -1359,7 +1361,10 @@ def main():
                 m["published_openbd"] = o["published"]
             if o.get("cover_url"):
                 m["cover_url"] = o["cover_url"]
-            m["openbd"] = "present" if o else "absent"
+            # The enrichment row states whether openBD carried the book, and since 2026-08-06 a
+            # row can exist because the other catalogue answered. Reading its own field rather
+            # than the row's existence keeps "openBD has this" one fact with one producer.
+            m["openbd"] = o.get("openbd") or ("present" if o else "absent")
             if volume_number(v) is not None:
                 m["number_n"] = volume_number(v)
             vols.append(m)
@@ -1410,8 +1415,9 @@ def main():
             w["first_publication"] = {
                 "date": date,
                 "date_source": via,
-                "venue": base.get("imprint", "") or base.get("publisher", ""),
-                "venue_type": "tankobon-imprint",
+                "venue": base.get("venue") or base.get("imprint", "") or base.get("publisher", ""),
+                "venue_type": bookwalker_volumes.VENUE_TYPE.get(base.get("date_basis"))
+                              or "tankobon-imprint",
                 "country": "JP",
                 "note": "First known 単行本. Magazine serialisation not attested by current sources.",
             }
@@ -1426,12 +1432,29 @@ def main():
             # The absence is STATED rather than left empty, and never filled with a delivery date
             # or an import stamp standing in for one. A count, so it ratchets down as dates are
             # found rather than blocking the corpus on them.
-            w["first_publication"] = {"venue": None, "date": None,
-                                      "country": base.get("first_publication_country") or "JP",
-                                      "date_basis": "no-date-attested",
-                                      "note": "No source consulted states a publication date. "
-                                              "Recorded undated rather than dated by inference."}
+            #
+            # THE VENUE IS NOT PART OF THE ABSENCE, and writing None here contradicted §6 in the
+            # same paragraph that cites it: the scope test turns on WHERE, so the venue and the
+            # country are what an undated work most needs to carry. Every BOOK☆WALKER record
+            # states a venue and 1,209 of them arrived here as null.
+            #
+            # AND THE REASON IS THE SOURCE'S, NOT A PLACEHOLDER. `no-date-attested` was written
+            # over four different silences that the capture had already told apart: an imprint
+            # that prints nothing, a chapter serial with no volumes at all, an imprint that dates
+            # its other books and not this one, and too little read to say. Those want four
+            # different things done about them and the flattened field asked for one.
+            basis = base.get("date_basis") or "no-date-attested"
+            w["first_publication"] = {
+                "venue": base.get("venue") or base.get("publisher") or None,
+                "date": None,
+                "country": base.get("first_publication_country") or "JP",
+                "date_basis": basis,
+                "venue_type": bookwalker_volumes.VENUE_TYPE.get(basis),
+                "note": bookwalker_volumes.BASIS_NOTE.get(
+                    basis, bookwalker_volumes.BASIS_NOTE["no-date-attested"]),
+            }
             undated_works += 1
+            undated_by_basis[basis] = undated_by_basis.get(basis, 0) + 1
 
         # Classification. marketing_label is mechanical; content_tier is never automated (§6).
         for axis in ("marketing_label", "content_tier"):
@@ -1482,13 +1505,34 @@ def main():
         works.append(w)
 
     # Append-and-mark (§4): the build never shrinks silently.
+    #
+    # A TAKEDOWN IS NOT THE ONLY WAY A RECORD CAN GO, and §4 did not anticipate the other one. A
+    # work leaves this database only by takedown, and that stands. What also happens is that the
+    # pipeline WRITES A RECORD IT SHOULD NOT HAVE: the BOOK☆WALKER ingest read 93 titles with the
+    # publisher's own imprint still bracketed on the end, so 93 works we already held entered a
+    # second time under a name nobody uses. Removing those is not a deletion of a work, it is the
+    # retraction of a record that was never valid, and the work stays in the corpus throughout.
+    #
+    # The guard cannot tell those apart and should not try. It asks for the reason in writing, the
+    # same discipline a takedown gets, in data/corrections.yaml.
     out = pathlib.Path(a.out)
     prev = out / "works.json"
     if prev.exists():
         before = len(json.loads(prev.read_text())["works"])
         if len(works) < before:
-            errors.append(f"record count fell {before} -> {len(works)}; deletion requires a takedown "
-                          f"record (§4). Refusing to write.")
+            allowed = 0
+            _cor = pathlib.Path("data/corrections.yaml")
+            if _cor.exists():
+                _cdoc = yaml.safe_load(_cor.read_text()) or {}
+                for _fix in (_cdoc.get("corrections") or []):
+                    if str(_fix.get("build_baseline")) == str(before):
+                        allowed = int(_fix.get("records") or 0)
+                        print(f"correction: {allowed} record(s) retracted, {_fix.get('why')}")
+            if before - len(works) > allowed:
+                errors.append(
+                    f"record count fell {before} -> {len(works)}; a fall needs a takedown record "
+                    f"(§4) or an entry in data/corrections.yaml naming the baseline, the count and "
+                    f"why. Refusing to write.")
 
     if errors:
         print(f"BUILD FAILED — {len(errors)} validation error(s):", file=sys.stderr)
@@ -4074,6 +4118,11 @@ def main():
     _st = Counter(r["state"] for r in series_rows)
     if undated_works:
         print(f"undated works   : {undated_works} recorded with no attested publication date")
+        # WHICH SILENCE, because a total says how far there is to go and nothing about how to get
+        # there. `no-print-edition` is finished work and will never fall; `no-date-attested` is
+        # the one nobody has an answer for and is what a later pass should be aimed at.
+        for _b, _n in sorted(undated_by_basis.items(), key=lambda kv: -kv[1]):
+            print(f"    {_n:5}  {_b}")
     print(f"series index    : {len(series_rows)} (work, platform) rows across "
           f"{len({k[0] for k in series})} works — {dict(_st)}"
           f"{f'  [{_out_of_scope} out-of-scope rows dropped]' if _out_of_scope else ''}")

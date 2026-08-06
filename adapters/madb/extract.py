@@ -125,6 +125,28 @@ def agrees(vol, ser):
     That case is carried by the creator, which does agree, so requiring ANY of the three to agree
     keeps it while dropping the collision above. Measured over the whole corpus this refuses two
     volume joins, both of them トワ・エ・モア.
+
+    A FOURTH TEST WAS PROPOSED AND IS REFUTED, recorded here so it is not proposed again. Where an
+    anthology names nobody, the argument runs, none of the three fields can speak and an exactly
+    agreeing publication month is what is left. Three measurements over release 1.2.18 say
+    otherwise.
+
+    It joins nothing. Of the 1,195 title matches this function refuses across all 401,311 book
+    records, 89 name no creator on either side and not one of those 89 has an agreeing month,
+    because MADB leaves 607 of the 1,195 series records undated. The 25 joins it appeared to settle
+    were measured in the works list, where a print-only row carries its own `first_publication`
+    date twice, once as the row's `first` and once inside its `print` block. Comparing those two is
+    comparing a number with itself, and all 54 pairs it agreed on were rows already joined to the
+    work they were being matched against. No new join exists for it to make.
+
+    It would break the class it was drawn from. A tie-in anthology is raced out by rival houses in
+    the month the game ships: ペルソナ4コミックアンソロジー is two different books in 2009-01, one
+    光文社 and one 一迅社, and To heart 2アンソロジーコミック is three in 2005-07 under three
+    publishers. 17 creatorless title-and-month groups in the release name more than one publisher.
+
+    And the 一迅社 case it was drawn for is already carried. citrus is catalogued as 一迅社 and as
+    [発売]講談社 with no creator on either record, and the imprint is IDコミックス on both, so the
+    third test joins it. The premise that nothing but the date is left is what was wrong.
     """
     if people(vol) & people(ser):
         return True

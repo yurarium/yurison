@@ -555,3 +555,66 @@ holds 60, and a capped pass repairs those before it goes looking for series nobo
 **`bookwalker series unread` is the budget**, counting both classes, and it reaches zero because
 every row it counts names a series to fetch. The follow is one request per series plus one per
 volume the shelf never linked, so it is a long resumable job rather than a hard one.
+
+## 15. The 404s that were never pages (2026-08-06)
+
+Fifteen works were carried as a licence we could not cite: the English name is one an English
+reader would recognise, and the licensor's page for it returned 404, so `licensed` was refused and
+each was published as a translation of ours. That reading was wrong about fourteen of them, and it
+is written down here because it is a mistake that reproduces itself. **An anime licence is not a
+manga licence**, and the familiar English name for a Kirara-style series usually comes from
+Crunchyroll, Funimation or Sentai, which name the adaptation.
+
+**What was checked, per work.** Seven Seas' live catalogue, read whole from its own sitemaps: 1,208
+series pages, 6,378 book pages, 1,240 posts and archive pages, plus the site's own search. Yen
+Press's live catalogue, likewise: 1,635 series and 15,672 title pages. Then the Internet Archive's
+index of what those addresses used to hold, 2,814 Seven Seas series URLs and 7,043 book URLs. That
+last is what settles it. **There is no gone page.** Seven Seas never published a page for Sakura
+Trick, Komori-san, Wataten!, Comic Girls, Slow Loop or Ms. Vampire, so nothing 404s that ever
+resolved, and the licence the 404 was taken as evidence of does not exist.
+
+| Work | Disposition |
+|---|---|
+| リコリス・リコイル | **Licensed.** Yen Press, `https://yenpress.com/series/lycoris-recoil-manga`, joined on the credit: the catalogue names Spider Lily and Yasunori Bizen, our record credits 備前やすのり / Spider Lily. Recorded. |
+| 推しが武道館いってくれたら死ぬ | **Licensed, not citable.** Tokyopop holds it. This project does not read tokyopop.com, whose robots.txt carries instructions addressed to agents and a checkout endpoint, so there is no page to cite and the English stays ours. |
+| ゆるゆり | **Licensed once, by a publisher that is gone.** ALC Publishing put two volumes out on JManga, which closed in 2013. No live page can exist. |
+| 桜Trick · 小森さんは断れない！ · 私に天使が舞い降りた！ · となりの吸血鬼さん · スローループ · こみっくがーるず · ひとりぼっちの○○生活 · スロウスタート · ステラのまほう · 城下町のダンデライオン · たくのみ。 · おちこぼれフルーツタルト | **No English manga licence.** Absent from both live catalogues and from both archived URL spaces, and no English print publisher is named for any of them. Each keeps the translation it has, which is ours and is marked as ours. |
+
+あんハピ♪ was on the same list and came off it in `cede271`: that licence is real, Yen Press
+publishes it, and its page was live all along.
+
+**One thing to fix in the fetching, not in the data.** `sevenseasentertainment.com` answers 403 to
+`net.py`'s user agent and 200 to the same request identified as `yurarium/1.0
+(+https://yurarium.github.io)`. The block is on the `Mozilla/5.0 (compatible; ...)` prefix, which
+is a bot signature at the hosting layer rather than anything about this project. Two earlier passes
+recorded that the licensor "refuses automated fetches" and cited a distributor instead; it does
+not, and the whole catalogue reads in a few minutes.
+
+## 16. A date rule for anthologies, tested and refuted (2026-08-06)
+
+Where a MADB volume matches a series on the title alone, `extract.agrees` requires the creator, the
+publisher or the imprint to agree as well. An anthology names nobody, so the proposal was a fourth
+test: for 一迅社 anthologies where neither record names a creator, take an exactly agreeing
+publication month. It appeared to settle 25 joins. **It is refuted**, and the counter-case is
+pinned in `adapters/madb/test_extract.py` so the rule cannot be re-added quietly.
+
+**It joins nothing.** Across all 401,311 book records in release 1.2.18, `agrees` refuses 1,195
+title matches. 89 of those name no creator on either side, and none of the 89 has an agreeing
+month, because MADB leaves 607 of the 1,195 series records undated. The same measurement on the two
+other joins the rule could have meant returns zero as well: the shop-to-print queue's 301 title
+matches all name a creator on the shop side.
+
+**Where the 25 came from.** The works list, where a print-only row carries its own
+`first_publication` date twice, as the row's `first` and inside its `print` block. 54 creatorless
+pairs agree on the month there, and every one of the 54 is a row being compared with the print work
+it already carries. The number was one fact read twice.
+
+**And it would break the class it was drawn from.** A tie-in anthology is raced out by rival houses
+in the month the game ships. ペルソナ4コミックアンソロジー is two different books in 2009-01, one
+光文社 and one 一迅社; To heart 2アンソロジーコミック is three in 2005-07 under three publishers. 17
+creatorless title-and-month groups in the release name more than one publisher, so an agreeing
+month is evidence about a release date.
+
+**The premise was wrong too.** citrus is catalogued as 一迅社 and as `[発売]講談社` with no creator
+on either record, and the imprint is IDコミックス on both sides, so the existing third test already
+joins it. Nothing was left for the date to carry.

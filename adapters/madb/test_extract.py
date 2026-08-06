@@ -65,6 +65,33 @@ def main(s):
     ser2 = {"C2": ICH}
     s.eq(m.key_of(KOD, ser2, m.title_index(ser2))[1], "title-match", "and the volume still joins")
     s.eq(m.people(KOD), {"なもり"}, "a role and a trailing reading are not people")
+
+    # AND THE CASE THE SAME HANDOVER TAKES WHEN NOBODY IS CREDITED. citrus is catalogued under
+    # both houses with no creator on either record, which is said to leave the date as the only
+    # field. It does not: the imprint is IDコミックス on both sides and joins them.
+    CIT_I = {"schema:identifier": "C4", "schema:name": "citrus", "schema:publisher": "一迅社",
+             "schema:brand": "IDコミックス", "schema:datePublished": "2015-08"}
+    CIT_K = {"schema:identifier": "M5", "schema:name": "Citrus", "schema:publisher": "[発売]講談社",
+             "schema:brand": "IDコミックス", "schema:datePublished": "2015-08"}
+    s.check(m.agrees(CIT_K, CIT_I), "the imprint carries the handover where no creator is named")
+
+    # THE RULE THAT WAS PROPOSED FOR THIS FUNCTION AND IS REFUSED. Where neither record names a
+    # creator, an exactly agreeing publication month was proposed as the fourth test. The month is
+    # weakest exactly where it would be used: a tie-in anthology is raced out by rival houses in
+    # the month the game ships, so ペルソナ4コミックアンソロジー is two different books in 2009-01,
+    # one 光文社 and one 一迅社, and To heart 2アンソロジーコミック is three in 2005-07 under three
+    # publishers. An agreeing month is evidence about a release date, not about a work.
+    KOU = {"schema:identifier": "C5", "schema:name": "ペルソナ4コミックアンソロジー",
+           "schema:publisher": "光文社", "schema:brand": "火の玉ゲームコミックシリーズ",
+           "schema:datePublished": "2009-01"}
+    ICJ = {"schema:identifier": "M6", "schema:name": "ペルソナ4コミックアンソロジー",
+           "schema:publisher": "一迅社", "schema:brand": "DNAメディアコミックス",
+           "schema:datePublished": "2009-01"}
+    s.check(not m.agrees(ICJ, KOU),
+            "two anthologies sharing a title and a month are not one work")
+    ser3 = {"C5": KOU}
+    s.eq(m.key_of(ICJ, ser3, m.title_index(ser3))[1], "title-only",
+         "so each stays its own work, which is what the month rule would have undone")
     # A VOLUME COUNT COUNTS VOLUMES. ささやくように恋を唄う holds four of its volumes twice, a
     # standard and a special edition differing in the ISBN and nothing else, so counting records
     # called a 12-volume work 16 volumes long above a list of 12.

@@ -295,3 +295,40 @@ This is the same split that fixed the control bar when the dropdowns read "conte
 presentation, content", and the same one that decides what a reader can share a link to. `docs/FEATURES-INTERFACE.md` carries the detail, including why the URL must be read before
 the saved view is restored.
 
+
+## 16. The working tree may not be yours alone
+
+Assume another session is editing this checkout. On 2026-08-06 five were, and two of them reached
+for `git stash` to get a clean baseline and swept up twenty files of somebody else's uncommitted
+work. Both restored it and verified it byte for byte, and both were right to report it, but neither
+needed to take the risk.
+
+**Never run a command that discards or moves work you did not write.** `git stash`, `git reset
+--hard`, `git checkout -- <path>` and `git clean` all operate on the whole tree or on files by name,
+and none of them can tell your changes from anyone else's. Reverting one file cost an hour of
+uncommitted work in this repository the same day, so this is not only about agents.
+
+**To read a baseline, read it. Do not create one by mutation.**
+
+```
+git show HEAD:build.py                  the committed version, without touching the tree
+git show HEAD:build.py > /tmp/base.py   when a tool needs a path
+git diff --stat -- adapters/            what changed, without changing anything
+```
+
+**Stage by path and commit only what you touched.** `git add -A` in a shared tree commits work you
+have not read, which is how a half-finished change from another session reaches the history under
+your message. Name your files:
+
+```
+git add adapters/thing.py adapters/test_thing.py docs/GAPS.md
+```
+
+**A gate that fails on somebody else's file is not your failure.** `./check.py --gate` and the prose
+lint read the whole tree, so a parallel run's uncommitted edits will fail your gate. Establish that
+by linting the specific files you touched, say so, and do not fix another session's work to make
+your own commit pass. `--no-verify` is available for exactly this and the reason belongs in the
+commit message.
+
+**Do not push.** Pushing publishes whatever the tree holds and starts a build. That decision belongs
+to whoever is coordinating the session.

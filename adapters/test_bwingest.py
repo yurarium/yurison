@@ -80,6 +80,21 @@ def main(s):
     s.eq((lab["title"], lab["imprint"]), ("作品名", "百合姫コミックス"),
          "so a record takes the imprint from the title where the shop states none")
 
+    # WHAT A SHOP SELLS ONE CHAPTER AT A TIME IS NOT A SET OF VOLUMES.
+    # 付き合ってあげてもいいかな【単話】 lists 133 items, numbered （１） to （133） by the shop
+    # itself, and calling them 第1巻 to 第133巻 says the work is 133 volumes long.
+    s.check(bw.chapterwise("付き合ってあげてもいいかな【単話】"), "単話 is sold one chapter at a time")
+    s.check(bw.chapterwise("女子校だからセーフ【単話版】"), "and so is 単話版")
+    s.check(bw.chapterwise("ある話【分冊版】"), "and 分冊版, a volume split into parts sold apart")
+    s.check(not bw.chapterwise("ふつうの単行本"), "an ordinary volume release is not")
+    ch = bw.record(work(volumes=[{"title": "話【単話】（1）", "series_title": "話【単話】"},
+                                 {"title": "話【単話】（2）", "series_title": "話【単話】"}]),
+                   "2026-08-06")
+    s.eq(ch["volume_count"], 0, "so it counts no volumes")
+    s.eq(ch["volumes"], [], "and lists none, because it has none")
+    s.eq(ch["chapter_count"], 2, "the items are counted as what they are")
+    s.eq(len(ch["chapters"]), 2, "and kept, so their dates are not lost")
+
     # A MATCHING TITLE DECIDES WHICH PILE, NEVER A MERGE. トワ・エ・モア is one title over two
     # unrelated works, which is why this cannot be allowed to join anything by itself.
     recs = [{"_key": "a", "title": "A"}, {"_key": "b", "title": "B"}]

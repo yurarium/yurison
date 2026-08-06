@@ -86,6 +86,16 @@ def title_of(work):
     return VOLUME_SUFFIX.sub("", own).strip() if len(vols) > 1 else own
 
 
+# A release sold one chapter at a time. 単話 and 単話版 are exactly that, and 分冊版 is a volume
+# split into parts sold separately. Neither is a 巻.
+CHAPTERWISE = re.compile(r"【\s*(?:単話|単話版|分冊版|話売り)\s*】|\[\s*(?:単話|分冊版)\s*\]")
+
+
+def chapterwise(title):
+    """Whether the shop sells this one chapter at a time, by its own marking on the title."""
+    return bool(CHAPTERWISE.search(title or ""))
+
+
 def volumes_of(work):
     """`[{number, published, delivered}]`, dated by the print edition and never by the file.
 
@@ -111,9 +121,18 @@ def record(work, retrieved):
     if not title:
         return None
     vols = volumes_of(work)
+    # WHAT THE SHOP SELLS ONE CHAPTER AT A TIME IS NOT A SET OF VOLUMES.
+    # 付き合ってあげてもいいかな【単話】 lists 133 items and the shop numbers them （１） to （133）:
+    # they are chapters sold individually, and calling them 第1巻 to 第133巻 says the work is 133
+    # volumes long. 24 works and 496 items are in that state.
+    by_chapter = chapterwise(title_of(work))
     dated = [v["published"] for v in vols if v.get("published")]
     fp = work.get("first_publication") or {}
     return {
+        "chapterwise": by_chapter,
+        # A chapter-wise release has no volumes to count, and its items keep their own dates so
+        # nothing about when it published is lost.
+        "chapter_count": len(vols) if by_chapter else 0,
         "title": title,
         "shop_id": work.get("shop_id"),
         "url": work.get("url"),
@@ -121,8 +140,9 @@ def record(work, retrieved):
         "publisher": work.get("publisher"),
         # The shop's own imprint field where it has one, else the label it wrote into the title.
         "imprint": work.get("imprint") or from_title,
-        "volume_count": len(vols),
-        "volumes": vols,
+        "volume_count": 0 if by_chapter else len(vols),
+        "volumes": [] if by_chapter else vols,
+        "chapters": vols if by_chapter else [],
         "first_published": min(dated) if dated else None,
         "date_basis": None if dated else (fp.get("date_basis") or "no-date-attested"),
         "venue": fp.get("venue") or work.get("publisher"),

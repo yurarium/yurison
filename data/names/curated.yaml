@@ -3545,15 +3545,15 @@ titles:
     reading_source_kind: derived
     reading_note: >-
       茨姫 (Briar Rose) is いばらひめ; うばら is archaic and unused here.
-  殺し屋やめたい!:
-    en: I Want to Quit Being an Assassin!
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
+  "殺し屋やめたい!":
+    en: "I wanna be fired!"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784065256909"
+    reviewed: '2026-08-06'
     note: >-
-      The synopsis is an immigrant assassin whose girlfriend's father, unknowingly, is the priest she
-      confesses her killings to. Plain declarative, nothing to protect.
+      Replaces a translation made here. openBD carries the publisher's registration for 9784065256909 with the title 「殺し屋やめたい! = I wanna be fired!」, which pairs the Japanese with I wanna be fired!. That is the work's own English name and §5 puts it above ours. The stored I Want to Quit Being an Assassin! was a fair reading of the Japanese. The author's own English is the joke the Japanese is making, said as an office worker would.
 
   # --- 2026-08-04 batch ten: continuing the queue ---------------------------------------------
 
@@ -5907,12 +5907,15 @@ titles:
     note: >-
       なんて carries the skepticism, a dismissive "as if," that the bare phrase would lose if flattened to a plain statement.
 
-  ヴァンピアーズ:
-    en: Vampires
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
+  "ヴァンピアーズ":
+    en: "VAMPEERZ,MY PEER VAMPIRES"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784091575739"
+    reviewed: '2026-08-06'
+    note: >-
+      Replaces a translation made here. openBD carries the publisher's registration for 9784091575739 with the title 「ヴァンピアーズ : VAMPEERZ,MY PEER VAMPIRES」, which pairs the Japanese with VAMPEERZ,MY PEER VAMPIRES. That is the work's own English name and §5 puts it above ours. The stored Vampires read ヴァンピアーズ as the plural of vampire. It is a coinage on peers, which the book's own gloss spells out, so the translation was wrong about the word as well as outranked.
 
   ヲトメは義母に恋してる:
     en: The Maiden Is in Love with Her Stepmother
@@ -6415,12 +6418,15 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
 
-  バニーズクエスト:
-    en: 'Bunnies'' Quest'
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
+  "バニーズクエスト":
+    en: "BUNNIE'S QUEST"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784065288078"
+    reviewed: '2026-08-06'
+    note: >-
+      Replaces a translation made here. openBD carries the publisher's registration for 9784065288078 with the title 「バニーズクエスト = BUNNIE'S QUEST」, which pairs the Japanese with BUNNIE'S QUEST. That is the work's own English name and §5 puts it above ours. Kept verbatim, apostrophe included, though a plural would read Bunnies'. Where the book spells its own name we do not correct it.
 
   バズーカを持った天使:
     en: The Angel with a Bazooka
@@ -10104,14 +10110,14 @@ titles:
       readers of the genre already call the villainess.
 
   "クダンノフォークロア = FOLKLORE OF KUDAN":
-    en: "Folklore of Kudan"
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-05'
+    en: "FOLKLORE OF KUDAN"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784758022217"
+    reviewed: '2026-08-06'
     note: >-
-      件 is the kudan, the calf-born creature that speaks a prophecy and dies. The book prints the
-      same Latin form beside the katakana, which corroborates the reading.
+      Replaces a translation made here. openBD carries the publisher's registration for 9784758022217 with the title 「クダンノフォークロア = FOLKLORE OF KUDAN」, which pairs the Japanese with FOLKLORE OF KUDAN. That is the work's own English name and §5 puts it above ours. Kept in the book's own capitals, and the same as the row held under the Japanese title alone.
 
   "クローバー":
     en: "Clover"
@@ -11245,6 +11251,616 @@ titles:
     note: >-
       高嶺の花 is the flower on the high peak, a person who is beyond reach, and the full stop is the
       title's own.
+
+  "【English ver.】Walking the Underground - 地底をゆく":
+    en: "Walking the Underground"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de055d9aa6-a8e2-456c-ad43-497173caa39c/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】Walking the Underground - 地底をゆく」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "地底をゆく":
+    en: "Walking the Underground"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de055d9aa6-a8e2-456c-ad43-497173caa39c/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English ver.】Walking the Underground - 地底をゆく」, pairing Walking the Underground with the Japanese 地底をゆく in one string. That makes Walking the Underground the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "【English ver.】Two Bosses Living Together":
+    en: "Two Bosses Living Together"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de07c32da5-d039-44e3-b8b1-4f36795e018f/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】Two Bosses Living Together」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "【English ver】The Monsters of Summer":
+    en: "The Monsters of Summer"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de0a1cff81-cb8f-47b1-b618-68bf0e3021b9/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by わんこ院 as 「【English ver】The Monsters of Summer」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "【English ver】Drunk on the Rain":
+    en: "Drunk on the Rain"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de20c973f6-a25c-44c1-a084-1da7a88c0c30/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by ハイカラ数寄屋 as 「【English ver】Drunk on the Rain」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "【English Ver.】BEAST MODE-畜生モード":
+    en: "BEAST MODE"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de308b88c0-1c91-4ed1-abbf-04dae529fe99/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English Ver.】BEAST MODE-畜生モード」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "畜生モード":
+    en: "BEAST MODE"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de308b88c0-1c91-4ed1-abbf-04dae529fe99/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English Ver.】BEAST MODE-畜生モード」, pairing BEAST MODE with the Japanese 畜生モード in one string. That makes BEAST MODE the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "【English ver.】Jealousy Notebook-嫉妬手帳":
+    en: "Jealousy Notebook"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de35a075a1-ed15-4634-bbf2-95387a555855/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】Jealousy Notebook-嫉妬手帳」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "嫉妬手帳":
+    en: "Jealousy Notebook"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de35a075a1-ed15-4634-bbf2-95387a555855/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English ver.】Jealousy Notebook-嫉妬手帳」, pairing Jealousy Notebook with the Japanese 嫉妬手帳 in one string. That makes Jealousy Notebook the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "【English Ver.】Low Body Temperature-冷たい体温":
+    en: "Low Body Temperature"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de3c3c3bf0-5701-47b1-bcec-54c50cace494/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English Ver.】Low Body Temperature-冷たい体温」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "【English ver.】Diary of Two -ふたりの日記帳":
+    en: "Diary of Two"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de3c62379c-8cc6-4b3f-b012-c12291524c9b/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】Diary of Two -ふたりの日記帳」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "【English Ver.】Memories of a Blink-またたきの記憶":
+    en: "Memories of a Blink"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de4c9814a4-aa52-45ee-b97a-82763ba782c5/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English Ver.】Memories of a Blink-またたきの記憶」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "またたきの記憶":
+    en: "Memories of a Blink"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de4c9814a4-aa52-45ee-b97a-82763ba782c5/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English Ver.】Memories of a Blink-またたきの記憶」, pairing Memories of a Blink with the Japanese またたきの記憶 in one string. That makes Memories of a Blink the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "【English ver.】Hate but Love These Goddamn Animals-かわいくてにくいあんちくしょう":
+    en: "Hate but Love These Goddamn Animals"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de4cee0c08-f2bc-4751-b8d0-9687ee0e7a18/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】Hate but Love These Goddamn Animals-かわいくてにくいあんちくしょう」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "かわいくてにくいあんちくしょう":
+    en: "Hate but Love These Goddamn Animals"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de4cee0c08-f2bc-4751-b8d0-9687ee0e7a18/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English ver.】Hate but Love These Goddamn Animals-かわいくてにくいあんちくしょう」, pairing Hate but Love These Goddamn Animals with the Japanese かわいくてにくいあんちくしょう in one string. That makes Hate but Love These Goddamn Animals the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "[English ver ]Ayakashi in the Rain":
+    en: "Ayakashi in the Rain"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de50aaaead-2a73-4778-a67f-835441f745ba/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by ハイカラ数寄屋 as 「[English ver ]Ayakashi in the Rain」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "【English ver.】Betrayal is the Sweetest Nectar - 裏切りは甘露の蜜":
+    en: "Betrayal is the Sweetest Nectar"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de537089ff-2599-4c75-9564-881990150115/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】Betrayal is the Sweetest Nectar - 裏切りは甘露の蜜」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "裏切りは甘露の蜜":
+    en: "Betrayal is the Sweetest Nectar"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de537089ff-2599-4c75-9564-881990150115/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English ver.】Betrayal is the Sweetest Nectar - 裏切りは甘露の蜜」, pairing Betrayal is the Sweetest Nectar with the Japanese 裏切りは甘露の蜜 in one string. That makes Betrayal is the Sweetest Nectar the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "【English ver.】Being Human-人間してる？":
+    en: "Being Human"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de646e772e-f855-4f81-b2ed-8060f4b42dc6/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】Being Human-人間してる？」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "【English ver.】Nesting Crow-栖鴉":
+    en: "Nesting Crow"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de6851e65b-d109-40d9-9f64-69813cdab719/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】Nesting Crow-栖鴉」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "栖鴉":
+    en: "Nesting Crow"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de6851e65b-d109-40d9-9f64-69813cdab719/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English ver.】Nesting Crow-栖鴉」, pairing Nesting Crow with the Japanese 栖鴉 in one string. That makes Nesting Crow the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "【English Ver.】 UNCONNECTED MARKETEERS ET CETERA-虹龍洞えとせとら":
+    en: "UNCONNECTED MARKETEERS ET CETERA"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de7d2215c0-920f-4853-9369-c657d85cd97d/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English Ver.】 UNCONNECTED MARKETEERS ET CETERA-虹龍洞えとせとら」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "虹龍洞えとせとら":
+    en: "UNCONNECTED MARKETEERS ET CETERA"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de7d2215c0-920f-4853-9369-c657d85cd97d/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English Ver.】 UNCONNECTED MARKETEERS ET CETERA-虹龍洞えとせとら」, pairing UNCONNECTED MARKETEERS ET CETERA with the Japanese 虹龍洞えとせとら in one string. That makes UNCONNECTED MARKETEERS ET CETERA the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "【English ver.】To You Who Came to the Underground-地底へと至る君へ":
+    en: "To You Who Came to the Underground"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de8ff31911-1fac-49c7-878f-a16d0f241825/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】To You Who Came to the Underground-地底へと至る君へ」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "地底へと至る君へ":
+    en: "To You Who Came to the Underground"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de8ff31911-1fac-49c7-878f-a16d0f241825/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English ver.】To You Who Came to the Underground-地底へと至る君へ」, pairing To You Who Came to the Underground with the Japanese 地底へと至る君へ in one string. That makes To You Who Came to the Underground the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "【English ver.】The Beasts Who Don't Know Love-愛を知らない獣たち":
+    en: "The Beasts Who Don't Know Love"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de9dfe040c-f248-4701-a396-95a9cfa28cd1/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】The Beasts Who Don't Know Love-愛を知らない獣たち」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "愛を知らない獣たち":
+    en: "The Beasts Who Don't Know Love"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de9dfe040c-f248-4701-a396-95a9cfa28cd1/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English ver.】The Beasts Who Don't Know Love-愛を知らない獣たち」, pairing The Beasts Who Don't Know Love with the Japanese 愛を知らない獣たち in one string. That makes The Beasts Who Don't Know Love the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "【English Ver.】Present in the Spring-春にして君を抱き":
+    en: "Present in the Spring"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de9eceb556-2c0c-4a1d-86e4-5f255b49f611/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English Ver.】Present in the Spring-春にして君を抱き」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "春にして君を抱き":
+    en: "Present in the Spring"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/de9eceb556-2c0c-4a1d-86e4-5f255b49f611/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English Ver.】Present in the Spring-春にして君を抱き」, pairing Present in the Spring with the Japanese 春にして君を抱き in one string. That makes Present in the Spring the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "【English ver.】Chalk-White Promise-白亜の約束":
+    en: "Chalk-White Promise"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/deb9fde915-49da-4f38-a694-4b53c6f72038/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】Chalk-White Promise-白亜の約束」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "白亜の約束":
+    en: "Chalk-White Promise"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/deb9fde915-49da-4f38-a694-4b53c6f72038/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English ver.】Chalk-White Promise-白亜の約束」, pairing Chalk-White Promise with the Japanese 白亜の約束 in one string. That makes Chalk-White Promise the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "【English Ver.】Friendly Feuding Families - 組長達のなかよし":
+    en: "Friendly Feuding Families"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/debee6e263-e3ec-4cd9-bb68-d245c3e6b96a/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English Ver.】Friendly Feuding Families - 組長達のなかよし」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "組長達のなかよし":
+    en: "Friendly Feuding Families"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/debee6e263-e3ec-4cd9-bb68-d245c3e6b96a/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English Ver.】Friendly Feuding Families - 組長達のなかよし」, pairing Friendly Feuding Families with the Japanese 組長達のなかよし in one string. That makes Friendly Feuding Families the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "【English ver.】Gossamer Butterfly-あえかなる蝶":
+    en: "Gossamer Butterfly"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/decceaa638-c230-4395-a28e-53619922883e/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】Gossamer Butterfly-あえかなる蝶」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "あえかなる蝶":
+    en: "Gossamer Butterfly"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/decceaa638-c230-4395-a28e-53619922883e/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English ver.】Gossamer Butterfly-あえかなる蝶」, pairing Gossamer Butterfly with the Japanese あえかなる蝶 in one string. That makes Gossamer Butterfly the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "【English ver.】AyaSana Compilation To the Girls of the Wind-風の少女達へ":
+    en: "AyaSana Compilation: To the Girls of the Wind"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/dedc3071d6-97b3-47f2-93a4-89c856737230/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】AyaSana Compilation To the Girls of the Wind-風の少女達へ」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "[English ver]A Moon Cooked Well Done":
+    en: "A Moon Cooked Well Done"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/deeaab2830-0bf9-4777-a7de-9401393e0b99/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by ハイカラ数寄屋 as 「[English ver]A Moon Cooked Well Done」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "【English ver.】Reimu is Easily Embarrassed-はずかしがりやのれいむさん":
+    en: "Reimu is Easily Embarrassed"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/defc58385c-1ffb-4a28-8b35-1b08b21ab4d6/"
+    reviewed: '2026-08-06'
+    note: >-
+      The publisher's own English edition, listed by アトキンソン as 「【English ver.】Reimu is Easily Embarrassed-はずかしがりやのれいむさん」. The English half of that title is the name the work is published under in English, so it is the work's own name and not a rendering made here. BOOK☆WALKER is where these digital-only editions are published; the circle has no catalogue of its own.
+
+  "はずかしがりやのれいむさん":
+    en: "Reimu is Easily Embarrassed"
+    basis: "official-jp"
+    source: "bookwalker.jp"
+    source_kind: "platform"
+    source_url: "https://bookwalker.jp/defc58385c-1ffb-4a28-8b35-1b08b21ab4d6/"
+    reviewed: '2026-08-06'
+    note: >-
+      アトキンソン publishes an English edition of this work and titles it 「【English ver.】Reimu is Easily Embarrassed-はずかしがりやのれいむさん」, pairing Reimu is Easily Embarrassed with the Japanese はずかしがりやのれいむさん in one string. That makes Reimu is Easily Embarrassed the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+
+  "リリィシステム = LILY SYSTEM":
+    en: "LILY SYSTEM"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784785963989"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784785963989 with the title 「リリィシステム = LILY SYSTEM」, pairing the Japanese with LILY SYSTEM, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "リリィシステム":
+    en: "LILY SYSTEM"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784785963989"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784785963989 with the title 「リリィシステム = LILY SYSTEM」, pairing the Japanese with LILY SYSTEM, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
+
+  "おやすみシェヘラザード = Nighty night,Sheherazade":
+    en: "Nighty night,Sheherazade"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784098600908"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784098600908 with the title 「おやすみシェヘラザード = Nighty night,Sheherazade」, pairing the Japanese with Nighty night,Sheherazade, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "おやすみシェヘラザード":
+    en: "Nighty night,Sheherazade"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784098600908"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784098600908 with the title 「おやすみシェヘラザード = Nighty night,Sheherazade」, pairing the Japanese with Nighty night,Sheherazade, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
+
+  "仕事の後は恋しよう = LET'S FALL IN LOVE AFTER WORK":
+    en: "LET'S FALL IN LOVE AFTER WORK"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784781617893"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784781617893 with the title 「仕事の後は恋しよう = LET'S FALL IN LOVE AFTER WORK」, pairing the Japanese with LET'S FALL IN LOVE AFTER WORK, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "仕事の後は恋しよう":
+    en: "LET'S FALL IN LOVE AFTER WORK"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784781617893"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784781617893 with the title 「仕事の後は恋しよう = LET'S FALL IN LOVE AFTER WORK」, pairing the Japanese with LET'S FALL IN LOVE AFTER WORK, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
+
+  "杉並区立魔法女学園平和維持部 = peace keeping club of suginami municipal school for witches":
+    en: "peace keeping club of suginami municipal school for witches"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784778322960"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784778322960 with the title 「杉並区立魔法女学園平和維持部 = peace keeping club of suginami municipal school for witches」, pairing the Japanese with peace keeping club of suginami municipal school for witches, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "ヴァンピアーズ : VAMPEERZ,MY PEER VAMPIRES":
+    en: "VAMPEERZ,MY PEER VAMPIRES"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784091575739"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784091575739 with the title 「ヴァンピアーズ : VAMPEERZ,MY PEER VAMPIRES」, pairing the Japanese with VAMPEERZ,MY PEER VAMPIRES, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "お姫様のお姫様 = Princess of the Princess":
+    en: "Princess of the Princess"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784253229715"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784253229715 with the title 「お姫様のお姫様 = Princess of the Princess」, pairing the Japanese with Princess of the Princess, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "お姫様のお姫様":
+    en: "Princess of the Princess"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784253229715"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784253229715 with the title 「お姫様のお姫様 = Princess of the Princess」, pairing the Japanese with Princess of the Princess, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
+
+  "みーちゃんとアイリ = Mi-chan and Airi":
+    en: "Mi-chan and Airi"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403623127"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784403623127 with the title 「みーちゃんとアイリ = Mi-chan and Airi」, pairing the Japanese with Mi-chan and Airi, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "みーちゃんとアイリ":
+    en: "Mi-chan and Airi"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403623127"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784403623127 with the title 「みーちゃんとアイリ = Mi-chan and Airi」, pairing the Japanese with Mi-chan and Airi, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
+
+  "殺し屋やめたい! = I wanna be fired!":
+    en: "I wanna be fired!"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784065256909"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784065256909 with the title 「殺し屋やめたい! = I wanna be fired!」, pairing the Japanese with I wanna be fired!, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "彩香ちゃんは弘子先輩に恋してる = AYAKA is in LOVE×LOVE×LOVE with HIROKO":
+    en: "AYAKA is in LOVE×LOVE×LOVE with HIROKO"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784575856415"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784575856415 with the title 「彩香ちゃんは弘子先輩に恋してる = AYAKA is in LOVE×LOVE×LOVE with HIROKO」, pairing the Japanese with AYAKA is in LOVE×LOVE×LOVE with HIROKO, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "ステラ★レコード = STELLA★RECORD":
+    en: "STELLA★RECORD"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784785974381"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784785974381 with the title 「ステラ★レコード = STELLA★RECORD」, pairing the Japanese with STELLA★RECORD, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "クダンノフォークロア":
+    en: "FOLKLORE OF KUDAN"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784758022217"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784758022217 with the title 「クダンノフォークロア = FOLKLORE OF KUDAN」, pairing the Japanese with FOLKLORE OF KUDAN, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
+
+  "同じ所で眠るまで待って = Wait until I sleep in the same place with you":
+    en: "Wait until I sleep in the same place with you"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671883"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784403671883 with the title 「同じ所で眠るまで待って = Wait until I sleep in the same place with you」, pairing the Japanese with Wait until I sleep in the same place with you, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "同じ所で眠るまで待って":
+    en: "Wait until I sleep in the same place with you"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671883"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784403671883 with the title 「同じ所で眠るまで待って = Wait until I sleep in the same place with you」, pairing the Japanese with Wait until I sleep in the same place with you, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
+
+  "バニーズクエスト = BUNNIE'S QUEST":
+    en: "BUNNIE'S QUEST"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784065288078"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784065288078 with the title 「バニーズクエスト = BUNNIE'S QUEST」, pairing the Japanese with BUNNIE'S QUEST, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "らぶあんどぴーす = LOVE & PEACE":
+    en: "LOVE & PEACE"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784065296486"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784065296486 with the title 「らぶあんどぴーす = LOVE & PEACE」, pairing the Japanese with LOVE & PEACE, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "サチとユーカ = SACHI and YUUKA":
+    en: "SACHI and YUUKA"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784785972790"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784785972790 with the title 「サチとユーカ = SACHI and YUUKA」, pairing the Japanese with SACHI and YUUKA, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+
+  "ラストサマー・バケーション = LAST SUMMER VACATION":
+    en: "LAST SUMMER VACATION"
+    basis: "official-jp"
+    source: "openBD"
+    source_kind: "publisher-jp"
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784046822277"
+    reviewed: '2026-08-06'
+    note: >-
+      The book's own English title. openBD carries the publisher's registration for 9784046822277 with the title 「ラストサマー・バケーション = LAST SUMMER VACATION」, pairing the Japanese with LAST SUMMER VACATION, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
 
 authors:
   ふじい葛西:
@@ -16551,3 +17167,1288 @@ authors:
       openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g. '水色エーテル'
       (一迅社).
 
+
+  # --- 2026-08-06: publisher-stated readings, asked over every ISBN the corpus holds -----------
+  #
+  # openBD returns `PersonName: {content, collationkey}` off the publisher's own JPRO
+  # registration, so the reading here is the publisher saying how their author is read. The queue
+  # is generated by `openbd_reading.unsettled_readings`, which selects on nothing having stated a
+  # reading rather than on an analyser having guessed one, and the request is keyed on every ISBN
+  # any source record states rather than on the credits MADB files under a name we already hold.
+  # Widening it that way is what reached the last fifteen: a person openBD registers on a book is
+  # named in openBD's own answer whether or not our catalogue credits them.
+
+  "Toもえ":
+    reading: "トモエ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784758083478"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      'カノジョと秘密と恋もよう volume 1' (講談社). It replaces 'To モ エ', which no source had stated.
+
+  "U-temo":
+    reading: "ユウテモ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784758022651"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '今日はまだフツーになれない' (講談社). It replaces 'ウ テモ', which no source had stated.
+
+  "sasa熊":
+    reading: "ササクマ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832296893"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'ラブかライクか分からない！\u3000１' (芳文社). It replaces 'sasa クマ', which no source had stated.
+
+  "あさぎ龍":
+    reading: "アサギ リュウ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832233140"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '恋は秘かに実らせるもの' (芳文社).
+
+  "かずといずみ":
+    reading: "カズト イズミ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832243132"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. '銭湯ハワイ'
+      (芳文社).
+
+  "かわの あきこ":
+    reading: "カワノ アキコ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784160902138"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      "悪役令嬢のお嫁さま = THE VILLAINESS' BRIDE. 1" (文藝春秋).
+
+  "くるくる姫":
+    reading: "クルクル ヒメ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784040698243"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. 'ゆりぐらし :
+      No Love,No Life!' (KADOKAWA).
+
+  "くわばら たもつ":
+    reading: "クワバラ タモツ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784758021135"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 5 volume(s), e.g.
+      'あなたと私の周波数' (講談社).
+
+  "ささだあすか":
+    reading: "ササダ アスカ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671357"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'きらきらのなつ
+      : ささだあすか短篇集' (新書館).
+
+  "さつま揚げ":
+    reading: "サツマアゲ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784040646459"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g. '同棲生活. 3'
+      (KADOKAWA).
+
+  "しおやてるこ":
+    reading: "シオヤ テルコ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784785974381"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'ステラ★レコード
+      = STELLA★RECORD' (少年画報社).
+
+  "たみふる":
+    reading: "タミフル"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784091287557"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 13 volume(s), e.g.
+      '付き合ってあげてもいいかな. 1' (小学館).
+
+  "なおいまい":
+    reading: "ナオイマイ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784199506819"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 5 volume(s), e.g.
+      'ゆりでなる♡えすぽわーる 1' (徳間書店).
+
+  "はにみ":
+    reading: "ハニミ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784758021456"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'やわらかな命日'
+      (講談社). It replaces 'ワ ニ ミ', which no source had stated.
+
+  "はみ":
+    reading: "ハミ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832242388"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. '少女サテライト
+      1' (芳文社).
+
+  "はるかわ陽":
+    reading: "ハルカワ ハル"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784048937757"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      'あの娘と目が合うたび私は = EVERY TIME WE MEET EYE TO EYE,I FALL IN LOVE WITH HER : 社会人百合アンソロジー'
+      (KADOKAWA). It replaces 'ハルカ ワ ヒ', which no source had stated.
+
+  "ふかさくえみ":
+    reading: "フカサク エミ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671418"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '購買のプロキオン
+      = Procyon in the school store' (新書館).
+
+  "みしぇ":
+    reading: "ミシェ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784847099830"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '女の子同士で付き合ってます。' (ワニブックス).
+
+  "よしむらかな":
+    reading: "ヨシムラ カナ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784757542907"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 13 volume(s), e.g.
+      'Murciélago 1' (スクウェア・エニックス).
+
+  "アサギユメ":
+    reading: "アサギ ユメ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832249820"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      'サジちゃんの病み日記 1' (芳文社).
+
+  "イコール":
+    reading: "イコール"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832241831"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'むすんでひらいて' (芳文社).
+
+  "カザマアヤミ":
+    reading: "カザマ アヤミ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403621819"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '星をふたりで'
+      (新書館).
+
+  "ガオシ":
+    reading: "ガオシ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784091254795"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
+      '間宮さんといっしょ. 1' (小学館).
+
+  "ショウマケイト":
+    reading: "ショウマ ケイト"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784801981584"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      '友達が私を理解らせにくるので勝利の女神の力を借りてこっちも理解らせにいきます。. Vol. 1' (竹書房).
+
+  "タケシス":
+    reading: "タケシス"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784776752639"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー' (宙出版).
+
+  "パデラポッロのりお":
+    reading: "パデラポッロ ノリオ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784801980716"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      'ご主人様には吸わせません! Vol. 1' (竹書房).
+
+  "モロやん":
+    reading: "モロヤン"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832241121"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. 'トラにツバサ
+      1' (芳文社).
+
+  "ユキムラ":
+    reading: "ユキムラ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671630"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '傷心 = Two
+      broken hearts' (新書館).
+
+  "ヨシジマシウ":
+    reading: "ヨシジマ シウ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784047355781"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '毒百合乙女童話'
+      (KADOKAWA).
+
+  "ラリアット":
+    reading: "ラリアット"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784781622675"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'ノス&ザクロ'
+      (イースト・プレス).
+
+  "一花ハナ":
+    reading: "イチカ ハナ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832241817"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      '神さまばかり恋をする 1' (芳文社). It replaces 'ヒトハナ ハナ', which no source had stated.
+
+  "七坂なな":
+    reading: "ナナサカ ナナ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784776752295"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'ネイルちゃんと深爪さん。 : アンソロジーコミック マジでリアコな私たち編' (宙出版). It replaces 'ヒチサカ ナナ', which no source had
+      stated.
+
+  "中村明日美子":
+    reading: "ナカムラ アスミコ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784778320614"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '2週間のアバンチュール' (太田出版). It replaces 'ナカムラ アスミシ', which no source had stated.
+
+  "仲谷 鳰":
+    reading: "ナカタニ ニオ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784048924320"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'エクレア :
+      あなたに響く百合アンソロジー' (KADOKAWA). It replaces 'ナカヤ ニオ', which no source had stated.
+
+  "伊さらこてん":
+    reading: "イサラコ テン"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784776752301"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '元ヤンちゃんとゆるふわ彼女' (宙出版).
+
+  "八汐ごよう":
+    reading: "ヤシオ ゴヨウ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784785967796"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '夜鷹、廻る'
+      (少年画報社).
+
+  "冬島暮":
+    reading: "フユジマクレ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784801983144"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
+      '幼馴染の異常可愛い妹ちゃん' (竹書房). It replaces 'フユシマ クレ', which no source had stated.
+
+  "北斗　すい":
+    reading: "ホクトスイ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832295520"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      'ちみどろアイスクリーム\u3000１' (芳文社). It replaces 'ホクト \u3000 スイ', which no source had stated.
+
+  "卯蟹うか":
+    reading: "ウカニウカ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784801972766"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'いえない秘密の愛し方 1' (竹書房).
+
+  "喜月かこ":
+    reading: "キズキ カコ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784199506062"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. 'もふかのポプリ
+      1' (徳間書店). It replaces 'キ ガツ カコ', which no source had stated.
+
+  "大庭直仁":
+    reading: "オオバ ナオト"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784199507496"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. '恋の好奇心 1'
+      (徳間書店). It replaces 'オオバ ナオトヨ', which no source had stated.
+
+  "大朋めがね":
+    reading: "オオトモ メガネ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832240759"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. 'Green'
+      (芳文社).
+
+  "大沢あまね":
+    reading: "オオサワ アマネ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671333"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '彼女(kano)×彼女(kano)' (新書館).
+
+  "宇河弘樹":
+    reading: "ウガワ ヒロキ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832241954"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '二輪乃花'
+      (芳文社). It replaces 'ウカワ ヒロキ', which no source had stated.
+
+  "安田剛助":
+    reading: "ヤスダ コウスケ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784107719362"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
+      '私と彼女のお泊まり映画 1' (新潮社). It replaces 'ヤスダ タケスケ', which no source had stated.
+
+  "宮原　都":
+    reading: "ミヤハラ ミヤコ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784758024921"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '夏とレモンとオーバーレイ' (講談社). It replaces 'ミヤハラ \u3000 ト', which no source had stated.
+
+  "宮田ワルツ":
+    reading: "ミヤタ ワルツ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784758077743"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '女の子のいちばんやわらかいところ。' (講談社).
+
+  "小川麻衣子":
+    reading: "オガワ マイコ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832241947"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. '魚の見る夢 1'
+      (芳文社).
+
+  "岡藤真依":
+    reading: "オカフジ マイ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784396791650"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'フォーゲット・ミー・ノット' (祥伝社).
+
+  "岩下継":
+    reading: "イワシタ ケイ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784781617893"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
+      "仕事の後は恋しよう = LET'S FALL IN LOVE AFTER WORK" (イースト・プレス). It replaces 'イワシタ ツギ', which no source
+      had stated.
+
+  "嵩乃朔":
+    reading: "タカノ サク"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784049124446"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'シナモン =
+      Cinnamon : 人外×人間百合アンソロジー' (KADOKAWA). It replaces 'カサ ノ ツイタチ', which no source had stated.
+
+  "市川なつを":
+    reading: "イチカワ ナツオ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403623127"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      'みーちゃんとアイリ = Mi-chan and Airi 上' (新書館). It replaces 'イチカワ ナツ ヲ', which no source had stated.
+
+  "平尾アウリ":
+    reading: "ヒラオ アウリ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784199501159"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 20 volume(s), e.g. 'まんがの作り方
+      1' (徳間書店).
+
+  "後藤羽矢子":
+    reading: "ゴトウ ハヤコ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784812468401"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g. 'プアプアlips
+      1' (竹書房).
+
+  "御家かえる":
+    reading: "オウチカエル"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832296527"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'プロジェクト・ユリフォーミング！\u3000１' (芳文社). It replaces 'オ イエ カエル', which no source had stated.
+
+  "戸崎映":
+    reading: "トザキ エイ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784065288078"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. "バニーズクエスト
+      = BUNNIE'S QUEST. 1" (講談社).
+
+  "散葉 ちんみ":
+    reading: "チルハ チンミ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784758027328"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '嫌われ魔女令嬢と男装皇子の婚約. 2' (講談社). It replaces 'サン ヨウ チン ミ', which no source had stated.
+
+  "日坂水柯":
+    reading: "ヒサカ ミカ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784592142690"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g. 'レンズのむこう'
+      (白泉社). It replaces 'ニッサカ ミズ カ', which no source had stated.
+
+  "朱村咲":
+    reading: "アカムラ サキ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784785952761"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'メバエ :
+      ビビッド百合アンソロジー volume. 1' (少年画報社). It replaces 'アケムラ サキ', which no source had stated.
+
+  "東洋　トタン":
+    reading: "トウヨウ トタン"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784046822277"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      'ラストサマー・バケーション = LAST SUMMER VACATION. 上' (KADOKAWA). It replaces 'トウヨウ \u3000 トタン', which no
+      source had stated.
+
+  "松山せいじ":
+    reading: "マツヤマ セイジ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784091572882"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g. 'ゆりてつ :
+      私立百合ヶ咲女子高鉄道部. 1' (小学館).
+
+  "桑田乃梨子":
+    reading: "クワタ ノリコ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671548"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '箱庭コスモス =
+      hakoniwa cosmos' (新書館).
+
+  "桜木晶":
+    reading: "サクラギ アキラ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784776752295"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'ネイルちゃんと深爪さん。 : アンソロジーコミック マジでリアコな私たち編' (宙出版).
+
+  "森井暁正":
+    reading: "モリイ アキマサ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832258921"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      '百合のあいだは悩ましい 1' (芳文社).
+
+  "橋本みつる":
+    reading: "ハシモト ミツル"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671456"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. "さらば友よ =
+      Adieu l'amie" (新書館).
+
+  "檜山ユキ":
+    reading: "ヒヤマ ユキ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832274990"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      '妄想アカデミズム\u3000１' (芳文社).
+
+  "水瀬るるう":
+    reading: "ミナセ ルルウ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832238039"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'これはよい抱き枕
+      : 水瀬るるう百合作品集' (芳文社).
+
+  "海月れおな":
+    reading: "ウミツキ レオナ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784048656474"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      'ぷあーなんてもうしまい. 2' (KADOKAWA). It replaces 'カイゲツ レオナ', which no source had stated.
+
+  "深山はな":
+    reading: "フカヤマ ハナ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784253291118"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g. '来陽と青梅 1'
+      (秋田書店).
+
+  "澄谷ゼニコ":
+    reading: "スミヤ ゼニコ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784758021609"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '魔女が恋する5秒前' (講談社). It replaces 'スミタニ ゼニコ', which no source had stated.
+
+  "瀬田せた":
+    reading: "セタ セタ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784040696904"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '百合鍵 :
+      先輩の秘密をのぞいてみた' (KADOKAWA).
+
+  "火野遥人":
+    reading: "ヒノ ハルト"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784091266859"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 7 volume(s), e.g. 'たくのみ。.
+      1' (小学館).
+
+  "犬丸":
+    reading: "イヌマル"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671678"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '演劇部の魔女と騎士 = WITCH MEETS KNIGHT' (新書館).
+
+  "珠奈ににこ":
+    reading: "タマナ ニニコ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784334106607"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '新人女性漫画家がネットセックスに沼ってVTuberになった話' (光文社).
+
+  "由多ちゆ":
+    reading: "ヨシダ チユ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832241114"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'くらいもり、しろいみち' (芳文社). It replaces 'ユウタ チ ユ', which no source had stated.
+
+  "百合原明":
+    reading: "ユリハラ アキ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832241824"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. 'ベツキス 1'
+      (芳文社). It replaces 'ユリ モトアキ', which no source had stated.
+
+  "砂音鈴":
+    reading: "サオリ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784047285651"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '虹晴の従姉'
+      (角川グループパブリッシング). It replaces 'サト スズ', which no source had stated.
+
+  "磯本つよし":
+    reading: "イソモト ツヨシ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832242234"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'ガールズライド'
+      (芳文社).
+
+  "磯谷友紀":
+    reading: "イソヤ ユキ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403621857"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'さようならむつきちゃん' (新書館). It replaces 'イソタニ ユキ', which no source had stated.
+
+  "秋60":
+    reading: "アキ 60"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671883"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '同じ所で眠るまで待って = Wait until I sleep in the same place with you' (新書館).
+
+  "秋山はる":
+    reading: "アキヤマ ハル"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784063106329"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 6 volume(s), e.g. 'オクターヴ
+      vol.4' (講談社).
+
+  "篠房六郎":
+    reading: "シノフサ ロクロウ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784098600908"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 5 volume(s), e.g.
+      'おやすみシェヘラザード = Nighty night,Sheherazade. 1' (小学館). It replaces 'シノ ボウ ロクロウ', which no source
+      had stated.
+
+  "紺色3号":
+    reading: "コンイロ 3ゴウ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784065235133"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g.
+      '同級生の推し作家に百合妄想がバレた結果 1' (講談社 (発売)).
+
+  "紺色３号":
+    reading: "コンイロ 3ゴウ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784065235133"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g.
+      '同級生の推し作家に百合妄想がバレた結果 1' (講談社 (発売)). It replaces 'コンイロ サン ゴウ', which no source had stated.
+
+  "紺野キタ":
+    reading: "コンノ キタ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671401"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '女の子の設計図
+      = Drawing of a girl' (新書館).
+
+  "綾瀬マナ":
+    reading: "アヤセ マナ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784575840841"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g. '悪戯ちょうちょ
+      1' (双葉社).
+
+  "縞野やえ":
+    reading: "シマノ ヤエ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832241602"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'ゆめよりすてきな' (芳文社). It replaces 'シマヤ ヤ エ', which no source had stated.
+
+  "芥文絵":
+    reading: "アクタ フミエ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403622045"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '妹ができました。' (新書館).
+
+  "菅原キク":
+    reading: "スガワラ キク"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784199505478"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 13 volume(s), e.g. 'マザーグール
+      1' (徳間書店).
+
+  "蓬餅":
+    reading: "ヨモギモチ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784344852242"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 6 volume(s), e.g.
+      '百合にはさまる男は死ねばいい!? 1' (幻冬舎).
+
+  "蕗屋文字":
+    reading: "フキヤモジ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832296725"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '保健室の鍵閉めてっ\u3000１' (芳文社).
+
+  "藤たまき":
+    reading: "フジ タマキ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671623"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'この世にただひとり = only my girl in the world' (新書館).
+
+  "藤松 盟":
+    reading: "フジマツ メイ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784776752530"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'ネイルちゃんと深爪さん。 ナイショのパフェを半分こ編' (宙出版).
+
+  "西UKO":
+    reading: "ニシ UKO"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784253100557"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'となりのロボット
+      = Tonari no Robot.' (秋田書店).
+
+  "西尾雄太":
+    reading: "ニシオ ユウタ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784091872456"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g. 'アフターアワーズ
+      = AFTER HOURS. 1' (小学館).
+
+  "西沢5ミリ":
+    reading: "ニシザワ 5ミリ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784041113738"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '元カノに幻想を抱くなバーカ : 西沢5ミリ短編集' (KADOKAWA). It replaces 'ニシサワ 5 ミリ', which no source had stated.
+
+  "西畑けい":
+    reading: "ニシハタ ケイ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832274280"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
+      'きもちわるいから君がすき 1' (芳文社).
+
+  "詩原ヒロ":
+    reading: "シバラ ヒロ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784785972790"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'サチとユーカ =
+      SACHI and YUUKA 1' (少年画報社). It replaces 'シ ハラ ヒロ', which no source had stated.
+
+  "近藤笑真":
+    reading: "コンドウ ショウマ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784091291035"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g.
+      'あーとかうーしか言えない. Volume1' (小学館). It replaces 'コンドウ エマ', which no source had stated.
+
+  "阿東 里枝":
+    reading: "アトウ リエ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784758021548"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g.
+      'ナメられたくないナメカワさん 1' (講談社).
+
+  "雁須磨子":
+    reading: "カリ スマコ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671661"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '私の嫌いなおともだち : FATAL TIES' (新書館). It replaces 'ガン スマコ', which no source had stated.
+
+  "雨隠ギド":
+    reading: "アマガクレ ギド"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671500"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '終電にはかえします' (新書館). It replaces 'アメ イン ギド', which no source had stated.
+
+  "須河篤志":
+    reading: "スガ アツシ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784832242067"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      '前略、百合の園より 1' (芳文社). It replaces 'スカワ アツシ', which no source had stated.
+
+  "高嶋ひろみ":
+    reading: "タカシマ ヒロミ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    source: "openBD"
+    source_kind: publisher-jp
+    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671210"
+    reviewed: '2026-08-06'
+    reading_note: >-
+      openBD carries this reading as the publisher's own collationkey on 7 volume(s), e.g.
+      'あさがおと加瀬さん。' (新書館).
+
+  # --- the kana name a filing key would have respelt -------------------------------------------
+  #
+  # openBD states トリイ, シズク for this person, and it is not what they write. A collationkey is a
+  # filing key first: JPRO normalises ヅ to ズ and ヲ to オ in it, which is invisible against a kanji
+  # name and a loss against a kana one, because there the surface IS the reading. The store already
+  # holds とりいしづく at トリイシヅク off its own surface, so taking the key here would have put one
+  # artist in the database twice under two readings. `openbd_reading.normalised` now declines the
+  # whole class; this is the one name in it, and the space in the name supplies the boundary the
+  # key was the only other source of.
+  "とりい しづく":
+    reading: "トリイ シヅク"
+    reading_basis: surface
+    reading_source_kind: derived
+    source: "the name as the platform writes it"
+    source_kind: derived
+    reviewed: '2026-08-06'
+    reading_note: >-
+      Kana throughout, so the name is its own reading and no lookup was needed. It replaces 'ト リイ
+      シ ヅク', which an analyser assembled by splitting it in the wrong places. openBD's
+      registration agrees on the boundary and files the kana as シズク, which is its collation rule
+      rather than a statement that the name is said that way.

@@ -85,10 +85,28 @@ def ep_rows(data):
             code = e.get("code") or e.get("id")
             if not code:
                 continue
-            when = str(e.get("updateDate") or e.get("startDate") or e.get("deliveryStartAt") or "")
+            # WHEN IT WAS PUBLISHED IS NOT WHEN IT OPENS. `updateDate` is the chapter's own
+            # date. `startDate` and `deliveryStartAt` are when カドコミ starts delivering it, which
+            # for a rotating free window is a date in the future and has nothing to do with when
+            # the chapter came out: 悪いが私は百合じゃない carried 28 chapters of a 2020 serial
+            # stamped three days ahead of the capture, and on that day they surfaced as 28 new
+            # chapters of a work whose newest is from June, none of them readable.
+            #
+            # So a delivery date is recorded as what it is, and a date in the future is never
+            # accepted as a publication date whichever field it came from.
+            when = str(e.get("updateDate") or "")[:10]
+            opens = str(e.get("startDate") or e.get("deliveryStartAt") or "")[:10]
+            if when > _TODAY:
+                opens, when = opens or when, ""
             row = {"code": code, "title": (e.get("title") or "").strip(),
                    "subtitle": (e.get("subTitle") or "").strip(),
-                   "updated": when[:10] if when else ""}
+                   "updated": when}
+            if opens:
+                row["opens_on"] = opens
+                if opens > _TODAY:
+                    # Not out yet. Recorded so a later run can tell a chapter that arrived from one
+                    # that was always there, and so nothing downstream reads it as an update.
+                    row["not_yet_delivered"] = True
             if e.get("isActive") is True:
                 row["access_modes"] = ["free"]
                 dp = str(e.get("deliveryPeriod") or "")[:10]
@@ -97,6 +115,9 @@ def ep_rows(data):
                     row["free_until"] = dp
             out[code] = row
     return list(out.values())
+
+
+_TODAY = datetime.date.today().isoformat()
 
 
 def js(v):
@@ -251,6 +272,11 @@ def main():
                 L.append(f"        access_modes: {js(e['access_modes'])}")
             if e.get("free_until"):
                 L.append(f"        free_until: {js(e['free_until'])}")
+            # When the platform starts delivering it, which is not when it was published.
+            if e.get("opens_on"):
+                L.append(f"        opens_on: {js(e['opens_on'])}")
+            if e.get("not_yet_delivered"):
+                L.append("        not_yet_delivered: true")
     L.append("")
     (out / "chapters.yaml").write_text("\n".join(L))
 

@@ -8,6 +8,7 @@ when a chapter IS open and says nothing about why a closed one is closed. Inferr
 absence put a free one-shot in the reader's interface as paid.
 """
 import json
+import datetime
 import pathlib
 import sys
 
@@ -78,6 +79,22 @@ def main(s):
     s.eq(k._next_update({"nextUpdateDateText": "来週くらい"}), None,
          "and prose where a date should be is not guessed at")
 
+
+    # A DELIVERY DATE IS NOT A PUBLICATION DATE. カドコミ gives `startDate` for when it begins
+    # serving a chapter, which for a rotating free window is in the future. Read as the chapter's
+    # own date, it made 28 chapters of a 2020 serial surface as new the day it came round, none of
+    # them readable and none of them carrying a URL.
+    future = (datetime.date.today() + datetime.timedelta(days=30)).isoformat()
+    rows = k.ep_rows({"firstEpisodes": {"result": [
+        {"code": "c1", "title": "Chapter1", "updateDate": "2020-02-03"},
+        {"code": "c2", "title": "Chapter2", "startDate": future},
+        {"code": "c3", "title": "Chapter3", "updateDate": future}]}})
+    by = {r["code"]: r for r in rows}
+    s.eq(by["c1"]["updated"], "2020-02-03", "a stated publication date is the chapter's date")
+    s.eq(by["c2"]["updated"], "", "a delivery date is not, so the chapter stays undated")
+    s.eq(by["c2"]["opens_on"], future, "and is recorded as what it is")
+    s.check(by["c2"]["not_yet_delivered"], "with the fact that it has not opened yet")
+    s.eq(by["c3"]["updated"], "", "and no date in the future is a publication date, whatever field it came from")
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "kadokomi.releases"))

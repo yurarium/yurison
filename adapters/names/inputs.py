@@ -140,8 +140,14 @@ def _peel_bracket(part):
     return head, None
 
 
-def load(build_dir, feeds=("feed/current.json", "feed/2026-07.json")):
+def load(build_dir, feeds=None):
     """Return (authors, titles, credits, by_title).
+
+    THE MONTHS ARE FOUND, NOT LISTED. This defaulted to `("feed/current.json", "feed/2026-07.json")`,
+    naming one month by hand, so every month after July 2026 was invisible to the name passes and
+    nothing would have said so: the passes would simply have stopped seeing new works, gradually,
+    with the count of names to fix looking healthy the whole way down. A default that goes stale by
+    the calendar is the same failure as reading a rolling window and calling it the corpus.
 
     `credits` is kept because pass 0 needs to know which page a name was read from, and the credit
     string is the only link back to the work that carried it. `by_title` maps a Japanese title to
@@ -155,6 +161,9 @@ def load(build_dir, feeds=("feed/current.json", "feed/2026-07.json")):
 
     series = json.loads((build / "series.json").read_text(encoding="utf-8"))
     rows.extend(series.get("series") or [])
+    if feeds is None:
+        feeds = ["feed/current.json"] + [f"feed/{p.name}" for p in
+                                         sorted((build / "feed").glob("[0-9]*.json"))]
     for f in feeds:
         p = build / f
         if p.exists():

@@ -457,3 +457,29 @@ a non-zero count of multi-volume claims, the volume badge is a feature that fire
 
 Five works have a shop saying 完結 while a platform is still publishing them. The platform wins and
 the disagreement is counted at build time rather than resolved.
+
+## 12. Checks that inferred the corpus (audited 2026-08-06)
+
+"Is this a work we hold" is asked in several places and had no stated answer, so each caller
+assembled one from whatever artefact was to hand. `build.py` now writes `data/build/titles.json`,
+and the audit found three callers guessing:
+
+| Where | What it asked | What it used |
+|---|---|---|
+| `names/curate.py` | does this curated title name a work | the 14-day feed window and `series.json` |
+| `names/inputs.py` | which works do the name passes run over | `series.json` and a hardcoded `feed/2026-07.json` |
+| `gigaviewer/releases.py` | is this feed title a work we already have | `index.json`, the PRINT catalogue, plus one platform's series list |
+
+The third was the largest: 669 titles counted as established where the build holds 1,481, so 812
+web serialisations had to be rediscovered through the Tier C yardstick on every run. The second had
+not fired yet and would have failed silently, because a month named by hand goes stale by the
+calendar and a name pass that stops seeing new works looks exactly like a name pass with nothing
+to do.
+
+`check.py` was examined and left alone. Its budgets measure what a reader sees, so `series.json` is
+the right denominator, and it already reads every month archive rather than the window.
+
+What remains: `titles.json` states titles, and a title is not an identifier. The works that reach
+it under two spellings are folded by each consumer to its own rule, which is right for the callers
+above and would not be right for a caller asking about a specific work. That one should ask
+`data/identity/works.yaml` for an id.

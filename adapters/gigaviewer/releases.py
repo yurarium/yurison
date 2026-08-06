@@ -149,14 +149,23 @@ def yuri_series(html, genre, label):
 
 
 def known_titles(paths):
-    """Normalised titles of works already ESTABLISHED as yuri — the built catalogue, and platforms
-    that label their own series. A match here is identification against settled evidence."""
+    """Normalised titles of works already ESTABLISHED as yuri: the corpus, the print catalogue, and
+    platforms that label their own series. A match here is identification against settled evidence.
+
+    THE CORPUS IS ASKED FOR. This read `index.json`, which is the PRINT catalogue, and one
+    platform's own series list, and called the pair "works we already have". Every web serialisation
+    the build holds was absent from it, so a platform feed naming one had to be rediscovered through
+    the Tier C yardstick every run. `titles.json` is the build stating what it holds.
+    """
     out = {}
     for p_ in paths:
         f = pathlib.Path(p_)
         if not f.exists():
             continue
-        if f.suffix == ".json":
+        if f.name == "titles.json":
+            for title in json.loads(f.read_text()).get("titles") or []:
+                out[norm_title(title)] = title
+        elif f.suffix == ".json":
             for w in json.loads(f.read_text()):
                 out[norm_title(w.get("t", ""))] = w.get("t", "")
         else:
@@ -209,7 +218,8 @@ def main():
     ap.add_argument("--retrieved", required=True)
     ap.add_argument("--platforms", default="adapters/gigaviewer/platforms.yaml")
     ap.add_argument("--force", action="store_true", help="ignore cache validators")
-    ap.add_argument("--known", nargs="*", default=["data/build/index.json",
+    ap.add_argument("--known", nargs="*", default=["data/build/titles.json",
+                                                   "data/build/index.json",
                                                    "data/source/gigaviewer/ichicomi-series.yaml"],
                     help="sources of already-established yuri work titles")
     ap.add_argument("--candidates", default="data/coverage/webcomics-works.yaml",

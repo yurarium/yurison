@@ -21,6 +21,18 @@ STORE = {
 
 
 def main(s):
+    # HTML ENTITIES AND PAGE FURNITURE. A rendered-page capture handed over a Follow button as a
+    # credit, and an ampersand hidden behind an escape split one credit into what looked like junk.
+    s.eq(credits.split_credits("&nbsp;フォローする")[0], [],
+         "a control's own label is not a credit")
+    s.eq(credits.split_credits("大島永遠&amp;大島智")[0], ["大島永遠&大島智"],
+         "an escaped ampersand is unescaped and the credit survives whole")
+    s.eq(credits.split_credits("フォローする / 山田太郎")[0], ["山田太郎"],
+         "furniture beside a real credit drops and the person stays")
+    # AND A NAME CONTAINING THE WORD IS A NAME. The reject list is exact matches only.
+    s.eq(credits.split_credits("フォロワーの話")[0], ["フォロワーの話"],
+         "a name containing a control's word is still a name")
+
     # THE CASE THIS WAS WRITTEN FOR. One string in two scripts, with the reading spaced.
     s.eq(credits.dedupe("おにぎりパクパク / オニギリ パクパク"), "おにぎりパクパク",
          "a kana fold of the name beside it is the same person")

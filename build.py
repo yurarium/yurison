@@ -4053,10 +4053,15 @@ def main():
                 # SILENCE IS NOT A BASIS ON ITS OWN, and until now dormant carried none at all:
                 # 150 works asserted it with nothing behind them. Saying what it rests on makes the
                 # weakness visible instead of leaving it implied.
+                # A GAP OF ZERO DAYS IS NOT A GAP. The newest chapter arrived today, and saying
+                # "no chapter for 0 days" reads as a fault in the database where the fact is the
+                # opposite. 6 rows said it, the most recently updated works in the corpus.
                 row["state_basis"] = (
+                    "a chapter arrived today, and nothing states it has ended" if age == 0 else
                     f"no chapter for {age} day{'' if age == 1 else 's'}, "
                     f"and nothing states it has ended")
-                row["state_basis_ja"] = f"{age}日間新しい話がなく、終了したとする情報もない"
+                row["state_basis_ja"] = ("本日新しい話があり、終了したとする情報もない" if age == 0
+                                         else f"{age}日間新しい話がなく、終了したとする情報もない")
                 # A PLATFORM SAYING IT IS RUNNING IS NOT SILENCE. It does not make a quiet work
                 # active, because a serialisation can be open and on hiatus at once, and the
                 # silence is still what we observed. What it does is say the silence is ours: the
@@ -4074,9 +4079,12 @@ def main():
                 _running_on = row.pop("running_src", None)
                 if _running_on:
                     row["state_basis"] = (
+                        f"a chapter arrived today, and {_running_on} marks the serialisation as "
+                        "running" if age == 0 else
                         f"no chapter for {age} day{'' if age == 1 else 's'} in what we hold, but "
                         f"{_running_on} still marks the serialisation as running")
                     row["state_basis_ja"] = (
+                        f"本日新しい話があり、{_running_on}は連載中と表示している" if age == 0 else
                         f"{age}日間新しい話がないが、{_running_on}は連載中と表示している")
                 # THE ANTENNA SAYS IT FINISHED. An aggregator's tag is a lead, so it does not carry
                 # a live series on its own; joined to a year of silence it is better evidence than
@@ -4528,6 +4536,28 @@ def main():
                 _marked += 1
         if _marked:
             print(f"works held out of the default listing: {_marked}")
+
+        # THE ROW'S OWN STRING IS WHAT THE PAGE PRINTS, and it kept the raw while the composer read
+        # a cleaned copy, so `&nbsp;フォローする` and `大島永遠&amp;大島智` reached the page with the
+        # escape intact. Rebuilt from the parts the splitter returns, which unescapes and drops a
+        # control's own label. Run here because the print-only rows are appended above this point,
+        # and an earlier pass missed every one of them.
+        #
+        # A FIELD THAT WAS ALL FURNITURE BECOMES EMPTY, not left as it was. `works crediting nobody`
+        # counts an empty credit and counts nothing at all for a button, so leaving the button in
+        # hides the gap it should be reporting.
+        _cleaned = 0
+        for _crow in series_rows:
+            _raw = _crow.get("author") or ""
+            if not _raw:
+                continue
+            _parts, _join = _credits.split_credits(_raw)
+            _rebuilt = _join.join(_parts)
+            if _rebuilt != _raw:
+                _crow["author"] = _rebuilt
+                _cleaned += 1
+        if _cleaned:
+            print(f"credit fields rebuilt from their parts: {_cleaned}")
 
         _redated = 0
         for _drow in series_rows:

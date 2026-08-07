@@ -233,10 +233,21 @@ def main(argv=None):
 
     labels = {k: (extract.LABEL_IMPRINT if by_isbn.label_for(vs)[0] == "yuri" else LABEL_SHOP)
               for k, vs in by_series.items()}
+    # WHY A LEAD REACHED NOTHING, split on the shop's own answer. 底本発行日 is the publication date
+    # of the print edition the file was made from, so a hit stating one is a printed book that
+    # exists and a bibliography holding nothing about it is the bibliography being behind. A hit
+    # stating none is a digital-only edition and there is no print run for MADB to hold. Reporting
+    # the two together would make a lagging release and a work nobody printed look alike, which is
+    # the reading error this whole route was built to correct.
+    printed = sum(1 for lead in unanswered if any(h.get("printed") for h in lead["hits"]))
     print(f"leads the shop and this database agree about : {len(found)}")
     print(f"  reached a bibliography record              : {len(found) - len(unanswered)} "
           f"({share:.0%})")
     print(f"  no bibliography record agreed              : {len(unanswered)}")
+    print(f"    of those, the shop states a print date   : {printed}  "
+          "(printed, and MADB has not catalogued it)")
+    print(f"    of those, the shop states none           : {len(unanswered) - printed}  "
+          "(digital-only, so there is no print run)")
     print(f"volumes in those works                       : {len(whole)}")
     print(f"works                                        : {len(by_series)} new, "
           f"{len(skipped)} already held by another route")

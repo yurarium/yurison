@@ -170,6 +170,12 @@ HEADER = """\
 # carries an imprint and a publisher instead. That is not a shortcoming of the capture; it is why
 # the bibliography has to be asked by title and by a person's name here, and by ISBN elsewhere.
 #
+# `printed` IS 底本発行日, the publication date of the PRINT edition the shop made its file from, and
+# it is the shop answering this route's question with no bibliography involved. A hit stating one
+# is a printed book that exists. A hit stating none is a digital-only edition, and MADB's 単行本
+# dataset holds nothing about it because there is nothing to hold. `delivered` (配信開始日) is the
+# day the FILE went on sale, bounds the print date in neither direction, and is not captured here.
+#
 # A WORK WITH NO HIT IS AN ANSWER. `hits: []` with a note means the shop was asked and stocks
 # nothing under a name this database recognises. Absence is a state (STANDING-INSTRUCTIONS §5).
 """
@@ -193,7 +199,8 @@ def render(doc):
             L.append("    hits:")
             for h in w["hits"]:
                 L.append(f"      - series_url: {js(h.get('series_url'))}")
-                for k in ("title_listed", "shop_author", "imprint", "publisher", "agreement"):
+                for k in ("title_listed", "shop_author", "imprint", "publisher", "printed",
+                          "agreement"):
                     if h.get(k):
                         L.append(f"        {k}: {js(h[k])}")
                 if h.get("volumes_stated") is not None:
@@ -251,6 +258,7 @@ def main(argv=None):
                          "shop_author": got.get("author"),
                          "imprint": got.get("imprint") or t.get("imprint"),
                          "publisher": got.get("publisher"),
+                         "printed": got.get("printed"),
                          "volumes_stated": t.get("volumes_stated"),
                          "completed_marker": t.get("completed_marker"),
                          "agreement": agreement})
@@ -277,6 +285,7 @@ def main(argv=None):
         "works_with_a_hit": sum(1 for w in doc["works"] if w.get("hits")),
         "hits_agreeing_on_a_creator": sum(1 for h in hits if h.get("agreement") == "creator"),
         "hits_on_the_title_alone": sum(1 for h in hits if h.get("agreement") == "title-only"),
+        "hits_stating_a_print_edition_date": sum(1 for h in hits if h.get("printed")),
     }
     print(f"\nnew rows: {added}; file holds {doc['counts']['works_asked']} work(s), "
           f"{doc['counts']['hits_agreeing_on_a_creator']} hit(s) agreeing on a creator, "

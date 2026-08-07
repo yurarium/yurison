@@ -61,10 +61,18 @@ _TAG = re.compile(r'<span class="a-tag-([a-z]+)">([^<]*)</span>')
 _COUNT = re.compile(r'<span class="ico-txt">\s*シリーズ([\d,]+)冊')
 _VOLUME = re.compile(r'href="(https://bookwalker\.jp/de[0-9a-f-]+/)"')
 
-# The 作品情報 table on a volume's own page. Each row is a label and a value, and the fields wanted
-# here are the ones a bibliography can be asked about: who drew it, whose imprint it is, and who
-# published it. 配信開始日 is the date the file went on sale and is NOT a publication date, so it
-# is read and named as what it is instead of being offered as one.
+# The 作品情報 table on a volume's own page. Each row is a label and a value.
+#
+# 底本発行日 IS THE FIELD THIS ROUTE CAME FOR, and it is the shop answering the question directly.
+# It is the publication date of the PRINT edition the file was made from, so a volume stating one
+# is the shop saying a printed book exists, with no bibliography involved. `bookwalker-volumes.yaml`
+# measured it on 276 of 870 volumes and this capture finds it on 47 of the first 100, and the
+# difference between the two halves is the point: a hit with no 底本発行日 is a digital-only edition
+# and there is no print run for MADB to hold.
+#
+# 配信開始日 is the day the FILE went on sale and is not a publication of the work. The same capture
+# measured 115 of 276 volumes delivered before the print edition and 38 after it by up to 4,471
+# days, so it bounds nothing in either direction. It is read and named as what it is.
 _ROW = re.compile(r'<dt[^>]*>(.*?)</dt>\s*<dd[^>]*>(.*?)</dd>', re.S)
 
 # The shop marks a finished series on the tile. `bookwalker.py` reads the same fact off a series
@@ -111,15 +119,16 @@ def tiles(html):
 
 
 def details(html):
-    """`{author, imprint, publisher, delivered}` from a volume's own page.
+    """`{author, imprint, publisher, printed, delivered}` from a volume's own page.
 
     The credit is the field this route rests on. The tile carries no author at all, which is the
     same absence `bookwalker-yuri.yaml` records about the shelf listing, so confirming who drew a
-    book costs one request per hit and there is no cheaper answer.
+    book costs one request per hit and there is no cheaper answer. `printed` arrives on the same
+    request and answers the question the route was asked.
     """
-    got = {"author": None, "imprint": None, "publisher": None, "delivered": None}
+    got = {"author": None, "imprint": None, "publisher": None, "printed": None, "delivered": None}
     wanted = {"著者": "author", "レーベル": "imprint", "出版社": "publisher",
-              "配信開始日": "delivered"}
+              "底本発行日": "printed", "配信開始日": "delivered"}
     for label, value in _ROW.findall(str(html or "")):
         key = wanted.get(_text(label))
         if key and got[key] is None:

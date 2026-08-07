@@ -63,7 +63,20 @@ VOLUME_PAGE = """
 <dt>著者</dt><dd><a href="/author/1/">卯花りりか</a>(著)</dd>
 <dt>レーベル</dt><dd><a href="/label/1/">ＦＵＺコミックス</a></dd>
 <dt>出版社</dt><dd><a href="/company/1/">芳文社</a></dd>
+<dt>底本発行日</dt><dd>2024/11/1</dd>
 <dt>配信開始日</dt><dd>2024/11/5</dd>
+</dl>
+"""
+
+# The same page for a digital-only edition, which states no 底本発行日 because there is no printed
+# book behind the file. 底本 is on 47 of the first 100 volume pages read, so this half is not an
+# edge case: it is the half the national bibliography will hold nothing about.
+DIGITAL_ONLY = """
+<dl class="t-c-detail-about-information">
+<dt>著者</dt><dd><a href="/author/2/">ぴりぷん</a>(著)</dd>
+<dt>レーベル</dt><dd><a href="/label/2/">ライトリーズン</a></dd>
+<dt>出版社</dt><dd><a href="/company/2/">ライトリーズン</a></dd>
+<dt>配信開始日</dt><dd>2023/2/10</dd>
 </dl>
 """
 
@@ -111,8 +124,14 @@ def main(s):
     s.eq(got["author"], "卯花りりか(著)", "the credit, as the shop writes it")
     s.eq(got["imprint"], "ＦＵＺコミックス", "the imprint")
     s.eq(got["publisher"], "芳文社", "the publisher, which is the field a bibliography agrees on")
+    s.eq(got["printed"], "2024/11/1",
+         "底本発行日, which is the shop saying a printed book exists with no bibliography involved")
     s.eq(got["delivered"], "2024/11/5", "and the date the file went on sale, which is not a "
                                         "publication date and is never offered as one")
+    s.eq(shop.details(DIGITAL_ONLY)["printed"], None,
+         "a digital-only edition states none, which is why MADB can hold nothing about it")
+    s.eq(shop.details(DIGITAL_ONLY)["delivered"], "2023/2/10",
+         "and the two fields are not confused for each other")
     s.eq(shop.names(got["author"]), {"卯花りりか"}, "one credit reads as one person")
 
     # THE SHOP'S SEPARATOR BETWEEN TWO PEOPLE IS THE ROLE BRACKET. Read as written, this line is

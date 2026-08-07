@@ -800,3 +800,78 @@ the disagreement, which is the part worth keeping.
 
 **Closed.** 49 asked, 47 from a publisher's own page, 2 from Books.or.jp, none unreached, and the
 two sources never disagreed because no book was answered by both.
+
+---
+
+## 20. The web works with no print edition, worked platform by platform (2026-08-07)
+
+862 of the 3,083 works held had a web serialisation and no tankōbon, no volume count and no ISBN.
+The print catalogue is reached by imprint and by a retailer's yuri shelf, and a work serialised on
+a general platform is on neither, so nobody had asked the source that knows: the platform itself,
+which links from a series to the shops selling its volumes.
+
+`adapters/editions/` reads those links and `adapters/madb/by_platform_isbn.py` takes the ISBNs to
+the national bibliography. 862 fell to 648. What follows is what is left and why.
+
+### The residual is mostly a real absence, not an unread source
+
+Of the 839 platform addresses asked, 293 led to a printed volume, 520 met a platform that lists no
+collected volume for that series, and 26 met a volume the platform lists without stating a number
+anybody can read. The 520 are the answer to the whole question: most of these works are 読み切り or
+a serialisation too young for a tankōbon, and no further fetching moves them. They are worth asking
+again later, which is why every one of them is in `data/queue/platform-editions.yaml` with the
+reason recorded rather than being absent from it.
+
+### Platforms whose links reach no printed edition
+
+**少年ジャンプ+ (45 works, 0 reached).** Its コミックス block offers ゼブラック, ebookjapan and an
+Amazon link to the Kindle edition. Every one identifies a file; none states an ISBN. This is not a
+parser limitation and a further pass will not fix it, because 集英社 does not link the printed book
+from this platform at all. となりのヤングジャンプ, the same publisher, links `s-manga.net` with the
+ISBN in the query string, so the difference is per platform rather than per publisher.
+
+**COMIC FUZ (25 works).** Volumes are sold inside the platform's own store and no page links out.
+The rendered series page names the imprint and states no number.
+
+**マガポケ (17 works remaining).** The page carries no 単行本 section and no outbound shop link. Its
+title API answers `invalid hash.` without a request signature the site's own bundle computes, and
+this project does not replay one, for the same reason it does not replay comici's Bearer token.
+
+**マンガPark (9), マンガワン (5), コロコロオンライン (2), コミックノヴァ (2), フラコミlike! (1),
+ゼロサムオンライン (1).** Read and carrying no outbound shop link. マンガよもんが (5) links booklive,
+Renta! and an `amzn.asia` short link, none of which states a number without being followed, and its
+five works are not worth a redirect apiece today.
+
+**ニコニコ漫画 (1).** Links BOOK☆WALKER, which states no ISBN anywhere (§14 measured this).
+
+**bylines (7).** Not a platform: the rows are one-off serialisation pages at seven different hosts.
+
+### Where a shop's number belongs to another book
+
+Three leads were refused because the bibliography's title for the record named something other than
+the serialisation the ISBN came off, and all three are worth keeping because they are three
+different failures:
+
+くらげバンチ's sidebar on ストロベリークォーツ lists けがわとなかみ, which is the same author's other
+series. ビッコミ's 単行本情報 on the one-shot 人魚姫 lists ベラドンナの恋人, the author's collected
+volume, so the platform is stating a relation that is not "this work's volumes". コミックシーモア
+states 9784046804099 for 両片想いな双子姉妹 1 and that ISBN is 百合百景, which is the same shape as
+the える・えるシスター error in §19.
+
+The check that caught them compares titles. It is a guard and not a join: the join is the address
+the ISBN was found at. `by_platform_isbn.agreement` reports every comparison and the run
+prints the refusals, so a platform that starts advertising its neighbours shows up as a number.
+
+### What would be worth doing next
+
+The GigaViewer コミックス page at `/comics` states ISBNs for the current month's releases and links
+the series' first episode, which is a join. It reaches works whose series sidebar already answers,
+so it adds little today and would accumulate if run monthly. `adapters/editions/platforms.py` holds
+the parser and `gigaviewer_comics` is tested; nothing runs it yet, which is the one produced thing
+in this change with no consumer.
+
+BOOK☆WALKER's `ecode` appears on every カドコミ volume and identifies an edition. It is not followed
+because BOOK☆WALKER states no ISBN, so the chain ends there.
+
+The 75 カドコミ works listing no volume are the largest single block left. カドコミ is a publisher's
+own platform, so its silence is that publisher saying it has collected nothing yet.

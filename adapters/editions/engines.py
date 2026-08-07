@@ -86,7 +86,15 @@ STEPS = {
 NO_ROUTE = {
     "comic-fuz.com": ("COMIC FUZ",
                       "volumes are sold inside the platform's own store and no page links out. "
-                      "The rendered series page names the imprint and offers no ISBN."),
+                      "Re-checked on 2026-08-07 against one work's own page rather than against "
+                      "the platform, because a series page and a volume listing are different "
+                      "pages: comic-fuz.com/manga/3455 serves its whole page model in "
+                      "__NEXT_DATA__ and that model has fields for chapters, authorships, tags, "
+                      "the manga and the share link, and none for a book. So the silence is the "
+                      "shape of the page and not a link this project failed to follow, and no "
+                      "page kind of a series can carry one. /books and /book/<id> are FUZ's own "
+                      "digital store, rendered client-side and stating no ISBN. The volumes are "
+                      "real: adapters/shopquery/ asks a shop and finds them."),
     "pocket.shonenmagazine.com": ("マガポケ",
                                   "no 単行本 section and no outbound shop link on the rendered "
                                   "page. Its title API answers `invalid hash.` without a request "

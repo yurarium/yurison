@@ -3899,8 +3899,19 @@ def main():
     # discovery list names it — 貝合わせ appears on no candidate list and is nonetheless a work we
     # hold, attested, with its own author.
     _cands |= {norm_work(v["work"]) for v in series.values() if v.get("collection")}
+    # AN ADDRESS THE REGISTRY ALREADY ANSWERS FOR IS IN SCOPE, whatever the platform calls the
+    # work. Every rule above matches a TITLE, and a platform's title is not the bibliography's:
+    # ニコニコ carries アイドル総選挙4位だった私が魔王を倒すんですか？ with （Lilie comics） on the
+    # end and カドコミ carries 専門学校JK as 専門学校JK Ctrl+Z. 26 serialisations joined to printed
+    # records we hold were dropped here for that alone, which is the scope test contradicting a
+    # join the registry had already made on a person's name.
+    _idfile = pathlib.Path("data/identity/works.yaml")
+    _reg_doc = yaml.safe_load(_idfile.read_text()) if _idfile.exists() else None
+    _reg_index = identity.index((_reg_doc or {}).get("works") or [])
+    _known_web = {a for a in _reg_index if a.startswith("web:")}
     _before = len(series)
-    series = {k: v for k, v in series.items() if k[0] in _cands}
+    series = {k: v for k, v in series.items()
+              if k[0] in _cands or identity.web_anchor(v.get("url")) in _known_web}
     _out_of_scope = _before - len(series)
 
     for row in series.values():
@@ -3927,11 +3938,27 @@ def main():
             if e.get("title") and e.get("platform"):
                 editions[(norm_work(e["title"]), e["platform"])] = e.get("format") or "vertical"
 
+    # ROWS SHARING AN IDENTIFIER ARE ONE WORK, WHATEVER EACH PLATFORM CALLS IT. Grouping by title
+    # cannot see that: ニコニコ漫画 carries 不器用ビンボーダンス as three series, one per volume, and
+    # its titles are 不器用ビンボーダンス, ２ and ３. All three are joined to one printed record, so
+    # all three answer to one identifier, and grouping by title alone gave the works list one work
+    # three times under one id. `one row per identifier` is the invariant that catches it.
+    #
+    # This UNIONS title groups and never splits one. A row whose address the registry does not yet
+    # know keeps its title key, so a platform read for the first time still joins the work it
+    # belongs to, exactly as before. The first title key seen for an identifier is the one the
+    # others fold into.
+    _key_of_id = {}
+    for _grow in series.values():
+        _gkey = norm_work(_grow["work"])
+        _gkey = _gkey if _gkey not in distinct else f"{_gkey}|{_grow['platform']}"
+        _gid = _reg_index.get(identity.web_anchor(_grow.get("url")))
+        _grow["_group"] = _key_of_id.setdefault(_gid, _gkey) if _gid else _gkey
+
     works_out, by_title = [], defaultdict(list)
     for row in series.values():
         row["format"] = editions.get((norm_work(row["work"]), row["platform"]), "standard")
-        key = norm_work(row["work"])
-        by_title[key if key not in distinct else f"{key}|{row['platform']}"].append(row)
+        by_title[row.pop("_group")].append(row)
 
     for _k, rows in by_title.items():
         # A row whose every date is an import stamp cannot speak for the work's state, so it loses

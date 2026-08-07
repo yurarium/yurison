@@ -28,6 +28,34 @@ same result reached without this module having to be right about the arithmetic.
 import re
 
 
+def check13(core):
+    """The thirteenth digit of an EAN-13, given the first twelve, as a string.
+
+    One producer of this arithmetic. `isbn13` needs it to convert a ten-digit ISBN and a caller
+    reading a publisher's own numbering off a URL needs it to complete one, and a second copy would
+    drift the first time either was touched (STANDING-INSTRUCTIONS §3).
+    """
+    core = str(core)
+    return str((10 - sum((1 if i % 2 == 0 else 3) * int(c) for i, c in enumerate(core)) % 10) % 10)
+
+
+def valid10(raw):
+    """Whether a ten-character string is an ISBN-10 with a correct check digit.
+
+    NOT a validity test on a source's ISBN, which this module deliberately refuses to run: a
+    retailer's typo still gets to reach a catalogue and come back empty. This answers a different
+    question, which is whether a string that is only SHAPED like an ISBN is one. An Amazon ASIN is
+    an ISBN-10 for a printed book and an opaque `B0…` code for a Kindle edition, so recognising the
+    first without accepting the second is what makes a store link usable as an identifier.
+    """
+    d = re.sub(r"[^0-9Xx]", "", str(raw or "")).upper()
+    if len(d) != 10 or not d[:9].isdigit():
+        return False
+    total = sum((10 - i) * int(c) for i, c in enumerate(d[:9]))
+    total += 10 if d[9] == "X" else int(d[9])
+    return total % 11 == 0
+
+
 def isbn13(raw):
     """An ISBN as thirteen digits, converting a ten-digit one, or None where it is not an ISBN.
 
@@ -40,5 +68,4 @@ def isbn13(raw):
     if len(d) != 10:
         return None
     core = "978" + d[:9]
-    check = (10 - sum((1 if i % 2 == 0 else 3) * int(c) for i, c in enumerate(core)) % 10) % 10
-    return core + str(check)
+    return core + check13(core)

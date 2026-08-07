@@ -47,6 +47,27 @@ def fetch(url, cache):
     return t
 
 
+def carry_over(path, resolved_urls):
+    """Works already in the file that this run did not resolve, so a refresh never removes one.
+
+    A PASS KEEPS WHAT IT DID NOT LOOK AT, and this adapter did not. Its targets come from the gap
+    report, which by construction lists only works reachable NOWHERE ELSE watched: a work that
+    becomes reachable elsewhere leaves the gap file, so the next FUZ run stops asking about it and
+    the work leaves data/source with it. Measured on 2026-08-07, when a run intended to add 42
+    discovered works removed 24 held ones, 恋する小惑星 and アネモネは熱を帯びる among them. That
+    is REQUIREMENTS §4's forbidden shape: absence from a refresh is never an instruction to delete.
+
+    Keyed on `url`, which is what a work is fetched by here. A work this run resolved is replaced,
+    because a fresh answer beats a stored one.
+    """
+    f = pathlib.Path(path)
+    if not f.exists():
+        return []
+    old = yaml.safe_load(f.read_text()) or {}
+    want = set(resolved_urls)
+    return [w for w in (old.get("works") or []) if w.get("url") not in want]
+
+
 def page_props(html):
     m = re.search(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', html, re.S)
     if not m:
@@ -126,7 +147,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--cache", required=True)
     ap.add_argument("--retrieved", required=True)
-    ap.add_argument("--limit", type=int, default=40)
+    ap.add_argument("--limit", type=int, default=2000)
     a = ap.parse_args()
 
     cache = pathlib.Path(a.cache).expanduser()
@@ -157,6 +178,13 @@ def main():
         if "comic-fuz.com/manga/" in u and u not in seen_u:
             seen_u.add(u)
             targets.append(w)
+    # A LIMIT THAT BITES IN SILENCE IS A LOST WORK. The default was set when the seed list
+    # was smaller, and a discovery pass that adds two hundred targets pushes the tail off
+    # the end with nothing said. The default is now above the population and the cut is
+    # reported when it happens, so a list outgrowing it is a number somebody sees.
+    if len(targets) > a.limit:
+        print(f"LIMIT: {len(targets)} work(s) named, {a.limit} asked for; "
+              f"{len(targets) - a.limit} will not be read this run")
     targets = targets[:a.limit]
     if not targets:
         sys.exit("no COMIC FUZ works found in the gap file")
@@ -235,6 +263,11 @@ def main():
 
     if len(works) < MIN_WORKS:
         sys.exit(f"HEALTH: resolved {len(works)} works (< {MIN_WORKS}). Refusing to write.")
+
+    kept = carry_over(out / "works.yaml", {w["url"] for w in works})
+    if kept:
+        print(f"carried over     : {len(kept)} work(s) this run did not target")
+    works = works + kept
 
     L = ["# COMIC FUZ per-work chapter lists. Works named by a Tier C yardstick; FUZ attests them.",
          "# FUZ applies NO 百合 tag, so nothing here establishes marketing_label (DEFINITIONS §4).",

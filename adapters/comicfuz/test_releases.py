@@ -52,6 +52,25 @@ def main(s):
 
     s.eq(fz.iso("2026/8/3"), "2026-08-03", "a slashed date is normalised and padded")
 
+    # A REFRESH MAY NOT REMOVE A WORK (REQUIREMENTS §4). THE BUG THIS PINS: targets come from the
+    # gap report, which lists only works reachable nowhere else watched, so a work that becomes
+    # reachable elsewhere leaves the gap file and then leaves data/source. A run meant to add 42
+    # discovered works removed 24 held ones, 恋する小惑星 and アネモネは熱を帯びる among them.
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        f = pathlib.Path(d) / "works.yaml"
+        f.write_text('works:\n'
+                     '  - work_title: "held"\n    url: "https://comic-fuz.com/manga/1"\n'
+                     '  - work_title: "refetched"\n    url: "https://comic-fuz.com/manga/2"\n')
+        kept = fz.carry_over(f, {"https://comic-fuz.com/manga/2"})
+        s.eq([w["work_title"] for w in kept], ["held"],
+             "a work this run did not target is kept")
+        s.eq(fz.carry_over(f, {"https://comic-fuz.com/manga/1",
+                               "https://comic-fuz.com/manga/2"}), [],
+             "and a work it did resolve is replaced rather than duplicated")
+    s.eq(fz.carry_over(pathlib.Path(d) / "gone.yaml", set()), [],
+         "a first run with no file to carry from keeps nothing and does not raise")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "comicfuz.releases"))

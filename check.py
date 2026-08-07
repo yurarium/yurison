@@ -1798,7 +1798,13 @@ def budget_publisher_keys_the_interface_misses(ctx):
     missing = set()
     for r in ctx["series"]:
         for pr in (r.get("print") or []):
-            for field, norm in _pub.NAME_FIELDS:
+            # THE APP'S NORMALISERS, NOT THE ADAPTER'S, and importing publishers.NAME_FIELDS here
+            # would destroy this check. It is the only thing in the tree able to see the two
+            # implementations disagree, and it can only do that by holding its own copy of the
+            # interface's. The field list is duplicated for the same reason the functions are.
+            for field, norm in (("publisher", _app_publisher_of),
+                                ("distributor", _app_publisher_of),
+                                ("imprint", _app_imprint_of)):
                 raw = str(pr.get(field) or "").strip()
                 if not raw:
                     continue
@@ -2101,6 +2107,11 @@ def context():
         # collections and not as the answer, so a canary can be planted on either side of the
         # join: a target added, or a captured row taken away, which is the failure itself.
         "capture_passes": _capture_passes(),
+        # Both sides of the ニコニコ channel comparison, loaded here for the same reason as the
+        # two above: a check that opens its own file cannot be shown a canary.
+        "nicovideo_channels": (_yaml(ROOT / "data" / "source" / "nicovideo" / "nicovideo.yaml",
+                                     {}) or {}).get("works") or [],
+        "nicovideo_recorded_channels": _nicovideo_recorded_channels(),
     }
 
 
@@ -2109,12 +2120,6 @@ def _capture_passes():
     sys.path.insert(0, str(ROOT / "adapters"))
     import capturegap
     return capturegap.load(ROOT, read=lambda p: _yaml(p, {}) or {})
-        # Both sides of the ニコニコ channel comparison, loaded here for the same reason as the
-        # two above: a check that opens its own file cannot be shown a canary.
-        "nicovideo_channels": (_yaml(ROOT / "data" / "source" / "nicovideo" / "nicovideo.yaml",
-                                     {}) or {}).get("works") or [],
-        "nicovideo_recorded_channels": _nicovideo_recorded_channels(),
-    }
 
 
 def _nicovideo_recorded_channels():

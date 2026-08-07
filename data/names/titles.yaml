@@ -54713,11 +54713,6 @@ names:
     verified: false
   桜Ｔｒｉｃｋ:
     basis: romaji
-    furigana_spans:
-    - - 桜
-      - さくら
-    - - Ｔｒｉｃｋ
-      - とりっく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: サクラ Trick
@@ -69548,8 +69543,12 @@ names:
     verified: false
   運命のヤマダダダダダダダダダダ:
     basis: translated
-    en: Yamada of Fate, da-da-da-daaa
-    en_at: '2026-08-06'
+    en: The Yamadadadadadadadadada of Destiny
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Yamada of Fate, da-da-da-daaa
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -69557,9 +69556,14 @@ names:
       - うんめい
     - - のヤマダダダダダダダダダダ
       - null
-    note: 運命 is what Japanese calls Beethoven's Fifth, and ダダダダーン is how the opening figure is written
-      out. The surname ヤマダ ends in the same syllable, so the title runs the name straight into the motif
-      and keeps going.
+    note: 'Revised once the work itself could be read, at manga.nicovideo.jp/comic/72312. The previous
+      rendering, "Yamada of Fate, da-da-da-daaa", took 運命 for Beethoven''s Fifth, which is what Japanese
+      calls it, and split the trailing ダ off the name as the opening figure. ニコニコ漫画''s own page settles
+      the first half against that reading: a fortune-teller tells the lead her destined person is called
+      Yamada, so 運命の is 運命の人 and modifies the name. It leaves the second half open, and the run of ダ is
+      not the shape of that figure, which Japanese writes as three short and one long. What the page does
+      explain is the pile-up: every classmate is a Yamada. So the name keeps its own tail and the music
+      is not asserted.'
     reading: ウンメイ ノ ヤマダダダダダダダダダダ
     reading_at: '2026-08-05'
     reading_basis: analyser

@@ -1005,6 +1005,36 @@ def budget_rows_with_a_moving_address(ctx):
     return bad
 
 
+def budget_updates_naming_an_unheld_work(ctx):
+    """Feed rows whose work has no record, so the row can offer a reader nothing but the platform.
+
+    THE CLASS THIS COUNTS. Every platform pass takes its targets from its own list and nothing
+    compares the lists against each other. ニコニコ漫画's release pass reads the comparator
+    candidates and its own resolved ids; its chapter pass reads the print-to-web joins file. A
+    serialisation in the first list and not the second publishes an update every week and never
+    becomes a work, so it cannot be browsed, searched or classified.
+
+    WHY IT DOES NOT READ `wid`. That field is build.py's record of its own title match, and the
+    archived month was written before the field existed, so counting rows without one gives 610
+    where the answer is 29. The measure has to give the same answer whenever it is asked.
+
+    WHAT IT CANNOT SEE (§14b). The built feed offers titles and nothing else to join on, so a work
+    held under a spelling no fold reconciles is invisible here, as it is to build.py. That is named
+    rather than papered over, and it is not what failed: the live rows are missing under a fold
+    touching only width and case, and missing again under one stripping every mark in the string.
+    adapters/test_feedgap.py pins three works the archived month spells differently from the series
+    file, none of which carries a `wid`, so a count taken from that field would have been wrong
+    about all three.
+
+    WHY A COUNT. The remedy is a capture and a classification, and a work arriving in the feed is
+    counted the moment it lands, before anybody could have made either. An invariant here would
+    refuse a build whose only fault is that the world moved yesterday.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import feedgap
+    return len(feedgap.unheld(ctx["releases"], ctx["series"]))
+
+
 def budget_shadowed_names(ctx):
     try:
         out = subprocess.run([sys.executable, str(ROOT / "adapters" / "lint" / "shadowing.py"),
@@ -1380,6 +1410,13 @@ BUDGETS_DEF = [
     ("shadowed names in build.py", budget_shadowed_names,
      "names rebound more than 300 lines from their first binding. Two shipped bugs came from this; "
      "see adapters/lint/shadowing.py for why the count is not simply falling."),
+    ("updates naming a work we do not hold", budget_updates_naming_an_unheld_work,
+     "release rows whose work has no record, so the row links to the platform and nowhere else and "
+     "the work cannot be browsed, searched or classified. Coverage stated as a deficit, because "
+     "there is no floor to hold it up: it falls as the works are judged against DEFINITIONS §2 and "
+     "given records, and it reaches zero, since every row counted here names a work to decide "
+     "about. A rise means a discovery pass has started reporting updates for works no capture "
+     "covers. Rulings already made are in data/queue/unheld-works.yaml and reduce nothing."),
     ("rows with a moving address", budget_rows_with_a_moving_address,
      "rows anchored on a chapter address whose identifier holds no work-level address on the same "
      "host. A chapter address moves when the work publishes, so a rise means a work has arrived "

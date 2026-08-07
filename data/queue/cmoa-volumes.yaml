@@ -21,12 +21,28 @@
 #                              against the volume's ISBN. Sourced from NDLサーチ, so this is the
 #                              national bibliography.
 #   openbd-registration        openBD holds one and MADB does not
+#   publisher-own-page         the book's own publisher states 発売日 on its own site.
+#                              adapters/publisher_dates.py, and `first_publication_source` is the
+#                              page it was read off.
+#   books-or-jp-registration   出版書誌データベース holds 発行年月日 and no publisher page does.
+#                              adapters/booksorjp.py. Kept apart from the line above so a reader
+#                              can tell a first-hand statement from an aggregator's record and so
+#                              these rows can be replaced if a publisher page appears.
 #   shop-publication-month     the shop states 出版年月 and neither catalogue holds the ISBN
 #   isbn-stated-not-catalogued an ISBN is stated and no catalogue asked has a record of it
 #   shop-delivery-date-only    the shop states only the day it began selling the file. No print
 #                              edition, so no ISBN will ever exist and no ISBN route can help.
 #   no-date-stated             the page carries no date of any kind
 #   no-volumes-found           the page listed nothing this pass could read
+#
+# TWO FIELDS THAT APPEAR ONLY WHERE THEY SAY SOMETHING.
+#   printed_source   the page a per-book route read the date off. A bulk catalogue has none, and
+#                    its absence is an answer rather than an omission.
+#   publisher_isbn   the ISBN the publisher's own page states for this volume, where the shop's
+#                    differs. cmoa prints 9784758062862 for える・えるシスター 1巻 and that ISBN is
+#                    白砂村 (7) at 一迅社. The shop's number is left as the shop states it, because
+#                    this file is a capture of what cmoa says and rewriting it would lose the
+#                    disagreement, which is the part worth keeping.
 #
 # A DATE HERE IS VOLUME 1'S AND NOT ALWAYS THE WORK'S. A serialised work was published in a
 # magazine before its tankōbon, and this shop never names the magazine. So the date bounds the
@@ -45,13 +61,14 @@ retrieved: 2026-08-05
 admitted_rows: 1844
 works_captured: 1833
 counts:
-  with_first_publication_date: 575
+  with_first_publication_date: 624
   volumes_read: 7262
-  volumes_with_print_date: 575
+  volumes_with_print_date: 624
   volumes_with_isbn: 618
   marked_completed: 1024
   by_basis_madb_tankobon: 536
-  by_basis_isbn_stated_not_catalogued: 49
+  by_basis_publisher_own_page: 47
+  by_basis_books_or_jp_registration: 2
   by_basis_shop_delivery_date_only: 1209
   by_basis_openbd_registration: 28
   by_basis_shop_publication_month: 11
@@ -96,17 +113,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2006-09-16"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807004"
     volumes:
       - volume: 1
         title: "少女美学 1巻"
         url: "https://www.cmoa.jp/title/1133/"
         isbn: "9784758070041"
+        printed: "2006-09-16"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807004"
         delivered: "2012-08-28"
   - shop_id: "1134"
     url: "https://www.cmoa.jp/title/1134/"
@@ -117,17 +138,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2006-05-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807006"
     volumes:
       - volume: 1
         title: "voiceful 1巻"
         url: "https://www.cmoa.jp/title/1134/"
         isbn: "9784758070065"
+        printed: "2006-05-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807006"
         delivered: "2012-08-28"
   - shop_id: "1135"
     url: "https://www.cmoa.jp/title/1135/"
@@ -230,17 +255,21 @@ works:
     completed: false
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "1995-09"
+    first_publication_basis: "books-or-jp-registration"
+    first_publication_country: "JP"
+    first_publication_venue: "ぶんか社"
+    first_publication_source: "https://www.books.or.jp/book-details/9784391905533"
     volumes:
       - volume: 1
         title: "シークレットガーデン"
         url: "https://www.cmoa.jp/title/11967/"
         isbn: "9784391905533"
+        printed: "1995-09"
+        printed_basis: "books-or-jp-registration"
+        printed_source: "https://www.books.or.jp/book-details/9784391905533"
         delivered: "2012-12-07"
   - shop_id: "12381"
     url: "https://www.cmoa.jp/title/12381/"
@@ -277,17 +306,21 @@ works:
     completed: true
     volumes_stated: 3
     volumes_found: 3
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2008-10-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807033"
     volumes:
       - volume: 1
         title: "極上ドロップス 1巻"
         url: "https://www.cmoa.jp/title/12382/"
         isbn: "9784758070331"
+        printed: "2008-10-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807033"
         delivered: "2012-10-05"
       - volume: 2
         title: "極上ドロップス 2巻"
@@ -431,17 +464,21 @@ works:
     completed: false
     volumes_stated: 2
     volumes_found: 2
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2008-07-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807031"
     volumes:
       - volume: 1
         title: "紅蓮紀 1巻"
         url: "https://www.cmoa.jp/title/20964/"
         isbn: "9784758070317"
+        printed: "2008-07-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807031"
         delivered: "2012-10-05"
       - volume: 2
         title: "紅蓮紀 2巻"
@@ -501,17 +538,21 @@ works:
     completed: true
     volumes_stated: 3
     volumes_found: 3
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2009-06-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807043"
     volumes:
       - volume: 1
         title: "PUREまりおねーしょん 1巻"
         url: "https://www.cmoa.jp/title/21427/"
         isbn: "9784758070430"
+        printed: "2009-06-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807043"
         delivered: "2017-12-07"
       - volume: 2
         title: "PUREまりおねーしょん 2巻"
@@ -551,17 +592,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2009-11-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807066"
     volumes:
       - volume: 1
         title: "ハニー★カルテット 1巻"
         url: "https://www.cmoa.jp/title/27259/"
         isbn: "9784758070669"
+        printed: "2009-11-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807066"
         delivered: "2017-12-29"
   - shop_id: "27260"
     url: "https://www.cmoa.jp/title/27260/"
@@ -572,17 +617,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2009-11-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807064"
     volumes:
       - volume: 1
         title: "湯けむりサンクチュアリ 1巻"
         url: "https://www.cmoa.jp/title/27260/"
         isbn: "9784758070645"
+        printed: "2009-11-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807064"
         delivered: "2014-10-17"
   - shop_id: "27262"
     url: "https://www.cmoa.jp/title/27262/"
@@ -593,17 +642,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2009-11-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807067"
     volumes:
       - volume: 1
         title: "空色ガールフレンド 1巻"
         url: "https://www.cmoa.jp/title/27262/"
         isbn: "9784758070676"
+        printed: "2009-11-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807067"
         delivered: "2012-08-28"
   - shop_id: "28411"
     url: "https://www.cmoa.jp/title/28411/"
@@ -749,17 +802,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2009-06-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807053"
     volumes:
       - volume: 1
         title: "BUTTERFLY 69 1巻"
         url: "https://www.cmoa.jp/title/33569/"
         isbn: "9784758070539"
+        printed: "2009-06-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807053"
         delivered: "2012-08-28"
   - shop_id: "33571"
     url: "https://www.cmoa.jp/title/33571/"
@@ -770,17 +827,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2010-07-17"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807076"
     volumes:
       - volume: 1
         title: "Raubritter＊ 1巻"
         url: "https://www.cmoa.jp/title/33571/"
         isbn: "9784758070768"
+        printed: "2010-07-17"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807076"
         delivered: "2012-08-28"
   - shop_id: "33572"
     url: "https://www.cmoa.jp/title/33572/"
@@ -791,17 +852,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2009-06-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807054"
     volumes:
       - volume: 1
         title: "熱帯少女 1巻"
         url: "https://www.cmoa.jp/title/33572/"
         isbn: "9784758070546"
+        printed: "2009-06-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807054"
         delivered: "2014-02-14"
   - shop_id: "34154"
     url: "https://www.cmoa.jp/title/34154/"
@@ -875,17 +940,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2010-07-17"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807092"
     volumes:
       - volume: 1
         title: "sweet guilty love bites 1巻"
         url: "https://www.cmoa.jp/title/37713/"
         isbn: "9784758070928"
+        printed: "2010-07-17"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807092"
         delivered: "2012-08-28"
   - shop_id: "39483"
     url: "https://www.cmoa.jp/title/39483/"
@@ -1167,17 +1236,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2011-04-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807139"
     volumes:
       - volume: 1
         title: "Sweet Little Devil(南崎いく) 1巻"
         url: "https://www.cmoa.jp/title/44281/"
         isbn: "9784758071390"
+        printed: "2011-04-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807139"
         delivered: "2014-02-14"
   - shop_id: "44282"
     url: "https://www.cmoa.jp/title/44282/"
@@ -1335,17 +1408,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2011-10-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807171"
     volumes:
       - volume: 1
         title: "放課後カノン 1巻"
         url: "https://www.cmoa.jp/title/47408/"
         isbn: "9784758071710"
+        printed: "2011-10-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807171"
         delivered: "2012-08-28"
   - shop_id: "47966"
     url: "https://www.cmoa.jp/title/47966/"
@@ -1402,17 +1479,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2011-01-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807132"
     volumes:
       - volume: 1
         title: "妄想HONEY 1巻"
         url: "https://www.cmoa.jp/title/48672/"
         isbn: "9784758071321"
+        printed: "2011-01-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807132"
         delivered: "2012-08-28"
   - shop_id: "48673"
     url: "https://www.cmoa.jp/title/48673/"
@@ -2391,17 +2472,22 @@ works:
     completed: true
     volumes_stated: 5
     volumes_found: 5
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2008-11-08"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75806119"
     volumes:
       - volume: 1
         title: "える・えるシスター 1巻"
         url: "https://www.cmoa.jp/title/72289/"
         isbn: "9784758062862"
+        publisher_isbn: "9784758061193"
+        printed: "2008-11-08"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75806119"
         delivered: "2014-02-14"
       - volume: 2
         title: "える・えるシスター 2巻"
@@ -2424,17 +2510,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2012-11-17"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807218"
     volumes:
       - volume: 1
         title: "不自由セカイ 1巻"
         url: "https://www.cmoa.jp/title/72291/"
         isbn: "9784758072182"
+        printed: "2012-11-17"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807218"
         delivered: "2014-02-14"
   - shop_id: "72292"
     url: "https://www.cmoa.jp/title/72292/"
@@ -2624,17 +2714,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2012-10-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807216"
     volumes:
       - volume: 1
         title: "わがままミルフィーユ 1巻"
         url: "https://www.cmoa.jp/title/72299/"
         isbn: "9784758072168"
+        printed: "2012-10-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807216"
         delivered: "2014-02-14"
   - shop_id: "72379"
     url: "https://www.cmoa.jp/title/72379/"
@@ -2691,17 +2785,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2009-05-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807050"
     volumes:
       - volume: 1
         title: "愛しをとめ～君がこころは～ 1巻"
         url: "https://www.cmoa.jp/title/72381/"
         isbn: "9784758070508"
+        printed: "2009-05-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807050"
         delivered: "2014-02-14"
   - shop_id: "72382"
     url: "https://www.cmoa.jp/title/72382/"
@@ -2712,17 +2810,21 @@ works:
     completed: true
     volumes_stated: 6
     volumes_found: 6
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2013-01-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807224"
     volumes:
       - volume: 1
         title: "犬神さんと猫山さん 1巻"
         url: "https://www.cmoa.jp/title/72382/"
         isbn: "9784758072243"
+        printed: "2013-01-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807224"
         delivered: "2014-02-14"
       - volume: 2
         title: "犬神さんと猫山さん 2巻"
@@ -2890,17 +2992,21 @@ works:
     completed: true
     volumes_stated: 2
     volumes_found: 2
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2010-07-17"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807097"
     volumes:
       - volume: 1
         title: "死神アリス 1巻"
         url: "https://www.cmoa.jp/title/72389/"
         isbn: "9784758070973"
+        printed: "2010-07-17"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807097"
         delivered: "2014-02-14"
       - volume: 2
         title: "死神アリス 2巻"
@@ -2914,17 +3020,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2010-05-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807085"
     volumes:
       - volume: 1
         title: "少女ホリック 1巻"
         url: "https://www.cmoa.jp/title/72390/"
         isbn: "9784758070850"
+        printed: "2010-05-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807085"
         delivered: "2014-02-14"
   - shop_id: "72391"
     url: "https://www.cmoa.jp/title/72391/"
@@ -3418,17 +3528,21 @@ works:
     completed: true
     volumes_stated: 2
     volumes_found: 2
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2012-09-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807213"
     volumes:
       - volume: 1
         title: "ロケット☆ガール -Rock it， GiRL!!- 1巻"
         url: "https://www.cmoa.jp/title/76141/"
         isbn: "9784758072137"
+        printed: "2012-09-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807213"
         delivered: "2014-05-09"
       - volume: 2
         title: "ロケット☆ガール -Rock it， GiRL!!- 2巻"
@@ -3572,17 +3686,21 @@ works:
     completed: true
     volumes_stated: 2
     volumes_found: 2
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2011-06-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807142"
     volumes:
       - volume: 1
         title: "恋愛遺伝子XX 1巻"
         url: "https://www.cmoa.jp/title/77399/"
         isbn: "9784758071420"
+        printed: "2011-06-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807142"
         delivered: "2014-05-30"
       - volume: 2
         title: "恋愛遺伝子XX 2巻"
@@ -3619,17 +3737,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2012-06-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807197"
     volumes:
       - volume: 1
         title: "かのじょなメイド 1巻"
         url: "https://www.cmoa.jp/title/77401/"
         isbn: "9784758071970"
+        printed: "2012-06-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807197"
         delivered: "2014-05-30"
   - shop_id: "79549"
     url: "https://www.cmoa.jp/title/79549/"
@@ -4111,17 +4233,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2008-04-28"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "双葉社"
+    first_publication_source: "https://book-api.futabasha.co.jp/book_details?jdcn_code=97845758347720000000&media=1"
     volumes:
       - volume: 1
         title: "GIRL×GIRL×BOY 乙女の祈り 1巻"
         url: "https://www.cmoa.jp/title/85797/"
         isbn: "9784575834772"
+        printed: "2008-04-28"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://book-api.futabasha.co.jp/book_details?jdcn_code=97845758347720000000&media=1"
         delivered: "2014-10-31"
   - shop_id: "85820"
     url: "https://www.cmoa.jp/title/85820/"
@@ -4201,17 +4327,21 @@ works:
     completed: true
     volumes_stated: 2
     volumes_found: 2
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2010-09-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807111"
     volumes:
       - volume: 1
         title: "レンアイ・女子課 1巻"
         url: "https://www.cmoa.jp/title/86045/"
         isbn: "9784758071116"
+        printed: "2010-09-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807111"
         delivered: "2014-11-14"
       - volume: 2
         title: "レンアイ・女子課 2巻"
@@ -4464,17 +4594,21 @@ works:
     completed: true
     volumes_stated: 3
     volumes_found: 3
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2014-11-21"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "幻冬舎コミックス"
+    first_publication_source: "https://www.gentosha-comics.net/book/b519294.html"
     volumes:
       - volume: 1
         title: "ユリ熊嵐 1巻"
         url: "https://www.cmoa.jp/title/87707/"
         isbn: "9784344832565"
+        printed: "2014-11-21"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://www.gentosha-comics.net/book/b519294.html"
         delivered: "2014-11-21"
       - volume: 2
         title: "ユリ熊嵐 2巻"
@@ -5021,17 +5155,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2015-05-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807412"
     volumes:
       - volume: 1
         title: "ラブデス。 ～短期集中連載集～ 1巻"
         url: "https://www.cmoa.jp/title/96906/"
         isbn: "9784758074124"
+        printed: "2015-05-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807412"
         delivered: "2015-05-18"
   - shop_id: "96907"
     url: "https://www.cmoa.jp/title/96907/"
@@ -5132,17 +5270,21 @@ works:
     completed: true
     volumes_stated: 2
     volumes_found: 2
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2015-06-30"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807414"
     volumes:
       - volume: 1
         title: "新装版 いおの様ファナティクス 1巻"
         url: "https://www.cmoa.jp/title/99236/"
         isbn: "9784758074148"
+        printed: "2015-06-30"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807414"
         delivered: "2015-06-30"
       - volume: 2
         title: "新装版 いおの様ファナティクス 2巻"
@@ -5455,17 +5597,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2015-07-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807413"
     volumes:
       - volume: 1
         title: "龍崎さんと虎生さん ～百合姫短編集～ 1巻"
         url: "https://www.cmoa.jp/title/100134/"
         isbn: "9784758074131"
+        printed: "2015-07-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807413"
         delivered: "2015-07-18"
   - shop_id: "100135"
     url: "https://www.cmoa.jp/title/100135/"
@@ -5588,17 +5734,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2015-08-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807451"
     volumes:
       - volume: 1
         title: "きらぼしのはこ 1巻"
         url: "https://www.cmoa.jp/title/101561/"
         isbn: "9784758074513"
+        printed: "2015-08-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807451"
         delivered: "2015-08-18"
   - shop_id: "101562"
     url: "https://www.cmoa.jp/title/101562/"
@@ -5970,17 +6120,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2015-12-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807505"
     volumes:
       - volume: 1
         title: "ななゆり 1巻"
         url: "https://www.cmoa.jp/title/107453/"
         isbn: "9784758075053"
+        printed: "2015-12-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807505"
         delivered: "2015-12-18"
   - shop_id: "107454"
     url: "https://www.cmoa.jp/title/107454/"
@@ -6073,17 +6227,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2016-04-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807534"
     volumes:
       - volume: 1
         title: "ぷくゆり 1巻"
         url: "https://www.cmoa.jp/title/112374/"
         isbn: "9784758075343"
+        printed: "2016-04-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807534"
         delivered: "2016-04-18"
   - shop_id: "112375"
     url: "https://www.cmoa.jp/title/112375/"
@@ -6132,17 +6290,21 @@ works:
     completed: true
     volumes_stated: 2
     volumes_found: 2
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2016-04-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75807536"
     volumes:
       - volume: 1
         title: "桃色トランス 1巻"
         url: "https://www.cmoa.jp/title/112408/"
         isbn: "9784758075367"
+        printed: "2016-04-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75807536"
         delivered: "2016-04-18"
       - volume: 2
         title: "桃色トランス 2巻"
@@ -13347,17 +13509,21 @@ works:
     completed: true
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2011-04"
+    first_publication_basis: "books-or-jp-registration"
+    first_publication_country: "JP"
+    first_publication_venue: "芳文社"
+    first_publication_source: "https://www.books.or.jp/book-details/9784832240179"
     volumes:
       - volume: 1
         title: "エンドレスルーム"
         url: "https://www.cmoa.jp/title/184363/"
         isbn: "9784832240179"
+        printed: "2011-04"
+        printed_basis: "books-or-jp-registration"
+        printed_source: "https://www.books.or.jp/book-details/9784832240179"
         delivered: "2019-09-27"
   - shop_id: "184581"
     url: "https://www.cmoa.jp/title/184581/"
@@ -40638,17 +40804,21 @@ works:
     completed: true
     volumes_stated: 3
     volumes_found: 3
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2024-11-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75802797"
     volumes:
       - volume: 1
         title: "カナリアは綺羅星の夢をみる: 1【イラスト特典付】"
         url: "https://www.cmoa.jp/title/306283/"
         isbn: "9784758027977"
+        printed: "2024-11-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75802797"
         delivered: "2024-11-18"
       - volume: 2
         title: "カナリアは綺羅星の夢をみる: 2【イラスト特典付】"
@@ -40665,17 +40835,21 @@ works:
     completed: false
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2024-11-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75802796"
     volumes:
       - volume: 1
         title: "おままごとのおわり。 さかさな短編集【イラスト特典付】"
         url: "https://www.cmoa.jp/title/306284/"
         isbn: "9784758027960"
+        printed: "2024-11-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75802796"
         delivered: "2024-11-18"
   - shop_id: "306631"
     url: "https://www.cmoa.jp/title/306631/"
@@ -54125,17 +54299,21 @@ works:
     completed: false
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2026-06-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75809935"
     volumes:
       - volume: 1
         title: "骨に願いを、星に呪いを: 1【イラスト特典付】"
         url: "https://www.cmoa.jp/title/363409/"
         isbn: "9784758099356"
+        printed: "2026-06-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75809935"
         delivered: "2026-06-18"
   - shop_id: "363410"
     url: "https://www.cmoa.jp/title/363410/"
@@ -54146,17 +54324,21 @@ works:
     completed: false
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2026-06-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75809936"
     volumes:
       - volume: 1
         title: "偏愛至上主義 岩見樹代子作品集【イラスト特典付】"
         url: "https://www.cmoa.jp/title/363410/"
         isbn: "9784758099363"
+        printed: "2026-06-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75809936"
         delivered: "2026-06-18"
   - shop_id: "363411"
     url: "https://www.cmoa.jp/title/363411/"
@@ -54167,17 +54349,21 @@ works:
     completed: false
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2026-06-18"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75809937"
     volumes:
       - volume: 1
         title: "溺愛理想主義 岩見樹代子作品集【イラスト特典付】"
         url: "https://www.cmoa.jp/title/363411/"
         isbn: "9784758099370"
+        printed: "2026-06-18"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75809937"
         delivered: "2026-06-18"
   - shop_id: "363690"
     url: "https://www.cmoa.jp/title/363690/"
@@ -54188,17 +54374,21 @@ works:
     completed: false
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2026-07-16"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/82510015"
     volumes:
       - volume: 1
         title: "晴れた日のドレスコード: 1【イラスト特典付】"
         url: "https://www.cmoa.jp/title/363690/"
         isbn: "9784825100152"
+        printed: "2026-07-16"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/82510015"
         delivered: "2026-07-16"
   - shop_id: "363692"
     url: "https://www.cmoa.jp/title/363692/"
@@ -54209,17 +54399,21 @@ works:
     completed: false
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2026-07-16"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/82510014"
     volumes:
       - volume: 1
         title: "誰かオオカミさんのしつけ方知りませんか!?: 1【イラスト特典付】"
         url: "https://www.cmoa.jp/title/363692/"
         isbn: "9784825100145"
+        printed: "2026-07-16"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/82510014"
         delivered: "2026-07-16"
   - shop_id: "363695"
     url: "https://www.cmoa.jp/title/363695/"
@@ -54230,17 +54424,21 @@ works:
     completed: false
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2026-07-16"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/82510011"
     volumes:
       - volume: 1
         title: "きみが死ぬまで恋をしたい 公式コミックアンソロジー"
         url: "https://www.cmoa.jp/title/363695/"
         isbn: "9784825100114"
+        printed: "2026-07-16"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/82510011"
         delivered: "2026-07-16"
   - shop_id: "363909"
     url: "https://www.cmoa.jp/title/363909/"
@@ -54291,17 +54489,21 @@ works:
     completed: false
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2026-06-29"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/75809967"
     volumes:
       - volume: 1
         title: "魔性のメロ女に堕とされる百合アンソロジー"
         url: "https://www.cmoa.jp/title/364595/"
         isbn: "9784758099677"
+        printed: "2026-06-29"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/75809967"
         delivered: "2026-06-29"
   - shop_id: "365086"
     url: "https://www.cmoa.jp/title/365086/"
@@ -54576,17 +54778,21 @@ works:
     completed: false
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2026-07-28"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/82510037"
     volumes:
       - volume: 1
         title: "ガールズ・エラー コダマナオコ短編集【イラスト特典付】"
         url: "https://www.cmoa.jp/title/369259/"
         isbn: "9784825100374"
+        printed: "2026-07-28"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/82510037"
         delivered: "2026-07-28"
   - shop_id: "369260"
     url: "https://www.cmoa.jp/title/369260/"
@@ -54597,17 +54803,21 @@ works:
     completed: false
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2026-07-28"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/82510038"
     volumes:
       - volume: 1
         title: "セフレ沼から抜け出せないっ！百合えっちアンソロジー"
         url: "https://www.cmoa.jp/title/369260/"
         isbn: "9784825100381"
+        printed: "2026-07-28"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/82510038"
         delivered: "2026-07-28"
   - shop_id: "369261"
     url: "https://www.cmoa.jp/title/369261/"
@@ -54618,17 +54828,21 @@ works:
     completed: false
     volumes_stated: 1
     volumes_found: 1
-    dates_stated: 0
+    dates_stated: 1
     isbns_stated: 1
-    first_publication_date: null
-    first_publication_basis: "isbn-stated-not-catalogued"
-    first_publication_country: null
-    first_publication_venue: null
+    first_publication_date: "2026-07-28"
+    first_publication_basis: "publisher-own-page"
+    first_publication_country: "JP"
+    first_publication_venue: "一迅社"
+    first_publication_source: "https://data.ichijinsha.co.jp/detail/82510039"
     volumes:
       - volume: 1
         title: "今日、お姉さんとエッチしない？ 百合アンソロジー"
         url: "https://www.cmoa.jp/title/369261/"
         isbn: "9784825100398"
+        printed: "2026-07-28"
+        printed_basis: "publisher-own-page"
+        printed_source: "https://data.ichijinsha.co.jp/detail/82510039"
         delivered: "2026-07-28"
   - shop_id: "369262"
     url: "https://www.cmoa.jp/title/369262/"

@@ -143,6 +143,12 @@ def main(s):
         s.eq(back["works"]["167439"]["volumes"][0]["delivered"], "2019-01-11",
              "and each volume's fields, which is what a thinned file would have lost")
 
+        # THE SHELF SIZE SURVIVES THE ROUND TRIP, AND FOR ONE RUN IT DID NOT. `asked` is written
+        # out as `admitted_rows` and was never read back, so the first pass that loaded the file
+        # and rewrote it reset 1,844 to 0 and the queue reported itself empty. One fact under two
+        # names, which is this project's most repeated bug (STANDING-INSTRUCTIONS §3).
+        s.eq(back["asked"], 2, "the number of rows the shelf asked about comes back")
+
         after, _ = cv.fold(back, [cv.record(parsed(cmoa_title_id="1132"), None)[0]])
         s.eq(sorted(after["works"]), ["103366", "1132", "167439"],
              "a third run adds one work and carries the two it never touched")
@@ -184,6 +190,42 @@ def main(s):
          "so the better answer survives whichever order the passes ran in")
     s.eq(doc["works"]["167439"]["first_publication_basis"], "madb-tankobon",
          "and the basis says which catalogue is in the field")
+
+    # ── A PER-BOOK ROUTE CITES THE PAGE, AND THE CITATION IS WRITTEN OUT ─────────────────────
+    # `adapters/publisher_dates.py` reads one page per book, so unlike a bulk catalogue it has a
+    # URL to name. `check.py`'s `per-book dates cite their page` is the consumer, and it can only
+    # see a citation that survives being written to the file.
+    cited = {"works": {"167439": cv.record(parsed(published=None), None)[0]}}
+    s.eq(cited["works"]["167439"]["first_publication_basis"], "isbn-stated-not-catalogued",
+         "a row no catalogue holds the ISBN of is what the publisher route is for")
+    cited, filled, _ = cv.apply_dates(cited, {"9784091287557": "2019-01-16"},
+                                      "publisher-own-page",
+                                      {"9784091287557": "https://example.invalid/detail/1"})
+    s.eq(filled, 1, "the publisher's own page answers where neither catalogue did")
+    s.eq(cited["works"]["167439"]["volumes"][0]["printed_source"],
+         "https://example.invalid/detail/1", "the page the date came off is stored on the volume")
+    s.eq(cited["works"]["167439"]["first_publication_source"],
+         "https://example.invalid/detail/1", "and volume 1's citation is the work's")
+    with tempfile.TemporaryDirectory() as d:
+        p = pathlib.Path(d) / "cited.yaml"
+        p.write_text(cv.yaml_document(cited))
+        v = cv.load(p)["works"]["167439"]["volumes"][0]
+        s.eq(v["printed_source"], "https://example.invalid/detail/1",
+             "and it is written out, because a citation the file drops cannot be checked")
+        bare = cv.yaml_document({"works": {
+            "1": {"shop_id": "1", "first_publication_date": None, "volumes": []}}})
+        s.check(not any(ln.strip().startswith("first_publication_source:")
+                        for ln in bare.splitlines()),
+                "a row with no per-book page carries no empty citation field")
+
+    # A bulk catalogue passes no URL, and it outranks the publisher's 発売日 because the two state
+    # different conventions. So the page has to go with the date it belonged to; a citation left
+    # standing beside somebody else's answer is worse than none.
+    cited, _, _ = cv.apply_dates(cited, {"9784091287557": "2019-01"}, "madb-tankobon")
+    s.eq(cited["works"]["167439"]["volumes"][0]["printed"], "2019-01",
+         "the bibliography replaces the publisher's date")
+    s.eq(cited["works"]["167439"]["volumes"][0]["printed_source"], None,
+         "and carries no page, so the publisher's is cleared with it")
 
     s.eq(sorted(cv.isbns_held(doc)), ["9784091287557"], "the ISBNs to ask about are gathered once")
     s.eq(cv.isbns_held({"works": {}}), {}, "an empty capture asks about nothing")

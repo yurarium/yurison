@@ -232,6 +232,11 @@ def settle(w):
     w["isbns_stated"] = sum(1 for v in vols if v.get("isbn"))
     w["first_publication_date"] = date
     w["first_publication_basis"] = basis
+    # The page the date was read off, where the route that supplied it reads one page per book. A
+    # bulk catalogue has no such page and leaves this null. The null is an answer: the basis names
+    # the dataset and the dataset version is recorded with the record.
+    first = next((v for v in vols if v.get("volume") == 1), None)
+    w["first_publication_source"] = (first or {}).get("printed_source") if date else None
     # A cmoa publisher is a Japanese company selling a Japanese print edition, so a date from this
     # route carries JP. The venue is the publisher and NOT the magazine: this shop never names a
     # magazine, and a tankōbon publisher is not the venue of a serialised work's first chapter.
@@ -309,12 +314,28 @@ HEADER = """\
 #                              against the volume's ISBN. Sourced from NDLサーチ, so this is the
 #                              national bibliography.
 #   openbd-registration        openBD holds one and MADB does not
+#   publisher-own-page         the book's own publisher states 発売日 on its own site.
+#                              adapters/publisher_dates.py, and `first_publication_source` is the
+#                              page it was read off.
+#   books-or-jp-registration   出版書誌データベース holds 発行年月日 and no publisher page does.
+#                              adapters/booksorjp.py. Kept apart from the line above so a reader
+#                              can tell a first-hand statement from an aggregator's record and so
+#                              these rows can be replaced if a publisher page appears.
 #   shop-publication-month     the shop states 出版年月 and neither catalogue holds the ISBN
 #   isbn-stated-not-catalogued an ISBN is stated and no catalogue asked has a record of it
 #   shop-delivery-date-only    the shop states only the day it began selling the file. No print
 #                              edition, so no ISBN will ever exist and no ISBN route can help.
 #   no-date-stated             the page carries no date of any kind
 #   no-volumes-found           the page listed nothing this pass could read
+#
+# TWO FIELDS THAT APPEAR ONLY WHERE THEY SAY SOMETHING.
+#   printed_source   the page a per-book route read the date off. A bulk catalogue has none, and
+#                    its absence is an answer rather than an omission.
+#   publisher_isbn   the ISBN the publisher's own page states for this volume, where the shop's
+#                    differs. cmoa prints 9784758062862 for える・えるシスター 1巻 and that ISBN is
+#                    白砂村 (7) at 一迅社. The shop's number is left as the shop states it, because
+#                    this file is a capture of what cmoa says and rewriting it would lose the
+#                    disagreement, which is the part worth keeping.
 #
 # A DATE HERE IS VOLUME 1'S AND NOT ALWAYS THE WORK'S. A serialised work was published in a
 # magazine before its tankōbon, and this shop never names the magazine. So the date bounds the
@@ -366,10 +387,15 @@ def yaml_document(doc):
                   "first_publication_date", "first_publication_basis",
                   "first_publication_country", "first_publication_venue"):
             L.append(f"    {k}: {js(w.get(k), ensure_ascii=False)}")
+        # Written only where there is one, so the 1,800 rows dated from a bulk catalogue do not
+        # each carry a null saying the catalogue has no per-book page.
+        if w.get("first_publication_source"):
+            L.append(f"    first_publication_source: {js(w['first_publication_source'])}")
         L.append("    volumes:")
         for v in w.get("volumes") or []:
             L.append(f"      - volume: {v['volume']}")
-            for k in ("title", "url", "isbn", "printed", "printed_basis", "delivered"):
+            for k in ("title", "url", "isbn", "publisher_isbn", "printed", "printed_basis",
+                      "printed_source", "delivered"):
                 if v.get(k) is not None:
                     L.append(f"        {k}: {js(v[k], ensure_ascii=False)}")
     L.append("")
@@ -388,6 +414,10 @@ def load(path):
     """
     doc = yaml.safe_load(pathlib.Path(path).read_text()) if pathlib.Path(path).exists() else None
     doc = doc or {}
+    # `asked` is written out as `admitted_rows` and was not read back, so any pass that loaded the
+    # file and rewrote it reset the shelf size to 0. It is one fact under two names and the names
+    # are joined here, in the one place that turns the file back into a document.
+    doc["asked"] = doc.get("asked") or doc.get("admitted_rows") or 0
     works = doc.get("works") or []
     if isinstance(works, dict):                       # a mapping is accepted, a list is written
         works = [dict(w, shop_id=str(k)) for k, w in works.items()]
@@ -524,15 +554,30 @@ def isbns_held(doc):
 #
 # The fourteenth is 169776, thirteen months apart, and it is a lead rather than noise. A gap that
 # size is a different edition or a mismatched ISBN, and the count is how anyone would ever see it.
-PREFERENCE = ["madb-tankobon", "openbd-registration", "shop-publication-month"]
+#
+# THE TWO ROUTES ADDED ON 2026-08-07 SIT BELOW BOTH CATALOGUES AND ABOVE THE SHOP, and the reason
+# is what each of them is a record OF. `adapters/publisher_dates.py` reads the publisher's own book
+# page, which is first-hand and outranks the shop's transcription; `books-or-jp-registration` is
+# the aggregator behind it and is taken only where the publisher no longer has a page. Neither can
+# displace a catalogue date, because both state 発売日 while MADB and openBD state the 奥付 date,
+# and the paragraph above is why one field must not carry two conventions. The ordering is moot for
+# the 49 rows that prompted it, where no catalogue holds the ISBN at all, and it is written down so
+# it stays right when one of them does.
+PREFERENCE = ["madb-tankobon", "openbd-registration", "publisher-own-page",
+              "books-or-jp-registration", "shop-publication-month"]
 
 
-def apply_dates(doc, dates, basis):
+def apply_dates(doc, dates, basis, sources=None):
     """Fill `printed` from a `{isbn: date}` answer, and recompute what it settles.
 
     A BETTER SOURCE REPLACES A WORSE ONE AND NEVER THE OTHER WAY. Both catalogue passes may run,
     in either order, and a run of the weaker one afterwards must not undo the stronger. Silence
     changes nothing at all: a catalogue that does not hold an ISBN has not corrected anything.
+
+    `sources` is an optional `{isbn: url}` naming the page a date was read off. A bulk catalogue
+    has no per-book page to cite and passes none; a route that reads one page per book passes one,
+    and it is stored beside the date so a reader can check the claim and so a date taken from a
+    weaker route can be found again if a better page appears.
 
     Returns `(doc, filled, disagreements)`. A disagreement is counted rather than resolved, because
     two catalogues differing by a month is the ordinary gap between a 奥付 date and an on-sale
@@ -555,6 +600,7 @@ def apply_dates(doc, dates, basis):
                 if held_basis in PREFERENCE and PREFERENCE.index(held_basis) < rank:
                     continue
                 v["printed"], v["printed_basis"] = date, basis
+                v["printed_source"] = (sources or {}).get(isbn)
                 filled += 1
     for w in doc["works"].values():
         settle(w)

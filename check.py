@@ -464,6 +464,32 @@ def inv_undated_works_say_where_and_why(ctx):
     return bad
 
 
+def inv_per_book_dates_cite_their_page(ctx):
+    """A date read off one book's own page names that page.
+
+    THE BUG THIS KEEPS CATCHABLE. cmoa states ISBN 9784758062862 for える・えるシスター 1巻, and
+    that ISBN is 白砂村 (7) at 一迅社. The publisher's page for it parsed, stated the ISBN asked
+    about and stated a date, so every mechanical signal said the row was answered; only comparing
+    the page's title against the shop's caught it. The lasting protection is not the comparison,
+    which lives in the adapter, but that a reader can open the page a date came from and see for
+    themselves. A date from `publisher-own-page` or `books-or-jp-registration` with no page beside
+    it is a claim nobody can check.
+
+    The bulk catalogues are exempt because they have no per-book page. `madb-tankobon` and
+    `openbd-registration` name a dataset, and the dataset version is recorded with the record.
+
+    fallback: none. The URL is what the route fetched, so its absence means the writer dropped it
+    rather than a source withholding it.
+
+    It reads `ctx` rather than the file, so `--self-test` can plant a canary in it. A check that
+    opens its own file cannot be shown one, and then reports healthy without having been exercised.
+    """
+    cited = {"publisher-own-page", "books-or-jp-registration"}
+    return [f"{w.get('shop_id')}: {w.get('first_publication_basis')} and no page cited"
+            for w in ctx["cmoa_capture"]
+            if w.get("first_publication_basis") in cited and not w.get("first_publication_source")]
+
+
 INVARIANTS = [
     ("ruby spells the reading", inv_ruby_spells_reading),
     ("no ruby over bare Latin", inv_no_ruby_over_latin),
@@ -479,6 +505,7 @@ INVARIANTS = [
     ("no refutation of print serials", inv_no_refutation_of_print_serials),
     ("state agrees with its own date", inv_state_agrees_with_its_own_date),
     ("undated works say where and why", inv_undated_works_say_where_and_why),
+    ("per-book dates cite their page", inv_per_book_dates_cite_their_page),
 ]
 
 
@@ -848,7 +875,15 @@ def context():
         "names": {k: ((_yaml(NAMES / f"{k}.yaml", {}) or {}).get("names") or {})
                   for k in ("titles", "authors")},
         "names_shipped": _load(BUILD / "feed" / "names.json", {}),
+        "cmoa_capture": _capture_works("data/queue/cmoa-volumes.yaml"),
     }
+
+
+def _capture_works(rel):
+    """The work rows of a retailer capture, as a list, or an empty one where the file is absent."""
+    doc = _yaml(ROOT / rel, {}) or {}
+    works = doc.get("works") or []
+    return list(works.values()) if isinstance(works, dict) else works
 
 
 def self_test():
@@ -869,6 +904,9 @@ def self_test():
          lambda c: c["releases"].append({"work": "カナリア", "provenance": "attested"})),
         ("undated works say where and why", inv_undated_works_say_where_and_why,
          lambda c: c["works"].append({"work_id": "CANARY", "first_publication": {"date": None}})),
+        ("per-book dates cite their page", inv_per_book_dates_cite_their_page,
+         lambda c: c["cmoa_capture"].append({"shop_id": "CANARY",
+                                             "first_publication_basis": "publisher-own-page"})),
     ]
     ok = True
     for name, fn, plant in probes:

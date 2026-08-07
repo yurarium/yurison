@@ -722,3 +722,81 @@ LABEL and wrong about these WORKS, because a doujin distributor and a digital-fi
 resell books somebody else printed. 蝋燭姫 and 化け猫システム are 角川 and ワニブックス books that
 ナンバーナイン now sells under 百合コレ, パロスの剣 is a 1987 あすかコミックス volume, and
 お江戸とてシャン is 芳文社's. The imprint was never going to say so; the bibliography does.
+
+## 19. The 49 undated ISBNs, closed at the publisher (2026-08-07)
+
+§17 left 49 コミックシーモア works stating an ISBN that neither MADB nor openBD holds, and stopped
+at 出版書誌データベース because 利用規約 第4条 forbids 複製・転用 of what the site states. That was
+the right place to stop and the wrong place to look first.
+
+**Every one of these 49 is a book with a publisher, and a publisher stating the date of its own
+book is first-hand.** REQUIREMENTS §1 files publisher sites in Tier B against Tier A for the
+catalogues, and that ordering settles which source to believe when two of them speak. Here no Tier
+A catalogue speaks at all, so the question it settles does not arise. `adapters/publisher_dates.py`
+asks the publisher and answers **47 of the 49**.
+
+45 of them are 一迅社, which runs its own bibliographic site at `data.ichijinsha.co.jp` keyed on the
+eight ISBN digits between the 978-4 prefix and the check digit, serving no robots.txt at all. Of
+the rest, 幻冬舎コミックス answers an ISBN search and states 発売日 in its 書誌情報; 双葉社 renders
+its book pages client-side and its own script reads them from `book-api.futabasha.co.jp`, whose
+robots.txt is `Disallow:` with nothing after it, so the JSON record is asked for instead of the
+page.
+
+### The two the publisher route did not reach, and the owner's decision on the fallback
+
+芳文社's site returns nothing for エンドレスルーム or for its author under either name, and neither
+ぶんか社 nor 主婦と生活社 has a record of シークレットガーデン, a 1995 エメラルドコミックス volume
+whose ISBN prefix says 主婦と生活社 while the shop's row says ぶんか社. Both searches were shown to
+work on a title the same site does hold, because a search returning nothing looks exactly like a
+search that broke.
+
+**That row's stored venue is still the shop's ぶんか社**, because `first_publication_venue` is
+derived from the shop's publisher field and one producer of a fact is the rule. Books says
+主婦と生活社 and the ISBN prefix 4-391 agrees with Books. Scope is unaffected, since both are
+Japanese publishers and §6 turns on the country, and whoever promotes this row has to settle which
+name goes in the record.
+
+**The project owner decided on 2026-08-07 that Books.or.jp may be asked where the publisher route
+has genuinely failed**, and the reasoning is recorded here so nobody has to reconstruct it. A
+publication date is a fact and carries no copyright. Japan has no sui generis database right, and
+著作権法第12条の2 protects a database's selection and structure and not the facts inside it. Asking
+a database to resolve ISBNs already held takes none of its selection. What is left is a contractual
+term of uncertain force, and the decision is to rely on that reading for the remainder.
+
+So `adapters/booksorjp.py` exists now, and its output is marked. `first_publication_basis` reads
+`books-or-jp-registration` for those two rows against `publisher-own-page` for the other 47, and
+`first_publication_source` names the page each date was read off, so an aggregator-sourced row can
+be found and replaced the day a publisher page appears. `check.py`'s `per-book dates cite their
+page` is the invariant that keeps the citation from going missing.
+
+### 発行年月日 from the aggregator and 発売日 from the publisher, which is deliberate
+
+Books states both, and on these records 発行年月日 is a month while 発売日 renders that month as its
+first day: シークレットガーデン is 1995年09月 and 1995年09月01日. DEFINITIONS §6 names a
+first-of-the-month standing in for a month-precision record as one of the dates that has already
+produced a wrong answer in this project, so the field taken from Books is the one that invents no
+day. A publisher stating 発売日 2006-09-16 for its own book is stating a day it chose, which is why
+that route reads the other field. None of the 47 publisher dates falls on the first of a month.
+
+Both routes sit below MADB and openBD in `cmoa_volumes.PREFERENCE` and above the shop's 出版年月.
+発売日 is the on-sale convention and the catalogues carry the 奥付 date, the two run about a month
+apart by construction, and §17's own measurement is why one field must not hold two conventions.
+The ordering is moot for these 49, where no catalogue holds the ISBN, and it is written down so it
+stays right for the first row where one does.
+
+### One of the 49 ISBNs belongs to a different book
+
+cmoa states 9784758062862 for える・えるシスター 1巻. 一迅社's own page for that ISBN is 白砂村 (7)
+by 今井神, and the shop's own page names 邪武丸, whose える・えるシスター (1) is 9784758061193 at
+2008-11-08. The page for the wrong ISBN parsed, stated the ISBN asked about and stated a date, so
+every mechanical signal said the row was answered; only comparing the publisher's title against the
+shop's caught it. `publisher_dates.same_work` is that comparison and its counter-case is pinned in
+the test, because 一迅社 writes レンアイ♥女子課 where the shop shelves レンアイ・女子課 and a
+tighter rule would reject the pair.
+
+The shop's number is left in the capture exactly as the shop states it, with the publisher's beside
+it as `publisher_isbn`. The file is a record of what cmoa says, and rewriting the ISBN would lose
+the disagreement, which is the part worth keeping.
+
+**Closed.** 49 asked, 47 from a publisher's own page, 2 from Books.or.jp, none unreached, and the
+two sources never disagreed because no book was answered by both.

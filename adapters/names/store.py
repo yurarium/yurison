@@ -273,7 +273,8 @@ class NameStore:
 
     def _apply(self, kind, ja, fact):
         cur = self.records[kind].setdefault(ja, {})
-        if fact.pop("supersede", None):
+        superseding = fact.pop("supersede", None)
+        if superseding:
             self._supersede(cur, fact)
         self._merge_group(cur, fact, "en", "basis", EN_RANK, "en_conflicts")
         _reading_was = cur.get("reading")
@@ -297,6 +298,18 @@ class NameStore:
                 cur[k] = sorted(set(cur.get(k, [])) | set(fact[k]))
         if fact.get("candidate"):
             self._add_candidate(cur, fact)
+        # A CITATION IS NOT A COMPETING CLAIM, so recording one must not depend on the claim
+        # changing. `_merge_group` stamps only where it accepts a new value, which is right for a
+        # source arguing about a reading and wrong for a reviewer writing down the page an
+        # already-agreed reading came from: the 11 BOOK☆WALKER addresses landed on records that
+        # already said フレナイ, the merge read it as agreement, and nothing was stamped. The
+        # curated file is the decision of record, which is what `supersede` says, so its provenance
+        # lands on whatever it and the record now agree about.
+        if superseding:
+            for value_key, agrees in (("en", lambda a, b: a == b), ("reading", same_reading)):
+                held, given = cur.get(value_key), fact.get(value_key)
+                if held is not None and given is not None and agrees(held, given):
+                    self._stamp(cur, fact, value_key)
         self._verify(cur)
         return cur
 
@@ -322,6 +335,13 @@ class NameStore:
             self._push(cur, conflict_key, old, cur.get(basis_key), cur.get(f"{value_key}_source"))
             cur.pop(value_key, None)
             cur.pop(basis_key, None)
+            # AND THE CITATION OF THE CLAIM BEING REPLACED. Leaving it standing means the incoming
+            # claim inherits whatever page the old one was read from wherever the new one supplies
+            # none, so a reviewer replacing a sourced reading with their own reasoning would ship
+            # their judgement wearing somebody else's URL. Same fault as the refutation that kept
+            # its address, arriving by the other door.
+            for _shared, dst in self._stamped(value_key):
+                cur.pop(dst, None)
             # A conflict list that still holds the value now being adopted reads as a disagreement
             # with itself, and would be shown as one.
             cur[conflict_key] = [c for c in cur.get(conflict_key, []) if c.get("value") != new]
@@ -420,11 +440,74 @@ class NameStore:
         correction asks for provenance "per title, not just the string", and a record can hold two
         claims from two kinds of source, so the stamp has to travel with each claim.
         """
-        for src, dst in (("source", f"{value_key}_source"), ("source_url", f"{value_key}_url"),
-                         ("source_kind", f"{value_key}_source_kind"),
-                         ("at", f"{value_key}_at"), ("pass", f"{value_key}_pass")):
-            if fact.get(src) is not None:
-                cur[dst] = fact[src]
+        for src, dst in self._stamped(value_key):
+            # THE CLAIM'S OWN CITATION OUTRANKS THE ENTRY'S, and the key that carries it is the
+            # field it writes: a fact giving `reading_url` is citing the reading, while one giving
+            # `source_url` is citing whatever the entry is mainly about.
+            #
+            # One curated entry holds two claims and had one citation between them. A title whose
+            # English was translated here and whose reading was read off a shop page carried
+            # `source: yurarium, source_kind: derived` for the translation, and the reading was
+            # stamped with it. 11 titles said a source stated their reading while naming us as
+            # the source and holding no page at all. The reading_note beside them named
+            # BOOK☆WALKER, which is where they really came from, and nothing could act on prose.
+            val = fact.get(dst) if src is None else fact.get(dst, fact.get(src))
+            if val is not None:
+                cur[dst] = val
+
+    @staticmethod
+    def _stamped(value_key):
+        """(the entry-wide key, the field this claim writes) for every part of a citation.
+
+        Named once because the stamp writes them, `clear_claim` removes them, and `provenance.cite`
+        reads them back. A fourth copy of this list is how a refutation came
+        to leave a URL behind.
+        """
+        return (("source", f"{value_key}_source"), ("source_url", f"{value_key}_url"),
+                ("source_kind", f"{value_key}_source_kind"),
+                ("at", f"{value_key}_at"), ("pass", f"{value_key}_pass"),
+                # WHEN A PERSON LAST LOOKED, which `at` was standing in for and cannot mean. `at`
+                # is the day the fact was written, and a pass writes one on every run, so a
+                # machine's run date and a reviewer's decision were the same field wearing one
+                # name. A reading that says a human settled it has to be able to say when.
+                ("reviewed", f"{value_key}_reviewed"),
+                # NO ENTRY-WIDE FALLBACK, which is what the None says. A record-level `note`
+                # describes the entry and is stored as itself; only a note written about THIS
+                # claim belongs to it. 814 curated `reading_note` values carry the argument behind
+                # every hand-settled reading, and the thing `researched` is required to supply.
+                # Each was built into the fact and then matched by nothing, so they reached no store,
+                # no build and no reader.
+                (None, f"{value_key}_note"))
+
+    # The rest of what belongs to one claim: its value, how it is justified, and the working that
+    # was kept beside it. Everything here dies with the claim.
+    CLAIM_PARTS = {
+        "en": ("en", "basis", "en_conflicts", "en_corroborated"),
+        "reading": ("reading", "reading_basis", "reading_conflicts", "reading_corroborated",
+                    "reading_family", "reading_given", "reading_uncertain", "furigana_spans"),
+    }
+
+    def clear_claim(self, kind, ja, value_key):
+        """Remove a claim and everything hanging off it. Returns the fields actually dropped.
+
+        A REFUTATION THAT LEAVES THE CITATION BEHIND IS WORSE THAN NO REFUTATION. curate.py popped
+        a hand-written list of fields, and it was short: 11 refuted author readings kept
+        `reading_source: sudachi` and a date for a reading that no longer existed, and two kept a
+        `reading_url` pointing at the MangaUpdates page for a DIFFERENT PERSON, which is the exact
+        page the refutation was written to disown. 古川楊也 was published as HOSHINO Katsura and the record
+        went on citing the page that said so.
+
+        `reading_family` and `reading_given` were in the same state: 古川楊也 kept フルカワ / ヨヤ,
+        which are halves of the reading that was withdrawn.
+        """
+        rec = self.records[kind].get(ja)
+        if not rec:
+            return []
+        fields = list(self.CLAIM_PARTS.get(value_key, (value_key,)))
+        fields += [dst for _shared, dst in self._stamped(value_key)]
+        dropped = [f for f in fields if rec.pop(f, None) is not None]
+        self._verify(rec)
+        return dropped
 
     @staticmethod
     def _verify(cur):

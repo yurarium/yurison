@@ -1,0 +1,208 @@
+#!/usr/bin/env python3
+"""Whether a reading can show where it came from, and the address it shows.
+
+WHY THIS EXISTS. The store has recorded a reading's source since the first pass: 2,273 author
+records name one. What nothing did was decide what a READER gets to see of it, so `names.json`
+shipped the basis and dropped the source, the address and the date. 771 author readings held a
+page anyone could open and no page was ever offered.
+
+WHAT WAS ACTUALLY MISSING, measured before any of this was written, because the brief said the
+count was zero and it was not:
+
+    reading_source     2,273        reading_url        771 of the 2,262 with a reading
+    reading_reviewed   0            reading_note       0 in the store, 814 in curated.yaml
+
+Every source with a web address already carried one, at 100% for openBD, MADB, the National Diet
+Library, Wikidata and each platform. The two large blocks holding none are the two that have none
+to hold: a name written in kana is its own reading, and a morphological analyser is not a document.
+Neither is a gap and neither gets an invented address.
+
+THE ONE PRODUCER (§3). `store._stamp` writes a claim's citation and `store._stamped` names its
+parts. `cite` below reads them back for display and is the only thing build.py asks. Nothing
+recomputes an address from an ISBN or a record id a second time, because the pass that fetched the
+page is the only thing that knows which page it read.
+
+WHAT `faults` DELIBERATELY DOES NOT SHARE (§14b). The check must not verify with the producer's own
+logic, so `faults` does not call `cite` and does not look at `reading_url` to decide whether one is
+owed. It asks the BASIS, which is the claim's own statement about itself, and which `_stamp` has
+never consulted: `_stamp` copies whatever address a pass hands it and would copy one just as
+happily onto an analyser guess. So "the basis says a document states this" and "an address is
+held" are produced by different things, and the check is the assertion that they agree.
+
+That is what caught the fault this module was written for. 11 curated titles said
+`reading_basis: stated` while carrying `source: yurarium` and no page, because one curated entry
+holds two claims and had one citation between them: the entry's own `source` described the
+TRANSLATION, and the reading was stamped with it. The reading_note beside each named BOOK☆WALKER,
+which is where the reading really came from, and prose is not something a check can act on.
+"""
+
+# Bases that assert somebody else's document. Only these owe an address, and the debt is what
+# `faults` collects.
+#
+#   stated          a source prints the kana: a yomi field, a collationkey, furigana in a byline
+#   back-converted  a romanised string recovered from a database entry, which is that entry's page
+#
+# Everything else is the record accounting for itself and owes nothing. `surface` means the name is
+# already kana, so there was no lookup and there is no page to cite. `analyser`, `aligned` and
+# `guessed` are machine work, labelled `verified: false` and marked in the interface under
+# NAMES-PLAN §5d. `researched` is a reviewer weighing evidence that no single page states, which is
+# why curate.py demands a note from it instead of a URL.
+SOURCED = ("stated", "back-converted")
+
+# The parts of a citation a reader is offered, and the store field each is read from. `{v}` is the
+# claim: `reading` or `en`. Kept in step with `store._stamped`, which writes them.
+PARTS = (("source", "{v}_source"), ("url", "{v}_url"), ("kind", "{v}_source_kind"),
+         ("reviewed", "{v}_reviewed"), ("note", "{v}_note"))
+
+
+def cite(record, claim="reading"):
+    """What this claim can show for itself, or None where it has nothing to show.
+
+    NONE IS AN ANSWER AND NOT A GAP (§5 of the standing instructions). A kana name and an analyser
+    guess both return None, because there is no document behind either, and offering the reader an
+    empty citation would state that one is missing. The analyser's readings are already marked
+    unverified, which is the honest thing to say about them and the thing a reader can act on.
+
+    A CITATION IS OFFERED ONLY FOR A CLAIM THAT EXISTS. A refuted reading used to leave its source
+    and its URL standing, so the record cited a page for a reading it no longer made; two of them
+    cited the MangaUpdates page for a different person, which is the page the refutation was
+    written to disown. `store.clear_claim` removes them now, and this refuses to render one
+    regardless, because a display path that trusts the data to be clean is how the first one shipped.
+    """
+    if not record.get(claim):
+        return None
+    if record.get(f"{claim}_basis") not in SOURCED:
+        return None
+    # AN ADDRESS IS WHAT MAKES IT A CITATION, and it has to be one we may send a reader to. A
+    # source named with no page behind it is the state the invariant exists to drive to zero, and
+    # rendering it would put "openBD" in front of a reader with nothing to open, which is a fact
+    # about our filing and not about the name. A closed route is worse: it would publish an
+    # invitation to a path the host asked us not to take.
+    if not citable(record.get(f"{claim}_url")):
+        return None
+    out = {}
+    for key, field in PARTS:
+        value = record.get(field.format(v=claim))
+        if value:
+            out[key] = value
+    return out or None
+
+
+def is_address(value):
+    """Whether a string is an address at all.
+
+    Deliberately crude, and crude in the safe direction. It is asserting that the field holds a
+    location and not a description of one: `openBD` and `the artist's own site` are both true
+    statements about where a reading came from and neither is something to click.
+    """
+    return isinstance(value, str) and value.startswith(("http://", "https://"))
+
+
+# Routes this project has ruled closed, as (host, path prefix). An address here is fine to have
+# recorded and must not be put in front of a reader.
+#
+# ndlsearch.ndl.go.jp/api is disallowed in the host's own robots.txt (REQUIREMENTS §1), so linking
+# it would advertise a route we have agreed not to take and would send every reader who follows the
+# citation down it. 35 author readings hold one. They are also the wrong SHAPE for a citation
+# whatever the rule said: the recorded address is the creator SEARCH the pass ran, and a search is
+# not the record that states the reading.
+CLOSED_ROUTES = (("ndlsearch.ndl.go.jp", "/api"),)
+
+
+def citable(value):
+    """Whether an address may be shown to a reader, which is a stricter question than `is_address`.
+
+    Held separately on purpose. The invariant asks whether an address was recorded at all, and
+    these records did record one, so folding the two together would report a pass that did its job
+    as a pass that did not. What this catches is counted instead, and it falls when the record page
+    is recorded in place of the query.
+    """
+    if not is_address(value):
+        return False
+    rest = value.split("//", 1)[1]
+    host, _, path = rest.partition("/")
+    return not any(host == h and ("/" + path).startswith(p) for h, p in CLOSED_ROUTES)
+
+
+def uncitable(names, claim="reading"):
+    """Readings holding an address that may not be shown, as `(name, url)`.
+
+    The gap between what the store legitimately records and what a page may link to. Everything
+    here is a reading a reader would otherwise be offered a citation for, so the count is the
+    number of citations silently withheld, and silence is the thing this project designs against.
+    """
+    return [(ja, (r or {}).get(f"{claim}_url"))
+            for ja, r in sorted((names or {}).items())
+            if (r or {}).get(claim) and (r or {}).get(f"{claim}_basis") in SOURCED
+            and is_address((r or {}).get(f"{claim}_url"))
+            and not citable((r or {}).get(f"{claim}_url"))]
+
+
+def borrowed(names):
+    """Records citing ONE page for two claims that say they came from different kinds of source.
+
+    THE HALF OF THE §3 FAULT AN ADDRESS DOES NOT FIX. A record holds a reading and an English
+    rendering, and where only one page was ever stated the store stamps it onto both. If the two
+    claims name different kinds of source then at most one of them can be right about where it came
+    from, and the record cannot say which.
+
+    IT RUNS BOTH WAYS, which is why this counts records and does not accuse a field. 100日後に咲く
+    百合 cited Yen Press for a Japanese reading, and Yen Press publishes the English title and
+    states no reading anywhere. Thirteen titles are the mirror: Wikidata really does state their
+    reading in P1814, and our own translation borrowed the Wikidata address, so it is the English
+    name citing a page that did not give it.
+
+    Arithmetic on the finished record. It compares two addresses for equality and two source kinds
+    for difference, consults no pass, no basis and no lookup table, and cannot be satisfied by a
+    producer that is consistently wrong. That is what keeps it out of `faults`, whose question is
+    whether an address is held at all: every record here holds one.
+
+    BOTH KINDS HAVE TO BE KNOWN. An absent kind is silence about where a claim came from, and
+    reading silence as disagreement made a fault of every record stating one kind and not the other.
+
+    This is a count, because clearing one needs the page somebody actually read and some of those
+    were never written down. 犬井あゆ and 野宮りおん carry readings the National Diet Library states,
+    recorded without the record id, and nothing on disk recovers it.
+    """
+    out = []
+    for ja, record in sorted((names or {}).items()):
+        record = record or {}
+        url = record.get("reading_url")
+        if not url or url != record.get("en_url"):
+            continue
+        mine, theirs = record.get("reading_source_kind"), record.get("en_source_kind")
+        if mine and theirs and mine != theirs:
+            out.append((ja, mine, theirs, url))
+    return out
+
+
+def faults(names, claim="reading"):
+    """Every record whose citation and whose claim disagree, as `(name, fault, detail)`.
+
+    Two shapes, and they are opposite failures of the same rule.
+
+    `cannot-show-its-source` is a claim that a document states this, with no document named. That
+    is the reader being told a reading is sourced and given no way to check it, and it is the state
+    11 curated titles and one author reading were in.
+
+    `citation-without-a-claim` is the reverse: an address, a source or a date left behind by a
+    reading that was withdrawn. Arithmetic on the record and nothing else, so it owes nothing to
+    any pass and cannot be satisfied by one.
+    """
+    out = []
+    for ja, record in sorted((names or {}).items()):
+        record = record or {}
+        held = record.get(claim)
+        cited = {field.format(v=claim): record.get(field.format(v=claim))
+                 for _key, field in PARTS}
+        cited = {k: v for k, v in cited.items() if v}
+        if held:
+            if record.get(f"{claim}_basis") in SOURCED and not is_address(
+                    record.get(f"{claim}_url")):
+                out.append((ja, "cannot-show-its-source",
+                            f"basis {record.get(f'{claim}_basis')!r} from "
+                            f"{record.get(f'{claim}_source')!r} with no address"))
+        elif cited:
+            out.append((ja, "citation-without-a-claim",
+                        ", ".join(f"{k}={v!r}" for k, v in sorted(cited.items()))[:160]))
+    return out

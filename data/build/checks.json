@@ -52,6 +52,11 @@
    "examples": []
   },
   {
+   "name": "a reading can show its source",
+   "violations": 0,
+   "examples": []
+  },
+  {
    "name": "English mode has no Japanese",
    "violations": 0,
    "examples": []
@@ -78,8 +83,14 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 0,
-   "examples": []
+   "violations": 5,
+   "examples": [
+    "run.json",
+    "status.json",
+    "series.json",
+    "feed/names.json",
+    "feed/current.json"
+   ]
   },
   {
    "name": "no refutation of print serials",
@@ -108,6 +119,18 @@
   }
  ],
  "budgets": [
+  {
+   "name": "citations withheld from readers",
+   "means": "readings whose recorded address is on a route the site may not link to, so the citation is held back. All of them are NDL creator searches on the disallowed /api path. Falls as the record page is recorded in place of the query; a rise means a pass stored a query again.",
+   "budget": 36,
+   "value": 36
+  },
+  {
+   "name": "one page cited for two claims",
+   "means": "records whose reading and whose English name cite the same page while naming different kinds of source, so at most one of the two can be right about where it came from. A rise means an entry carried one address for two claims again.",
+   "budget": 24,
+   "value": 24
+  },
   {
    "name": "labels with nothing to quote",
    "means": "records carrying a publisher-side yuri label whose imprint holds no term saying so, which is a label the work page cannot show a reader the evidence for. A rise means a pass has gone back to storing a field from a record other than the one that justified the label.",
@@ -183,8 +206,8 @@
   {
    "name": "stock phrasing in comments",
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage.",
-   "budget": 903,
-   "value": 903
+   "budget": 898,
+   "value": 898
   },
   {
    "name": "modules without a test",

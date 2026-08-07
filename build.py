@@ -1136,6 +1136,10 @@ def load_names():
         import pass4_analyser as _p4
     except Exception:
         _p4 = None
+    try:
+        import provenance as _prov
+    except Exception:
+        _prov = None
 
     def render(k_ja, rec, is_person=False):
         out = {}
@@ -1238,6 +1242,20 @@ def load_names():
         # a reason behind it is not a guess.
         if rec.get("reading_basis"):
             out["reading_basis"] = rec["reading_basis"]
+        # THE PAGE THE READING WAS READ FROM. The store has recorded it since the first sourced
+        # pass and nothing ever shipped it, so 771 author readings held an address anyone could
+        # open and no reader was offered one. `reading_basis` said a source stated the reading and
+        # then declined to say which, which is an assertion with the evidence withheld.
+        #
+        # `provenance.cite` decides what may be shown and is the only thing asked. It answers None
+        # for a kana surface and for an analyser guess, because neither has a document behind it,
+        # and §6 keeps our own machinery off the page: the unverified mark already says what a
+        # reader can act on there. What is left is a claim about the NAME, of the same kind as the
+        # `basis` a classification carries under DEFINITIONS §5, and a Japanese-literate reader can
+        # follow it to the source and judge it.
+        _cited = _prov.cite(rec) if _prov else None
+        if _cited:
+            out["reading_cite"] = _cited
         # False is meaningful and must survive; missing is not the same as verified.
         # A researched reading is exempt: somebody looked the word up and said why, which is
         # exactly what the mark is asking for, so marking it would ask for work already done.

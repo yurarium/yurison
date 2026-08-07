@@ -190,6 +190,48 @@ def inv_readings_are_kana(ctx):
     return bad
 
 
+def inv_reading_can_show_its_source(ctx):
+    """A reading that says a source states it must be able to show that source.
+
+    NAMES-PLAN §1: the failure mode is a plausible reading with no source behind it, presented as
+    if it had one, which at a glance is indistinguishable from a correct one. `reading_basis:
+    stated` IS that presentation. So the basis has to be backed by an address a reader can open,
+    and the two shapes counted here are the two ways it stopped being.
+
+    A CLAIM WITH NO DOCUMENT. 11 curated titles said a source stated their reading while naming
+    `yurarium` and holding no page. One curated entry carries two claims and had one citation
+    between them, so a title translated here and read off a shop page stamped the translation's
+    provenance onto the reading. The reading_note beside each named BOOK☆WALKER and prose is not
+    something a check can act on.
+
+    A DOCUMENT WITH NO CLAIM. 11 refuted author readings kept a source and a date after the reading
+    was withdrawn, and two kept a URL pointing at the MangaUpdates page for a DIFFERENT PERSON,
+    which is the page the refutation was written to disown.
+
+    §14b, WHAT THIS SHARES AND WHAT IT THEREFORE CANNOT SEE. It reuses `provenance.faults`, which
+    is not the thing that produces an address: `store._stamp` writes one whenever a pass hands it
+    over and has never looked at a basis, while this asks the basis and then asks whether an
+    address is held. Two producers, and the check is the assertion that they agree, so a pass that
+    forgot to record a page cannot satisfy it by forgetting consistently.
+
+    What it cannot see is whether the page says what we say it says. An address that resolves to
+    the wrong record passes here, and only the reader following it will know. That is the residual
+    §14b names, and it is why the address is shipped rather than merely counted.
+
+    fallback: the citation is not rendered, and the reading shows as it did before.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        from names import provenance
+    except Exception:                                                       # noqa: BLE001
+        return []
+    bad = []
+    for kind in ("titles", "authors"):
+        for ja, fault, detail in provenance.faults(ctx["names"].get(kind) or {}):
+            bad.append(f"{kind}:{ja[:24]} {fault} ({detail[:60]})")
+    return bad
+
+
 def inv_english_mode_has_no_japanese(ctx):
     """English-only mode shows no kanji, kana or full-width characters.
 
@@ -693,6 +735,7 @@ INVARIANTS = [
     ("feed holds only attested rows", inv_feed_is_attested),
     ("every update has a kind", inv_no_unknown_kind),
     ("readings are stored as kana", inv_readings_are_kana),
+    ("a reading can show its source", inv_reading_can_show_its_source),
     ("English mode has no Japanese", inv_english_mode_has_no_japanese),
     ("no build-machine paths in published files", inv_no_absolute_paths_in_published_files),
     ("no stock phrasing in public text", inv_no_stock_phrasing_in_public_text),
@@ -1338,7 +1381,75 @@ def budget_labels_with_nothing_to_quote(ctx):
                and not YURI_TERM_IN_IMPRINT.search(str(r.get("imprint") or "")))
 
 
+def budget_citations_withheld_from_readers(ctx):
+    """Readings holding an address the site may not link to, so the citation is not shown.
+
+    All 36 are NDL creator searches against `ndlsearch.ndl.go.jp/api`, which that host's robots.txt
+    disallows (REQUIREMENTS §1). Recording the query we ran is right and linking it would advertise
+    a route we agreed not to take, so `provenance.cite` withholds it. A search is also not the
+    record that states a reading, so these want the `/books/` page in place of the query however the
+    robots rule falls.
+
+    COUNTED BECAUSE THE WITHHOLDING IS SILENT. §4: a reader sees a reading with no citation and a
+    reading whose citation we suppressed as exactly the same thing, so without this number the
+    suppression is unobservable and could grow without anyone noticing.
+
+    §14b, WHAT IT REUSES: `provenance.uncitable`, which is the same route table `cite` consults, so
+    it cannot see a closed route nobody has added to that table. What guards THAT is the table being
+    written from the host's robots.txt rather than from what our own fetchers happen to avoid.
+
+    fallback: the reading renders without a citation, exactly as an unsourced one does.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        from names import provenance
+    except Exception:                                                       # noqa: BLE001
+        return 0
+    return sum(len(provenance.uncitable(ctx["names"].get(k) or {}))
+               for k in ("titles", "authors"))
+
+
+def budget_one_page_cited_for_two_claims(ctx):
+    """Records citing one page for a reading and an English name that name different source kinds.
+
+    The invariant next door asks whether an address is held. This asks whether it can be the right
+    one for both claims, which is a different question and could not be folded into it: every
+    record counted here holds an address, so the invariant passes and a reader is still offered a
+    citation that did not produce what it sits beside.
+
+    It does not accuse a field, because the borrowing runs both ways. 100日後に咲く百合 cited Yen
+    Press for a Japanese reading; thirteen titles are the reverse, where Wikidata really does state
+    the reading and our own translation took its address.
+
+    §14b, WHAT IT REUSES: `provenance.borrowed`, which compares two addresses for equality and two
+    source kinds for difference. It reads no basis, no lookup table and nothing any pass wrote as a
+    judgement, so no producer can make it agree by being consistently wrong. What it cannot see is
+    two claims read from different pages on one host, since the addresses then differ and it says
+    nothing at all.
+
+    Falls as a reviewer records the page each claim was read from. The floor is not obviously zero:
+    犬井あゆ and 野宮りおん cite the shop page their bylines were joined on, while their readings
+    come from the National Diet Library, whose record id was never written down and is on no disk
+    here.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        from names import provenance
+    except Exception:                                                       # noqa: BLE001
+        return 0
+    return sum(len(provenance.borrowed(ctx["names"].get(k) or {}))
+               for k in ("titles", "authors"))
+
+
 BUDGETS_DEF = [
+    ("citations withheld from readers", budget_citations_withheld_from_readers,
+     "readings whose recorded address is on a route the site may not link to, so the citation is "
+     "held back. All of them are NDL creator searches on the disallowed /api path. Falls as the "
+     "record page is recorded in place of the query; a rise means a pass stored a query again."),
+    ("one page cited for two claims", budget_one_page_cited_for_two_claims,
+     "records whose reading and whose English name cite the same page while naming different "
+     "kinds of source, so at most one of the two can be right about where it came from. A rise "
+     "means an entry carried one address for two claims again."),
     ("labels with nothing to quote", budget_labels_with_nothing_to_quote,
      "records carrying a publisher-side yuri label whose imprint holds no term saying so, which "
      "is a label the work page cannot show a reader the evidence for. A rise means a pass has "
@@ -1510,6 +1621,19 @@ def self_test():
          lambda c: c["releases"].append({"work": "CANARY", "kind": "unknown"})),
         ("readings are stored as kana", inv_readings_are_kana,
          lambda c: c["names"]["titles"].update({"カナリア": {"reading": "Kanaria Romaji"}})),
+        # BOTH CANARIES ARE RECORDS THE PIPELINE REALLY WROTE, which is §14b's requirement and not
+        # a stylistic preference: a canary invented for the test proves the check can fail on
+        # something nothing produces. The first is #ふれない as curate.py left it, the second is
+        # 古川楊也 as its refutation left it, and both were live in data/names on 2026-08-07.
+        ("a reading can show its source", inv_reading_can_show_its_source,
+         lambda c: c["names"]["titles"].update({"カナリア": {
+             "reading": "フレナイ", "reading_basis": "stated", "reading_source": "yurarium",
+             "reading_source_kind": "derived"}})),
+        ("a reading can show its source", inv_reading_can_show_its_source,
+         lambda c: c["names"]["authors"].update({"カナリア": {
+             "reading_source": "sudachi", "reading_at": "2026-08-06",
+             "reading_url": "https://www.mangaupdates.com/author/0fnry5y/hoshino-katsura",
+             "reading_refuted": "the reading of a different person's name"}})),
         ("English mode has no Japanese", inv_english_mode_has_no_japanese,
          lambda c: c["releases"].append({"work": "カナリア", "provenance": "attested"})),
         ("undated works say where and why", inv_undated_works_say_where_and_why,

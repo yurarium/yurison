@@ -113,9 +113,15 @@ READING_ATTRIBUTION = {
 # English was chosen for one reason and whose reading was corrected for another had to put both
 # arguments in one field, or lose one: 55 of the 60 reading corrections landed on titles that
 # already had a curated translation with its own note. Two decisions, two reasons.
+#
+# `reading_source` and `reading_url` join `reading_source_kind` for the same reason it exists: one
+# entry can hold two claims sourced from two places. A title translated here and read off a shop
+# page had only the entry's `source` to describe both, so 11 readings claiming `stated` named
+# `yurarium` as the source and carried no page, while the reading_note beside them named
+# BOOK☆WALKER. The note was right and nothing could act on it.
 KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "reviewed", "note",
         "candidate_note", "reading", "reading_basis", "reading_note", "reading_source_kind",
-        "reading_refuted", "en_refuted"}
+        "reading_source", "reading_url", "reading_refuted", "en_refuted"}
 
 # What a reading may contain. Katakana and the marks that ride along with it: a title's own
 # punctuation stays in its reading, and 100日後 keeps its digits, so a rule allowing katakana alone
@@ -200,6 +206,14 @@ def problems(kind, ja, e):
             out.append(f"{where}: a reading is stored as katakana; got {e['reading']!r}")
         if rb == "researched" and not ((e.get("reading_note") or e.get("note") or "").strip()):
             out.append(f"{where}: a researched reading needs a note saying what it rests on")
+        # THE SAME DEBT THE `en` RULE ABOVE COLLECTS, and it went uncollected for readings. `stated`
+        # asserts that a source printed the kana, so there is a page, and a reading published as
+        # sourced with nothing behind it is the one thing NAMES-PLAN §1 says must never happen: a
+        # plausible reading presented as if it had a source. `derived` is exempt because it is not
+        # claiming one.
+        if rb == "stated" and rsk != "derived" and not (e.get("reading_url")
+                                                        or e.get("source_url")):
+            out.append(f"{where}: a stated reading needs the page that states it")
     elif e.get("reading_basis"):
         out.append(f"{where}: reading_basis with no reading")
     return out
@@ -345,9 +359,16 @@ def apply(store, doc):
     applied = candidates = 0
     for kind in CURATED_KINDS:
         for ja, e in (doc.get(kind) or {}).items():
+            # EVERY KEY THE FILE MAY CARRY, and it used to be a shorter list than KEYS. Three that
+            # a reviewer writes were built into the fact by nobody and reached no store:
+            # `reading_source_kind`, so a reading read off a platform was filed under the entry's
+            # own `derived`; `reading_note`, which is 814 arguments for 814 hand-settled readings
+            # and the very thing `researched` is required to supply; and `reviewed`, which was
+            # flattened onto `at` and so could not be told from the day a pass happened to run.
             fact = {k: e.get(k) for k in
                     ("en", "candidate", "basis", "source", "source_kind", "source_url", "note",
-                     "candidate_note", "reading", "reading_basis", "reading_note")}
+                     "candidate_note", "reading", "reading_basis", "reading_note",
+                     "reading_source_kind", "reading_source", "reading_url", "reviewed")}
             # `at` is the day the decision was reviewed, not the day this ran. Re-applying the file
             # after a rebuild must not restamp a name as freshly decided.
             fact["at"] = str(e.get("reviewed"))
@@ -361,17 +382,20 @@ def apply(store, doc):
                 rec = store.records[kind].get(ja) or {}
                 why = str(e.get("reading_note") or e.get("note") or "")[:300]
                 if e.get("reading_refuted"):
-                    for f in ("reading", "reading_basis", "reading_source_kind", "furigana_spans",
-                              "reading_uncertain"):
-                        rec.pop(f, None)
+                    # WHAT BELONGS TO A CLAIM IS THE STORE'S TO SAY, because the store is what
+                    # stamps it on. The list here was hand-written and short by six fields, so 11
+                    # refuted readings kept a source and a date for a reading that had been
+                    # withdrawn, and two kept a URL pointing at the MangaUpdates page for a
+                    # different person: the page the refutation was written to disown. 古川楊也 was
+                    # published as HOSHINO Katsura and the record went on citing the page that
+                    # said so.
+                    store.clear_claim(kind, ja, "reading")
                     rec["reading_refuted"] = why
                 # An English name can be somebody else's too, and by the same route: MangaUpdates
                 # gave 古川楊也 the author page of hoshino-katsura, so the database published a
                 # different person's name in English beside their work.
                 if e.get("en_refuted"):
-                    for f in ("en", "basis", "en_source", "en_source_kind", "en_url", "en_at",
-                              "en_pass", "en_conflicts"):
-                        rec.pop(f, None)
+                    store.clear_claim(kind, ja, "en")
                     rec["en_refuted"] = why
             if e.get("en"):
                 applied += 1

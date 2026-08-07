@@ -63,6 +63,36 @@ READING_OVERRIDE = {
 }
 
 
+def analyser_version():
+    """Which analyser produced a reading, as the string stored beside it.
+
+    AN ANALYSER HAS NO ADDRESS AND IT DOES HAVE AN IDENTITY. Every other route to a reading records
+    the page it was read from, and this one recorded the word `sudachi`, which names a program and
+    not the thing that decided the answer. The dictionary is what decides it: SudachiDict ships a
+    dated release, entries are added and readings change between them, so two runs of identical
+    code give different readings and the record could not say which release it had.
+
+    That is the whole of what can honestly be reconstructed for these 837 readings. There is no
+    document to cite because no document states them, and inventing a URL here would be worse than
+    the silence it replaced.
+
+    Falls back to the bare name where the metadata is unreadable, because a pass must not stop over
+    its own bookkeeping.
+    """
+    import importlib.metadata as md
+    parts = []
+    for dist in ("SudachiPy", "SudachiDict-core"):
+        try:
+            parts.append(f"{dist} {md.version(dist)}")
+        except Exception:                                                   # noqa: BLE001
+            pass
+    return ", ".join(parts) if parts else "sudachi"
+
+
+# Read once. It cannot change under a running process, and a reading is stamped with it per name.
+ANALYSER = analyser_version()
+
+
 def is_kana_ch(c):
     return "\u3040" <= c <= "\u30ff"
 
@@ -466,7 +496,7 @@ def main():
                 if spans:
                     rec["furigana_spans"] = spans
             rec.update({"reading": r, "reading_at": today, "reading_basis": "analyser",
-                        "reading_pass": 4, "reading_source": "sudachi",
+                        "reading_pass": 4, "reading_source": ANALYSER,
                         "reading_source_kind": "analyser",
                         # Never true. This is the labelled guess §5d permits, not a claim.
                         "verified": False})
@@ -789,7 +819,7 @@ def fill_missing(strings, kind, quiet=False, refresh=False):
             if spans:
                 rec["furigana_spans"] = spans
         rec.update({"reading": r, "reading_at": today, "reading_basis": "analyser",
-                    "reading_pass": 4, "reading_source": "sudachi",
+                    "reading_pass": 4, "reading_source": ANALYSER,
                     "reading_source_kind": "analyser", "verified": False})
         if uncertain or unrecognised_compound(tok, s, modes[0]):
             rec["reading_uncertain"] = True

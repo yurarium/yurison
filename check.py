@@ -977,7 +977,57 @@ def budget_credits_that_are_a_reading(ctx):
     return bad
 
 
+def budget_renderings_with_nothing_to_show(ctx):
+    """Renderings that leave a Japanese name with no English form at all.
+
+    `English mode has no Japanese` reads `feed/names.json`, the join the FEED performs, and never
+    the series rows. So a work page could show 花宮みぃ in English-only mode while that check
+    passed, which is how 35 rows shipped: every one a multi-credit author field mixing a Latin name
+    with Japanese ones.
+
+    The cause is in build.py's `credits_en`. A part already in Latin is in the name store with an
+    `en` and no `reading` and no `romaji`, correctly, because it needs neither. The composer read
+    "found in the store" as "resolved", intersected the romanisation styles across the parts, got
+    an empty set from the Latin one, and emitted a composed name carrying no romanisation at all.
+
+    A rendering with no `romaji` is not itself wrong: a title already in Latin needs none. What is
+    wrong is holding neither a romanisation nor an English name while the surface is Japanese,
+    because there is then nothing to put on an English page.
+
+    COUNTED ACROSS EVERY VIEW, because it reached all of them. The works list and the work page
+    read the series rows; the updates and releases lists read `feed/names.json`, keyed on the whole
+    author field folded. A field naming several people never matches a store keyed one person to a
+    record, and the releases feed separates its credits with a comma where a series row uses a
+    slash, so a composer splitting on one of them misses the other.
+
+    This counts rather than blocks only until it reaches 0.
+    """
+    import re as _re
+    ja = _re.compile(r"[぀-ヿ一-鿿々]")
+    bad = 0
+    for r in ctx["series"]:
+        for key, surface in (("work_en", r.get("work")), ("author_en", r.get("author"))):
+            e = r.get(key) or {}
+            if not e or e.get("romaji") or e.get("en"):
+                continue
+            if ja.search(str(surface or "")):
+                bad += 1
+    shipped = ctx["names_shipped"] or {}
+    authors = shipped.get("authors") or {}
+    for r in ctx["releases"]:
+        surface = str(r.get("author") or "")
+        if not ja.search(surface):
+            continue
+        e = authors.get(unicodedata.normalize("NFKC", surface).replace(" ", "")) or {}
+        if not (e.get("romaji") or e.get("en")):
+            bad += 1
+    return bad
+
+
 BUDGETS_DEF = [
+    ("renderings with nothing to show", budget_renderings_with_nothing_to_show,
+     "works whose English rendering holds neither a romanisation nor an English name while the "
+     "surface is Japanese. A rise means a composed name lost its romanisation."),
     ("credits that are a reading", budget_credits_that_are_a_reading,
      "author fields where one credit is the reading of another, so one person is counted twice. "
      "A rise means a route wrote a name and its reading into one field as two credits."),

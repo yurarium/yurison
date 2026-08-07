@@ -723,6 +723,62 @@ def norm_work(s):
                   "", s.strip().lower())
 
 
+# 第５０−２話 is chapter 50 part 2, written in fullwidth digits. NFKC folds the digits, and 第 is
+# read in preference to the counter so a part number is not mistaken for the chapter number.
+STATED_NUMBER = re.compile(r"第\s*(\d{1,4})")
+COUNTER_NUMBER = re.compile(r"(\d{1,4})\s*(?:話|回|章|日目)")
+
+
+def stated_chapter_number(ep):
+    """The chapter number a work prints on its own newest instalment, or 0."""
+    s = unicodedata.normalize("NFKC", str(ep or ""))
+    m = STATED_NUMBER.search(s) or COUNTER_NUMBER.search(s)
+    return int(m.group(1)) if m else 0
+
+
+def demonstrable_length(rows, stated, latest_ep):
+    """The most chapters we can show a work has, from every source that speaks to it.
+
+    ONE NUMBER, ONE MEANING. The field used to hold the count of entries we hold, which is a fact
+    about our coverage and not about the work, and it read as the work's length. It disagreed with
+    the work's own numbering on 266 of the 386 rows where both could be seen, high on 239 and low
+    on 27. Two different faults wore one number.
+
+    The overshoot is fixed where the entries are counted, by collapsing an instalment split across
+    parts. The undershoot cannot be: a platform showing twelve recent free chapters of a
+    fifty-seven chapter serialisation is not hiding the rest from us, it simply does not publish
+    them, and no arithmetic invents them.
+
+    So the answer is the largest number any source demonstrates: what we hold, what the platform
+    says it is long, and the number the work prints on its own newest chapter. Each is a floor and
+    the truth is at least the highest of them. That keeps the field a lower bound in every case,
+    which is what it always was when it was right.
+    """
+    best = max((r.get("chapters") or 0 for r in rows), default=0)
+    return max(best, stated or 0, stated_chapter_number(latest_ep))
+
+
+def collapsed_length(chs):
+    """How many chapters a list of entries represents, with a split instalment counted once.
+
+    GigaViewer publishes 第23話 わたしのままで as (1)(2)(3), three entries on one day, and counting
+    entries reported works as longer than their own numbering says they are. `importdates.PART` is
+    the same regex doing the same job for date detection, where counting entries made a monthly
+    update look like a back-catalogue import. The fact was produced once and used in one place (§3).
+
+    An entry with no title counts as itself, so a run of untitled chapters cannot collapse into one.
+    Only a shared base title collapses, which is the case this is about.
+    """
+    bases, untitled = set(), 0
+    for ch in chs:
+        base = importdates.PART.sub("", str(ch.get("title") or ch.get("ep") or "")).strip()
+        if base:
+            bases.add(base)
+        else:
+            untitled += 1
+    return len(bases) + untitled
+
+
 def best_known_length(rows):
     """The most chapters any one source holds for a work.
 
@@ -3413,7 +3469,15 @@ def main():
             # disk held all 147. The three page-reading files stay named, so nothing they claim
             # alone is promoted, and `bucket["partial"]` already requires EVERY source for a row
             # to be partial before the count is hedged.
-            partial = _d.get("source") in ("sitemap",) or _d.get("platform") in (
+            #
+            # A ROUTE CAN ALSO BE PARTIAL FOR ONE WORK AND NOT THE NEXT, and where the page says
+            # so the record carries it. ニコニコ漫画 renders the episodes a signed-out reader may
+            # open: for オレは男装女子じゃない！ that is all 37, and for 運命のヤマダダダダダダダ
+            # ダダダ it is five out of a run whose own position numbers reach 17. Naming the
+            # platform here would report the first as a fraction of something longer, which is the
+            # opposite error and no better. `nicovideo/works.py` compares the two numbers.
+            partial = bool(w.get("partial")) or _d.get("source") in ("sitemap",) or _d.get(
+                "platform") in (
                 "pixivcomic", "ganganonline", "mangaone", "backfill", "remaining",
                 "corocoro") or str(_f).endswith(("sitemap-magapoke.yaml", "magapoke-deep.yaml",
                                                  "rendered-magapoke.yaml", "rendered-mangaone.yaml"))
@@ -3567,7 +3631,7 @@ def main():
     for row in series.values():
         chs = sorted(row.pop("chapters").values(), key=lambda c: str(c.get("updated") or ""))
         row["chapters_list"] = chs
-        row["chapters"] = len(chs)
+        row["chapters"] = collapsed_length(chs)
         dated = [c for c in chs if c.get("updated")]
         row["dated"] = len(dated)
         # THE HEADLINE DATES COME FROM CHAPTERS SOMEBODY WATCHED APPEAR. A platform importing its
@@ -3916,7 +3980,10 @@ def main():
             "author": next((r["author"] for r in rows if r["author"]), ""),
             # The BEST-KNOWN length, not a sum: every source is describing the same story, and
             # adding them would report 135 chapters for a 121-chapter work. See the function.
-            "chapters": best_known_length(rows),
+            "chapters": demonstrable_length(
+                rows,
+                max((r["chapters_stated"] for r in rows if r.get("chapters_stated")), default=0),
+                best["latest_ep"]),
             # What the platform says the series is long, where we hold less. Published so the
             # count can read as "what we have" rather than as the length of the work. Taken across
             # every row for the same reason the length is: whichever source states it, states it.
@@ -4139,6 +4206,37 @@ def main():
                 _redated += 1
         if _redated:
             print(f"first-publication dates moved back to a collected edition: {_redated}")
+
+        # THE LAST THING THAT HAPPENED, WHICHEVER KIND IT WAS, AS A SEPARATE FIELD FROM THE ONE
+        # THAT DECIDES STATE. A reader scanning the list wants to know when the work last did
+        # anything; `latest` answers only when the serialisation last updated, so a work whose
+        # volume shipped last month reads as a year stale.
+        #
+        # `latest` IS NOT TOUCHED, and that is the whole point. A print release says nothing about
+        # whether a web series is alive: volumes trail the serialisation by design, so a volume of
+        # a run that stopped in 2022 still ships in 2024. State is a claim about the serialisation
+        # and it keeps being decided by the serialisation's own date, which is also what
+        # `state agrees with its own date` compares. Overwriting `latest` here would have made
+        # every one of these rows contradict its own state label.
+        #
+        # The kind travels with the date because the reader cannot otherwise tell which question
+        # the date answered, and a volume date shown as though it were a chapter date is the same
+        # category error in a different place.
+        _anydate = 0
+        for _evrow in series_rows:
+            _evc = [(_evrow.get("latest"), "chapter")]
+            _evc += [(_pv.get("last") or _pv.get("first"), "volume")
+                     for _pv in (_evrow.get("print") or [])]
+            _evc = [(d, k) for d, k in _evc if d]
+            if not _evc:
+                continue
+            # Month against day: a volume states 2024-03 and a chapter states 2024-03-18, so the
+            # comparison is made on the part both sides always carry.
+            _evbest = max(_evc, key=lambda dk: (str(dk[0])[:7], str(dk[0])))
+            _evrow["latest_any"], _evrow["latest_any_kind"] = _evbest
+            if _evbest[1] == "volume" and _evbest[0] != _evrow.get("latest"):
+                _anydate += 1
+        print(f"rows whose most recent event is a volume rather than a chapter: {_anydate}")
 
         # WHERE THE SHOP DISAGREES WITH A PLATFORM, the platform wins and the disagreement is
         # counted rather than dropped. A shop marking a series 完結 while its serialisation is

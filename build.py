@@ -774,6 +774,73 @@ def work_alias(title):
     return _WORK_ALIASES.get(norm_work(title), title)
 
 
+# Kana and kanji. A string with none of these needs no reading: it is already Latin.
+JAPANESE_SCRIPT = re.compile(r"[぀-ヿ一-鿿々]")
+
+# Characters that have to be READ before they can be romanised. Kana are not among
+# them: hiragana to katakana is a transcription and cannot be a wrong guess.
+NEEDS_READING = re.compile(r"[一-鿿々A-Za-zＡ-Ｚａ-ｚ0-9０-９]")
+
+
+def credits_en(raw, exact, folded, fold):
+    """One rendering for an author field naming several people, or None.
+
+    WHY THIS EXISTS. The store holds a record per NAME and the lookup asked it for the whole field,
+    so `原田重光 / 蘇募ロウ` matched nothing and 373 rows shipped with no author rendering at all.
+    Every one of them is a work with more than one credit, which is most anthologies and every
+    story drawn by one person and written by another.
+
+    THE SEPARATOR IS PART OF THE ANSWER. A composed rendering keeps ` / ` between the credits in
+    the reading, in the ruby and in each romanisation, because it is a list of people and running
+    them together would invent a single name nobody has.
+
+    ALL OF THEM OR NONE. A field is composed only when every credit in it resolves. A partial
+    composition would put an unresolved Japanese name into `romaji` and into English-only mode,
+    which `English mode has no Japanese` would then catch as a fault in the interface when the
+    cause was here. A field that cannot be composed is left alone and stays as it was.
+    """
+    parts = [p.strip() for p in re.split(r"\s*/\s*", raw or "") if p.strip()]
+    if len(parts) < 2:
+        return None
+    got = []
+    for p in parts:
+        e = exact.get(p) or folded.get(fold(p))
+        if not e:
+            # A CREDIT ALREADY IN LATIN IS ITS OWN ROMANISATION and needs no store entry. The
+            # commonest missing credits are the fullwidth names on BOOK☆WALKER's translated
+            # editions, Ｍａｇｐｉｅ and Ｎｉｍｒｏｄ and ＩｃｅＦａｉｒｙ, which NFKC folds to
+            # ordinary Latin. Demanding a reading for them held back every field they appear in.
+            # They take no ruby, which is what `no ruby over bare Latin` already requires.
+            flat = unicodedata.normalize("NFKC", p)
+            if JAPANESE_SCRIPT.search(flat):
+                return None
+            e = {"reading": flat, "ruby": [[p, None]],
+                 "romaji": {s: flat for s in ("macron", "double", "plain")},
+                 "reading_basis": "stated"}
+        got.append(e)
+
+    out = {"reading": " / ".join(str(e.get("reading") or "") for e in got)}
+    ruby = []
+    for i, e in enumerate(got):
+        if i:
+            ruby.append([" / ", None])
+        ruby.extend(e.get("ruby") or [[p, None] for p in [parts[i]]])
+    out["ruby"] = ruby
+    styles = set(got[0].get("romaji") or {})
+    for e in got[1:]:
+        styles &= set(e.get("romaji") or {})
+    if styles:
+        out["romaji"] = {s: " / ".join((e.get("romaji") or {})[s] for e in got) for s in styles}
+    # The weakest part decides. A composed name is only as attested as its least attested credit,
+    # and saying otherwise would let one stated reading vouch for a guessed one beside it.
+    out["reading_basis"] = ("analyser" if any(e.get("reading_basis") == "analyser" for e in got)
+                            else (got[0].get("reading_basis") or "stated"))
+    out["basis"] = "romaji"
+    if any(e.get("unverified") for e in got):
+        out["unverified"] = True
+    return out
+
+
 def load_dir(p):
     return [yaml.safe_load(open(f)) for f in sorted(glob.glob(f"{p}/*.yaml"))]
 
@@ -923,8 +990,16 @@ def load_names():
         # False is meaningful and must survive; missing is not the same as verified.
         # A researched reading is exempt: somebody looked the word up and said why, which is
         # exactly what the mark is asking for, so marking it would ask for work already done.
-        if rec.get("verified") is False and rec.get("reading_basis") not in ("researched",
-                                                                             "stated"):
+        # A SURFACE ALREADY IN KANA WAS NOT READ, SO NOTHING WAS GUESSED. よつば◎ますみ。 carried
+        # the mark because its reading came from the analyser, but ヨツバ ◎ マスミ。 is that name
+        # transcribed, and hiragana to katakana is mechanical. The mark says the reading might be
+        # wrong, and here there is no reading to be wrong about. 331 records were marked this way.
+        #
+        # KANJI, LATIN AND DIGITS ALL DISQUALIFY. Each of them has to be READ: タイザン5 could end
+        # ゴ or ファイブ, and that is a real guess, so it keeps its mark.
+        _mechanical = k_ja and not NEEDS_READING.search(str(k_ja))
+        if (rec.get("verified") is False and not _mechanical
+                and rec.get("reading_basis") not in ("researched", "stated")):
             out["unverified"] = True
         # A reading assembled character by character because nothing could read the word. Weaker
         # than an ordinary guess and marked separately: 抱き寝ーター came out カカエきネーター, where
@@ -4151,7 +4226,8 @@ def main():
             r["work_en"] = t
             _named_w += 1
         _a_raw = (r.get("author") or "").strip()
-        a = _auth_names.get(_a_raw) or _auth_folded.get(_fold(_a_raw))
+        a = (_auth_names.get(_a_raw) or _auth_folded.get(_fold(_a_raw))
+             or credits_en(_a_raw, _auth_names, _auth_folded, _fold))
         if a:
             r["author_en"] = a
             _named_a += 1

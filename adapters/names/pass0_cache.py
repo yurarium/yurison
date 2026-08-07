@@ -181,6 +181,14 @@ def run(store, authors, titles, cache_root, verbose=False):
                          reading=meta["reading"],
                          reading_basis="stated",
                          source="credit-line-furigana",
+                         # THE PAGE THE BRACKET WAS PRINTED ON, which this pass already held and
+                         # threw away. `inputs.collect` files every address a credit was seen at
+                         # under the author, so the reading claimed a source for 博 and named a
+                         # method instead of a place. First of the URLs because they are the same
+                         # credit line seen on several episodes of one work, so any of them shows
+                         # the bracket; where the pass saw nothing, nothing is recorded.
+                         source_url=(meta.get("urls") or [None])[0],
+                         source_kind="platform",
                          note="the platform printed the reading in brackets beside the name",
                          **{"pass": 0})
             stats["author-gloss"] += 1

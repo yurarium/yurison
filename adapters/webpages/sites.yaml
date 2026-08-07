@@ -35,7 +35,11 @@ sites:
 
   - id: kimicomi
     name: キミコミ
-    publisher: 一迅社
+    # キルタイムコミュニケーション, not 一迅社. Every collected volume this platform's works carry
+    # is a KTC line (ヴァルキリーコミックス, シャイニーコミックス, ヤングアンリアルコミックス) and
+    # none is a 一迅社 imprint. The field was wrong from the first capture, and it is the one that
+    # would have shown whose web arm this is when the imprints raised the question.
+    publisher: キルタイムコミュニケーション
     host: kimicomi.com
     engine: comici
     min_episodes: 1

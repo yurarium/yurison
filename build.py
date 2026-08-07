@@ -3983,12 +3983,32 @@ def main():
         # same kind of thing. A work that exists only in print is still a work: it has no chapters
         # and no serialisation state, and the row says so rather than inventing either.
         _seen_print = {p2["work_id"] for r2 in series_rows for p2 in (r2.get("print") or [])}
-        _added = 0
+        # TWO PRINT RECORDS THAT ARE ONE WORK GET ONE ROW. `--merge` retires an identifier and both
+        # records then resolve to the surviving id, but each was still appended here on its own
+        # work_id, so the list held the work twice under one id: 13 pairs, every one of them a
+        # merge. The registry decides identity and this reads it, so a record whose id already has
+        # a row joins that row's editions instead of starting a second one. Which title the reader
+        # sees is the first record's, and `works` is sorted by work_id, so a bare shop title is
+        # preferred over the bibliography's ISBD form (`X = parallel title`), which is the form
+        # nobody writes.
+        # Seeded with the rows that already carry an id, so a print record whose identity belongs
+        # to a web row lands on that row. `_print_by_id` above cannot reach this case: it reads
+        # each live entry's own anchors, and a retired entry's anchors stay with the retired entry.
+        _row_by_id = {_r3["id"]: _r3 for _r3 in series_rows if _r3.get("id")}
+        _added = _folded = 0
         for _pw2 in works:
             if _pw2.get("work_id") in _seen_print:
                 continue
             _pid = _byanchor.get("madb:" + str(_pw2.get("work_id")))
             _fp2 = _pw2.get("first_publication") or {}
+            if _pid and _pid in _row_by_id:
+                _row_by_id[_pid].setdefault("print", []).append({
+                    "work_id": _pw2["work_id"], "volumes": _pw2.get("volume_count"),
+                    "publisher": _pw2.get("publisher"), "imprint": _pw2.get("imprint"),
+                    "first": _fp2.get("date"), "last": _pw2.get("last_published"),
+                    "label": _pw2.get("marketing_label")})
+                _folded += 1
+                continue
             series_rows.append({
                 "work": (_pw2.get("title") or {}).get("ja") or "",
                 # MADB writes a credit as cataloguing notation: `[著]秋山はる`, `[作画]A / [原作]B`,
@@ -4011,8 +4031,37 @@ def main():
                            "first": _fp2.get("date"), "last": _pw2.get("last_published"),
                            "label": _pw2.get("marketing_label")}],
             })
+            if _pid:
+                _row_by_id[_pid] = series_rows[-1]
             _added += 1
-        print(f"print-only works added to the works list: {_added}")
+        print(f"print-only works added to the works list: {_added}"
+              + (f"; {_folded} editions folded into a row already held" if _folded else ""))
+
+        # A WORK IS AS OLD AS THE OLDEST THING WE HOLD ABOUT IT. The row's date came from the
+        # platform's own chapters, which is the day the platform posted them and not the day the
+        # work first appeared. Where a platform re-serialises a finished title, the two are years
+        # apart: ワインガールズ read 2026-04-19 against volumes that began in 2017-12, and 140 rows
+        # across 12 platforms had a collected edition predating their own first date.
+        #
+        # `importdates` does not reach this. It looks for a bulk stamp, many works landing on one
+        # day, and a slow re-run of one title leaves no such signature. The evidence here is the
+        # print run instead, and it only became readable once the book runs were attached.
+        #
+        # THE EARLIEST VOLUME IS STILL LATE. It is the collected edition of a serialisation that
+        # ran before it, so this moves the date toward the truth without claiming to reach it. It
+        # is taken only when it is EARLIER than what the row holds, so an ordinary work, serialised
+        # and then collected, keeps its serialisation date and is untouched.
+        _redated = 0
+        for _drow in series_rows:
+            _pf = [p3.get("first") for p3 in (_drow.get("print") or []) if p3.get("first")]
+            if not _pf:
+                continue
+            _earliest = min(_pf)
+            if _drow.get("first") and _earliest[:7] < _drow["first"][:7]:
+                _drow["first"] = _earliest
+                _redated += 1
+        if _redated:
+            print(f"first-publication dates moved back to a collected edition: {_redated}")
 
         # WHERE THE SHOP DISAGREES WITH A PLATFORM, the platform wins and the disagreement is
         # counted rather than dropped. A shop marking a series 完結 while its serialisation is
@@ -4240,15 +4289,15 @@ def main():
     # no id rather than a guess at which work it belongs to. That is identity.py's own rule about a
     # contested anchor, applied to the same question from the other side.
     _wid_by_work, _wid_ambiguous = {}, set()
-    for _srow in series_rows:
-        if not _srow.get("id"):
+    for _wrow in series_rows:
+        if not _wrow.get("id"):
             continue
-        _wkey = norm_work(_srow.get("work"))
-        if _wid_by_work.get(_wkey) not in (None, _srow["id"]):
+        _wkey = norm_work(_wrow.get("work"))
+        if _wid_by_work.get(_wkey) not in (None, _wrow["id"]):
             _wid_ambiguous.add(_wkey)
-        _wid_by_work.setdefault(_wkey, _srow["id"])
-        for _wsrc in (_srow.get("sources") or []):
-            _wid_by_work.setdefault((_wkey, _wsrc.get("platform")), _srow["id"])
+        _wid_by_work.setdefault(_wkey, _wrow["id"])
+        for _wsrc in (_wrow.get("sources") or []):
+            _wid_by_work.setdefault((_wkey, _wsrc.get("platform")), _wrow["id"])
     _wid_linked = 0
     for _frow in releases:
         _wkey = norm_work(_frow.get("work"))

@@ -13,6 +13,23 @@ import extract as m
 
 
 def main(s):
+    # ISBD's ` = ` introduces a 並列タイトル, transcribed from the book's own title page. Storing the
+    # whole string made cataloguing punctuation part of the name, and two records of one work then
+    # compared unequal: several pairs shipped as duplicates and were merged by hand.
+    s.eq(m.title_proper("リリィシステム = LILY SYSTEM"), "リリィシステム",
+         "the parallel title comes off the name")
+    s.eq(m.parallel_title("リリィシステム = LILY SYSTEM"), "LILY SYSTEM",
+         "and is kept, being the publisher's own English name")
+    # COUNTER-CASES, each a shape that must NOT split.
+    s.eq(m.title_proper("A = ビー"), "A = ビー",
+         "a parallel half holding Japanese is not a translation")
+    s.eq(m.title_proper("X = Y = Z"), "X = Y = Z",
+         "two marks make the split ambiguous, so nothing is guessed")
+    s.eq(m.title_proper("恋愛遺伝子XX : 完全版"), "恋愛遺伝子XX : 完全版",
+         "a colon introduces other title information and is left alone")
+    s.eq(m.parallel_title("ふつうの子"), "",
+         "a title with no parallel title yields none")
+
     # MADB hands the same logical field back as a string, a dict or a list depending on the record,
     # so every consumer would otherwise have to know all three shapes.
     s.eq(m.flat("plain"), "plain", "a string passes through")

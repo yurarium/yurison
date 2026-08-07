@@ -230,6 +230,43 @@ LABEL_IMPRINT = ("yuri",
                  "    publisher-side labelling under DEFINITIONS §4.")
 
 
+PARALLEL_TITLE = re.compile(r"^(?P<ja>.+?)\s*=\s*(?P<en>[^=]+)$")
+JAPANESE_TEXT = re.compile(r"[぀-ヿ㐀-鿿]")
+
+
+def title_proper(name):
+    """The title without the parallel title ISBD records after ` = `.
+
+    WHAT ` = ` MEANS. It introduces a 並列タイトル, the same title in another language, transcribed
+    from the book's own title page. `リリィシステム = LILY SYSTEM` is one work with one title and an
+    English name beside it, and storing the whole string made the cataloguing punctuation part of
+    the name. A reader saw it, a search had to match it, and two records of one work compared
+    unequal: several pairs were merged by hand after shipping as duplicates for exactly this.
+
+    THE ENGLISH HALF IS NOT DISCARDED. `parallel_title` returns it, and it is the publisher's own
+    English name, which is worth more than any romanisation we could derive.
+
+    ONLY A LATIN PARALLEL TITLE IS SPLIT. `A = B` where B holds Japanese is not a translation, and
+    8 records have that shape, so the whole string stays as written.
+    """
+    s = str(name or "").strip()
+    m = PARALLEL_TITLE.match(s)
+    # More than one ` = ` is not a title beside its translation, and guessing which half is the
+    # name would be inventing one. `X = Y = Z` stays whole.
+    if not m or s.count("=") != 1 or JAPANESE_TEXT.search(m.group("en")):
+        return s
+    return m.group("ja").strip()
+
+
+def parallel_title(name):
+    """The English name a title carries after ` = `, or '' where it carries none."""
+    s = str(name or "").strip()
+    m = PARALLEL_TITLE.match(s)
+    if not m or s.count("=") != 1 or JAPANESE_TEXT.search(m.group("en")):
+        return ""
+    return m.group("en").strip()
+
+
 def title_index(series):
     """`{normalised series title: series id}`, for volumes MADB has not linked to their series."""
     out = {}
@@ -442,8 +479,11 @@ def render(sid, vs, series, how, tag, retrieved, route, label, extra=()):
     L += [
         "record_type: manga_book_series",
         "title:",
-        f"  ja: {yaml_str(primary(s.get('schema:name', '')))}",
+        f"  ja: {yaml_str(title_proper(primary(s.get('schema:name', ''))))}",
     ]
+    if parallel_title(primary(s.get("schema:name", ""))):
+        L.append(f"  en: {yaml_str(parallel_title(primary(s.get('schema:name', ''))))}")
+        L.append("  en_basis: parallel-title")
     if reading(s.get("schema:name", "")):
         L.append(f"  yomi: {yaml_str(reading(s.get('schema:name', '')))}")
     # WHO PUBLISHED AND WHO DISTRIBUTED, kept apart, with the field they were read out of kept

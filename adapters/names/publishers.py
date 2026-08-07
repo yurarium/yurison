@@ -37,8 +37,18 @@ TWO RULES TRIED AND REJECTED, because both are the obvious shortcuts and both ar
 
 A name nobody has sourced stays Japanese, which is NAMES-PLAN §6 and costs a reader nothing.
 
-Usage:  publishers.py                 write the interface's file and print what is still unnamed
+WHERE THE MAP IS WRITTEN NOW. build.py, inside feed/names.json, under a `publishers` key. This
+module used to emit feed/publishers.json from deploy.sh, which made the interface fetch a second
+file and made the build finish before its own output existed. `publisher_map()` in build.py does
+the join and imports `publisher_of` and `imprint_of` from here, so the rule still has one copy.
+
+What is left here is the REPORT: which names the corpus carries, which of them the store can
+render, and the queue of the rest ordered by volumes. check.py's `publishers with no English`
+budget reads the same three functions.
+
+Usage:  publishers.py                 print what the store covers and what is still Japanese
         publishers.py --todo 40       print the queue, most-published first, and stop
+        publishers.py --out PATH      also write the old standalone map, for a one-off comparison
 """
 import argparse
 import json
@@ -171,17 +181,19 @@ def main(argv=None):
         print(f"\n{len(todo)} name(s) with no English; {min(a.todo, len(todo))} listed")
         return 0
 
-    out = pathlib.Path(a.out) if a.out else OUT
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(
-        {"note": "English for a publisher or an imprint, keyed by the string the catalogue holds "
-                 "and by the string the interface shows. `basis` says whose name it is: "
-                 "official-jp is the company's own and is shown unmarked, romaji is a Latin form "
-                 "of the Japanese and is ours.",
-         "count": len(out_names := {k: v for k, v in rendered.items()}),
-         "names": out_names}, ensure_ascii=False, indent=1))
+    # Only on request. The interface reads feed/names.json, which build.py writes; a file emitted
+    # here would be a second copy of the same fact with nothing forcing the two to agree.
+    if a.out:
+        out = pathlib.Path(a.out)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(
+            {"note": "English for a publisher or an imprint, keyed by the string the catalogue "
+                     "holds and by the string the interface shows. Written on request only; the "
+                     "interface reads the same map out of feed/names.json.",
+             "count": len(rendered), "names": rendered}, ensure_ascii=False, indent=1))
+        print(f"wrote {out}")
     print(f"publishers: {len(names)} name(s) in the corpus, {len(rendered)} key(s) with English, "
-          f"{len(todo)} still Japanese -> {out}")
+          f"{len(todo)} still Japanese")
     return 0
 
 

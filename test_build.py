@@ -512,6 +512,34 @@ def series_addresses(s):
     s.eq(b.series_address({"url": "https://comic-fuz.com/manga/2474"}, got), None,
          "a row whose own address is already the work's needs no second copy of it")
 
+    # THE PUBLISHER MAP THE INTERFACE READS. It ships inside feed/names.json now, and app.js looks
+    # a name up by the string it has after stripping the cataloguing. The map is keyed BOTH ways
+    # so a disagreement between the two normalisers costs a lookup the other key still answers.
+    _pub_store = {"講談社": {"en": "Kodansha", "basis": "official-jp"},
+                  "コミック百合姫": {"en": "Comic Yuri Hime", "basis": "official-jp"},
+                  "百合コレ": {}}
+    _rows = [{"print": [{"publisher": "[頒布]講談社", "imprint": "IDコミックス／Yuri-hime comics"},
+                        {"publisher": "講談社 (発売)", "imprint": "百合コレ"},
+                        {"publisher": "", "imprint": ""}]}]
+    _map = b.publisher_map(_pub_store, _rows)
+    s.eq(_map.get("講談社", {}).get("en"), "Kodansha",
+         "the name the interface asks with is a key")
+    s.eq(_map.get("[頒布]講談社", {}).get("en"), "Kodansha",
+         "and so is the catalogued string the cataloguing was stripped from")
+    s.eq(_map.get("講談社 (発売)", {}).get("en"), "Kodansha",
+         "a trailing distributor note is stripped to the same name")
+    s.eq(_map.get("コミック百合姫", {}).get("en"), "Comic Yuri Hime",
+         "an imprint spelled another way reaches its own entry")
+    # THE COUNTER-CASES. A store record with no `en` is a name nobody has sourced, and §6 says it
+    # renders as the Japanese it is; putting a key in the map with nothing behind it would make
+    # the interface print an empty publisher instead.
+    s.check("百合コレ" not in _map, "a store record with no English name ships no key")
+    s.check("" not in _map, "an empty publisher field contributes no key")
+    s.eq(b.publisher_map({}, _rows), {}, "an empty store maps nothing rather than raising")
+    s.eq(b.publisher_map(_pub_store, []), {}, "no rows map nothing")
+    s.eq(_map.get("講談社", {}).get("basis"), "official-jp",
+         "the basis travels with the name, so the interface can say whose name it is")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

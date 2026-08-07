@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-07T23:10:24+00:00",
+ "generated": "2026-08-07T23:32:49+00:00",
  "since_last": {
-  "at": "2026-08-07T23:05:37+00:00",
+  "at": "2026-08-07T23:10:24+00:00",
   "statistics": {}
  },
  "means": {
@@ -166,8 +166,8 @@
    {
     "name": "one page cited for two claims",
     "means": "records whose reading and whose English name cite the same page while naming different kinds of source, so at most one of the two can be right about where it came from. A rise means an entry carried one address for two claims again.",
-    "budget": 25,
-    "value": 25
+    "budget": 12,
+    "value": 12
    },
    {
     "name": "labels with nothing to quote",
@@ -500,7 +500,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-07T23:05:36+00:00",
+  "previous_at": "2026-08-07T23:10:23+00:00",
   "drops": []
  },
  "outstanding": [
@@ -702,7 +702,7 @@
     "kana names with no stated division": 263,
     "labels with nothing to quote": 0,
     "names rendered two ways": 2,
-    "one page cited for two claims": 25,
+    "one page cited for two claims": 12,
     "publisher keys the interface misses": 0,
     "publishers with no English": 0,
     "renderings with nothing to show": 46,

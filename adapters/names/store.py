@@ -338,6 +338,22 @@ class NameStore:
                 ("reading", "reading_basis", "reading_conflicts", same_reading)):
             new = fact.get(value_key)
             old = cur.get(value_key)
+            # A CITATION THE FILE NO LONGER CARRIES LEAVES THE RECORD, and this runs before the
+            # early exit below because the value staying the same is exactly when it was needed.
+            # record() drops every None before _apply is reached, which is right for a pass saying
+            # only what it learned and wrong for the file that is the decision of record: a
+            # source_url deleted from an entry stayed in the store, and re-applying could not
+            # remove it. 真先輩の前ではかっこつけられない! cited the National Diet Library for OUR
+            # translation because the address had first been written in the entry-wide field, and
+            # moving it to reading_url left the wrong one behind for anyone to read.
+            #
+            # Only for a claim the file actually makes. An entry that says nothing about a reading
+            # is not asking for the reading's citation to be thrown away.
+            if new is not None:
+                for shared, dst in self._stamped(value_key):
+                    if shared in ("at", "pass") or dst in fact or shared in fact:
+                        continue
+                    cur.pop(dst, None)
             if new is None or old is None or new == old:
                 continue
             if not (agrees and agrees(new, old)):

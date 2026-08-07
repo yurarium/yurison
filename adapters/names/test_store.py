@@ -108,6 +108,32 @@ def main(s):
         s.check(st.records["titles"]["まだ機械のまま"].get("reading_uncertain"),
                 "and a reading still the analyser's keeps its mark")
 
+    # A CITATION THE FILE STOPPED CARRYING LEAVES THE RECORD. record() filters None out of the fact
+    # before _apply sees it, so a key deleted from an entry was indistinguishable from one never
+    # written: the store kept the old value and re-applying could not remove it. Found on
+    # 真先輩の前ではかっこつけられない!, whose English is ours and cited the National Diet Library,
+    # because the address had been written entry-wide before it moved to reading_url.
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        st2 = store.NameStore(d)
+        st2.record("titles", "X", en="An English Name", basis="translated", source="ndl",
+                   source_url="https://example.invalid/rec", source_kind="national-library",
+                   supersede=True)
+        s.eq(st2.records["titles"]["X"].get("en_url"), "https://example.invalid/rec",
+             "the citation lands on the claim")
+        st2.record("titles", "X", en="An English Name", basis="translated",
+                   source="yurarium", source_kind="derived", supersede=True)
+        s.check("en_url" not in st2.records["titles"]["X"],
+                "and a citation the file stopped carrying leaves the record")
+        # A claim the file says nothing about keeps its own page.
+        st2.record("titles", "X", reading="ヨミ", reading_basis="stated",
+                   reading_source="national-library", reading_url="https://example.invalid/yomi",
+                   supersede=True)
+        st2.record("titles", "X", en="Another Name", basis="translated", supersede=True)
+        s.eq(st2.records["titles"]["X"].get("reading_url"), "https://example.invalid/yomi",
+             "an entry silent about the reading does not strip the reading's page")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "store"))
+

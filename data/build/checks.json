@@ -70,14 +70,19 @@
    "name": "undated works say where and why",
    "violations": 0,
    "examples": []
+  },
+  {
+   "name": "per-book dates cite their page",
+   "violations": 0,
+   "examples": []
   }
  ],
  "budgets": [
   {
    "name": "uncertain readings",
    "means": "readings assembled character by character because no analyser could read the word. A rise means new works whose kanji nothing can read, or a regression in the analyser passes.",
-   "budget": 59,
-   "value": 59
+   "budget": 52,
+   "value": 52
   },
   {
    "name": "works without English",
@@ -94,8 +99,8 @@
   {
    "name": "incomplete attested rows",
    "means": "attested releases missing a chapter name, author or access state. The classic sign of a moved CSS selector — the adapter still returns rows, just emptier ones.",
-   "budget": 17,
-   "value": 17
+   "budget": 16,
+   "value": 16
   },
   {
    "name": "stock phrasing in comments",
@@ -130,14 +135,14 @@
   {
    "name": "bookwalker listings unconfirmed",
    "means": "BOOK☆WALKER rows whose series listing was read before the reader compared what it read against the shop's own 全N件. Until 2026-08-06 the last row of a listing swallowed the markup printed underneath it and was identified by the related-series link in there, so it was dropped; a listing is sorted newest first, so the row dropped is the OLDEST volume and `first_publication` is the earliest date across the volumes read. Falls as adapters/recon/bookwalker_volumes.py --follow-series re-reads them, and reaches zero, because every row counted here names a series to fetch.",
-   "budget": 1629,
-   "value": 1621
+   "budget": 550,
+   "value": 542
   },
   {
    "name": "undated cmoa candidates",
    "means": "the same count for the コミックシーモア half of the queue, falling as adapters/cmoa_volumes.py works through it. Its floor is high and known: cmoa states an ISBN or an 出版年月 only where a volume was printed, and 754 of the 1,844 rows come from two digital distributors whose pages carry neither.",
-   "budget": 1269,
-   "value": 1269
+   "budget": 1220,
+   "value": 1220
   },
   {
    "name": "three as an organising shape",

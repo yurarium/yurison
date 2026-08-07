@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-06T22:56:06+00:00",
+ "generated": "2026-08-07T00:17:15+00:00",
  "since_last": {
-  "at": "2026-08-06T22:56:03+00:00",
+  "at": "2026-08-06T23:09:38+00:00",
   "statistics": {}
  },
  "means": {
@@ -21,24 +21,24 @@
   "with_identifier": "works carrying an identifier"
  },
  "last_run": {
-  "at": "2026-08-06",
-  "releases": 1067,
+  "at": "2026-08-07",
+  "releases": 1062,
   "works": 2242,
   "platforms": 22,
   "series_rows": 3096,
   "identification": {
-   "discovery-candidate": 763,
+   "discovery-candidate": 758,
    "platform-genre": 304
   },
   "collapsed": {
    "duplicate_chapters": 78,
    "thin_sitemap": 8,
-   "resolver": 53,
+   "resolver": 52,
    "samples": 36
   }
  },
  "gate": {
-  "invariants_passing": 11,
+  "invariants_passing": 12,
   "invariants": [
    {
     "name": "ruby spells the reading",
@@ -94,14 +94,19 @@
     "name": "undated works say where and why",
     "violations": 0,
     "examples": []
+   },
+   {
+    "name": "per-book dates cite their page",
+    "violations": 0,
+    "examples": []
    }
   ],
   "budgets": [
    {
     "name": "uncertain readings",
     "means": "readings assembled character by character because no analyser could read the word. A rise means new works whose kanji nothing can read, or a regression in the analyser passes.",
-    "budget": 59,
-    "value": 59
+    "budget": 52,
+    "value": 52
    },
    {
     "name": "works without English",
@@ -118,8 +123,8 @@
    {
     "name": "incomplete attested rows",
     "means": "attested releases missing a chapter name, author or access state. The classic sign of a moved CSS selector — the adapter still returns rows, just emptier ones.",
-    "budget": 17,
-    "value": 17
+    "budget": 16,
+    "value": 16
    },
    {
     "name": "captures with no floor",
@@ -142,21 +147,20 @@
    {
     "name": "bookwalker listings unconfirmed",
     "means": "BOOK☆WALKER rows whose series listing was read before the reader compared what it read against the shop's own 全N件. Until 2026-08-06 the last row of a listing swallowed the markup printed underneath it and was identified by the related-series link in there, so it was dropped; a listing is sorted newest first, so the row dropped is the OLDEST volume and `first_publication` is the earliest date across the volumes read. Falls as adapters/recon/bookwalker_volumes.py --follow-series re-reads them, and reaches zero, because every row counted here names a series to fetch.",
-    "budget": 1667,
-    "value": 1661
+    "budget": 581,
+    "value": 575
    },
    {
     "name": "undated cmoa candidates",
     "means": "the same count for the コミックシーモア half of the queue, falling as adapters/cmoa_volumes.py works through it. Its floor is high and known: cmoa states an ISBN or an 出版年月 only where a volume was printed, and 754 of the 1,844 rows come from two digital distributors whose pages carry neither.",
-    "budget": 1269,
-    "value": 1269
+    "budget": 1220,
+    "value": 1220
    },
    {
     "name": "scraped counters in chapter names",
     "means": "chapter names ending in the view or like counts printed next to them on the source page. A rise means an extractor has gone back to flattening a chapter block into one run of text instead of reading the element the page names as the title.",
     "budget": 1,
-    "value": null,
-    "not_measured": "source-quality budget; measured at check-in"
+    "value": 1
    }
   ]
  },
@@ -167,7 +171,7 @@
    "works": 246,
    "rows": 246,
    "retrieved": "2026-08-02",
-   "age_days": 4,
+   "age_days": 5,
    "in_scope": true,
    "empty": false,
    "checked_rows": 0,
@@ -181,7 +185,7 @@
    "works": 43,
    "rows": 2389,
    "retrieved": "2026-08-03",
-   "age_days": 3,
+   "age_days": 4,
    "in_scope": true,
    "empty": false,
    "checked_rows": 2384,
@@ -195,7 +199,7 @@
    "works": 190,
    "rows": 190,
    "retrieved": "2026-08-03",
-   "age_days": 3,
+   "age_days": 4,
    "in_scope": true,
    "empty": false,
    "checked_rows": 0,
@@ -207,9 +211,9 @@
    "source": "bookwalker",
    "files": 1644,
    "works": 1644,
-   "rows": 4392,
+   "rows": 3938,
    "retrieved": "2026-08-05",
-   "age_days": 1,
+   "age_days": 2,
    "in_scope": true,
    "empty": false,
    "checked_rows": 0,
@@ -223,7 +227,7 @@
    "works": 9,
    "rows": 9,
    "retrieved": "2026-08-05",
-   "age_days": 1,
+   "age_days": 2,
    "in_scope": true,
    "empty": false,
    "checked_rows": 0,
@@ -237,7 +241,7 @@
    "works": 598,
    "rows": 1310,
    "retrieved": "2026-08-05",
-   "age_days": 1,
+   "age_days": 2,
    "in_scope": true,
    "empty": false,
    "checked_rows": 0,
@@ -251,7 +255,7 @@
    "works": 661,
    "rows": 7712,
    "retrieved": "2026-08-06",
-   "age_days": 0,
+   "age_days": 1,
    "in_scope": true,
    "empty": false,
    "checked_rows": 7637,
@@ -265,7 +269,7 @@
    "works": 769,
    "rows": 5473,
    "retrieved": "2026-08-06",
-   "age_days": 0,
+   "age_days": 1,
    "in_scope": true,
    "empty": false,
    "checked_rows": 4958,
@@ -279,7 +283,7 @@
    "works": 57,
    "rows": 57,
    "retrieved": "2026-08-06",
-   "age_days": 0,
+   "age_days": 1,
    "in_scope": true,
    "empty": false,
    "checked_rows": 0,
@@ -293,7 +297,7 @@
    "works": 509,
    "rows": 1098,
    "retrieved": "2026-08-06",
-   "age_days": 0,
+   "age_days": 1,
    "in_scope": true,
    "empty": false,
    "checked_rows": 0,
@@ -304,9 +308,9 @@
   {
    "source": "webpages",
    "files": 37,
-   "works": 530,
-   "rows": 7711,
-   "retrieved": "2026-08-06",
+   "works": 531,
+   "rows": 7712,
+   "retrieved": "2026-08-07",
    "age_days": 0,
    "in_scope": true,
    "empty": false,
@@ -318,7 +322,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-06T22:55:54+00:00",
+  "previous_at": "2026-08-06T23:09:29+00:00",
   "drops": []
  },
  "outstanding": [
@@ -496,13 +500,13 @@
    "count": 9,
    "what": "Bring down counts that may only ratchet downward",
    "rows": {
-    "bookwalker listings unconfirmed": 1660,
+    "bookwalker listings unconfirmed": 581,
     "bookwalker series unread": 0,
     "captures with no floor": 11,
-    "incomplete attested rows": 17,
+    "incomplete attested rows": 16,
     "scraped counters in chapter names": 1,
-    "uncertain readings": 59,
-    "undated cmoa candidates": 1269,
+    "uncertain readings": 52,
+    "undated cmoa candidates": 1220,
     "unreadable bookwalker rows": 15,
     "works showing a romanisation": 160,
     "works without English": 105
@@ -529,7 +533,7 @@
   },
   "print_works": 2234,
   "print_only": 2076,
-  "volumes": 5702,
+  "volumes": 5224,
   "with_identifier": 3096,
   "chapters": 17680
  }

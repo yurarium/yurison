@@ -229,6 +229,10 @@ def main(argv=None):
              f"publisher: {js(r['publisher'] or '')}",
              f"imprint: {js(r['imprint'] or '')}",
              f"volume_count: {r['volume_count']}"]
+        # A release the shop sells one chapter at a time says so, and says how many, so nothing
+        # downstream has to infer it from a volume count of zero.
+        if r.get("chapterwise"):
+            L += ["chapterwise: true", f"chapter_count: {r['chapter_count']}"]
         if r.get("first_published"):
             L.append(f"first_published: {js(r['first_published'])}")
         else:

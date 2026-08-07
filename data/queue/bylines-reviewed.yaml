@@ -15,6 +15,17 @@
 # gap in this file: it says the search was run and came back empty.
 reviewed: 2026-08-06
 works:
+  - work_title: "プリンセ「ス」"
+    author: "やだてひろし"
+    url: "https://www.123hon.com/nova/web-comic/princess/"
+    note: >-
+      The publisher states it in the banner and nowhere in the markup. The work's own page on
+      コミックノヴァ carries no byline, no copyright line and no metadata naming an artist, which is
+      why every text search of it came back empty. The banner image itself reads
+      「漫画：やだてひろし」 beside the work's title and its 第1回一二三書房マンガ大賞 銀賞. A previous
+      pass recorded this work as unresolved after searching the site, the award announcement and
+      ニコニコ漫画; all of those were text searches, and the credit was never in the text.
+
   - work_title: "かわいい同盟"
     author: "南文夏"
     url: "https://manga-one.com/manga/26962/chapter/290902"
@@ -269,15 +280,6 @@ print_works:
       rather than a 百合姫 book, which is why the shop credits it differently from its neighbours.
 
 unresolved:
-  - work_title: "プリンセ「ス」"
-    url: "https://www.123hon.com/nova/web-comic/princess/"
-    note: >-
-      No source states who drew it. The work's own page on コミックノヴァ carries no byline and no
-      copyright line, unlike its neighbours; it is a 特別掲載 of a 第一回一二三書房マンガ大賞銀賞
-      entry, has no 単行本 and no catalogue record, and the viewer that holds the pages refuses its
-      own metadata files. Searched: the publisher's site and its 単行本 listing, the award
-      announcement, and ニコニコ漫画's コミックノヴァ index, which does not carry the work at all.
-
   - work_id: C364412
     work_title: "Girls Love"
     url: "https://data.ichijinsha.co.jp/detail/75807161"

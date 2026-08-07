@@ -13,7 +13,7 @@
 source: webpages
 platform: bylines
 platform_name: ""
-retrieved: 2026-08-06
+retrieved: 2026-08-07
 record_type: web_work_credit
 identification_mode: known-work
 works:
@@ -93,6 +93,10 @@ works:
   - work_title: "バニーズクエスト"
     url: "https://yanmaga.jp/comics/%E3%83%90%E3%83%8B%E3%83%BC%E3%82%BA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88"
     author: "戸崎映"
+  - work_title: "プリンセ「ス」"
+    url: "https://www.123hon.com/nova/web-comic/princess/"
+    author: "やだてひろし"
+    note: "The publisher states it in the banner and nowhere in the markup. The work's own page on コミックノヴァ carries no byline, no copyright line and no metadata naming an artist, which is why every text search of it came back empty. The banner image itself reads 「漫画：やだてひろし」 beside the work's title and its 第1回一二三書房マンガ大賞 銀賞. A previous pass recorded this work as unresolved after searching the site, the award announcement and ニコニコ漫画; all of those were text searches, and the credit was never in the text."
   - work_title: "マルジナルテイラ"
     url: "https://yanmaga.jp/comics/%E3%83%9E%E3%83%AB%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A4%E3%83%A9"
     author: "limlim"
@@ -403,9 +407,6 @@ not_a_person:
     credit: "Be編集部"
 # Searched and not found. Not a queue: each of these says what was looked at.
 unresolved:
-  - work_title: "プリンセ「ス」"
-    url: "https://www.123hon.com/vw/manga_award/princess/sv_pt0006242aefa1d5b9/index.html"
-    note: "No source states who drew it. The work's own page on コミックノヴァ carries no byline and no copyright line, unlike its neighbours; it is a 特別掲載 of a 第一回一二三書房マンガ大賞銀賞 entry, has no 単行本 and no catalogue record, and the viewer that holds the pages refuses its own metadata files. Searched: the publisher's site and its 単行本 listing, the award announcement, and ニコニコ漫画's コミックノヴァ index, which does not carry the work at all."
   - work_title: "Girls Love"
     work_id: "C364412"
     note: "No source states the line-up. This is the second Girls Love volume, ISBN 9784758071611 from 2011; 一迅社's own book database 404s on it as it does on everything of that age, and コミックシーモア files the title under `アンソロジー`, which names nobody. Searched: the publisher's database, its 百合姫 title pages, and コミックシーモア."

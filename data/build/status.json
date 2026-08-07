@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-07T22:30:10+00:00",
+ "generated": "2026-08-07T22:51:03+00:00",
  "since_last": {
-  "at": "2026-08-07T22:22:34+00:00",
+  "at": "2026-08-07T22:45:03+00:00",
   "statistics": {}
  },
  "means": {
@@ -156,7 +156,7 @@
    {
     "name": "one page cited for two claims",
     "means": "records whose reading and whose English name cite the same page while naming different kinds of source, so at most one of the two can be right about where it came from. A rise means an entry carried one address for two claims again.",
-    "budget": 24,
+    "budget": 25,
     "value": 25
    },
    {
@@ -285,6 +285,12 @@
     "budget": 1,
     "value": null,
     "not_measured": "source-quality budget; measured at check-in"
+   },
+   {
+    "name": "updates naming a work we do not hold",
+    "means": "release rows whose work has no record, so the row links to the platform and nowhere else and the work cannot be browsed, searched or classified. Coverage stated as a deficit, because there is no floor to hold it up: it falls as the works are judged against DEFINITIONS §2 and given records, and it reaches zero, since every row counted here names a work to decide about. A rise means a discovery pass has started reporting updates for works no capture covers. Rulings already made are in data/queue/unheld-works.yaml and reduce nothing.",
+    "budget": 29,
+    "value": 29
    },
    {
     "name": "rows with a moving address",
@@ -466,7 +472,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-07T22:22:33+00:00",
+  "previous_at": "2026-08-07T22:45:02+00:00",
   "drops": []
  },
  "outstanding": [
@@ -652,7 +658,7 @@
   {
    "kind": "debt",
    "key": "data_debts",
-   "count": 17,
+   "count": 18,
    "what": "Bring down counts that may only ratchet downward",
    "rows": {
     "bookwalker listings unconfirmed": 0,
@@ -667,7 +673,7 @@
     "incomplete attested rows": 16,
     "kana names with no stated division": 263,
     "labels with nothing to quote": 0,
-    "one page cited for two claims": 24,
+    "one page cited for two claims": 25,
     "publishers with no English": 32,
     "renderings with nothing to show": 46,
     "rows with a moving address": 0,
@@ -677,6 +683,7 @@
     "uncertain readings": 74,
     "undated cmoa candidates": 1220,
     "unreadable bookwalker rows": 15,
+    "updates naming a work we do not hold": 29,
     "works showing a romanisation": 175,
     "works without English": 105
    }

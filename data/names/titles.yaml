@@ -25479,8 +25479,10 @@ names:
     furigana_spans:
     - - サチとユーカ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The book's own English title. openBD carries the publisher's registration for 9784785972790
+      with the title 「サチとユーカ = SACHI and YUUKA」, pairing the Japanese with SACHI and YUUKA, which is how
+      the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than
+      a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
     reading: サチ ト ユーカ
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -26010,8 +26012,9 @@ names:
       - ゆり
     - - アンソロジー
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The catalogue prints the katakana and the Latin together, so the anthology's own name is settled
+      and only the subtitle needs work. 人外 is everything outside the human, monsters and spirits alike,
+      and the × is the pairing mark these anthologies use.
     reading: 'シナモン   :   ジンガイ × ニンゲン ユリ アンソロジー'
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -26336,8 +26339,8 @@ names:
       - ゆり
     - - アンソロジー
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The Latin half of the title is the book's own gloss on the katakana, which is what the equals
+      sign is doing. 社会人 is somebody who has left school and works.
     reading: 'シロップ   :   シャカイジン ユリ アンソロジー'
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -27373,8 +27376,8 @@ names:
     en_source: mediaarts-db
     en_source_kind: bibliography
     en_url: https://mediaarts-db.artmuseums.go.jp/id/C419713
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: セイキマツブルー
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -33565,8 +33568,11 @@ names:
     en_source: openBD
     en_source_kind: publisher-jp
     en_url: https://api.openbd.jp/v1/get?isbn=9784046822277
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The book's own English title. openBD carries the publisher's registration for 9784046822277
+      with the title 「ラストサマー・バケーション = LAST SUMMER VACATION」, pairing the Japanese with LAST SUMMER VACATION,
+      which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name
+      rather than a rendering made here, and it is kept verbatim including its own capitalisation and
+      spacing.
     reading: ラスト サマー・ バケーション
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -35063,8 +35069,9 @@ names:
       - ゆり
     - - アンソロジー
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The catalogue prints the Latin beside the katakana, so the flower's name is settled. 主従 is the
+      master and servant relation as a pair, and the anthology's pairings are women, so mistress reads
+      truer than master.
     reading: 'ローダンセ   :   シュジュウ ユリ アンソロジー'
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -53880,8 +53887,10 @@ names:
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'The catalogue prints the book''s own Latin line beside the Japanese, which settles the ambiguity
+      in 抱かれたい女: the wanting is hers. The bracketed ひと is the work''s own gloss, telling the reader to
+      say 女 as person. JD clips 女子大生 and アラサー is around thirty, both stated in full because the shorthand
+      means nothing in English.'
     reading: 'イダカレタイ オンナ   :   JDダケド アラサー ジョシ ニ カワレテ イマス'
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -57487,8 +57496,11 @@ names:
       - いじ
     - - 部
       - ぶ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The book's own English title. openBD carries the publisher's registration for 9784778322960
+      with the title 「杉並区立魔法女学園平和維持部 = peace keeping club of suginami municipal school for witches」, pairing
+      the Japanese with peace keeping club of suginami municipal school for witches, which is how the
+      title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a
+      rendering made here, and it is kept verbatim including its own capitalisation and spacing.
     reading: スギナミ クリツ マホウ ジョガクエン ヘイワ イジ ブ
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -65009,32 +65021,34 @@ names:
     verified: false
   真先輩の前ではかっこつけられない！:
     basis: translated
-    en: I Can't Act Cool in Front of Shin-senpai!
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
+    en: I Can't Act Cool in Front of Makoto-senpai!
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: I Can't Act Cool in Front of Shin-senpai!
+    en_reviewed: '2026-08-07'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 真
-      - ま
-    - - 先輩
-      - せんぱい
-    - - の
-      - null
-    - - 前
-      - まえ
-    - - ではかっこつけられない！
-      - null
-    note: 真, Shin, is a name and stays one, but the synopsis calls her 真のイケメン女子, the "true" handsome-girl
+    note: 真, Makoto, is a name and stays one, but the synopsis calls her 真のイケメン女子, the "true" handsome-girl
       type, punning on her own name meaning genuine; the narrator, who works hard at the same persona,
       admits she cannot keep it up around the real thing.
-    reading: マ センパイ ノ マエ デ ワ カッコ ツケラレナイ！
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: マコト センパイ ノ マエ デワ カッコ ツケラレナイ
+    reading_at: '2026-08-07'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: マ センパイ ノ マエ デ ワ カッコ ツケラレナイ！
+    reading_note: The National Diet Library records the title reading as マコト センパイ, so 真 is マコト. The store
+      had assembled マ from the character alone and this entry had rendered it Shin, which are three answers
+      to one question and at most one of them could be right. 真 as a given name is ordinarily マコト; マ and
+      シン are readings the character takes in compounds, and neither is how a person is addressed.
+    reading_reviewed: '2026-08-07'
+    reading_source: national-library
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034365235
+    verified: true
   真夏のスピカ:
     basis: translated
     en: Midsummer's Spica

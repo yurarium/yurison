@@ -316,6 +316,20 @@ read-only to it.
 at a time is what makes a red gate attributable: it belongs to the branch being merged. Delete the
 worktree once its branch is in, so a stale checkout cannot be worked in by mistake.
 
+**A budget measured on a branch is true of that branch alone.** Budgets ratchet down on a green
+run, so an isolated branch records what its own copy of the tree measures. `work/independent-checks`
+ratcheted `stock phrasing in comments` to 891 against its own `check.py`; main measured 896 and had
+before the branch existed. Taking the branch's figure across would have written a tightening nobody
+achieved, and the next green run on main would have failed against it.
+
+So a merge conflict in `docs/budgets.json` is not resolved by choosing a side. Take the union of the
+keys, then RE-MEASURE by running the gate on the merge result, and record what it reports. The
+smaller of two numbers is not the right answer either: each was measured against a different tree.
+
+Two things follow. A budget whose name disappeared with the function behind it is dropped rather
+than merged, or the file grows entries nothing computes. And a branch that renames a budget should
+say so in its report, because the integrator is the only one who can see both names at once.
+
 ## 14b. A check must not share its subject's blind spot
 
 `--self-test` proves a check CAN fail. It does not prove the check can fail on anything the pipeline

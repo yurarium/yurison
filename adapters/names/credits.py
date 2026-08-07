@@ -21,6 +21,11 @@ PRESENTED and the record keeps the field intact.
 import re
 import unicodedata
 
+# A control's own label, scraped out of a page and handed over as a credit. Exact matches only: a
+# name containing one of these words is a name, and this is a list of buttons.
+FURNITURE = {"フォローする", "フォロー", "お気に入り", "お気に入りに追加", "作品をフォロー",
+             "Follow", "follow", "シェア", "share"}
+
 SPLIT = re.compile(r"\s*/\s*")
 
 # THE SEPARATORS A CREDIT FIELD PUNCTUATES WITH. A series row writes ` / ` and a releases row
@@ -179,9 +184,15 @@ def split_credits(raw):
     the field it replaces read. A releases row that arrived comma-separated must not come back
     slash-separated: the reader would see one row punctuated unlike every row around it.
     """
-    s = str(raw or "")
+    # HTML ENTITIES AND PAGE FURNITURE ARE NOT NAMES. A rendered-page capture handed us
+    # `&nbsp;フォローする`, which is a Follow button, and `大島永遠&amp;大島智`, which is two people
+    # joined by an ampersand the escape hid. Unescaping first makes the second a credit and leaves
+    # the first as furniture, and the reject list holds only strings that are a control's own label.
+    import html as _html
+    s = _html.unescape(str(raw or "")).replace("\u00a0", " ")
     from names.inputs import split_authors
     parts = [n for n, _reading in split_authors(s, interpunct=False) if n]
+    parts = [n for n in parts if n not in FURNITURE]
     joiner = " / " if re.search(r"[/／]", s) else ("、" if "、" in s else ", ")
     return parts, joiner
 

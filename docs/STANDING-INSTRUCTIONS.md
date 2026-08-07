@@ -285,6 +285,37 @@ taken again when the population grows.
 
 A second source of mixed character would make this a rule with two exceptions, which is the point
 at which the sentence at the top should be rewritten instead of qualified.
+## 14a. An agent works in its own tree, on its own branch
+
+Two sessions editing one working tree cost us most of a day. A commit staged by explicit path still
+swept another session's half-finished line into it. A push was blocked for hours by a module the
+other session had not finished testing. A gate read NO GO for reasons neither session had caused,
+so neither could tell whether its own work was sound. A `git checkout` to undo a mistake was refused
+by policy, correctly, because it would have destroyed work that was not the author's.
+
+§16 exists because of those, and it is a rule about care. This is the rule that removes the need for
+care: **give every agent its own worktree and its own branch, and integrate serially afterwards.**
+
+```
+git worktree add ../wt-<name> -b agent/<name>
+```
+
+**Place worktrees as SIBLINGS of the repositories**, at `Development/yuri/wt-<name>`, so that
+`../yurarium.github.io` still resolves and `check.py`, `deploy.sh` and the tests all work with no
+environment override. A worktree nested inside a repository breaks that path and is worth nothing.
+
+The Agent tool's own `isolation: "worktree"` does not work here, because the directory the agents are
+launched from is not itself a repository; the two repositories are its children. Create the worktree
+by hand and name it in the agent's first line.
+
+Two agents in two worktrees still land on one branch eventually, so a file both of them edit is a
+conflict deferred and not avoided. Say in each brief which paths that agent owns and which are
+read-only to it.
+
+**Nobody pushes but the integrator.** An agent commits to its branch and stops. Merging one branch
+at a time is what makes a red gate attributable: it belongs to the branch being merged. Delete the
+worktree once its branch is in, so a stale checkout cannot be worked in by mistake.
+
 ## 15. Layout changes ask what kind of control it is
 
 Every control in the interface falls into one of the kinds below, and which one decides where it

@@ -50,6 +50,21 @@ def main(s):
     # Duplicates collapse: the same person credited twice is one person.
     s.eq(names("宮澤伊織 / 宮澤伊織"), ["宮澤伊織"], "a repeated name appears once")
 
+    # `ほか` CLOSES A CREDIT AND IS NOT A CONTRIBUTOR. The bibliography writes an anthology as
+    # `浅見百合子 ほか`, and a space is not a separator here by design, so the whole string was one
+    # person. THE BUG THIS PINS: 奏 : 青春バンド百合アンソロジー was refused a join to the ニコニコ
+    # page that names 浅見百合子 first of nine, because the name we were matching with was
+    # "浅見百合子 ほか" and nobody is called that.
+    s.eq(names("浅見百合子 ほか"), ["浅見百合子"], "ほか after a name is not a second person")
+    s.eq(names("昆布わかめ / 他"), ["昆布わかめ"], "and neither is 他 as a part of its own")
+    s.eq(names("柚原もけ / 入間人間 / ほか"), ["柚原もけ", "入間人間"],
+         "the named contributors survive it")
+
+    # THE COUNTER-CASE. Those two characters occur inside real names, and the rule only fires
+    # after whitespace or on a part of its own.
+    s.eq(names("ほかり"), ["ほかり"], "a name beginning with them is untouched")
+    s.eq(names("山田他郎"), ["山田他郎"], "and so is one containing 他")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "names.inputs"))

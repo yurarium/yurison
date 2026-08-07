@@ -58,6 +58,14 @@ ROLE_BREAK = re.compile(r"[\s　]+(?=(?:%s)\s*[:：])" % "|".join(map(re.escape,
 ROLE_TAIL = re.compile(r"[\s　]+(?:%s)\s*$"
                        % "|".join(re.escape(r) for r in ROLES if len(r) > 1))
 
+# `ほか` closes a credit line that names some of its contributors and stops. The bibliography
+# writes an anthology as `浅見百合子 ほか` and, where it used the slash, as `… / ほか`. A space is
+# not a separator here by design, so without this the whole string is one person called
+# "浅見百合子 ほか". Nobody is called that, so it matched nobody, and it refused a join to the
+# ニコニコ page that names 浅見百合子 first among nine. It fires only after whitespace or on a part
+# of its own, so a pen name with those two characters inside it is untouched.
+OTHERS_TAIL = re.compile(r"[\s　]+(?:ほか|他)\s*$")
+
 MASK = "\ue000"  # private-use stand-in for a separator that must survive the split
 
 # Strings that arrive in the author position without being people. `ヨン / 読切` is one author and a
@@ -65,7 +73,8 @@ MASK = "\ue000"  # private-use stand-in for a separator that must survive the sp
 # get a pass 3 search query spent on the word "one-shot". These are dropped at the source rather
 # than filtered later, so no pass ever has to know about them.
 NOT_A_NAME = {"読切", "読み切り", "連載", "新連載", "完結", "番外編", "特別編", "出張版", "前編",
-              "後編", "中編", "無料", "試し読み", "オリジナル", "不明", "作者不明", "その他"}
+              "後編", "中編", "無料", "試し読み", "オリジナル", "不明", "作者不明", "その他",
+              "ほか", "他"}
 
 BRACKETS = [("（", "）"), ("(", ")"), ("〔", "〕"), ("【", "】"), ("[", "]")]
 BRACKETED = re.compile(r"[（(〔【\[]([^）)〕】\]]*)[）)〕】\]]")
@@ -106,7 +115,7 @@ def split_authors(credit):
         p = raw.replace(MASK, "・").strip()
         if not p or ROLE_ONLY.match(p):
             continue
-        p = ROLE_TAIL.sub("", ROLE_HEAD.sub("", p)).strip()
+        p = OTHERS_TAIL.sub("", ROLE_TAIL.sub("", ROLE_HEAD.sub("", p))).strip()
         name, reading = _peel_bracket(p)
         name = name.strip(" 　:：")
         if not name or ROLE_ONLY.match(name) or name in NOT_A_NAME:

@@ -12,6 +12,10 @@ Usage:  extract.py --cache $YURI_CACHE/madb-cache/1.2.18 --tag 1.2.18 --out data
 import argparse, hashlib, json, pathlib, re, sys, unicodedata
 from collections import Counter, defaultdict, namedtuple
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+
+import isbd                                                                    # noqa: E402
+
 # Imprint patterns identifying the 一迅社 百合姫 line. Matched against a normalised schema:brand.
 # MADB spells this at least seven ways; see docs/MADB.md.
 IMPRINTS = ("yurihimecomics", "コミック百合姫", "百合姫コミックス", "百合姫books")
@@ -230,41 +234,14 @@ LABEL_IMPRINT = ("yuri",
                  "    publisher-side labelling under DEFINITIONS §4.")
 
 
-PARALLEL_TITLE = re.compile(r"^(?P<ja>.+?)\s*=\s*(?P<en>[^=]+)$")
-JAPANESE_TEXT = re.compile(r"[぀-ヿ㐀-鿿]")
-
-
-def title_proper(name):
-    """The title without the parallel title ISBD records after ` = `.
-
-    WHAT ` = ` MEANS. It introduces a 並列タイトル, the same title in another language, transcribed
-    from the book's own title page. `リリィシステム = LILY SYSTEM` is one work with one title and an
-    English name beside it, and storing the whole string made the cataloguing punctuation part of
-    the name. A reader saw it, a search had to match it, and two records of one work compared
-    unequal: several pairs were merged by hand after shipping as duplicates for exactly this.
-
-    THE ENGLISH HALF IS NOT DISCARDED. `parallel_title` returns it, and it is the publisher's own
-    English name, which is worth more than any romanisation we could derive.
-
-    ONLY A LATIN PARALLEL TITLE IS SPLIT. `A = B` where B holds Japanese is not a translation, and
-    8 records have that shape, so the whole string stays as written.
-    """
-    s = str(name or "").strip()
-    m = PARALLEL_TITLE.match(s)
-    # More than one ` = ` is not a title beside its translation, and guessing which half is the
-    # name would be inventing one. `X = Y = Z` stays whole.
-    if not m or s.count("=") != 1 or JAPANESE_TEXT.search(m.group("en")):
-        return s
-    return m.group("ja").strip()
-
-
-def parallel_title(name):
-    """The English name a title carries after ` = `, or '' where it carries none."""
-    s = str(name or "").strip()
-    m = PARALLEL_TITLE.match(s)
-    if not m or s.count("=") != 1 or JAPANESE_TEXT.search(m.group("en")):
-        return ""
-    return m.group("en").strip()
+# THE TITLE A RECORD STATES IS NOT ALWAYS THE WORK'S NAME. MADB transcribes a title page under
+# ISBD, so a name arrives with a 並列タイトル after ` = ` and other title information after ` : `.
+# Reading that notation is `adapters/isbd.py` and is deliberately not repeated here: the imprint
+# pass, the two ISBN passes and the shop-query pass all write records through `render` below, and
+# a copy of the rule per route would put the same book under four different names the first time
+# one of them was corrected (STANDING-INSTRUCTIONS §3).
+title_proper = isbd.title_proper
+parallel_title = isbd.parallel_title
 
 
 def title_index(series):

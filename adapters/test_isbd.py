@@ -1,0 +1,121 @@
+#!/usr/bin/env python3
+"""isbd.py: taking a catalogue's punctuation off a name without taking the book's subtitle with it.
+
+COVERS = ['adapters/isbd.py']
+"""
+import pathlib
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import testkit
+import isbd as m
+
+
+def main(s):
+    # ── THE PARALLEL TITLE COMES OFF AND IS KEPT ──────────────────────────────────────────────
+    #
+    # ` = ` introduces a 並列タイトル transcribed from the book's own title page. Storing the whole
+    # string made cataloguing punctuation part of the name, and two records of one work then
+    # compared unequal: several pairs shipped as duplicates and were merged by hand.
+    s.eq(m.title_proper("リリィシステム = LILY SYSTEM"), "リリィシステム",
+         "the parallel title comes off the name")
+    s.eq(m.parallel_title("リリィシステム = LILY SYSTEM"), "LILY SYSTEM",
+         "and is kept, being the publisher's own English name")
+    s.eq(m.parallel_title("ふつうの子"), "", "a title with no parallel title yields none")
+    s.eq(m.title_proper(""), "", "and an empty name is empty")
+    s.eq(m.title_proper(None), "", "as is no name at all")
+
+    # ── THE SUBTITLE STAYS ON THE NAME ────────────────────────────────────────────────────────
+    #
+    # ` : ` introduces other title information, which is what the publisher printed about the book.
+    # A rule that cut it would be deleting content, so the only thing this module does with a
+    # colon is stop reading the parallel title at it.
+    s.eq(m.title_proper("恋愛遺伝子XX : 完全版"), "恋愛遺伝子XX : 完全版",
+         "a colon introduces other title information and the name keeps it")
+    s.eq(m.other_title_information("ギャルメイドと悪役令嬢 : おじょーさま、お世話させていただきます"),
+         "おじょーさま、お世話させていただきます", "and the subtitle is readable on its own")
+    s.eq(m.title_proper("ギャルメイドと悪役令嬢 : おじょーさま、お世話させていただきます"),
+         "ギャルメイドと悪役令嬢 : おじょーさま、お世話させていただきます",
+         "while the stored name is still the whole of what the publisher printed")
+
+    # BOTH MARKS AT ONCE, which is the shape the first version of this split could not read. The
+    # parallel half was tested for Japanese text over everything after the equals sign, so the
+    # subtitle behind the colon made `Cinnamon` look Japanese and six records kept their
+    # punctuation. The parallel title ENDS at the colon.
+    FULL = "シナモン = Cinnamon : 人外×人間百合アンソロジー"
+    s.eq(m.title_proper(FULL), "シナモン : 人外×人間百合アンソロジー",
+         "the parallel title comes off and the Japanese subtitle stays")
+    s.eq(m.parallel_title(FULL), "Cinnamon", "with the English read only as far as the colon")
+    s.eq(m.other_title_information(FULL), "人外×人間百合アンソロジー", "and the subtitle named")
+    s.eq(m.areas(FULL), ("シナモン : 人外×人間百合アンソロジー", "Cinnamon", "人外×人間百合アンソロジー"),
+         "which is the whole of what the string states")
+
+    # AND WHOSE SUBTITLE IT IS DEPENDS ON THE LANGUAGE. A tagline in English follows an English
+    # name and belongs to it. `リリウム・テラリウム` is what the work is called; attaching
+    # `GIRL meets GIRL OMNIBUS STORY` to that would be a name nobody writes, and dropping it would
+    # be discarding something the publisher printed. It goes with the English.
+    ED = "リリウム・テラリウム = Lilium Terrarium : GIRL meets GIRL OMNIBUS STORY ＆ ILLUSTRATION by ED"
+    s.eq(m.title_proper(ED), "リリウム・テラリウム", "a Latin subtitle does not join the Japanese name")
+    s.eq(m.parallel_title(ED), "Lilium Terrarium : GIRL meets GIRL OMNIBUS STORY ＆ ILLUSTRATION by ED",
+         "it stays with the English name it describes, so nothing is thrown away")
+    s.eq(m.title_proper("ザ・ファブル = THE FABLE : The silent-killer is living in this town"),
+         "ザ・ファブル", "which is how the work is actually named")
+
+    # ── COUNTER-CASES: EVERY SHAPE THAT MUST NOT SPLIT ────────────────────────────────────────
+    #
+    # Each of these is a real record. The rule was wrong in this direction before and pinning the
+    # refusals is worth more than pinning the splits.
+    s.eq(m.title_proper("ルミナス = ブルー"), "ルミナス = ブルー",
+         "a parallel half holding Japanese is not a translation")
+    s.eq(m.parallel_title("ルミナス = ブルー"), "", "so no English name is taken from it")
+    s.eq(m.title_proper("School zone = スクールゾーン"), "School zone = スクールゾーン",
+         "and the same shape the other way round is refused for the same reason")
+    s.eq(m.title_proper("ニニンがシノブ伝ぷらす = 2×2=SHINOBUDEN+"),
+         "ニニンがシノブ伝ぷらす = 2×2=SHINOBUDEN+",
+         "a second equals sign leaves no way to say where the name ends")
+    s.eq(m.title_proper("X = Y = Z"), "X = Y = Z", "so nothing is guessed")
+    s.eq(m.title_proper("ある話 : 副題 = SUBTITLE"), "ある話 : 副題 = SUBTITLE",
+         "ISBD writes the parallel title before the other title information, never after it")
+    s.eq(m.title_proper("2×2=SHINOBUDEN+"), "2×2=SHINOBUDEN+",
+         "an equals sign with no spaces around it is inside a name, not marking one")
+    # AND THE COST OF GETTING THAT WRONG, which the first version of this rule paid. It matched on
+    # a bare `=`, so eight titles in release 1.2.18 were stored truncated at the sign: `X=love`
+    # became `X` and `18=80` became `18`.
+    s.eq(m.title_proper("X=love"), "X=love", "so a title built around the sign keeps all of itself")
+    s.eq(m.title_proper("18=80"), "18=80", "and so does one that is arithmetic")
+    s.eq(m.title_proper("A:B"), "A:B", "and a colon with no spaces is not ISBD punctuation either")
+    s.eq(m.title_proper(" = LILY SYSTEM"), "= LILY SYSTEM",
+         "a mark with nothing before it introduces nothing")
+    s.eq(m.title_proper("灰色の季節、箱庭で = : Gray season,in the garden"),
+         "灰色の季節、箱庭で = : Gray season,in the garden",
+         "and an empty area between two marks is a transcription with a piece missing, not a name")
+
+    # THE ORIGINAL SPACING SURVIVES. Everything but the parallel title is copied out of the string
+    # as written, so a subtitle nobody asked about is not reformatted on its way past.
+    s.eq(m.title_proper("ある作品  :  副題"), "ある作品  :  副題", "odd spacing is left as it was")
+    s.eq(m.title_proper("ある作品 = A WORK  :  副題"), "ある作品  :  副題",
+         "and is still left as it was when something else on the line was removed")
+
+    # ── THE EDITION STATEMENT, AND WHY IT IS A LIST AND NOT A PATTERN ─────────────────────────
+    #
+    # 恋愛遺伝子XX is "The Romance Gene XX" and 恋愛遺伝子XX : 完全版 had no English at all, so a
+    # translated title was stranded in Japanese by a two-character suffix. The reader interface
+    # glosses the marker beside the base work's name, and this is the same closed set.
+    s.eq(m.edition_statement("恋愛遺伝子XX : 完全版"), "完全版",
+         "a reissue marker from the closed set is recognised")
+    s.eq(m.edition_statement("総合タワーリシチ : 新装版"), "新装版", "as is another member of it")
+    s.eq(m.edition_statement("シロップ = syrup : 社会人百合アンソロジー"), "",
+         "and a subtitle is not one, however much it looks like apparatus")
+    s.eq(m.edition_statement("恋愛遺伝子XX"), "", "a title with no colon states no edition")
+    s.eq(m.title_proper("恋愛遺伝子XX : 完全版"), "恋愛遺伝子XX : 完全版",
+         "recognising it changes nothing about the name, which is still what was catalogued")
+    # THE VOCABULARY IS THE INTERFACE'S. A marker the backend recognised and `EDITION_EN` could not
+    # name would be a row the reader is shown in Japanese with no explanation.
+    s.check("完全版" in m.EDITIONS and "分冊版" in m.EDITIONS and "雑誌掲載版" in m.EDITIONS,
+            "the set is the one kari/app.js glosses")
+    s.check("短編集" not in m.EDITIONS,
+            "and a collection is not a reissue, so it stays part of the name")
+
+
+if __name__ == "__main__":
+    sys.exit(testkit.run(main, "isbd"))

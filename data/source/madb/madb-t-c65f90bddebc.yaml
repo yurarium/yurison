@@ -11,7 +11,9 @@ grouping: title-only
 madb_id: null
 record_type: manga_book_series
 title:
-  ja: "ギャングスタガールズ = GANGSTA Girls"
+  ja: "ギャングスタガールズ"
+  en: "GANGSTA Girls"
+  en_basis: parallel-title
   yomi: "GANGSTA Girls"
 creator: "[著]綾瀬れつ"
 publisher: "KADOKAWA"

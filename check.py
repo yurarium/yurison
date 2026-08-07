@@ -1158,6 +1158,51 @@ def budget_credits_that_restate_a_name(ctx):
     return bad
 
 
+# Every spelling of the sign, deliberately looser than the one the ingest acts on. See the budget
+# below for why the looseness is the whole point.
+EQUALS_ANY = re.compile(r"[=＝゠]")
+
+
+def budget_titles_carrying_cataloguing_punctuation(ctx):
+    """Titles a reader is shown that still hold a catalogue's own punctuation.
+
+    WHAT IS BEING COUNTED. A bibliography transcribes a title page under ISBD, so a name arrives
+    marked up: `恋愛遺伝子XX = The Romance Gene XX` is one work with an English name beside it, and
+    `恋愛遺伝子XX : 完全版` is that work reissued. Neither mark is part of what anybody calls the
+    book. `adapters/isbd.py` takes the parallel title off and hands the English on; the ten reissue
+    markers are counted here and not yet lifted off, which is why this number will not be zero
+    before somebody decides where an edition statement should live.
+
+    THE CLOSED SET IS WHAT KEEPS A SUBTITLE OUT OF THIS COUNT.
+    `ギャルメイドと悪役令嬢 : おじょーさま、お世話させていただきます` carries the same colon and the
+    tail is content: it says something about the book that the first six words do not. Counting
+    every colon would put 77 rows here of which 67 are correct, and a number that is mostly noise
+    is one nobody reads. `isbd.edition_statement` is the only thing that can tell the two apart.
+
+    WHY THIS IS NOT BLIND WHERE THE INGEST IS (§14b). `isbd.areas` acts on ` = ` alone: one sign,
+    spaces both sides, Latin on the right, before any colon. This looks for an equals sign in any
+    spelling, anywhere in the string, whatever surrounds it. So it reports exactly the cases the
+    split refused, which is what it does today: `ルミナス = ブルー` is one name written with a sign
+    in it, `School zone = スクールゾーン` runs the languages the other way round, and
+    `ニニンがシノブ伝ぷらす = 2×2=SHINOBUDEN+` has two signs and no way to say where the name ends.
+    Each is a deliberate refusal and each stays visible instead of being defined out of the count.
+
+    WHAT IT CANNOT SEE. A title whose apparatus was stripped before it reached this database. A
+    shop writes `シナモン` where the catalogue writes the whole ISBD line, so a work admitted from a
+    shelf can be here under a name nobody had to correct, and nothing in this count says whether
+    that name is the one the publisher printed.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import isbd
+
+    bad = 0
+    for title in ([str((r.get("title") or {}).get("ja") or "") for r in ctx["works"]]
+                  + [str(r.get("work") or "") for r in ctx["series"]]):
+        if EQUALS_ANY.search(title) or isbd.edition_statement(title):
+            bad += 1
+    return bad
+
+
 def budget_renderings_with_nothing_to_show(ctx):
     """Renderings that leave a Japanese name with no English form at all.
 
@@ -1327,6 +1372,11 @@ BUDGETS_DEF = [
      "works with no English name, showing a romanisation instead. Distinct from the budget above, "
      "which a romanisation satisfies: this is the one that answers 'can a reader tell what this "
      "is'. Never reaches zero, because romanising is right for a coinage."),
+    ("titles carrying cataloguing punctuation", budget_titles_carrying_cataloguing_punctuation,
+     "titles a reader is shown that still hold a bibliography's own ISBD markup: an equals sign "
+     "in any spelling, or a reissue marker from the closed set adapters/isbd.py holds. A subtitle "
+     "after the same colon is content and is not counted. A rise means a capture route wrote a "
+     "catalogue string through as a name."),
     ("incomplete attested rows", budget_incomplete_attested_rows,
      "attested releases missing a chapter name, author or access state. The classic sign of a "
      "moved CSS selector — the adapter still returns rows, just emptier ones."),
@@ -1495,6 +1545,20 @@ def self_test():
         if not fn(c):
             print(f"  self-test FAILED — '{name}' did not catch its canary")
             ok = False
+
+    # A BUDGET IS A COUNT AND CANNOT BE PROBED THE SAME WAY, so one is probed here on the number
+    # instead of on a pass. `titles carrying cataloguing punctuation` is the one that needs it: it
+    # measures a class its subject deliberately refuses to act on, and a count that reads 3 and a
+    # count that cannot rise above 3 look identical from outside (§14b). The canary is a fullwidth
+    # equals sign, which `isbd.areas` would never split and this must still see.
+    c = copy.deepcopy(ctx)
+    was = budget_titles_carrying_cataloguing_punctuation(c)
+    c["works"].append({"work_id": "CANARY", "title": {"ja": "カナリア＝CANARY"}})
+    c["series"].append({"id": "CANARY", "work": "カナリア : 完全版"})
+    if budget_titles_carrying_cataloguing_punctuation(c) != was + 2:
+        print("  self-test FAILED — 'titles carrying cataloguing punctuation' did not count "
+              "its canaries")
+        ok = False
 
     # The tics invariant reads files rather than ctx, so there is nothing to plant. It carries its
     # own canaries — and its own counter-cases, which matter more: three of the first four things

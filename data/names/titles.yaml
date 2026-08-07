@@ -8239,6 +8239,17 @@ names:
     reading_source: derived
     reading_source_kind: derived
     verified: false
+  'お姉さまと巨人(わたし) : お嬢さまが異世界転生':
+    basis: official-jp
+    en: MY SISTER AND GIANT
+    en_at: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/M869334
+    note: 'The parallel title MADB records after '' = '', ending where the subtitle after '' : '' begins.
+      お嬢さまが異世界転生 is the book''s own subtitle and stays with the Japanese name, which is why the English
+      here is the two words and not the whole line.'
+    verified: true
   'お姉さまと巨人(わたし) = MY SISTER AND GIANT : お嬢さまが異世界転生':
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -10699,17 +10710,22 @@ names:
     reading_source_kind: analyser
     verified: false
   この恋を星には願わない:
-    basis: translated
-    en: I Won't Wish This Love on a Star
-    en_at: '2026-08-04'
+    basis: official-jp
+    en: There is no love wishing upon a star
+    en_at: '2026-08-07'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Kono Koi wo Hoshi ni wa Negawanai
+    - basis: translated
+      source: yurarium
+      value: I Won't Wish This Love on a Star
     en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: https://www.mangaupdates.com/series/82k97c8/kono-koi-wo-hoshi-ni-wa-negawanai
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/M930161
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: コノ コイ ヲ ホシ ニ ワ ネガワナイ
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -10717,6 +10733,8 @@ names:
     - basis: back-converted
       source: mangaupdates
       value: コノ コイ ウォ ホシ ニ ワ ネガワナイ
+    reading_corroborated:
+    - mediaarts-db
     reading_pass: 2
     reading_source: derived
     reading_source_kind: derived
@@ -18991,12 +19009,19 @@ names:
     reading_source: surface
     verified: true
   らぶあんどぴーす:
-    basis: romaji
+    basis: official-jp
+    en: LOVE & PEACE
+    en_at: '2026-08-06'
+    en_source: openBD
+    en_source_kind: publisher-jp
+    en_url: https://api.openbd.jp/v1/get?isbn=9784065296486
     furigana_spans:
     - - らぶあんどぴーす
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The book's own English title. openBD carries the publisher's registration for 9784065296486
+      with the title 「らぶあんどぴーす = LOVE & PEACE」, pairing the Japanese with LOVE & PEACE, which is how the
+      title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a
+      rendering made here, and it is kept verbatim including its own capitalisation and spacing.
     reading: ラブ アンド ピース
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -19383,6 +19408,16 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    verified: true
+  わたしのために脱ぎなさいっ!:
+    basis: official-jp
+    en: TAKE OFF YOUR CLOTHES FOR ME!
+    en_at: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C418096
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     verified: true
   わたしのために脱ぎなさいっ! = TAKE OFF YOUR CLOTHES FOR ME!:
     basis: official-jp
@@ -24264,6 +24299,27 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  サチとユーカ:
+    basis: official-jp
+    en: SACHI and YUUKA
+    en_at: '2026-08-06'
+    en_source: openBD
+    en_source_kind: publisher-jp
+    en_url: https://api.openbd.jp/v1/get?isbn=9784785972790
+    furigana_spans:
+    - - サチとユーカ
+      - null
+    note: The book's own English title. openBD carries the publisher's registration for 9784785972790
+      with the title 「サチとユーカ = SACHI and YUUKA」, pairing the Japanese with SACHI and YUUKA, which is how
+      the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than
+      a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+    reading: サチ ト ユーカ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   サチとユーカ = SACHI and YUUKA:
     basis: official-jp
     en: SACHI and YUUKA
@@ -24745,6 +24801,35 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  'シナモン : 人外×人間百合アンソロジー':
+    basis: translated
+    en: 'Cinnamon: A Nonhuman x Human Yuri Anthology'
+    en_at: '2026-08-06'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 'シナモン : '
+      - null
+    - - 人外
+      - じんがい
+    - - ×
+      - null
+    - - 人間
+      - にんげん
+    - - 百合
+      - ゆり
+    - - アンソロジー
+      - null
+    note: The catalogue prints the katakana and the Latin together, so the anthology's own name is settled
+      and only the subtitle needs work. 人外 is everything outside the human, monsters and spirits alike,
+      and the × is the pairing mark these anthologies use.
+    reading: 'シナモン   :   ジンガイ × ニンゲン ユリ アンソロジー'
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   'シナモン = Cinnamon : 人外×人間百合アンソロジー':
     basis: translated
     en: 'Cinnamon: A Nonhuman x Human Yuri Anthology'
@@ -25028,6 +25113,30 @@ names:
     note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
       page. The publisher printed this English name; the bibliography copied it.
     reading: シルフ ノ ハナ ヒメ   =   The   princess   of   sylph
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  'シロップ : 社会人百合アンソロジー':
+    basis: translated
+    en: 'Syrup: A Working Women''s Yuri Anthology'
+    en_at: '2026-08-06'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 'シロップ : '
+      - null
+    - - 社会人
+      - しゃかいじん
+    - - 百合
+      - ゆり
+    - - アンソロジー
+      - null
+    note: The Latin half of the title is the book's own gloss on the katakana, which is what the equals
+      sign is doing. 社会人 is somebody who has left school and works.
+    reading: 'シロップ   :   シャカイジン ユリ アンソロジー'
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -25481,6 +25590,18 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    verified: true
+  ステラ★レコード:
+    basis: official-jp
+    en: STELLA★RECORD
+    en_at: '2026-08-06'
+    en_source: openBD
+    en_source_kind: publisher-jp
+    en_url: https://api.openbd.jp/v1/get?isbn=9784785974381
+    note: The book's own English title. openBD carries the publisher's registration for 9784785974381
+      with the title 「ステラ★レコード = STELLA★RECORD」, pairing the Japanese with STELLA★RECORD, which is how
+      the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than
+      a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
     verified: true
   ステラ★レコード = STELLA★RECORD:
     basis: official-jp
@@ -25986,6 +26107,22 @@ names:
       as promotional framing rather than part of the title.
     reading: スーパーナックル オジョウサマ / 25 ネン 9 ガツ キ JUMP シンセカイ マンガ ショウ / シュウカン ショウネン ジャンプ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  セイキマツブルー:
+    basis: official-jp
+    en: Seikimatsu Blue
+    en_at: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C419713
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
+    reading: セイキマツブルー
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -31856,6 +31993,25 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ラストサマー・バケーション:
+    basis: official-jp
+    en: LAST SUMMER VACATION
+    en_at: '2026-08-06'
+    en_source: openBD
+    en_source_kind: publisher-jp
+    en_url: https://api.openbd.jp/v1/get?isbn=9784046822277
+    note: The book's own English title. openBD carries the publisher's registration for 9784046822277
+      with the title 「ラストサマー・バケーション = LAST SUMMER VACATION」, pairing the Japanese with LAST SUMMER VACATION,
+      which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name
+      rather than a rendering made here, and it is kept verbatim including its own capitalisation and
+      spacing.
+    reading: ラスト サマー・ バケーション
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ラストサマー・バケーション = LAST SUMMER VACATION:
     basis: official-jp
     en: LAST SUMMER VACATION
@@ -33252,6 +33408,31 @@ names:
       on pen names and coinages
     reading: ロンリーガール ニ サカラエナイ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  'ローダンセ : 主従百合アンソロジー':
+    basis: translated
+    en: 'Rhodanthe: A Mistress and Servant Yuri Anthology'
+    en_at: '2026-08-06'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 'ローダンセ : '
+      - null
+    - - 主従
+      - しゅじゅう
+    - - 百合
+      - ゆり
+    - - アンソロジー
+      - null
+    note: The catalogue prints the Latin beside the katakana, so the flower's name is settled. 主従 is the
+      master and servant relation as a pair, and the anthology's pairings are women, so mistress reads
+      truer than master.
+    reading: 'ローダンセ   :   シュジュウ ユリ アンソロジー'
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -37813,6 +37994,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  先輩、美味しいですか?:
+    basis: official-jp
+    en: Senpai,does it taste good?
+    en_at: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/M867745
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The missing space after the comma is the publisher's and is kept.
+    verified: true
   先輩、美味しいですか? = Senpai,does it taste good?:
     basis: official-jp
     en: Senpai,does it taste good?
@@ -39439,11 +39630,16 @@ names:
     reading_source_kind: analyser
     verified: false
   包帯少女期間:
-    basis: translated
-    en: Bandage Girls Period
-    en_at: '2026-08-06'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Bandage Girls Period.
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Bandage Girls Period
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C433621
     furigana_spans:
     - - 包帯
       - ほうたい
@@ -39451,9 +39647,12 @@ names:
       - しょうじょ
     - - 期間
       - きかん
-    note: 包帯 is the bandage wound round a wound, and 期間 is a stretch of time with a start and an end.
-      The companion catalogue record prints the book's own Latin line as Bandage Girls Period, which agrees
-      with the Japanese, so the English follows it.
+    note: 'The parallel title MADB records after '' = '', which ISBD transcribes from the book''s own
+      title page. 包帯 is the bandage wound round a wound and 期間 is a stretch of time with a start and an
+      end, so a translation made here read Bandage Girls Period and dropped the full stop as a typographical
+      accident. It is not one: the publisher printed it, and §5 puts the book''s own name above ours.
+      This entry replaces that translation, which was keyed on the unsplit catalogue string and lost its
+      work when the parallel title came off.'
     reading: ホウタイ ショウジョ キカン
     reading_at: '2026-08-06'
     reading_basis: analyser
@@ -50301,7 +50500,12 @@ names:
     reading_source_kind: analyser
     verified: false
   '悪役令嬢の中の人 : 断罪された転生者のため嘘つきヒロインに復讐いたします':
-    basis: romaji
+    basis: official-jp
+    en: The person in a villainess
+    en_at: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/M868555
     furigana_spans:
     - - 悪役
       - あくやく
@@ -50335,8 +50539,9 @@ names:
       - ふくしゅう
     - - いたします
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'The parallel title MADB records after '' = '', ending where the subtitle after '' : '' begins.
+      The subtitle is a sentence about what the heroine does and is left in Japanese here; the English
+      is the publisher''s own name for the work.'
     reading: 'アクヤク レイジョウ ノ ナカ ノ ヒト   :   ダンザイ サレタ テンショウシャ ノ タメ ウソツキ ヒロイン ニ フクシュウ イタシマス'
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -51329,6 +51534,24 @@ names:
       figures.
     reading: トコロザワサン ワ 177 cm
     reading_at: '2026-08-06'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  '抱かれたい女(ひと) : JDだけどアラサー女子に買われています':
+    basis: translated
+    en: 'person who wants to be embraced: I''m a University Student and a Woman Pushing Thirty Is Buying
+      Me'
+    en_at: '2026-08-06'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 'The catalogue prints the book''s own Latin line beside the Japanese, which settles the ambiguity
+      in 抱かれたい女: the wanting is hers. The bracketed ひと is the work''s own gloss, telling the reader to
+      say 女 as person. JD clips 女子大生 and アラサー is around thirty, both stated in full because the shorthand
+      means nothing in English.'
+    reading: 'イダカレタイ オンナ   :   JDダケド アラサー ジョシ ニ カワレテ イマス'
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -54761,6 +54984,40 @@ names:
     note: 本の虫 with the insect in katakana, which makes the idiom look like a label.
     reading: ホン ノ ムシ
     reading_at: '2026-08-06'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  杉並区立魔法女学園平和維持部:
+    basis: official-jp
+    en: peace keeping club of suginami municipal school for witches
+    en_at: '2026-08-06'
+    en_source: openBD
+    en_source_kind: publisher-jp
+    en_url: https://api.openbd.jp/v1/get?isbn=9784778322960
+    furigana_spans:
+    - - 杉並
+      - すぎなみ
+    - - 区立
+      - くりつ
+    - - 魔法
+      - まほう
+    - - 女学園
+      - じょがくえん
+    - - 平和
+      - へいわ
+    - - 維持
+      - いじ
+    - - 部
+      - ぶ
+    note: The book's own English title. openBD carries the publisher's registration for 9784778322960
+      with the title 「杉並区立魔法女学園平和維持部 = peace keeping club of suginami municipal school for witches」, pairing
+      the Japanese with peace keeping club of suginami municipal school for witches, which is how the
+      title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a
+      rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+    reading: スギナミ クリツ マホウ ジョガクエン ヘイワ イジ ブ
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -59967,6 +60224,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  白と黒:
+    basis: official-jp
+    en: Black & White
+    en_at: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C450485
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
+    verified: true
   白と黒 = Black & White:
     basis: official-jp
     en: Black & White

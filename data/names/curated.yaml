@@ -21,7 +21,7 @@ titles:
       it. しか勝たん is current slang meaning nothing else compares, and おじょーさま is the maid's
       address to her mistress, which the English keeps as My Lady.
 
-  "セイキマツブルー = Seikimatsu Blue":
+  "セイキマツブルー":
     en: "Seikimatsu Blue"
     basis: official-jp
     source: "mediaarts-db"
@@ -38,17 +38,6 @@ titles:
     source: "mediaarts-db"
     source_kind: bibliography
     source_url: "https://mediaarts-db.artmuseums.go.jp/id/C420047"
-    reviewed: '2026-08-07'
-    note: >-
-      The parallel title MADB records after ' = ', which ISBD transcribes from the book's
-      own title page. The publisher printed this English name; the bibliography copied it.
-
-  "包帯少女期間 = Bandage Girls Period.":
-    en: "Bandage Girls Period."
-    basis: official-jp
-    source: "mediaarts-db"
-    source_kind: bibliography
-    source_url: "https://mediaarts-db.artmuseums.go.jp/id/C433621"
     reviewed: '2026-08-07'
     note: >-
       The parallel title MADB records after ' = ', which ISBD transcribes from the book's
@@ -307,16 +296,66 @@ titles:
       The parallel title MADB records after ' = ', which ISBD transcribes from the book's
       own title page. The publisher printed this English name; the bibliography copied it.
 
-  "この恋を星には願わない":
-    en: "There is no love wishing upon a star"
+  # THE LAST FIVE PARALLEL TITLES, from the re-run of isbn-from-platform. Every other work whose
+  # catalogue record prints one already had an English name, either this way or from a licensor.
+  "わたしのために脱ぎなさいっ!":
+    en: "TAKE OFF YOUR CLOTHES FOR ME!"
     basis: official-jp
     source: "mediaarts-db"
     source_kind: bibliography
-    source_url: "https://mediaarts-db.artmuseums.go.jp/id/madb-t-b033804ac3d3"
+    source_url: "https://mediaarts-db.artmuseums.go.jp/id/C418096"
     reviewed: '2026-08-07'
     note: >-
       The parallel title MADB records after ' = ', which ISBD transcribes from the book's
       own title page. The publisher printed this English name; the bibliography copied it.
+
+  "白と黒":
+    en: "Black & White"
+    basis: official-jp
+    source: "mediaarts-db"
+    source_kind: bibliography
+    source_url: "https://mediaarts-db.artmuseums.go.jp/id/C450485"
+    reviewed: '2026-08-07'
+    note: >-
+      The parallel title MADB records after ' = ', which ISBD transcribes from the book's
+      own title page. The publisher printed this English name; the bibliography copied it.
+
+  # A WORK MADB HAS NOT RESOLVED TO A SERIES, so the citation is the volume record the title was
+  # read off. Every volume of these three states the same string.
+  "お姉さまと巨人(わたし) : お嬢さまが異世界転生":
+    en: "MY SISTER AND GIANT"
+    basis: official-jp
+    source: "mediaarts-db"
+    source_kind: bibliography
+    source_url: "https://mediaarts-db.artmuseums.go.jp/id/M869334"
+    reviewed: '2026-08-07'
+    note: >-
+      The parallel title MADB records after ' = ', ending where the subtitle after ' : ' begins.
+      お嬢さまが異世界転生 is the book's own subtitle and stays with the Japanese name, which is why
+      the English here is the two words and not the whole line.
+
+  "悪役令嬢の中の人 : 断罪された転生者のため嘘つきヒロインに復讐いたします":
+    en: "The person in a villainess"
+    basis: official-jp
+    source: "mediaarts-db"
+    source_kind: bibliography
+    source_url: "https://mediaarts-db.artmuseums.go.jp/id/M868555"
+    reviewed: '2026-08-07'
+    note: >-
+      The parallel title MADB records after ' = ', ending where the subtitle after ' : ' begins.
+      The subtitle is a sentence about what the heroine does and is left in Japanese here; the
+      English is the publisher's own name for the work.
+
+  "先輩、美味しいですか?":
+    en: "Senpai,does it taste good?"
+    basis: official-jp
+    source: "mediaarts-db"
+    source_kind: bibliography
+    source_url: "https://mediaarts-db.artmuseums.go.jp/id/M867745"
+    reviewed: '2026-08-07'
+    note: >-
+      The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The missing space after the comma is the publisher's and is kept.
 
   "大好きな親友がVチューバーの自分にガチ恋してた話":
     en: "MY BEST FRIEND IS IN LOVE WITH MY VTUBER"
@@ -9562,13 +9601,23 @@ titles:
       を is read お and written ヲ in a katakana reading. ウォ came from a reverse
       table in which を was unreachable, and is not a reading of anything here.
 
+  # ONE ENTRY, BECAUSE THIS TITLE HAD TWO. The name and the reading were written in separate
+  # blocks under the same key, so yaml.safe_load kept the later block and dropped the earlier
+  # without a word, and the English name never reached the store. `curate.duplicate_keys` reported
+  # it and nothing acted on the report.
   "この恋を星には願わない":
+    en: "There is no love wishing upon a star"
+    basis: official-jp
+    source: "mediaarts-db"
+    source_kind: bibliography
+    source_url: "https://mediaarts-db.artmuseums.go.jp/id/M930161"
     reading: "コノ コイ ヲ ホシ ニ ワ ネガワナイ"
     reading_basis: researched
     reading_source_kind: derived
-    source: derived
-    source_kind: derived
-    reviewed: '2026-08-04'
+    reviewed: '2026-08-07'
+    note: >-
+      The parallel title MADB records after ' = ', which ISBD transcribes from the book's
+      own title page. The publisher printed this English name; the bibliography copied it.
     reading_note: >-
       を is read お and written ヲ in a katakana reading. ウォ came from a reverse
       table in which を was unreachable, and is not a reading of anything here.
@@ -11899,16 +11948,6 @@ titles:
     note: >-
       アトキンソン publishes an English edition of this work and titles it 「【English ver.】Reimu is Easily Embarrassed-はずかしがりやのれいむさん」, pairing Reimu is Easily Embarrassed with the Japanese はずかしがりやのれいむさん in one string. That makes Reimu is Easily Embarrassed the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
 
-  "リリィシステム = LILY SYSTEM":
-    en: "LILY SYSTEM"
-    basis: "official-jp"
-    source: "openBD"
-    source_kind: "publisher-jp"
-    source_url: "https://api.openbd.jp/v1/get?isbn=9784785963989"
-    reviewed: '2026-08-06'
-    note: >-
-      The book's own English title. openBD carries the publisher's registration for 9784785963989 with the title 「リリィシステム = LILY SYSTEM」, pairing the Japanese with LILY SYSTEM, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
-
   "リリィシステム":
     en: "LILY SYSTEM"
     basis: "official-jp"
@@ -11918,16 +11957,6 @@ titles:
     reviewed: '2026-08-06'
     note: >-
       The book's own English title. openBD carries the publisher's registration for 9784785963989 with the title 「リリィシステム = LILY SYSTEM」, pairing the Japanese with LILY SYSTEM, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
-
-  "おやすみシェヘラザード = Nighty night,Sheherazade":
-    en: "Nighty night,Sheherazade"
-    basis: "official-jp"
-    source: "openBD"
-    source_kind: "publisher-jp"
-    source_url: "https://api.openbd.jp/v1/get?isbn=9784098600908"
-    reviewed: '2026-08-06'
-    note: >-
-      The book's own English title. openBD carries the publisher's registration for 9784098600908 with the title 「おやすみシェヘラザード = Nighty night,Sheherazade」, pairing the Japanese with Nighty night,Sheherazade, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
 
   "おやすみシェヘラザード":
     en: "Nighty night,Sheherazade"
@@ -11939,16 +11968,6 @@ titles:
     note: >-
       The book's own English title. openBD carries the publisher's registration for 9784098600908 with the title 「おやすみシェヘラザード = Nighty night,Sheherazade」, pairing the Japanese with Nighty night,Sheherazade, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
 
-  "仕事の後は恋しよう = LET'S FALL IN LOVE AFTER WORK":
-    en: "LET'S FALL IN LOVE AFTER WORK"
-    basis: "official-jp"
-    source: "openBD"
-    source_kind: "publisher-jp"
-    source_url: "https://api.openbd.jp/v1/get?isbn=9784781617893"
-    reviewed: '2026-08-06'
-    note: >-
-      The book's own English title. openBD carries the publisher's registration for 9784781617893 with the title 「仕事の後は恋しよう = LET'S FALL IN LOVE AFTER WORK」, pairing the Japanese with LET'S FALL IN LOVE AFTER WORK, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
-
   "仕事の後は恋しよう":
     en: "LET'S FALL IN LOVE AFTER WORK"
     basis: "official-jp"
@@ -11959,7 +11978,7 @@ titles:
     note: >-
       The book's own English title. openBD carries the publisher's registration for 9784781617893 with the title 「仕事の後は恋しよう = LET'S FALL IN LOVE AFTER WORK」, pairing the Japanese with LET'S FALL IN LOVE AFTER WORK, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
 
-  "杉並区立魔法女学園平和維持部 = peace keeping club of suginami municipal school for witches":
+  "杉並区立魔法女学園平和維持部":
     en: "peace keeping club of suginami municipal school for witches"
     basis: "official-jp"
     source: "openBD"
@@ -11979,16 +11998,6 @@ titles:
     note: >-
       The book's own English title. openBD carries the publisher's registration for 9784091575739 with the title 「ヴァンピアーズ : VAMPEERZ,MY PEER VAMPIRES」, pairing the Japanese with VAMPEERZ,MY PEER VAMPIRES, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
 
-  "お姫様のお姫様 = Princess of the Princess":
-    en: "Princess of the Princess"
-    basis: "official-jp"
-    source: "openBD"
-    source_kind: "publisher-jp"
-    source_url: "https://api.openbd.jp/v1/get?isbn=9784253229715"
-    reviewed: '2026-08-06'
-    note: >-
-      The book's own English title. openBD carries the publisher's registration for 9784253229715 with the title 「お姫様のお姫様 = Princess of the Princess」, pairing the Japanese with Princess of the Princess, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
-
   "お姫様のお姫様":
     en: "Princess of the Princess"
     basis: "official-jp"
@@ -11998,16 +12007,6 @@ titles:
     reviewed: '2026-08-06'
     note: >-
       The book's own English title. openBD carries the publisher's registration for 9784253229715 with the title 「お姫様のお姫様 = Princess of the Princess」, pairing the Japanese with Princess of the Princess, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
-
-  "みーちゃんとアイリ = Mi-chan and Airi":
-    en: "Mi-chan and Airi"
-    basis: "official-jp"
-    source: "openBD"
-    source_kind: "publisher-jp"
-    source_url: "https://api.openbd.jp/v1/get?isbn=9784403623127"
-    reviewed: '2026-08-06'
-    note: >-
-      The book's own English title. openBD carries the publisher's registration for 9784403623127 with the title 「みーちゃんとアイリ = Mi-chan and Airi」, pairing the Japanese with Mi-chan and Airi, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
 
   "みーちゃんとアイリ":
     en: "Mi-chan and Airi"
@@ -12019,27 +12018,7 @@ titles:
     note: >-
       The book's own English title. openBD carries the publisher's registration for 9784403623127 with the title 「みーちゃんとアイリ = Mi-chan and Airi」, pairing the Japanese with Mi-chan and Airi, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
 
-  "殺し屋やめたい! = I wanna be fired!":
-    en: "I wanna be fired!"
-    basis: "official-jp"
-    source: "openBD"
-    source_kind: "publisher-jp"
-    source_url: "https://api.openbd.jp/v1/get?isbn=9784065256909"
-    reviewed: '2026-08-06'
-    note: >-
-      The book's own English title. openBD carries the publisher's registration for 9784065256909 with the title 「殺し屋やめたい! = I wanna be fired!」, pairing the Japanese with I wanna be fired!, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
-
-  "彩香ちゃんは弘子先輩に恋してる = AYAKA is in LOVE×LOVE×LOVE with HIROKO":
-    en: "AYAKA is in LOVE×LOVE×LOVE with HIROKO"
-    basis: "official-jp"
-    source: "openBD"
-    source_kind: "publisher-jp"
-    source_url: "https://api.openbd.jp/v1/get?isbn=9784575856415"
-    reviewed: '2026-08-06'
-    note: >-
-      The book's own English title. openBD carries the publisher's registration for 9784575856415 with the title 「彩香ちゃんは弘子先輩に恋してる = AYAKA is in LOVE×LOVE×LOVE with HIROKO」, pairing the Japanese with AYAKA is in LOVE×LOVE×LOVE with HIROKO, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
-
-  "ステラ★レコード = STELLA★RECORD":
+  "ステラ★レコード":
     en: "STELLA★RECORD"
     basis: "official-jp"
     source: "openBD"
@@ -12059,16 +12038,6 @@ titles:
     note: >-
       The book's own English title. openBD carries the publisher's registration for 9784758022217 with the title 「クダンノフォークロア = FOLKLORE OF KUDAN」, pairing the Japanese with FOLKLORE OF KUDAN, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
 
-  "同じ所で眠るまで待って = Wait until I sleep in the same place with you":
-    en: "Wait until I sleep in the same place with you"
-    basis: "official-jp"
-    source: "openBD"
-    source_kind: "publisher-jp"
-    source_url: "https://api.openbd.jp/v1/get?isbn=9784403671883"
-    reviewed: '2026-08-06'
-    note: >-
-      The book's own English title. openBD carries the publisher's registration for 9784403671883 with the title 「同じ所で眠るまで待って = Wait until I sleep in the same place with you」, pairing the Japanese with Wait until I sleep in the same place with you, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
-
   "同じ所で眠るまで待って":
     en: "Wait until I sleep in the same place with you"
     basis: "official-jp"
@@ -12079,17 +12048,7 @@ titles:
     note: >-
       The book's own English title. openBD carries the publisher's registration for 9784403671883 with the title 「同じ所で眠るまで待って = Wait until I sleep in the same place with you」, pairing the Japanese with Wait until I sleep in the same place with you, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
 
-  "バニーズクエスト = BUNNIE'S QUEST":
-    en: "BUNNIE'S QUEST"
-    basis: "official-jp"
-    source: "openBD"
-    source_kind: "publisher-jp"
-    source_url: "https://api.openbd.jp/v1/get?isbn=9784065288078"
-    reviewed: '2026-08-06'
-    note: >-
-      The book's own English title. openBD carries the publisher's registration for 9784065288078 with the title 「バニーズクエスト = BUNNIE'S QUEST」, pairing the Japanese with BUNNIE'S QUEST, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
-
-  "らぶあんどぴーす = LOVE & PEACE":
+  "らぶあんどぴーす":
     en: "LOVE & PEACE"
     basis: "official-jp"
     source: "openBD"
@@ -12099,7 +12058,7 @@ titles:
     note: >-
       The book's own English title. openBD carries the publisher's registration for 9784065296486 with the title 「らぶあんどぴーす = LOVE & PEACE」, pairing the Japanese with LOVE & PEACE, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
 
-  "サチとユーカ = SACHI and YUUKA":
+  "サチとユーカ":
     en: "SACHI and YUUKA"
     basis: "official-jp"
     source: "openBD"
@@ -12109,7 +12068,7 @@ titles:
     note: >-
       The book's own English title. openBD carries the publisher's registration for 9784785972790 with the title 「サチとユーカ = SACHI and YUUKA」, pairing the Japanese with SACHI and YUUKA, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
 
-  "ラストサマー・バケーション = LAST SUMMER VACATION":
+  "ラストサマー・バケーション":
     en: "LAST SUMMER VACATION"
     basis: "official-jp"
     source: "openBD"
@@ -17053,7 +17012,7 @@ titles:
     note: >-
       急に is suddenly, written in katakana so it also reads as 九, nine, against the thousand.
 
-  "シロップ = syrup : 社会人百合アンソロジー":
+  "シロップ : 社会人百合アンソロジー":
     en: "Syrup: A Working Women's Yuri Anthology"
     basis: "translated"
     source: "yurarium"
@@ -20783,7 +20742,7 @@ titles:
       person, which is the joke the denial is fighting, and English cannot mark it in the pronoun, so
       the contraction carries the register instead.
 
-  "シナモン = Cinnamon : 人外×人間百合アンソロジー":
+  "シナモン : 人外×人間百合アンソロジー":
     en: "Cinnamon: A Nonhuman x Human Yuri Anthology"
     basis: translated
     source: yurarium
@@ -20896,7 +20855,7 @@ titles:
       話 at the end marks the title as a story about the thing rather than the thing itself, a habit of
       the digital one-shot.
 
-  "ローダンセ = Rhodanthe : 主従百合アンソロジー":
+  "ローダンセ : 主従百合アンソロジー":
     en: "Rhodanthe: A Mistress and Servant Yuri Anthology"
     basis: translated
     source: yurarium
@@ -23393,25 +23352,19 @@ titles:
       The same title with the book's own Latin subtitle, which stays as set, full stop included.
 
   包帯少女期間:
-    en: "Bandage Girls Period"
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-06'
-    note: >-
-      包帯 is the bandage wound round a wound, and 期間 is a stretch of time with a start and an end. The
-      companion catalogue record prints the book's own Latin line as Bandage Girls Period, which
-      agrees with the Japanese, so the English follows it.
-
-  包帯少女期間 = Bandage Girls Period.:
     en: "Bandage Girls Period."
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-06'
+    basis: official-jp
+    source: "mediaarts-db"
+    source_kind: bibliography
+    source_url: "https://mediaarts-db.artmuseums.go.jp/id/C433621"
+    reviewed: '2026-08-07'
     note: >-
-      The catalogue prints the book's own Latin line beside the Japanese, so the rendering is settled
-      and only the punctuation needs deciding. The full stop is the book's and stays.
+      The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. 包帯 is the bandage wound round a wound and 期間 is a stretch of time with a start and an
+      end, so a translation made here read Bandage Girls Period and dropped the full stop as a
+      typographical accident. It is not one: the publisher printed it, and §5 puts the book's own
+      name above ours. This entry replaces that translation, which was keyed on the unsplit
+      catalogue string and lost its work when the parallel title came off.
 
   姉妹的恋愛論＋:
     en: "A Sisterly Theory of Love +"
@@ -27485,7 +27438,7 @@ titles:
       the two named here make 会食, dining together. English has no letters that mean anything, so the
       sentence says what it is doing. The full stop is the title's own.
 
-  "抱かれたい女(ひと) = person who wants to be embraced : JDだけどアラサー女子に買われています":
+  "抱かれたい女(ひと) : JDだけどアラサー女子に買われています":
     en: "person who wants to be embraced: I'm a University Student and a Woman Pushing Thirty Is Buying Me"
     basis: translated
     source: yurarium
@@ -27757,17 +27710,6 @@ titles:
       愛 appears three times in three different words, which English cannot repeat. The catalogue's
       companion record prints the book's own Latin line, and it solves the same problem by repeating
       love three times, so the English follows the book.
-
-  "愛に愛らし愛しいあなた = Love,Love,Love My Sweet!":
-    en: "Love,Love,Love My Sweet!"
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-06'
-    note: >-
-      The catalogue prints the book's own Latin line beside the Japanese, so the rendering is settled.
-      It repeats love three times where the Japanese repeats 愛 three times, and the missing spaces are
-      the book's own.
 
   星をふたりで:
     en: "The Stars, the Two of Us"

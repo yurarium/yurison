@@ -490,8 +490,58 @@ def inv_per_book_dates_cite_their_page(ctx):
             if w.get("first_publication_basis") in cited and not w.get("first_publication_source")]
 
 
+def inv_one_row_per_identifier(ctx):
+    """No two rows may carry the same work identifier.
+
+    A merge retires an identifier and both records then resolve to the survivor. The row that each
+    record produced was still emitted separately, so the works list held one work twice under one
+    id, and both copies linked to the same page. 13 pairs shipped that way, every one of them a
+    merge, and nothing failed because each row was individually well formed.
+
+    An id is what an address is built from, so two rows holding one is the case where the interface
+    cannot tell a reader which record they are looking at.
+    """
+    seen, bad = {}, []
+    for r in ctx["series"]:
+        wid = r.get("id")
+        if not wid:
+            continue
+        if wid in seen:
+            bad.append(f"{wid}: held by both {seen[wid]} and {r.get('work')}")
+        seen[wid] = r.get("work")
+    return bad
+
+
+def inv_first_date_precedes_its_editions(ctx):
+    """A work cannot first appear after the volume that collects it was published.
+
+    The row's date came from the platform's own chapters, which is the day it posted them. Where a
+    platform re-serialises a finished title the two are years apart: ワインガールズ read
+    2026-04-19 beside volumes beginning 2017-12, and 140 rows across 12 platforms sat in the recent
+    end of the date sort on a date their own book run predated.
+
+    `importdates` cannot see this. It looks for a bulk stamp, many works landing on one day, and a
+    slow re-run of a single title leaves no such signature. The collected edition is the evidence,
+    and it only became readable once the book runs were attached.
+
+    A volume with no date says nothing here and is skipped, which is silence about the sources
+    rather than about the work.
+    """
+    bad = []
+    for r in ctx["series"]:
+        first = r.get("first")
+        if not first:
+            continue
+        dates = [p.get("first") for p in (r.get("print") or []) if p.get("first")]
+        if dates and min(dates)[:7] < str(first)[:7]:
+            bad.append(f"{r.get('work')}: first {first} beside a volume from {min(dates)}")
+    return bad
+
+
 INVARIANTS = [
     ("ruby spells the reading", inv_ruby_spells_reading),
+    ("one row per identifier", inv_one_row_per_identifier),
+    ("first date precedes its editions", inv_first_date_precedes_its_editions),
     ("no ruby over bare Latin", inv_no_ruby_over_latin),
     ("feed holds only attested rows", inv_feed_is_attested),
     ("every update has a kind", inv_no_unknown_kind),
@@ -907,6 +957,13 @@ def self_test():
         ("per-book dates cite their page", inv_per_book_dates_cite_their_page,
          lambda c: c["cmoa_capture"].append({"shop_id": "CANARY",
                                              "first_publication_basis": "publisher-own-page"})),
+        # A second row claiming an id the first row already holds, which is what a merge produced.
+        ("one row per identifier", inv_one_row_per_identifier,
+         lambda c: c["series"].append({"id": next(r["id"] for r in c["series"] if r.get("id")),
+                                       "work": "CANARY"})),
+        ("first date precedes its editions", inv_first_date_precedes_its_editions,
+         lambda c: c["series"].append({"id": "CANARY", "work": "CANARY", "first": "2030-01",
+                                       "print": [{"first": "2000-01"}]})),
     ]
     ok = True
     for name, fn, plant in probes:

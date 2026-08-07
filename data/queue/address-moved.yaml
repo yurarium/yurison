@@ -1,0 +1,49 @@
+# Works whose ROW ADDRESS moved, so the identifier they answer to would otherwise be lost.
+#
+# WHAT HAPPENED. `build.py` gives a row the address of its newest chapter, and a work carried on
+# several platforms has several. Which platform supplies that address depends on which row wins
+# `best`, and on 2026-08-07 the chapter-count rule changed and five works changed hands: their
+# 一迅プラス and マガポケ chapters came to outnumber the コミックDAYS ones the anchor was taken
+# from. `identity.py` then found no entry for the new address and minted a second identifier for a
+# work it already held.
+#
+# THIS IS NOT A JOIN AND NOT A MERGE. Nothing new was discovered and nothing is retired. Each row
+# below lists BOTH addresses among its own `sources` in one series row, so the two are two ways
+# into one serialisation, and the work already answered to the older one. Attaching the newer
+# address keeps that answer working whichever platform wins next time.
+#
+# THE UNDERLYING FAULT IS NOT FIXED HERE. A row's address is a chapter address on every
+# GigaViewer platform, and a chapter address changes when the work publishes. This file repairs
+# five instances; see docs/GAPS.md §21 for the shape.
+#
+# READ BY: `identity.py --attachments`.
+source: data/build/series.json
+role: address-repair
+retrieved: 2026-08-07
+record_type: print_web_join
+joins:
+  - id: w00100
+    title: "ファタールゲーム"
+    url: "https://pocket.shonenmagazine.com/title/03056/episode/441581"
+    anchor: "web:https://pocket.shonenmagazine.com/title/03056/episode/441581"
+    basis: "one series row holds both this address and comic-days.com/episode/12207421983997344603, so they are two platforms carrying one serialisation by ばったん"
+  - id: w00145
+    title: "ささやくように恋を唄う"
+    url: "https://ichicomi.com/episode/12207421983829237114"
+    anchor: "web:https://ichicomi.com/episode/12207421983829237114"
+    basis: "one series row holds both this address and comic-days.com/episode/12207421983938230535, so they are two platforms carrying one serialisation by 竹嶋えく"
+  - id: w00146
+    title: "きみが死ぬまで恋をしたい"
+    url: "https://ichicomi.com/episode/12207421983913589312"
+    anchor: "web:https://ichicomi.com/episode/12207421983913589312"
+    basis: "one series row holds both this address and comic-days.com/episode/12207421983938230522, so they are two platforms carrying one serialisation by あおのなち"
+  - id: w00164
+    title: "私の百合はお仕事です！"
+    url: "https://ichicomi.com/episode/12207421983947227420"
+    anchor: "web:https://ichicomi.com/episode/12207421983947227420"
+    basis: "one series row holds both this address and comic-days.com/episode/12207421983667003040, so they are two platforms carrying one serialisation by 未幡"
+  - id: w00975
+    title: "たとえとどかぬ糸だとしても"
+    url: "https://ichicomi.com/episode/12207421983778283244"
+    anchor: "web:https://ichicomi.com/episode/12207421983778283244"
+    basis: "one series row holds both this address and comic-days.com/episode/3269754496321225448, so they are two platforms carrying one serialisation by tMnR"

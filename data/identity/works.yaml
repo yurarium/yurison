@@ -475,6 +475,11 @@ works:
     title: "ファタールゲーム"
     anchors:
       - "web:https://comic-days.com/episode/12207421983997344603"
+      - "web:https://pocket.shonenmagazine.com/title/03056/episode/441581"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/03056/episode/441581"
+        basis: "one series row holds both this address and comic-days.com/episode/12207421983997344603, so they are two platforms carrying one serialisation by ばったん"
+        retrieved: 2026-08-07
   - id: w00101
     title: "百合のはじまりは奴隷から"
     anchors:
@@ -694,11 +699,45 @@ works:
     anchors:
       - "web:https://comic-days.com/episode/12207421983938230535"
       - "madb:C432674"
+      - "web:https://manga.nicovideo.jp/comic/56012"
+      - "web:https://ichicomi.com/episode/2550912965923203770"
+      - "web:https://comic-days.com/episode/3269754496321192668"
+      - "web:https://ichicomi.com/episode/12207421983829237114"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/56012"
+        basis: "creator 竹嶋えく is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://ichicomi.com/episode/2550912965923203770"
+        basis: "creator 竹嶋えく is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-days.com/episode/3269754496321192668"
+        basis: "creator 竹嶋えく is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://ichicomi.com/episode/12207421983829237114"
+        basis: "one series row holds both this address and comic-days.com/episode/12207421983938230535, so they are two platforms carrying one serialisation by 竹嶋えく"
+        retrieved: 2026-08-07
   - id: w00146
     title: "きみが死ぬまで恋をしたい"
     anchors:
       - "web:https://comic-days.com/episode/12207421983938230522"
       - "madb:C417707"
+      - "web:https://manga.nicovideo.jp/comic/56065"
+      - "web:https://ichicomi.com/episode/2550912965923204442"
+      - "web:https://comic-days.com/episode/3269754496323193503"
+      - "web:https://ichicomi.com/episode/12207421983913589312"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/56065"
+        basis: "creator あおのなち is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://ichicomi.com/episode/2550912965923204442"
+        basis: "creator あおのなち is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-days.com/episode/3269754496323193503"
+        basis: "creator あおのなち is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://ichicomi.com/episode/12207421983913589312"
+        basis: "one series row holds both this address and comic-days.com/episode/12207421983938230522, so they are two platforms carrying one serialisation by あおのなち"
+        retrieved: 2026-08-07
   - id: w00147
     title: "ダメ犬彼女"
     anchors:
@@ -779,10 +818,27 @@ works:
     anchors:
       - "web:https://g-comi.jp/series/82ac8f503cf40"
   - id: w00164
-    title: "私の百合はお仕事です!"
+    title: "私の百合はお仕事です！"
     anchors:
       - "web:https://comic-days.com/episode/12207421983667003040"
       - "madb:C417731"
+      - "web:https://manga.nicovideo.jp/comic/56014"
+      - "web:https://ichicomi.com/episode/2550912965923203016"
+      - "web:https://comic-days.com/episode/3269754496323200170"
+      - "web:https://ichicomi.com/episode/12207421983947227420"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/56014"
+        basis: "creator 未幡 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://ichicomi.com/episode/2550912965923203016"
+        basis: "creator 未幡 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-days.com/episode/3269754496323200170"
+        basis: "creator 未幡 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://ichicomi.com/episode/12207421983947227420"
+        basis: "one series row holds both this address and comic-days.com/episode/12207421983667003040, so they are two platforms carrying one serialisation by 未幡"
+        retrieved: 2026-08-07
   - id: w00165
     title: "私の推しは悪役令嬢。"
     anchors:
@@ -2390,6 +2446,8 @@ works:
     anchors:
       - "web:https://manga-one.com/viewer/70173"
       - "madb:C418294"
+      - "madb:bw-188653"
+      - "web:https://manga.nicovideo.jp/comic/42550"
   - id: w00523
     title: "ボドカン！ ～女、囚人同士、監獄でナニも起こらないはずがなく～"
     anchors:
@@ -2634,6 +2692,7 @@ works:
     title: "ガールズ イン ザ ヘル"
     anchors:
       - "web:https://comic-boost.com/content/01590001"
+      - "madb:C448028"
   - id: w00580
     title: "日常やめたらしたいこと"
     anchors:
@@ -3786,6 +3845,7 @@ works:
     title: "百合にはさまる男は死ねばいい！？"
     anchors:
       - "web:https://comic-boost.com/content/01280001"
+      - "madb:madb-t-3037f9cfc28d"
   - id: w00849
     title: "地雷系地縛霊の美智子ちゃん"
     anchors:
@@ -3813,7 +3873,7 @@ works:
     anchors:
       - "web:https://tonarinoyj.jp/episode/4856001361157739240"
   - id: w00855
-    title: "甘えさせて雛森さん!"
+    title: "甘えさせて雛森さん！"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/02043/episode/373533"
       - "madb:madb-t-6aa5f3dfb75c"
@@ -4040,6 +4100,19 @@ works:
     anchors:
       - "web:https://comic-days.com/episode/3270375685304509944"
       - "madb:C435404"
+      - "web:https://manga.nicovideo.jp/comic/56192"
+      - "web:https://ichicomi.com/episode/2550912965923203336"
+      - "web:https://comic-days.com/episode/3270296674372407139"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/56192"
+        basis: "creator 雨水汐 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://ichicomi.com/episode/2550912965923203336"
+        basis: "creator 雨水汐 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-days.com/episode/3270296674372407139"
+        basis: "creator 雨水汐 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w00909
     title: "全部君のせいだ"
     anchors:
@@ -4340,6 +4413,15 @@ works:
     anchors:
       - "web:https://comic-days.com/episode/3269754496321225448"
       - "madb:C371011"
+      - "web:https://ichicomi.com/episode/2550912965923204597"
+      - "web:https://ichicomi.com/episode/12207421983778283244"
+    attached:
+      - anchor: "web:https://ichicomi.com/episode/2550912965923204597"
+        basis: "creator tmnr is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://ichicomi.com/episode/12207421983778283244"
+        basis: "one series row holds both this address and comic-days.com/episode/3269754496321225448, so they are two platforms carrying one serialisation by tMnR"
+        retrieved: 2026-08-07
   - id: w00976
     title: "JSさんとOLちゃん"
     anchors:
@@ -5249,6 +5331,11 @@ works:
     title: "転生したらあかりだけスライムだった件"
     anchors:
       - "madb:C448669"
+      - "web:https://manga.nicovideo.jp/comic/51933"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/51933"
+        basis: "creator 水鳥なや is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01198
     title: "ストロベリーパルフェ : おねロリ百合アンソロジー"
     anchors:
@@ -5257,6 +5344,11 @@ works:
     title: "ツン姫さまとダメ王子ちゃん"
     anchors:
       - "madb:C450217"
+      - "web:https://manga.nicovideo.jp/comic/44261"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/44261"
+        basis: "creator ヨウハ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01200
     title: "春夏秋冬 : 完全版"
     anchors:
@@ -5544,9 +5636,18 @@ works:
     anchors:
       - "madb:C336174"
   - id: w01264
-    title: null
+    title: "桜Ｔｒｉｃｋ"
     anchors:
       - "madb:C336231"
+      - "web:https://manga.nicovideo.jp/comic/20776"
+      - "web:https://comic-fuz.com/manga/357"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/20776"
+        basis: "creator タチ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/357"
+        basis: "creator タチ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01265
     title: null
     anchors:
@@ -5572,9 +5673,18 @@ works:
     anchors:
       - "madb:C340284"
   - id: w01271
-    title: null
+    title: "あの娘にキスと白百合を"
     anchors:
       - "madb:C340485"
+      - "web:https://manga.nicovideo.jp/comic/29334"
+      - "web:https://comic-walker.com/detail/KC_000257_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/29334"
+        basis: "creator 缶乃 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000257_S"
+        basis: "creator 缶乃 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01272
     title: null
     anchors:
@@ -5640,9 +5750,14 @@ works:
     anchors:
       - "madb:C347275"
   - id: w01288
-    title: null
+    title: "間宮さんといっしょ"
     anchors:
       - "madb:C347617"
+      - "web:https://manga.nicovideo.jp/comic/8942"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/8942"
+        basis: "creator ガオシ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01289
     title: null
     anchors:
@@ -5668,17 +5783,27 @@ works:
     anchors:
       - "madb:C354489"
   - id: w01295
-    title: null
+    title: "ぷあーなんてもうしまい"
     anchors:
       - "madb:C355730"
+      - "web:https://manga.nicovideo.jp/comic/14799"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/14799"
+        basis: "creator 海月れおな is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01296
     title: null
     anchors:
       - "madb:C356022"
   - id: w01297
-    title: null
+    title: "満腹百合"
     anchors:
       - "madb:C356527"
+      - "web:https://manga.nicovideo.jp/comic/39378"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/39378"
+        basis: "creator 宮部サチ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01298
     title: "ゆるゆり コミックアンソロジー"
     anchors:
@@ -5732,9 +5857,14 @@ works:
     anchors:
       - "madb:C358990"
   - id: w01311
-    title: null
+    title: "たくのみ。"
     anchors:
       - "madb:C360061"
+      - "web:https://manga.nicovideo.jp/comic/19112"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/19112"
+        basis: "creator 火野遥人 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01312
     title: null
     anchors:
@@ -5756,17 +5886,31 @@ works:
     anchors:
       - "madb:C366420"
   - id: w01317
-    title: null
+    title: "柚子森さん"
     anchors:
       - "madb:C366716"
+      - "web:https://manga.nicovideo.jp/comic/22191"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/22191"
+        basis: "creator 江島絵理 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01318
     title: null
     anchors:
       - "madb:C366836"
   - id: w01319
-    title: null
+    title: "明るい記憶喪失"
     anchors:
       - "madb:C367193"
+      - "web:https://manga.nicovideo.jp/comic/26412"
+      - "web:https://comic-walker.com/detail/KC_004922_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/26412"
+        basis: "creator 奥たまむし is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004922_S"
+        basis: "creator 奥たまむし is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01320
     title: null
     anchors:
@@ -5852,9 +5996,14 @@ works:
     anchors:
       - "madb:C418591"
   - id: w01341
-    title: null
+    title: "同棲生活"
     anchors:
       - "madb:C418602"
+      - "web:https://manga.nicovideo.jp/comic/30905"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/30905"
+        basis: "creator さつま揚げ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01342
     title: null
     anchors:
@@ -5880,14 +6029,28 @@ works:
     title: null
     anchors:
       - "madb:C420051"
+      - "web:https://feelweb.jp/episode/3269754496401056085"
+    attached:
+      - anchor: "web:https://feelweb.jp/episode/3269754496401056085"
+        basis: "creator 犬井あゆ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01348
     title: null
     anchors:
       - "madb:C420099"
   - id: w01349
-    title: null
+    title: "あーとかうーしか言えない"
     anchors:
       - "madb:C420129"
+      - "web:https://manga.nicovideo.jp/comic/42549"
+      - "web:https://manga.nicovideo.jp/comic/34913"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/42549"
+        basis: "creator 近藤笑真 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/34913"
+        basis: "creator 近藤笑真 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01350
     title: "リリィシステム"
     anchors:
@@ -5898,18 +6061,30 @@ works:
     anchors:
       - "madb:C420904"
   - id: w01352
-    title: null
+    title: "おやすみシェヘラザード"
     anchors:
       - "madb:C421181"
       - "madb:bw-167971"
+      - "madb:bw-249431"
+      - "web:https://manga.nicovideo.jp/comic/34558"
   - id: w01353
-    title: null
+    title: "マザーグール"
     anchors:
       - "madb:C421711"
+      - "web:https://manga.nicovideo.jp/comic/40723"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/40723"
+        basis: "creator 菅原キク is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01354
-    title: null
+    title: "旧約マザーグール"
     anchors:
       - "madb:C421712"
+      - "web:https://manga.nicovideo.jp/comic/39960"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/39960"
+        basis: "creator 菅原キク is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01355
     title: null
     anchors:
@@ -5919,9 +6094,14 @@ works:
     anchors:
       - "madb:C422084"
   - id: w01357
-    title: null
+    title: "推しが武道館いってくれたら死ぬ"
     anchors:
       - "madb:C422127"
+      - "web:https://manga.nicovideo.jp/comic/45194"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/45194"
+        basis: "creator 平尾アウリ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01358
     title: null
     anchors:
@@ -5972,9 +6152,14 @@ works:
     anchors:
       - "madb:C432251"
   - id: w01370
-    title: null
+    title: "神絵師JKとOL腐女子"
     anchors:
       - "madb:C432415"
+      - "web:https://manga.nicovideo.jp/comic/69452"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/69452"
+        basis: "creator さと is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01371
     title: "すれ違い巨大感情百合アンソロジー"
     anchors:
@@ -6031,9 +6216,14 @@ works:
     anchors:
       - "madb:C433732"
   - id: w01384
-    title: "奏 : 青春バンド百合アンソロジー"
+    title: "奏 青春バンド百合アンソロジー"
     anchors:
       - "madb:C434016"
+      - "web:https://manga.nicovideo.jp/comic/43892"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/43892"
+        basis: "creator 浅見百合子 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01385
     title: null
     anchors:
@@ -6067,6 +6257,11 @@ works:
     title: null
     anchors:
       - "madb:C436410"
+      - "web:https://manga.nicovideo.jp/comic/83356"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/83356"
+        basis: "creator 高坂はしやん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01393
     title: null
     anchors:
@@ -6076,13 +6271,23 @@ works:
     anchors:
       - "madb:C437149"
   - id: w01395
-    title: null
+    title: "今日から未来"
     anchors:
       - "madb:C437205"
+      - "web:https://manga.nicovideo.jp/comic/69451"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/69451"
+        basis: "creator 吉富昭仁 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01396
     title: null
     anchors:
       - "madb:C437361"
+      - "web:https://manga.nicovideo.jp/comic/83357"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/83357"
+        basis: "creator カボちゃ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01397
     title: null
     anchors:
@@ -6108,9 +6313,18 @@ works:
     anchors:
       - "madb:C447075"
   - id: w01403
-    title: null
+    title: "君に紡ぐ傍白"
     anchors:
       - "madb:C447750"
+      - "web:https://manga.nicovideo.jp/comic/47011"
+      - "web:https://manga.nicovideo.jp/comic/78054"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/47011"
+        basis: "creator 矢坂しゅう is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/78054"
+        basis: "creator 矢坂しゅう is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01404
     title: "お姫様のお姫様"
     anchors:
@@ -6122,6 +6336,8 @@ works:
       - "madb:C447787"
   - id: w01406
     title: null
+    merged_into: w00579
+    merge_basis: "creator agrees: 河合朗 is credited on comicブースト's serialisation and on the 幻冬舎 バーズコミックス volume C448028"
     anchors:
       - "madb:C448028"
   - id: w01407
@@ -6134,9 +6350,18 @@ works:
       - "madb:C448120"
       - "madb:bw-279930"
   - id: w01409
-    title: null
+    title: "元ヤンちゃんとゆるふわ彼女"
     anchors:
       - "madb:C448168"
+      - "web:https://manga.nicovideo.jp/comic/50807"
+      - "web:https://manga.nicovideo.jp/comic/81731"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/50807"
+        basis: "creator 伊さらこてん is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/81731"
+        basis: "creator 伊さらこてん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01410
     title: null
     anchors:
@@ -6162,17 +6387,36 @@ works:
     anchors:
       - "madb:C449208"
   - id: w01416
-    title: null
+    title: "恋の好奇心"
     anchors:
       - "madb:C449217"
+      - "web:https://manga.nicovideo.jp/comic/54380"
+      - "web:https://manga.nicovideo.jp/comic/63719"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/54380"
+        basis: "creator 大庭直仁 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/63719"
+        basis: "creator 大庭直仁 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01417
     title: null
     anchors:
       - "madb:C449337"
+      - "web:https://comic-walker.com/detail/KC_000746_S"
+    attached:
+      - anchor: "web:https://comic-walker.com/detail/KC_000746_S"
+        basis: "creator ムロマキ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01418
-    title: null
+    title: "いえない秘密の愛し方"
     anchors:
       - "madb:C449361"
+      - "web:https://manga.nicovideo.jp/comic/48648"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/48648"
+        basis: "creator 卯蟹うか is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01419
     title: null
     anchors:
@@ -6190,9 +6434,14 @@ works:
     anchors:
       - "madb:C450253"
   - id: w01423
-    title: null
+    title: "終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー"
     anchors:
       - "madb:C450665"
+      - "web:https://manga.nicovideo.jp/comic/56538"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/56538"
+        basis: "creator おこさまランチ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01424
     title: "同人女百合アンソロジー"
     anchors:
@@ -6202,9 +6451,14 @@ works:
     anchors:
       - "madb:C451214"
   - id: w01426
-    title: null
+    title: "今日の授業は恋愛です！"
     anchors:
       - "madb:C451276"
+      - "web:https://manga.nicovideo.jp/comic/53889"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/53889"
+        basis: "creator つみきつき is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01427
     title: null
     anchors:
@@ -6218,9 +6472,18 @@ works:
     anchors:
       - "madb:C451705"
   - id: w01430
-    title: null
+    title: "みんな私のはらのなか"
     anchors:
       - "madb:C451800"
+      - "web:https://manga.nicovideo.jp/comic/49652"
+      - "web:https://manga.nicovideo.jp/comic/78090"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/49652"
+        basis: "creator ちさこ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/78090"
+        basis: "creator ちさこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01431
     title: "ステラ★レコード = STELLA★RECORD"
     anchors:
@@ -6231,6 +6494,11 @@ works:
     anchors:
       - "madb:madb-t-0d7acc157425"
       - "madb:bw-f8632617-3431-4b4d-b479-8cb587df2cd8"
+      - "web:https://manga.nicovideo.jp/comic/34700"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/34700"
+        basis: "creator くるくる姫 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01433
     title: null
     anchors:
@@ -6244,18 +6512,32 @@ works:
     anchors:
       - "madb:madb-t-16997a24605a"
   - id: w01436
-    title: null
+    title: "ラブかライクか分からない！"
     anchors:
       - "madb:madb-t-18be3c961aee"
+      - "web:https://manga.nicovideo.jp/comic/70757"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/70757"
+        basis: "creator sasa熊 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01437
     title: "同じ所で眠るまで待って = Wait until I sleep in the same place with you"
     anchors:
       - "madb:madb-t-19874d1c2c81"
       - "madb:bw-ee43d6d4-2965-4840-b7db-a47bfcab91d7"
   - id: w01438
-    title: null
+    title: "新人女性漫画家がネットセックスに沼ってVTuberになった話"
     anchors:
       - "madb:madb-t-1e4bc9e807ee"
+      - "web:https://manga.nicovideo.jp/comic/65297"
+      - "web:https://www.comicnettai.com/book/29"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/65297"
+        basis: "creator 珠奈ににこ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://www.comicnettai.com/book/29"
+        basis: "creator 珠奈ににこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01439
     title: null
     anchors:
@@ -6278,6 +6560,8 @@ works:
       - "madb:madb-t-2b10a1f5bff8"
   - id: w01444
     title: null
+    merged_into: w00848
+    merge_basis: "creator agrees: 蓬餅 is credited on comicブースト's serialisation and on the 幻冬舎 バーズコミックス volume madb-t-3037f9cfc28d"
     anchors:
       - "madb:madb-t-3037f9cfc28d"
   - id: w01445
@@ -6293,21 +6577,49 @@ works:
     anchors:
       - "madb:madb-t-4d208790db34"
   - id: w01448
-    title: null
+    title: "保健室の鍵閉めてっ"
     anchors:
       - "madb:madb-t-4d3db94dfe33"
+      - "web:https://manga.nicovideo.jp/comic/70758"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/70758"
+        basis: "creator 蕗屋文字 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01449
-    title: null
+    title: "プロジェクト・ユリフォーミング！"
     anchors:
       - "madb:madb-t-4f072d1d15b1"
+      - "web:https://manga.nicovideo.jp/comic/69335"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/69335"
+        basis: "creator 御家かえる is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01450
-    title: null
+    title: "ご主人様には吸わせません！"
     anchors:
       - "madb:madb-t-5a9507e6f115"
+      - "web:https://manga.nicovideo.jp/comic/61965"
+      - "web:https://manga.nicovideo.jp/comic/78269"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/61965"
+        basis: "creator パデラポッロのりお is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/78269"
+        basis: "creator パデラポッロのりお is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01451
-    title: null
+    title: "友達が私を理解らせにくるので勝利の女神の力を借りてこっちも理解らせにいきます。"
     anchors:
       - "madb:madb-t-5c28be8a89dd"
+      - "web:https://manga.nicovideo.jp/comic/61994"
+      - "web:https://manga.nicovideo.jp/comic/78268"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/61994"
+        basis: "creator ショウマケイト is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/78268"
+        basis: "creator ショウマケイト is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01452
     title: null
     anchors:
@@ -6345,9 +6657,14 @@ works:
     anchors:
       - "madb:madb-t-ac364b221c73"
   - id: w01461
-    title: null
+    title: "百合のあいだは悩ましい"
     anchors:
       - "madb:madb-t-afc41b6f987a"
+      - "web:https://manga.nicovideo.jp/comic/58135"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/58135"
+        basis: "creator 森井暁正 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01462
     title: null
     anchors:
@@ -6357,25 +6674,44 @@ works:
     anchors:
       - "madb:madb-t-b3091281a3fa"
   - id: w01464
-    title: null
+    title: "ノス＆ザクロ"
     anchors:
       - "madb:madb-t-b7c9efe5f73d"
+      - "web:https://manga.nicovideo.jp/comic/71923"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/71923"
+        basis: "creator ラリアット is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01465
     title: null
     anchors:
       - "madb:madb-t-b9bec9672b52"
   - id: w01466
-    title: null
+    title: "鮮血王女、皆殺す ～家族に裏切られ、処刑された少女は蘇り、『死神』となって復讐する～"
     anchors:
       - "madb:madb-t-bceb07cffae7"
+      - "web:https://manga.nicovideo.jp/comic/57862"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/57862"
+        basis: "creator kiki is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01467
     title: null
     anchors:
       - "madb:madb-t-c286359598f4"
   - id: w01468
-    title: null
+    title: "きもちわるいから君がすき"
     anchors:
       - "madb:madb-t-dae80e10cbac"
+      - "web:https://manga.nicovideo.jp/comic/58241"
+      - "web:https://comic-fuz.com/manga/2947"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/58241"
+        basis: "creator 西畑けい is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/2947"
+        basis: "creator 西畑けい is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01469
     title: "コスプレ百合えっちアンソロジー"
     anchors:
@@ -6389,21 +6725,36 @@ works:
     anchors:
       - "madb:madb-t-e76078baed0d"
   - id: w01472
-    title: null
+    title: "運命のヤマダダダダダダダダダダ"
     anchors:
       - "madb:madb-t-ec1ebd55d3af"
+      - "web:https://manga.nicovideo.jp/comic/72312"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/72312"
+        basis: "creator おにぎりパクパク is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01473
     title: "泣き顔百合アンソロジー"
     anchors:
       - "madb:madb-t-ed0c03b72ae0"
   - id: w01474
-    title: null
+    title: "妄想アカデミズム"
     anchors:
       - "madb:madb-t-ee0622b26052"
+      - "web:https://manga.nicovideo.jp/comic/60564"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/60564"
+        basis: "creator 檜山ユキ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01475
-    title: null
+    title: "ちみどろアイスクリーム"
     anchors:
       - "madb:madb-t-ee0d17412c6b"
+      - "web:https://manga.nicovideo.jp/comic/63676"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/63676"
+        basis: "creator 北斗すい is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01476
     title: "メイドさんと百合についてのアンソロジー"
     anchors:
@@ -6540,9 +6891,14 @@ works:
       - "web:https://comic-walker.com/detail/KC_005982_S"
       - "madb:bw-425987"
   - id: w01503
-    title: null
+    title: "schadenliebe"
     anchors:
       - "madb:bw-001dd5ae-135e-4742-ba0b-610d1c46b755"
+      - "web:https://manga.nicovideo.jp/comic/43183"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/43183"
+        basis: "creator ぴりぷん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01504
     title: null
     anchors:
@@ -6596,9 +6952,14 @@ works:
     anchors:
       - "madb:bw-0301d164-598e-436d-84ba-d17b48f2e018"
   - id: w01517
-    title: null
+    title: "のだ"
     anchors:
       - "madb:bw-03716f69-fb73-42a0-9d03-f00733a806a1"
+      - "web:https://manga.nicovideo.jp/comic/83809"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/83809"
+        basis: "creator odakogane is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01518
     title: null
     anchors:
@@ -6624,9 +6985,14 @@ works:
     anchors:
       - "madb:bw-043d9b01-2c77-45f5-b3fb-6b04851f93a1"
   - id: w01524
-    title: null
+    title: "姫巫子と姫騎士"
     anchors:
       - "madb:bw-046266e8-cba6-45d0-a4ed-0f29218a57d0"
+      - "web:https://comic-walker.com/detail/KC_005922_S"
+    attached:
+      - anchor: "web:https://comic-walker.com/detail/KC_005922_S"
+        basis: "creator 真くん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01525
     title: null
     anchors:
@@ -6695,6 +7061,7 @@ works:
     title: null
     anchors:
       - "madb:bw-0844c6e3-a6bd-4a46-aa53-e68f251f2a36"
+      - "madb:bw-314852"
   - id: w01542
     title: null
     anchors:
@@ -6792,9 +7159,14 @@ works:
     anchors:
       - "madb:bw-0bce1150-ba72-45a2-89d6-3975b512a2d7"
   - id: w01566
-    title: null
+    title: "今日の先輩と後輩は"
     anchors:
       - "madb:bw-0bf290b1-04db-43e4-b32a-965b255b4bc7"
+      - "web:https://manga.nicovideo.jp/comic/54452"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/54452"
+        basis: "creator 百茶 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01567
     title: null
     anchors:
@@ -6852,41 +7224,88 @@ works:
     anchors:
       - "madb:bw-100040"
   - id: w01581
-    title: null
+    title: "しょーがくせいのあたまのなか"
     anchors:
       - "madb:bw-103648"
+      - "web:https://manga.nicovideo.jp/comic/25463"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/25463"
+        basis: "creator 石見翔子 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01582
-    title: null
+    title: "いつか私は、君を裏切る"
     anchors:
       - "madb:bw-104438"
+      - "web:https://manga.nicovideo.jp/comic/29583"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/29583"
+        basis: "creator 桜井瑞希 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01583
     title: null
     anchors:
       - "madb:bw-104488"
   - id: w01584
-    title: null
+    title: "アニマエール！"
     anchors:
       - "madb:bw-105941"
+      - "web:https://manga.nicovideo.jp/comic/37175"
+      - "web:https://comic-fuz.com/manga/268"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/37175"
+        basis: "creator 卯花つかさ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/268"
+        basis: "creator 卯花つかさ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01585
     title: null
     anchors:
       - "madb:bw-106786"
   - id: w01586
-    title: null
+    title: "どうして私が美術科に!?"
     anchors:
       - "madb:bw-107827"
+      - "web:https://manga.nicovideo.jp/comic/26289"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/26289"
+        basis: "creator 相崎うたう is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01587
-    title: null
+    title: "百合百景"
     anchors:
       - "madb:bw-107988"
+      - "web:https://manga.nicovideo.jp/comic/30773"
+      - "web:https://comic-walker.com/detail/KC_002377_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/30773"
+        basis: "creator はちこ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002377_S"
+        basis: "creator はちこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01588
-    title: null
+    title: "今日も女の子を攻略した。"
     anchors:
       - "madb:bw-108082"
+      - "web:https://manga.nicovideo.jp/comic/26411"
+      - "web:https://comic-walker.com/detail/KC_004938_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/26411"
+        basis: "creator むく is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004938_S"
+        basis: "creator むく is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01589
-    title: null
+    title: "ブラックリリィと白百合ちゃん"
     anchors:
       - "madb:bw-109087"
+      - "web:https://manga.nicovideo.jp/comic/26941"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/26941"
+        basis: "creator 鳳まひろ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01590
     title: null
     anchors:
@@ -6896,29 +7315,53 @@ works:
     anchors:
       - "madb:bw-11076"
   - id: w01592
-    title: null
+    title: "ひなたすたでい。"
     anchors:
       - "madb:bw-111286"
+      - "web:https://manga.nicovideo.jp/comic/26618"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/26618"
+        basis: "creator むく is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01593
     title: null
     anchors:
       - "madb:bw-112237"
   - id: w01594
-    title: null
+    title: "JKすぷらっしゅ！"
     anchors:
       - "madb:bw-112245"
+      - "web:https://manga.nicovideo.jp/comic/27288"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/27288"
+        basis: "creator 春雨 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01595
     title: null
     anchors:
       - "madb:bw-11342823-83e7-4310-b499-1da743f19709"
   - id: w01596
-    title: null
+    title: "コーヒーカンタータ"
     anchors:
       - "madb:bw-113609"
+      - "web:https://manga.nicovideo.jp/comic/30827"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/30827"
+        basis: "creator からあげたろう is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01597
-    title: null
+    title: "ハクメイとミコチ"
     anchors:
       - "madb:bw-11687"
+      - "web:https://manga.nicovideo.jp/comic/30424"
+      - "web:https://comic-walker.com/detail/KC_000528_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/30424"
+        basis: "creator 樫木祐人 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000528_S"
+        basis: "creator 樫木祐人 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01598
     title: null
     anchors:
@@ -6935,6 +7378,11 @@ works:
     title: null
     anchors:
       - "madb:bw-120172"
+      - "web:https://comic-walker.com/detail/KC_003976_S"
+    attached:
+      - anchor: "web:https://comic-walker.com/detail/KC_003976_S"
+        basis: "creator もちオレ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01602
     title: null
     anchors:
@@ -6964,25 +7412,49 @@ works:
     anchors:
       - "madb:bw-12d2fec6-734b-44dd-abf4-25169d1213e5"
   - id: w01609
-    title: null
+    title: "恋の絶望行進曲"
     anchors:
       - "madb:bw-12e86de8-92b0-400d-89ae-e51bfd8625df"
+      - "web:https://manga.nicovideo.jp/comic/65342"
+      - "web:https://comic-walker.com/detail/KC_000954_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/65342"
+        basis: "creator 富沢未知果 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000954_S"
+        basis: "creator 富沢未知果 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01610
     title: null
     anchors:
       - "madb:bw-130cae21-b64f-475c-95b0-28428c1fdf61"
   - id: w01611
-    title: null
+    title: "お嬢様はアイスがお好き。"
     anchors:
       - "madb:bw-131851"
+      - "web:https://manga.nicovideo.jp/comic/29131"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/29131"
+        basis: "creator はなこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01612
     title: null
     anchors:
       - "madb:bw-131856"
+      - "web:https://comic-walker.com/detail/KC_000858_S"
+    attached:
+      - anchor: "web:https://comic-walker.com/detail/KC_000858_S"
+        basis: "creator 代々木アニメション学院 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01613
-    title: null
+    title: "おとめサキュバス"
     anchors:
       - "madb:bw-133375"
+      - "web:https://manga.nicovideo.jp/comic/31045"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/31045"
+        basis: "creator ぬっく is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01614
     title: null
     anchors:
@@ -6992,13 +7464,27 @@ works:
     anchors:
       - "madb:bw-13373"
   - id: w01616
-    title: null
+    title: "おにふたつ"
     anchors:
       - "madb:bw-134849"
+      - "web:https://manga.nicovideo.jp/comic/29743"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/29743"
+        basis: "creator 藤松盟 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01617
-    title: null
+    title: "ゴブリンはもう十分に強い"
     anchors:
       - "madb:bw-134853"
+      - "web:https://manga.nicovideo.jp/comic/29306"
+      - "web:https://comic-walker.com/detail/KC_003364_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/29306"
+        basis: "creator サラマンダ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003364_S"
+        basis: "creator サラマンダ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01618
     title: null
     anchors:
@@ -7023,14 +7509,28 @@ works:
     title: null
     anchors:
       - "madb:bw-137953"
+      - "web:https://manga.nicovideo.jp/comic/26065"
+      - "web:https://comic.j-nbooks.jp/series/206e367e6547e"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/26065"
+        basis: "creator 渡邉嘘海 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic.j-nbooks.jp/series/206e367e6547e"
+        basis: "creator 渡邉嘘海 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01624
     title: null
     anchors:
       - "madb:bw-137c5791-f26a-459d-9fe1-1c8855de1d5f"
   - id: w01625
-    title: null
+    title: "このかけがえのない地獄"
     anchors:
       - "madb:bw-137dfe13-dd8e-4cd3-9c9a-22abd66cbb16"
+      - "web:https://manga.nicovideo.jp/comic/33324"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/33324"
+        basis: "creator アッチあい is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01626
     title: null
     anchors:
@@ -7044,37 +7544,88 @@ works:
     anchors:
       - "madb:bw-139585"
   - id: w01629
-    title: null
+    title: "熱帯魚は雪に焦がれる"
     anchors:
       - "madb:bw-140866"
+      - "web:https://manga.nicovideo.jp/comic/30892"
+      - "web:https://comic-walker.com/detail/KC_001827_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/30892"
+        basis: "creator 萩埜まこと is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_001827_S"
+        basis: "creator 萩埜まこと is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01630
     title: null
     anchors:
       - "madb:bw-146185"
   - id: w01631
-    title: null
+    title: "ハイパーウルトラガーリッシュ"
     anchors:
       - "madb:bw-146925"
+      - "web:https://manga.nicovideo.jp/comic/30607"
+      - "web:https://comic-walker.com/detail/KC_001496_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/30607"
+        basis: "creator 大川ぶくぶ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_001496_S"
+        basis: "creator 大川ぶくぶ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01632
-    title: null
+    title: "籠の少女は恋をする"
     anchors:
       - "madb:bw-146938"
+      - "web:https://manga.nicovideo.jp/comic/32600"
+      - "web:https://comic-walker.com/detail/KC_003554_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/32600"
+        basis: "creator 川浪いずみ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003554_S"
+        basis: "creator 川浪いずみ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01633
-    title: null
+    title: "レンタルショップでお姉さんをレンタルする話"
     anchors:
       - "madb:bw-146b4a59-d689-445d-bce5-678d656b4473"
+      - "web:https://manga.nicovideo.jp/comic/39034"
+      - "web:https://comic-walker.com/detail/KC_004240_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/39034"
+        basis: "creator もちオレ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004240_S"
+        basis: "creator もちオレ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01634
-    title: null
+    title: "学校のしおり"
     anchors:
       - "madb:bw-147677"
+      - "web:https://manga.nicovideo.jp/comic/2065"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/2065"
+        basis: "creator ポルリン is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01635
-    title: null
+    title: "にーにといっしょ！"
     anchors:
       - "madb:bw-148588"
+      - "web:https://manga.nicovideo.jp/comic/53995"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/53995"
+        basis: "creator よぱん男爵 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01636
-    title: null
+    title: "また教室で"
     anchors:
       - "madb:bw-148590"
+      - "web:https://manga.nicovideo.jp/comic/31101"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/31101"
+        basis: "creator 吉北ぽぷり is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01637
     title: null
     anchors:
@@ -7092,33 +7643,70 @@ works:
     anchors:
       - "madb:bw-150248"
   - id: w01641
-    title: null
+    title: "暗黒騎士団長と青春ガール"
     anchors:
       - "madb:bw-150265"
+      - "web:https://manga.nicovideo.jp/comic/28309"
+      - "web:https://comic-walker.com/detail/KC_004025_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/28309"
+        basis: "creator りしん is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004025_S"
+        basis: "creator りしん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01642
-    title: null
+    title: "がんくつ荘の不夜城さん"
     anchors:
       - "madb:bw-152462"
+      - "web:https://manga.nicovideo.jp/comic/28199"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/28199"
+        basis: "creator 鴻巣覚 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01643
     title: null
     anchors:
       - "madb:bw-15279"
   - id: w01644
-    title: null
+    title: "オレが腐女子でアイツが百合オタで"
     anchors:
       - "madb:bw-153515"
+      - "web:https://manga.nicovideo.jp/comic/21866"
+      - "web:https://comic-walker.com/detail/KC_001458_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/21866"
+        basis: "creator アジイチ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_001458_S"
+        basis: "creator アジイチ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01645
-    title: null
+    title: "北陸とらいあんぐる"
     anchors:
       - "madb:bw-153660"
+      - "web:https://manga.nicovideo.jp/comic/23660"
+      - "web:https://comic-walker.com/detail/KC_001512_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/23660"
+        basis: "creator ちさこ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_001512_S"
+        basis: "creator ちさこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01646
     title: null
     anchors:
       - "madb:bw-1537f663-11e5-4f73-bd96-143223b8d4f5"
   - id: w01647
-    title: null
+    title: "あなたの順位おしえてくださいっ"
     anchors:
       - "madb:bw-154153"
+      - "web:https://manga.nicovideo.jp/comic/31803"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/31803"
+        basis: "creator 春日沙生 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01648
     title: null
     anchors:
@@ -7127,6 +7715,11 @@ works:
     title: null
     anchors:
       - "madb:bw-156447"
+      - "web:https://ichicomi.com/episode/2550912965923202946"
+    attached:
+      - anchor: "web:https://ichicomi.com/episode/2550912965923202946"
+        basis: "creator ひだかなみ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01650
     title: null
     anchors:
@@ -7136,9 +7729,14 @@ works:
     anchors:
       - "madb:bw-156922"
   - id: w01652
-    title: null
+    title: "私達は、真実の愛を見つけた。"
     anchors:
       - "madb:bw-156f9d78-2009-4fe1-b98b-286c34f8cda4"
+      - "web:https://manga.nicovideo.jp/comic/70119"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/70119"
+        basis: "creator 結木ユウ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01653
     title: null
     anchors:
@@ -7216,9 +7814,18 @@ works:
     anchors:
       - "madb:bw-163605"
   - id: w01672
-    title: null
+    title: "ハナヤマタ"
     anchors:
       - "madb:bw-16392"
+      - "web:https://manga.nicovideo.jp/comic/20773"
+      - "web:https://comic-fuz.com/manga/409"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/20773"
+        basis: "creator 浜弓場双 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/409"
+        basis: "creator 浜弓場双 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01673
     title: null
     anchors:
@@ -7248,9 +7855,14 @@ works:
     anchors:
       - "madb:bw-167014"
   - id: w01680
-    title: null
+    title: "ふりだしにおちる！"
     anchors:
       - "madb:bw-167774"
+      - "web:https://manga.nicovideo.jp/comic/34024"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/34024"
+        basis: "creator むっしゅ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01681
     title: null
     merged_into: w01352
@@ -7266,9 +7878,18 @@ works:
     anchors:
       - "madb:bw-168662"
   - id: w01684
-    title: null
+    title: "どうやら私の身体は完全無敵のようですね"
     anchors:
       - "madb:bw-168951"
+      - "web:https://manga.nicovideo.jp/comic/32810"
+      - "web:https://comic-walker.com/detail/KC_004973_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/32810"
+        basis: "creator ちゃつふさ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004973_S"
+        basis: "creator ちゃつふさ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01685
     title: null
     anchors:
@@ -7290,13 +7911,27 @@ works:
     anchors:
       - "madb:bw-171151"
   - id: w01690
-    title: null
+    title: "私の拳をうけとめて！"
     anchors:
       - "madb:bw-171211"
+      - "web:https://manga.nicovideo.jp/comic/32701"
+      - "web:https://comic-walker.com/detail/KC_004745_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/32701"
+        basis: "creator murata is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004745_S"
+        basis: "creator murata is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01691
     title: null
     anchors:
       - "madb:bw-172599"
+      - "web:https://comic-walker.com/detail/KC_002313_S"
+    attached:
+      - anchor: "web:https://comic-walker.com/detail/KC_002313_S"
+        basis: "creator 原百合子 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01692
     title: null
     anchors:
@@ -7306,9 +7941,14 @@ works:
     anchors:
       - "madb:bw-174153"
   - id: w01694
-    title: null
+    title: "幸腹グラフィティ"
     anchors:
       - "madb:bw-17508"
+      - "web:https://comic-fuz.com/manga/299"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/299"
+        basis: "creator 川井マコト is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01695
     title: null
     anchors:
@@ -7326,17 +7966,31 @@ works:
     anchors:
       - "madb:bw-177493"
   - id: w01699
-    title: null
+    title: "うさぎのふらふら"
     anchors:
       - "madb:bw-177815"
+      - "web:https://manga.nicovideo.jp/comic/33767"
+      - "web:https://comic-walker.com/detail/KC_000090_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/33767"
+        basis: "creator 隈井 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000090_S"
+        basis: "creator 隈井 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01700
     title: null
     anchors:
       - "madb:bw-177932"
   - id: w01701
-    title: null
+    title: "放課後"
     anchors:
       - "madb:bw-178667"
+      - "web:https://manga.nicovideo.jp/comic/40541"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/40541"
+        basis: "creator 大島永遠 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01702
     title: null
     anchors:
@@ -7354,21 +8008,44 @@ works:
     anchors:
       - "madb:bw-17de3e3b-c8c1-4339-8fab-5398c8925741"
   - id: w01706
-    title: null
+    title: "ももいろジャンキー"
     anchors:
       - "madb:bw-180026"
+      - "web:https://manga.nicovideo.jp/comic/37915"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/37915"
+        basis: "creator おにぎり is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01707
     title: null
     anchors:
       - "madb:bw-181b232c-2710-4f96-ba0e-69c313354446"
   - id: w01708
-    title: null
+    title: "女流作家とユキ"
     anchors:
       - "madb:bw-182089"
+      - "web:https://manga.nicovideo.jp/comic/39270"
+      - "web:https://comic-walker.com/detail/KC_003025_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/39270"
+        basis: "creator なごり悠 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003025_S"
+        basis: "creator なごり悠 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01709
-    title: null
+    title: "恋愛禁止学園"
     anchors:
       - "madb:bw-182092"
+      - "web:https://manga.nicovideo.jp/comic/35118"
+      - "web:https://comic-walker.com/detail/KC_000270_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/35118"
+        basis: "creator emily is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000270_S"
+        basis: "creator emily is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01710
     title: null
     anchors:
@@ -7390,9 +8067,14 @@ works:
     anchors:
       - "madb:bw-184594"
   - id: w01715
-    title: null
+    title: "女子大生が合コンでお姉さんに持ち帰られる話"
     anchors:
       - "madb:bw-184760"
+      - "web:https://manga.nicovideo.jp/comic/35475"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/35475"
+        basis: "creator 雪尾ゆき is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01716
     title: null
     anchors:
@@ -7406,25 +8088,51 @@ works:
     anchors:
       - "madb:bw-186141"
   - id: w01719
-    title: null
+    title: "チュンまんが"
     anchors:
       - "madb:bw-186146"
+      - "web:https://manga.nicovideo.jp/comic/36499"
+      - "web:https://comic-walker.com/detail/KC_001209_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/36499"
+        basis: "creator dollly is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_001209_S"
+        basis: "creator dollly is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01720
-    title: null
+    title: "恋愛専科"
     anchors:
       - "madb:bw-18734"
+      - "web:https://comic-fuz.com/manga/450"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/450"
+        basis: "creator ミズタマ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01721
     title: null
+    merged_into: w00522
+    merge_basis: "creator agrees: たみふる is credited on both, and the publisher 小学館 on both. bw-188653 is the 裏サンデー女子部 単話 edition of the 裏少年サンデーコミックス run C418294, serialised on マンガワン"
     anchors:
       - "madb:bw-188653"
+      - "web:https://manga.nicovideo.jp/comic/42550"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/42550"
+        basis: "creator たみふる is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01722
     title: null
     anchors:
       - "madb:bw-18872"
   - id: w01723
-    title: null
+    title: "メイドさんの下着は特別です。"
     anchors:
       - "madb:bw-188949"
+      - "web:https://manga.nicovideo.jp/comic/53988"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/53988"
+        basis: "creator みらくるる is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01724
     title: null
     anchors:
@@ -7454,41 +8162,96 @@ works:
     anchors:
       - "madb:bw-193356"
   - id: w01731
-    title: null
+    title: "コミュ障VS百合"
     anchors:
       - "madb:bw-193489"
+      - "web:https://manga.nicovideo.jp/comic/35697"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/35697"
+        basis: "creator ひみつ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01732
-    title: null
+    title: "シスコンお姉ちゃんと気にしない妹"
     anchors:
       - "madb:bw-193889"
+      - "web:https://manga.nicovideo.jp/comic/36573"
+      - "web:https://comic-walker.com/detail/KC_000348_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/36573"
+        basis: "creator 桐灰きねそ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000348_S"
+        basis: "creator 桐灰きねそ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01733
-    title: null
+    title: "百合もよう～咲宮4姉妹の恋～"
     anchors:
       - "madb:bw-193898"
+      - "web:https://manga.nicovideo.jp/comic/36571"
+      - "web:https://comic-walker.com/detail/KC_000294_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/36571"
+        basis: "creator はちこ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000294_S"
+        basis: "creator はちこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01734
-    title: null
+    title: "アルバート家の令嬢は没落をご所望です"
     anchors:
       - "madb:bw-193991"
+      - "web:https://manga.nicovideo.jp/comic/34789"
+      - "web:https://comic-walker.com/detail/KC_001530_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/34789"
+        basis: "creator 彩月つかさ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_001530_S"
+        basis: "creator 彩月つかさ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01735
     title: null
     anchors:
       - "madb:bw-194664"
+      - "web:https://manga.nicovideo.jp/comic/40827"
+      - "web:https://comic-trail.com/episode/13933686331767004892"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/40827"
+        basis: "creator 森尾正博 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-trail.com/episode/13933686331767004892"
+        basis: "creator 森尾正博 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01736
     title: null
     anchors:
       - "madb:bw-194956"
   - id: w01737
-    title: null
+    title: "スローループ"
     anchors:
       - "madb:bw-195904"
+      - "web:https://manga.nicovideo.jp/comic/48292"
+      - "web:https://comic-fuz.com/manga/1541"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/48292"
+        basis: "creator うちのまいこ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/1541"
+        basis: "creator うちのまいこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01738
     title: null
     anchors:
       - "madb:bw-196788"
   - id: w01739
-    title: null
+    title: "真面目ガールと青春ランジェリー"
     anchors:
       - "madb:bw-196793"
+      - "web:https://manga.nicovideo.jp/comic/35582"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/35582"
+        basis: "creator タチ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01740
     title: null
     anchors:
@@ -7498,9 +8261,18 @@ works:
     anchors:
       - "madb:bw-198532"
   - id: w01742
-    title: null
+    title: "世界の終わりと魔女の恋"
     anchors:
       - "madb:bw-199085"
+      - "web:https://manga.nicovideo.jp/comic/37425"
+      - "web:https://comic-walker.com/detail/KC_000299_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/37425"
+        basis: "creator kujira is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000299_S"
+        basis: "creator kujira is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01743
     title: null
     anchors:
@@ -7580,9 +8352,14 @@ works:
     anchors:
       - "madb:bw-201135"
   - id: w01762
-    title: null
+    title: "まだ魔法なんかに頼ってらっしゃるのでしょうか？"
     anchors:
       - "madb:bw-201425"
+      - "web:https://manga.nicovideo.jp/comic/37373"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/37373"
+        basis: "creator 塩胡蝶 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01763
     title: null
     anchors:
@@ -7608,25 +8385,57 @@ works:
     anchors:
       - "madb:bw-206151"
   - id: w01769
-    title: null
+    title: "魔王城ツアーへようこそ！"
     anchors:
       - "madb:bw-206935"
+      - "web:https://manga.nicovideo.jp/comic/39185"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/39185"
+        basis: "creator 春雨 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01770
-    title: null
+    title: "ひまりのまわり"
     anchors:
       - "madb:bw-206946"
+      - "web:https://manga.nicovideo.jp/comic/42310"
+      - "web:https://comic-fuz.com/manga/1582"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/42310"
+        basis: "creator 桜木蓮 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/1582"
+        basis: "creator 桜木蓮 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01771
     title: null
     anchors:
       - "madb:bw-207748"
   - id: w01772
-    title: null
+    title: "オレが私になるまで"
     anchors:
       - "madb:bw-208480"
+      - "web:https://manga.nicovideo.jp/comic/40175"
+      - "web:https://comic-walker.com/detail/KC_004329_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/40175"
+        basis: "creator 佐藤はつき is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004329_S"
+        basis: "creator 佐藤はつき is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01773
-    title: null
+    title: "私以外人類全員百合"
     anchors:
       - "madb:bw-208483"
+      - "web:https://manga.nicovideo.jp/comic/38761"
+      - "web:https://comic-walker.com/detail/KC_002171_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/38761"
+        basis: "creator 晴瀬ひろき is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002171_S"
+        basis: "creator 晴瀬ひろき is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01774
     title: null
     anchors:
@@ -7646,25 +8455,61 @@ works:
     anchors:
       - "madb:bw-212250"
   - id: w01778
-    title: null
+    title: "おしえて！ギャル子ちゃん"
     anchors:
       - "madb:bw-21226"
+      - "web:https://comic-walker.com/detail/KC_007125_S"
+    attached:
+      - anchor: "web:https://comic-walker.com/detail/KC_007125_S"
+        basis: "creator 鈴木健也 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01779
-    title: null
+    title: "ひとりぼっちの○○生活"
     anchors:
       - "madb:bw-21313"
+      - "web:https://manga.nicovideo.jp/comic/13928"
+      - "web:https://comic-walker.com/detail/KC_008557_S"
+      - "web:https://comic-walker.com/detail/KC_002520_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/13928"
+        basis: "creator カツヲ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_008557_S"
+        basis: "creator カツヲ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002520_S"
+        basis: "creator カツヲ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01780
     title: null
     anchors:
       - "madb:bw-21459a6d-9e97-4109-a56c-8ccbbc3e3370"
   - id: w01781
-    title: null
+    title: "タプリスシュガーステップ"
     anchors:
       - "madb:bw-216240"
+      - "web:https://manga.nicovideo.jp/comic/39439"
+      - "web:https://comic-walker.com/detail/KC_003798_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/39439"
+        basis: "creator ばふぁこ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003798_S"
+        basis: "creator ばふぁこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01782
-    title: null
+    title: "神ゲーってそういうことですか"
     anchors:
       - "madb:bw-216252"
+      - "web:https://manga.nicovideo.jp/comic/39395"
+      - "web:https://comic-walker.com/detail/KC_002614_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/39395"
+        basis: "creator 広瀬まどか is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002614_S"
+        basis: "creator 広瀬まどか is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01783
     title: null
     anchors:
@@ -7678,13 +8523,31 @@ works:
     anchors:
       - "madb:bw-217821"
   - id: w01786
-    title: null
+    title: "社畜さんと家出少女"
     anchors:
       - "madb:bw-218294"
+      - "web:https://manga.nicovideo.jp/comic/43713"
+      - "web:https://comic-fuz.com/manga/1679"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/43713"
+        basis: "creator タツノコッソ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/1679"
+        basis: "creator タツノコッソ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01787
-    title: null
+    title: "小森さんは断れない！"
     anchors:
       - "madb:bw-21889"
+      - "web:https://manga.nicovideo.jp/comic/26100"
+      - "web:https://comic-fuz.com/manga/693"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/26100"
+        basis: "creator クル教信者 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/693"
+        basis: "creator クル教信者 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01788
     title: null
     anchors:
@@ -7698,13 +8561,31 @@ works:
     anchors:
       - "madb:bw-21b3bc1a-aebd-4c84-909b-191b5dbaa85b"
   - id: w01791
-    title: null
+    title: "よい子先生と薄い本の悪魔"
     anchors:
       - "madb:bw-220037"
+      - "web:https://manga.nicovideo.jp/comic/35583"
+      - "web:https://comic-walker.com/detail/KC_003606_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/35583"
+        basis: "creator こめつぶ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003606_S"
+        basis: "creator こめつぶ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01792
-    title: null
+    title: "永世乙女の戦い方"
     anchors:
       - "madb:bw-220702"
+      - "web:https://manga.nicovideo.jp/comic/48695"
+      - "web:https://bigcomics.jp/series/2ff720adb12c6"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/48695"
+        basis: "creator くずしろ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://bigcomics.jp/series/2ff720adb12c6"
+        basis: "creator くずしろ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01793
     title: null
     anchors:
@@ -7714,9 +8595,18 @@ works:
     anchors:
       - "madb:bw-223780"
   - id: w01795
-    title: null
+    title: "疲れきった女が死ぬほど癒やされるために。"
     anchors:
       - "madb:bw-223829"
+      - "web:https://manga.nicovideo.jp/comic/44223"
+      - "web:https://comic-walker.com/detail/KC_003466_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/44223"
+        basis: "creator 山口えいと is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003466_S"
+        basis: "creator 山口えいと is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01796
     title: null
     anchors:
@@ -7750,13 +8640,31 @@ works:
     anchors:
       - "madb:bw-225912"
   - id: w01804
-    title: null
+    title: "あなたのためなら女にでも"
     anchors:
       - "madb:bw-227659"
+      - "web:https://manga.nicovideo.jp/comic/44852"
+      - "web:https://comic-walker.com/detail/KC_003490_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/44852"
+        basis: "creator つごもり is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003490_S"
+        basis: "creator つごもり is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01805
-    title: null
+    title: "宝石省の新人"
     anchors:
       - "madb:bw-227665"
+      - "web:https://manga.nicovideo.jp/comic/41840"
+      - "web:https://comic-walker.com/detail/KC_004239_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/41840"
+        basis: "creator まりむぅ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004239_S"
+        basis: "creator まりむぅ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01806
     title: null
     anchors:
@@ -7774,61 +8682,122 @@ works:
     anchors:
       - "madb:bw-230188"
   - id: w01810
-    title: null
+    title: "勇者か魔王か選ばせて"
     anchors:
       - "madb:bw-231020"
+      - "web:https://manga.nicovideo.jp/comic/42367"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/42367"
+        basis: "creator たかよみ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01811
-    title: null
+    title: "そして楓は華やかに咲く"
     anchors:
       - "madb:bw-232443"
+      - "web:https://manga.nicovideo.jp/comic/37171"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/37171"
+        basis: "creator 涼海来夏 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01812
     title: null
     anchors:
       - "madb:bw-232973"
   - id: w01813
-    title: null
+    title: "さかさまロリポップ"
     anchors:
       - "madb:bw-233681"
+      - "web:https://manga.nicovideo.jp/comic/45685"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/45685"
+        basis: "creator 春日沙生 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01814
     title: null
     anchors:
       - "madb:bw-233965"
   - id: w01815
-    title: null
+    title: "病月"
     anchors:
       - "madb:bw-234143"
+      - "web:https://manga.nicovideo.jp/comic/45330"
+      - "web:https://comic-walker.com/detail/KC_004384_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/45330"
+        basis: "creator もちオレ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004384_S"
+        basis: "creator もちオレ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01816
-    title: null
+    title: "一度だけでも、後悔してます。"
     anchors:
       - "madb:bw-234326"
+      - "web:https://manga.nicovideo.jp/comic/42728"
+      - "web:https://comic-walker.com/detail/KC_004400_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/42728"
+        basis: "creator 宮原都 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004400_S"
+        basis: "creator 宮原都 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01817
     title: null
     anchors:
       - "madb:bw-235122"
   - id: w01818
-    title: null
+    title: "夢見るルネサンス"
     anchors:
       - "madb:bw-235348"
+      - "web:https://manga.nicovideo.jp/comic/45724"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/45724"
+        basis: "creator 海老川ケイ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01819
-    title: null
+    title: "落命魔女と時をかける旦那様の死なない婚約印"
     anchors:
       - "madb:bw-235410"
+      - "web:https://manga.nicovideo.jp/comic/45294"
+      - "web:https://comic-walker.com/detail/KC_002608_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/45294"
+        basis: "creator あずやちとせ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002608_S"
+        basis: "creator あずやちとせ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01820
     title: null
     anchors:
       - "madb:bw-235708"
   - id: w01821
-    title: null
+    title: "うらら迷路帖"
     anchors:
       - "madb:bw-23733"
+      - "web:https://manga.nicovideo.jp/comic/24801"
+      - "web:https://comic-fuz.com/manga/412"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/24801"
+        basis: "creator はりかも is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/412"
+        basis: "creator はりかも is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01822
     title: null
     anchors:
       - "madb:bw-238697"
   - id: w01823
-    title: null
+    title: "エクレアSpecial　好きなのは女の子 北尾タキ百合作品傑作選"
     anchors:
       - "madb:bw-238e9488-ff9e-4d8b-a920-a0a5614aa75e"
+      - "web:https://manga.nicovideo.jp/comic/38680"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/38680"
+        basis: "creator 北尾タキ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01824
     title: null
     anchors:
@@ -7838,9 +8807,18 @@ works:
     anchors:
       - "madb:bw-239535"
   - id: w01826
-    title: null
+    title: "ななどなどなど"
     anchors:
       - "madb:bw-239537"
+      - "web:https://manga.nicovideo.jp/comic/46608"
+      - "web:https://comic-fuz.com/manga/1913"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/46608"
+        basis: "creator 宇崎うそ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/1913"
+        basis: "creator 宇崎うそ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01827
     title: null
     anchors:
@@ -7850,9 +8828,18 @@ works:
     anchors:
       - "madb:bw-240210"
   - id: w01829
-    title: null
+    title: "HGに恋するふたり"
     anchors:
       - "madb:bw-241351"
+      - "web:https://manga.nicovideo.jp/comic/46823"
+      - "web:https://comic-walker.com/detail/KC_002405_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/46823"
+        basis: "creator 富野由悠季 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002405_S"
+        basis: "creator 富野由悠季 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01830
     title: null
     anchors:
@@ -7870,17 +8857,35 @@ works:
     anchors:
       - "madb:bw-243487"
   - id: w01834
-    title: null
+    title: "こいくちルームシェア"
     anchors:
       - "madb:bw-243788"
+      - "web:https://manga.nicovideo.jp/comic/46947"
+      - "web:https://comic-fuz.com/manga/1924"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/46947"
+        basis: "creator ハルミチヒロ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/1924"
+        basis: "creator ハルミチヒロ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01835
     title: null
     anchors:
       - "madb:bw-24557"
   - id: w01836
-    title: null
+    title: "ティラとケラ"
     anchors:
       - "madb:bw-245731"
+      - "web:https://manga.nicovideo.jp/comic/42368"
+      - "web:https://comic-walker.com/detail/KC_003905_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/42368"
+        basis: "creator 市川ヒロ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003905_S"
+        basis: "creator 市川ヒロ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01837
     title: null
     anchors:
@@ -7890,17 +8895,29 @@ works:
     anchors:
       - "madb:bw-246c36f5-9828-4899-8075-cd584dbdca29"
   - id: w01839
-    title: null
+    title: "ねことちよ"
     anchors:
       - "madb:bw-247383"
+      - "web:https://comic-fuz.com/manga/1940"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/1940"
+        basis: "creator せらみっく is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01840
     title: null
     anchors:
       - "madb:bw-247640"
   - id: w01841
-    title: null
+    title: "おやすみシェヘラザード"
+    merged_into: w01352
+    merge_basis: "creator, publisher and imprint agree: 篠房六郎, 小学館, やわらかスピリッツ, and both records date to 2018-08. bw-249431 is the 単話 edition of bw-167971"
     anchors:
       - "madb:bw-249431"
+      - "web:https://manga.nicovideo.jp/comic/34558"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/34558"
+        basis: "creator 篠房六郎 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01842
     title: null
     anchors:
@@ -7921,22 +8938,62 @@ works:
     title: null
     anchors:
       - "madb:bw-250141"
+      - "web:https://manga.nicovideo.jp/comic/49124"
+      - "web:https://comic-fuz.com/manga/2366"
+      - "web:https://comic-trail.com/episode/13933686331767009294"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/49124"
+        basis: "creator ふかみん is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/2366"
+        basis: "creator ふかみん is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-trail.com/episode/13933686331767009294"
+        basis: "creator ふかみん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01847
-    title: null
+    title: "雨でも晴れでも"
     anchors:
       - "madb:bw-252420"
+      - "web:https://manga.nicovideo.jp/comic/45686"
+      - "web:https://comic-walker.com/detail/KC_004770_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/45686"
+        basis: "creator あらた伊里 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004770_S"
+        basis: "creator あらた伊里 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01848
     title: null
     anchors:
       - "madb:bw-252426"
   - id: w01849
-    title: null
+    title: "すいんぐ‼"
     anchors:
       - "madb:bw-252738"
+      - "web:https://manga.nicovideo.jp/comic/43052"
+      - "web:https://comic.j-nbooks.jp/series/44563ef3717cf"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/43052"
+        basis: "creator 佐倉おりこ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic.j-nbooks.jp/series/44563ef3717cf"
+        basis: "creator 佐倉おりこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01850
-    title: null
+    title: "もいもいスイスイ"
     anchors:
       - "madb:bw-253392"
+      - "web:https://manga.nicovideo.jp/comic/44122"
+      - "web:https://comic-walker.com/detail/KC_003958_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/44122"
+        basis: "creator しでん is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003958_S"
+        basis: "creator しでん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01851
     title: null
     anchors:
@@ -7974,29 +9031,70 @@ works:
     anchors:
       - "madb:bw-25fcc34c-d132-4dfa-8d1b-3d28c331c6a1"
   - id: w01860
-    title: null
+    title: "Mr.マロウブルー"
     anchors:
       - "madb:bw-260029"
+      - "web:https://manga.nicovideo.jp/comic/45735"
+      - "web:https://comic-walker.com/detail/KC_002578_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/45735"
+        basis: "creator サマミヤアカザ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002578_S"
+        basis: "creator サマミヤアカザ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01861
     title: null
     anchors:
       - "madb:bw-260086"
   - id: w01862
-    title: null
+    title: "ぜんぶきみの性"
     anchors:
       - "madb:bw-260185"
+      - "web:https://manga.nicovideo.jp/comic/45760"
+      - "web:https://comic-walker.com/detail/KC_002960_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/45760"
+        basis: "creator 浅月のりと is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002960_S"
+        basis: "creator 浅月のりと is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01863
-    title: null
+    title: "合格のための！ やさしい三角関係入門"
     anchors:
       - "madb:bw-260395"
+      - "web:https://manga.nicovideo.jp/comic/46003"
+      - "web:https://comic-walker.com/detail/KC_004850_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/46003"
+        basis: "creator 缶乃 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004850_S"
+        basis: "creator 缶乃 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01864
     title: null
     anchors:
       - "madb:bw-261689"
+      - "web:https://ciao.shogakukan.co.jp/comics/title/00039/episode/4363"
+    attached:
+      - anchor: "web:https://ciao.shogakukan.co.jp/comics/title/00039/episode/4363"
+        basis: "creator やぶうち優 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01865
-    title: null
+    title: "ドM女子とがっかり女王様"
     anchors:
       - "madb:bw-262023"
+      - "web:https://manga.nicovideo.jp/comic/46599"
+      - "web:https://comic-walker.com/detail/KC_000235_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/46599"
+        basis: "creator 狐ヶ崎 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000235_S"
+        basis: "creator 狐ヶ崎 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01866
     title: null
     merged_into: w01404
@@ -8004,25 +9102,57 @@ works:
     anchors:
       - "madb:bw-263641"
   - id: w01867
-    title: null
+    title: "金星のリヴェール"
     anchors:
       - "madb:bw-264584"
+      - "web:https://manga.nicovideo.jp/comic/46002"
+      - "web:https://comic-walker.com/detail/KC_004830_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/46002"
+        basis: "creator 沼地どろまる is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004830_S"
+        basis: "creator 沼地どろまる is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01868
-    title: null
+    title: "恋する狼とミルフィーユ"
     anchors:
       - "madb:bw-264820"
+      - "web:https://manga.nicovideo.jp/comic/47815"
+      - "web:https://comic-walker.com/detail/KC_003122_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/47815"
+        basis: "creator うがつまつき is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003122_S"
+        basis: "creator うがつまつき is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01869
-    title: null
+    title: "かっさい！"
     anchors:
       - "madb:bw-265ea33b-cb03-4245-8ba8-a24c12d2a441"
+      - "web:https://manga.nicovideo.jp/comic/73403"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/73403"
+        basis: "creator 空くれない is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01870
     title: null
     anchors:
       - "madb:bw-2661bf4a-5a64-4047-a0f8-4075b05df2e2"
   - id: w01871
-    title: null
+    title: "瑠璃の宝石"
     anchors:
       - "madb:bw-267052"
+      - "web:https://manga.nicovideo.jp/comic/50169"
+      - "web:https://comic-walker.com/detail/KC_003656_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/50169"
+        basis: "creator 渋谷圭一郎 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003656_S"
+        basis: "creator 渋谷圭一郎 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01872
     title: null
     anchors:
@@ -8032,25 +9162,44 @@ works:
     anchors:
       - "madb:bw-268603"
   - id: w01874
-    title: null
+    title: "ポラリティ透明期"
     anchors:
       - "madb:bw-268604"
+      - "web:https://manga.nicovideo.jp/comic/49483"
+      - "web:https://comic.j-nbooks.jp/series/f428c1b34487f"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/49483"
+        basis: "creator 綾幡フイヱ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic.j-nbooks.jp/series/f428c1b34487f"
+        basis: "creator 綾幡フイヱ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01875
     title: null
     anchors:
       - "madb:bw-268850"
   - id: w01876
-    title: null
+    title: "ネイルちゃんと深爪さん。 シリーズ"
     anchors:
       - "madb:bw-269795"
+      - "web:https://manga.nicovideo.jp/comic/50806"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/50806"
+        basis: "creator 香川悠作 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01877
     title: null
     anchors:
       - "madb:bw-269905"
   - id: w01878
-    title: null
+    title: "ロボットJSにスキはありません!!"
     anchors:
       - "madb:bw-269932"
+      - "web:https://manga.nicovideo.jp/comic/44519"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/44519"
+        basis: "creator とりから is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01879
     title: null
     anchors:
@@ -8084,21 +9233,48 @@ works:
     anchors:
       - "madb:bw-2767a58b-556a-42f8-97a8-9f1366032d51"
   - id: w01887
-    title: null
+    title: "もし、恋が見えたなら"
     anchors:
       - "madb:bw-276837"
+      - "web:https://manga.nicovideo.jp/comic/47959"
+      - "web:https://comic-walker.com/detail/KC_000031_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/47959"
+        basis: "creator みかみてれん is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000031_S"
+        basis: "creator みかみてれん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01888
     title: null
     anchors:
       - "madb:bw-277e79b9-568f-45db-b6a0-31c2d6073303"
   - id: w01889
-    title: null
+    title: "q.天上の音楽"
     anchors:
       - "madb:bw-278294"
+      - "web:https://manga.nicovideo.jp/comic/47985"
+      - "web:https://comic-walker.com/detail/KC_000135_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/47985"
+        basis: "creator 植下 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000135_S"
+        basis: "creator 植下 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01890
-    title: null
+    title: "私、エリート天使ですが難攻不落なJKに困ってます！"
     anchors:
       - "madb:bw-278303"
+      - "web:https://manga.nicovideo.jp/comic/48384"
+      - "web:https://comic-walker.com/detail/KC_000458_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/48384"
+        basis: "creator のやま is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000458_S"
+        basis: "creator のやま is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01891
     title: null
     anchors:
@@ -8122,37 +9298,105 @@ works:
     anchors:
       - "madb:bw-27b39cf4-affc-46cb-b2d2-19342d6a8ee9"
   - id: w01896
-    title: null
+    title: "ふらちな倫理ちゃん"
     anchors:
       - "madb:bw-281745"
+      - "web:https://manga.nicovideo.jp/comic/47808"
+      - "web:https://comic-walker.com/detail/KC_004115_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/47808"
+        basis: "creator 姫海月スグル is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004115_S"
+        basis: "creator 姫海月スグル is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01897
-    title: null
+    title: "キルミーベイベー"
     anchors:
       - "madb:bw-2823"
+      - "web:https://manga.nicovideo.jp/comic/20768"
+      - "web:https://comic-fuz.com/manga/295"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/20768"
+        basis: "creator カヅホ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/295"
+        basis: "creator カヅホ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01898
-    title: null
+    title: "きんいろモザイク"
     anchors:
       - "madb:bw-2825"
+      - "web:https://manga.nicovideo.jp/comic/20781"
+      - "web:https://comic-fuz.com/manga/410"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/20781"
+        basis: "creator 原悠衣 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/410"
+        basis: "creator 原悠衣 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01899
-    title: null
+    title: "ゆゆ式"
     anchors:
       - "madb:bw-2832"
+      - "web:https://manga.nicovideo.jp/comic/20783"
+      - "web:https://comic-fuz.com/manga/448"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/20783"
+        basis: "creator 三上小又 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/448"
+        basis: "creator 三上小又 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01900
-    title: null
+    title: "本のムシ"
     anchors:
       - "madb:bw-283357"
+      - "web:https://manga.nicovideo.jp/comic/45383"
+      - "web:https://comic-walker.com/detail/KC_000477_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/45383"
+        basis: "creator 小虎 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000477_S"
+        basis: "creator 小虎 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01901
-    title: null
+    title: "落花流水"
     anchors:
       - "madb:bw-2836"
+      - "web:https://comic-fuz.com/manga/334"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/334"
+        basis: "creator 真田一輝 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01902
-    title: null
+    title: "吸血鬼と呼ばれたい！"
     anchors:
       - "madb:bw-285404"
+      - "web:https://manga.nicovideo.jp/comic/47467"
+      - "web:https://comic-walker.com/detail/KC_002089_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/47467"
+        basis: "creator ぴゃあ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002089_S"
+        basis: "creator ぴゃあ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01903
-    title: null
+    title: "姫神の巫女"
     anchors:
       - "madb:bw-285406"
+      - "web:https://manga.nicovideo.jp/comic/47968"
+      - "web:https://comic-walker.com/detail/KC_003150_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/47968"
+        basis: "creator 姫神の巫女千ノ華万華鏡 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003150_S"
+        basis: "creator 姫神の巫女千ノ華万華鏡 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01904
     title: null
     anchors:
@@ -8161,18 +9405,37 @@ works:
     title: null
     anchors:
       - "madb:bw-286569"
+      - "web:https://comic-fuz.com/manga/2379"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/2379"
+        basis: "creator 由井ひな子 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01906
     title: null
     anchors:
       - "madb:bw-287288"
   - id: w01907
-    title: null
+    title: "野球場でいただきます"
     anchors:
       - "madb:bw-289542"
+      - "web:https://manga.nicovideo.jp/comic/51824"
+      - "web:https://comic-walker.com/detail/KC_001166_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/51824"
+        basis: "creator 出内テツオ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_001166_S"
+        basis: "creator 出内テツオ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01908
-    title: null
+    title: "私達の生きる世界"
     anchors:
       - "madb:bw-289801"
+      - "web:https://manga.nicovideo.jp/comic/50531"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/50531"
+        basis: "creator 大野将磨 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01909
     title: null
     anchors:
@@ -8182,17 +9445,31 @@ works:
     anchors:
       - "madb:bw-290269"
   - id: w01911
-    title: null
+    title: "ドキュンサーガ"
     anchors:
       - "madb:bw-292983"
+      - "web:https://manga.nicovideo.jp/comic/51520"
+      - "web:https://comic-walker.com/detail/KC_001465_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/51520"
+        basis: "creator いとまん is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_001465_S"
+        basis: "creator いとまん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01912
     title: null
     anchors:
       - "madb:bw-29304aef-522f-4304-beb3-a427d3a62444"
   - id: w01913
-    title: null
+    title: "1いいねでスカートが0.1㎜短くなるクラスの地味な女の子"
     anchors:
       - "madb:bw-293366"
+      - "web:https://manga.nicovideo.jp/comic/54627"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/54627"
+        basis: "creator byte is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01914
     title: null
     anchors:
@@ -8222,13 +9499,27 @@ works:
     anchors:
       - "madb:bw-296878"
   - id: w01921
-    title: null
+    title: "わたしはサキュバスとキスをした"
     anchors:
       - "madb:bw-296947"
+      - "web:https://manga.nicovideo.jp/comic/49903"
+      - "web:https://comic-walker.com/detail/KC_004227_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/49903"
+        basis: "creator 白玉もち is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004227_S"
+        basis: "creator 白玉もち is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01922
-    title: null
+    title: "ざこのみなさんお大事に"
     anchors:
       - "madb:bw-29709146-f9fd-4e74-979a-8c178c167f77"
+      - "web:https://manga.nicovideo.jp/comic/74042"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/74042"
+        basis: "creator 薗田かんきつ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01923
     title: null
     anchors:
@@ -8238,9 +9529,14 @@ works:
     anchors:
       - "madb:bw-298380"
   - id: w01925
-    title: null
+    title: "魔法少女　翔"
     anchors:
       - "madb:bw-298908"
+      - "web:https://manga.nicovideo.jp/comic/44491"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/44491"
+        basis: "creator さね野郎 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01926
     title: null
     anchors:
@@ -8326,9 +9622,18 @@ works:
     anchors:
       - "madb:bw-2fe0dc0f-9f57-48d9-8dd3-6c3eed3e105f"
   - id: w01947
-    title: null
+    title: "おとなりの天涯"
     anchors:
       - "madb:bw-300914"
+      - "web:https://manga.nicovideo.jp/comic/50662"
+      - "web:https://comic-walker.com/detail/KC_001179_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/50662"
+        basis: "creator きぃやん is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_001179_S"
+        basis: "creator きぃやん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01948
     title: null
     anchors:
@@ -8342,17 +9647,31 @@ works:
     anchors:
       - "madb:bw-302118"
   - id: w01951
-    title: null
+    title: "先生、今月どうですか"
     anchors:
       - "madb:bw-303472"
+      - "web:https://comic-walker.com/detail/KC_003880_S"
+    attached:
+      - anchor: "web:https://comic-walker.com/detail/KC_003880_S"
+        basis: "creator 高江洲弥 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01952
     title: null
     anchors:
       - "madb:bw-304994"
   - id: w01953
-    title: null
+    title: "赤ずきんに食べられた狼"
     anchors:
       - "madb:bw-304995"
+      - "web:https://manga.nicovideo.jp/comic/32181"
+      - "web:https://manga.nicovideo.jp/comic/56413"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/32181"
+        basis: "creator 椎名晴美 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/56413"
+        basis: "creator 椎名晴美 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01954
     title: null
     anchors:
@@ -8369,6 +9688,15 @@ works:
     title: null
     anchors:
       - "madb:bw-307339"
+      - "web:https://manga.nicovideo.jp/comic/56312"
+      - "web:https://comic-fuz.com/manga/2427"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/56312"
+        basis: "creator ぎんもく is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/2427"
+        basis: "creator ぎんもく is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01958
     title: null
     anchors:
@@ -8402,9 +9730,18 @@ works:
     anchors:
       - "madb:bw-310ecdb6-27a1-4215-bde6-6f5f90888c18"
   - id: w01966
-    title: null
+    title: "おしごとですよ！赤根さん"
     anchors:
       - "madb:bw-311225"
+      - "web:https://manga.nicovideo.jp/comic/55217"
+      - "web:https://comic-walker.com/detail/KC_001774_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/55217"
+        basis: "creator 木村まつり is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_001774_S"
+        basis: "creator 木村まつり is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01967
     title: null
     anchors:
@@ -8415,6 +9752,8 @@ works:
       - "madb:bw-3128f018-9cbd-47e4-a141-67e1ef014859"
   - id: w01969
     title: null
+    merged_into: w01541
+    merge_basis: "creator, publisher and imprint agree: 天野しゅにんた, クロスフォリオ出版, ガレットワークス. bw-314852 is the 単話版 edition of bw-0844c6e3"
     anchors:
       - "madb:bw-314852"
   - id: w01970
@@ -8434,13 +9773,31 @@ works:
     anchors:
       - "madb:bw-317033"
   - id: w01974
-    title: null
+    title: "勇者サポートセンター魔王城支部"
     anchors:
       - "madb:bw-317093"
+      - "web:https://manga.nicovideo.jp/comic/53363"
+      - "web:https://comic-walker.com/detail/KC_000166_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/53363"
+        basis: "creator じゃこ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000166_S"
+        basis: "creator じゃこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01975
-    title: null
+    title: "魔法科高校の優等生 2nd Season"
     anchors:
       - "madb:bw-317095"
+      - "web:https://manga.nicovideo.jp/comic/54840"
+      - "web:https://comic-walker.com/detail/KC_000591_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/54840"
+        basis: "creator おだまさる is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000591_S"
+        basis: "creator おだまさる is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01976
     title: null
     anchors:
@@ -8450,9 +9807,18 @@ works:
     anchors:
       - "madb:bw-318217"
   - id: w01978
-    title: null
+    title: "ほのぼの異世界転生デイズ～レベルカンスト、アイテム持ち越し！ 私は最強幼女です～"
     anchors:
       - "madb:bw-318343"
+      - "web:https://manga.nicovideo.jp/comic/51688"
+      - "web:https://comic-walker.com/detail/KC_001533_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/51688"
+        basis: "creator しっぽタヌキ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_001533_S"
+        basis: "creator しっぽタヌキ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01979
     title: null
     anchors:
@@ -8494,9 +9860,18 @@ works:
     anchors:
       - "madb:bw-323597"
   - id: w01989
-    title: null
+    title: "からふるキューシート！"
     anchors:
       - "madb:bw-323598"
+      - "web:https://manga.nicovideo.jp/comic/54574"
+      - "web:https://comic-walker.com/detail/KC_004408_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/54574"
+        basis: "creator ちくわ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004408_S"
+        basis: "creator ちくわ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01990
     title: null
     anchors:
@@ -8514,13 +9889,23 @@ works:
     anchors:
       - "madb:bw-327fb879-c879-403c-b0a8-fa0c164ccf7e"
   - id: w01994
-    title: null
+    title: "パネマジ！ ～その嬢は修整済みです～"
     anchors:
       - "madb:bw-328182"
+      - "web:https://manga.nicovideo.jp/comic/53401"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/53401"
+        basis: "creator まきたこん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01995
-    title: null
+    title: "恋愛ショートアンソロジーコミック"
     anchors:
       - "madb:bw-332460"
+      - "web:https://manga.nicovideo.jp/comic/55199"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/55199"
+        basis: "creator comicbridge編集部 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w01996
     title: null
     anchors:
@@ -8538,25 +9923,48 @@ works:
     anchors:
       - "madb:bw-339806"
   - id: w02000
-    title: null
+    title: "私、都合のいい女でいいです。"
     anchors:
       - "madb:bw-339882"
+      - "web:https://manga.nicovideo.jp/comic/54384"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/54384"
+        basis: "creator 霰屋こん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02001
     title: null
     anchors:
       - "madb:bw-33d01a23-85d7-48cd-87c2-bfa4cb891ceb"
   - id: w02002
-    title: null
+    title: "とある魔術の禁書目録外伝　とある科学の心理掌握"
     anchors:
       - "madb:bw-342591"
+      - "web:https://manga.nicovideo.jp/comic/54478"
+      - "web:https://comic-walker.com/detail/KC_003923_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/54478"
+        basis: "creator はいむらきよたか is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003923_S"
+        basis: "creator はいむらきよたか is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02003
     title: null
     anchors:
       - "madb:bw-342683"
   - id: w02004
-    title: null
+    title: "たびみまん"
     anchors:
       - "madb:bw-342858"
+      - "web:https://manga.nicovideo.jp/comic/54573"
+      - "web:https://comic-walker.com/detail/KC_004388_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/54573"
+        basis: "creator 赤樫 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004388_S"
+        basis: "creator 赤樫 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02005
     title: null
     anchors:
@@ -8570,21 +9978,45 @@ works:
     anchors:
       - "madb:bw-34393448-74ed-453b-83de-989f0bb2a283"
   - id: w02008
-    title: null
+    title: "ウェイバーズ"
     anchors:
       - "madb:bw-34429081-bd58-46d3-ad0c-a24bdc76018f"
+      - "web:https://manga.nicovideo.jp/comic/76469"
+      - "web:https://comic-walker.com/detail/KC_008387_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/76469"
+        basis: "creator 山本和音 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_008387_S"
+        basis: "creator 山本和音 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02009
-    title: null
+    title: "異世界居酒屋さわこさん細腕繁盛記"
     anchors:
       - "madb:bw-346805"
+      - "web:https://manga.nicovideo.jp/comic/55584"
+      - "web:https://comic-walker.com/detail/KC_002749_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/55584"
+        basis: "creator deecha is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002749_S"
+        basis: "creator deecha is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02010
     title: null
     anchors:
       - "madb:bw-349064"
+      - "madb:bw-dc7f51c0-6e3a-4b7c-b599-837a9751bcd9"
   - id: w02011
-    title: null
+    title: "友達以上、恋人以上！"
     anchors:
       - "madb:bw-349419"
+      - "web:https://manga.nicovideo.jp/comic/53986"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/53986"
+        basis: "creator 上嶋ハルキ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02012
     title: null
     anchors:
@@ -8606,13 +10038,27 @@ works:
     anchors:
       - "madb:bw-34f8a644-8e35-4819-b321-58487b184723"
   - id: w02017
-    title: null
+    title: "モダン†ロマネスコ"
     anchors:
       - "madb:bw-352258"
+      - "web:https://manga.nicovideo.jp/comic/56386"
+      - "web:https://comic-walker.com/detail/KC_003743_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/56386"
+        basis: "creator きくらげ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003743_S"
+        basis: "creator きくらげ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02018
-    title: null
+    title: "植物モンスター娘日記　～聖女だった私が裏切られた果てにアルラウネに転生してしまったので、これからは光合成をしながら静かに植物ライフを過ごします～"
     anchors:
       - "madb:bw-352412"
+      - "web:https://manga.nicovideo.jp/comic/55266"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/55266"
+        basis: "creator riritto is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02019
     title: null
     anchors:
@@ -8658,9 +10104,14 @@ works:
     anchors:
       - "madb:bw-35a7dc4a-421b-4f50-8a3f-1890676d9951"
   - id: w02030
-    title: null
+    title: "須波優子と百合な人びと"
     anchors:
       - "madb:bw-35f9215a-ed72-4178-a0cf-8ec0f082cab2"
+      - "web:https://manga.nicovideo.jp/comic/36718"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/36718"
+        basis: "creator 綿桐さや is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02031
     title: null
     anchors:
@@ -8678,9 +10129,14 @@ works:
     anchors:
       - "madb:bw-364081"
   - id: w02035
-    title: null
+    title: "ミスターユーリ！"
     anchors:
       - "madb:bw-364192"
+      - "web:https://manga.nicovideo.jp/comic/55041"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/55041"
+        basis: "creator ぐるめ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02036
     title: null
     anchors:
@@ -8706,13 +10162,31 @@ works:
     anchors:
       - "madb:bw-369410"
   - id: w02042
-    title: null
+    title: "蜂も刺さずばうたれまい"
     anchors:
       - "madb:bw-369483"
+      - "web:https://manga.nicovideo.jp/comic/55846"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/55846"
+        basis: "creator るりえ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02043
-    title: null
+    title: "終わるセカイの修学旅行"
     anchors:
       - "madb:bw-370996"
+      - "web:https://manga.nicovideo.jp/comic/58853"
+      - "web:https://manga.nicovideo.jp/comic/52438"
+      - "web:https://www.comicnettai.com/book/4"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/58853"
+        basis: "creator studioheadline is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/52438"
+        basis: "creator studioheadline is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://www.comicnettai.com/book/4"
+        basis: "creator studioheadline is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02044
     title: null
     anchors:
@@ -8722,9 +10196,14 @@ works:
     anchors:
       - "madb:bw-371340"
   - id: w02046
-    title: null
+    title: "秘密のお姉さん養成ノート"
     anchors:
       - "madb:bw-372948"
+      - "web:https://manga.nicovideo.jp/comic/59553"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/59553"
+        basis: "creator トフ子 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02047
     title: null
     anchors:
@@ -8734,9 +10213,14 @@ works:
     anchors:
       - "madb:bw-373257"
   - id: w02049
-    title: null
+    title: "ササエルの中には誰もいない"
     anchors:
       - "madb:bw-373989"
+      - "web:https://manga.nicovideo.jp/comic/55969"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/55969"
+        basis: "creator こめつぶ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02050
     title: null
     anchors:
@@ -8758,9 +10242,18 @@ works:
     anchors:
       - "madb:bw-37d21732-49b2-4fb6-bb1c-255873a902f5"
   - id: w02055
-    title: null
+    title: "どうしたら幼馴染の彼女になれますか!?"
     anchors:
       - "madb:bw-381470"
+      - "web:https://manga.nicovideo.jp/comic/58253"
+      - "web:https://manga.nicovideo.jp/comic/78188"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/58253"
+        basis: "creator 矢坂しゅう is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/78188"
+        basis: "creator 矢坂しゅう is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02056
     title: null
     anchors:
@@ -8773,6 +10266,11 @@ works:
     title: null
     anchors:
       - "madb:bw-384142"
+      - "web:https://manga.nicovideo.jp/comic/83386"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/83386"
+        basis: "creator アンソロジ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02059
     title: null
     anchors:
@@ -8791,17 +10289,36 @@ works:
       - "madb:bw-387306"
       - "web:https://comic-walker.com/detail/KC_001843_S"
   - id: w02063
-    title: null
+    title: "マグロちゃんは食べられたい！"
     anchors:
       - "madb:bw-387675"
+      - "web:https://manga.nicovideo.jp/comic/57513"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/57513"
+        basis: "creator はも is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02064
     title: null
     anchors:
       - "madb:bw-388000"
+      - "web:https://comic.j-nbooks.jp/series/1348361337c82"
+    attached:
+      - anchor: "web:https://comic.j-nbooks.jp/series/1348361337c82"
+        basis: "creator 地球のお魚ぽんちゃん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02065
-    title: null
+    title: "リコリス・リコイル"
     anchors:
       - "madb:bw-389079"
+      - "web:https://manga.nicovideo.jp/comic/61397"
+      - "web:https://comic-walker.com/detail/KC_003821_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/61397"
+        basis: "creator spiderlily is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003821_S"
+        basis: "creator spiderlily is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02066
     title: null
     anchors:
@@ -8815,13 +10332,31 @@ works:
     anchors:
       - "madb:bw-391715"
   - id: w02069
-    title: null
+    title: "涙子さまの言う通り"
     anchors:
       - "madb:bw-392803"
+      - "web:https://manga.nicovideo.jp/comic/61899"
+      - "web:https://comic-walker.com/detail/KC_000625_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/61899"
+        basis: "creator 山本ルンルン is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000625_S"
+        basis: "creator 山本ルンルン is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02070
-    title: null
+    title: "サテライト・コインランドリー"
     anchors:
       - "madb:bw-394256"
+      - "web:https://manga.nicovideo.jp/comic/59078"
+      - "web:https://comic-walker.com/detail/KC_004626_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/59078"
+        basis: "creator にわかあめ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004626_S"
+        basis: "creator にわかあめ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02071
     title: null
     anchors:
@@ -8838,6 +10373,11 @@ works:
     title: null
     anchors:
       - "madb:bw-3954ab10-e53a-4bf5-957e-9bf20686eb2e"
+      - "web:https://ichicomi.com/episode/12207421984000326426"
+    attached:
+      - anchor: "web:https://ichicomi.com/episode/12207421984000326426"
+        basis: "creator アンソロジ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02075
     title: null
     anchors:
@@ -8875,9 +10415,14 @@ works:
     anchors:
       - "madb:bw-3ac1f4ff-108d-4e95-b5b3-3edf278e45e5"
   - id: w02084
-    title: null
+    title: "オルターエゴ"
     anchors:
       - "madb:bw-3b28e445-12a7-4c5a-a0a3-52f538011921"
+      - "web:https://manga.nicovideo.jp/comic/78285"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/78285"
+        basis: "creator サンチェス is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02085
     title: null
     anchors:
@@ -8910,6 +10455,11 @@ works:
     title: null
     anchors:
       - "madb:bw-3d3711b8-c246-4d15-bad4-9b1f1e1df65e"
+      - "web:https://ichicomi.com/episode/12207421983882061356"
+    attached:
+      - anchor: "web:https://ichicomi.com/episode/12207421983882061356"
+        basis: "creator アンソロジ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02093
     title: null
     anchors:
@@ -8935,25 +10485,56 @@ works:
     anchors:
       - "madb:bw-3fdbacc5-9ff6-4e18-b87d-f3304df7fed4"
   - id: w02099
-    title: null
+    title: "ハッピーシュート！"
     anchors:
       - "madb:bw-400573"
+      - "web:https://manga.nicovideo.jp/comic/60084"
+      - "web:https://manga.nicovideo.jp/comic/61508"
+      - "web:https://manga.nicovideo.jp/comic/67750"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/60084"
+        basis: "creator とりから is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/61508"
+        basis: "creator とりから is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/67750"
+        basis: "creator とりから is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02100
     title: null
     anchors:
       - "madb:bw-402263"
   - id: w02101
-    title: null
+    title: "おねロリキャバクラ"
     anchors:
       - "madb:bw-402436"
+      - "web:https://manga.nicovideo.jp/comic/58242"
+      - "web:https://manga.nicovideo.jp/comic/34005"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/58242"
+        basis: "creator 春日沙生 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/34005"
+        basis: "creator 春日沙生 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02102
     title: null
     anchors:
       - "madb:bw-403138"
   - id: w02103
-    title: null
+    title: "ララのうた"
     anchors:
       - "madb:bw-403349"
+      - "web:https://manga.nicovideo.jp/comic/62230"
+      - "web:https://comicpash.jp/series/c94735bac216f"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/62230"
+        basis: "creator 河野スイ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comicpash.jp/series/c94735bac216f"
+        basis: "creator 河野スイ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02104
     title: null
     anchors:
@@ -8979,13 +10560,31 @@ works:
     anchors:
       - "madb:bw-404481"
   - id: w02110
-    title: null
+    title: "不器用ビンボーダンス"
     anchors:
       - "madb:bw-404492"
+      - "web:https://manga.nicovideo.jp/comic/41035"
+      - "web:https://manga.nicovideo.jp/comic/70296"
+      - "web:https://manga.nicovideo.jp/comic/56736"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/41035"
+        basis: "creator なをををををを is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/70296"
+        basis: "creator なをををををを is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/56736"
+        basis: "creator なをををををを is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02111
-    title: null
+    title: "先生観察女子高生。"
     anchors:
       - "madb:bw-404494"
+      - "web:https://manga.nicovideo.jp/comic/50934"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/50934"
+        basis: "creator 春結千晶 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02112
     title: null
     anchors:
@@ -9011,9 +10610,18 @@ works:
     anchors:
       - "madb:bw-404716"
   - id: w02118
-    title: null
+    title: "ピエタとトランジ"
     anchors:
       - "madb:bw-404882"
+      - "web:https://manga.nicovideo.jp/comic/62558"
+      - "web:https://comic-walker.com/detail/KC_002718_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/62558"
+        basis: "creator キスガエ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002718_S"
+        basis: "creator キスガエ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02119
     title: null
     anchors:
@@ -9027,53 +10635,114 @@ works:
     anchors:
       - "madb:bw-406949"
   - id: w02122
-    title: null
+    title: "海鳥東月の『でたらめ』な事情"
     anchors:
       - "madb:bw-407072"
+      - "web:https://manga.nicovideo.jp/comic/61268"
+      - "web:https://comic-walker.com/detail/KC_004535_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/61268"
+        basis: "creator 両生類かえる is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004535_S"
+        basis: "creator 両生類かえる is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02123
     title: null
     anchors:
       - "madb:bw-407127"
   - id: w02124
-    title: null
+    title: "レンズブルク女子寄宿学校の日常"
     anchors:
       - "madb:bw-40816d80-3c22-4c2b-a49b-d85b7581a4e8"
+      - "web:https://manga.nicovideo.jp/comic/60045"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/60045"
+        basis: "creator 日之下あかめ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02125
-    title: null
+    title: "ぐだぐだするき！"
     anchors:
       - "madb:bw-40ae0354-fb08-45eb-b0c0-01eeac4b5d19"
+      - "web:https://manga.nicovideo.jp/comic/55788"
+      - "web:https://comic-walker.com/detail/KC_003372_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/55788"
+        basis: "creator 大崎ペコ丸 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003372_S"
+        basis: "creator 大崎ペコ丸 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02126
-    title: null
+    title: "気になってる人が男じゃなかった"
     anchors:
       - "madb:bw-411030"
+      - "web:https://manga.nicovideo.jp/comic/63276"
+      - "web:https://comic-walker.com/detail/KC_003581_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/63276"
+        basis: "creator 新井すみこ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003581_S"
+        basis: "creator 新井すみこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02127
     title: null
     anchors:
       - "madb:bw-4110bb16-2ac3-4723-a394-ba9fe48d8a2f"
   - id: w02128
-    title: null
+    title: "飛野さんのバカ"
     anchors:
       - "madb:bw-411593"
+      - "web:https://manga.nicovideo.jp/comic/31456"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/31456"
+        basis: "creator 筋肉☆太郎 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02129
-    title: null
+    title: "魔法使いロゼの佐渡ライフ"
     anchors:
       - "madb:bw-412656"
+      - "web:https://comic-fuz.com/manga/3152"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/3152"
+        basis: "creator おみなえし is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02130
-    title: null
+    title: "ハコイリクリエイト"
     anchors:
       - "madb:bw-414855"
+      - "web:https://manga.nicovideo.jp/comic/58502"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/58502"
+        basis: "creator 行町咄 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02131
-    title: null
+    title: "生き物好きの安仁馬さんにはほんのちょっぴり毒がある"
     anchors:
       - "madb:bw-416667"
+      - "web:https://manga.nicovideo.jp/comic/61385"
+      - "web:https://comic-walker.com/detail/KC_003983_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/61385"
+        basis: "creator 鈴木快 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003983_S"
+        basis: "creator 鈴木快 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02132
     title: null
     anchors:
       - "madb:bw-417660"
   - id: w02133
-    title: null
+    title: "ギャルとネクラの吸血関係"
     anchors:
       - "madb:bw-419022"
+      - "web:https://manga.nicovideo.jp/comic/60565"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/60565"
+        basis: "creator カコベン is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02134
     title: null
     anchors:
@@ -9131,25 +10800,52 @@ works:
     anchors:
       - "madb:bw-426138"
   - id: w02148
-    title: null
+    title: "わたし、二番目の彼女でいいから。"
     anchors:
       - "madb:bw-427173"
+      - "web:https://manga.nicovideo.jp/comic/60396"
+      - "web:https://comic-walker.com/detail/KC_003276_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/60396"
+        basis: "creator にの子 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003276_S"
+        basis: "creator にの子 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02149
     title: null
     anchors:
       - "madb:bw-427353"
   - id: w02150
-    title: null
+    title: "花唄メモワール"
     anchors:
       - "madb:bw-427383"
+      - "web:https://manga.nicovideo.jp/comic/69061"
+      - "web:https://comic-fuz.com/manga/3274"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/69061"
+        basis: "creator 一ノ瀬けい is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/3274"
+        basis: "creator 一ノ瀬けい is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02151
     title: null
     anchors:
       - "madb:bw-4280d0f2-efc0-4b9f-8f75-4efcb4f3a40a"
   - id: w02152
-    title: null
+    title: "俺の×××はいらないらしい"
     anchors:
       - "madb:bw-429651"
+      - "web:https://manga.nicovideo.jp/comic/61723"
+      - "web:https://comic-walker.com/detail/KC_000583_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/61723"
+        basis: "creator プルちょめ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000583_S"
+        basis: "creator プルちょめ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02153
     title: null
     anchors:
@@ -9159,13 +10855,27 @@ works:
     anchors:
       - "madb:bw-42c3e217-cdd1-43bf-99c0-7759fbb651e1"
   - id: w02155
-    title: null
+    title: "サキュバスイッチ"
     anchors:
       - "madb:bw-432649"
+      - "web:https://comic-fuz.com/manga/3382"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/3382"
+        basis: "creator 橘まなり is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02156
-    title: null
+    title: "後宮一番の悪女"
     anchors:
       - "madb:bw-433534"
+      - "web:https://manga.nicovideo.jp/comic/63564"
+      - "web:https://comic-walker.com/detail/KC_001546_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/63564"
+        basis: "creator 柚原テイル is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_001546_S"
+        basis: "creator 柚原テイル is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02157
     title: null
     anchors:
@@ -9174,10 +10884,20 @@ works:
     title: null
     anchors:
       - "madb:bw-434264"
+      - "web:https://manga.nicovideo.jp/comic/60568"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/60568"
+        basis: "creator ゆとりぬ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02159
-    title: null
+    title: "わからせろ！ナマイキツネ様"
     anchors:
       - "madb:bw-434265"
+      - "web:https://manga.nicovideo.jp/comic/60566"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/60566"
+        basis: "creator *sow* is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02160
     title: null
     anchors:
@@ -9203,13 +10923,23 @@ works:
     anchors:
       - "madb:bw-43f89d53-fcb8-433c-bbae-1d891b7a942b"
   - id: w02166
-    title: null
+    title: "薪窯のパンドラ"
     anchors:
       - "madb:bw-440875"
+      - "web:https://comic-fuz.com/manga/3385"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/3385"
+        basis: "creator くずもちまつり is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02167
-    title: null
+    title: "ジャガイモ農家の村娘、剣神と謳われるまで。"
     anchors:
       - "madb:bw-441234"
+      - "web:https://manga.nicovideo.jp/comic/69940"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/69940"
+        basis: "creator たぢまよしかづ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02168
     title: null
     anchors:
@@ -9227,41 +10957,101 @@ works:
     anchors:
       - "madb:bw-441768"
   - id: w02172
-    title: null
+    title: "オレの愛で世界がヤバい"
     anchors:
       - "madb:bw-442160"
+      - "web:https://manga.nicovideo.jp/comic/54885"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/54885"
+        basis: "creator 井上とさず is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02173
     title: null
     anchors:
       - "madb:bw-442c3db9-208d-4b11-8f28-cd8753ff0d22"
   - id: w02174
-    title: null
+    title: "のけもののまち"
     anchors:
       - "madb:bw-444039"
+      - "web:https://manga.nicovideo.jp/comic/62379"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/62379"
+        basis: "creator はちべもつ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02175
-    title: null
+    title: "ばーがー・ふぉー・ゆー！"
     anchors:
       - "madb:bw-444040"
+      - "web:https://manga.nicovideo.jp/comic/62381"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/62381"
+        basis: "creator 双葉陽 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02176
-    title: null
+    title: "高音さんと嵐ちゃん"
     anchors:
       - "madb:bw-445883"
+      - "web:https://manga.nicovideo.jp/comic/64278"
+      - "web:https://comic-walker.com/detail/KC_005076_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/64278"
+        basis: "creator なうち is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_005076_S"
+        basis: "creator なうち is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02177
-    title: null
+    title: "おとなりにスピカ"
     anchors:
       - "madb:bw-446840"
+      - "web:https://manga.nicovideo.jp/comic/63293"
+      - "web:https://comic-walker.com/detail/KC_004893_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/63293"
+        basis: "creator みずひら is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004893_S"
+        basis: "creator みずひら is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02178
-    title: null
+    title: "こみっくがーるず"
     anchors:
       - "madb:bw-44800"
+      - "web:https://manga.nicovideo.jp/comic/33923"
+      - "web:https://comic-fuz.com/manga/418"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/33923"
+        basis: "creator はんざわかおり is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/418"
+        basis: "creator はんざわかおり is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02179
-    title: null
+    title: "乙女の地球の走りかた"
     anchors:
       - "madb:bw-448376"
+      - "web:https://manga.nicovideo.jp/comic/66763"
+      - "web:https://comic-fuz.com/manga/3192"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/66763"
+        basis: "creator 凡竜 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/3192"
+        basis: "creator 凡竜 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02180
-    title: null
+    title: "死亡遊戯で飯を食う。"
     anchors:
       - "madb:bw-449624"
+      - "web:https://manga.nicovideo.jp/comic/64181"
+      - "web:https://comic-walker.com/detail/KC_004767_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/64181"
+        basis: "creator 万歳寿大宴会 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004767_S"
+        basis: "creator 万歳寿大宴会 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02181
     title: null
     anchors:
@@ -9298,10 +11088,24 @@ works:
     title: null
     anchors:
       - "madb:bw-4552602f-30b2-4f11-bd1f-a9c7c7219e1d"
+      - "web:https://manga.nicovideo.jp/comic/45502"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/45502"
+        basis: "creator 志真 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02190
-    title: null
+    title: "鈴木りつ短編集考幻学入門"
     anchors:
       - "madb:bw-45593173-7c3d-442e-9de6-5cdc1d9ffa89"
+      - "web:https://manga.nicovideo.jp/comic/76698"
+      - "web:https://comic-walker.com/detail/KC_008443_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/76698"
+        basis: "creator 鈴木りつ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_008443_S"
+        basis: "creator 鈴木りつ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02191
     title: null
     anchors:
@@ -9331,9 +11135,14 @@ works:
     anchors:
       - "madb:bw-458664"
   - id: w02198
-    title: null
+    title: "escape into the light"
     anchors:
       - "madb:bw-460253"
+      - "web:https://manga.nicovideo.jp/comic/63678"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/63678"
+        basis: "creator むぐら is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02199
     title: null
     anchors:
@@ -9343,17 +11152,35 @@ works:
     anchors:
       - "madb:bw-460777"
   - id: w02201
-    title: null
+    title: "城下町のダンデライオン"
     anchors:
       - "madb:bw-46200"
+      - "web:https://manga.nicovideo.jp/comic/20777"
+      - "web:https://comic-fuz.com/manga/1970"
+      - "web:https://comic-fuz.com/manga/293"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/20777"
+        basis: "creator 春日歩 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/1970"
+        basis: "creator 春日歩 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/293"
+        basis: "creator 春日歩 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02202
     title: null
     anchors:
       - "madb:bw-46204"
   - id: w02203
-    title: null
+    title: "私の女神が今日も推せる ～これからも、いつまでも～"
     anchors:
       - "madb:bw-462356"
+      - "web:https://manga.nicovideo.jp/comic/67713"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/67713"
+        basis: "creator 川内 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02204
     title: "下請け魔法少女リリカ"
     anchors:
@@ -9376,17 +11203,36 @@ works:
     anchors:
       - "madb:bw-463717"
   - id: w02209
-    title: null
+    title: "我が焔炎にひれ伏せ世界"
     anchors:
       - "madb:bw-464065"
+      - "web:https://manga.nicovideo.jp/comic/61155"
+      - "web:https://comic-walker.com/detail/KC_005071_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/61155"
+        basis: "creator mikapikazo is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_005071_S"
+        basis: "creator mikapikazo is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02210
-    title: null
+    title: "Vドライブ！"
     anchors:
       - "madb:bw-469081"
+      - "web:https://manga.nicovideo.jp/comic/65092"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/65092"
+        basis: "creator 猫にゃん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02211
-    title: null
+    title: "てくてくっ！秘密リサーチ"
     anchors:
       - "madb:bw-469084"
+      - "web:https://manga.nicovideo.jp/comic/63696"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/63696"
+        basis: "creator さいにゃん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02212
     title: null
     anchors:
@@ -9400,9 +11246,14 @@ works:
     anchors:
       - "madb:bw-472067"
   - id: w02215
-    title: null
+    title: "かみねぐしまい"
     anchors:
       - "madb:bw-472665"
+      - "web:https://manga.nicovideo.jp/comic/63675"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/63675"
+        basis: "creator 若鶏にこみ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02216
     title: null
     anchors:
@@ -9416,17 +11267,36 @@ works:
     anchors:
       - "madb:bw-473995"
   - id: w02219
-    title: null
+    title: "『英雄』に憧れた少女は吸血鬼に堕ちても『英雄』を目指す"
     anchors:
       - "madb:bw-474640"
+      - "web:https://manga.nicovideo.jp/comic/69008"
+      - "web:https://comics.manga-bang.com/series/e928c3f07d5b6"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/69008"
+        basis: "creator 笹塔五郎 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comics.manga-bang.com/series/e928c3f07d5b6"
+        basis: "creator 笹塔五郎 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02220
     title: null
     anchors:
       - "madb:bw-474906"
+      - "web:https://bigcomics.jp/series/31fdad5e7b025"
+    attached:
+      - anchor: "web:https://bigcomics.jp/series/31fdad5e7b025"
+        basis: "creator 後藤うどん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02221
-    title: null
+    title: "しょーと、れい"
     anchors:
       - "madb:bw-475159"
+      - "web:https://manga.nicovideo.jp/comic/65697"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/65697"
+        basis: "creator あんじんねこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02222
     title: null
     anchors:
@@ -9447,6 +11317,15 @@ works:
     title: null
     anchors:
       - "madb:bw-476567"
+      - "web:https://ciao.shogakukan.co.jp/comics/title/00511/episode/7781"
+      - "web:https://www.corocoro.jp/title/521"
+    attached:
+      - anchor: "web:https://ciao.shogakukan.co.jp/comics/title/00511/episode/7781"
+        basis: "creator 佐倉おりこ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://www.corocoro.jp/title/521"
+        basis: "creator 佐倉おりこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02227
     title: null
     anchors:
@@ -9455,14 +11334,28 @@ works:
     title: null
     anchors:
       - "madb:bw-477591"
+      - "web:https://comic-days.com/episode/13933686331690209314"
+    attached:
+      - anchor: "web:https://comic-days.com/episode/13933686331690209314"
+        basis: "creator len is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02229
     title: null
     anchors:
       - "madb:bw-478034"
   - id: w02230
-    title: null
+    title: "後宮の花詠み仙女"
     anchors:
       - "madb:bw-478751"
+      - "web:https://manga.nicovideo.jp/comic/66663"
+      - "web:https://comic-walker.com/detail/KC_004364_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/66663"
+        basis: "creator 秋鹿ユギリ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004364_S"
+        basis: "creator 秋鹿ユギリ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02231
     title: null
     anchors:
@@ -9481,25 +11374,57 @@ works:
       - "madb:bw-479885"
       - "web:https://comic-walker.com/detail/KC_005229_S"
   - id: w02235
-    title: null
+    title: "スイーツ・パニック"
     anchors:
       - "madb:bw-480580"
+      - "web:https://manga.nicovideo.jp/comic/68104"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/68104"
+        basis: "creator ブミィ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02236
-    title: null
+    title: "エルフ先生のトイレはどこですか？"
     anchors:
       - "madb:bw-480716"
+      - "web:https://manga.nicovideo.jp/comic/67557"
+      - "web:https://comic-walker.com/detail/KC_005377_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/67557"
+        basis: "creator 中嶋ちずな is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_005377_S"
+        basis: "creator 中嶋ちずな is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02237
-    title: null
+    title: "となりの殺し屋ちゃん"
     anchors:
       - "madb:bw-481324"
+      - "web:https://manga.nicovideo.jp/comic/66787"
+      - "web:https://comic-walker.com/detail/KC_005269_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/66787"
+        basis: "creator ジェイ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_005269_S"
+        basis: "creator ジェイ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02238
     title: null
     anchors:
       - "madb:bw-481359"
   - id: w02239
-    title: null
+    title: "あんハピ♪"
     anchors:
       - "madb:bw-48156"
+      - "web:https://manga.nicovideo.jp/comic/20767"
+      - "web:https://comic-fuz.com/manga/321"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/20767"
+        basis: "creator 琴慈 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/321"
+        basis: "creator 琴慈 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02240
     title: null
     anchors:
@@ -9537,13 +11462,27 @@ works:
     anchors:
       - "madb:bw-484046"
   - id: w02249
-    title: null
+    title: "ウクレア！"
     anchors:
       - "madb:bw-484318"
+      - "web:https://comic-fuz.com/manga/3591"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/3591"
+        basis: "creator midori is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02250
-    title: null
+    title: "踊町コミックハウス"
     anchors:
       - "madb:bw-486042"
+      - "web:https://manga.nicovideo.jp/comic/70162"
+      - "web:https://comic-fuz.com/manga/3461"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/70162"
+        basis: "creator 九重すわ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/3461"
+        basis: "creator 九重すわ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02251
     title: null
     anchors:
@@ -9573,29 +11512,49 @@ works:
     anchors:
       - "madb:bw-491623"
   - id: w02258
-    title: null
+    title: "Distortion"
     anchors:
       - "madb:bw-493770"
+      - "web:https://manga.nicovideo.jp/comic/34106"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/34106"
+        basis: "creator みもと is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02259
     title: null
     anchors:
       - "madb:bw-494388"
   - id: w02260
-    title: null
+    title: "恋する罪人"
     anchors:
       - "madb:bw-495319"
+      - "web:https://manga.nicovideo.jp/comic/72472"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/72472"
+        basis: "creator 羽印 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02261
-    title: null
+    title: "異世界魔王ごっこ～魔王は姫を倒したくない！～"
     anchors:
       - "madb:bw-496051"
+      - "web:https://manga.nicovideo.jp/comic/66033"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/66033"
+        basis: "creator むつをむつ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02262
     title: null
     anchors:
       - "madb:bw-496130"
   - id: w02263
-    title: null
+    title: "転生して成長チートを手に入れたら、最凶スキルもついたのですが!?"
     anchors:
       - "madb:bw-496787"
+      - "web:https://manga.nicovideo.jp/comic/71212"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/71212"
+        basis: "creator ゆずもと is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02264
     title: null
     anchors:
@@ -9604,6 +11563,11 @@ works:
     title: null
     anchors:
       - "madb:bw-497765"
+      - "web:https://www.sunday-webry.com/episode/2550689798749899266"
+    attached:
+      - anchor: "web:https://www.sunday-webry.com/episode/2550689798749899266"
+        basis: "creator アキリ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02266
     title: null
     anchors:
@@ -9620,6 +11584,11 @@ works:
     title: null
     anchors:
       - "madb:bw-49e172c2-2048-4525-bbd4-f8b5b0f86871"
+      - "web:https://manga.nicovideo.jp/comic/82302"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/82302"
+        basis: "creator キッカイキ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02270
     title: null
     anchors:
@@ -9719,9 +11688,14 @@ works:
     anchors:
       - "madb:bw-4f38f3a9-6798-4ff4-b9a1-5f2734e8a61d"
   - id: w02294
-    title: null
+    title: "百合好きの男子高校生の話"
     anchors:
       - "madb:bw-4f671dd3-8ef1-4d39-bcf6-427f2ff2af13"
+      - "web:https://manga.nicovideo.jp/comic/44272"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/44272"
+        basis: "creator あさがお is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02295
     title: null
     anchors:
@@ -9743,25 +11717,57 @@ works:
     anchors:
       - "madb:bw-500351"
   - id: w02300
-    title: null
+    title: "ハーレムより平穏を！異世界で静かにニート姫させてくれ"
     anchors:
       - "madb:bw-501039"
+      - "web:https://manga.nicovideo.jp/comic/68644"
+      - "web:https://comic-walker.com/detail/KC_005552_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/68644"
+        basis: "creator さかたはるき is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_005552_S"
+        basis: "creator さかたはるき is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02301
-    title: null
+    title: "男子高校生だけどギャルにTSしました"
     anchors:
       - "madb:bw-501046"
+      - "web:https://manga.nicovideo.jp/comic/67976"
+      - "web:https://comic-walker.com/detail/KC_005447_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/67976"
+        basis: "creator 太陽まりい is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_005447_S"
+        basis: "creator 太陽まりい is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02302
-    title: null
+    title: "ダッフルコートアーミー"
     anchors:
       - "madb:bw-501367"
+      - "web:https://comic-walker.com/detail/KC_005739_S"
+    attached:
+      - anchor: "web:https://comic-walker.com/detail/KC_005739_S"
+        basis: "creator 吾嬬竜孝 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02303
     title: null
     anchors:
       - "madb:bw-502333"
   - id: w02304
-    title: null
+    title: "花の三騎士"
     anchors:
       - "madb:bw-503646"
+      - "web:https://manga.nicovideo.jp/comic/71063"
+      - "web:https://comics.manga-bang.com/series/688cd2816713d"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/71063"
+        basis: "creator 星崎レオ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comics.manga-bang.com/series/688cd2816713d"
+        basis: "creator 星崎レオ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02305
     title: null
     anchors:
@@ -9795,9 +11801,14 @@ works:
     anchors:
       - "madb:bw-507283"
   - id: w02313
-    title: null
+    title: "サレ妻お江戸リコカツ録"
     anchors:
       - "madb:bw-508301"
+      - "web:https://manga.nicovideo.jp/comic/70505"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/70505"
+        basis: "creator 梶井スパナ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02314
     title: null
     anchors:
@@ -9807,9 +11818,18 @@ works:
     anchors:
       - "madb:bw-508425"
   - id: w02316
-    title: null
+    title: "悪戯プライバシー"
     anchors:
       - "madb:bw-50918cd9-eb12-4fce-9165-9615f4c4b4bf"
+      - "web:https://manga.nicovideo.jp/comic/37918"
+      - "web:https://comic-walker.com/detail/KC_002624_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/37918"
+        basis: "creator ちこれ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002624_S"
+        basis: "creator ちこれ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02317
     title: null
     anchors:
@@ -9839,9 +11859,14 @@ works:
     anchors:
       - "madb:bw-512894"
   - id: w02324
-    title: null
+    title: "あたしには好きな人がいる"
     anchors:
       - "madb:bw-514082"
+      - "web:https://comic-fuz.com/manga/3512"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/3512"
+        basis: "creator 花束葬式 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02325
     title: null
     anchors:
@@ -9882,6 +11907,11 @@ works:
     title: null
     anchors:
       - "madb:bw-520891"
+      - "web:https://kuragebunch.com/episode/2550912964922352689"
+    attached:
+      - anchor: "web:https://kuragebunch.com/episode/2550912964922352689"
+        basis: "creator ねじがなめた is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02335
     title: null
     anchors:
@@ -9891,9 +11921,18 @@ works:
     anchors:
       - "madb:bw-521321"
   - id: w02337
-    title: null
+    title: "アクアリウムは踊らない"
     anchors:
       - "madb:bw-521862"
+      - "web:https://manga.nicovideo.jp/comic/71182"
+      - "web:https://comic-walker.com/detail/KC_006180_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/71182"
+        basis: "creator 冬眠結 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_006180_S"
+        basis: "creator 冬眠結 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02338
     title: null
     anchors:
@@ -9931,9 +11970,18 @@ works:
     anchors:
       - "madb:bw-525638"
   - id: w02347
-    title: null
+    title: "神仙桃娘 宮廷の贄"
     anchors:
       - "madb:bw-525675"
+      - "web:https://manga.nicovideo.jp/comic/71694"
+      - "web:https://comic-walker.com/detail/KC_006245_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/71694"
+        basis: "creator 上地優歩 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_006245_S"
+        basis: "creator 上地優歩 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02348
     title: null
     anchors:
@@ -9943,17 +11991,27 @@ works:
     anchors:
       - "madb:bw-527095"
   - id: w02350
-    title: null
+    title: "蝶乃センパイは泳がせたい！"
     anchors:
       - "madb:bw-527852"
+      - "web:https://comic-fuz.com/manga/3554"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/3554"
+        basis: "creator 東雲もづく is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02351
     title: null
     anchors:
       - "madb:bw-52ca0d4e-c910-4f71-9f58-4776579d6b5c"
   - id: w02352
-    title: null
+    title: "スロウスタート"
     anchors:
       - "madb:bw-53152"
+      - "web:https://comic-fuz.com/manga/373"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/373"
+        basis: "creator 篤見唯子 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02353
     title: null
     anchors:
@@ -9995,13 +12053,31 @@ works:
     anchors:
       - "madb:bw-531759"
   - id: w02363
-    title: null
+    title: "可愛原先輩はかわいいがすき！"
     anchors:
       - "madb:bw-532306"
+      - "web:https://manga.nicovideo.jp/comic/71255"
+      - "web:https://comic-walker.com/detail/KC_006194_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/71255"
+        basis: "creator せらみっく is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_006194_S"
+        basis: "creator せらみっく is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02364
-    title: null
+    title: "むぎのはな～shared life is beautiful～"
     anchors:
       - "madb:bw-533609"
+      - "web:https://manga.nicovideo.jp/comic/71986"
+      - "web:https://comic-walker.com/detail/KC_006068_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/71986"
+        basis: "creator 市川なつを is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_006068_S"
+        basis: "creator 市川なつを is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02365
     title: null
     anchors:
@@ -10011,13 +12087,27 @@ works:
     anchors:
       - "madb:bw-53382"
   - id: w02367
-    title: null
+    title: "となりの吸血鬼さん"
     anchors:
       - "madb:bw-53398"
+      - "web:https://manga.nicovideo.jp/comic/26405"
+      - "web:https://comic-walker.com/detail/KC_004264_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/26405"
+        basis: "creator 甘党 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004264_S"
+        basis: "creator 甘党 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02368
-    title: null
+    title: "キマ紳士"
     anchors:
       - "madb:bw-534931"
+      - "web:https://manga.nicovideo.jp/comic/38036"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/38036"
+        basis: "creator 椎名晴美 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02369
     title: null
     anchors:
@@ -10051,9 +12141,14 @@ works:
     anchors:
       - "madb:bw-537893"
   - id: w02377
-    title: null
+    title: "ファンシー革命"
     anchors:
       - "madb:bw-539953"
+      - "web:https://manga.nicovideo.jp/comic/73793"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/73793"
+        basis: "creator 犬島ななこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02378
     title: null
     anchors:
@@ -10075,17 +12170,36 @@ works:
     anchors:
       - "madb:bw-541151"
   - id: w02383
-    title: null
+    title: "魔王城の様子がおかしい"
     anchors:
       - "madb:bw-541170"
+      - "web:https://manga.nicovideo.jp/comic/68318"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/68318"
+        basis: "creator 夏ソラわか is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02384
-    title: null
+    title: "やみつきリリィホリックちゅう♪"
     anchors:
       - "madb:bw-542632"
+      - "web:https://manga.nicovideo.jp/comic/73923"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/73923"
+        basis: "creator 赤月めう is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02385
-    title: null
+    title: "Untitled Flowers ～卵を産まないわたしたち～"
     anchors:
       - "madb:bw-544642"
+      - "web:https://manga.nicovideo.jp/comic/72502"
+      - "web:https://comic-walker.com/detail/KC_006538_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/72502"
+        basis: "creator isaka is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_006538_S"
+        basis: "creator isaka is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02386
     title: null
     anchors:
@@ -10099,21 +12213,44 @@ works:
     anchors:
       - "madb:bw-54706"
   - id: w02389
-    title: null
+    title: "さくらマイマイ"
     anchors:
       - "madb:bw-54718"
+      - "web:https://manga.nicovideo.jp/comic/26404"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/26404"
+        basis: "creator おしおしお is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02390
-    title: null
+    title: "幼女魔術師と同居人"
     anchors:
       - "madb:bw-547430"
+      - "web:https://manga.nicovideo.jp/comic/64844"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/64844"
+        basis: "creator kana◇ami is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02391
     title: null
     anchors:
       - "madb:bw-547433"
   - id: w02392
-    title: null
+    title: "やがて君になる"
     anchors:
       - "madb:bw-54921"
+      - "web:https://manga.nicovideo.jp/comic/18284"
+      - "web:https://manga.nicovideo.jp/comic/57015"
+      - "web:https://comic-walker.com/detail/KC_002450_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/18284"
+        basis: "creator 仲谷鳰 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/57015"
+        basis: "creator 仲谷鳰 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002450_S"
+        basis: "creator 仲谷鳰 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02393
     title: null
     anchors:
@@ -10139,9 +12276,14 @@ works:
     anchors:
       - "madb:bw-552296"
   - id: w02399
-    title: null
+    title: "君の愛と私の恋が実るまで"
     anchors:
       - "madb:bw-552301"
+      - "web:https://manga.nicovideo.jp/comic/73481"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/73481"
+        basis: "creator 雫市だいち is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02400
     title: null
     anchors:
@@ -10171,9 +12313,18 @@ works:
     anchors:
       - "madb:bw-55263"
   - id: w02407
-    title: null
+    title: "ステラのまほう"
     anchors:
       - "madb:bw-55361"
+      - "web:https://manga.nicovideo.jp/comic/23515"
+      - "web:https://comic-fuz.com/manga/314"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/23515"
+        basis: "creator くろば is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/314"
+        basis: "creator くろば is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02408
     title: null
     anchors:
@@ -10187,9 +12338,22 @@ works:
     anchors:
       - "madb:bw-553db579-fabb-4a72-ad41-651847bf11be"
   - id: w02411
-    title: null
+    title: "魔法少女イナバ"
     anchors:
       - "madb:bw-556427"
+      - "web:https://manga.nicovideo.jp/comic/75854"
+      - "web:https://comic-growl.com/series/aa1ae7d41e228"
+      - "web:https://comic-walker.com/detail/KC_007952_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/75854"
+        basis: "creator 猫にゃん is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-growl.com/series/aa1ae7d41e228"
+        basis: "creator 猫にゃん is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_007952_S"
+        basis: "creator 猫にゃん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02412
     title: null
     anchors:
@@ -10200,9 +12364,14 @@ works:
       - "madb:bw-55a9443c-c1c0-443f-abd9-23ecd9931582"
       - "web:https://comic-walker.com/detail/KC_004537_S"
   - id: w02414
-    title: null
+    title: "線の上で前を向く"
     anchors:
       - "madb:bw-55aee43e-f8eb-472e-ac60-8612aa9937c3"
+      - "web:https://manga.nicovideo.jp/comic/76442"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/76442"
+        basis: "creator 時和輝 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02415
     title: null
     anchors:
@@ -10240,9 +12409,14 @@ works:
     anchors:
       - "madb:bw-565152"
   - id: w02424
-    title: null
+    title: "ぷくちょらりファミリア"
     anchors:
       - "madb:bw-566273"
+      - "web:https://manga.nicovideo.jp/comic/75486"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/75486"
+        basis: "creator 圷見南子 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02425
     title: null
     anchors:
@@ -10256,17 +12430,31 @@ works:
     anchors:
       - "madb:bw-5688d74b-d9ba-4a47-bd44-3943a5261ba8"
   - id: w02428
-    title: null
+    title: "あまねくシグナル"
     anchors:
       - "madb:bw-569563"
+      - "web:https://comic-fuz.com/manga/3896"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/3896"
+        basis: "creator はうあゆ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02429
     title: null
     anchors:
       - "madb:bw-5697f1e9-0625-4fcb-9674-2e525cf07121"
   - id: w02430
-    title: null
+    title: "マーブルビターチョコレート"
     anchors:
       - "madb:bw-56a4e697-0380-4ed0-959a-f44237b8c8c6"
+      - "web:https://manga.nicovideo.jp/comic/55582"
+      - "web:https://comic-walker.com/detail/KC_003390_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/55582"
+        basis: "creator 幌山あき is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003390_S"
+        basis: "creator 幌山あき is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02431
     title: null
     anchors:
@@ -10276,9 +12464,18 @@ works:
     anchors:
       - "madb:bw-56fb78bd-5ce2-400d-b3ef-cfa30efb5d6e"
   - id: w02433
-    title: null
+    title: "まちカドまぞく"
     anchors:
       - "madb:bw-57096"
+      - "web:https://manga.nicovideo.jp/comic/35263"
+      - "web:https://comic-fuz.com/manga/261"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/35263"
+        basis: "creator 伊藤いづも is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/261"
+        basis: "creator 伊藤いづも is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02434
     title: null
     anchors:
@@ -10372,9 +12569,14 @@ works:
     anchors:
       - "madb:bw-597867"
   - id: w02457
-    title: null
+    title: "魔法少女三十路"
     anchors:
       - "madb:bw-599522"
+      - "web:https://manga.nicovideo.jp/comic/80236"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/80236"
+        basis: "creator 三倉ゆめ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02458
     title: null
     anchors:
@@ -10412,9 +12614,14 @@ works:
     anchors:
       - "madb:bw-5cbb679d-0e5b-4333-ab9c-cd78059a7653"
   - id: w02467
-    title: null
+    title: "悪マ的眷属エルエルちゃん"
     anchors:
       - "madb:bw-5cbc96aa-34f6-4ccc-b6e2-c38e474abe06"
+      - "web:https://manga.nicovideo.jp/comic/75891"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/75891"
+        basis: "creator ホシィェモ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02468
     title: null
     anchors:
@@ -10499,6 +12706,11 @@ works:
     title: null
     anchors:
       - "madb:bw-5f304615-905f-4c18-a5c3-e57463453f67"
+      - "web:https://comic-walker.com/detail/KC_001640_S"
+    attached:
+      - anchor: "web:https://comic-walker.com/detail/KC_001640_S"
+        basis: "creator ムロマキ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02489
     title: null
     anchors:
@@ -10511,6 +12723,11 @@ works:
     title: null
     anchors:
       - "madb:bw-5fa86d4a-ad10-4a18-8cbf-c6dbebc872a3"
+      - "web:https://ichicomi.com/episode/12207421984000326421"
+    attached:
+      - anchor: "web:https://ichicomi.com/episode/12207421984000326421"
+        basis: "creator アンソロジ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02492
     title: null
     anchors:
@@ -10526,9 +12743,14 @@ works:
     anchors:
       - "madb:bw-604149"
   - id: w02495
-    title: null
+    title: "ウイニングアンサー！"
     anchors:
       - "madb:bw-605342"
+      - "web:https://manga.nicovideo.jp/comic/74043"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/74043"
+        basis: "creator 八代涼 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02496
     title: null
     anchors:
@@ -10574,9 +12796,18 @@ works:
     anchors:
       - "madb:bw-63435"
   - id: w02507
-    title: null
+    title: "はるかなレシーブ"
     anchors:
       - "madb:bw-63958"
+      - "web:https://manga.nicovideo.jp/comic/35555"
+      - "web:https://comic-fuz.com/manga/388"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/35555"
+        basis: "creator 如意自在 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/388"
+        basis: "creator 如意自在 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02508
     title: null
     anchors:
@@ -10614,13 +12845,35 @@ works:
     anchors:
       - "madb:bw-6524335c-cf12-4952-88da-660679cc7068"
   - id: w02517
-    title: null
+    title: "僕の彼女がマジメ過ぎる処女ビッチな件"
     anchors:
       - "madb:bw-65548"
+      - "web:https://manga.nicovideo.jp/comic/17050"
+      - "web:https://comic-walker.com/detail/KC_000617_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/17050"
+        basis: "creator 松本ナミル is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000617_S"
+        basis: "creator 松本ナミル is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02518
-    title: null
+    title: "女子高生の無駄づかい"
     anchors:
       - "madb:bw-65553"
+      - "web:https://manga.nicovideo.jp/comic/18905"
+      - "web:https://manga.nicovideo.jp/comic/14012"
+      - "web:https://comic-walker.com/detail/KC_000696_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/18905"
+        basis: "creator ビノ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/14012"
+        basis: "creator ビノ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000696_S"
+        basis: "creator ビノ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02519
     title: null
     anchors:
@@ -10845,6 +13098,11 @@ works:
     title: null
     anchors:
       - "madb:bw-74482"
+      - "web:https://comic-walker.com/detail/KC_004487_S"
+    attached:
+      - anchor: "web:https://comic-walker.com/detail/KC_004487_S"
+        basis: "creator 阿部かなり is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02575
     title: null
     anchors:
@@ -10882,13 +13140,23 @@ works:
     anchors:
       - "madb:bw-766d7650-b5bb-4497-9999-fd2ffa5f8289"
   - id: w02584
-    title: null
+    title: "ほのぼの呪詛ライフ"
     anchors:
       - "madb:bw-767d1e63-329f-4806-90a2-f2f1d9e27db1"
+      - "web:https://manga.nicovideo.jp/comic/82942"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/82942"
+        basis: "creator ふぁゆ瀬 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02585
-    title: null
+    title: "Ｇｏｏｄ　ｎｉｇｈｔ！　Ａｎｇｅｌ"
     anchors:
       - "madb:bw-76802"
+      - "web:https://comic-fuz.com/manga/419"
+    attached:
+      - anchor: "web:https://comic-fuz.com/manga/419"
+        basis: "creator 柊ゆたか is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02586
     title: null
     anchors:
@@ -10940,9 +13208,14 @@ works:
     anchors:
       - "madb:bw-79990"
   - id: w02598
-    title: null
+    title: "完璧麗華さまは友達作りがおヘタ"
     anchors:
       - "madb:bw-79a1aeca-7264-46ff-af62-8a507e3038e9"
+      - "web:https://manga.nicovideo.jp/comic/44862"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/44862"
+        basis: "creator 松本陽介 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02599
     title: null
     anchors:
@@ -11016,9 +13289,18 @@ works:
     anchors:
       - "madb:bw-7df8389e-ac25-4906-ae50-b4a9ec3e414d"
   - id: w02617
-    title: null
+    title: "SQ 君の名前から始まる"
     anchors:
       - "madb:bw-7ebbd159-9bca-4234-a279-78715eccda73"
+      - "web:https://manga.nicovideo.jp/comic/45072"
+      - "web:https://comic-walker.com/detail/KC_000338_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/45072"
+        basis: "creator 壇九 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000338_S"
+        basis: "creator 壇九 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02618
     title: null
     anchors:
@@ -11042,9 +13324,14 @@ works:
     anchors:
       - "madb:bw-7fd6abae-1a2b-49d9-bf8e-3f9b43416e52"
   - id: w02623
-    title: null
+    title: "百合好きさんとガチ百合さん"
     anchors:
       - "madb:bw-80128dc5-8019-4583-ad1c-caa4edcc5fb9"
+      - "web:https://manga.nicovideo.jp/comic/39669"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/39669"
+        basis: "creator 涼海来夏 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02624
     title: null
     anchors:
@@ -11054,9 +13341,14 @@ works:
     anchors:
       - "madb:bw-80416321-c577-4033-8e98-69aada351a3f"
   - id: w02626
-    title: null
+    title: "明日香と美咲"
     anchors:
       - "madb:bw-80792731-7496-4647-9491-d840326bbde8"
+      - "web:https://manga.nicovideo.jp/comic/70721"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/70721"
+        basis: "creator あんじんねこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02627
     title: null
     anchors:
@@ -11146,9 +13438,18 @@ works:
     anchors:
       - "madb:bw-84b5b9c0-79af-453d-8e1b-4d689f197a7c"
   - id: w02649
-    title: null
+    title: "さよならじゃねーよ、ばか。"
     anchors:
       - "madb:bw-84c39d89-55de-4db3-8abc-8f0a5df2aac5"
+      - "web:https://manga.nicovideo.jp/comic/53627"
+      - "web:https://comic-walker.com/detail/KC_003220_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/53627"
+        basis: "creator あきやまえんま is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003220_S"
+        basis: "creator あきやまえんま is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02650
     title: null
     anchors:
@@ -11193,14 +13494,28 @@ works:
     title: null
     anchors:
       - "madb:bw-86d3b866-e81b-4c69-a751-430c868ad187"
+      - "web:https://manga.nicovideo.jp/comic/82261"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/82261"
+        basis: "creator comicgaga編集部 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02661
     title: null
     anchors:
       - "madb:bw-87088bfe-9487-44d2-995c-758c606ff3e7"
   - id: w02662
-    title: null
+    title: "バリキャリと新卒"
     anchors:
       - "madb:bw-873be928-b422-420a-9818-f5a03fd81267"
+      - "web:https://manga.nicovideo.jp/comic/33710"
+      - "web:https://comic-walker.com/detail/KC_002543_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/33710"
+        basis: "creator えすえす is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002543_S"
+        basis: "creator えすえす is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02663
     title: null
     anchors:
@@ -11210,25 +13525,48 @@ works:
     anchors:
       - "madb:bw-88061f85-d192-4662-a521-2c771a768781"
   - id: w02665
-    title: null
+    title: "なでしこドレミソラ"
     anchors:
       - "madb:bw-88247"
+      - "web:https://manga.nicovideo.jp/comic/25145"
+      - "web:https://comic-fuz.com/manga/455"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/25145"
+        basis: "creator みやびあきの is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/455"
+        basis: "creator みやびあきの is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02666
     title: null
     anchors:
       - "madb:bw-8863c528-f61c-4f33-a81d-34771745e449"
   - id: w02667
-    title: null
+    title: "かなえるLoveSick"
     anchors:
       - "madb:bw-88657"
+      - "web:https://manga.nicovideo.jp/comic/28928"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/28928"
+        basis: "creator タチ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02668
     title: null
     anchors:
       - "madb:bw-88d894ec-400c-4031-abb6-a89e702a862e"
   - id: w02669
-    title: null
+    title: "そういう年頃になっちゃった年の差姉妹"
     anchors:
       - "madb:bw-88dff7e7-d107-4330-8cb5-91be33bd7bd0"
+      - "web:https://manga.nicovideo.jp/comic/46436"
+      - "web:https://comic-walker.com/detail/KC_002941_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/46436"
+        basis: "creator はちこ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002941_S"
+        basis: "creator はちこ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02670
     title: null
     anchors:
@@ -11306,9 +13644,14 @@ works:
     anchors:
       - "madb:bw-8c9d74c7-1124-41d2-b2bb-065cebd92bed"
   - id: w02689
-    title: null
+    title: "夫のためにレズ風俗に行きました"
     anchors:
       - "madb:bw-8cbffafd-82a1-4dce-89a7-7d324e63dc95"
+      - "web:https://manga.nicovideo.jp/comic/73824"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/73824"
+        basis: "creator 三松真由美 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02690
     title: null
     anchors:
@@ -11330,9 +13673,18 @@ works:
     anchors:
       - "madb:bw-8d7371c1-8902-4656-9154-5c122a4d3c39"
   - id: w02695
-    title: null
+    title: "雑な生活"
     anchors:
       - "madb:bw-8d7990ee-3f04-4416-83f8-8afb135cd1f4"
+      - "web:https://manga.nicovideo.jp/comic/46913"
+      - "web:https://comic-walker.com/detail/KC_002813_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/46913"
+        basis: "creator 中憲人 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_002813_S"
+        basis: "creator 中憲人 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02696
     title: null
     anchors:
@@ -11362,9 +13714,14 @@ works:
     anchors:
       - "madb:bw-8ff97b3f-2cb2-4964-bd95-9b152a32e593"
   - id: w02703
-    title: null
+    title: "イケメン女子とイケメン女子"
     anchors:
       - "madb:bw-9010da94-7920-4b4f-b436-2040b6ce8839"
+      - "web:https://manga.nicovideo.jp/comic/62313"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/62313"
+        basis: "creator しぐま is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02704
     title: null
     anchors:
@@ -11382,13 +13739,23 @@ works:
     anchors:
       - "madb:bw-91347"
   - id: w02708
-    title: null
+    title: "ウィーンで歌ってみて"
     anchors:
       - "madb:bw-91348"
+      - "web:https://manga.nicovideo.jp/comic/21070"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/21070"
+        basis: "creator フクハラマサヤ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02709
-    title: null
+    title: "世界征服はまた明日"
     anchors:
       - "madb:bw-91362"
+      - "web:https://manga.nicovideo.jp/comic/24070"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/24070"
+        basis: "creator リフィ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02710
     title: null
     anchors:
@@ -11430,9 +13797,14 @@ works:
     anchors:
       - "madb:bw-92d1fdc6-0325-42e9-ad0e-904f69461c68"
   - id: w02720
-    title: null
+    title: "私たちは恋を描けない"
     anchors:
       - "madb:bw-92dfb8c9-7f50-408a-983a-bc4092809b63"
+      - "web:https://manga.nicovideo.jp/comic/35994"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/35994"
+        basis: "creator あかまる is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02721
     title: null
     anchors:
@@ -11451,9 +13823,14 @@ works:
       - "madb:bw-947843ec-64f9-48cd-b02c-4a02fa4ba210"
       - "web:https://comic-walker.com/detail/KC_002199_S"
   - id: w02725
-    title: null
+    title: "悪魔は笑って嘘をつく"
     anchors:
       - "madb:bw-94b862f2-7a49-43c4-9f73-327a545c898f"
+      - "web:https://manga.nicovideo.jp/comic/52531"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/52531"
+        basis: "creator 福井遥香 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02726
     title: null
     anchors:
@@ -11467,9 +13844,14 @@ works:
     anchors:
       - "madb:bw-9646017d-ebc8-4a36-956e-f28dea3188e6"
   - id: w02729
-    title: null
+    title: "愛焦がれキャラメリゼ"
     anchors:
       - "madb:bw-964c22a5-a966-4336-8897-90b05022c94f"
+      - "web:https://manga.nicovideo.jp/comic/73172"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/73172"
+        basis: "creator 杉谷エコ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02730
     title: null
     anchors:
@@ -11487,9 +13869,18 @@ works:
     anchors:
       - "madb:bw-971c237b-fe85-4a8c-9fd7-6ff440f5604e"
   - id: w02734
-    title: null
+    title: "ちょっといっぱい！"
     anchors:
       - "madb:bw-97225"
+      - "web:https://manga.nicovideo.jp/comic/40836"
+      - "web:https://comic-fuz.com/manga/297"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/40836"
+        basis: "creator 火曜 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-fuz.com/manga/297"
+        basis: "creator 火曜 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02735
     title: null
     anchors:
@@ -11498,6 +13889,11 @@ works:
     title: null
     anchors:
       - "madb:bw-97772fe5-fc18-4f32-a7e0-9fe4ab8a479a"
+      - "web:https://manga.nicovideo.jp/comic/62986"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/62986"
+        basis: "creator 乃樹愛 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02737
     title: null
     anchors:
@@ -11535,9 +13931,18 @@ works:
     anchors:
       - "madb:bw-98f10829-91b0-403d-8221-89d9ade35e0c"
   - id: w02746
-    title: null
+    title: "ご主人様と獣耳の少女メル"
     anchors:
       - "madb:bw-99977"
+      - "web:https://manga.nicovideo.jp/comic/21777"
+      - "web:https://comic-walker.com/detail/KC_003870_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/21777"
+        basis: "creator 伊藤ハチ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003870_S"
+        basis: "creator 伊藤ハチ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02747
     title: null
     anchors:
@@ -11635,9 +14040,18 @@ works:
     anchors:
       - "madb:bw-9e5e42e7-e01e-43c0-afc7-0a892ac3765f"
   - id: w02771
-    title: null
+    title: "寂しすぎる女社長がレズ風俗嬢に秒で落ちる話"
     anchors:
       - "madb:bw-9ecc4d2b-e448-4f11-92d6-741435d80dd6"
+      - "web:https://manga.nicovideo.jp/comic/52942"
+      - "web:https://comic-walker.com/detail/KC_003138_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/52942"
+        basis: "creator 六番目の課長 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_003138_S"
+        basis: "creator 六番目の課長 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02772
     title: null
     anchors:
@@ -11650,6 +14064,11 @@ works:
     title: null
     anchors:
       - "madb:bw-a05a8242-84b7-4e3c-9a35-b391aac906b3"
+      - "web:https://feelweb.jp/episode/316112896932049316"
+    attached:
+      - anchor: "web:https://feelweb.jp/episode/316112896932049316"
+        basis: "creator ひの宙子 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02775
     title: null
     anchors:
@@ -11711,9 +14130,14 @@ works:
     anchors:
       - "madb:bw-a4f78507-fe45-4978-91ca-3a1b3d391d97"
   - id: w02790
-    title: null
+    title: "はるか咲きそふ、刻どきの"
     anchors:
       - "madb:bw-a5247ff6-b610-4273-9db2-44d3267b0b17"
+      - "web:https://manga.nicovideo.jp/comic/68749"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/68749"
+        basis: "creator ぴらそん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02791
     title: null
     anchors:
@@ -11723,9 +14147,14 @@ works:
     anchors:
       - "madb:bw-a5fce610-bb6c-4d95-b822-7057870eddec"
   - id: w02793
-    title: null
+    title: "幸福のおいしい道すがら"
     anchors:
       - "madb:bw-a660d3c7-29ab-49bf-82bf-bf9b6b8b7f0d"
+      - "web:https://comic-walker.com/detail/KC_006845_S"
+    attached:
+      - anchor: "web:https://comic-walker.com/detail/KC_006845_S"
+        basis: "creator 真くん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02794
     title: null
     anchors:
@@ -11739,9 +14168,14 @@ works:
     anchors:
       - "madb:bw-a70e6dff-94f4-4679-b215-9d5a236aff6c"
   - id: w02797
-    title: null
+    title: "私と右腕"
     anchors:
       - "madb:bw-a7784b86-3bff-449f-88e1-d56cf6542065"
+      - "web:https://manga.nicovideo.jp/comic/41947"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/41947"
+        basis: "creator ぴりぷん is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02798
     title: null
     anchors:
@@ -11825,9 +14259,14 @@ works:
     anchors:
       - "madb:bw-ade8858a-616f-4ae4-bd1c-4b8afb13cd5c"
   - id: w02818
-    title: null
+    title: "海のみちるごはん"
     anchors:
       - "madb:bw-ae2e0208-95c4-450c-8cec-6b3bd17511af"
+      - "web:https://manga.nicovideo.jp/comic/71836"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/71836"
+        basis: "creator 花宮みぃ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02819
     title: null
     anchors:
@@ -11841,9 +14280,14 @@ works:
     anchors:
       - "madb:bw-af097d44-a8d2-45b7-b995-a2a5c9c89b91"
   - id: w02822
-    title: null
+    title: "お義姉ちゃんのSNS"
     anchors:
       - "madb:bw-af1e108a-6304-429c-960d-2efb3aca543c"
+      - "web:https://manga.nicovideo.jp/comic/51444"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/51444"
+        basis: "creator 涼海来夏 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02823
     title: null
     anchors:
@@ -11872,6 +14316,11 @@ works:
     title: null
     anchors:
       - "madb:bw-b02edbe6-780d-43cd-8748-d373d2c54c6e"
+      - "web:https://manga.nicovideo.jp/comic/78804"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/78804"
+        basis: "creator 城之内寧々 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02830
     title: null
     anchors:
@@ -11921,9 +14370,14 @@ works:
     anchors:
       - "madb:bw-b47f65e8-8101-4810-9ff5-17f955d0a9f1"
   - id: w02842
-    title: null
+    title: "キリング・ミー！"
     anchors:
       - "madb:bw-b5218fdb-e4f1-42a4-9757-a0deca03ae52"
+      - "web:https://manga.nicovideo.jp/comic/31753"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/31753"
+        basis: "creator あきやま is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02843
     title: null
     anchors:
@@ -12004,6 +14458,11 @@ works:
     title: null
     anchors:
       - "madb:bw-ba244d84-5097-4332-a60a-5fec378e1dda"
+      - "web:https://comic-walker.com/detail/KC_003208_S"
+    attached:
+      - anchor: "web:https://comic-walker.com/detail/KC_003208_S"
+        basis: "creator 姉井戸 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02863
     title: null
     anchors:
@@ -12043,9 +14502,18 @@ works:
     anchors:
       - "madb:bw-bc1be4dc-f9ed-41a6-91a0-cfb18eece508"
   - id: w02872
-    title: null
+    title: "北の女に試されたい"
     anchors:
       - "madb:bw-bc27a656-f03f-4bab-b146-d3fa060ae1af"
+      - "web:https://manga.nicovideo.jp/comic/51510"
+      - "web:https://comic-walker.com/detail/KC_004491_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/51510"
+        basis: "creator 箕田海道 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004491_S"
+        basis: "creator 箕田海道 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02873
     title: null
     anchors:
@@ -12375,9 +14843,14 @@ works:
     anchors:
       - "madb:bw-d02ce080-bed9-4e21-8d50-302cb2cd394c"
   - id: w02955
-    title: null
+    title: "百合探偵少女 ～朱理推～"
     anchors:
       - "madb:bw-d030fa76-f8c5-43bb-824d-cdebab535ced"
+      - "web:https://manga.nicovideo.jp/comic/41720"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/41720"
+        basis: "creator 志真 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02956
     title: null
     anchors:
@@ -12386,14 +14859,24 @@ works:
     title: null
     anchors:
       - "madb:bw-d0c64792-4f31-40b6-8313-31b92a24d5c5"
+      - "web:https://comic-walker.com/detail/KC_004094_S"
+    attached:
+      - anchor: "web:https://comic-walker.com/detail/KC_004094_S"
+        basis: "creator 高江洲弥 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02958
     title: null
     anchors:
       - "madb:bw-d0d6560a-de0d-4040-b8b0-7092ecce4e1e"
   - id: w02959
-    title: null
+    title: "ガールズ・スキャット・オーケストラ！"
     anchors:
       - "madb:bw-d0e2a002-87a2-43b3-a775-38be3271316f"
+      - "web:https://manga.nicovideo.jp/comic/74195"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/74195"
+        basis: "creator ゐぬゐ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02960
     title: null
     anchors:
@@ -12410,6 +14893,11 @@ works:
     title: null
     anchors:
       - "madb:bw-d1eb088e-7bad-4f8c-a0c8-abfcfea20d12"
+      - "web:https://comic-action.com/episode/2550689798323708099"
+    attached:
+      - anchor: "web:https://comic-action.com/episode/2550689798323708099"
+        basis: "creator 七瀬八 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02964
     title: null
     anchors:
@@ -12431,9 +14919,18 @@ works:
     anchors:
       - "madb:bw-d285b1bd-527f-4001-9943-512192bd345b"
   - id: w02969
-    title: null
+    title: "きみは終末"
     anchors:
       - "madb:bw-d2c9b990-b985-484f-b04b-d39780263137"
+      - "web:https://manga.nicovideo.jp/comic/74657"
+      - "web:https://comic-walker.com/detail/KC_007113_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/74657"
+        basis: "creator 仲谷鳰 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_007113_S"
+        basis: "creator 仲谷鳰 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02970
     title: null
     anchors:
@@ -12471,9 +14968,14 @@ works:
     anchors:
       - "madb:bw-d44f600b-e35d-4b15-be4f-e2e99e5d7f1d"
   - id: w02979
-    title: null
+    title: "ゲーセンでよく見かける同じ機種やってるあの子"
     anchors:
       - "madb:bw-d48cb2d8-e5dd-47f6-bc50-78a058242231"
+      - "web:https://manga.nicovideo.jp/comic/69385"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/69385"
+        basis: "creator 茜りう is named on the platform page"
+        retrieved: 2026-08-07
   - id: w02980
     title: null
     anchors:
@@ -12620,6 +15122,8 @@ works:
       - "madb:bw-dc772d95-b05f-4e00-9190-054b71a7e19c"
   - id: w03016
     title: null
+    merged_into: w02010
+    merge_basis: "creator, publisher and imprint agree: 浜野りんご, クロスフォリオ出版, ガレットワークス. bw-dc7f51c0 and bw-349064 are the collected and 単話版 editions of one work"
     anchors:
       - "madb:bw-dc7f51c0-6e3a-4b7c-b599-837a9751bcd9"
   - id: w03017
@@ -12670,6 +15174,11 @@ works:
     title: null
     anchors:
       - "madb:bw-dfc3ae81-c96c-4377-ae57-f33fab758cf8"
+      - "web:https://www.comicnettai.com/book/44"
+    attached:
+      - anchor: "web:https://www.comicnettai.com/book/44"
+        basis: "creator ふじちか is named on the platform page"
+        retrieved: 2026-08-07
   - id: w03029
     title: null
     anchors:
@@ -12707,9 +15216,14 @@ works:
     anchors:
       - "madb:bw-e1cb42a8-8b7d-40d6-9400-cb88c41ff622"
   - id: w03038
-    title: null
+    title: "夢に落ちる少女"
     anchors:
       - "madb:bw-e26537cf-4cc6-497a-ad7e-ceecaf674c26"
+      - "web:https://manga.nicovideo.jp/comic/51326"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/51326"
+        basis: "creator しぐま is named on the platform page"
+        retrieved: 2026-08-07
   - id: w03039
     title: null
     anchors:
@@ -12727,21 +15241,40 @@ works:
     anchors:
       - "madb:bw-e36e2e08-112f-4d80-8659-6d41ac10ea42"
   - id: w03043
-    title: null
+    title: "女の子が女の子のママになる話"
     anchors:
       - "madb:bw-e3afbbfc-d857-4a4f-be0d-ed072d2479ce"
+      - "web:https://manga.nicovideo.jp/comic/42689"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/42689"
+        basis: "creator カヅチ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w03044
     title: null
     anchors:
       - "madb:bw-e3c703d9-06f5-4caa-9b0f-d05295a002d4"
   - id: w03045
-    title: null
+    title: "死神聖女"
     anchors:
       - "madb:bw-e3da2028-31be-4c5a-967d-cbadcfd25b73"
+      - "web:https://manga.nicovideo.jp/comic/74366"
+      - "web:https://comic-walker.com/detail/KC_007037_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/74366"
+        basis: "creator 士崎雅雪 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_007037_S"
+        basis: "creator 士崎雅雪 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w03046
-    title: null
+    title: "謎レズバトル漫画"
     anchors:
       - "madb:bw-e4724bb7-2fdc-48a2-af48-8bf63433caa9"
+      - "web:https://manga.nicovideo.jp/comic/29241"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/29241"
+        basis: "creator 志真 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w03047
     title: null
     anchors:
@@ -12751,9 +15284,18 @@ works:
     anchors:
       - "madb:bw-e5265c12-98c8-4b5c-88cc-35f4acd4e03b"
   - id: w03049
-    title: null
+    title: "祖母ドル ～余命わずかのおばあちゃん、若返って孫とアイドルになる～"
     anchors:
       - "madb:bw-e54447b0-3cb8-4530-be24-93ce176238f0"
+      - "web:https://manga.nicovideo.jp/comic/70067"
+      - "web:https://comic-walker.com/detail/KC_005928_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/70067"
+        basis: "creator 狐ヶ崎 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_005928_S"
+        basis: "creator 狐ヶ崎 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w03050
     title: null
     anchors:
@@ -12871,17 +15413,39 @@ works:
     anchors:
       - "madb:bw-eced93cb-74f5-446b-9fd1-099eadee3024"
   - id: w03079
-    title: null
+    title: "オレは男装女子じゃない！"
     anchors:
       - "madb:bw-ed04e82e-83f1-4675-b2e5-c3ba089847f8"
+      - "web:https://manga.nicovideo.jp/comic/41891"
+      - "web:https://manga.nicovideo.jp/comic/21242"
+      - "web:https://comic-walker.com/detail/KC_000128_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/41891"
+        basis: "creator きらた is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://manga.nicovideo.jp/comic/21242"
+        basis: "creator きらた is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_000128_S"
+        basis: "creator きらた is named on the platform page"
+        retrieved: 2026-08-07
   - id: w03080
     title: null
     anchors:
       - "madb:bw-ed71de5e-9b30-41a7-a6dc-3293d729a5b4"
   - id: w03081
-    title: null
+    title: "竜王さまの気ままな異世界ライフ"
     anchors:
       - "madb:bw-ed74d146-54e7-43b1-a0d0-445b1306cb3a"
+      - "web:https://manga.nicovideo.jp/comic/72930"
+      - "web:https://comic-walker.com/detail/KC_006657_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/72930"
+        basis: "creator よっしゃあっ is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_006657_S"
+        basis: "creator よっしゃあっ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w03082
     title: null
     anchors:
@@ -12961,9 +15525,18 @@ works:
     anchors:
       - "madb:bw-f1cfce05-2cab-4049-b701-d1ce249ca4eb"
   - id: w03101
-    title: null
+    title: "きょうもバレずに過ごせた！"
     anchors:
       - "madb:bw-f1f1b471-a99b-4c85-a16f-599110b5e048"
+      - "web:https://manga.nicovideo.jp/comic/83152"
+      - "web:https://www.sunday-webry.com/episode/2551460910093836682"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/83152"
+        basis: "creator はづき is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://www.sunday-webry.com/episode/2551460910093836682"
+        basis: "creator はづき is named on the platform page"
+        retrieved: 2026-08-07
   - id: w03102
     title: null
     anchors:
@@ -13107,9 +15680,14 @@ works:
     anchors:
       - "madb:bw-fc07db82-8840-44c8-a8df-0a2054b577ea"
   - id: w03137
-    title: null
+    title: "親友は、私の名前で不倫中"
     anchors:
       - "madb:bw-fc57e6ba-0bb4-4098-a039-20bb95fb8250"
+      - "web:https://manga.nicovideo.jp/comic/74525"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/74525"
+        basis: "creator エェコ is named on the platform page"
+        retrieved: 2026-08-07
   - id: w03138
     title: null
     anchors:
@@ -13151,9 +15729,18 @@ works:
     anchors:
       - "madb:bw-fecbbb0b-955d-4000-be6a-fc3a2fa9cb1f"
   - id: w03148
-    title: null
+    title: "ユニコーンと寂しがりや少女"
     anchors:
       - "madb:bw-ff2452af-79b0-4080-a33b-cfda0bd16f50"
+      - "web:https://manga.nicovideo.jp/comic/43072"
+      - "web:https://comic-walker.com/detail/KC_004490_S"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/43072"
+        basis: "creator 藤松盟 is named on the platform page"
+        retrieved: 2026-08-07
+      - anchor: "web:https://comic-walker.com/detail/KC_004490_S"
+        basis: "creator 藤松盟 is named on the platform page"
+        retrieved: 2026-08-07
   - id: w03149
     title: null
     anchors:
@@ -13216,18 +15803,6 @@ related:
   - a: w00314
     b: w00650
     note: "titled as a separate edition of the same work"
-    retrieved: 2026-08-07
-  - a: w00522
-    b: w01721
-    note: "one print record matches both titles and a shared author"
-    retrieved: 2026-08-07
-  - a: w00579
-    b: w01406
-    note: "one print record matches both titles and a shared author"
-    retrieved: 2026-08-07
-  - a: w00848
-    b: w01444
-    note: "one print record matches both titles and a shared author"
     retrieved: 2026-08-07
   - a: w00993
     b: w02128

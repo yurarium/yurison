@@ -1,0 +1,3846 @@
+# A printed work and the address its serialisation was published at.
+#
+# WHAT MAKES EACH ONE A JOIN. `basis` names the field that agrees, and it is never the
+# title: RUNBOOK §11 asks for the creator, the publisher or the imprint, because
+# `トワ・エ・モア` is a 1996 コンパス anthology and a 2024 講談社 series at once. The
+# creator or the publisher was read off the platform's own page, which is Tier B. Web漫画
+# アンテナ found most of these addresses and settled none of them.
+#
+# READ BY: `identity.py --attachments`, which gives each printed work its second address,
+# and by `nicovideo/works.py`, which fetches the ニコニコ pages named here.
+source: the platforms named in `platform`
+role: join
+retrieved: 2026-08-07
+record_type: print_web_join
+works: 362
+joins: 547
+joins:
+  - id: w00145
+    title: "ささやくように恋を唄う"
+    madb: ["C432674"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56012"
+    anchor: "web:https://manga.nicovideo.jp/comic/56012"
+    basis: "creator 竹嶋えく is named on the platform page"
+  - id: w00145
+    title: "ささやくように恋を唄う"
+    madb: ["C432674"]
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923203770"
+    anchor: "web:https://ichicomi.com/episode/2550912965923203770"
+    basis: "creator 竹嶋えく is named on the platform page"
+  - id: w00145
+    title: "ささやくように恋を唄う"
+    madb: ["C432674"]
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/3269754496321192668"
+    anchor: "web:https://comic-days.com/episode/3269754496321192668"
+    basis: "creator 竹嶋えく is named on the platform page"
+  - id: w00146
+    title: "きみが死ぬまで恋をしたい"
+    madb: ["C417707"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56065"
+    anchor: "web:https://manga.nicovideo.jp/comic/56065"
+    basis: "creator あおのなち is named on the platform page"
+  - id: w00146
+    title: "きみが死ぬまで恋をしたい"
+    madb: ["C417707"]
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204442"
+    anchor: "web:https://ichicomi.com/episode/2550912965923204442"
+    basis: "creator あおのなち is named on the platform page"
+  - id: w00146
+    title: "きみが死ぬまで恋をしたい"
+    madb: ["C417707"]
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/3269754496323193503"
+    anchor: "web:https://comic-days.com/episode/3269754496323193503"
+    basis: "creator あおのなち is named on the platform page"
+  - id: w00164
+    title: "私の百合はお仕事です!"
+    madb: ["C417731"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56014"
+    anchor: "web:https://manga.nicovideo.jp/comic/56014"
+    basis: "creator 未幡 is named on the platform page"
+  - id: w00164
+    title: "私の百合はお仕事です!"
+    madb: ["C417731"]
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923203016"
+    anchor: "web:https://ichicomi.com/episode/2550912965923203016"
+    basis: "creator 未幡 is named on the platform page"
+  - id: w00164
+    title: "私の百合はお仕事です!"
+    madb: ["C417731"]
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/3269754496323200170"
+    anchor: "web:https://comic-days.com/episode/3269754496323200170"
+    basis: "creator 未幡 is named on the platform page"
+  - id: w00908
+    title: "欠けた月とドーナッツ"
+    madb: ["C435404"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56192"
+    anchor: "web:https://manga.nicovideo.jp/comic/56192"
+    basis: "creator 雨水汐 is named on the platform page"
+  - id: w00908
+    title: "欠けた月とドーナッツ"
+    madb: ["C435404"]
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923203336"
+    anchor: "web:https://ichicomi.com/episode/2550912965923203336"
+    basis: "creator 雨水汐 is named on the platform page"
+  - id: w00908
+    title: "欠けた月とドーナッツ"
+    madb: ["C435404"]
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/3270296674372407139"
+    anchor: "web:https://comic-days.com/episode/3270296674372407139"
+    basis: "creator 雨水汐 is named on the platform page"
+  - id: w00975
+    title: "たとえとどかぬ糸だとしても"
+    madb: ["C371011"]
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204597"
+    anchor: "web:https://ichicomi.com/episode/2550912965923204597"
+    basis: "creator tmnr is named on the platform page"
+  - id: w00975
+    title: "たとえとどかぬ糸だとしても"
+    madb: ["C371011"]
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/3269754496321225448"
+    anchor: "web:https://comic-days.com/episode/3269754496321225448"
+    basis: "creator tmnr is named on the platform page"
+  - id: w01197
+    title: "転生したらあかりだけスライムだった件"
+    madb: ["C448669"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/51933"
+    anchor: "web:https://manga.nicovideo.jp/comic/51933"
+    basis: "creator 水鳥なや is named on the platform page"
+  - id: w01199
+    title: "ツン姫さまとダメ王子ちゃん"
+    madb: ["C450217"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/44261"
+    anchor: "web:https://manga.nicovideo.jp/comic/44261"
+    basis: "creator ヨウハ is named on the platform page"
+  - id: w01264
+    title: "桜Trick"
+    madb: ["C336231"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/20776"
+    anchor: "web:https://manga.nicovideo.jp/comic/20776"
+    basis: "creator タチ is named on the platform page"
+  - id: w01264
+    title: "桜Trick"
+    madb: ["C336231"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/357"
+    anchor: "web:https://comic-fuz.com/manga/357"
+    basis: "creator タチ is named on the platform page"
+  - id: w01271
+    title: "あの娘にキスと白百合を"
+    madb: ["C340485"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/29334"
+    anchor: "web:https://manga.nicovideo.jp/comic/29334"
+    basis: "creator 缶乃 is named on the platform page"
+  - id: w01271
+    title: "あの娘にキスと白百合を"
+    madb: ["C340485"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000257_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000257_S"
+    basis: "creator 缶乃 is named on the platform page"
+  - id: w01288
+    title: "間宮さんといっしょ"
+    madb: ["C347617"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/8942"
+    anchor: "web:https://manga.nicovideo.jp/comic/8942"
+    basis: "creator ガオシ is named on the platform page"
+  - id: w01295
+    title: "ぷあーなんてもうしまい"
+    madb: ["C355730"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/14799"
+    anchor: "web:https://manga.nicovideo.jp/comic/14799"
+    basis: "creator 海月れおな is named on the platform page"
+  - id: w01297
+    title: "満腹百合"
+    madb: ["C356527"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/39378"
+    anchor: "web:https://manga.nicovideo.jp/comic/39378"
+    basis: "creator 宮部サチ is named on the platform page"
+  - id: w01311
+    title: "たくのみ。"
+    madb: ["C360061"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/19112"
+    anchor: "web:https://manga.nicovideo.jp/comic/19112"
+    basis: "creator 火野遥人 is named on the platform page"
+  - id: w01317
+    title: "柚子森さん"
+    madb: ["C366716"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/22191"
+    anchor: "web:https://manga.nicovideo.jp/comic/22191"
+    basis: "creator 江島絵理 is named on the platform page"
+  - id: w01319
+    title: "明るい記憶喪失"
+    madb: ["C367193"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/26412"
+    anchor: "web:https://manga.nicovideo.jp/comic/26412"
+    basis: "creator 奥たまむし is named on the platform page"
+  - id: w01319
+    title: "明るい記憶喪失"
+    madb: ["C367193"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004922_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004922_S"
+    basis: "creator 奥たまむし is named on the platform page"
+  - id: w01341
+    title: "同棲生活"
+    madb: ["C418602"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/30905"
+    anchor: "web:https://manga.nicovideo.jp/comic/30905"
+    basis: "creator さつま揚げ is named on the platform page"
+  - id: w01347
+    title: "定時にあがれたら"
+    madb: ["C420051"]
+    platform: "FEEL web"
+    url: "https://feelweb.jp/episode/3269754496401056085"
+    anchor: "web:https://feelweb.jp/episode/3269754496401056085"
+    basis: "creator 犬井あゆ is named on the platform page"
+  - id: w01349
+    title: "あーとかうーしか言えない"
+    madb: ["C420129"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/42549"
+    anchor: "web:https://manga.nicovideo.jp/comic/42549"
+    basis: "creator 近藤笑真 is named on the platform page"
+  - id: w01349
+    title: "あーとかうーしか言えない"
+    madb: ["C420129"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/34913"
+    anchor: "web:https://manga.nicovideo.jp/comic/34913"
+    basis: "creator 近藤笑真 is named on the platform page"
+  - id: w01353
+    title: "マザーグール"
+    madb: ["C421711"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/40723"
+    anchor: "web:https://manga.nicovideo.jp/comic/40723"
+    basis: "creator 菅原キク is named on the platform page"
+  - id: w01354
+    title: "旧約マザーグール"
+    madb: ["C421712"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/39960"
+    anchor: "web:https://manga.nicovideo.jp/comic/39960"
+    basis: "creator 菅原キク is named on the platform page"
+  - id: w01357
+    title: "推しが武道館いってくれたら死ぬ"
+    madb: ["C422127"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/45194"
+    anchor: "web:https://manga.nicovideo.jp/comic/45194"
+    basis: "creator 平尾アウリ is named on the platform page"
+  - id: w01370
+    title: "神絵師JKとOL腐女子"
+    madb: ["C432415"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/69452"
+    anchor: "web:https://manga.nicovideo.jp/comic/69452"
+    basis: "creator さと is named on the platform page"
+  - id: w01384
+    title: "奏 : 青春バンド百合アンソロジー"
+    madb: ["C434016"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/43892"
+    anchor: "web:https://manga.nicovideo.jp/comic/43892"
+    basis: "creator 浅見百合子 is named on the platform page"
+  - id: w01392
+    title: "アイドル総選挙4位だった私が魔王を倒すんですか?"
+    madb: ["C436410"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/83356"
+    anchor: "web:https://manga.nicovideo.jp/comic/83356"
+    basis: "creator 高坂はしやん is named on the platform page"
+  - id: w01395
+    title: "今日から未来"
+    madb: ["C437205"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/69451"
+    anchor: "web:https://manga.nicovideo.jp/comic/69451"
+    basis: "creator 吉富昭仁 is named on the platform page"
+  - id: w01396
+    title: "ファインダー越しのあの子"
+    madb: ["C437361"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/83357"
+    anchor: "web:https://manga.nicovideo.jp/comic/83357"
+    basis: "creator カボちゃ is named on the platform page"
+  - id: w01403
+    title: "君に紡ぐ傍白"
+    madb: ["C447750"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/47011"
+    anchor: "web:https://manga.nicovideo.jp/comic/47011"
+    basis: "creator 矢坂しゅう is named on the platform page"
+  - id: w01403
+    title: "君に紡ぐ傍白"
+    madb: ["C447750"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/78054"
+    anchor: "web:https://manga.nicovideo.jp/comic/78054"
+    basis: "creator 矢坂しゅう is named on the platform page"
+  - id: w01409
+    title: "元ヤンちゃんとゆるふわ彼女"
+    madb: ["C448168"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/50807"
+    anchor: "web:https://manga.nicovideo.jp/comic/50807"
+    basis: "creator 伊さらこてん is named on the platform page"
+  - id: w01409
+    title: "元ヤンちゃんとゆるふわ彼女"
+    madb: ["C448168"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/81731"
+    anchor: "web:https://manga.nicovideo.jp/comic/81731"
+    basis: "creator 伊さらこてん is named on the platform page"
+  - id: w01416
+    title: "恋の好奇心"
+    madb: ["C449217"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/54380"
+    anchor: "web:https://manga.nicovideo.jp/comic/54380"
+    basis: "creator 大庭直仁 is named on the platform page"
+  - id: w01416
+    title: "恋の好奇心"
+    madb: ["C449217"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/63719"
+    anchor: "web:https://manga.nicovideo.jp/comic/63719"
+    basis: "creator 大庭直仁 is named on the platform page"
+  - id: w01417
+    title: "JKとともだちのオカン"
+    madb: ["C449337"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000746_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000746_S"
+    basis: "creator ムロマキ is named on the platform page"
+  - id: w01418
+    title: "いえない秘密の愛し方"
+    madb: ["C449361"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/48648"
+    anchor: "web:https://manga.nicovideo.jp/comic/48648"
+    basis: "creator 卯蟹うか is named on the platform page"
+  - id: w01423
+    title: "終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー"
+    madb: ["C450665"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56538"
+    anchor: "web:https://manga.nicovideo.jp/comic/56538"
+    basis: "creator おこさまランチ is named on the platform page"
+  - id: w01426
+    title: "今日の授業は恋愛です!"
+    madb: ["C451276"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/53889"
+    anchor: "web:https://manga.nicovideo.jp/comic/53889"
+    basis: "creator つみきつき is named on the platform page"
+  - id: w01430
+    title: "みんな私のはらのなか"
+    madb: ["C451800"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/49652"
+    anchor: "web:https://manga.nicovideo.jp/comic/49652"
+    basis: "creator ちさこ is named on the platform page"
+  - id: w01430
+    title: "みんな私のはらのなか"
+    madb: ["C451800"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/78090"
+    anchor: "web:https://manga.nicovideo.jp/comic/78090"
+    basis: "creator ちさこ is named on the platform page"
+  - id: w01432
+    title: "ゆりぐらし"
+    madb: ["bw-f8632617-3431-4b4d-b479-8cb587df2cd8", "madb-t-0d7acc157425"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/34700"
+    anchor: "web:https://manga.nicovideo.jp/comic/34700"
+    basis: "creator くるくる姫 is named on the platform page"
+  - id: w01436
+    title: "ラブかライクか分からない!"
+    madb: ["madb-t-18be3c961aee"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/70757"
+    anchor: "web:https://manga.nicovideo.jp/comic/70757"
+    basis: "creator sasa熊 is named on the platform page"
+  - id: w01438
+    title: "新人女性漫画家がネットセックスに沼ってVTuberになった話"
+    madb: ["madb-t-1e4bc9e807ee"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/65297"
+    anchor: "web:https://manga.nicovideo.jp/comic/65297"
+    basis: "creator 珠奈ににこ is named on the platform page"
+  - id: w01438
+    title: "新人女性漫画家がネットセックスに沼ってVTuberになった話"
+    madb: ["madb-t-1e4bc9e807ee"]
+    platform: "COMIC熱帯"
+    url: "https://www.comicnettai.com/book/29"
+    anchor: "web:https://www.comicnettai.com/book/29"
+    basis: "creator 珠奈ににこ is named on the platform page"
+  - id: w01448
+    title: "保健室の鍵閉めてっ"
+    madb: ["madb-t-4d3db94dfe33"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/70758"
+    anchor: "web:https://manga.nicovideo.jp/comic/70758"
+    basis: "creator 蕗屋文字 is named on the platform page"
+  - id: w01449
+    title: "プロジェクト・ユリフォーミング!"
+    madb: ["madb-t-4f072d1d15b1"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/69335"
+    anchor: "web:https://manga.nicovideo.jp/comic/69335"
+    basis: "creator 御家かえる is named on the platform page"
+  - id: w01450
+    title: "ご主人様には吸わせません!"
+    madb: ["madb-t-5a9507e6f115"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/61965"
+    anchor: "web:https://manga.nicovideo.jp/comic/61965"
+    basis: "creator パデラポッロのりお is named on the platform page"
+  - id: w01450
+    title: "ご主人様には吸わせません!"
+    madb: ["madb-t-5a9507e6f115"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/78269"
+    anchor: "web:https://manga.nicovideo.jp/comic/78269"
+    basis: "creator パデラポッロのりお is named on the platform page"
+  - id: w01451
+    title: "友達が私を理解らせにくるので勝利の女神の力を借りてこっちも理解らせにいきます。"
+    madb: ["madb-t-5c28be8a89dd"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/61994"
+    anchor: "web:https://manga.nicovideo.jp/comic/61994"
+    basis: "creator ショウマケイト is named on the platform page"
+  - id: w01451
+    title: "友達が私を理解らせにくるので勝利の女神の力を借りてこっちも理解らせにいきます。"
+    madb: ["madb-t-5c28be8a89dd"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/78268"
+    anchor: "web:https://manga.nicovideo.jp/comic/78268"
+    basis: "creator ショウマケイト is named on the platform page"
+  - id: w01461
+    title: "百合のあいだは悩ましい"
+    madb: ["madb-t-afc41b6f987a"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/58135"
+    anchor: "web:https://manga.nicovideo.jp/comic/58135"
+    basis: "creator 森井暁正 is named on the platform page"
+  - id: w01464
+    title: "ノス&ザクロ"
+    madb: ["madb-t-b7c9efe5f73d"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/71923"
+    anchor: "web:https://manga.nicovideo.jp/comic/71923"
+    basis: "creator ラリアット is named on the platform page"
+  - id: w01466
+    title: "鮮血王女、皆殺す : 家族に裏切られ、処刑された少女は蘇り、『死神』となって復讐する"
+    madb: ["madb-t-bceb07cffae7"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/57862"
+    anchor: "web:https://manga.nicovideo.jp/comic/57862"
+    basis: "creator kiki is named on the platform page"
+  - id: w01468
+    title: "きもちわるいから君がすき"
+    madb: ["madb-t-dae80e10cbac"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/58241"
+    anchor: "web:https://manga.nicovideo.jp/comic/58241"
+    basis: "creator 西畑けい is named on the platform page"
+  - id: w01468
+    title: "きもちわるいから君がすき"
+    madb: ["madb-t-dae80e10cbac"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/2947"
+    anchor: "web:https://comic-fuz.com/manga/2947"
+    basis: "creator 西畑けい is named on the platform page"
+  - id: w01472
+    title: "運命のヤマダダダダダダダダダダ"
+    madb: ["madb-t-ec1ebd55d3af"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/72312"
+    anchor: "web:https://manga.nicovideo.jp/comic/72312"
+    basis: "creator おにぎりパクパク is named on the platform page"
+  - id: w01474
+    title: "妄想アカデミズム"
+    madb: ["madb-t-ee0622b26052"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/60564"
+    anchor: "web:https://manga.nicovideo.jp/comic/60564"
+    basis: "creator 檜山ユキ is named on the platform page"
+  - id: w01475
+    title: "ちみどろアイスクリーム"
+    madb: ["madb-t-ee0d17412c6b"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/63676"
+    anchor: "web:https://manga.nicovideo.jp/comic/63676"
+    basis: "creator 北斗すい is named on the platform page"
+  - id: w01503
+    title: "schadenliebe"
+    madb: ["bw-001dd5ae-135e-4742-ba0b-610d1c46b755"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/43183"
+    anchor: "web:https://manga.nicovideo.jp/comic/43183"
+    basis: "creator ぴりぷん is named on the platform page"
+  - id: w01517
+    title: "のだ"
+    madb: ["bw-03716f69-fb73-42a0-9d03-f00733a806a1"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/83809"
+    anchor: "web:https://manga.nicovideo.jp/comic/83809"
+    basis: "creator odakogane is named on the platform page"
+  - id: w01524
+    title: "姫巫子と姫騎士"
+    madb: ["bw-046266e8-cba6-45d0-a4ed-0f29218a57d0"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005922_S"
+    anchor: "web:https://comic-walker.com/detail/KC_005922_S"
+    basis: "creator 真くん is named on the platform page"
+  - id: w01566
+    title: "今日の先輩と後輩は"
+    madb: ["bw-0bf290b1-04db-43e4-b32a-965b255b4bc7"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/54452"
+    anchor: "web:https://manga.nicovideo.jp/comic/54452"
+    basis: "creator 百茶 is named on the platform page"
+  - id: w01581
+    title: "しょーがくせいのあたまのなか"
+    madb: ["bw-103648"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/25463"
+    anchor: "web:https://manga.nicovideo.jp/comic/25463"
+    basis: "creator 石見翔子 is named on the platform page"
+  - id: w01582
+    title: "いつか私は、君を裏切る"
+    madb: ["bw-104438"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/29583"
+    anchor: "web:https://manga.nicovideo.jp/comic/29583"
+    basis: "creator 桜井瑞希 is named on the platform page"
+  - id: w01584
+    title: "アニマエール！"
+    madb: ["bw-105941"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/37175"
+    anchor: "web:https://manga.nicovideo.jp/comic/37175"
+    basis: "creator 卯花つかさ is named on the platform page"
+  - id: w01584
+    title: "アニマエール！"
+    madb: ["bw-105941"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/268"
+    anchor: "web:https://comic-fuz.com/manga/268"
+    basis: "creator 卯花つかさ is named on the platform page"
+  - id: w01586
+    title: "どうして私が美術科に！？"
+    madb: ["bw-107827"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/26289"
+    anchor: "web:https://manga.nicovideo.jp/comic/26289"
+    basis: "creator 相崎うたう is named on the platform page"
+  - id: w01587
+    title: "百合百景"
+    madb: ["bw-107988"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/30773"
+    anchor: "web:https://manga.nicovideo.jp/comic/30773"
+    basis: "creator はちこ is named on the platform page"
+  - id: w01587
+    title: "百合百景"
+    madb: ["bw-107988"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002377_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002377_S"
+    basis: "creator はちこ is named on the platform page"
+  - id: w01588
+    title: "今日も女の子を攻略した。"
+    madb: ["bw-108082"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/26411"
+    anchor: "web:https://manga.nicovideo.jp/comic/26411"
+    basis: "creator むく is named on the platform page"
+  - id: w01588
+    title: "今日も女の子を攻略した。"
+    madb: ["bw-108082"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004938_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004938_S"
+    basis: "creator むく is named on the platform page"
+  - id: w01589
+    title: "ブラックリリィと白百合ちゃん"
+    madb: ["bw-109087"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/26941"
+    anchor: "web:https://manga.nicovideo.jp/comic/26941"
+    basis: "creator 鳳まひろ is named on the platform page"
+  - id: w01592
+    title: "ひなたすたでい。"
+    madb: ["bw-111286"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/26618"
+    anchor: "web:https://manga.nicovideo.jp/comic/26618"
+    basis: "creator むく is named on the platform page"
+  - id: w01594
+    title: "ＪＫすぷらっしゅ！"
+    madb: ["bw-112245"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/27288"
+    anchor: "web:https://manga.nicovideo.jp/comic/27288"
+    basis: "creator 春雨 is named on the platform page"
+  - id: w01596
+    title: "コーヒーカンタータ"
+    madb: ["bw-113609"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/30827"
+    anchor: "web:https://manga.nicovideo.jp/comic/30827"
+    basis: "creator からあげたろう is named on the platform page"
+  - id: w01597
+    title: "ハクメイとミコチ"
+    madb: ["bw-11687"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/30424"
+    anchor: "web:https://manga.nicovideo.jp/comic/30424"
+    basis: "creator 樫木祐人 is named on the platform page"
+  - id: w01597
+    title: "ハクメイとミコチ"
+    madb: ["bw-11687"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000528_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000528_S"
+    basis: "creator 樫木祐人 is named on the platform page"
+  - id: w01601
+    title: "出会い系サイトで妹と出会う話"
+    madb: ["bw-120172"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003976_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003976_S"
+    basis: "creator もちオレ is named on the platform page"
+  - id: w01609
+    title: "恋の絶望行進曲"
+    madb: ["bw-12e86de8-92b0-400d-89ae-e51bfd8625df"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/65342"
+    anchor: "web:https://manga.nicovideo.jp/comic/65342"
+    basis: "creator 富沢未知果 is named on the platform page"
+  - id: w01609
+    title: "恋の絶望行進曲"
+    madb: ["bw-12e86de8-92b0-400d-89ae-e51bfd8625df"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000954_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000954_S"
+    basis: "creator 富沢未知果 is named on the platform page"
+  - id: w01611
+    title: "お嬢様はアイスがお好き。"
+    madb: ["bw-131851"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/29131"
+    anchor: "web:https://manga.nicovideo.jp/comic/29131"
+    basis: "creator はなこ is named on the platform page"
+  - id: w01612
+    title: "専門学校JK"
+    madb: ["bw-131856"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000858_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000858_S"
+    basis: "creator 代々木アニメション学院 is named on the platform page"
+  - id: w01613
+    title: "おとめサキュバス"
+    madb: ["bw-133375"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/31045"
+    anchor: "web:https://manga.nicovideo.jp/comic/31045"
+    basis: "creator ぬっく is named on the platform page"
+  - id: w01616
+    title: "おにふたつ"
+    madb: ["bw-134849"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/29743"
+    anchor: "web:https://manga.nicovideo.jp/comic/29743"
+    basis: "creator 藤松盟 is named on the platform page"
+  - id: w01617
+    title: "ゴブリンはもう十分に強い"
+    madb: ["bw-134853"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/29306"
+    anchor: "web:https://manga.nicovideo.jp/comic/29306"
+    basis: "creator サラマンダ is named on the platform page"
+  - id: w01617
+    title: "ゴブリンはもう十分に強い"
+    madb: ["bw-134853"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003364_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003364_S"
+    basis: "creator サラマンダ is named on the platform page"
+  - id: w01623
+    title: "エデンの処女"
+    madb: ["bw-137953"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/26065"
+    anchor: "web:https://manga.nicovideo.jp/comic/26065"
+    basis: "creator 渡邉嘘海 is named on the platform page"
+  - id: w01623
+    title: "エデンの処女"
+    madb: ["bw-137953"]
+    platform: "COMICリュエル"
+    url: "https://comic.j-nbooks.jp/series/206e367e6547e"
+    anchor: "web:https://comic.j-nbooks.jp/series/206e367e6547e"
+    basis: "creator 渡邉嘘海 is named on the platform page"
+  - id: w01625
+    title: "このかけがえのない地獄"
+    madb: ["bw-137dfe13-dd8e-4cd3-9c9a-22abd66cbb16"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/33324"
+    anchor: "web:https://manga.nicovideo.jp/comic/33324"
+    basis: "creator アッチあい is named on the platform page"
+  - id: w01629
+    title: "熱帯魚は雪に焦がれる"
+    madb: ["bw-140866"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/30892"
+    anchor: "web:https://manga.nicovideo.jp/comic/30892"
+    basis: "creator 萩埜まこと is named on the platform page"
+  - id: w01629
+    title: "熱帯魚は雪に焦がれる"
+    madb: ["bw-140866"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001827_S"
+    anchor: "web:https://comic-walker.com/detail/KC_001827_S"
+    basis: "creator 萩埜まこと is named on the platform page"
+  - id: w01631
+    title: "ハイパーウルトラガーリッシュ"
+    madb: ["bw-146925"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/30607"
+    anchor: "web:https://manga.nicovideo.jp/comic/30607"
+    basis: "creator 大川ぶくぶ is named on the platform page"
+  - id: w01631
+    title: "ハイパーウルトラガーリッシュ"
+    madb: ["bw-146925"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001496_S"
+    anchor: "web:https://comic-walker.com/detail/KC_001496_S"
+    basis: "creator 大川ぶくぶ is named on the platform page"
+  - id: w01632
+    title: "籠の少女は恋をする"
+    madb: ["bw-146938"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/32600"
+    anchor: "web:https://manga.nicovideo.jp/comic/32600"
+    basis: "creator 川浪いずみ is named on the platform page"
+  - id: w01632
+    title: "籠の少女は恋をする"
+    madb: ["bw-146938"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003554_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003554_S"
+    basis: "creator 川浪いずみ is named on the platform page"
+  - id: w01633
+    title: "レンタルショップでお姉さんをレンタルする話"
+    madb: ["bw-146b4a59-d689-445d-bce5-678d656b4473"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/39034"
+    anchor: "web:https://manga.nicovideo.jp/comic/39034"
+    basis: "creator もちオレ is named on the platform page"
+  - id: w01633
+    title: "レンタルショップでお姉さんをレンタルする話"
+    madb: ["bw-146b4a59-d689-445d-bce5-678d656b4473"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004240_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004240_S"
+    basis: "creator もちオレ is named on the platform page"
+  - id: w01634
+    title: "学校のしおり"
+    madb: ["bw-147677"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/2065"
+    anchor: "web:https://manga.nicovideo.jp/comic/2065"
+    basis: "creator ポルリン is named on the platform page"
+  - id: w01635
+    title: "にーにといっしょ！"
+    madb: ["bw-148588"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/53995"
+    anchor: "web:https://manga.nicovideo.jp/comic/53995"
+    basis: "creator よぱん男爵 is named on the platform page"
+  - id: w01636
+    title: "また教室で"
+    madb: ["bw-148590"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/31101"
+    anchor: "web:https://manga.nicovideo.jp/comic/31101"
+    basis: "creator 吉北ぽぷり is named on the platform page"
+  - id: w01641
+    title: "暗黒騎士団長と青春ガール"
+    madb: ["bw-150265"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/28309"
+    anchor: "web:https://manga.nicovideo.jp/comic/28309"
+    basis: "creator りしん is named on the platform page"
+  - id: w01641
+    title: "暗黒騎士団長と青春ガール"
+    madb: ["bw-150265"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004025_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004025_S"
+    basis: "creator りしん is named on the platform page"
+  - id: w01642
+    title: "がんくつ荘の不夜城さん"
+    madb: ["bw-152462"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/28199"
+    anchor: "web:https://manga.nicovideo.jp/comic/28199"
+    basis: "creator 鴻巣覚 is named on the platform page"
+  - id: w01644
+    title: "オレが腐女子でアイツが百合オタで"
+    madb: ["bw-153515"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/21866"
+    anchor: "web:https://manga.nicovideo.jp/comic/21866"
+    basis: "creator アジイチ is named on the platform page"
+  - id: w01644
+    title: "オレが腐女子でアイツが百合オタで"
+    madb: ["bw-153515"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001458_S"
+    anchor: "web:https://comic-walker.com/detail/KC_001458_S"
+    basis: "creator アジイチ is named on the platform page"
+  - id: w01645
+    title: "北陸とらいあんぐる"
+    madb: ["bw-153660"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/23660"
+    anchor: "web:https://manga.nicovideo.jp/comic/23660"
+    basis: "creator ちさこ is named on the platform page"
+  - id: w01645
+    title: "北陸とらいあんぐる"
+    madb: ["bw-153660"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001512_S"
+    anchor: "web:https://comic-walker.com/detail/KC_001512_S"
+    basis: "creator ちさこ is named on the platform page"
+  - id: w01647
+    title: "あなたの順位おしえてくださいっ"
+    madb: ["bw-154153"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/31803"
+    anchor: "web:https://manga.nicovideo.jp/comic/31803"
+    basis: "creator 春日沙生 is named on the platform page"
+  - id: w01649
+    title: "乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった…"
+    madb: ["bw-156447"]
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923202946"
+    anchor: "web:https://ichicomi.com/episode/2550912965923202946"
+    basis: "creator ひだかなみ is named on the platform page"
+  - id: w01652
+    title: "私達は、真実の愛を見つけた。"
+    madb: ["bw-156f9d78-2009-4fe1-b98b-286c34f8cda4"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/70119"
+    anchor: "web:https://manga.nicovideo.jp/comic/70119"
+    basis: "creator 結木ユウ is named on the platform page"
+  - id: w01672
+    title: "ハナヤマタ"
+    madb: ["bw-16392"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/20773"
+    anchor: "web:https://manga.nicovideo.jp/comic/20773"
+    basis: "creator 浜弓場双 is named on the platform page"
+  - id: w01672
+    title: "ハナヤマタ"
+    madb: ["bw-16392"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/409"
+    anchor: "web:https://comic-fuz.com/manga/409"
+    basis: "creator 浜弓場双 is named on the platform page"
+  - id: w01680
+    title: "ふりだしにおちる！"
+    madb: ["bw-167774"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/34024"
+    anchor: "web:https://manga.nicovideo.jp/comic/34024"
+    basis: "creator むっしゅ is named on the platform page"
+  - id: w01684
+    title: "どうやら私の身体は完全無敵のようですね"
+    madb: ["bw-168951"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/32810"
+    anchor: "web:https://manga.nicovideo.jp/comic/32810"
+    basis: "creator ちゃつふさ is named on the platform page"
+  - id: w01684
+    title: "どうやら私の身体は完全無敵のようですね"
+    madb: ["bw-168951"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004973_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004973_S"
+    basis: "creator ちゃつふさ is named on the platform page"
+  - id: w01690
+    title: "私の拳をうけとめて！"
+    madb: ["bw-171211"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/32701"
+    anchor: "web:https://manga.nicovideo.jp/comic/32701"
+    basis: "creator murata is named on the platform page"
+  - id: w01690
+    title: "私の拳をうけとめて！"
+    madb: ["bw-171211"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004745_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004745_S"
+    basis: "creator murata is named on the platform page"
+  - id: w01691
+    title: "繭、纏う"
+    madb: ["bw-172599"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002313_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002313_S"
+    basis: "creator 原百合子 is named on the platform page"
+  - id: w01694
+    title: "幸腹グラフィティ"
+    madb: ["bw-17508"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/299"
+    anchor: "web:https://comic-fuz.com/manga/299"
+    basis: "creator 川井マコト is named on the platform page"
+  - id: w01699
+    title: "うさぎのふらふら"
+    madb: ["bw-177815"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/33767"
+    anchor: "web:https://manga.nicovideo.jp/comic/33767"
+    basis: "creator 隈井 is named on the platform page"
+  - id: w01699
+    title: "うさぎのふらふら"
+    madb: ["bw-177815"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000090_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000090_S"
+    basis: "creator 隈井 is named on the platform page"
+  - id: w01701
+    title: "放課後"
+    madb: ["bw-178667"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/40541"
+    anchor: "web:https://manga.nicovideo.jp/comic/40541"
+    basis: "creator 大島永遠 is named on the platform page"
+  - id: w01706
+    title: "ももいろジャンキー"
+    madb: ["bw-180026"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/37915"
+    anchor: "web:https://manga.nicovideo.jp/comic/37915"
+    basis: "creator おにぎり is named on the platform page"
+  - id: w01708
+    title: "女流作家とユキ"
+    madb: ["bw-182089"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/39270"
+    anchor: "web:https://manga.nicovideo.jp/comic/39270"
+    basis: "creator なごり悠 is named on the platform page"
+  - id: w01708
+    title: "女流作家とユキ"
+    madb: ["bw-182089"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003025_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003025_S"
+    basis: "creator なごり悠 is named on the platform page"
+  - id: w01709
+    title: "恋愛禁止学園"
+    madb: ["bw-182092"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/35118"
+    anchor: "web:https://manga.nicovideo.jp/comic/35118"
+    basis: "creator emily is named on the platform page"
+  - id: w01709
+    title: "恋愛禁止学園"
+    madb: ["bw-182092"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000270_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000270_S"
+    basis: "creator emily is named on the platform page"
+  - id: w01715
+    title: "女子大生が合コンでお姉さんに持ち帰られる話"
+    madb: ["bw-184760"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/35475"
+    anchor: "web:https://manga.nicovideo.jp/comic/35475"
+    basis: "creator 雪尾ゆき is named on the platform page"
+  - id: w01719
+    title: "チュンまんが"
+    madb: ["bw-186146"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/36499"
+    anchor: "web:https://manga.nicovideo.jp/comic/36499"
+    basis: "creator dollly is named on the platform page"
+  - id: w01719
+    title: "チュンまんが"
+    madb: ["bw-186146"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001209_S"
+    anchor: "web:https://comic-walker.com/detail/KC_001209_S"
+    basis: "creator dollly is named on the platform page"
+  - id: w01720
+    title: "恋愛専科"
+    madb: ["bw-18734"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/450"
+    anchor: "web:https://comic-fuz.com/manga/450"
+    basis: "creator ミズタマ is named on the platform page"
+  - id: w01721
+    title: "付き合ってあげてもいいかな【単話】"
+    madb: ["bw-188653"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/42550"
+    anchor: "web:https://manga.nicovideo.jp/comic/42550"
+    basis: "creator たみふる is named on the platform page"
+  - id: w01723
+    title: "メイドさんの下着は特別です。"
+    madb: ["bw-188949"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/53988"
+    anchor: "web:https://manga.nicovideo.jp/comic/53988"
+    basis: "creator みらくるる is named on the platform page"
+  - id: w01731
+    title: "コミュ障VS百合"
+    madb: ["bw-193489"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/35697"
+    anchor: "web:https://manga.nicovideo.jp/comic/35697"
+    basis: "creator ひみつ is named on the platform page"
+  - id: w01732
+    title: "シスコンお姉ちゃんと気にしない妹"
+    madb: ["bw-193889"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/36573"
+    anchor: "web:https://manga.nicovideo.jp/comic/36573"
+    basis: "creator 桐灰きねそ is named on the platform page"
+  - id: w01732
+    title: "シスコンお姉ちゃんと気にしない妹"
+    madb: ["bw-193889"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000348_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000348_S"
+    basis: "creator 桐灰きねそ is named on the platform page"
+  - id: w01733
+    title: "百合もよう　～咲宮４姉妹の恋～"
+    madb: ["bw-193898"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/36571"
+    anchor: "web:https://manga.nicovideo.jp/comic/36571"
+    basis: "creator はちこ is named on the platform page"
+  - id: w01733
+    title: "百合もよう　～咲宮４姉妹の恋～"
+    madb: ["bw-193898"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000294_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000294_S"
+    basis: "creator はちこ is named on the platform page"
+  - id: w01734
+    title: "アルバート家の令嬢は没落をご所望です"
+    madb: ["bw-193991"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/34789"
+    anchor: "web:https://manga.nicovideo.jp/comic/34789"
+    basis: "creator 彩月つかさ is named on the platform page"
+  - id: w01734
+    title: "アルバート家の令嬢は没落をご所望です"
+    madb: ["bw-193991"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001530_S"
+    anchor: "web:https://comic-walker.com/detail/KC_001530_S"
+    basis: "creator 彩月つかさ is named on the platform page"
+  - id: w01735
+    title: "異世界でも風俗嬢やってみた【単話版】"
+    madb: ["bw-194664"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/40827"
+    anchor: "web:https://manga.nicovideo.jp/comic/40827"
+    basis: "creator 森尾正博 is named on the platform page"
+  - id: w01735
+    title: "異世界でも風俗嬢やってみた【単話版】"
+    madb: ["bw-194664"]
+    platform: "コミックトレイル"
+    url: "https://comic-trail.com/episode/13933686331767004892"
+    anchor: "web:https://comic-trail.com/episode/13933686331767004892"
+    basis: "creator 森尾正博 is named on the platform page"
+  - id: w01737
+    title: "スローループ"
+    madb: ["bw-195904"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/48292"
+    anchor: "web:https://manga.nicovideo.jp/comic/48292"
+    basis: "creator うちのまいこ is named on the platform page"
+  - id: w01737
+    title: "スローループ"
+    madb: ["bw-195904"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/1541"
+    anchor: "web:https://comic-fuz.com/manga/1541"
+    basis: "creator うちのまいこ is named on the platform page"
+  - id: w01739
+    title: "真面目ガールと青春ランジェリー"
+    madb: ["bw-196793"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/35582"
+    anchor: "web:https://manga.nicovideo.jp/comic/35582"
+    basis: "creator タチ is named on the platform page"
+  - id: w01742
+    title: "世界の終わりと魔女の恋"
+    madb: ["bw-199085"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/37425"
+    anchor: "web:https://manga.nicovideo.jp/comic/37425"
+    basis: "creator kujira is named on the platform page"
+  - id: w01742
+    title: "世界の終わりと魔女の恋"
+    madb: ["bw-199085"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000299_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000299_S"
+    basis: "creator kujira is named on the platform page"
+  - id: w01762
+    title: "まだ魔法なんかに頼ってらっしゃるのでしょうか？"
+    madb: ["bw-201425"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/37373"
+    anchor: "web:https://manga.nicovideo.jp/comic/37373"
+    basis: "creator 塩胡蝶 is named on the platform page"
+  - id: w01769
+    title: "魔王城ツアーへようこそ！"
+    madb: ["bw-206935"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/39185"
+    anchor: "web:https://manga.nicovideo.jp/comic/39185"
+    basis: "creator 春雨 is named on the platform page"
+  - id: w01770
+    title: "ひまりのまわり"
+    madb: ["bw-206946"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/42310"
+    anchor: "web:https://manga.nicovideo.jp/comic/42310"
+    basis: "creator 桜木蓮 is named on the platform page"
+  - id: w01770
+    title: "ひまりのまわり"
+    madb: ["bw-206946"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/1582"
+    anchor: "web:https://comic-fuz.com/manga/1582"
+    basis: "creator 桜木蓮 is named on the platform page"
+  - id: w01772
+    title: "オレが私になるまで"
+    madb: ["bw-208480"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/40175"
+    anchor: "web:https://manga.nicovideo.jp/comic/40175"
+    basis: "creator 佐藤はつき is named on the platform page"
+  - id: w01772
+    title: "オレが私になるまで"
+    madb: ["bw-208480"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004329_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004329_S"
+    basis: "creator 佐藤はつき is named on the platform page"
+  - id: w01773
+    title: "私以外人類全員百合"
+    madb: ["bw-208483"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/38761"
+    anchor: "web:https://manga.nicovideo.jp/comic/38761"
+    basis: "creator 晴瀬ひろき is named on the platform page"
+  - id: w01773
+    title: "私以外人類全員百合"
+    madb: ["bw-208483"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002171_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002171_S"
+    basis: "creator 晴瀬ひろき is named on the platform page"
+  - id: w01778
+    title: "おしえて！ ギャル子ちゃん"
+    madb: ["bw-21226"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007125_S"
+    anchor: "web:https://comic-walker.com/detail/KC_007125_S"
+    basis: "creator 鈴木健也 is named on the platform page"
+  - id: w01779
+    title: "ひとりぼっちの○○生活"
+    madb: ["bw-21313"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/13928"
+    anchor: "web:https://manga.nicovideo.jp/comic/13928"
+    basis: "creator カツヲ is named on the platform page"
+  - id: w01779
+    title: "ひとりぼっちの○○生活"
+    madb: ["bw-21313"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008557_S"
+    anchor: "web:https://comic-walker.com/detail/KC_008557_S"
+    basis: "creator カツヲ is named on the platform page"
+  - id: w01779
+    title: "ひとりぼっちの○○生活"
+    madb: ["bw-21313"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002520_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002520_S"
+    basis: "creator カツヲ is named on the platform page"
+  - id: w01781
+    title: "タプリスシュガーステップ"
+    madb: ["bw-216240"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/39439"
+    anchor: "web:https://manga.nicovideo.jp/comic/39439"
+    basis: "creator ばふぁこ is named on the platform page"
+  - id: w01781
+    title: "タプリスシュガーステップ"
+    madb: ["bw-216240"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003798_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003798_S"
+    basis: "creator ばふぁこ is named on the platform page"
+  - id: w01782
+    title: "神ゲーってそういうことですか"
+    madb: ["bw-216252"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/39395"
+    anchor: "web:https://manga.nicovideo.jp/comic/39395"
+    basis: "creator 広瀬まどか is named on the platform page"
+  - id: w01782
+    title: "神ゲーってそういうことですか"
+    madb: ["bw-216252"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002614_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002614_S"
+    basis: "creator 広瀬まどか is named on the platform page"
+  - id: w01786
+    title: "社畜さんと家出少女"
+    madb: ["bw-218294"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/43713"
+    anchor: "web:https://manga.nicovideo.jp/comic/43713"
+    basis: "creator タツノコッソ is named on the platform page"
+  - id: w01786
+    title: "社畜さんと家出少女"
+    madb: ["bw-218294"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/1679"
+    anchor: "web:https://comic-fuz.com/manga/1679"
+    basis: "creator タツノコッソ is named on the platform page"
+  - id: w01787
+    title: "小森さんは断れない！"
+    madb: ["bw-21889"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/26100"
+    anchor: "web:https://manga.nicovideo.jp/comic/26100"
+    basis: "creator クル教信者 is named on the platform page"
+  - id: w01787
+    title: "小森さんは断れない！"
+    madb: ["bw-21889"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/693"
+    anchor: "web:https://comic-fuz.com/manga/693"
+    basis: "creator クル教信者 is named on the platform page"
+  - id: w01791
+    title: "よい子先生と薄い本の悪魔"
+    madb: ["bw-220037"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/35583"
+    anchor: "web:https://manga.nicovideo.jp/comic/35583"
+    basis: "creator こめつぶ is named on the platform page"
+  - id: w01791
+    title: "よい子先生と薄い本の悪魔"
+    madb: ["bw-220037"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003606_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003606_S"
+    basis: "creator こめつぶ is named on the platform page"
+  - id: w01792
+    title: "永世乙女の戦い方"
+    madb: ["bw-220702"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/48695"
+    anchor: "web:https://manga.nicovideo.jp/comic/48695"
+    basis: "creator くずしろ is named on the platform page"
+  - id: w01792
+    title: "永世乙女の戦い方"
+    madb: ["bw-220702"]
+    platform: "ビッコミ"
+    url: "https://bigcomics.jp/series/2ff720adb12c6"
+    anchor: "web:https://bigcomics.jp/series/2ff720adb12c6"
+    basis: "creator くずしろ is named on the platform page"
+  - id: w01795
+    title: "疲れきった女が死ぬほど癒やされるために。"
+    madb: ["bw-223829"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/44223"
+    anchor: "web:https://manga.nicovideo.jp/comic/44223"
+    basis: "creator 山口えいと is named on the platform page"
+  - id: w01795
+    title: "疲れきった女が死ぬほど癒やされるために。"
+    madb: ["bw-223829"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003466_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003466_S"
+    basis: "creator 山口えいと is named on the platform page"
+  - id: w01804
+    title: "あなたのためなら女にでも"
+    madb: ["bw-227659"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/44852"
+    anchor: "web:https://manga.nicovideo.jp/comic/44852"
+    basis: "creator つごもり is named on the platform page"
+  - id: w01804
+    title: "あなたのためなら女にでも"
+    madb: ["bw-227659"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003490_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003490_S"
+    basis: "creator つごもり is named on the platform page"
+  - id: w01805
+    title: "宝石省の新人"
+    madb: ["bw-227665"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/41840"
+    anchor: "web:https://manga.nicovideo.jp/comic/41840"
+    basis: "creator まりむぅ is named on the platform page"
+  - id: w01805
+    title: "宝石省の新人"
+    madb: ["bw-227665"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004239_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004239_S"
+    basis: "creator まりむぅ is named on the platform page"
+  - id: w01810
+    title: "勇者か魔王か選ばせて"
+    madb: ["bw-231020"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/42367"
+    anchor: "web:https://manga.nicovideo.jp/comic/42367"
+    basis: "creator たかよみ is named on the platform page"
+  - id: w01811
+    title: "そして楓は華やかに咲く"
+    madb: ["bw-232443"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/37171"
+    anchor: "web:https://manga.nicovideo.jp/comic/37171"
+    basis: "creator 涼海来夏 is named on the platform page"
+  - id: w01813
+    title: "さかさまロリポップ"
+    madb: ["bw-233681"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/45685"
+    anchor: "web:https://manga.nicovideo.jp/comic/45685"
+    basis: "creator 春日沙生 is named on the platform page"
+  - id: w01815
+    title: "病月"
+    madb: ["bw-234143"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/45330"
+    anchor: "web:https://manga.nicovideo.jp/comic/45330"
+    basis: "creator もちオレ is named on the platform page"
+  - id: w01815
+    title: "病月"
+    madb: ["bw-234143"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004384_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004384_S"
+    basis: "creator もちオレ is named on the platform page"
+  - id: w01816
+    title: "一度だけでも、後悔してます。"
+    madb: ["bw-234326"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/42728"
+    anchor: "web:https://manga.nicovideo.jp/comic/42728"
+    basis: "creator 宮原都 is named on the platform page"
+  - id: w01816
+    title: "一度だけでも、後悔してます。"
+    madb: ["bw-234326"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004400_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004400_S"
+    basis: "creator 宮原都 is named on the platform page"
+  - id: w01818
+    title: "夢見るルネサンス"
+    madb: ["bw-235348"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/45724"
+    anchor: "web:https://manga.nicovideo.jp/comic/45724"
+    basis: "creator 海老川ケイ is named on the platform page"
+  - id: w01819
+    title: "落命魔女と時をかける旦那様の死なない婚約印"
+    madb: ["bw-235410"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/45294"
+    anchor: "web:https://manga.nicovideo.jp/comic/45294"
+    basis: "creator あずやちとせ is named on the platform page"
+  - id: w01819
+    title: "落命魔女と時をかける旦那様の死なない婚約印"
+    madb: ["bw-235410"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002608_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002608_S"
+    basis: "creator あずやちとせ is named on the platform page"
+  - id: w01821
+    title: "うらら迷路帖"
+    madb: ["bw-23733"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/24801"
+    anchor: "web:https://manga.nicovideo.jp/comic/24801"
+    basis: "creator はりかも is named on the platform page"
+  - id: w01821
+    title: "うらら迷路帖"
+    madb: ["bw-23733"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/412"
+    anchor: "web:https://comic-fuz.com/manga/412"
+    basis: "creator はりかも is named on the platform page"
+  - id: w01823
+    title: "エクレアSpecial　好きなのは女の子　北尾タキ百合作品傑作選"
+    madb: ["bw-238e9488-ff9e-4d8b-a920-a0a5614aa75e"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/38680"
+    anchor: "web:https://manga.nicovideo.jp/comic/38680"
+    basis: "creator 北尾タキ is named on the platform page"
+  - id: w01826
+    title: "ななどなどなど"
+    madb: ["bw-239537"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/46608"
+    anchor: "web:https://manga.nicovideo.jp/comic/46608"
+    basis: "creator 宇崎うそ is named on the platform page"
+  - id: w01826
+    title: "ななどなどなど"
+    madb: ["bw-239537"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/1913"
+    anchor: "web:https://comic-fuz.com/manga/1913"
+    basis: "creator 宇崎うそ is named on the platform page"
+  - id: w01829
+    title: "HGに恋するふたり"
+    madb: ["bw-241351"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/46823"
+    anchor: "web:https://manga.nicovideo.jp/comic/46823"
+    basis: "creator 富野由悠季 is named on the platform page"
+  - id: w01829
+    title: "HGに恋するふたり"
+    madb: ["bw-241351"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002405_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002405_S"
+    basis: "creator 富野由悠季 is named on the platform page"
+  - id: w01834
+    title: "こいくちルームシェア"
+    madb: ["bw-243788"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/46947"
+    anchor: "web:https://manga.nicovideo.jp/comic/46947"
+    basis: "creator ハルミチヒロ is named on the platform page"
+  - id: w01834
+    title: "こいくちルームシェア"
+    madb: ["bw-243788"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/1924"
+    anchor: "web:https://comic-fuz.com/manga/1924"
+    basis: "creator ハルミチヒロ is named on the platform page"
+  - id: w01836
+    title: "ティラとケラ"
+    madb: ["bw-245731"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/42368"
+    anchor: "web:https://manga.nicovideo.jp/comic/42368"
+    basis: "creator 市川ヒロ is named on the platform page"
+  - id: w01836
+    title: "ティラとケラ"
+    madb: ["bw-245731"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003905_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003905_S"
+    basis: "creator 市川ヒロ is named on the platform page"
+  - id: w01839
+    title: "ねことちよ"
+    madb: ["bw-247383"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/1940"
+    anchor: "web:https://comic-fuz.com/manga/1940"
+    basis: "creator せらみっく is named on the platform page"
+  - id: w01841
+    title: "おやすみシェヘラザード【単話】"
+    madb: ["bw-249431"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/34558"
+    anchor: "web:https://manga.nicovideo.jp/comic/34558"
+    basis: "creator 篠房六郎 is named on the platform page"
+  - id: w01846
+    title: "男だけど死神姫の嫁になりました（仮）【単話版】"
+    madb: ["bw-250141"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/49124"
+    anchor: "web:https://manga.nicovideo.jp/comic/49124"
+    basis: "creator ふかみん is named on the platform page"
+  - id: w01846
+    title: "男だけど死神姫の嫁になりました（仮）【単話版】"
+    madb: ["bw-250141"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/2366"
+    anchor: "web:https://comic-fuz.com/manga/2366"
+    basis: "creator ふかみん is named on the platform page"
+  - id: w01846
+    title: "男だけど死神姫の嫁になりました（仮）【単話版】"
+    madb: ["bw-250141"]
+    platform: "コミックトレイル"
+    url: "https://comic-trail.com/episode/13933686331767009294"
+    anchor: "web:https://comic-trail.com/episode/13933686331767009294"
+    basis: "creator ふかみん is named on the platform page"
+  - id: w01847
+    title: "雨でも晴れでも"
+    madb: ["bw-252420"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/45686"
+    anchor: "web:https://manga.nicovideo.jp/comic/45686"
+    basis: "creator あらた伊里 is named on the platform page"
+  - id: w01847
+    title: "雨でも晴れでも"
+    madb: ["bw-252420"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004770_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004770_S"
+    basis: "creator あらた伊里 is named on the platform page"
+  - id: w01849
+    title: "すいんぐ!!"
+    madb: ["bw-252738"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/43052"
+    anchor: "web:https://manga.nicovideo.jp/comic/43052"
+    basis: "creator 佐倉おりこ is named on the platform page"
+  - id: w01849
+    title: "すいんぐ!!"
+    madb: ["bw-252738"]
+    platform: "COMICリュエル"
+    url: "https://comic.j-nbooks.jp/series/44563ef3717cf"
+    anchor: "web:https://comic.j-nbooks.jp/series/44563ef3717cf"
+    basis: "creator 佐倉おりこ is named on the platform page"
+  - id: w01850
+    title: "もいもいスイスイ"
+    madb: ["bw-253392"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/44122"
+    anchor: "web:https://manga.nicovideo.jp/comic/44122"
+    basis: "creator しでん is named on the platform page"
+  - id: w01850
+    title: "もいもいスイスイ"
+    madb: ["bw-253392"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003958_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003958_S"
+    basis: "creator しでん is named on the platform page"
+  - id: w01860
+    title: "Mr.マロウブルー"
+    madb: ["bw-260029"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/45735"
+    anchor: "web:https://manga.nicovideo.jp/comic/45735"
+    basis: "creator サマミヤアカザ is named on the platform page"
+  - id: w01860
+    title: "Mr.マロウブルー"
+    madb: ["bw-260029"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002578_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002578_S"
+    basis: "creator サマミヤアカザ is named on the platform page"
+  - id: w01862
+    title: "ぜんぶきみの性"
+    madb: ["bw-260185"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/45760"
+    anchor: "web:https://manga.nicovideo.jp/comic/45760"
+    basis: "creator 浅月のりと is named on the platform page"
+  - id: w01862
+    title: "ぜんぶきみの性"
+    madb: ["bw-260185"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002960_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002960_S"
+    basis: "creator 浅月のりと is named on the platform page"
+  - id: w01863
+    title: "合格のための！ やさしい三角関係入門"
+    madb: ["bw-260395"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/46003"
+    anchor: "web:https://manga.nicovideo.jp/comic/46003"
+    basis: "creator 缶乃 is named on the platform page"
+  - id: w01863
+    title: "合格のための！ やさしい三角関係入門"
+    madb: ["bw-260395"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004850_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004850_S"
+    basis: "creator 缶乃 is named on the platform page"
+  - id: w01864
+    title: "そらいろメモリアル"
+    madb: ["bw-261689"]
+    platform: "ちゃおプラス"
+    url: "https://ciao.shogakukan.co.jp/comics/title/00039/episode/4363"
+    anchor: "web:https://ciao.shogakukan.co.jp/comics/title/00039/episode/4363"
+    basis: "creator やぶうち優 is named on the platform page"
+  - id: w01865
+    title: "ドM女子とがっかり女王様"
+    madb: ["bw-262023"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/46599"
+    anchor: "web:https://manga.nicovideo.jp/comic/46599"
+    basis: "creator 狐ヶ崎 is named on the platform page"
+  - id: w01865
+    title: "ドM女子とがっかり女王様"
+    madb: ["bw-262023"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000235_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000235_S"
+    basis: "creator 狐ヶ崎 is named on the platform page"
+  - id: w01867
+    title: "金星のリヴェール"
+    madb: ["bw-264584"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/46002"
+    anchor: "web:https://manga.nicovideo.jp/comic/46002"
+    basis: "creator 沼地どろまる is named on the platform page"
+  - id: w01867
+    title: "金星のリヴェール"
+    madb: ["bw-264584"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004830_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004830_S"
+    basis: "creator 沼地どろまる is named on the platform page"
+  - id: w01868
+    title: "恋する狼とミルフィーユ"
+    madb: ["bw-264820"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/47815"
+    anchor: "web:https://manga.nicovideo.jp/comic/47815"
+    basis: "creator うがつまつき is named on the platform page"
+  - id: w01868
+    title: "恋する狼とミルフィーユ"
+    madb: ["bw-264820"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003122_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003122_S"
+    basis: "creator うがつまつき is named on the platform page"
+  - id: w01869
+    title: "かっさい！"
+    madb: ["bw-265ea33b-cb03-4245-8ba8-a24c12d2a441"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/73403"
+    anchor: "web:https://manga.nicovideo.jp/comic/73403"
+    basis: "creator 空くれない is named on the platform page"
+  - id: w01871
+    title: "瑠璃の宝石"
+    madb: ["bw-267052"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/50169"
+    anchor: "web:https://manga.nicovideo.jp/comic/50169"
+    basis: "creator 渋谷圭一郎 is named on the platform page"
+  - id: w01871
+    title: "瑠璃の宝石"
+    madb: ["bw-267052"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003656_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003656_S"
+    basis: "creator 渋谷圭一郎 is named on the platform page"
+  - id: w01874
+    title: "ポラリティ透明期"
+    madb: ["bw-268604"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/49483"
+    anchor: "web:https://manga.nicovideo.jp/comic/49483"
+    basis: "creator 綾幡フイヱ is named on the platform page"
+  - id: w01874
+    title: "ポラリティ透明期"
+    madb: ["bw-268604"]
+    platform: "COMICリュエル"
+    url: "https://comic.j-nbooks.jp/series/f428c1b34487f"
+    anchor: "web:https://comic.j-nbooks.jp/series/f428c1b34487f"
+    basis: "creator 綾幡フイヱ is named on the platform page"
+  - id: w01876
+    title: "ネイルちゃんと深爪さん。シリーズ"
+    madb: ["bw-269795"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/50806"
+    anchor: "web:https://manga.nicovideo.jp/comic/50806"
+    basis: "creator 香川悠作 is named on the platform page"
+  - id: w01878
+    title: "ロボットJSにスキはありません！！"
+    madb: ["bw-269932"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/44519"
+    anchor: "web:https://manga.nicovideo.jp/comic/44519"
+    basis: "creator とりから is named on the platform page"
+  - id: w01887
+    title: "もし、恋が見えたなら"
+    madb: ["bw-276837"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/47959"
+    anchor: "web:https://manga.nicovideo.jp/comic/47959"
+    basis: "creator みかみてれん is named on the platform page"
+  - id: w01887
+    title: "もし、恋が見えたなら"
+    madb: ["bw-276837"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000031_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000031_S"
+    basis: "creator みかみてれん is named on the platform page"
+  - id: w01889
+    title: "q.天上の音楽"
+    madb: ["bw-278294"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/47985"
+    anchor: "web:https://manga.nicovideo.jp/comic/47985"
+    basis: "creator 植下 is named on the platform page"
+  - id: w01889
+    title: "q.天上の音楽"
+    madb: ["bw-278294"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000135_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000135_S"
+    basis: "creator 植下 is named on the platform page"
+  - id: w01890
+    title: "私、エリート天使ですが難攻不落なJKに困ってます！"
+    madb: ["bw-278303"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/48384"
+    anchor: "web:https://manga.nicovideo.jp/comic/48384"
+    basis: "creator のやま is named on the platform page"
+  - id: w01890
+    title: "私、エリート天使ですが難攻不落なJKに困ってます！"
+    madb: ["bw-278303"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000458_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000458_S"
+    basis: "creator のやま is named on the platform page"
+  - id: w01896
+    title: "ふらちな倫理ちゃん"
+    madb: ["bw-281745"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/47808"
+    anchor: "web:https://manga.nicovideo.jp/comic/47808"
+    basis: "creator 姫海月スグル is named on the platform page"
+  - id: w01896
+    title: "ふらちな倫理ちゃん"
+    madb: ["bw-281745"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004115_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004115_S"
+    basis: "creator 姫海月スグル is named on the platform page"
+  - id: w01897
+    title: "キルミーベイベー"
+    madb: ["bw-2823"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/20768"
+    anchor: "web:https://manga.nicovideo.jp/comic/20768"
+    basis: "creator カヅホ is named on the platform page"
+  - id: w01897
+    title: "キルミーベイベー"
+    madb: ["bw-2823"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/295"
+    anchor: "web:https://comic-fuz.com/manga/295"
+    basis: "creator カヅホ is named on the platform page"
+  - id: w01898
+    title: "きんいろモザイク"
+    madb: ["bw-2825"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/20781"
+    anchor: "web:https://manga.nicovideo.jp/comic/20781"
+    basis: "creator 原悠衣 is named on the platform page"
+  - id: w01898
+    title: "きんいろモザイク"
+    madb: ["bw-2825"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/410"
+    anchor: "web:https://comic-fuz.com/manga/410"
+    basis: "creator 原悠衣 is named on the platform page"
+  - id: w01899
+    title: "ゆゆ式"
+    madb: ["bw-2832"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/20783"
+    anchor: "web:https://manga.nicovideo.jp/comic/20783"
+    basis: "creator 三上小又 is named on the platform page"
+  - id: w01899
+    title: "ゆゆ式"
+    madb: ["bw-2832"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/448"
+    anchor: "web:https://comic-fuz.com/manga/448"
+    basis: "creator 三上小又 is named on the platform page"
+  - id: w01900
+    title: "本のムシ"
+    madb: ["bw-283357"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/45383"
+    anchor: "web:https://manga.nicovideo.jp/comic/45383"
+    basis: "creator 小虎 is named on the platform page"
+  - id: w01900
+    title: "本のムシ"
+    madb: ["bw-283357"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000477_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000477_S"
+    basis: "creator 小虎 is named on the platform page"
+  - id: w01901
+    title: "落花流水"
+    madb: ["bw-2836"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/334"
+    anchor: "web:https://comic-fuz.com/manga/334"
+    basis: "creator 真田一輝 is named on the platform page"
+  - id: w01902
+    title: "吸血鬼と呼ばれたい！"
+    madb: ["bw-285404"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/47467"
+    anchor: "web:https://manga.nicovideo.jp/comic/47467"
+    basis: "creator ぴゃあ is named on the platform page"
+  - id: w01902
+    title: "吸血鬼と呼ばれたい！"
+    madb: ["bw-285404"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002089_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002089_S"
+    basis: "creator ぴゃあ is named on the platform page"
+  - id: w01903
+    title: "姫神の巫女"
+    madb: ["bw-285406"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/47968"
+    anchor: "web:https://manga.nicovideo.jp/comic/47968"
+    basis: "creator 姫神の巫女千ノ華万華鏡 is named on the platform page"
+  - id: w01903
+    title: "姫神の巫女"
+    madb: ["bw-285406"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003150_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003150_S"
+    basis: "creator 姫神の巫女千ノ華万華鏡 is named on the platform page"
+  - id: w01905
+    title: "ヤンキー×ジャーキー【単話版】"
+    madb: ["bw-286569"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/2379"
+    anchor: "web:https://comic-fuz.com/manga/2379"
+    basis: "creator 由井ひな子 is named on the platform page"
+  - id: w01907
+    title: "野球場でいただきます"
+    madb: ["bw-289542"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/51824"
+    anchor: "web:https://manga.nicovideo.jp/comic/51824"
+    basis: "creator 出内テツオ is named on the platform page"
+  - id: w01907
+    title: "野球場でいただきます"
+    madb: ["bw-289542"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001166_S"
+    anchor: "web:https://comic-walker.com/detail/KC_001166_S"
+    basis: "creator 出内テツオ is named on the platform page"
+  - id: w01908
+    title: "私達の生きる世界"
+    madb: ["bw-289801"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/50531"
+    anchor: "web:https://manga.nicovideo.jp/comic/50531"
+    basis: "creator 大野将磨 is named on the platform page"
+  - id: w01911
+    title: "ドキュンサーガ"
+    madb: ["bw-292983"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/51520"
+    anchor: "web:https://manga.nicovideo.jp/comic/51520"
+    basis: "creator いとまん is named on the platform page"
+  - id: w01911
+    title: "ドキュンサーガ"
+    madb: ["bw-292983"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001465_S"
+    anchor: "web:https://comic-walker.com/detail/KC_001465_S"
+    basis: "creator いとまん is named on the platform page"
+  - id: w01913
+    title: "1いいねでスカートが0.1mm短くなるクラスの地味な女の子"
+    madb: ["bw-293366"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/54627"
+    anchor: "web:https://manga.nicovideo.jp/comic/54627"
+    basis: "creator byte is named on the platform page"
+  - id: w01921
+    title: "わたしはサキュバスとキスをした"
+    madb: ["bw-296947"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/49903"
+    anchor: "web:https://manga.nicovideo.jp/comic/49903"
+    basis: "creator 白玉もち is named on the platform page"
+  - id: w01921
+    title: "わたしはサキュバスとキスをした"
+    madb: ["bw-296947"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004227_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004227_S"
+    basis: "creator 白玉もち is named on the platform page"
+  - id: w01922
+    title: "ざこのみなさんお大事に"
+    madb: ["bw-29709146-f9fd-4e74-979a-8c178c167f77"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/74042"
+    anchor: "web:https://manga.nicovideo.jp/comic/74042"
+    basis: "creator 薗田かんきつ is named on the platform page"
+  - id: w01925
+    title: "魔法少女翔"
+    madb: ["bw-298908"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/44491"
+    anchor: "web:https://manga.nicovideo.jp/comic/44491"
+    basis: "creator さね野郎 is named on the platform page"
+  - id: w01947
+    title: "おとなりの天涯"
+    madb: ["bw-300914"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/50662"
+    anchor: "web:https://manga.nicovideo.jp/comic/50662"
+    basis: "creator きぃやん is named on the platform page"
+  - id: w01947
+    title: "おとなりの天涯"
+    madb: ["bw-300914"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001179_S"
+    anchor: "web:https://comic-walker.com/detail/KC_001179_S"
+    basis: "creator きぃやん is named on the platform page"
+  - id: w01951
+    title: "先生、今月どうですか"
+    madb: ["bw-303472"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003880_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003880_S"
+    basis: "creator 高江洲弥 is named on the platform page"
+  - id: w01953
+    title: "赤ずきんに食べられた狼"
+    madb: ["bw-304995"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/32181"
+    anchor: "web:https://manga.nicovideo.jp/comic/32181"
+    basis: "creator 椎名晴美 is named on the platform page"
+  - id: w01953
+    title: "赤ずきんに食べられた狼"
+    madb: ["bw-304995"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56413"
+    anchor: "web:https://manga.nicovideo.jp/comic/56413"
+    basis: "creator 椎名晴美 is named on the platform page"
+  - id: w01957
+    title: "心の声が漏れやすいメイドさん【単話版】"
+    madb: ["bw-307339"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56312"
+    anchor: "web:https://manga.nicovideo.jp/comic/56312"
+    basis: "creator ぎんもく is named on the platform page"
+  - id: w01957
+    title: "心の声が漏れやすいメイドさん【単話版】"
+    madb: ["bw-307339"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/2427"
+    anchor: "web:https://comic-fuz.com/manga/2427"
+    basis: "creator ぎんもく is named on the platform page"
+  - id: w01966
+    title: "おしごとですよ！赤根さん"
+    madb: ["bw-311225"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/55217"
+    anchor: "web:https://manga.nicovideo.jp/comic/55217"
+    basis: "creator 木村まつり is named on the platform page"
+  - id: w01966
+    title: "おしごとですよ！赤根さん"
+    madb: ["bw-311225"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001774_S"
+    anchor: "web:https://comic-walker.com/detail/KC_001774_S"
+    basis: "creator 木村まつり is named on the platform page"
+  - id: w01974
+    title: "勇者サポートセンター魔王城支部"
+    madb: ["bw-317093"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/53363"
+    anchor: "web:https://manga.nicovideo.jp/comic/53363"
+    basis: "creator じゃこ is named on the platform page"
+  - id: w01974
+    title: "勇者サポートセンター魔王城支部"
+    madb: ["bw-317093"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000166_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000166_S"
+    basis: "creator じゃこ is named on the platform page"
+  - id: w01975
+    title: "魔法科高校の優等生 2nd Season"
+    madb: ["bw-317095"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/54840"
+    anchor: "web:https://manga.nicovideo.jp/comic/54840"
+    basis: "creator おだまさる is named on the platform page"
+  - id: w01975
+    title: "魔法科高校の優等生 2nd Season"
+    madb: ["bw-317095"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000591_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000591_S"
+    basis: "creator おだまさる is named on the platform page"
+  - id: w01978
+    title: "ほのぼの異世界転生デイズ ～レベルカンスト、アイテム持ち越し！ 私は最強幼女です～"
+    madb: ["bw-318343"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/51688"
+    anchor: "web:https://manga.nicovideo.jp/comic/51688"
+    basis: "creator しっぽタヌキ is named on the platform page"
+  - id: w01978
+    title: "ほのぼの異世界転生デイズ ～レベルカンスト、アイテム持ち越し！ 私は最強幼女です～"
+    madb: ["bw-318343"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001533_S"
+    anchor: "web:https://comic-walker.com/detail/KC_001533_S"
+    basis: "creator しっぽタヌキ is named on the platform page"
+  - id: w01989
+    title: "からふるキューシート！"
+    madb: ["bw-323598"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/54574"
+    anchor: "web:https://manga.nicovideo.jp/comic/54574"
+    basis: "creator ちくわ is named on the platform page"
+  - id: w01989
+    title: "からふるキューシート！"
+    madb: ["bw-323598"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004408_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004408_S"
+    basis: "creator ちくわ is named on the platform page"
+  - id: w01994
+    title: "パネマジ！　～その嬢は修整済みです～"
+    madb: ["bw-328182"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/53401"
+    anchor: "web:https://manga.nicovideo.jp/comic/53401"
+    basis: "creator まきたこん is named on the platform page"
+  - id: w01995
+    title: "恋愛ショートアンソロジーコミック"
+    madb: ["bw-332460"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/55199"
+    anchor: "web:https://manga.nicovideo.jp/comic/55199"
+    basis: "creator comicbridge編集部 is named on the platform page"
+  - id: w02000
+    title: "私、都合のいい女でいいです。"
+    madb: ["bw-339882"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/54384"
+    anchor: "web:https://manga.nicovideo.jp/comic/54384"
+    basis: "creator 霰屋こん is named on the platform page"
+  - id: w02002
+    title: "とある魔術の禁書目録外伝　とある科学の心理掌握"
+    madb: ["bw-342591"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/54478"
+    anchor: "web:https://manga.nicovideo.jp/comic/54478"
+    basis: "creator はいむらきよたか is named on the platform page"
+  - id: w02002
+    title: "とある魔術の禁書目録外伝　とある科学の心理掌握"
+    madb: ["bw-342591"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003923_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003923_S"
+    basis: "creator はいむらきよたか is named on the platform page"
+  - id: w02004
+    title: "たびみまん"
+    madb: ["bw-342858"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/54573"
+    anchor: "web:https://manga.nicovideo.jp/comic/54573"
+    basis: "creator 赤樫 is named on the platform page"
+  - id: w02004
+    title: "たびみまん"
+    madb: ["bw-342858"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004388_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004388_S"
+    basis: "creator 赤樫 is named on the platform page"
+  - id: w02008
+    title: "ウェイバーズ"
+    madb: ["bw-34429081-bd58-46d3-ad0c-a24bdc76018f"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/76469"
+    anchor: "web:https://manga.nicovideo.jp/comic/76469"
+    basis: "creator 山本和音 is named on the platform page"
+  - id: w02008
+    title: "ウェイバーズ"
+    madb: ["bw-34429081-bd58-46d3-ad0c-a24bdc76018f"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008387_S"
+    anchor: "web:https://comic-walker.com/detail/KC_008387_S"
+    basis: "creator 山本和音 is named on the platform page"
+  - id: w02009
+    title: "異世界居酒屋さわこさん細腕繁盛記"
+    madb: ["bw-346805"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/55584"
+    anchor: "web:https://manga.nicovideo.jp/comic/55584"
+    basis: "creator deecha is named on the platform page"
+  - id: w02009
+    title: "異世界居酒屋さわこさん細腕繁盛記"
+    madb: ["bw-346805"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002749_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002749_S"
+    basis: "creator deecha is named on the platform page"
+  - id: w02011
+    title: "友達以上、恋人以上！"
+    madb: ["bw-349419"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/53986"
+    anchor: "web:https://manga.nicovideo.jp/comic/53986"
+    basis: "creator 上嶋ハルキ is named on the platform page"
+  - id: w02017
+    title: "モダン†ロマネスコ"
+    madb: ["bw-352258"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56386"
+    anchor: "web:https://manga.nicovideo.jp/comic/56386"
+    basis: "creator きくらげ is named on the platform page"
+  - id: w02017
+    title: "モダン†ロマネスコ"
+    madb: ["bw-352258"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003743_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003743_S"
+    basis: "creator きくらげ is named on the platform page"
+  - id: w02018
+    title: "植物モンスター娘日記　～聖女だった私が裏切られた果てにアルラウネに転生してしまったので、これからは光合成をしながら静かに植物ライフを過ごします～"
+    madb: ["bw-352412"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/55266"
+    anchor: "web:https://manga.nicovideo.jp/comic/55266"
+    basis: "creator riritto is named on the platform page"
+  - id: w02030
+    title: "須波優子と百合な人びと"
+    madb: ["bw-35f9215a-ed72-4178-a0cf-8ec0f082cab2"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/36718"
+    anchor: "web:https://manga.nicovideo.jp/comic/36718"
+    basis: "creator 綿桐さや is named on the platform page"
+  - id: w02035
+    title: "ミスターユーリ！"
+    madb: ["bw-364192"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/55041"
+    anchor: "web:https://manga.nicovideo.jp/comic/55041"
+    basis: "creator ぐるめ is named on the platform page"
+  - id: w02042
+    title: "蜂も刺さずばうたれまい"
+    madb: ["bw-369483"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/55846"
+    anchor: "web:https://manga.nicovideo.jp/comic/55846"
+    basis: "creator るりえ is named on the platform page"
+  - id: w02043
+    title: "終わるセカイの修学旅行"
+    madb: ["bw-370996"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/58853"
+    anchor: "web:https://manga.nicovideo.jp/comic/58853"
+    basis: "creator studioheadline is named on the platform page"
+  - id: w02043
+    title: "終わるセカイの修学旅行"
+    madb: ["bw-370996"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/52438"
+    anchor: "web:https://manga.nicovideo.jp/comic/52438"
+    basis: "creator studioheadline is named on the platform page"
+  - id: w02043
+    title: "終わるセカイの修学旅行"
+    madb: ["bw-370996"]
+    platform: "COMIC熱帯"
+    url: "https://www.comicnettai.com/book/4"
+    anchor: "web:https://www.comicnettai.com/book/4"
+    basis: "creator studioheadline is named on the platform page"
+  - id: w02046
+    title: "秘密のお姉さん養成ノート"
+    madb: ["bw-372948"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/59553"
+    anchor: "web:https://manga.nicovideo.jp/comic/59553"
+    basis: "creator トフ子 is named on the platform page"
+  - id: w02049
+    title: "ササエルの中には誰もいない"
+    madb: ["bw-373989"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/55969"
+    anchor: "web:https://manga.nicovideo.jp/comic/55969"
+    basis: "creator こめつぶ is named on the platform page"
+  - id: w02055
+    title: "どうしたら幼馴染の彼女になれますか！？"
+    madb: ["bw-381470"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/58253"
+    anchor: "web:https://manga.nicovideo.jp/comic/58253"
+    basis: "creator 矢坂しゅう is named on the platform page"
+  - id: w02055
+    title: "どうしたら幼馴染の彼女になれますか！？"
+    madb: ["bw-381470"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/78188"
+    anchor: "web:https://manga.nicovideo.jp/comic/78188"
+    basis: "creator 矢坂しゅう is named on the platform page"
+  - id: w02058
+    title: "LatteComi コミックアンソロジー【百合】"
+    madb: ["bw-384142"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/83386"
+    anchor: "web:https://manga.nicovideo.jp/comic/83386"
+    basis: "creator アンソロジ is named on the platform page"
+  - id: w02063
+    title: "マグロちゃんは食べられたい！"
+    madb: ["bw-387675"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/57513"
+    anchor: "web:https://manga.nicovideo.jp/comic/57513"
+    basis: "creator はも is named on the platform page"
+  - id: w02064
+    title: "霧尾ファンクラブ"
+    madb: ["bw-388000"]
+    platform: "COMICリュエル"
+    url: "https://comic.j-nbooks.jp/series/1348361337c82"
+    anchor: "web:https://comic.j-nbooks.jp/series/1348361337c82"
+    basis: "creator 地球のお魚ぽんちゃん is named on the platform page"
+  - id: w02065
+    title: "リコリス・リコイル"
+    madb: ["bw-389079"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/61397"
+    anchor: "web:https://manga.nicovideo.jp/comic/61397"
+    basis: "creator spiderlily is named on the platform page"
+  - id: w02065
+    title: "リコリス・リコイル"
+    madb: ["bw-389079"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003821_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003821_S"
+    basis: "creator spiderlily is named on the platform page"
+  - id: w02069
+    title: "涙子さまの言う通り"
+    madb: ["bw-392803"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/61899"
+    anchor: "web:https://manga.nicovideo.jp/comic/61899"
+    basis: "creator 山本ルンルン is named on the platform page"
+  - id: w02069
+    title: "涙子さまの言う通り"
+    madb: ["bw-392803"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000625_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000625_S"
+    basis: "creator 山本ルンルン is named on the platform page"
+  - id: w02070
+    title: "サテライト・コインランドリー"
+    madb: ["bw-394256"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/59078"
+    anchor: "web:https://manga.nicovideo.jp/comic/59078"
+    basis: "creator にわかあめ is named on the platform page"
+  - id: w02070
+    title: "サテライト・コインランドリー"
+    madb: ["bw-394256"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004626_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004626_S"
+    basis: "creator にわかあめ is named on the platform page"
+  - id: w02074
+    title: "今日、お姉さんとエッチしない？ 百合アンソロジー"
+    madb: ["bw-3954ab10-e53a-4bf5-957e-9bf20686eb2e"]
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326426"
+    anchor: "web:https://ichicomi.com/episode/12207421984000326426"
+    basis: "creator アンソロジ is named on the platform page"
+  - id: w02084
+    title: "オルターエゴ"
+    madb: ["bw-3b28e445-12a7-4c5a-a0a3-52f538011921"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/78285"
+    anchor: "web:https://manga.nicovideo.jp/comic/78285"
+    basis: "creator サンチェス is named on the platform page"
+  - id: w02092
+    title: "魔性のメロ女に堕とされる百合アンソロジー"
+    madb: ["bw-3d3711b8-c246-4d15-bad4-9b1f1e1df65e"]
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983882061356"
+    anchor: "web:https://ichicomi.com/episode/12207421983882061356"
+    basis: "creator アンソロジ is named on the platform page"
+  - id: w02099
+    title: "ハッピーシュート！"
+    madb: ["bw-400573"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    anchor: "web:https://manga.nicovideo.jp/comic/60084"
+    basis: "creator とりから is named on the platform page"
+  - id: w02099
+    title: "ハッピーシュート！"
+    madb: ["bw-400573"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/61508"
+    anchor: "web:https://manga.nicovideo.jp/comic/61508"
+    basis: "creator とりから is named on the platform page"
+  - id: w02099
+    title: "ハッピーシュート！"
+    madb: ["bw-400573"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/67750"
+    anchor: "web:https://manga.nicovideo.jp/comic/67750"
+    basis: "creator とりから is named on the platform page"
+  - id: w02101
+    title: "おねロリキャバクラ"
+    madb: ["bw-402436"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/58242"
+    anchor: "web:https://manga.nicovideo.jp/comic/58242"
+    basis: "creator 春日沙生 is named on the platform page"
+  - id: w02101
+    title: "おねロリキャバクラ"
+    madb: ["bw-402436"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/34005"
+    anchor: "web:https://manga.nicovideo.jp/comic/34005"
+    basis: "creator 春日沙生 is named on the platform page"
+  - id: w02103
+    title: "ララのうた"
+    madb: ["bw-403349"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/62230"
+    anchor: "web:https://manga.nicovideo.jp/comic/62230"
+    basis: "creator 河野スイ is named on the platform page"
+  - id: w02103
+    title: "ララのうた"
+    madb: ["bw-403349"]
+    platform: "コミックPASH! neo"
+    url: "https://comicpash.jp/series/c94735bac216f"
+    anchor: "web:https://comicpash.jp/series/c94735bac216f"
+    basis: "creator 河野スイ is named on the platform page"
+  - id: w02110
+    title: "不器用ビンボーダンス"
+    madb: ["bw-404492"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/41035"
+    anchor: "web:https://manga.nicovideo.jp/comic/41035"
+    basis: "creator なをををををを is named on the platform page"
+  - id: w02110
+    title: "不器用ビンボーダンス"
+    madb: ["bw-404492"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/70296"
+    anchor: "web:https://manga.nicovideo.jp/comic/70296"
+    basis: "creator なをををををを is named on the platform page"
+  - id: w02110
+    title: "不器用ビンボーダンス"
+    madb: ["bw-404492"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56736"
+    anchor: "web:https://manga.nicovideo.jp/comic/56736"
+    basis: "creator なをををををを is named on the platform page"
+  - id: w02111
+    title: "先生観察女子高生。"
+    madb: ["bw-404494"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/50934"
+    anchor: "web:https://manga.nicovideo.jp/comic/50934"
+    basis: "creator 春結千晶 is named on the platform page"
+  - id: w02118
+    title: "ピエタとトランジ"
+    madb: ["bw-404882"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/62558"
+    anchor: "web:https://manga.nicovideo.jp/comic/62558"
+    basis: "creator キスガエ is named on the platform page"
+  - id: w02118
+    title: "ピエタとトランジ"
+    madb: ["bw-404882"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002718_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002718_S"
+    basis: "creator キスガエ is named on the platform page"
+  - id: w02122
+    title: "海鳥東月の『でたらめ』な事情"
+    madb: ["bw-407072"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/61268"
+    anchor: "web:https://manga.nicovideo.jp/comic/61268"
+    basis: "creator 両生類かえる is named on the platform page"
+  - id: w02122
+    title: "海鳥東月の『でたらめ』な事情"
+    madb: ["bw-407072"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004535_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004535_S"
+    basis: "creator 両生類かえる is named on the platform page"
+  - id: w02124
+    title: "レンズブルク女子寄宿学校の日常"
+    madb: ["bw-40816d80-3c22-4c2b-a49b-d85b7581a4e8"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/60045"
+    anchor: "web:https://manga.nicovideo.jp/comic/60045"
+    basis: "creator 日之下あかめ is named on the platform page"
+  - id: w02125
+    title: "ぐだぐだするき！"
+    madb: ["bw-40ae0354-fb08-45eb-b0c0-01eeac4b5d19"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/55788"
+    anchor: "web:https://manga.nicovideo.jp/comic/55788"
+    basis: "creator 大崎ペコ丸 is named on the platform page"
+  - id: w02125
+    title: "ぐだぐだするき！"
+    madb: ["bw-40ae0354-fb08-45eb-b0c0-01eeac4b5d19"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003372_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003372_S"
+    basis: "creator 大崎ペコ丸 is named on the platform page"
+  - id: w02126
+    title: "気になってる人が男じゃなかった"
+    madb: ["bw-411030"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/63276"
+    anchor: "web:https://manga.nicovideo.jp/comic/63276"
+    basis: "creator 新井すみこ is named on the platform page"
+  - id: w02126
+    title: "気になってる人が男じゃなかった"
+    madb: ["bw-411030"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003581_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003581_S"
+    basis: "creator 新井すみこ is named on the platform page"
+  - id: w02128
+    title: "飛野さんのバカ【GANMA!版】"
+    madb: ["bw-411593"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/31456"
+    anchor: "web:https://manga.nicovideo.jp/comic/31456"
+    basis: "creator 筋肉☆太郎 is named on the platform page"
+  - id: w02129
+    title: "魔法使いロゼの佐渡ライフ"
+    madb: ["bw-412656"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3152"
+    anchor: "web:https://comic-fuz.com/manga/3152"
+    basis: "creator おみなえし is named on the platform page"
+  - id: w02130
+    title: "ハコイリクリエイト"
+    madb: ["bw-414855"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/58502"
+    anchor: "web:https://manga.nicovideo.jp/comic/58502"
+    basis: "creator 行町咄 is named on the platform page"
+  - id: w02131
+    title: "生き物好きの安仁馬さんにはほんのちょっぴり毒がある"
+    madb: ["bw-416667"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/61385"
+    anchor: "web:https://manga.nicovideo.jp/comic/61385"
+    basis: "creator 鈴木快 is named on the platform page"
+  - id: w02131
+    title: "生き物好きの安仁馬さんにはほんのちょっぴり毒がある"
+    madb: ["bw-416667"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003983_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003983_S"
+    basis: "creator 鈴木快 is named on the platform page"
+  - id: w02133
+    title: "ギャルとネクラの吸血関係"
+    madb: ["bw-419022"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/60565"
+    anchor: "web:https://manga.nicovideo.jp/comic/60565"
+    basis: "creator カコベン is named on the platform page"
+  - id: w02148
+    title: "わたし、二番目の彼女でいいから。"
+    madb: ["bw-427173"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/60396"
+    anchor: "web:https://manga.nicovideo.jp/comic/60396"
+    basis: "creator にの子 is named on the platform page"
+  - id: w02148
+    title: "わたし、二番目の彼女でいいから。"
+    madb: ["bw-427173"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003276_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003276_S"
+    basis: "creator にの子 is named on the platform page"
+  - id: w02150
+    title: "花唄メモワール"
+    madb: ["bw-427383"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/69061"
+    anchor: "web:https://manga.nicovideo.jp/comic/69061"
+    basis: "creator 一ノ瀬けい is named on the platform page"
+  - id: w02150
+    title: "花唄メモワール"
+    madb: ["bw-427383"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3274"
+    anchor: "web:https://comic-fuz.com/manga/3274"
+    basis: "creator 一ノ瀬けい is named on the platform page"
+  - id: w02152
+    title: "俺の×××はいらないらしい"
+    madb: ["bw-429651"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/61723"
+    anchor: "web:https://manga.nicovideo.jp/comic/61723"
+    basis: "creator プルちょめ is named on the platform page"
+  - id: w02152
+    title: "俺の×××はいらないらしい"
+    madb: ["bw-429651"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000583_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000583_S"
+    basis: "creator プルちょめ is named on the platform page"
+  - id: w02155
+    title: "サキュバスイッチ"
+    madb: ["bw-432649"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3382"
+    anchor: "web:https://comic-fuz.com/manga/3382"
+    basis: "creator 橘まなり is named on the platform page"
+  - id: w02156
+    title: "後宮一番の悪女"
+    madb: ["bw-433534"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/63564"
+    anchor: "web:https://manga.nicovideo.jp/comic/63564"
+    basis: "creator 柚原テイル is named on the platform page"
+  - id: w02156
+    title: "後宮一番の悪女"
+    madb: ["bw-433534"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001546_S"
+    anchor: "web:https://comic-walker.com/detail/KC_001546_S"
+    basis: "creator 柚原テイル is named on the platform page"
+  - id: w02158
+    title: "ひよ＆びびっと！"
+    madb: ["bw-434264"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/60568"
+    anchor: "web:https://manga.nicovideo.jp/comic/60568"
+    basis: "creator ゆとりぬ is named on the platform page"
+  - id: w02159
+    title: "わからせろ！ナマイキツネ様"
+    madb: ["bw-434265"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/60566"
+    anchor: "web:https://manga.nicovideo.jp/comic/60566"
+    basis: "creator *sow* is named on the platform page"
+  - id: w02166
+    title: "薪窯のパンドラ"
+    madb: ["bw-440875"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3385"
+    anchor: "web:https://comic-fuz.com/manga/3385"
+    basis: "creator くずもちまつり is named on the platform page"
+  - id: w02167
+    title: "ジャガイモ農家の村娘、剣神と謳われるまで。"
+    madb: ["bw-441234"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/69940"
+    anchor: "web:https://manga.nicovideo.jp/comic/69940"
+    basis: "creator たぢまよしかづ is named on the platform page"
+  - id: w02172
+    title: "オレの愛で世界がヤバい"
+    madb: ["bw-442160"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/54885"
+    anchor: "web:https://manga.nicovideo.jp/comic/54885"
+    basis: "creator 井上とさず is named on the platform page"
+  - id: w02174
+    title: "のけもののまち"
+    madb: ["bw-444039"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/62379"
+    anchor: "web:https://manga.nicovideo.jp/comic/62379"
+    basis: "creator はちべもつ is named on the platform page"
+  - id: w02175
+    title: "ばーがー・ふぉー・ゆー！"
+    madb: ["bw-444040"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/62381"
+    anchor: "web:https://manga.nicovideo.jp/comic/62381"
+    basis: "creator 双葉陽 is named on the platform page"
+  - id: w02176
+    title: "高音さんと嵐ちゃん"
+    madb: ["bw-445883"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/64278"
+    anchor: "web:https://manga.nicovideo.jp/comic/64278"
+    basis: "creator なうち is named on the platform page"
+  - id: w02176
+    title: "高音さんと嵐ちゃん"
+    madb: ["bw-445883"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005076_S"
+    anchor: "web:https://comic-walker.com/detail/KC_005076_S"
+    basis: "creator なうち is named on the platform page"
+  - id: w02177
+    title: "おとなりにスピカ"
+    madb: ["bw-446840"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/63293"
+    anchor: "web:https://manga.nicovideo.jp/comic/63293"
+    basis: "creator みずひら is named on the platform page"
+  - id: w02177
+    title: "おとなりにスピカ"
+    madb: ["bw-446840"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004893_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004893_S"
+    basis: "creator みずひら is named on the platform page"
+  - id: w02178
+    title: "こみっくがーるず"
+    madb: ["bw-44800"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/33923"
+    anchor: "web:https://manga.nicovideo.jp/comic/33923"
+    basis: "creator はんざわかおり is named on the platform page"
+  - id: w02178
+    title: "こみっくがーるず"
+    madb: ["bw-44800"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/418"
+    anchor: "web:https://comic-fuz.com/manga/418"
+    basis: "creator はんざわかおり is named on the platform page"
+  - id: w02179
+    title: "乙女の地球の走りかた"
+    madb: ["bw-448376"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/66763"
+    anchor: "web:https://manga.nicovideo.jp/comic/66763"
+    basis: "creator 凡竜 is named on the platform page"
+  - id: w02179
+    title: "乙女の地球の走りかた"
+    madb: ["bw-448376"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3192"
+    anchor: "web:https://comic-fuz.com/manga/3192"
+    basis: "creator 凡竜 is named on the platform page"
+  - id: w02180
+    title: "死亡遊戯で飯を食う。"
+    madb: ["bw-449624"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/64181"
+    anchor: "web:https://manga.nicovideo.jp/comic/64181"
+    basis: "creator 万歳寿大宴会 is named on the platform page"
+  - id: w02180
+    title: "死亡遊戯で飯を食う。"
+    madb: ["bw-449624"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004767_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004767_S"
+    basis: "creator 万歳寿大宴会 is named on the platform page"
+  - id: w02189
+    title: "奴隷扱いの娘が足を舐めて幸せになる(かもしれない)話"
+    madb: ["bw-4552602f-30b2-4f11-bd1f-a9c7c7219e1d"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/45502"
+    anchor: "web:https://manga.nicovideo.jp/comic/45502"
+    basis: "creator 志真 is named on the platform page"
+  - id: w02190
+    title: "鈴木りつ短編集　考幻学入門"
+    madb: ["bw-45593173-7c3d-442e-9de6-5cdc1d9ffa89"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/76698"
+    anchor: "web:https://manga.nicovideo.jp/comic/76698"
+    basis: "creator 鈴木りつ is named on the platform page"
+  - id: w02190
+    title: "鈴木りつ短編集　考幻学入門"
+    madb: ["bw-45593173-7c3d-442e-9de6-5cdc1d9ffa89"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008443_S"
+    anchor: "web:https://comic-walker.com/detail/KC_008443_S"
+    basis: "creator 鈴木りつ is named on the platform page"
+  - id: w02198
+    title: "ｅｓｃａｐｅ　ｉｎｔｏ　ｔｈｅ　ｌｉｇｈｔ"
+    madb: ["bw-460253"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/63678"
+    anchor: "web:https://manga.nicovideo.jp/comic/63678"
+    basis: "creator むぐら is named on the platform page"
+  - id: w02201
+    title: "城下町のダンデライオン"
+    madb: ["bw-46200"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/20777"
+    anchor: "web:https://manga.nicovideo.jp/comic/20777"
+    basis: "creator 春日歩 is named on the platform page"
+  - id: w02201
+    title: "城下町のダンデライオン"
+    madb: ["bw-46200"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/1970"
+    anchor: "web:https://comic-fuz.com/manga/1970"
+    basis: "creator 春日歩 is named on the platform page"
+  - id: w02201
+    title: "城下町のダンデライオン"
+    madb: ["bw-46200"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/293"
+    anchor: "web:https://comic-fuz.com/manga/293"
+    basis: "creator 春日歩 is named on the platform page"
+  - id: w02203
+    title: "私の女神が今日も推せる ～これからも、いつまでも～"
+    madb: ["bw-462356"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/67713"
+    anchor: "web:https://manga.nicovideo.jp/comic/67713"
+    basis: "creator 川内 is named on the platform page"
+  - id: w02209
+    title: "我が焔炎にひれ伏せ世界"
+    madb: ["bw-464065"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/61155"
+    anchor: "web:https://manga.nicovideo.jp/comic/61155"
+    basis: "creator mikapikazo is named on the platform page"
+  - id: w02209
+    title: "我が焔炎にひれ伏せ世界"
+    madb: ["bw-464065"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005071_S"
+    anchor: "web:https://comic-walker.com/detail/KC_005071_S"
+    basis: "creator mikapikazo is named on the platform page"
+  - id: w02210
+    title: "Ｖドライブ！"
+    madb: ["bw-469081"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/65092"
+    anchor: "web:https://manga.nicovideo.jp/comic/65092"
+    basis: "creator 猫にゃん is named on the platform page"
+  - id: w02211
+    title: "てくてくっ！秘密リサーチ"
+    madb: ["bw-469084"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/63696"
+    anchor: "web:https://manga.nicovideo.jp/comic/63696"
+    basis: "creator さいにゃん is named on the platform page"
+  - id: w02215
+    title: "かみねぐしまい"
+    madb: ["bw-472665"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/63675"
+    anchor: "web:https://manga.nicovideo.jp/comic/63675"
+    basis: "creator 若鶏にこみ is named on the platform page"
+  - id: w02219
+    title: "『英雄』に憧れた少女は吸血鬼に堕ちても『英雄』を目指す"
+    madb: ["bw-474640"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/69008"
+    anchor: "web:https://manga.nicovideo.jp/comic/69008"
+    basis: "creator 笹塔五郎 is named on the platform page"
+  - id: w02219
+    title: "『英雄』に憧れた少女は吸血鬼に堕ちても『英雄』を目指す"
+    madb: ["bw-474640"]
+    platform: "マンガBANGコミックス"
+    url: "https://comics.manga-bang.com/series/e928c3f07d5b6"
+    anchor: "web:https://comics.manga-bang.com/series/e928c3f07d5b6"
+    basis: "creator 笹塔五郎 is named on the platform page"
+  - id: w02220
+    title: "煙色のまほろば"
+    madb: ["bw-474906"]
+    platform: "ビッコミ"
+    url: "https://bigcomics.jp/series/31fdad5e7b025"
+    anchor: "web:https://bigcomics.jp/series/31fdad5e7b025"
+    basis: "creator 後藤うどん is named on the platform page"
+  - id: w02221
+    title: "しょーと、れい"
+    madb: ["bw-475159"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/65697"
+    anchor: "web:https://manga.nicovideo.jp/comic/65697"
+    basis: "creator あんじんねこ is named on the platform page"
+  - id: w02226
+    title: "ふしぎな猫のまち メルティア"
+    madb: ["bw-476567"]
+    platform: "ちゃおプラス"
+    url: "https://ciao.shogakukan.co.jp/comics/title/00511/episode/7781"
+    anchor: "web:https://ciao.shogakukan.co.jp/comics/title/00511/episode/7781"
+    basis: "creator 佐倉おりこ is named on the platform page"
+  - id: w02226
+    title: "ふしぎな猫のまち メルティア"
+    madb: ["bw-476567"]
+    platform: "コロコロオンライン"
+    url: "https://www.corocoro.jp/title/521"
+    anchor: "web:https://www.corocoro.jp/title/521"
+    basis: "creator 佐倉おりこ is named on the platform page"
+  - id: w02228
+    title: "ラブスコア"
+    madb: ["bw-477591"]
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/13933686331690209314"
+    anchor: "web:https://comic-days.com/episode/13933686331690209314"
+    basis: "creator len is named on the platform page"
+  - id: w02230
+    title: "後宮の花詠み仙女"
+    madb: ["bw-478751"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/66663"
+    anchor: "web:https://manga.nicovideo.jp/comic/66663"
+    basis: "creator 秋鹿ユギリ is named on the platform page"
+  - id: w02230
+    title: "後宮の花詠み仙女"
+    madb: ["bw-478751"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004364_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004364_S"
+    basis: "creator 秋鹿ユギリ is named on the platform page"
+  - id: w02235
+    title: "スイーツ・パニック"
+    madb: ["bw-480580"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/68104"
+    anchor: "web:https://manga.nicovideo.jp/comic/68104"
+    basis: "creator ブミィ is named on the platform page"
+  - id: w02236
+    title: "エルフ先生のトイレはどこですか？"
+    madb: ["bw-480716"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/67557"
+    anchor: "web:https://manga.nicovideo.jp/comic/67557"
+    basis: "creator 中嶋ちずな is named on the platform page"
+  - id: w02236
+    title: "エルフ先生のトイレはどこですか？"
+    madb: ["bw-480716"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005377_S"
+    anchor: "web:https://comic-walker.com/detail/KC_005377_S"
+    basis: "creator 中嶋ちずな is named on the platform page"
+  - id: w02237
+    title: "となりの殺し屋ちゃん"
+    madb: ["bw-481324"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/66787"
+    anchor: "web:https://manga.nicovideo.jp/comic/66787"
+    basis: "creator ジェイ is named on the platform page"
+  - id: w02237
+    title: "となりの殺し屋ちゃん"
+    madb: ["bw-481324"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005269_S"
+    anchor: "web:https://comic-walker.com/detail/KC_005269_S"
+    basis: "creator ジェイ is named on the platform page"
+  - id: w02239
+    title: "あんハピ♪"
+    madb: ["bw-48156"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/20767"
+    anchor: "web:https://manga.nicovideo.jp/comic/20767"
+    basis: "creator 琴慈 is named on the platform page"
+  - id: w02239
+    title: "あんハピ♪"
+    madb: ["bw-48156"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/321"
+    anchor: "web:https://comic-fuz.com/manga/321"
+    basis: "creator 琴慈 is named on the platform page"
+  - id: w02249
+    title: "ウクレア！"
+    madb: ["bw-484318"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3591"
+    anchor: "web:https://comic-fuz.com/manga/3591"
+    basis: "creator midori is named on the platform page"
+  - id: w02250
+    title: "踊町コミックハウス"
+    madb: ["bw-486042"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/70162"
+    anchor: "web:https://manga.nicovideo.jp/comic/70162"
+    basis: "creator 九重すわ is named on the platform page"
+  - id: w02250
+    title: "踊町コミックハウス"
+    madb: ["bw-486042"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3461"
+    anchor: "web:https://comic-fuz.com/manga/3461"
+    basis: "creator 九重すわ is named on the platform page"
+  - id: w02258
+    title: "Distortion"
+    madb: ["bw-493770"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/34106"
+    anchor: "web:https://manga.nicovideo.jp/comic/34106"
+    basis: "creator みもと is named on the platform page"
+  - id: w02260
+    title: "恋する罪人"
+    madb: ["bw-495319"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/72472"
+    anchor: "web:https://manga.nicovideo.jp/comic/72472"
+    basis: "creator 羽印 is named on the platform page"
+  - id: w02261
+    title: "異世界魔王ごっこ～魔王は姫を倒したくない！～"
+    madb: ["bw-496051"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/66033"
+    anchor: "web:https://manga.nicovideo.jp/comic/66033"
+    basis: "creator むつをむつ is named on the platform page"
+  - id: w02263
+    title: "転生して成長チートを手に入れたら、最凶スキルもついたのですが!?"
+    madb: ["bw-496787"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/71212"
+    anchor: "web:https://manga.nicovideo.jp/comic/71212"
+    basis: "creator ゆずもと is named on the platform page"
+  - id: w02265
+    title: "アンダーク 新しい透明な力のすべて"
+    madb: ["bw-497765"]
+    platform: "サンデーうぇぶり"
+    url: "https://www.sunday-webry.com/episode/2550689798749899266"
+    anchor: "web:https://www.sunday-webry.com/episode/2550689798749899266"
+    basis: "creator アキリ is named on the platform page"
+  - id: w02269
+    title: "TSロリシリーズ"
+    madb: ["bw-49e172c2-2048-4525-bbd4-f8b5b0f86871"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/82302"
+    anchor: "web:https://manga.nicovideo.jp/comic/82302"
+    basis: "creator キッカイキ is named on the platform page"
+  - id: w02294
+    title: "百合好きの男子高校生の話"
+    madb: ["bw-4f671dd3-8ef1-4d39-bcf6-427f2ff2af13"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/44272"
+    anchor: "web:https://manga.nicovideo.jp/comic/44272"
+    basis: "creator あさがお is named on the platform page"
+  - id: w02300
+    title: "ハーレムより平穏を！　異世界で静かにニート姫させてくれ"
+    madb: ["bw-501039"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/68644"
+    anchor: "web:https://manga.nicovideo.jp/comic/68644"
+    basis: "creator さかたはるき is named on the platform page"
+  - id: w02300
+    title: "ハーレムより平穏を！　異世界で静かにニート姫させてくれ"
+    madb: ["bw-501039"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005552_S"
+    anchor: "web:https://comic-walker.com/detail/KC_005552_S"
+    basis: "creator さかたはるき is named on the platform page"
+  - id: w02301
+    title: "男子高校生だけどギャルにTSしました"
+    madb: ["bw-501046"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/67976"
+    anchor: "web:https://manga.nicovideo.jp/comic/67976"
+    basis: "creator 太陽まりい is named on the platform page"
+  - id: w02301
+    title: "男子高校生だけどギャルにTSしました"
+    madb: ["bw-501046"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005447_S"
+    anchor: "web:https://comic-walker.com/detail/KC_005447_S"
+    basis: "creator 太陽まりい is named on the platform page"
+  - id: w02302
+    title: "ダッフルコートアーミー"
+    madb: ["bw-501367"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005739_S"
+    anchor: "web:https://comic-walker.com/detail/KC_005739_S"
+    basis: "creator 吾嬬竜孝 is named on the platform page"
+  - id: w02304
+    title: "花の三騎士"
+    madb: ["bw-503646"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/71063"
+    anchor: "web:https://manga.nicovideo.jp/comic/71063"
+    basis: "creator 星崎レオ is named on the platform page"
+  - id: w02304
+    title: "花の三騎士"
+    madb: ["bw-503646"]
+    platform: "マンガBANGコミックス"
+    url: "https://comics.manga-bang.com/series/688cd2816713d"
+    anchor: "web:https://comics.manga-bang.com/series/688cd2816713d"
+    basis: "creator 星崎レオ is named on the platform page"
+  - id: w02313
+    title: "サレ妻お江戸リコカツ録"
+    madb: ["bw-508301"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/70505"
+    anchor: "web:https://manga.nicovideo.jp/comic/70505"
+    basis: "creator 梶井スパナ is named on the platform page"
+  - id: w02316
+    title: "悪戯プライバシー"
+    madb: ["bw-50918cd9-eb12-4fce-9165-9615f4c4b4bf"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/37918"
+    anchor: "web:https://manga.nicovideo.jp/comic/37918"
+    basis: "creator ちこれ is named on the platform page"
+  - id: w02316
+    title: "悪戯プライバシー"
+    madb: ["bw-50918cd9-eb12-4fce-9165-9615f4c4b4bf"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002624_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002624_S"
+    basis: "creator ちこれ is named on the platform page"
+  - id: w02324
+    title: "あたしには好きな人がいる"
+    madb: ["bw-514082"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3512"
+    anchor: "web:https://comic-fuz.com/manga/3512"
+    basis: "creator 花束葬式 is named on the platform page"
+  - id: w02334
+    title: "これが最後の×××かも"
+    madb: ["bw-520891"]
+    platform: "くらげバンチ"
+    url: "https://kuragebunch.com/episode/2550912964922352689"
+    anchor: "web:https://kuragebunch.com/episode/2550912964922352689"
+    basis: "creator ねじがなめた is named on the platform page"
+  - id: w02337
+    title: "アクアリウムは踊らない"
+    madb: ["bw-521862"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/71182"
+    anchor: "web:https://manga.nicovideo.jp/comic/71182"
+    basis: "creator 冬眠結 is named on the platform page"
+  - id: w02337
+    title: "アクアリウムは踊らない"
+    madb: ["bw-521862"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006180_S"
+    anchor: "web:https://comic-walker.com/detail/KC_006180_S"
+    basis: "creator 冬眠結 is named on the platform page"
+  - id: w02347
+    title: "神仙桃娘 宮廷の贄"
+    madb: ["bw-525675"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/71694"
+    anchor: "web:https://manga.nicovideo.jp/comic/71694"
+    basis: "creator 上地優歩 is named on the platform page"
+  - id: w02347
+    title: "神仙桃娘 宮廷の贄"
+    madb: ["bw-525675"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006245_S"
+    anchor: "web:https://comic-walker.com/detail/KC_006245_S"
+    basis: "creator 上地優歩 is named on the platform page"
+  - id: w02350
+    title: "蝶乃センパイは泳がせたい！"
+    madb: ["bw-527852"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3554"
+    anchor: "web:https://comic-fuz.com/manga/3554"
+    basis: "creator 東雲もづく is named on the platform page"
+  - id: w02352
+    title: "スロウスタート"
+    madb: ["bw-53152"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/373"
+    anchor: "web:https://comic-fuz.com/manga/373"
+    basis: "creator 篤見唯子 is named on the platform page"
+  - id: w02363
+    title: "可愛原先輩はかわいい（早乙女くん）がすき！"
+    madb: ["bw-532306"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/71255"
+    anchor: "web:https://manga.nicovideo.jp/comic/71255"
+    basis: "creator せらみっく is named on the platform page"
+  - id: w02363
+    title: "可愛原先輩はかわいい（早乙女くん）がすき！"
+    madb: ["bw-532306"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006194_S"
+    anchor: "web:https://comic-walker.com/detail/KC_006194_S"
+    basis: "creator せらみっく is named on the platform page"
+  - id: w02364
+    title: "むぎのはな～shared life is beautiful～"
+    madb: ["bw-533609"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/71986"
+    anchor: "web:https://manga.nicovideo.jp/comic/71986"
+    basis: "creator 市川なつを is named on the platform page"
+  - id: w02364
+    title: "むぎのはな～shared life is beautiful～"
+    madb: ["bw-533609"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006068_S"
+    anchor: "web:https://comic-walker.com/detail/KC_006068_S"
+    basis: "creator 市川なつを is named on the platform page"
+  - id: w02367
+    title: "となりの吸血鬼さん"
+    madb: ["bw-53398"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/26405"
+    anchor: "web:https://manga.nicovideo.jp/comic/26405"
+    basis: "creator 甘党 is named on the platform page"
+  - id: w02367
+    title: "となりの吸血鬼さん"
+    madb: ["bw-53398"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004264_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004264_S"
+    basis: "creator 甘党 is named on the platform page"
+  - id: w02368
+    title: "キマ紳士"
+    madb: ["bw-534931"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/38036"
+    anchor: "web:https://manga.nicovideo.jp/comic/38036"
+    basis: "creator 椎名晴美 is named on the platform page"
+  - id: w02377
+    title: "ファンシー革命"
+    madb: ["bw-539953"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/73793"
+    anchor: "web:https://manga.nicovideo.jp/comic/73793"
+    basis: "creator 犬島ななこ is named on the platform page"
+  - id: w02383
+    title: "魔王城の様子がおかしい"
+    madb: ["bw-541170"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/68318"
+    anchor: "web:https://manga.nicovideo.jp/comic/68318"
+    basis: "creator 夏ソラわか is named on the platform page"
+  - id: w02384
+    title: "やみつきリリィホリックちゅう♪"
+    madb: ["bw-542632"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/73923"
+    anchor: "web:https://manga.nicovideo.jp/comic/73923"
+    basis: "creator 赤月めう is named on the platform page"
+  - id: w02385
+    title: "Untitled Flowers ～卵を産まないわたしたち～"
+    madb: ["bw-544642"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/72502"
+    anchor: "web:https://manga.nicovideo.jp/comic/72502"
+    basis: "creator isaka is named on the platform page"
+  - id: w02385
+    title: "Untitled Flowers ～卵を産まないわたしたち～"
+    madb: ["bw-544642"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006538_S"
+    anchor: "web:https://comic-walker.com/detail/KC_006538_S"
+    basis: "creator isaka is named on the platform page"
+  - id: w02389
+    title: "さくらマイマイ"
+    madb: ["bw-54718"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/26404"
+    anchor: "web:https://manga.nicovideo.jp/comic/26404"
+    basis: "creator おしおしお is named on the platform page"
+  - id: w02390
+    title: "幼女魔術師と同居人"
+    madb: ["bw-547430"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/64844"
+    anchor: "web:https://manga.nicovideo.jp/comic/64844"
+    basis: "creator kana◇ami is named on the platform page"
+  - id: w02392
+    title: "やがて君になる"
+    madb: ["bw-54921"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/18284"
+    anchor: "web:https://manga.nicovideo.jp/comic/18284"
+    basis: "creator 仲谷鳰 is named on the platform page"
+  - id: w02392
+    title: "やがて君になる"
+    madb: ["bw-54921"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/57015"
+    anchor: "web:https://manga.nicovideo.jp/comic/57015"
+    basis: "creator 仲谷鳰 is named on the platform page"
+  - id: w02392
+    title: "やがて君になる"
+    madb: ["bw-54921"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002450_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002450_S"
+    basis: "creator 仲谷鳰 is named on the platform page"
+  - id: w02399
+    title: "君の愛と私の恋が実るまで"
+    madb: ["bw-552301"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/73481"
+    anchor: "web:https://manga.nicovideo.jp/comic/73481"
+    basis: "creator 雫市だいち is named on the platform page"
+  - id: w02407
+    title: "ステラのまほう"
+    madb: ["bw-55361"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/23515"
+    anchor: "web:https://manga.nicovideo.jp/comic/23515"
+    basis: "creator くろば is named on the platform page"
+  - id: w02407
+    title: "ステラのまほう"
+    madb: ["bw-55361"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/314"
+    anchor: "web:https://comic-fuz.com/manga/314"
+    basis: "creator くろば is named on the platform page"
+  - id: w02411
+    title: "魔法少女イナバ"
+    madb: ["bw-556427"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/75854"
+    anchor: "web:https://manga.nicovideo.jp/comic/75854"
+    basis: "creator 猫にゃん is named on the platform page"
+  - id: w02411
+    title: "魔法少女イナバ"
+    madb: ["bw-556427"]
+    platform: "コミックグロウル"
+    url: "https://comic-growl.com/series/aa1ae7d41e228"
+    anchor: "web:https://comic-growl.com/series/aa1ae7d41e228"
+    basis: "creator 猫にゃん is named on the platform page"
+  - id: w02411
+    title: "魔法少女イナバ"
+    madb: ["bw-556427"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007952_S"
+    anchor: "web:https://comic-walker.com/detail/KC_007952_S"
+    basis: "creator 猫にゃん is named on the platform page"
+  - id: w02414
+    title: "線の上で前を向く"
+    madb: ["bw-55aee43e-f8eb-472e-ac60-8612aa9937c3"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/76442"
+    anchor: "web:https://manga.nicovideo.jp/comic/76442"
+    basis: "creator 時和輝 is named on the platform page"
+  - id: w02424
+    title: "ぷくちょらりファミリア"
+    madb: ["bw-566273"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/75486"
+    anchor: "web:https://manga.nicovideo.jp/comic/75486"
+    basis: "creator 圷見南子 is named on the platform page"
+  - id: w02428
+    title: "あまねくシグナル"
+    madb: ["bw-569563"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3896"
+    anchor: "web:https://comic-fuz.com/manga/3896"
+    basis: "creator はうあゆ is named on the platform page"
+  - id: w02430
+    title: "マーブルビターチョコレート"
+    madb: ["bw-56a4e697-0380-4ed0-959a-f44237b8c8c6"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/55582"
+    anchor: "web:https://manga.nicovideo.jp/comic/55582"
+    basis: "creator 幌山あき is named on the platform page"
+  - id: w02430
+    title: "マーブルビターチョコレート"
+    madb: ["bw-56a4e697-0380-4ed0-959a-f44237b8c8c6"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003390_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003390_S"
+    basis: "creator 幌山あき is named on the platform page"
+  - id: w02433
+    title: "まちカドまぞく"
+    madb: ["bw-57096"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/35263"
+    anchor: "web:https://manga.nicovideo.jp/comic/35263"
+    basis: "creator 伊藤いづも is named on the platform page"
+  - id: w02433
+    title: "まちカドまぞく"
+    madb: ["bw-57096"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/261"
+    anchor: "web:https://comic-fuz.com/manga/261"
+    basis: "creator 伊藤いづも is named on the platform page"
+  - id: w02457
+    title: "魔法少女三十路"
+    madb: ["bw-599522"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/80236"
+    anchor: "web:https://manga.nicovideo.jp/comic/80236"
+    basis: "creator 三倉ゆめ is named on the platform page"
+  - id: w02467
+    title: "悪マ的眷属エルエルちゃん"
+    madb: ["bw-5cbc96aa-34f6-4ccc-b6e2-c38e474abe06"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/75891"
+    anchor: "web:https://manga.nicovideo.jp/comic/75891"
+    basis: "creator ホシィェモ is named on the platform page"
+  - id: w02488
+    title: "100日後に咲く百合"
+    madb: ["bw-5f304615-905f-4c18-a5c3-e57463453f67"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001640_S"
+    anchor: "web:https://comic-walker.com/detail/KC_001640_S"
+    basis: "creator ムロマキ is named on the platform page"
+  - id: w02491
+    title: "セフレ沼から抜け出せないっ！百合えっちアンソロジー"
+    madb: ["bw-5fa86d4a-ad10-4a18-8cbf-c6dbebc872a3"]
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984000326421"
+    anchor: "web:https://ichicomi.com/episode/12207421984000326421"
+    basis: "creator アンソロジ is named on the platform page"
+  - id: w02495
+    title: "ウイニングアンサー！"
+    madb: ["bw-605342"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/74043"
+    anchor: "web:https://manga.nicovideo.jp/comic/74043"
+    basis: "creator 八代涼 is named on the platform page"
+  - id: w02507
+    title: "はるかなレシーブ"
+    madb: ["bw-63958"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/35555"
+    anchor: "web:https://manga.nicovideo.jp/comic/35555"
+    basis: "creator 如意自在 is named on the platform page"
+  - id: w02507
+    title: "はるかなレシーブ"
+    madb: ["bw-63958"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/388"
+    anchor: "web:https://comic-fuz.com/manga/388"
+    basis: "creator 如意自在 is named on the platform page"
+  - id: w02517
+    title: "僕の彼女がマジメ過ぎる処女ビッチな件"
+    madb: ["bw-65548"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/17050"
+    anchor: "web:https://manga.nicovideo.jp/comic/17050"
+    basis: "creator 松本ナミル is named on the platform page"
+  - id: w02517
+    title: "僕の彼女がマジメ過ぎる処女ビッチな件"
+    madb: ["bw-65548"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000617_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000617_S"
+    basis: "creator 松本ナミル is named on the platform page"
+  - id: w02518
+    title: "女子高生の無駄づかい"
+    madb: ["bw-65553"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/18905"
+    anchor: "web:https://manga.nicovideo.jp/comic/18905"
+    basis: "creator ビノ is named on the platform page"
+  - id: w02518
+    title: "女子高生の無駄づかい"
+    madb: ["bw-65553"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/14012"
+    anchor: "web:https://manga.nicovideo.jp/comic/14012"
+    basis: "creator ビノ is named on the platform page"
+  - id: w02518
+    title: "女子高生の無駄づかい"
+    madb: ["bw-65553"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000696_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000696_S"
+    basis: "creator ビノ is named on the platform page"
+  - id: w02574
+    title: "しすたー・いん・らう！"
+    madb: ["bw-74482"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004487_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004487_S"
+    basis: "creator 阿部かなり is named on the platform page"
+  - id: w02584
+    title: "ほのぼの呪詛ライフ"
+    madb: ["bw-767d1e63-329f-4806-90a2-f2f1d9e27db1"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/82942"
+    anchor: "web:https://manga.nicovideo.jp/comic/82942"
+    basis: "creator ふぁゆ瀬 is named on the platform page"
+  - id: w02585
+    title: "Ｇｏｏｄ　ｎｉｇｈｔ！　Ａｎｇｅｌ"
+    madb: ["bw-76802"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/419"
+    anchor: "web:https://comic-fuz.com/manga/419"
+    basis: "creator 柊ゆたか is named on the platform page"
+  - id: w02598
+    title: "完璧麗華さまは友達作りがおヘタ"
+    madb: ["bw-79a1aeca-7264-46ff-af62-8a507e3038e9"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/44862"
+    anchor: "web:https://manga.nicovideo.jp/comic/44862"
+    basis: "creator 松本陽介 is named on the platform page"
+  - id: w02617
+    title: "ＳＱ 　君の名前から始まる"
+    madb: ["bw-7ebbd159-9bca-4234-a279-78715eccda73"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/45072"
+    anchor: "web:https://manga.nicovideo.jp/comic/45072"
+    basis: "creator 壇九 is named on the platform page"
+  - id: w02617
+    title: "ＳＱ 　君の名前から始まる"
+    madb: ["bw-7ebbd159-9bca-4234-a279-78715eccda73"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000338_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000338_S"
+    basis: "creator 壇九 is named on the platform page"
+  - id: w02623
+    title: "百合好きさんとガチ百合さん"
+    madb: ["bw-80128dc5-8019-4583-ad1c-caa4edcc5fb9"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/39669"
+    anchor: "web:https://manga.nicovideo.jp/comic/39669"
+    basis: "creator 涼海来夏 is named on the platform page"
+  - id: w02626
+    title: "明日香と美咲"
+    madb: ["bw-80792731-7496-4647-9491-d840326bbde8"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/70721"
+    anchor: "web:https://manga.nicovideo.jp/comic/70721"
+    basis: "creator あんじんねこ is named on the platform page"
+  - id: w02649
+    title: "さよならじゃねーよ、ばか。"
+    madb: ["bw-84c39d89-55de-4db3-8abc-8f0a5df2aac5"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/53627"
+    anchor: "web:https://manga.nicovideo.jp/comic/53627"
+    basis: "creator あきやまえんま is named on the platform page"
+  - id: w02649
+    title: "さよならじゃねーよ、ばか。"
+    madb: ["bw-84c39d89-55de-4db3-8abc-8f0a5df2aac5"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003220_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003220_S"
+    basis: "creator あきやまえんま is named on the platform page"
+  - id: w02660
+    title: "私の女神が今日も推せる"
+    madb: ["bw-86d3b866-e81b-4c69-a751-430c868ad187"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/82261"
+    anchor: "web:https://manga.nicovideo.jp/comic/82261"
+    basis: "creator comicgaga編集部 is named on the platform page"
+  - id: w02662
+    title: "バリキャリと新卒"
+    madb: ["bw-873be928-b422-420a-9818-f5a03fd81267"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/33710"
+    anchor: "web:https://manga.nicovideo.jp/comic/33710"
+    basis: "creator えすえす is named on the platform page"
+  - id: w02662
+    title: "バリキャリと新卒"
+    madb: ["bw-873be928-b422-420a-9818-f5a03fd81267"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002543_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002543_S"
+    basis: "creator えすえす is named on the platform page"
+  - id: w02665
+    title: "なでしこドレミソラ"
+    madb: ["bw-88247"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/25145"
+    anchor: "web:https://manga.nicovideo.jp/comic/25145"
+    basis: "creator みやびあきの is named on the platform page"
+  - id: w02665
+    title: "なでしこドレミソラ"
+    madb: ["bw-88247"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/455"
+    anchor: "web:https://comic-fuz.com/manga/455"
+    basis: "creator みやびあきの is named on the platform page"
+  - id: w02667
+    title: "かなえるLoveSick"
+    madb: ["bw-88657"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/28928"
+    anchor: "web:https://manga.nicovideo.jp/comic/28928"
+    basis: "creator タチ is named on the platform page"
+  - id: w02669
+    title: "そういう年頃になっちゃった年の差姉妹"
+    madb: ["bw-88dff7e7-d107-4330-8cb5-91be33bd7bd0"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/46436"
+    anchor: "web:https://manga.nicovideo.jp/comic/46436"
+    basis: "creator はちこ is named on the platform page"
+  - id: w02669
+    title: "そういう年頃になっちゃった年の差姉妹"
+    madb: ["bw-88dff7e7-d107-4330-8cb5-91be33bd7bd0"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002941_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002941_S"
+    basis: "creator はちこ is named on the platform page"
+  - id: w02689
+    title: "夫のためにレズ風俗に行きました"
+    madb: ["bw-8cbffafd-82a1-4dce-89a7-7d324e63dc95"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/73824"
+    anchor: "web:https://manga.nicovideo.jp/comic/73824"
+    basis: "creator 三松真由美 is named on the platform page"
+  - id: w02695
+    title: "雑な生活"
+    madb: ["bw-8d7990ee-3f04-4416-83f8-8afb135cd1f4"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/46913"
+    anchor: "web:https://manga.nicovideo.jp/comic/46913"
+    basis: "creator 中憲人 is named on the platform page"
+  - id: w02695
+    title: "雑な生活"
+    madb: ["bw-8d7990ee-3f04-4416-83f8-8afb135cd1f4"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002813_S"
+    anchor: "web:https://comic-walker.com/detail/KC_002813_S"
+    basis: "creator 中憲人 is named on the platform page"
+  - id: w02703
+    title: "イケメン女子とイケメン女子"
+    madb: ["bw-9010da94-7920-4b4f-b436-2040b6ce8839"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/62313"
+    anchor: "web:https://manga.nicovideo.jp/comic/62313"
+    basis: "creator しぐま is named on the platform page"
+  - id: w02708
+    title: "ウィーンで歌ってみて"
+    madb: ["bw-91348"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/21070"
+    anchor: "web:https://manga.nicovideo.jp/comic/21070"
+    basis: "creator フクハラマサヤ is named on the platform page"
+  - id: w02709
+    title: "世界征服はまた明日"
+    madb: ["bw-91362"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/24070"
+    anchor: "web:https://manga.nicovideo.jp/comic/24070"
+    basis: "creator リフィ is named on the platform page"
+  - id: w02720
+    title: "私たちは恋を描けない"
+    madb: ["bw-92dfb8c9-7f50-408a-983a-bc4092809b63"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/35994"
+    anchor: "web:https://manga.nicovideo.jp/comic/35994"
+    basis: "creator あかまる is named on the platform page"
+  - id: w02725
+    title: "悪魔は笑って嘘をつく"
+    madb: ["bw-94b862f2-7a49-43c4-9f73-327a545c898f"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/52531"
+    anchor: "web:https://manga.nicovideo.jp/comic/52531"
+    basis: "creator 福井遥香 is named on the platform page"
+  - id: w02729
+    title: "愛焦がれキャラメリゼ"
+    madb: ["bw-964c22a5-a966-4336-8897-90b05022c94f"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/73172"
+    anchor: "web:https://manga.nicovideo.jp/comic/73172"
+    basis: "creator 杉谷エコ is named on the platform page"
+  - id: w02734
+    title: "ちょっといっぱい！"
+    madb: ["bw-97225"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/40836"
+    anchor: "web:https://manga.nicovideo.jp/comic/40836"
+    basis: "creator 火曜 is named on the platform page"
+  - id: w02734
+    title: "ちょっといっぱい！"
+    madb: ["bw-97225"]
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/297"
+    anchor: "web:https://comic-fuz.com/manga/297"
+    basis: "creator 火曜 is named on the platform page"
+  - id: w02736
+    title: "冬木先輩と夏井"
+    madb: ["bw-97772fe5-fc18-4f32-a7e0-9fe4ab8a479a"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/62986"
+    anchor: "web:https://manga.nicovideo.jp/comic/62986"
+    basis: "creator 乃樹愛 is named on the platform page"
+  - id: w02746
+    title: "ご主人様と獣耳の少女メル"
+    madb: ["bw-99977"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/21777"
+    anchor: "web:https://manga.nicovideo.jp/comic/21777"
+    basis: "creator 伊藤ハチ is named on the platform page"
+  - id: w02746
+    title: "ご主人様と獣耳の少女メル"
+    madb: ["bw-99977"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003870_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003870_S"
+    basis: "creator 伊藤ハチ is named on the platform page"
+  - id: w02771
+    title: "寂しすぎる女社長がレズ風俗嬢に秒で落ちる話"
+    madb: ["bw-9ecc4d2b-e448-4f11-92d6-741435d80dd6"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/52942"
+    anchor: "web:https://manga.nicovideo.jp/comic/52942"
+    basis: "creator 六番目の課長 is named on the platform page"
+  - id: w02771
+    title: "寂しすぎる女社長がレズ風俗嬢に秒で落ちる話"
+    madb: ["bw-9ecc4d2b-e448-4f11-92d6-741435d80dd6"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003138_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003138_S"
+    basis: "creator 六番目の課長 is named on the platform page"
+  - id: w02774
+    title: "グッド・バイ・プロミネンス"
+    madb: ["bw-a05a8242-84b7-4e3c-9a35-b391aac906b3"]
+    platform: "FEEL web"
+    url: "https://feelweb.jp/episode/316112896932049316"
+    anchor: "web:https://feelweb.jp/episode/316112896932049316"
+    basis: "creator ひの宙子 is named on the platform page"
+  - id: w02790
+    title: "はるか咲きそふ、刻どきの"
+    madb: ["bw-a5247ff6-b610-4273-9db2-44d3267b0b17"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/68749"
+    anchor: "web:https://manga.nicovideo.jp/comic/68749"
+    basis: "creator ぴらそん is named on the platform page"
+  - id: w02793
+    title: "幸福のおいしい道すがら"
+    madb: ["bw-a660d3c7-29ab-49bf-82bf-bf9b6b8b7f0d"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006845_S"
+    anchor: "web:https://comic-walker.com/detail/KC_006845_S"
+    basis: "creator 真くん is named on the platform page"
+  - id: w02797
+    title: "私と右腕"
+    madb: ["bw-a7784b86-3bff-449f-88e1-d56cf6542065"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/41947"
+    anchor: "web:https://manga.nicovideo.jp/comic/41947"
+    basis: "creator ぴりぷん is named on the platform page"
+  - id: w02818
+    title: "海のみちるごはん"
+    madb: ["bw-ae2e0208-95c4-450c-8cec-6b3bd17511af"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/71836"
+    anchor: "web:https://manga.nicovideo.jp/comic/71836"
+    basis: "creator 花宮みぃ is named on the platform page"
+  - id: w02822
+    title: "お義姉ちゃんのSNS"
+    madb: ["bw-af1e108a-6304-429c-960d-2efb3aca543c"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/51444"
+    anchor: "web:https://manga.nicovideo.jp/comic/51444"
+    basis: "creator 涼海来夏 is named on the platform page"
+  - id: w02829
+    title: "百合色ミュージアム【合本版】"
+    madb: ["bw-b02edbe6-780d-43cd-8748-d373d2c54c6e"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/78804"
+    anchor: "web:https://manga.nicovideo.jp/comic/78804"
+    basis: "creator 城之内寧々 is named on the platform page"
+  - id: w02842
+    title: "キリング・ミー！"
+    madb: ["bw-b5218fdb-e4f1-42a4-9757-a0deca03ae52"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/31753"
+    anchor: "web:https://manga.nicovideo.jp/comic/31753"
+    basis: "creator あきやま is named on the platform page"
+  - id: w02862
+    title: "悪役令嬢と愛のためならなんでもする女　姉井戸・百合作品集"
+    madb: ["bw-ba244d84-5097-4332-a60a-5fec378e1dda"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003208_S"
+    anchor: "web:https://comic-walker.com/detail/KC_003208_S"
+    basis: "creator 姉井戸 is named on the platform page"
+  - id: w02872
+    title: "北の女に試されたい"
+    madb: ["bw-bc27a656-f03f-4bab-b146-d3fa060ae1af"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/51510"
+    anchor: "web:https://manga.nicovideo.jp/comic/51510"
+    basis: "creator 箕田海道 is named on the platform page"
+  - id: w02872
+    title: "北の女に試されたい"
+    madb: ["bw-bc27a656-f03f-4bab-b146-d3fa060ae1af"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004491_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004491_S"
+    basis: "creator 箕田海道 is named on the platform page"
+  - id: w02955
+    title: "百合探偵少女 ～朱理推～"
+    madb: ["bw-d030fa76-f8c5-43bb-824d-cdebab535ced"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/41720"
+    anchor: "web:https://manga.nicovideo.jp/comic/41720"
+    basis: "creator 志真 is named on the platform page"
+  - id: w02957
+    title: "リボンと棘　高江洲弥作品集"
+    madb: ["bw-d0c64792-4f31-40b6-8313-31b92a24d5c5"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004094_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004094_S"
+    basis: "creator 高江洲弥 is named on the platform page"
+  - id: w02959
+    title: "ガールズ・スキャット・オーケストラ！"
+    madb: ["bw-d0e2a002-87a2-43b3-a775-38be3271316f"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/74195"
+    anchor: "web:https://manga.nicovideo.jp/comic/74195"
+    basis: "creator ゐぬゐ is named on the platform page"
+  - id: w02963
+    title: "私の可愛い翼ちゃん"
+    madb: ["bw-d1eb088e-7bad-4f8c-a0c8-abfcfea20d12"]
+    platform: "webアクション"
+    url: "https://comic-action.com/episode/2550689798323708099"
+    anchor: "web:https://comic-action.com/episode/2550689798323708099"
+    basis: "creator 七瀬八 is named on the platform page"
+  - id: w02969
+    title: "きみは終末"
+    madb: ["bw-d2c9b990-b985-484f-b04b-d39780263137"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/74657"
+    anchor: "web:https://manga.nicovideo.jp/comic/74657"
+    basis: "creator 仲谷鳰 is named on the platform page"
+  - id: w02969
+    title: "きみは終末"
+    madb: ["bw-d2c9b990-b985-484f-b04b-d39780263137"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007113_S"
+    anchor: "web:https://comic-walker.com/detail/KC_007113_S"
+    basis: "creator 仲谷鳰 is named on the platform page"
+  - id: w02979
+    title: "ゲーセンでよく見かける同じ機種やってるあの子"
+    madb: ["bw-d48cb2d8-e5dd-47f6-bc50-78a058242231"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/69385"
+    anchor: "web:https://manga.nicovideo.jp/comic/69385"
+    basis: "creator 茜りう is named on the platform page"
+  - id: w03028
+    title: "世界でいちばん美しいひと ふじちか短編集"
+    madb: ["bw-dfc3ae81-c96c-4377-ae57-f33fab758cf8"]
+    platform: "COMIC熱帯"
+    url: "https://www.comicnettai.com/book/44"
+    anchor: "web:https://www.comicnettai.com/book/44"
+    basis: "creator ふじちか is named on the platform page"
+  - id: w03038
+    title: "夢に落ちる少女"
+    madb: ["bw-e26537cf-4cc6-497a-ad7e-ceecaf674c26"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/51326"
+    anchor: "web:https://manga.nicovideo.jp/comic/51326"
+    basis: "creator しぐま is named on the platform page"
+  - id: w03043
+    title: "女の子が女の子のママになる話"
+    madb: ["bw-e3afbbfc-d857-4a4f-be0d-ed072d2479ce"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/42689"
+    anchor: "web:https://manga.nicovideo.jp/comic/42689"
+    basis: "creator カヅチ is named on the platform page"
+  - id: w03045
+    title: "死神聖女"
+    madb: ["bw-e3da2028-31be-4c5a-967d-cbadcfd25b73"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/74366"
+    anchor: "web:https://manga.nicovideo.jp/comic/74366"
+    basis: "creator 士崎雅雪 is named on the platform page"
+  - id: w03045
+    title: "死神聖女"
+    madb: ["bw-e3da2028-31be-4c5a-967d-cbadcfd25b73"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007037_S"
+    anchor: "web:https://comic-walker.com/detail/KC_007037_S"
+    basis: "creator 士崎雅雪 is named on the platform page"
+  - id: w03046
+    title: "謎レズバトル漫画"
+    madb: ["bw-e4724bb7-2fdc-48a2-af48-8bf63433caa9"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/29241"
+    anchor: "web:https://manga.nicovideo.jp/comic/29241"
+    basis: "creator 志真 is named on the platform page"
+  - id: w03049
+    title: "祖母ドル ～余命わずかのおばあちゃん、若返って孫とアイドルになる～"
+    madb: ["bw-e54447b0-3cb8-4530-be24-93ce176238f0"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/70067"
+    anchor: "web:https://manga.nicovideo.jp/comic/70067"
+    basis: "creator 狐ヶ崎 is named on the platform page"
+  - id: w03049
+    title: "祖母ドル ～余命わずかのおばあちゃん、若返って孫とアイドルになる～"
+    madb: ["bw-e54447b0-3cb8-4530-be24-93ce176238f0"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005928_S"
+    anchor: "web:https://comic-walker.com/detail/KC_005928_S"
+    basis: "creator 狐ヶ崎 is named on the platform page"
+  - id: w03079
+    title: "オレは男装女子じゃない！"
+    madb: ["bw-ed04e82e-83f1-4675-b2e5-c3ba089847f8"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/41891"
+    anchor: "web:https://manga.nicovideo.jp/comic/41891"
+    basis: "creator きらた is named on the platform page"
+  - id: w03079
+    title: "オレは男装女子じゃない！"
+    madb: ["bw-ed04e82e-83f1-4675-b2e5-c3ba089847f8"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/21242"
+    anchor: "web:https://manga.nicovideo.jp/comic/21242"
+    basis: "creator きらた is named on the platform page"
+  - id: w03079
+    title: "オレは男装女子じゃない！"
+    madb: ["bw-ed04e82e-83f1-4675-b2e5-c3ba089847f8"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000128_S"
+    anchor: "web:https://comic-walker.com/detail/KC_000128_S"
+    basis: "creator きらた is named on the platform page"
+  - id: w03081
+    title: "竜王さまの気ままな異世界ライフ"
+    madb: ["bw-ed74d146-54e7-43b1-a0d0-445b1306cb3a"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/72930"
+    anchor: "web:https://manga.nicovideo.jp/comic/72930"
+    basis: "creator よっしゃあっ is named on the platform page"
+  - id: w03081
+    title: "竜王さまの気ままな異世界ライフ"
+    madb: ["bw-ed74d146-54e7-43b1-a0d0-445b1306cb3a"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006657_S"
+    anchor: "web:https://comic-walker.com/detail/KC_006657_S"
+    basis: "creator よっしゃあっ is named on the platform page"
+  - id: w03101
+    title: "きょうもバレずに過ごせた！"
+    madb: ["bw-f1f1b471-a99b-4c85-a16f-599110b5e048"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/83152"
+    anchor: "web:https://manga.nicovideo.jp/comic/83152"
+    basis: "creator はづき is named on the platform page"
+  - id: w03101
+    title: "きょうもバレずに過ごせた！"
+    madb: ["bw-f1f1b471-a99b-4c85-a16f-599110b5e048"]
+    platform: "サンデーうぇぶり"
+    url: "https://www.sunday-webry.com/episode/2551460910093836682"
+    anchor: "web:https://www.sunday-webry.com/episode/2551460910093836682"
+    basis: "creator はづき is named on the platform page"
+  - id: w03137
+    title: "親友は、私の名前で不倫中"
+    madb: ["bw-fc57e6ba-0bb4-4098-a039-20bb95fb8250"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/74525"
+    anchor: "web:https://manga.nicovideo.jp/comic/74525"
+    basis: "creator エェコ is named on the platform page"
+  - id: w03148
+    title: "ユニコーンと寂しがりや少女"
+    madb: ["bw-ff2452af-79b0-4080-a33b-cfda0bd16f50"]
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/43072"
+    anchor: "web:https://manga.nicovideo.jp/comic/43072"
+    basis: "creator 藤松盟 is named on the platform page"
+  - id: w03148
+    title: "ユニコーンと寂しがりや少女"
+    madb: ["bw-ff2452af-79b0-4080-a33b-cfda0bd16f50"]
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004490_S"
+    anchor: "web:https://comic-walker.com/detail/KC_004490_S"
+    basis: "creator 藤松盟 is named on the platform page"

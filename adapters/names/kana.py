@@ -580,7 +580,7 @@ def align(surface, reading):
     # placement and try the next one, which is what makes this the standard alignment rather than a
     # scan. Titles are short and runs are few, so the exhaustive form is fast enough and is much
     # easier to be sure of than a scoring heuristic.
-    def solve(i, pos):
+    def solve(i, pos, strict):
         if i == len(runs):
             return [] if pos == len(reading) else None
         text, readable = runs[i]
@@ -589,22 +589,32 @@ def align(surface, reading):
             # drop punctuation the surface carries, so a run of five characters can spell three.
             # Every length that still spells the run is tried, longest first, so a reading that
             # does keep its punctuation is matched as written.
-            lo = sum(1 for c in text if is_kana(c))
+            #
+            # UNDER `strict` THE RUN MUST BE SPELLED WHOLE. Letting it consume nothing is what lets
+            # the kanji run beside it swallow the punctuation: 潮滅に沈む翡翠、北のまちの黒曜 reads
+            # ...ヒスイ、キタ... and shipped with 翡翠 carrying ひ and 北 carrying すい、きた, the
+            # 、 eaten by a run that has no 、 in it. A kana run is already whole, because its `lo`
+            # is its own length, so this only ever tightens punctuation.
+            lo = len(text) if strict else sum(1 for c in text if is_kana(c))
             for take in range(min(len(text), len(reading) - pos), lo - 1, -1):
                 if not _anchor_eq(reading[pos:pos + take], text):
                     continue
-                rest = solve(i + 1, pos + take)
+                rest = solve(i + 1, pos + take, strict)
                 if rest is not None:
                     return [(text, None)] + rest
             return None
         # A read run takes at least one kana, and every split is tried until the rest fits.
         for stop in range(pos + 1, len(reading) + 1):
-            rest = solve(i + 1, stop)
+            rest = solve(i + 1, stop, strict)
             if rest is not None:
                 return [(text, reading[pos:stop])] + rest
         return None
 
-    return solve(0, 0)
+    # THE STRICT PASS FIRST, AND ITS FAILURE IS NOT AN ERROR. A reading that keeps every mark the
+    # surface carries is aligned against them, which pins the runs either side. A reading that
+    # genuinely drops them, and many do, fails that pass and is aligned by the permissive one,
+    # which is the behaviour this had throughout.
+    return solve(0, 0, True) or solve(0, 0, False)
 
 
 # Per-character readings, for splitting a compound's reading across its characters (jukugo-ruby).

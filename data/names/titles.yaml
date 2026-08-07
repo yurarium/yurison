@@ -1,4 +1,4 @@
-generated: '2026-08-06'
+generated: '2026-08-07'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -14026,17 +14026,6 @@ names:
     verified: false
   どれが恋かがわからない = I don't know which is love:
     basis: romaji
-    furigana_spans:
-    - - どれが
-      - null
-    - - 恋
-      - こい
-    - - 'かがわからない = '
-      - null
-    - - I
-      - あい
-    - - ' don''t know which is love'
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ドレ ガ コイ カ ガ ワカラナイ   =   I   don't   know   which   is   love
@@ -21262,13 +21251,16 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ガイドヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ ～ ゲキカワゴスロリ マジンサマ、 サイコー !～
+    reading: ガイドヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ ～ ゲキカワ ゴスロリ マジンサマ、 サイコー !～
     reading_at: '2026-08-04'
     reading_basis: researched
     reading_conflicts:
     - basis: analyser
       source: sudachi
       value: ガイド ヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウ ジュツシ ニ ナリマシタ   ～ ゲキカワゴスロリ マジンサマ、 サイコー ! ～
+    - basis: researched
+      source: derived
+      value: ガイドヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ ～ ゲキカワゴスロリ マジンサマ、 サイコー !～
     reading_pass: 4
     reading_source: derived
     reading_source_kind: derived
@@ -21280,9 +21272,13 @@ names:
     en_at: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
-    reading: ガイドヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ ～ ゲキカワゴスロリ マジンサマ、 サイコー !～
+    reading: ガイドヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ ～ ゲキカワ ゴスロリ マジンサマ、 サイコー !～
     reading_at: '2026-08-04'
     reading_basis: researched
+    reading_conflicts:
+    - basis: researched
+      source: derived
+      value: ガイドヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ ～ ゲキカワゴスロリ マジンサマ、 サイコー !～
     reading_source: derived
     reading_source_kind: derived
     verified: false
@@ -26538,7 +26534,7 @@ names:
     en_source_kind: derived
     note: Queen's Blade is the established English name for the franchise this isekai is patterned on,
       per the synopsis's own reference to the anime クイーンズブレイド伝説; kept rather than retranslated.
-    reading: ナナシ ノ テンセイ クイーンズブレイド
+    reading: ナナシ ノ テンセイ クイーンズ ブレイド
     reading_at: '2026-08-04'
     reading_basis: researched
     reading_conflicts:
@@ -26548,6 +26544,9 @@ names:
     - basis: researched
       source: derived
       value: ナナシノテンセイクイーンズブレイド
+    - basis: researched
+      source: derived
+      value: ナナシ ノ テンセイ クイーンズブレイド
     reading_pass: 4
     reading_source: derived
     reading_source_kind: derived
@@ -29731,12 +29730,15 @@ names:
     en_source_kind: derived
     note: 繭の唄 written in katakana. ノ is the genitive particle and ウタ is 唄, so there is no long vowel in
       the title at all; the reading is segmented to say so.
-    reading: マユノウタ
+    reading: マユ ノ ウタ
     reading_at: '2026-08-04'
     reading_basis: researched
     reading_conflicts:
     - basis: surface
       source: surface
+      value: マユノウタ
+    - basis: researched
+      source: yurarium
       value: マユノウタ
     reading_pass: 1
     reading_source: yurarium
@@ -58571,13 +58573,16 @@ names:
     en_source_kind: derived
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハクショウ ノ アクマ / 2025 ネン 2 ガツ キ ブロンズルーキー ショウ
+    reading: ハクショウ ノ アクマ / 2025 ネン 2 ガツ キ ブロンズ ルーキー ショウ
     reading_at: '2026-08-04'
     reading_basis: researched
     reading_conflicts:
     - basis: analyser
       source: sudachi
       value: シロソウ ノ アクマ / 2025 ネン 2 ガツ キ ブロンズ ルーキー ショウ
+    - basis: researched
+      source: derived
+      value: ハクショウ ノ アクマ / 2025 ネン 2 ガツ キ ブロンズルーキー ショウ
     reading_pass: 4
     reading_source: derived
     reading_source_kind: derived
@@ -69301,13 +69306,16 @@ names:
       the kun''yomi of 陰/陽 alone; the stored reading had カゲ, the plain kun''yomi, which is not how this
       common compound is said. ギャル stays as "gal", the same loanword English-language anime fandom already
       uses for the fashion subculture, which is the joke: an introvert dressed as its opposite.'
-    reading: インキャギャル デモ イキガリタイ
+    reading: インキャ ギャル デモ イキガリタイ
     reading_at: '2026-08-03'
     reading_basis: researched
     reading_conflicts:
     - basis: analyser
       source: sudachi
       value: カゲ キャギャル デ モ イキガリタイ！
+    - basis: researched
+      source: yurarium
+      value: インキャギャル デモ イキガリタイ
     reading_pass: 4
     reading_source: yurarium
     reading_source_kind: derived

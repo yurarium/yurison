@@ -66,6 +66,15 @@ def main(s):
     # correspond say nothing and the whole-string search has to run as before.
     s.check(kana.align("ゆりでなるえすぽわーる", "ユリ デ ナル エスポワール"),
             "a reading spaced where the surface is not still aligns")
+    # PUNCTUATION THE READING KEEPS IS ANCHORED ON. Letting a mark consume nothing let the kanji
+    # run beside it swallow the mark: 翡翠 read ひ while 北 read すい、きた.
+    s.eq(kana.align("翡翠、北", "ヒスイ、キタ"),
+         [("翡翠", "ヒスイ"), ("、", None), ("北", "キタ")],
+         "a mark the reading states pins the runs either side of it")
+    # AND A READING THAT DROPS IT STILL ALIGNS, which is why the strict pass is a preference and
+    # not a rule. 「」 appear in the surface and in neither reading.
+    s.check(kana.align("「触れたい」は恋の始まり", "フレタイワコイノハジマリ"),
+            "a reading that drops the surface's marks still aligns")
     bad = kana.align("君の名は", "ぜんぜんちがう")
     s.check(bad is None or "".join(t for t, _ in bad) == "君の名は",
             "a mismatched reading does not corrupt the surface")

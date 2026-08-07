@@ -316,6 +316,43 @@ read-only to it.
 at a time is what makes a red gate attributable: it belongs to the branch being merged. Delete the
 worktree once its branch is in, so a stale checkout cannot be worked in by mistake.
 
+## 14b. A check must not share its subject's blind spot
+
+`--self-test` proves a check CAN fail. It does not prove the check can fail on anything the pipeline
+is able to produce, and those are different claims. A canary is planted directly into the context,
+downstream of whatever filtered the data on its way there, so a check whose subject already removed
+every failing case is canary-proven and reports nothing for the rest of its life.
+
+Found by a reader, on a live page, with every gate green. `w01478` was credited
+`田口ケンジ / タグチケンジ`, a name beside its own reading, which is the exact class
+`credits.dedupe` collapses. It survived because neither name is in the name store, so there was
+nothing to compare. The budget counting that class does the same store lookup, so it read 0. **The
+measure was blind in precisely the places the fix was blind**, and a check that shares its subject's
+assumption cannot report its subject's failures.
+
+Three shapes, all present in this repository when this was written:
+
+**The subject filters on the function the check verifies with.** `build.py` drops any furigana span
+set that `kana.ruby_spells` rejects, and `ruby spells the reading` verifies with `kana.ruby_spells`.
+Nothing that reaches the check can fail it. It guards that the filter still runs, which has value,
+and it detects no wrong ruby ever.
+
+**The subject enforces the exact condition the check tests.** `build.py` moves a row's first date
+back to its earliest volume, and `first date precedes its editions` tests whether a row's first date
+precedes its earliest volume. True by construction.
+
+**The check and the subject share a table, a regex or a lookup.** `credits that are not people` and
+`credits.is_a_person` each carry a copy of one regex. They had already drifted: the copy in the
+check does not recognise `第3話` and the copy in the adapter does, so the check under-reports what
+the adapter is catching, and neither number means what it says. §3 covers this, and the drift is the
+smaller half of the problem.
+
+**What to do instead.** Measure the OUTPUT against something the producer never consulted.
+`implausible ruby spans` is the shape to copy: it counts runs holding fewer kana than they have
+kanji, which is arithmetic on the rendered result, owes nothing to the aligner, and caught 30 real
+faults the aligner was content with. Where a check must reuse the subject's code, say so in its
+docstring and name what it therefore cannot see.
+
 ## 15. Layout changes ask what kind of control it is
 
 Every control in the interface falls into one of the kinds below, and which one decides where it

@@ -55,7 +55,12 @@ ATTRIBUTION = {
     # 616 author names on the site is a romanisation of ours, nobody has looked for the Latin name
     # the artist writes themselves, and an entry recording one was rejected by this line.
     "stated": ("platform", "publisher-jp", "author"),
-    "official-jp": ("publisher-jp", "platform"),  # the work's own English name
+    # `bibliography` IS ADMITTED HERE AND NOWHERE ELSE, and the reason is what ISBD punctuation
+    # means. A 並列タイトル after ` = ` is transcribed from the book's own title page: MADB is not
+    # inventing an English name, it is recording the one the publisher printed. So the source of
+    # the name is the publisher and the bibliography is the transcriber, which is a different
+    # relation from a cataloguer's romanisation and is why this admits no other basis.
+    "official-jp": ("publisher-jp", "platform", "bibliography"),  # the work's own English name
     "licensed": ("licensor",),                    # an English-language licensor's catalogue
     "translated": ("derived",),                   # ours
     "romaji": ("derived",),                       # ours
@@ -79,7 +84,10 @@ CURATED_KINDS = ("titles", "authors", "publishers")
 SOURCE_KINDS = ("platform", "publisher-jp", "licensor", "community-db", "derived",
                 # A national cataloguing authority, and the person themselves. Both state readings
                 # and neither is a publisher or a platform, so neither fitted the list before.
-                "national-library", "author")
+                "national-library", "author",
+                # The manga bibliography. It transcribes what a book prints, which is why it may
+                # carry `official-jp` for a parallel title and nothing else.
+                "bibliography")
 
 # A curated READING is a different claim from a curated name, and only two bases can be curated.
 # `aligned` and `back-converted` describe how a machine derived one, which is not something a

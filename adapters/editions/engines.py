@@ -95,7 +95,11 @@ NO_ROUTE = {
     "manga-park.com": ("マンガPark",
                        "the rendered series page carries no volume section and no outbound link "
                        "beyond the app stores and 白泉社's privacy policy."),
-    "manga-one.com": ("マンガワン", "no outbound shop link in the served page."),
+    "manga-one.com": ("マンガワン",
+                      "no outbound shop link on the pages read, rendered or served. Its own "
+                      "navigation carries a コミックス heading whose target was not found: "
+                      "/comics answers with 404, and finding where it went is the one loose end "
+                      "on this platform."),
     "www.corocoro.jp": ("コロコロオンライン", "no outbound shop link in the served page."),
     "www.123hon.com": ("コミックノヴァ", "no outbound shop link in the served page."),
     "flowercomics.jp": ("フラコミlike!", "no outbound shop link in the served page."),

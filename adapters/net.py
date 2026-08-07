@@ -80,7 +80,18 @@ def _wait(host):
 
 
 def cache_key(url):
-    return re.sub(r"[^A-Za-z0-9]", "_", url)[-120:]
+    """A filename for one URL, distinct per host.
+
+    THE HOST GOES IN FRONT AND IS NOT TRUNCATED. The key used to be the last 120 characters of the
+    sanitised URL, which is right for ordinary paths and wrong the moment a query string is long:
+    a percent-encoded Japanese title is 90 characters on its own, so the host fell off the front
+    and two different sites asked the same question shared one cache entry. Searching
+    manga.nicovideo.jp and webcomics.jp for one title served ニコニコ's page to both, and the
+    second site was recorded as having answered when it had never been read. Any adapter that
+    caches several hosts in one directory has the shape.
+    """
+    host = re.sub(r"[^A-Za-z0-9]", "_", urllib.parse.urlparse(url).netloc)
+    return f"{host}__{re.sub(r'[^A-Za-z0-9]', '_', url)[-120:]}"
 
 
 def fetch(url, cache, max_age_days=AGE_FEED):

@@ -37,6 +37,17 @@ def main(s):
     s.ne(a, b, "different URLs get different cache keys")
     s.check(all(c.isalnum() or c == "_" for c in a), "a cache key is safe as a filename")
 
+    # TWO HOSTS, ONE QUERY. THE BUG THIS PINS: the key was the last 120 characters of the
+    # sanitised URL, so a long query string pushed the host off the front and two different sites
+    # asked the same question shared a cache entry. Searching manga.nicovideo.jp and webcomics.jp
+    # for one Japanese title returned ニコニコ's page for both, and the second site was recorded as
+    # having answered when it had never been read. Any adapter caching several hosts in one
+    # directory has this shape; editions/capture.py walks five engines into one.
+    long_q = "%E5%87%9B%E3%81%A8%E3%81%97%E3%81%A6%E3%82%AB%E3%83%AC%E3%83%B3" * 3
+    s.ne(net.cache_key(f"https://one.example/search?q={long_q}"),
+         net.cache_key(f"https://two.example/search?q={long_q}"),
+         "two hosts asked the same long question get different cache keys")
+
     # PACING is per host. This is the safety argument for running hosts concurrently, so it is
     # asserted rather than assumed: two requests to one host are separated by at least PAUSE.
     t0 = time.time()

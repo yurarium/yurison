@@ -27762,6 +27762,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  ハニー＆ハニー:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ハニー ＆ ハニー
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ハニー＆マスタード:
     basis: translated
     en: Honey & Mustard
@@ -32529,6 +32540,20 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  レンズのむこう:
+    basis: romaji
+    furigana_spans:
+    - - レンズのむこう
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: レンズ ノ ムコウ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   レンズブルク女子寄宿学校の日常:
     basis: translated
     en: Daily Life at the Lensburg Girls' Boarding School

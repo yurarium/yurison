@@ -839,6 +839,19 @@ JAPANESE_SCRIPT = re.compile(r"[぀-ヿ一-鿿々]")
 NEEDS_READING = re.compile(r"[一-鿿々A-Za-zＡ-Ｚａ-ｚ0-9０-９]")
 
 
+def _shop_address(rec):
+    """Where a reader can buy this edition, or None.
+
+    ONLY A RETAILER'S ADDRESS COUNTS. `marketing_label_basis` carries the page a label was read
+    from, and for a record built from the national bibliography that page IS the bibliography:
+    mediaarts-db.artmuseums.go.jp. Taking the field without asking whose it was put the national
+    database under a heading reading "Sold at" on 824 works, which is both wrong and the kind of
+    wrong a reader would believe.
+    """
+    basis = rec.get("marketing_label_basis") or {}
+    return basis.get("url") if basis.get("source") == "bookwalker" else None
+
+
 def credits_en(raw, exact, folded, fold):
     """One rendering for an author field naming several people, or None.
 
@@ -4139,6 +4152,12 @@ def main():
                 if _eds:
                     _srow["print"] = [{
                         "work_id": _e2["work_id"],
+                        # WHERE TO BUY IT, which the record has carried all along. A retailer is
+                        # Tier C and its shelf is never a marketing_label (§4); a link to the shop
+                        # selling the book says only that the shop sells it, which is what a reader
+                        # following it wants. Absent on a record from the bibliography, which knows
+                        # the edition and not the shop.
+                        "shop_url": _shop_address(_e2),
                         "volumes": _e2.get("volume_count"),
                         "publisher": _e2.get("publisher"),
                         "imprint": _e2.get("imprint"),
@@ -4176,6 +4195,7 @@ def main():
             if _pid and _pid in _row_by_id:
                 _row_by_id[_pid].setdefault("print", []).append({
                     "work_id": _pw2["work_id"], "volumes": _pw2.get("volume_count"),
+                    "shop_url": _shop_address(_pw2),
                     "publisher": _pw2.get("publisher"), "imprint": _pw2.get("imprint"),
                     "first": _fp2.get("date"), "last": _pw2.get("last_published"),
                     "label": _pw2.get("marketing_label")})
@@ -4199,6 +4219,7 @@ def main():
                 "id": _pid,
                 "completed_claim": _pw2.get("completed_claim"),
                 "print": [{"work_id": _pw2["work_id"], "volumes": _pw2.get("volume_count"),
+                           "shop_url": _shop_address(_pw2),
                            "publisher": _pw2.get("publisher"), "imprint": _pw2.get("imprint"),
                            "first": _fp2.get("date"), "last": _pw2.get("last_published"),
                            "label": _pw2.get("marketing_label")}],

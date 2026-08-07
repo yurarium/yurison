@@ -145,6 +145,71 @@ def assign(entries, wanted):
     return entries, out
 
 
+def attach(entries, anchor, wid, basis, retrieved=None):
+    """Give an existing work a second address, keeping what says it is the same work.
+
+    WHY THIS IS NOT A MERGE. A merge retires an identifier, and it is the right operation when two
+    records the database already holds turn out to be one work. This is the other case: a work we
+    hold only as a printed book, whose serialisation was found on a platform that had never been
+    read for it. Nothing is being retired, because the serialisation was never a record. The work
+    gains the address it was always published at.
+
+    Getting the two the wrong way round is expensive in different directions. Merging where an
+    attach was called for retires an identifier that nobody had published; attaching where a merge
+    was called for leaves two rows for one work and one of them keeps its own id.
+
+    THE BASIS IS STORED, unlike the anchors `assign` derives. Those are re-derived from the data on
+    every run and are checkable against it; this one is a decision taken once by hand, so the
+    evidence has to travel with it or it becomes an assertion nobody can weigh.
+
+    Returns `(entries, error)`. An anchor another live work already holds is refused rather than
+    moved: that is a claim that two works are one, and it is a merge.
+    """
+    entries = [dict(e) for e in entries]
+    by_id = {e["id"]: e for e in entries}
+    if wid not in by_id:
+        return entries, f"{wid} is not in the registry"
+    held = index(entries).get(anchor)
+    if held and held != wid:
+        return entries, (f"{anchor} is already held by {held}. Attaching it to {wid} as well would "
+                         f"say the two are one work, which is a merge and needs --merge.")
+    e = by_id[wid]
+    if anchor in (e.get("anchors") or []):
+        return entries, None
+    e.setdefault("anchors", []).append(anchor)
+    e.setdefault("attached", []).append({"anchor": anchor, "basis": basis,
+                                         "retrieved": retrieved or _today()})
+    return entries, None
+
+
+def attach_all(entries, doc):
+    """`(entries, applied, refused)` for every join in a joins document.
+
+    Re-runnable on purpose. The joins file is the record and this registry is derived from it, so
+    running the pass twice must be a no-op rather than a second set of evidence lines. A join whose
+    anchor another work already holds is refused with its reason rather than being forced, because
+    that is the merge case and a merge retires an identifier.
+    """
+    applied, refused = 0, []
+    for j in (doc or {}).get("joins") or []:
+        anchor, wid = j.get("anchor"), j.get("id")
+        if not anchor or not wid:
+            refused.append(f"a join naming no anchor or no identifier: {j}")
+            continue
+        before = len(index(entries))
+        entries, err = attach(entries, anchor, wid, j.get("basis") or "", j.get("retrieved"))
+        if err:
+            refused.append(err)
+        elif len(index(entries)) > before:
+            applied += 1
+    return entries, applied, refused
+
+
+def _today():
+    import datetime
+    return datetime.date.today().isoformat()
+
+
 def merge(entries, loser, winner, basis):
     """Retire `loser` into `winner`, keeping it resolvable.
 
@@ -292,6 +357,17 @@ def main(argv=None):
     ap.add_argument("--merge", nargs=2, metavar=("RETIRED", "SURVIVING"),
                     help="retire one identifier into another. A decision, so it is taken by hand "
                          "and needs --basis; the retired id keeps resolving.")
+    ap.add_argument("--attach", nargs=2, metavar=("ANCHOR", "ID"),
+                    help="give a work we already hold a second address, for a serialisation the "
+                         "database had never seen. Needs --basis. Refuses an anchor another work "
+                         "holds, because that would be a merge.")
+    ap.add_argument("--attachments", metavar="FILE", nargs="+",
+                    help="apply every join in one or more joins files, each carrying its own "
+                         "basis. Same operation as --attach and re-runnable: an anchor already on "
+                         "its work is left alone, and one held by another work is refused and "
+                         "reported. Several files are taken in one call because the assignment "
+                         "that follows mints an identifier for any address still unclaimed, and a "
+                         "second invocation would be too late for the file it had not read yet.")
     ap.add_argument("--basis", help="why the two are one work")
     a = ap.parse_args(argv)
 
@@ -309,6 +385,24 @@ def main(argv=None):
                              "works are one, and it is not reversible for anyone holding a link.")
         entries = merge(entries, a.merge[0], a.merge[1], a.basis)
         doc = dict(doc or {}, works=entries)
+
+    if a.attach:
+        if not a.basis:
+            raise SystemExit("--attach needs --basis: saying that a serialisation and a book run "
+                             "are one work is a claim, and RUNBOOK §11 asks for a field that is "
+                             "not the title.")
+        entries, err = attach(entries, a.attach[0], a.attach[1], a.basis)
+        if err:
+            raise SystemExit(err)
+        doc = dict(doc or {}, works=entries)
+
+    for _f in a.attachments or []:
+        entries, applied, refused = attach_all(
+            entries, yaml.safe_load(pathlib.Path(_f).read_text()) or {})
+        doc = dict(doc or {}, works=entries)
+        print(f"{applied} address(es) attached from {_f}")
+        for r in refused:
+            print(f"  REFUSED {r}")
 
     # A URL is shared only where the whole population says so, which is why this is counted here
     # and not inferred per row.
@@ -406,6 +500,15 @@ def main(argv=None):
         L.append("    anchors:")
         for x in e.get("anchors") or []:
             L.append(f"      - {js(x)}")
+        # An anchor `assign` derived is re-derived from the data on every run. An anchor somebody
+        # attached by hand is not, so its evidence is written beside it or the join becomes an
+        # assertion nobody can weigh. Emitted here so that a rewrite of this file keeps it.
+        if e.get("attached"):
+            L.append("    attached:")
+        for at in e.get("attached") or []:
+            L.append(f"      - anchor: {js(at.get('anchor'))}")
+            L.append(f"        basis: {js(at.get('basis'))}")
+            L.append(f"        retrieved: {at.get('retrieved')}")
     L.append("")
     L.append("# Related works. A relation and not a merge: whether a one-shot beside a")
     L.append("# serialisation is a distinct work, an instalment the run absorbed, or a story a")

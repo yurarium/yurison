@@ -82,6 +82,48 @@ def main(s):
          "and the second work keeps its own identifier instead of being absorbed")
     s.eq(ident.index(shared)["madb:C1"], "w00001", "the print record stays where it was")
 
+    # AN ATTACH IS NOT A MERGE. A work held only as a printed book, whose serialisation had never
+    # been read, gains the address it was always published at. Nothing is retired, because the
+    # serialisation was never a record of its own.
+    attached, err = ident.attach(reg, "web:nico1", "w00001", "copyright line names the publisher")
+    s.eq(err, None, "attaching a free anchor succeeds")
+    s.eq(ident.index(attached)["web:nico1"], "w00001", "and the work answers to its new address")
+    s.eq([a["basis"] for a in next(e for e in attached if e["id"] == "w00001")["attached"]],
+         ["copyright line names the publisher"],
+         "the evidence travels with the anchor, because nothing re-derives it")
+    s.eq(len([e for e in attached if not e.get("merged_into")]), 2,
+         "and no identifier is minted or retired")
+
+    # THE REFUSAL. An anchor another live work holds is a claim that the two are one work, and
+    # that claim is a merge with its own basis. Silently moving it would join two works by
+    # accident, which is the failure `assign` reports as a contested anchor.
+    again2, err2 = ident.attach(attached, "web:u2", "w00001", "hopeful")
+    s.check(err2 and "w00002" in err2, "an anchor held elsewhere is refused, naming the holder")
+    s.eq(ident.index(again2)["web:u2"], "w00002", "and it stays where it was")
+
+    twice, err3 = ident.attach(attached, "web:nico1", "w00001", "again")
+    s.eq(err3, None, "attaching the same anchor twice is harmless")
+    s.eq(len(next(e for e in twice if e["id"] == "w00001")["attached"]), 1,
+         "and does not record the evidence a second time")
+
+    s.check(ident.attach(reg, "web:x", "w99999", "basis")[1],
+            "attaching to an identifier that does not exist is refused")
+
+    # THE WHOLE FILE AT ONCE, which is how a discovery pass applies two hundred of them. The joins
+    # file is the record and this registry is derived from it, so a second run must be a no-op.
+    joins = {"joins": [{"anchor": "web:nico2", "id": "w00001", "basis": "publisher agrees"},
+                       {"anchor": "web:u2", "id": "w00001", "basis": "hopeful"},
+                       {"anchor": "web:nico3", "id": "w00404", "basis": "nowhere"}]}
+    bulk, applied, refused = ident.attach_all(reg, joins)
+    s.eq(applied, 1, "only the free anchor is applied")
+    s.eq(len(refused), 2, "the held anchor and the unknown identifier are both refused, with why")
+    s.eq(ident.index(bulk)["web:nico2"], "w00001", "and the applied one resolves")
+
+    twice2, applied2, _ = ident.attach_all(bulk, joins)
+    s.eq(applied2, 0, "running the same joins file again attaches nothing")
+    s.eq(len(next(e for e in twice2 if e["id"] == "w00001")["attached"]), 1,
+         "and records the evidence once")
+
     merged = ident.merge(joinedreg, "w00002", "w00001", "same work, author agrees")
     s.eq(ident.index(merged)["web:u2"], "w00001", "a retired identifier still resolves")
     s.eq([e.get("merged_into") for e in merged if e["id"] == "w00002"], ["w00001"],

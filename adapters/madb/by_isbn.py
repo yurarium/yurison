@@ -94,11 +94,14 @@ def expand(books, seeds, series):
 
 
 def label_for(vs):
-    """`extract.LABEL_IMPRINT` where the publisher's own imprint carries it, else `LABEL_SHELF`."""
-    pats = [extract.norm(p) for p in extract.IMPRINTS]
+    """`extract.LABEL_IMPRINT` where the publisher's own imprint carries it, else `LABEL_SHELF`.
+
+    The imprint test is `extract.is_yuri_imprint` and is not repeated here. It used to be a second
+    copy of the spelling list, which is the shape §3 is written about: the two would have answered
+    differently the first time MADB spelled 百合姫 an eighth way.
+    """
     for r in vs:
-        brand = extract.norm(extract.flat(r.get("schema:brand", "")))
-        if any(p in brand for p in pats):
+        if extract.is_yuri_imprint(extract.flat(r.get("schema:brand", ""))):
             return extract.LABEL_IMPRINT
     return LABEL_SHELF
 

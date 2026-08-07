@@ -13,7 +13,15 @@ title:
   ja: "惑星クローゼット"
   yomi: "ワクセイ クローゼット"
 creator: "[著]つばな"
-publisher: ""
+publisher: "幻冬舎コミックス"
+publisher_stated: "[発売]幻冬舎 / 幻冬舎コミックス"
+publisher_from: volumes
+publishers:
+  - name: "幻冬舎"
+    role: distributor
+    role_stated: "発売"
+  - name: "幻冬舎コミックス"
+    role: publisher
 imprint: "バーズコミックス"
 volume_count: 4
 first_published: 2017-07

@@ -512,6 +512,42 @@ def inv_one_row_per_identifier(ctx):
     return bad
 
 
+# The cataloguing MADB wraps around a publisher's name. Written here as a shape and not as a list
+# of role words, deliberately: `adapters/madb/extract.py` decides which words are roles, and a copy
+# of its table here would report exactly what the adapter already handles and nothing else
+# (STANDING-INSTRUCTIONS §14b). Any bracket in a stored publisher is a finding.
+ROLE_NOTATION = re.compile(r"[\[［][^\]］]*[\]］]|[（(]\s*(?:発売|頒布|発売所|共同刊行)\s*[）)]")
+
+# The words a Japanese source uses for this genre, in the form an imprint name is compared in.
+# `adapters/classify/credence.py` holds a similar pattern for deciding what to SHOW, so the two
+# overlap and can drift. What this cannot see is a label whose evidence is right and whose display
+# is broken; that is credence's own to answer, and this measures the record instead.
+YURI_TERM_IN_IMPRINT = re.compile(r"百合|ガールズ・?ラブ|yuri", re.I)
+
+
+def inv_publisher_is_a_name_not_a_role(ctx):
+    """A stored publisher must name a publisher, not the role somebody held.
+
+    MADB writes a distributor as `[発売]講談社` and states the publisher beside it in the same
+    field, and `extract.py` read the first value. 206 records therefore named 講談社 where 一迅社
+    published, and the reader's per-publisher view showed 205 works under 講談社 against 20 that
+    are actually its. Nothing failed: the volumes section stripped the bracket and displayed the
+    same wrong name, so the page agreed with itself.
+
+    A bracket is the whole test. It is cataloguing wherever it appears in this field, and reading
+    what the bracket SAYS is the adapter's job rather than this check's, so a role the adapter
+    stops recognising still shows up here.
+
+    fallback: none is possible. The name is what is published; a wrong one is served.
+    """
+    bad = []
+    for r in ctx["madb_records"]:
+        m = ROLE_NOTATION.search(str(r.get("publisher") or ""))
+        if m:
+            bad.append(f"{r.get('work_id')}: publisher {r.get('publisher')!r} holds {m.group(0)!r}")
+    return bad
+
+
 def inv_first_date_precedes_its_editions(ctx):
     """A work cannot first appear after the volume that collects it was published.
 
@@ -652,6 +688,7 @@ INVARIANTS = [
     ("state agrees with its own date", inv_state_agrees_with_its_own_date),
     ("undated works say where and why", inv_undated_works_say_where_and_why),
     ("per-book dates cite their page", inv_per_book_dates_cite_their_page),
+    ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role),
 ]
 
 
@@ -1128,22 +1165,31 @@ def budget_renderings_with_nothing_to_show(ctx):
 def budget_publishers_with_no_english(ctx):
     """Publisher and imprint names that stay Japanese in English-only mode.
 
-    MEASURED ON THE OUTPUT, not on the renderer's table (§14b). `app.js` carries `PUB_EN`, a
-    hand-written map of 7 names, and every other publisher falls through it and renders as Japanese.
-    Counting the map's misses would ask the map about itself; this counts the distinct names the
-    data actually carries that the map has no entry for.
+    MEASURED AGAINST THE BUILD, NOT THE RENDERER (§14b). The first version of this scraped a
+    `PUB_EN` literal out of `kari/app.js`. That tied the check to the SHAPE of the renderer's
+    storage, so when the mapping moved into a data file the check found nothing and the number
+    silently became a count of everything. A check that breaks when its subject is improved was
+    measuring the wrong thing.
 
-    Names, not rows, because one publisher fixed once fixes every work it publishes. A name already
-    in Latin needs nothing and is not counted.
+    So it reads the shipped mapping wherever the build puts it, and counts the distinct names the
+    data carries that the mapping has no entry for. Names, not rows: one publisher rendered once
+    serves every work it publishes.
     """
     ja = re.compile(r"[぀-ヿ一-鿿々]")
     known = set()
-    site = SITE_ROOT / "kari" / "app.js"
-    if site.exists():
-        text = site.read_text()
-        i = text.find("const PUB_EN = {")
-        if i >= 0:
-            known = set(re.findall(r"'([^']+)'\s*:", text[i:text.find("};", i)]))
+    for cand in (BUILD / "feed" / "publishers.json", SITE / "feed" / "publishers.json"):
+        doc = _load(cand, None)
+        if isinstance(doc, dict):
+            known |= set(doc)
+            known |= {k for v in doc.values() if isinstance(v, dict) for k in v}
+    if not known:
+        # Nothing shipped yet, so fall back to whatever the renderer still carries inline.
+        site = SITE_ROOT / "kari" / "app.js"
+        if site.exists():
+            text = site.read_text()
+            i = text.find("const PUB_EN = {")
+            if i >= 0:
+                known = set(re.findall(r"'([^']+)'\s*:", text[i:text.find("};", i)]))
     seen = set()
     for r in ctx["series"]:
         for pr in (r.get("print") or []):
@@ -1153,8 +1199,29 @@ def budget_publishers_with_no_english(ctx):
                     seen.add(name)
     return len(seen)
 
+def budget_labels_with_nothing_to_quote(ctx):
+    """Records carrying a yuri label whose imprint states no term that says so.
+
+    The work page quotes the term each source used, and a term making no yuri claim would put a
+    reader in front of a claim they cannot weigh, so the row is withheld and the reader is told
+    nothing. 118 records were in that state: `extract.py` selected volumes on a 百合姫 brand and
+    stored the series record, whose own brand MADB writes as ["IDコミックス", "Yurihime comics"],
+    and the first value is 一迅社's general comics line.
+
+    Counted on the record and not on the page, so it says whether the EVIDENCE is held rather than
+    whether the renderer chose to show it. A record labelled from a platform's tag holds its term
+    somewhere else and is not counted here.
+    """
+    return sum(1 for r in ctx["madb_records"]
+               if r.get("marketing_label") in ("yuri", "gl")
+               and not YURI_TERM_IN_IMPRINT.search(str(r.get("imprint") or "")))
+
 
 BUDGETS_DEF = [
+    ("labels with nothing to quote", budget_labels_with_nothing_to_quote,
+     "records carrying a publisher-side yuri label whose imprint holds no term saying so, which "
+     "is a label the work page cannot show a reader the evidence for. A rise means a pass has "
+     "gone back to storing a field from a record other than the one that justified the label."),
     ("publishers with no English", budget_publishers_with_no_english,
      "distinct publisher and imprint names that render as Japanese in English-only mode. A rise "
      "means new publishers entered the corpus faster than their names were rendered."),
@@ -1263,7 +1330,23 @@ def context():
         "names_shipped": _load(BUILD / "feed" / "names.json", {}),
         "cmoa_capture": _capture_works("data/queue/cmoa-volumes.yaml"),
         "identity": (_yaml(ROOT / "data" / "identity" / "works.yaml", {}) or {}).get("works") or [],
+        # THE SOURCE LAYER, not the build. Two checks below ask what the RECORD states, because
+        # that is where the fact is produced and a build in between can only lose it. Loaded here
+        # with everything else so a canary can be planted in front of them; a check that opens its
+        # own file cannot be shown one, and self_test then reports it healthy having exercised
+        # nothing.
+        "madb_records": _madb_records(),
     }
+
+
+def _madb_records():
+    """Every source-layer record the MADB adapter wrote, as parsed documents."""
+    out = []
+    for f in sorted((ROOT / "data" / "source" / "madb").glob("*.yaml")):
+        doc = _yaml(f, None)
+        if isinstance(doc, dict):
+            out.append(doc)
+    return out
 
 
 def _capture_works(rel):
@@ -1321,6 +1404,9 @@ def self_test():
         ("dates within a row are ordered", inv_dates_within_a_row_are_ordered,
          lambda c: c["series"].append({"id": "CANARY", "work": "CANARY",
                                        "first": "2030-01", "latest": "2020-01"})),
+        # The distributor MADB names ahead of the publisher, stored as the publisher.
+        ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role,
+         lambda c: c["madb_records"].append({"work_id": "CANARY", "publisher": "[発売]講談社"})),
     ]
     ok = True
     for name, fn, plant in probes:

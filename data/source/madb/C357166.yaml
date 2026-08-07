@@ -14,7 +14,9 @@ title:
   yomi: "ユル ユリ"
 creator: "[著]なもり"
 publisher: "一迅社"
-imprint: "ID コミックス　／　Yurihime comics"
+imprint: "Yurihime comics"
+imprint_stated: "IDコミックス / Yurihime comics"
+imprint_from: volumes
 volume_count: 11
 first_published: 2015-07
 last_published: 2018-02
@@ -73,5 +75,6 @@ marketing_label_basis:
   url: https://mediaarts-db.artmuseums.go.jp/id/C357166
   retrieved: 2026-08-01
   note: >-
-    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    Published under a 一迅社 百合姫 imprint. The `imprint` field names the brand
+    that was matched, spelled as MADB spells it (schema:brand). Imprint is
     publisher-side labelling under DEFINITIONS §4.

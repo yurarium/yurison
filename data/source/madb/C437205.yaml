@@ -13,7 +13,14 @@ title:
   ja: "今日から未来"
   yomi: "キョウ カラ ミライ"
 creator: "[著]吉富昭仁"
-publisher: "[発売]小学館クリエイティブ"
+publisher: "ヒーローズ"
+publisher_stated: "[発売]小学館クリエイティブ / ヒーローズ"
+publishers:
+  - name: "小学館クリエイティブ"
+    role: distributor
+    role_stated: "発売"
+  - name: "ヒーローズ"
+    role: publisher
 imprint: "ヒーローズコミックスふらっと"
 volume_count: 4
 first_published: 2020-06

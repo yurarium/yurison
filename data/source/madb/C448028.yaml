@@ -13,7 +13,14 @@ title:
   ja: "ガールズインザヘル"
   yomi: "ガールズ イン ザ ヘル"
 creator: "河合朗"
-publisher: "[頒布]幻冬舎"
+publisher: "幻冬舎コミックス"
+publisher_stated: "[頒布]幻冬舎 / 幻冬舎コミックス"
+publishers:
+  - name: "幻冬舎"
+    role: distributor
+    role_stated: "頒布"
+  - name: "幻冬舎コミックス"
+    role: publisher
 imprint: "バーズコミックス"
 volume_count: 1
 first_published: 2020-12

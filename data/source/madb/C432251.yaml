@@ -13,8 +13,16 @@ title:
   ja: "月と恋は満ちれば欠ける。"
   yomi: "ツキ ト コイ ワ ミチレバ カケル 。"
 creator: "[著]トクヲツム"
-publisher: "[発売]講談社"
+publisher: "一迅社"
+publisher_stated: "[発売]講談社 / 一迅社"
+publishers:
+  - name: "講談社"
+    role: distributor
+    role_stated: "発売"
+  - name: "一迅社"
+    role: publisher
 imprint: "IDコミックス"
+imprint_stated: "IDコミックス / YH comics"
 volume_count: 2
 first_published: 2019-05
 last_published: 2021-01

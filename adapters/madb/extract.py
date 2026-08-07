@@ -10,11 +10,37 @@ Classification beyond the mechanical marketing_label is not done here — see do
 Usage:  extract.py --cache $YURI_CACHE/madb-cache/1.2.18 --tag 1.2.18 --out data/source/madb
 """
 import argparse, hashlib, json, pathlib, re, sys, unicodedata
-from collections import Counter, defaultdict
+from collections import Counter, defaultdict, namedtuple
 
 # Imprint patterns identifying the 一迅社 百合姫 line. Matched against a normalised schema:brand.
 # MADB spells this at least seven ways; see docs/MADB.md.
 IMPRINTS = ("yurihimecomics", "コミック百合姫", "百合姫コミックス", "百合姫books")
+
+# The role MADB writes in a bracket around a publisher's name, and what each one means. A value is
+# read as a role ONLY if it is in here. MADB brackets other things in the same position: `[LEGO]`,
+# `[Shueisha]` and `[ヒゲの筆]` are names, and a rule stripping every bracket leaves those credits
+# naming nobody. 発売 and 頒布 are the two that matter in this corpus and the rest are here because
+# they occur in the release and would otherwise be read as part of a name.
+PUBLISHER_ROLES = {
+    "発売": "distributor",
+    "頒布": "distributor",
+    "発売所": "distributor",
+    "共同刊行・発売": "co-publisher",
+    "共同刊行": "co-publisher",
+    "発行": "publisher",
+    "発行元": "publisher",
+    "発行所": "publisher",
+    "製作": "producer",
+    "制作": "producer",
+    "印刷": "printer",
+    "出版者不明": "unknown",
+}
+
+ROLE_HEAD = re.compile(r"^\s*[\[［]\s*([^\]］]*?)\s*[\]］]\s*")
+ROLE_TAIL = re.compile(r"\s*[（(]\s*([^）)]*?)\s*[）)]\s*$")
+
+# One publisher credit: the name, the role it holds, and MADB's own word for that role.
+Party = namedtuple("Party", "name role stated")
 
 # Health assertions — the adapter refuses to write if the source stops looking like itself (§6).
 MIN_VOLUMES = 400
@@ -48,6 +74,22 @@ def primary(v):
     return flat(v)
 
 
+def values(v):
+    """Every name a MADB field states, without the readings written after them.
+
+    WHY `primary` IS NOT ENOUGH, and it is the same fault in two fields. MADB gives one logical
+    field as a bare string or as a list holding the names first and their ja-hrkt readings after.
+    `primary` takes the first string, which is right for a title and wrong for a field whose values
+    are a set. `schema:brand` is ["IDコミックス", "Yurihime comics", …] and the first value is the
+    umbrella line every 一迅社 comic carries; `schema:publisher` is ["[発売]講談社", "一迅社"] and
+    the first value is the distributor. Both faults are one value being read where MADB stated
+    several.
+    """
+    if isinstance(v, list):
+        return [x.strip() for x in v if isinstance(x, str) and x.strip()]
+    return [v.strip()] if isinstance(v, str) and v.strip() else []
+
+
 def norm(t):
     return re.sub(r"[\s\-.=、。･・]", "", unicodedata.normalize("NFKC", t).lower())
 
@@ -55,6 +97,107 @@ def norm(t):
 def split_reading(t):
     """Publisher strings embed a reading: '一迅社　∥　イチジンシャ'. Return the name half."""
     return t.split("∥")[0].strip() if "∥" in t else t.strip()
+
+
+def as_stated(v):
+    """A field as MADB states it: every value, its cataloguing intact, the readings off.
+
+    This is the raw kept beside the interpretation. REQUIREMENTS §5 draws the line at what the
+    source said, so `[発売]講談社 / 一迅社` stays on the record next to the publisher read out of
+    it, and a reader who disagrees with the reading can see what it was made from.
+    """
+    got = [split_reading(x) for x in values(v)]
+    return " / ".join(got) if got else split_reading(primary(v))
+
+
+def party(text):
+    """One publisher credit as its name, the role it holds, and MADB's word for that role.
+
+    MADB writes the role in a bracket before the name, `[発売]講談社`, and sometimes after it,
+    `小学館クリエイティブ (発売)`. Both are cataloguing rather than part of the name. Anything the
+    bracket holds that PUBLISHER_ROLES does not name is left where it is, because MADB brackets
+    names in the same position and stripping `[ヒゲの筆]` leaves a credit naming nobody.
+
+    A party with no role stated is the publisher. That is what MADB means by writing a name plain
+    beside one it has marked.
+    """
+    name, role, stated = split_reading(text), "publisher", ""
+    head = ROLE_HEAD.match(name)
+    if head and head.group(1) in PUBLISHER_ROLES:
+        role, stated, name = PUBLISHER_ROLES[head.group(1)], head.group(1), name[head.end():].strip()
+    tail = ROLE_TAIL.search(name)
+    if tail and tail.group(1) in PUBLISHER_ROLES:
+        if not stated:
+            role, stated = PUBLISHER_ROLES[tail.group(1)], tail.group(1)
+        name = name[:tail.start()].strip()
+    return Party(name, role, stated)
+
+
+def publishers(rec):
+    """Every party MADB names on a record, in the order it names them."""
+    return [party(x) for x in values(rec.get("schema:publisher", ""))]
+
+
+def publisher_of(rec):
+    """The party that PUBLISHED, which is not the party MADB names first.
+
+    MADB lists a distributor ahead of the publisher: ["[発売]講談社", "一迅社"] is 一迅社's book put
+    into shops by 講談社. Reading the first value stored 講談社 as the publisher of 132 works whose
+    publisher is 一迅社, and a per-publisher count of 一迅社 came out roughly five times short
+    because of it.
+
+    Where nobody holds the publisher role the answer is nobody. A distributor is not promoted into
+    the empty seat, and `publishers` still names who MADB did state.
+    """
+    for p in publishers(rec):
+        if p.role == "publisher":
+            return p
+    return Party("", "", "")
+
+
+# The 百合姫 spellings in the form they are compared in. Built once so that the selection in
+# `main`, the per-work label in `by_isbn.label_for` and the imprint stored on a record all ask the
+# same question; three copies of the spelling list would answer differently the day MADB adds an
+# eighth spelling (STANDING-INSTRUCTIONS §3).
+IMPRINT_PATTERNS = tuple(norm(p) for p in IMPRINTS)
+
+
+def is_yuri_imprint(text):
+    """Whether a brand names 一迅社's 百合姫 line."""
+    n = norm(text)
+    return any(p in n for p in IMPRINT_PATTERNS)
+
+
+def imprint_of(recs):
+    """`(the imprint to store, the record it was read from)`, over a record and its volumes.
+
+    THE BRAND THAT EARNED THE LABEL IS THE ONE THE RECORD SHOULD STATE. `main` selects VOLUMES
+    whose brand is a 百合姫 line and writes the SERIES record. MADB states that series brand as
+    ["IDコミックス", "Yurihime comics", …], so reading the first value stored 117 works as
+    `imprint: IDコミックス` beside `marketing_label: yuri`. IDコミックス is 一迅社's general comics
+    line and makes no yuri claim at all, so the work page had a label whose evidence the record did
+    not hold, and `adapters/classify/credence.py` withheld the row instead of quoting a term that
+    would have misled a reader.
+
+    WHY NOT SIMPLY THE LAST VALUE, which is the more specific one in all 47,687 records stating
+    more than one brand. Because it is not always a brand: MADB writes ["Emerald comics", "Romance
+    comics = ロマンスコミックス", "プロポーズのゆくえ"] and the last value there is a title. So the
+    matched brand wins where the pass matched one, and every other record keeps the value it
+    already had.
+
+    `recs` is the record itself followed by its volumes. The series brand carries the match on 299
+    of the 302 works; the other three are where selection on the volumes is the only evidence
+    there is, and MADB leaves the brand off the series record entirely on one of them.
+    """
+    for rec in recs:
+        for b in (split_reading(x) for x in values(rec.get("schema:brand", ""))):
+            if is_yuri_imprint(b):
+                return b, rec
+    for rec in recs:
+        got = values(rec.get("schema:brand", ""))
+        if got:
+            return split_reading(got[0]), rec
+    return split_reading(primary(recs[0].get("schema:brand", ""))), recs[0]
 
 
 def local_id(v):
@@ -82,7 +225,8 @@ ROUTE_IMPRINT = "imprint-selection"
 # so this route states it; a route that selected on something else must state something else,
 # because DEFINITIONS §4 takes only publisher-side labelling and a shop's shelf is not that.
 LABEL_IMPRINT = ("yuri",
-                 "Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is\n"
+                 "Published under a 一迅社 百合姫 imprint. The `imprint` field names the brand\n"
+                 "    that was matched, spelled as MADB spells it (schema:brand). Imprint is\n"
                  "    publisher-side labelling under DEFINITIONS §4.")
 
 
@@ -94,10 +238,20 @@ def title_index(series):
     return out
 
 
-def bare_publisher(rec):
-    """A publisher without the cataloguing around it: `[頒布]`, and a trailing `(発売)`."""
-    s = split_reading(primary(rec.get("schema:publisher", "")))
-    return norm(re.sub(r"^\s*\[[^\]]*\]\s*|\s*[（(][^）)]*[）)]\s*$", "", s))
+def publisher_names(rec):
+    """Every party MADB names, normalised, for comparing one record against another.
+
+    A SET AND NOT ONE VALUE. MADB names the distributor beside the publisher on one record and the
+    publisher alone on the other: ハイガクラ's volumes state ["[頒布]講談社", "一迅社"] and its
+    series record states 一迅社. Comparing a single value against a single value refused 14 title
+    joins of that shape across release 1.2.18, ハイガクラ and Landreaall and 顔に泥を塗る among
+    them, all of which are one work under one publisher.
+
+    The role is off the name but is not itself compared, because who put a volume into shops says
+    nothing about whether two records describe one work. `[Shueisha]` keeps its bracket, which is
+    what `party` decided and which lets 少年ジャンプ+赤 match itself.
+    """
+    return {norm(p.name) for p in publishers(rec) if norm(p.name)}
 
 
 def strip_role(part):
@@ -137,6 +291,11 @@ def agrees(vol, ser):
     keeps it while dropping the collision above. Measured over the whole corpus this refuses two
     volume joins, both of them トワ・エ・モア.
 
+    The publisher test compares the SET of parties MADB names rather than one value, which is
+    `publisher_names` and its reasoning. It made 14 more title joins across release 1.2.18 and
+    refused none that had been made, so the refusal count fell from 1,195 to 1,181 and no work in
+    the imprint pass was regrouped.
+
     A FOURTH TEST WAS PROPOSED AND IS REFUTED, recorded here so it is not proposed again. Where an
     anthology names nobody, the argument runs, none of the three fields can speak and an exactly
     agreeing publication month is what is left. Three measurements over release 1.2.18 say
@@ -161,7 +320,7 @@ def agrees(vol, ser):
     """
     if people(vol) & people(ser):
         return True
-    if bare_publisher(vol) and bare_publisher(vol) == bare_publisher(ser):
+    if publisher_names(vol) & publisher_names(ser):
         return True
     b = norm(split_reading(primary(vol.get("schema:brand", ""))))
     return bool(b) and b == norm(split_reading(primary(ser.get("schema:brand", ""))))
@@ -287,12 +446,46 @@ def render(sid, vs, series, how, tag, retrieved, route, label, extra=()):
     ]
     if reading(s.get("schema:name", "")):
         L.append(f"  yomi: {yaml_str(reading(s.get('schema:name', '')))}")
+    # WHO PUBLISHED AND WHO DISTRIBUTED, kept apart, with the field they were read out of kept
+    # beside them. A distributor and a publisher hold different roles and a record that states one
+    # string for both leaves every consumer to guess which it has (REQUIREMENTS §5).
+    #
+    # A THIN SERIES RECORD DOES NOT SILENCE ITS VOLUMES. MADB leaves schema:publisher off 10 of
+    # these series records while every volume of them names 一迅社, and after the imprint was fixed
+    # those were the only works whose label still had nothing quotable: a term and nobody to
+    # attribute it to. Where the summary says nothing, the books it collects do, and the record
+    # names which of the two it read.
+    chain = [s] + list(vs)
+    pubrec = next((r for r in chain if values(r.get("schema:publisher", ""))), s)
+    parties = publishers(pubrec)
+    who = publisher_of(pubrec)
+    pub_stated = as_stated(pubrec.get("schema:publisher", ""))
+    # The imprint that carries this record's label, or the brand as stated where nothing matched.
+    imprint, imprec = imprint_of(chain)
+    imp_stated = as_stated(imprec.get("schema:brand", ""))
     L += [
         f"creator: {yaml_str(flat(s.get('schema:creator', '')))}",
-        f"publisher: {yaml_str(split_reading(primary(s.get('schema:publisher', ''))))}",
-        f"imprint: {yaml_str(split_reading(primary(s.get('schema:brand', ''))))}",
-        f"volume_count: {volume_count(vs)}",
+        f"publisher: {yaml_str(who.name)}",
     ]
+    # The raw is written wherever reading it changed the answer, and left out where it would only
+    # repeat the line above. Correcting how a source is READ is right; editing what it SAID is not.
+    if pub_stated != who.name:
+        L.append(f"publisher_stated: {yaml_str(pub_stated)}")
+    if pubrec is not s:
+        L.append("publisher_from: volumes")
+    if len(parties) > 1 or any(p.stated for p in parties):
+        L.append("publishers:")
+        for p in parties:
+            L.append(f"  - name: {yaml_str(p.name)}")
+            L.append(f"    role: {p.role}")
+            if p.stated:
+                L.append(f"    role_stated: {yaml_str(p.stated)}")
+    L.append(f"imprint: {yaml_str(imprint)}")
+    if imp_stated != imprint:
+        L.append(f"imprint_stated: {yaml_str(imp_stated)}")
+    if imprec is not s:
+        L.append("imprint_from: volumes")
+    L.append(f"volume_count: {volume_count(vs)}")
     if dates:
         L.append(f"first_published: {dates[0]}")
         L.append(f"last_published: {dates[-1]}")
@@ -355,8 +548,7 @@ def main():
     books = load(a.cache, "metadata101.json")
     series = {r["schema:identifier"]: r for r in load(a.cache, "metadata104.json")}
 
-    pats = [norm(p) for p in IMPRINTS]
-    vols = [r for r in books if any(p in norm(flat(r.get("schema:brand", ""))) for p in pats)]
+    vols = [r for r in books if is_yuri_imprint(flat(r.get("schema:brand", "")))]
 
     if len(vols) < MIN_VOLUMES:
         sys.exit(f"HEALTH: {len(vols)} volumes < {MIN_VOLUMES}; imprint spelling may have changed. "
@@ -379,6 +571,25 @@ def main():
         if counts[how]:
             print(f"  {how:12}: {counts[how]}")
     print(f"content-rated   : {rated} (review before inclusion — DEFINITIONS §7)")
+
+    # WHAT THE RECORDS NOW STATE, reported rather than assumed. Both numbers below were the two
+    # faults: an imprint quoting the umbrella line, and a distributor standing where the publisher
+    # belongs. A pass that stops resolving either should say so on the run it stops.
+    quoting = distributed = unnamed = 0
+    for sid, vs in by_series.items():
+        s = vs[0] if sid.startswith("T:") else series[sid]
+        chain = [s] + list(vs)
+        if is_yuri_imprint(imprint_of(chain)[0]):
+            quoting += 1
+        pubrec = next((r for r in chain if values(r.get("schema:publisher", ""))), s)
+        if any(p.role == "distributor" for p in publishers(pubrec)):
+            distributed += 1
+        if not publisher_of(pubrec).name:
+            unnamed += 1
+    print(f"imprint quotable: {quoting} of {len(by_series)} works state the 百合姫 brand that "
+          "carries their label")
+    print(f"distributors    : {distributed} works name one beside the publisher")
+    print(f"no publisher    : {unnamed} works where MADB names nobody in that role")
 
 
 if __name__ == "__main__":

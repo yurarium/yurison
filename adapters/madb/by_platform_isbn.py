@@ -287,9 +287,12 @@ def designations(by_series, series, from_url, by_url):
     out = []
     for sid, vs in by_series.items():
         s = vs[0] if sid.startswith("T:") else series.get(sid, {})
+        # EVERY BRAND AND EVERY PUBLISHER MADB STATES, not the first of each. `designated` looks
+        # for an adult imprint by substring, and MADB writes a brand as ["IDコミックス",
+        # "Yurihime comics"], so reading one value asked the question of half the field.
         fields = {"genre": "",
-                  "imprint": extract.split_reading(extract.primary(s.get("schema:brand", ""))),
-                  "publisher": extract.split_reading(extract.primary(s.get("schema:publisher", ""))),
+                  "imprint": extract.as_stated(s.get("schema:brand", "")),
+                  "publisher": extract.as_stated(s.get("schema:publisher", "")),
                   "title": extract.primary(s.get("schema:name", ""))}
         why = shelfingest.designated(fields)
         if not why:

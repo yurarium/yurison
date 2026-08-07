@@ -36423,6 +36423,28 @@ authors:
 # NOT ROMANISED WHERE NOBODY STATES IT. ナンバーナイン is a company called No9 and クロスフォリオ
 # 出版 is a name in katakana that nothing here can source, so the second one stays Japanese.
 publishers:
+  "主婦と生活社":
+    en: "Shufu to Seikatsu Sha"
+    basis: official-jp
+    source: "shufu.co.jp"
+    source_kind: publisher-jp
+    source_url: "https://www.shufu.co.jp/"
+    reviewed: '2026-08-07'
+    note: >-
+      The company writes its own name in Japanese throughout and publishes no English form, so this
+      is the romanisation of the name it uses and not a translation of what it means.
+
+  "PASH! コミックス":
+    en: "PASH! Comics"
+    basis: official-jp
+    source: "pash-up.jp"
+    source_kind: publisher-jp
+    source_url: "https://pash-up.jp/"
+    reviewed: '2026-08-07'
+    note: >-
+      主婦と生活社's comics line, already written PASH! in Latin letters on its own imprint, and
+      コミックス is the English word it stands for.
+
   "講談社":
     en: "Kodansha"
     basis: official-jp

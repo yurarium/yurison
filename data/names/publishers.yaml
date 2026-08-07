@@ -10,6 +10,16 @@ names:
     note: Ichijinsha's umbrella comics line. The label itself is written IDコミックス, ID in Latin letters
       already, and the rest is the English word it stands for.
     verified: true
+  PASH! コミックス:
+    basis: official-jp
+    en: PASH! Comics
+    en_at: '2026-08-07'
+    en_source: pash-up.jp
+    en_source_kind: publisher-jp
+    en_url: https://pash-up.jp/
+    note: 主婦と生活社's comics line, already written PASH! in Latin letters on its own imprint, and コミックス is
+      the English word it stands for.
+    verified: true
   イースト・プレス:
     basis: official-jp
     en: Eastpress
@@ -93,6 +103,16 @@ names:
     en_source_kind: publisher-jp
     en_url: https://www.sanko-sha.com/
     note: The company signs its own site SANKO-SHA, Inc.
+    verified: true
+  主婦と生活社:
+    basis: official-jp
+    en: Shufu to Seikatsu Sha
+    en_at: '2026-08-07'
+    en_source: shufu.co.jp
+    en_source_kind: publisher-jp
+    en_url: https://www.shufu.co.jp/
+    note: The company writes its own name in Japanese throughout and publishes no English form, so this
+      is the romanisation of the name it uses and not a translation of what it means.
     verified: true
   光文社:
     basis: official-jp

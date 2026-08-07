@@ -43,6 +43,11 @@ works:
     title: "星屑テレパス"
     anchors:
       - "web:https://comic-fuz.com/manga/2062"
+      - "madb:C437705"
+    attached:
+      - anchor: "madb:C437705"
+        basis: "星屑テレパス lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/253315/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00007
     title: "フレンドガールフレンド"
     anchors:
@@ -85,6 +90,11 @@ works:
     title: "一畳間まんきつ暮らし！"
     anchors:
       - "web:https://comic-fuz.com/manga/1811"
+      - "madb:C434691"
+    attached:
+      - anchor: "madb:C434691"
+        basis: "一畳間まんきつ暮らし！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/225301/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00016
     title: "雨夜の月"
     anchors:
@@ -129,6 +139,11 @@ works:
     title: "DOUBLE HELIX BLOSSOM"
     anchors:
       - "web:https://www.corocoro.jp/title/65"
+      - "madb:madb-t-0b2a191062cc"
+    attached:
+      - anchor: "madb:madb-t-0b2a191062cc"
+        basis: "DOUBLE HELIX BLOSSOM lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/468696/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00022
     title: "彼氏の女友達がぐいぐい来る（私に）"
     anchors:
@@ -153,6 +168,11 @@ works:
     title: "球詠"
     anchors:
       - "web:https://comic-fuz.com/manga/441"
+      - "madb:C365810"
+    attached:
+      - anchor: "madb:C365810"
+        basis: "球詠 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/91351/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00027
     title: "ニニンがシノブ伝ぷらす"
     anchors:
@@ -162,18 +182,27 @@ works:
     title: "うさぎはかく語りき"
     anchors:
       - "web:https://comic-fuz.com/manga/3572"
+      - "madb:madb-t-bfaa83343062"
+    attached:
+      - anchor: "madb:madb-t-bfaa83343062"
+        basis: "うさぎはかく語りき lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/509407/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00029
     title: "春雷卓球"
     anchors:
       - "web:https://shonenjumpplus.com/episode/9253191255561725978"
       - "web:https://shonenjumpplus.com/atom/series/17107094912912919707"
       - "web:https://shonenjumpplus.com/series/17107094912912919707/first_episode"
+      - "madb:madb-t-26a9f1caf294"
     attached:
       - anchor: "web:https://shonenjumpplus.com/atom/series/17107094912912919707"
         basis: "the chapter page at https://shonenjumpplus.com/episode/9253191255561725978 links its own series feed at https://shonenjumpplus.com/atom/series/17107094912912919707, so the platform places this chapter in series 17107094912912919707, and the og:title there names the work: [おまけ12]春雷卓球 - 平方昌宏 | 少年ジャンプ＋"
         retrieved: 2026-08-07
       - anchor: "web:https://shonenjumpplus.com/series/17107094912912919707/first_episode"
         basis: "the chapter page at https://shonenjumpplus.com/episode/9253191255561725978 links its own series feed at https://shonenjumpplus.com/atom/series/17107094912912919707, so the platform places this chapter in series 17107094912912919707, and the og:title there names the work: [おまけ12]春雷卓球 - 平方昌宏 | 少年ジャンプ＋. https://shonenjumpplus.com/series/17107094912912919707/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-26a9f1caf294"
+        basis: "春雷卓球 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00030
     title: "七限目は忍者修行です！"
@@ -196,12 +225,16 @@ works:
       - "web:https://www.sunday-webry.com/episode/12207421984039246490"
       - "web:https://www.sunday-webry.com/atom/series/2550912964699074885"
       - "web:https://www.sunday-webry.com/series/2550912964699074885/first_episode"
+      - "madb:madb-t-40e8b6ca1e74"
     attached:
       - anchor: "web:https://www.sunday-webry.com/atom/series/2550912964699074885"
         basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984039246490 links its own series feed at https://www.sunday-webry.com/atom/series/2550912964699074885, so the platform places this chapter in series 2550912964699074885, and the og:title there names the work: イラスト / 上杉くんは女の子をやめたい - やぶうち優 | サンデーうぇぶり"
         retrieved: 2026-08-07
       - anchor: "web:https://www.sunday-webry.com/series/2550912964699074885/first_episode"
         basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984039246490 links its own series feed at https://www.sunday-webry.com/atom/series/2550912964699074885, so the platform places this chapter in series 2550912964699074885, and the og:title there names the work: イラスト / 上杉くんは女の子をやめたい - やぶうち優 | サンデーうぇぶり. https://www.sunday-webry.com/series/2550912964699074885/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-40e8b6ca1e74"
+        basis: "上杉くんは女の子をやめたい lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/491752/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00034
     title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
@@ -241,10 +274,20 @@ works:
     title: "IDOL×IDOL STORY！"
     anchors:
       - "web:https://comic-fuz.com/manga/3140"
+      - "madb:madb-t-96b7ccde2466"
+    attached:
+      - anchor: "madb:madb-t-96b7ccde2466"
+        basis: "IDOL×IDOL STORY！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/409505/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00041
     title: "しあわせ鳥見んぐ"
     anchors:
       - "web:https://comic-fuz.com/manga/2474"
+      - "madb:C449946"
+    attached:
+      - anchor: "madb:C449946"
+        basis: "しあわせ鳥見んぐ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/321202/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00042
     title: "忍者と殺し屋のふたりぐらし"
     anchors:
@@ -269,9 +312,13 @@ works:
     anchors:
       - "web:https://manga-one.com/viewer/225633"
       - "web:https://manga-one.com/title/2565"
+      - "madb:madb-t-0170b99a3afa"
     attached:
       - anchor: "web:https://manga-one.com/title/2565"
         basis: "https://manga-one.com/viewer/225633 states a canonical address of https://manga-one.com/manga/2565/chapter/225633, so マンガワン places this chapter in work 2565; https://manga-one.com/title/2565 was fetched 2026-08-07, answered 200 and titles itself 妖怪殲滅のサイコリリー 第1話 | マンガワン"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-0170b99a3afa"
+        basis: "妖怪殲滅のサイコリリー lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00045
     title: "胡蝶の夢"
@@ -314,18 +361,35 @@ works:
     title: "あきらかに年齢を詐称している女子高生VTuber"
     anchors:
       - "web:https://comic-walker.com/detail/KC_009434_S"
+      - "madb:madb-t-30f59d9b87d3"
+    attached:
+      - anchor: "madb:madb-t-30f59d9b87d3"
+        basis: "あきらかに年齢を詐称している女子高生VTuber lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/491340/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00054
     title: "サタノファニ"
     anchors:
       - "web:https://comic-days.com/episode/12207421983566481726"
       - "web:https://comic-days.com/atom/series/13932016480029395540"
       - "web:https://comic-days.com/series/13932016480029395540/first_episode"
+      - "madb:C368867"
+      - "madb:C450589"
+      - "madb:madb-t-f2ab6d5672fb"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/13932016480029395540"
         basis: "the chapter page at https://comic-days.com/episode/12207421983566481726 links its own series feed at https://comic-days.com/atom/series/13932016480029395540, so the platform places this chapter in series 13932016480029395540, and the og:title there names the work: サタノファニ - 山田恵庸 / 第３３６話　「人たらしめるもの」　 | コミックDAYS"
         retrieved: 2026-08-07
       - anchor: "web:https://comic-days.com/series/13932016480029395540/first_episode"
         basis: "the chapter page at https://comic-days.com/episode/12207421983566481726 links its own series feed at https://comic-days.com/atom/series/13932016480029395540, so the platform places this chapter in series 13932016480029395540, and the og:title there names the work: サタノファニ - 山田恵庸 / 第３３６話　「人たらしめるもの」　 | コミックDAYS. https://comic-days.com/series/13932016480029395540/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:C368867"
+        basis: "サタノファニ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/114793/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
+      - anchor: "madb:C450589"
+        basis: "サタノファニ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/114793/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-f2ab6d5672fb"
+        basis: "サタノファニ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/114793/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00055
     title: "ぜんぶ壊して地獄で愛して"
@@ -358,6 +422,11 @@ works:
     title: "このままモブじゃ終われない！"
     anchors:
       - "web:https://comic-fuz.com/manga/3700"
+      - "madb:madb-t-70911cb03491"
+    attached:
+      - anchor: "madb:madb-t-70911cb03491"
+        basis: "このままモブじゃ終われない！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/506010/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00059
     title: "病弱少女、転生して健康な肉体（最強）を手に入れる　～友達が欲しくて魔境から旅立ったのですが、どうやら私の魔法は少しおかしいようです！？～"
     anchors:
@@ -640,9 +709,13 @@ works:
       - "web:https://pocket.shonenmagazine.com/title/02328/episode/441285"
       - "web:https://comic-days.com/episode/12207421983773700452"
       - "web:https://pocket.shonenmagazine.com/title/02328"
+      - "madb:madb-t-03b3bb0716cf"
     attached:
       - anchor: "web:https://pocket.shonenmagazine.com/title/02328"
         basis: "the work-level address of https://pocket.shonenmagazine.com/title/02328/episode/441285, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-03b3bb0716cf"
+        basis: "念願の悪役令嬢の身体を手に入れたぞ! lists no collected volume on its own platform page, and bookwalker.jp answers the title query with https://bookwalker.jp/series/460229/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00098
     title: "作りたい女と食べたい女"
@@ -660,12 +733,16 @@ works:
       - "web:https://comic-days.com/episode/12207421983997344603"
       - "web:https://pocket.shonenmagazine.com/title/03056/episode/441581"
       - "web:https://pocket.shonenmagazine.com/title/03056"
+      - "madb:madb-t-ec06671aa9fe"
     attached:
       - anchor: "web:https://pocket.shonenmagazine.com/title/03056/episode/441581"
         basis: "one series row holds both this address and comic-days.com/episode/12207421983997344603, so they are two platforms carrying one serialisation by ばったん"
         retrieved: 2026-08-07
       - anchor: "web:https://pocket.shonenmagazine.com/title/03056"
         basis: "the work-level address of https://pocket.shonenmagazine.com/title/03056/episode/441581, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-ec06671aa9fe"
+        basis: "ファタールゲーム lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/552372/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00101
     title: "百合のはじまりは奴隷から"
@@ -767,6 +844,11 @@ works:
     title: "エイティエイトを２でわって"
     anchors:
       - "web:https://comic-fuz.com/manga/3423"
+      - "madb:madb-t-ac6492f2d7a6"
+    attached:
+      - anchor: "madb:madb-t-ac6492f2d7a6"
+        basis: "エイティエイトを２でわって lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/452629/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00113
     title: "拝啓、在りし日に咲く花たちへ"
     anchors:
@@ -784,12 +866,16 @@ works:
       - "web:https://comic-days.com/episode/12207421984000540113"
       - "web:https://comic-days.com/atom/series/2550912964454042523"
       - "web:https://comic-days.com/series/2550912964454042523/first_episode"
+      - "madb:madb-t-1b353f104a5b"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/2550912964454042523"
         basis: "the chapter page at https://comic-days.com/episode/12207421984000540113 links its own series feed at https://comic-days.com/atom/series/2550912964454042523, so the platform places this chapter in series 2550912964454042523, and the og:title there names the work: シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～ - 空山トキ/五色安未/泉乃せん/伍長 / 第２３話　襲撃２ | コミックDAYS"
         retrieved: 2026-08-07
       - anchor: "web:https://comic-days.com/series/2550912964454042523/first_episode"
         basis: "the chapter page at https://comic-days.com/episode/12207421984000540113 links its own series feed at https://comic-days.com/atom/series/2550912964454042523, so the platform places this chapter in series 2550912964454042523, and the og:title there names the work: シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～ - 空山トキ/五色安未/泉乃せん/伍長 / 第２３話　襲撃２ | コミックDAYS. https://comic-days.com/series/2550912964454042523/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-1b353f104a5b"
+        basis: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/508729/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00116
     title: "妄執女と芥川"
@@ -812,6 +898,11 @@ works:
     title: "魔女とくゅらす"
     anchors:
       - "web:https://heros-web.com/series/2b64bc0622a2a"
+      - "madb:madb-t-efd8e10072cd"
+    attached:
+      - anchor: "madb:madb-t-efd8e10072cd"
+        basis: "魔女とくゅらす lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/560376/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00120
     title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
     anchors:
@@ -1202,12 +1293,16 @@ works:
       - "web:https://comic-days.com/episode/12207421983484134356"
       - "web:https://comic-days.com/atom/series/2550912965415291249"
       - "web:https://comic-days.com/series/2550912965415291249/first_episode"
+      - "madb:madb-t-e8a03476b0d4"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/2550912965415291249"
         basis: "the chapter page at https://comic-days.com/episode/12207421983484134356 links its own series feed at https://comic-days.com/atom/series/2550912965415291249, so the platform places this chapter in series 2550912965415291249, and the og:title there names the work: 新刊１００億冊ください - 破賀ミチル / ３１冊目：己の中のケモノ | モーニング・ツー"
         retrieved: 2026-08-07
       - anchor: "web:https://comic-days.com/series/2550912965415291249/first_episode"
         basis: "the chapter page at https://comic-days.com/episode/12207421983484134356 links its own series feed at https://comic-days.com/atom/series/2550912965415291249, so the platform places this chapter in series 2550912965415291249, and the og:title there names the work: 新刊１００億冊ください - 破賀ミチル / ３１冊目：己の中のケモノ | モーニング・ツー. https://comic-days.com/series/2550912965415291249/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-e8a03476b0d4"
+        basis: "新刊100億冊ください lists no collected volume on its own platform page, and bookwalker.jp answers the title query with https://bookwalker.jp/series/557808/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00168
     title: "現実世界でも幸せにしてくださいね？"
@@ -1279,6 +1374,11 @@ works:
     title: "酒と鬼は二合まで"
     anchors:
       - "web:https://bigcomics.jp/series/dd9141c4d469c"
+      - "madb:C450342"
+    attached:
+      - anchor: "madb:C450342"
+        basis: "酒と鬼は二合まで lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/432975/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00176
     title: "ハルのレジスタ"
     anchors:
@@ -1315,6 +1415,11 @@ works:
     title: "しゅがー・みーつ・がーる！"
     anchors:
       - "web:https://comic-fuz.com/manga/3108"
+      - "madb:madb-t-5799fbbd2387"
+    attached:
+      - anchor: "madb:madb-t-5799fbbd2387"
+        basis: "しゅがー・みーつ・がーる！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/459334/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00182
     title: "ハウリング・ブレイズ　葬焔の剣士と不死の魔女"
     anchors:
@@ -1398,6 +1503,11 @@ works:
     title: "ばっどがーる"
     anchors:
       - "web:https://comic-fuz.com/manga/2664"
+      - "madb:madb-t-332de2da60b0"
+    attached:
+      - anchor: "madb:madb-t-332de2da60b0"
+        basis: "ばっどがーる lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/337580/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00195
     title: "ウは宇宙ヤバイのウ!"
     anchors:
@@ -1411,6 +1521,11 @@ works:
     title: "私がモテないのはどう考えてもお前らが悪い!"
     anchors:
       - "web:https://www.ganganonline.com/title/29"
+      - "madb:C338370"
+    attached:
+      - anchor: "madb:C338370"
+        basis: "私がモテないのはどう考えてもお前らが悪い! lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/2920/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00198
     title: "怪獣ロマンティクス"
     anchors:
@@ -1567,6 +1682,11 @@ works:
     title: "星野ヒバナはみつがれる"
     anchors:
       - "web:https://comic-fuz.com/manga/3612"
+      - "madb:madb-t-e78d7a1417d7"
+    attached:
+      - anchor: "madb:madb-t-e78d7a1417d7"
+        basis: "星野ヒバナはみつがれる lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/539691/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00222
     title: "人妻教師が教え子の女子高生にドはまりする話"
     anchors:
@@ -1972,6 +2092,11 @@ works:
     title: "カルネアデス"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005553_S"
+      - "madb:madb-t-21f26387a13b"
+    attached:
+      - anchor: "madb:madb-t-21f26387a13b"
+        basis: "カルネアデス lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/498547/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00272
     title: "足が大好き足羽さん/読み切り"
     anchors:
@@ -2023,6 +2148,11 @@ works:
     title: "転生王女と天才令嬢の魔法革命 【タテスク】"
     anchors:
       - "web:https://comic-walker.com/detail/KC_010238_S"
+      - "madb:madb-t-8e43062655eb"
+    attached:
+      - anchor: "madb:madb-t-8e43062655eb"
+        basis: "転生王女と天才令嬢の魔法革命 【タテスク】 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/285398/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00282
     title: "セイ少女黙示録 ですぺあ"
     anchors:
@@ -2144,6 +2274,11 @@ works:
     title: "アプリコットファズ"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005629_S"
+      - "madb:madb-t-19988323611d"
+    attached:
+      - anchor: "madb:madb-t-19988323611d"
+        basis: "アプリコットファズ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/499340/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00299
     title: "できそこないの姫君たち"
     anchors:
@@ -2234,9 +2369,13 @@ works:
     anchors:
       - "web:https://manga-one.com/viewer/290902"
       - "web:https://manga-one.com/title/26962"
+      - "madb:madb-t-390a745086d4"
     attached:
       - anchor: "web:https://manga-one.com/title/26962"
         basis: "https://manga-one.com/viewer/290902 states a canonical address of https://manga-one.com/manga/26962/chapter/290902, so マンガワン places this chapter in work 26962; https://manga-one.com/title/26962 was fetched 2026-08-07, answered 200 and titles itself かわいい同盟 第1話 | マンガワン"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-390a745086d4"
+        basis: "かわいい同盟 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/561005/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00314
     title: "白妙様、秘密ですよ"
@@ -2251,6 +2390,11 @@ works:
     title: "シュナイダーラリー"
     anchors:
       - "web:https://takecomic.jp/series/86a4f1e41d627"
+      - "madb:madb-t-abd2dd927565"
+    attached:
+      - anchor: "madb:madb-t-abd2dd927565"
+        basis: "シュナイダーラリー lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/558182/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00317
     title: "ふつうのあたしたち"
     anchors:
@@ -2361,6 +2505,11 @@ works:
     title: "性別不明な殺し屋さんがカワイすぎる。"
     anchors:
       - "web:https://comic-fuz.com/manga/3414"
+      - "madb:madb-t-a3a904353d46"
+    attached:
+      - anchor: "madb:madb-t-a3a904353d46"
+        basis: "性別不明な殺し屋さんがカワイすぎる。 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/448379/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00331
     title: "いっそ、恋だったらよかったのに"
     anchors:
@@ -2537,12 +2686,16 @@ works:
       - "web:https://comic-days.com/episode/2551460909617418545"
       - "web:https://comic-days.com/atom/series/2550689798405496874"
       - "web:https://comic-days.com/series/2550689798405496874/first_episode"
+      - "madb:madb-t-0aa83a442127"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/2550689798405496874"
         basis: "the chapter page at https://comic-days.com/episode/2551460909617418545 links its own series feed at https://comic-days.com/atom/series/2550689798405496874, so the platform places this chapter in series 2550689798405496874, and the og:title there names the work: シュガーガール・ドリップ - 月野和青 / 第２５話②　正しい愛し方 | コミックDAYS"
         retrieved: 2026-08-07
       - anchor: "web:https://comic-days.com/series/2550689798405496874/first_episode"
         basis: "the chapter page at https://comic-days.com/episode/2551460909617418545 links its own series feed at https://comic-days.com/atom/series/2550689798405496874, so the platform places this chapter in series 2550689798405496874, and the og:title there names the work: シュガーガール・ドリップ - 月野和青 / 第２５話②　正しい愛し方 | コミックDAYS. https://comic-days.com/series/2550689798405496874/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-0aa83a442127"
+        basis: "シュガーガール・ドリップ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/481585/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00349
     title: "悪いことを考えている"
@@ -2561,6 +2714,11 @@ works:
     title: "蠱毒の胡蝶はどんな夢を見るのか？"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005523_S"
+      - "madb:madb-t-e2966e2238ab"
+    attached:
+      - anchor: "madb:madb-t-e2966e2238ab"
+        basis: "蠱毒の胡蝶はどんな夢を見るのか？ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/487992/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00351
     title: "百合華のスパイ学校　入学したら快楽拷問に耐える訓練ばかりなんですが!?"
     anchors:
@@ -2639,6 +2797,11 @@ works:
     title: "私のブルーガーネット"
     anchors:
       - "web:https://manga-park.com/title/98459"
+      - "madb:madb-t-f5b2580c1051"
+    attached:
+      - anchor: "madb:madb-t-f5b2580c1051"
+        basis: "私のブルーガーネット lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/499654/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00361
     title: "汗フェチ半田さんは味わいたい"
     anchors:
@@ -2674,6 +2837,11 @@ works:
     title: "性悪天才幼馴染との勝負に負けて初体験を全部奪われる話"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005405_S"
+      - "madb:madb-t-5335a4da2cde"
+    attached:
+      - anchor: "madb:madb-t-5335a4da2cde"
+        basis: "性悪天才幼馴染との勝負に負けて初体験を全部奪われる話 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/481518/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00365
     title: "終わりのふたり"
     anchors:
@@ -2811,9 +2979,13 @@ works:
     anchors:
       - "web:https://magcomi.com/episode/4856001361118508468"
       - "web:https://magcomi.com/atom/series/4856001361079360321"
+      - "madb:C417142"
     attached:
       - anchor: "web:https://magcomi.com/atom/series/4856001361079360321"
         basis: "the chapter page at https://magcomi.com/episode/4856001361118508468 links its own series feed at https://magcomi.com/atom/series/4856001361079360321, so the platform places this chapter in series 4856001361079360321, and the og:title there names the work: さよならローズガーデン - 毒田ペパ子 / 第1話「さよならのはじまり」 | マグコミ"
+        retrieved: 2026-08-07
+      - anchor: "madb:C417142"
+        basis: "さよならローズガーデン lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/189276/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00380
     title: "滅亡カウントダウン"
@@ -2842,6 +3014,11 @@ works:
     title: "恋に恋するコイビト関係"
     anchors:
       - "web:https://takecomic.jp/series/a7d2a290d0cc7"
+      - "madb:madb-t-e6169b6a7a84"
+    attached:
+      - anchor: "madb:madb-t-e6169b6a7a84"
+        basis: "恋に恋するコイビト関係 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/487937/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00384
     title: "熱演"
     anchors:
@@ -2927,12 +3104,16 @@ works:
       - "web:https://shonenjumpplus.com/episode/17107094912579002163"
       - "web:https://shonenjumpplus.com/atom/series/13932016480029123950"
       - "web:https://shonenjumpplus.com/series/13932016480029123950/first_episode"
+      - "madb:C335484"
     attached:
       - anchor: "web:https://shonenjumpplus.com/atom/series/13932016480029123950"
         basis: "the chapter page at https://shonenjumpplus.com/episode/17107094912579002163 links its own series feed at https://shonenjumpplus.com/atom/series/13932016480029123950, so the platform places this chapter in series 13932016480029123950, and the og:title there names the work: [特別編8]オトメの帝国 - 岸虎次郎 | 少年ジャンプ＋"
         retrieved: 2026-08-07
       - anchor: "web:https://shonenjumpplus.com/series/13932016480029123950/first_episode"
         basis: "the chapter page at https://shonenjumpplus.com/episode/17107094912579002163 links its own series feed at https://shonenjumpplus.com/atom/series/13932016480029123950, so the platform places this chapter in series 13932016480029123950, and the og:title there names the work: [特別編8]オトメの帝国 - 岸虎次郎 | 少年ジャンプ＋. https://shonenjumpplus.com/series/13932016480029123950/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:C335484"
+        basis: "オトメの帝国 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00393
     title: "イヴとイヴたち"
@@ -3184,6 +3365,11 @@ works:
     title: "お姉さんは女子小学生に興味があります。"
     anchors:
       - "web:https://takecomic.jp/series/2ff377e5bc873"
+      - "madb:C421881"
+    attached:
+      - anchor: "madb:C421881"
+        basis: "お姉さんは女子小学生に興味があります。 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/148804/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00419
     title: "魔性の乙女の役廻り"
     anchors:
@@ -3242,6 +3428,11 @@ works:
     title: "この百合はフィクションです"
     anchors:
       - "web:https://manga-park.com/title/64829"
+      - "madb:madb-t-2d902be7e420"
+    attached:
+      - anchor: "madb:madb-t-2d902be7e420"
+        basis: "この百合はフィクションです lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/398938/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00429
     title: "あの子が泳いでいた水槽"
     anchors:
@@ -3276,6 +3467,15 @@ works:
     title: "ロックは淑女の嗜みでして"
     anchors:
       - "web:https://manga-park.com/title/67724"
+      - "madb:madb-t-644b8133c6a3"
+      - "madb:madb-t-ffa0d442947f"
+    attached:
+      - anchor: "madb:madb-t-644b8133c6a3"
+        basis: "ロックは淑女の嗜みでして lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/410984/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-ffa0d442947f"
+        basis: "ロックは淑女の嗜みでして lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/410984/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00433
     title: "ほぐして、癒衣さん。"
     anchors:
@@ -3313,6 +3513,11 @@ works:
     title: "シャイなあの子に懐かれたい"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005368_S"
+      - "madb:madb-t-dc427b32124b"
+    attached:
+      - anchor: "madb:madb-t-dc427b32124b"
+        basis: "シャイなあの子に懐かれたい lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/493464/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00438
     title: "夢と恋ではつり合わない"
     anchors:
@@ -4041,6 +4246,11 @@ works:
     title: "ヲトメは義母に恋してる"
     anchors:
       - "web:https://comic-fuz.com/manga/2425"
+      - "madb:C451816"
+    attached:
+      - anchor: "madb:C451816"
+        basis: "ヲトメは義母に恋してる lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/297554/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00519
     title: "男装メイドは尽くしたい"
     anchors:
@@ -4183,6 +4393,11 @@ works:
     title: "コンカフェ嬢は恋を着る"
     anchors:
       - "web:https://comic-fuz.com/manga/3455"
+      - "madb:madb-t-f5a4aa4e04f0"
+    attached:
+      - anchor: "madb:madb-t-f5a4aa4e04f0"
+        basis: "コンカフェ嬢は恋を着る lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/490418/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00538
     title: "負けない冬に春が咲く"
     anchors:
@@ -4240,12 +4455,16 @@ works:
       - "web:https://shonenjumpplus.com/episode/17106567265435709055"
       - "web:https://shonenjumpplus.com/atom/series/17106371852950196701"
       - "web:https://shonenjumpplus.com/series/17106371852950196701/first_episode"
+      - "madb:madb-t-ea0dd814c617"
     attached:
       - anchor: "web:https://shonenjumpplus.com/atom/series/17106371852950196701"
         basis: "the chapter page at https://shonenjumpplus.com/episode/17106567265435709055 links its own series feed at https://shonenjumpplus.com/atom/series/17106371852950196701, so the platform places this chapter in series 17106371852950196701, and the og:title there names the work: [26話]おぼろとまち - 石ト悠良 | 少年ジャンプ＋"
         retrieved: 2026-08-07
       - anchor: "web:https://shonenjumpplus.com/series/17106371852950196701/first_episode"
         basis: "the chapter page at https://shonenjumpplus.com/episode/17106567265435709055 links its own series feed at https://shonenjumpplus.com/atom/series/17106371852950196701, so the platform places this chapter in series 17106371852950196701, and the og:title there names the work: [26話]おぼろとまち - 石ト悠良 | 少年ジャンプ＋. https://shonenjumpplus.com/series/17106371852950196701/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-ea0dd814c617"
+        basis: "おぼろとまち lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/477822/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00545
     title: "第十二号蘇生魔術"
@@ -4292,6 +4511,11 @@ works:
     title: "瑠東さんには敵いません！"
     anchors:
       - "web:https://comic-fuz.com/manga/2461"
+      - "madb:C450497"
+    attached:
+      - anchor: "madb:C450497"
+        basis: "瑠東さんには敵いません！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/316770/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00550
     title: "人魚姫"
     anchors:
@@ -4522,6 +4746,11 @@ works:
     title: "最果てのともだち"
     anchors:
       - "web:https://comic-fuz.com/manga/2493"
+      - "madb:madb-t-59ced486370a"
+    attached:
+      - anchor: "madb:madb-t-59ced486370a"
+        basis: "最果てのともだち lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/324411/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00575
     title: "神様やめらんない"
     anchors:
@@ -4540,6 +4769,11 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_005563_S"
       - "madb:bw-485424"
+      - "madb:madb-t-814dc25f7e52"
+    attached:
+      - anchor: "madb:madb-t-814dc25f7e52"
+        basis: "殺し殺され三角関係に私が今から入るんですか？ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/485424/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00578
     title: "あなたの夜が明けたら"
     anchors:
@@ -4558,6 +4792,11 @@ works:
     title: "おねだりしてみて"
     anchors:
       - "web:https://comic-boost.com/content/01550001"
+      - "madb:C366609"
+    attached:
+      - anchor: "madb:C366609"
+        basis: "おねだりしてみて lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00582
     title: "弓道スケッチ"
     anchors:
@@ -4587,12 +4826,16 @@ works:
       - "web:https://comic-days.com/episode/2550912965173786483"
       - "web:https://comic-days.com/atom/series/316190246965115916"
       - "web:https://comic-days.com/series/316190246965115916/first_episode"
+      - "madb:madb-t-249b0191af00"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/316190246965115916"
         basis: "the chapter page at https://comic-days.com/episode/2550912965173786483 links its own series feed at https://comic-days.com/atom/series/316190246965115916, so the platform places this chapter in series 316190246965115916, and the og:title there names the work: 最果てのセレナード - ひの宙子 / 第２０話① | コミックDAYS"
         retrieved: 2026-08-07
       - anchor: "web:https://comic-days.com/series/316190246965115916/first_episode"
         basis: "the chapter page at https://comic-days.com/episode/2550912965173786483 links its own series feed at https://comic-days.com/atom/series/316190246965115916, so the platform places this chapter in series 316190246965115916, and the og:title there names the work: 最果てのセレナード - ひの宙子 / 第２０話① | コミックDAYS. https://comic-days.com/series/316190246965115916/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-249b0191af00"
+        basis: "最果てのセレナード lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/411898/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00586
     title: "悪役令嬢の中の人〜断罪された転生者のため嘘つきヒロインに復讐いたします〜"
@@ -4618,6 +4861,15 @@ works:
     title: "恋する小惑星（アステロイド）"
     anchors:
       - "web:https://comic-fuz.com/manga/214"
+      - "madb:C419177"
+      - "madb:madb-t-bf9e1bf98432"
+    attached:
+      - anchor: "madb:C419177"
+        basis: "恋する小惑星（アステロイド） lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/152477/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-bf9e1bf98432"
+        basis: "恋する小惑星（アステロイド） lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/152477/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00589
     title: "好子さんのいる地獄で死にたい"
     anchors:
@@ -4887,9 +5139,13 @@ works:
     anchors:
       - "web:https://comic-action.com/episode/2550912964773195333"
       - "web:https://comic-action.com/atom/series/3269754496550431218"
+      - "madb:madb-t-ef28069b8c5a"
     attached:
       - anchor: "web:https://comic-action.com/atom/series/3269754496550431218"
         basis: "the chapter page at https://comic-action.com/episode/2550912964773195333 links its own series feed at https://comic-action.com/atom/series/3269754496550431218, so the platform places this chapter in series 3269754496550431218, and the og:title there names the work: 特別編⑤ / スケバンと転校生 - ふじちか | webアクション"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-ef28069b8c5a"
+        basis: "スケバンと転校生 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/363416/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00623
     title: "アウトサイダーパラダイス"
@@ -4939,6 +5195,11 @@ works:
     title: "夜と海"
     anchors:
       - "web:https://comic-fuz.com/manga/517"
+      - "madb:C418926"
+    attached:
+      - anchor: "madb:C418926"
+        basis: "夜と海 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/169632/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00630
     title: "おそとごはんをご一緒に"
     anchors:
@@ -5027,6 +5288,11 @@ works:
     title: "おしえごと 同人教師と天才ギャル"
     anchors:
       - "web:https://championcross.jp/series/52e0d2b7319b5"
+      - "madb:madb-t-ad42ce32a613"
+    attached:
+      - anchor: "madb:madb-t-ad42ce32a613"
+        basis: "おしえごと 同人教師と天才ギャル lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/441729/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00639
     title: "白と黒～Black & White～"
     anchors:
@@ -5248,6 +5514,11 @@ works:
     title: "ももいろモンタージュ"
     anchors:
       - "web:https://comic-fuz.com/manga/2976"
+      - "madb:madb-t-384afe50aeec"
+    attached:
+      - anchor: "madb:madb-t-384afe50aeec"
+        basis: "ももいろモンタージュ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/381593/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00664
     title: "あの子は優しすぎる。"
     anchors:
@@ -5664,12 +5935,18 @@ works:
     title: "志摩風さんのAクイック"
     anchors:
       - "web:https://comic-fuz.com/manga/3186"
+      - "madb:madb-t-02ca65312e43"
+    attached:
+      - anchor: "madb:madb-t-02ca65312e43"
+        basis: "志摩風さんのAクイック lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/448378/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00707
     title: "夜のクラゲは泳げない"
     anchors:
       - "web:https://comic-days.com/episode/2550912964975167551"
       - "web:https://comic-days.com/atom/series/2550689798483273416"
       - "web:https://comic-days.com/series/2550689798483273416/first_episode"
+      - "madb:madb-t-eb02d57c8851"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/2550689798483273416"
         basis: "the chapter page at https://comic-days.com/episode/2550912964975167551 links its own series feed at https://comic-days.com/atom/series/2550689798483273416, so the platform places this chapter in series 2550689798483273416, and the og:title there names the work: 夜のクラゲは泳げない - ＪＥＬＥＥ/藤居にこ / 第２２話　解散？ | コミックDAYS"
@@ -5677,18 +5954,25 @@ works:
       - anchor: "web:https://comic-days.com/series/2550689798483273416/first_episode"
         basis: "the chapter page at https://comic-days.com/episode/2550912964975167551 links its own series feed at https://comic-days.com/atom/series/2550689798483273416, so the platform places this chapter in series 2550689798483273416, and the og:title there names the work: 夜のクラゲは泳げない - ＪＥＬＥＥ/藤居にこ / 第２２話　解散？ | コミックDAYS. https://comic-days.com/series/2550689798483273416/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
         retrieved: 2026-08-07
+      - anchor: "madb:madb-t-eb02d57c8851"
+        basis: "夜のクラゲは泳げない lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/469569/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00708
     title: "阿久津さんは推しに似ている"
     anchors:
       - "web:https://comic-days.com/episode/11341664176592102326"
       - "web:https://comic-days.com/atom/series/316190247042557712"
       - "web:https://comic-days.com/series/316190247042557712/first_episode"
+      - "madb:madb-t-54b761830d21"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/316190247042557712"
         basis: "the chapter page at https://comic-days.com/episode/11341664176592102326 links its own series feed at https://comic-days.com/atom/series/316190247042557712, so the platform places this chapter in series 316190247042557712, and the og:title there names the work: 阿久津さんは推しに似ている - 白川すみれ / 最終話　学校が好き | コミックDAYS"
         retrieved: 2026-08-07
       - anchor: "web:https://comic-days.com/series/316190247042557712/first_episode"
         basis: "the chapter page at https://comic-days.com/episode/11341664176592102326 links its own series feed at https://comic-days.com/atom/series/316190247042557712, so the platform places this chapter in series 316190247042557712, and the og:title there names the work: 阿久津さんは推しに似ている - 白川すみれ / 最終話　学校が好き | コミックDAYS. https://comic-days.com/series/316190247042557712/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-54b761830d21"
+        basis: "阿久津さんは推しに似ている lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/449683/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00709
     title: "【今日の10ページ】お前なんか拾わなければよかった"
@@ -5730,12 +6014,16 @@ works:
       - "web:https://shonenjumpplus.com/episode/17107094914966150623"
       - "web:https://shonenjumpplus.com/atom/series/17106371853064301974"
       - "web:https://shonenjumpplus.com/series/17106371853064301974/first_episode"
+      - "madb:madb-t-7adcf0662ce3"
     attached:
       - anchor: "web:https://shonenjumpplus.com/atom/series/17106371853064301974"
         basis: "the chapter page at https://shonenjumpplus.com/episode/17107094914966150623 links its own series feed at https://shonenjumpplus.com/atom/series/17106371853064301974, so the platform places this chapter in series 17106371853064301974, and the og:title there names the work: [第37話]魔法少女201 - むちゃ | 少年ジャンプ＋"
         retrieved: 2026-08-07
       - anchor: "web:https://shonenjumpplus.com/series/17106371853064301974/first_episode"
         basis: "the chapter page at https://shonenjumpplus.com/episode/17107094914966150623 links its own series feed at https://shonenjumpplus.com/atom/series/17106371853064301974, so the platform places this chapter in series 17106371853064301974, and the og:title there names the work: [第37話]魔法少女201 - むちゃ | 少年ジャンプ＋. https://shonenjumpplus.com/series/17106371853064301974/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-7adcf0662ce3"
+        basis: "魔法少女201 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/460795/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00717
     title: "【今日の10ページ】世界の終わりにエロ本と先生と。"
@@ -5794,6 +6082,11 @@ works:
     title: "紡ぐ乙女と大正の月"
     anchors:
       - "web:https://comic-fuz.com/manga/1964"
+      - "madb:C438164"
+    attached:
+      - anchor: "madb:C438164"
+        basis: "紡ぐ乙女と大正の月 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/250007/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00723
     title: "三木と日野"
     anchors:
@@ -5854,6 +6147,11 @@ works:
     title: "こはる日和。"
     anchors:
       - "web:https://comic-fuz.com/manga/390"
+      - "madb:C358066"
+    attached:
+      - anchor: "madb:C358066"
+        basis: "こはる日和。 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/57090/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00729
     title: "ランチメイト症候群(スピリッツ賞・奨励賞)"
     anchors:
@@ -5928,12 +6226,20 @@ works:
       - "web:https://shonenjumpplus.com/episode/9324103629526673449"
       - "web:https://shonenjumpplus.com/atom/series/4856001361066822000"
       - "web:https://shonenjumpplus.com/series/4856001361066822000/first_episode"
+      - "madb:madb-t-2afa474a2e35"
+      - "madb:madb-t-cabc5fa5d834"
     attached:
       - anchor: "web:https://shonenjumpplus.com/atom/series/4856001361066822000"
         basis: "the chapter page at https://shonenjumpplus.com/episode/9324103629526673449 links its own series feed at https://shonenjumpplus.com/atom/series/4856001361066822000, so the platform places this chapter in series 4856001361066822000, and the og:title there names the work: [24泊目]ペンションライフ・ヴァンパイア - 田口囁一 | 少年ジャンプ＋"
         retrieved: 2026-08-07
       - anchor: "web:https://shonenjumpplus.com/series/4856001361066822000/first_episode"
         basis: "the chapter page at https://shonenjumpplus.com/episode/9324103629526673449 links its own series feed at https://shonenjumpplus.com/atom/series/4856001361066822000, so the platform places this chapter in series 4856001361066822000, and the og:title there names the work: [24泊目]ペンションライフ・ヴァンパイア - 田口囁一 | 少年ジャンプ＋. https://shonenjumpplus.com/series/4856001361066822000/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-2afa474a2e35"
+        basis: "ペンションライフ・ヴァンパイア lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/419554/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-cabc5fa5d834"
+        basis: "ペンションライフ・ヴァンパイア lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/419554/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00737
     title: "ネコ様の言うとおり"
@@ -6590,6 +6896,11 @@ works:
     title: "ほうかご再テンセイ！"
     anchors:
       - "web:https://comic-fuz.com/manga/2979"
+      - "madb:madb-t-396fcb5eb045"
+    attached:
+      - anchor: "madb:madb-t-396fcb5eb045"
+        basis: "ほうかご再テンセイ！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/372945/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00806
     title: "サウナにハマりました"
     anchors:
@@ -6610,12 +6921,16 @@ works:
       - "madb:bw-403855"
       - "web:https://comic-days.com/atom/series/316112896846234763"
       - "web:https://comic-days.com/series/316112896846234763/first_episode"
+      - "madb:madb-t-acae9ef696b4"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/316112896846234763"
         basis: "the chapter page at https://comic-days.com/episode/14079602755274553787 links its own series feed at https://comic-days.com/atom/series/316112896846234763, so the platform places this chapter in series 316112896846234763, and the og:title there names the work: らぶ あんど ぴーす - 原田重光/蘇募ロウ / 【最終話(1)】愛♡（ラブ）YOU | 月マガ基地"
         retrieved: 2026-08-07
       - anchor: "web:https://comic-days.com/series/316112896846234763/first_episode"
         basis: "the chapter page at https://comic-days.com/episode/14079602755274553787 links its own series feed at https://comic-days.com/atom/series/316112896846234763, so the platform places this chapter in series 316112896846234763, and the og:title there names the work: らぶ あんど ぴーす - 原田重光/蘇募ロウ / 【最終話(1)】愛♡（ラブ）YOU | 月マガ基地. https://comic-days.com/series/316112896846234763/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-acae9ef696b4"
+        basis: "らぶ あんど ぴーす lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/403855/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00808
     title: "True Blue Baby"
@@ -6751,18 +7066,27 @@ works:
     title: "猫魔法が世界に革命を起こすそうですよ?"
     anchors:
       - "web:https://www.123hon.com/vw/nekomaho/sv_pt00064d322845b1b4_01b/"
+      - "madb:madb-t-7dc04bbcea37"
+    attached:
+      - anchor: "madb:madb-t-7dc04bbcea37"
+        basis: "猫魔法が世界に革命を起こすそうですよ? lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/459252/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00821
     title: "おとなになっても"
     anchors:
       - "web:https://comic-days.com/episode/14079602755122004379"
       - "web:https://comic-days.com/atom/series/10834108156680164519"
       - "web:https://comic-days.com/series/10834108156680164519/first_episode"
+      - "madb:C434160"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/10834108156680164519"
         basis: "the chapter page at https://comic-days.com/episode/14079602755122004379 links its own series feed at https://comic-days.com/atom/series/10834108156680164519, so the platform places this chapter in series 10834108156680164519, and the og:title there names the work: おとなになっても - 志村貴子 / 最終話　喝采（1） | コミックDAYS"
         retrieved: 2026-08-07
       - anchor: "web:https://comic-days.com/series/10834108156680164519/first_episode"
         basis: "the chapter page at https://comic-days.com/episode/14079602755122004379 links its own series feed at https://comic-days.com/atom/series/10834108156680164519, so the platform places this chapter in series 10834108156680164519, and the og:title there names the work: おとなになっても - 志村貴子 / 最終話　喝采（1） | コミックDAYS. https://comic-days.com/series/10834108156680164519/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:C434160"
+        basis: "おとなになっても lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/222469/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00822
     title: "はなものがたり"
@@ -6904,6 +7228,15 @@ works:
     title: "けいおん！Ｓｈｕｆｆｌｅ"
     anchors:
       - "web:https://comic-fuz.com/manga/1897"
+      - "madb:C335320"
+      - "madb:C435773"
+    attached:
+      - anchor: "madb:C335320"
+        basis: "けいおん！Ｓｈｕｆｆｌｅ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/2757/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
+      - anchor: "madb:C435773"
+        basis: "けいおん！Ｓｈｕｆｆｌｅ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/2757/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00838
     title: "魔女ノ結婚"
     anchors:
@@ -7201,9 +7534,13 @@ works:
     anchors:
       - "web:https://yanmaga.jp/comics/%E3%81%99%E3%81%90%E6%B3%A3%E3%81%8F%E5%85%88%E8%BC%A9/2f9f925d0a6764b9c2066137d4b0618d"
       - "web:https://yanmaga.jp/comics/%E3%81%99%E3%81%90%E6%B3%A3%E3%81%8F%E5%85%88%E8%BC%A9"
+      - "madb:madb-t-206fb68174f3"
     attached:
       - anchor: "web:https://yanmaga.jp/comics/%E3%81%99%E3%81%90%E6%B3%A3%E3%81%8F%E5%85%88%E8%BC%A9"
         basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E3%81%99%E3%81%90%E6%B3%A3%E3%81%8F%E5%85%88%E8%BC%A9/2f9f925d0a6764b9c2066137d4b0618d, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E3%81%99%E3%81%90%E6%B3%A3%E3%81%8F%E5%85%88%E8%BC%A9: fetched 2026-08-07, HTTP 200, and the page titles itself 『すぐ泣く先輩』 【無料公開中】 | ヤンマガWeb"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-206fb68174f3"
+        basis: "すぐ泣く先輩 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/431099/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00867
     title: "名前のつかない日常"
@@ -7409,12 +7746,16 @@ works:
       - "web:https://comicborder.com/episode/316112896941774091"
       - "web:https://comicborder.com/atom/series/3270375685434599418"
       - "web:https://comicborder.com/series/3270375685434599418/first_episode"
+      - "madb:madb-t-1399e76949f4"
     attached:
       - anchor: "web:https://comicborder.com/atom/series/3270375685434599418"
         basis: "the chapter page at https://comicborder.com/episode/316112896941774091 links its own series feed at https://comicborder.com/atom/series/3270375685434599418, so the platform places this chapter in series 3270375685434599418, and the og:title there names the work: ハナちゃん匂いかがせて - あまいろ / episode 013 | コミックボーダー"
         retrieved: 2026-08-07
       - anchor: "web:https://comicborder.com/series/3270375685434599418/first_episode"
         basis: "the chapter page at https://comicborder.com/episode/316112896941774091 links its own series feed at https://comicborder.com/atom/series/3270375685434599418, so the platform places this chapter in series 3270375685434599418, and the og:title there names the work: ハナちゃん匂いかがせて - あまいろ / episode 013 | コミックボーダー. https://comicborder.com/series/3270375685434599418/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-1399e76949f4"
+        basis: "ハナちゃん匂いかがせて lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/431508/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00889
     title: "浮雲"
@@ -7561,12 +7902,16 @@ works:
       - "web:https://comic-days.com/episode/3269754496746764234"
       - "web:https://comic-days.com/atom/series/3269754496463173605"
       - "web:https://comic-days.com/series/3269754496463173605/first_episode"
+      - "madb:madb-t-d9bde290a044"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/3269754496463173605"
         basis: "the chapter page at https://comic-days.com/episode/3269754496746764234 links its own series feed at https://comic-days.com/atom/series/3269754496463173605, so the platform places this chapter in series 3269754496463173605, and the og:title there names the work: 蓼食う君も好き好き - 当麻 / 最終話　わたしも知りたい | コミックDAYS"
         retrieved: 2026-08-07
       - anchor: "web:https://comic-days.com/series/3269754496463173605/first_episode"
         basis: "the chapter page at https://comic-days.com/episode/3269754496746764234 links its own series feed at https://comic-days.com/atom/series/3269754496463173605, so the platform places this chapter in series 3269754496463173605, and the og:title there names the work: 蓼食う君も好き好き - 当麻 / 最終話　わたしも知りたい | コミックDAYS. https://comic-days.com/series/3269754496463173605/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-d9bde290a044"
+        basis: "蓼食う君も好き好き lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/355816/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00903
     title: "あやしあやかしあけみちゃん"
@@ -7897,12 +8242,16 @@ works:
       - "web:https://comic-days.com/episode/3269754496746874571"
       - "web:https://comic-days.com/atom/series/3269754496558248192"
       - "web:https://comic-days.com/series/3269754496558248192/first_episode"
+      - "madb:madb-t-7c9512408bab"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/3269754496558248192"
         basis: "the chapter page at https://comic-days.com/episode/3269754496746874571 links its own series feed at https://comic-days.com/atom/series/3269754496558248192, so the platform places this chapter in series 3269754496558248192, and the og:title there names the work: ワケあって社長令嬢に拾われました - 灯 / 第１６話「ここにいたんだね」 | コミックDAYS"
         retrieved: 2026-08-07
       - anchor: "web:https://comic-days.com/series/3269754496558248192/first_episode"
         basis: "the chapter page at https://comic-days.com/episode/3269754496746874571 links its own series feed at https://comic-days.com/atom/series/3269754496558248192, so the platform places this chapter in series 3269754496558248192, and the og:title there names the work: ワケあって社長令嬢に拾われました - 灯 / 第１６話「ここにいたんだね」 | コミックDAYS. https://comic-days.com/series/3269754496558248192/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-7c9512408bab"
+        basis: "ワケあって社長令嬢に拾われました lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/352363/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00932
     title: "推しが隣で授業に集中できない!"
@@ -7955,12 +8304,16 @@ works:
       - "web:https://comic-days.com/episode/3269754496845606190"
       - "web:https://comic-days.com/atom/series/3269754496315964445"
       - "web:https://comic-days.com/series/3269754496315964445/first_episode"
+      - "madb:C433147"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/3269754496315964445"
         basis: "the chapter page at https://comic-days.com/episode/3269754496845606190 links its own series feed at https://comic-days.com/atom/series/3269754496315964445, so the platform places this chapter in series 3269754496315964445, and the og:title there names the work: 今日、小柴葵に会えたら。 - 竹岡葉月/フライ / 第35話 ダイスキナヒトヘ(1) | コミックDAYS"
         retrieved: 2026-08-07
       - anchor: "web:https://comic-days.com/series/3269754496315964445/first_episode"
         basis: "the chapter page at https://comic-days.com/episode/3269754496845606190 links its own series feed at https://comic-days.com/atom/series/3269754496315964445, so the platform places this chapter in series 3269754496315964445, and the og:title there names the work: 今日、小柴葵に会えたら。 - 竹岡葉月/フライ / 第35話 ダイスキナヒトヘ(1) | コミックDAYS. https://comic-days.com/series/3269754496315964445/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:C433147"
+        basis: "今日、小柴葵に会えたら。 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/213649/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00937
     title: "ナメられたくないナメカワさん"
@@ -8128,6 +8481,11 @@ works:
     title: "ロイヤルテーラー ―王宮の裁縫師―"
     anchors:
       - "web:https://zerosumonline.com/detail/royaltailor"
+      - "madb:madb-t-41eb547b1cad"
+    attached:
+      - anchor: "madb:madb-t-41eb547b1cad"
+        basis: "ロイヤルテーラー ―王宮の裁縫師― lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/365043/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00953
     title: "女子校だからセーフ"
     anchors:
@@ -8162,14 +8520,23 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_000549_S"
       - "madb:bw-500d5bf9-60c3-488d-a1e9-bef250dd0b5a"
+      - "madb:C367890"
+    attached:
+      - anchor: "madb:C367890"
+        basis: "両片想いな双子姉妹 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00958
     title: "世が夜なら！"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/01147/episode/333555"
       - "web:https://pocket.shonenmagazine.com/title/01147"
+      - "madb:C447569"
     attached:
       - anchor: "web:https://pocket.shonenmagazine.com/title/01147"
         basis: "the work-level address of https://pocket.shonenmagazine.com/title/01147/episode/333555, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
+      - anchor: "madb:C447569"
+        basis: "世が夜なら！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/280577/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00959
     title: "みぞれちゃん、"
@@ -8290,6 +8657,11 @@ works:
     title: "研究棟の真夜中ごはん"
     anchors:
       - "web:https://firecross.jp/ebook/series/405"
+      - "madb:C451273"
+    attached:
+      - anchor: "madb:C451273"
+        basis: "研究棟の真夜中ごはん lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/284563/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w00970
     title: "ヒトゴトですから!"
     anchors:
@@ -8440,12 +8812,16 @@ works:
       - "web:https://tonarinoyj.jp/episode/13933686331772859580"
       - "web:https://tonarinoyj.jp/atom/series/13933686331772859124"
       - "web:https://tonarinoyj.jp/series/13933686331772859124/first_episode"
+      - "madb:C420047"
     attached:
       - anchor: "web:https://tonarinoyj.jp/atom/series/13933686331772859124"
         basis: "the chapter page at https://tonarinoyj.jp/episode/13933686331772859580 links its own series feed at https://tonarinoyj.jp/atom/series/13933686331772859124, so the platform places this chapter in series 13933686331772859124, and the og:title there names the work: [第3話] ストライク・オア・ガター - 安藤 優 | となりのヤングジャンプ"
         retrieved: 2026-08-07
       - anchor: "web:https://tonarinoyj.jp/series/13933686331772859124/first_episode"
         basis: "the chapter page at https://tonarinoyj.jp/episode/13933686331772859580 links its own series feed at https://tonarinoyj.jp/atom/series/13933686331772859124, so the platform places this chapter in series 13933686331772859124, and the og:title there names the work: [第3話] ストライク・オア・ガター - 安藤 優 | となりのヤングジャンプ. https://tonarinoyj.jp/series/13933686331772859124/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-08-07
+      - anchor: "madb:C420047"
+        basis: "ストライク・オア・ガター lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/194748/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00983
     title: "SHWD《シュード》"
@@ -8457,9 +8833,13 @@ works:
     anchors:
       - "web:https://yanmaga.jp/comics/%E3%83%9E%E3%83%AB%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A4%E3%83%A9/296396c416f551e761d891b7ad58cb81"
       - "web:https://yanmaga.jp/comics/%E3%83%9E%E3%83%AB%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A4%E3%83%A9"
+      - "madb:C449503"
     attached:
       - anchor: "web:https://yanmaga.jp/comics/%E3%83%9E%E3%83%AB%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A4%E3%83%A9"
         basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E3%83%9E%E3%83%AB%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A4%E3%83%A9/296396c416f551e761d891b7ad58cb81, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E3%83%9E%E3%83%AB%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A4%E3%83%A9: fetched 2026-08-07, HTTP 200, and the page titles itself 『マルジナルテイラ』 【無料公開中】 | ヤンマガWeb"
+        retrieved: 2026-08-07
+      - anchor: "madb:C449503"
+        basis: "マルジナルテイラ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/302657/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00985
     title: "悪魔のモカちゃん"
@@ -8518,9 +8898,13 @@ works:
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/00195/episode/296085"
       - "web:https://pocket.shonenmagazine.com/title/00195"
+      - "madb:C367748"
     attached:
       - anchor: "web:https://pocket.shonenmagazine.com/title/00195"
         basis: "the work-level address of https://pocket.shonenmagazine.com/title/00195/episode/296085, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
+      - anchor: "madb:C367748"
+        basis: "将来的に死んでくれ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/109855/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00992
     title: "惑星クローゼット"
@@ -9526,27 +9910,39 @@ works:
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/02758/episode/442218"
       - "web:https://pocket.shonenmagazine.com/title/02758"
+      - "madb:madb-t-a3548e5f53c8"
     attached:
       - anchor: "web:https://pocket.shonenmagazine.com/title/02758"
         basis: "the work-level address of https://pocket.shonenmagazine.com/title/02758/episode/442218, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-a3548e5f53c8"
+        basis: "ドリーム☆ジャンボ☆ガール lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/540317/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w01225
     title: "アイドラトリィ"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/02901/episode/442022"
       - "web:https://pocket.shonenmagazine.com/title/02901"
+      - "madb:madb-t-5e960c1b3f47"
     attached:
       - anchor: "web:https://pocket.shonenmagazine.com/title/02901"
         basis: "the work-level address of https://pocket.shonenmagazine.com/title/02901/episode/442022, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-5e960c1b3f47"
+        basis: "アイドラトリィ lists no collected volume on its own platform page, and bookwalker.jp answers the title query with https://bookwalker.jp/series/556343/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w01226
     title: "オカルトタイムズ"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/03282/episode/442124"
       - "web:https://pocket.shonenmagazine.com/title/03282"
+      - "madb:madb-t-64a9bb50bfee"
     attached:
       - anchor: "web:https://pocket.shonenmagazine.com/title/03282"
         basis: "the work-level address of https://pocket.shonenmagazine.com/title/03282/episode/442124, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-64a9bb50bfee"
+        basis: "オカルトタイムズ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/565809/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w01227
     title: "ゆめぐりゆりめぐり"
@@ -19912,6 +20308,18 @@ works:
     merge_basis: "The book run and its serialisation are one work. w02413 was minted for the book run before we held the serialisation. Print record bw-55a9443c-c1c0-443f-abd9-23ecd9931582 credits はるかわ陽 and the serialisation credits the same person, so this join carries a creator and not only a title. Held apart, the two identifiers publish one work twice, once as 15 chapters and once as a print-only row with none."
     anchors:
       - "web:https://comic-walker.com/detail/KC_004537_S"
+  - id: w03156
+    title: null
+    anchors:
+      - "madb:C269008"
+  - id: w03157
+    title: null
+    anchors:
+      - "madb:C297235"
+  - id: w03158
+    title: null
+    anchors:
+      - "madb:C319020"
 
 # Related works. A relation and not a merge: whether a one-shot beside a
 # serialisation is a distinct work, an instalment the run absorbed, or a story a
@@ -19936,6 +20344,10 @@ related:
   - a: w00314
     b: w00650
     note: "titled as a separate edition of the same work"
+    retrieved: 2026-08-07
+  - a: w00957
+    b: w01587
+    note: "one print record matches both titles and a shared author"
     retrieved: 2026-08-07
   - a: w00993
     b: w02128

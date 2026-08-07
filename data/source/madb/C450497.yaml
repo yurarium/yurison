@@ -1,0 +1,55 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C450497
+route: shop-query
+grouping: mixed
+madb_id: C450497
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C450497
+record_type: manga_book_series
+title:
+  ja: "瑠東さんには敵いません!"
+  yomi: "ルトウサン ニワ カナイマセン !"
+creator: "[著]相崎うたう"
+publisher: "芳文社"
+imprint: "Kirara menu"
+imprint_stated: "Kirara menu / Manga time KR comics"
+volume_count: 3
+first_published: 2021-10
+last_published: 2024-01
+volumes:
+  - madb_id: M853801
+    number: "1"
+    isbn: "9784832273115"
+    published: 2021-10
+  - madb_id: M874701
+    number: "2"
+    isbn: "9784832274013"
+    published: 2022-10
+  - madb_id: M946687
+    number: "3"
+    isbn: "9784832295117"
+    published: 2024-01
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/316770/list/"
+  serialisation: "COMIC FUZ"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C450497
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

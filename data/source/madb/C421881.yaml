@@ -1,0 +1,86 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C421881
+route: shop-query
+grouping: mixed
+madb_id: C421881
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C421881
+record_type: manga_book_series
+title:
+  ja: "お姉さんは女子小学生に興味があります。"
+  yomi: "オネエサン ワ ジョシ ショウガクセイ ニ キョウミ ガ アリマス"
+creator: "[著]柚木涼太"
+publisher: "竹書房"
+imprint: "Bamboo comics"
+volume_count: 11
+first_published: 2018-02
+last_published: 2024-05
+volumes:
+  - madb_id: M515954
+    number: "1"
+    isbn: "9784801961692"
+    published: 2018-02
+  - madb_id: M530411
+    number: "2"
+    isbn: "9784801964006"
+    published: 2018-10
+  - madb_id: M522950
+    number: "3"
+    isbn: "9784801965409"
+    published: 2019-03
+  - madb_id: M813456
+    number: "4"
+    isbn: "9784801967816"
+    published: 2019-11
+  - madb_id: M823654
+    number: "5"
+    isbn: "9784801969308"
+    published: 2020-05
+  - madb_id: M828371
+    number: "6"
+    isbn: "9784801971486"
+    published: 2020-12
+  - madb_id: M850124
+    number: "7"
+    isbn: "9784801973329"
+    published: 2021-07
+  - madb_id: M868273
+    number: "8"
+    isbn: "9784801975859"
+    published: 2022-04
+  - madb_id: M929371
+    number: "9"
+    isbn: "9784801979772"
+    published: 2023-03
+  - madb_id: M933213
+    number: "10"
+    isbn: "9784801981324"
+    published: 2023-08
+  - madb_id: M968722
+    number: "11"
+    isbn: "9784801982994"
+    published: 2024-05
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/148804/list/"
+  serialisation: "竹コミ"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C421881
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

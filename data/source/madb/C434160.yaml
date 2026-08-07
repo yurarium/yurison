@@ -1,0 +1,82 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C434160
+route: shop-query
+grouping: mixed
+madb_id: C434160
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C434160
+record_type: manga_book_series
+title:
+  ja: "おとなになっても = Even if we become adults"
+  yomi: "Even if we become adults"
+creator: "[著]志村貴子"
+publisher: "講談社"
+imprint: "KC Kiss"
+volume_count: 10
+first_published: 2019-10
+last_published: 2023-11
+volumes:
+  - madb_id: M812317
+    number: "1"
+    isbn: "9784065175880"
+    published: 2019-10
+  - madb_id: M821579
+    number: "2"
+    isbn: "9784065189481"
+    published: 2020-03
+  - madb_id: M822712
+    number: "3"
+    isbn: "9784065205433"
+    published: 2020-08
+  - madb_id: M864969
+    number: "4"
+    isbn: "9784065220566"
+    published: 2021-01
+  - madb_id: M852548
+    number: "5"
+    isbn: "9784065248966"
+    published: 2021-09
+  - madb_id: M862781
+    number: "6"
+    isbn: "9784065265093"
+    published: 2022-02
+  - madb_id: M873311
+    number: "7"
+    isbn: "9784065285275"
+    published: 2022-08
+  - madb_id: M880084
+    number: "8"
+    isbn: "9784065301142"
+    published: 2023-01
+  - madb_id: M929805
+    number: "9"
+    isbn: "9784065318355"
+    published: 2023-06
+  - madb_id: M942327
+    number: "10"
+    isbn: "9784065332276"
+    published: 2023-11
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/222469/list/"
+  serialisation: "コミックDAYS"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C434160
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

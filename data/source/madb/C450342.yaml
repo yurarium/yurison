@@ -1,0 +1,58 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C450342
+route: shop-query
+grouping: mixed
+madb_id: C450342
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C450342
+record_type: manga_book_series
+title:
+  ja: "酒と鬼は二合まで"
+  yomi: "サケ ト オンナ ワ ニゴウ マデ"
+creator: "[作画]zinbei / [原作]羽柴実里"
+publisher: "スクウェア・エニックス"
+imprint: "ガンガンコミックスup!"
+volume_count: 4
+first_published: 2021-08
+last_published: 2022-09
+volumes:
+  - madb_id: M852401
+    number: "1"
+    isbn: "9784757574069"
+    published: 2021-08
+  - madb_id: M861132
+    number: "2"
+    isbn: "9784757576698"
+    published: 2022-01
+  - madb_id: M865726
+    number: "3"
+    isbn: "9784757577169"
+    published: 2022-02
+  - madb_id: M875330
+    number: "4"
+    isbn: "9784757581104"
+    published: 2022-09
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/432975/list/"
+  serialisation: "ビッコミ"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C450342
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

@@ -1,0 +1,47 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-ad42ce32a613
+route: shop-query
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "おしえごと : 同人教師と天才ギャル"
+  yomi: "オシエゴト : ドウジン キョウシ ト テンサイ ギャル"
+creator: "[著]とみさー"
+publisher: "秋田書店"
+imprint: "BONITA COMICS"
+volume_count: 1
+first_published: 2023-10
+last_published: 2023-10
+volumes:
+  - madb_id: M942174
+    number: "1"
+    isbn: "9784253266017"
+    published: 2023-10
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/441729/list/"
+  serialisation: "チャンピオンクロス"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

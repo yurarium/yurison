@@ -1,0 +1,79 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-0b2a191062cc
+route: shop-query
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "DOUBLE HELIX BLOSSOM"
+  yomi: "ダブル ヘリクス ブロッサム"
+creator: "SWAV / アサウラ1984- / 西馬ごめゆき / アサウラ1984- / ニシマゴメユキ"
+publisher: "小学館"
+imprint: "コロコロコミックススペシャル"
+volume_count: 9
+first_published: 2024-05
+last_published: 2026-06-22
+volumes:
+  - madb_id: M968892
+    number: "1"
+    isbn: "9784091437150"
+    published: 2024-05
+  - madb_id: M973169
+    number: "2"
+    isbn: "9784091497680"
+    published: 2024-09
+  - madb_id: M1035176
+    number: "3"
+    isbn: "9784091498564"
+    published: 2024-12-03
+  - madb_id: M1037121
+    number: "4"
+    isbn: "9784091498946"
+    published: 2025-03-24
+  - madb_id: M1063272
+    number: "5"
+    isbn: "9784091540355"
+    published: 2025-06-23
+  - madb_id: M1076403
+    number: "6"
+    isbn: "9784091540591"
+    published: 2025-09-06
+  - madb_id: M1093786
+    number: "7"
+    isbn: "9784091540980"
+    published: 2025-12-22
+  - madb_id: M1110015
+    number: "8"
+    isbn: "9784091541352"
+    published: 2026-03-23
+  - madb_id: M1114121
+    number: "9"
+    isbn: "9784091542694"
+    published: 2026-06-22
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/468696/list/"
+  serialisation: "コロコロオンライン"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

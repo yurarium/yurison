@@ -1,0 +1,63 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-a3548e5f53c8
+route: shop-query
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "ドリーム☆ジャンボ☆ガール"
+  yomi: "ドリーム ジャンボ ガール"
+creator: "ヒロユキ / ヒロユキ"
+publisher: "講談社"
+imprint: "講談社コミックス. 週刊少年マガジン"
+volume_count: 5
+first_published: 2025-08-01
+last_published: 2026-05-15
+volumes:
+  - madb_id: M1074725
+    number: "1"
+    isbn: "9784065403457"
+    published: 2025-08-01
+  - madb_id: M1087407
+    number: "2"
+    isbn: "9784065411049"
+    published: 2025-10-17
+  - madb_id: M1094258
+    number: "3"
+    isbn: "9784065419441"
+    published: 2025-12-29
+  - madb_id: M1110532
+    number: "4"
+    isbn: "9784065429990"
+    published: 2026-03-30
+  - madb_id: M1113707
+    number: "5"
+    isbn: "9784065436271"
+    published: 2026-05-15
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/540317/list/"
+  serialisation: "マガポケ"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

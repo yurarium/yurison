@@ -1,0 +1,118 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C335484
+route: shop-query
+grouping: title-match
+madb_id: C335484
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C335484
+record_type: manga_book_series
+title:
+  ja: "オトメの帝国"
+  yomi: "オトメ ノ テイコク"
+creator: "[著]岸虎次郎"
+publisher: "集英社"
+imprint: "ヤングジャンプ・コミックス"
+volume_count: 19
+first_published: 2012-01
+last_published: 2025-12-29
+volumes:
+  - madb_id: M386131
+    number: "2"
+    isbn: "9784088792293"
+    published: 2012-01
+  - madb_id: M386132
+    number: "3"
+    isbn: "9784088794242"
+    published: 2012-09
+  - madb_id: M408424
+    number: "04"
+    isbn: "9784088797250"
+    published: 2013-12
+  - madb_id: M408425
+    number: "05"
+    isbn: "9784088797267"
+    published: 2013-12
+  - madb_id: M421941
+    number: "06"
+    isbn: "9784088798639"
+    published: 2014-06
+  - madb_id: M440693
+    number: "07"
+    isbn: "9784088900650"
+    published: 2014-12
+  - madb_id: M449394
+    number: "08"
+    isbn: "9784088902166"
+    published: 2015-07
+  - madb_id: M461976
+    number: "09"
+    isbn: "9784088903675"
+    published: 2016-02
+  - madb_id: M470936
+    number: "10"
+    isbn: "9784088904733"
+    published: 2016-07
+  - madb_id: M479497
+    number: "11"
+    isbn: "9784088906553"
+    published: 2017-02
+  - madb_id: M491553
+    number: "12"
+    isbn: "9784088907352"
+    published: 2017-08
+  - madb_id: M858747
+    number: "13"
+    isbn: "9784088910253"
+    published: 2018-06
+  - madb_id: M526963
+    number: "14"
+    isbn: "9784088912790"
+    published: 2019-04
+  - madb_id: M820366
+    number: "15"
+    isbn: "9784088915883"
+    published: 2020-05
+  - madb_id: M848209
+    number: "16"
+    isbn: "9784088918754"
+    published: 2021-04
+  - madb_id: M869081
+    number: "17"
+    isbn: "9784088922836"
+    published: 2022-05
+  - madb_id: M881042
+    number: "18"
+    isbn: "9784088925028"
+    published: 2023-02
+  - madb_id: M970719
+    number: "19"
+    isbn: "9784088931968"
+    published: 2024-07
+  - madb_id: M1094020
+    number: "20"
+    isbn: "9784088941141"
+    published: 2025-12-29
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: ""
+  serialisation: "少年ジャンプ+"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C335484
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

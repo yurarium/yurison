@@ -1,0 +1,59 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C419177
+route: shop-query
+grouping: series-link
+madb_id: C419177
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C419177
+record_type: manga_book_series
+title:
+  ja: "恋する小惑星 (アステロイド)"
+  yomi: "コイスル アステロイド"
+creator: "[著]Quro"
+publisher: "芳文社"
+imprint: "Kirara menu"
+imprint_stated: "Kirara menu / Manga time KR comics"
+volume_count: 4
+first_published: 2018-04
+last_published: 2021-06
+volumes:
+  - madb_id: M528584
+    number: "1"
+    isbn: "9784832249363"
+    published: 2018-04
+  - madb_id: M527588
+    number: "2"
+    isbn: "9784832270954"
+    published: 2019-06
+  - madb_id: M817277
+    number: "3"
+    isbn: "9784832271678"
+    published: 2020-03
+  - madb_id: M848535
+    number: "4"
+    isbn: "9784832272774"
+    published: 2021-06
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/152477/list/"
+  serialisation: "COMIC FUZ"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C419177
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

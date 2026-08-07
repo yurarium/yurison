@@ -75,6 +75,13 @@ def main(s):
     # not a rule. 「」 appear in the surface and in neither reading.
     s.check(kana.align("「触れたい」は恋の始まり", "フレタイワコイノハジマリ"),
             "a reading that drops the surface's marks still aligns")
+    # A SURFACE SPACED BEFORE A MARK. The reading's spaces come out, so a run of ` ～` has one
+    # character the reading can spell and one it cannot. Requiring the whole run made the strict
+    # pass fail and the kanji run beside it swallow the mark.
+    s.eq(kana.align("百合探偵少女 ～朱理推～", "ユリ タンテイ ショウジョ   ～ アカリ スイ ～"),
+         [("百合探偵少女", "ユリタンテイショウジョ"), (" ～", None),
+          ("朱理推", "アカリスイ"), ("～", None)],
+         "a run spaced before a mark still anchors on the mark")
     bad = kana.align("君の名は", "ぜんぜんちがう")
     s.check(bad is None or "".join(t for t, _ in bad) == "君の名は",
             "a mismatched reading does not corrupt the surface")

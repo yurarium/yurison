@@ -11017,13 +11017,16 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヨシダマユリ
+    reading: ヨシダ マユリ
     reading_at: '2026-08-06'
     reading_basis: stated
     reading_conflicts:
     - basis: analyser
       source: sudachi
       value: ヨシダ 　 マユリ
+    - basis: stated
+      source: MADB
+      value: ヨシダマユリ
     reading_pass: 4
     reading_source: MADB
     reading_source_kind: national-library
@@ -13733,13 +13736,16 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヤマモトカズネ
+    reading: ヤマモト カズネ
     reading_at: '2026-08-06'
     reading_basis: stated
     reading_conflicts:
     - basis: analyser
       source: sudachi
       value: ヤマモト   ワオン
+    - basis: stated
+      source: MADB
+      value: ヤマモトカズネ
     reading_pass: 4
     reading_source: MADB
     reading_source_kind: national-library
@@ -27657,13 +27663,16 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タカエスヤヤ
+    reading: タカエス ヤヤ
     reading_at: '2026-08-06'
     reading_basis: stated
     reading_conflicts:
     - basis: analyser
       source: sudachi
       value: タカエス   ワタル
+    - basis: stated
+      source: MADB
+      value: タカエスヤヤ
     reading_pass: 4
     reading_source: MADB
     reading_source_kind: national-library

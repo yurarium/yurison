@@ -595,7 +595,13 @@ def align(surface, reading):
             # ...ヒスイ、キタ... and shipped with 翡翠 carrying ひ and 北 carrying すい、きた, the
             # 、 eaten by a run that has no 、 in it. A kana run is already whole, because its `lo`
             # is its own length, so this only ever tightens punctuation.
-            lo = len(text) if strict else sum(1 for c in text if is_kana(c))
+            # WHITESPACE IS NOT SOMETHING THE READING CAN SPELL. Its spaces were taken out above,
+            # so a surface run of ` ～` has one character the reading can carry and one it cannot.
+            # Requiring the whole run made strict fail on every title spaced before a mark, and the
+            # permissive pass then let the kanji run swallow the mark: 百合探偵少女 read ゆ beside
+            # 朱理推 reading りたんていしょうじょ～あかりすい.
+            lo = (len([c for c in text if not c.isspace()]) if strict
+                  else sum(1 for c in text if is_kana(c)))
             for take in range(min(len(text), len(reading) - pos), lo - 1, -1):
                 if not _anchor_eq(reading[pos:pos + take], text):
                     continue

@@ -138,8 +138,8 @@
   {
    "name": "stock phrasing in comments",
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage.",
-   "budget": 896,
-   "value": 896
+   "budget": 891,
+   "value": 891
   },
   {
    "name": "modules without a test",
@@ -194,6 +194,12 @@
    "means": "names rebound more than 300 lines from their first binding. Two shipped bugs came from this; see adapters/lint/shadowing.py for why the count is not simply falling.",
    "budget": 40,
    "value": 40
+  },
+  {
+   "name": "rows with a moving address",
+   "means": "rows anchored on a chapter address whose identifier holds no work-level address on the same host. A chapter address moves when the work publishes, so a rise means a work has arrived whose address nobody has read yet and which would be minted a second identifier the next time it updates. Run adapters/gigaviewer/workaddress.py and apply what it writes with identity.py --attachments.",
+   "budget": 0,
+   "value": 0
   }
  ],
  "note": "Invariants are statements that are either true or the data is broken. At runtime a violation degrades to the fallback named in check.py and is counted here; at check-in the same violation blocks. Budgets are counts with no correct value, only a direction: they tighten automatically and loosen only by hand."

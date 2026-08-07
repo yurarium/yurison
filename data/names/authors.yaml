@@ -19801,6 +19801,22 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033045702
     verified: true
+  深海紺:
+    basis: romaji
+    furigana_spans:
+    - - 深海
+      - しんかい
+    - - 紺
+      - こん
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: シンカイ コン
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   渋谷圭一郎:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest

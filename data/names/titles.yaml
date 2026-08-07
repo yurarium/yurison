@@ -598,6 +598,26 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  7日間限定彼女:
+    basis: romaji
+    furigana_spans:
+    - - '7'
+      - null
+    - - 日間
+      - かかん
+    - - 限定
+      - げんてい
+    - - 彼女
+      - かのじょ
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 7 カカン ゲンテイ カノジョ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ALL YOU!!:
     basis: translated
     en: ALL YOU!!
@@ -1707,6 +1727,30 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  'Qyootie Q! : 麒麟娘と婚約事情':
+    basis: romaji
+    furigana_spans:
+    - - 'Qyootie Q! : '
+      - null
+    - - 麒麟
+      - きりん
+    - - 娘
+      - むすめ
+    - - と
+      - null
+    - - 婚約
+      - こんやく
+    - - 事情
+      - じじょう
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'Qyootie   Q !   :   キリン ムスメ ト コンヤク ジジョウ'
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   Qyootie Q! ―麒麟娘と婚約事情―:
     basis: translated
     en: Qyootie Q! —The Kirin Girl and Our Engagement—
@@ -1789,6 +1833,17 @@ names:
     en_source: yurarium
     en_source_kind: derived
     note: Already English, and the initials are the subtitle's.
+    verified: false
+  'SHWD(シュード) : Special Hazardous Waste Disposal':
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'SHWD ( シュード )   :   Special   Hazardous   Waste   Disposal'
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
     verified: false
   SHWD[シュード]Extra:
     basis: translated
@@ -2187,6 +2242,17 @@ names:
       something else of the same name, and manga is already English.
     reading: Saturday ( マンガ )
     reading_at: '2026-08-06'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  School zone = スクールゾーン:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: School   zone   =   スクール ゾーン
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -2960,6 +3026,56 @@ names:
       on pen names and coinages
     reading: 「オマエゴトキガ マオウ ニ カテル ト オモウ ナ」 ト ユウシャ パーティ ヲ ツイホウ サレタ ノデ、 オウト デ キママニ クラシタイ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  '「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい : THE COMIC':
+    basis: romaji
+    furigana_spans:
+    - - 「お
+      - null
+    - - 前
+      - まえ
+    - - ごときが
+      - null
+    - - 魔王
+      - まおう
+    - - に
+      - null
+    - - 勝
+      - か
+    - - てると
+      - null
+    - - 思
+      - おも
+    - - うな」と
+      - null
+    - - 勇者
+      - ゆうしゃ
+    - - パーティを
+      - null
+    - - 追放
+      - ついほう
+    - - されたので、
+      - null
+    - - 王都
+      - おうと
+    - - で
+      - null
+    - - 気
+      - き
+    - - ままに
+      - null
+    - - 暮
+      - く
+    - - 'らしたい : THE COMIC'
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: '「オマエゴトキガ マオウ ニ カテル ト オモウ ナ」 ト ユウシャ パーティ ヲ ツイホウ サレタ ノデ、 オウト デ キママニ クラシタイ   :   THE   COMIC'
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -7858,6 +7974,17 @@ names:
     reading_source: derived
     reading_source_kind: derived
     verified: false
+  'お姉さまと巨人(わたし) = MY SISTER AND GIANT : お嬢さまが異世界転生':
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'オ アネサマ ト キョジン   =   MY   SISTER   AND   GIANT   :   オジョウサマ ガ イセカイ テンショウ'
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   お姉さんは女子小学生に興味があります。:
     basis: translated
     en: The Onee-san Is Interested in Elementary School Girls.
@@ -9136,6 +9263,24 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  きみと観たいレースがある = No hour of life is wasted that is spent watching the races with you:
+    basis: romaji
+    furigana_spans:
+    - - きみと
+      - null
+    - - 観
+      - み
+    - - たいレースがある = No hour of life is wasted that is spent watching the races with you
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: キミ ト ミタイ レース ガ アル   =   No   hour   of   life   is   wasted   that   is   spent   watching   the   races   with   you
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   きみのためなら:
     basis: translated
     en: For Your Sake
@@ -10261,6 +10406,32 @@ names:
     reading_source_kind: derived
     reading_url: https://www.mangaupdates.com/series/82k97c8/kono-koi-wo-hoshi-ni-wa-negawanai
     verified: false
+  この恋を星には願わない = There is no love wishing upon a star:
+    basis: romaji
+    furigana_spans:
+    - - この
+      - null
+    - - 恋
+      - こい
+    - - を
+      - null
+    - - 星
+      - ほし
+    - - には
+      - null
+    - - 願
+      - ねが
+    - - わない = There is no love wishing upon a star
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: コノ コイ ヲ ホシ ニ ワ ネガワナイ   =   There   is   no   love   wishing   upon   a   star
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   この湯で、あなたと:
     basis: translated
     en: In This Bathhouse, With You
@@ -10772,6 +10943,24 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ごはんのおトモに、死神と!:
+    basis: romaji
+    furigana_spans:
+    - - ごはんのおトモに、
+      - null
+    - - 死神
+      - しにがみ
+    - - と!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ゴハン ノ オ トモ ニ、 シニガミ ト !
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ごはんのおトモに、死神と！:
     basis: translated
     en: A Side of Death, Please
@@ -13835,6 +14024,28 @@ names:
     reading_source: mangaupdates
     reading_url: https://www.mangaupdates.com/series/mc8fvf7/dore-ga-koi-ka-ga-wakaranai
     verified: false
+  どれが恋かがわからない = I don't know which is love:
+    basis: romaji
+    furigana_spans:
+    - - どれが
+      - null
+    - - 恋
+      - こい
+    - - 'かがわからない = '
+      - null
+    - - I
+      - あい
+    - - ' don''t know which is love'
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ドレ ガ コイ カ ガ ワカラナイ   =   I   don't   know   which   is   love
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ないしょのおふたりさま。:
     basis: translated
     en: Our Little Secret.
@@ -15355,6 +15566,28 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  'ふたり暮らしのおとりよせ日和 : WOULD YOU LIKE TO ORDER WITH ME?':
+    basis: romaji
+    furigana_spans:
+    - - ふたり
+      - null
+    - - 暮
+      - く
+    - - らしのおとりよせ
+      - null
+    - - 日和
+      - ひより
+    - - ' : WOULD YOU LIKE TO ORDER WITH ME?'
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'フタリ クラシ ノ オ トリヨセ ヒヨリ   :   WOULD YOU   LIKE   TO   ORDER   WITH   ME ?'
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ふたり異世界人:
     basis: translated
     en: Two People from Another World
@@ -15865,6 +16098,20 @@ names:
       That is the name an English reader meets the work under.
     reading: ボッチ カイブツ ト モウモク ショウジョ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  ぽかぽかたいわん!:
+    basis: romaji
+    furigana_spans:
+    - - ぽかぽかたいわん!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ポカポカタイ ワン !
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -16983,6 +17230,20 @@ names:
     reading_source: yurarium
     reading_source_kind: derived
     verified: false
+  やきゅうみようよ! = Let's watch a Baseball game!:
+    basis: romaji
+    furigana_spans:
+    - - やきゅうみようよ! = Let's watch a Baseball game!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ヤキュウ ミヨウ ヨ !   =   Let ' s   watch   a   Baseball   game !
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   やさしい教師の躾けかた。:
     basis: translated
     en: How to Train a Kind Teacher.
@@ -17696,6 +17957,20 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  ゆりゆりぱにっく:
+    basis: romaji
+    furigana_spans:
+    - - ゆりゆりぱにっく
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ユリ ユリ パニック
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ゆりゆりぱにっく～尊すぎる事案が発生しています!～:
     basis: licensed
     en: 'Yuri Yuri Panic: A Case of Extreme Cuteness Has Occurred!'
@@ -18009,6 +18284,24 @@ names:
       on pen names and coinages
     reading: ヨクバレ !   ニンゲンサン
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  よくばれ!人間さん:
+    basis: romaji
+    furigana_spans:
+    - - よくばれ!
+      - null
+    - - 人間
+      - にんげん
+    - - さん
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ヨクバレ ! ニンゲンサン
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -18473,6 +18766,24 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  わたしのために脱ぎなさいっ! = TAKE OFF YOUR CLOTHES FOR ME!:
+    basis: romaji
+    furigana_spans:
+    - - わたしのために
+      - null
+    - - 脱
+      - ぬ
+    - - ぎなさいっ! = TAKE OFF YOUR CLOTHES FOR ME!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ワタシ ノ タメ ニ ヌギ ナサ イッ !   =   TAKE   OFF   YOUR   CLOTHES   FOR   ME !
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   わたしのために脱ぎなさいっ！:
     basis: translated
     en: Take It Off for Me!
@@ -20533,6 +20844,24 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  オンニって呼んでもいいですか?:
+    basis: romaji
+    furigana_spans:
+    - - オンニって
+      - null
+    - - 呼
+      - よ
+    - - んでもいいですか?
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: オンニ ッテ ヨンデ モ イイデス カ ?
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   オンニって呼んでもいいですか？:
     basis: translated
     en: Can I Call You Onni?
@@ -20893,6 +21222,42 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  ガイド役の天使を殴り倒したら、死霊術師になりました:
+    basis: romaji
+    furigana_spans:
+    - - ガイド
+      - null
+    - - 役
+      - やく
+    - - の
+      - null
+    - - 天使
+      - てんし
+    - - を
+      - null
+    - - 殴
+      - なぐ
+    - - り
+      - null
+    - - 倒
+      - たお
+    - - したら、
+      - null
+    - - 死霊
+      - しりょう
+    - - 術師
+      - じゅつし
+    - - になりました
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ガイド ヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウ ジュツシ ニ ナリマシタ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ガイド役の天使を殴り倒したら、死霊術師になりました ～激カワゴスロリ魔神様、サイコー!～:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -21116,6 +21481,17 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ガンバレッド×シスターズ = GUNBURED × SISTERS:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ガンバ レッド × シスターズ   =   GUNBURED   ×   SISTERS
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ガールズ イン ザ ヘル:
     basis: translated
     en: Girls in the Hell
@@ -21267,6 +21643,38 @@ names:
       keeps the break.
     reading: ガール ／ フレンド
     reading_at: '2026-08-06'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  'キグナスの乙女たち : 新・魔法科高校の劣等生':
+    basis: romaji
+    furigana_spans:
+    - - キグナスの
+      - null
+    - - 乙女
+      - おとめ
+    - - 'たち : '
+      - null
+    - - 新
+      - しん
+    - - ・
+      - null
+    - - 魔法科
+      - まほうか
+    - - 高校
+      - こうこう
+    - - の
+      - null
+    - - 劣等
+      - れっとう
+    - - 生
+      - せい
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'キグナス ノ オトメタチ   :   シン・ マホウカ コウコウ ノ レットウセイ'
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -21714,6 +22122,22 @@ names:
       on pen names and coinages
     reading: キャバジョウダケド JD ニ オトサレマシタ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  'キャンディ : ふたりの約束':
+    basis: romaji
+    furigana_spans:
+    - - 'キャンディ : ふたりの'
+      - null
+    - - 約束
+      - やくそく
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'キャンディ   :   フタリ ノ ヤクソク'
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -22218,6 +22642,17 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ギャングスタガールズ = GANGSTA Girls:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ギャングスタ ガールズ   =   GANGSTA   Girls
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   クズ浪人生、人生が辛いので夜のお姉さんを呼んでみた:
     basis: translated
     en: I'm a Loser Ronin Student, So I Tried Calling a Lady of the Night
@@ -22503,6 +22938,17 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ケイヤクシマイ = Contract Sisters:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ケイヤクシマイ   =   Contract   Sisters
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ケモノとワルツ:
     basis: translated
     en: Waltz with the Beast
@@ -23723,6 +24169,26 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  シルフの花姫 = The princess of sylph:
+    basis: romaji
+    furigana_spans:
+    - - シルフの
+      - null
+    - - 花
+      - はな
+    - - 姫
+      - ひめ
+    - - ' = The princess of sylph'
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: シルフ ノ ハナ ヒメ   =   The   princess   of   sylph
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   'シロップ = syrup : 社会人百合アンソロジー':
     basis: translated
     en: 'Syrup: A Working Women''s Yuri Anthology'
@@ -23822,6 +24288,17 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  シンデレラコスプレイション = Cinderella Cosplaytion:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: シンデレラコスプレイション   =   Cinderella   Cosplaytion
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   シンデレラ穢れない!:
     basis: translated
     en: Cinderella, Undefiled!
@@ -24024,6 +24501,17 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  スカベンジャーズアナザースカイ = SCAVENGERS ANOTHER SKY:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: スカベンジャーズアナザースカイ   =   SCAVENGERS   ANOTHER   SKY
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   スカーレット:
     basis: licensed
     en: Scarlet
@@ -24549,6 +25037,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  スロー・ステップ!:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: スロー・ ステップ !
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   スロー・ステップ！:
     basis: translated
     en: Slow Step!
@@ -24652,6 +25151,26 @@ names:
       as the deliberately off spelling it is.
     reading: セイ ショウジョ モクシロク  デスペ ア
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  セイ少女黙示録ですぺあ:
+    basis: romaji
+    furigana_spans:
+    - - セイ
+      - null
+    - - 少女
+      - しょうじょ
+    - - 黙示録
+      - もくしろく
+    - - ですぺあ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: セイ ショウジョ モクシロクデスペ ア
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -24984,6 +25503,24 @@ names:
       on pen names and coinages
     reading: タコ ト テンシタチ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  タコと天使たち = Octopus and Angels:
+    basis: romaji
+    furigana_spans:
+    - - タコと
+      - null
+    - - 天使
+      - てんし
+    - - たち = Octopus and Angels
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: タコ ト テンシタチ   =   Octopus   and   Angels
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -26099,6 +26636,24 @@ names:
     note: 'The work''s own Latin title, set on its series art. art only:'
     reading: ニニン ガ シノブデン プラス
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  ニニンがシノブ伝ぷらす = 2×2=SHINOBUDEN+:
+    basis: romaji
+    furigana_spans:
+    - - ニニンがシノブ
+      - null
+    - - 伝
+      - でん
+    - - ぷらす = 2×2=SHINOBUDEN+
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ニニン ガ シノブデン プラス   =   2 × 2 = SHINOBUDEN +
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -27250,6 +27805,20 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  パパのセクシードール = Daddy's sexy doll:
+    basis: romaji
+    furigana_spans:
+    - - パパのセクシードール = Daddy's sexy doll
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: パパ ノ セクシー ドール   =   Daddy ' s   sexy   doll
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   パパ活で稼いだ金で私を買うな。:
     basis: translated
     en: Don't Buy Me with Money You Earned Sugar Dating.
@@ -28047,6 +28616,24 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  フードコートで、また明日。 = SEE YOU TOMORROW,AT THE FOOD COURT.:
+    basis: romaji
+    furigana_spans:
+    - - フードコートで、また
+      - null
+    - - 明日
+      - あす
+    - - 。 = SEE YOU TOMORROW,AT THE FOOD COURT.
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: フード コート デ、 マタ アス。   =   SEE   YOU   TOMORROW , AT   THE   FOOD   COURT .
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   フーリッシュ!:
     basis: translated
     en: Foolish!
@@ -28454,6 +29041,28 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ペストが明けたら遊びましょう!:
+    basis: romaji
+    furigana_spans:
+    - - ペストが
+      - null
+    - - 明
+      - あ
+    - - けたら
+      - null
+    - - 遊
+      - あそ
+    - - びましょう!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ペスト ガ アケタラ アソビマショウ !
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ペストが明けたら遊びましょう！ ～中世ヨーロッパ世界と現代文明スローライフ～:
     basis: translated
     en: Let's Play Once the Plague Is Over! ~A Slow Life Between Medieval Europe and Modern Civilization~
@@ -28569,6 +29178,38 @@ names:
     note: 推理 is the detective's deduction, the one thing a Holmes is for.
     reading: ホームズサン ワ スイリ ガ デキナイ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  ホームセンターごと呼び出された私の大迷宮リノベーション!:
+    basis: romaji
+    furigana_spans:
+    - - ホームセンターごと
+      - null
+    - - 呼
+      - よ
+    - - び
+      - null
+    - - 出
+      - だ
+    - - された
+      - null
+    - - 私
+      - わたし
+    - - の
+      - null
+    - - 大
+      - だい
+    - - 迷宮
+      - めいきゅう
+    - - リノベーション!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ホームセンターゴト ヨビダサレタ ワタシ ノ ダイ メイキュウ リノベーション !
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -30739,6 +31380,17 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  リリィ・リリィ・ラ・ラ・ランド = Lily Lily la la Land:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: リリィ・ リリィ・ ラ・ ラ・ ランド   =   Lily   Lily   la   la   Land
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   リリィ･マーブル:
     basis: translated
     en: Lily Marble
@@ -31948,6 +32600,33 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  七限目は忍者修行です!:
+    basis: romaji
+    furigana_spans:
+    - - 七
+      - なな
+    - - 限
+      - げん
+    - - 目
+      - め
+    - - は
+      - null
+    - - 忍者
+      - にんじゃ
+    - - 修行
+      - しゅぎょう
+    - - です!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ナナゲン メ ワ ニンジャ シュギョウデス !
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
   七限目は忍者修行です！:
     basis: official-jp
     en: THE SEVENTH PERIOD IS NINJA TRAINING!
@@ -32233,6 +32912,38 @@ names:
     reading_source: wikidata
     reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q130739438
+    verified: false
+  '下僕さんと主ちゃんの日常 : 主のためなら何でもします':
+    basis: romaji
+    furigana_spans:
+    - - 下僕
+      - げぼく
+    - - さんと
+      - null
+    - - 主
+      - ぬし
+    - - ちゃんの
+      - null
+    - - 日常
+      - にちじょう
+    - - ' : '
+      - null
+    - - 主
+      - ぬし
+    - - のためなら
+      - null
+    - - 何
+      - なん
+    - - でもします
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'ゲボクサン ト ヌシチャン ノ ニチジョウ   :   ヌシ ノ タメナラ ナン デ モ シマス'
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
     verified: false
   下僕さんと主ちゃんの日常～主のためなら何でもします～:
     basis: translated
@@ -32676,6 +33387,30 @@ names:
       without a verb. The comma and the full stop are the title's own.
     reading: セカイ デ イチバン、 ダレ ヨリ モ。
     reading_at: '2026-08-06'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  世界で一番おっぱいが好き!:
+    basis: romaji
+    furigana_spans:
+    - - 世界
+      - せかい
+    - - で
+      - null
+    - - 一番
+      - いちばん
+    - - おっぱいが
+      - null
+    - - 好
+      - す
+    - - き!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: セカイ デ イチバン オッパイ ガ スキ !
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -34849,6 +35584,26 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  会長!今日はサボりましょう!:
+    basis: romaji
+    furigana_spans:
+    - - 会長
+      - かいちょう
+    - - '!'
+      - null
+    - - 今日
+      - きょう
+    - - はサボりましょう!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: カイチョウ ! キョウ ワ サボリマショウ !
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   会長と副会長:
     basis: translated
     en: The President and the Vice President
@@ -35388,6 +36143,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  偽りのマリィゴールド = false marigold:
+    basis: romaji
+    furigana_spans:
+    - - 偽
+      - いつわ
+    - - りのマリィゴールド = false marigold
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: イツワリ ノ マリィ ゴールド   =   false   marigold
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   傍らの秘密:
     basis: translated
     en: The Secret at My Side
@@ -35769,6 +36540,26 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  先輩、美味しいですか? = Senpai,does it taste good?:
+    basis: romaji
+    furigana_spans:
+    - - 先輩
+      - せんぱい
+    - - 、
+      - null
+    - - 美味
+      - おい
+    - - しいですか? = Senpai,does it taste good?
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: センパイ、 オイシイデス カ ?   =   Senpai , does   it   taste   good ?
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   先輩、美味しいですか？:
     basis: translated
     en: Senpai, Are You Delicious?
@@ -36063,6 +36854,40 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  '入味(ルーウェイ) : この娘と食卓を囲む日から':
+    basis: romaji
+    furigana_spans:
+    - - 入
+      - いり
+    - - 味
+      - あじ
+    - - '(ルーウェイ) : この'
+      - null
+    - - 娘
+      - むすめ
+    - - と
+      - null
+    - - 食卓
+      - しょくたく
+    - - を
+      - null
+    - - 囲
+      - かこ
+    - - む
+      - null
+    - - 日
+      - ひ
+    - - から
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'イリ アジ ( ルーウェイ )   :   コノ ムスメ ト ショクタク ヲ カコム ヒ カラ'
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   全部君のせいだ:
     basis: translated
     en: It's All Your Fault
@@ -36123,6 +36948,28 @@ names:
       へ marks the title as addressed to her.
     reading: ヤエ エ
     reading_at: '2026-08-06'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  公爵令嬢の籠絡ミッション:
+    basis: romaji
+    furigana_spans:
+    - - 公爵
+      - こうしゃく
+    - - 令嬢
+      - れいじょう
+    - - の
+      - null
+    - - 籠絡
+      - ろうらく
+    - - ミッション
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: コウシャク レイジョウ ノ ロウラク ミッション
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -36464,6 +37311,26 @@ names:
       on pen names and coinages
     reading: ツメタクテ   ヤワラカ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  冷たくて柔らか:
+    basis: romaji
+    furigana_spans:
+    - - 冷
+      - つめ
+    - - たくて
+      - null
+    - - 柔
+      - やわ
+    - - らか
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ツメタクテ ヤワラカ
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -40841,6 +41708,24 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  夢見るメイドのティータイム = Tea Time for Dreaming Maids:
+    basis: romaji
+    furigana_spans:
+    - - 夢
+      - ゆめ
+    - - 見
+      - み
+    - - るメイドのティータイム = Tea Time for Dreaming Maids
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ユメ ミル メイド ノ ティータイム   =   Tea   Time   for   Dreaming   Maids
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   夢見るルネサンス:
     basis: translated
     en: A Dreaming Renaissance
@@ -40980,6 +41865,42 @@ names:
     note: 'The work''s own Latin title, set on its series art. volume cover, set vertically:'
     reading: ダイスキナ シンユウ ガ ブイチューバー ノ ジブン ニ ガチ コイ シテタ ハナシ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  大好きな親友がVチューバーの自分にガチ恋してた話 = MY BEST FRIEND IS IN LOVE WITH MY VTUBER:
+    basis: romaji
+    furigana_spans:
+    - - 大好
+      - だいす
+    - - きな
+      - null
+    - - 親友
+      - しんゆう
+    - - が
+      - null
+    - - V
+      - ぶい
+    - - チューバーの
+      - null
+    - - 自分
+      - じぶん
+    - - にガチ
+      - null
+    - - 恋
+      - こい
+    - - してた
+      - null
+    - - 話
+      - はなし
+    - - ' = MY BEST FRIEND IS IN LOVE WITH MY VTUBER'
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ダイスキナ シンユウ ガ ブイチューバー ノ ジブン ニ ガチ コイ シテタ ハナシ   =   MY   BEST   FRIEND   IS   IN   LOVE   WITH   MY   VTUBER
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -41558,6 +42479,42 @@ names:
       alongside her.
     reading: オンナダカラ、 ト パーティ ヲ ツイホウ サレタ ノデ デンセツ ノ マジョ ト サイキョウ タッグ ヲ クミマシタ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました = Exiled woman,form the strongest tag team with legendary witch:
+    basis: romaji
+    furigana_spans:
+    - - 女
+      - おんな
+    - - だから、とパーティを
+      - null
+    - - 追放
+      - ついほう
+    - - されたので
+      - null
+    - - 伝説
+      - でんせつ
+    - - の
+      - null
+    - - 魔女
+      - まじょ
+    - - と
+      - null
+    - - 最強
+      - さいきょう
+    - - タッグを
+      - null
+    - - 組
+      - く
+    - - みました = Exiled woman,form the strongest tag team with legendary witch
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: オンナダカラ、 ト パーティ ヲ ツイホウ サレタ ノデ デンセツ ノ マジョ ト サイキョウ タッグ ヲ クミマシタ   =   Exiled   woman , form   the   strongest   tag   team   with   legendary   witch
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -42576,6 +43533,32 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  姉になりたい義姉vs百合になりたい義妹:
+    basis: romaji
+    furigana_spans:
+    - - 姉
+      - あね
+    - - になりたい
+      - null
+    - - 義姉
+      - ぎし
+    - - vs
+      - null
+    - - 百合
+      - ゆり
+    - - になりたい
+      - null
+    - - 義妹
+      - ぎまい
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アネ ニ ナリタイ ギシ vs ユリ ニ ナリタイ ギマイ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   姉の親友、私の恋人。:
     basis: translated
     en: My Sister's Best Friend, My Lover.
@@ -43486,6 +44469,30 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  '対ありでした。 : お嬢さまは格闘ゲームなんてしない':
+    basis: romaji
+    furigana_spans:
+    - - 対
+      - たい
+    - - 'ありでした。 : お'
+      - null
+    - - 嬢
+      - じょう
+    - - さまは
+      - null
+    - - 格闘
+      - かくとう
+    - - ゲームなんてしない
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'タイ アリデシタ。   :   オジョウサマ ワ カクトウ ゲーム ナンテ シナイ'
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   対ありでした。 ～お嬢さまは格闘ゲームなんてしない～:
     basis: licensed
     en: Young Ladies Don’t Play Fighting Games
@@ -43918,6 +44925,17 @@ names:
       with nothing left out.
     reading: ショウジョ ニ   カンゼン バン
     reading_at: '2026-08-06'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  少女たちの痕(きずあと)にくちづけを:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ショウジョタチ ノ アト ニ クチヅケ ヲ
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -45238,6 +46256,26 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  彼なんかより、私のほうがいいでしょ?:
+    basis: romaji
+    furigana_spans:
+    - - 彼
+      - かれ
+    - - なんかより、
+      - null
+    - - 私
+      - わたし
+    - - のほうがいいでしょ?
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: カレ ナンカ ヨリ、 ワタシ ノ ホウ ガ イイデショ ?
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   彼なんかより、私のほうがいいでしょ？:
     basis: translated
     en: I'm Better Than Some Guy, Aren't I?
@@ -45601,6 +46639,34 @@ names:
     reading_basis: researched
     reading_source: derived
     reading_source_kind: derived
+    verified: false
+  彼氏の女友達がぐいぐい来る〈私に〉:
+    basis: romaji
+    furigana_spans:
+    - - 彼氏
+      - かれし
+    - - の
+      - null
+    - - 女友達
+      - おんなともだち
+    - - がぐいぐい
+      - null
+    - - 来
+      - く
+    - - る〈
+      - null
+    - - 私
+      - わたし
+    - - に〉
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: カレシ ノ オンナトモダチ ガ グイグイ クル 〈ワタシ ニ〉
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
     verified: false
   彼氏の女友達がぐいぐい来る（私に）:
     basis: romaji
@@ -46275,6 +47341,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  怪異部:
+    basis: romaji
+    furigana_spans:
+    - - 怪異
+      - かいい
+    - - 部
+      - ぶ
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: カイイ ブ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   怪異部～M県Y市の怪現象について～:
     basis: translated
     en: 'The Uncanny Club: On the Strange Phenomena of Y City, M Prefecture'
@@ -46559,6 +47641,30 @@ names:
       feeling that will not fully ripen, describing a shy bar worker and a bar regular.
     reading: コイ ト ヨブ ニ ワ アオ スギル
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  恋と呼ぶには青すぎる = Too blue to call love:
+    basis: romaji
+    furigana_spans:
+    - - 恋
+      - こい
+    - - と
+      - null
+    - - 呼
+      - よ
+    - - ぶには
+      - null
+    - - 青
+      - あお
+    - - すぎる = Too blue to call love
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: コイ ト ヨブ ニ ワ アオ スギル   =   Too   blue   to   call   love
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -46914,6 +48020,26 @@ names:
       meets the work under this name.
     reading: コイ ヨリ アオク
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  恋より青く = Bluer Than Love:
+    basis: romaji
+    furigana_spans:
+    - - 恋
+      - こい
+    - - より
+      - null
+    - - 青
+      - あお
+    - - く = Bluer Than Love
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: コイ ヨリ アオク   =   Bluer   Than   Love
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -47615,6 +48741,119 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  悪役令嬢の中の人:
+    basis: romaji
+    furigana_spans:
+    - - 悪役
+      - あくやく
+    - - 令嬢
+      - れいじょう
+    - - の
+      - null
+    - - 中
+      - なか
+    - - の
+      - null
+    - - 人
+      - ひと
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アクヤク レイジョウ ノ ナカ ノ ヒト
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  '悪役令嬢の中の人 : 断罪された転生者のため嘘つきヒロインに復讐いたします':
+    basis: romaji
+    furigana_spans:
+    - - 悪役
+      - あくやく
+    - - 令嬢
+      - れいじょう
+    - - の
+      - null
+    - - 中
+      - なか
+    - - の
+      - null
+    - - 人
+      - ひと
+    - - ' : '
+      - null
+    - - 断罪
+      - だんざい
+    - - された
+      - null
+    - - 転生
+      - てんしょう
+    - - 者
+      - しゃ
+    - - のため
+      - null
+    - - 嘘
+      - うそ
+    - - つきヒロインに
+      - null
+    - - 復讐
+      - ふくしゅう
+    - - いたします
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'アクヤク レイジョウ ノ ナカ ノ ヒト   :   ダンザイ サレタ テンショウシャ ノ タメ ウソツキ ヒロイン ニ フクシュウ イタシマス'
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  '悪役令嬢の中の人 = The person in a villainess : 断罪された転生者のため嘘つきヒロインに復讐いたします':
+    basis: romaji
+    furigana_spans:
+    - - 悪役
+      - あくやく
+    - - 令嬢
+      - れいじょう
+    - - の
+      - null
+    - - 中
+      - なか
+    - - の
+      - null
+    - - 人
+      - ひと
+    - - ' = The person in a villainess : '
+      - null
+    - - 断罪
+      - だんざい
+    - - された
+      - null
+    - - 転生
+      - てんしょう
+    - - 者
+      - しゃ
+    - - のため
+      - null
+    - - 嘘
+      - うそ
+    - - つきヒロインに
+      - null
+    - - 復讐
+      - ふくしゅう
+    - - いたします
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'アクヤク レイジョウ ノ ナカ ノ ヒト   =   The   person   in   a   villainess   :   ダンザイ サレタ テンショウシャ ノ タメ
+      ウソツキ ヒロイン ニ フクシュウ イタシマス'
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   悪役令嬢の中の人〜断罪された転生者のため嘘つきヒロインに復讐いたします〜:
     basis: translated
     en: The Person Inside the Villainess ~Taking Revenge on the Lying Heroine for the Falsely Condemned
@@ -47908,6 +49147,22 @@ names:
       her life.'
     reading: アイサレテ モ イイ ンダ ヨ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  愛されてもいいんだよ = It's ok to be loved:
+    basis: romaji
+    furigana_spans:
+    - - 愛
+      - あい
+    - - されてもいいんだよ = It's ok to be loved
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アイサレテ モ イイ ンダ ヨ   =   It's   ok   to   be   loved
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -48356,6 +49611,24 @@ names:
       sentence.
     reading: アイ ラ ブユウ ヨリ アイシテル
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  感覚共有メイドさん!:
+    basis: romaji
+    furigana_spans:
+    - - 感覚
+      - かんかく
+    - - 共有
+      - きょうゆう
+    - - メイドさん!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: カンカク キョウユウ メイドサン !
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -48818,6 +50091,36 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  捨てられエルフさんは世界で一番強くて可愛い!:
+    basis: romaji
+    furigana_spans:
+    - - 捨
+      - す
+    - - てられエルフさんは
+      - null
+    - - 世界
+      - せかい
+    - - で
+      - null
+    - - 一番
+      - いちばん
+    - - 強
+      - つよ
+    - - くて
+      - null
+    - - 可愛
+      - かわい
+    - - い!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ステラレ エルフサン ワ セカイ デ イチバン ツヨクテ カワイイ !
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   捨てられエルフさんは世界で一番強くて可愛い！:
     basis: translated
     en: The Discarded Elf Is the Strongest, Cutest Girl in the World!
@@ -49041,6 +50344,35 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  推しが隣で授業に集中できない! = GIRL,PLZ MAKE ME CONCENTRATE ON THE CLASS!?:
+    basis: romaji
+    furigana_spans:
+    - - 推
+      - お
+    - - しが
+      - null
+    - - 隣
+      - となり
+    - - で
+      - null
+    - - 授業
+      - じゅぎょう
+    - - に
+      - null
+    - - 集中
+      - しゅうちゅう
+    - - できない! = GIRL,PLZ MAKE ME CONCENTRATE ON THE CLASS!?
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: オシ ガ トナリ デ ジュギョウ ニ シュウチュウ デキナイ !   =   GIRL , PLZ   MAKE   ME   CONCENTRATE   ON   THE   CLASS
+      ! ?
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   推しといっしょ!!:
     basis: translated
     en: Together with My Favourite!!
@@ -49056,6 +50388,26 @@ names:
       and a general reader does not know. いっしょ is being in company.
     reading: オシ ト イッショ ! !
     reading_at: '2026-08-06'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  推しとの百合はありえない!:
+    basis: romaji
+    furigana_spans:
+    - - 推
+      - お
+    - - しとの
+      - null
+    - - 百合
+      - ゆり
+    - - はありえない!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: オシ ト ノ ユリ ワ アリ エナイ !
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -52695,6 +54047,34 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  機動戦士ガンダム水星の魔女青春フロンティア:
+    basis: romaji
+    furigana_spans:
+    - - 機動
+      - きどう
+    - - 戦士
+      - せんし
+    - - ガンダム
+      - null
+    - - 水星
+      - すいせい
+    - - の
+      - null
+    - - 魔女
+      - まじょ
+    - - 青春
+      - せいしゅん
+    - - フロンティア
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: キドウ センシ ガンダム スイセイ ノ マジョ セイシュン フロンティア
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   機械と少女と幸せな夢:
     basis: translated
     en: The Machine, the Girl, and a Happy Dream
@@ -53382,6 +54762,28 @@ names:
       idol living in the attic as her landlady.
     reading: マイツキ ニワツキ オオヤツキ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  毎月庭つき大家つき = monthly/with garden/with ooya:
+    basis: romaji
+    furigana_spans:
+    - - 毎月
+      - まいつき
+    - - 庭
+      - にわ
+    - - つき
+      - null
+    - - 大家
+      - おおや
+    - - つき = monthly/with garden/with ooya
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: マイツキ ニワツキ オオヤツキ   =   monthly / with   garden / with   ooya
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -54923,6 +56325,28 @@ names:
       itself under an English licence and is marked ours, the same shape as 結城友奈は 勇者である and 私に天使が舞い降りた！.
     reading: シャクネツ ノ タッキュウ ムスメ   REBURN ! !
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  灼熱の卓球娘reburn!!:
+    basis: romaji
+    furigana_spans:
+    - - 灼熱
+      - しゃくねつ
+    - - の
+      - null
+    - - 卓球
+      - たっきゅう
+    - - 娘
+      - むすめ
+    - - reburn!!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: シャクネツ ノ タッキュウ ムスメ reburn ! !
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -56521,6 +57945,28 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  異種族女子に○○する話:
+    basis: romaji
+    furigana_spans:
+    - - 異
+      - い
+    - - 種族
+      - しゅぞく
+    - - 女子
+      - じょし
+    - - に○○する
+      - null
+    - - 話
+      - はなし
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: イ シュゾク ジョシ ニ ○ ○ スル ハナシ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   異種族女子に〇〇する話:
     basis: translated
     en: The Story of Doing ___ to Interspecies Girls
@@ -56845,6 +58291,26 @@ names:
       one-shot with no synopsis beyond the award notice.
     reading: シラケタ ヨル ( ヤングスペリオール シンジンショウ・ カサク )
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  白と黒 = Black & White:
+    basis: romaji
+    furigana_spans:
+    - - 白
+      - しろ
+    - - と
+      - null
+    - - 黒
+      - くろ
+    - - ' = Black & White'
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: シロ ト クロ   =   Black   &   White
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -58761,6 +60227,28 @@ names:
       rather than by choice.
     reading: アイカタ システム
     reading_at: '2026-08-06'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  真先輩の前ではかっこつけられない!:
+    basis: romaji
+    furigana_spans:
+    - - 真
+      - ま
+    - - 先輩
+      - せんぱい
+    - - の
+      - null
+    - - 前
+      - まえ
+    - - ではかっこつけられない!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: マ センパイ ノ マエ デ ワ カッコ ツケラレナイ !
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -62288,6 +63776,66 @@ names:
     reading_source_kind: licensor
     reading_url: https://tankobonbon.com/products/9781626921900
     verified: false
+  '紅殻のパンドラ : GHOST URN':
+    basis: romaji
+    furigana_spans:
+    - - 紅殻
+      - べにがら
+    - - 'のパンドラ : GHOST URN'
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'ベニガラ ノ パンドラ   :   GHOST   URN'
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  '紅茶の魔女の優雅なる宮廷生活 : チートをひた隠す最弱魔導師の窓際ライフ':
+    basis: romaji
+    furigana_spans:
+    - - 紅茶
+      - こうちゃ
+    - - の
+      - null
+    - - 魔女
+      - まじょ
+    - - の
+      - null
+    - - 優雅
+      - ゆうが
+    - - なる
+      - null
+    - - 宮廷
+      - きゅうてい
+    - - 生活
+      - せいかつ
+    - - ' : チートをひた'
+      - null
+    - - 隠
+      - かく
+    - - す
+      - null
+    - - 最弱
+      - さいじゃく
+    - - 魔導師
+      - まどうし
+    - - の
+      - null
+    - - 窓際
+      - まどぎわ
+    - - ライフ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'コウチャ ノ マジョ ノ ユウガナル キュウテイ セイカツ   :   チート ヲ ヒタ カクス サイジャク マドウシ ノ マドギワ ライフ'
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   紅茶の魔女の優雅なる宮廷生活 チートをひた隠す最弱魔導師の窓際ライフ:
     basis: translated
     en: 'The Tea Witch''s Elegant Court Life: The Sidelined Life of the Weakest Mage Who Hides Her Cheat
@@ -62558,6 +64106,18 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  紗痲:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: シャ マ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    reading_uncertain: true
     verified: false
   紗痲 Fallin' Jail:
     basis: romaji
@@ -63034,6 +64594,45 @@ names:
     reading_pass: 4
     reading_source: yurarium
     reading_source_kind: derived
+    verified: false
+  結城友奈は勇者である勇者部びよりParty♪:
+    basis: romaji
+    furigana_spans:
+    - - 結城
+      - ゆうき
+    - - 友奈
+      - ともな
+    - - は
+      - null
+    - - 勇者
+      - ゆうしゃ
+    - - である
+      - null
+    - - 勇者
+      - ゆうしゃ
+    - - 部
+      - ぶ
+    - - びよりParty♪
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ユウキ トモナ ワ ユウシャデ アル ユウシャ ブ ビヨリ Party ♪
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  結婚(らぶらぶ)したい竜宮さんは上陸しました:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ケッコン シタイ リュウグウサン ワ ジョウリク シマシタ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
     verified: false
   結婚したい竜宮さんは上陸しました:
     basis: translated
@@ -63631,6 +65230,32 @@ names:
       a title formula Japanese uses for any caper. フィニッシュライン is borrowed English.
     reading: セイヤ ダイ サクセン！ コイ ト シゴト ノ フィニッシュライン
     reading_at: '2026-08-06'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  聖女先生の魔法は進んでる!:
+    basis: romaji
+    furigana_spans:
+    - - 聖女
+      - せいじょ
+    - - 先生
+      - せんせい
+    - - の
+      - null
+    - - 魔法
+      - まほう
+    - - は
+      - null
+    - - 進
+      - すす
+    - - んでる!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: セイジョ センセイ ノ マホウ ワ ススンデル !
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -65968,6 +67593,26 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  超かぐや姫!:
+    basis: romaji
+    furigana_spans:
+    - - 超
+      - ちょう
+    - - かぐや
+      - null
+    - - 姫
+      - ひめ
+    - - '!'
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: チョウカグヤヒメ !
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   超かぐや姫！:
     basis: translated
     en: Super Princess Kaguya!
@@ -66348,6 +67993,36 @@ names:
     reading_source_kind: licensor
     reading_url: https://yenpress.com/series/the-magical-revolution-of-the-reincarnated-princess-and-the-genius-young-lady-manga
     verified: false
+  転生王女と天才令嬢の魔法革命 = The Magical Revolution of Reincarnation Princess and Genius Young Lady:
+    basis: romaji
+    furigana_spans:
+    - - 転生
+      - てんしょう
+    - - 王女
+      - おうじょ
+    - - と
+      - null
+    - - 天才
+      - てんさい
+    - - 令嬢
+      - れいじょう
+    - - の
+      - null
+    - - 魔法
+      - まほう
+    - - 革命
+      - かくめい
+    - - ' = The Magical Revolution of Reincarnation Princess and Genius Young Lady'
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: テンショウ オウジョ ト テンサイ レイジョウ ノ マホウ カクメイ   =   The   Magical   Revolution   of   Reincarnation   Princess   and   Genius   Young   Lady
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   転生王女と天才令嬢の魔法革命 【タテスク】:
     basis: licensed
     en: The Magical Revolution of the Reincarnated Princess and the Genius Young Lady
@@ -66518,6 +68193,32 @@ names:
       reader meets the work under this name.
     reading: トウメイナ ウスイ ミズイロ ニ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  週に一度クラスメイトを買う話:
+    basis: romaji
+    furigana_spans:
+    - - 週
+      - しゅう
+    - - に
+      - null
+    - - 一度
+      - いちど
+    - - クラスメイトを
+      - null
+    - - 買
+      - か
+    - - う
+      - null
+    - - 話
+      - はなし
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: シュウ ニ イチド クラスメイト ヲ カウ ハナシ
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -67487,6 +69188,30 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  限界OLと女子大生が○○する話:
+    basis: romaji
+    furigana_spans:
+    - - 限界
+      - げんかい
+    - - OLと
+      - null
+    - - 女子大
+      - じょしだい
+    - - 生
+      - せい
+    - - が○○する
+      - null
+    - - 話
+      - はなし
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ゲンカイ OL ト ジョシダイセイ ガ ○ ○ スル ハナシ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   限界OLと女子大生が〇〇する話:
     basis: translated
     en: The Story of a Burned-Out Office Worker and a College Student Doing ___
@@ -67957,6 +69682,26 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  雨夜の月 = the moon on a rainy night:
+    basis: romaji
+    furigana_spans:
+    - - 雨夜
+      - あまよ
+    - - の
+      - null
+    - - 月
+      - つき
+    - - ' = the moon on a rainy night'
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アマヨ ノ ツキ   =   the   moon   on   a   rainy   night
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   雨支度:
     basis: translated
     en: Getting Ready for Rain
@@ -68063,6 +69808,22 @@ names:
       and agapanthus is an early-summer flower, which the title's imagery sits inside rather than explains.
     reading: ユキドケ ト アガパンサス
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  雪解けとアガパンサス = SNOW THAW & LOVE LETTER:
+    basis: romaji
+    furigana_spans:
+    - - 雪解
+      - ゆきど
+    - - けとアガパンサス = SNOW THAW & LOVE LETTER
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ユキドケ ト アガパンサス   =   SNOW   THAW   &   LOVE LETTER
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -68782,6 +70543,30 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  '鬼と夜明け : 幕末女子高生':
+    basis: romaji
+    furigana_spans:
+    - - 鬼
+      - おに
+    - - と
+      - null
+    - - 夜明
+      - よあ
+    - - 'け : '
+      - null
+    - - 幕末
+      - ばくまつ
+    - - 女子高生
+      - じょしこうせい
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'オニト ヨアケ   :   バクマツ ジョシコウセイ'
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   鬼売れアイドルが今日も私を推してくる:
     basis: translated
     en: The Wildly Popular Idol Keeps Cheering Me On
@@ -69098,6 +70883,26 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  魔女ノ結婚 = The Witch's Marriage:
+    basis: romaji
+    furigana_spans:
+    - - 魔女
+      - まじょ
+    - - ノ
+      - null
+    - - 結婚
+      - けっこん
+    - - ' = The Witch''s Marriage'
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: マジョ ノ ケッコン   =   The   Witch ' s   Marriage
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   魔性のメロ女に堕とされる百合アンソロジー:
     basis: translated
     en: A Yuri Anthology of Being Undone by a Bewitching Woman
@@ -69187,6 +70992,34 @@ names:
       school where every student is under some kind of magic.
     reading: マホウ ヲ ステタイ オンナノコ
     reading_at: '2026-08-05'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  '魔法を捨てたい女の子 : Enchanted Girl and the Secret Roses':
+    basis: romaji
+    furigana_spans:
+    - - 魔法
+      - まほう
+    - - を
+      - null
+    - - 捨
+      - す
+    - - てたい
+      - null
+    - - 女
+      - おんな
+    - - の
+      - null
+    - - 子
+      - こ
+    - - ' : Enchanted Girl and the Secret Roses'
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: 'マホウ ヲ ステタイ オンナノコ   :   Enchanted   Girl   and   the   Secret   Roses'
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi

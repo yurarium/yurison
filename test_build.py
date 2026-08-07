@@ -22,6 +22,17 @@ spec.loader.exec_module(b)
 
 
 def main(s):
+    # A §2 REBUTTAL KEEPS THE WORK AND TAKES IT OUT OF THE LISTING. `out` is a source disagreeing
+    # with a source; `marginal` is the operator declining to decide. Neither is deletion, and the
+    # two are kept apart because they mean different things.
+    _reb = b.rebuttals()
+    s.check(isinstance(_reb, dict), "rebuttals() reads the file into a map")
+    if _reb:
+        s.check(set(_reb.values()) <= {"rebutted", "marginal"},
+                "a disposition is one of the two the interface knows")
+        s.check(all(k.startswith("w") for k in _reb),
+                "every entry names a work identifier, so nothing is matched on a title")
+
     # SKIPPED SLOTS. 休載イラスト is a publisher posting art instead of a chapter. Counted as
     # chapters they inflated 19 works and let a notice become a work's `latest`.
     s.check(b.is_skipped_slot("休載イラスト"), "a hiatus illustration is a skipped slot")

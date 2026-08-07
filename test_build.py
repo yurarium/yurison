@@ -307,6 +307,50 @@ def main(s):
     s.eq(b.undated_publication({})["venue"], None,
          "a record naming nobody gets null rather than an empty string pretending to be a venue")
 
+    # A MULTI-CREDIT AUTHOR LINE IS COMPOSED FROM THE PARTS, and the composition decides whether
+    # 41 works showed their author in Japanese on an English page. 彼女のカノジョと不純な初恋 is the
+    # reported one: Akeo is in the name store as an already-Latin name with no reading and no
+    # romanisation, correctly, and being found there skipped the fallback that handles exactly
+    # that. The romanisation styles were then intersected across the credits, came out empty, and
+    # the whole field shipped with no `romaji` at all.
+    _fold = lambda x: x                                                          # noqa: E731
+    LATIN_STORE = {"basis": "stated", "en": "Akeo", "script": "latin", "verified": True}
+    HANAMIYA = {"reading": "ハナミヤ ミィ", "en": "Mee Hanamiya", "reading_basis": "stated",
+                "romaji": {"macron": "Mii Hanamiya", "double": "Mii Hanamiya",
+                           "plain": "Mii Hanamiya"}}
+    SHIOKOJI = {"reading": "シオコウジ", "reading_basis": "stated",
+                "romaji": {"macron": "Shiokōji", "double": "Shiokouji", "plain": "Shiokoji"}}
+    store = {"Akeo": LATIN_STORE, "花宮みぃ": HANAMIYA, "塩こうじ": SHIOKOJI}
+    got = b.credits_en("Akeo / 花宮みぃ / 塩こうじ", store, {}, _fold)
+    s.check(got is not None, "the reported field composes rather than returning nothing")
+    s.eq(sorted(got.get("romaji") or {}), ["double", "macron", "plain"],
+         "with all three romanisation styles, which is what the page reads")
+    s.eq(got["romaji"]["macron"], "Akeo / Mii Hanamiya / Shiokōji",
+         "the Latin credit stands as its own romanisation beside two romanised ones")
+    s.eq(got["reading"], "Akeo / ハナミヤ ミィ / シオコウジ",
+         "and the reading no longer opens with an empty part where Akeo belongs")
+
+    # The counter-case that decided which field the Latin form comes from. 花宮みぃ has an English
+    # name and no romanisation would be a different fact: `en` is a TRANSLATION, and putting it
+    # where the sound of the name goes would print a licensor's wording as a romanisation.
+    s.check(b.credits_en("花宮みぃ / 塩こうじ",
+                         {"花宮みぃ": {"en": "Mee Hanamiya", "basis": "romaji"},
+                          "塩こうじ": SHIOKOJI}, {}, _fold) is None,
+            "a Japanese credit with an English name and no reading composes nothing")
+
+    # ALL OF THEM OR NONE, which is the rule that already existed and now actually holds. A
+    # partial rendering is worse than none: the interface prefers author_en where it exists, so
+    # emitting one without a romanisation suppresses the fallback to the Japanese.
+    s.check(b.credits_en("花宮みぃ / 未知の人", {"花宮みぃ": HANAMIYA}, {}, _fold) is None,
+            "one unresolvable credit stops the whole field")
+
+    # The fallback that always worked, pinned so the fix cannot be read as replacing it.
+    s.eq(b.credits_en("Ｍａｇｐｉｅ / 塩こうじ", {"塩こうじ": SHIOKOJI}, {},
+                      _fold)["romaji"]["plain"],
+         "Magpie / Shiokoji", "a full-width Latin credit absent from the store still folds")
+    s.check(b.credits_en("塩こうじ", {"塩こうじ": SHIOKOJI}, {}, _fold) is None,
+            "and a field naming one person is not a composition at all")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

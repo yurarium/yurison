@@ -2377,6 +2377,14 @@ def main():
                 "episode_count": eps, "free_episodes": free_eps,
                 "started": started or None,
                 "work_level": True,
+                # WHERE WITHIN ニコニコ漫画 THE WORK SITS, when the capture read it off the
+                # breadcrumb. The block below that renders a channel had no producer since
+                # comparator claims stopped being published as releases, so it has not run; the
+                # field it wants is `channel`, keyed by name, because platforms.yaml records a
+                # channel by name and not by ニコニコ's slug. Only channels platforms.yaml knows
+                # resolve, so ニコニコ百合姫 carries none until somebody adds it, and a work in the
+                # open section carries none because it is in no channel.
+                "channel_src": w.get("channel") or "",
             })
 
     # Platform-wide access defaults, applied only where the source gave no per-chapter value.
@@ -3028,6 +3036,13 @@ def main():
                             f"which is where it should be read")
 
     for r in releases:
+        # THE NAME IS RESOLVED HERE because the channel map is built above this point and below
+        # where the row is made. platforms.yaml records a channel by NAME, and ニコニコ's own slug
+        # joins to nothing without a mapping somebody would have to invent, so the name is what
+        # travels.
+        if r.get("channel_src"):
+            r["channel"] = channels.get(norm_work(r.pop("channel_src")))
+        r.pop("channel_src", None)
         ch = r.get("channel")
         if ch:
             # The platform is the HOST. A channel is a section within it — きららベース is

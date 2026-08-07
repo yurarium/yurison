@@ -353,6 +353,7 @@ def main(s):
 
     shelf_citations(s)
     state_claims(s)
+    series_addresses(s)
 
 
 def shelf_citations(s):
@@ -454,6 +455,51 @@ def state_claims(s):
     s.check("url" not in bare[0], "no address means no address field")
     s.eq(b.state_claim_rows([]), [], "no rows, no claims")
 
+
+def series_addresses(s):
+    """A ROW'S ADDRESS IS ITS NEWEST CHAPTER'S, so on GigaViewer it moves when the work publishes.
+
+    The work-level addresses were captured and attached to the identifiers the works already answer
+    to; what was left was for build.py to put one on the row. See docs/GAPS.md §21.
+    """
+    doc = {"record_type": "stable_address", "joins": [
+        {"url": "https://comic-days.com/episode/1",
+         "anchor": "web:https://comic-days.com/atom/series/9"},
+        {"url": "https://comic-days.com/episode/1",
+         "anchor": "web:https://comic-days.com/series/9/first_episode"},
+        {"url": "https://ichijin-plus.com/episode/2",
+         "anchor": "web:https://ichijin-plus.com/atom/series/7"},
+    ]}
+    got = b.work_level_addresses([doc])
+    s.eq(got["https://comic-days.com/episode/1"],
+         "https://comic-days.com/series/9/first_episode",
+         "the reader address wins where the capture established one")
+    # 一迅プラス, コミックガルド, MAGCOMI and webアクション serve no reader route, and two of them
+    # answer it with a 200 carrying their front page. The feed is the shape every host has.
+    s.eq(got["https://ichijin-plus.com/episode/2"],
+         "https://ichijin-plus.com/atom/series/7",
+         "and the feed address stands where the host serves no reader address")
+    s.eq(len(got), 2, "one address per row, not one per anchor")
+    s.eq(b.work_level_addresses([]), {}, "an absent capture is an empty answer, not a crash")
+
+    # THE COUNTER-CASE THAT DECIDED THE GLOB. `data/queue/address-moved.yaml` sits under the same
+    # filename prefix and attaches ANOTHER CHAPTER address, which is exactly what this field must
+    # never hold: it would replace an address that moves with a second address that also moves.
+    s.eq(b.work_level_addresses([{"record_type": "print_web_join", "joins": [
+             {"url": "https://comic-days.com/episode/1",
+              "anchor": "web:https://ichijin-plus.com/episode/5"}]}]),
+         {}, "a repair capture is not a work-level address capture and is not read as one")
+
+    # THE COUNTER-CASE. Falling back to the row's own address would put a chapter address in a
+    # field whose whole purpose is to hold one that does not move.
+    s.eq(b.series_address({"url": "https://comic-days.com/episode/3"}, got), None,
+         "a row nothing has read an address for gets none")
+    s.eq(b.series_address({"url": "https://comic-days.com/episode/3",
+                           "feed_url": "https://comic-days.com/atom/series/4"}, got),
+         "https://comic-days.com/atom/series/4",
+         "the feed the row already holds answers where the capture has not reached it")
+    s.eq(b.series_address({"url": "https://comic-fuz.com/manga/2474"}, got), None,
+         "a row whose own address is already the work's needs no second copy of it")
 
 
 if __name__ == "__main__":

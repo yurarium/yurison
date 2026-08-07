@@ -958,6 +958,41 @@ def _record_address(rec, name):
     return None
 
 
+# Every capture of work-level addresses, whichever platform it was read from. Globbed rather than
+# named, because there are four of them today, one per shape the platforms write, and a fifth
+# arriving would otherwise be read by identity.py and not by this. `record_type` is what selects
+# them: `address-moved.yaml` sits under the same prefix and attaches ANOTHER CHAPTER address, which
+# is the one thing this field must never carry.
+WORK_ADDRESS_CAPTURES = "data/queue/address-*.yaml"
+WORK_ADDRESS_RECORD = "stable_address"
+
+
+def work_level_addresses(docs):
+    """`{chapter address: the work's own address}` over the captures that read them.
+
+    TWO SHAPES, BECAUSE THE PLATFORMS DIFFER. Every GigaViewer host serves `/atom/series/<id>`, and
+    337 of the 506 rows also have `/series/<id>/first_episode`, the address the platform itself puts
+    behind a series on its own listings. 一迅プラス, コミックガルド, MAGCOMI and webアクション serve
+    no route for the second, and two of them answer it with HTTP 200 carrying their front page, so
+    the reader address is taken only where the capture established that the page names the series.
+
+    The reader address is preferred where there is one and the feed stands everywhere else. Both are
+    anchors the registry already holds, so either resolves to the identifier the work has.
+    """
+    out = {}
+    for doc in docs:
+        if str((doc or {}).get("record_type") or "") != WORK_ADDRESS_RECORD:
+            continue
+        for join in (doc.get("joins") or []):
+            url = str(join.get("url") or "")
+            found = str(join.get("anchor") or "").split("web:", 1)[-1]
+            if not url or not found:
+                continue
+            if url not in out or "/atom/" not in found:
+                out[url] = found
+    return out
+
+
 def state_claim_rows(rows):
     """What each platform says about its own serialisation, one row per platform that says it.
 
@@ -985,6 +1020,22 @@ def state_claim_rows(rows):
                     "read": row.get("retrieved") or None,
                     **({"url": row["url"]} if row.get("url") else {})})
     return sorted(out, key=lambda x: (x["says"] != "completed", str(x["source"] or "")))
+
+
+def series_address(row, addresses):
+    """The work's own address for a row addressed at one of its chapters, or None.
+
+    WHY A ROW NEEDS ONE. `identity.py` anchors a work on its row's address, and a row's address is
+    its newest chapter's, so on a GigaViewer platform a work that publishes looks like a work never
+    seen before. `identity.stable_url` closes the addresses that carry the work's own in front of
+    them; these are the 507 that carry nothing but a chapter id.
+
+    NOTHING IS DERIVED FROM THE CHAPTER ADDRESS. It is either an address somebody read or the feed
+    the row is already holding, and a row with neither says so by carrying no field.
+    """
+    url = str(row.get("url") or "")
+    found = addresses.get(url) or row.get("feed_url") or None
+    return found if found and found != identity.stable_url(url) else None
 
 
 def credits_en(raw, exact, folded, fold):
@@ -4134,6 +4185,11 @@ def main():
         _gid = _reg_index.get(identity.web_anchor(_grow.get("url")))
         _grow["_group"] = _key_of_id.setdefault(_gid, _gkey) if _gid else _gkey
 
+    # Read once for the whole population; 3,000 rows would otherwise re-parse an 843-entry capture.
+    _work_addresses = work_level_addresses(
+        yaml.safe_load(pathlib.Path(_wl).read_text()) or {}
+        for _wl in sorted(glob.glob(WORK_ADDRESS_CAPTURES)))
+
     works_out, by_title = [], defaultdict(list)
     for row in series.values():
         row["format"] = editions.get((norm_work(row["work"]), row["platform"]), "standard")
@@ -4225,6 +4281,11 @@ def main():
                 reverse=True),
             "collection": best.get("collection"),
             "url": best["url"],
+            # THE ADDRESS THAT DOES NOT MOVE. `url` above is the newest chapter's, so anchoring a
+            # work on it mints a second identifier the next time the work publishes. This is the
+            # work's own address on the same platform, and it belongs beside `url` rather than
+            # instead of it: a reader following a row wants the chapter it is telling them about.
+            "series_url": series_address(best, _work_addresses),
             "free": best["free"], "free_timed": best["free_timed"], "priced": best["priced"],
             "sources": [{"platform": r["platform"], "url": r["url"], "chapters": r["chapters"],
                          "free": r["free"], "free_timed": r["free_timed"], "priced": r["priced"],
@@ -4390,9 +4451,9 @@ def main():
                 "latest": None, "latest_ep": "", "first": _fp2.get("date"),
                 "state": "print", "state_basis": None, "completed_basis": None,
                 "free": 0, "free_timed": 0, "priced": 0,
-                # A work that exists only in print has no platform to make a claim about a
-                # serialisation it does not have.
-                "url": None, "sources": [], "skipped": [], "collection": None,
+                # A work that exists only in print serialises nowhere, so it has no address of
+                # either kind and no platform to make a claim about a serialisation it lacks.
+                "url": None, "series_url": None, "sources": [], "skipped": [], "collection": None,
                 "state_claims": [],
                 "id": _pid,
                 "completed_claim": _pw2.get("completed_claim"),

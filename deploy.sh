@@ -11,10 +11,10 @@ SITE="${1:-${YURARIUM_SITE:-$(dirname "$REPO")/yurarium.github.io}}"
 # audit sampler read it — and at 1.3 MB it was downloaded in full by every visitor to render the
 # first screen. What ships is data/build/feed/: a 14-day current.json, one file per archived month,
 # and meta.json. Nothing on the site fetches feed.json any more.
-# Publisher and imprint names, joined from data/names onto the strings the corpus carries. Written
-# here rather than by build.py because it reads the finished series rows, which is the same reason
-# ledger.py and status.py run from this script; it must run BEFORE the copy below.
-python3 adapters/names/publishers.py
+# Publisher and imprint names used to be joined here, by adapters/names/publishers.py, on the
+# reasoning that the join reads the finished series rows. build.py holds those rows in memory when
+# it writes them, so the step belonged there all along and now runs inside it: the map ships under
+# a `publishers` key in feed/names.json and the interface fetches one names file instead of two.
 cp data/build/index.json data/build/works.json data/build/series.json data/build/run.json data/build/checks.json "$SITE/kari/data/"
 mkdir -p "$SITE/kari/data/feed"
 cp data/build/feed/*.json "$SITE/kari/data/feed/"

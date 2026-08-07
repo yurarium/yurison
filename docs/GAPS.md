@@ -1304,3 +1304,65 @@ ISBNs are not in MADB 1.2.18 at all**, 3 were refused because the bibliography s
 names another book, and the remaining 14 have a record written that no identifier attaches to their
 serialisation. The first group is the release lagging, the second is `by_platform_isbn.agreement`
 working, and only the third is anything to fix.
+
+## 24. The publisher names that resisted (2026-08-07)
+
+272 publisher and imprint names showed in Japanese in English-only mode when this round started,
+on 2,124 volume rows. 240 of them now carry an English name and 32 do not. Each of the 32 is
+below with what was read. The rule they were measured against is NAMES-PLAN §6: an unsourced
+name shows the Japanese, which a reader can search, and a wrong Latin name is worse than that.
+
+Two bases were used for the 240. `official-jp` means the company signs itself in Latin letters
+somewhere on its own site and the entry carries that page. `romaji` is ours: nothing publishes a
+Latin form, so the note says what was read and how the name was put together. A katakana label
+almost always spells a foreign word, so the source word is the answer and a syllable-by-syllable
+pass is not. A kanji label was romanised only where every part is a word with a single reading,
+which is why several below are absent from that set.
+
+### The label with the most rows behind it
+
+**百合コレ**, 496 volume rows, which is 82 per cent of everything still unnamed. ナンバーナイン's own site
+at no9.co.jp and its corporate site at corp.no9.co.jp publish no label list. Its press release
+announcing the company's move into paper names two labels, No.9 Comics and Blend Comics, and
+this is neither. BOOK☆WALKER files it at bookwalker.jp/label/11249 with the Japanese alone. コレ
+is a truncation and nothing states what it truncates, so Yuri Kore and Yuri Collection would
+both be ours to invent. It is the one entry here where a single source page would pay for
+itself.
+
+### Two classes, and one line each for the rest
+
+**A person in the publisher field.** A person's name in the publisher field: the artist self-
+publishes and the distributor files them as the publisher. A person is not a company, and the
+reading of a pen name is not something to guess. The names:
+嵩乃朔、山名沢湖、河津ケント、とばり湊、雪尾ゆき、赤月めう、新居さとし、高橋真弥、夢乃むえ、川村マユ見、さとうメメ子、朱村咲、珠虫さとり、あおい華葉、井庭人.
+
+**A circle name in kanji nobody has read aloud in print.** A circle name in kanji whose reading
+nothing states. §6 forbids romanising kanji by guessing a reading, and each of these has more
+than one defensible one. The names: 空色の音、赤紅、黒戌舎、空想舩、狗古堂、踏月、口達者同盟、わんこ院.
+
+**デジコレ.** 小学館's label. A truncation with nothing stating what it truncates, so a romanisation
+would spell a word nobody uses and an expansion would be a guess.
+
+**デジコレ　マカロン.** The マカロン strand of デジコレ, unresolved for the same reason.
+
+**青騎士.** KADOKAWA's magazine. The kanji reads あおきし or せいきし and KADOKAWA's own label list prints
+neither, so romanising it would pick one.
+
+**青騎士コミックス.** The book line of 青騎士, unresolved for the same reason.
+
+**じるみて.** forcs's label. A kana coinage we could find no site for; it is left as it is rather
+than romanised into a string with no owner.
+
+**GP-KIDS/高菜しんの.** Not a publisher name. It is an imprint beside a person, catalogued in the
+publisher field, and it is the exact shape that makes MADB's parallel titles unsafe to read as
+translations.
+
+**スタジオぷち屋 桜那えいか、.** A circle name with an author's name and a trailing comma catalogued into one
+publisher field. The string is a record artefact, not a name.
+
+**詳伝社.** One volume. 詳伝社 is not a house we can find; 祥伝社 is, and it is already curated as
+Shodensha Publishing. This looks like a catalogued character error and naming it would publish
+our guess about which house it is.
+
+**フェアベル.** The company's site at fairbell.co.jp is a parked domain now and we found no page of
+its own. フェアベル reads as the German fair Bell or the English fair bell and nothing states which.

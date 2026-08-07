@@ -1259,8 +1259,13 @@ def load_names():
             out["uncertain"] = True
         return out or None
 
+    # PUBLISHERS ARE THE THIRD KIND, and they were the last name the site fetched for itself.
+    # data/names/publishers.yaml holds them exactly as the other two are held, so the only thing
+    # that made them different was where the map was written: adapters/names/publishers.py ran from
+    # deploy.sh and emitted a file of its own. A second producer of one fact, and one that ran
+    # after the build had already declared itself finished.
     got = {}
-    for kind in ("authors", "titles"):
+    for kind in ("authors", "titles", "publishers"):
         f = pathlib.Path("data/names") / f"{kind}.yaml"
         if not f.exists():
             got[kind] = {}
@@ -1268,7 +1273,39 @@ def load_names():
         d = (yaml.safe_load(f.read_text()) or {}).get("names") or {}
         got[kind] = {k: v for k, v in
                      ((k, render(k, v, is_person=(kind == "authors"))) for k, v in d.items()) if v}
-    return got.get("authors", {}), got.get("titles", {})
+    return got.get("authors", {}), got.get("titles", {}), got.get("publishers", {})
+
+
+def publisher_map(names, rows):
+    """`{key: {en, basis}}` for the interface, keyed by the catalogued string AND by the shown one.
+
+    KEYED BOTH WAYS ON PURPOSE. The cataloguing around a name is stripped in two places, by
+    `publisher_of` here and by `publisherOf` in app.js, and §3 says two implementations of one rule
+    will drift. They cannot be merged, because one runs in a browser. What removes the cost of a
+    drift is that the raw catalogued string answers too: a normaliser that misses something asks
+    with a string this map still knows, instead of a publisher silently going back to Japanese.
+
+    The normalisers come from adapters/names/publishers.py rather than being written again here,
+    so the Python side has one copy and not two.
+    """
+    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
+    import publishers as _pub
+    out = {}
+    for row in rows:
+        for pr in (row.get("print") or []):
+            for field, norm in (("publisher", _pub.publisher_of), ("imprint", _pub.imprint_of)):
+                raw = str(pr.get(field) or "").strip()
+                if not raw:
+                    continue
+                shown = norm(raw)
+                rec = names.get(raw) or names.get(shown)
+                if not (rec and rec.get("en")):
+                    continue
+                fact = {"en": rec["en"], "basis": rec.get("basis") or "romaji"}
+                for key in {raw, shown}:
+                    if key:
+                        out.setdefault(key, fact)
+    return out
 
 
 
@@ -4705,7 +4742,7 @@ def main():
 
     # Attach English names and readings. Keyed on the exact Japanese string the store was built
     # from, so a work or author with no entry simply gets nothing and renders in Japanese (§6).
-    _auth_names, _title_names = load_names()
+    _auth_names, _title_names, _pub_names = load_names()
 
     # A NAME AND ITS OWN READING ARE ONE PERSON. MADB states both in one schema:creator field
     # with a slash between them, and the slash is what separates two people, so 蓬餅 / ヨモギモチ
@@ -4841,12 +4878,20 @@ def main():
          "titles": sorted(_known_titles)}, ensure_ascii=False, indent=1))
     print(f"titles known to this build: {len(_known_titles)}")
 
+    # A COMPANY NAME IS A NAME, so it ships beside the other two instead of in a file of its own.
+    _pub_shipped = publisher_map(_pub_names, series_rows)
+    print(f"publishers      : {len(_pub_shipped)} key(s) with an English name in feed/names.json")
+
     (out / "feed" / "names.json").write_text(json.dumps(
         {"generated": str(_today),
          "note": "English renderings and readings, keyed by NFKC-folded title/author. Joined onto "
                  "feed rows at render time so archived months — which are never rewritten — still "
                  "show current names.",
          "titles": _title_folded, "authors": _auth_folded,
+         # PUBLISHERS AND IMPRINTS, keyed by the string the catalogue holds and by the string the
+         # interface shows. `basis` says whose name it is: official-jp is the company's own and is
+         # shown unmarked, romaji is a Latin form of the Japanese and is ours.
+         "publishers": _pub_shipped,
          # Chapter names, collections and credit lines, keyed folded like the rest.
          # phrases carries collection and chapter names, and a withheld work's title lands here
          # too when it names a collection. Filtered on the same register.

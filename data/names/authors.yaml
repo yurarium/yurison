@@ -15258,19 +15258,18 @@ names:
     verified: true
   多㐂:
     basis: romaji
-    furigana_spans:
-    - - 多
-      - た
-    - - 㐂
-      - 㐂
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タ 㐂
+    reading: タキ
     reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: タ 㐂
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_source: derived from the character 㐂 itself
+    reading_source_kind: derived
     verified: false
   多門結之:
     basis: romaji

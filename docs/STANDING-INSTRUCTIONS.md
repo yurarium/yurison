@@ -272,6 +272,19 @@ work is published rather than on any judgement about the work, so it holds only 
 is a commercial publisher. **A new source that is not one changes the position**, and the flag
 register plus its check is what makes that visible rather than assumed.
 
+**ニコニコ漫画 is admitted, decided 2026-08-07.** It is the first source that is not purely one
+publisher's web arm: it carries publisher channels and a section anybody can post to, and the
+serialisation pass added 337 works from it. The reading above was that this changes the position,
+so it was put to the operator and the answer was to admit them.
+
+What that costs is precision in the sentence at the top of this section. The structural guarantee
+now holds for every source except this one, and for this one it rests on what the pass actually
+found: no adult imprint and no adult marking on any of the 362 works joined, so nothing reached
+`data/source/editions/withheld.yaml`. That is a measurement and not a guarantee, and it has to be
+taken again when the population grows.
+
+A second source of mixed character would make this a rule with two exceptions, which is the point
+at which the sentence at the top should be rewritten instead of qualified.
 ## 15. Layout changes ask what kind of control it is
 
 Every control in the interface falls into one of the kinds below, and which one decides where it

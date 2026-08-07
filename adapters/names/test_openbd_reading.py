@@ -216,6 +216,29 @@ def main(s):
     s.eq(unresolved, {"とりい しづく": "filing-key-normalised"},
          "so the pass declines it and says which kind of silence this is")
 
+    # THE DIVISION IS THE SECOND QUESTION, and declining the key threw it away with the kana. The
+    # entry that comes back holds the name's own spelling and openBD's boundary.
+    cut, _uncut = ob.boundary_entries(book("9784758075001", "D", "一迅社",
+                                           [("とりいしづく", "トリイ, シズク")]),
+                                      {"とりいしづく": "トリイシヅク"}, "2026-08-07")
+    s.eq(cut["とりいしづく"]["reading"], "トリイ シヅク",
+         "our kana, their boundary, which is what the filing key can still add")
+    s.eq(cut["とりいしづく"]["reading_basis"], "surface",
+         "the sounds are the surface's, so no publisher is credited with them")
+    s.check("collationkey" in cut["とりいしづく"]["reading_note"]
+            or "collationkey" in cut["とりいしづく"]["reading_note"].lower(),
+            "and the note says where the division came from")
+
+    # A KEY THAT DIVIDES NOTHING DIVIDES NOTHING. MADB and openBD both write some readings closed
+    # up, and a pass that treated silence as an answer would have to invent the offset.
+    _cut, uncut = ob.boundary_entries(book("9784758075002", "D", "一迅社",
+                                           [("ほしのなつみ", "ホシノナツミ")]),
+                                      {"ほしのなつみ": "ホシノナツミ"}, "2026-08-07")
+    s.eq(uncut, {"ほしのなつみ": "no-boundary-stated"}, "and the name is counted, not divided")
+
+    _cut, uncut = ob.boundary_entries(ABSENT, {"寝路": "ネジ"}, "2026-08-07")
+    s.eq(uncut, {"寝路": "no-record"}, "no record is its own answer, as it is for a reading")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

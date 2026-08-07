@@ -944,15 +944,17 @@ names:
     en_source: wikidata
     en_url: http://www.wikidata.org/entity/Q115734874
     note: 'MangaUpdates name order: family=AONO given=Nachi'
-    reading: アオノナチ
-    reading_at: '2026-08-02'
+    reading: アオノ ナチ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_corroborated:
     - mangaupdates
     reading_family: アオノ
     reading_given: ナチ
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758021470
     verified: true
   あかまる:
     basis: romaji
@@ -1252,11 +1254,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: アラヤカワイ
-    reading_at: '2026-08-02'
+    reading: アラヤ カワイ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784049155365
     verified: true
   あろめみ:
     basis: romaji
@@ -1368,9 +1372,10 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: イチゴイチエ
+    reading: イチゴ イチエ
     reading_at: '2026-08-02'
     reading_basis: surface
+    reading_boundary: いちご イチエ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -1398,11 +1403,13 @@ names:
     en_at: '2026-08-05'
     en_pass: 1
     en_source: surface
-    reading: イヅミヤオトハ
-    reading_at: '2026-08-05'
+    reading: イヅミヤ オトハ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071659
     verified: true
   いとう:
     basis: romaji
@@ -1528,11 +1535,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: ウサミミキ
-    reading_at: '2026-08-02'
+    reading: ウサミ ミキ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784046821461
     verified: true
   うた:
     basis: romaji
@@ -1681,11 +1690,13 @@ names:
     verified: true
   おこさまランチ:
     basis: romaji
-    reading: オコサマランチ
+    reading: オコサマ ランチ
     reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784776752639
     verified: true
   おしおしお:
     basis: romaji
@@ -1939,11 +1950,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: カシワギツキコ
-    reading_at: '2026-08-02'
+    reading: カシワギ ツキコ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758027410
     verified: true
   かずといずみ:
     basis: romaji
@@ -1966,11 +1979,13 @@ names:
     en_at: '2026-08-05'
     en_pass: 1
     en_source: surface
-    reading: カズマコヲ
-    reading_at: '2026-08-05'
+    reading: カズマ コヲ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070416
     verified: true
   かたひこ:
     basis: romaji
@@ -2093,11 +2108,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: カワノアキコ
-    reading_at: '2026-08-02'
+    reading: カワノ アキコ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784160902138
     verified: true
   かわやばぐ:
     basis: romaji
@@ -2159,23 +2176,27 @@ names:
     en_source: wikidata
     en_url: http://www.wikidata.org/entity/Q134455787
     note: Wikidata English label; word order is the source's, not the author's
-    reading: キサラギユリ
-    reading_at: '2026-08-02'
+    reading: キサラギ ユリ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_corroborated:
     - wikidata
     reading_family: キサラギ
     reading_given: ユリ
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784049138962
     verified: true
   きづきあきら:
     basis: romaji
-    reading: キヅキアキラ
+    reading: キヅキ アキラ
     reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784832279339
     verified: true
   きらた:
     basis: romaji
@@ -2383,15 +2404,17 @@ names:
     en_source_kind: community-db
     en_url: https://www.mangaupdates.com/author/zt4dmvh/kuwabara-tamotsu
     note: 'MangaUpdates name order: family=KUWABARA given=Tamotsu'
-    reading: クワバラタモツ
-    reading_at: '2026-08-02'
+    reading: クワバラ タモツ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_corroborated:
     - mangaupdates
     reading_family: クワバラ
     reading_given: タモツ
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784048115933
     verified: true
   くゥ:
     basis: romaji
@@ -2982,11 +3005,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: シボリカスコ
-    reading_at: '2026-08-02'
+    reading: シボリ カスコ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758029407
     verified: true
   しまづ:
     basis: romaji
@@ -3167,11 +3192,13 @@ names:
     en_at: '2026-08-05'
     en_pass: 1
     en_source: surface
-    reading: スドオカオル
-    reading_at: '2026-08-05'
+    reading: スドオ カオル
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070379
     verified: true
   すめらぎ　ひよこ:
     basis: romaji
@@ -3183,9 +3210,10 @@ names:
     verified: true
   すめらぎひよこ:
     basis: romaji
-    reading: スメラギヒヨコ
+    reading: スメラギ ヒヨコ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: すめらぎ　ひよこ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -3364,11 +3392,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: タナカアヒル
-    reading_at: '2026-08-02'
+    reading: タナカ アヒル
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784048996235
     verified: true
   たねこ:
     basis: romaji
@@ -3847,11 +3877,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: トリイシヅク
-    reading_at: '2026-08-02'
+    reading: トリイ シヅク
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758029414
     verified: true
   とりから:
     basis: romaji
@@ -4432,9 +4464,10 @@ names:
     verified: true
   はちべもつ:
     basis: romaji
-    reading: ハチベモツ
+    reading: ハチベ モツ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: はちべ　もつ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -4454,11 +4487,13 @@ names:
     en_source: wikidata
     en_url: http://www.wikidata.org/entity/Q136750173
     note: Wikidata English label; word order is the source's, not the author's
-    reading: ハットリマサキ
-    reading_at: '2026-08-02'
+    reading: ハットリ マサキ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784040761480
     verified: true
   はっとりみつる:
     basis: romaji
@@ -4472,8 +4507,8 @@ names:
     en_source: wikidata
     en_url: http://www.wikidata.org/entity/Q3137240
     note: 'MangaUpdates name order: family=HATTORI given=Mitsuru'
-    reading: ハットリミツル
-    reading_at: '2026-08-02'
+    reading: ハットリ ミツル
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_corroborated:
     - wikidata
@@ -4481,7 +4516,9 @@ names:
     reading_family: ハットリ
     reading_given: ミツル
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784040740157
     verified: true
   はづき:
     basis: romaji
@@ -4726,11 +4763,13 @@ names:
     en_source: wikidata
     en_url: http://www.wikidata.org/entity/Q92660221
     note: Wikidata English label; word order is the source's, not the author's
-    reading: ヒサマクマコ
-    reading_at: '2026-08-02'
+    reading: ヒサマ クマコ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784832271395
     verified: true
   ひそな:
     basis: romaji
@@ -5436,9 +5475,10 @@ names:
     verified: true
   まつだひかり:
     basis: romaji
-    reading: マツダヒカリ
+    reading: マツダ ヒカリ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: まつだ ひかり
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -5610,11 +5650,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: ミカミテレン
-    reading_at: '2026-08-02'
+    reading: ミカミ テレン
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784049154641
     verified: true
   みかん氏:
     basis: romaji
@@ -5934,11 +5976,13 @@ names:
     en_at: '2026-08-05'
     en_pass: 1
     en_source: surface
-    reading: ムッチリムウニイ
-    reading_at: '2026-08-05'
+    reading: ムッチリ ムウニイ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=4758070059
     verified: true
   むつをむつ 蒼井ゆん:
     basis: romaji
@@ -6112,11 +6156,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: モチオーレ
-    reading_at: '2026-08-02'
+    reading: モチ オーレ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784049130799
     verified: true
   もなか:
     basis: romaji
@@ -6154,15 +6200,17 @@ names:
     en_source: wikidata
     en_url: http://www.wikidata.org/entity/Q132432486
     note: 'MangaUpdates name order: family=YATOSAKI given=Haru'
-    reading: ヤトサキハル
-    reading_at: '2026-08-02'
+    reading: ヤトサキ ハル
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_corroborated:
     - mangaupdates
     reading_family: ヤトサキ
     reading_given: ハル
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784065360323
     verified: true
   やぶうち優:
     basis: romaji
@@ -6233,11 +6281,13 @@ names:
     verified: true
   やまだしゅら:
     basis: romaji
-    reading: ヤマダシュラ
+    reading: ヤマダ シュラ
     reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784757579156
     verified: true
   やまのせりか:
     basis: romaji
@@ -6345,11 +6395,13 @@ names:
     en_source: wikidata
     en_url: http://www.wikidata.org/entity/Q129358898
     note: Wikidata English label; word order is the source's, not the author's
-    reading: ユザキサカオミ
-    reading_at: '2026-08-02'
+    reading: ユザキ サカオミ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784049136517
     verified: true
   ゆざめ:
     basis: romaji
@@ -6796,15 +6848,17 @@ names:
     en_source: wikidata
     en_url: http://www.wikidata.org/entity/Q125473745
     note: 'MangaUpdates name order: family=WARABIMOCHI given=Kinako'
-    reading: ワラビモチキナコ
-    reading_at: '2026-08-02'
+    reading: ワラビモチ キナコ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_corroborated:
     - mangaupdates
     reading_family: ワラビモチ
     reading_given: キナコ
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784832273184
     verified: true
   ゐぬゐ:
     basis: romaji
@@ -6864,9 +6918,10 @@ names:
     en_at: '2026-08-05'
     en_pass: 1
     en_source: surface
-    reading: アイザキウタウ
+    reading: アイザキ ウタウ
     reading_at: '2026-08-05'
     reading_basis: surface
+    reading_boundary: 相崎うたう
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -6880,9 +6935,10 @@ names:
     verified: true
   アカイマルボロウ:
     basis: romaji
-    reading: アカイマルボロウ
+    reading: アカイ マルボロウ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 赤衣丸歩郎
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -6904,9 +6960,10 @@ names:
     verified: true
   アキヤマハル:
     basis: romaji
-    reading: アキヤマハル
+    reading: アキヤマ ハル
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 秋山はる
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -6939,11 +6996,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: アケガタユウ
-    reading_at: '2026-08-02'
+    reading: アケガタ ユウ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784396791476
     verified: true
   アサウラ:
     basis: romaji
@@ -6993,11 +7052,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: アサクラネル
-    reading_at: '2026-08-02'
+    reading: アサクラ ネル
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784049166798
     verified: true
   アサダアツシ:
     basis: romaji
@@ -7024,12 +7085,14 @@ names:
     en_source_kind: community-db
     en_url: https://www.mangaupdates.com/author/rmzrttl/ashidaka-woz
     note: 'MangaUpdates name order: family=ASHIDAKA given=Woz'
-    reading: アシダカヲズ
-    reading_at: '2026-08-02'
+    reading: アシダカ ヲズ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_family: アシダカ
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758029636
     verified: true
   アジイチ:
     basis: romaji
@@ -7070,9 +7133,10 @@ names:
     verified: true
   アヤサトケイシ:
     basis: romaji
-    reading: アヤサトケイシ
+    reading: アヤサト ケイシ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 綾里けいし
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -7148,17 +7212,19 @@ names:
     verified: true
   イシトユラ:
     basis: romaji
-    reading: イシトユラ
+    reading: イシト ユラ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 石ト悠良
     reading_pass: 1
     reading_source: surface
     verified: true
   イズミノセン:
     basis: romaji
-    reading: イズミノセン
+    reading: イズミノ セン
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 泉乃せん
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -7178,9 +7244,10 @@ names:
     en_at: '2026-08-05'
     en_pass: 1
     en_source: surface
-    reading: イトウハチ
+    reading: イトウ ハチ
     reading_at: '2026-08-05'
     reading_basis: surface
+    reading_boundary: 伊藤ハチ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -7202,9 +7269,10 @@ names:
     verified: true
   イヌカイアンズ:
     basis: romaji
-    reading: イヌカイアンズ
+    reading: イヌカイ アンズ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 犬甘あんず
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -7250,8 +7318,8 @@ names:
     en_source: wikidata
     en_url: http://www.wikidata.org/entity/Q11287030
     note: 'MangaUpdates name order: family=IMAI given=Hizuru'
-    reading: イマイヒヅル
-    reading_at: '2026-08-02'
+    reading: イマイ ヒヅル
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_conflicts:
     - basis: back-converted
@@ -7260,7 +7328,9 @@ names:
     reading_family: イマイ
     reading_given: ヒズル
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=4847035186
     verified: true
   イマイ悠:
     basis: romaji
@@ -7280,9 +7350,10 @@ names:
     verified: true
   イワシタケイ:
     basis: romaji
-    reading: イワシタケイ
+    reading: イワシタ ケイ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 岩下継
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -7307,28 +7378,32 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: ウオズミアミ
-    reading_at: '2026-08-02'
+    reading: ウオズミ アミ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784088430232
     verified: true
   ウスイシオ:
     basis: romaji
     en_at: '2026-08-05'
     en_pass: 1
     en_source: surface
-    reading: ウスイシオ
+    reading: ウスイ シオ
     reading_at: '2026-08-05'
     reading_basis: surface
+    reading_boundary: 雨水汐
     reading_pass: 1
     reading_source: surface
     verified: true
   ウハナリリカ:
     basis: romaji
-    reading: ウハナリリカ
+    reading: ウハナ リリカ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 卯花りりか
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -7409,17 +7484,19 @@ names:
     verified: true
   オオサワヤヨイ:
     basis: romaji
-    reading: オオサワヤヨイ
+    reading: オオサワ ヤヨイ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 大沢やよい
     reading_pass: 1
     reading_source: surface
     verified: true
   オオタカシン:
     basis: romaji
-    reading: オオタカシン
+    reading: オオタカ シン
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 大鷹シン
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -7587,9 +7664,10 @@ names:
     verified: true
   カラスピエロ:
     basis: romaji
-    reading: カラスピエロ
+    reading: カラス ピエロ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 鴉ぴえろ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -7741,9 +7819,10 @@ names:
     verified: true
   コウノスサトリ:
     basis: romaji
-    reading: コウノスサトリ
+    reading: コウノス サトリ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 鴻巣覚
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -7760,9 +7839,10 @@ names:
     en_at: '2026-08-05'
     en_pass: 1
     en_source: surface
-    reading: コガユウト
+    reading: コガ ユウト
     reading_at: '2026-08-05'
     reading_basis: surface
+    reading_boundary: 古賀由人
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -7782,12 +7862,14 @@ names:
     en_source: wikidata
     en_url: http://www.wikidata.org/entity/Q21281412
     note: Wikidata English label; word order is the source's, not the author's
-    reading: コダマナオコ
-    reading_at: '2026-08-02'
+    reading: コダマ ナオコ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_given: ナオコ
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758020862
     verified: true
   コト:
     basis: romaji
@@ -7802,11 +7884,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: コナタエル
-    reading_at: '2026-08-02'
+    reading: コナタ エル
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784041158029
     verified: true
   コミックnishi:
     basis: romaji
@@ -7852,9 +7936,10 @@ names:
     verified: true
   ゴシキアミ:
     basis: romaji
-    reading: ゴシキアミ
+    reading: ゴシキ アミ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 五色安未
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8046,9 +8131,10 @@ names:
     verified: true
   シバタコウヘイ:
     basis: romaji
-    reading: シバタコウヘイ
+    reading: シバタ コウヘイ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 柴田康平
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8092,9 +8178,10 @@ names:
     verified: true
   シラノアキヒロ:
     basis: romaji
-    reading: シラノアキヒロ
+    reading: シラノ アキヒロ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 白野アキヒロ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8127,9 +8214,10 @@ names:
     verified: true
   スズキフミエ:
     basis: romaji
-    reading: スズキフミエ
+    reading: スズキ フミエ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 鈴木二三江
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8138,22 +8226,26 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: スタジオクロマト
-    reading_at: '2026-08-02'
+    reading: スタジオ クロマト
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784048117579
     verified: true
   スタジオコロリド:
     basis: romaji
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: スタジオコロリド
-    reading_at: '2026-08-02'
+    reading: スタジオ コロリド
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784048117579
     verified: true
   ストロマ:
     basis: romaji
@@ -8195,9 +8287,10 @@ names:
     verified: true
   ソラヤマトキ:
     basis: romaji
-    reading: ソラヤマトキ
+    reading: ソラヤマ トキ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 空山トキ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8263,15 +8356,17 @@ names:
     en_source_kind: community-db
     en_url: https://www.mangaupdates.com/author/vaf78bs/takahashi-mako
     note: 'MangaUpdates name order: family=TAKAHASHI given=Mako'
-    reading: タカハシマコ
-    reading_at: '2026-08-02'
+    reading: タカハシ マコ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_corroborated:
     - mangaupdates
     reading_family: タカハシ
     reading_given: マコ
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070188
     verified: true
   タカヒロ:
     basis: romaji
@@ -8316,9 +8411,10 @@ names:
     en_at: '2026-08-05'
     en_pass: 1
     en_source: surface
-    reading: タグチショウイチ
+    reading: タグチ ショウイチ
     reading_at: '2026-08-05'
     reading_basis: surface
+    reading_boundary: 田口囁一
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8381,9 +8477,10 @@ names:
     verified: true
   タナカコメ:
     basis: romaji
-    reading: タナカコメ
+    reading: タナカ コメ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 田中こめ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8392,9 +8489,10 @@ names:
     en_at: '2026-08-05'
     en_pass: 1
     en_source: surface
-    reading: タマサキタマ
+    reading: タマサキ タマ
     reading_at: '2026-08-05'
     reading_basis: surface
+    reading_boundary: 玉崎たま
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8411,17 +8509,19 @@ names:
     verified: true
   チバラキ:
     basis: romaji
-    reading: チバラキ
+    reading: チバ ラキ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 千葉らき
     reading_pass: 1
     reading_source: surface
     verified: true
   ツキノワアオ:
     basis: romaji
-    reading: ツキノワアオ
+    reading: ツキノワ アオ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 月野和青
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8459,9 +8559,10 @@ names:
     verified: true
   トクノウショウタロウ:
     basis: romaji
-    reading: トクノウショウタロウ
+    reading: トクノウ ショウタロウ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 得能正太郎
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8510,9 +8611,10 @@ names:
     verified: true
   ナカジマレイ:
     basis: romaji
-    reading: ナカジマレイ
+    reading: ナカジマ レイ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 中島零
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8534,9 +8636,10 @@ names:
     verified: true
   ナダカハルツグ:
     basis: romaji
-    reading: ナダカハルツグ
+    reading: ナダカ ハルツグ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 南高春告
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8603,17 +8706,19 @@ names:
     verified: true
   ニシハタケイ:
     basis: romaji
-    reading: ニシハタケイ
+    reading: ニシハタ ケイ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 西畑けい
     reading_pass: 1
     reading_source: surface
     verified: true
   ニシマゴメユキ:
     basis: romaji
-    reading: ニシマゴメユキ
+    reading: ニシマ ゴメユキ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 西馬ごめゆき
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8722,25 +8827,28 @@ names:
     verified: false
   ハガミチル:
     basis: romaji
-    reading: ハガミチル
+    reading: ハガ ミチル
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 破賀ミチル
     reading_pass: 1
     reading_source: surface
     verified: true
   ハタリョウスケ:
     basis: romaji
-    reading: ハタリョウスケ
+    reading: ハタ リョウスケ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 羽田遼亮
     reading_pass: 1
     reading_source: surface
     verified: true
   ハットリマサキ:
     basis: romaji
-    reading: ハットリマサキ
+    reading: ハットリ マサキ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: はっとりまさき
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8749,11 +8857,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: ハッピーゼリーポンチ
-    reading_at: '2026-08-02'
+    reading: ハッピー ゼリー ポンチ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784046849373
     verified: true
   ハマゴウ:
     basis: romaji
@@ -8872,9 +8982,10 @@ names:
     verified: true
   ヒノヒロコ:
     basis: romaji
-    reading: ヒノヒロコ
+    reading: ヒノ ヒロコ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: ひの宙子
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -8891,9 +9002,10 @@ names:
     verified: true
   ヒラカタマサヒロ:
     basis: romaji
-    reading: ヒラカタマサヒロ
+    reading: ヒラカタ マサヒロ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 平方昌宏
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -9009,9 +9121,10 @@ names:
     verified: true
   フジイニコ:
     basis: romaji
-    reading: フジイニコ
+    reading: フジイ ニコ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 藤居にこ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -9142,11 +9255,13 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
-    reading: マウンテンプクイチ
-    reading_at: '2026-08-02'
+    reading: マウンテン プクイチ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
-    reading_source: surface
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784832247673
     verified: true
   マシマロまろん:
     basis: romaji
@@ -9230,9 +9345,10 @@ names:
     verified: true
   マナタマユム:
     basis: romaji
-    reading: マナタマユム
+    reading: マナタ マユム
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: マナタ マユム
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -9496,9 +9612,10 @@ names:
     verified: true
   ヤサカシュウ:
     basis: romaji
-    reading: ヤサカシュウ
+    reading: ヤサカ シュウ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 矢坂しゅう
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -9512,9 +9629,10 @@ names:
     verified: true
   ヤブウチユウ:
     basis: romaji
-    reading: ヤブウチユウ
+    reading: ヤブウチ ユウ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: やぶうち優
     reading_pass: 1
     reading_source: surface
     verified: true

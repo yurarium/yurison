@@ -4737,6 +4737,16 @@ def main():
                            for x in (r.get("ep"), r.get("latest_ep"), r.get("collection"),
                                      (r.get("author") or "").strip(),
                                      r.get("work")) if x})
+        # WHERE A KANA NAME DIVIDES. A reading is what the romanisation is built from, so a name
+        # written in one unbroken run comes out as one word: いがらしゆみこ was Igarashiyumiko.
+        # This carries a division some OTHER record for the same person states, which is offline,
+        # additive and settles nothing it cannot cite. adapters/names/boundary.py holds the
+        # argument, including the two rules that were tried and rejected.
+        import boundary as _boundary
+        _cut, _left = _boundary.fill_store()
+        if _cut:
+            print(f"names           : {len(_cut)} kana name(s) divided from a record we already "
+                  f"hold; {sum(_left.values())} left whole")
     except Exception as e:                      # never let a naming helper break the build
         print(f"names           : automatic reading pass skipped ({e})")
 

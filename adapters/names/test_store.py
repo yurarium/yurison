@@ -51,6 +51,22 @@ def main(s):
               basis="translated", source="somewhere-else")
     s.eq(r["en"], "This Monster Wants to Eat Me",
          "and a caller that did not ask to supersede still cannot overwrite")
+
+    # A DIVISION IS NOT A DISAGREEMENT, and superseding has to ask `same_reading` the same way the
+    # rank merge does. It asked `==`, so the 37 kana names that took a division from openBD's
+    # collationkey each filed their own undivided form as a conflict with itself.
+    st.record("authors", "あおのなち", reading="アオノナチ", reading_basis="surface",
+              source="surface")
+    st.record("authors", "あおのなち", reading="アオノ ナチ", reading_basis="surface",
+              source="openBD", supersede=True)
+    a = st.records["authors"]["あおのなち"]
+    s.eq(a["reading"], "アオノ ナチ", "the division is adopted")
+    s.eq(a.get("reading_conflicts"), None,
+         "and the undivided form is not filed as a source disagreeing with itself")
+    st.record("authors", "あおのなち", reading="アオノ ミチコ", reading_basis="surface",
+              source="elsewhere", supersede=True)
+    s.check(any(c["value"] == "アオノ ナチ" for c in a.get("reading_conflicts") or []),
+            "a real disagreement is still kept, which is what the list is for")
     st.close()
     tmp.cleanup()
 

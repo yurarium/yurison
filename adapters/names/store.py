@@ -312,19 +312,33 @@ class NameStore:
         So this clears the slot first, and only for a caller that says it is superseding. The old
         value still goes to the conflict list, because a title that was considered and dropped is
         worth being able to search for, and because the audit trail is the point of the file.
+
+        WHAT IS THE SAME READING IS `same_reading`'s ANSWER HERE TOO. This asked `==`, which is a
+        second opinion on a question that function exists to settle, and the two disagree on exactly
+        the case its docstring is about: アオノナチ against アオノ ナチ is one reading with the
+        division supplied. 37 kana names took a division from openBD's collationkey and each filed
+        its own undivided form as a disagreement with itself. A conflict list is only read if
+        everything in it is a real conflict.
         """
-        for value_key, basis_key, conflict_key in (("en", "basis", "en_conflicts"),
-                                                   ("reading", "reading_basis", "reading_conflicts")):
+        for value_key, basis_key, conflict_key, agrees in (
+                ("en", "basis", "en_conflicts", None),
+                ("reading", "reading_basis", "reading_conflicts", same_reading)):
             new = fact.get(value_key)
             old = cur.get(value_key)
             if new is None or old is None or new == old:
                 continue
-            self._push(cur, conflict_key, old, cur.get(basis_key), cur.get(f"{value_key}_source"))
+            if not (agrees and agrees(new, old)):
+                self._push(cur, conflict_key, old, cur.get(basis_key),
+                           cur.get(f"{value_key}_source"))
             cur.pop(value_key, None)
             cur.pop(basis_key, None)
             # A conflict list that still holds the value now being adopted reads as a disagreement
             # with itself, and would be shown as one.
-            cur[conflict_key] = [c for c in cur.get(conflict_key, []) if c.get("value") != new]
+            kept = [c for c in cur.get(conflict_key, []) if c.get("value") != new]
+            if kept or conflict_key in cur:
+                cur[conflict_key] = kept
+            if conflict_key in cur and not cur[conflict_key]:
+                cur.pop(conflict_key)
 
     @staticmethod
     def _add_candidate(cur, fact):

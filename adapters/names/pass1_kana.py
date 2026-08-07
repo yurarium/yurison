@@ -62,9 +62,13 @@ def surface_fields(ja, kind):
         "source": "surface",
         "pass": 1,
     }
-    if kind == "authors":
+    if kind in ("authors", "publishers"):
         # §5: an author's rendering is a romanisation of the reading and carries no visible
         # mark. `en` stays absent — the string is generated per reader style, never stored.
+        # A PUBLISHER IS THE SAME CLAIM. Nobody translates a company, a label or a circle: where
+        # the name is kana the reading is the name, and the Latin form is Hepburn of it. The
+        # difference from an author is what the interface does with it, which is §5d's business
+        # and not this pass's.
         fields.update(basis="romaji")
     return fields
 

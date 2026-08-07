@@ -672,6 +672,11 @@ def wants_reading(s, rec, kind="authors", refresh=False):
     Hepburn wants. A title is a sentence and a pen name is not, so the same substitution that
     rescues きみはシュガー is what wrecked はうあゆ. NAMES-PLAN §1 already keeps the two standards
     apart for this reason, and the rule follows the standard rather than the character.
+
+    A PUBLISHER GOES WITH THE PEN NAME, on the same test. A company, a label and a self-publishing
+    circle are all named rather than narrated, so a kana publisher name has no particle in it to
+    get right and the surface is its reading. It is also the same population: 25 print rows name
+    their own author as the publisher, so the string being asked about is frequently a pen name.
     """
     import kana as _k                                                     # noqa: PLC0415
     # A REFUTATION IS A DECISION, NOT AN EMPTY SLOT. `curate.py` removes the reading and records
@@ -686,7 +691,7 @@ def wants_reading(s, rec, kind="authors", refresh=False):
         return True
     if rec.get("reading_basis") not in ("analyser", "back-converted"):
         return False
-    return bool(refresh) or (kind == "authors" and _k.kana_only(s))
+    return bool(refresh) or (kind in ("authors", "publishers") and _k.kana_only(s))
 
 
 def reader():
@@ -758,9 +763,10 @@ def fill_missing(strings, kind, quiet=False, refresh=False):
         # a question with no lookup in it, and an analyser reading running text takes は as the
         # particle: はうあゆ went to the site as Wa u Ayu under the artist's own work. 181 author
         # names were in this state. The rule is pass 1's and is called rather than repeated.
-        # AUTHORS ONLY, for the counter-case `wants_reading` records: は is the topic particle in
-        # a title and is said wa, so the surface is the wrong answer there and the right one here.
-        surface = _pass1.surface_fields(s, kind) if kind == "authors" else None
+        # NAMES ONLY, for the counter-case `wants_reading` records: は is the topic particle in a
+        # title and is said wa, so the surface is the wrong answer there and the right one here. A
+        # publisher is a name on that test, which is the same reason it is one there.
+        surface = _pass1.surface_fields(s, kind) if kind in ("authors", "publishers") else None
         if surface is not None:
             rec = names.setdefault(s, {})
             # Additive only, like the rest of this function: a source that stated the reading, or

@@ -1,63 +1,6 @@
 note: 'What each source returned, run over run. Append-only within a window of 40.
   A source that was not re-fetched is not compared: see adapters/ledger.py.'
 runs:
-- at: '2026-08-06T22:23:25+00:00'
-  sources:
-    bookwalker:
-      files: 1644
-      works: 0
-      rows: 0
-      retrieved: '2026-08-05'
-    comicfuz:
-      files: 2
-      works: 43
-      rows: 2384
-      retrieved: '2026-08-03'
-    comparators:
-      files: 5
-      works: 8
-      rows: 0
-      retrieved: '2026-08-05'
-    gigaviewer:
-      files: 69
-      works: 586
-      rows: 7637
-      retrieved: '2026-08-06'
-    kadokomi:
-      files: 5
-      works: 769
-      rows: 4958
-      retrieved: '2026-08-06'
-    madb:
-      files: 598
-      works: 0
-      rows: 0
-      retrieved: '2026-08-05'
-    madb-title:
-      files: 57
-      works: 0
-      rows: 0
-      retrieved: '2026-08-06'
-    nicovideo:
-      files: 2
-      works: 190
-      rows: 0
-      retrieved: '2026-08-03'
-    openbd:
-      files: 509
-      works: 0
-      rows: 0
-      retrieved: '2026-08-06'
-    reachable:
-      files: 1
-      works: 246
-      rows: 0
-      retrieved: '2026-08-02'
-    webpages:
-      files: 37
-      works: 530
-      rows: 7661
-      retrieved: '2026-08-06'
 - at: '2026-08-06T22:43:16+00:00'
   sources:
     bookwalker:
@@ -2365,6 +2308,68 @@ runs:
       rows: 7661
       retrieved: '2026-08-07'
 - at: '2026-08-07T17:17:51+00:00'
+  sources:
+    bookwalker:
+      files: 1644
+      works: 0
+      rows: 0
+      retrieved: '2026-08-05'
+    comicfuz:
+      files: 2
+      works: 127
+      rows: 6057
+      retrieved: '2026-08-07'
+    comparators:
+      files: 5
+      works: 8
+      rows: 0
+      retrieved: '2026-08-05'
+    editions:
+      files: 1
+      works: 4
+      rows: 0
+      retrieved: '2026-08-07'
+    gigaviewer:
+      files: 69
+      works: 586
+      rows: 7637
+      retrieved: '2026-08-06'
+    kadokomi:
+      files: 5
+      works: 971
+      rows: 6709
+      retrieved: '2026-08-07'
+    madb:
+      files: 827
+      works: 0
+      rows: 0
+      retrieved: '2026-08-07'
+    madb-title:
+      files: 57
+      works: 0
+      rows: 0
+      retrieved: '2026-08-06'
+    nicovideo:
+      files: 3
+      works: 864
+      rows: 6757
+      retrieved: '2026-08-07'
+    openbd:
+      files: 509
+      works: 0
+      rows: 0
+      retrieved: '2026-08-06'
+    reachable:
+      files: 1
+      works: 246
+      rows: 0
+      retrieved: '2026-08-02'
+    webpages:
+      files: 37
+      works: 531
+      rows: 7661
+      retrieved: '2026-08-07'
+- at: '2026-08-07T17:22:20+00:00'
   sources:
     bookwalker:
       files: 1644

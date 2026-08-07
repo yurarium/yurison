@@ -1,0 +1,11 @@
+# Exposed rows whose work-level address could NOT be established, and why.
+#
+# Left alone deliberately. An unclosed row risks a second identifier later; a wrong
+# anchor ties one work's identity to another work's address and is harder to see.
+retrieved: 2026-08-07
+count: 1
+rows:
+  - url: "https://championcross.jp/episodes/c588f534a4870"
+    work: "阿佐ヶ谷サキュバス同人物語"
+    id: "w00092"
+    state: "no-series"

@@ -1,0 +1,121 @@
+# Work-level addresses carried inside the chapter address itself.
+#
+# WHY. build.py gives a row the address of its newest chapter, and identity.py anchors the
+# work on it, so a work that publishes looks like a work never seen before. These two shapes
+# hold the work's own address in the string, so identity.stable_url can reduce them and the
+# fault closes for good rather than one capture at a time. Attached FIRST: changing what an
+# anchor is built from before the new anchor exists is the fault and not the fix.
+#
+# ヤンマガWeb writes /comics/<work>/<32 hex chapter>, so the work address is the prefix.
+# マンガワン writes /manga/<work id>/chapter/<chapter id> and serves the work at
+# /title/<work id>, so that one is a rewrite and not a truncation.
+#
+# EVERY ADDRESS BELOW WAS FETCHED. The basis records the page title that came back, which is
+# what ties the address to the work.
+#
+# READ BY: identity.py --attachments.
+source: data/build/series.json
+role: address-stabilise
+retrieved: 2026-08-07
+record_type: stable_address
+joins:
+  - id: w00004
+    title: "乙女のおかず"
+    url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/d895fc7298bc7db33498829ef20a3278"
+    anchor: "web:https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/d895fc7298bc7db33498829ef20a3278, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A: fetched 2026-08-07, HTTP 200, and the page titles itself 『乙女のおかず』 【無料公開中】 | ヤンマガWeb"
+  - id: w00095
+    title: "メイド&ロイドはお嬢様のお役に立ちたい!"
+    url: "https://manga-one.com/manga/28129/chapter/355684"
+    anchor: "web:https://manga-one.com/title/28129"
+    basis: "the work's own address inside the chapter address https://manga-one.com/manga/28129/chapter/355684, which マンガワン serves at https://manga-one.com/title/28129: fetched 2026-08-07, HTTP 200, and the page titles itself メイド＆ロイドはお嬢様のお役に立ちたい！ Memory1 | マンガワン"
+  - id: w00144
+    title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
+    url: "https://manga-one.com/manga/27253/chapter/307792"
+    anchor: "web:https://manga-one.com/title/27253"
+    basis: "the work's own address inside the chapter address https://manga-one.com/manga/27253/chapter/307792, which マンガワン serves at https://manga-one.com/title/27253: fetched 2026-08-07, HTTP 200, and the page titles itself ギャラクシーぷーちゃん　宇宙のはじっこでこんにちは 第1話 | マンガワン"
+  - id: w00322
+    title: "私の焦がれる彼女"
+    url: "https://manga-one.com/manga/27454/chapter/316774"
+    anchor: "web:https://manga-one.com/title/27454"
+    basis: "the work's own address inside the chapter address https://manga-one.com/manga/27454/chapter/316774, which マンガワン serves at https://manga-one.com/title/27454: fetched 2026-08-07, HTTP 200, and the page titles itself 私の焦がれる彼女 第1話 | マンガワン"
+  - id: w00427
+    title: "ガチ恋やめて"
+    url: "https://yanmaga.jp/comics/%E3%82%AC%E3%83%81%E6%81%8B%E3%82%84%E3%82%81%E3%81%A6/a3f161a09aa43130b835840bc08f901a"
+    anchor: "web:https://yanmaga.jp/comics/%E3%82%AC%E3%83%81%E6%81%8B%E3%82%84%E3%82%81%E3%81%A6"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E3%82%AC%E3%83%81%E6%81%8B%E3%82%84%E3%82%81%E3%81%A6/a3f161a09aa43130b835840bc08f901a, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E3%82%AC%E3%83%81%E6%81%8B%E3%82%84%E3%82%81%E3%81%A6: fetched 2026-08-07, HTTP 200, and the page titles itself 『ガチ恋やめて』 【無料公開中】 | ヤンマガWeb"
+  - id: w00533
+    title: "地球滅亡立 7日前高校 普通科"
+    url: "https://yanmaga.jp/comics/%E5%9C%B0%E7%90%83%E6%BB%85%E4%BA%A1%E7%AB%8B_7%E6%97%A5%E5%89%8D%E9%AB%98%E6%A0%A1_%E6%99%AE%E9%80%9A%E7%A7%91/14b532966084558946a4bb2c3b8f5ddb"
+    anchor: "web:https://yanmaga.jp/comics/%E5%9C%B0%E7%90%83%E6%BB%85%E4%BA%A1%E7%AB%8B_7%E6%97%A5%E5%89%8D%E9%AB%98%E6%A0%A1_%E6%99%AE%E9%80%9A%E7%A7%91"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E5%9C%B0%E7%90%83%E6%BB%85%E4%BA%A1%E7%AB%8B_7%E6%97%A5%E5%89%8D%E9%AB%98%E6%A0%A1_%E6%99%AE%E9%80%9A%E7%A7%91/14b532966084558946a4bb2c3b8f5ddb, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E5%9C%B0%E7%90%83%E6%BB%85%E4%BA%A1%E7%AB%8B_7%E6%97%A5%E5%89%8D%E9%AB%98%E6%A0%A1_%E6%99%AE%E9%80%9A%E7%A7%91: fetched 2026-08-07, HTTP 200, and the page titles itself 『地球滅亡立 7日前高校 普通科』 【無料公開中】 | ヤンマガWeb"
+  - id: w00547
+    title: "Weg nach innen"
+    url: "https://yanmaga.jp/comics/Weg_nach_innen/94a21da892f251433867b38e548c4cbb"
+    anchor: "web:https://yanmaga.jp/comics/Weg_nach_innen"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/Weg_nach_innen/94a21da892f251433867b38e548c4cbb, which ヤンマガWeb serves at https://yanmaga.jp/comics/Weg_nach_innen: fetched 2026-08-07, HTTP 200, and the page titles itself 『Weg nach innen』 【無料公開中】 | ヤンマガWeb"
+  - id: w00631
+    title: "Never boring Map"
+    url: "https://yanmaga.jp/comics/Never_boring_Map/b2d002bf222e62d5b35e298b84f560b4"
+    anchor: "web:https://yanmaga.jp/comics/Never_boring_Map"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/Never_boring_Map/b2d002bf222e62d5b35e298b84f560b4, which ヤンマガWeb serves at https://yanmaga.jp/comics/Never_boring_Map: fetched 2026-08-07, HTTP 200, and the page titles itself 『Never boring Map』 【無料公開中】 | ヤンマガWeb"
+  - id: w00641
+    title: "吸血鬼と女子高生"
+    url: "https://yanmaga.jp/comics/%E5%90%B8%E8%A1%80%E9%AC%BC%E3%81%A8%E5%A5%B3%E5%AD%90%E9%AB%98%E7%94%9F/e5804b20c449a08b25e492cb2dfb4e53"
+    anchor: "web:https://yanmaga.jp/comics/%E5%90%B8%E8%A1%80%E9%AC%BC%E3%81%A8%E5%A5%B3%E5%AD%90%E9%AB%98%E7%94%9F"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E5%90%B8%E8%A1%80%E9%AC%BC%E3%81%A8%E5%A5%B3%E5%AD%90%E9%AB%98%E7%94%9F/e5804b20c449a08b25e492cb2dfb4e53, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E5%90%B8%E8%A1%80%E9%AC%BC%E3%81%A8%E5%A5%B3%E5%AD%90%E9%AB%98%E7%94%9F: fetched 2026-08-07, HTTP 200, and the page titles itself 『吸血鬼と女子高生』 【無料公開中】 | ヤンマガWeb"
+  - id: w00781
+    title: "うみねこには負けない!"
+    url: "https://yanmaga.jp/comics/%E3%81%86%E3%81%BF%E3%81%AD%E3%81%93%E3%81%AB%E3%81%AF%E8%B2%A0%E3%81%91%E3%81%AA%E3%81%84%EF%BC%81/df507db7f2c0ee5b88ab8e56c9622169"
+    anchor: "web:https://yanmaga.jp/comics/%E3%81%86%E3%81%BF%E3%81%AD%E3%81%93%E3%81%AB%E3%81%AF%E8%B2%A0%E3%81%91%E3%81%AA%E3%81%84%EF%BC%81"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E3%81%86%E3%81%BF%E3%81%AD%E3%81%93%E3%81%AB%E3%81%AF%E8%B2%A0%E3%81%91%E3%81%AA%E3%81%84%EF%BC%81/df507db7f2c0ee5b88ab8e56c9622169, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E3%81%86%E3%81%BF%E3%81%AD%E3%81%93%E3%81%AB%E3%81%AF%E8%B2%A0%E3%81%91%E3%81%AA%E3%81%84%EF%BC%81: fetched 2026-08-07, HTTP 200, and the page titles itself 『うみねこには負けない！』 【無料公開中】 | ヤンマガWeb"
+  - id: w00841
+    title: "Slip Stream!"
+    url: "https://yanmaga.jp/comics/Slip_Stream%EF%BC%81/37ea85c41da69597024e8a062dbb57bd"
+    anchor: "web:https://yanmaga.jp/comics/Slip_Stream%EF%BC%81"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/Slip_Stream%EF%BC%81/37ea85c41da69597024e8a062dbb57bd, which ヤンマガWeb serves at https://yanmaga.jp/comics/Slip_Stream%EF%BC%81: fetched 2026-08-07, HTTP 200, and the page titles itself 『Slip Stream！』 【無料公開中】 | ヤンマガWeb"
+  - id: w00842
+    title: "エンパシー"
+    url: "https://yanmaga.jp/comics/%E3%82%A8%E3%83%B3%E3%83%91%E3%82%B7%E3%83%BC/977e1d91521401df6ec038f83ed678ff"
+    anchor: "web:https://yanmaga.jp/comics/%E3%82%A8%E3%83%B3%E3%83%91%E3%82%B7%E3%83%BC"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E3%82%A8%E3%83%B3%E3%83%91%E3%82%B7%E3%83%BC/977e1d91521401df6ec038f83ed678ff, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E3%82%A8%E3%83%B3%E3%83%91%E3%82%B7%E3%83%BC: fetched 2026-08-07, HTTP 200, and the page titles itself 『エンパシー』 【無料公開中】 | ヤンマガWeb"
+  - id: w00849
+    title: "地雷系地縛霊の美智子ちゃん"
+    url: "https://yanmaga.jp/comics/%E5%9C%B0%E9%9B%B7%E7%B3%BB%E5%9C%B0%E7%B8%9B%E9%9C%8A%E3%81%AE%E7%BE%8E%E6%99%BA%E5%AD%90%E3%81%A1%E3%82%83%E3%82%93/800f5c96584e1a75cb4071c8e4cb093e"
+    anchor: "web:https://yanmaga.jp/comics/%E5%9C%B0%E9%9B%B7%E7%B3%BB%E5%9C%B0%E7%B8%9B%E9%9C%8A%E3%81%AE%E7%BE%8E%E6%99%BA%E5%AD%90%E3%81%A1%E3%82%83%E3%82%93"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E5%9C%B0%E9%9B%B7%E7%B3%BB%E5%9C%B0%E7%B8%9B%E9%9C%8A%E3%81%AE%E7%BE%8E%E6%99%BA%E5%AD%90%E3%81%A1%E3%82%83%E3%82%93/800f5c96584e1a75cb4071c8e4cb093e, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E5%9C%B0%E9%9B%B7%E7%B3%BB%E5%9C%B0%E7%B8%9B%E9%9C%8A%E3%81%AE%E7%BE%8E%E6%99%BA%E5%AD%90%E3%81%A1%E3%82%83%E3%82%93: fetched 2026-08-07, HTTP 200, and the page titles itself 『地雷系地縛霊の美智子ちゃん』 【無料公開中】 | ヤンマガWeb"
+  - id: w00866
+    title: "すぐ泣く先輩"
+    url: "https://yanmaga.jp/comics/%E3%81%99%E3%81%90%E6%B3%A3%E3%81%8F%E5%85%88%E8%BC%A9/2f9f925d0a6764b9c2066137d4b0618d"
+    anchor: "web:https://yanmaga.jp/comics/%E3%81%99%E3%81%90%E6%B3%A3%E3%81%8F%E5%85%88%E8%BC%A9"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E3%81%99%E3%81%90%E6%B3%A3%E3%81%8F%E5%85%88%E8%BC%A9/2f9f925d0a6764b9c2066137d4b0618d, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E3%81%99%E3%81%90%E6%B3%A3%E3%81%8F%E5%85%88%E8%BC%A9: fetched 2026-08-07, HTTP 200, and the page titles itself 『すぐ泣く先輩』 【無料公開中】 | ヤンマガWeb"
+  - id: w00877
+    title: "TANGO"
+    url: "https://yanmaga.jp/comics/TANGO/0887c82c0482f0b770e2af3a19275b62"
+    anchor: "web:https://yanmaga.jp/comics/TANGO"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/TANGO/0887c82c0482f0b770e2af3a19275b62, which ヤンマガWeb serves at https://yanmaga.jp/comics/TANGO: fetched 2026-08-07, HTTP 200, and the page titles itself 『TANGO』 【無料公開中】 | ヤンマガWeb"
+  - id: w00917
+    title: "タダでは抱かれません"
+    url: "https://yanmaga.jp/comics/%E3%82%BF%E3%83%80%E3%81%A7%E3%81%AF%E6%8A%B1%E3%81%8B%E3%82%8C%E3%81%BE%E3%81%9B%E3%82%93/8c5cb3918ab262ab51b24ceb8d7062bb"
+    anchor: "web:https://yanmaga.jp/comics/%E3%82%BF%E3%83%80%E3%81%A7%E3%81%AF%E6%8A%B1%E3%81%8B%E3%82%8C%E3%81%BE%E3%81%9B%E3%82%93"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E3%82%BF%E3%83%80%E3%81%A7%E3%81%AF%E6%8A%B1%E3%81%8B%E3%82%8C%E3%81%BE%E3%81%9B%E3%82%93/8c5cb3918ab262ab51b24ceb8d7062bb, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E3%82%BF%E3%83%80%E3%81%A7%E3%81%AF%E6%8A%B1%E3%81%8B%E3%82%8C%E3%81%BE%E3%81%9B%E3%82%93: fetched 2026-08-07, HTTP 200, and the page titles itself 『タダでは抱かれません』 【無料公開中】 | ヤンマガWeb"
+  - id: w00930
+    title: "バニーズクエスト"
+    url: "https://yanmaga.jp/comics/%E3%83%90%E3%83%8B%E3%83%BC%E3%82%BA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88/7644014acdf84457e8423fa0aca03dce"
+    anchor: "web:https://yanmaga.jp/comics/%E3%83%90%E3%83%8B%E3%83%BC%E3%82%BA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E3%83%90%E3%83%8B%E3%83%BC%E3%82%BA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88/7644014acdf84457e8423fa0aca03dce, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E3%83%90%E3%83%8B%E3%83%BC%E3%82%BA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88: fetched 2026-08-07, HTTP 200, and the page titles itself 『バニーズクエスト』 【無料公開中】 | ヤンマガWeb"
+  - id: w00977
+    title: "ごくちゅう!"
+    url: "https://yanmaga.jp/comics/%E3%81%94%E3%81%8F%E3%81%A1%E3%82%85%E3%81%86%EF%BC%81/62c4f3e0bcb5f425787ee986db4e3086"
+    anchor: "web:https://yanmaga.jp/comics/%E3%81%94%E3%81%8F%E3%81%A1%E3%82%85%E3%81%86%EF%BC%81"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E3%81%94%E3%81%8F%E3%81%A1%E3%82%85%E3%81%86%EF%BC%81/62c4f3e0bcb5f425787ee986db4e3086, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E3%81%94%E3%81%8F%E3%81%A1%E3%82%85%E3%81%86%EF%BC%81: fetched 2026-08-07, HTTP 200, and the page titles itself 『ごくちゅう！』 【無料公開中】 | ヤンマガWeb"
+  - id: w00979
+    title: "年下の先輩"
+    url: "https://yanmaga.jp/comics/%E5%B9%B4%E4%B8%8B%E3%81%AE%E5%85%88%E8%BC%A9/1605cbd6d7befc9dbd9035dda2ef387b"
+    anchor: "web:https://yanmaga.jp/comics/%E5%B9%B4%E4%B8%8B%E3%81%AE%E5%85%88%E8%BC%A9"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E5%B9%B4%E4%B8%8B%E3%81%AE%E5%85%88%E8%BC%A9/1605cbd6d7befc9dbd9035dda2ef387b, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E5%B9%B4%E4%B8%8B%E3%81%AE%E5%85%88%E8%BC%A9: fetched 2026-08-07, HTTP 200, and the page titles itself 『年下の先輩』 【無料公開中】 | ヤンマガWeb"
+  - id: w00984
+    title: "マルジナルテイラ"
+    url: "https://yanmaga.jp/comics/%E3%83%9E%E3%83%AB%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A4%E3%83%A9/296396c416f551e761d891b7ad58cb81"
+    anchor: "web:https://yanmaga.jp/comics/%E3%83%9E%E3%83%AB%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A4%E3%83%A9"
+    basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E3%83%9E%E3%83%AB%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A4%E3%83%A9/296396c416f551e761d891b7ad58cb81, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E3%83%9E%E3%83%AB%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A4%E3%83%A9: fetched 2026-08-07, HTTP 200, and the page titles itself 『マルジナルテイラ』 【無料公開中】 | ヤンマガWeb"

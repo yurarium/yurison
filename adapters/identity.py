@@ -63,6 +63,19 @@ def people(credit):
 # A chapter address that carries its work's address in front of it: /title/03056/episode/441581.
 CHAPTER_UNDER_TITLE = re.compile(r"^(https?://[^/]+/title/[^/]+)/episode/\d+/?$")
 
+# ヤンマガWeb writes a chapter as /comics/<work>/<32 hex digits>, so the work is the prefix. The
+# hexadecimal test is what separates a chapter from the work's own /comics/<work>, and from any
+# other second segment the site might grow.
+CHAPTER_UNDER_COMICS = re.compile(r"^(https?://[^/]+/comics/[^/]+)/[0-9a-f]{32}/?$")
+
+# マンガワン writes a chapter as /manga/<work id>/chapter/<chapter id> and serves the work itself at
+# /title/<work id>. The segment is RENAMED, so this one is a rewrite and not a truncation, and it
+# rests on a fact about one platform's routing: all three addresses in the corpus were fetched on
+# 2026-08-07 and each answered 200 with the work's own title. COMIC FUZ is why the /chapter/ part
+# is required rather than optional, since comic-fuz.com/manga/2474 is already a work address and
+# a rule matching /manga/<n> alone would rewrite 78 rows into addresses that do not exist.
+MANGA_ONE_CHAPTER = re.compile(r"^(https?://manga-one\.com)/manga/(\d+)/chapter/\d+/?$")
+
 
 def stable_url(url):
     """The work-level address of a chapter address, or the address unchanged.
@@ -73,13 +86,22 @@ def stable_url(url):
     minted a second identifier on 2026-08-07 and had to be repaired by hand.
 
     ONLY WHERE THE WORK'S OWN ADDRESS IS ALREADY IN THE STRING. `pocket.shonenmagazine.com/title/
-    03056/episode/441581` carries it and is trimmed. `comic-days.com/episode/12207421983997344603`
-    does not: the chapter id is the whole path, and the work's address is somewhere we have not
-    fetched. Guessing one would invent an address, so those are returned as they are and stay
-    exposed. 28 rows are covered here and 507 are not; see docs/GAPS.md §21.
+    03056/episode/441581` carries it, `yanmaga.jp/comics/TANGO/0887c82c…` carries it, and
+    `manga-one.com/manga/28129/chapter/355684` carries the work's id under a segment name the
+    platform spells differently. 48 rows are reduced here.
+
+    `comic-days.com/episode/12207421983997344603` carries nothing: the chapter id is the whole path
+    and the work's address is only on the page. Guessing one would invent an address, so those come
+    back unchanged and their work-level addresses are captured instead, by
+    adapters/gigaviewer/workaddress.py. See docs/GAPS.md §21.
     """
-    m = CHAPTER_UNDER_TITLE.match(str(url or ""))
-    return m.group(1) if m else url
+    s = str(url or "")
+    for pattern in (CHAPTER_UNDER_TITLE, CHAPTER_UNDER_COMICS):
+        m = pattern.match(s)
+        if m:
+            return m.group(1)
+    m = MANGA_ONE_CHAPTER.match(s)
+    return f"{m.group(1)}/title/{m.group(2)}" if m else url
 
 
 def web_anchor(url, title=None, shared=False):

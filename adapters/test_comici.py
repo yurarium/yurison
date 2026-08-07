@@ -56,6 +56,28 @@ def main(s):
     many = comici.rows(block("1", 2026, 1, 1) + block("2", 2026, 1, 2) + block("3", 2026, 1, 3))
     s.eq([r["title"] for r in many], ["1", "2", "3"], "rows keep the platform's order")
 
+    # THE WORK'S ADDRESS, off an episode page. Trimmed from
+    # https://championcross.jp/episodes/c588f534a4870, fetched 2026-08-07: the work link appears
+    # three times, an rss variant of it once, and two decoys sit on the same page.
+    ep = ('<a href="/series/cbacd0530b63f">阿佐ヶ谷サキュバス同人物語</a>'
+          '<a href="https://championcross.jp/series/cbacd0530b63f/rss">RSS</a>'
+          '<a href="/series/list/up/1">作品一覧</a>'
+          '<a href="/store_items/series/4333/1">単行本</a>')
+    s.eq(comici.series_link(ep), "cbacd0530b63f",
+         "the work hash is read from the episode page's own link to its series")
+    # COUNTER-CASES. /series/list/up/1 is the platform's paging and /store_items/series/... is the
+    # shop, and both would be read as a work by a rule that only looked for /series/.
+    s.check(comici.series_link('<a href="/series/list/up/1">a</a>') is None,
+            "the platform's own series listing is not a work")
+    s.check(comici.series_link('<a href="/store_items/series/4333/1">a</a>') is None,
+            "a shop path that contains /series/ is not a work")
+    s.check(comici.series_link('<a href="/series/aaaaaaaaaaaaa">a</a>'
+                               '<a href="/series/bbbbbbbbbbbbb">b</a>') is None,
+            "two different series on one page name neither")
+    s.check(comici.series_link("<html></html>") is None, "a page linking no series names none")
+    s.eq(comici.series_address("championcross.jp", "cbacd0530b63f"),
+         "https://championcross.jp/series/cbacd0530b63f", "the work's address on a comici host")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "comici"))

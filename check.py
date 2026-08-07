@@ -908,6 +908,51 @@ def _undated_retailer_rows(cap, shop):
     return _retailer_rows(cap, shop, "date")
 
 
+def budget_rows_with_a_moving_address(ctx):
+    """Rows anchored on a chapter address whose work has no work-level address to fall back on.
+
+    THE BUG THIS COUNTS. build.py gives a row the address of its newest chapter, and identity.py
+    anchors the work on the row's address, so on a GigaViewer platform a work that publishes looks
+    like a work never seen before. Five changed hands on 2026-08-07 and each was about to be minted
+    a second identifier for a work already held.
+
+    WHY A COUNT AND NOT AN INVARIANT. The remedy is a fetch. A work arriving on one of these
+    platforms is counted here the moment it lands, before anybody has read its address, and that
+    rise is the notice to run adapters/gigaviewer/workaddress.py and apply what it writes. An
+    invariant would say the same thing by refusing a build that has nothing wrong with it.
+
+    WHAT SATISFIES IT. A second web address on the same host, held by the same identifier, that is
+    not itself a chapter. The second half of that matters: data/queue/address-moved.yaml repaired
+    five works by attaching the OTHER chapter address they had moved to, which keeps those five
+    resolving and does nothing about the next move. A count satisfied by another chapter address
+    would have read 502 where the answer was 507.
+    """
+    import urllib.parse as _up
+    sys.path.insert(0, str(ROOT))
+    from adapters import identity as _identity
+
+    held = {}
+    for e in ctx["identity"]:
+        held.setdefault(e.get("merged_into") or e.get("id"), set()).update(e.get("anchors") or [])
+
+    def host(a):
+        return _up.urlparse(a.split("web:", 1)[-1]).netloc
+
+    bad = 0
+    for r in ctx["series"]:
+        stable = _identity.stable_url(r.get("url") or "")
+        if "/episode" not in stable:
+            continue
+        mine, others = f"web:{stable}", set()
+        for a in held.get(r.get("id")) or set():
+            if (a.startswith("web:") and not a.startswith(mine) and "/episode" not in a
+                    and host(a) == host(mine)):
+                others.add(a)
+        if not others:
+            bad += 1
+    return bad
+
+
 def budget_shadowed_names(ctx):
     try:
         out = subprocess.run([sys.executable, str(ROOT / "adapters" / "lint" / "shadowing.py"),
@@ -1156,6 +1201,12 @@ BUDGETS_DEF = [
     ("shadowed names in build.py", budget_shadowed_names,
      "names rebound more than 300 lines from their first binding. Two shipped bugs came from this; "
      "see adapters/lint/shadowing.py for why the count is not simply falling."),
+    ("rows with a moving address", budget_rows_with_a_moving_address,
+     "rows anchored on a chapter address whose identifier holds no work-level address on the same "
+     "host. A chapter address moves when the work publishes, so a rise means a work has arrived "
+     "whose address nobody has read yet and which would be minted a second identifier the next "
+     "time it updates. Run adapters/gigaviewer/workaddress.py and apply what it writes with "
+     "identity.py --attachments."),
 ]
 
 
@@ -1179,6 +1230,7 @@ def context():
                   for k in ("titles", "authors")},
         "names_shipped": _load(BUILD / "feed" / "names.json", {}),
         "cmoa_capture": _capture_works("data/queue/cmoa-volumes.yaml"),
+        "identity": (_yaml(ROOT / "data" / "identity" / "works.yaml", {}) or {}).get("works") or [],
     }
 
 

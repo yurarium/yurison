@@ -28,10 +28,39 @@ def main(s):
     s.eq(ident.web_anchor("https://pocket.shonenmagazine.com/title/03056/episode/441581"),
          ident.web_anchor("https://pocket.shonenmagazine.com/title/03056/episode/999999"),
          "so two chapters of one work give one anchor")
+    # THE SAME SHAPE ON TWO MORE PLATFORMS. ヤンマガWeb hangs a 32-digit hexadecimal chapter off
+    # the work, so the work is the prefix.
+    s.eq(ident.stable_url("https://yanmaga.jp/comics/TANGO/0887c82c0482f0b770e2af3a19275b62"),
+         "https://yanmaga.jp/comics/TANGO",
+         "a chapter under a work path on ヤンマガWeb is reduced to the work")
+    s.eq(ident.stable_url("https://yanmaga.jp/comics/TANGO/0887c82c0482f0b770e2af3a19275b62/"),
+         "https://yanmaga.jp/comics/TANGO", "and a trailing slash is not a different address")
+    # マンガワン spells the work's own segment differently, so this one is a rewrite. Verified by
+    # fetching: manga-one.com/title/28129 answers 200 and titles itself メイド＆ロイド….
+    s.eq(ident.stable_url("https://manga-one.com/manga/28129/chapter/355684"),
+         "https://manga-one.com/title/28129",
+         "マンガワン's chapter address is rewritten to the work address it serves")
+
     # AND WHERE THERE IS NO WORK ADDRESS TO FALL BACK ON, nothing is invented.
     for kept in ("https://comic-days.com/episode/12207421983997344603",
                  "https://ichicomi.com/episode/12207421983829237114",
-                 "https://manga.nicovideo.jp/comic/72312"):
+                 "https://manga.nicovideo.jp/comic/72312",
+                 # THE COUNTER-CASE THAT DECIDED THE MANGAWAN RULE. This is already a work
+                 # address. A rule reading /manga/<n> without demanding a chapter under it would
+                 # rewrite all 78 COMIC FUZ rows to /title/<n>, which that site does not serve.
+                 "https://comic-fuz.com/manga/2474",
+                 # マンガワン's other shape. The work's id is not in it, so there is nothing to
+                 # reduce and inventing one would be inventing an address.
+                 "https://manga-one.com/viewer/290902",
+                 # Already the work on ヤンマガWeb: one segment under /comics/, not two.
+                 "https://yanmaga.jp/comics/TANGO",
+                 # Two segments, but the second is not a chapter hash.
+                 "https://yanmaga.jp/comics/TANGO/volumes",
+                 # A work address on a host that uses /title/ without any chapter beneath it.
+                 "https://www.ganganonline.com/title/1234",
+                 # The rewrite is anchored on the host that was measured. Another site's
+                 # /manga/<n>/chapter/<n> is not known to serve /title/<n>.
+                 "https://example.jp/manga/28129/chapter/355684"):
         s.eq(ident.stable_url(kept), kept, f"an address with no work prefix is unchanged: {kept}")
     s.eq(ident.stable_url(""), "", "an empty address is empty")
 

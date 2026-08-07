@@ -129,3 +129,29 @@ def status(html):
     """What the platform says about the serialisation, or None where it says nothing."""
     m = STATUS.search(html or "")
     return m.group(1) if m else None
+
+
+# The work's own page, as an episode page links it: /series/<hash>. The hash is hexadecimal, which
+# is what separates it from the platform's own /series/list/up/1 paging and from
+# /store_items/series/4333/1, both of which sit on the same page and neither of which is a work.
+SERIES_LINK = re.compile(r'href="(?:https?://[^/"]+)?/series/([0-9a-f]{8,})(?:/[a-z]+)?"')
+
+
+def series_link(html):
+    """The work-level hash an episode page states for itself, or None.
+
+    WHY IT IS READ FROM THE EPISODE PAGE. `build.py` gives a row the address of its newest chapter,
+    so a row landing on /episodes/<hash> moves when the work publishes and `identity.py` mints a
+    second identifier for a work it already holds. The episode page carries a link to its own
+    series, and that link is what ties the work's address to the work.
+
+    Every link must agree. A page naming two series is not evidence about one work, and taking the
+    first would be picking by document order.
+    """
+    found = set(SERIES_LINK.findall(html or ""))
+    return found.pop() if len(found) == 1 else None
+
+
+def series_address(host, series_hash):
+    """The work's address on a comici host."""
+    return f"https://{host}/series/{series_hash}"

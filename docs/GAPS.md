@@ -1176,3 +1176,131 @@ Japanese. It was invisible only because the sentence was a constant.
 (`N chapters are listed on the platform and we hold M`), a run of skipped slots, a hand review's
 verdict either way, and a comparator's 完結 tag with the date it was seen. Each is a different kind
 of statement and none is a source's claim about its own serialisation.
+
+---
+
+## 23. What the platform's silence was a fact about (2026-08-07)
+
+§20 ran the corpus from a serialisation to the shop selling its collected volumes and reported that
+"520 met a platform that lists no collected volume". That sentence is true and it is about the
+**platform**. It was then read as a statement about the **work**, and the two are different things.
+
+`w00537` コンカフェ嬢は恋を着る is the case that separates them. COMIC FUZ carries 31 chapters of it
+and links to no shop at all, so §20 recorded it as a work with no collected volume. BOOK☆WALKER
+sells three volumes of it under ＦＵＺコミックス and marks the series 完結. The volumes were there the
+whole time; nobody had asked a shop.
+
+**Every retailer route in this project was shelf-first.** `cmoa.py` enumerates コミックシーモア genre
+37 and `bookwalker-yuri.yaml` enumerates BOOK☆WALKER tag 14, and each takes what is on the shelf.
+The question neither could ask is "do you stock volumes for a work I already hold", and the
+BOOK☆WALKER capture's own header already recorded what that costs: the 百合 tag is applied by hand,
+コンカフェ嬢は恋を着る is not on it, and an absent tag says nothing about the work.
+
+### Re-checking COMIC FUZ, on the work's own page
+
+§20's entry read "volumes are sold inside the platform's own store and no page links out", which is
+a conclusion about a platform drawn from a series page. A series page, a completed-series page and
+a volume listing are different pages, so it was re-checked at `comic-fuz.com/manga/3455`, which is
+this work.
+
+The conclusion holds and the reason is stronger than "no link was found". FUZ serves its whole page
+model in `__NEXT_DATA__`, and for a manga that model has fields for the chapters, the authorships,
+the tags, the manga itself and the share link. It has no field for a book. So no page kind of a
+series can carry a shop link, because the data behind every one of them is the same document.
+`/books` and `/book/<id>` are FUZ's own digital store, rendered client-side, and state no ISBN.
+`engines.py` now records that rather than the weaker claim.
+
+### The shop that will answer, and the shop that would have answered better
+
+コミックシーモア states an ISBN on 618 of its 1,833 shelf works and is the shop this route wanted.
+It is closed to us. `https://www.cmoa.jp/robots.txt` carries `Disallow: /search/result/` under
+`User-agent: *`, and that is exactly the endpoint `cmoa.shelf_url()` builds, so the keyword search
+is not available whatever it would have answered. **The existing shelf capture reads that endpoint**
+and predates anyone reading the file; it is recorded here and the decision about it belongs to the
+project owner, as the same question did for NDL's `/api` in §9.
+
+BOOK☆WALKER's robots.txt closes `/ex/problem/`, `/entry-list/`, `/member/`, `/history/delete/`,
+`/history/parts/`, `/prx/ma/` and sample links, and `/search/` is not among them. `bookwalker.py`
+has read it for completion markers since before this. So the permitted shop is the one that states
+no ISBN, and the join had to be made another way.
+
+### Two agreements, by two parties who did not consult each other
+
+`adapters/shopquery/` asks the shop for the author's name first, because an author search that
+comes back with an agreeing title has agreed on two fields at once. `adapters/madb/by_shop_query.py`
+then asks the national bibliography, joining on the title and requiring a person to agree, which is
+`by_title.py`'s rule and not a second copy of it.
+
+A hit whose title agrees and whose credit does not is **recorded and joined to nothing**. There are
+**77 such candidate rows over 16 works** in `data/queue/shop-query-title-only.yaml`, each carrying
+both credits so the question can be settled by looking. トワ・エ・モア is why: a 1996 コンパス
+anthology and a 2024 講談社 series share that title, and a wrong join is hard to see afterwards.
+
+### The measurement, before and after
+
+**645 web works had no print edition. 564 do.** Both counted the same way, as a row in
+`data/build/series.json` carrying `sources` and no `print`, which is `editions/capture.gap_works`.
+
+639 of the 645 carried an address the capture could put to the shop.
+
+| The shop's answer | Works |
+|---|---|
+| stocks a title this database recognises, and agrees on a creator | 158 |
+| stocks a title that agrees, and no person does | 16 |
+| answered, and stocks nothing under a name this database recognises | 426 |
+| answered nothing at all, on every query | 39 |
+
+So **at least 174 of 639, better than a quarter, had shop stock their own platform never mentioned.**
+That share is the answer to what §20's 520 was a fact about.
+
+Of the 158 the shop and this database agree about, 89 reached a bibliography record and **87 new
+work records were written**, with 9 more already held by another route. The 69 that reached nothing
+split on a field the shop states and nobody had been reading:
+
+- **32 whose hit carries 底本発行日**, the publication date of the print edition the file was made
+  from. A printed book exists and MADB 1.2.18 has not catalogued it.
+- **37 whose hit carries none.** A digital-only edition, so there is no print run for any
+  bibliography to hold, and asking again will not change that.
+
+### What the residual is now
+
+| | Works |
+|---|---|
+| the shop answered and stocks nothing under this name | 432 |
+| the shop stocks it and agrees on a creator, and the bibliography holds no record | 77 |
+| the shop answered nothing at all | 39 |
+| a candidate matched on the title alone, deliberately not joined | 16 |
+
+The 77 divide 37 printed against 40 digital-only, on the same 底本発行日 test. So of the 564 left,
+**37 are books that exist and are not yet in the national bibliography**, and the rest is either a
+work with no print edition or a work the shop does not stock under a name we know it by.
+
+### Why a BOOK☆WALKER shelf hit produces no print record, which is a separate fault
+
+It was suggested that コンカフェ嬢は恋を着る is on the 百合 shelf and failed to join. It is not on
+that shelf: the only occurrence of the title in `bookwalker-yuri.yaml` is the header sentence
+saying it is absent. The fault behind the suggestion is real and larger than one work.
+
+**BOOK☆WALKER states no ISBN, on any volume.** `bookwalker-volumes.yaml` records it in its own
+header and its counts agree: `volumes_with_isbn: 0` across 5,968 volumes read from 2,423 works.
+Every route this project has from a shop to a bibliographic record is keyed on an ISBN, so no
+BOOK☆WALKER row can reach one, and `bwingest.py` builds a record from the shop's own listing
+instead. That is not a join failure on one work; it is the shape of the shop, and it is why this
+route joins on a title and a person and why the 96 joins it produced carry that as their basis.
+
+### The nine the registry refused, and they are worth a look
+
+`identity.py --attachments` applied 87 of 96 joins and refused 9, each because the bibliography
+record is already held by another work identifier. Attaching it to a second one would say the two
+are one work, which is a merge and needs `--merge` with a basis. Every one of the nine is a print
+record that entered by another route and a serialisation that entered separately, so they are
+candidates for exactly that decision and none of them was taken here.
+
+### Where §20's other 47 went
+
+47 works had a platform that DID state an ISBN and still carry no print edition, which is a
+different failure from the one above and worth separating. Of the 54 addresses behind them, **37
+ISBNs are not in MADB 1.2.18 at all**, 3 were refused because the bibliography says the number
+names another book, and the remaining 14 have a record written that no identifier attaches to their
+serialisation. The first group is the release lagging, the second is `by_platform_isbn.agreement`
+working, and only the third is anything to fix.

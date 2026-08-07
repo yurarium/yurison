@@ -29,6 +29,7 @@ import argparse, datetime, pathlib, re, sys, unicodedata
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import yaml  # noqa: E402
+import kana as _kana_tables  # noqa: E402
 
 STORE = pathlib.Path(__file__).resolve().parents[2] / "data" / "names"
 KATA = {chr(c) for c in range(0x30A0, 0x3100)}
@@ -42,14 +43,9 @@ KATA = {chr(c) for c in range(0x30A0, 0x3100)}
 #
 # Keep it short and keep it justified. It is not a place to fix individual titles: anything here
 # changes every work containing that token, which is the point and also the risk.
-# The Japanese names of the Latin letters. Closed set, no maintenance, and the only readings a
-# single Latin character legitimately takes in running Japanese.
-LETTER_NAME = {
-    "A": "エー", "B": "ビー", "C": "シー", "D": "ディー", "E": "イー", "F": "エフ", "G": "ジー",
-    "H": "エイチ", "I": "アイ", "J": "ジェー", "K": "ケー", "L": "エル", "M": "エム", "N": "エヌ",
-    "O": "オー", "P": "ピー", "Q": "キュー", "R": "アール", "S": "エス", "T": "ティー", "U": "ユー",
-    "V": "ブイ", "W": "ダブリュー", "X": "エックス", "Y": "ワイ", "Z": "ゼット",
-}
+# The Japanese names of the Latin letters, which now live in kana.py because `align` needs the same
+# rule and had its own answer. Re-exported so every reference to p4.LETTER_NAME still resolves.
+LETTER_NAME = _kana_tables.LETTER_NAME
 
 # PARTICLES ARE SPELLED ONE WAY AND SAID ANOTHER. は as a topic particle is pronounced wa, へ as a
 # direction particle is pronounced e — and Sudachi's reading_form gives the KANA (ハ, ヘ), which is

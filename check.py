@@ -109,6 +109,13 @@ def inv_no_ruby_over_latin(ctx):
 
     A single letter may keep the reading that is its own NAME (V in Vチューバー is ブイ).
     fallback: emit the run bare, with no reading.
+
+    READ ON THE SHIPPED SPANS AS WELL AS THE STORED ONES, and it took a reader to find out why.
+    This asked the store, and the store holds no spans for 紗痲 Fallin' Jail: build.py aligns the
+    reading at render time for a record that has none. That alignment put Fallin over Fallin and
+    Jail over Jail, the work shipped reading `紗痲しゃま FallinFallin' JailJail` in Japanese with
+    furigana on, and every gate was green. §14b: a check that only sees what its subject stored
+    cannot report what its subject produced.
     """
     sys.path.insert(0, str(ROOT / "adapters" / "names"))
     try:
@@ -116,15 +123,23 @@ def inv_no_ruby_over_latin(ctx):
     except Exception:
         return []
     bad = []
+
+    def look(where, spans):
+        for span in spans or []:
+            t, rd = (list(span) + [None, None])[:2] if isinstance(span, (list, tuple)) else (0, 0)
+            if not (rd and t and all(c.isascii() for c in str(t))):
+                continue
+            nm = p4.LETTER_NAME.get(str(t).upper()) if len(str(t)) == 1 else None
+            if nm and kana.to_hiragana(nm) == rd:
+                continue
+            bad.append(f"{where}: {t}->{rd}")
+
     for kind in ("titles", "authors"):
         for k, v in (ctx["names"].get(kind) or {}).items():
-            for t, rd in (v.get("furigana_spans") or []):
-                if not (rd and t and all(c.isascii() for c in t)):
-                    continue
-                nm = p4.LETTER_NAME.get(t.upper()) if len(t) == 1 else None
-                if nm and kana.to_hiragana(nm) == rd:
-                    continue
-                bad.append(f"{k}: {t}->{rd}")
+            look(k, v.get("furigana_spans"))
+    for r in ctx["series"]:
+        for key in ("work_en", "author_en"):
+            look(f"{r.get('id')} {key}", (r.get(key) or {}).get("ruby"))
     return bad
 
 
@@ -1139,6 +1154,25 @@ def budget_renderings_with_nothing_to_show(ctx):
     slash, so a composer splitting on one of them misses the other.
 
     This counts rather than blocks only until it reaches 0.
+
+    RE-MEASURED 2026-08-07, and it had been wrong in both directions at once. It read 150 while the
+    series rows carried 192 Japanese author fields on an English page, and the two numbers had
+    almost nothing to do with each other.
+
+      A ROW WITH NO RENDERING AT ALL WAS SKIPPED. `if not e` passed over exactly the case the
+      docstring above names, so of the 192 the measure could see 10. Nothing to show is nothing to
+      show, whether the field is empty or missing.
+
+      A RELEASE ROW WAS ASKED A QUESTION THE INTERFACE DOES NOT ASK. This looked the whole credit
+      field up in `names.json`'s `authors`, which is keyed one PERSON to a record and can never
+      hold a field naming three of them. The interface renders those rows from `credit_parts` and
+      `phrases`, and every one of the 140 counted here rendered correctly on the page. A measure
+      that counts 140 rows nobody can see broken cannot reach zero and buries the 49 that are.
+
+    So the release half asks the question the way `authorLabel` answers it. That is deliberately a
+    check modelled on its subject, against §14b, and what it therefore CANNOT see is a phrase whose
+    English is wrong rather than absent. `English mode has no Japanese` is the invariant that reads
+    the shipped strings themselves; this counts the rows with no string to read.
     """
     import re as _re
     ja = _re.compile(r"[぀-ヿ一-鿿々]")
@@ -1146,58 +1180,72 @@ def budget_renderings_with_nothing_to_show(ctx):
     for r in ctx["series"]:
         for key, surface in (("work_en", r.get("work")), ("author_en", r.get("author"))):
             e = r.get(key) or {}
-            if not e or e.get("romaji") or e.get("en"):
+            if e.get("romaji") or e.get("en"):
                 continue
             if ja.search(str(surface or "")):
                 bad += 1
     shipped = ctx["names_shipped"] or {}
     authors = shipped.get("authors") or {}
+    phrases = shipped.get("phrases") or {}
+    parts = shipped.get("credit_parts") or {}
+
+    def fold(t):
+        return unicodedata.normalize("NFKC", t or "").replace(" ", "")
+
     for r in ctx["releases"]:
         surface = str(r.get("author") or "")
         if not ja.search(surface):
             continue
-        e = authors.get(unicodedata.normalize("NFKC", surface).replace(" ", "")) or {}
-        if not (e.get("romaji") or e.get("en")):
-            bad += 1
+        key = fold(surface)
+        e = authors.get(key) or {}
+        if e.get("romaji") or e.get("en"):
+            continue
+        # `creditFromParts`: a line composes when every person in it has a romanisation of theirs.
+        people = parts.get(key) or []
+        if len(people) > 1 and all((authors.get(fold(p)) or {}).get("romaji") for p in people):
+            continue
+        # and the phrase map is the fallback, which only helps where the phrase is not Japanese.
+        phrase = str(phrases.get(key) or "")
+        if phrase and not ja.search(phrase):
+            continue
+        bad += 1
     return bad
 
 
 def budget_publishers_with_no_english(ctx):
     """Publisher and imprint names that stay Japanese in English-only mode.
 
-    MEASURED AGAINST THE BUILD, NOT THE RENDERER (§14b). The first version of this scraped a
-    `PUB_EN` literal out of `kari/app.js`. That tied the check to the SHAPE of the renderer's
-    storage, so when the mapping moved into a data file the check found nothing and the number
-    silently became a count of everything. A check that breaks when its subject is improved was
-    measuring the wrong thing.
+    COUNTED ON THE NAME A READER SEES. This used to read `PUB_EN` out of `app.js` and count the raw
+    catalogued strings it had no entry for, which double-counted: 講談社 reaches the corpus as
+    itself, as `[発売]講談社` and as `[頒布]講談社`, and all three were counted while the interface
+    renders all three as Kodansha. Cataloguing is stripped first now, so this counts publishers.
+
+    REUSES THE ADAPTER'S NORMALISERS, and §14b says to say so and to name what that hides. It
+    cannot see a disagreement between `publishers.publisher_of` here and `publisherOf` in app.js,
+    which is the one way a name in the store can still render as Japanese. What guards that instead
+    is the shipped file being keyed by the RAW catalogued string as well as the normalised one, so
+    either implementation's answer finds the record.
 
     So it reads the shipped mapping wherever the build puts it, and counts the distinct names the
     data carries that the mapping has no entry for. Names, not rows: one publisher rendered once
     serves every work it publishes.
     """
-    ja = re.compile(r"[぀-ヿ一-鿿々]")
-    known = set()
-    for cand in (BUILD / "feed" / "publishers.json", SITE / "feed" / "publishers.json"):
-        doc = _load(cand, None)
-        if isinstance(doc, dict):
-            known |= set(doc)
-            known |= {k for v in doc.values() if isinstance(v, dict) for k in v}
-    if not known:
-        # Nothing shipped yet, so fall back to whatever the renderer still carries inline.
-        site = SITE_ROOT / "kari" / "app.js"
-        if site.exists():
-            text = site.read_text()
-            i = text.find("const PUB_EN = {")
-            if i >= 0:
-                known = set(re.findall(r"'([^']+)'\s*:", text[i:text.find("};", i)]))
-    seen = set()
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    try:
+        import publishers as _pub
+    except Exception:                                                       # noqa: BLE001
+        return 0
+    names = {}
     for r in ctx["series"]:
         for pr in (r.get("print") or []):
-            for field in ("publisher", "imprint"):
-                name = str(pr.get(field) or "").strip()
-                if name and ja.search(name) and name not in known:
-                    seen.add(name)
-    return len(seen)
+            for field, norm in (("publisher", _pub.publisher_of), ("imprint", _pub.imprint_of)):
+                raw = str(pr.get(field) or "").strip()
+                if not raw:
+                    continue
+                slot = names.setdefault(raw, {"kind": field, "shown": norm(raw), "volumes": 0})
+                slot["volumes"] += 1
+    store = _pub.load_store(ROOT / "data" / "names" / "publishers.yaml")
+    return len(_pub.unnamed(_pub.render(store, names), names))
 
 def budget_labels_with_nothing_to_quote(ctx):
     """Records carrying a yuri label whose imprint states no term that says so.

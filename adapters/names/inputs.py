@@ -39,24 +39,71 @@ from . import kana
 # with halves of names.
 SEPARATORS = re.compile(r"[/／、,，・･]")
 
+# THE SAME LIST WITHOUT THE INTERPUNCT, for a caller that is going to PRINT the parts.
+#
+# ・ separates people in 矢立肇・富野由悠季 and sits inside a name in さりい・Ｂ, and nothing in the
+# string tells the two apart. Which way to be wrong depends on what the answer is for: feeding the
+# name store, a wrong split costs one entry nobody looks up, so splitting is right; rendering a
+# credit line, it prints half of somebody's name, so it is not. One splitter, one role vocabulary,
+# and the single place the two callers genuinely disagree stated as an argument.
+SEPARATORS_WHOLE_NAMES = re.compile(r"[/／、,，]")
+
 # Credit roles, stripped from the front of a part. `作画：彩乃浦助` is one person, not a person
 # called 作画：彩乃浦助, and `原作` on its own is not a person at all.
+#
+# WRITTEN OUT RATHER THAN SPELLED FROM CHARACTERS. A class of role kanji reads 協力 and 構成協力
+# for free and reads 力 and 成 as roles too, and the credit field is full of pen names built from
+# ordinary words. Every entry here was read off a credit this corpus actually carries; the ones
+# added late are named in the commit that added them, because a vocabulary that grows by guessing
+# is how 石田可奈 came to be filed with キャラクターデザイン as its reading.
 ROLES = ("原作", "作画", "漫画", "キャラクター原案", "キャラクターデザイン", "原案", "構成",
          "ストーリー", "シナリオ", "イラスト", "企画", "監修", "脚本", "編集", "著者", "著",
-         "作", "画", "story", "art", "Story", "Art")
-ROLE_HEAD = re.compile(r"^\s*(?:%s)\s*[:：]?\s*" % "|".join(map(re.escape, ROLES)))
-ROLE_ONLY = re.compile(r"^\s*(?:%s)\s*[:：]?\s*$" % "|".join(map(re.escape, ROLES)))
+         "作", "画", "story", "art", "Story", "Art",
+         # Read off the corpus 2026-08-07, with the count of credits each appears in:
+         # 構成協力 1, 協力 1, 原作監修 1, 表紙 1, 校正 2, 編纂 1, 編 1, 絵 5, ネーム 1.
+         "構成協力", "原案協力", "作画協力", "協力", "原作監修", "表紙", "ネーム", "校正", "編纂",
+         "カバーイラスト", "カバー", "デザイン", "翻訳", "訳", "編", "絵", "文",
+         # `ほか著雪子` is an anthology credit: some of the contributors, then the role. The two
+         # characters are cataloguing and the name is what follows them.
+         "ほか著", "他著")
+
+# LONGEST FIRST. Python alternation takes the first branch that matches, so `著` ahead of `著者`
+# leaves a stray 者 where a name should be, and `編` ahead of `編集` leaves 集.
+_ALT = "|".join(re.escape(r) for r in sorted(ROLES, key=len, reverse=True))
+_ALT_LONG = "|".join(re.escape(r) for r in sorted(ROLES, key=len, reverse=True) if len(r) > 1)
+
+# ONE ROLE OR SEVERAL, joined the way a credit joins them: `イラスト・漫画`, `表紙 / 漫画`,
+# `キャラクター原案・漫画`, `構成協力`. Spelling each compound out as its own entry is what the
+# list was doing, and it is why キャラクターデザイン and 構成協力 were missing after a round of
+# widening that added four compounds by hand.
+ROLE_PHRASE = r"(?:%s)(?:[\s　・･/／]+(?:%s))*" % (_ALT, _ALT)
+ROLE_PHRASE_LONG = r"(?:%s)(?:[\s　・･/／]+(?:%s))*" % (_ALT_LONG, _ALT_LONG)
+
+# A SINGLE-CHARACTER ROLE AT THE HEAD NEEDS A DELIMITER, and a longer one does not. `著：山田` and
+# `作画／彩乃浦助` are notation; a bare 作 or 画 or 絵 opening a part is far likelier to be the first
+# character of a pen name, and stripping it would hand the store 田ハジメ for 作田ハジメ. Nothing in
+# the corpus is damaged by the loose rule today, which is exactly the state a vocabulary is in
+# before it is widened.
+ROLE_HEAD = re.compile(r"^\s*(?:(?:%s)\s*[:：/／]|(?:%s)\s*[:：]?)\s*"
+                       % (ROLE_PHRASE, ROLE_PHRASE_LONG))
+ROLE_ONLY = re.compile(r"^\s*(?:%s)\s*[:：]?\s*$" % ROLE_PHRASE)
 
 # A role label appearing mid-string after whitespace starts a new credit: `原案：士郎正宗　漫画：
 # 六道神士`. This is the only case where whitespace splits, and it splits because of the label.
-ROLE_BREAK = re.compile(r"[\s　]+(?=(?:%s)\s*[:：])" % "|".join(map(re.escape, ROLES)))
+ROLE_BREAK = re.compile(r"[\s　]+(?=(?:%s)\s*[:：])" % ROLE_PHRASE)
 
 # The label can also end up on the WRONG end of a part, when the credit separated roles with ／
 # rather than a colon: `原作／宮澤伊織　作画／水野英多` splits into `宮澤伊織　作画` and `水野英多`.
 # Only multi-character roles are stripped here — a lone 作 or 画 after a space is more likely to be
 # the tail of somebody's pen name than a credit.
-ROLE_TAIL = re.compile(r"[\s　]+(?:%s)\s*$"
-                       % "|".join(re.escape(r) for r in ROLES if len(r) > 1))
+ROLE_TAIL = re.compile(r"[\s　]+(?:%s)\s*$" % ROLE_PHRASE_LONG)
+
+# A ROLE IN A BRACKET CLOSES A CREDIT, so the space after it separates two people:
+# `冬眠結(漫画) 橙々(原作)` is two, and the splitter had no separator to see. A space is not a
+# separator anywhere else here and must not become one: 三松　真由美 and 高坂 はしやん are single
+# people with a space inside them, and both appear in fields of exactly this shape. What licenses
+# the split is the bracket, and only when what is in it is a role.
+ROLE_BRACKET_BREAK = re.compile(r"([（(〔【\[]([^）)〕】\]]*)[）)〕】\]])[\s　]+")
 
 # `ほか` closes a credit line that names some of its contributors and stops. The bibliography
 # writes an anthology as `浅見百合子 ほか` and, where it used the slash, as `… / ほか`. A space is
@@ -67,6 +114,7 @@ ROLE_TAIL = re.compile(r"[\s　]+(?:%s)\s*$"
 OTHERS_TAIL = re.compile(r"[\s　]+(?:ほか|他)\s*$")
 
 MASK = "\ue000"  # private-use stand-in for a separator that must survive the split
+BREAK = "\ue001"  # and one for a boundary the string does not punctuate: see ROLE_BRACKET_BREAK
 
 # Strings that arrive in the author position without being people. `ヨン / 読切` is one author and a
 # format tag separated by the same slash the credits use, so the tag becomes an "author" and would
@@ -99,16 +147,28 @@ def _mask_brackets(s):
     return "".join(out)
 
 
-def split_authors(credit):
+def _break_after_role_brackets(masked):
+    """Insert a boundary where a role bracket is followed by a space, and nowhere else."""
+    def sub(m):
+        inner = m.group(2).replace(MASK, "・").strip()
+        return m.group(1) + BREAK if ROLE_ONLY.match(inner) else m.group(0)
+    return ROLE_BRACKET_BREAK.sub(sub, masked)
+
+
+def split_authors(credit, interpunct=True):
     """A credit line to a list of (name, stated_reading_or_None).
 
     The reading is only ever non-None for the bracketed-kana case described in the module docstring.
+
+    `interpunct=False` keeps ・ inside a name instead of treating it as a separator. See
+    SEPARATORS_WHOLE_NAMES for which caller wants which, and why the answer differs.
     """
     if not credit:
         return []
-    masked = _mask_brackets(str(credit))
+    masked = _break_after_role_brackets(_mask_brackets(str(credit)))
+    seps = SEPARATORS if interpunct else SEPARATORS_WHOLE_NAMES
     parts = []
-    for chunk in SEPARATORS.split(masked):
+    for chunk in re.split(r"%s|%s" % (seps.pattern, BREAK), masked):
         parts.extend(ROLE_BREAK.split(chunk))
     out, seen = [], set()
     for raw in parts:
@@ -130,12 +190,16 @@ def split_authors(credit):
     return out
 
 
-def _peel_bracket(part):
+def _peel_bracket(part, depth=4):
     """Split `博（ひろ）` into a name and a reading; strip `宮澤伊織(早川書房刊)` down to the name.
 
     A bracket holding pure kana after a head that is not pure kana is a furigana gloss — the
     platform printing the reading. Anything else in a bracket is an imprint, a studio or a note,
     and belongs to neither the name nor the reading.
+
+    A CREDIT CAN CARRY TWO OF THEM. `壇九（TANJIU)(著者)` is a name, the Latin the artist also goes
+    by, and a role, and peeling one bracket left `壇九(著者)`, which is nobody. `depth` bounds the
+    peeling so a pathological string cannot loop.
     """
     m = BRACKETED.search(part)
     if not m:
@@ -144,9 +208,18 @@ def _peel_bracket(part):
     head = (part[:m.start()] + part[m.end():]).strip()
     if not head:
         return part, None
-    if inner and not IMPRINT.search(inner) and kana.kana_only(inner) and not kana.kana_only(head):
-        return head, kana.to_katakana(inner)
-    return head, None
+    # A ROLE IS NOT A READING, and キャラクターデザイン is kana all the way through. 石田可奈 was
+    # filed with キャラクターデザイン as the reading a platform had stated for it, which is a role
+    # label printed where a furigana gloss goes. Anything the role vocabulary recognises is
+    # notation, whatever script it is in.
+    reading = (kana.to_katakana(inner)
+               if (inner and not ROLE_ONLY.match(inner) and not IMPRINT.search(inner)
+                   and kana.kana_only(inner) and not kana.kana_only(head))
+               else None)
+    if depth > 1 and BRACKETED.search(head):
+        deeper, deeper_reading = _peel_bracket(head, depth - 1)
+        return deeper, reading or deeper_reading
+    return head, reading
 
 
 def load(build_dir, feeds=None):

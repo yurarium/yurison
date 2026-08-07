@@ -46,7 +46,11 @@ import tempfile
 
 import yaml
 
-KINDS = ("authors", "titles")
+# `publishers` is a third kind and not a third store. A publisher name is a name: it is rendered in
+# English on the same page, from the same file, with the same basis and the same source travelling
+# beside it. It arrived because the interface was carrying seven of them as a literal while the
+# corpus held 389, and a literal has nowhere to put the page a name was read from.
+KINDS = ("authors", "titles", "publishers")
 
 # How much a claim outranks another claim about the same field. Higher wins; equal-and-different is
 # a conflict, never a silent overwrite.

@@ -23,14 +23,14 @@ import unicodedata
 
 SPLIT = re.compile(r"\s*/\s*")
 
-# EVERY SEPARATOR A CREDIT FIELD ACTUALLY USES. A series row writes ` / ` and a releases row writes
-# `, `, as in `おだまさる, 佐島勤, 石田可奈, 森夕`, so a composer that knew one of them left 49 of
-# 191 release rows rendering their authors in Japanese on an English page.
+# THE SEPARATORS A CREDIT FIELD PUNCTUATES WITH. A series row writes ` / ` and a releases row
+# writes `, `, as in `おだまさる, 佐島勤, 石田可奈, 森夕`, so a composer that knew one of them left
+# 49 of 191 release rows rendering their authors in Japanese on an English page.
 #
-# `・` is deliberately NOT here. It separates people in 矢立肇・富野由悠季 and it sits INSIDE a name
-# in さりい・Ｂ, and nothing in the string tells the two apart. inputs.split_authors does split on
-# it, which is right for feeding a name store where a wrong split costs one unused entry; here a
-# wrong split would print a person's name cut in half.
+# `split_credits` no longer splits on this. It asks inputs.split_authors, which knows the role
+# notation as well as the punctuation. What is left here is the MEASURE, `candidate_doubles`, and
+# it keeps its own crude split ON PURPOSE (§14b): a measure that splits the way the fix splits can
+# only ever report what the fix already handles.
 SEPARATORS = re.compile(r"\s*[/／,，、]\s*")
 
 JAPANESE = re.compile(r"[぀-ヿ一-鿿々]")
@@ -163,21 +163,87 @@ def readable_ruby(spans):
 def split_credits(raw):
     """The people a credit field names, and the separator to put back between them.
 
+    THE SPLITTING IS `inputs.split_authors`, NOT A SECOND COPY OF IT. This file grew its own
+    separator list and its own notation stripping, and the two drifted exactly the way §3 says
+    they will. Three shapes were live on the site because of it, and every one of them was already
+    handled by the splitter that feeds the name store:
+
+      `原作/大鷹シン 漫画/ホマレ`  the slash separates a ROLE from a NAME, so 原作 became a person
+      `冬眠結(漫画) 橙々(原作)`    two credits with nothing but a space between them
+      `石田可奈(キャラクターデザイン)`  a role welded to a name matches nothing in the store
+
+    The one place the two callers genuinely disagree is ・, which the store may split and a printed
+    line may not, and that is an argument now rather than a fork. See inputs.SEPARATORS_WHOLE_NAMES.
+
     The separator is returned rather than fixed because a composed rendering has to read the way
     the field it replaces read. A releases row that arrived comma-separated must not come back
     slash-separated: the reader would see one row punctuated unlike every row around it.
     """
     s = str(raw or "")
-    parts = [p.strip() for p in SEPARATORS.split(s) if p.strip()]
-    # CATALOGUING NOTATION IS NOT PART OF A NAME. MADB writes `[著]苗川采` and openBD and the
-    # platforms write `苗川采(著者)`; only the first was being removed, so 138 credits carried a
-    # trailing role, 96 of them 著者. A name with a role welded to it matches nothing in the store,
-    # so the row rendered as Japanese on an English page. `credit_name` is the one reader of that
-    # notation and it decides here too, instead of a second copy of the rule living in this file.
-    from names import openbd_reading as _ob
-    parts = [x for x in (_ob.credit_name(p) for p in parts) if x]
+    from names.inputs import split_authors
+    parts = [n for n, _reading in split_authors(s, interpunct=False) if n]
     joiner = " / " if re.search(r"[/／]", s) else ("、" if "、" in s else ", ")
     return parts, joiner
+
+
+def spliced_ruby(raw, parts, got):
+    """Furigana over the credit field AS WRITTEN, with each name annotated where it stands.
+
+    THE RUBY HAS TO COVER THE SURFACE, which is what `ruby covers its surface` asserts. Composing
+    the spans by joining the people together with a separator worked only while the splitter's
+    parts added up to the whole field. They no longer do: the notation comes off now, so a joined
+    set covered `大鷹シン / ホマレ` where the field reads `原作/大鷹シン 漫画/ホマレ`, and the
+    Japanese page would have printed the credit with its roles deleted. Annotating is not the same
+    as rewriting, and in Japanese mode the reader is owed the string the source wrote.
+
+    Where a name cannot be found in the field the whole set collapses to one bare span. That is the
+    same fallback `readable_ruby` takes and for the same reason: furigana over the wrong characters
+    is worse than none, and a set that does not cover its surface is exactly that.
+    """
+    out, rest = [], raw
+    for p, e in zip(parts, got):
+        at = rest.find(p)
+        if at < 0:
+            return [[raw, None]]
+        if at:
+            out.append([rest[:at], None])
+        out.extend(readable_ruby(e.get("ruby")) or [[p, None]])
+        rest = rest[at + len(p):]
+    if rest:
+        out.append([rest, None])
+    return out
+
+
+def already_latin(p, e=None):
+    """A rendering for a credit that needs no romanising, or None where it does need one.
+
+    A CREDIT ALREADY IN LATIN IS ITS OWN ROMANISATION and needs no store record. The commonest are
+    the full-width names on BOOK☆WALKER's translated editions, Ｍａｇｐｉｅ and Ｎｉｍｒｏｄ and
+    ＩｃｅＦａｉｒｙ, which NFKC folds to ordinary Latin. Demanding a reading for them held back
+    every field they appear in. They take no ruby, which is what `no ruby over bare Latin` already
+    requires.
+
+    BEING IN THE STORE IS NOT BEING RESOLVED, and reading it as such shipped 35 rows with a
+    Japanese author line in English-only mode. `Akeo` is stored with `script: latin` and no reading
+    and no romanisation, correctly, and the field it appears in then intersected romanisation
+    styles across its credits, came out empty, and rendered nothing at all for all three names.
+    This is asked whenever a credit yields no romanisation, whether or not the store holds the name.
+
+    THE SURFACE DECIDES, NOT THE STORE'S `en`. A Japanese name with an English rendering has a
+    translation, and a translation is not a romanisation: taking it here would put a licensor's
+    wording where the sound of the name belongs. `en` is preferred only once the surface has shown
+    it needs no romanising.
+    """
+    flat = unicodedata.normalize("NFKC", p)
+    if JAPANESE.search(flat):
+        return None
+    stated = str((e or {}).get("en") or "").strip()
+    if stated and not JAPANESE.search(unicodedata.normalize("NFKC", stated)):
+        flat = stated
+    return {"reading": flat, "ruby": [[p, None]],
+            "romaji": {s: flat for s in ROMAJI_STYLES},
+            "reading_basis": (e or {}).get("reading_basis") or "stated",
+            **({"unverified": True} if (e or {}).get("unverified") else {})}
 
 
 def compose(raw, lookup):
@@ -200,48 +266,43 @@ def compose(raw, lookup):
     half-made one SUPPRESSES the fallback to the Japanese the reader would otherwise have seen.
     """
     parts, joiner = split_credits(raw)
-    if len(parts) < 2:
+    if not parts:
         return None
+    if len(parts) == 1:
+        # ONE PERSON IS NOT A COMPOSITION, AND STILL NEEDS FINDING. 126 of the 192 series rows
+        # showing a Japanese author in English mode named ONE person, 96 of them with `(著者)`
+        # after the name. The caller looks the whole field up, `はちこ(著者)` matches nothing, and
+        # the composer declined to look at a field with a single credit in it, so the notation had
+        # nowhere to come off.
+        #
+        # The store's record is returned AS IT STANDS. Nothing is being joined, so there is no
+        # composed name to describe, and rewriting the basis here would relabel a translation as a
+        # romanisation.
+        #
+        # Only where the notation changed the string: where it did not, the caller has already run
+        # this exact lookup and got nothing back.
+        p = parts[0]
+        if p == str(raw or "").strip():
+            return None
+        e = lookup(p)
+        if not ((e or {}).get("romaji") or (e or {}).get("en")):
+            e = already_latin(p, e)
+        if not e:
+            return None
+        # THE RUBY STILL HAS TO COVER THE FIELD, notation and all. The record's own spans cover the
+        # person's name, and the field around it is `はちこ(著者)`.
+        return {**e, "ruby": spliced_ruby(str(raw or ""), [p], [e])}
     got = []
     for p in parts:
         e = lookup(p)
         if not (e or {}).get("romaji"):
-            # A CREDIT ALREADY IN LATIN IS ITS OWN ROMANISATION and needs no store record. The
-            # commonest are the full-width names on BOOK☆WALKER's translated editions, Ｍａｇｐｉｅ
-            # and Ｎｉｍｒｏｄ and ＩｃｅＦａｉｒｙ, which NFKC folds to ordinary Latin. Demanding a
-            # reading for them held back every field they appear in. They take no ruby, which is
-            # what `no ruby over bare Latin` already requires.
-            #
-            # BEING IN THE STORE IS NOT BEING RESOLVED, and reading it as such shipped 35 rows with
-            # a Japanese author line in English-only mode. `Akeo` is stored with `script: latin`
-            # and no reading and no romanisation, correctly, and the field it appears in then
-            # intersected romanisation styles across its credits, came out empty, and rendered
-            # nothing at all for all three names. The fallback is asked whenever a credit yields no
-            # romanisation, whether or not the store holds the name.
-            #
-            # THE SURFACE DECIDES, NOT THE STORE'S `en`. A Japanese name with an English rendering
-            # has a translation, and a translation is not a romanisation: taking it here would put
-            # a licensor's wording where the sound of the name belongs. `en` is preferred only
-            # once the surface has shown it needs no romanising.
-            flatp = unicodedata.normalize("NFKC", p)
-            if JAPANESE.search(flatp):
+            e = already_latin(p, e)
+            if e is None:
                 return None
-            stated = str((e or {}).get("en") or "").strip()
-            if stated and not JAPANESE.search(unicodedata.normalize("NFKC", stated)):
-                flatp = stated
-            e = {"reading": flatp, "ruby": [[p, None]],
-                 "romaji": {s: flatp for s in ROMAJI_STYLES},
-                 "reading_basis": (e or {}).get("reading_basis") or "stated",
-                 **({"unverified": True} if (e or {}).get("unverified") else {})}
         got.append(e)
 
     out = {"reading": joiner.join(str(e.get("reading") or "") for e in got)}
-    ruby = []
-    for i, e in enumerate(got):
-        if i:
-            ruby.append([joiner, None])
-        ruby.extend(readable_ruby(e.get("ruby")) or [[parts[i], None]])
-    out["ruby"] = ruby
+    out["ruby"] = spliced_ruby(str(raw or ""), parts, got)
     styles = set(got[0].get("romaji") or {})
     for e in got[1:]:
         styles &= set(e.get("romaji") or {})

@@ -5969,14 +5969,6 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
 
-  ロリースイートロリー:
-    en: Rorii Sweet Rorii
-    basis: romaji
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      ロリー doesn't resolve to a stated name or a standard word in anything reachable about this series, and guessing between candidates (Lory, Rory, a lolly) would be picking one arbitrarily; kept in transliteration rather than decided.
 
   ロマンスコード:
     en: Romance Code
@@ -6573,14 +6565,6 @@ titles:
       read tensei throughout. Segmented as ナナシ / ノ / テンセイ so the romanisation renders three words
       rather than one.
 
-  ナキノン:
-    en: Nakinon
-    basis: romaji
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      Not a standard word or an attested character nickname in anything reachable about this series; kept in transliteration rather than guessed at, though it likely carries 泣き, crying, given the synopsis is a death and its aftermath.
 
   ナイショの彼女:
     en: My Secret Girlfriend
@@ -6967,14 +6951,6 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
 
-  サバーキ:
-    en: Sabāki
-    basis: romaji
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      Not a word or a name attested anywhere reachable about this series; kept in transliteration rather than guessed at.
 
   サニーサイド:
     en: Sunny Side
@@ -28186,6 +28162,142 @@ titles:
       the same reading written a second way. It replaces 'ヒョウ フジサン ワ コウリャク シタイ', which no source
       had stated.
 
+  紗痲:
+    en: "Shama"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    reading: "シャマ"
+    reading_basis: researched
+    reading_source_kind: derived
+    note: >-
+      THE PRINT ROW OF 紗痲 Fallin' Jail, AND IT IS A DIFFERENT ROW. MADB catalogues the KADOKAWA
+      MFC tankobon under 紗痲 alone while カドコミ serialises it as 紗痲 Fallin' Jail, so the two do
+      not join and the volume shows on its own in the releases list. Reported by the operator as
+      the work not appearing properly there.
+    reading_note: >-
+      The analyser read the two characters separately and produced シャ マ, which romanised to
+      "Sha Ma" and was marked as a guess. MADB's own record states `yomi: シャマ : フォーリン
+      ジェイル` for this title, which settles both halves: the name is one word, シャマ, and the
+      catalogue's truncated title is the same work as the serialisation.
+# ── KATAKANA TITLES, WHERE THE SOURCE WORD IS THE ANSWER ──────────────────────────────────────
+#
+# Katakana marks a FOREIGN word, so romanising one syllable by syllable transliterates a
+# transliteration: ウェイバーズ came out Weibazu where the work's own logo reads WAVER(S). 11 web
+# titles are written wholly in katakana and were showing a romanisation. Each was taken back to a
+# canonical source, and for six of them the source is the title-page artwork on the publisher's own
+# page, which NAMES-PLAN §1 names as the place an official English title most often hides.
+#
+# Where nothing shows a Latin form the romanisation stands and the note says what was looked at, so
+# the queue stops asking and a later sighting still overrides it.
+  ウェイバーズ:
+    en: "WAVER(S)"
+    basis: official-jp
+    source: comic-walker.com
+    source_kind: platform
+    source_url: https://comic-walker.com/detail/KC_008387_S
+    reviewed: '2026-08-07'
+    note: >-
+      The title-page artwork on KADOKAWA's own カドコミ page prints W A V E R ( S ) under the
+      katakana, with the author's name beneath it. The work's own English name, brackets included.
+      The page's own description confirms the sense, calling the espers 超能力者たち（ウェイバーズ）.
+  ロリースイートロリー:
+    en: "Lolly Sweet Lolly"
+    basis: official-jp
+    source: kimicomi.com
+    source_kind: platform
+    source_url: https://kimicomi.com/series/f7db55fffae10
+    reviewed: '2026-08-07'
+    note: >-
+      The banner artwork on キミコミ, Kill Time Communication's own site, prints Lolly under ロリー,
+      Sweet under スイート and Lolly under the second ロリー. Each katakana word is glossed with the
+      English it transliterates, so the whole title is stated in Latin letters by the work itself.
+  ミコレイログ:
+    en: "MIKOREI LOG"
+    basis: official-jp
+    source: bookwalker.jp
+    source_kind: publisher-jp
+    source_url: https://bookwalker.jp/series/517278/
+    reviewed: '2026-08-07'
+    note: >-
+      The cover of the ナンバーナイン edition sets MIKOREI across the top and LOG Vol 1 across the
+      bottom, with Original Yuri beneath the first. The party speaking is the publisher through its
+      own cover art; the page it was read from is the shop's listing, which is where that art is
+      published.
+  サナトクラマ:
+    en: "Sanatokurama"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      No English name. The cover prints sanatokurama in lower case above `presented by Japalp112`,
+      which is the transliteration rather than a translation, so the romanisation is the answer and
+      the cover corroborates the spelling. Capitalised to match every other title here.
+  ハナヤマタ:
+    en: "Hanayamata"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      A coinage built from the five characters' names, so there is no word to recover: translating
+      it would invent a meaning the title does not carry. COMIC FUZ's banner artwork carries no
+      Latin. Seven Seas publish it in English under the same romanisation, but their catalogue
+      answered 403 to our user agent, so this is not recorded as a licensed title.
+  ナキノン:
+    en: "Nakinon"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      HERO'S Web's own series page and its banner artwork carry no Latin form. The title is a
+      coinage on 泣き, which the story's premise supports, and there is nothing to recover.
+  オグナンジェ:
+    en: "Ogunanje"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The cover art on the 百合コレ edition sets the title in katakana alone, and the listing states
+      no other form. Nothing published shows a Latin spelling.
+  ユリメデルブ:
+    en: "Yurimederubu"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The cover art carries the title in katakana alone. The description makes it 花愛でる部 with
+      百合 in place of 花, so the word is Japanese wordplay written in katakana, and there is no
+      foreign source word to recover.
+  フリコフリークフリースタイル:
+    en: "Furiko Freak Freestyle"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The cover carries the title in katakana alone, so no Latin form is published. The three
+      elements are legible all the same: フリコ is 振り子, the pendulum the story turns on, and
+      フリーク and フリースタイル are freak and freestyle. Only the first has no English behind it,
+      so it stays as it sounds and the two loanwords are spelt as the words they are.
+  サバーキ:
+    candidate: "Собаки"
+    source: comic-ogyaaa.com
+    source_kind: platform
+    source_url: https://comic-ogyaaa.com/episode/2550689798875510910
+    reviewed: '2026-08-07'
+    candidate_note: >-
+      The title artwork prints Собаки under the katakana, which is Russian for dogs and matches the
+      story: 飼いならされた＜犬＞ becoming ＜猟犬＞ on a divided northern land. So サバーキ is not a
+      word to romanise syllable by syllable. It is also not a Latin form, and turning it into Dogs
+      would be our translation of a Russian word the work chose to print in Cyrillic. Recorded as
+      seen; the romanisation stands until the work itself publishes something in Latin letters.
+
 authors:
   ふじい葛西:
     reading: "フジイ カサイ"
@@ -36299,3 +36411,231 @@ authors:
       personal name to read, so nothing replaces the guess and the credit renders as the characters
       it is. The same shape reaches the corpus from BOOK☆WALKER as Be編集部, which
       data/source/webpages/bylines.yaml lists under `not_a_person` for this reason.
+
+# ── PUBLISHERS AND IMPRINTS ───────────────────────────────────────────────────────────────────
+#
+# A publisher name is a name, and it was the last one the interface held as a literal: `PUB_EN` in
+# app.js carried seven, and the corpus carries 389. Each entry here is the Latin name the company
+# signs itself with, read off its own site, so `official-jp` is the company's own rendering rather
+# than anything computed. Where the site prints no Latin form at all the note says so and names
+# the domain as the evidence, which is still the company's own spelling of its own name.
+#
+# NOT ROMANISED WHERE NOBODY STATES IT. ナンバーナイン is a company called No9 and クロスフォリオ
+# 出版 is a name in katakana that nothing here can source, so the second one stays Japanese.
+publishers:
+  "講談社":
+    en: "Kodansha"
+    basis: official-jp
+    source: kodansha.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.kodansha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site KODANSHA LTD.
+  "一迅社":
+    en: "Ichijinsha"
+    basis: official-jp
+    source: ichijinsha.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.ichijinsha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company publishes at ichijinsha.co.jp and prints no other Latin form of its name on the site; the domain is its own spelling.
+  "芳文社":
+    en: "Houbunsha"
+    basis: official-jp
+    source: houbunsha.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.houbunsha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site HOUBUNSHA CO., LTD.
+  "集英社":
+    en: "Shueisha"
+    basis: official-jp
+    source: shueisha.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.shueisha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company titles its own front page 集英社 - SHUEISHA - and signs it SHUEISHA INC.
+  "小学館":
+    en: "Shogakukan"
+    basis: official-jp
+    source: shogakukan.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.shogakukan.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company publishes at shogakukan.co.jp and prints no other Latin form on the front page or the company page; the domain is its own spelling.
+  "新書館":
+    en: "Shinshokan"
+    basis: official-jp
+    source: shinshokan.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.shinshokan.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site SHINSHOKAN Co.,Ltd.
+  "竹書房":
+    en: "Takeshobo"
+    basis: official-jp
+    source: takeshobo.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.takeshobo.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site TAKESHOBO Co.,ltd.
+  "双葉社":
+    en: "Futabasha"
+    basis: official-jp
+    source: futabasha.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.futabasha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company publishes at futabasha.co.jp and prints no other Latin form on the front page or the company page; the domain is its own spelling.
+  "秋田書店":
+    en: "Akita Publishing"
+    basis: official-jp
+    source: akitashoten.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.akitashoten.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site AKITA PUBLISHING CO.,LTD. Akita Shoten is the transliteration a reader will also meet, and it is not the name the company gives itself.
+  "徳間書店":
+    en: "Tokuma Shoten Publishing"
+    basis: official-jp
+    source: tokuma.jp
+    source_kind: publisher-jp
+    source_url: https://www.tokuma.jp/company/
+    reviewed: '2026-08-07'
+    note: >-
+      The company page reads About TOKUMA SHOTEN PUBLISHING Co., Ltd.
+  "光文社":
+    en: "Kobunsha"
+    basis: official-jp
+    source: kobunsha.com
+    source_kind: publisher-jp
+    source_url: https://www.kobunsha.com/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site Kobunsha Co., Ltd. and runs an English site at en.kobunsha.com.
+  "祥伝社":
+    en: "Shodensha Publishing"
+    basis: official-jp
+    source: shodensha.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.shodensha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site SHODENSHA Publishing Co.,Ltd.
+  "白泉社":
+    en: "Hakusensha"
+    basis: official-jp
+    source: hakusensha.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.hakusensha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site HAKUSENSHA and runs an English section at /en/.
+  "実業之日本社":
+    en: "Jitsugyo no Nihon Sha"
+    basis: official-jp
+    source: j-n.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.j-n.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site Jitsugyo no Nihon Sha, Ltd.
+  "幻冬舎コミックス":
+    en: "Gentosha Comics"
+    basis: official-jp
+    source: gentosha-comics.net
+    source_kind: publisher-jp
+    source_url: https://www.gentosha-comics.net/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site GENTOSHA COMICS INC.
+  "マイクロマガジン社":
+    en: "Micro Magazine"
+    basis: official-jp
+    source: micromagazine.co.jp
+    source_kind: publisher-jp
+    source_url: https://micromagazine.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company titles its own front page MICRO MAGAZINE.
+  "イースト・プレス":
+    en: "Eastpress"
+    basis: official-jp
+    source: eastpress.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.eastpress.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site Eastpress, written as one word.
+  "スクウェア・エニックス":
+    en: "Square Enix"
+    basis: official-jp
+    source: jp.square-enix.com
+    source_kind: publisher-jp
+    source_url: https://www.jp.square-enix.com/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site SQUARE ENIX CO., LTD.
+  "ナンバーナイン":
+    en: "No9"
+    basis: official-jp
+    source: no9.co.jp
+    source_kind: publisher-jp
+    source_url: https://no9.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site No9 Inc. Not a romanisation: the katakana spells an English name, and syllable by syllable it would come out Nanbanain.
+  "マッグガーデン":
+    en: "Mag Garden"
+    basis: official-jp
+    source: mag-garden.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.mag-garden.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site MAG Garden corp.
+  "三交社":
+    en: "Sanko-sha"
+    basis: official-jp
+    source: sanko-sha.com
+    source_kind: publisher-jp
+    source_url: https://www.sanko-sha.com/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site SANKO-SHA, Inc.
+  "キルタイムコミュニケーション":
+    en: "Kill Time Communication"
+    basis: official-jp
+    source: ktcom.jp
+    source_kind: publisher-jp
+    source_url: https://www.ktcom.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company titles its own front page KTC - KILL TIME COMMUNICATION OFFICIAL WEB SITE.
+  "コミック百合姫":
+    en: "Comic Yuri Hime"
+    basis: official-jp
+    source: ichijinsha.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.ichijinsha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      Ichijinsha's yuri imprint. The magazine prints its own title in Latin letters as Comic Yuri Hime, and MADB files the imprint as IDコミックス / Yuri-hime comics.
+  "IDコミックス":
+    en: "ID Comics"
+    basis: official-jp
+    source: ichijinsha.co.jp
+    source_kind: publisher-jp
+    source_url: https://www.ichijinsha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      Ichijinsha's umbrella comics line. The label itself is written IDコミックス, ID in Latin letters already, and the rest is the English word it stands for.

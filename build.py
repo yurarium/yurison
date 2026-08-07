@@ -958,6 +958,35 @@ def _record_address(rec, name):
     return None
 
 
+def state_claim_rows(rows):
+    """What each platform says about its own serialisation, one row per platform that says it.
+
+    THE SAME SHAPE AS AN EVIDENCE ROW, and for the same reason: who spoke, what they said, and when
+    it was read. `state_basis` used to carry this welded into a sentence about our own coverage:
+    "no chapter for 2 days in what we hold, but the platform still marks the serialisation as
+    running". That is one claim about the WORLD and one about THIS DATABASE in a paragraph the page
+    could only print whole. `age_days` already carries our half as a number; this carries the
+    platform's half as a row, so both can be rendered like every other fact on the page.
+
+    `says` is our reading and `term` is the platform's own value, kept apart because カドコミ
+    answers `finished` in English where comici answers 完結 and flattening the two would hide that
+    they are separate sources agreeing.
+
+    A completed claim sorts above a running one, so a work whose platforms disagree leads with the
+    stronger statement rather than with whichever row happened to be built first.
+    """
+    out = []
+    for row in rows:
+        claim = row.get("state_claim") or {}
+        if not claim.get("says"):
+            continue
+        out.append({"source": row.get("platform"), "says": claim["says"],
+                    "term": claim.get("term") or None,
+                    "read": row.get("retrieved") or None,
+                    **({"url": row["url"]} if row.get("url") else {})})
+    return sorted(out, key=lambda x: (x["says"] != "completed", str(x["source"] or "")))
+
+
 def credits_en(raw, exact, folded, fold):
     """One rendering for an author field naming several people, or None.
 
@@ -3655,14 +3684,30 @@ def main():
             # カドコミ answers in English and comici in Japanese, in a field of the same name.
             # comici has no value meaning "we do not know": a page carrying the field has answered,
             # which is why 連載中 is worth recording as well and not only its opposite.
+            #
+            # THE NAME, NOT A SENTENCE. Both fields used to hold prose reading "the platform marks
+            # the serialisation finished", which is a source's claim welded to our wording of it and
+            # said nothing about WHICH platform on a work serialising in three places. What they
+            # carry now is the platform's own name, so the sentence can be composed where it is
+            # needed and `state_claim` below can be a row like every other fact on the page.
             platform_status = str(w.get("status") or "")
-            if platform_status.lower() == "finished" or platform_status == "完結":
-                bucket["completed_src"] = "the platform marks the serialisation finished"
-                bucket["completed_src_ja"] = "プラットフォームが連載終了と表示している"
+            _ended = platform_status.lower() == "finished" or platform_status == "完結"
+            _says = ("completed" if _ended
+                     else "running" if platform_status in ("ongoing", "連載中") else None)
+            if _says:
+                bucket["completed_src" if _ended else "running_src"] = plat
+                # WHAT IT SAID, IN ITS OWN WORD. `says` is our reading of the field and `term` is
+                # the value the platform stated, so a reader can see that カドコミ answers
+                # `finished` in English where comici answers 完結, which is two sources agreeing
+                # rather than one fact with two spellings.
+                #
+                # A completed claim wins a disagreement, which is the precedence the branch far
+                # below already applies to `completed_src`. Without it a row would say one thing or
+                # the other according to which of two files describing it was read last.
+                if _ended or not bucket.get("state_claim"):
+                    bucket["state_claim"] = {"says": _says, "term": platform_status}
             elif platform_status == "読み切り":
                 bucket["oneshot_src"] = True
-            elif platform_status in ("ongoing", "連載中"):
-                bucket["running_src"] = "the platform marks the serialisation as running"
             # Partial only if EVERY source for this row is partial. One full history is enough to
             # make the count real, whatever else also saw a slice of it.
             bucket["partial"] = bucket["partial"] and bool(partial)
@@ -3880,16 +3925,24 @@ def main():
             # Quoting what was actually found. The pattern accepts 最終話 and a bracketed 完
             # alike, and a basis naming the wrong one is a citation to something the page does
             # not say.
+            #
+            # THE PLATFORM IS NAMED. `_completed` is its name now, so the sentence says which site
+            # said it. It used to read "the platform marks the serialisation finished", which on a
+            # work running in three places left the reader to guess which of the three.
             row["completed_basis"] = (f"the newest chapter is titled {_fm_shown.group(0)}"
                                       if _final
-                                      else _completed)
+                                      else f"{_completed} marks the serialisation finished")
             # THE SAME EVIDENCE IN THE READER'S LANGUAGE. The site is bilingual and every one of
             # these sentences was English, so a Japanese reader was shown prose they could not use
             # in the one place the interface explains itself. Written beside the English at the
             # moment the finding is made, rather than translated later from the sentence.
+            #
+            # It used to be read off `bucket`, which is the ingest loop's variable and had gone out
+            # of use hundreds of lines earlier: every completed row was given the LAST bucket's
+            # Japanese, and the fault was invisible only because the sentence was a constant.
             row["completed_basis_ja"] = (f"最新話の題が{_fm_shown.group(0)}"
                                          if _final
-                                         else (bucket.get("completed_src_ja") or _completed))
+                                         else f"{_completed}が連載終了と表示している")
         else:
             # Skipped slots bear on this twice over, and in opposite directions.
             #
@@ -3926,12 +3979,20 @@ def main():
                 # work nobody has closed and a work nobody has touched. カドコミ marks six of its
                 # ten dormant works ongoing, and it is also what keeps an aggregator's 完結 tag
                 # from closing a work the platform itself still calls running.
-                if row.pop("running_src", None):
+                #
+                # THE TWO HALVES ARE NOW SEPARABLE. This sentence welds a source's claim to our own
+                # coverage, and the page could do nothing with either: `age_days` is on the row and
+                # the platform's claim is on `state_claims`, both structured, both rendered as rows.
+                # The prose stays because it is what the badge tooltip reads, and because the JOIN
+                # is the point: that the silence is ours rather than the work's is a statement
+                # neither half makes alone.
+                _running_on = row.pop("running_src", None)
+                if _running_on:
                     row["state_basis"] = (
                         f"no chapter for {age} day{'' if age == 1 else 's'} in what we hold, but "
-                        f"the platform still marks the serialisation as running")
+                        f"{_running_on} still marks the serialisation as running")
                     row["state_basis_ja"] = (
-                        f"{age}日間新しい話がないが、プラットフォームは連載中と表示している")
+                        f"{age}日間新しい話がないが、{_running_on}は連載中と表示している")
                 # THE ANTENNA SAYS IT FINISHED. An aggregator's tag is a lead, so it does not carry
                 # a live series on its own; joined to a year of silence it is better evidence than
                 # the silence alone, which is all `dormant` ever had.
@@ -4175,6 +4236,10 @@ def main():
             # identifier has attached each row's book records. Ordering happens there, once.
             "evidence": [_ev for _ev in (credence.label_row(r["label_rec"], platform=r["platform"])
                                          for r in rows if r.get("label_rec")) if _ev],
+            # WHETHER THE PLATFORM SAYS IT IS STILL RUNNING, as a row rather than as prose. Every
+            # row here, not only the one the state was taken from: two platforms carrying one work
+            # can disagree, and a reader owed the state's basis is owed the disagreement with it.
+            "state_claims": state_claim_rows(rows),
             # WHAT THE PLATFORM SAYS, kept apart from what we work out. The coming-soon view
             # predicts from each series' own past interval, which is an inference and is labelled
             # one. A platform that prints 次回無料更新は8/21 has announced a date, and an
@@ -4325,7 +4390,10 @@ def main():
                 "latest": None, "latest_ep": "", "first": _fp2.get("date"),
                 "state": "print", "state_basis": None, "completed_basis": None,
                 "free": 0, "free_timed": 0, "priced": 0,
+                # A work that exists only in print has no platform to make a claim about a
+                # serialisation it does not have.
                 "url": None, "sources": [], "skipped": [], "collection": None,
+                "state_claims": [],
                 "id": _pid,
                 "completed_claim": _pw2.get("completed_claim"),
                 "print": [{"work_id": _pw2["work_id"], "volumes": _pw2.get("volume_count"),

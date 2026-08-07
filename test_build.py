@@ -352,6 +352,7 @@ def main(s):
             "and a field naming one person is not a composition at all")
 
     shelf_citations(s)
+    state_claims(s)
 
 
 def shelf_citations(s):
@@ -421,6 +422,37 @@ def shelf_citations(s):
         other = {"comparator": "yurinavi.com", "shelf": "百合", "retrieved": "2026-08-05"}
         s.check("url" not in b.cite_shelf(other, cites),
                 "a comparator with no capture gains no url")
+
+
+def state_claims(s):
+    """WHAT THE PLATFORM SAYS, as a row instead of half a sentence.
+
+    `state_basis` welded a source's claim to our own coverage, as in "no chapter for 2 days in what
+    we hold, but the platform still marks the serialisation as running", so the page could render
+    it only as a loose paragraph. Our half is `age_days`; this is the source's half.
+    """
+    rows = [{"platform": "カドコミ", "url": "https://comic-walker.com/detail/A",
+             "retrieved": "2026-08-06", "state_claim": {"says": "running", "term": "ongoing"}},
+            {"platform": "comici", "url": "https://comici.jp/b",
+             "retrieved": "2026-08-05", "state_claim": {"says": "completed", "term": "完結"}},
+            {"platform": "ニコニコ漫画", "url": "https://x.jp/c", "retrieved": "2026-08-05"}]
+    got = b.state_claim_rows(rows)
+    s.eq(len(got), 2, "a platform that states nothing produces no row")
+    s.eq(got[0]["source"], "comici", "the stronger claim leads, whatever order the rows arrived in")
+    s.eq(got[0]["term"], "完結", "the platform's own word is quoted rather than translated")
+    s.eq(got[0]["says"], "completed", "beside our reading of it, which is the thing the page sorts")
+    s.eq(got[1]["term"], "ongoing",
+         "and カドコミ's English value stays English, because it is what the field said")
+    s.eq(sorted(got[0]), ["read", "says", "source", "term", "url"],
+         "the shape an evidence row has: who said it, what they said, and when it was read")
+    s.eq(got[0]["read"], "2026-08-05", "the day that platform was read, not the day of the build")
+
+    # THE COUNTER-CASE. A row with no address must not gain an empty one, which would render as a
+    # link to nowhere in the same cell the evidence table links its read date from.
+    bare = b.state_claim_rows([{"platform": "comici", "retrieved": "2026-08-05",
+                                "state_claim": {"says": "completed", "term": "完結"}}])
+    s.check("url" not in bare[0], "no address means no address field")
+    s.eq(b.state_claim_rows([]), [], "no rows, no claims")
 
 
 

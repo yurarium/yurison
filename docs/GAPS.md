@@ -989,3 +989,25 @@ choice rather than a matter of effort. The 8 カドコミ works whose episode li
 cheapest remaining block: カドコミ answered for each of them and listed no episodes, which is worth
 asking again rather than reading as an absence. Nothing else in the residue is worth more than one
 work per host of effort.
+
+### The Atom feed needs neither thing I said it needed (2026-08-07)
+
+Two prerequisites were named for an Atom feed of the updates view, and measuring both found nothing
+to do.
+
+**Access-change direction is already recorded.** The claim was that a row says an access change
+happened without saying which way, so only the opening direction could not be published. Every
+release row carries `became_free`, set where the chapter list is read, and the reading was taken
+from a JSON dump truncated before that field. Rows that were once emitted as `type: access-change`
+now reach the feed as `chapter` with `became_free` on them, which is the same fact in a better
+place.
+
+**Nothing is clustered.** The claim was that an instalment split across entries produces several
+feed rows for one thing, on the evidence of うさぎはかく語りき showing 第5話(1)(2) and 第6話(1)(2) on
+one day. Grouped by work, date and part-stripped title, the current window holds **0** such groups
+in 191 rows. The window had moved on and the earlier reading was of a state that no longer holds.
+
+So the feed can be built from the rows as they are. What remains true from that design is the part
+that was never about the data: ids minted once, `updated` taken from when a release was seen rather
+than from the build clock, archives keyed on `seen` so a late discovery lands in an open month, and
+two documents so a title is never half-Japanese.

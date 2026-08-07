@@ -104,7 +104,13 @@ PROMO_HOSTS = ("ddnavi.com",)
 
 FINAL_RE = re.compile(r"最終(話|回|幕|エピソード)|[（(＜<〈\[【]\s*完\s*[）)＞>〉\]】]")
 # Announcements and artwork typed as chapters upstream — they are not story instalments.
-NON_STORY_RE = re.compile(r"告知|お知らせ|カバー|PV|特報|予告|特典|コミックス第[0-9０-９]+巻|重版")
+# A SEASONAL GREETING IS A CARD, NOT AN INSTALMENT. 作りたい女と食べたい女 posted 暑中見舞い2026
+# and it counted as that work's newest chapter, so the page reported a greeting where a reader
+# looked for the story. 見舞い and 年賀 are the greeting-card words themselves and carry no story
+# sense; 夏 and 新年 are not here, because a chapter is legitimately titled for a season and the
+# rule has to miss those. It appears once a year, which is why nothing caught it sooner.
+NON_STORY_RE = re.compile(r"告知|お知らせ|カバー|PV|特報|予告|特典|コミックス第[0-9０-９]+巻|重版"
+                          r"|暑中見舞|残暑見舞|寒中見舞|年賀")
 # Extras and side stories count on the CHAPTER side: おまけ, 番外編 and 外伝 are content a reader
 # follows the series for, unlike an announcement or a cover reveal. They are instalments of an
 # existing work, so they are never a new series either.

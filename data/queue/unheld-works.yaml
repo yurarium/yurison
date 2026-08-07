@@ -1,0 +1,283 @@
+# Works the release feed names that this database holds no record of, and what was decided about
+# each of them.
+#
+# WHY A REGISTER AND NOT A FIX. The rows counted by adapters/feedgap.py are works, and a work needs
+# an inclusion decision before it needs a record (DEFINITIONS §2). Making the decision is the slow
+# half and it is the half that does not have to be repeated: without this file the same five titles
+# are examined again at every capture and the reasoning is thrown away each time, which is the
+# argument data/rebuttals.yaml already makes for the works that do have records.
+#
+# THIS FILE SILENCES NOTHING. adapters/feedgap.py joins a ruling onto the work it is about and
+# leaves the count exactly where it was. A work ruled `in` and still absent is the state worth
+# counting, and the count comes down when the work gains a record. A register that could take its
+# own subject out of the number is the failure STANDING-INSTRUCTIONS §13 was written about.
+#
+# WHAT A RULING MAY REST ON. DEFINITIONS §2 admits a work whose content tier is above `incidental`,
+# or which carries a publisher-side label, or which a comparator lists. The comparators here are
+# 百合ナビ's WEB連載 list, Web漫画アンテナ's 百合 tag, and a licensed retailer's own 百合 shelf,
+# which §2 admitted on 2026-08-04 and placed above an aggregator without making it publisher-side.
+# A comparator listing is presumptive and rebuttable, and REQUIREMENTS §1 is firm that a bare
+# listing states membership without arguing for it: none of these rows may be cited toward a
+# `content_tier`, and none of them is. Where the field is absent below, that is DEFINITIONS §3's
+# "no attestation is a legitimate state" and not an unfinished row.
+#
+# READ BY: adapters/feedgap.py, and through it check.py's `updates naming a work we do not hold`.
+source: the sources cited on each row
+role: inclusion-ruling
+record_type: inclusion_ruling
+reviewed: 2026-08-07
+reviewed_by: agent, from the built feed of 2026-08-07
+rulings:
+  - work: "わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）"
+    platform: "ニコニコ漫画"
+    platform_url: "https://manga.nicovideo.jp/comic/47265"
+    disposition: in
+    admitted_under: "DEFINITIONS §2, marketing_label ≠ none"
+    marketing_label: gl
+    first_publication:
+      country: JP
+      venue: "水曜日はまったりダッシュエックスコミック (集英社)"
+      venue_basis: "named as the 掲載 venue on the publisher's own catalogue entry"
+    excluded_by_7: false
+    excluded_by_7_basis: >-
+      No 成年コミックマーク, no 18禁 or R-18 designation from publisher or platform, and
+      ヤングジャンプコミックス is a general imprint. The ニコニコ work page is open to a signed-out
+      reader and carries no age gate. Nothing to exclude on.
+    evidence:
+      - source: "集英社"
+        tier: B
+        kind: publisher-catalogue
+        url: "https://www.shueisha.co.jp/books/items/contents.html?isbn=978-4-08-894247-6"
+        retrieved: 2026-08-07
+        note: >-
+          The publisher's own catalogue entry for volume 9 calls the work a 青春ガールズラブコメ and
+          files it under the ヤングジャンプコミックス label. That is the publisher applying
+          ガールズラブ to the work, which DEFINITIONS §4 makes a marketing_label of `gl`, and it is
+          the only one of the five whose admission needs no comparator at all.
+      - source: "BOOK☆WALKER"
+        tier: C
+        kind: retailer-shelf
+        url: "https://bookwalker.jp/series/267490/"
+        retrieved: 2026-08-04
+        note: >-
+          The shop files the series on its own 百合 shelf, tag 14, under the imprint
+          ヤングジャンプコミックスDIGITAL across 9 volumes. Captured in
+          data/queue/bookwalker-yuri.yaml. A comparator under §2 and never a label under §4.
+      - source: "百合ナビ"
+        tier: C
+        kind: comparator-listing
+        url: "https://yurinavi.com/"
+        retrieved: 2026-08-01
+        note: >-
+          Listed on the WEB連載中の百合漫画 table against ニコニコ静画, updating 07-31. Captured in
+          data/coverage/yurinavi-webyuri.yaml.
+      - source: "Web漫画アンテナ"
+        tier: C
+        kind: comparator-listing
+        url: "https://webcomics.jp/seiga/47265"
+        retrieved: 2026-08-04
+        note: >-
+          Tagged 百合, with 女子高生, アニメ化, ラブコメ and 完結 beside it. Captured in
+          data/coverage/webcomics-works.yaml.
+    note: >-
+      Completed on the platform: the ニコニコ page's newest instalment is titled 最終話, dated
+      2026-07-31, which is the row that put the work in the feed. The serialisation carried here is
+      a syndicated copy and the publisher's own venue is the one named above, so a record should
+      not take ニコニコ for the first publication.
+
+  - work: "おちこぼれフルーツタルト"
+    platform: "ニコニコ漫画"
+    platform_url: "https://manga.nicovideo.jp/comic/53909"
+    disposition: in
+    admitted_under: "DEFINITIONS §2, a comparator lists it"
+    marketing_label: none
+    marketing_label_basis: >-
+      No publisher-side yuri or GL signal was found. 芳文社 applies none to its きらら line, and
+      DEFINITIONS §4 is explicit that `none` says nothing about content.
+    first_publication:
+      country: JP
+      venue: "まんがタイムきららキャラット (芳文社)"
+      venue_basis: "copyright line on the platform's own work page, (C)浜弓場 双/芳文社"
+    excluded_by_7: false
+    excluded_by_7_basis: >-
+      No 成年コミックマーク, no age designation from publisher or platform, まんがタイムKRコミックス
+      is a general imprint, and the きららベース channel is open. Nothing to exclude on.
+    evidence:
+      - source: "BOOK☆WALKER"
+        tier: C
+        kind: retailer-shelf
+        url: "https://bookwalker.jp/series/67624/"
+        retrieved: 2026-08-04
+        note: >-
+          On the shop's 百合 shelf, tag 14, imprint まんがタイムKRコミックス, 9 volumes, marked
+          complete by the shop's own facet. Captured in data/queue/bookwalker-yuri.yaml.
+      - source: "百合ナビ"
+        tier: C
+        kind: comparator-listing
+        url: "https://yurinavi.com/"
+        retrieved: 2026-08-01
+        note: "Listed on the WEB連載中の百合漫画 table against きららベース, updating 08-01."
+      - source: "Web漫画アンテナ"
+        tier: C
+        kind: comparator-listing
+        url: "https://webcomics.jp/seiga/53909"
+        retrieved: 2026-08-04
+        note: "Tagged 百合, with 4コマ, アイドル and アニメ化 beside it."
+    note: >-
+      A retailer shelf and both aggregators agree, which is as much as §2 asks of a work with no
+      publisher-side label. The ニコニコ carriage began 2021-07-17 and is at chapter 123; the print
+      run is the older publication and a record should say so.
+
+  - work: "ぬるめた"
+    platform: "ニコニコ漫画"
+    platform_url: "https://manga.nicovideo.jp/comic/54003"
+    disposition: in
+    admitted_under: "DEFINITIONS §2, a comparator lists it"
+    marketing_label: none
+    marketing_label_basis: >-
+      芳文社's own web arm, COMIC FUZ, files the work under ギャグ・コメディ and 日常 and applies no
+      百合 or GL. That is the publisher declining the label rather than nobody having looked.
+    first_publication:
+      country: JP
+      venue: "まんがタイムきららMAX (芳文社)"
+      venue_basis: "the magazine named on the publisher's own book page at COMIC FUZ"
+    excluded_by_7: false
+    excluded_by_7_basis: >-
+      No 成年コミックマーク, no age designation, まんがタイムKRコミックス is a general imprint, and
+      both the きららベース channel and the COMIC FUZ page are open. Nothing to exclude on.
+    title_en:
+      en: "NullMeta"
+      basis: official-jp
+      url: "https://comic-fuz.com/book/24215"
+      retrieved: 2026-08-07
+      note: >-
+        The volume cover sets the title in Latin script as one word, capital N and capital M, no
+        space and no hyphen. Read off the cover shown on the book page by the project owner. The
+        image host returns 403 to a direct fetch and no header will be sent to get around that, so
+        the citation is the page a reader can open. NullMeta, not Null Meta and not NULL-META: the
+        search that produced those two had found no source for either. The cover also carries the
+        line "The Alternative Slice of Life", which is cover copy and not part of the title.
+    author_en:
+      author: "こかむも"
+      en: "Kokamumo"
+      basis: official-jp
+      url: "https://comic-fuz.com/book/24215"
+      retrieved: 2026-08-07
+      note: "The same cover credits the author in Latin script."
+    evidence:
+      - source: "BOOK☆WALKER"
+        tier: C
+        kind: retailer-shelf
+        url: "https://bookwalker.jp/series/284597/"
+        retrieved: 2026-08-04
+        note: >-
+          On the shop's 百合 shelf, tag 14, imprint まんがタイムKRコミックス, 6 volumes. Captured in
+          data/queue/bookwalker-yuri.yaml.
+      - source: "百合ナビ"
+        tier: C
+        kind: comparator-listing
+        url: "https://yurinavi.com/"
+        retrieved: 2026-08-01
+        note: "Listed on the WEB連載中の百合漫画 table against きららベース, updating 07-25."
+      - source: "COMIC FUZ"
+        tier: B
+        kind: platform-page
+        url: "https://comic-fuz.com/manga/2389"
+        retrieved: 2026-08-07
+        note: >-
+          The publisher's own platform carries the whole run, 75 chapters, under こかむも. This is
+          where the serialisation is published; ニコニコ carries a copy.
+    note: >-
+      A second cause sits under this one and is worth its own look. ぬるめた is named in
+      data/source/comicfuz/resolved.yaml and is the only one of that file's 47 works absent from
+      data/source/comicfuz/works.yaml, and it is also the only row there whose address is a
+      /series/ URL rather than /manga/. The adapter rewrites the one into the other before
+      fetching, and https://comic-fuz.com/manga/2389 answers, so the capture had everything it
+      needed and wrote nothing. The collecting publisher is 芳文社 on まんがタイムKRコミックス,
+      which is a different thing from the platform the work is serialised on.
+
+  - work: "フルボイス！"
+    platform: "ニコニコ漫画"
+    platform_url: "https://manga.nicovideo.jp/comic/70759"
+    disposition: in
+    admitted_under: "DEFINITIONS §2, a comparator lists it"
+    marketing_label: none
+    marketing_label_basis: "No publisher-side yuri or GL signal found."
+    first_publication:
+      country: JP
+      venue: "きららベース (芳文社)"
+      venue_basis: >-
+        The platform's own breadcrumb names the きららベース channel, and the copyright line reads
+        (C)科戸コウ/芳文社. Which きらら magazine, if any, carries it is not attested and is left
+        unstated rather than guessed.
+    excluded_by_7: false
+    excluded_by_7_basis: >-
+      The work page states 「この作品には次の表現が含まれます 性的な描写」. That is the platform
+      describing content, not designating an audience: there is no 成年コミックマーク, no 18禁 or
+      R-18, no adult imprint, and きららベース is not an adult channel. §7's test is a designation
+      and never a judgement, so none of its four signals is met and the work is not excluded.
+    explicit_content: true
+    explicit_content_basis: >-
+      The platform's own statement above. §7's middle band covers a work with explicit content that
+      is not marketed as pornography: it is included and flagged, and a record carries no cover
+      image. Recorded here so that whoever makes the record does not have to find it again.
+    evidence:
+      - source: "百合ナビ"
+        tier: C
+        kind: comparator-listing
+        url: "https://yurinavi.com/"
+        retrieved: 2026-08-01
+        note: >-
+          Listed on the WEB連載中の百合漫画 table against きららベース, updating 08-01. Captured in
+          data/coverage/yurinavi-webyuri.yaml. This is the only source that admits the work, and it
+          is the weakest admission of the five.
+    note: >-
+      Serialised from 2025-02-01 and at chapter 19, with no collected volume, which is why no
+      retailer shelf speaks to it. The one comparator is enough under §2 and the admission stays
+      rebuttable: a publisher-side source placing it elsewhere would settle it, and none has been
+      found either way.
+
+  - work: "タイムトラベル少女 ～ミライのサキ～"
+    platform: "ニコニコ漫画"
+    platform_url: "https://manga.nicovideo.jp/comic/77287"
+    disposition: marginal
+    admitted_under: "DEFINITIONS §2, a comparator lists it; §9 for the disposition"
+    marketing_label: none
+    marketing_label_basis: >-
+      No publisher-side yuri or GL signal. The platform is the publisher's own arm here, the
+      copyright line reads ©DWANGO Co.,Ltd., and it files the work 青年マンガ.
+    first_publication:
+      country: JP
+      venue: "ニコニコ漫画 (ドワンゴ)"
+      venue_basis: "©DWANGO Co.,Ltd. on the work page, and the serialisation begins there"
+    excluded_by_7: false
+    excluded_by_7_basis: "No designation of any kind. Nothing to exclude on."
+    evidence:
+      - source: "Web漫画アンテナ"
+        tier: C
+        kind: comparator-listing
+        url: "https://webcomics.jp/seiga/77287"
+        retrieved: 2026-08-04
+        note: >-
+          Tagged 百合 and nothing else. Crowd-tagged, so it states membership and argues no case
+          (REQUIREMENTS §1). Captured in data/coverage/webcomics-works.yaml.
+      - source: "ニコニコ漫画"
+        tier: B
+        kind: platform-page
+        url: "https://manga.nicovideo.jp/comic/77287"
+        retrieved: 2026-08-07
+        note: >-
+          Serialised from 2026-03-31, five instalments, 漫画 桂明日香 and 企画 ぱぺっときゃすと！,
+          filed 青年マンガ. This is the second series of the タイムトラベル少女 franchise. The
+          platform's own synopsis names 逢那サキ, a girl who crosses time to reach the person she
+          follows, and does not state the other lead's gender.
+    why_marginal: >-
+      One crowd-tagged comparator admits it and nothing else speaks to it either way. The platform
+      is publisher-side and applies no yuri designation, but its categories are demographic and
+      format (青年マンガ, 4コママンガ, その他マンガ) with no yuri category to decline, so its silence
+      contradicts nothing: DEFINITIONS §2 says outright that a taxonomy omitting yuri is not a
+      source without yuri. Settling it would mean reading five chapters and reasoning about the
+      characters, which DEFINITIONS §9 says this database does not do at the margin. So the
+      presumption stands, the work is recorded, and its record stays out of the default listing
+      until a source says something. That is `marginal` doing the job §9 built it for, and it is
+      not an exclusion: the work has a page and the page answers.

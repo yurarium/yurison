@@ -163,6 +163,68 @@ def main(s):
     s.check(credits.compose("三河ごーすと", look) is None, "one person is not a composition")
     s.check(credits.compose("", look) is None, "and neither is nothing")
 
+    # ── THE THREE FAULTS BEHIND 192 SERIES ROWS RENDERING JAPANESE IN ENGLISH MODE ─────────────
+    #
+    # Measured 2026-08-07. Each one is a shape the field splitter could not see, and all three
+    # were already handled by inputs.split_authors, which this now asks instead of splitting on a
+    # separator list of its own.
+
+    # 126 of the 192 named ONE person with a role after the name, 96 of them 著者. The caller
+    # looks the whole field up, `森夕(著者)` matches nothing, and the composer used to decline
+    # any field holding a single credit, so the notation had nowhere to come off.
+    s.eq((credits.compose("森夕(著者)", look) or {})["romaji"]["macron"], "Mori Yū",
+         "a lone credit with a role welded to it resolves to the person")
+    s.eq((credits.compose("【漫画】森夕", look) or {})["romaji"]["macron"], "Mori Yū",
+         "and so does one with the role in front of it")
+    s.check(credits.compose("森夕", look) is None,
+            "while a field the notation did not change is still nothing to compose")
+
+    # `原作/大鷹シン 漫画/ホマレ`: the slash separates a ROLE from a NAME here, so splitting on it
+    # made 原作 a person.
+    s.eq(credits.split_credits("原作/三河ごーすと 漫画/森夕")[0], ["三河ごーすと", "森夕"],
+         "a slash between a role and a name is not a slash between two people")
+    s.eq(credits.split_credits("原作／三河ごーすと　作画／森夕")[0], ["三河ごーすと", "森夕"],
+         "the same field written full-width")
+
+    # `冬眠結(漫画) 橙々(原作)`: two credits with nothing but a space between them.
+    s.eq(credits.split_credits("三河ごーすと(漫画) 森夕(原作)")[0], ["三河ごーすと", "森夕"],
+         "a role bracket ends a credit, so the space after it separates two people")
+
+    # THE COUNTER-CASES, all four of which the fix has to leave alone.
+    s.eq(credits.split_credits("sono.N（SHUEISHA）")[0], ["sono.N"],
+         "a bracket that is not a role is dropped, and does not make the credit a role")
+    s.eq(credits.split_credits("コダマナオコ(コダマ)")[0], ["コダマナオコ"],
+         "a katakana gloss is not a role either")
+    s.eq(credits.split_credits("LYCORIS(企画)")[0], ["LYCORIS"], "and 企画 is")
+    s.eq(credits.split_credits("原田重光 / 蘇募ロウ")[0], ["原田重光", "蘇募ロウ"],
+         "a slash between two names still separates two people")
+
+    # A LONE LATIN CREDIT UNDER NOTATION NEEDS NO STORE RECORD. `murata(著者)` holds a kanji, so
+    # it counts as a Japanese surface and was counted as a row with nothing to show; the person is
+    # `murata` and that is already its own romanisation.
+    s.eq((credits.compose("murata(著者)", look) or {})["romaji"]["plain"], "murata",
+         "a Latin name under a role is its own romanisation")
+    s.check(credits.already_latin("森夕") is None, "while a Japanese one is not")
+
+    # ── ANNOTATING IS NOT REWRITING ────────────────────────────────────────────────────────────
+    #
+    # Furigana rides on the field AS WRITTEN. Composing the spans by joining the people with a
+    # separator covered `三河ごーすと / 森夕` for a field reading `原作/三河ごーすと 漫画/森夕`, so
+    # the Japanese page would have printed the credit with its roles deleted. 95 rows.
+    def bases(rec):
+        return "".join(str((sp or [""])[0] or "") for sp in (rec or {}).get("ruby") or [])
+
+    for field in ("原作/三河ごーすと 漫画/森夕", "三河ごーすと(漫画) 森夕(原作)", "森夕(著者)",
+                  "三河ごーすと, 森夕"):
+        s.eq(bases(credits.compose(field, look)), field,
+             f"the ruby covers the field as written: {field}")
+
+    # AND WHERE IT CANNOT, IT ANNOTATES NOTHING. A span set that does not cover its surface is
+    # furigana over the wrong characters, which is worse than none.
+    s.eq(credits.spliced_ruby("森夕 / 知らない人", ["三河ごーすと"], [MIKAWA]),
+         [["森夕 / 知らない人", None]],
+         "a name the field does not hold collapses the whole set to a bare span")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

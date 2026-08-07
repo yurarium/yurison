@@ -65,6 +65,68 @@ def main(s):
     s.eq(names("ほかり"), ["ほかり"], "a name beginning with them is untouched")
     s.eq(names("山田他郎"), ["山田他郎"], "and so is one containing 他")
 
+    # ── A ROLE IN A BRACKET CLOSES A CREDIT ────────────────────────────────────────────────────
+    #
+    # `冬眠結(漫画) 橙々(原作)` is two people with nothing but a space between them, and a space is
+    # not a separator here. The bracket is what licenses the split.
+    s.eq(names("冬眠結(漫画) 橙々(原作)"), ["冬眠結", "橙々"],
+         "a role bracket ends a credit, so the space after it separates two people")
+    s.eq(names("羽流木はない（原作） 篠月しのぶ（漫画）"), ["羽流木はない", "篠月しのぶ"],
+         "full-width brackets do the same")
+    s.eq(names("介錯(漫画・原作) 姫神の巫女(原案)"), ["介錯", "姫神の巫女"],
+         "and so does a bracket holding two roles at once")
+
+    # THE COUNTER-CASE, and it is the reason a space is not a separator. Both of these are fields
+    # of exactly the shape above, and both hold names with a space inside them.
+    s.eq(names("三松　真由美(原作) 白井　くま(漫画)"), ["三松　真由美", "白井　くま"],
+         "a space inside a name survives the split")
+    s.eq(names("高坂 はしやん(著) 伊予嶺つく(著)"), ["高坂 はしやん", "伊予嶺つく"],
+         "including a half-width one")
+    s.eq(len(names("sono.N（SHUEISHA） 森夕")), 1,
+         "a bracket that is not a role leaves the field as one credit")
+
+    # ── THE ROLE VOCABULARY ────────────────────────────────────────────────────────────────────
+    #
+    # It was a list of compounds written out by hand, so widening it meant guessing which compound
+    # to add next: キャラクターデザイン and 構成協力 were both missed by a round that added four.
+    s.eq(names("石田可奈(キャラクターデザイン)"), ["石田可奈"], "キャラクターデザイン is a role")
+    s.eq(names("森夕(構成協力)"), ["森夕"], "and so is 構成協力")
+    s.eq(names("竹嶋えく(イラスト・漫画)"), ["竹嶋えく"], "and two roles joined by an interpunct")
+    s.eq(names("南瓜かぷちー(表紙 / 漫画)"), ["南瓜かぷちー"], "and two joined by a slash")
+    s.eq(names("潮一葉 ネーム"), ["潮一葉"], "a trailing ネーム is notation")
+
+    # A ROLE IS NOT A READING. キャラクターデザイン is kana all the way through, so the furigana
+    # rule above claimed it: 三廼 was filed reading ミツヤ ( キャラクター デザイン ) and printed
+    # that way. Whatever the role vocabulary recognises is notation, in any script.
+    s.eq([r for _, r in inputs.split_authors("石田可奈(キャラクターデザイン)")], [None],
+         "a role in kana is not taken as the name's reading")
+
+    # THE COUNTER-CASE for the vocabulary: these sit in brackets and are not roles.
+    s.eq(names("sono.N（SHUEISHA）"), ["sono.N"], "a publisher in brackets is dropped, not a role")
+    s.eq(names("コダマナオコ(コダマ)"), ["コダマナオコ"], "and a katakana gloss is still a gloss")
+    s.eq(names("作田ハジメ"), ["作田ハジメ"],
+         "a single-character role opening a name needs a delimiter to count as one")
+    s.eq(names("画津まゆ"), ["画津まゆ"], "the same for 画")
+    s.eq(names("著：山田"), ["山田"], "with the delimiter it is notation")
+
+    # TWO BRACKETS ON ONE CREDIT. Peeling one left 壇九(著者), which is nobody.
+    s.eq(names("壇九（TANJIU)(著者)"), ["壇九"], "a name can carry a Latin gloss and a role")
+
+    # A ROLE WELDED TO A NAME WITH NO DELIMITER, which only multi-character roles may take.
+    s.eq(names("原案協力舞方パーク"), ["舞方パーク"], "a two-part role prefix comes off in one go")
+    s.eq(names("他著雪子"), ["雪子"], "and an anthology's `and others, written by` does too")
+
+    # ── ・ IS A SEPARATOR FOR THE STORE AND NOT FOR THE PAGE ────────────────────────────────────
+    #
+    # It separates people in 矢立肇・富野由悠季 and sits inside a name in さりい・Ｂ, and nothing in
+    # the string tells them apart. Feeding the store, a wrong split costs one entry nobody looks
+    # up; printing a credit line, it prints half of somebody's name.
+    s.eq(names("さりい・Ｂ"), ["さりい", "Ｂ"], "the store gets both halves")
+    s.eq([n for n, _ in inputs.split_authors("さりい・Ｂ", interpunct=False)], ["さりい・Ｂ"],
+         "and a caller that is going to print it gets the name whole")
+    s.eq([n for n, _ in inputs.split_authors("矢立肇・富野由悠季", interpunct=False)],
+         ["矢立肇・富野由悠季"], "which is the cost of it, paid in the safe direction")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "names.inputs"))

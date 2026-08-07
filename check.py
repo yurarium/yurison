@@ -1102,6 +1102,25 @@ def budget_renderings_with_nothing_to_show(ctx):
     slash, so a composer splitting on one of them misses the other.
 
     This counts rather than blocks only until it reaches 0.
+
+    RE-MEASURED 2026-08-07, and it had been wrong in both directions at once. It read 150 while the
+    series rows carried 192 Japanese author fields on an English page, and the two numbers had
+    almost nothing to do with each other.
+
+      A ROW WITH NO RENDERING AT ALL WAS SKIPPED. `if not e` passed over exactly the case the
+      docstring above names, so of the 192 the measure could see 10. Nothing to show is nothing to
+      show, whether the field is empty or missing.
+
+      A RELEASE ROW WAS ASKED A QUESTION THE INTERFACE DOES NOT ASK. This looked the whole credit
+      field up in `names.json`'s `authors`, which is keyed one PERSON to a record and can never
+      hold a field naming three of them. The interface renders those rows from `credit_parts` and
+      `phrases`, and every one of the 140 counted here rendered correctly on the page. A measure
+      that counts 140 rows nobody can see broken cannot reach zero and buries the 49 that are.
+
+    So the release half asks the question the way `authorLabel` answers it. That is deliberately a
+    check modelled on its subject, against §14b, and what it therefore CANNOT see is a phrase whose
+    English is wrong rather than absent. `English mode has no Japanese` is the invariant that reads
+    the shipped strings themselves; this counts the rows with no string to read.
     """
     import re as _re
     ja = _re.compile(r"[぀-ヿ一-鿿々]")
@@ -1109,49 +1128,71 @@ def budget_renderings_with_nothing_to_show(ctx):
     for r in ctx["series"]:
         for key, surface in (("work_en", r.get("work")), ("author_en", r.get("author"))):
             e = r.get(key) or {}
-            if not e or e.get("romaji") or e.get("en"):
+            if e.get("romaji") or e.get("en"):
                 continue
             if ja.search(str(surface or "")):
                 bad += 1
     shipped = ctx["names_shipped"] or {}
     authors = shipped.get("authors") or {}
+    phrases = shipped.get("phrases") or {}
+    parts = shipped.get("credit_parts") or {}
+
+    def fold(t):
+        return unicodedata.normalize("NFKC", t or "").replace(" ", "")
+
     for r in ctx["releases"]:
         surface = str(r.get("author") or "")
         if not ja.search(surface):
             continue
-        e = authors.get(unicodedata.normalize("NFKC", surface).replace(" ", "")) or {}
-        if not (e.get("romaji") or e.get("en")):
-            bad += 1
+        key = fold(surface)
+        e = authors.get(key) or {}
+        if e.get("romaji") or e.get("en"):
+            continue
+        # `creditFromParts`: a line composes when every person in it has a romanisation of theirs.
+        people = parts.get(key) or []
+        if len(people) > 1 and all((authors.get(fold(p)) or {}).get("romaji") for p in people):
+            continue
+        # and the phrase map is the fallback, which only helps where the phrase is not Japanese.
+        phrase = str(phrases.get(key) or "")
+        if phrase and not ja.search(phrase):
+            continue
+        bad += 1
     return bad
 
 
 def budget_publishers_with_no_english(ctx):
     """Publisher and imprint names that stay Japanese in English-only mode.
 
-    MEASURED ON THE OUTPUT, not on the renderer's table (§14b). `app.js` carries `PUB_EN`, a
-    hand-written map of 7 names, and every other publisher falls through it and renders as Japanese.
-    Counting the map's misses would ask the map about itself; this counts the distinct names the
-    data actually carries that the map has no entry for.
+    COUNTED ON THE NAME A READER SEES. This used to read `PUB_EN` out of `app.js` and count the raw
+    catalogued strings it had no entry for, which double-counted: 講談社 reaches the corpus as
+    itself, as `[発売]講談社` and as `[頒布]講談社`, and all three were counted while the interface
+    renders all three as Kodansha. Cataloguing is stripped first now, so this counts publishers.
+
+    REUSES THE ADAPTER'S NORMALISERS, and §14b says to say so and to name what that hides. It
+    cannot see a disagreement between `publishers.publisher_of` here and `publisherOf` in app.js,
+    which is the one way a name in the store can still render as Japanese. What guards that instead
+    is the shipped file being keyed by the RAW catalogued string as well as the normalised one, so
+    either implementation's answer finds the record.
 
     Names, not rows, because one publisher fixed once fixes every work it publishes. A name already
     in Latin needs nothing and is not counted.
     """
-    ja = re.compile(r"[぀-ヿ一-鿿々]")
-    known = set()
-    site = SITE_ROOT / "kari" / "app.js"
-    if site.exists():
-        text = site.read_text()
-        i = text.find("const PUB_EN = {")
-        if i >= 0:
-            known = set(re.findall(r"'([^']+)'\s*:", text[i:text.find("};", i)]))
-    seen = set()
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    try:
+        import publishers as _pub
+    except Exception:                                                       # noqa: BLE001
+        return 0
+    names = {}
     for r in ctx["series"]:
         for pr in (r.get("print") or []):
-            for field in ("publisher", "imprint"):
-                name = str(pr.get(field) or "").strip()
-                if name and ja.search(name) and name not in known:
-                    seen.add(name)
-    return len(seen)
+            for field, norm in (("publisher", _pub.publisher_of), ("imprint", _pub.imprint_of)):
+                raw = str(pr.get(field) or "").strip()
+                if not raw:
+                    continue
+                slot = names.setdefault(raw, {"kind": field, "shown": norm(raw), "volumes": 0})
+                slot["volumes"] += 1
+    store = _pub.load_store(ROOT / "data" / "names" / "publishers.yaml")
+    return len(_pub.unnamed(_pub.render(store, names), names))
 
 
 BUDGETS_DEF = [

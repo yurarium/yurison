@@ -141,6 +141,32 @@ def js(v):
     return json.dumps(v, ensure_ascii=False)
 
 
+def fuz_targets(rows):
+    """The FUZ works to read, each carrying the address that will actually be fetched.
+
+    THE BUG THIS PINS. FUZ serves one page under two spellings, `/manga/<id>` and `/series/<id>`,
+    and a confirmed identity may be recorded either way: `data/source/comicfuz/resolved.yaml` names
+    ぬるめた at `/series/2389` because that is what the search returned. The rewrite below used to
+    live in the caller, where its result decided whether a row was a FUZ target and keyed the
+    duplicate set, and then the ORIGINAL row was appended. So the filter agreed the work was ours
+    and the fetch asked for `/series/2389`, which answers 404 while `/manga/2389` answers 200 with
+    75 chapters. The work went into `failed`, `failed` was printed and dropped, and the capture was
+    written without it and reported success.
+
+    Returning the rewritten row is what makes the two agree. The address is also what a capture row
+    is keyed on and what a reader is eventually sent to, so a row must not carry a spelling nobody
+    fetched. `adapters/capturegap.py` counts the class from outside, against the target lists, so
+    the next one of these is a number and not a scrolled-off line.
+    """
+    seen, targets = set(), []
+    for w in rows:
+        u = re.sub(r"comic-fuz\.com/series/", "comic-fuz.com/manga/", w.get("url") or "")
+        if "comic-fuz.com/manga/" in u and u not in seen:
+            seen.add(u)
+            targets.append(dict(w, url=u))
+    return targets
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--gap", required=True, help="Tier C yardstick naming FUZ works")
@@ -171,13 +197,7 @@ def main():
         for w in (yaml.safe_load(res.read_text()) or {}).get("works") or []:
             if w.get("url"):
                 rows.append({"title": w.get("title"), "url": w["url"]})
-    seen_u, targets = set(), []
-    for w in rows:
-        u = w.get("url") or ""
-        u = re.sub(r"comic-fuz\.com/series/", "comic-fuz.com/manga/", u)
-        if "comic-fuz.com/manga/" in u and u not in seen_u:
-            seen_u.add(u)
-            targets.append(w)
+    targets = fuz_targets(rows)
     # A LIMIT THAT BITES IN SILENCE IS A LOST WORK. The default was set when the seed list
     # was smaller, and a discovery pass that adds two hundred targets pushes the tail off
     # the end with nothing said. The default is now above the population and the cut is

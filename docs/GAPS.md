@@ -1367,6 +1367,51 @@ our guess about which house it is.
 **フェアベル.** The company's site at fairbell.co.jp is a parked domain now and we found no page of
 its own. フェアベル reads as the German fair Bell or the English fair bell and nothing states which.
 
+## 25. The work that was asked for and not got (2026-08-07)
+
+ぬるめた is one of 47 works `data/source/comicfuz/resolved.yaml` names and the only one absent from
+the capture. Its confirmed address is `https://comic-fuz.com/series/2389`, the one row in that file
+spelled `/series/` and not `/manga/`, because that is what the search returned.
+
+`adapters/comicfuz/releases.py` has rewritten `/series/` to `/manga/` since `2588a34`, and the
+rewrite ran. What it did not do was reach the fetch. The rewritten address decided whether the row
+was a FUZ target and keyed the set that removes duplicates, and then the untouched row was appended
+to the target list, so `fetch()` asked for `/series/2389`. That address answers 404. `/manga/2389`
+answers 200 and its `__NEXT_DATA__` holds 75 chapters under こかむも. Both were checked on
+2026-08-07, and the 404 is also in `96ab183`'s message from 2026-08-02, recorded there as a fact
+about the platform when it was a fact about the adapter.
+
+**Neither offered cause was it.** The `--gap` file was not stale: 36 of the 47 confirmed works
+reach the target list from `resolved.yaml` alone and every one of them was captured. The fetch did
+fail, and that is where the work was lost rather than where it went wrong.
+
+**What the miss left behind, which is the part worth keeping.** Nothing. Every capture pass here
+collects its failures in a local list, prints them after the run and exits zero, so the only
+evidence was a line in a terminal. The capture was written with 46 of 47 works and reported
+success, `works_resolved` in its header counted the rows underneath it and agreed, and no number
+anywhere in the repository said a work had been asked for and not got. That is REQUIREMENTS §4 and
+STANDING-INSTRUCTIONS §13 in one place: absence looked exactly like a work nobody had named.
+
+**The measure.** `adapters/capturegap.py` joins each pass's target lists against its captures on
+the platform's own identifier, and `targets a capture wrote no row for` is the budget. It reads
+neither the `failed` list nor any counter a pass prints, because both are computed from the rows
+the capture wrote and agree with it by construction (§14b). It also declines to reuse the adapter's
+address handling, which is the code that failed; the pattern in `capturegap.py` accepts both
+spellings of a FUZ address directly, which is why it can see this at all.
+
+**It found four more, all on ニコニコ漫画** and none on カドコミ. 将来的に死んでくれ (31151),
+打撃系鬼っ娘が征く配信道!@COMIC (49417), ミモザの柩 (54233) and てあとるりりぃ (61505) are named
+by `data/coverage/webcomics-works.yaml` with a `/comic/<id>` address each, and neither ニコニコ pass
+holds a row for any of them. Their cause is not the FUZ one. Each answers **200 with a 9.7 KB shell
+carrying no `meta_info`**, where a work the platform still serves renders around 200 KB, so the
+platform is saying it no longer has these and saying it with a success code. The pass reads that as
+"no meta_info date" and drops it in the same silent way.
+
+So the budget starts at 5. One of those falls when the fixed FUZ pass next runs. The other four
+fall when a withdrawn work is written into a register the count reads, the way
+`data/source/kadokomi/withheld.yaml` already accounts for the five works カドコミ serves and this
+project refuses.
+
 ## Contested anchors, and what was decided
 
 One print record claimed by two identifiers is not by itself a merge. It is evidence that the two

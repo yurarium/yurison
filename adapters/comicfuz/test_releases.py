@@ -71,6 +71,26 @@ def main(s):
     s.eq(fz.carry_over(pathlib.Path(d) / "gone.yaml", set()), [],
          "a first run with no file to carry from keeps nothing and does not raise")
 
+    # A TARGET MUST CARRY THE ADDRESS THAT WILL BE FETCHED. FUZ serves one page under two
+    # spellings and resolved.yaml records ぬるめた at /series/2389, which is the address the search
+    # confirmed. The rewrite used to decide whether a row was a target and then the untouched row
+    # was fetched, so /series/2389 was requested, answered 404, and the work was dropped from the
+    # capture with nothing recorded. /manga/2389 answers 200 with 75 chapters.
+    got = fz.fuz_targets([{"title": "ぬるめた", "url": "https://comic-fuz.com/series/2389"}])
+    s.eq([w["url"] for w in got], ["https://comic-fuz.com/manga/2389"],
+         "a /series/ target is fetched as /manga/, not merely recognised as one")
+    s.eq([w["title"] for w in got], ["ぬるめた"], "and the rest of the row is carried through")
+
+    # The counter-cases. One work named both ways is one target, and a row for another platform is
+    # none at all.
+    both = fz.fuz_targets([{"title": "x", "url": "https://comic-fuz.com/series/2389"},
+                           {"title": "x", "url": "https://comic-fuz.com/manga/2389"}])
+    s.eq(len(both), 1, "the two spellings of one work are one target, not two fetches")
+    s.eq(fz.fuz_targets([{"title": "y", "url": "https://manga.nicovideo.jp/comic/54233"}]), [],
+         "a row naming another platform is not a FUZ target")
+    s.eq(fz.fuz_targets([{"title": "z"}]), [],
+         "a row stating no address at all is skipped and does not raise")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "comicfuz.releases"))

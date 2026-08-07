@@ -1169,6 +1169,37 @@ def budget_updates_naming_an_unheld_work(ctx):
     return len(feedgap.unheld(ctx["releases"], ctx["series"]))
 
 
+def budget_targets_a_capture_wrote_no_row_for(ctx):
+    """Works a capture pass was given and produced no row for, across every platform pass.
+
+    THE CLASS THIS COUNTS. A pass fetches its targets, drops the ones that failed into a local
+    `failed` list, prints that list and exits zero. The print scrolls away, so an absence in
+    data/source is indistinguishable from a work nobody ever named. ぬるめた is the case that showed
+    it: `data/source/comicfuz/resolved.yaml` records the confirmed address as `/series/2389`,
+    `adapters/comicfuz/releases.py` computed the `/manga/` spelling to decide the row was a target
+    and then fetched the original, `/series/2389` answers 404, and the capture was written with 46
+    of its 47 confirmed works and reported success.
+
+    WHAT IT READS, AND WHY NOT THE OBVIOUS THING (§14b). The target lists, which a pass consumes
+    and never rewrites, against the captures. It reads no `failed` list and no counter a pass
+    prints: `works_resolved` in a capture header counts the rows underneath it, so it agrees with
+    the capture whatever was asked for, and a measure taken from it could never have seen this.
+    `adapters/capturegap.py` also declines to reuse the adapter's address handling, which is the
+    code that failed, and accepts both spellings of a FUZ address directly.
+
+    WHAT IT CANNOT SEE. A work no target list names. That is coverage and not a capture fault, and
+    `updates naming a work we do not hold` is the measure for it.
+
+    WHY A COUNT. A platform that has stopped serving a work will keep the number above zero, and
+    four of the five counted today are that: ニコニコ answers 200 for them with a 9.7 KB shell and
+    no `meta_info`, where a work it still serves renders 200 KB. Refusing a build over a work the
+    platform withdrew would be refusing it because the world moved.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import capturegap
+    return len(capturegap.missing(ctx["capture_passes"]))
+
+
 def budget_shadowed_names(ctx):
     try:
         out = subprocess.run([sys.executable, str(ROOT / "adapters" / "lint" / "shadowing.py"),
@@ -1775,6 +1806,13 @@ BUDGETS_DEF = [
      "given records, and it reaches zero, since every row counted here names a work to decide "
      "about. A rise means a discovery pass has started reporting updates for works no capture "
      "covers. Rulings already made are in data/queue/unheld-works.yaml and reduce nothing."),
+    ("targets a capture wrote no row for", budget_targets_a_capture_wrote_no_row_for,
+     "works a platform pass was given as a target and wrote no row for. The pass put each in a "
+     "`failed` list, printed it and dropped it, so until now a work asked for and not got left "
+     "nothing in the repository at all. A rise means a pass has stopped resolving something it "
+     "used to, which is either an address that moved or a platform that withdrew a work. It falls "
+     "when the target is captured, or when a platform's refusal is written into a register the "
+     "count reads, as data/source/kadokomi/withheld.yaml already is."),
     ("rows with a moving address", budget_rows_with_a_moving_address,
      "rows anchored on a chapter address whose identifier holds no work-level address on the same "
      "host. A chapter address moves when the work publishes, so a rise means a work has arrived "
@@ -1811,7 +1849,18 @@ def context():
         # own file cannot be shown one, and self_test then reports it healthy having exercised
         # nothing.
         "madb_records": _madb_records(),
+        # WHAT EACH CAPTURE PASS WAS TOLD TO READ, BESIDE WHAT IT WROTE. Held as the two
+        # collections and not as the answer, so a canary can be planted on either side of the
+        # join: a target added, or a captured row taken away, which is the failure itself.
+        "capture_passes": _capture_passes(),
     }
+
+
+def _capture_passes():
+    """Every platform pass, holding its target list and the rows its captures state."""
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import capturegap
+    return capturegap.load(ROOT, read=lambda p: _yaml(p, {}) or {})
 
 
 def _madb_records():
@@ -1929,6 +1978,32 @@ def self_test():
         print("  self-test FAILED — 'titles carrying cataloguing punctuation' did not count "
               "its canaries")
         ok = False
+
+    # THE CANARY IS THE FAILURE ITSELF, NOT AN INVENTED ONE (§14b). A capture written without a row
+    # for a work it was told to read is a document this pipeline really produced: it is what
+    # data/source/comicfuz/works.yaml was on 2026-08-07, holding 46 of resolved.yaml's 47 works.
+    # Taking a captured row away reproduces that state exactly, and the count must rise for it.
+    c = copy.deepcopy(ctx)
+    fuz = next((p for p in c["capture_passes"] if p["captured"]), None)
+    if fuz:
+        was = budget_targets_a_capture_wrote_no_row_for(c)
+        dropped = sorted(fuz["captured"] & set(fuz["targets"]))[0]
+        fuz["captured"].discard(dropped)
+        if budget_targets_a_capture_wrote_no_row_for(c) != was + 1:
+            print("  self-test FAILED — 'targets a capture wrote no row for' did not count a "
+                  "capture that dropped a work it was told to read")
+            ok = False
+        # AND THE OTHER DIRECTION, which is the state the fixed FUZ pass produces the first time it
+        # runs. A number that can only rise is a number that will never record the remedy, and this
+        # one has a remedy: capture the work. Giving a missed target a captured row must take it
+        # out of the count.
+        fuz["captured"].add(dropped)
+        for p in c["capture_passes"]:
+            p["captured"] |= set(p["targets"])
+        if budget_targets_a_capture_wrote_no_row_for(c) != 0:
+            print("  self-test FAILED — 'targets a capture wrote no row for' still counted works "
+                  "after every target was given a captured row")
+            ok = False
 
     # The tics invariant reads files rather than ctx, so there is nothing to plant. It carries its
     # own canaries — and its own counter-cases, which matter more: three of the first four things

@@ -78,8 +78,13 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 0,
-   "examples": []
+   "violations": 4,
+   "examples": [
+    "status.json",
+    "series.json",
+    "feed/names.json",
+    "feed/current.json"
+   ]
   },
   {
    "name": "no refutation of print serials",
@@ -107,7 +112,7 @@
    "name": "publishers with no English",
    "means": "distinct publisher and imprint names that render as Japanese in English-only mode. A rise means new publishers entered the corpus faster than their names were rendered.",
    "budget": 301,
-   "value": 301
+   "value": 307
   },
   {
    "name": "renderings with nothing to show",

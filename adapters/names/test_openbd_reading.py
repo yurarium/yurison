@@ -42,6 +42,18 @@ NO_KEY = book("9784758071111", "名前だけ", "一迅社", [("寝路", None)])
 
 
 def main(s):
+    # A ROLE IN ROUND BRACKETS AFTER THE NAME. openBD and the platforms write it this way where
+    # MADB writes [著] in front, and only the square form came off. 138 credits carried one, 96 of
+    # them 著者, and each left the name unmatched in the store so the row rendered as Japanese.
+    for raw, want in (("苗川采(著者)", "苗川采"), ("Ｍａｇｐｉｅ（翻訳）", "Ｍａｇｐｉｅ"),
+                      ("LYCORIS(企画)", "LYCORIS"), ("梧桐柾木(カバーイラスト)", "梧桐柾木"),
+                      ("あきま(漫画)", "あきま")):
+        s.eq(ob.credit_name(raw), want, f"a trailing role comes off: {raw}")
+    # AND A BRACKET THAT IS NOT A ROLE STAYS, because it is part of the name. Admitting katakana
+    # to the role class would have taken the second of these.
+    for raw in ("sono.N（SHUEISHA）", "コダマナオコ(コダマ)"):
+        s.eq(ob.credit_name(raw), raw, f"a bracket that is not a role stays: {raw}")
+
     reading, ev = ob.resolve(SWEET, "林家志弦")
     s.eq(reading, "ハヤシヤ シズル", "the registration's comma becomes the space the store uses")
     s.eq(ev["status"], "stated", "and the publisher stating it is what makes it a reading")

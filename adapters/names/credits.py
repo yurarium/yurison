@@ -169,6 +169,13 @@ def split_credits(raw):
     """
     s = str(raw or "")
     parts = [p.strip() for p in SEPARATORS.split(s) if p.strip()]
+    # CATALOGUING NOTATION IS NOT PART OF A NAME. MADB writes `[著]苗川采` and openBD and the
+    # platforms write `苗川采(著者)`; only the first was being removed, so 138 credits carried a
+    # trailing role, 96 of them 著者. A name with a role welded to it matches nothing in the store,
+    # so the row rendered as Japanese on an English page. `credit_name` is the one reader of that
+    # notation and it decides here too, instead of a second copy of the rule living in this file.
+    from names import openbd_reading as _ob
+    parts = [x for x in (_ob.credit_name(p) for p in parts) if x]
     joiner = " / " if re.search(r"[/／]", s) else ("、" if "、" in s else ", ")
     return parts, joiner
 

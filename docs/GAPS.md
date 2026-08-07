@@ -1366,3 +1366,25 @@ our guess about which house it is.
 
 **フェアベル.** The company's site at fairbell.co.jp is a parked domain now and we found no page of
 its own. フェアベル reads as the German fair Bell or the English fair bell and nothing states which.
+
+## Contested anchors, and what was decided
+
+One print record claimed by two identifiers is not by itself a merge. It is evidence that the two
+are versions of one story, and the tool refuses to attach it to both without a stated basis, which
+is right: retiring an identifier is not reversible for anyone holding a link.
+
+Four were merged on 2026-08-07. 超深宇宙より愛をこめて【読み切り版】, 白妙様、秘密ですよ／読切版 and
+転生王女と天才令嬢の魔法革命【タテスク】 each name an edition in the title itself, and DEFINITIONS
+records that the test binds the work and not the edition. 飛野さんのバカ was held twice under one
+title with one author and one print record answering for both.
+
+**両片想いな双子姉妹 and 百合百景 stay separate.** はちこ wrote both. They are two serialisations,
+of 35 and 82 chapters, that share a single print record, which reads as one volume collecting an
+author's short work and not as one story catalogued twice. Merging would retire an identifier on
+the strength of a shared binding. They are recorded as related and the reader sees both.
+
+**リリウム・テラリウム is unresolved and should not be left so.** w01168 holds the title with its
+ISBD punctuation still attached, so it does not match w01495, which holds the same title clean.
+The comparison that would settle it cannot be made until the title is parsed, and that fix is in
+hand. Once the string is split, revisit rather than assume: the parallel title names an omnibus,
+and an omnibus of a work is an edition of it.

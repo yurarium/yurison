@@ -367,7 +367,7 @@ works:
         basis: "あきらかに年齢を詐称している女子高生VTuber lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/491340/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00054
-    title: "サタノファニ"
+    title: "サタノファニ = SATANOPHANY"
     anchors:
       - "web:https://comic-days.com/episode/12207421983566481726"
       - "web:https://comic-days.com/atom/series/13932016480029395540"
@@ -861,7 +861,7 @@ works:
       - "web:https://kimicomi.com/series/330f3ad1270c8"
       - "madb:madb-t-dabc24234506"
   - id: w00115
-    title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
+    title: "シャドウ・アサシンズ・ワールド"
     anchors:
       - "web:https://comic-days.com/episode/12207421984000540113"
       - "web:https://comic-days.com/atom/series/2550912964454042523"
@@ -1170,11 +1170,13 @@ works:
         basis: "the chapter page at https://comic-trail.com/episode/12207421983793454538 links its own series feed at https://comic-trail.com/atom/series/2551460909751842548, so the platform places this chapter in series 2551460909751842548, and the og:title there names the work: 第10話〈２〉  / お嬢様、懺悔する。 - しる | コミックトレイル｜漫画とつながるフェス空間！. https://comic-trail.com/series/2551460909751842548/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
         retrieved: 2026-08-07
   - id: w00156
-    title: "超深宇宙より愛をこめて"
+    title: "超深宇宙より愛をこめて【読み切り版】"
     anchors:
       - "web:https://ichicomi.com/episode/12207421983947227379"
       - "madb:madb-t-91483dd6f954"
       - "web:https://ichicomi.com/atom/series/2550912965923183753"
+      - "web:https://ichicomi.com/episode/2550912965919401588"
+      - "web:https://ichicomi.com/atom/series/2550912965919360655"
     attached:
       - anchor: "web:https://ichicomi.com/atom/series/2550912965923183753"
         basis: "the chapter page at https://ichicomi.com/episode/12207421983947227379 links its own series feed at https://ichicomi.com/atom/series/2550912965923183753, so the platform places this chapter in series 2550912965923183753, and the og:title there names the work: 超深宇宙より愛をこめて - アシダカヲズ / 第13話 | 一迅プラス"
@@ -1720,6 +1722,8 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_003176_S"
       - "madb:C447301"
+      - "web:https://comic-walker.com/detail/KC_010238_S"
+      - "madb:madb-t-8e43062655eb"
   - id: w00226
     title: "犬も歩けば姫に当たる"
     anchors:
@@ -2146,6 +2150,8 @@ works:
       - "web:https://heros-web.com/series/cd04567a696bb"
   - id: w00281
     title: "転生王女と天才令嬢の魔法革命 【タテスク】"
+    merged_into: w00225
+    merge_basis: "【タテスク】 is a vertical-scroll edition of the same serialisation, sharing title and author"
     anchors:
       - "web:https://comic-walker.com/detail/KC_010238_S"
       - "madb:madb-t-8e43062655eb"
@@ -2378,10 +2384,11 @@ works:
         basis: "かわいい同盟 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/561005/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00314
-    title: "白妙様、秘密ですよ"
+    title: "白妙様、秘密ですよ／読切版"
     anchors:
       - "web:https://comic-boost.com/content/01650001"
       - "madb:madb-t-cb368e6d704e"
+      - "web:https://comic-boost.com/content/01470001"
   - id: w00315
     title: "ロリースイートロリー"
     anchors:
@@ -3943,6 +3950,8 @@ works:
         retrieved: 2026-08-07
   - id: w00486
     title: "超深宇宙より愛をこめて【読み切り版】"
+    merged_into: w00156
+    merge_basis: "a 読み切り版 is an edition of the work, and DEFINITIONS records that the test binds the work and not the edition"
     anchors:
       - "web:https://ichicomi.com/episode/2550912965919401588"
       - "web:https://ichicomi.com/atom/series/2550912965919360655"
@@ -5370,6 +5379,8 @@ works:
       - "web:https://championcross.jp/series/899b7db428f7b"
   - id: w00650
     title: "白妙様、秘密ですよ／読切版"
+    merged_into: w00314
+    merge_basis: "／読切版 is an edition of the work, and DEFINITIONS records that the test binds the work and not the edition"
     anchors:
       - "web:https://comic-boost.com/content/01470001"
   - id: w00651
@@ -5932,7 +5943,7 @@ works:
       - "web:https://comic-walker.com/detail/KC_004255_S"
       - "madb:madb-t-5c13d93e0830"
   - id: w00706
-    title: "志摩風さんのAクイック"
+    title: "志摩風さんのAクイック."
     anchors:
       - "web:https://comic-fuz.com/manga/3186"
       - "madb:madb-t-02ca65312e43"
@@ -5958,7 +5969,7 @@ works:
         basis: "夜のクラゲは泳げない lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/469569/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00708
-    title: "阿久津さんは推しに似ている"
+    title: "阿久津さんは推しに似ている."
     anchors:
       - "web:https://comic-days.com/episode/11341664176592102326"
       - "web:https://comic-days.com/atom/series/316190247042557712"
@@ -6221,7 +6232,7 @@ works:
         basis: "the chapter page at https://tonarinoyj.jp/episode/2550689798287081420 links its own series feed at https://tonarinoyj.jp/atom/series/2550689798287079678, so the platform places this chapter in series 2550689798287079678, and the og:title there names the work: ヒロイン. - 嶋原翌 | となりのヤングジャンプ. https://tonarinoyj.jp/series/2550689798287079678/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
         retrieved: 2026-08-07
   - id: w00736
-    title: "ペンションライフ・ヴァンパイア"
+    title: "ペンションライフ・ヴァンパイア = PENSION LIFE VAMPIRE"
     anchors:
       - "web:https://shonenjumpplus.com/episode/9324103629526673449"
       - "web:https://shonenjumpplus.com/atom/series/4856001361066822000"
@@ -7072,7 +7083,7 @@ works:
         basis: "猫魔法が世界に革命を起こすそうですよ? lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/459252/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00821
-    title: "おとなになっても"
+    title: "おとなになっても = Even if we become adults"
     anchors:
       - "web:https://comic-days.com/episode/14079602755122004379"
       - "web:https://comic-days.com/atom/series/10834108156680164519"
@@ -7225,7 +7236,7 @@ works:
         basis: "the chapter page at https://www.sunday-webry.com/episode/4856001361386900883 links its own series feed at https://www.sunday-webry.com/atom/series/4856001361386899936, so the platform places this chapter in series 4856001361386899936, and the og:title there names the work: つめあと / つめあと - 椎野つばめ | サンデーうぇぶり. https://www.sunday-webry.com/series/4856001361386899936/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
         retrieved: 2026-08-07
   - id: w00837
-    title: "けいおん！Ｓｈｕｆｆｌｅ"
+    title: "けいおん!"
     anchors:
       - "web:https://comic-fuz.com/manga/1897"
       - "madb:C335320"
@@ -8807,7 +8818,7 @@ works:
         basis: "the chapter page at https://www.sunday-webry.com/episode/3269754496551508177 links its own series feed at https://www.sunday-webry.com/atom/series/3269754496548915303, so the platform places this chapter in series 3269754496548915303, and the og:title there names the work: 1. 第1話 / 女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました - 蛙田あめこ/りりうら世都/三弥カズトモ | サンデーうぇぶり. https://www.sunday-webry.com/series/3269754496548915303/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
         retrieved: 2026-08-07
   - id: w00982
-    title: "ストライク・オア・ガター"
+    title: "ストライク・オア・ガター = strike or gutter"
     anchors:
       - "web:https://tonarinoyj.jp/episode/13933686331772859580"
       - "web:https://tonarinoyj.jp/atom/series/13933686331772859124"
@@ -8915,6 +8926,8 @@ works:
     title: "飛野さんのバカ"
     anchors:
       - "web:https://ganma.jp/hinosannobaka"
+      - "madb:bw-411593"
+      - "web:https://manga.nicovideo.jp/comic/31456"
   - id: w00994
     title: "春夏秋冬"
     anchors:
@@ -10713,7 +10726,7 @@ works:
     anchors:
       - "madb:C433732"
   - id: w01384
-    title: "奏 : 青春バンド百合アンソロジー"
+    title: "奏 青春バンド百合アンソロジー"
     anchors:
       - "madb:C434016"
       - "web:https://manga.nicovideo.jp/comic/43892"
@@ -10751,7 +10764,7 @@ works:
       - "madb:C436198"
       - "madb:bw-1c12c859-bef3-4ae7-a7eb-4363245d8654"
   - id: w01392
-    title: "アイドル総選挙4位だった私が魔王を倒すんですか?"
+    title: "アイドル総選挙4位だった私が魔王を倒すんですか？（Lilie comics）"
     anchors:
       - "madb:C436410"
       - "web:https://manga.nicovideo.jp/comic/83356"
@@ -15221,6 +15234,8 @@ works:
       - "madb:bw-4110bb16-2ac3-4723-a394-ba9fe48d8a2f"
   - id: w02128
     title: "飛野さんのバカ"
+    merged_into: w00993
+    merge_basis: "identical title and a shared author, and one print record answers for both"
     anchors:
       - "madb:bw-411593"
       - "web:https://manga.nicovideo.jp/comic/31456"
@@ -16110,7 +16125,7 @@ works:
     anchors:
       - "madb:bw-499555"
   - id: w02269
-    title: "TSロリシリーズ"
+    title: "TSロリシリーズ（コスモブルー）"
     anchors:
       - "madb:bw-49e172c2-2048-4525-bbd4-f8b5b0f86871"
       - "web:https://manga.nicovideo.jp/comic/82302"
@@ -18020,7 +18035,7 @@ works:
     anchors:
       - "madb:bw-86a289b0-abca-476a-a7ac-e5629126e795"
   - id: w02660
-    title: "私の女神が今日も推せる"
+    title: "私の女神が今日も推せる 【単話版】"
     anchors:
       - "madb:bw-86d3b866-e81b-4c69-a751-430c868ad187"
       - "web:https://manga.nicovideo.jp/comic/82261"
@@ -20333,23 +20348,11 @@ works:
 # 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
 # one-shot after the run it came before.
 related:
-  - a: w00156
-    b: w00486
-    note: "same title and a shared author on one platform"
-    retrieved: 2026-08-04
-  - a: w00225
-    b: w00281
-    note: "same title and a shared author on one platform"
-    retrieved: 2026-08-04
-  - a: w00314
-    b: w00650
-    note: "titled as a separate edition of the same work"
-    retrieved: 2026-08-07
   - a: w00957
     b: w01587
     note: "one print record matches both titles and a shared author"
     retrieved: 2026-08-07
-  - a: w00993
-    b: w02128
+  - a: w01168
+    b: w01495
     note: "one print record matches both titles and a shared author"
     retrieved: 2026-08-07

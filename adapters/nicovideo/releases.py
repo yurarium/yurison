@@ -27,6 +27,11 @@ What this establishes and what it does not:
 - `開始` gives a genuine serialisation start date — the first positive evidence of `new-series`
   this project has had from a platform.
 - `[ N話 無料 ]` states how many episodes are free.
+- the breadcrumb names the CHANNEL the work sits in, きららベース and 43 others across the works we
+  hold. Its consumer is `check.py`'s `nicovideo channels agree with our own records`, which sets it
+  against the channels `data/source/nicovideo/resolved.yaml` recorded by hand. Nothing in
+  `build.py` reads it: a channel is a section of a platform and not a platform, and what the
+  interface should do with one is `build.py`'s question rather than this adapter's.
 - ニコニコ remains a poor `preferred` source: image quality is worse than the origin platforms and
   it syndicates heavily (overlap 0.71). This makes it a fallback for works reachable nowhere else,
   which is exactly what its 65 exclusive works are.
@@ -69,6 +74,13 @@ COPYRIGHT = re.compile(r'<small class="copyright">\(C\)([^<]*)</small>')
 EPISODE = re.compile(r'<li class="episode_item">(.*?)</li>', re.S)
 EP_LINK = re.compile(r'<div class="title"><a href="(/watch/mg\d+)">([^<]*)</a>')
 EP_NUMBER = re.compile(r'data-number="(\d+)"')
+# The breadcrumb, which is the only element on the page that names the channel THIS work is in.
+# Everything else carrying an /official/ address is navigation to somebody else's.
+PANKUZU = re.compile(r'<ul class="sg_pankuzu">(.*?)</ul>', re.S)
+# A slug may hold a hyphen (nico-yurihime, comic-valkyrie), and a pattern of [a-z0-9_]+ cuts it at
+# the first one, so ニコニコ百合姫's 28 works would have read as a channel called `nico`.
+CHANNEL = re.compile(r'<a href="/official/([a-z0-9_-]+)"[^>]*>\s*<span[^>]*>\s*'
+                     r'(?:\[公式\]\s*)?([^<]*?)\s*</span>')
 
 
 def rights(html):
@@ -105,6 +117,36 @@ def episodes(html):
                     "url": "https://manga.nicovideo.jp" + link.group(1),
                     "number": int(n.group(1)) if n else None})
     return out
+
+
+def channel(html):
+    """`{"channel": "きららベース", "channel_slug": "kirara"}`, from the breadcrumb, or `{}`.
+
+    WHICH ELEMENT NAMES THE CHANNEL, because the page holds two kinds of /official/ address and
+    only one of them is about this work. The breadcrumb states where the work sits:
+
+        <ul class="sg_pankuzu"> ... <li ...><a href="/official/kirara" itemprop="url">
+        <span itemprop="title">[公式] きららベース</span></a></li> ...
+
+    The sidebar renders a banner for every official channel on the site, 157 of them, opening with
+    ニコニコ漫画（公式） at /official/nicomanga. An unscoped search finds that banner first and
+    returns it for every work on the platform, which is what this did: all 180 works we hold were
+    filed under `nicomanga`, and the value passed inspection because one slug looks like another.
+    The scope to `sg_pankuzu` is the whole of the fix, and it is why the pattern is anchored on the
+    breadcrumb list instead of on the link.
+
+    An empty dict where the breadcrumb names no channel, which is a state and not a gap (§5).
+    ニコニコ漫画 carries a section anybody may post to, and those works read マンガ > その他マンガ
+    with no /official/ crumb at all: 19 of the 180.
+
+    The NAME is the joinable value. `data/platforms.yaml` records きららベース by name, under
+    `channel_of: ニコニコ漫画`, and its own `id` is `kirarabase`, which is not the slug. A consumer
+    handed the slug alone would have to invent that mapping, and a channel presented as a platform
+    is the category error `build.py` already fixed once.
+    """
+    bc = PANKUZU.search(html or "")
+    m = CHANNEL.search(bc.group(1)) if bc else None
+    return {"channel": m.group(2), "channel_slug": m.group(1)} if m else {}
 
 
 def parse(html):
@@ -156,9 +198,7 @@ def parse(html):
         out["latest_episode_url"] = best["url"]
         out["rendered_episodes"] = len(eps)
 
-    ch = re.search(r'/official/([a-z0-9_]+)/"[^>]*>\s*<div class="mg_banner">', html)
-    if ch:
-        out["channel_slug"] = ch.group(1)
+    out.update(channel(html))
     return out or None
 
 
@@ -244,7 +284,7 @@ def main():
     for w in sorted(works, key=lambda w: w["updated"], reverse=True):
         L.append(f"  - work_title: {js(w['title'])}")
         for k in ("author", "url", "comic_id", "updated", "started", "episode_count",
-                  "free_episodes", "format", "channel_slug", "latest_episode",
+                  "free_episodes", "format", "channel", "channel_slug", "latest_episode",
                   "latest_episode_url"):
             if w.get(k) not in (None, ""):
                 L.append(f"    {k}: {js(w[k])}")

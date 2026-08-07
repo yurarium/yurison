@@ -1,5 +1,6 @@
 import re
 import unicodedata
+
 #!/usr/bin/env python3
 """Kana as the stored form of a reading, and the three romanisation styles derived from it.
 
@@ -47,6 +48,21 @@ cannot be un-flattened. So anything this produces is recorded with reading_basis
 and is never `stated`; the source string is kept verbatim beside it so a later kana source can
 replace the guess without having lost the original.
 """
+
+# The Japanese names of the Latin letters. Closed set, no maintenance, and the only readings a
+# single Latin character legitimately takes in running Japanese.
+#
+# HERE RATHER THAN IN pass4_analyser, WHICH IS WHERE IT WAS. Two producers make furigana spans:
+# the analyser tokenises, and `align` below pairs a whole reading against a whole surface. Only the
+# first knew this rule, so `Queentopia` came back carrying キュー and `rurudo` carrying るるど. One
+# table, one reader, per STANDING-INSTRUCTIONS §3. pass4_analyser re-exports the name so every
+# existing reference still resolves.
+LETTER_NAME = {
+    "A": "エー", "B": "ビー", "C": "シー", "D": "ディー", "E": "イー", "F": "エフ", "G": "ジー",
+    "H": "エイチ", "I": "アイ", "J": "ジェー", "K": "ケー", "L": "エル", "M": "エム", "N": "エヌ",
+    "O": "オー", "P": "ピー", "Q": "キュー", "R": "アール", "S": "エス", "T": "ティー", "U": "ユー",
+    "V": "ブイ", "W": "ダブリュー", "X": "エックス", "Y": "ワイ", "Z": "ゼット",
+}
 
 # Mora → (romaji, vowel). Written hiragana-first; katakana is folded onto it before lookup, so the
 # katakana-only extended morae (ファ, ヴィ, ティ …) appear here in their hiragana-folded spelling.
@@ -515,9 +531,26 @@ def _kana_eq(a, b):
 def align(surface, reading):
     """[(text, reading-or-None)] for one token, or None if the reading cannot be placed.
 
-    A pair with reading None is text that reads as itself — kana, punctuation, Latin — and takes
-    no ruby.
+    A pair with reading None is text that reads as itself: kana, punctuation, Latin. It takes no
+    ruby.
+
+    THE SET HAS TO SPELL THE READING, and this is where that is decided. `ruby spells the reading`
+    is the invariant and its stated fallback is to drop the ruby and keep the reading, which
+    build.py applies to spans it loads from the store and cannot apply to spans it gets from here.
+    So the producer applies it: a set that does not reconstruct the reading comes back as None, the
+    title renders with no furigana, and the reading and the romanisation are untouched.
+
+    It bites where the solver put a Latin run's reading on the kanji beside it. `BOMBSHELLS
+    天野しゅにんた…` reads ボムシェルズアマノ…, and the solver gave BOMBSHELLS one kana and 天野 the
+    other seven, so 天野 carried むしぇるずあまの. Nothing caught it: the run holds two kanji under
+    seven kana, which is plausible arithmetic. Now that a Latin run takes no ruby at all the
+    remainder no longer spells the reading, and the whole set goes rather than that.
     """
+    got = _align(surface, reading)
+    return got if got and ruby_spells(got, reading) else None
+
+
+def _align(surface, reading):
     if not surface or not reading:
         return None
     # COMPOSED, because a decomposed kana is a different string that looks identical. Three titles
@@ -546,7 +579,7 @@ def align(surface, reading):
         for i, (s, r) in enumerate(zip(s_parts, r_parts)):
             if i:
                 out.append((seps[i - 1] if i - 1 < len(seps) else " ", None))
-            got = align(s, r)
+            got = _align(s, r)
             if got is None:
                 whole = False
                 break
@@ -620,7 +653,40 @@ def align(surface, reading):
     # surface carries is aligned against them, which pins the runs either side. A reading that
     # genuinely drops them, and many do, fails that pass and is aligned by the permissive one,
     # which is the behaviour this had throughout.
-    return solve(0, 0, True) or solve(0, 0, False)
+    return [(t, _ruby_worth_printing(t, r))
+            for t, r in (solve(0, 0, True) or solve(0, 0, False) or [])] or None
+
+
+def _ruby_worth_printing(text, reading):
+    """The reading to put over this run, or None where nothing should go over it.
+
+    APPLIED ON THE OUTPUT, because the run has to stay READABLE for the search to place it. Latin
+    and digits are read runs on purpose: 100日後 reads ヒャクニチゴ, and treating them as anchors
+    makes that title unalignable. What the solver is free to do, and did, is give a run a reading
+    nobody should see.
+
+    A READING THAT REPEATS ITS OWN TEXT ANNOTATES NOTHING. `紗痲 Fallin' Jail` reads
+    `シャマ Fallin' Jail`, so the solver paired Fallin with Fallin and Jail with Jail, and the work
+    shipped rendering `紗痲しゃま FallinFallin' JailJail` in Japanese with furigana on. A reader
+    reported it.
+
+    FURIGANA OVER A LATIN WORD IS NOT FURIGANA. `Queentopia` came back under キュー and `rurudo`
+    under るるど, which is the solver spending a kanji run's reading on the run beside it. The
+    exception is a SINGLE letter read as its own name, V in Vチューバー being ブイ, which is worth
+    printing and is a closed set of 26. pass4_analyser has applied exactly this rule to its own
+    spans all along; this is the second producer of the same fact learning it.
+    """
+    if reading is None:
+        return None
+    t, r = str(text), str(reading)
+    if unicodedata.normalize("NFKC", r) == unicodedata.normalize("NFKC", t):
+        return None
+    if t.isascii() and any(c.isalnum() for c in t):
+        if len(t) == 1 and t.isalpha():
+            named = LETTER_NAME.get(t.upper())
+            return reading if named and to_katakana(r) == named else None
+        return None
+    return reading
 
 
 # Per-character readings, for splitting a compound's reading across its characters (jukugo-ruby).

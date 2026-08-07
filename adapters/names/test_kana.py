@@ -86,6 +86,38 @@ def main(s):
     s.check(bad is None or "".join(t for t, _ in bad) == "君の名は",
             "a mismatched reading does not corrupt the surface")
 
+    # A READING THAT REPEATS ITS OWN TEXT ANNOTATES NOTHING. Latin is a READ run here on purpose,
+    # so `紗痲 Fallin' Jail` reading `シャマ Fallin' Jail` paired Fallin with Fallin and shipped
+    # `紗痲しゃま FallinFallin' JailJail` on the page. A reader reported it.
+    s.eq(kana.align("紗痲 Fallin' Jail", "シャマ Fallin' Jail"),
+         [("紗痲", "シャマ"), (" ", None), ("Fallin", None), ("'", None), (" ", None),
+          ("Jail", None)],
+         "a Latin run whose reading is itself takes no ruby")
+
+    # FURIGANA OVER A LATIN WORD IS NOT FURIGANA. Queentopia came back under キュー, which is a
+    # kanji run's reading spent on the run beside it. pass4_analyser has applied this rule to its
+    # own spans throughout; align is the second producer of the same fact and did not.
+    s.check(kana.align("Queentopia", "キュー") is None,
+            "a Latin word takes no ruby, whatever the solver found to put over it")
+    s.eq(kana.align("Queentopia学園", "クイーントピアガクエン"),
+         [("Queentopia学園", "クイーントピアガクエン")],
+         "and Latin abutting a kanji is ONE run, which is a different question and keeps its ruby")
+
+    # A SET THAT NO LONGER SPELLS THE READING IS DROPPED WHOLE, which is the stated fallback for
+    # `ruby spells the reading` applied by the producer, because build.py can only apply it to
+    # spans it loaded from the store. `BOMBSHELLS 天野…` reads ボムシェルズアマノ…, the solver gave
+    # BOMBSHELLS one kana and 天野 the other seven, and 天野 carried むしぇるずあまの on the page.
+    s.check(kana.align("BOMBSHELLS 天野", "ボムシェルズアマノ") is None,
+            "ruby that cannot spell its own reading is not published at all")
+
+    # THE COUNTER-CASES, and they are why Latin and digits are READ runs rather than anchors: a run
+    # nothing can place makes the whole title unalignable.
+    s.eq(kana.align("100日後に", "ヒャクニチゴニ"), [("100日後", "ヒャクニチゴ"), ("に", None)],
+         "digits inside a kanji run keep the reading that spells them out")
+    s.eq(kana.align("Vチューバー", "ブイチューバー"), [("V", "ブイ"), ("チューバー", None)],
+         "and a single letter keeps the reading that is its own name")
+    s.eq(kana.LETTER_NAME["V"], "ブイ", "which is the closed set of 26 that decides it")
+
     # JUKUGO-RUBY. Splitting a compound's reading across its characters, so じょう sits over 情
     # rather than over 純情. Accepted only when it is certain, because a reading placed over the
     # wrong character is worse than one placed over the whole word: the reader cannot tell.

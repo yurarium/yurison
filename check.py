@@ -109,6 +109,13 @@ def inv_no_ruby_over_latin(ctx):
 
     A single letter may keep the reading that is its own NAME (V in Vチューバー is ブイ).
     fallback: emit the run bare, with no reading.
+
+    READ ON THE SHIPPED SPANS AS WELL AS THE STORED ONES, and it took a reader to find out why.
+    This asked the store, and the store holds no spans for 紗痲 Fallin' Jail: build.py aligns the
+    reading at render time for a record that has none. That alignment put Fallin over Fallin and
+    Jail over Jail, the work shipped reading `紗痲しゃま FallinFallin' JailJail` in Japanese with
+    furigana on, and every gate was green. §14b: a check that only sees what its subject stored
+    cannot report what its subject produced.
     """
     sys.path.insert(0, str(ROOT / "adapters" / "names"))
     try:
@@ -116,15 +123,23 @@ def inv_no_ruby_over_latin(ctx):
     except Exception:
         return []
     bad = []
+
+    def look(where, spans):
+        for span in spans or []:
+            t, rd = (list(span) + [None, None])[:2] if isinstance(span, (list, tuple)) else (0, 0)
+            if not (rd and t and all(c.isascii() for c in str(t))):
+                continue
+            nm = p4.LETTER_NAME.get(str(t).upper()) if len(str(t)) == 1 else None
+            if nm and kana.to_hiragana(nm) == rd:
+                continue
+            bad.append(f"{where}: {t}->{rd}")
+
     for kind in ("titles", "authors"):
         for k, v in (ctx["names"].get(kind) or {}).items():
-            for t, rd in (v.get("furigana_spans") or []):
-                if not (rd and t and all(c.isascii() for c in t)):
-                    continue
-                nm = p4.LETTER_NAME.get(t.upper()) if len(t) == 1 else None
-                if nm and kana.to_hiragana(nm) == rd:
-                    continue
-                bad.append(f"{k}: {t}->{rd}")
+            look(k, v.get("furigana_spans"))
+    for r in ctx["series"]:
+        for key in ("work_en", "author_en"):
+            look(f"{r.get('id')} {key}", (r.get(key) or {}).get("ruby"))
     return bad
 
 

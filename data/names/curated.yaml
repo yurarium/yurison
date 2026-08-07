@@ -5969,14 +5969,6 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
 
-  ロリースイートロリー:
-    en: Rorii Sweet Rorii
-    basis: romaji
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      ロリー doesn't resolve to a stated name or a standard word in anything reachable about this series, and guessing between candidates (Lory, Rory, a lolly) would be picking one arbitrarily; kept in transliteration rather than decided.
 
   ロマンスコード:
     en: Romance Code
@@ -6573,14 +6565,6 @@ titles:
       read tensei throughout. Segmented as ナナシ / ノ / テンセイ so the romanisation renders three words
       rather than one.
 
-  ナキノン:
-    en: Nakinon
-    basis: romaji
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      Not a standard word or an attested character nickname in anything reachable about this series; kept in transliteration rather than guessed at, though it likely carries 泣き, crying, given the synopsis is a death and its aftermath.
 
   ナイショの彼女:
     en: My Secret Girlfriend
@@ -6967,14 +6951,6 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
 
-  サバーキ:
-    en: Sabāki
-    basis: romaji
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      Not a word or a name attested anywhere reachable about this series; kept in transliteration rather than guessed at.
 
   サニーサイド:
     en: Sunny Side
@@ -28185,6 +28161,142 @@ titles:
       edition. The publisher's blurb on the same page glosses 豹藤（ひょうどう） in running text, which is
       the same reading written a second way. It replaces 'ヒョウ フジサン ワ コウリャク シタイ', which no source
       had stated.
+
+  紗痲:
+    en: "Shama"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    reading: "シャマ"
+    reading_basis: researched
+    reading_source_kind: derived
+    note: >-
+      THE PRINT ROW OF 紗痲 Fallin' Jail, AND IT IS A DIFFERENT ROW. MADB catalogues the KADOKAWA
+      MFC tankobon under 紗痲 alone while カドコミ serialises it as 紗痲 Fallin' Jail, so the two do
+      not join and the volume shows on its own in the releases list. Reported by the operator as
+      the work not appearing properly there.
+    reading_note: >-
+      The analyser read the two characters separately and produced シャ マ, which romanised to
+      "Sha Ma" and was marked as a guess. MADB's own record states `yomi: シャマ : フォーリン
+      ジェイル` for this title, which settles both halves: the name is one word, シャマ, and the
+      catalogue's truncated title is the same work as the serialisation.
+# ── KATAKANA TITLES, WHERE THE SOURCE WORD IS THE ANSWER ──────────────────────────────────────
+#
+# Katakana marks a FOREIGN word, so romanising one syllable by syllable transliterates a
+# transliteration: ウェイバーズ came out Weibazu where the work's own logo reads WAVER(S). 11 web
+# titles are written wholly in katakana and were showing a romanisation. Each was taken back to a
+# canonical source, and for six of them the source is the title-page artwork on the publisher's own
+# page, which NAMES-PLAN §1 names as the place an official English title most often hides.
+#
+# Where nothing shows a Latin form the romanisation stands and the note says what was looked at, so
+# the queue stops asking and a later sighting still overrides it.
+  ウェイバーズ:
+    en: "WAVER(S)"
+    basis: official-jp
+    source: comic-walker.com
+    source_kind: platform
+    source_url: https://comic-walker.com/detail/KC_008387_S
+    reviewed: '2026-08-07'
+    note: >-
+      The title-page artwork on KADOKAWA's own カドコミ page prints W A V E R ( S ) under the
+      katakana, with the author's name beneath it. The work's own English name, brackets included.
+      The page's own description confirms the sense, calling the espers 超能力者たち（ウェイバーズ）.
+  ロリースイートロリー:
+    en: "Lolly Sweet Lolly"
+    basis: official-jp
+    source: kimicomi.com
+    source_kind: platform
+    source_url: https://kimicomi.com/series/f7db55fffae10
+    reviewed: '2026-08-07'
+    note: >-
+      The banner artwork on キミコミ, Kill Time Communication's own site, prints Lolly under ロリー,
+      Sweet under スイート and Lolly under the second ロリー. Each katakana word is glossed with the
+      English it transliterates, so the whole title is stated in Latin letters by the work itself.
+  ミコレイログ:
+    en: "MIKOREI LOG"
+    basis: official-jp
+    source: bookwalker.jp
+    source_kind: publisher-jp
+    source_url: https://bookwalker.jp/series/517278/
+    reviewed: '2026-08-07'
+    note: >-
+      The cover of the ナンバーナイン edition sets MIKOREI across the top and LOG Vol 1 across the
+      bottom, with Original Yuri beneath the first. The party speaking is the publisher through its
+      own cover art; the page it was read from is the shop's listing, which is where that art is
+      published.
+  サナトクラマ:
+    en: "Sanatokurama"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      No English name. The cover prints sanatokurama in lower case above `presented by Japalp112`,
+      which is the transliteration rather than a translation, so the romanisation is the answer and
+      the cover corroborates the spelling. Capitalised to match every other title here.
+  ハナヤマタ:
+    en: "Hanayamata"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      A coinage built from the five characters' names, so there is no word to recover: translating
+      it would invent a meaning the title does not carry. COMIC FUZ's banner artwork carries no
+      Latin. Seven Seas publish it in English under the same romanisation, but their catalogue
+      answered 403 to our user agent, so this is not recorded as a licensed title.
+  ナキノン:
+    en: "Nakinon"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      HERO'S Web's own series page and its banner artwork carry no Latin form. The title is a
+      coinage on 泣き, which the story's premise supports, and there is nothing to recover.
+  オグナンジェ:
+    en: "Ogunanje"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The cover art on the 百合コレ edition sets the title in katakana alone, and the listing states
+      no other form. Nothing published shows a Latin spelling.
+  ユリメデルブ:
+    en: "Yurimederubu"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The cover art carries the title in katakana alone. The description makes it 花愛でる部 with
+      百合 in place of 花, so the word is Japanese wordplay written in katakana, and there is no
+      foreign source word to recover.
+  フリコフリークフリースタイル:
+    en: "Furiko Freak Freestyle"
+    basis: romaji
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The cover carries the title in katakana alone, so no Latin form is published. The three
+      elements are legible all the same: フリコ is 振り子, the pendulum the story turns on, and
+      フリーク and フリースタイル are freak and freestyle. Only the first has no English behind it,
+      so it stays as it sounds and the two loanwords are spelt as the words they are.
+  サバーキ:
+    candidate: "Собаки"
+    source: comic-ogyaaa.com
+    source_kind: platform
+    source_url: https://comic-ogyaaa.com/episode/2550689798875510910
+    reviewed: '2026-08-07'
+    candidate_note: >-
+      The title artwork prints Собаки under the katakana, which is Russian for dogs and matches the
+      story: 飼いならされた＜犬＞ becoming ＜猟犬＞ on a divided northern land. So サバーキ is not a
+      word to romanise syllable by syllable. It is also not a Latin form, and turning it into Dogs
+      would be our translation of a Russian word the work chose to print in Cyrillic. Recorded as
+      seen; the romanisation stands until the work itself publishes something in Latin letters.
 
 authors:
   ふじい葛西:

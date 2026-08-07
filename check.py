@@ -867,7 +867,34 @@ def budget_implausible_ruby_spans(ctx):
     return bad
 
 
+NOT_A_PERSON = re.compile(r"^(?:[#＃]?\d+[(（]?\d*[)）]?|[\d\W_]+)$")
+
+
+def budget_credits_that_are_not_people(ctx):
+    """Credits in an author field that no parser should have put there.
+
+    `平良深姉妹はどっちもヤんでる` is credited to `金子ある / #1(1)`, and `#1(1)` is a chapter title
+    the gigaviewer route folded into the byline; the same string sits in comic-days' own feed as a
+    chapter. `ひととせ` is credited to `７`, which BOOK☆WALKER's shelf gave as the creator of a book
+    whose publisher is ななつぼし.
+
+    A whole credit made of digits and punctuation is the test, so a person whose name merely
+    contains one is untouched: タイザン5 is a pen name and stays.
+    """
+    import re as _re
+    bad = 0
+    for r in ctx["series"]:
+        for part in _re.split(r"\s*/\s*", str(r.get("author") or "")):
+            part = part.strip()
+            if part and NOT_A_PERSON.match(part):
+                bad += 1
+    return bad
+
+
 BUDGETS_DEF = [
+    ("credits that are not people", budget_credits_that_are_not_people,
+     "author fields holding a credit made only of digits or markup. A rise means a parser folded "
+     "something that is not a name into a byline."),
     ("implausible ruby spans", budget_implausible_ruby_spans,
      "furigana runs holding fewer kana than they have kanji. A rise means the aligner placed a "
      "boundary somewhere no reading could fall, which the spelling check cannot see."),

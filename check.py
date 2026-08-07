@@ -538,7 +538,50 @@ def inv_first_date_precedes_its_editions(ctx):
     return bad
 
 
+def _curated():
+    """data/names/curated.yaml as {kind: {name: record}}, or empty where it is absent.
+
+    Keyed `titles` and `authors` at the top level, NOT `names`. Reading it as `names` returns
+    nothing and a check built on that can never fire, which is how the first attempt at this
+    invariant passed while testing nothing.
+    """
+    import yaml as _y
+    f = ROOT / "data" / "names" / "curated.yaml"
+    if not f.exists():
+        return {}
+    doc = _y.safe_load(f.read_text()) or {}
+    return {k: (doc.get(k) or {}) for k in ("titles", "authors")}
+
+
+def inv_curated_values_reach_the_store(ctx):
+    """A curated English name must be in the store the build reads, not only in the file it was
+    written in.
+
+    curated.yaml is the source and titles.yaml the derived state, which the module says outright.
+    Editing the first without running adapters/names/curate.py leaves the site serving the old
+    value with the new one committed beside it, so a diff shows a change that never shipped.
+
+    運命のヤマダダダダダダダダダダ served "Yamada of Fate, da-da-da-daaa" for a day while
+    curated.yaml said "The Yamadadadadadadadadada of Destiny". The same shape as a 単話 fix
+    committed without re-running bwingest and as an emitter whose flag was never written. An edit
+    to an input is not a change to the output until the step between them runs.
+
+    Only a name the store already holds is compared. A curated entry for a work not in the corpus
+    is waiting for the work, which is a different thing from a stale value.
+    """
+    bad = []
+    for kind, rows in _curated().items():
+        store = ctx["names"].get(kind) or {}
+        for name, rec in rows.items():
+            want = (rec or {}).get("en")
+            got = (store.get(name) or {}).get("en")
+            if want and got and got != want:
+                bad.append(f"{kind}/{name}: curated {want!r}, store holds {got!r}")
+    return bad
+
+
 INVARIANTS = [
+    ("curated values reach the store", inv_curated_values_reach_the_store),
     ("ruby spells the reading", inv_ruby_spells_reading),
     ("one row per identifier", inv_one_row_per_identifier),
     ("first date precedes its editions", inv_first_date_precedes_its_editions),
@@ -1040,6 +1083,16 @@ def _capture_works(rel):
     return list(works.values()) if isinstance(works, dict) else works
 
 
+def _plant_stale_translation(c):
+    """Make one store translation disagree with the curated file, which is the fault exactly."""
+    for kind, rows in _curated().items():
+        for name, rec in rows.items():
+            if (rec or {}).get("en") and name in (c["names"].get(kind) or {}):
+                c["names"][kind][name] = dict(c["names"][kind][name] or {},
+                                              en="CANARY STALE VALUE")
+                return
+
+
 def self_test():
     """Prove the invariants can fail. A check that cannot demonstrate a catch is not a check."""
     import copy
@@ -1068,6 +1121,8 @@ def self_test():
         ("first date precedes its editions", inv_first_date_precedes_its_editions,
          lambda c: c["series"].append({"id": "CANARY", "work": "CANARY", "first": "2030-01",
                                        "print": [{"first": "2000-01"}]})),
+        ("curated values reach the store", inv_curated_values_reach_the_store,
+         _plant_stale_translation),
     ]
     ok = True
     for name, fn, plant in probes:

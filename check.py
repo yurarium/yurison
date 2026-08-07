@@ -1125,7 +1125,39 @@ def budget_renderings_with_nothing_to_show(ctx):
     return bad
 
 
+def budget_publishers_with_no_english(ctx):
+    """Publisher and imprint names that stay Japanese in English-only mode.
+
+    MEASURED ON THE OUTPUT, not on the renderer's table (§14b). `app.js` carries `PUB_EN`, a
+    hand-written map of 7 names, and every other publisher falls through it and renders as Japanese.
+    Counting the map's misses would ask the map about itself; this counts the distinct names the
+    data actually carries that the map has no entry for.
+
+    Names, not rows, because one publisher fixed once fixes every work it publishes. A name already
+    in Latin needs nothing and is not counted.
+    """
+    ja = re.compile(r"[぀-ヿ一-鿿々]")
+    known = set()
+    site = SITE_ROOT / "kari" / "app.js"
+    if site.exists():
+        text = site.read_text()
+        i = text.find("const PUB_EN = {")
+        if i >= 0:
+            known = set(re.findall(r"'([^']+)'\s*:", text[i:text.find("};", i)]))
+    seen = set()
+    for r in ctx["series"]:
+        for pr in (r.get("print") or []):
+            for field in ("publisher", "imprint"):
+                name = str(pr.get(field) or "").strip()
+                if name and ja.search(name) and name not in known:
+                    seen.add(name)
+    return len(seen)
+
+
 BUDGETS_DEF = [
+    ("publishers with no English", budget_publishers_with_no_english,
+     "distinct publisher and imprint names that render as Japanese in English-only mode. A rise "
+     "means new publishers entered the corpus faster than their names were rendered."),
     ("renderings with nothing to show", budget_renderings_with_nothing_to_show,
      "works whose English rendering holds neither a romanisation nor an English name while the "
      "surface is Japanese. A rise means a composed name lost its romanisation."),

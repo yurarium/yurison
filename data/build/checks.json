@@ -2,6 +2,16 @@
  "generated": "",
  "invariants": [
   {
+   "name": "ruby covers its surface",
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "name": "dates within a row are ordered",
+   "violations": 0,
+   "examples": []
+  },
+  {
    "name": "curated values reach the store",
    "violations": 0,
    "examples": []
@@ -94,13 +104,19 @@
  ],
  "budgets": [
   {
-   "name": "credits that are a reading",
-   "means": "author fields where one credit is the reading of another, so one person is counted twice. A rise means a route wrote a name and its reading into one field as two credits.",
-   "budget": 0,
-   "value": 0
+   "name": "renderings with nothing to show",
+   "means": "works whose English rendering holds neither a romanisation nor an English name while the surface is Japanese. A rise means a composed name lost its romanisation.",
+   "budget": 177,
+   "value": 177
   },
   {
-   "name": "credits that are not people",
+   "name": "credits that restate a name",
+   "means": "author fields where one credit is the reading of another, so one person is counted twice. A rise means a route wrote a name and its reading into one field as two credits.",
+   "budget": 2,
+   "value": 2
+  },
+  {
+   "name": "credits matching a chapter",
    "means": "author fields holding a credit made only of digits or markup. A rise means a parser folded something that is not a name into a byline.",
    "budget": 0,
    "value": 0

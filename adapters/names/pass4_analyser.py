@@ -693,6 +693,39 @@ def wants_reading(s, rec, kind="authors", refresh=False):
     return bool(refresh) or (kind == "authors" and _k.kana_only(s))
 
 
+def reader():
+    """A callable giving a reading for one name, or None where nothing can read it.
+
+    WHAT ASKS FOR THIS. `credits.dedupe` collapses a name written beside its own reading, and it
+    settles the kanji cases by looking the name up in the store. A credit line is never fed to the
+    naming pass, so neither half of `田口ケンジ / タグチケンジ` was ever stored, the lookup found
+    nothing, and the doubled credit shipped to a reader. Handing dedupe a reader closes that
+    without putting a store write in its path or a Sudachi import in a module that must stay pure.
+
+    Returns None where SudachiPy is absent, which callers treat as "no reader" rather than as an
+    error, the same as everything else in this file.
+
+    Cached per call, because a corpus credits the same person hundreds of times and tokenising is
+    the expensive part.
+    """
+    try:
+        from sudachipy import Dictionary, SplitMode
+    except ImportError:
+        return None
+    tok = Dictionary().create()
+    modes = [SplitMode.C, SplitMode.A]
+    seen = {}
+
+    def read(name):
+        key = str(name or "")
+        if key not in seen:
+            got, _uncertain = analyse_best(tok, key, modes)
+            seen[key] = got
+        return seen[key]
+
+    return read
+
+
 def fill_missing(strings, kind, quiet=False, refresh=False):
     """Give every string a reading if one can be found. Idempotent, offline, safe to call always.
 

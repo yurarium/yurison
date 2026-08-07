@@ -855,60 +855,21 @@ def _shop_address(rec):
 def credits_en(raw, exact, folded, fold):
     """One rendering for an author field naming several people, or None.
 
-    WHY THIS EXISTS. The store holds a record per NAME and the lookup asked it for the whole field,
-    so `原田重光 / 蘇募ロウ` matched nothing and 373 rows shipped with no author rendering at all.
-    Every one of them is a work with more than one credit, which is most anthologies and every
-    story drawn by one person and written by another.
+    THE COMPOSITION ITSELF IS IN adapters/names/credits.py, because two views need it and each
+    solving it separately is how the works list and the updates feed came to disagree: the series
+    rows composed on ` / ` and the release rows never composed at all, so the same four people
+    rendered in English in one tab and in Japanese in the next. This is the store lookup and
+    nothing else.
 
-    THE SEPARATOR IS PART OF THE ANSWER. A composed rendering keeps ` / ` between the credits in
-    the reading, in the ruby and in each romanisation, because it is a list of people and running
-    them together would invent a single name nobody has.
-
-    ALL OF THEM OR NONE. A field is composed only when every credit in it resolves. A partial
-    composition would put an unresolved Japanese name into `romaji` and into English-only mode,
-    which `English mode has no Japanese` would then catch as a fault in the interface when the
-    cause was here. A field that cannot be composed is left alone and stays as it was.
+    THE FULLER RECORD WINS, which is the same rule the title join a few hundred lines below
+    applies. The same person reaches us spelled two ways and the store holds a record for each,
+    one curated and one carrying only an automatic reading.
     """
-    parts = [p.strip() for p in re.split(r"\s*/\s*", raw or "") if p.strip()]
-    if len(parts) < 2:
-        return None
-    got = []
-    for p in parts:
-        e = exact.get(p) or folded.get(fold(p))
-        if not e:
-            # A CREDIT ALREADY IN LATIN IS ITS OWN ROMANISATION and needs no store entry. The
-            # commonest missing credits are the fullwidth names on BOOK☆WALKER's translated
-            # editions, Ｍａｇｐｉｅ and Ｎｉｍｒｏｄ and ＩｃｅＦａｉｒｙ, which NFKC folds to
-            # ordinary Latin. Demanding a reading for them held back every field they appear in.
-            # They take no ruby, which is what `no ruby over bare Latin` already requires.
-            flat = unicodedata.normalize("NFKC", p)
-            if JAPANESE_SCRIPT.search(flat):
-                return None
-            e = {"reading": flat, "ruby": [[p, None]],
-                 "romaji": {s: flat for s in ("macron", "double", "plain")},
-                 "reading_basis": "stated"}
-        got.append(e)
+    def lookup(part):
+        cands = [x for x in (exact.get(part), folded.get(fold(part))) if x]
+        return max(cands, key=_fullness) if cands else None
 
-    out = {"reading": " / ".join(str(e.get("reading") or "") for e in got)}
-    ruby = []
-    for i, e in enumerate(got):
-        if i:
-            ruby.append([" / ", None])
-        ruby.extend(e.get("ruby") or [[p, None] for p in [parts[i]]])
-    out["ruby"] = ruby
-    styles = set(got[0].get("romaji") or {})
-    for e in got[1:]:
-        styles &= set(e.get("romaji") or {})
-    if styles:
-        out["romaji"] = {s: " / ".join((e.get("romaji") or {})[s] for e in got) for s in styles}
-    # The weakest part decides. A composed name is only as attested as its least attested credit,
-    # and saying otherwise would let one stated reading vouch for a guessed one beside it.
-    out["reading_basis"] = ("analyser" if any(e.get("reading_basis") == "analyser" for e in got)
-                            else (got[0].get("reading_basis") or "stated"))
-    out["basis"] = "romaji"
-    if any(e.get("unverified") for e in got):
-        out["unverified"] = True
-    return out
+    return _credits.compose(raw, lookup)
 
 
 def load_dir(p):
@@ -4317,8 +4278,16 @@ def main():
         sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
         import pass4_analyser as _p4
         _p4.fill_missing({r["work"] for r in series_rows}, "titles")
-        _p4.fill_missing({(r.get("author") or "").strip()
-                          for r in series_rows if r.get("author")}, "authors")
+        # THE PEOPLE, NOT ONLY THE FIELDS. The store holds one record per PERSON and this was fed
+        # whole credit fields, which `is_credit_line` then declines to read, so nobody named only
+        # alongside somebody else ever entered it. That is why 49 of 191 release rows rendered
+        # their authors in Japanese on an English page: the composer had nothing to compose from.
+        # The parts are added beside the fields, and releases are asked as well as series rows,
+        # because a release row is rendered by the same store and was never consulted at all.
+        _p4.fill_missing({p for r in series_rows + releases
+                          for p in ([(r.get("author") or "").strip()]
+                                    + _credits.split_credits(r.get("author"))[0])
+                          if p}, "authors")
         # Chapter names and credit lines — 202 of the former against 6 titles, so this is most of
         # what stays Japanese on an English page.
         # Titles as phrases too, so one whose only Japanese is punctuation (IDOL×IDOL STORY！) is
@@ -4339,18 +4308,42 @@ def main():
     # shipped as two credits. The source record keeps the field intact, because it says what
     # MADB said; the duplicate is collapsed here, where the credit is presented and where the
     # name store is loaded to settle the kanji cases.
+    #
+    # AND THE STORE IS NOT ENOUGH, which took a live report to establish. 田口ケンジ / タグチケンジ
+    # shipped on w01478: the kana fold cannot see it because the name holds a kanji, and the store
+    # cannot either because a CREDIT LINE is never fed to the naming pass, so neither half of the
+    # field is in it. The analyser reads the name on demand instead. It can only ever collapse a
+    # pair it read exactly onto its neighbour, so a misread name keeps both credits.
     _authstore = (_auth_names if isinstance(_auth_names, dict) else {})
-    _undoubled = 0
+    try:
+        _readname = _p4.reader()
+    except Exception as _rerr:                  # never let a naming helper break the build
+        print(f"names           : no reader for credit fields ({_rerr})")
+        _readname = None
+    _undoubled = _by_reader = 0
     for _credrow in series_rows:
         _was = _credrow.get("author") or ""
         if " / " not in _was:
             continue
-        _deduped = _credits.dedupe(_was, _authstore)
+        _deduped = _credits.dedupe(_was, _authstore, _readname)
         if _deduped != _was:
             _credrow["author"] = _deduped
             _undoubled += 1
+            # How much of this the store could not have done, which is the number the budget on
+            # the store-based measure was blind to.
+            if _credits.dedupe(_was, _authstore) == _was:
+                _by_reader += 1
     if _undoubled:
-        print(f"credit fields holding a name beside its own reading: {_undoubled} collapsed")
+        print(f"credit fields holding a name beside its own reading: {_undoubled} collapsed "
+              f"({_by_reader} of them only the analyser could see)")
+    # WHAT IS LEFT, MEASURED WITHOUT THE STORE. A field with a katakana part beside a kanji part
+    # has the shape of a name written twice whether or not anything can read either of them, so
+    # this number cannot go green for the reason the last one did. It counts candidates rather
+    # than faults: two people are written that way too.
+    _still = sum(1 for _cd in series_rows
+                 if _credits.candidate_doubles(_cd.get("author") or ""))
+    print(f"credit fields still shaped like a doubled name: {_still} "
+          f"(a candidate shape, not a fault; two people can be written that way)")
 
 
     # PUNCTUATION-TOLERANT LOOKUP. The store is keyed on the exact Japanese string, and the same

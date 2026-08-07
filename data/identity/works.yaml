@@ -264,12 +264,22 @@ works:
       - "web:https://pocket.shonenmagazine.com/title/02367/episode/441402"
       - "madb:madb-t-0c91c2045751"
       - "web:https://comic-days.com/episode/12207421983938230504"
+      - "web:https://pocket.shonenmagazine.com/title/02367"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/02367"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/02367/episode/441402, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00056
     title: "今日はカノジョがいないから"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/01839/episode/438236"
       - "madb:madb-t-862269fc23bd"
       - "web:https://comic-days.com/episode/12207421983667002955"
+      - "web:https://pocket.shonenmagazine.com/title/01839"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/01839"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/01839/episode/438236, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00057
     title: "上伊那ぼたん、酔へる姿は百合の花"
     anchors:
@@ -461,6 +471,11 @@ works:
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/02328/episode/441285"
       - "web:https://comic-days.com/episode/12207421983773700452"
+      - "web:https://pocket.shonenmagazine.com/title/02328"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/02328"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/02328/episode/441285, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00098
     title: "作りたい女と食べたい女"
     anchors:
@@ -476,9 +491,13 @@ works:
     anchors:
       - "web:https://comic-days.com/episode/12207421983997344603"
       - "web:https://pocket.shonenmagazine.com/title/03056/episode/441581"
+      - "web:https://pocket.shonenmagazine.com/title/03056"
     attached:
       - anchor: "web:https://pocket.shonenmagazine.com/title/03056/episode/441581"
         basis: "one series row holds both this address and comic-days.com/episode/12207421983997344603, so they are two platforms carrying one serialisation by ばったん"
+        retrieved: 2026-08-07
+      - anchor: "web:https://pocket.shonenmagazine.com/title/03056"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/03056/episode/441581, which is the same serialisation at an address that does not change when it publishes"
         retrieved: 2026-08-07
   - id: w00101
     title: "百合のはじまりは奴隷から"
@@ -998,17 +1017,32 @@ works:
     title: "怪獣ロマンティクス"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/03196/episode/441093"
+      - "web:https://pocket.shonenmagazine.com/title/03196"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/03196"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/03196/episode/441093, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00199
     title: "私に天使が舞い降りた！"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/01052/episode/417087"
       - "madb:C371024"
+      - "web:https://pocket.shonenmagazine.com/title/01052"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/01052"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/01052/episode/417087, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00200
     title: "平良深姉妹はどっちもヤんでる"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/02257/episode/434009"
       - "madb:madb-t-5994f6084094"
       - "web:https://comic-days.com/episode/12207421983452483805"
+      - "web:https://pocket.shonenmagazine.com/title/02257"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/02257"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/02257/episode/434009, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00201
     title: "限界OLさんは悪役令嬢さまに仕えたい"
     anchors:
@@ -1090,6 +1124,11 @@ works:
       - "web:https://pocket.shonenmagazine.com/title/03068/episode/440227"
       - "madb:madb-t-a1872e333d0e"
       - "madb:bw-580999"
+      - "web:https://pocket.shonenmagazine.com/title/03068"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/03068"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/03068/episode/440227, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00219
     title: "ぷれいめ～と"
     anchors:
@@ -1627,6 +1666,11 @@ works:
     title: "怨霊日和"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/03125/episode/433732"
+      - "web:https://pocket.shonenmagazine.com/title/03125"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/03125"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/03125/episode/433732, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00337
     title: "メイドのベル"
     anchors:
@@ -1695,6 +1739,11 @@ works:
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/01646/episode/424498"
       - "madb:C450093"
+      - "web:https://pocket.shonenmagazine.com/title/01646"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/01646"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/01646/episode/424498, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00353
     title: "昨日シたのに覚えてないの？ 百合えっち短編集"
     anchors:
@@ -1773,6 +1822,11 @@ works:
     title: "CUTE vs. COOL"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/03099/episode/430279"
+      - "web:https://pocket.shonenmagazine.com/title/03099"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/03099"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/03099/episode/430279, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00371
     title: "捨てられエルフさんは世界で一番強くて可愛い！"
     anchors:
@@ -2423,6 +2477,11 @@ works:
     title: "雪が溶けたらおんなじ制服"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/02913/episode/419948"
+      - "web:https://pocket.shonenmagazine.com/title/02913"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/02913"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/02913/episode/419948, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00518
     title: "ヲトメは義母に恋してる"
     anchors:
@@ -2545,6 +2604,11 @@ works:
     title: "第十二号蘇生魔術"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/02875/episode/416661"
+      - "web:https://pocket.shonenmagazine.com/title/02875"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/02875"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/02875/episode/416661, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00546
     title: "姉になりたい義姉VS百合になりたい義妹"
     anchors:
@@ -3193,6 +3257,11 @@ works:
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/02260/episode/398134"
       - "madb:madb-t-c89ad3469fa7"
+      - "web:https://pocket.shonenmagazine.com/title/02260"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/02260"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/02260/episode/398134, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00697
     title: "抱かれたい女〜JDだけどアラサー女子に買われています〜"
     anchors:
@@ -3568,6 +3637,11 @@ works:
       - "web:https://pocket.shonenmagazine.com/title/01837/episode/388247"
       - "madb:C450440"
       - "web:https://comic-days.com/episode/14079602755371999401"
+      - "web:https://pocket.shonenmagazine.com/title/01837"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/01837"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/01837/episode/388247, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00784
     title: "大好きな親友がVチューバーの自分にガチ恋してた話"
     anchors:
@@ -3770,10 +3844,20 @@ works:
       - "web:https://pocket.shonenmagazine.com/title/01509/episode/380295"
       - "madb:C451160"
       - "web:https://comic-days.com/episode/4856001361405160078"
+      - "web:https://pocket.shonenmagazine.com/title/01509"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/01509"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/01509/episode/380295, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00831
     title: "メンヘラさんと市松さん"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/02250/episode/378761"
+      - "web:https://pocket.shonenmagazine.com/title/02250"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/02250"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/02250/episode/378761, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00832
     title: "幕末女子高生 鬼と夜明け"
     anchors:
@@ -3878,6 +3962,11 @@ works:
       - "web:https://pocket.shonenmagazine.com/title/02043/episode/373533"
       - "madb:madb-t-6aa5f3dfb75c"
       - "web:https://comic-days.com/episode/4856001361078076369"
+      - "web:https://pocket.shonenmagazine.com/title/02043"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/02043"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/02043/episode/373533, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00856
     title: "君は光"
     anchors:
@@ -3990,6 +4079,11 @@ works:
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/01357/episode/366655"
       - "madb:C447420"
+      - "web:https://pocket.shonenmagazine.com/title/01357"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/01357"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/01357/episode/366655, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00883
     title: "天才を描く"
     anchors:
@@ -4044,6 +4138,11 @@ works:
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/01376/episode/361674"
       - "madb:C447446"
+      - "web:https://pocket.shonenmagazine.com/title/01376"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/01376"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/01376/episode/361674, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00896
     title: "百合オタに百合はご法度です!?"
     anchors:
@@ -4265,6 +4364,11 @@ works:
       - "web:https://pocket.shonenmagazine.com/title/01645/episode/340627"
       - "madb:C434611"
       - "web:https://comic-days.com/episode/3269754496777379299"
+      - "web:https://pocket.shonenmagazine.com/title/01645"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/01645"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/01645/episode/340627, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00944
     title: "My Friend Mana"
     anchors:
@@ -4333,6 +4437,11 @@ works:
     title: "世が夜なら！"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/01147/episode/333555"
+      - "web:https://pocket.shonenmagazine.com/title/01147"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/01147"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/01147/episode/333555, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00959
     title: "みぞれちゃん、"
     anchors:
@@ -4352,6 +4461,11 @@ works:
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/01418/episode/331379"
       - "madb:bw-685f84b6-2d3c-4587-8c0a-9cd0efcdcefa"
+      - "web:https://pocket.shonenmagazine.com/title/01418"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/01418"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/01418/episode/331379, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00963
     title: "ダルマ・マイノリティ"
     anchors:
@@ -4365,6 +4479,11 @@ works:
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/01544/episode/330547"
       - "madb:C434115"
+      - "web:https://pocket.shonenmagazine.com/title/01544"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/01544"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/01544/episode/330547, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00966
     title: "2DK、Gペン、目覚まし時計。"
     anchors:
@@ -4500,6 +4619,11 @@ works:
     title: "将来的に死んでくれ"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/00195/episode/296085"
+      - "web:https://pocket.shonenmagazine.com/title/00195"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/00195"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/00195/episode/296085, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w00992
     title: "惑星クローゼット"
     anchors:
@@ -5453,14 +5577,29 @@ works:
     title: "ドリーム☆ジャンボ☆ガール"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/02758/episode/442218"
+      - "web:https://pocket.shonenmagazine.com/title/02758"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/02758"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/02758/episode/442218, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w01225
     title: "アイドラトリィ"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/02901/episode/442022"
+      - "web:https://pocket.shonenmagazine.com/title/02901"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/02901"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/02901/episode/442022, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w01226
     title: "オカルトタイムズ"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/03282/episode/442124"
+      - "web:https://pocket.shonenmagazine.com/title/03282"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/03282"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/03282/episode/442124, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-08-07
   - id: w01227
     title: "ゆめぐりゆりめぐり"
     merged_into: w00989
@@ -6061,7 +6200,7 @@ works:
     anchors:
       - "madb:C420904"
   - id: w01352
-    title: "おやすみシェヘラザード"
+    title: "おやすみシェヘラザード = Nighty night,Sheherazade"
     anchors:
       - "madb:C421181"
       - "madb:bw-167971"
@@ -6216,7 +6355,7 @@ works:
     anchors:
       - "madb:C433732"
   - id: w01384
-    title: "奏 青春バンド百合アンソロジー"
+    title: "奏 : 青春バンド百合アンソロジー"
     anchors:
       - "madb:C434016"
       - "web:https://manga.nicovideo.jp/comic/43892"
@@ -6254,7 +6393,7 @@ works:
       - "madb:C436198"
       - "madb:bw-1c12c859-bef3-4ae7-a7eb-4363245d8654"
   - id: w01392
-    title: null
+    title: "アイドル総選挙4位だった私が魔王を倒すんですか?"
     anchors:
       - "madb:C436410"
       - "web:https://manga.nicovideo.jp/comic/83356"
@@ -6280,7 +6419,7 @@ works:
         basis: "creator 吉富昭仁 is named on the platform page"
         retrieved: 2026-08-07
   - id: w01396
-    title: null
+    title: "ファインダー越しのあの子（Lilie comics）"
     anchors:
       - "madb:C437361"
       - "web:https://manga.nicovideo.jp/comic/83357"
@@ -7506,7 +7645,7 @@ works:
     anchors:
       - "madb:bw-13624ccd-c60d-412f-b258-4482b62e490a"
   - id: w01623
-    title: null
+    title: "エデンの処女（おとめ）"
     anchors:
       - "madb:bw-137953"
       - "web:https://manga.nicovideo.jp/comic/26065"
@@ -8210,7 +8349,7 @@ works:
         basis: "creator 彩月つかさ is named on the platform page"
         retrieved: 2026-08-07
   - id: w01735
-    title: null
+    title: "異世界でも風俗嬢やってみた"
     anchors:
       - "madb:bw-194664"
       - "web:https://manga.nicovideo.jp/comic/40827"
@@ -8935,7 +9074,7 @@ works:
     anchors:
       - "madb:bw-25000912-d598-47eb-af78-0b7bf1eae84c"
   - id: w01846
-    title: null
+    title: "男だけど死神姫の嫁になりました(仮)"
     anchors:
       - "madb:bw-250141"
       - "web:https://manga.nicovideo.jp/comic/49124"
@@ -9402,7 +9541,7 @@ works:
     anchors:
       - "madb:bw-286457"
   - id: w01905
-    title: null
+    title: "ヤンキー×ジャーキー"
     anchors:
       - "madb:bw-286569"
       - "web:https://comic-fuz.com/manga/2379"
@@ -9685,7 +9824,7 @@ works:
     anchors:
       - "madb:bw-307179"
   - id: w01957
-    title: null
+    title: "心の声が漏れやすいメイドさん"
     anchors:
       - "madb:bw-307339"
       - "web:https://manga.nicovideo.jp/comic/56312"
@@ -10263,7 +10402,7 @@ works:
     anchors:
       - "madb:bw-38402cea-b677-4d26-ae79-40d1348f8bde"
   - id: w02058
-    title: null
+    title: "LatteComi コミックアンソロジー【百合】"
     anchors:
       - "madb:bw-384142"
       - "web:https://manga.nicovideo.jp/comic/83386"
@@ -10506,7 +10645,7 @@ works:
     anchors:
       - "madb:bw-402263"
   - id: w02101
-    title: "おねロリキャバクラ"
+    title: "おねロリキャバクラ（同人版）"
     anchors:
       - "madb:bw-402436"
       - "web:https://manga.nicovideo.jp/comic/58242"
@@ -10881,7 +11020,7 @@ works:
     anchors:
       - "madb:bw-433790"
   - id: w02158
-    title: null
+    title: "ひよ＆びびっと！"
     anchors:
       - "madb:bw-434264"
       - "web:https://manga.nicovideo.jp/comic/60568"
@@ -11085,7 +11224,7 @@ works:
     anchors:
       - "madb:bw-453cb7ba-9060-4d03-90b1-ae5167608825"
   - id: w02189
-    title: null
+    title: "奴隷扱いの娘が足を舐めて幸せになる(かもしれない)話"
     anchors:
       - "madb:bw-4552602f-30b2-4f11-bd1f-a9c7c7219e1d"
       - "web:https://manga.nicovideo.jp/comic/45502"
@@ -11581,7 +11720,7 @@ works:
     anchors:
       - "madb:bw-499555"
   - id: w02269
-    title: null
+    title: "TSロリシリーズ"
     anchors:
       - "madb:bw-49e172c2-2048-4525-bbd4-f8b5b0f86871"
       - "web:https://manga.nicovideo.jp/comic/82302"
@@ -13491,7 +13630,7 @@ works:
     anchors:
       - "madb:bw-86a289b0-abca-476a-a7ac-e5629126e795"
   - id: w02660
-    title: null
+    title: "私の女神が今日も推せる"
     anchors:
       - "madb:bw-86d3b866-e81b-4c69-a751-430c868ad187"
       - "web:https://manga.nicovideo.jp/comic/82261"
@@ -13886,7 +14025,7 @@ works:
     anchors:
       - "madb:bw-97273"
   - id: w02736
-    title: null
+    title: "冬木先輩と夏井"
     anchors:
       - "madb:bw-97772fe5-fc18-4f32-a7e0-9fe4ab8a479a"
       - "web:https://manga.nicovideo.jp/comic/62986"
@@ -14313,7 +14452,7 @@ works:
     anchors:
       - "madb:bw-b00e9d5f-97af-4aca-9b76-05a1ba2aba08"
   - id: w02829
-    title: null
+    title: "百合色ミュージアム（OrangeVox）"
     anchors:
       - "madb:bw-b02edbe6-780d-43cd-8748-d373d2c54c6e"
       - "web:https://manga.nicovideo.jp/comic/78804"

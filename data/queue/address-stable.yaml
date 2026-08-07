@@ -1,0 +1,159 @@
+# Stable work-level addresses for rows anchored on a chapter.
+#
+# WHY. build.py gives a row the address of its newest chapter, so on every GigaViewer platform
+# the address changes when the work publishes. identity.py anchors on that address, finds no
+# entry for the new one, and mints a second identifier for a work it already holds. 535 rows
+# were exposed; docs/GAPS.md §21 records the shape and data/queue/address-moved.yaml repaired
+# five instances of it after the fact.
+#
+# WHAT THIS IS. The work-level address each of those rows already sits under, attached to the
+# identifier the work ALREADY answers to. Nothing is joined, merged or retired: the chapter
+# address keeps resolving and the stable one starts resolving, so the switch in build.py that
+# follows cannot mint anything.
+#
+# READ BY: `identity.py --attachments`.
+source: data/build/series.json
+role: address-stabilise
+retrieved: 2026-08-07
+record_type: stable_address
+joins:
+  - id: w01224
+    title: "ドリーム☆ジャンボ☆ガール"
+    url: "https://pocket.shonenmagazine.com/title/02758"
+    anchor: "web:https://pocket.shonenmagazine.com/title/02758"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/02758/episode/442218, which is the same serialisation at an address that does not change when it publishes"
+  - id: w01225
+    title: "アイドラトリィ"
+    url: "https://pocket.shonenmagazine.com/title/02901"
+    anchor: "web:https://pocket.shonenmagazine.com/title/02901"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/02901/episode/442022, which is the same serialisation at an address that does not change when it publishes"
+  - id: w01226
+    title: "オカルトタイムズ"
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    anchor: "web:https://pocket.shonenmagazine.com/title/03282"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/03282/episode/442124, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00056
+    title: "今日はカノジョがいないから"
+    url: "https://pocket.shonenmagazine.com/title/01839"
+    anchor: "web:https://pocket.shonenmagazine.com/title/01839"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/01839/episode/438236, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00055
+    title: "ぜんぶ壊して地獄で愛して"
+    url: "https://pocket.shonenmagazine.com/title/02367"
+    anchor: "web:https://pocket.shonenmagazine.com/title/02367"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/02367/episode/441402, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00097
+    title: "念願の悪役令嬢の身体を手に入れたぞ!"
+    url: "https://pocket.shonenmagazine.com/title/02328"
+    anchor: "web:https://pocket.shonenmagazine.com/title/02328"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/02328/episode/441285, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00100
+    title: "ファタールゲーム"
+    url: "https://pocket.shonenmagazine.com/title/03056"
+    anchor: "web:https://pocket.shonenmagazine.com/title/03056"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/03056/episode/441581, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00198
+    title: "怪獣ロマンティクス"
+    url: "https://pocket.shonenmagazine.com/title/03196"
+    anchor: "web:https://pocket.shonenmagazine.com/title/03196"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/03196/episode/441093, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00199
+    title: "私に天使が舞い降りた！"
+    url: "https://pocket.shonenmagazine.com/title/01052"
+    anchor: "web:https://pocket.shonenmagazine.com/title/01052"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/01052/episode/417087, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00200
+    title: "平良深姉妹はどっちもヤんでる"
+    url: "https://pocket.shonenmagazine.com/title/02257"
+    anchor: "web:https://pocket.shonenmagazine.com/title/02257"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/02257/episode/434009, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00218
+    title: "GURU"
+    url: "https://pocket.shonenmagazine.com/title/03068"
+    anchor: "web:https://pocket.shonenmagazine.com/title/03068"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/03068/episode/440227, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00336
+    title: "怨霊日和"
+    url: "https://pocket.shonenmagazine.com/title/03125"
+    anchor: "web:https://pocket.shonenmagazine.com/title/03125"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/03125/episode/433732, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00352
+    title: "踊り場にスカートが鳴る"
+    url: "https://pocket.shonenmagazine.com/title/01646"
+    anchor: "web:https://pocket.shonenmagazine.com/title/01646"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/01646/episode/424498, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00370
+    title: "CUTE vs. COOL"
+    url: "https://pocket.shonenmagazine.com/title/03099"
+    anchor: "web:https://pocket.shonenmagazine.com/title/03099"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/03099/episode/430279, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00517
+    title: "雪が溶けたらおんなじ制服"
+    url: "https://pocket.shonenmagazine.com/title/02913"
+    anchor: "web:https://pocket.shonenmagazine.com/title/02913"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/02913/episode/419948, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00545
+    title: "第十二号蘇生魔術"
+    url: "https://pocket.shonenmagazine.com/title/02875"
+    anchor: "web:https://pocket.shonenmagazine.com/title/02875"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/02875/episode/416661, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00696
+    title: "この世で一番素敵な終わり方"
+    url: "https://pocket.shonenmagazine.com/title/02260"
+    anchor: "web:https://pocket.shonenmagazine.com/title/02260"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/02260/episode/398134, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00783
+    title: "女ともだちと結婚してみた。"
+    url: "https://pocket.shonenmagazine.com/title/01837"
+    anchor: "web:https://pocket.shonenmagazine.com/title/01837"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/01837/episode/388247, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00830
+    title: "気をつけなよ、お姉さん。"
+    url: "https://pocket.shonenmagazine.com/title/01509"
+    anchor: "web:https://pocket.shonenmagazine.com/title/01509"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/01509/episode/380295, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00831
+    title: "メンヘラさんと市松さん"
+    url: "https://pocket.shonenmagazine.com/title/02250"
+    anchor: "web:https://pocket.shonenmagazine.com/title/02250"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/02250/episode/378761, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00855
+    title: "甘えさせて雛森さん！"
+    url: "https://pocket.shonenmagazine.com/title/02043"
+    anchor: "web:https://pocket.shonenmagazine.com/title/02043"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/02043/episode/373533, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00882
+    title: "ふたりエスケープ"
+    url: "https://pocket.shonenmagazine.com/title/01357"
+    anchor: "web:https://pocket.shonenmagazine.com/title/01357"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/01357/episode/366655, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00895
+    title: "ロンリーガールに逆らえない"
+    url: "https://pocket.shonenmagazine.com/title/01376"
+    anchor: "web:https://pocket.shonenmagazine.com/title/01376"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/01376/episode/361674, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00943
+    title: "きたない君がいちばんかわいい"
+    url: "https://pocket.shonenmagazine.com/title/01645"
+    anchor: "web:https://pocket.shonenmagazine.com/title/01645"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/01645/episode/340627, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00958
+    title: "世が夜なら！"
+    url: "https://pocket.shonenmagazine.com/title/01147"
+    anchor: "web:https://pocket.shonenmagazine.com/title/01147"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/01147/episode/333555, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00962
+    title: "こいにこいするこに恋す"
+    url: "https://pocket.shonenmagazine.com/title/01418"
+    anchor: "web:https://pocket.shonenmagazine.com/title/01418"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/01418/episode/331379, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00965
+    title: "ハロー、メランコリック！"
+    url: "https://pocket.shonenmagazine.com/title/01544"
+    anchor: "web:https://pocket.shonenmagazine.com/title/01544"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/01544/episode/330547, which is the same serialisation at an address that does not change when it publishes"
+  - id: w00991
+    title: "将来的に死んでくれ"
+    url: "https://pocket.shonenmagazine.com/title/00195"
+    anchor: "web:https://pocket.shonenmagazine.com/title/00195"
+    basis: "the work-level address of https://pocket.shonenmagazine.com/title/00195/episode/296085, which is the same serialisation at an address that does not change when it publishes"

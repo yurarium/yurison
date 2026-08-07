@@ -19,6 +19,22 @@ WEB = [{"work": "春夏秋冬", "author": "蔵王大志", "url": "https://exampl
 
 
 def main(s):
+    # A CHAPTER ADDRESS IS NOT AN IDENTITY. build.py gives a row its newest chapter's address, so
+    # on a GigaViewer platform the anchor moved every time the work published and minted a second
+    # identifier for a work already held.
+    s.eq(ident.stable_url("https://pocket.shonenmagazine.com/title/03056/episode/441581"),
+         "https://pocket.shonenmagazine.com/title/03056",
+         "a chapter under a work address is reduced to the work address")
+    s.eq(ident.web_anchor("https://pocket.shonenmagazine.com/title/03056/episode/441581"),
+         ident.web_anchor("https://pocket.shonenmagazine.com/title/03056/episode/999999"),
+         "so two chapters of one work give one anchor")
+    # AND WHERE THERE IS NO WORK ADDRESS TO FALL BACK ON, nothing is invented.
+    for kept in ("https://comic-days.com/episode/12207421983997344603",
+                 "https://ichicomi.com/episode/12207421983829237114",
+                 "https://manga.nicovideo.jp/comic/72312"):
+        s.eq(ident.stable_url(kept), kept, f"an address with no work prefix is unchanged: {kept}")
+    s.eq(ident.stable_url(""), "", "an empty address is empty")
+
     s.eq(ident.fold("Ａ　Ｂ！"), "ab", "width, spacing and decoration are not part of a name")
     s.eq(ident.fold("彩純ちゃん【カラーイラスト特典付】"), ident.fold("彩純ちゃん"),
          "and neither is a bonus note in brackets")

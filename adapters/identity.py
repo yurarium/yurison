@@ -60,13 +60,38 @@ def people(credit):
     return {fold(n) for n, _role in split_authors(credit or "") if fold(n)}
 
 
+# A chapter address that carries its work's address in front of it: /title/03056/episode/441581.
+CHAPTER_UNDER_TITLE = re.compile(r"^(https?://[^/]+/title/[^/]+)/episode/\d+/?$")
+
+
+def stable_url(url):
+    """The work-level address of a chapter address, or the address unchanged.
+
+    WHY AN ANCHOR MUST NOT BE A CHAPTER. build.py gives a row the address of its newest chapter, so
+    on a GigaViewer platform the address changes every time the work publishes. This function is
+    what the anchor is built from, so without this a new chapter looks like a new work: five of them
+    minted a second identifier on 2026-08-07 and had to be repaired by hand.
+
+    ONLY WHERE THE WORK'S OWN ADDRESS IS ALREADY IN THE STRING. `pocket.shonenmagazine.com/title/
+    03056/episode/441581` carries it and is trimmed. `comic-days.com/episode/12207421983997344603`
+    does not: the chapter id is the whole path, and the work's address is somewhere we have not
+    fetched. Guessing one would invent an address, so those are returned as they are and stay
+    exposed. 28 rows are covered here and 507 are not; see docs/GAPS.md §21.
+    """
+    m = CHAPTER_UNDER_TITLE.match(str(url or ""))
+    return m.group(1) if m else url
+
+
 def web_anchor(url, title=None, shared=False):
     """`web:<url>`, with the story title where a URL serves more than one work.
 
     A collection's container URL is the same for every story in it, so the URL alone would give
     five stories one identity. `shared` is decided by the caller from the whole population, not
     guessed from the row.
+
+    A chapter address is reduced to its work's address first, so publishing does not move it.
     """
+    url = stable_url(url)
     url = (url or "").strip()
     if not url:
         return None

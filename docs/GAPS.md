@@ -1011,3 +1011,22 @@ So the feed can be built from the rows as they are. What remains true from that 
 that was never about the data: ids minted once, `updated` taken from when a release was seen rather
 than from the build clock, archives keyed on `seen` so a late discovery lands in an open month, and
 two documents so a title is never half-Japanese.
+
+
+### §21's fault, half closed (2026-08-07)
+
+A row's address is its newest chapter's address, so on a GigaViewer platform it moves whenever the
+work publishes, and `identity.py` mints a second identifier for a work it already holds. 535 of the
+1,352 web rows were exposed.
+
+`identity.stable_url` now reduces a chapter address to its work's address before the anchor is
+built, so two chapters of one work give one anchor. The 28 rows whose address carries the work's own
+address in front of it, `/title/03056/episode/441581`, are closed. The stable anchors were attached
+to the existing identifiers first, so nothing was minted and nothing retired: 3,155 identifiers
+before and after.
+
+**507 rows are still exposed** and cannot be closed from what we hold. `comic-days.com/episode/
+12207421983997344603` is a chapter id and the whole path, so the work's address is not in the string
+and inventing one would be inventing an address. `series_url` reaches only カドコミ and COMIC FUZ,
+and never a series row. Closing these means capturing each platform's work-level address, which is a
+fetch and not an edit.

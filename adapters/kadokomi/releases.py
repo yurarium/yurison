@@ -207,7 +207,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--cache", required=True)
     ap.add_argument("--retrieved", required=True)
-    ap.add_argument("--limit", type=int, default=400)
+    ap.add_argument("--limit", type=int, default=2000)
     # How stale a cached page may be before it is fetched again. The default keeps a daily run
     # honest; raising it re-runs the PARSE over pages already held, which is what you want when
     # the parser has changed and the pages have not.
@@ -260,6 +260,13 @@ def main():
             m = re.search(r"comic-walker\.com/detail/([A-Za-z0-9_]+)", w.get("url") or "")
             if m:
                 codes.setdefault(m.group(1), w.get("title"))
+    # A LIMIT THAT BITES IN SILENCE IS A LOST WORK. The default was set when the seed list
+    # was smaller, and a discovery pass that adds two hundred targets pushes the tail off
+    # the end with nothing said. The default is now above the population and the cut is
+    # reported when it happens, so a list outgrowing it is a number somebody sees.
+    if len(codes) > a.limit:
+        print(f"LIMIT: {len(codes)} work(s) named, {a.limit} asked for; "
+              f"{len(codes) - a.limit} will not be read this run")
     codes = dict(list(codes.items())[:a.limit])
     if not codes:
         sys.exit("no カドコミ work codes found")

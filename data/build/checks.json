@@ -104,6 +104,12 @@
  ],
  "budgets": [
   {
+   "name": "publishers with no English",
+   "means": "distinct publisher and imprint names that render as Japanese in English-only mode. A rise means new publishers entered the corpus faster than their names were rendered.",
+   "budget": 301,
+   "value": 301
+  },
+  {
    "name": "renderings with nothing to show",
    "means": "works whose English rendering holds neither a romanisation nor an English name while the surface is Japanese. A rise means a composed name lost its romanisation.",
    "budget": 154,

@@ -14,8 +14,16 @@ title:
   ja: "嘘つき花嫁と同性結婚論"
   yomi: "ウソツキ ハナヨメ ト ドウセイ ケッコンロン"
 creator: "[著]コダマナオコ"
-publisher: "[頒布]講談社"
-imprint: "IDコミックス"
+publisher: "一迅社"
+publisher_stated: "[頒布]講談社 / 一迅社"
+publishers:
+  - name: "講談社"
+    role: distributor
+    role_stated: "頒布"
+  - name: "一迅社"
+    role: publisher
+imprint: "Yurihime comics"
+imprint_stated: "IDコミックス / Yurihime comics"
 volume_count: 1
 first_published: 2024-05
 last_published: 2024-05
@@ -30,5 +38,6 @@ marketing_label_basis:
   url: 
   retrieved: 2026-08-01
   note: >-
-    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    Published under a 一迅社 百合姫 imprint. The `imprint` field names the brand
+    that was matched, spelled as MADB spells it (schema:brand). Imprint is
     publisher-side labelling under DEFINITIONS §4.

@@ -13,8 +13,16 @@ title:
   ja: "羽山先生と寺野先生は付き合っている"
   yomi: "ハヤマ センセイ ト テラノ センセイ ワ ツキアッテ イル"
 creator: "[著]黄井ぴかち"
-publisher: "[発売]講談社"
-imprint: "IDコミックス"
+publisher: "一迅社"
+publisher_stated: "[発売]講談社 / 一迅社"
+publishers:
+  - name: "講談社"
+    role: distributor
+    role_stated: "発売"
+  - name: "一迅社"
+    role: publisher
+imprint: "Yurihime comics"
+imprint_stated: "IDコミックス / Yurihime comics"
 volume_count: 4
 first_published: 2019-01
 last_published: 2021-05
@@ -41,5 +49,6 @@ marketing_label_basis:
   url: https://mediaarts-db.artmuseums.go.jp/id/C418827
   retrieved: 2026-08-01
   note: >-
-    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    Published under a 一迅社 百合姫 imprint. The `imprint` field names the brand
+    that was matched, spelled as MADB spells it (schema:brand). Imprint is
     publisher-side labelling under DEFINITIONS §4.

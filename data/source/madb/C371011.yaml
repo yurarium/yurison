@@ -13,7 +13,15 @@ title:
   ja: "たとえとどかぬ糸だとしても"
   yomi: "タトエ トドカヌ イト ダト シテモ"
 creator: "[著]Tmnr"
-publisher: ""
+publisher: "一迅社"
+publisher_stated: "[発売]講談社 / 一迅社"
+publisher_from: volumes
+publishers:
+  - name: "講談社"
+    role: distributor
+    role_stated: "発売"
+  - name: "一迅社"
+    role: publisher
 imprint: "IDコミックス　／　YURIHIME COMICS"
 volume_count: 7
 first_published: 2017-06
@@ -53,5 +61,6 @@ marketing_label_basis:
   url: https://mediaarts-db.artmuseums.go.jp/id/C371011
   retrieved: 2026-08-01
   note: >-
-    Published under 一迅社's 百合姫コミックス imprint (schema:brand). Imprint is
+    Published under a 一迅社 百合姫 imprint. The `imprint` field names the brand
+    that was matched, spelled as MADB spells it (schema:brand). Imprint is
     publisher-side labelling under DEFINITIONS §4.

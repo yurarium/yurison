@@ -254,3 +254,46 @@ question.
 **It over-matches rather than under-matching.** Once macrons fold, `yuri` finds works read ユリ and
 ユウリ alike. A reader can see the results and choose; a work that cannot be found is invisible.
 
+
+## Publisher and author pages, and the order they have to come in
+
+The work page settled into four parts: the work with no heading, because the page is the work, then
+its serialisation, then its collected volumes, then its sources collapsed. Publisher and author
+pages take the same shape. Neither is built yet and the sequence below is the reason why.
+
+**A page for the head of the distribution, not for every string.** The corpus holds 166 publishers
+and 345 imprints. 28 publishers carry ten works or more; **65 carry exactly one**. A publisher with
+one work has nothing to put on a page, so it stays a plain name and does not become a link.
+
+**What a publisher page shows that nothing else can: which of its imprints are yuri lines.**
+百合コレ holds 496 works, IDコミックス／Yuri-hime comics 120, まんがタイムKRコミックス 116. That
+concentration is the same structural signal used to find entries admitted on a shop's shelf with
+nothing behind them, and on a publisher page a reader can see it directly. One house runs a yuri
+line; another has a single book somebody shelved as yuri.
+
+### The order, and why each step blocks the next
+
+**First, the record has to say who the publisher is.** MADB writes a distributor as `[発売]講談社`
+and `[頒布]講談社`, and those stand in the publisher field as though they were companies: 102 works
+under one, 80 under the other. Built today, 講談社 would have three pages. The same fault splits
+IDコミックス across two, because the label is selected on a volume's brand and stored on the series
+record, whose brand is the umbrella line: 162 works under one spelling and 120 under another.
+Building pages over that would design around the damage instead of fixing it.
+
+A publisher page also needs the publisher's name in English, and 301 publisher and
+imprint names have none: the renderer carries a hand-written map of 7. That work is needed whether
+or not the pages are built, and it serves both. The company's own English name is preferred where it
+publishes one, and a romanisation is the fallback rather than the default.
+
+**Then the pages**, for the 28. Author pages share the scaffolding and belong in the same pass: the
+three page kinds make a small graph rather than a hierarchy, since a work names its author and its
+publisher, a publisher lists its imprints and their works, and an author lists works and the houses
+behind them.
+
+### The framing this must not get wrong
+
+We hold KADOKAWA's 378 **yuri** works. KADOKAWA publishes tens of thousands of books. A page headed
+with the company's name and listing 378 works claims to describe a publisher when it describes our
+coverage of one, which is the same category error the works list made when a count of the entries we
+hold read as the length of a work. The page says what it is: the yuri works this database holds from
+that publisher.

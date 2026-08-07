@@ -30,6 +30,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 import comici  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "recon"))
 from extract import CHAPTERISH, try_jsonld, try_markup, try_next, try_pairs  # noqa: E402
+from names import credits as _credits  # noqa: E402
 
 UA = "Mozilla/5.0 (compatible; yurarium/0.1; +https://yurarium.github.io/)"
 CHROME = next((c for c in ("/snap/bin/chromium", "/usr/bin/chromium",
@@ -120,7 +121,9 @@ def from_giga(html, page_url):
         if t and u:
             row = {"title": _html.unescape(t.group(1).strip()), "updated": u.group(1)[:10]}
             if au:
-                row["author"] = _html.unescape(au.group(1).strip())
+                _a = _html.unescape(au.group(1).strip())
+                if _credits.is_a_person(_a):
+                    row["author"] = _a
             if free_ids and l:
                 row["access_modes"] = ["free"] if l.group(1) in free_ids else ["purchase"]
             out.append(row)
@@ -206,9 +209,15 @@ def main():
             # comici states the author in the page title as "作品 - 作者 | プラットフォーム", the same
             # place the webpages adapter reads it. This route was ignoring it, so works rescued here
             # arrived without one while the same platform's other works had theirs.
+            # THE MIDDLE FIELD IS NOT ALWAYS THE AUTHOR. Where a platform puts its newest chapter
+            # there instead, this read it as a credit: 平良深姉妹はどっちもヤんでる was published
+            # crediting `金子ある / #1(1)`, and #1(1) sits in that platform's own feed as a chapter.
+            # A capture that cannot be somebody's name is dropped and the work keeps the credit it
+            # already had.
             _au = re.search(r"<title>[^<|]*?\s+-\s+([^<|]+?)\s*\|", html)
             if _au:
-                page_author = _html.unescape(_au.group(1).strip())
+                _cand = _html.unescape(_au.group(1).strip())
+                page_author = _cand if _credits.is_a_person(_cand) else None
             for name, fn in (("gigaviewer", lambda h: from_giga(h, url)),
                              ("comici", lambda h: from_comici(h, url)),
                              ("markup", from_generic)):

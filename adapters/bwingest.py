@@ -22,6 +22,7 @@ which is a fact about the shop's stock.
 """
 import pathlib
 import re
+from names import credits as _credits  # noqa: E402
 
 SHELF = "tag 14 (百合)"
 SHOP = "bookwalker.jp"
@@ -136,7 +137,12 @@ def record(work, retrieved):
         "title": title,
         "shop_id": work.get("shop_id"),
         "url": work.get("url"),
-        "creator": " / ".join(work.get("authors") or []),
+        # A CAPTURED AUTHOR THAT CANNOT BE A NAME IS NOT ONE. The shelf gave `７` as the creator
+        # of four books, one of them published by ななつぼし, which is a fragment of the listing
+        # read into the author slot. Dropping it leaves the work with no credit, which is what we
+        # actually know, and `works crediting nobody` counts that where a wrong name would not be
+        # counted at all.
+        "creator": " / ".join(a for a in (work.get("authors") or []) if _credits.is_a_person(a)),
         "publisher": work.get("publisher"),
         # The shop's own imprint field where it has one, else the label it wrote into the title.
         "imprint": work.get("imprint") or from_title,

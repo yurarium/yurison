@@ -21,6 +21,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402
 import identity  # noqa: E402
 import importdates  # noqa: E402
+from names import credits as _credits  # noqa: E402
 from names import openbd_reading  # noqa: E402
 import bylines as _bylines  # noqa: E402
 from recon import bookwalker_volumes  # noqa: E402
@@ -4311,6 +4312,25 @@ def main():
     # Attach English names and readings. Keyed on the exact Japanese string the store was built
     # from, so a work or author with no entry simply gets nothing and renders in Japanese (§6).
     _auth_names, _title_names = load_names()
+
+    # A NAME AND ITS OWN READING ARE ONE PERSON. MADB states both in one schema:creator field
+    # with a slash between them, and the slash is what separates two people, so 蓬餅 / ヨモギモチ
+    # shipped as two credits. The source record keeps the field intact, because it says what
+    # MADB said; the duplicate is collapsed here, where the credit is presented and where the
+    # name store is loaded to settle the kanji cases.
+    _authstore = (_auth_names if isinstance(_auth_names, dict) else {})
+    _undoubled = 0
+    for _credrow in series_rows:
+        _was = _credrow.get("author") or ""
+        if " / " not in _was:
+            continue
+        _deduped = _credits.dedupe(_was, _authstore)
+        if _deduped != _was:
+            _credrow["author"] = _deduped
+            _undoubled += 1
+    if _undoubled:
+        print(f"credit fields holding a name beside its own reading: {_undoubled} collapsed")
+
 
     # PUNCTUATION-TOLERANT LOOKUP. The store is keyed on the exact Japanese string, and the same
     # work reaches us with both （私に） and (私に) depending on the platform — full-width and

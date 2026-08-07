@@ -106,9 +106,135 @@ def main(s):
     s.eq(m.volume_count([{"schema:datePublished": "2008-05"}, {"schema:datePublished": "2008-05"}]), 2,
          "and unnumbered volumes have nothing to match on, so each counts once")
 
-    s.eq(m.bare_publisher({"schema:publisher": "小学館クリエイティブ(発売)"}),
-         m.bare_publisher({"schema:publisher": "小学館クリエイティブ"}),
+    s.eq(m.publisher_names({"schema:publisher": "小学館クリエイティブ(発売)"}),
+         m.publisher_names({"schema:publisher": "小学館クリエイティブ"}),
          "a distributor role in a trailing bracket is not a second publisher")
+
+    # ── A MULTI-VALUED FIELD IS NOT ITS FIRST VALUE ────────────────────────────────────────────
+    #
+    # Both faults below are the same one. MADB states a set of values and `primary` took the first,
+    # so the umbrella imprint stood for the yuri line and the distributor stood for the publisher.
+    s.eq(m.values(["IDコミックス", "Yurihime comics",
+                   {"@value": "ID コミックス", "@language": "ja-hrkt"}]),
+         ["IDコミックス", "Yurihime comics"], "the names are kept and the readings are not")
+    s.eq(m.values("YURIHIME COMICS"), ["YURIHIME COMICS"], "a bare string is one value")
+    s.eq(m.values(None), [], "an absent field states nothing")
+    s.eq(m.values([{"@value": "ID コミックス", "@language": "ja-hrkt"}]), [],
+         "a field holding only a reading names nothing")
+
+    # THE IMPRINT THAT EARNED THE LABEL. 117 works were stored as `imprint: IDコミックス` beside
+    # `marketing_label: yuri`, because the 百合姫 line is MADB's SECOND value for the brand. The
+    # evidence table withheld those rows rather than quote a term making no yuri claim.
+    UMB = {"schema:brand": ["IDコミックス", "Yurihime comics",
+                            {"@value": "ID コミックス", "@language": "ja-hrkt"}]}
+    s.eq(m.imprint_of([UMB])[0], "Yurihime comics",
+         "the brand that carries the label is the one stored, not the umbrella line above it")
+    s.eq(m.as_stated(UMB["schema:brand"]), "IDコミックス / Yurihime comics",
+         "and the field is kept as MADB stated it, so the reading can be checked")
+    s.check(m.is_yuri_imprint("IDコミックス. Yurihime comics = コミック百合姫"),
+            "a joined spelling still names the line")
+    s.check(not m.is_yuri_imprint("IDコミックス"),
+            "and the umbrella line on its own does not, which is why the row was withheld")
+
+    # THE COUNTER-CASE TO THE OBVIOUS RULE. Taking the LAST value would be the most specific one in
+    # every record stating several, and it is not always a brand at all.
+    SUB = {"schema:brand": ["Emerald comics", "Romance comics = ロマンスコミックス", "プロポーズのゆくえ"]}
+    s.eq(m.imprint_of([SUB])[0], "Emerald comics",
+         "a record with nothing matched keeps its stated brand rather than a sub-series title")
+
+    # A work whose own record names no 百合姫 brand: the volumes are what selection saw.
+    BARE = {"schema:brand": "yh COMICS"}
+    VOL = {"schema:brand": ["IDコミックス", "Yuri-hime comics anthology series"]}
+    s.eq(m.imprint_of([BARE, VOL])[0], "Yuri-hime comics anthology series",
+         "and where only a volume carries the line, that is the brand the record states")
+    s.check(m.imprint_of([BARE, VOL])[1] is VOL, "and the record it was read from is reported")
+    s.eq(m.imprint_of([{}, {"schema:brand": "アフタヌーンKC"}])[0], "アフタヌーンKC",
+         "a series record stating no brand at all takes its volumes', matched or not")
+
+    # ── A DISTRIBUTOR IS NOT A PUBLISHER ───────────────────────────────────────────────────────
+    #
+    # MADB writes `["[発売]講談社", "一迅社"]` for a 一迅社 book 講談社 put into shops. Reading the
+    # first value made 132 works read 講談社, and a per-publisher count of 一迅社 came out short.
+    ICH = {"schema:publisher": ["[発売]講談社　∥　コウダンシャ", "一迅社　∥　イチジンシャ"]}
+    s.eq(m.publisher_of(ICH).name, "一迅社", "the party with no role marker is the publisher")
+    s.eq([(p.name, p.role, p.stated) for p in m.publishers(ICH)],
+         [("講談社", "distributor", "発売"), ("一迅社", "publisher", "")],
+         "and both parties are on the record, each with the role MADB gave it")
+    s.eq(m.party("[頒布]講談社 (発売)").name, "講談社",
+         "a role at both ends of a name leaves the name")
+    s.eq(m.party("[頒布]講談社 (発売)").stated, "頒布", "and the first role stated is the one read")
+
+    # THE COUNTER-CASE. MADB brackets names in the same position, so a rule stripping every bracket
+    # leaves a credit naming nobody. `[Shueisha]` and `[ヒゲの筆]` are publishers, not roles.
+    s.eq(m.party("[ヒゲの筆]").name, "[ヒゲの筆]", "an unrecognised bracket is not a role marker")
+    s.eq(m.party("[ヒゲの筆]").role, "publisher", "so the party keeps the default role")
+    s.eq(m.party("ほぼ日 (発行所)").role, "publisher", "発行所 is the publishing role, not delivery")
+    s.eq(m.party("エンターブレイン (東京)").name, "エンターブレイン (東京)",
+         "and a place in a trailing bracket stays part of the name")
+
+    # WHERE NOBODY HOLDS THE ROLE, the answer is nobody. Promoting the distributor into the empty
+    # seat is the fault this function exists to stop.
+    s.eq(m.publisher_of({"schema:publisher": "[頒布]大垣書店"}).name, "",
+         "a record naming only a distributor names no publisher")
+
+    # AND THE JOIN THE SET COMPARISON RESTORES. ハイガクラ's volumes name the distributor beside
+    # the publisher and its series record names the publisher alone, so comparing one value against
+    # one value refused 14 title joins of that shape across release 1.2.18.
+    HAI_V = {"schema:identifier": "M9", "schema:name": "ハイガクラ",
+             "schema:publisher": ["[頒布]講談社　∥　コウダンシャ", "一迅社　∥　イチジンシャ"],
+             "schema:brand": "ZERO-SUM COMICS"}
+    HAI_S = {"schema:identifier": "C9", "schema:name": "ハイガクラ",
+             "schema:publisher": "一迅社　∥　イチジンシャ", "schema:brand": "IDコミックス"}
+    s.check(m.agrees(HAI_V, HAI_S), "a distributor listed first does not hide the publisher")
+    s.check(not m.agrees(NEW, OLD),
+            "and トワ・エ・モア is still two works, which the looser comparison must not undo")
+
+    # ── WHAT THE RECORD SAYS ───────────────────────────────────────────────────────────────────
+    #
+    # The two readings above only matter if they reach the file. This is the shape a consumer
+    # parses, so it is asserted on the rendered text rather than on the functions behind it.
+    SER = {"schema:identifier": "C7", "schema:name": "ある作品",
+           "schema:publisher": ["[発売]講談社　∥　コウダンシャ", "一迅社　∥　イチジンシャ"],
+           "schema:brand": ["IDコミックス", "Yurihime comics"]}
+    VOLS = [{"schema:identifier": "M7", "schema:volumeNumber": "1", "schema:isbn": "9784758000000",
+             "schema:datePublished": "2020-01",
+             "schema:brand": ["IDコミックス", "Yurihime comics"]}]
+    text = m.render("C7", VOLS, {"C7": SER}, "series-link", "1.2.18", "2026-08-07",
+                    m.ROUTE_IMPRINT, m.LABEL_IMPRINT)
+    s.check('publisher: "一迅社"' in text, "the record states the publisher")
+    s.check('publisher_stated: "[発売]講談社 / 一迅社"' in text,
+            "and keeps the field it was read out of, so the reading can be disputed")
+    s.check('  - name: "講談社"\n    role: distributor\n    role_stated: "発売"' in text,
+            "the distributor is named with the role MADB gave it")
+    s.check('  - name: "一迅社"\n    role: publisher' in text, "and so is the publisher")
+    s.check('imprint: "Yurihime comics"' in text, "the imprint names the line that carries the label")
+    s.check('imprint_stated: "IDコミックス / Yurihime comics"' in text, "with the brand as stated")
+    s.check("marketing_label: yuri" in text, "and the label the imprint earned")
+    s.ne(text.count('publisher: "'), 2, "the publisher is stated once, not twice")
+
+    # A record with one unmarked publisher says it once. `publishers` and `publisher_stated` are
+    # for what a single line cannot carry, and repeating the line is what §3 is about.
+    PLAIN = dict(SER, **{"schema:publisher": "太田出版", "schema:brand": "F×COMICS"})
+    plain = m.render("C7", [dict(VOLS[0], **{"schema:brand": "F×COMICS"})], {"C7": PLAIN},
+                     "series-link", "1.2.18", "2026-08-07", m.ROUTE_IMPRINT, m.LABEL_IMPRINT)
+    s.check("publishers:" not in plain, "one party with no role needs no list")
+    s.check("publisher_stated:" not in plain, "and no copy of itself under another name")
+    s.check('imprint: "F×COMICS"' in plain, "a brand nothing matched is stated as it was")
+    s.check("imprint_stated:" not in plain, "and is not repeated either")
+    s.check("publisher_from:" not in plain, "a record that speaks for itself says so by silence")
+
+    # MADB LEAVES schema:publisher OFF 10 OF THESE SERIES RECORDS while every volume of them names
+    # 一迅社. Those were the last works whose label had a term to quote and nobody to attribute it
+    # to, so the evidence table withheld them after the imprint was already right.
+    THIN = {"schema:identifier": "C8", "schema:name": "うすい記録",
+            "schema:brand": ["IDコミックス", "Yurihime comics"]}
+    thin = m.render("C8", [dict(VOLS[0], **{"schema:publisher":
+                                            ["[発売]講談社", "一迅社"]})],
+                    {"C8": THIN}, "series-link", "1.2.18", "2026-08-07",
+                    m.ROUTE_IMPRINT, m.LABEL_IMPRINT)
+    s.check('publisher: "一迅社"' in thin, "a silent series record takes the publisher its books name")
+    s.check("publisher_from: volumes" in thin, "and says that is where it was read")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "madb.extract"))

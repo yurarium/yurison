@@ -127,20 +127,28 @@ def details(html):
     return got
 
 
+# THE SHOP'S SEPARATOR BETWEEN TWO PEOPLE IS THE ROLE BRACKET AND NOTHING ELSE. BOOK☆WALKER writes
+# a collaboration as `桃田 ロウ(原作) 文尾文(作画) 塩こうじ(キャラクター原案)`, with a space where
+# every other source in this project writes a slash. `names.inputs.split_authors` reads the slash,
+# the comma and the `作画：` form, and it read that line as ONE person called 桃田ロウ文尾文塩こうじ,
+# who agrees with nobody. Three of the first twelve works asked were refused that way, each of them
+# a work whose credits plainly agree: 妖怪殲滅のサイコリリー, アイドラトリィ and the line above.
+#
+# So the bracket is turned into the slash the project already reads. This translates one source's
+# spelling into the project's separator; it does not re-read the credit, which stays
+# `identity.people`'s job (STANDING-INSTRUCTIONS §3).
+_ROLE = re.compile(r"[（(][^）)]{1,24}[）)]")
+
+
 def names(credit):
     """The comparison keys for a credit line, from `identity.people`.
 
     ONE PRODUCER OF THIS FACT, and this is a wrapper over it and not a second copy. §3 is the
     reason: `identity.people` is what joins a serialisation to its book run, and a credit line
-    parsed twice puts the same person in two forms and the join fails on works with the most
+    parsed twice puts the same person in two forms and the join fails on the works with the most
     evidence.
-
-    The shop's trailing role bracket needs nothing added. BOOK☆WALKER prints `卯花りりか(著)` and
-    `identity.fold` strips bracketed matter, so the name arrives in the form the platform side is
-    already in. `by_title.people` strips it by hand because it compares against `extract.norm`,
-    which does not.
     """
-    return identity.people(credit)
+    return identity.people(_ROLE.sub(" / ", str(credit or "")))
 
 
 def title_agrees(shop_title, our_title):

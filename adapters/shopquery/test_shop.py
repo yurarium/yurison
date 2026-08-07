@@ -113,8 +113,18 @@ def main(s):
     s.eq(got["publisher"], "芳文社", "the publisher, which is the field a bibliography agrees on")
     s.eq(got["delivered"], "2024/11/5", "and the date the file went on sale, which is not a "
                                         "publication date and is never offered as one")
-    s.eq(shop.names(got["author"]), {"卯花りりか"},
-         "the role bracket folds away without a second parser for it")
+    s.eq(shop.names(got["author"]), {"卯花りりか"}, "one credit reads as one person")
+
+    # THE SHOP'S SEPARATOR BETWEEN TWO PEOPLE IS THE ROLE BRACKET. Read as written, this line is
+    # one person called 桃田ロウ文尾文塩こうじ, who agrees with nobody, and three of the first twelve
+    # works asked were refused exactly that way.
+    s.eq(shop.names("桃田 ロウ(原作) 文尾文(作画) 塩こうじ(キャラクター原案)"),
+         {"桃田ロウ", "文尾文", "塩こうじ"}, "a collaboration reads as the people in it")
+    s.eq(shop.names("狗之餌(原作) 廃狼(作画)"), {"狗之餌", "廃狼"},
+         "which is what makes 妖怪殲滅のサイコリリー agree with the credit this database holds")
+    s.eq(shop.classify("狗之餌(原作) 廃狼(作画)", "狗之餌 / 廃狼"), "creator",
+         "so the hit is a join and not a candidate")
+    s.eq(shop.names("卯花りりか"), {"卯花りりか"}, "and a credit with no bracket is untouched")
 
     # THE JOIN RULE, AND THE COUNTER-CASE IT EXISTS FOR. A title that agrees and a person who does
     # not is a candidate and never a join.

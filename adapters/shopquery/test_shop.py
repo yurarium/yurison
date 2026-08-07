@@ -1,0 +1,184 @@
+#!/usr/bin/env python3
+"""shop.py: the shop answers what it stocks, and a title alone is never a join."""
+import pathlib
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+
+import testkit                                                                 # noqa: E402
+from shopquery import capture, shop                                            # noqa: E402
+
+COVERS = ["adapters/shopquery/shop.py", "adapters/shopquery/capture.py"]
+
+# Saved from https://bookwalker.jp/search/?word=%E5%8D%AF%E8%8A%B1%E3%82%8A%E3%82%8A%E3%81%8B&qcat=2
+# on 2026-08-07, trimmed to the elements read. TWO RESULTS, and only one of them is the work: the
+# author search returns コンカフェ嬢は恋を着る and also なかよし, the magazine she has drawn in. That
+# second row is the whole reason `pick` exists and is kept in the fixture on purpose.
+AUTHOR_SEARCH = """
+<ul class="m-tile-list">
+<li class="m-tile">
+<div class="m-book-item ">
+<a href="https://bookwalker.jp/series/490418/list/" class="m-thumb__image" data-series-id="490418"></a>
+<div class="m-book-item__tag-box"><span class="a-tag-comic">マンガ</span>
+<span class="a-tag-comp">完結</span></div>
+<p class="m-book-item__title">
+<a href="https://bookwalker.jp/series/490418/list/" data-series-id="490418"
+   title="コンカフェ嬢は恋を着る（ＦＵＺコミックス）">
+コンカフェ嬢は恋を着る（ＦＵＺコミックス）
+</a>
+</p>
+<p class="m-book-item__label">ＦＵＺコミックス</p>
+<div class="m-book-item__series"><span class="ico-txt">シリーズ3冊</span></div>
+<ul class="m-book-item__btn-box">
+<li><a href="https://bookwalker.jp/de286eb300-ea25-41f1-8918-aee33bfeeead/"><span class="ico">1巻</span></a></li>
+<li><a href="https://bookwalker.jp/de8c546680-ed18-40ff-bc63-b4395376b5f9/"><span class="ico">2巻</span></a></li>
+</ul>
+</div>
+</li>
+<li class="m-tile">
+<div class="m-book-item ">
+<a href="https://bookwalker.jp/series/46180/list/" class="m-thumb__image" data-series-id="46180"></a>
+<div class="m-book-item__tag-box"><span class="a-tag-comic">マンガ</span></div>
+<p class="m-book-item__title">
+<a href="https://bookwalker.jp/series/46180/list/" data-series-id="46180" title="なかよし（なかよし）">
+なかよし（なかよし）
+</a>
+</p>
+<p class="m-book-item__label">なかよし</p>
+<ul class="m-book-item__btn-box">
+<li><a href="https://bookwalker.jp/dea987c8ae-e9a5-4311-9030-65e562c6dbc5/"><span class="ico">1巻</span></a></li>
+</ul>
+</div>
+</li>
+</ul>
+"""
+
+# Saved from https://bookwalker.jp/de286eb300-ea25-41f1-8918-aee33bfeeead/ on 2026-08-07, trimmed to
+# the 作品情報 rows. NO ISBN APPEARS ANYWHERE ON THE PAGE, which is the fact that decides how
+# by_shop_query.py has to reach the bibliography.
+VOLUME_PAGE = """
+<dl class="t-c-detail-about-information">
+<dt>シリーズ</dt><dd><a href="/series/490418/">コンカフェ嬢は恋を着る（ＦＵＺコミックス）</a></dd>
+<dt>著者</dt><dd><a href="/author/1/">卯花りりか</a>(著)</dd>
+<dt>レーベル</dt><dd><a href="/label/1/">ＦＵＺコミックス</a></dd>
+<dt>出版社</dt><dd><a href="/company/1/">芳文社</a></dd>
+<dt>底本発行日</dt><dd>2024/11/1</dd>
+<dt>配信開始日</dt><dd>2024/11/5</dd>
+</dl>
+"""
+
+# The same page for a digital-only edition, which states no 底本発行日 because there is no printed
+# book behind the file. 底本 is on 47 of the first 100 volume pages read, so this half is not an
+# edge case: it is the half the national bibliography will hold nothing about.
+DIGITAL_ONLY = """
+<dl class="t-c-detail-about-information">
+<dt>著者</dt><dd><a href="/author/2/">ぴりぷん</a>(著)</dd>
+<dt>レーベル</dt><dd><a href="/label/2/">ライトリーズン</a></dd>
+<dt>出版社</dt><dd><a href="/company/2/">ライトリーズン</a></dd>
+<dt>配信開始日</dt><dd>2023/2/10</dd>
+</dl>
+"""
+
+# A page whose markup changed: the tile wrapper is there and the title block is not. A parser that
+# answers with a row full of Nones here is worse than one that answers with nothing, because the
+# capture would store a hit that names no work.
+BROKEN = '<ul class="m-tile-list"><li class="m-tile"><div class="m-book-item "></div></li></ul>'
+
+
+def main(s):
+    rows = shop.tiles(AUTHOR_SEARCH)
+    s.eq(len(rows), 2, "both results are read, including the one that is not the work")
+    first = rows[0]
+    s.eq(first["series_id"], "490418", "the series the tile identifies")
+    s.eq(first["title_listed"], "コンカフェ嬢は恋を着る（ＦＵＺコミックス）", "the title as listed")
+    s.eq(first["imprint"], "ＦＵＺコミックス", "the shop prints the publisher's own label")
+    s.eq(first["volumes_stated"], 3, "and how many volumes it stocks")
+    s.eq(first["completed_marker"], True, "完結 on the tile, which costs no extra request")
+    s.eq(len(first["volume_urls"]), 2, "with a link to each volume it listed")
+    s.eq(rows[1]["completed_marker"], False,
+         "and a running series carries no marker, so the tag distinguishes")
+
+    s.eq(shop.tiles(BROKEN), [], "a tile with no title block produces no row at all")
+    s.eq(shop.tiles(""), [], "and neither does an empty answer")
+
+    # THE FILTER. An author search answers with everything that author is on, and only one of the
+    # two names the work. Without this the capture would store なかよし as a print edition of
+    # コンカフェ嬢は恋を着る, which is the wrong-join class this whole route is built around.
+    kept = shop.pick(rows, "コンカフェ嬢は恋を着る")
+    s.eq(len(kept), 1, "only the result whose title names the work is kept")
+    s.eq(kept[0]["series_id"], "490418", "and it is the right one")
+    s.eq(shop.pick(rows, "citrus"), [], "a work the shop does not stock keeps nothing")
+
+    # The imprint the shop appends to a series name has to fold away, or every FUZ work misses.
+    s.eq(shop.title_agrees("コンカフェ嬢は恋を着る（ＦＵＺコミックス）", "コンカフェ嬢は恋を着る"),
+         True, "the appended imprint is bracketed matter and folds away")
+    s.eq(shop.title_agrees("トワ・エ・モア", "トワ・エ・モア"), True, "identical titles agree")
+    s.eq(shop.title_agrees("citrus+", "citrus"), True,
+         "and a title extending ours agrees, which is why a person still has to")
+    s.eq(shop.title_agrees("なかよし（なかよし）", "コンカフェ嬢は恋を着る"), False,
+         "an unrelated series does not")
+    s.eq(shop.title_agrees("", "コンカフェ嬢は恋を着る"), False, "and an empty title agrees with nothing")
+
+    got = shop.details(VOLUME_PAGE)
+    s.eq(got["author"], "卯花りりか(著)", "the credit, as the shop writes it")
+    s.eq(got["imprint"], "ＦＵＺコミックス", "the imprint")
+    s.eq(got["publisher"], "芳文社", "the publisher, which is the field a bibliography agrees on")
+    s.eq(got["printed"], "2024/11/1",
+         "底本発行日, which is the shop saying a printed book exists with no bibliography involved")
+    s.eq(got["delivered"], "2024/11/5", "and the date the file went on sale, which is not a "
+                                        "publication date and is never offered as one")
+    s.eq(shop.details(DIGITAL_ONLY)["printed"], None,
+         "a digital-only edition states none, which is why MADB can hold nothing about it")
+    s.eq(shop.details(DIGITAL_ONLY)["delivered"], "2023/2/10",
+         "and the two fields are not confused for each other")
+    s.eq(shop.names(got["author"]), {"卯花りりか"}, "one credit reads as one person")
+
+    # THE SHOP'S SEPARATOR BETWEEN TWO PEOPLE IS THE ROLE BRACKET. Read as written, this line is
+    # one person called 桃田ロウ文尾文塩こうじ, who agrees with nobody, and three of the first twelve
+    # works asked were refused exactly that way.
+    s.eq(shop.names("桃田 ロウ(原作) 文尾文(作画) 塩こうじ(キャラクター原案)"),
+         {"桃田ロウ", "文尾文", "塩こうじ"}, "a collaboration reads as the people in it")
+    s.eq(shop.names("狗之餌(原作) 廃狼(作画)"), {"狗之餌", "廃狼"},
+         "which is what makes 妖怪殲滅のサイコリリー agree with the credit this database holds")
+    s.eq(shop.classify("狗之餌(原作) 廃狼(作画)", "狗之餌 / 廃狼"), "creator",
+         "so the hit is a join and not a candidate")
+    s.eq(shop.names("卯花りりか"), {"卯花りりか"}, "and a credit with no bracket is untouched")
+
+    # THE JOIN RULE, AND THE COUNTER-CASE IT EXISTS FOR. A title that agrees and a person who does
+    # not is a candidate and never a join.
+    s.eq(shop.classify(got["author"], "卯花りりか"), "creator",
+         "a shared person is what makes a hit a join")
+    s.eq(shop.classify(got["author"], "卯花りりか,中村朱里"), "creator",
+         "and one shared person out of several is enough")
+    s.eq(shop.classify("大友克洋(著)", "菅野マナミ"), "title-only",
+         "two different people on one title is a candidate, never a join")
+    s.eq(shop.classify(None, "卯花りりか"), "title-only",
+         "a shop that printed no credit cannot agree")
+    s.eq(shop.classify(got["author"], None), "title-only",
+         "and neither can a work this database credits to nobody")
+
+    # THE CEILING ON SILENCE. This shop answers a query matching nothing with 404, so a run being
+    # refused produces a note for every work, clears the completeness floor, and writes a file
+    # saying the shop stocks nothing. The two kinds of silence have to be told apart or the guard
+    # is blind exactly where its subject is (STANDING-INSTRUCTIONS §14b).
+    refused = {"hits": [], "notes": ["author query answered nothing",
+                                     "title query answered nothing"]}
+    answered = {"hits": [], "notes": ["author query returned no title this database recognises"]}
+    s.eq(capture.silenced([refused, refused]), 2, "a shop that refused every query is counted")
+    s.eq(capture.silenced([answered, answered]), 0,
+         "a shop that answered and named something else is not, because it answered")
+    s.eq(capture.silenced([{"hits": [{"agreement": "creator"}], "notes": []}]), 0,
+         "and neither is a work the shop stocks")
+    s.check(capture.SILENCE_CEILING < 1.0,
+            "the ceiling is a share the run can exceed, not a formality")
+
+    s.eq(shop.query_url("卯花りりか"),
+         "https://bookwalker.jp/search/?word=%E5%8D%AF%E8%8A%B1%E3%82%8A%E3%82%8A%E3%81%8B&qcat=2",
+         "the マンガ store, which is the same restriction the shelf capture used")
+
+
+if __name__ == "__main__":
+    suite = testkit.Suite("shopquery/shop.py")
+    main(suite)
+    raise SystemExit(suite.report())

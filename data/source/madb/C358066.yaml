@@ -1,0 +1,58 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C358066
+route: shop-query
+grouping: series-link
+madb_id: C358066
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C358066
+record_type: manga_book_series
+title:
+  ja: "こはる日和。"
+  yomi: "コハル ビヨリ"
+creator: "[著]ねこうめ"
+publisher: "芳文社"
+imprint: "Manga time KR comics　／　Kirara menu"
+volume_count: 4
+first_published: 2015-12
+last_published: 2019-11
+volumes:
+  - madb_id: M456312
+    number: "1"
+    isbn: "9784832246379"
+    published: 2015-12
+  - madb_id: M475132
+    number: "2"
+    isbn: "9784832247727"
+    published: 2016-12
+  - madb_id: M516920
+    number: "3"
+    isbn: "9784832249226"
+    published: 2018-03
+  - madb_id: M812866
+    number: "4"
+    isbn: "9784832271319"
+    published: 2019-11
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/57090/list/"
+  serialisation: "COMIC FUZ"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C358066
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

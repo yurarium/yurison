@@ -1,0 +1,63 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-1b353f104a5b
+route: shop-query
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "シャドウ・アサシンズ・ワールド"
+  yomi: "シャドウ アサシンズ ワールド : カゲ ワ ウスイ ケド サイキョウ ニンジャ ヤッテマス"
+creator: "五色安未 / 泉乃せん / 空山トキ / イズミノセン / ゴシキアミ / ソラヤマトキ"
+publisher: "講談社"
+imprint: "シリウスKC"
+volume_count: 5
+first_published: 2025-01-24
+last_published: 2026-06-29
+volumes:
+  - madb_id: M1035997
+    number: "1"
+    isbn: "9784065379271"
+    published: 2025-01-24
+  - madb_id: M1062583
+    number: "2"
+    isbn: "9784065393772"
+    published: 2025-05-09
+  - madb_id: M1076685
+    number: "3"
+    isbn: "9784065406304"
+    published: 2025-09-13
+  - madb_id: M1108796
+    number: "4"
+    isbn: "9784065423868"
+    published: 2026-02-23
+  - madb_id: M1114385
+    number: "5"
+    isbn: "9784065437476"
+    published: 2026-06-29
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/508729/list/"
+  serialisation: "コミックDAYS"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

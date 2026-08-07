@@ -1,0 +1,83 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-96b7ccde2466
+route: shop-query
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "Idol × idol story!"
+  yomi: "Idol × idol story !"
+creator: "得能正太郎 / トクノウショウタロウ"
+publisher: "芳文社"
+imprint: "FUZ comics"
+volume_count: 10
+first_published: 2023-05
+last_published: 2026-04-27
+volumes:
+  - madb_id: M927287
+    number: "Volume. 1"
+    isbn: "9784832239906"
+    published: 2023-05
+  - madb_id: M928525
+    number: "Volume. 2"
+    isbn: "9784832239982"
+    published: 2023-06
+  - madb_id: M941900
+    number: "Volume. 3"
+    isbn: "9784832203372"
+    published: 2023-11
+  - madb_id: M967045
+    number: "Volume. 4"
+    isbn: "9784832203846"
+    published: 2024-04
+  - madb_id: M972244
+    number: "Volume. 5"
+    isbn: "9784832204201"
+    published: 2024-08
+  - madb_id: M1034566
+    number: "Volume. 6"
+    isbn: "9784832204690"
+    published: 2025-01-27
+  - madb_id: M1060966
+    number: "Volume. 7"
+    isbn: "9784832204911"
+    published: 2025-04-28
+  - madb_id: M1066007
+    number: "Volume. 8"
+    isbn: "9784832205314"
+    published: 2025-08-25
+  - madb_id: M1093696
+    number: "Volume. 9"
+    isbn: "9784832205666"
+    published: 2025-12-22
+  - madb_id: M1111370
+    number: "Volume. 10"
+    isbn: "9784832206038"
+    published: 2026-04-27
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/409505/list/"
+  serialisation: "COMIC FUZ"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

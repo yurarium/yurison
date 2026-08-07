@@ -1,0 +1,55 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-30f59d9b87d3
+route: shop-query
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "あきらかに年齢を詐称している女子高生VTuber"
+  yomi: "アキラカ ニ ネンレイ オ サショウ シテ イル ジョシコウセイ ヴイチューバー"
+creator: "なまず / ナマズ"
+publisher: "KADOKAWA"
+imprint: ""
+volume_count: 3
+first_published: 2025-04-09
+last_published: 2026-04-15
+volumes:
+  - madb_id: M1062706
+    number: "2"
+    isbn: "9784046846723"
+    published: 2025-04-09
+  - madb_id: M1087656
+    number: "3"
+    isbn: "9784046852724"
+    published: 2025-10-24
+  - madb_id: M1113770
+    number: "4"
+    isbn: "9784046601155"
+    published: 2026-04-15
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/491340/list/"
+  serialisation: "カドコミ"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

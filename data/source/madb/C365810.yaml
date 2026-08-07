@@ -1,0 +1,114 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C365810
+route: shop-query
+grouping: title-match
+madb_id: C365810
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C365810
+record_type: manga_book_series
+title:
+  ja: "球詠"
+  yomi: "タマヨミ"
+creator: "[著]マウンテンプクイチ"
+publisher: "芳文社"
+imprint: "Manga time KR comics　／　Kirara menu"
+volume_count: 18
+first_published: 2016-11
+last_published: 2026-04-18
+volumes:
+  - madb_id: M475102
+    number: "1 volume"
+    isbn: "9784832247673"
+    published: 2016-11
+  - madb_id: M483134
+    number: "2 volume"
+    isbn: "9784832248441"
+    published: 2017-06
+  - madb_id: M515291
+    number: "3 volume"
+    isbn: "9784832249080"
+    published: 2018-01
+  - madb_id: M532409
+    number: "4 volume"
+    isbn: "9784832249608"
+    published: 2018-07
+  - madb_id: M525568
+    number: "5 volume"
+    isbn: "9784832270756"
+    published: 2019-03
+  - madb_id: M811325
+    number: "6 volume"
+    isbn: "9784832271173"
+    published: 2019-09
+  - madb_id: M819863
+    number: "7 volume"
+    isbn: "9784832271845"
+    published: 2020-04
+  - madb_id: M823177
+    number: "8 volume"
+    isbn: "9784832271968"
+    published: 2020-06
+  - madb_id: M846185
+    number: "9"
+    isbn: "9784832272583"
+    published: 2021-03
+  - madb_id: M853522
+    number: "10"
+    isbn: "9784832273030"
+    published: 2021-09
+  - madb_id: M866536
+    number: "11"
+    isbn: "9784832273535"
+    published: 2022-03
+  - madb_id: M875733
+    number: "12"
+    isbn: "9784832274068"
+    published: 2022-10
+  - madb_id: M927554
+    number: "13"
+    isbn: "9784832274549"
+    published: 2023-04
+  - madb_id: M934897
+    number: "14"
+    isbn: "9784832274907"
+    published: 2023-10
+  - madb_id: M967625
+    number: "15"
+    isbn: "9784832295391"
+    published: 2024-04
+  - madb_id: M1061232
+    number: "17"
+    isbn: "9784832296305"
+    published: 2025-04-05
+  - madb_id: M1080549
+    number: "18"
+    isbn: "9784832296695"
+    published: 2025-10-03
+  - madb_id: M1112141
+    number: "19"
+    isbn: "9784832297128"
+    published: 2026-04-18
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/91351/list/"
+  serialisation: "COMIC FUZ"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C365810
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

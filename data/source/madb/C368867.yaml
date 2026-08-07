@@ -1,0 +1,158 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C368867
+route: shop-query
+grouping: title-match
+madb_id: C368867
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C368867
+record_type: manga_book_series
+title:
+  ja: "サタノファニ"
+  yomi: "SATANOPHANY"
+creator: "[著]山田恵庸"
+publisher: "講談社"
+imprint: "ヤンマガKC"
+volume_count: 29
+first_published: 2017-06
+last_published: 2026-06-29
+volumes:
+  - madb_id: M482903
+    number: "1"
+    isbn: "9784063829792"
+    published: 2017-06
+  - madb_id: M485053
+    number: "2"
+    isbn: "9784065100738"
+    published: 2017-08
+  - madb_id: M497469
+    number: "3"
+    isbn: "9784065103456"
+    published: 2017-11
+  - madb_id: M517110
+    number: "4"
+    isbn: "9784065111017"
+    published: 2018-03
+  - madb_id: M519062
+    number: "5"
+    isbn: "9784065114490"
+    published: 2018-05
+  - madb_id: M530677
+    number: "6"
+    isbn: "9784065124123"
+    published: 2018-08
+  - madb_id: M530522
+    number: "7"
+    isbn: "9784065131169"
+    published: 2018-10
+  - madb_id: M523527
+    number: "8"
+    isbn: "9784065142158"
+    published: 2019-01
+  - madb_id: M806612
+    number: "9"
+    isbn: "9784065151938"
+    published: 2019-04
+  - madb_id: M809117
+    number: "10"
+    isbn: "9784065163689"
+    published: 2019-07
+  - madb_id: M812021
+    number: "11"
+    isbn: "9784065173459"
+    published: 2019-10
+  - madb_id: M818781
+    number: "12"
+    isbn: "9784065184912"
+    published: 2020-02
+  - madb_id: M825568
+    number: "13"
+    isbn: "9784065195987"
+    published: 2020-05
+  - madb_id: M823033
+    number: "14"
+    isbn: "9784065204597"
+    published: 2020-08
+  - madb_id: M826208
+    number: "15"
+    isbn: "9784065213315"
+    published: 2020-11
+  - madb_id: M830416
+    number: "16"
+    isbn: "9784065222805"
+    published: 2021-02
+  - madb_id: M848967
+    number: "17"
+    isbn: "9784065233467"
+    published: 2021-06
+  - madb_id: M851724
+    number: "18"
+    isbn: "9784065243459"
+    published: 2021-08
+  - madb_id: M855830
+    number: "19"
+    isbn: "9784065258552"
+    published: 2021-11
+  - madb_id: M945714
+    number: "27"
+    isbn: "9784065339299"
+    published: 2023-12
+  - madb_id: M948341
+    number: "28"
+    isbn: "9784065346099"
+    published: 2024-02
+  - madb_id: M967247
+    number: "29"
+    isbn: "9784065353660"
+    published: 2024-04
+  - madb_id: M969839
+    number: "30"
+    isbn: "9784065358245"
+    published: 2024-06
+  - madb_id: M972513
+    number: "31"
+    isbn: "9784065365397"
+    published: 2024-08
+  - madb_id: M1036524
+    number: "33"
+    isbn: "9784065384589"
+    published: 2025-02-10
+  - madb_id: M1063214
+    number: "34"
+    isbn: "9784065399439"
+    published: 2025-06-23
+  - madb_id: M1079605
+    number: "35"
+    isbn: "9784065411544"
+    published: 2025-10-27
+  - madb_id: M1108735
+    number: "36"
+    isbn: "9784065425206"
+    published: 2026-02-23
+  - madb_id: M1114496
+    number: "37"
+    isbn: "9784065438220"
+    published: 2026-06-29
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/114793/list/"
+  serialisation: "コミックDAYS"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C368867
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

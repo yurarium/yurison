@@ -1,0 +1,170 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C338370
+route: shop-query
+grouping: title-match
+madb_id: C338370
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C338370
+record_type: manga_book_series
+title:
+  ja: "私がモテないのはどう考えてもお前らが悪い!"
+  yomi: "ワタシ ガ モテナイ ノ ワ ドウ カンガエテモ オマエラ ガ ワルイ"
+creator: "[著]谷川ニコ"
+publisher: "スクウェア・エニックス"
+imprint: "ガンガンコミックスonline　／　GC ONLIN"
+volume_count: 28
+first_published: 2012-01
+last_published: 2026-03-27
+volumes:
+  - madb_id: M393002
+    number: "1"
+    isbn: "9784757534803"
+    published: 2012-01
+  - madb_id: M393003
+    number: "2"
+    isbn: "9784757535978"
+    published: 2012-05
+  - madb_id: M393004
+    number: "3"
+    isbn: "9784757538184"
+    published: 2012-12
+  - madb_id: M393005
+    number: "4"
+    isbn: "9784757539808"
+    published: 2013-06
+  - madb_id: M409004
+    number: "5"
+    isbn: "9784757540644"
+    published: 2013-09
+  - madb_id: M419090
+    number: "6"
+    isbn: "9784757540255"
+    published: 2014-03
+  - madb_id: M419197
+    number: "6"
+    isbn: "9784757540248"
+    published: 2014-03
+  - madb_id: M438113
+    number: "7"
+    isbn: "9784757541221"
+    published: 2014-10
+  - madb_id: M438211
+    number: "7"
+    isbn: "9784757541214"
+    published: 2014-10
+  - madb_id: M451498
+    number: "8"
+    isbn: "9784757547131"
+    published: 2015-08
+  - madb_id: M464873
+    number: "9"
+    isbn: "9784757549111"
+    published: 2016-03
+  - madb_id: M474052
+    number: "10"
+    isbn: "9784757551251"
+    published: 2016-10
+  - madb_id: M480355
+    number: "11"
+    isbn: "9784757552777"
+    published: 2017-03
+  - madb_id: M516574
+    number: "12"
+    isbn: "9784757556249"
+    published: 2018-02
+  - madb_id: M532846
+    number: "13"
+    isbn: "9784757557772"
+    published: 2018-07
+  - madb_id: M523568
+    number: "14"
+    isbn: "9784757559769"
+    published: 2019-01
+  - madb_id: M807782
+    number: "15"
+    isbn: "9784757561199"
+    published: 2019-05
+  - madb_id: M813812
+    number: "16"
+    isbn: "9784757563780"
+    published: 2019-11
+  - madb_id: M825324
+    number: "17"
+    isbn: "9784757565531"
+    published: 2020-03
+  - madb_id: M821038
+    number: "18"
+    isbn: "9784757566668"
+    published: 2020-07
+  - madb_id: M821050
+    number: "18"
+    isbn: "9784757566651"
+    published: 2020-07
+  - madb_id: M865336
+    number: "19"
+    isbn: "9784757570917"
+    published: 2021-02
+  - madb_id: M854256
+    number: "20"
+    isbn: "9784757572805"
+    published: 2021-09
+  - madb_id: M854510
+    number: "20"
+    isbn: "9784757572324"
+    published: 2021-09
+  - madb_id: M868827
+    number: "21"
+    isbn: "9784757578104"
+    published: 2022-03
+  - madb_id: M876449
+    number: "22"
+    isbn: "9784757582002"
+    published: 2022-10
+  - madb_id: M929085
+    number: "23"
+    isbn: "9784757585720"
+    published: 2023-05
+  - madb_id: M942718
+    number: "24"
+    isbn: "9784757589001"
+    published: 2023-11
+  - madb_id: M972193
+    number: "25"
+    isbn: "9784757593015"
+    published: 2024-07
+  - madb_id: M1061228
+    number: "26"
+    isbn: "9784757596733"
+    published: 2025-02-05
+  - madb_id: M1065905
+    number: "27"
+    isbn: "9784757599543"
+    published: 2025-07-25
+  - madb_id: M1111340
+    number: "28"
+    isbn: "9784301003915"
+    published: 2026-03-27
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/2920/list/"
+  serialisation: "ガンガンONLINE"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C338370
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

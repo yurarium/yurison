@@ -1,0 +1,595 @@
+# Which print record belongs to which web serialisation, where the shop was asked and answered.
+# adapters/identity.py reads this with --attachments and attaches the C-number to the work that
+# already holds the serialisation, so a reader sees one work instead of a web row and a print row
+# they have to notice are the same thing.
+#
+# THE CHAIN. The work's own platform page listed no collected volume, so BOOK☆WALKER was asked what
+# it stocks under the work's author. The shop's answer agreed on the title and on a person
+# (data/queue/shop-query.yaml, `agreement: creator`), and the national bibliography's record agreed
+# on the title and on a person again (adapters/madb/by_title.py). Two agreements by two parties.
+#
+# WHAT IS NOT HERE. A hit the shop matched on the title alone. Those are in
+# data/queue/shop-query-title-only.yaml, with their evidence, and are joined to nothing.
+
+source: shop-query
+role: print-edition-join
+retrieved: 2026-08-07
+record_type: shop_query_join
+joins_total: 96
+joins:
+  - anchor: "madb:madb-t-6c54cd5e15dc"
+    id: "w00697"
+    work: "抱かれたい女〜JDだけどアラサー女子に買われています〜"
+    retrieved: 2026-08-07
+    basis: >-
+      抱かれたい女〜JDだけどアラサー女子に買われています〜 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/340633/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C450342"
+    id: "w00175"
+    work: "酒と鬼は二合まで"
+    retrieved: 2026-08-07
+    basis: >-
+      酒と鬼は二合まで lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/432975/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-ad42ce32a613"
+    id: "w00638"
+    work: "おしえごと 同人教師と天才ギャル"
+    retrieved: 2026-08-07
+    basis: >-
+      おしえごと 同人教師と天才ギャル lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/441729/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-ef28069b8c5a"
+    id: "w00622"
+    work: "スケバンと転校生"
+    retrieved: 2026-08-07
+    basis: >-
+      スケバンと転校生 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/363416/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C449662"
+    id: "w00511"
+    work: "彩香ちゃんは弘子先輩に恋してる"
+    retrieved: 2026-08-07
+    basis: >-
+      彩香ちゃんは弘子先輩に恋してる lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/316870/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-cb368e6d704e"
+    id: "w00650"
+    work: "白妙様、秘密ですよ／読切版"
+    retrieved: 2026-08-07
+    basis: >-
+      白妙様、秘密ですよ／読切版 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C366609"
+    id: "w00581"
+    work: "おねだりしてみて"
+    retrieved: 2026-08-07
+    basis: >-
+      おねだりしてみて lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-54b761830d21"
+    id: "w00708"
+    work: "阿久津さんは推しに似ている"
+    retrieved: 2026-08-07
+    basis: >-
+      阿久津さんは推しに似ている lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/449683/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-e8a03476b0d4"
+    id: "w00167"
+    work: "新刊100億冊ください"
+    retrieved: 2026-08-07
+    basis: >-
+      新刊100億冊ください lists no collected volume on its own platform page, and bookwalker.jp answers the title query with https://bookwalker.jp/series/557808/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C368867"
+    id: "w00054"
+    work: "サタノファニ"
+    retrieved: 2026-08-07
+    basis: >-
+      サタノファニ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/114793/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C450589"
+    id: "w00054"
+    work: "サタノファニ"
+    retrieved: 2026-08-07
+    basis: >-
+      サタノファニ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/114793/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-f2ab6d5672fb"
+    id: "w00054"
+    work: "サタノファニ"
+    retrieved: 2026-08-07
+    basis: >-
+      サタノファニ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/114793/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-1b353f104a5b"
+    id: "w00115"
+    work: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
+    retrieved: 2026-08-07
+    basis: >-
+      シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/508729/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C434160"
+    id: "w00821"
+    work: "おとなになっても"
+    retrieved: 2026-08-07
+    basis: >-
+      おとなになっても lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/222469/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-6231afe73b19"
+    id: "w00807"
+    work: "らぶ あんど ぴーす"
+    retrieved: 2026-08-07
+    basis: >-
+      らぶ あんど ぴーす lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/403855/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-acae9ef696b4"
+    id: "w00807"
+    work: "らぶ あんど ぴーす"
+    retrieved: 2026-08-07
+    basis: >-
+      らぶ あんど ぴーす lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/403855/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-eb02d57c8851"
+    id: "w00707"
+    work: "夜のクラゲは泳げない"
+    retrieved: 2026-08-07
+    basis: >-
+      夜のクラゲは泳げない lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/469569/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-249b0191af00"
+    id: "w00585"
+    work: "最果てのセレナード"
+    retrieved: 2026-08-07
+    basis: >-
+      最果てのセレナード lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/411898/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-0aa83a442127"
+    id: "w00348"
+    work: "シュガーガール・ドリップ"
+    retrieved: 2026-08-07
+    basis: >-
+      シュガーガール・ドリップ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/481585/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-d9bde290a044"
+    id: "w00902"
+    work: "蓼食う君も好き好き"
+    retrieved: 2026-08-07
+    basis: >-
+      蓼食う君も好き好き lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/355816/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-7c9512408bab"
+    id: "w00931"
+    work: "ワケあって社長令嬢に拾われました"
+    retrieved: 2026-08-07
+    basis: >-
+      ワケあって社長令嬢に拾われました lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/352363/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C433147"
+    id: "w00936"
+    work: "今日、小柴葵に会えたら。"
+    retrieved: 2026-08-07
+    basis: >-
+      今日、小柴葵に会えたら。 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/213649/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C449208"
+    id: "w00894"
+    work: "殺し屋やめたい!"
+    retrieved: 2026-08-07
+    basis: >-
+      殺し屋やめたい! lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/322023/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C434691"
+    id: "w00015"
+    work: "一畳間まんきつ暮らし！"
+    retrieved: 2026-08-07
+    basis: >-
+      一畳間まんきつ暮らし！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/225301/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C335320"
+    id: "w00837"
+    work: "けいおん！Ｓｈｕｆｆｌｅ"
+    retrieved: 2026-08-07
+    basis: >-
+      けいおん！Ｓｈｕｆｆｌｅ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/2757/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C435773"
+    id: "w00837"
+    work: "けいおん！Ｓｈｕｆｆｌｅ"
+    retrieved: 2026-08-07
+    basis: >-
+      けいおん！Ｓｈｕｆｆｌｅ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/2757/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C438164"
+    id: "w00722"
+    work: "紡ぐ乙女と大正の月"
+    retrieved: 2026-08-07
+    basis: >-
+      紡ぐ乙女と大正の月 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/250007/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C437705"
+    id: "w00006"
+    work: "星屑テレパス"
+    retrieved: 2026-08-07
+    basis: >-
+      星屑テレパス lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/253315/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C419177"
+    id: "w00588"
+    work: "恋する小惑星（アステロイド）"
+    retrieved: 2026-08-07
+    basis: >-
+      恋する小惑星（アステロイド） lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/152477/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-bf9e1bf98432"
+    id: "w00588"
+    work: "恋する小惑星（アステロイド）"
+    retrieved: 2026-08-07
+    basis: >-
+      恋する小惑星（アステロイド） lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/152477/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C451816"
+    id: "w00518"
+    work: "ヲトメは義母に恋してる"
+    retrieved: 2026-08-07
+    basis: >-
+      ヲトメは義母に恋してる lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/297554/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C450497"
+    id: "w00549"
+    work: "瑠東さんには敵いません！"
+    retrieved: 2026-08-07
+    basis: >-
+      瑠東さんには敵いません！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/316770/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C449946"
+    id: "w00041"
+    work: "しあわせ鳥見んぐ"
+    retrieved: 2026-08-07
+    basis: >-
+      しあわせ鳥見んぐ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/321202/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-59ced486370a"
+    id: "w00574"
+    work: "最果てのともだち"
+    retrieved: 2026-08-07
+    basis: >-
+      最果てのともだち lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/324411/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-332de2da60b0"
+    id: "w00194"
+    work: "ばっどがーる"
+    retrieved: 2026-08-07
+    basis: >-
+      ばっどがーる lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/337580/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-384afe50aeec"
+    id: "w00663"
+    work: "ももいろモンタージュ"
+    retrieved: 2026-08-07
+    basis: >-
+      ももいろモンタージュ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/381593/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-396fcb5eb045"
+    id: "w00805"
+    work: "ほうかご再テンセイ！"
+    retrieved: 2026-08-07
+    basis: >-
+      ほうかご再テンセイ！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/372945/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-5799fbbd2387"
+    id: "w00181"
+    work: "しゅがー・みーつ・がーる！"
+    retrieved: 2026-08-07
+    basis: >-
+      しゅがー・みーつ・がーる！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/459334/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-96b7ccde2466"
+    id: "w00040"
+    work: "IDOL×IDOL STORY！"
+    retrieved: 2026-08-07
+    basis: >-
+      IDOL×IDOL STORY！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/409505/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-02ca65312e43"
+    id: "w00706"
+    work: "志摩風さんのAクイック"
+    retrieved: 2026-08-07
+    basis: >-
+      志摩風さんのAクイック lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/448378/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-a3a904353d46"
+    id: "w00330"
+    work: "性別不明な殺し屋さんがカワイすぎる。"
+    retrieved: 2026-08-07
+    basis: >-
+      性別不明な殺し屋さんがカワイすぎる。 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/448379/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-ac6492f2d7a6"
+    id: "w00112"
+    work: "エイティエイトを２でわって"
+    retrieved: 2026-08-07
+    basis: >-
+      エイティエイトを２でわって lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/452629/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-f5a4aa4e04f0"
+    id: "w00537"
+    work: "コンカフェ嬢は恋を着る"
+    retrieved: 2026-08-07
+    basis: >-
+      コンカフェ嬢は恋を着る lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/490418/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-bfaa83343062"
+    id: "w00028"
+    work: "うさぎはかく語りき"
+    retrieved: 2026-08-07
+    basis: >-
+      うさぎはかく語りき lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/509407/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-e78d7a1417d7"
+    id: "w00221"
+    work: "星野ヒバナはみつがれる"
+    retrieved: 2026-08-07
+    basis: >-
+      星野ヒバナはみつがれる lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/539691/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-70911cb03491"
+    id: "w00058"
+    work: "このままモブじゃ終われない！"
+    retrieved: 2026-08-07
+    basis: >-
+      このままモブじゃ終われない！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/506010/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C358066"
+    id: "w00728"
+    work: "こはる日和。"
+    retrieved: 2026-08-07
+    basis: >-
+      こはる日和。 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/57090/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C365810"
+    id: "w00026"
+    work: "球詠"
+    retrieved: 2026-08-07
+    basis: >-
+      球詠 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/91351/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C418926"
+    id: "w00629"
+    work: "夜と海"
+    retrieved: 2026-08-07
+    basis: >-
+      夜と海 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/169632/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C367890"
+    id: "w00957"
+    work: "両片想いな双子姉妹"
+    retrieved: 2026-08-07
+    basis: >-
+      両片想いな双子姉妹 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-dc427b32124b"
+    id: "w00437"
+    work: "シャイなあの子に懐かれたい"
+    retrieved: 2026-08-07
+    basis: >-
+      シャイなあの子に懐かれたい lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/493464/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-5335a4da2cde"
+    id: "w00364"
+    work: "性悪天才幼馴染との勝負に負けて初体験を全部奪われる話"
+    retrieved: 2026-08-07
+    basis: >-
+      性悪天才幼馴染との勝負に負けて初体験を全部奪われる話 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/481518/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-e2966e2238ab"
+    id: "w00350"
+    work: "蠱毒の胡蝶はどんな夢を見るのか？"
+    retrieved: 2026-08-07
+    basis: >-
+      蠱毒の胡蝶はどんな夢を見るのか？ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/487992/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-21f26387a13b"
+    id: "w00271"
+    work: "カルネアデス"
+    retrieved: 2026-08-07
+    basis: >-
+      カルネアデス lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/498547/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-814dc25f7e52"
+    id: "w00577"
+    work: "殺し殺され三角関係に私が今から入るんですか？"
+    retrieved: 2026-08-07
+    basis: >-
+      殺し殺され三角関係に私が今から入るんですか？ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/485424/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-19988323611d"
+    id: "w00298"
+    work: "アプリコットファズ"
+    retrieved: 2026-08-07
+    basis: >-
+      アプリコットファズ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/499340/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-30f59d9b87d3"
+    id: "w00053"
+    work: "あきらかに年齢を詐称している女子高生VTuber"
+    retrieved: 2026-08-07
+    basis: >-
+      あきらかに年齢を詐称している女子高生VTuber lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/491340/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-8e43062655eb"
+    id: "w00281"
+    work: "転生王女と天才令嬢の魔法革命 【タテスク】"
+    retrieved: 2026-08-07
+    basis: >-
+      転生王女と天才令嬢の魔法革命 【タテスク】 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/285398/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-1399e76949f4"
+    id: "w00888"
+    work: "ハナちゃん匂いかがせて"
+    retrieved: 2026-08-07
+    basis: >-
+      ハナちゃん匂いかがせて lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/431508/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C451273"
+    id: "w00969"
+    work: "研究棟の真夜中ごはん"
+    retrieved: 2026-08-07
+    basis: >-
+      研究棟の真夜中ごはん lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/284563/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-efd8e10072cd"
+    id: "w00119"
+    work: "魔女とくゅらす"
+    retrieved: 2026-08-07
+    basis: >-
+      魔女とくゅらす lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/560376/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-6914778f540d"
+    id: "w00353"
+    work: "昨日シたのに覚えてないの？ 百合えっち短編集"
+    retrieved: 2026-08-07
+    basis: >-
+      昨日シたのに覚えてないの？ 百合えっち短編集 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-baa4c71bbb48"
+    id: "w00169"
+    work: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
+    retrieved: 2026-08-07
+    basis: >-
+      無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/494120/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-91483dd6f954"
+    id: "w00486"
+    work: "超深宇宙より愛をこめて【読み切り版】"
+    retrieved: 2026-08-07
+    basis: >-
+      超深宇宙より愛をこめて【読み切り版】 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/543199/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C417142"
+    id: "w00379"
+    work: "さよならローズガーデン"
+    retrieved: 2026-08-07
+    basis: >-
+      さよならローズガーデン lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/189276/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-0170b99a3afa"
+    id: "w00044"
+    work: "妖怪殲滅のサイコリリー"
+    retrieved: 2026-08-07
+    basis: >-
+      妖怪殲滅のサイコリリー lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-390a745086d4"
+    id: "w00313"
+    work: "かわいい同盟"
+    retrieved: 2026-08-07
+    basis: >-
+      かわいい同盟 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/561005/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-2d902be7e420"
+    id: "w00428"
+    work: "この百合はフィクションです"
+    retrieved: 2026-08-07
+    basis: >-
+      この百合はフィクションです lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/398938/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-644b8133c6a3"
+    id: "w00432"
+    work: "ロックは淑女の嗜みでして"
+    retrieved: 2026-08-07
+    basis: >-
+      ロックは淑女の嗜みでして lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/410984/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-ffa0d442947f"
+    id: "w00432"
+    work: "ロックは淑女の嗜みでして"
+    retrieved: 2026-08-07
+    basis: >-
+      ロックは淑女の嗜みでして lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/410984/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-f5b2580c1051"
+    id: "w00360"
+    work: "私のブルーガーネット"
+    retrieved: 2026-08-07
+    basis: >-
+      私のブルーガーネット lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/499654/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C367748"
+    id: "w00991"
+    work: "将来的に死んでくれ"
+    retrieved: 2026-08-07
+    basis: >-
+      将来的に死んでくれ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/109855/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C447569"
+    id: "w00958"
+    work: "世が夜なら！"
+    retrieved: 2026-08-07
+    basis: >-
+      世が夜なら！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/280577/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-03b3bb0716cf"
+    id: "w00097"
+    work: "念願の悪役令嬢の身体を手に入れたぞ!"
+    retrieved: 2026-08-07
+    basis: >-
+      念願の悪役令嬢の身体を手に入れたぞ! lists no collected volume on its own platform page, and bookwalker.jp answers the title query with https://bookwalker.jp/series/460229/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-a3548e5f53c8"
+    id: "w01224"
+    work: "ドリーム☆ジャンボ☆ガール"
+    retrieved: 2026-08-07
+    basis: >-
+      ドリーム☆ジャンボ☆ガール lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/540317/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-5e960c1b3f47"
+    id: "w01225"
+    work: "アイドラトリィ"
+    retrieved: 2026-08-07
+    basis: >-
+      アイドラトリィ lists no collected volume on its own platform page, and bookwalker.jp answers the title query with https://bookwalker.jp/series/556343/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-ec06671aa9fe"
+    id: "w00100"
+    work: "ファタールゲーム"
+    retrieved: 2026-08-07
+    basis: >-
+      ファタールゲーム lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/552372/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-64a9bb50bfee"
+    id: "w01226"
+    work: "オカルトタイムズ"
+    retrieved: 2026-08-07
+    basis: >-
+      オカルトタイムズ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/565809/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-ea0dd814c617"
+    id: "w00544"
+    work: "おぼろとまち"
+    retrieved: 2026-08-07
+    basis: >-
+      おぼろとまち lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/477822/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C335484"
+    id: "w00392"
+    work: "オトメの帝国"
+    retrieved: 2026-08-07
+    basis: >-
+      オトメの帝国 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-7adcf0662ce3"
+    id: "w00716"
+    work: "魔法少女201"
+    retrieved: 2026-08-07
+    basis: >-
+      魔法少女201 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/460795/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-26a9f1caf294"
+    id: "w00029"
+    work: "春雷卓球"
+    retrieved: 2026-08-07
+    basis: >-
+      春雷卓球 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-2afa474a2e35"
+    id: "w00736"
+    work: "ペンションライフ・ヴァンパイア"
+    retrieved: 2026-08-07
+    basis: >-
+      ペンションライフ・ヴァンパイア lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/419554/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-cabc5fa5d834"
+    id: "w00736"
+    work: "ペンションライフ・ヴァンパイア"
+    retrieved: 2026-08-07
+    basis: >-
+      ペンションライフ・ヴァンパイア lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/419554/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C421881"
+    id: "w00418"
+    work: "お姉さんは女子小学生に興味があります。"
+    retrieved: 2026-08-07
+    basis: >-
+      お姉さんは女子小学生に興味があります。 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/148804/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-abd2dd927565"
+    id: "w00316"
+    work: "シュナイダーラリー"
+    retrieved: 2026-08-07
+    basis: >-
+      シュナイダーラリー lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/558182/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-e6169b6a7a84"
+    id: "w00383"
+    work: "恋に恋するコイビト関係"
+    retrieved: 2026-08-07
+    basis: >-
+      恋に恋するコイビト関係 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/487937/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C420047"
+    id: "w00982"
+    work: "ストライク・オア・ガター"
+    retrieved: 2026-08-07
+    basis: >-
+      ストライク・オア・ガター lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/194748/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-7dc04bbcea37"
+    id: "w00820"
+    work: "猫魔法が世界に革命を起こすそうですよ?"
+    retrieved: 2026-08-07
+    basis: >-
+      猫魔法が世界に革命を起こすそうですよ? lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/459252/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-0b2a191062cc"
+    id: "w00021"
+    work: "DOUBLE HELIX BLOSSOM"
+    retrieved: 2026-08-07
+    basis: >-
+      DOUBLE HELIX BLOSSOM lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/468696/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C338370"
+    id: "w00197"
+    work: "私がモテないのはどう考えてもお前らが悪い!"
+    retrieved: 2026-08-07
+    basis: >-
+      私がモテないのはどう考えてもお前らが悪い! lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/2920/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-40e8b6ca1e74"
+    id: "w00033"
+    work: "上杉くんは女の子をやめたい"
+    retrieved: 2026-08-07
+    basis: >-
+      上杉くんは女の子をやめたい lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/491752/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-206fb68174f3"
+    id: "w00866"
+    work: "すぐ泣く先輩"
+    retrieved: 2026-08-07
+    basis: >-
+      すぐ泣く先輩 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/431099/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-20de56b34516"
+    id: "w00930"
+    work: "バニーズクエスト"
+    retrieved: 2026-08-07
+    basis: >-
+      バニーズクエスト lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/371340/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:C449503"
+    id: "w00984"
+    work: "マルジナルテイラ"
+    retrieved: 2026-08-07
+    basis: >-
+      マルジナルテイラ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/302657/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.
+  - anchor: "madb:madb-t-41eb547b1cad"
+    id: "w00952"
+    work: "ロイヤルテーラー ―王宮の裁縫師―"
+    retrieved: 2026-08-07
+    basis: >-
+      ロイヤルテーラー ―王宮の裁縫師― lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/365043/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work.

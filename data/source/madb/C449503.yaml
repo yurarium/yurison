@@ -1,0 +1,54 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C449503
+route: shop-query
+grouping: mixed
+madb_id: C449503
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C449503
+record_type: manga_book_series
+title:
+  ja: "マルジナルテイラ"
+  yomi: "マルジナルテイラ"
+creator: "[著]limlim"
+publisher: "講談社"
+imprint: "ヤンマガKC"
+volume_count: 3
+first_published: 2021-06
+last_published: 2022-08
+volumes:
+  - madb_id: M849443
+    number: "1"
+    isbn: "9784065236741"
+    published: 2021-06
+  - madb_id: M857112
+    number: "2"
+    isbn: "9784065258842"
+    published: 2021-11
+  - madb_id: M873523
+    number: "3"
+    isbn: "9784065287903"
+    published: 2022-08
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/302657/list/"
+  serialisation: "ヤンマガWeb"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C449503
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

@@ -1,0 +1,67 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-41eb547b1cad
+route: shop-query
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "ロイヤルテーラー : 王宮の裁縫師"
+  yomi: "ロイヤル テーラー : オウキュウ ノ サイホウシ"
+creator: "野分なか実"
+publisher: "一迅社"
+publisher_stated: "[頒布]講談社 / 一迅社"
+publishers:
+  - name: "講談社"
+    role: distributor
+    role_stated: "頒布"
+  - name: "一迅社"
+    role: publisher
+imprint: "IDコミックス"
+imprint_stated: "IDコミックス / Zero-sum comics"
+volume_count: 4
+first_published: 2022-07
+last_published: 2024-07
+volumes:
+  - madb_id: M871343
+    number: "1"
+    isbn: "9784758037617"
+    published: 2022-07
+  - madb_id: M881484
+    number: "2"
+    isbn: "9784758038416"
+    published: 2023-02
+  - madb_id: M941472
+    number: "3"
+    isbn: "9784758039451"
+    published: 2023-11
+  - madb_id: M970702
+    number: "4"
+    isbn: "9784758085304"
+    published: 2024-07
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/365043/list/"
+  serialisation: "ゼロサムオンライン"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

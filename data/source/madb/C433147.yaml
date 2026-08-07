@@ -1,0 +1,65 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C433147
+route: shop-query
+grouping: mixed
+madb_id: C433147
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C433147
+record_type: manga_book_series
+title:
+  ja: "今日、小柴葵に会えたら。"
+  yomi: "キョウ 、 コシバ アオイ ニ アエタラ 。"
+creator: "[原作]竹岡葉月 / [漫画]フライ"
+publisher: "一迅社"
+publisher_stated: "[発売]講談社 / 一迅社"
+publishers:
+  - name: "講談社"
+    role: distributor
+    role_stated: "発売"
+  - name: "一迅社"
+    role: publisher
+imprint: "IDコミックス"
+imprint_stated: "IDコミックス / Rex comics"
+volume_count: 4
+first_published: 2019-08
+last_published: 2022-08
+volumes:
+  - madb_id: M824024
+    number: "2"
+    isbn: "9784758068703"
+  - madb_id: M809357
+    number: "1"
+    isbn: "9784758068208"
+    published: 2019-08
+  - madb_id: M850877
+    number: "3"
+    isbn: "9784758069359"
+    published: 2021-08
+  - madb_id: M872531
+    number: "4"
+    isbn: "9784758069915"
+    published: 2022-08
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/213649/list/"
+  serialisation: "コミックDAYS"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C433147
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

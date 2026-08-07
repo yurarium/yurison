@@ -1,0 +1,55 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-02ca65312e43
+route: shop-query
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "志摩風さんのAクイック."
+  yomi: "シマカゼサン ノ A クイック."
+creator: "絵茶漬け"
+publisher: "芳文社"
+imprint: "FUZ comics"
+volume_count: 3
+first_published: 2024-01
+last_published: 2024-06
+volumes:
+  - madb_id: M946517
+    number: "1"
+    isbn: "9784832203563"
+    published: 2024-01
+  - madb_id: M966001
+    number: "2"
+    isbn: "9784832203747"
+    published: 2024-03
+  - madb_id: M969764
+    number: "3"
+    isbn: "9784832204058"
+    published: 2024-06
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/448378/list/"
+  serialisation: "COMIC FUZ"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

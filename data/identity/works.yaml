@@ -7,7 +7,7 @@
 #
 # A merged entry keeps `merged_into` and stays resolvable, because an address published
 # once has to keep working. See adapters/identity.py.
-generated: 2026-08-06
+generated: 2026-08-07
 works:
   - id: w00001
     title: "娘が彼女を連れてきた話"
@@ -28,10 +28,12 @@ works:
     title: "乙女のおかず"
     anchors:
       - "web:https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/d895fc7298bc7db33498829ef20a3278"
+      - "madb:madb-t-7d99fe0af23a"
   - id: w00005
     title: "安達としまむら"
     anchors:
       - "web:https://comic-walker.com/detail/KC_004197_S"
+      - "madb:C434695"
   - id: w00006
     title: "星屑テレパス"
     anchors:
@@ -44,6 +46,7 @@ works:
     title: "ステラ・ステップ"
     anchors:
       - "web:https://kimicomi.com/series/8acb58b98ca8f"
+      - "madb:madb-t-1a1c62a4cedf"
   - id: w00009
     title: "魔王城デート大作戦!"
     anchors:
@@ -58,6 +61,7 @@ works:
     title: "ワインガールズ"
     anchors:
       - "web:https://kimicomi.com/series/f42014b3e7df6"
+      - "madb:C421663"
   - id: w00012
     title: "運命は役に立たない"
     anchors:
@@ -66,10 +70,12 @@ works:
     title: "裏世界ピクニック"
     anchors:
       - "web:https://www.ganganonline.com/title/38"
+      - "madb:C421003"
   - id: w00014
     title: "私を喰べたい、ひとでなし"
     anchors:
       - "web:https://comic-walker.com/detail/KC_003258_S"
+      - "madb:C449102"
   - id: w00015
     title: "一畳間まんきつ暮らし！"
     anchors:
@@ -78,23 +84,28 @@ works:
     title: "雨夜の月"
     anchors:
       - "web:https://comic-days.com/episode/12207421983645810020"
+      - "madb:C451264"
   - id: w00017
     title: "怪異部～M県Y市の怪現象について～"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006547_S"
+      - "madb:madb-t-4291a0506fa8"
   - id: w00018
     title: "聖女先生の魔法は進んでる！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006695_S"
+      - "madb:madb-t-d04e15470a78"
   - id: w00019
     title: "リリィズコンプレックス"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005531_S"
       - "madb:bw-515277"
+      - "madb:madb-t-3e81bb4cac76"
   - id: w00020
     title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
     anchors:
       - "web:https://comic-action.com/episode/12207421983913993738"
+      - "madb:madb-t-bfd94610655a"
   - id: w00021
     title: "DOUBLE HELIX BLOSSOM"
     anchors:
@@ -104,14 +115,17 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_016753_S"
       - "madb:bw-e5a8a395-8910-498d-8f1c-206ee89acbe5"
+      - "madb:madb-t-4454c8e89090"
   - id: w00023
     title: "くちべた食堂"
     anchors:
       - "web:https://comic-walker.com/detail/KC_003451_S"
+      - "madb:madb-t-938ebd921083"
   - id: w00024
     title: "カムパネルラの塔"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005943_S"
+      - "madb:madb-t-46025916f6db"
   - id: w00025
     title: "この湯で、あなたと"
     anchors:
@@ -124,6 +138,7 @@ works:
     title: "ニニンがシノブ伝ぷらす"
     anchors:
       - "web:https://comic-walker.com/detail/KC_003297_S"
+      - "madb:madb-t-99918316683e"
   - id: w00028
     title: "うさぎはかく語りき"
     anchors:
@@ -136,14 +151,17 @@ works:
     title: "七限目は忍者修行です！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_007122_S"
+      - "madb:madb-t-33578de1efb8"
   - id: w00031
     title: "君となら、明日を歌えるの"
     anchors:
       - "web:https://comic-walker.com/detail/KC_007138_S"
+      - "madb:madb-t-67304103dbd0"
   - id: w00032
     title: "機動戦士ガンダム 水星の魔女 青春フロンティア"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006679_S"
+      - "madb:madb-t-a79e25ec8fba"
   - id: w00033
     title: "上杉くんは女の子をやめたい"
     anchors:
@@ -185,10 +203,12 @@ works:
     title: "忍者と殺し屋のふたりぐらし"
     anchors:
       - "web:https://comic-walker.com/detail/KC_004464_S"
+      - "madb:madb-t-916c6b30470e"
   - id: w00043
     title: "ガイド役の天使を殴り倒したら、死霊術師になりました ～激カワゴスロリ魔神様、サイコー!～"
     anchors:
       - "web:https://comic-earthstar.com/episode/12207421983861577217"
+      - "madb:madb-t-719f9ca98968"
   - id: w00044
     title: "妖怪殲滅のサイコリリー"
     anchors:
@@ -209,6 +229,8 @@ works:
     title: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
     anchors:
       - "web:https://comicride.jp/series/7b86cbca64ebe"
+      - "madb:madb-t-d67d5fe686c2"
+      - "madb:C435608"
   - id: w00049
     title: "ドリーム☆ジャンボ☆ガール"
     anchors:
@@ -221,11 +243,13 @@ works:
     title: "バカ女26時"
     anchors:
       - "web:https://comic.pixiv.net/works/9913"
+      - "madb:madb-t-9ff73ecefe09"
   - id: w00052
     title: "大崎さんと小森さん"
     anchors:
       - "web:https://comic-walker.com/detail/KC_014277_S"
       - "madb:bw-05f3a435-6520-4d7b-b7c5-90dda1cd1d63"
+      - "madb:madb-t-e867eb9dbfd7"
   - id: w00053
     title: "あきらかに年齢を詐称している女子高生VTuber"
     anchors:
@@ -250,6 +274,7 @@ works:
     title: "上伊那ぼたん、酔へる姿は百合の花"
     anchors:
       - "web:https://championcross.jp/series/ae4257e66bab5"
+      - "madb:C435876"
   - id: w00058
     title: "このままモブじゃ終われない！"
     anchors:
@@ -266,11 +291,13 @@ works:
     title: "ホームセンターごと呼び出された私の大迷宮リノベーション！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006431_S"
+      - "madb:madb-t-7c1afb557353"
   - id: w00062
     title: "魔法少女ノ魔女裁判"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006846_S"
       - "madb:bw-08c20c4a-0caf-472b-acd7-3f1f29ee3d1c"
+      - "madb:madb-t-a24c2343454f"
   - id: w00063
     title: "カナリアは綺羅星の夢をみる"
     anchors:
@@ -285,6 +312,7 @@ works:
     title: "バクガタリzzZ"
     anchors:
       - "web:https://comic-walker.com/detail/KC_008445_S"
+      - "madb:madb-t-8746884d692e"
   - id: w00066
     title: "ひなちゃんが生きてるなら"
     anchors:
@@ -317,6 +345,7 @@ works:
     title: "冷たくて 柔らか"
     anchors:
       - "web:https://comic.pixiv.net/works/11800"
+      - "madb:madb-t-c142afa7a3ef"
   - id: w00073
     title: "ファーストペンギン・レクイエム"
     anchors:
@@ -329,28 +358,34 @@ works:
     title: "『人斬り』少女、公爵令嬢の護衛になる"
     anchors:
       - "web:https://comicride.jp/series/b95a6b1493469"
+      - "madb:madb-t-79bda845853a"
   - id: w00076
     title: "バカに告白"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006660_S"
       - "madb:bw-c8120dd9-dd0b-4ab8-ab40-a8d447d73eb1"
+      - "madb:madb-t-0f5a163e089c"
   - id: w00077
     title: "堕天使そぷらのちゃんの復讐"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006778_S"
       - "madb:bw-568735"
+      - "madb:madb-t-21e19efb2848"
   - id: w00078
     title: "或いは、私の名探偵"
     anchors:
       - "web:https://comic-walker.com/detail/KC_007014_S"
+      - "madb:madb-t-42ede89b5da3"
   - id: w00079
     title: "あくまで!アットホームな職場です。"
     anchors:
       - "web:https://bigcomics.jp/series/cad403cdddf52"
+      - "madb:madb-t-4e919a82ae19"
   - id: w00080
     title: "モブヘブン"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006725_S"
+      - "madb:madb-t-84c2310e06a0"
   - id: w00081
     title: "獄門撫子此処ニ在リ"
     anchors:
@@ -396,10 +431,12 @@ works:
     title: "笑顔のたえない職場です。"
     anchors:
       - "web:https://comic-days.com/episode/2551460909501894661"
+      - "madb:C435397"
   - id: w00092
     title: "阿佐ヶ谷サキュバス同人物語"
     anchors:
       - "web:https://championcross.jp/episodes/c588f534a4870"
+      - "madb:madb-t-c4a8bf0aeacc"
   - id: w00093
     title: "ひとりみです"
     anchors:
@@ -410,6 +447,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_008266_S"
       - "madb:bw-9be902f5-399a-4abc-9b65-0e7f5e1bdb11"
+      - "madb:madb-t-fb26496da630"
   - id: w00095
     title: "メイド&ロイドはお嬢様のお役に立ちたい!"
     anchors:
@@ -427,6 +465,7 @@ works:
     title: "作りたい女と食べたい女"
     anchors:
       - "web:https://comic-walker.com/detail/KC_002798_S"
+      - "madb:C450012"
   - id: w00099
     title: "夢でフラれてはじまる百合"
     anchors:
@@ -441,24 +480,29 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_005678_S"
       - "madb:bw-509519"
+      - "madb:madb-t-7c5faa9170c5"
   - id: w00102
     title: "てくのぱにっくゆにばーす"
     anchors:
       - "web:https://www.sunday-webry.com/episode/12207421984001879444"
+      - "madb:madb-t-1f8b02a971dd"
   - id: w00103
     title: "猫に白鳥、蛍に小判"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006798_S"
       - "madb:bw-aff8de0d-ccfc-4911-8bd9-f7fab3b89963"
+      - "madb:madb-t-7511c60f4433"
   - id: w00104
     title: "ウィキッドスポット"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005923_S"
       - "madb:bw-60ca3f9c-9c98-46e6-a7ea-fbaf4e3d3829"
+      - "madb:madb-t-c1709e7e23e9"
   - id: w00105
     title: "オカワリいただけただろうか?"
     anchors:
       - "web:https://comic-action.com/episode/12207421983881261105"
+      - "madb:madb-t-1d64eba09dc5"
   - id: w00106
     title: "悪役令嬢のお嫁さま"
     anchors:
@@ -495,6 +539,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_006092_S"
       - "madb:bw-515912"
+      - "madb:madb-t-181d80dc0fce"
   - id: w00114
     title: "見えてますよ! 愛沢さん"
     anchors:
@@ -509,6 +554,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_007176_S"
       - "madb:bw-b462e9a6-57b3-4a30-9cf2-129eac333454"
+      - "madb:madb-t-33e5fa4f4c0a"
   - id: w00117
     title: "ひきこまり吸血姫の悶々"
     anchors:
@@ -518,6 +564,8 @@ works:
     title: "スカベンジャーズアナザースカイ"
     anchors:
       - "web:https://youngchampion.jp/series/81d9b296d7bc7"
+      - "madb:madb-t-1e5dc6278631"
+      - "madb:madb-t-0b0ad8cae7a4"
   - id: w00119
     title: "魔女とくゅらす"
     anchors:
@@ -526,6 +574,7 @@ works:
     title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
     anchors:
       - "web:https://youngchampion.jp/series/e95df2815bad1"
+      - "madb:madb-t-3f4aef7163dc"
   - id: w00121
     title: "オカルトタイムズ"
     anchors:
@@ -535,10 +584,12 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_006662_S"
       - "madb:bw-ca471de0-a6a8-4436-a24e-50c19fbe7764"
+      - "madb:madb-t-b64731722f47"
   - id: w00123
     title: "推し恋カプリチオ"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006789_S"
+      - "madb:madb-t-f4ef1eba588c"
   - id: w00124
     title: "らぶぶいっ！"
     anchors:
@@ -555,6 +606,7 @@ works:
     title: "ユリノコ"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005941_S"
+      - "madb:madb-t-b7b415f885da"
   - id: w00128
     title: "ボイタボイネ"
     anchors:
@@ -564,6 +616,7 @@ works:
     title: "創る庭"
     anchors:
       - "web:https://comic-walker.com/detail/KC_007254_S"
+      - "madb:madb-t-2042572657f4"
   - id: w00130
     title: "英雄少女と呪われの銀姫"
     anchors:
@@ -576,6 +629,7 @@ works:
     title: "ふたりべや"
     anchors:
       - "web:https://comic.pixiv.net/works/5364"
+      - "madb:C356754"
   - id: w00133
     title: "姉妹傭兵"
     anchors:
@@ -584,15 +638,18 @@ works:
     title: "晴れ晴れ日和"
     anchors:
       - "web:https://comic-walker.com/detail/KC_000848_S"
+      - "madb:C451433"
   - id: w00135
     title: "お姉さまと巨人 ～お嬢さまが異世界転生～"
     anchors:
       - "web:https://comic-walker.com/detail/KC_003240_S"
+      - "madb:madb-t-5e60a7bee2fe"
   - id: w00136
     title: "ケイヤクシマイ"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001277_S"
       - "madb:bw-372255"
+      - "madb:madb-t-49c666e778b6"
   - id: w00137
     title: "オタクには人生を積むことしかできない"
     anchors:
@@ -601,10 +658,12 @@ works:
     title: "真先輩の前ではかっこつけられない！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006747_S"
+      - "madb:madb-t-86897e17488a"
   - id: w00139
     title: "ぐがぐもぐるてん"
     anchors:
       - "web:https://comic-walker.com/detail/KC_008419_S"
+      - "madb:madb-t-49054833992d"
   - id: w00140
     title: "百合SMでふたりの気持ちはつながりますか？"
     anchors:
@@ -615,11 +674,13 @@ works:
     title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
     anchors:
       - "web:https://comic-walker.com/detail/KC_002994_S"
+      - "madb:C436894"
   - id: w00142
     title: "スロー・ステップ！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006598_S"
       - "madb:bw-547878"
+      - "madb:madb-t-5a9e9abc6aef"
   - id: w00143
     title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
     anchors:
@@ -643,6 +704,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_006666_S"
       - "madb:bw-3d8088d0-7304-4d72-9a5b-e6437b819384"
+      - "madb:madb-t-ef6d179ae367"
   - id: w00148
     title: "むちむち漫画家の完全勝利メシ 最強ボディで余命も担当編集もぶっ飛ばす!"
     anchors:
@@ -660,14 +722,17 @@ works:
     title: "魔法少女にあこがれて"
     anchors:
       - "web:https://takecomic.jp/series/0d7dee548d547"
+      - "madb:C434760"
   - id: w00152
     title: "顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005942_S"
+      - "madb:madb-t-b06a15912d61"
   - id: w00153
     title: "灼熱の卓球娘 REBURN!!"
     anchors:
       - "web:https://takecomic.jp/series/b3efcd5f3a6a7"
+      - "madb:madb-t-3f89e96573db"
   - id: w00154
     title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     anchors:
@@ -677,6 +742,7 @@ works:
     title: "お嬢様、懺悔する。"
     anchors:
       - "web:https://comic-trail.com/episode/12207421983793454538"
+      - "madb:madb-t-ff69768503bc"
   - id: w00156
     title: "超深宇宙より愛をこめて"
     anchors:
@@ -686,6 +752,7 @@ works:
     title: "明日ちゃんのセーラー服"
     anchors:
       - "web:https://tonarinoyj.jp/episode/12207421983966650782"
+      - "madb:C368198"
   - id: w00158
     title: "あの子とふたりで。"
     anchors:
@@ -694,6 +761,7 @@ works:
     title: "彼なんかより、私のほうがいいでしょ？"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006299_S"
+      - "madb:madb-t-6fe89b8fe4a2"
   - id: w00160
     title: "暴走!?サキュバスせんぱい"
     anchors:
@@ -770,10 +838,12 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_005710_S"
       - "madb:bw-504728"
+      - "madb:madb-t-d50c75ec94ea"
   - id: w00177
     title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です！…って、魔王が女の子の場合はどうすればいいのですか！？～"
     anchors:
       - "web:https://youngchampion.jp/series/86c1162f34a04"
+      - "madb:madb-t-a97405d8955a"
   - id: w00178
     title: "ガールズ×ヴァンパイア"
     anchors:
@@ -799,19 +869,23 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_000188_S"
       - "madb:bw-182075"
+      - "madb:C418096"
   - id: w00184
     title: "どれが恋かがわからない"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001190_S"
       - "madb:bw-352987"
+      - "madb:madb-t-7b2d8fe1fda0"
   - id: w00185
     title: "田所さん"
     anchors:
       - "web:https://kimicomi.com/series/a869ecfca8da9"
+      - "madb:C436703"
   - id: w00186
     title: "T.Tラバーズ。"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005506_S"
+      - "madb:madb-t-a4506fbd38eb"
   - id: w00187
     title: "白き乙女の人狼"
     anchors:
@@ -822,10 +896,13 @@ works:
     title: "恋より青く"
     anchors:
       - "web:https://comic-ogyaaa.com/episode/12207421983939282905"
+      - "madb:madb-t-45f9f68dc8e7"
+      - "madb:madb-t-465c2a8f5bba"
   - id: w00189
     title: "今年注目のエースちゃん"
     anchors:
       - "web:https://takecomic.jp/series/b53a116d9f0e7"
+      - "madb:madb-t-ef6478aa5d84"
   - id: w00190
     title: "貴女へささげるサディスティック"
     anchors:
@@ -835,6 +912,7 @@ works:
     title: "紗痲 Fallin' Jail"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006671_S"
+      - "madb:madb-t-3bdd16863b9f"
   - id: w00192
     title: "まるせっせんす"
     anchors:
@@ -851,6 +929,7 @@ works:
     title: "ウは宇宙ヤバイのウ!"
     anchors:
       - "web:https://takecomic.jp/series/135220287d820"
+      - "madb:madb-t-aac05b8c7c26"
   - id: w00196
     title: "はるい駈歩"
     anchors:
@@ -878,6 +957,7 @@ works:
     title: "限界OLさんは悪役令嬢さまに仕えたい"
     anchors:
       - "web:https://youngchampion.jp/series/90af950945671"
+      - "madb:madb-t-b16d37d2fb40"
   - id: w00202
     title: "好都合セミフレンド"
     anchors:
@@ -895,10 +975,12 @@ works:
     title: "小林さんちのメイドラゴン"
     anchors:
       - "web:https://comic-action.com/episode/12207421983825422803"
+      - "madb:C340222"
   - id: w00206
     title: "新・魔法科高校の劣等生 キグナスの乙女たち"
     anchors:
       - "web:https://comic-walker.com/detail/KC_003255_S"
+      - "madb:C448546"
   - id: w00207
     title: "ときときチャンネル"
     anchors:
@@ -919,6 +1001,7 @@ works:
     title: "少女星間漂流記"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006183_S"
+      - "madb:madb-t-15d9b8bdb852"
   - id: w00212
     title: "君になれたら"
     anchors:
@@ -967,6 +1050,7 @@ works:
     title: "人妻教師が教え子の女子高生にドはまりする話"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006978_S"
+      - "madb:madb-t-33d17b83576b"
   - id: w00223
     title: "私だって青春したいですよ、本当は。"
     anchors:
@@ -980,6 +1064,7 @@ works:
     title: "転生王女と天才令嬢の魔法革命"
     anchors:
       - "web:https://comic-walker.com/detail/KC_003176_S"
+      - "madb:C447301"
   - id: w00226
     title: "犬も歩けば姫に当たる"
     anchors:
@@ -994,6 +1079,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_002468_S"
       - "madb:bw-346797"
+      - "madb:madb-t-a8857a5f6f52"
   - id: w00229
     title: "天瀬ましろはイきたくない！"
     anchors:
@@ -1006,10 +1092,12 @@ works:
     title: "悪いが私は百合じゃない"
     anchors:
       - "web:https://comic-walker.com/detail/KC_004432_S"
+      - "madb:C435958"
   - id: w00232
     title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
     anchors:
       - "web:https://www.ganganonline.com/title/2349"
+      - "madb:madb-t-87a308ea504d"
   - id: w00233
     title: "さかなでは足もつかない"
     anchors:
@@ -1026,10 +1114,12 @@ works:
     title: "竜人ボディガードとお嬢様"
     anchors:
       - "web:https://comic-walker.com/detail/KC_008416_S"
+      - "madb:madb-t-f18773539e7b"
   - id: w00237
     title: "月はヒツジを数えない"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006665_S"
+      - "madb:madb-t-607ea3f5ed08"
   - id: w00238
     title: "「触れたい」は恋の始まり"
     anchors:
@@ -1039,6 +1129,7 @@ works:
     title: "ペアリングギア"
     anchors:
       - "web:https://takecomic.jp/series/f6b42b56cc099"
+      - "madb:madb-t-1224a053100f"
   - id: w00240
     title: "偏愛至上主義～岩見樹代子作品集～"
     anchors:
@@ -1157,6 +1248,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_006791_S"
       - "madb:bw-367b72a6-4efe-4cba-aaa6-b43a24f538d8"
+      - "madb:madb-t-6f2fb803a9ac"
   - id: w00265
     title: "女の子合わせ"
     anchors:
@@ -1175,6 +1267,7 @@ works:
     title: "オンニって呼んでもいいですか？"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006608_S"
+      - "madb:madb-t-b983b8356dda"
   - id: w00269
     title: "この願いが叶うなら"
     anchors:
@@ -1202,6 +1295,7 @@ works:
     title: "夢後のグレイ"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006383_S"
+      - "madb:madb-t-2f5e4d88f7a6"
   - id: w00275
     title: "由花緒リニューアル"
     anchors:
@@ -1214,11 +1308,13 @@ works:
     title: "新米姉妹のふたりごはん"
     anchors:
       - "web:https://comic-walker.com/detail/KC_002743_S"
+      - "madb:C360463"
   - id: w00278
     title: "ないしょのおふたりさま。"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001599_S"
       - "madb:bw-427166"
+      - "madb:madb-t-6435ba389fde"
   - id: w00279
     title: "citrus+"
     anchors:
@@ -1236,6 +1332,7 @@ works:
     title: "セイ少女黙示録 ですぺあ"
     anchors:
       - "web:https://bigcomics.jp/series/2c1db177ce231"
+      - "madb:madb-t-e7f9880c5e15"
   - id: w00283
     title: "多良さんのウワサ"
     anchors:
@@ -1296,6 +1393,7 @@ works:
     title: "エルフとひとつ屋根の下"
     anchors:
       - "web:https://championcross.jp/series/72ba4fac7c0f4"
+      - "madb:madb-t-dcb02eb991ca"
   - id: w00297
     title: "湾田さんと蛇ノ目さん"
     anchors:
@@ -1308,6 +1406,7 @@ works:
     title: "できそこないの姫君たち"
     anchors:
       - "web:https://takecomic.jp/series/21c8e22896612"
+      - "madb:C418112"
   - id: w00300
     title: "狙いはキミだけ!"
     anchors:
@@ -1316,10 +1415,12 @@ works:
     title: "保健室はふたりきり"
     anchors:
       - "web:https://comic-walker.com/detail/KC_003780_S"
+      - "madb:madb-t-162d9674e838"
   - id: w00302
     title: "スウィートヒート!"
     anchors:
       - "web:https://bigcomics.jp/series/12543272212d3"
+      - "madb:madb-t-61498c72792c"
   - id: w00303
     title: "来航怪異の音がする ～横濱外来妖対策局～"
     anchors:
@@ -1329,6 +1430,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_005871_S"
       - "madb:bw-507024"
+      - "madb:madb-t-84a7a8976f5d"
   - id: w00305
     title: "僕らのアイは気持ち悪い"
     anchors:
@@ -1343,6 +1445,7 @@ works:
     title: "香原さんのふぇちのーと"
     anchors:
       - "web:https://takecomic.jp/series/4e4bb1b935407"
+      - "madb:madb-t-85e8d6e03e33"
   - id: w00308
     title: "ガールズライブイン・ライブハウス"
     anchors:
@@ -1351,6 +1454,7 @@ works:
     title: "ガールミートガール"
     anchors:
       - "web:https://asacomi.jp/series/d67c4f256e18f"
+      - "madb:madb-t-155d3ecbd8e6"
   - id: w00310
     title: "あんたが悪い"
     anchors:
@@ -1359,6 +1463,7 @@ works:
     title: "甘やかせ魔族ども"
     anchors:
       - "web:https://comic-walker.com/detail/KC_007108_S"
+      - "madb:madb-t-c84ee22419e5"
   - id: w00312
     title: "腹ぺここぺ子はニクと棲む!"
     anchors:
@@ -1371,6 +1476,7 @@ works:
     title: "白妙様、秘密ですよ"
     anchors:
       - "web:https://comic-boost.com/content/01650001"
+      - "madb:madb-t-cb368e6d704e"
   - id: w00315
     title: "ロリースイートロリー"
     anchors:
@@ -1392,10 +1498,12 @@ works:
     title: "幼馴染は、にゃあと鳴いてスカートのなか"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006116_S"
+      - "madb:madb-t-4a3dfe5ced0b"
   - id: w00320
     title: "超かぐや姫！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_008281_S"
+      - "madb:madb-t-8a2f3a6d6e42"
   - id: w00321
     title: "ぜんぜんかわいくない"
     anchors:
@@ -1440,11 +1548,13 @@ works:
     title: "いっそ、恋だったらよかったのに"
     anchors:
       - "web:https://comic-walker.com/detail/KC_008391_S"
+      - "madb:madb-t-6cbe377e31bb"
   - id: w00332
     title: "志乃と恋"
     anchors:
       - "web:https://comic-walker.com/detail/KC_000076_S"
       - "madb:bw-431572"
+      - "madb:madb-t-5630ed28e467"
   - id: w00333
     title: "春の埋み火"
     anchors:
@@ -1499,6 +1609,7 @@ works:
     title: "ふたり暮らしのおとりよせ日和"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001162_S"
+      - "madb:madb-t-65f782766fea"
   - id: w00346
     title: "ワイルアライブ"
     anchors:
@@ -1536,6 +1647,7 @@ works:
     title: "銀輪ボイス"
     anchors:
       - "web:https://takecomic.jp/series/de0a74a9b5715"
+      - "madb:madb-t-ed4d3054753f"
   - id: w00355
     title: "痛かったら喜んでください"
     anchors:
@@ -1554,6 +1666,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_005863_S"
       - "madb:bw-511936"
+      - "madb:madb-t-2a52bccf2bbd"
   - id: w00359
     title: "わたしのミューズ"
     anchors:
@@ -1590,10 +1703,12 @@ works:
     title: "恋と呼ぶには青すぎる"
     anchors:
       - "web:https://comic-walker.com/detail/KC_000505_S"
+      - "madb:madb-t-557a43b0cf01"
   - id: w00368
     title: "結婚したい竜宮さんは上陸しました"
     anchors:
       - "web:https://comic-walker.com/detail/KC_000139_S"
+      - "madb:madb-t-7225b5c5bda7"
   - id: w00369
     title: "カレンダーの裏側"
     anchors:
@@ -1606,10 +1721,13 @@ works:
     title: "捨てられエルフさんは世界で一番強くて可愛い！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005624_S"
+      - "madb:madb-t-9215a52560e9"
   - id: w00372
     title: "この恋を星には願わない"
     anchors:
       - "web:https://comic-walker.com/detail/KC_000622_S"
+      - "madb:madb-t-4ba4aadef2d3"
+      - "madb:madb-t-b033804ac3d3"
   - id: w00373
     title: "最後の告白"
     anchors:
@@ -1618,6 +1736,7 @@ works:
     title: "君にかわいいと叫びたい"
     anchors:
       - "web:https://comic.pixiv.net/works/11182"
+      - "madb:madb-t-34ba7ce520f1"
   - id: w00375
     title: "重しれー女"
     anchors:
@@ -1635,6 +1754,7 @@ works:
     title: "エリオと電気人形"
     anchors:
       - "web:https://tonarinoyj.jp/episode/2551460909935332583"
+      - "madb:madb-t-d13cc4eb06c6"
   - id: w00379
     title: "さよならローズガーデン"
     anchors:
@@ -1673,11 +1793,13 @@ works:
     title: "タコと天使たち"
     anchors:
       - "web:https://kimicomi.com/series/a5503338d0099"
+      - "madb:madb-t-935fe5e12633"
   - id: w00388
     title: "ぽかぽかたいわん！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001861_S"
       - "madb:bw-446190"
+      - "madb:madb-t-1b0212dce18a"
   - id: w00389
     title: "月のお寿司を抱えてねむる"
     anchors:
@@ -1688,6 +1810,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_006864_S"
       - "madb:bw-e0af70bc-edea-4f76-b0aa-33d043a39131"
+      - "madb:madb-t-48445c1cdfa0"
   - id: w00391
     title: "今夜、エーテルで待ちあわせ"
     anchors:
@@ -1700,6 +1823,7 @@ works:
     title: "イヴとイヴたち"
     anchors:
       - "web:https://g-comi.jp/series/bb5c13d2cf687"
+      - "madb:madb-t-8226e422296a"
   - id: w00394
     title: "【今日の10ページ】知らない海を教えて"
     anchors:
@@ -1712,6 +1836,7 @@ works:
     title: "いちこえ、にふり、タチアオイ"
     anchors:
       - "web:https://g-comi.jp/series/063225706887f"
+      - "madb:madb-t-b5063eb03784"
   - id: w00397
     title: "銀玉の価値を上げる方法"
     anchors:
@@ -1767,6 +1892,7 @@ works:
     title: "みだれたふたりのみたされごはん"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006006_S"
+      - "madb:madb-t-82e3c9593e1e"
   - id: w00410
     title: "私のみだらな傀儡"
     anchors:
@@ -1779,6 +1905,7 @@ works:
     title: "紅魔館の女たち"
     anchors:
       - "web:https://comic-walker.com/detail/KC_002973_S"
+      - "madb:madb-t-8af6bd491091"
   - id: w00413
     title: "ダンジョン・リリィ"
     anchors:
@@ -1817,6 +1944,7 @@ works:
     title: "サキュバスじゃないモン!"
     anchors:
       - "web:https://kimicomi.com/series/5fa1c045cc164"
+      - "madb:C421613"
   - id: w00422
     title: "徒花の約束"
     anchors:
@@ -1833,10 +1961,12 @@ works:
     title: "Qyootie Q! ―麒麟娘と婚約事情―"
     anchors:
       - "web:https://kimicomi.com/series/22386346e628c"
+      - "madb:madb-t-dd5eb4e59b11"
   - id: w00426
     title: "推しとの百合はありえない！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005464_S"
+      - "madb:madb-t-418024c316e1"
   - id: w00427
     title: "ガチ恋やめて"
     anchors:
@@ -1878,6 +2008,8 @@ works:
     title: "雪解けとアガパンサス"
     anchors:
       - "web:https://comic-walker.com/detail/KC_004735_S"
+      - "madb:madb-t-cecbfbc06561"
+      - "madb:madb-t-8262e510d282"
   - id: w00437
     title: "シャイなあの子に懐かれたい"
     anchors:
@@ -1900,36 +2032,43 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_000034_S"
       - "madb:bw-150256"
+      - "madb:C417989"
   - id: w00442
     title: "あなたが私を照らすから。"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001157_S"
       - "madb:bw-332908"
+      - "madb:madb-t-ca049b4ff871"
   - id: w00443
     title: "夢見るメイドのティータイム"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001520_S"
       - "madb:bw-404886"
+      - "madb:madb-t-0de65adfc3d8"
   - id: w00444
     title: "ギャングスタガールズ"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001433_S"
       - "madb:bw-400515"
+      - "madb:madb-t-c65f90bddebc"
   - id: w00445
     title: "偽りのマリィゴールド"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001781_S"
       - "madb:bw-431781"
+      - "madb:madb-t-ca2cca444270"
   - id: w00446
     title: "キャバ嬢だけどJDに落とされました"
     anchors:
       - "web:https://comic-walker.com/detail/KC_002072_S"
       - "madb:bw-c59e9596-55b5-4a9a-b026-bff37c20bdc5"
+      - "madb:madb-t-4daaf09b1b16"
   - id: w00447
     title: "下僕さんと主ちゃんの日常～主のためなら何でもします～"
     anchors:
       - "web:https://comic-walker.com/detail/KC_002112_S"
       - "madb:bw-b7c19eb3-1394-4f34-b4a2-c0524a37fcfc"
+      - "madb:madb-t-749dd5794175"
   - id: w00448
     title: "嫌われ魔女令嬢と男装皇子の婚約"
     anchors:
@@ -1940,6 +2079,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_006303_S"
       - "madb:bw-a0121a23-c95f-412c-bab2-2b8b4530058c"
+      - "madb:madb-t-3e4aac9b4084"
   - id: w00450
     title: "目には目を"
     anchors:
@@ -2014,6 +2154,7 @@ works:
     title: "やさしい教師の躾けかた。"
     anchors:
       - "web:https://ichicomi.com/episode/2550912965923202682"
+      - "madb:C357161"
   - id: w00466
     title: "遠山えま百合集　センセイとの時間。"
     anchors:
@@ -2192,6 +2333,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_006232_S"
       - "madb:bw-505806"
+      - "madb:madb-t-ce3e17f9f3f9"
   - id: w00510
     title: "友達をゾンビにしてそれから"
     anchors:
@@ -2237,10 +2379,12 @@ works:
     title: "修羅の箱庭"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006812_S"
+      - "madb:madb-t-971796ed393c"
   - id: w00521
     title: "フェアウェイの声をきかせて"
     anchors:
       - "web:https://championcross.jp/series/8178b4fc09df9"
+      - "madb:madb-t-4ca1aa5caa96"
   - id: w00522
     title: "付き合ってあげてもいいかな"
     anchors:
@@ -2263,6 +2407,7 @@ works:
     title: "魔法を捨てたい女の子"
     anchors:
       - "web:https://comic-ogyaaa.com/episode/2550912965881489917"
+      - "madb:madb-t-5d822ebd8e0c"
   - id: w00527
     title: "【今日の10ページ】ちゅーしたらどんなお願いも叶えてくれるお稲荷様のハレちゃん"
     anchors:
@@ -2272,6 +2417,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_001474_S"
       - "madb:bw-400523"
+      - "madb:madb-t-382c54c2f079"
   - id: w00529
     title: "アネモネは熱を帯びる"
     anchors:
@@ -2345,6 +2491,7 @@ works:
     title: "姉になりたい義姉VS百合になりたい義妹"
     anchors:
       - "web:https://magcomi.com/episode/2550912965503774095"
+      - "madb:madb-t-a1ddfa432faf"
   - id: w00547
     title: "Weg nach innen"
     anchors:
@@ -2365,6 +2512,7 @@ works:
     title: "フードコートで、また明日。"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005741_S"
+      - "madb:C451779"
   - id: w00552
     title: "乖花の退鬼師"
     anchors:
@@ -2377,6 +2525,7 @@ works:
     title: "真夜中ぱんチ"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005409_S"
+      - "madb:madb-t-86f53dc941ea"
   - id: w00555
     title: "ひめちゃんは重い女"
     anchors:
@@ -2411,6 +2560,7 @@ works:
     title: "不揃いの連理"
     anchors:
       - "web:https://comic-walker.com/detail/KC_003570_S"
+      - "madb:C418849"
   - id: w00563
     title: "ストロベリークォーツ"
     anchors:
@@ -2428,6 +2578,7 @@ works:
     anchors:
       - "web:https://comic.pixiv.net/works/11397"
       - "madb:bw-1b2e0036-d156-48f8-858e-c4028a09993f"
+      - "madb:madb-t-a84775141602"
   - id: w00567
     title: "先輩と後輩、大暴れの週末"
     anchors:
@@ -2440,6 +2591,7 @@ works:
     title: "フツーと化け物"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001384_S"
+      - "madb:madb-t-b5172ce97f5a"
   - id: w00570
     title: "冬眠少女"
     anchors:
@@ -2498,6 +2650,7 @@ works:
     title: "会長！今日はサボりましょう！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001602_S"
+      - "madb:madb-t-094e4dd70724"
   - id: w00584
     title: "ガチ恋カウント2.9"
     anchors:
@@ -2511,6 +2664,9 @@ works:
     title: "悪役令嬢の中の人〜断罪された転生者のため嘘つきヒロインに復讐いたします〜"
     anchors:
       - "web:https://comic.pixiv.net/works/7926"
+      - "madb:madb-t-db8dd71b2d91"
+      - "madb:madb-t-a5a453cec857"
+      - "madb:madb-t-ef7172c11abb"
   - id: w00587
     title: "天使と書いて悪魔と読む。逆もまた然り。"
     anchors:
@@ -2531,6 +2687,7 @@ works:
     title: "瀬戸さんを笑わせたい紬ちゃん"
     anchors:
       - "web:https://comic-days.com/episode/2550912964638789637"
+      - "madb:madb-t-66d7ecf8e98e"
   - id: w00592
     title: "すわっぷ⇔すわっぷ"
     anchors:
@@ -2539,10 +2696,12 @@ works:
     title: "親友に好きな人ができたらしい"
     anchors:
       - "web:https://comic.pixiv.net/works/11352"
+      - "madb:madb-t-50eb02e4fc8c"
   - id: w00594
     title: "よくばれ! 人間さん"
     anchors:
       - "web:https://comic-action.com/episode/2550912965000209328"
+      - "madb:madb-t-8eaba93bb90f"
   - id: w00595
     title: "プラスチックの怒り"
     anchors:
@@ -2551,10 +2710,12 @@ works:
     title: "人喰い姫のカヴァリエーレ"
     anchors:
       - "web:https://comic-zenon.com/episode/2550912965061171947"
+      - "madb:madb-t-c606593d4a78"
   - id: w00597
     title: "ブラック・ブラック・ロータス"
     anchors:
       - "web:https://comic-walker.com/detail/KC_000094_S"
+      - "madb:madb-t-024dd68ca738"
   - id: w00598
     title: "土居ちゃんはけしからん"
     anchors:
@@ -2595,10 +2756,12 @@ works:
     title: "あなたが私を変えたから"
     anchors:
       - "web:https://comic.pixiv.net/works/10873"
+      - "madb:madb-t-99e77e577d17"
   - id: w00608
     title: "結城友奈は勇者である 勇者部びより Party♪"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001680_S"
+      - "madb:madb-t-f73604f13df2"
   - id: w00609
     title: "奈落の花園"
     anchors:
@@ -2631,6 +2794,8 @@ works:
     title: "紅殻のパンドラ"
     anchors:
       - "web:https://comic-walker.com/detail/KC_000291_S"
+      - "madb:C340797"
+      - "madb:madb-t-454fa730c1f3"
   - id: w00617
     title: "シンデレラ穢れない!"
     anchors:
@@ -2660,20 +2825,24 @@ works:
     title: "アウトサイダーパラダイス"
     anchors:
       - "web:https://comic-action.com/episode/2550912964668507941"
+      - "madb:madb-t-c8ef6b31b5a9"
   - id: w00624
     title: "限界OLと女子大生が〇〇する話"
     anchors:
       - "web:https://comic-walker.com/detail/KC_000099_S"
       - "madb:bw-453729"
+      - "madb:madb-t-86908cec7f03"
   - id: w00625
     title: "アンドロイドは地雷系の夢を見る。"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005219_S"
+      - "madb:madb-t-9951a72bf08e"
   - id: w00626
     title: "副会長の主なお仕事"
     anchors:
       - "web:https://comic-walker.com/detail/KC_006002_S"
       - "madb:bw-e6984cae-6fa6-49dc-b035-d7da8965b3eb"
+      - "madb:madb-t-3bc415bd18ee"
   - id: w00627
     title: "一夜で堕ちる恋なんて"
     anchors:
@@ -2703,6 +2872,7 @@ works:
     title: "ベイビー車中ハッカーズ"
     anchors:
       - "web:https://tonarinoyj.jp/episode/2550912964759341318"
+      - "madb:madb-t-64f23cf6ab7e"
   - id: w00634
     title: "宇宙人だった君へ"
     anchors:
@@ -2727,6 +2897,7 @@ works:
     title: "白と黒～Black & White～"
     anchors:
       - "web:https://comic.j-nbooks.jp/series/b334c297c6024"
+      - "madb:C450485"
   - id: w00640
     title: "ねこみたいなのとわたし"
     anchors:
@@ -2743,6 +2914,7 @@ works:
     title: "感覚共有メイドさん！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_004833_S"
+      - "madb:madb-t-3b1e5c90a63d"
   - id: w00644
     title: "ギャルメイドと悪役令嬢 ～おじょーさまのハッピーエンドしか勝たん!～"
     anchors:
@@ -2865,6 +3037,7 @@ works:
     title: "不死犠コネクト"
     anchors:
       - "web:https://comic.pixiv.net/works/10792"
+      - "madb:madb-t-7f5dc0c22b55"
   - id: w00674
     title: "脱いでもいいよね？"
     anchors:
@@ -2905,6 +3078,8 @@ works:
     title: "毎月庭つき大家つき"
     anchors:
       - "web:https://comic-walker.com/detail/KC_003838_S"
+      - "madb:madb-t-9c520ad8fd63"
+      - "madb:madb-t-a3e0310c1105"
   - id: w00684
     title: "ギャルと委員長が偶然再会する話"
     anchors:
@@ -2913,6 +3088,7 @@ works:
     title: "ごはんのおトモに、死神と！"
     anchors:
       - "web:https://comic-boost.com/content/01230001"
+      - "madb:madb-t-272d9c7780fd"
   - id: w00686
     title: "オートクチュールの果たし状/読み切り"
     anchors:
@@ -2974,6 +3150,7 @@ works:
     title: "影と花"
     anchors:
       - "web:https://comic-action.com/episode/2550689798539500927"
+      - "madb:madb-t-1764999b3a6f"
   - id: w00701
     title: "【今日の10ページ】Mock Love"
     anchors:
@@ -2994,6 +3171,7 @@ works:
     title: "シルフの花姫"
     anchors:
       - "web:https://comic-walker.com/detail/KC_004255_S"
+      - "madb:madb-t-5c13d93e0830"
   - id: w00706
     title: "志摩風さんのAクイック"
     anchors:
@@ -3034,6 +3212,7 @@ works:
     title: "声優ラジオのウラオモテ"
     anchors:
       - "web:https://comic.pixiv.net/works/10368"
+      - "madb:C437728"
   - id: w00716
     title: "魔法少女201"
     anchors:
@@ -3096,10 +3275,13 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_004382_S"
       - "madb:bw-342025"
+      - "madb:madb-t-ad5ddaa22256"
   - id: w00731
     title: "きみと観たいレースがある"
     anchors:
       - "web:https://comic-ogyaaa.com/episode/2550689798327509028"
+      - "madb:madb-t-7c09b1a5454c"
+      - "madb:madb-t-e3d7235448ef"
   - id: w00732
     title: "かっこいい彼女"
     anchors:
@@ -3148,6 +3330,7 @@ works:
     title: "スーサイドエイジ"
     anchors:
       - "web:https://comic-walker.com/detail/KC_000821_S"
+      - "madb:madb-t-33777ecf2489"
   - id: w00744
     title: "百合拳"
     anchors:
@@ -3177,10 +3360,12 @@ works:
     title: "紅茶の魔女の優雅なる宮廷生活 チートをひた隠す最弱魔導師の窓際ライフ"
     anchors:
       - "web:https://comic-zenon.com/episode/11341664176573766903"
+      - "madb:madb-t-642551c1b3c6"
   - id: w00751
     title: "魔女の孫と七人のメイド"
     anchors:
       - "web:https://comic-action.com/episode/11341664176612435028"
+      - "madb:madb-t-487196de91e0"
   - id: w00752
     title: "庭にゾンビ来てるよ"
     anchors:
@@ -3198,11 +3383,13 @@ works:
     title: "パパのセクシードール"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001748_S"
+      - "madb:madb-t-9b1a763c66ff"
   - id: w00756
     title: "入味 この娘と食卓を囲む日から"
     anchors:
       - "web:https://comic-walker.com/detail/KC_005061_S"
       - "madb:bw-421611"
+      - "madb:madb-t-ac1419a60e50"
   - id: w00757
     title: "ねむれる友達"
     anchors:
@@ -3223,6 +3410,7 @@ works:
     title: "ケーキも花も宝石も"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001294_S"
+      - "madb:madb-t-824613f3b8dd"
   - id: w00762
     title: "ごめんね柳子"
     anchors:
@@ -3235,10 +3423,12 @@ works:
     title: "ぱりあんの園"
     anchors:
       - "web:https://comic.pixiv.net/works/10121"
+      - "madb:C285412"
   - id: w00765
     title: "蝶と帝国"
     anchors:
       - "web:https://comic-walker.com/detail/KC_002168_S"
+      - "madb:madb-t-49a8fb8b013e"
   - id: w00766
     title: "しかばね少女と愛が重い聖騎士の討伐学園ライフ"
     anchors:
@@ -3268,6 +3458,7 @@ works:
     title: "シンデレラコスプレイション"
     anchors:
       - "web:https://comic-walker.com/detail/KC_004805_S"
+      - "madb:madb-t-9ad0a72cad0a"
   - id: w00773
     title: "ラブライブ!flowers*ー蓮ノ空女学院スクールアイドルクラブー"
     anchors:
@@ -3276,15 +3467,18 @@ works:
     title: "佐久間巡査と花岡巡査は付き合いはじめた"
     anchors:
       - "web:https://comic-walker.com/detail/KC_003197_S"
+      - "madb:madb-t-82972df8543b"
   - id: w00775
     title: "キャンディ ふたりの約束"
     anchors:
       - "web:https://comic-walker.com/detail/KC_000193_S"
       - "madb:bw-6bd4c6cf-b931-40a8-9f35-c1553ef947cf"
+      - "madb:madb-t-b83ff326f20a"
   - id: w00776
     title: "明日もまた勇者のとなり"
     anchors:
       - "web:https://comic-walker.com/detail/KC_004937_S"
+      - "madb:madb-t-093f3fecc649"
   - id: w00777
     title: "キラメキRESTART→"
     anchors:
@@ -3319,6 +3513,7 @@ works:
     title: "大好きな親友がVチューバーの自分にガチ恋してた話"
     anchors:
       - "web:https://comic-action.com/episode/14079602755421458385"
+      - "madb:madb-t-b65685cfddda"
   - id: w00785
     title: "冷厳寺さんは今日からおもちゃ"
     anchors:
@@ -3344,6 +3539,7 @@ works:
     title: "相席いいですか?"
     anchors:
       - "web:https://tonarinoyj.jp/episode/14079602755399113146"
+      - "madb:madb-t-52c8bb8d95b6"
   - id: w00791
     title: "オカ研とエスパーと"
     anchors:
@@ -3372,6 +3568,7 @@ works:
     title: "姉の親友、私の恋人。"
     anchors:
       - "web:https://comic-walker.com/detail/KC_004345_S"
+      - "madb:madb-t-16e4cf5f4ed4"
   - id: w00798
     title: "しのちゃんは見ている"
     anchors:
@@ -3380,6 +3577,7 @@ works:
     title: "黄道寮の星座な日々"
     anchors:
       - "web:https://comic-walker.com/detail/KC_003429_S"
+      - "madb:madb-t-21186e3d4733"
   - id: w00800
     title: "水曜日、午後5時シアター前"
     anchors:
@@ -3396,6 +3594,7 @@ works:
     title: "推しが死んだのでタイムリープして生存ルート確保します!"
     anchors:
       - "web:https://comic-days.com/episode/14079602755307492875"
+      - "madb:madb-t-0c55d7438beb"
   - id: w00804
     title: "Mな王子の愛し方"
     anchors:
@@ -3457,6 +3656,7 @@ works:
     title: "先輩、美味しいですか？"
     anchors:
       - "web:https://comic-walker.com/detail/KC_001719_S"
+      - "madb:madb-t-d0a7a4ae2293"
   - id: w00819
     title: "レチタティーヴォ"
     anchors:
@@ -3473,6 +3673,7 @@ works:
     title: "はなものがたり"
     anchors:
       - "web:https://comic-walker.com/detail/KC_003505_S"
+      - "madb:madb-t-9673de192b09"
   - id: w00823
     title: "はなにあらし"
     anchors:
@@ -3482,6 +3683,7 @@ works:
     title: "アラサー美女は地味女に餌付けされる"
     anchors:
       - "web:https://comic.pixiv.net/works/9560"
+      - "madb:C451067"
   - id: w00825
     title: "レズっ娘クラブ ONE TiME ONLY"
     anchors:
@@ -3517,6 +3719,7 @@ works:
     title: "幕末女子高生 鬼と夜明け"
     anchors:
       - "web:https://comic.pixiv.net/works/9011"
+      - "madb:madb-t-41a5a2fee7f1"
   - id: w00833
     title: "灯る目に流れる"
     anchors:
@@ -3541,6 +3744,7 @@ works:
     title: "魔女ノ結婚"
     anchors:
       - "web:https://comic-walker.com/detail/KC_003602_S"
+      - "madb:madb-t-4cd7c671f401"
   - id: w00839
     title: "最後の晩餐"
     anchors:
@@ -3591,6 +3795,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_001234_S"
       - "madb:bw-fac1fe36-8c20-4023-b460-083003337c88"
+      - "madb:madb-t-cf926b2ede65"
   - id: w00851
     title: "14gの逃避行"
     anchors:
@@ -3783,6 +3988,7 @@ works:
     title: "百合オタに百合はご法度です!?"
     anchors:
       - "web:https://comic-action.com/episode/316112896905994453"
+      - "madb:C447858"
   - id: w00897
     title: "あのこのにおい"
     anchors:
@@ -3803,6 +4009,8 @@ works:
     title: "スクールゾーン"
     anchors:
       - "web:https://comic.pixiv.net/works/4617"
+      - "madb:C419186"
+      - "madb:madb-t-0d21defed71a"
   - id: w00902
     title: "蓼食う君も好き好き"
     anchors:
@@ -3836,6 +4044,7 @@ works:
     title: "全部君のせいだ"
     anchors:
       - "web:https://tonarinoyj.jp/episode/3270296674427703430"
+      - "madb:madb-t-e0497524958e"
   - id: w00910
     title: "三年坂"
     anchors:
@@ -3875,6 +4084,7 @@ works:
     title: "かけあうつきひ"
     anchors:
       - "web:https://www.sunday-webry.com/episode/3270375685344186150"
+      - "madb:C451534"
   - id: w00919
     title: "角野兎はかわいい夢を見続ける?"
     anchors:
@@ -3916,6 +4126,7 @@ works:
     title: "少女たちの痕にくちづけを"
     anchors:
       - "web:https://comic.pixiv.net/works/8412"
+      - "madb:madb-t-92346806ba06"
   - id: w00929
     title: "ウチらのっぺらぼう"
     anchors:
@@ -3932,6 +4143,7 @@ works:
     title: "推しが隣で授業に集中できない!"
     anchors:
       - "web:https://comic-days.com/episode/3269754496746872802"
+      - "madb:C449723"
   - id: w00933
     title: "清田さんを汚したい"
     anchors:
@@ -3992,6 +4204,7 @@ works:
     title: "夜嵐にわらう"
     anchors:
       - "web:https://tonarinoyj.jp/episode/3269754496799789917"
+      - "madb:madb-t-22fe6fbf40a2"
   - id: w00947
     title: "リリーズ【タテスク】"
     anchors:
@@ -4004,6 +4217,7 @@ works:
     title: "愛されてもいいんだよ"
     anchors:
       - "web:https://comic-days.com/episode/3269754496332137928"
+      - "madb:C451817"
   - id: w00950
     title: "ふたりはだいたいこんなかんじ"
     anchors:
@@ -4054,10 +4268,12 @@ works:
     title: "じょしまん。"
     anchors:
       - "web:https://comic-action.com/episode/3269754496647988085"
+      - "madb:C447526"
   - id: w00961
     title: "異種族女子に〇〇する話"
     anchors:
       - "web:https://comic.pixiv.net/works/7840"
+      - "madb:C434000"
   - id: w00962
     title: "こいにこいするこに恋す"
     anchors:
@@ -4149,10 +4365,13 @@ works:
     title: "やきゅうみようよ!"
     anchors:
       - "web:https://www.sunday-webry.com/episode/3269754496551508658"
+      - "madb:C449013"
   - id: w00981
     title: "女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました"
     anchors:
       - "web:https://www.sunday-webry.com/episode/3269754496551508177"
+      - "madb:madb-t-3fea82eeeee3"
+      - "madb:C449694"
   - id: w00982
     title: "ストライク・オア・ガター"
     anchors:
@@ -4161,6 +4380,7 @@ works:
     title: "SHWD《シュード》"
     anchors:
       - "web:https://comic.pixiv.net/works/7113"
+      - "madb:C449188"
   - id: w00984
     title: "マルジナルテイラ"
     anchors:
@@ -4169,6 +4389,7 @@ works:
     title: "悪魔のモカちゃん"
     anchors:
       - "web:https://comic.pixiv.net/works/6807"
+      - "madb:C434808"
   - id: w00986
     title: "彩香ちゃんは弘子先輩を落としたい"
     anchors:
@@ -4181,6 +4402,7 @@ works:
     title: "私は君を泣かせたい"
     anchors:
       - "web:https://comic.pixiv.net/works/6679"
+      - "madb:C368677"
   - id: w00989
     title: "ゆめぐりゆりめぐり"
     anchors:
@@ -4191,6 +4413,7 @@ works:
     title: "ガンバレッド×シスターズ"
     anchors:
       - "web:https://www.sunday-webry.com/episode/3269754496551508625"
+      - "madb:C436431"
   - id: w00991
     title: "将来的に死んでくれ"
     anchors:
@@ -4199,6 +4422,7 @@ works:
     title: "惑星クローゼット"
     anchors:
       - "web:https://comic.pixiv.net/works/5365"
+      - "madb:C369844"
   - id: w00993
     title: "飛野さんのバカ"
     anchors:
@@ -5161,6 +5385,7 @@ works:
     title: "頂のリヴィーツァ"
     anchors:
       - "web:https://comic-days.com/episode/14079602755257155085"
+      - "madb:madb-t-12bd3250ddc2"
   - id: w01230
     title: "春の光に呑まれても"
     merged_into: w01214
@@ -5639,9 +5864,10 @@ works:
     anchors:
       - "madb:C419331"
   - id: w01344
-    title: null
+    title: "突然の百合"
     anchors:
       - "madb:C419354"
+      - "madb:bw-78b437e7-ad7b-488f-99b8-c13e3fef75ff"
   - id: w01345
     title: null
     anchors:
@@ -5663,9 +5889,10 @@ works:
     anchors:
       - "madb:C420129"
   - id: w01350
-    title: null
+    title: "リリィシステム"
     anchors:
       - "madb:C420405"
+      - "madb:bw-a8ee7e9f-2822-439e-b435-594ea99dd2e8"
   - id: w01351
     title: "シロップ = syrup : 社会人百合アンソロジー"
     anchors:
@@ -5674,6 +5901,7 @@ works:
     title: null
     anchors:
       - "madb:C421181"
+      - "madb:bw-167971"
   - id: w01353
     title: null
     anchors:
@@ -5727,9 +5955,10 @@ works:
     anchors:
       - "madb:C424120"
   - id: w01366
-    title: null
+    title: "仕事の後は恋しよう"
     anchors:
       - "madb:C432165"
+      - "madb:bw-5fd4239b-a945-4fe7-a7c2-5d79bdfa8bae"
   - id: w01367
     title: "NTR : 寝取られ百合アンソロジー"
     anchors:
@@ -5767,9 +5996,10 @@ works:
     anchors:
       - "madb:C433146"
   - id: w01376
-    title: null
+    title: "ゆりでなるｖえすぽわーる"
     anchors:
       - "madb:C433149"
+      - "madb:bw-212250"
   - id: w01377
     title: "教師×生徒の百合アンソロジーコミック"
     anchors:
@@ -5787,13 +6017,15 @@ works:
     anchors:
       - "madb:C433380"
   - id: w01381
-    title: null
+    title: "包帯少女期間"
     anchors:
       - "madb:C433621"
+      - "madb:bw-7fb7ed9b-b626-4155-9e95-9f275034b22f"
   - id: w01382
-    title: null
+    title: "レゾナントブルー"
     anchors:
       - "madb:C433623"
+      - "madb:bw-4e855b34-5101-404c-9c9a-11a37636042b"
   - id: w01383
     title: null
     anchors:
@@ -5827,9 +6059,10 @@ works:
     anchors:
       - "madb:C435906"
   - id: w01391
-    title: null
+    title: "愛に愛らし愛しいあなた"
     anchors:
       - "madb:C436198"
+      - "madb:bw-1c12c859-bef3-4ae7-a7eb-4363245d8654"
   - id: w01392
     title: null
     anchors:
@@ -5879,9 +6112,10 @@ works:
     anchors:
       - "madb:C447750"
   - id: w01404
-    title: null
+    title: "お姫様のお姫様"
     anchors:
       - "madb:C447781"
+      - "madb:bw-263641"
   - id: w01405
     title: null
     anchors:
@@ -5895,9 +6129,10 @@ works:
     anchors:
       - "madb:C448048"
   - id: w01408
-    title: null
+    title: "みーちゃんとアイリ"
     anchors:
       - "madb:C448120"
+      - "madb:bw-279930"
   - id: w01409
     title: null
     anchors:
@@ -5987,13 +6222,15 @@ works:
     anchors:
       - "madb:C451800"
   - id: w01431
-    title: null
+    title: "ステラ★レコード = STELLA★RECORD"
     anchors:
       - "madb:madb-t-06db852dea73"
+      - "madb:bw-ba861696-210f-406c-9b5d-6daf68709c63"
   - id: w01432
-    title: null
+    title: "ゆりぐらし : No Love,No Life!"
     anchors:
       - "madb:madb-t-0d7acc157425"
+      - "madb:bw-f8632617-3431-4b4d-b479-8cb587df2cd8"
   - id: w01433
     title: null
     anchors:
@@ -6011,9 +6248,10 @@ works:
     anchors:
       - "madb:madb-t-18be3c961aee"
   - id: w01437
-    title: null
+    title: "同じ所で眠るまで待って = Wait until I sleep in the same place with you"
     anchors:
       - "madb:madb-t-19874d1c2c81"
+      - "madb:bw-ee43d6d4-2965-4840-b7db-a47bfcab91d7"
   - id: w01438
     title: null
     anchors:
@@ -6242,6 +6480,7 @@ works:
     title: "かいじゅう色の島"
     anchors:
       - "web:https://comic-walker.com/detail/KC_000243_S"
+      - "madb:C449383"
   - id: w01491
     title: "このはな綺譚"
     anchors:
@@ -7014,6 +7253,8 @@ works:
       - "madb:bw-167774"
   - id: w01681
     title: null
+    merged_into: w01352
+    merge_basis: "creator, publisher, volume count and first publication all agree (篠房六郎, 小学館, 5, 2018-08). MADB appends an ISBD parallel title after ' = '."
     anchors:
       - "madb:bw-167971"
   - id: w01682
@@ -7294,6 +7535,8 @@ works:
       - "madb:bw-1c084082-a6b7-431c-8fba-9a3451aeb7f0"
   - id: w01751
     title: null
+    merged_into: w01391
+    merge_basis: "creator, publisher, volume count and first publication all agree (鈴木有布子, 新書館, 1, 2020-04). MADB appends an ISBD parallel title after ' = '."
     anchors:
       - "madb:bw-1c12c859-bef3-4ae7-a7eb-4363245d8654"
   - id: w01752
@@ -7398,6 +7641,8 @@ works:
       - "madb:bw-20e34bb1-c521-4537-8673-9e62716722ef"
   - id: w01777
     title: null
+    merged_into: w01376
+    merge_basis: "creator, publisher, volume count and first publication all agree (なおいまい, 徳間書店, 5, 2019-08). BOOK☆WALKER writes the publisher's ♡ as a fullwidth v, which the analyser then read as the unit volt."
     anchors:
       - "madb:bw-212250"
   - id: w01778
@@ -7754,6 +7999,8 @@ works:
       - "madb:bw-262023"
   - id: w01866
     title: null
+    merged_into: w01404
+    merge_basis: "creator, publisher, volume count and first publication all agree (ホマレ, 秋田書店, 2, 2020-09). MADB appends an ISBD parallel title after ' = '."
     anchors:
       - "madb:bw-263641"
   - id: w01867
@@ -7862,6 +8109,8 @@ works:
       - "madb:bw-278a74ad-f24c-4839-a5f4-a3080064742b"
   - id: w01893
     title: null
+    merged_into: w01408
+    merge_basis: "creator, publisher, volume count and first publication all agree (市川なつを, 新書館, 2, 2020-12). MADB appends an ISBD parallel title after ' = '."
     anchors:
       - "madb:bw-279930"
   - id: w01894
@@ -9457,6 +9706,8 @@ works:
       - "madb:bw-4e2a86e0-52c6-413c-9f7d-776553d82fff"
   - id: w02291
     title: null
+    merged_into: w01382
+    merge_basis: "creator, publisher, volume count and first publication all agree (ヨルモ, ジーオーティー, 1, 2019-09). MADB appends an ISBD parallel title after ' : '."
     anchors:
       - "madb:bw-4e855b34-5101-404c-9c9a-11a37636042b"
   - id: w02292
@@ -10266,6 +10517,8 @@ works:
       - "madb:bw-5fb85a8e-5dce-4142-bdcf-a40dc8d6cbc1"
   - id: w02493
     title: null
+    merged_into: w01366
+    merge_basis: "creator, publisher, volume count and first publication all agree (岩下継, イースト・プレス, 1, 2019-06). MADB appends an ISBD parallel title after ' = '."
     anchors:
       - "madb:bw-5fd4239b-a945-4fe7-a7c2-5d79bdfa8bae"
   - id: w02494
@@ -10670,6 +10923,8 @@ works:
       - "madb:bw-7881"
   - id: w02594
     title: null
+    merged_into: w01344
+    merge_basis: "creator, publisher, volume count and first publication all agree (東河みそ, イースト・プレス, 1, 2018-10). MADB appends an ISBD parallel title after ' : '."
     anchors:
       - "madb:bw-78b437e7-ad7b-488f-99b8-c13e3fef75ff"
   - id: w02595
@@ -10778,6 +11033,8 @@ works:
       - "madb:bw-7f5c4ea5-bab1-42cd-98c1-1f79f8564bf0"
   - id: w02621
     title: null
+    merged_into: w01381
+    merge_basis: "creator, publisher, volume count and first publication all agree (須藤佑実, ジーオーティー, 1, 2019-09). MADB appends an ISBD parallel title after ' = '."
     anchors:
       - "madb:bw-7fb7ed9b-b626-4155-9e95-9f275034b22f"
   - id: w02622
@@ -11511,6 +11768,8 @@ works:
       - "madb:bw-a8b6c311-2732-41f7-bf6e-cd7036bd1866"
   - id: w02804
     title: null
+    merged_into: w01350
+    merge_basis: "creator, publisher, volume count and first publication all agree (吉富昭仁, 少年画報社, 1, 2019-03). MADB appends an ISBD parallel title after ' = '."
     anchors:
       - "madb:bw-a8ee7e9f-2822-439e-b435-594ea99dd2e8"
   - id: w02805
@@ -11751,6 +12010,8 @@ works:
       - "madb:bw-ba26e41d-d136-4c43-8137-726a63cfb0fd"
   - id: w02864
     title: null
+    merged_into: w01431
+    merge_basis: "creator, publisher, volume count and first publication all agree (しおやてるこ, 少年画報社, 1, 2023-07). The two write the same star as ☆ and ★ and MADB appends an ISBD parallel title."
     anchors:
       - "madb:bw-ba861696-210f-406c-9b5d-6daf68709c63"
   - id: w02865
@@ -12639,6 +12900,8 @@ works:
       - "madb:bw-eddd24fe-eacd-4424-a330-44d0b4a95995"
   - id: w03086
     title: null
+    merged_into: w01437
+    merge_basis: "creator, publisher, volume count and first publication all agree (秋60, 新書館, 1, 2022-07). MADB appends an ISBD parallel title after ' = '."
     anchors:
       - "madb:bw-ee43d6d4-2965-4840-b7db-a47bfcab91d7"
   - id: w03087
@@ -12763,6 +13026,8 @@ works:
       - "madb:bw-f813b561-b8cc-4f53-a134-0f63635bb5d6"
   - id: w03117
     title: null
+    merged_into: w01432
+    merge_basis: "creator, publisher, volume count and first publication all agree (くるくる姫, KADOKAWA, 1, 2018-05). MADB appends an ISBD parallel title after ' : '."
     anchors:
       - "madb:bw-f8632617-3431-4b4d-b479-8cb587df2cd8"
   - id: w03118
@@ -12948,3 +13213,23 @@ related:
     b: w00281
     note: "same title and a shared author on one platform"
     retrieved: 2026-08-04
+  - a: w00314
+    b: w00650
+    note: "titled as a separate edition of the same work"
+    retrieved: 2026-08-07
+  - a: w00522
+    b: w01721
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-07
+  - a: w00579
+    b: w01406
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-07
+  - a: w00848
+    b: w01444
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-07
+  - a: w00993
+    b: w02128
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-07

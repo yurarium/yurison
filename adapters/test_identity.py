@@ -128,6 +128,42 @@ def main(s):
          "two works sharing a title and no author are not related on that alone")
     s.eq(ident.siblings([pair[0]]), [], "one work relates to nothing")
 
+    # ── a join that came by identifier ───────────────────────────────────────────────────────
+    # The platform route does not compare titles at all: the serialisation's own page named the
+    # shop, the shop named the ISBN, the ISBN named the record. So this join is taken where
+    # `propose` would have refused for want of agreement on a person's name.
+    import collections                                                         # noqa: PLC0415
+    web = [{"work": "雨夜の月", "author": "くずしろ", "url": "https://comic-days.com/episode/1",
+            "sources": [{"url": "https://comic-days.com/episode/1"},
+                        {"url": "https://pocket.shonenmagazine.com/title/2202/episode/9"}]}]
+    shared = collections.Counter(w["url"] for w in web)
+    ch = ident.chain_joins({"joins": [
+        {"platform_url": "https://pocket.shonenmagazine.com/title/2202/episode/9",
+         "madb_work_id": "C900", "agreement": "agreed"}]}, web, shared)
+    s.eq(ch, {"web:https://comic-days.com/episode/1": ["C900"]},
+         "a join found through a work's second platform still lands on the work's own anchor")
+
+    s.eq(ident.chain_joins({"joins": [{"platform_url": "https://nowhere.invalid/x",
+                                       "madb_work_id": "C900"}]}, web, shared), {},
+         "and a join naming an address this database does not hold attaches to nothing")
+
+    # A LEAD THE CAPTURE MARKED AS DISAGREEING IS NOT A JOIN. くらげバンチ's sidebar on
+    # ストロベリークォーツ advertises the author's other series, so the ISBN on that page reaches a
+    # record that is not the serialisation. Taking it would be a wrong merge.
+    s.eq(ident.chain_joins({"joins": [
+        {"platform_url": "https://comic-days.com/episode/1", "madb_work_id": "C901",
+         "agreement": "differs"}]}, web, shared), {},
+         "a disagreeing lead attaches to nothing")
+
+    # The chain is what `assign` is then given, and the print record must not mint a second id.
+    entries, conflicts = ident.assign([], [
+        ("web:https://comic-days.com/episode/1", ["madb:C900"], "雨夜の月"),
+        ("madb:C900", [], None)])
+    s.eq(len(entries), 1, "the record joins the work's identity rather than starting its own")
+    s.eq(sorted(entries[0]["anchors"]), ["madb:C900", "web:https://comic-days.com/episode/1"],
+         "and the identity holds both addresses")
+    s.eq(conflicts, [], "with nothing contested")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

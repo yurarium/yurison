@@ -226,6 +226,55 @@ def propose(web, prints):
     return out
 
 
+def chain_joins(doc, web, shared):
+    """`{web_anchor: [madb work_id]}` from a capture that joined by identifier.
+
+    THE CHAIN, AND WHY IT NEEDS NO AUTHOR TEST. `propose` above matches two titles and then asks
+    for agreement on a person's name, because a title is all the two populations share and a title
+    alone has already produced a wrong join here. The platform route shares an address instead: the
+    work's own serialisation page named the shop selling its collected volumes, the shop stated the
+    ISBN, and the ISBN found the record. No step in that is a string comparison, so requiring a
+    name to agree would reject correct joins for no gain.
+
+    Keyed on EVERY address a row holds rather than on its primary one. A work serialising on two
+    platforms has one `url` and the join may have been found through the other, and dropping it
+    would silently lose the print edition for exactly the works with the most evidence.
+    """
+    by_url = {}
+    for w in web:
+        anchor = web_anchor(w.get("url"), w.get("work"), shared[w.get("url")] > 1)
+        if not anchor:
+            continue
+        for s in (w.get("sources") or []):
+            if s.get("url"):
+                by_url.setdefault(s["url"], anchor)
+        by_url.setdefault(w.get("url"), anchor)
+    out = {}
+    for j in (doc.get("joins") or []):
+        # A lead the capture itself marked as disagreeing is not a join. The bibliography's title
+        # for the record names something other than the serialisation the ISBN was found on, and
+        # three of those were measured on the first run: a platform advertising the author's other
+        # series, a one-shot's page carrying the author's collected volume, and a shop printing an
+        # ISBN belonging to another book.
+        if j.get("agreement") == "differs":
+            continue
+        anchor = by_url.get(j.get("platform_url"))
+        wid = j.get("madb_work_id")
+        if anchor and wid and wid not in out.setdefault(anchor, []):
+            out[anchor].append(wid)
+    return out
+
+
+def by_chain(path, web, shared):
+    """`chain_joins` over a capture file, or `{}` where the file is not there."""
+    import yaml
+
+    f = pathlib.Path(path or "")
+    if not f.exists():
+        return {}
+    return chain_joins(yaml.safe_load(f.read_text()) or {}, web, shared)
+
+
 def main(argv=None):
     """Assign identifiers over both populations and record the joins that carry evidence."""
     import argparse, collections, datetime, json                            # noqa: E401
@@ -236,6 +285,9 @@ def main(argv=None):
     ap.add_argument("--index", default="data/build/index.json")
     ap.add_argument("--registry", default="data/identity/works.yaml")
     ap.add_argument("--review", default="data/queue/identity-review.yaml")
+    ap.add_argument("--joins", default="data/queue/platform-print-joins.yaml",
+                    help="joins established by identifier: the work's own platform page named the "
+                         "shop, the shop named the ISBN, and the ISBN named the record")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--merge", nargs=2, metavar=("RETIRED", "SURVIVING"),
                     help="retire one identifier into another. A decision, so it is taken by hand "
@@ -266,15 +318,28 @@ def main(argv=None):
         if ev["basis"] == "title-and-author":
             joined.setdefault(w["work"], []).append((p, ev))
 
+    # A JOIN ESTABLISHED BY IDENTIFIER, WHICH IS STRONGER THAN THE ONE THIS FILE PROPOSES.
+    # `propose` matches a title and then asks for agreement on a person, which is the best that can
+    # be done when the two populations share nothing but text. The platform route shares more: the
+    # work's own serialisation page names the shop selling its volumes, the shop names the ISBN,
+    # and the ISBN names the record. Nothing in that chain is a string comparison, so these are
+    # taken without the author test.
+    #
+    # Keyed on every address the row holds and not only its primary one: a work serialising on two
+    # platforms has one primary URL and the join may have been found through the other.
+    chain = by_chain(a.joins, web, seen)
+
     wanted, leads = [], []
     for w in web:
         me = web_anchor(w.get("url"), w.get("work"), seen[w.get("url")] > 1)
         attached = [print_anchor(p.get("id")) for p, _ev in joined.get(w["work"], [])]
+        attached += [print_anchor(i) for i in chain.get(me, [])]
         wanted.append((me, attached, w.get("work")))
     # Every print record identifies itself, joined or not, so a C-number always resolves. Where it
     # is already attached to a web work it lands on that work rather than minting a second id, and
     # it passes no title, because the serialisation's title is the one the reader was shown.
-    done = {p.get("id") for ps in joined.values() for p, _ in ps}
+    done = ({p.get("id") for ps in joined.values() for p, _ in ps}
+            | {i for ids in chain.values() for i in ids})
     for p in prints:
         wanted.append((print_anchor(p.get("id")), [],
                        None if p.get("id") in done else p.get("t")))
@@ -309,6 +374,9 @@ def main(argv=None):
     print(f"{len(entries)} identifier(s), {len(entries) - before} new; {both} work(s) joined "
           f"across both populations; {len(rel)} related pair(s); {len(leads)} title-only lead(s); "
           f"{len(conflicts)} contested anchor(s)")
+    if chain:
+        print(f"  of the joins, {sum(len(v) for v in chain.values())} on "
+              f"{len(chain)} work(s) came by identifier rather than by title and author")
     for c in conflicts:
         print(f"  CONTESTED {c['anchor']}: held by {c['held_by']}, also claimed by {c['wanted_by']}"
               f" ({c['title']}). Attaching it to both would merge two works, which is a decision"

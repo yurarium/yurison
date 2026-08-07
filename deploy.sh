@@ -46,6 +46,35 @@ python3 adapters/stubs.py --site "$SITE/kari"
 python3 check.py --runtime >/dev/null 2>&1 || true
 cp data/build/checks.json "$SITE/kari/data/" 2>/dev/null || true
 
+# CACHE-BUST THE SCRIPT AND THE STYLESHEET FROM THEIR OWN CONTENT.
+#
+# index.html asked for `app.js?v=c9b2bf68`, and nothing ever computed that value. It was written by
+# hand and last moved on 2026-08-07 while app.js changed a dozen times the same day, so every
+# returning reader kept running the script they first loaded. GitHub Pages serves it with
+# max-age=600 and an ETag, both of which do their job perfectly on a URL that never changes.
+#
+# A whole day of interface fixes reached nobody because of this, which is why the version is now
+# derived and not typed: the query string changes exactly when the file does, and cannot be
+# forgotten.
+python3 - "$SITE" <<'PYBUST'
+import hashlib, pathlib, re, sys
+
+site = pathlib.Path(sys.argv[1]) / "kari"
+index = site / "index.html"
+if index.exists():
+    html = index.read_text()
+    for asset in ("app.js", "app.css"):
+        f = site / asset
+        if not f.exists():
+            continue
+        v = hashlib.sha256(f.read_bytes()).hexdigest()[:8]
+        # Matches the asset with or without a version already on it, so a hand-written one is
+        # replaced rather than appended to.
+        html = re.sub(rf'(?<=["\'/]){re.escape(asset)}(\?v=[0-9a-f]+)?', f"{asset}?v={v}", html)
+    index.write_text(html)
+    print("cache-bust:", " ".join(re.findall(r"app\.(?:js|css)\?v=[0-9a-f]+", html)))
+PYBUST
+
 echo "copied $(python3 -c 'import json;print(len(json.load(open("data/build/index.json"))))') works -> $SITE/kari/data/"
 echo "feed: $(python3 -c 'import json;print(len(json.load(open("data/build/feed/current.json"))["releases"]))') current rows, archives: $(ls data/build/feed/ | grep -c '^[0-9]')"
 echo "now commit and push in $SITE"

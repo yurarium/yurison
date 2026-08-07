@@ -875,3 +875,20 @@ because BOOK☆WALKER states no ISBN, so the chain ends there.
 
 The 75 カドコミ works listing no volume are the largest single block left. カドコミ is a publisher's
 own platform, so its silence is that publisher saying it has collected nothing yet.
+
+### The three anthologies still crediting nobody, and the route that does not reach them
+
+`百合姫selection` (C280370, 2007-06, 百合姫books), `Wildrose Re: mix` (C357074, 2011-02) and
+`Girls Love` (C364412, 2011-08), the last two on IDコミックス / Yuri-hime comics anthology series.
+An anthology's author is a table of contents, and no source we hold states one.
+
+The route that settled `Yrhm百合姫20thアンソロジー` was the magazine's own site, which keeps a
+作品紹介 page per title and states the line-up under ＜COMICS＞. It does not reach these. The
+アンソロジー category path answers with an empty document and the 百合姫 front page names none of
+the three, so the site carries current titles and not a fourteen-year back catalogue. 一迅社's book
+database at data.ichijinsha.co.jp was already measured as answering 404 for that era, and
+コミックシーモア files them under アンソロジー while selling no 単話, so there is no per-story row
+to read a contributor from either.
+
+What is left is the books themselves. A scan of a table of contents is not something any source
+here publishes, so this stays open until a copy is read.

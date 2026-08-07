@@ -430,6 +430,15 @@ seven are absent from MADB and need publisher sources. See [MADB.md](MADB.md).
 
 To be extended with any further yuri-identified magazines a publisher-side sweep reveals.
 
+**A magazine is a venue, and the issue question is declined.** A magazine that carries yuri is worth
+recording as a place where yuri is published, and is a different kind of thing from a work: it has
+issues rather than volumes and contributors rather than an author. コミック百合姫 needs no per-issue
+question, because the designation is the magazine. まんがタイムきららＭＡＸ carries some yuri and
+saying WHICH issues would mean reading the contents and judging them, which §9 says this database
+does not do. So the magazine is recorded and the issue-level question is left unanswered rather than
+answered badly. A magazine carried as though it were a work, with volumes and an author, is a
+category error and belongs in neither place.
+
 ## 9. Rebuttal, and the margin where this database declines to decide
 
 §2 admits a work a comparator lists and calls the admission presumptive and rebuttable. For most of
@@ -465,3 +474,19 @@ said about them.
 This costs precision and it is the cheaper of the two errors. A work wrongly present is visible,
 citable and can be rebutted by anyone who looks. A work wrongly absent is invisible, and the reader
 who needed it never learns it existed.
+
+### Present, addressable, and out of the listing
+
+That reasoning is about EXISTENCE and it does not settle DISPLAY. A doubtful entry sitting in the
+default listing still reads as an ordinary one, and dilutes what a reader is being shown. So there
+is a third state between kept and gone: the work stays, its identifier stays, its page stays and
+answers, and it does not appear in a listing unless the reader asks for it.
+
+`data/rebuttals.yaml` carries two dispositions and the interface keeps them apart, because they say
+different things. **`out`** is a source disagreeing with a source, which §4 can settle: the
+publisher's own platform declined a designation a shop applied. **`marginal`** is this database
+declining to decide, which is the section above rather than a gap in it.
+
+Neither is deletion, and nothing here removes a record. A reader following a published address still
+arrives somewhere that tells them what is known, which is the commitment that makes the cheaper
+error cheap.

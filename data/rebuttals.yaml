@@ -13,12 +13,10 @@
 # and the work stays. That is the operator's standing instruction and the reason the last column
 # below exists.
 #
-# NOT YET READ BY ANYTHING, and this line is here so that is not mistaken. The four works below
-# are still published. Wiring it means dropping a work from the series rows, the feed, the index,
-# its work page and the identity registry together: `withheld_works()` is keyed on a folded title
-# and filters archive months only, so it is not the hook. A work removed from one view and left in
-# another is worse than one not removed, which is why this states the position instead of a
-# half-applied change.
+# READ BY build.py, which puts `visibility` on the row. A work here is NOT deleted. `rebutted` and
+# `marginal` both keep the work, its identifier and its page, and both take it out of the default
+# listing. The difference between them is what a source said, which is the only thing this file is
+# competent to record.
 source: operator
 role: comparator-rebuttal
 record_type: rebuttal
@@ -60,13 +58,23 @@ upheld:
     why: >-
       An anthology containing yuri, which is a different thing from a yuri work and is admitted as
       such. The shelf is describing part of the book.
+  - work: w01735
+    title: "異世界でも風俗嬢やってみた"
+    disposition: marginal
+    why: "Marginal and kept, on the operator's reading."
+  - work: w01778
+    title: "おしえて！ギャル子ちゃん"
+    disposition: marginal
+    why: >-
+      Marginal and kept. No page BOOK☆WALKER still serves carries tag 14 and カドコミ files it
+      elsewhere, so the shelf that admitted it has gone; the operator's reading keeps it.
   - work: w02118
     title: "ピエタとトランジ"
     disposition: in
-    note: borderline
-    why: "Marginal and kept. Recorded as borderline so a later reader knows it was considered."
+    disposition_note: borderline
+    why: "Marginal and kept, and recorded so a later reader knows it was considered."
   - work: w01804
     title: "あなたのためなら女にでも"
     disposition: in
-    note: borderline
-    why: "Marginal and kept. Recorded as borderline so a later reader knows it was considered."
+    disposition_note: borderline
+    why: "Marginal and kept, and recorded so a later reader knows it was considered."

@@ -1058,6 +1058,34 @@ def credits_en(raw, exact, folded, fold):
     return _credits.compose(raw, lookup)
 
 
+def rebuttals():
+    """{work id: visibility} from data/rebuttals.yaml, the operator's answer to a §2 admission.
+
+    NOTHING IS DELETED HERE. §2 admits a work a comparator lists and calls that presumptive and
+    rebuttable, and this is the rebuttal. A work named here keeps its record, its identifier and its
+    page, and stops appearing in a default listing. The reasoning is that the two errors are not the
+    same size: a work wrongly present is visible, citable and can be rebutted by anyone who looks,
+    while a work wrongly absent is invisible and the reader who needed it never learns it existed.
+    Leaving the address working keeps the cheap error cheap; taking it out of the listing keeps a
+    doubtful entry from reading as an ordinary one.
+
+    `out` is a source disagreeing with a source, which §4 can settle. `marginal` is the operator
+    declining to decide, which DEFINITIONS §9 says is where this database stops rather than a gap in
+    it. The interface separates them because they mean different things, and neither is deletion.
+    """
+    f = pathlib.Path("data/rebuttals.yaml")
+    if not f.exists():
+        return {}
+    doc = yaml.safe_load(f.read_text()) or {}
+    seen = {}
+    for group in ("rebutted", "upheld"):
+        for row in (doc.get(group) or []):
+            wid, how = row.get("work"), row.get("disposition")
+            if wid and how in ("out", "marginal"):
+                seen[wid] = "rebutted" if how == "out" else "marginal"
+    return seen
+
+
 def load_dir(p):
     return [yaml.safe_load(open(f)) for f in sorted(glob.glob(f"{p}/*.yaml"))]
 
@@ -4483,6 +4511,18 @@ def main():
         # ran before it, so this moves the date toward the truth without claiming to reach it. It
         # is taken only when it is EARLIER than what the row holds, so an ordinary work, serialised
         # and then collected, keeps its serialisation date and is untouched.
+        # THE OPERATOR'S ANSWER TO A COMPARATOR ADMISSION, carried to the row so the interface can
+        # keep a doubtful entry out of a default listing without losing it. See rebuttals().
+        _rebut = rebuttals()
+        _marked = 0
+        for _vrow in series_rows:
+            _how = _rebut.get(_vrow.get("id"))
+            if _how:
+                _vrow["visibility"] = _how
+                _marked += 1
+        if _marked:
+            print(f"works held out of the default listing: {_marked}")
+
         _redated = 0
         for _drow in series_rows:
             _pf = [p3.get("first") for p3 in (_drow.get("print") or []) if p3.get("first")]

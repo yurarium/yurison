@@ -78,8 +78,14 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 0,
-   "examples": []
+   "violations": 7,
+   "examples": [
+    "index.json",
+    "run.json",
+    "status.json",
+    "series.json",
+    "works.json"
+   ]
   },
   {
    "name": "no refutation of print serials",
@@ -117,8 +123,8 @@
   {
    "name": "publishers with no English",
    "means": "distinct publisher and imprint names that render as Japanese in English-only mode. A rise means new publishers entered the corpus faster than their names were rendered.",
-   "budget": 302,
-   "value": 302
+   "budget": 284,
+   "value": 284
   },
   {
    "name": "renderings with nothing to show",
@@ -171,8 +177,8 @@
   {
    "name": "stock phrasing in comments",
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage.",
-   "budget": 897,
-   "value": 897
+   "budget": 892,
+   "value": 892
   },
   {
    "name": "modules without a test",

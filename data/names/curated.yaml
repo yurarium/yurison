@@ -36412,6 +36412,20 @@ authors:
       it is. The same shape reaches the corpus from BOOK☆WALKER as Be編集部, which
       data/source/webpages/bylines.yaml lists under `not_a_person` for this reason.
 
+  "多㐂":
+    reading: "タキ"
+    reading_basis: researched
+    source: "derived from the character 㐂 itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    reading_note: >-
+      The analyser read 多 and gave up on 㐂, so the stored reading was タ 㐂 and the English side
+      of the site showed Ta 㐂. 㐂 is U+3402, the variant of 喜 that Japanese readers meet in 㐂寿
+      for a 77th birthday, and it reads キ. That is a fact about the character rather than a source
+      stating how this person says their name, so the basis is `researched` and not `stated`:
+      READING_ATTRIBUTION gives `researched` the `derived` evidence a judgement of ours carries,
+      and `stated` would claim a page that does not exist.
+
 # ── PUBLISHERS AND IMPRINTS ───────────────────────────────────────────────────────────────────
 #
 # A publisher name is a name, and it was the last one the interface held as a literal: `PUB_EN` in
@@ -36661,3 +36675,2290 @@ publishers:
     reviewed: '2026-08-07'
     note: >-
       Ichijinsha's umbrella comics line. The label itself is written IDコミックス, ID in Latin letters already, and the rest is the English word it stands for.
+
+# ── THE SECOND ROUND, 2026-08-07 ─────────────────────────────────────────────────────────────
+#
+# 272 names the interface still showed in Japanese, worked down by the volumes each one carries.
+# Two bases appear below and they say different things.
+#
+# `official-jp` is the company's own. Somewhere on its own site it signs itself in Latin letters,
+# and the entry carries that page. This is the only kind of entry that reports a finding.
+#
+# `romaji` is OURS. No source publishes a Latin form, so the note says what was read and how the
+# name was assembled, and a later reviewer can disagree with the argument instead of the result.
+# Two shapes recur. A katakana label usually spells a foreign word, so the SOURCE WORD is the
+# answer and a syllable-by-syllable pass is not: コミックス is comics, and ナンバーナイン is a
+# company that signs itself No9. A kanji label is romanised only where every part is a word with
+# one reading, which is why 青騎士 is absent and 週刊少年マガジン is here.
+#
+# A name that resisted both is in docs/GAPS.md with what was read, and it renders as the Japanese
+# it is. NAMES-PLAN §6, and it costs a reader nothing.
+
+  "少年画報社":
+    en: "Shonengahosha"
+    basis: official-jp
+    source: "shonengahosha.co.jp"
+    source_kind: publisher-jp
+    source_url: https://www.shonengahosha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site COPYRIGHT(C) Shonengahosha.
+
+  "ぶんか社":
+    en: "Bunkasha"
+    basis: official-jp
+    source: "bunkasha.co.jp"
+    source_kind: publisher-jp
+    source_url: https://www.bunkasha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site BUNKASHA.
+
+  "ホーム社":
+    en: "Homesha"
+    basis: official-jp
+    source: "homesha.co.jp"
+    source_kind: publisher-jp
+    source_url: https://www.homesha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site HOMESHA INC. It belongs to 集英社 and keeps its own name.
+
+  "太田出版":
+    en: "Ohta Publishing"
+    basis: official-jp
+    source: "ohtabooks.com"
+    source_kind: publisher-jp
+    source_url: https://www.ohtabooks.com/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site OHTA PUBLISHING CO.
+
+  "新潮社":
+    en: "Shinchosha"
+    basis: official-jp
+    source: "shinchosha.co.jp"
+    source_kind: publisher-jp
+    source_url: https://www.shinchosha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site SHINCHOSHA.
+
+  "一二三書房":
+    en: "Hifumi Shobo"
+    basis: official-jp
+    source: "hifumi.co.jp"
+    source_kind: publisher-jp
+    source_url: https://hifumi.co.jp/company/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own company page HIFUMI SHOBO.
+
+  "コアミックス":
+    en: "Coamix"
+    basis: official-jp
+    source: "coamix.co.jp"
+    source_kind: publisher-jp
+    source_url: https://www.coamix.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company titles its own front page COAMIX and signs it Coamix Inc.
+
+  "復刊ドットコム":
+    en: "Fukkan.com"
+    basis: official-jp
+    source: "fukkan.com"
+    source_kind: publisher-jp
+    source_url: https://www.fukkan.com/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site fukkan.com, which is its name and its address at once.
+
+  "ワニブックス":
+    en: "Wani Books"
+    basis: official-jp
+    source: "wani.co.jp"
+    source_kind: publisher-jp
+    source_url: https://www.wani.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site WANI BOOKS Co., Ltd.
+
+  "トゥーヴァージンズ":
+    en: "Two Virgins"
+    basis: official-jp
+    source: "twovirgins.jp"
+    source_kind: publisher-jp
+    source_url: https://www.twovirgins.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company titles its own front page TWO VIRGINS and signs it TWO VIRGINS Co., Ltd.
+
+  "リイド社":
+    en: "Leed Publishing"
+    basis: official-jp
+    source: "leed.co.jp"
+    source_kind: publisher-jp
+    source_url: https://www.leed.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site LEED PUBLISHING Co., Ltd.
+
+  "ホビージャパン":
+    en: "Hobby Japan"
+    basis: official-jp
+    source: "hobbyjapan.co.jp"
+    source_kind: publisher-jp
+    source_url: https://hobbyjapan.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company titles its own front page HobbyJAPAN Co., Ltd.
+
+  "フロンティアワークス":
+    en: "Frontier Works"
+    basis: official-jp
+    source: "fwinc.co.jp"
+    source_kind: publisher-jp
+    source_url: https://www.fwinc.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site Frontier Works Inc.
+
+  "朝日新聞出版":
+    en: "Asahi Shimbun Publications"
+    basis: official-jp
+    source: "publications.asahi.com"
+    source_kind: publisher-jp
+    source_url: https://publications.asahi.com/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site Asahi Shimbun Publications Inc.
+
+  "文藝春秋":
+    en: "Bungeishunju"
+    basis: official-jp
+    source: "bunshun.co.jp"
+    source_kind: publisher-jp
+    source_url: https://www.bunshun.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site BUNGEISHUNJU LTD.
+
+  "星海社":
+    en: "Seikaisha"
+    basis: official-jp
+    source: "seikaisha.co.jp"
+    source_kind: publisher-jp
+    source_url: https://seikaisha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company titles its own front page 星海社 | Seikaisha. Star Seas Company appears in the
+      copyright line as a rendering of what the characters mean, and Seikaisha is the name in use.
+
+  "アース・スターエンターテイメント":
+    en: "Earth Star Entertainment"
+    basis: official-jp
+    source: "earthstar.co.jp"
+    source_kind: publisher-jp
+    source_url: https://www.earthstar.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site EARTH STAR Entertainment Co.,Ltd.
+
+  "SBクリエイティブ":
+    en: "SB Creative"
+    basis: official-jp
+    source: "sbcr.jp"
+    source_kind: publisher-jp
+    source_url: https://www.sbcr.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site SB Creative Corp.
+
+  "コルク":
+    en: "Cork"
+    basis: official-jp
+    source: "corkagency.com"
+    source_kind: publisher-jp
+    source_url: https://corkagency.com/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site CORK, INC.
+
+  "マンガボックス":
+    en: "Manga Box"
+    basis: official-jp
+    source: "mangabox.me"
+    source_kind: platform
+    source_url: https://www.mangabox.me/
+    reviewed: '2026-08-07'
+    note: >-
+      The service signs its own site Manga Box Co., Ltd.
+
+  "ブシロードワークス":
+    en: "Bushiroad Works"
+    basis: official-jp
+    source: "bushiroad-works.com"
+    source_kind: publisher-jp
+    source_url: https://bushiroad-works.com/
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own site BUSHIROAD WORKS.
+
+  "ジーオーティー":
+    en: "GOT Corporation"
+    basis: official-jp
+    source: "gotbb.jp"
+    source_kind: publisher-jp
+    source_url: https://gotbb.jp/general/
+    reviewed: '2026-08-07'
+    note: >-
+      The company titles its own site 株式会社ジーオーティー | GOT Corporation.
+
+  "ヒーローズ":
+    en: "HERO'S"
+    basis: official-jp
+    source: "heros-pub.co.jp"
+    source_kind: publisher-jp
+    source_url: https://www.heros-pub.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      The company publishes at heros-pub.co.jp and runs HERO'S Web, which is its own Latin spelling of
+      the name.
+
+  "ガレットワークス":
+    en: "Galette Works"
+    basis: official-jp
+    source: "galetteweb.com"
+    source_kind: publisher-jp
+    source_url: https://galetteweb.com/about
+    reviewed: '2026-08-07'
+    note: >-
+      The magazine's own site signs itself Copyright GALETTE WORKS.
+
+  "電書バト":
+    en: "Densho-Bato"
+    basis: official-jp
+    source: "densho810.com"
+    source_kind: platform
+    source_url: https://densho810.com/
+    reviewed: '2026-08-07'
+    note: >-
+      The service prints DENSHO-BATO on its own logo. It is run by 有限会社佐藤漫画製作所 and distributes an
+      author's own volumes to the stores.
+
+  "東京漫画社":
+    en: "Tokyo Mangasha"
+    basis: official-jp
+    source: "tokyomangasha.com"
+    source_kind: publisher-jp
+    source_url: https://www.tokyomangasha.com/
+    reviewed: '2026-08-07'
+    note: >-
+      The company publishes at tokyomangasha.com and prints no other Latin form on its site; the
+      domain is its own spelling.
+
+  "オギャー!!":
+    en: "COMIC OGYAAA!!"
+    basis: official-jp
+    source: "homesha.co.jp"
+    source_kind: publisher-jp
+    source_url: https://www.homesha.co.jp/
+    reviewed: '2026-08-07'
+    note: >-
+      ホーム社 prints the magazine's name COMIC OGYAAA!! in Latin on its own front page, and the imprint
+      is the magazine's book line.
+
+  "宙出版":
+    en: "Ohzora Shuppan"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The company writes its own name 宙（おおぞら）出版, stating the reading itself, and publishes at
+      ohzora.jp. Nothing on the site renders the whole name in Latin, so this romanises the reading
+      the company gives.
+
+  "角川書店":
+    en: "Kadokawa Shoten"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      A KADOKAWA brand rather than a company of its own now. KADOKAWA is the group's Latin spelling of
+      角川 and 書店 romanises to shoten; the brand pages print no Latin form.
+
+  "メディアファクトリー":
+    en: "MediaFactory"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be. The company's KADOKAWA labels still carry its initials as MF, and
+      mediafactory.co.jp no longer resolves.
+
+  "エンターブレイン":
+    en: "Enterbrain"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be. enterbrain.co.jp redirects to KADOKAWA's brand notice, which prints
+      no Latin form of the brand.
+
+  "学研パブリッシング":
+    en: "Gakken Publishing"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Gakken is the group's own Latin spelling on gakken.co.jp and パブリッシング is the English word
+      publishing. The imprint's company was folded into the group and prints nothing itself.
+
+  "ブシロードメディア":
+    en: "Bushiroad Media"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Bushiroad is the group's own Latin spelling on bushiroad.com and メディア is the English word media.
+      This subsidiary keeps no site of its own.
+
+  "ブックマン社":
+    en: "Bookman-sha"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The company publishes at bookman.co.jp, which spells ブックマン as Bookman, and prints no Latin form
+      of the whole name; 社 romanises to sha.
+
+  "スキマ":
+    en: "Sukima"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The reading of the everyday word すきま. The service's own address sukima.me spells it Sukima and
+      the site prints no other form.
+
+  "グループ・ゼロ":
+    en: "Group Zero"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be. The company keeps no site we could reach.
+
+  "DPNブックス":
+    en: "DPN Books"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      DPN is already Latin and ブックス is the English word books.
+
+  "道玄坂書房":
+    en: "Dogenzaka Shobo"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      道玄坂 is the Shibuya street, read どうげんざか, and 書房 is the ordinary word for a book house. The
+      publisher keeps no site we could reach.
+
+  "ふゅーじょんぷろだくと":
+    en: "Fusion Product"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Hiragana for the English words fusion product, which is the company's own joke about its name.
+      Its old site no longer resolves.
+
+  "ライブコミックス":
+    en: "Live Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "ミュージック・コミックス":
+    en: "Music Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "アートファクトリー":
+    en: "Art Factory"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "バナナブックス":
+    en: "Banana Books"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "漫画帝国":
+    en: "Manga Teikoku"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      漫画 and 帝国 are both everyday words with one reading each, まんが and ていこく.
+
+  "クロスフォリオ出版":
+    en: "Xfolio Publishing"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The platform signs itself Xfolio throughout xfolio.jp, including on the publishing arm's own
+      portfolio, and 出版 is publishing. The arm prints no Latin form of its own name, so the whole is
+      assembled here and is not read off a page.
+
+  "アトキンソン":
+    en: "Atkinson"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana for the English surname Atkinson, which is also how the circle spells itself in the
+      address of its shop. The shop answers our User-Agent with 403 and we present no other identity,
+      so this is recorded as ours.
+
+  "ライトリーズン":
+    en: "Right Reason"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be. The publisher keeps no site; a furniture retailer of the same name at
+      rightreason.jp is a different business and was not used as evidence.
+
+  "コンパス":
+    en: "Compass"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be. The company's own note account at note.com/compass0722 spells it
+      compass in the address and prints no Latin form in the page.
+
+  "パルソラ":
+    en: "Parusora"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      A katakana coinage with no identifiable source word and no site of its own, so it is romanised
+      as it is said.
+
+  "角川コミックス・エース":
+    en: "Kadokawa Comics Ace"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      KADOKAWA's own Latin spelling of 角川, and エース is the English word ace. The house prints no Latin
+      form of this label on its own site.
+
+  "電撃コミックスNEXT":
+    en: "Dengeki Comics NEXT"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      電撃 is read でんげき and KADOKAWA spells it Dengeki in its own addresses, NEXT is already Latin, and
+      コミックス is the English word comics. The house prints no Latin form of this label on its own site.
+
+  "電撃コミックスEX":
+    en: "Dengeki Comics EX"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same label as 電撃コミックスNEXT with a different suffix, and EX is already Latin.
+
+  "カドコミ":
+    en: "Kadokomi"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The new name of コミックウォーカー. It contracts カドカワ and コミック, and KADOKAWA prints no Latin form of the
+      contraction on comic-walker.com, so it is romanised as it is said.
+
+  "MFCキューンシリーズ":
+    en: "MFC Cune Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      MFC is already Latin. キューン is the magazine コミックキューン, which spells itself comiccune.jp and signs
+      its own account comic_cune. シリーズ is the English word series.
+
+  "MFC　キューンシリーズ":
+    en: "MFC Cune Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same label as MFCキューンシリーズ, catalogued with a full-width space.
+
+  "MFC　ジーンピクシブシリーズ":
+    en: "MFC Gene Pixiv Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      MFC is already Latin, ジーン is the magazine コミックジーン, and ピクシブ is pixiv, which writes itself in
+      Latin.
+
+  "ビームコミックス":
+    en: "Beam Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      コミックビーム is the magazine, and both words are English written in katakana.
+
+  "ドラゴンコミックスエイジ":
+    en: "Dragon Comics Age"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of ドラゴンエイジ, and all three words are English written in katakana.
+
+  "単行本コミックス":
+    en: "Tankobon Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      KADOKAWA's catalogue label for a volume that belongs to no named line. 単行本 is read たんこうぼん and is
+      the ordinary word for a standalone volume.
+
+  "MFコミックス":
+    en: "MF Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      MF is already Latin and コミックス is the English word comics.
+
+  "MFコミックス　フラッパーシリーズ":
+    en: "MF Comics Flapper Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of 月刊コミックフラッパー, whose own address is comic-flapper.com.
+
+  "フラッパーシリーズ":
+    en: "Flapper Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line as MFコミックス　フラッパーシリーズ, catalogued without the MFコミックス front.
+
+  "MFコミックス　アライブシリーズ":
+    en: "MF Comics Alive Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of 月刊コミックアライブ, whose own address is comic-alive.jp.
+
+  "アライブシリーズ":
+    en: "Alive Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line, catalogued without the MFコミックス front.
+
+  "アライブ+シリーズ":
+    en: "Alive+ Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line under its later name, with the plus.
+
+  "アライブ＋":
+    en: "Alive+"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      KADOKAWA's own listing writes the label アライブ＋; the plus stands.
+
+  "MFコミックス　ジーンシリーズ":
+    en: "MF Comics Gene Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of 月刊コミックジーン. ジーン is the English word gene.
+
+  "ジーンシリーズ":
+    en: "Gene Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line, catalogued without the MFコミックス front.
+
+  "カドカワデジタルコミックス":
+    en: "Kadokawa Digital Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      KADOKAWA's own Latin spelling of カドカワ, and the rest is English in katakana.
+
+  "あすかコミックスDX":
+    en: "Asuka Comics DX"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of the magazine ASUKA, which KADOKAWA lists in Latin as ASUKA. DX is already
+      Latin.
+
+  "中経☆コミックス":
+    en: "Chukei☆Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      中経出版's line, carried into KADOKAWA. 中経 is read ちゅうけい and the star is part of the label as
+      catalogued.
+
+  "ファミ通クリアコミックス":
+    en: "Famitsu Clear Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ファミ通 is spelled Famitsu by KADOKAWA in its own addresses, and クリア is the English word clear.
+
+  "コミックエッセイ":
+    en: "Comic Essay"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "ピクシブエッセイ":
+    en: "Pixiv Essay"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      pixiv writes its own name in Latin, and エッセイ is the English word essay.
+
+  "MANGAバルCOMICS":
+    en: "MANGA Bar COMICS"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      MANGA and COMICS are already Latin. バル is the Spanish bar as Japanese uses it, which is what the
+      magazine MANGAバル is named after.
+
+  "ヤンマガKC":
+    en: "Yanmaga KC"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of 週刊ヤングマガジン, whose own site is yanmaga.jp. KC is already Latin.
+
+  "モーニングKC":
+    en: "Morning KC"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of モーニング, whose own site is morning.kodansha.co.jp.
+
+  "シリウスKC":
+    en: "Sirius KC"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of 月刊少年シリウス. シリウス is the star Sirius written in katakana.
+
+  "アフタヌーンKC":
+    en: "Afternoon KC"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of アフタヌーン, whose own site is afternoon.kodansha.co.jp.
+
+  "KCデラックス":
+    en: "KC Deluxe"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      KC is already Latin and デラックス is the English word deluxe.
+
+  "プレミアムKC":
+    en: "Premium KC"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "ワイドKC":
+    en: "Wide KC"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "講談社コミックス":
+    en: "Kodansha Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The house is Kodansha by its own spelling, and コミックス is the English word comics.
+
+  "講談社コミックスマガジン":
+    en: "Kodansha Comics Magazine"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The 週刊少年マガジン half of 講談社コミックス.
+
+  "週刊少年マガジン":
+    en: "Weekly Shonen Magazine"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The magazine's own site is shonenmagazine.com, which is 講談社's spelling of the name; 週刊 is read
+      しゅうかん and means weekly.
+
+  "月刊少年マガジン":
+    en: "Monthly Shonen Magazine"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The monthly companion to 週刊少年マガジン, on the same spelling of the title.
+
+  "別冊フレンド":
+    en: "Bessatsu Friend"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      別冊 is read べっさつ and フレンド is the English word friend. 講談社's own address for it is
+      betsufure.kodansha.co.jp.
+
+  "なかよし":
+    en: "Nakayoshi"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The magazine is written in kana, so the romanisation is the name. 講談社's own address spells it
+      nakayosi in the older kunrei style, and Nakayoshi is the same word in the style this site
+      renders.
+
+  "マガジンエッジコミックス":
+    en: "Magazine Edge Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of 月刊少年マガジンエッジ, all three words English in katakana.
+
+  "モーニング・ツー":
+    en: "Morning Two"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      モーニング is the English word morning and ツー is the English word two.
+
+  "ジャンプコミックス":
+    en: "Jump Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "ヤングジャンプコミックス":
+    en: "Young Jump Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of 週刊ヤングジャンプ, whose own site is youngjump.jp.
+
+  "ヤングジャンプ・コミックス":
+    en: "Young Jump Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line, catalogued with a middle dot.
+
+  "ヤングジャンプコミックス・ウルトラ":
+    en: "Young Jump Comics Ultra"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line with ウルトラ, the English word ultra.
+
+  "ヤングジャンプコミックスGJ":
+    en: "Young Jump Comics GJ"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line; GJ is already Latin.
+
+  "ヤングジャンプコミックスDIGITAL":
+    en: "Young Jump Comics DIGITAL"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line; DIGITAL is already Latin.
+
+  "マーガレットコミックス":
+    en: "Margaret Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of マーガレット, the English flower name.
+
+  "ビッグコミックス":
+    en: "Big Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "サンデーGXコミックス":
+    en: "Sunday GX Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of 月刊サンデーGX. サンデー is the English word Sunday and GX is Latin.
+
+  "裏少年サンデーコミックス":
+    en: "Ura Shonen Sunday Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      裏 is read うら and names 小学館's 裏サンデー, whose own address is urasunday.com.
+
+  "少年サンデーコミックス":
+    en: "Shonen Sunday Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      少年サンデー is the magazine, whose own site is websunday.net.
+
+  "サンデーうぇぶり少年サンデーコミックス":
+    en: "Sunday Webry Shonen Sunday Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      サンデーうぇぶり spells itself sunday-webry.com in its own address.
+
+  "サンデーうぇぶりコミックス":
+    en: "Sunday Webry Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same platform's own book line.
+
+  "ゲッサン少年サンデーコミックススペシャル":
+    en: "Gessan Shonen Sunday Comics Special"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ゲッサン is the magazine's own kana name, from 月刊サンデー, and スペシャル is the English word special.
+
+  "夜サンデー少年サンデーコミックス":
+    en: "Yoru Sunday Shonen Sunday Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      夜 is read よる and names the 夜サンデー strand of the same line.
+
+  "マンガワンコミックス":
+    en: "MangaONE Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      マンガワン is the app 小学館 spells MangaONE in its own addresses.
+
+  "マンガワン女子部":
+    en: "MangaONE Joshibu"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      女子部 is read じょしぶ. It is the name of a strand, so it is romanised and not translated.
+
+  "裏サンデー女子部":
+    en: "Ura Sunday Joshibu"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      裏サンデー spells itself urasunday.com in its own address, and 女子部 is read じょしぶ.
+
+  "スピリッツ女子部":
+    en: "Spirits Joshibu"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      スピリッツ is the English word spirits, from ビッグコミックスピリッツ.
+
+  "やわらかスピリッツ":
+    en: "Yawaraka Spirits"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      やわらか is kana, so its romanisation is the name.
+
+  "ビッグスピリッツコミックス":
+    en: "Big Spirits Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "ビッグスピリッツコミックススペシャル":
+    en: "Big Spirits Comics Special"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "BIG COMICS SPECIALヒバナ":
+    en: "BIG COMICS SPECIAL Hibana"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Most of the label is already Latin. ヒバナ is the magazine ヒバナ, kana throughout.
+
+  "ちゃおコミックス":
+    en: "Ciao Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ちゃお spells itself ciao.shogakukan.co.jp in its own address, which is the Italian word the title
+      is taken from.
+
+  "ちゃおデラックス":
+    en: "Ciao Deluxe"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same magazine; デラックス is the English word deluxe.
+
+  "ちゃおプラスコミックス":
+    en: "Ciao Plus Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same magazine's ちゃおプラス strand.
+
+  "コロコロコミックススペシャル":
+    en: "CoroCoro Comics Special"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      コロコロコミック spells itself CoroCoro in 小学館's own addresses.
+
+  "まんがタイムKRコミックス":
+    en: "Manga Time KR Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      まんがタイム is the English word time in kana, and 芳文社 spells the magazine mangatime in its own
+      address. KR is already Latin. The house prints no Latin form of this label on its own site.
+
+  "まんがタイムＫＲコミックスつぼみシリーズ":
+    en: "Manga Time KR Comics Tsubomi Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line with the つぼみ strand, whose name is kana and romanises directly.
+
+  "まんがタイムコミックス":
+    en: "Manga Time Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same magazine's plain book line.
+
+  "まんがタイムきらら":
+    en: "Manga Time Kirara"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      きらら is kana, so its romanisation is the name.
+
+  "芳文社コミックス":
+    en: "Houbunsha Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The house signs itself HOUBUNSHA CO., LTD, and コミックス is the English word comics.
+
+  "ＦＵＺコミックス":
+    en: "FUZ Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      FUZ is the magazine COMIC FUZ, which 芳文社 prints in Latin at comic-fuz.com. The label is
+      catalogued in full-width letters.
+
+  "トレイルコミックス":
+    en: "Trail Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      コミックトレイル is 芳文社's own site at comic-trail.com, spelling トレイル as trail.
+
+  "トレイル":
+    en: "Trail"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line, catalogued without コミックス.
+
+  "ガンガンコミックス":
+    en: "Gangan Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ガンガン is kana and スクウェア・エニックス spells it gangan in its own addresses.
+
+  "ヤングガンガンコミックス":
+    en: "Young Gangan Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line for 週刊ヤングガンガン.
+
+  "ビッグガンガンコミックス":
+    en: "Big Gangan Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line for ビッグガンガン.
+
+  "ガンガンコミックスup!":
+    en: "Gangan Comics up!"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line; up! is already Latin.
+
+  "ガンガンコミックスonline":
+    en: "Gangan Comics online"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line for ガンガンONLINE; online is already Latin.
+
+  "ZERO-SUMコミックス":
+    en: "ZERO-SUM Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ZERO-SUM is already Latin, from 一迅社's magazine コミックZERO-SUM.
+
+  "4コマkingsぱれっとcomics":
+    en: "4-koma kings palette comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      kings and comics are already Latin. 4コマ is read よんコマ and names the four-panel form, and ぱれっと is
+      the magazine's own kana spelling of palette.
+
+  "DNAメディアコミックス":
+    en: "DNA Media Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "百合姫books":
+    en: "Yuri Hime books"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The magazine prints its own title in Latin as Comic Yuri Hime, which is the entry コミック百合姫
+      already carries; books is already Latin.
+
+  "ヤングチャンピオン・コミックス":
+    en: "Young Champion Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "少年チャンピオン・コミックス":
+    en: "Shonen Champion Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      少年 is read しょうねん and チャンピオン is the English word champion.
+
+  "チャンピオンREDコミックス":
+    en: "Champion RED Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      RED is already Latin.
+
+  "楽園":
+    en: "Rakuen"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      白泉社's magazine, read らくえん. The site at hakusensha.co.jp/rakuen prints no Latin form of the
+      title, so this romanises the reading.
+
+  "楽園コミックス":
+    en: "Rakuen Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The magazine's book line, on the same reading.
+
+  "バンブーコミックス":
+    en: "Bamboo Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "バンブーコミックス BCf":
+    en: "Bamboo Comics BCf"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line; BCf is already Latin.
+
+  "アクションコミックス":
+    en: "Action Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of 漫画アクション, and both words are English in katakana.
+
+  "コミックハイ!":
+    en: "Comic High!"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "ウィングス・コミックス":
+    en: "Wings Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of ウィングス, which 新書館 lists as mag_ウィングス on its own site.
+
+  "ひらり、コミックス":
+    en: "Hirari, Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ひらり is kana, so its romanisation is the name; the comma is part of the label.
+
+  "バーズコミックス":
+    en: "Birz Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of コミックバーズ, which 幻冬舎コミックス writes BIRZ.
+
+  "バーズコミックス　デラックス":
+    en: "Birz Comics Deluxe"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line with デラックス, deluxe.
+
+  "リュエルコミックス":
+    en: "Ruelle Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      実業之日本社's line. リュエル is the French ruelle as Japanese borrows it, in the same French naming as
+      the house's ジャルダン line.
+
+  "ジャルダンコミックス":
+    en: "Jardin Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      実業之日本社's line. ジャルダン is the French jardin as Japanese borrows it.
+
+  "ゼノンコミックス":
+    en: "Zenon Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of 月刊コミックゼノン, which コアミックス writes COMIC ZENON.
+
+  "バンチコミックスコラル":
+    en: "Bunch Comics Coral"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of コミックバンチ. MADB also catalogues the line as Bunch comics, in the same Latin
+      spelling, and コラル is the English word coral.
+
+  "ブレイドコミックス":
+    en: "Blade Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of マッグガーデン's コミックブレイド.
+
+  "マッグガーデンコミックスBeat'sシリーズ":
+    en: "Mag Garden Comics Beat's Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The house signs itself MAG Garden corp, and Beat's is already Latin.
+
+  "ヴァルキリーコミックス":
+    en: "Valkyrie Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      キルタイムコミュニケーション's line; ヴァルキリー is the valkyrie.
+
+  "ヤングアンリアルコミックス":
+    en: "Young Unreal Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "シャイニーコミックス":
+    en: "Shiny Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "コミックシャイニー":
+    en: "Comic Shiny"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The magazine the シャイニーコミックス line belongs to.
+
+  "YKコミックス":
+    en: "YK Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      少年画報社's ヤングキング line; YK is already Latin.
+
+  "ヤングキング":
+    en: "Young King"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "TSコミックス":
+    en: "TS Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      少年画報社's line; TS is already Latin.
+
+  "熱帯COMICS":
+    en: "Nettai COMICS"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      光文社's line. COMICS is already Latin and 熱帯 is read ねったい.
+
+  "Kobunsha BLコミックシリーズ":
+    en: "Kobunsha BL Comic Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kobunsha and BL are already Latin; the rest is English in katakana.
+
+  "Kobunshaアンソロジー":
+    en: "Kobunsha Anthology"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kobunsha is already Latin and アンソロジー is the English word anthology.
+
+  "ライドコミックス":
+    en: "Ride Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      マイクロマガジン社's line. Katakana here spells an English word, so the source word is the name and a
+      syllable-by-syllable romanisation would not be.
+
+  "ガムコミックス":
+    en: "Gum Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of ワニブックス's コミックガム. MADB also catalogues the line as Gum comics, in the same Latin
+      spelling.
+
+  "ノヴァコミックス":
+    en: "NOVA COMICS"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      一二三書房's line. The corpus carries the same line catalogued as NOVA COMICS, which is the house's
+      own spelling of it.
+
+  "Nemuki+コミックス":
+    en: "Nemuki+ Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Nemuki+ is already Latin.
+
+  "HJコミックス":
+    en: "HJ Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ホビージャパン's line; HJ is already Latin.
+
+  "Hugピクシブシリーズ":
+    en: "Hug Pixiv Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Hug is already Latin and pixiv writes its own name in Latin.
+
+  "ボーダーコミックス":
+    en: "Border Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      リイド社's line. Katakana here spells an English word, so the source word is the name and a
+      syllable-by-syllable romanisation would not be.
+
+  "星海社COMICS":
+    en: "Seikaisha COMICS"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The house titles its own front page 星海社 | Seikaisha, and COMICS is already Latin.
+
+  "ＧＡコミック":
+    en: "GA Comic"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      SBクリエイティブ's line, catalogued in full-width letters; GA is already Latin.
+
+  "ぶんか社コミックス ホラーMシリーズ":
+    en: "Bunkasha Comics Horror M Series"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The house signs itself BUNKASHA; ホラー is the English word horror and M is already Latin.
+
+  "コスモ":
+    en: "Cosmo"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      宙出版's line. Katakana here spells an English word, so the source word is the name and a syllable-
+      by-syllable romanisation would not be.
+
+  "百合コミックス":
+    en: "Yuri Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      宙出版's line. 百合 is read ゆり, the reading the genre carries throughout this site.
+
+  "ヒーローズコミックスふらっと":
+    en: "HERO'S Comics Furatto"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The house runs HERO'S Web, and ふらっと is kana, so its romanisation is the name.
+
+  "ヒーローズコミックス ふらっと":
+    en: "HERO'S Comics Furatto"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line, catalogued with a space.
+
+  "ヒーローズコミックスわいるど":
+    en: "HERO'S Comics Wilde"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The sister line to ふらっと, and わいるど is kana; the strand is written with a d in the house's own
+      listing.
+
+  "HCヒーローズコミックス":
+    en: "HC HERO'S Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The same line; HC is already Latin.
+
+  "東京ネームタンク":
+    en: "Tokyo Name Tank"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      東京 is read とうきょう and ネームタンク is the English words name tank; the workshop publishes at
+      nametank.jp.
+
+  "Jコミックテラス×ナンバーナイン":
+    en: "J Comic Terrace x No9"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Jコミックテラス is the operator of マンガ図書館Z, and ナンバーナイン signs itself No9 on its own site, which the
+      entry for it already records.
+
+  "コルクスタジオ":
+    en: "Cork Studio"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The house signs itself CORK, INC., and スタジオ is the English word studio.
+
+  "ブシロードコミックス":
+    en: "Bushiroad Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Bushiroad is the group's own Latin spelling on bushiroad.com.
+
+  "月刊ブシロード":
+    en: "Monthly Bushiroad"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      月刊 is read げっかん and means monthly; Bushiroad is the group's own spelling.
+
+  "コミックノベル「yomuco」":
+    en: "Comic Novel yomuco"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      yomuco is already Latin, and コミックノベル is the English words comic novel.
+
+  "コンパスコミックス":
+    en: "Compass Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "コミックcoral":
+    en: "Comic coral"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      coral is already Latin.
+
+  "アールコミックス":
+    en: "R Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      主婦と生活社's line. アール is the letter R as Japanese says it, which is how the house's own R-rated
+      line is named.
+
+  "ラバココミックス":
+    en: "Rabako Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      芳文社's line. The kana is a coinage with no source word we could identify, so it is romanised as
+      it is said.
+
+  "みんなのコミック":
+    en: "Minna no Comic"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      みんな is kana, read みんな, and コミック is the English word comic.
+
+  "マンガBANGコミックス":
+    en: "Manga BANG Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The book line of Amazia's app マンガBANG!, whose BANG is already Latin.
+
+  "リーリエコミックス":
+    en: "Lilie Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      道玄坂書房's line. リーリエ is the German Lilie, the lily, which is the flower the genre is named for.
+
+  "路草COMICS":
+    en: "Rosou COMICS"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      トゥーヴァージンズ's web magazine. COMICS is already Latin and 路草 is read ろそう; the magazine's own site
+      did not resolve for us.
+
+  "COMICアンブル":
+    en: "COMIC Ambre"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ライブコミックス's magazine. COMIC is already Latin and アンブル is the French ambre as Japanese borrows it.
+
+  "コミックなにとぞ":
+    en: "Comic Nanitozo"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      なにとぞ is kana, so its romanisation is the name.
+
+  "UPコミック":
+    en: "UP Comic"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      UP is already Latin.
+
+  "コミックMELO":
+    en: "Comic MELO"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      MELO is already Latin.
+
+  "ラブ・ペイン・コミックス":
+    en: "Love Pain Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "BFPコミック":
+    en: "BFP Comic"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      BFP is Big Fields Publishing, which the corpus carries as the publisher in Latin.
+
+  "ユーリカ":
+    en: "Eureka"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "ハイカラ数寄屋":
+    en: "Haikara Sukiya"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ハイカラ is the Japanese word from high collar and 数寄屋 is the tea house style, read すきや.
+
+  "シマテイエン":
+    en: "Shimateien"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      A katakana coinage, romanised as it is said.
+
+  "らいおん小屋":
+    en: "Lion Koya"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      らいおん is the English word lion in kana, and 小屋 is read こや.
+
+  "ギロチン銀座":
+    en: "Guillotine Ginza"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ギロチン is the guillotine and 銀座 is the Tokyo district, read ぎんざ.
+
+  "やまこ屋":
+    en: "Yamakoya"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      やまこ is kana and 屋 in a shop name is read や.
+
+  "ジッパリスト":
+    en: "Zipperist"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      A coinage on the English zipper, which is what the katakana ジッパ carries.
+
+  "スイートピー&COCOA BREAK":
+    en: "Sweet Pea & COCOA BREAK"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      COCOA BREAK is already Latin and スイートピー is the English flower name sweet pea.
+
+  "無責任会社サタデー":
+    en: "Musekinin Gaisha Saturday"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      無責任会社 is read むせきにんがいしゃ and サタデー is the English word Saturday.
+
+  "ななつぼし":
+    en: "Nanatsuboshi"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kana throughout, so the romanisation is the name.
+
+  "ツタブロス":
+    en: "Tsutabros"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      A katakana coinage, romanised as it is said.
+
+  "あーねすとROOM":
+    en: "Earnest ROOM"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ROOM is already Latin and あーねすと is the English earnest in kana.
+
+  "ブラクラ堂":
+    en: "Burakura-do"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ブラクラ is a coinage and 堂 in a shop name is read どう.
+
+  "ぐつとま":
+    en: "Gutsutoma"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kana throughout, so the romanisation is the name.
+
+  "そんだけ。":
+    en: "Sondake."
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kana throughout; the full stop is part of the name.
+
+  "星屑ドルチェ":
+    en: "Hoshikuzu Dolce"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      星屑 is read ほしくず and ドルチェ is the Italian dolce as Japanese borrows it.
+
+  "とりからの巣":
+    en: "Torikara no Su"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      とりから is kana and 巣 is read す.
+
+  "ポルリン":
+    en: "Porurin"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      A katakana coinage, romanised as it is said.
+
+  "ぐるめ":
+    en: "Gurume"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kana for the French gourmet, kept as the kana says it.
+
+  "でんでんむしむし":
+    en: "Dendenmushimushi"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kana throughout.
+
+  "宇宙りんご":
+    en: "Uchu Ringo"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      宇宙 is read うちゅう and りんご is kana.
+
+  "いんどの宮殿！":
+    en: "Indo no Kyuden!"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      いんど is kana for India and 宮殿 is read きゅうでん; the mark is part of the name.
+
+  "ぴのこ堂出版":
+    en: "Pinoko-do Shuppan"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ぴのこ is kana, 堂 in a shop name is read どう, and 出版 is read しゅっぱん.
+
+  "ひみつせらぴー":
+    en: "Himitsu Therapy"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ひみつ is kana and せらぴー is the English word therapy in kana.
+
+  "あんこストロベリー":
+    en: "Anko Strawberry"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      あんこ is kana and ストロベリー is the English word strawberry.
+
+  "リレバ":
+    en: "Rireba"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      A katakana coinage, romanised as it is said.
+
+  "めでぃかるカンパニー":
+    en: "Medical Company"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kana for the English words medical company.
+
+  "サイコパシー幾何学":
+    en: "Psychopathy Kikagaku"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      サイコパシー is the English word psychopathy and 幾何学 is read きかがく.
+
+  "すたひろ":
+    en: "Sutahiro"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kana throughout.
+
+  "ごきげん工房":
+    en: "Gokigen Kobo"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ごきげん is kana and 工房 is read こうぼう.
+
+  "ナイーブタ":
+    en: "Naibuta"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      A katakana coinage, romanised as it is said.
+
+  "よぬりめ":
+    en: "Yonurime"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kana throughout.
+
+  "サークルコネクト":
+    en: "Circle Connect"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
+      romanisation would not be.
+
+  "NOAH編集部":
+    en: "NOAH Henshubu"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      NOAH is already Latin and 編集部 is read へんしゅうぶ.
+
+  "ヒイラギ":
+    en: "Hiiragi"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kana throughout.
+
+  "ちどりあし":
+    en: "Chidoriashi"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kana throughout.
+
+  "れれBOX":
+    en: "Rere BOX"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      BOX is already Latin and れれ is kana.
+
+  "いつかものがたり":
+    en: "Itsuka Monogatari"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kana throughout.
+
+  "たまごやき":
+    en: "Tamagoyaki"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      Kana throughout.
+
+  "ネジ式１３番地":
+    en: "Nejishiki 13-banchi"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ネジ式 is read ねじしき and 番地 is read ばんち; the digits are catalogued full-width.
+
+  "金曜日の魔女":
+    en: "Kinyobi no Majo"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      金曜日 is read きんようび and 魔女 is read まじょ; both are everyday words with one reading each.

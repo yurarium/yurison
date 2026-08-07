@@ -892,3 +892,100 @@ to read a contributor from either.
 
 What is left is the books themselves. A scan of a table of contents is not something any source
 here publishes, so this stays open until a copy is read.
+
+---
+
+## 21. The printed works whose serialisation nobody had looked for (2026-08-07)
+
+§20 ran the corpus one way: from a serialisation to the shop selling its collected volumes, to the
+ISBN, to the national bibliography. That brought 862 web works with no print edition down to 648.
+This ran the other way, from a printed book to the run it was collected from. **2,063 print-only
+works fell to 1,724**, and the 1,020 web rows became 1,352.
+
+### The publisher says who to ask, and not where to look
+
+The plan this started from mapped each publisher to the platform it runs, and it is wrong.
+`運命のヤマダダダダダダダダダダ` is the case that settles it: the book is 芳文社's, printed under
+Manga time KR comics, 芳文社 runs COMIC FUZ, and the serialisation is on ニコニコ漫画. Measured over
+the whole pass, **319 of the 362 works joined were found on ニコニコ漫画** and only 41 on COMIC FUZ,
+so the platform a publisher owns is a minority answer even for that publisher's own books. Both
+search routes are publisher-blind for that reason.
+
+### Two searches, and only one of them may settle anything
+
+`manga.nicovideo.jp/search?q=` is server-rendered and states the title, the author and the work id
+in every result, so a hit there is the platform speaking (Tier B). `webcomics.jp/search?q=` covers
+96 platforms in one request, which is the fan-out reducer REQUIREMENTS §5 describes, and it is Tier
+C: it turned "somewhere among 96 sites" into one address and settled nothing. Every lead was then
+taken to the platform's own page and tested for agreement on the creator, the publisher or the
+imprint (RUNBOOK §11). `adapters/serialisation/` holds the search, the confirmation
+and the promotion.
+
+Both sites state an empty result in words, which is what makes "asked and found nothing" a
+different row from "we could not read the page". Of 2,068 works asked, **1,606 got a stated nothing
+from both** and 2 left one site unanswered.
+
+### Where the agreement came from, and what refused
+
+23 leads were refused because the platform credits somebody else, and every one is right: ニコニコ
+carries a 東方 doujin called サラダボウル by TJLJFJLJ against 講談社's book by きぃやん, and 創作百合,
+百合漫画短編集, ふたり, 約束 and Memories each match two or three unrelated works. A generic title is
+where this guard earns its keep.
+
+Two fields did most of the work and one of them was new. ニコニコ prints a copyright line,
+`(C)おにぎりパクパク/芳文社`, which is the only place a Japanese platform routinely names the
+**publisher**; COMIC FUZ tags a series まんがタイムKRコミックス, which is the **imprint** printed on
+the volume. Both are §11 fields and neither is a person, so they joined books whose two sides write
+the author differently.
+
+### What is left
+
+| | |
+|---|---|
+| **1,606** | asked, and both searches stated they have nothing. Almost all are the 1,151 undated BOOK☆WALKER rows: 519 ナンバーナイン, 148 クロスフォリオ出版, 81 ライトリーズン and the rest are digital-first labels whose books were not serialised on a commercial platform. |
+| **58** | a lead whose page states no author, so nothing but the title agrees. 16 are pixivコミック, which is closed to us by the operator (§2 above), and the rest are one or two works each on 24 hosts. |
+| **25** | joined, and the platform's chapters not yet read, so the row is still print-only. 8 カドコミ works whose episode list is empty, 4 一迅プラス, and 13 single works on hosts with no adapter. |
+| **23** | refused, correctly. |
+| **19** | the page could not be read: 7 LINEマンガ, which geoblocks us (`data/platforms.yaml`), and 12 dead links. |
+
+### The 212 一迅社 rows are the sharpest miss
+
+Not one of them joined. They are the undated BOOK☆WALKER half of the 百合姫 line, and 一迅プラス is
+a platform this project already reads, so a serialisation would have been found long ago if it were
+listed under the same title. What the searches say is that these books were serialised in the
+magazine and not on the web, which is §4's gap rather than this one's.
+
+### Two faults this pass surfaced, both fixed here
+
+**A cache key that dropped the host.** `net.cache_key` kept the last 120 characters of the
+sanitised URL, and a percent-encoded Japanese title is 90 characters on its own, so two different
+sites asked the same question shared one cache entry. Searching ニコニコ and the antenna for one
+title served ニコニコ's page to both, and the antenna was recorded as having answered when it had
+never been read. Any adapter caching several hosts in one directory has the shape;
+`adapters/editions/capture.py` walks five engines into one.
+
+**A refresh that removed works.** `comicfuz/releases.py` takes its targets from the gap report,
+which by construction lists only works reachable nowhere else watched. A work that becomes
+reachable elsewhere leaves the gap file, and the next FUZ run then stopped asking about it and
+dropped it from `data/source`: a run meant to add 42 discovered works removed 24 held ones,
+恋する小惑星 and アネモネは熱を帯びる among them. That is REQUIREMENTS §4's forbidden shape. It now
+carries over what it did not target, as カドコミ's adapter already did.
+
+### A row's address is a chapter address, and chapter addresses move
+
+`build.py` gives a row the address of its newest chapter, and `identity.py` anchors the work on the
+row's address. On every GigaViewer platform those are the same thing, so a work publishing a
+chapter can change the address its identifier was minted against. Five works changed hands on
+2026-08-07 when the chapter-count rule changed and their 一迅プラス runs came to outnumber their
+コミックDAYS ones; each was about to be minted a second identifier for a work already held.
+`data/queue/address-moved.yaml` repairs those five and states the evidence. **The fault itself is
+open.** The fix is for a row to keep a stable work-level address where the platform has one, which
+`nicovideo/works.py` does by emitting no per-chapter URL at all.
+
+### What would be worth doing next
+
+The 16 pixivコミック leads are works we can name and cannot confirm, and that is the operator's
+choice rather than a matter of effort. The 8 カドコミ works whose episode list is empty are the
+cheapest remaining block: カドコミ answered for each of them and listed no episodes, which is worth
+asking again rather than reading as an absence. Nothing else in the residue is worth more than one
+work per host of effort.

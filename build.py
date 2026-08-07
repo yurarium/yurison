@@ -24,6 +24,7 @@ import importdates  # noqa: E402
 from names import credits as _credits  # noqa: E402
 from names import openbd_reading  # noqa: E402
 import bylines as _bylines  # noqa: E402
+from classify import credence  # noqa: E402
 from recon import bookwalker_volumes  # noqa: E402
 
 # REQUIREMENTS §1. A field whose provenance is not here fails the build.
@@ -852,6 +853,26 @@ def _shop_address(rec):
     return basis.get("url") if basis.get("source") == "bookwalker" else None
 
 
+def _record_address(rec, name):
+    """The page THIS source holds the work on, or None.
+
+    Same question as `_shop_address` and the same trap. Every record carries several addresses and
+    they belong to different parties: the bibliography's catalogue page, the shop's product page,
+    and whatever page a label was read from. A row saying "read from X on this date" has to point
+    at X's page, so each source is asked for its own field by name rather than for whichever URL
+    the record happens to hold.
+
+    openBD is deliberately absent. It answers over an API keyed by ISBN and publishes no page for
+    a reader to open, so it gets a row with no address instead of a link to somebody else's.
+    """
+    if name == "bookwalker":
+        return rec.get("shop_url")
+    if name in ("madb", "madb-title"):
+        basis = rec.get("marketing_label_basis") or {}
+        return rec.get("madb_url") or (basis.get("url") if basis.get("source") == "madb" else None)
+    return None
+
+
 def credits_en(raw, exact, folded, fold):
     """One rendering for an author field naming several people, or None.
 
@@ -1527,6 +1548,13 @@ def main():
             "volume_count": base.get("volume_count", 0),
             "grouping": base.get("grouping"),
             "sources": sorted(by_source),
+            # WHICH SOURCE HOLDS WHAT, AND WHEN IT WAS READ. `sources` above names them and
+            # nothing said when any of them last spoke, so the work page could show a volume count
+            # with no way to tell whether it was read this month or last year. One row per record,
+            # each pointing at that source's own page rather than at whichever URL was nearest.
+            "records": [{"source": _sname, "retrieved": str(_srec.get("retrieved") or "")[:10],
+                         "url": _record_address(_srec, _sname)}
+                        for _sname, _srec in sorted(by_source.items())],
         }
 
         # Volume-level merge: openBD confirms dates and may supply a cover reference.
@@ -3503,8 +3531,23 @@ def main():
                 "author": "", "chapters": {}, "upcoming": 0,
                 "partial": True, "oneshot_src": False, "completed_src": None,
                 "running_src": None, "_srcs": set(),
+                "retrieved": None, "label_rec": None,
             })
             bucket["_srcs"].add(_d.get("platform") or _d.get("source") or "")
+            # WHEN THIS PLATFORM WAS LAST READ. The newest answer across the files describing the
+            # row, because a chapter list and a confirmation record are two readings of one site
+            # and the reader wants the later one.
+            _readon = str(_d.get("retrieved") or "")[:10]
+            if _readon > (bucket["retrieved"] or ""):
+                bucket["retrieved"] = _readon
+            # THE PLATFORM'S OWN YURI TAG, kept as evidence rather than collapsed into the label.
+            # カドコミ is the only platform stating one today, on 350 works. The record is carried
+            # whole so credence.py can quote the tag; deciding here what the term is would put the
+            # same judgement in two places.
+            if (w.get("marketing_label_basis") or {}).get("source") and not bucket["label_rec"]:
+                bucket["label_rec"] = {"marketing_label": w.get("marketing_label"),
+                                       "marketing_label_basis": w["marketing_label_basis"],
+                                       "tags": w.get("tags")}
             bucket["oneshot_src"] = bucket["oneshot_src"] or oneshot_src
             # The platform's own statement that the serialisation is over, where it makes one.
             # カドコミ's serializationStatus takes three values across the works we hold — unknown
@@ -4024,8 +4067,14 @@ def main():
             "free": best["free"], "free_timed": best["free_timed"], "priced": best["priced"],
             "sources": [{"platform": r["platform"], "url": r["url"], "chapters": r["chapters"],
                          "free": r["free"], "free_timed": r["free_timed"], "priced": r["priced"],
-                         "latest": r["latest"], "partial": r["partial"], "format": r["format"]}
+                         "latest": r["latest"], "partial": r["partial"], "format": r["format"],
+                         "retrieved": r.get("retrieved")}
                         for r in rows],
+            # WHY THIS WORK IS FILED AS YURI, as far as the platforms go. One row per platform
+            # that applied its own tag; the print half is joined on further down, once the
+            # identifier has attached each row's book records. Ordering happens there, once.
+            "evidence": [_ev for _ev in (credence.label_row(r["label_rec"], platform=r["platform"])
+                                         for r in rows if r.get("label_rec")) if _ev],
             # WHAT THE PLATFORM SAYS, kept apart from what we work out. The coming-soon view
             # predicts from each series' own past interval, which is an inference and is labelled
             # one. A platform that prints 次回無料更新は8/21 has announced a date, and an
@@ -4266,6 +4315,56 @@ def main():
             print(f"shop completion claims: {_claim_agree} agree with the state we hold, "
                   f"{_claim_clash} contradict a serialisation still running")
 
+    # ── what a reader can check the record against ─────────────────────────────────────────────
+    #
+    # TWO LISTS, KEPT APART ON PURPOSE. `evidence` holds the sources that speak to whether the
+    # work is yuri, ranked by credence.py and shown strongest first. `sourced_from` holds
+    # everything else we read a source for: volume counts, dates, chapter counts. A volume count
+    # says nothing about whether a work is yuri, and running the two together would make the
+    # classification look better supported than it is by padding it with rows that answer a
+    # different question.
+    #
+    # NOTHING HERE MARKS A SOURCE WITHDRAWN. adapters/reachable/ checks chapter pages and has
+    # never been pointed at a basis page, so no row can honestly say a source has stopped carrying
+    # a work. Each row states the day it was read and stops there. REQUIREMENTS §4 keeps the entry
+    # either way, which is what the closing line of the section tells the reader.
+    # THE CHAPTER ROWS ARE NOT COPIED HERE. `sources` on the same row already states each
+    # platform, when it was read and where, so a second copy of it under another name would be two
+    # producers of one fact and a megabyte of series.json besides. The page joins the two lists.
+    _rec_by_wid = {_w5["work_id"]: _w5 for _w5 in works if _w5.get("work_id")}
+    _ev_works = _ev_rows = _ev_mute = 0
+    for _basisrow in series_rows:
+        _got = list(_basisrow.get("evidence") or [])
+        _held = []
+        _labelled = _quoted = False
+        for _bp in (_basisrow.get("print") or []):
+            _brec = _rec_by_wid.get(_bp.get("work_id"))
+            if not _brec:
+                continue
+            _from = credence.rows(_brec)
+            _got += _from
+            _labelled = _labelled or _brec.get("marketing_label") in ("yuri", "gl")
+            _quoted = _quoted or any(_x["kind"] == "imprint" for _x in _from)
+            _held += [{"source": credence.named(_bh["source"]), "holds": "volumes",
+                       "read": _bh["retrieved"] or None,
+                       **({"url": _bh["url"]} if _bh.get("url") else {})}
+                      for _bh in (_brec.get("records") or [])]
+        _basisrow["evidence"] = credence.order(_got)
+        if _held:
+            _basisrow["sourced_from"] = _held
+        _ev_rows += len(_basisrow["evidence"])
+        _ev_works += bool(_basisrow["evidence"])
+        _ev_mute += bool(_labelled and not _quoted)
+    print(f"categorisation evidence: {_ev_works} of {len(series_rows)} works carry at least one "
+          f"row, {_ev_rows} rows in all; {len(series_rows) - _ev_works} carry none")
+    # A LABEL WHOSE EVIDENCE THE RECORD DOES NOT HOLD. adapters/madb/extract.py picks VOLUMES whose
+    # brand is one of the 百合姫 imprints and stores the SERIES record, whose own brand is often the
+    # umbrella line IDコミックス. The label is right and the field a reader would be shown makes no
+    # yuri claim, so the row is withheld rather than quoted. It clears when the extractor stores the
+    # brand it selected on.
+    if _ev_mute:
+        print(f"publisher-side labels with no yuri imprint on the record to quote: {_ev_mute}")
+
     # AUTOPILOT. Before attaching anything, give every work and author the pipeline currently knows
     # about a reading if it does not have one. This is what makes a title that appears overnight
     # render in English by morning with nobody touching it — the alternative is a store that only
@@ -4484,6 +4583,11 @@ def main():
         {"series": series_rows,
          "merged": _merged,
          "generated": str(_today),
+         # WHERE EACH EVIDENCE RANK CAME FROM, once per file rather than once per row. Every
+         # `evidence` row names its kind and its rank; this says which clause of DEFINITIONS and
+         # REQUIREMENTS put that kind where it is. Nothing renders it, and it is published because
+         # a reader of the data should be able to check the ordering against the documents.
+         "credence": credence.RULE,
          "note": "Built from full chapter histories in data/source/, not from the 60-day feed "
                  "window. One row per WORK; its platforms are listed as sources, because they "
                  "differ in coverage rather than in what they are.",

@@ -724,8 +724,99 @@ def inv_dates_within_a_row_are_ordered(ctx):
     return bad
 
 
+def _divisions(reading):
+    """How many pieces a reading is written in. One means it states no division."""
+    return len([p for p in re.split(r"[\s　]+", str(reading or "").strip()) if p])
+
+
+# The source kinds that STATE a reading, as `curate.READING_ATTRIBUTION` admits them, plus the
+# artist's own surface. `analyser` is deliberately absent and `None` with it: a record that cannot
+# say where its division came from has not got one from anywhere.
+STATES_A_READING = ("publisher-jp", "platform", "national-library", "author", "licensor", "derived")
+
+
+def inv_kana_reading_spells_its_name(ctx):
+    """A name written in kana IS its reading, so the reading may not hold different kana.
+
+    WHAT IT GUARDS, AND WHY IT IS NOT TRUE BY CONSTRUCTION. `pass1_kana` folds a kana surface to
+    katakana and that half cannot fail. The half that can is a STATED reading landing on a kana
+    name: a JPRO collationkey is a filing key before it is a reading and folds the kana that sort
+    together, so openBD files とりいしづく under トリイ シズク and いづみやおとは under
+    イズミヤ オトハ. Taking either whole republishes the artist's name with a different kana in it,
+    which is one person under two spellings with nothing in the record saying they are the same.
+    23 kana author names carry a reading from a source rather than from their own surface.
+
+    Boundaries come out first, because a boundary IS admitted here and is what
+    `adapters/names/boundary.py` carries onto our kana. What must not change is the spelling.
+
+    WHAT IT THEREFORE CANNOT SEE, since §14b asks: a boundary in the wrong PLACE. Nothing mechanical
+    can, which is why only a stated one is ever taken.
+
+    Authors only. A title's reading legitimately differs from its surface, because は is written as
+    the topic particle and read ワ: 7 kana titles are in that state and every one of them is right.
+
+    fallback: none. A misspelt name is served under the artist's own work.
+    """
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    try:
+        import kana
+    except Exception:
+        return []
+    strip = str.maketrans("", "", " 　")
+    bad = []
+    for k, v in (ctx["names"].get("authors") or {}).items():
+        rd = v.get("reading")
+        if not rd or not kana.kana_only(k):
+            continue
+        want = unicodedata.normalize("NFC", kana.to_katakana(k)).translate(strip)
+        got = unicodedata.normalize("NFC", kana.to_katakana(rd)).translate(strip)
+        if want != got:
+            bad.append(f"{k}: reading {rd!r} spells {got[:24]!r}")
+    return bad
+
+
+def inv_a_division_cites_its_source(ctx):
+    """A division a name does not itself write has to say where it came from.
+
+    THIS IS WHAT STOPS THE BOUNDARY PASS BECOMING A GUESSER. `adapters/names/boundary.py` will only
+    carry a division some record states, and the way to be sure it stays that way is not to read the
+    module: it is to require every division in the store to name its origin. A record that acquired
+    one from an analyser, a surname lexicon or somebody's intuition has nothing to put here and
+    fails the gate.
+
+    AN ANALYSER DIVIDES EVERY NAME IT IS GIVEN, so its answer is a citation of nothing. It is also
+    at its weakest on exactly these: 331 kana names carried its answer, and
+    よつば◎ますみ。 came back ヨツバ ◎ マスミ。 with the kana untouched and a division nobody stated.
+    `madb_reading.py` refuses to publish an analyser's boundary under a catalogue's name for the
+    same reason, at length. So the source has to be one that states readings.
+
+    くわばら たもつ writes its own division and needs no citation, which is why the surface is
+    counted rather than assumed to have none.
+
+    fallback: none. A guessed division reads as a fact about a real person's name.
+    """
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    try:
+        import kana
+    except Exception:
+        return []
+    bad = []
+    for k, v in (ctx["names"].get("authors") or {}).items():
+        rd = v.get("reading")
+        if not rd or not kana.kana_only(k):
+            continue
+        if _divisions(rd) <= _divisions(k):
+            continue
+        if v.get("reading_boundary") or v.get("reading_source_kind") in STATES_A_READING:
+            continue
+        bad.append(f"{k}: divided as {rd!r} with nothing saying who divided it")
+    return bad
+
+
 INVARIANTS = [
     ("ruby covers its surface", inv_ruby_covers_its_surface),
+    ("a kana name's reading spells it", inv_kana_reading_spells_its_name),
+    ("a division cites its source", inv_a_division_cites_its_source),
     ("dates within a row are ordered", inv_dates_within_a_row_are_ordered),
     ("curated values reach the store", inv_curated_values_reach_the_store),
     ("ruby spells the reading", inv_ruby_spells_reading),
@@ -1245,6 +1336,98 @@ def budget_titles_carrying_cataloguing_punctuation(ctx):
             bad += 1
     return bad
 
+KANA_SURFACE = re.compile(r"^[ぁ-ゖァ-ヺーゝゞヽヾ・･\s　]+$")
+
+
+def budget_kana_names_with_no_stated_division(ctx):
+    """Kana author names whose romanisation ships as one unbroken word of eight letters or more.
+
+    THIS IS A COVERAGE DEFICIT AND NOT A FAULT COUNT, and the difference is the whole reason the
+    name says `no stated division` instead of what the first version said. Two populations are in
+    here and nothing in the data separates them:
+
+      A DIVISION NOBODY HAS STATED YET. いがらしゆみこ is Igarashi Yumiko and shipped as
+      Igarashiyumiko. Finding a source moves it out of the count.
+
+      A NAME THAT IS ONE WORD. こかむも is printed Kokamumo in Latin on ぬるめた's own tankōbon
+      cover, by the publisher, and Kokamumo is the right answer. It is four kana with no boundary
+      and it sits in this count looking exactly like the first kind.
+
+    So the number falling is not by itself an improvement, and a rule that pushed it down by
+    inferring boundaries would break こかむも against a Latin form the publisher set. What makes it
+    safe to reduce is `a division cites its source`, which refuses any division nothing states, and
+    the reduction has to come from finding sources. Every division this branch made was checked
+    against the Latin forms the store holds: 171 agree and none contradicts.
+
+    WHAT WOULD SEPARATE THE TWO. A Latin form the publisher or the artist set, which is evidence
+    that the name is one word in the same way a collationkey is evidence that it is two. The store
+    holds no such form for any name in this count; the 26 Latin forms it does hold for them all come
+    from Wikidata or MangaUpdates, which `curate.py` refuses as evidence for a name.
+
+    MEASURED ON WHAT SHIPS, AND IT OWES THE FIX NOTHING (§14b). `boundary.py` decides by asking
+    whether another record states a division; this counts letters in the romanisation that reaches
+    the browser and asks nothing at all.
+
+    THE SURFACE HAS TO BE KANA, which is what keeps a name out of it. Ｔｏｍｏｒｒｏｗｓ is Latin and
+    is somebody's whole rendering. Eight letters is where a Japanese personal name written in one
+    piece stops being plausible, and it is the threshold the fault was reported at.
+    """
+    n = 0
+    for k, v in ((ctx["names_shipped"] or {}).get("authors") or {}).items():
+        p = (v.get("romaji") or {}).get("plain") or ""
+        if len(p) >= 8 and " " not in p and KANA_SURFACE.match(k or ""):
+            n += 1
+    return n
+
+
+def budget_credits_the_corpus_files_as_a_venue(ctx):
+    """Credits in the author store that the corpus records elsewhere as a publisher or an imprint.
+
+    IT ASKS A QUESTION THE FIX DOES NOT (§14b). `entities.kind` reads a vocabulary of organisation
+    words, so a measure built on that vocabulary can only ever report what the vocabulary already
+    catches. This one never looks at the name: it asks whether this same string appears in
+    data/names/publishers.yaml or on a volume's publisher or imprint field, which is the corpus
+    filing it as something other than a person. 一迅社 and ガレットワークス are here and carry no
+    organisation word between them.
+
+    CANDIDATES, NOT FAULTS, and the counter-case is why. A doujin artist is their own imprint, so
+    山名沢湖 and 雪尾ゆき are filed as publishers of their own books and are people. Marking a credit
+    on this evidence alone would take them with it, which is exactly why the adapter does not use it.
+    The number is the honest residue: it falls when a credit is marked or the corpus stops filing it
+    both ways, and it never has to reach zero.
+    """
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    try:
+        import entities
+    except Exception:
+        return 0
+    pubs = (_yaml(NAMES / "publishers.yaml", {}) or {}).get("names") or {}
+    filed = entities.filed_elsewhere(pubs, ctx["series"])
+    return sum(1 for k, v in (ctx["names"].get("authors") or {}).items()
+               if k in filed and not v.get("entity"))
+
+
+def budget_credits_carrying_their_own_cataloguing(ctx):
+    """Store records the build declines to publish a rendering for.
+
+    COUNTED ON THE OUTPUT, so the filter is observable (STANDING-INSTRUCTIONS §13). A filter that
+    silently drops rows looks identical to one that has stopped working, so this compares the store
+    against what shipped instead of asking `entities.kind` again. `はいむらきよたか(キャラクター
+    デザイン)` is a person with a role welded on and the store holds the person beside it, so the
+    lookup is meant to reach the person; the record is kept and its rendering withheld.
+
+    A rise means a route started writing cataloguing into the author position again, which is what
+    `pass4_analyser.is_credit_line` is there to stop.
+
+    FOLDED, because the shipped map is keyed the way the interface asks: `build.py` writes it under
+    the folded string so a name reaches it under whichever width and spacing a platform used.
+    Comparing raw counts 147 records that shipped perfectly well under their folded key.
+    """
+    shipped = ((ctx["names_shipped"] or {}).get("authors") or {})
+    fold = (lambda t: unicodedata.normalize("NFKC", t or "").replace(" ", "").replace("　", ""))
+    return sum(1 for k, v in (ctx["names"].get("authors") or {}).items()
+               if v.get("reading") and k not in shipped and fold(k) not in shipped)
+
 
 def budget_renderings_with_nothing_to_show(ctx):
     """Renderings that leave a Japanese name with no English form at all.
@@ -1464,6 +1647,20 @@ BUDGETS_DEF = [
     ("renderings with nothing to show", budget_renderings_with_nothing_to_show,
      "works whose English rendering holds neither a romanisation nor an English name while the "
      "surface is Japanese. A rise means a composed name lost its romanisation."),
+    ("kana names with no stated division", budget_kana_names_with_no_stated_division,
+     "author names written entirely in kana whose romanisation ships as one unbroken word of eight "
+     "letters or more, because the surface states no boundary and the reading is the surface. A "
+     "coverage deficit and not a fault count: こかむも is printed Kokamumo by its own publisher and "
+     "belongs in this number as much as Igarashiyumiko did. It falls only when a source states a "
+     "division, which `a division cites its source` is what enforces, and it never reaches zero."),
+    ("credits the corpus files as a venue", budget_credits_the_corpus_files_as_a_venue,
+     "credits in the author store that this corpus also records as a publisher or an imprint, and "
+     "that carry no mark saying what they are. Candidates rather than faults, because a doujin "
+     "artist is their own imprint. A rise means a route put a company where a byline goes."),
+    ("credits carrying their own cataloguing", budget_credits_carrying_their_own_cataloguing,
+     "author records the build publishes no rendering for, which today is a name with a role "
+     "welded on to it and the person held separately beside it. A rise means a capture started "
+     "writing cataloguing into the author position again."),
     ("credits that restate a name", budget_credits_that_restate_a_name,
      "author fields where one credit is the reading of another, so one person is counted twice. "
      "A rise means a route wrote a name and its reading into one field as two credits."),
@@ -1661,6 +1858,18 @@ def self_test():
         # The distributor MADB names ahead of the publisher, stored as the publisher.
         ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role,
          lambda c: c["madb_records"].append({"work_id": "CANARY", "publisher": "[発売]講談社"})),
+        # BOTH OF THESE CANARIES ARE STRINGS THE PIPELINE REALLY PRODUCES (§14b), which is a
+        # different claim from a canary the check happens to catch. openBD returns トリイ シズク for
+        # とりいしづく, with づ folded to ず by the collation, and the only thing keeping it out of
+        # the store is `openbd_reading.normalised` refusing it. SudachiPy divides あいかわももこ as
+        # アイ カワ モモコ with the kana untouched, and it would divide 206 of the 354 names that
+        # have no stated boundary, あかまる as ア カマル among them.
+        ("a kana name's reading spells it", inv_kana_reading_spells_its_name,
+         lambda c: c["names"]["authors"].update({"とりいしづく": {"reading": "トリイ シズク"}})),
+        ("a division cites its source", inv_a_division_cites_its_source,
+         lambda c: c["names"]["authors"].update({"あいかわももこ": {
+             "reading": "アイ カワ モモコ", "reading_basis": "analyser",
+             "reading_source": "sudachi", "reading_source_kind": "analyser"}})),
     ]
     ok = True
     for name, fn, plant in probes:

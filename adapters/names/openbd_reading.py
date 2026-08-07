@@ -232,10 +232,67 @@ SETTLED = ("stated", "surface", "researched")
 
 
 def unsettled(record):
-    """Whether one store record still wants a reading. The rule `unsettled_readings` selects on."""
+    """Whether one store record still wants a reading. The rule `unsettled_readings` selects on.
+
+    A KANA NAME IS SETTLED HERE AND UNSETTLED IN `boundary_queue`, and the two are different
+    questions about one record. なもり is its own reading and no publisher can improve on it, which
+    is why `surface` counts as settled. Where the name divides is not in the surface at all, so
+    treating the record as finished left 337 kana names romanising as one word. See
+    `adapters/names/boundary.py`.
+    """
     if record.get("script") == "latin" and not record.get("reading"):
         return False
     return record.get("reading_basis") not in SETTLED
+
+
+def boundary_queue(path="data/names/authors.yaml"):
+    """`{name: its undivided reading}` for every kana name whose division nothing has stated.
+
+    Generated for the same reason `unsettled_readings` is: a hand-picked list of names skips
+    whatever already carries an answer, and here every one of them does.
+    """
+    import yaml
+
+    from names import boundary
+    names = (yaml.safe_load(pathlib.Path(path).read_text()) or {}).get("names") or {}
+    return {n: r.get("reading") for n, r in names.items() if boundary.wants_boundary(n, r)}
+
+
+def boundary_entries(payload, wanted, reviewed):
+    """Curated entries carrying openBD's division onto our own kana. `(entries, unresolved)`.
+
+    WHY THIS IS NOT `entries` WITH A FLAG. `entries` proposes openBD's STRING, and for a kana name
+    that string is the wrong thing to publish: a collation key folds づ to ず, so taking it whole
+    republishes the artist's name with a different kana in it. `normalised` already refuses that and
+    files the name as `filing-key-normalised`, which threw away the one thing the key could still
+    add. `boundary.carry` keeps the surface's kana and takes only the offsets.
+
+    THE ENTRY SAYS `surface`, BECAUSE THAT IS WHAT THE KANA ARE. The division is openBD's and the
+    note says so; the sounds are the artist's own spelling and no source is being credited with
+    them. Claiming `stated` here would put a publisher's name on kana it did not supply.
+    """
+    from names import boundary
+    out, unresolved = {}, {}
+    for name, current in sorted(wanted.items()):
+        reading, ev = resolve(payload, name)
+        if not reading:
+            unresolved[name] = ev["status"]
+            continue
+        got = boundary.carry(name, reading)
+        if not got:
+            unresolved[name] = ("no-boundary-stated" if not boundary.cuts(reading)
+                                else "does-not-correspond")
+            continue
+        first = ev["examples"][0]
+        note = (f"openBD's collationkey on {ev['records']} volume(s), e.g. {first[0]!r} "
+                f"({first[1]}), divides this name as {reading!r}. The kana here are the name's own "
+                f"surface and only the division is taken, since a collationkey is a filing key "
+                f"first: it folds the kana that sort together. It divides {current!r}.")
+        out[name] = {"reading": got, "reading_basis": "surface",
+                     "reading_source_kind": "derived", "reading_note": note,
+                     "source": "openBD", "source_url": query([records(payload, name)[0]["isbn"]]),
+                     "source_kind": "publisher-jp", "reviewed": reviewed}
+    return out, unresolved
 
 
 def fetch(isbns, cache, offline=False):
@@ -381,6 +438,18 @@ def main(argv=None):
     found, unresolved = entries(payload, wanted, a.reviewed)
     print(f"{len(found)} settled, {len(unresolved)} not: "
           f"{sorted(set(unresolved.values()))}")
+
+    # THE SECOND QUESTION, asked of the same payload because it costs no request. A kana name is
+    # settled as a READING and open as a DIVISION, and asking only the first left 337 author names
+    # romanising as one word.
+    # A name openBD has just stated a whole reading for is not asked for a division as well: that
+    # entry already carries one, and a second entry under the same key would overwrite it with the
+    # weaker claim.
+    divide = {k: v for k, v in boundary_queue().items() if k not in found}
+    cut, uncut = boundary_entries(payload, divide, a.reviewed)
+    print(f"{len(divide)} name(s) written in one run; {len(cut)} divided, {len(uncut)} not: "
+          f"{sorted(set(uncut.values()))}")
+    found.update(cut)
     print(yaml.safe_dump({"authors": found}, allow_unicode=True, sort_keys=True, width=100))
     return 0
 

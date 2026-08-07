@@ -1290,8 +1290,32 @@ def load_names():
             continue
         d = (yaml.safe_load(f.read_text()) or {}).get("names") or {}
         got[kind] = {k: v for k, v in
-                     ((k, render(k, v, is_person=(kind == "authors"))) for k, v in d.items()) if v}
+                     ((k, _rendered(kind, k, v, render)) for k, v in d.items()) if v}
     return got.get("authors", {}), got.get("titles", {}), got.get("publishers", {})
+
+
+def _rendered(kind, k, rec, render):
+    """One store record as the interface gets it, or None where it should not answer a lookup.
+
+    A CREDIT THAT IS NOT A PERSON IS STILL A CREDIT. 円谷プロダクション is the whole byline on the
+    SSSS.GRIDMAN anthology and 「真夜中ぱんチ」製作委員会 is one of three on 真夜中ぱんチ, so both
+    render. What they stop doing is passing as a personal name: `is_person` withholds furigana from
+    a reading a machine guessed, because a pen name is what an analyser is worst at, and it lower
+    cases nothing because a personal name holds no particle. Neither applies to a company, whose
+    name is made of ordinary words. See adapters/names/entities.py.
+
+    NOTATION IS THE ONE THAT ANSWERS NOTHING. `はいむらきよたか(キャラクターデザイン)` is a person
+    with a role welded on and the store holds the person separately, so a lookup on the raw field
+    should reach the person. It did not: the raw string is tried before `credits.compose` and won,
+    which is how `Ishida Kana ( Kyarakutā Dezain )` came to sit in names.json with a role label
+    romanised as part of somebody's name. The record stays in the store, marked; it is the RENDERING
+    that is withheld, and `credits that carry their own cataloguing` counts what is withheld so the
+    filtering is observable (STANDING-INSTRUCTIONS §13).
+    """
+    entity = (rec or {}).get("entity") if kind == "authors" else None
+    if entity == "notation":
+        return None
+    return render(k, rec, is_person=(kind == "authors" and not entity))
 
 
 def publisher_map(names, rows):
@@ -4755,6 +4779,16 @@ def main():
                            for x in (r.get("ep"), r.get("latest_ep"), r.get("collection"),
                                      (r.get("author") or "").strip(),
                                      r.get("work")) if x})
+        # WHERE A KANA NAME DIVIDES. A reading is what the romanisation is built from, so a name
+        # written in one unbroken run comes out as one word: いがらしゆみこ was Igarashiyumiko.
+        # This carries a division some OTHER record for the same person states, which is offline,
+        # additive and settles nothing it cannot cite. adapters/names/boundary.py holds the
+        # argument, including the two rules that were tried and rejected.
+        import boundary as _boundary
+        _cut, _left = _boundary.fill_store()
+        if _cut:
+            print(f"names           : {len(_cut)} kana name(s) divided from a record we already "
+                  f"hold; {sum(_left.values())} left whole")
     except Exception as e:                      # never let a naming helper break the build
         print(f"names           : automatic reading pass skipped ({e})")
 

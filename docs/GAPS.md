@@ -1087,3 +1087,92 @@ this project's identity, so the reduction cannot be shown to lead anywhere and t
 written. Nothing else in the corpus carries a chapter address: comicブースト's `/content/<work>0001`
 is the work's own page and stays put across 81 chapters, and the remaining hosts address a work
 directly.
+
+### §21's fault: the row carries the address, and identity.py has the last move (2026-08-07)
+
+`series_url` is emitted. **510 series rows carry one**, 341 the platform's reader address and 169
+its feed, over 20 hosts. It is read from every capture under `data/queue/address-*.yaml` whose
+`record_type` is `stable_address`, which is four files today and picks up the マンガワン and comici
+rows the GigaViewer capture never covered. `address-moved.yaml` sits under the same prefix and is
+skipped on its `record_type`, because what it attaches is another chapter address and that is the
+one thing this field must never hold.
+
+Nothing was minted. `identity.py` reports **3,155 identifiers, 0 new** and rewrites
+`data/identity/works.yaml` byte for byte; `one row per identifier` and `rows with a moving address`
+both stay at 0.
+
+**The remaining move belongs to `adapters/identity.py`**, and it was left there because that module
+was not this pass's to edit. Every call reading a row's address has to read the stable one:
+
+```
+web_anchor(w.get("series_url") or w.get("url"), w.get("work"), seen[...] > 1)
+```
+
+in `chain_joins`, in the `wanted` loop of the main pass, and in the `siblings` loop. The `seen`
+counter that decides `shared` must count the same address the anchor is built from, or two works
+sharing a container URL would be told apart by one field and merged by the other. No row is exposed
+to that today: no `series_url` in the corpus is held by more than one row, and no row holding a
+shared `url` has one.
+
+**It was verified rather than assumed.** Resolving every row's `series_url` against the registry the
+way `web_anchor` would gives 510 of 510 landing on the identifier the row already holds, 0
+unresolved and 0 different. So the switch cannot mint and cannot move a work.
+
+## 22. The work page cited a page the claim is not on (2026-08-07)
+
+An operator followed a BOOK☆WALKER citation in *Sources of information*, found no 百合 anywhere on
+the page it led to, and concluded the entry was wrong. They were reading the citation correctly.
+
+**The evidence row named a shop and cited nothing.** `admitted_by` carries the comparator, the shelf
+and the day it was read, and no address at all, so `credence.shelf_rows` had none to put on the row.
+The nearest BOOK☆WALKER link on the page was the shop's own page for the book, which is `shop_url`
+under *Sold at* and answers a different question. A citation that leads somewhere the claim is not
+is worse than none: it invites a reader to check and then quietly fails them.
+
+**The shelf is the address, because the shelf is where the filing is.** DEFINITIONS §2 admits the
+work because a licensed retailer filed it under 百合, and only the shop's listing shows that filing.
+`build.py:shelf_citations` reads it out of the captures' own `source_url`, and `cite_shelf` puts it
+on the entry before `credence.py` builds the row.
+
+| | |
+|---|---|
+| BOOK☆WALKER | **1,641 rows**, each citing the page of `tag/14/` it was read from, and carrying that page number as a field. Every one of the 1,644 records matched a captured page. |
+| コミックシーモア | **296 rows**, citing `search/genre/37/`. The capture records no per-title page, so none is stated. |
+
+**The capture header's claim was not leaned on.** `bookwalker-yuri.yaml` says the genre is
+"presented on every work page", which would make the book's page a second place to check. It is a
+statement about *work* pages, and 646 of the addresses we hold are *series* pages, which it never
+covered. It is also a reading of a shop that redraws its pages at will. The shelf is cited because
+it is where the capture read the claim, which is a fact about our own act rather than a prediction
+about somebody's markup.
+
+**The product page is still on the page**, on the print row as `shop_url` under its own heading, so
+a reader gets the evidence and the shop separately and can tell which is which.
+
+### `state_basis` was two facts welded into a sentence (2026-08-07)
+
+"no chapter for 2 days in what we hold, but the platform still marks the serialisation as running"
+is one claim about the world and one about this database, in a paragraph the page could only print
+whole. It rendered as a dangling line under *Sources of information* while every other fact on the
+page was a row.
+
+Our half was already structured as `age_days`. The platform's half is now `state_claims`, in the
+shape an evidence row has: who said it, what they said in their own word, when it was read, and
+where. **270 works carry one**, 106 saying completed and 164 running, across カドコミ (`finished` /
+`ongoing`), 竹コミ, キミコミ and six more (`完結` / `連載中`). `says` is our reading and `term` is
+the platform's own value, kept apart so two sources agreeing does not read as one fact spelt twice.
+
+`running_src` and `completed_src` now carry the platform's NAME instead of a sentence, so the prose
+says which site said it: a work serialising in three places used to read "the platform" and leave
+the reader to guess. **The prose stays.** `app.js` reads `state_basis` for the badge tooltip, and
+the join is the point of that sentence: that the silence is ours rather than the work's is a
+statement neither half makes alone.
+
+**A bug fell out of it.** `completed_basis_ja` was read off `bucket`, the ingest loop's variable,
+hundreds of lines after that loop ended, so every completed row was given the *last* bucket's
+Japanese. It was invisible only because the sentence was a constant.
+
+**What still needs prose**, and is not covered by any structured field: a short capture
+(`N chapters are listed on the platform and we hold M`), a run of skipped slots, a hand review's
+verdict either way, and a comparator's 完結 tag with the date it was seen. Each is a different kind
+of statement and none is a source's claim about its own serialisation.

@@ -39,6 +39,15 @@ commands:
     argv: [adapters/nicovideo/releases.py, --works, data/coverage/webcomics-works.yaml,
            --out, data/source/nicovideo, --cache, "{CACHE}/nico", --retrieved, "{R}"]
 
+  # The works ニコニコ carries that reach us as printed books, joined by adapters/serialisation/.
+  # `releases.py` above writes update dates, which make a feed row and never a work row, so a
+  # serialisation reachable only here was invisible as a work however often it updated. The joins
+  # file is committed, so this needs nobody to remember anything (STANDING-INSTRUCTIONS §7).
+  - id: nicovideo-works
+    optional: true
+    argv: [adapters/nicovideo/works.py, --ids, data/queue/serialisation-joins.yaml,
+           --out, data/source/nicovideo, --cache, "{CACHE}/nico-works"]
+
   - id: webpages
     optional: true
     argv: [adapters/webpages/releases.py, --gap, data/coverage/webcomics-gap.yaml,

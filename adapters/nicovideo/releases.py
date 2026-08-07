@@ -65,6 +65,48 @@ def iso(y, m, d):
     return f"{int(y):04d}-{int(m):02d}-{int(d):02d}"
 
 
+COPYRIGHT = re.compile(r'<small class="copyright">\(C\)([^<]*)</small>')
+EPISODE = re.compile(r'<li class="episode_item">(.*?)</li>', re.S)
+EP_LINK = re.compile(r'<div class="title"><a href="(/watch/mg\d+)">([^<]*)</a>')
+EP_NUMBER = re.compile(r'data-number="(\d+)"')
+
+
+def rights(html):
+    """The names in a work page's copyright line, `(C)おにぎりパクパク/芳文社`.
+
+    A platform states an author on every work and a publisher on almost none. ニコニコ prints both,
+    which is what lets a serialisation found here be joined to a printed book on the publisher when
+    the two sides write the author differently. RUNBOOK §11 asks for the creator, the publisher or
+    the imprint, and this is the only field on this platform that answers the second.
+    """
+    m = COPYRIGHT.search(html or "")
+    return [x.strip() for x in re.split(r"[/／・,、]", m.group(1)) if x.strip()] if m else []
+
+
+def episodes(html):
+    """[{title, url, number}] for the episodes the work page renders, in document order.
+
+    PARTIAL BY CONSTRUCTION, and the page says so itself. 運命のヤマダダダダダダダダダダ renders
+    five items numbered 1, 2, 3, 13 and 17 while its newest is 第16話, and its meta line reads
+    `[ 5話 無料 ]`. What is rendered is what a signed-out reader may open, the same way
+    pixivコミック's rendered list is, so the count is our reach and never the length of the work.
+
+    No episode carries a date. That is the platform's limit rather than this parser's, which is why
+    `parse` reads the work-level 更新 and 開始 dates from `div.meta_info` instead.
+    """
+    out = []
+    for m in EPISODE.finditer(html or ""):
+        b = m.group(1)
+        link = EP_LINK.search(b)
+        if not link:
+            continue
+        n = EP_NUMBER.search(b)
+        out.append({"title": link.group(2).strip(),
+                    "url": "https://manga.nicovideo.jp" + link.group(1),
+                    "number": int(n.group(1)) if n else None})
+    return out
+
+
 def parse(html):
     """Read div.meta_info. Absent or unparsable means no date — never a guessed one (§6)."""
     m = re.search(r'class="meta_info"(.*?)</div>', html, re.S)
@@ -103,16 +145,16 @@ def parse(html):
     # /watch/ link. The 更新 date in meta_info is the date THAT episode appeared, so naming it costs
     # nothing and turns a work-level row into one that says which chapter — which is what a reader
     # looking at the page sees. Only the newest is emitted: the others carry no date of their own.
-    sec = html[html.find('id="episode_list"'):]
-    best = None
-    for b in re.split(r'<li class="episode_item">', sec)[1:]:
-        n = re.search(r'data-number="(\d+)"', b)
-        ti = re.search(r'<div class="title"><a href="(/watch/mg\d+)">([^<]*)</a>', b)
-        if n and ti and (best is None or int(n.group(1)) > best[0]):
-            best = (int(n.group(1)), ti.group(2).strip(), ti.group(1))
-    if best:
-        out["latest_episode"] = best[1]
-        out["latest_episode_url"] = "https://manga.nicovideo.jp" + best[2]
+    #
+    # `episodes` is the one reader of this markup. A second copy here drifted the moment the
+    # discovery pass needed the whole list rather than the last item, which is the two-paths-one-
+    # fact shape (STANDING-INSTRUCTIONS §3).
+    eps = [e for e in episodes(html[html.find('id="episode_list"'):]) if e.get("number") is not None]
+    if eps:
+        best = max(eps, key=lambda e: e["number"])
+        out["latest_episode"] = best["title"]
+        out["latest_episode_url"] = best["url"]
+        out["rendered_episodes"] = len(eps)
 
     ch = re.search(r'/official/([a-z0-9_]+)/"[^>]*>\s*<div class="mg_banner">', html)
     if ch:
@@ -130,7 +172,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--cache", required=True)
     ap.add_argument("--retrieved", required=True)
-    ap.add_argument("--limit", type=int, default=200)
+    ap.add_argument("--limit", type=int, default=2000)
     a = ap.parse_args()
 
     cache = pathlib.Path(a.cache).expanduser()
@@ -153,6 +195,13 @@ def main():
             if w.get("comic_id"):
                 targets.setdefault(str(w["comic_id"]), w.get("title"))
 
+    # A LIMIT THAT BITES IN SILENCE IS A LOST WORK. The default was set when the seed list
+    # was smaller, and a discovery pass that adds two hundred targets pushes the tail off
+    # the end with nothing said. The default is now above the population and the cut is
+    # reported when it happens, so a list outgrowing it is a number somebody sees.
+    if len(targets) > a.limit:
+        print(f"LIMIT: {len(targets)} work(s) named, {a.limit} asked for; "
+              f"{len(targets) - a.limit} will not be read this run")
     targets = dict(list(targets.items())[: a.limit])
     if not targets:
         sys.exit("no ニコニコ漫画 work ids found")

@@ -351,6 +351,156 @@ def main(s):
     s.check(b.credits_en("塩こうじ", {"塩こうじ": SHIOKOJI}, {}, _fold) is None,
             "and a field naming one person is not a composition at all")
 
+    shelf_citations(s)
+    state_claims(s)
+    series_addresses(s)
+
+
+def shelf_citations(s):
+    """WHERE A SHELF CLAIM CAN BE CHECKED, which for 1,900 rows was nowhere.
+
+    A comparator entry named the shop and stated no address, so the only BOOK☆WALKER link near the
+    evidence table pointed at the shop's page for the book. That page carries no 百合 filing, an
+    operator followed it and concluded the entry was wrong, and they were reading our citation
+    correctly. These pin that the address emitted is the SHELF's.
+    """
+    # THE PAGE GOES BACK INTO THE LISTING ADDRESS. The captures state the listing with page=1 and
+    # record which page each work was read from, so the citation is built by substitution.
+    s.eq(b.shelf_page_url("https://bookwalker.jp/tag/14/?qcat=2&order=title&page=1", 27),
+         "https://bookwalker.jp/tag/14/?qcat=2&order=title&page=27",
+         "the page the work was read on replaces the one the capture wrote")
+    s.eq(b.shelf_page_url("https://bookwalker.jp/tag/14/?wa=1&page=1", 3),
+         "https://bookwalker.jp/tag/14/?wa=1&page=3",
+         "and the second listing keeps its own filter")
+    s.eq(b.shelf_page_url("https://www.cmoa.jp/search/genre/37/", 4),
+         "https://www.cmoa.jp/search/genre/37/?page=4",
+         "a listing with no query gains one")
+    # THE COUNTER-CASE THAT DECIDES THE RULE. Page 1 of a shelf a work is not on is the same fault
+    # as the book's own page: a citation that invites a check and then fails it.
+    s.eq(b.shelf_page_url("https://bookwalker.jp/tag/14/?page=1", None),
+         "https://bookwalker.jp/tag/14/?page=1",
+         "no page number stated leaves the address exactly as captured")
+    s.eq(b.shelf_page_url("", 3), None, "and no listing address is no address")
+
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        cap = pathlib.Path(tmp) / "shelf.yaml"
+        cap.write_text(
+            "source_url: https://bookwalker.jp/tag/14/\n"
+            "shop_tag: 百合\n"
+            "listings:\n"
+            "  manga:\n"
+            "    url: \"https://bookwalker.jp/tag/14/?qcat=2&order=title&page=1\"\n"
+            "items:\n"
+            "  - listing: manga\n"
+            "    id: \"abc\"\n"
+            "    page: 27\n"
+            "  - listing: manga\n"
+            "    id: \"nopage\"\n")
+        cites = b.shelf_citations({"bookwalker.jp": str(cap),
+                                   "gone.example": str(pathlib.Path(tmp) / "absent.yaml")})
+        s.eq(sorted(cites), ["bookwalker.jp"], "a capture that is not on disk contributes nothing")
+        s.eq(cites["bookwalker.jp"]["url"], "https://bookwalker.jp/tag/14/",
+             "the shelf address is the capture's own source_url")
+        s.eq(cites["bookwalker.jp"]["pages"]["abc"][0], 27, "and each item carries its page")
+        s.check("nopage" not in cites["bookwalker.jp"]["pages"],
+                "an item the capture stated no page for gets none invented")
+
+        entry = {"comparator": "bookwalker.jp", "shelf": "tag 14 (百合)", "retrieved": "2026-08-05"}
+        cited = b.cite_shelf(entry, cites, "abc")
+        s.eq(cited["url"], "https://bookwalker.jp/tag/14/?qcat=2&order=title&page=27",
+             "a work the capture placed on a page cites that page of the shelf")
+        s.eq(cited["page"], 27, "and the number is on the entry, not only inside the URL")
+        s.check("bookwalker.jp/de" not in cited["url"] and "/series/" not in cited["url"],
+                "never the shop's page for the book, which is what the operator was sent to")
+        s.check(entry.get("url") is None, "the stored entry is not mutated")
+
+        # THE COUNTER-CASES. Both are addresses nobody read, and inventing either is the fault.
+        s.eq(b.cite_shelf(entry, cites, "unknown-id")["url"], "https://bookwalker.jp/tag/14/",
+             "a work the capture does not list cites the shelf without a page")
+        s.check("page" not in b.cite_shelf(entry, cites, "unknown-id"),
+                "and states no page it cannot support")
+        other = {"comparator": "yurinavi.com", "shelf": "百合", "retrieved": "2026-08-05"}
+        s.check("url" not in b.cite_shelf(other, cites),
+                "a comparator with no capture gains no url")
+
+
+def state_claims(s):
+    """WHAT THE PLATFORM SAYS, as a row instead of half a sentence.
+
+    `state_basis` welded a source's claim to our own coverage, as in "no chapter for 2 days in what
+    we hold, but the platform still marks the serialisation as running", so the page could render
+    it only as a loose paragraph. Our half is `age_days`; this is the source's half.
+    """
+    rows = [{"platform": "カドコミ", "url": "https://comic-walker.com/detail/A",
+             "retrieved": "2026-08-06", "state_claim": {"says": "running", "term": "ongoing"}},
+            {"platform": "comici", "url": "https://comici.jp/b",
+             "retrieved": "2026-08-05", "state_claim": {"says": "completed", "term": "完結"}},
+            {"platform": "ニコニコ漫画", "url": "https://x.jp/c", "retrieved": "2026-08-05"}]
+    got = b.state_claim_rows(rows)
+    s.eq(len(got), 2, "a platform that states nothing produces no row")
+    s.eq(got[0]["source"], "comici", "the stronger claim leads, whatever order the rows arrived in")
+    s.eq(got[0]["term"], "完結", "the platform's own word is quoted rather than translated")
+    s.eq(got[0]["says"], "completed", "beside our reading of it, which is the thing the page sorts")
+    s.eq(got[1]["term"], "ongoing",
+         "and カドコミ's English value stays English, because it is what the field said")
+    s.eq(sorted(got[0]), ["read", "says", "source", "term", "url"],
+         "the shape an evidence row has: who said it, what they said, and when it was read")
+    s.eq(got[0]["read"], "2026-08-05", "the day that platform was read, not the day of the build")
+
+    # THE COUNTER-CASE. A row with no address must not gain an empty one, which would render as a
+    # link to nowhere in the same cell the evidence table links its read date from.
+    bare = b.state_claim_rows([{"platform": "comici", "retrieved": "2026-08-05",
+                                "state_claim": {"says": "completed", "term": "完結"}}])
+    s.check("url" not in bare[0], "no address means no address field")
+    s.eq(b.state_claim_rows([]), [], "no rows, no claims")
+
+
+def series_addresses(s):
+    """A ROW'S ADDRESS IS ITS NEWEST CHAPTER'S, so on GigaViewer it moves when the work publishes.
+
+    The work-level addresses were captured and attached to the identifiers the works already answer
+    to; what was left was for build.py to put one on the row. See docs/GAPS.md §21.
+    """
+    doc = {"record_type": "stable_address", "joins": [
+        {"url": "https://comic-days.com/episode/1",
+         "anchor": "web:https://comic-days.com/atom/series/9"},
+        {"url": "https://comic-days.com/episode/1",
+         "anchor": "web:https://comic-days.com/series/9/first_episode"},
+        {"url": "https://ichijin-plus.com/episode/2",
+         "anchor": "web:https://ichijin-plus.com/atom/series/7"},
+    ]}
+    got = b.work_level_addresses([doc])
+    s.eq(got["https://comic-days.com/episode/1"],
+         "https://comic-days.com/series/9/first_episode",
+         "the reader address wins where the capture established one")
+    # 一迅プラス, コミックガルド, MAGCOMI and webアクション serve no reader route, and two of them
+    # answer it with a 200 carrying their front page. The feed is the shape every host has.
+    s.eq(got["https://ichijin-plus.com/episode/2"],
+         "https://ichijin-plus.com/atom/series/7",
+         "and the feed address stands where the host serves no reader address")
+    s.eq(len(got), 2, "one address per row, not one per anchor")
+    s.eq(b.work_level_addresses([]), {}, "an absent capture is an empty answer, not a crash")
+
+    # THE COUNTER-CASE THAT DECIDED THE GLOB. `data/queue/address-moved.yaml` sits under the same
+    # filename prefix and attaches ANOTHER CHAPTER address, which is exactly what this field must
+    # never hold: it would replace an address that moves with a second address that also moves.
+    s.eq(b.work_level_addresses([{"record_type": "print_web_join", "joins": [
+             {"url": "https://comic-days.com/episode/1",
+              "anchor": "web:https://ichijin-plus.com/episode/5"}]}]),
+         {}, "a repair capture is not a work-level address capture and is not read as one")
+
+    # THE COUNTER-CASE. Falling back to the row's own address would put a chapter address in a
+    # field whose whole purpose is to hold one that does not move.
+    s.eq(b.series_address({"url": "https://comic-days.com/episode/3"}, got), None,
+         "a row nothing has read an address for gets none")
+    s.eq(b.series_address({"url": "https://comic-days.com/episode/3",
+                           "feed_url": "https://comic-days.com/atom/series/4"}, got),
+         "https://comic-days.com/atom/series/4",
+         "the feed the row already holds answers where the capture has not reached it")
+    s.eq(b.series_address({"url": "https://comic-fuz.com/manga/2474"}, got), None,
+         "a row whose own address is already the work's needs no second copy of it")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

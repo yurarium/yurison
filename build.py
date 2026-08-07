@@ -10,6 +10,7 @@ Fails closed: any validation error aborts the build without writing.
 Usage:  build.py [--out data/build]
 """
 import argparse, datetime, glob, json, pathlib, re, statistics, sys, unicodedata
+import urllib.parse as urlparse
 from collections import Counter, defaultdict
 
 sys.path.insert(0, "adapters")
@@ -853,6 +854,90 @@ def _shop_address(rec):
     return basis.get("url") if basis.get("source") == "bookwalker" else None
 
 
+# WHERE EACH SHOP'S YURI SHELF IS CAPTURED. The key is the name `admitted_by` writes for the
+# comparator and the value is the capture that read it. Declared rather than inferred, because the
+# two captures spell the shop differently in their own `source:` field, `bookwalker.jp` in one and
+# `cmoa` in the other, so a host guessed out of either would be a third spelling of one shop.
+SHELF_CAPTURES = {"bookwalker.jp": "data/queue/bookwalker-yuri.yaml",
+                  "cmoa.jp": "data/queue/cmoa-yuri.yaml"}
+
+
+def shelf_page_url(listing_url, page):
+    """One page of a shop's shelf listing, or the listing unchanged where no page is known.
+
+    The captures state a listing address with `page=1` on it and then record which page each work
+    was read from, so the address a row cites is built by putting that number back rather than by
+    composing a URL from parts. A page the capture did not state leaves the address alone: a
+    citation to page 1 of a shelf the work is not on is the fault this whole change is about.
+    """
+    base = str(listing_url or "").strip()
+    if not base or not page:
+        return base or None
+    parts = urlparse.urlsplit(base)
+    query = [(k, v) for k, v in urlparse.parse_qsl(parts.query) if k != "page"]
+    query.append(("page", str(int(page))))
+    return urlparse.urlunsplit(parts._replace(query=urlparse.urlencode(query)))
+
+
+def shelf_citations(captures=None):
+    """Where each shop's yuri shelf can be read, and which page of it a work was found on.
+
+    `{comparator: {"url": the shelf, "pages": {shop id: (page number, that page's address)}}}`.
+
+    WHY THE SHELF AND NOT THE BOOK. DEFINITIONS §2 admits a work because a licensed retailer filed
+    it under 百合, and the shelf is the only page that shows the filing. A row citing the shop's
+    page for the book sends a reader to check a claim that page does not make, which is worse than
+    citing nothing: it invites the check and then fails it. One operator followed such a citation,
+    found no 百合 anywhere on the series page it led to, and concluded the entry was wrong.
+
+    THE CAPTURE HEADER'S CLAIM IS NOT LEANED ON. `bookwalker-yuri.yaml` says the genre is
+    "presented on every work page", which would make the book's page a second place to check. It is
+    a statement about WORK pages, and 646 of the addresses we hold are SERIES pages, which it never
+    covered. It is also a year-old reading of a shop that redraws its pages at will. So the shelf
+    is cited because it is where the capture read the claim, which is a fact about our own act.
+    """
+    out = {}
+    for comparator, path in sorted((captures or SHELF_CAPTURES).items()):
+        p = pathlib.Path(path)
+        if not p.exists():
+            continue
+        doc = yaml.safe_load(p.read_text()) or {}
+        shelf = str(doc.get("source_url") or "").strip()
+        if not shelf:
+            continue
+        listings = {str(k): str((v or {}).get("url") or "")
+                    for k, v in (doc.get("listings") or {}).items()}
+        pages = {}
+        for item in doc.get("items") or []:
+            key, page = str(item.get("id") or ""), item.get("page")
+            base = listings.get(str(item.get("listing") or "")) or shelf
+            if key and page:
+                pages[key] = (int(page), shelf_page_url(base, page))
+        out[comparator] = {"url": shelf, "pages": pages}
+    return out
+
+
+def cite_shelf(entry, shelves, shop_id=""):
+    """A comparator entry with the address its claim can be checked at.
+
+    `admitted_by` names the shop and the shelf and states no address at all, so the shelf rows on a
+    work page carried no citation and the only BOOK☆WALKER link beside them pointed at the book.
+    This puts the shelf on the entry; `classify/credence.py` turns it into the row.
+
+    NOTHING IS INVENTED. A comparator with no capture here keeps the entry it had, and a work the
+    capture states no page for cites the shelf without one. The alternative in both cases is an
+    address nobody read.
+    """
+    shelf = shelves.get(str(entry.get("comparator") or "").strip().lower())
+    if not shelf:
+        return entry
+    page, url = shelf["pages"].get(str(shop_id or ""), (None, shelf["url"]))
+    cited = dict(entry, url=url)
+    if page:
+        cited["page"] = page
+    return cited
+
+
 def _record_address(rec, name):
     """The page THIS source holds the work on, or None.
 
@@ -871,6 +956,86 @@ def _record_address(rec, name):
         basis = rec.get("marketing_label_basis") or {}
         return rec.get("madb_url") or (basis.get("url") if basis.get("source") == "madb" else None)
     return None
+
+
+# Every capture of work-level addresses, whichever platform it was read from. Globbed rather than
+# named, because there are four of them today, one per shape the platforms write, and a fifth
+# arriving would otherwise be read by identity.py and not by this. `record_type` is what selects
+# them: `address-moved.yaml` sits under the same prefix and attaches ANOTHER CHAPTER address, which
+# is the one thing this field must never carry.
+WORK_ADDRESS_CAPTURES = "data/queue/address-*.yaml"
+WORK_ADDRESS_RECORD = "stable_address"
+
+
+def work_level_addresses(docs):
+    """`{chapter address: the work's own address}` over the captures that read them.
+
+    TWO SHAPES, BECAUSE THE PLATFORMS DIFFER. Every GigaViewer host serves `/atom/series/<id>`, and
+    337 of the 506 rows also have `/series/<id>/first_episode`, the address the platform itself puts
+    behind a series on its own listings. 一迅プラス, コミックガルド, MAGCOMI and webアクション serve
+    no route for the second, and two of them answer it with HTTP 200 carrying their front page, so
+    the reader address is taken only where the capture established that the page names the series.
+
+    The reader address is preferred where there is one and the feed stands everywhere else. Both are
+    anchors the registry already holds, so either resolves to the identifier the work has.
+    """
+    out = {}
+    for doc in docs:
+        if str((doc or {}).get("record_type") or "") != WORK_ADDRESS_RECORD:
+            continue
+        for join in (doc.get("joins") or []):
+            url = str(join.get("url") or "")
+            found = str(join.get("anchor") or "").split("web:", 1)[-1]
+            if not url or not found:
+                continue
+            if url not in out or "/atom/" not in found:
+                out[url] = found
+    return out
+
+
+def state_claim_rows(rows):
+    """What each platform says about its own serialisation, one row per platform that says it.
+
+    THE SAME SHAPE AS AN EVIDENCE ROW, and for the same reason: who spoke, what they said, and when
+    it was read. `state_basis` used to carry this welded into a sentence about our own coverage:
+    "no chapter for 2 days in what we hold, but the platform still marks the serialisation as
+    running". That is one claim about the WORLD and one about THIS DATABASE in a paragraph the page
+    could only print whole. `age_days` already carries our half as a number; this carries the
+    platform's half as a row, so both can be rendered like every other fact on the page.
+
+    `says` is our reading and `term` is the platform's own value, kept apart because カドコミ
+    answers `finished` in English where comici answers 完結 and flattening the two would hide that
+    they are separate sources agreeing.
+
+    A completed claim sorts above a running one, so a work whose platforms disagree leads with the
+    stronger statement rather than with whichever row happened to be built first.
+    """
+    out = []
+    for row in rows:
+        claim = row.get("state_claim") or {}
+        if not claim.get("says"):
+            continue
+        out.append({"source": row.get("platform"), "says": claim["says"],
+                    "term": claim.get("term") or None,
+                    "read": row.get("retrieved") or None,
+                    **({"url": row["url"]} if row.get("url") else {})})
+    return sorted(out, key=lambda x: (x["says"] != "completed", str(x["source"] or "")))
+
+
+def series_address(row, addresses):
+    """The work's own address for a row addressed at one of its chapters, or None.
+
+    WHY A ROW NEEDS ONE. `identity.py` anchors a work on its row's address, and a row's address is
+    its newest chapter's, so on a GigaViewer platform a work that publishes looks like a work never
+    seen before. `identity.stable_url` closes the addresses that carry the work's own in front of
+    them; these are the 507 that carry nothing but a chapter id.
+
+    NOTHING IS DERIVED FROM THE CHAPTER ADDRESS. It is either an address somebody read or the feed
+    the row is already holding, and a row with neither says so by carrying no field.
+    """
+    url = str(row.get("url") or "")
+    found = addresses.get(url) or row.get("feed_url") or None
+    return found if found and found != identity.stable_url(url) else None
 
 
 def credits_en(raw, exact, folded, fold):
@@ -1523,6 +1688,10 @@ def main():
     undated_works = 0
     undated_by_basis = {}
 
+    # Read once, ahead of the loop: 4,300 works would otherwise re-parse two capture files each.
+    shelf_cites = shelf_citations()
+    shelf_cited = shelf_paged = 0
+
     works, errors, warnings = [], [], []
     for wid, by_source in sorted(src.items()):
         # THE PRIMARY IS THE BEST RECORD THERE IS, which is not always the bibliography's. A work
@@ -1684,9 +1853,20 @@ def main():
         # It is recorded rather than assumed. §2 requires knowing WHICH comparator admitted a work,
         # so a reader can tell whether it is here because a publisher called it yuri or because a
         # shop shelved it there, and the field carries the shelf and the day it was read.
+        #
+        # AND WHERE THE SHELVING CAN BE READ. The field named the shop and stated no address, so
+        # the evidence row built from it carried no citation and the nearest BOOK☆WALKER link on
+        # the page was the shop's page for the book, which says nothing about 百合. The shop id is
+        # taken from the retailer's own record rather than from `base`, because `base` is the
+        # bibliography's record wherever there is one and only the shop knows its own id.
         admitted = base.get("admitted_by")
         if admitted:
+            admitted = [cite_shelf(_adm, shelf_cites,
+                                   (by_source.get("bookwalker") or {}).get("shop_id"))
+                        for _adm in admitted]
             w["admitted_by"] = admitted
+            shelf_cited += sum(1 for _adm in admitted if _adm.get("url"))
+            shelf_paged += sum(1 for _adm in admitted if _adm.get("page"))
 
         if not w.get("marketing_label") and not w.get("content_tier") and not admitted:
             errors.append(f"{wid}: fails the inclusion test — neither axis set and no comparator "
@@ -3555,14 +3735,30 @@ def main():
             # カドコミ answers in English and comici in Japanese, in a field of the same name.
             # comici has no value meaning "we do not know": a page carrying the field has answered,
             # which is why 連載中 is worth recording as well and not only its opposite.
+            #
+            # THE NAME, NOT A SENTENCE. Both fields used to hold prose reading "the platform marks
+            # the serialisation finished", which is a source's claim welded to our wording of it and
+            # said nothing about WHICH platform on a work serialising in three places. What they
+            # carry now is the platform's own name, so the sentence can be composed where it is
+            # needed and `state_claim` below can be a row like every other fact on the page.
             platform_status = str(w.get("status") or "")
-            if platform_status.lower() == "finished" or platform_status == "完結":
-                bucket["completed_src"] = "the platform marks the serialisation finished"
-                bucket["completed_src_ja"] = "プラットフォームが連載終了と表示している"
+            _ended = platform_status.lower() == "finished" or platform_status == "完結"
+            _says = ("completed" if _ended
+                     else "running" if platform_status in ("ongoing", "連載中") else None)
+            if _says:
+                bucket["completed_src" if _ended else "running_src"] = plat
+                # WHAT IT SAID, IN ITS OWN WORD. `says` is our reading of the field and `term` is
+                # the value the platform stated, so a reader can see that カドコミ answers
+                # `finished` in English where comici answers 完結, which is two sources agreeing
+                # rather than one fact with two spellings.
+                #
+                # A completed claim wins a disagreement, which is the precedence the branch far
+                # below already applies to `completed_src`. Without it a row would say one thing or
+                # the other according to which of two files describing it was read last.
+                if _ended or not bucket.get("state_claim"):
+                    bucket["state_claim"] = {"says": _says, "term": platform_status}
             elif platform_status == "読み切り":
                 bucket["oneshot_src"] = True
-            elif platform_status in ("ongoing", "連載中"):
-                bucket["running_src"] = "the platform marks the serialisation as running"
             # Partial only if EVERY source for this row is partial. One full history is enough to
             # make the count real, whatever else also saw a slice of it.
             bucket["partial"] = bucket["partial"] and bool(partial)
@@ -3780,16 +3976,24 @@ def main():
             # Quoting what was actually found. The pattern accepts 最終話 and a bracketed 完
             # alike, and a basis naming the wrong one is a citation to something the page does
             # not say.
+            #
+            # THE PLATFORM IS NAMED. `_completed` is its name now, so the sentence says which site
+            # said it. It used to read "the platform marks the serialisation finished", which on a
+            # work running in three places left the reader to guess which of the three.
             row["completed_basis"] = (f"the newest chapter is titled {_fm_shown.group(0)}"
                                       if _final
-                                      else _completed)
+                                      else f"{_completed} marks the serialisation finished")
             # THE SAME EVIDENCE IN THE READER'S LANGUAGE. The site is bilingual and every one of
             # these sentences was English, so a Japanese reader was shown prose they could not use
             # in the one place the interface explains itself. Written beside the English at the
             # moment the finding is made, rather than translated later from the sentence.
+            #
+            # It used to be read off `bucket`, which is the ingest loop's variable and had gone out
+            # of use hundreds of lines earlier: every completed row was given the LAST bucket's
+            # Japanese, and the fault was invisible only because the sentence was a constant.
             row["completed_basis_ja"] = (f"最新話の題が{_fm_shown.group(0)}"
                                          if _final
-                                         else (bucket.get("completed_src_ja") or _completed))
+                                         else f"{_completed}が連載終了と表示している")
         else:
             # Skipped slots bear on this twice over, and in opposite directions.
             #
@@ -3826,12 +4030,20 @@ def main():
                 # work nobody has closed and a work nobody has touched. カドコミ marks six of its
                 # ten dormant works ongoing, and it is also what keeps an aggregator's 完結 tag
                 # from closing a work the platform itself still calls running.
-                if row.pop("running_src", None):
+                #
+                # THE TWO HALVES ARE NOW SEPARABLE. This sentence welds a source's claim to our own
+                # coverage, and the page could do nothing with either: `age_days` is on the row and
+                # the platform's claim is on `state_claims`, both structured, both rendered as rows.
+                # The prose stays because it is what the badge tooltip reads, and because the JOIN
+                # is the point: that the silence is ours rather than the work's is a statement
+                # neither half makes alone.
+                _running_on = row.pop("running_src", None)
+                if _running_on:
                     row["state_basis"] = (
                         f"no chapter for {age} day{'' if age == 1 else 's'} in what we hold, but "
-                        f"the platform still marks the serialisation as running")
+                        f"{_running_on} still marks the serialisation as running")
                     row["state_basis_ja"] = (
-                        f"{age}日間新しい話がないが、プラットフォームは連載中と表示している")
+                        f"{age}日間新しい話がないが、{_running_on}は連載中と表示している")
                 # THE ANTENNA SAYS IT FINISHED. An aggregator's tag is a lead, so it does not carry
                 # a live series on its own; joined to a year of silence it is better evidence than
                 # the silence alone, which is all `dormant` ever had.
@@ -3973,6 +4185,11 @@ def main():
         _gid = _reg_index.get(identity.web_anchor(_grow.get("url")))
         _grow["_group"] = _key_of_id.setdefault(_gid, _gkey) if _gid else _gkey
 
+    # Read once for the whole population; 3,000 rows would otherwise re-parse an 843-entry capture.
+    _work_addresses = work_level_addresses(
+        yaml.safe_load(pathlib.Path(_wl).read_text()) or {}
+        for _wl in sorted(glob.glob(WORK_ADDRESS_CAPTURES)))
+
     works_out, by_title = [], defaultdict(list)
     for row in series.values():
         row["format"] = editions.get((norm_work(row["work"]), row["platform"]), "standard")
@@ -4064,6 +4281,11 @@ def main():
                 reverse=True),
             "collection": best.get("collection"),
             "url": best["url"],
+            # THE ADDRESS THAT DOES NOT MOVE. `url` above is the newest chapter's, so anchoring a
+            # work on it mints a second identifier the next time the work publishes. This is the
+            # work's own address on the same platform, and it belongs beside `url` rather than
+            # instead of it: a reader following a row wants the chapter it is telling them about.
+            "series_url": series_address(best, _work_addresses),
             "free": best["free"], "free_timed": best["free_timed"], "priced": best["priced"],
             "sources": [{"platform": r["platform"], "url": r["url"], "chapters": r["chapters"],
                          "free": r["free"], "free_timed": r["free_timed"], "priced": r["priced"],
@@ -4075,6 +4297,10 @@ def main():
             # identifier has attached each row's book records. Ordering happens there, once.
             "evidence": [_ev for _ev in (credence.label_row(r["label_rec"], platform=r["platform"])
                                          for r in rows if r.get("label_rec")) if _ev],
+            # WHETHER THE PLATFORM SAYS IT IS STILL RUNNING, as a row rather than as prose. Every
+            # row here, not only the one the state was taken from: two platforms carrying one work
+            # can disagree, and a reader owed the state's basis is owed the disagreement with it.
+            "state_claims": state_claim_rows(rows),
             # WHAT THE PLATFORM SAYS, kept apart from what we work out. The coming-soon view
             # predicts from each series' own past interval, which is an inference and is labelled
             # one. A platform that prints 次回無料更新は8/21 has announced a date, and an
@@ -4225,7 +4451,10 @@ def main():
                 "latest": None, "latest_ep": "", "first": _fp2.get("date"),
                 "state": "print", "state_basis": None, "completed_basis": None,
                 "free": 0, "free_timed": 0, "priced": 0,
-                "url": None, "sources": [], "skipped": [], "collection": None,
+                # A work that exists only in print serialises nowhere, so it has no address of
+                # either kind and no platform to make a claim about a serialisation it lacks.
+                "url": None, "series_url": None, "sources": [], "skipped": [], "collection": None,
+                "state_claims": [],
                 "id": _pid,
                 "completed_claim": _pw2.get("completed_claim"),
                 "print": [{"work_id": _pw2["work_id"], "volumes": _pw2.get("volume_count"),
@@ -4595,6 +4824,9 @@ def main():
                         "slow": "within a year", "dormant": "older than a year"}},
         ensure_ascii=False, indent=1, default=jsonable))
     _st = Counter(r["state"] for r in series_rows)
+    if shelf_cited:
+        print(f"shelf citations : {shelf_cited} comparator entries cite the shelf the claim is on, "
+              f"{shelf_paged} of them the page it was read from")
     if undated_works:
         print(f"undated works   : {undated_works} recorded with no attested publication date")
         # WHICH SILENCE, because a total says how far there is to go and nothing about how to get

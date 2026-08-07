@@ -142,14 +142,21 @@ def named(value):
     return SOURCE_NAME.get(key.lower(), key)
 
 
-def _row(kind, source, term, retrieved, url):
+def _row(kind, source, term, retrieved, url, page=None):
     # `rule` is NOT on the row. It is a property of the kind and identical across every row of
     # that kind, so it is written once per file instead of 2,492 times, which is 146 KB of
     # series.json for a string no reader sees. RULE above is what a build writes out.
+    #
+    # `url` IS THE ADDRESS THE CLAIM IS ON, never the address of the thing claimed about. For a
+    # shelf row that is the shop's 百合 listing and not its page for the book; `page` says which
+    # page of that listing the work was read from, where the capture recorded one. The two are one
+    # fact from one producer, build.py's `shelf_citations`, so a renderer can print the number
+    # without parsing it back out of a URL.
     return {"kind": kind, "rank": rank(kind), "type": TYPE[kind],
             "source": source, "term": term,
             "read": str(retrieved or "")[:10] or None,
-            **({"url": url} if url else {})}
+            **({"url": url} if url else {}),
+            **({"page": page} if page else {})}
 
 
 def label_row(rec, platform=None):
@@ -184,7 +191,12 @@ def label_row(rec, platform=None):
 
 
 def shelf_rows(rec):
-    """One row per comparator that admitted this work under DEFINITIONS §2."""
+    """One row per comparator that admitted this work under DEFINITIONS §2.
+
+    The address and the page come from the entry as build.py wrote it, which is the shelf the work
+    was read on. Deciding here which of a record's several addresses is the citation is the trap
+    `_shop_address` in build.py documents, and the record's own page is the wrong answer to it.
+    """
     out = []
     for entry in rec.get("admitted_by") or []:
         host = str(entry.get("comparator") or "").strip().lower()
@@ -192,7 +204,8 @@ def shelf_rows(rec):
         if not host or not term:
             continue
         kind = "shelf" if host in RETAILERS else "listing"
-        out.append(_row(kind, named(host), term, entry.get("retrieved"), entry.get("url")))
+        out.append(_row(kind, named(host), term, entry.get("retrieved"), entry.get("url"),
+                        entry.get("page")))
     return out
 
 

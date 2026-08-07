@@ -595,14 +595,76 @@ def inv_publisher_is_a_name_not_a_role(ctx):
     what the bracket SAYS is the adapter's job rather than this check's, so a role the adapter
     stops recognising still shows up here.
 
+    AND THE BLIND SPOT THAT LEAVES, which is the whole of STANDING-INSTRUCTIONS §14b. Taking the
+    bracket off is precisely what the adapter does, so a check looking only for brackets cannot see
+    the fault it was written for: 講談社 lifted OUT of `[発売]講談社` and stored bare is a clean
+    publisher field naming the wrong party, and the first version of this check would have passed
+    it for the rest of its life. The second clause measures the stored name against
+    `publisher_stated`, which is the source string the record keeps beside the reading, and asks
+    whether the name it stored appears in that string anywhere except inside a bracket.
+
+    THE COUNTER-CASE, which is why the clause is not simply "the name came out of a bracket". 297
+    records of release 1.2.18 name one house twice, once as the distributor and once plain:
+    `["[発売]小学館", "小学館"]` is 小学館 delivering its own book. The stored name is legitimate
+    there and it does come out of a bracket, so the finding needs the name to appear NOWHERE
+    unbracketed.
+
+    What neither clause can see: a name that is wrong for reasons the source string does not carry,
+    and any record MADB gave a single unmarked publisher, which keeps no `publisher_stated` because
+    there is nothing to dispute.
+
     fallback: none is possible. The name is what is published; a wrong one is served.
     """
     bad = []
     for r in ctx["madb_records"]:
-        m = ROLE_NOTATION.search(str(r.get("publisher") or ""))
+        who = str(r.get("publisher") or "")
+        m = ROLE_NOTATION.search(who)
         if m:
-            bad.append(f"{r.get('work_id')}: publisher {r.get('publisher')!r} holds {m.group(0)!r}")
+            bad.append(f"{r.get('work_id')}: publisher {who!r} holds {m.group(0)!r}")
+            continue
+        if who and _lifted_out_of_notation(who, str(r.get("publisher_stated") or "")):
+            bad.append(f"{r.get('work_id')}: publisher {who!r} is stated only inside notation, "
+                       f"in {r.get('publisher_stated')!r}")
     return bad
+
+
+# One value of the source field, and the name left when the cataloguing around it is taken off.
+# Neither pattern names a role: which words are roles is the adapter's decision, and a copy of its
+# table here would report what the adapter already handles and nothing else (§14b).
+_NOTATION_HEAD = re.compile(r"^\s*[\[［][^\]］]*[\]］]\s*")
+_NOTATION_TAIL = re.compile(r"\s*[（(][^）)]*[）)]\s*$")
+
+
+def _lifted_out_of_notation(who, stated):
+    """Whether `who` appears in the source string only as the name inside a role marker."""
+    if not stated:
+        return False
+    parts = [p.strip() for p in stated.split(" / ") if p.strip()]
+    if who in parts:
+        return False
+    return any(who in (_NOTATION_HEAD.sub("", p).strip(), _NOTATION_TAIL.sub("", p).strip())
+               for p in parts if _NOTATION_HEAD.match(p) or _NOTATION_TAIL.search(p))
+
+
+def inv_a_record_without_a_publisher_says_why(ctx):
+    """A record naming no publisher must state which kind of nothing that is.
+
+    The fix that took the distributor out of the publisher field leaves the field empty wherever
+    MADB named a distributor and nobody else, and an empty string is the shape
+    STANDING-INSTRUCTIONS §5 is written about: it reads the same as a field nobody has filled in.
+    `publisher_basis` carries the three answers and `adapters/madb/extract.py` documents them.
+
+    Measured on the record and not on the adapter's own count, so a route that starts writing
+    records by some other path is held to it too.
+
+    fallback: none. A consumer that cannot tell "MADB looked and the book does not say" from "we
+    have not read this yet" will guess, and guessing a publisher from an imprint is the thing the
+    whole change refuses to do.
+    """
+    return [f"{r.get('work_id')}: no publisher and no publisher_basis"
+            for r in ctx["madb_records"]
+            if not str(r.get("publisher") or "").strip()
+            and not str(r.get("publisher_basis") or "").strip()]
 
 
 def inv_first_date_precedes_its_editions(ctx):
@@ -838,6 +900,7 @@ INVARIANTS = [
     ("undated works say where and why", inv_undated_works_say_where_and_why),
     ("per-book dates cite their page", inv_per_book_dates_cite_their_page),
     ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role),
+    ("a record without a publisher says why", inv_a_record_without_a_publisher_says_why),
 ]
 
 
@@ -1562,6 +1625,21 @@ def budget_publishers_with_no_english(ctx):
     implementation's answer finds the record.
 
     Names, not rows: one publisher rendered once serves every work it publishes.
+    REUSES THE ADAPTER'S NORMALISERS, and §14b says to say so and to name what that hides. It
+    cannot see a disagreement between `publishers.publisher_of` here and the interface's own
+    reading, which is the one way a name in the store can still render as Japanese. What guards
+    that instead is the shipped file being keyed by the RAW catalogued string as well as the
+    normalised one, so either answer finds the record.
+
+    So it reads the shipped mapping wherever the build puts it, and counts the distinct names the
+    data carries that the mapping has no entry for. Names, not rows: one publisher rendered once
+    serves every work it publishes.
+
+    THE DISTRIBUTOR IS COUNTED BECAUSE IT IS SHOWN. Taking it out of the publisher field did not
+    take it off the page: the volumes row names it and says it delivered the book, so a reader in
+    English mode meets it and it needs a rendering like any other name. Adding it can only move
+    this number up, and a number that rises because a field that was hidden inside another one is
+    now its own is a real change in what is measured rather than coverage lost.
     """
     sys.path.insert(0, str(ROOT / "adapters" / "names"))
     try:
@@ -1633,7 +1711,7 @@ def budget_publisher_keys_the_interface_misses(ctx):
     missing = set()
     for r in ctx["series"]:
         for pr in (r.get("print") or []):
-            for field, norm in (("publisher", _app_publisher_of), ("imprint", _app_imprint_of)):
+            for field, norm in _pub.NAME_FIELDS:
                 raw = str(pr.get(field) or "").strip()
                 if not raw:
                     continue
@@ -2021,6 +2099,16 @@ def self_test():
          lambda c: c["names"]["authors"].update({"あいかわももこ": {
              "reading": "アイ カワ モモコ", "reading_basis": "analyser",
              "reading_source": "sudachi", "reading_source_kind": "analyser"}})),
+        # THE SAME FAULT WITH THE NOTATION TIDIED OFF, which is what the pipeline can actually
+        # produce and what the canary above cannot prove is caught (§14b). A bracket planted into
+        # the context is downstream of the adapter that removes brackets, so it exercises a shape
+        # nothing upstream can still emit.
+        ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role,
+         lambda c: c["madb_records"].append({"work_id": "CANARY", "publisher": "講談社",
+                                             "publisher_stated": "[発売]講談社"})),
+        # A publisher field left empty with nothing saying which kind of empty it is.
+        ("a record without a publisher says why", inv_a_record_without_a_publisher_says_why,
+         lambda c: c["madb_records"].append({"work_id": "CANARY", "publisher": ""})),
     ]
     ok = True
     for name, fn, plant in probes:

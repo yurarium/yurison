@@ -25,20 +25,45 @@ IMPRINTS = ("yurihimecomics", "コミック百合姫", "百合姫コミックス
 # `[Shueisha]` and `[ヒゲの筆]` are names, and a rule stripping every bracket leaves those credits
 # naming nobody. 発売 and 頒布 are the two that matter in this corpus and the rest are here because
 # they occur in the release and would otherwise be read as part of a name.
+#
+# THE LIST WAS COUNTED OUT OF THE RELEASE, NOT GUESSED. Every distinct bracket in schema:publisher
+# across all 401,311 book and 139,130 series records of 1.2.18 was tabulated, and the six compounds
+# below the first block were what a table built for 発売 and 頒布 had missed. Each one was read in
+# its own record before being called a role, because that is the test that keeps 漫画刊行會 and
+# インプレスR&D POD出版サービス out: both look like roles and are the names of the parties.
+#
+# A COMPOUND TAKES ITS PUBLISHING-SIDE HALF. `共同刊行・発売` was already read as a co-publisher
+# rather than as a distributor, and `発売・共同刊行` is the same pair written the other way round.
+# The reason is what the field is for: a party that co-published AND distributed is a publisher of
+# the book, and recording only the delivery would lose the stronger claim.
 PUBLISHER_ROLES = {
     "発売": "distributor",
     "頒布": "distributor",
     "発売所": "distributor",
     "共同刊行・発売": "co-publisher",
+    "発売・共同刊行": "co-publisher",
     "共同刊行": "co-publisher",
     "発行": "publisher",
     "発行元": "publisher",
     "発行所": "publisher",
+    "発行人": "publisher",
+    "出版": "publisher",
     "製作": "producer",
     "制作": "producer",
+    "製作・発売": "producer",
+    "編集・製作": "producer",
+    "特別編集": "editor",
     "印刷": "printer",
     "出版者不明": "unknown",
+    # ISBD's sine nomine, which MADB writes untranslated on 4 records. It is 出版者不明 in Latin
+    # and means the same thing: the cataloguer looked and the book does not say.
+    "s.n.": "unknown",
 }
+
+# The roles that make a party the publisher of the book. `unknown` is in PUBLISHER_ROLES and is
+# deliberately not here: it is the source stating that nobody is named, which is a different fact
+# from a party holding the role.
+PUBLISHING_ROLES = ("publisher", "co-publisher")
 
 ROLE_HEAD = re.compile(r"^\s*[\[［]\s*([^\]］]*?)\s*[\]］]\s*")
 ROLE_TAIL = re.compile(r"\s*[（(]\s*([^）)]*?)\s*[）)]\s*$")
@@ -152,11 +177,74 @@ def publisher_of(rec):
 
     Where nobody holds the publisher role the answer is nobody. A distributor is not promoted into
     the empty seat, and `publishers` still names who MADB did state.
+
+    A CO-PUBLISHER ANSWERS ONLY WHERE NOBODY ELSE DOES. `["[発売・共同刊行]コミックス", "講談社"]`
+    names both, and the co-publisher comes FIRST, so taking either publishing role in the order
+    MADB wrote them would put the junior party in the field and reintroduce the fault one bracket
+    further along. Where a co-publisher is the only publishing party named it is the answer, which
+    is the honest reading of a book somebody co-published and nobody else claims.
     """
-    for p in publishers(rec):
-        if p.role == "publisher":
-            return p
+    parties = publishers(rec)
+    for want in PUBLISHING_ROLES:
+        for p in parties:
+            if p.role == want:
+                return p
     return Party("", "", "")
+
+
+def distributors(rec):
+    """The parties MADB says put the book into shops, in the order it names them."""
+    return [p for p in publishers(rec) if p.role == "distributor"]
+
+
+def publisher_record(chain):
+    """Which of a series record and its volumes the publisher fields are read from.
+
+    A THIN SERIES RECORD DOES NOT SILENCE ITS VOLUMES. MADB leaves schema:publisher off 10 of the
+    百合姫 series records while every volume of them names 一迅社, and those were the last works
+    whose yuri label had a term to quote and nobody to attribute it to.
+
+    A RECORD NAMING ONLY A DISTRIBUTOR IS SAYING NOTHING EITHER, which is why this asks for a
+    record that NAMES A PUBLISHER before it settles for one that merely fills the field. 331 series
+    records of release 1.2.18 hold a distributor and no publisher, and taking the first record with
+    anything in the field would let those summaries silence volumes that name the publisher.
+
+    Where nothing in the chain names one, the first record that stated anything is still the answer,
+    because the distributor and the raw string belong on the record whatever else is missing.
+
+    ONE PLACE THIS RULE LIVES. `render` writes the fields and `main` reports on them, and the
+    report reading a rule of its own would count something other than what was written
+    (STANDING-INSTRUCTIONS §3).
+    """
+    stating = [r for r in chain if values(r.get("schema:publisher", ""))]
+    named = next((r for r in stating if publisher_of(r).name), None)
+    return named or (stating[0] if stating else chain[0])
+
+
+def publisher_basis(rec):
+    """Why a record names no publisher, in one word, or '' where it names one.
+
+    THE IMPORTANT HALF OF THE DISTRIBUTOR FIX, and the half that is easy to leave out. Taking the
+    distributor out of the publisher field leaves the field empty on a record MADB never gave a
+    publisher for, and an empty field is indistinguishable from one nobody has filled in yet.
+    STANDING-INSTRUCTIONS §5 is about exactly that, and DEFINITIONS §6 already applies it to a
+    date: the absence is recorded, "never as an empty field pretending nobody looked".
+
+    The three answers are different facts and a reader is owed which one this is:
+
+      `unknown-to-source`  MADB says 出版者不明 or `[s.n.]`. A cataloguer looked at the book and
+                           it does not say. Nothing further will find it.
+      `not-stated`         MADB names parties and none of them published: a distributor alone on
+                           727 book records of release 1.2.18. Somebody published it and this
+                           source does not say who.
+      `absent`             MADB states no publisher field at all, so it makes no claim either way.
+    """
+    if publisher_of(rec).name:
+        return ""
+    parties = publishers(rec)
+    if not parties:
+        return "absent"
+    return "unknown-to-source" if any(p.role == "unknown" for p in parties) else "not-stated"
 
 
 # The 百合姫 spellings in the form they are compared in. Built once so that the selection in
@@ -472,8 +560,16 @@ def render(sid, vs, series, how, tag, retrieved, route, label, extra=()):
     # those were the only works whose label still had nothing quotable: a term and nobody to
     # attribute it to. Where the summary says nothing, the books it collects do, and the record
     # names which of the two it read.
+    #
+    # A RECORD THAT NAMES ONLY A DISTRIBUTOR IS ALSO SAYING NOTHING about who published, so the
+    # chain is searched for a record that NAMES A PUBLISHER before it is searched for one that
+    # states the field at all. Taking the first record with anything in the field is what the
+    # earlier version did, and 331 series records of release 1.2.18 hold a distributor and nobody
+    # else: on those the summary would have silenced volumes that name the publisher outright.
+    # Where the chain names no publisher anywhere, the first record that stated anything is still
+    # what the raw and the distributor are read from, because it is what the source said.
     chain = [s] + list(vs)
-    pubrec = next((r for r in chain if values(r.get("schema:publisher", ""))), s)
+    pubrec = publisher_record(chain)
     parties = publishers(pubrec)
     who = publisher_of(pubrec)
     pub_stated = as_stated(pubrec.get("schema:publisher", ""))
@@ -484,6 +580,18 @@ def render(sid, vs, series, how, tag, retrieved, route, label, extra=()):
         f"creator: {yaml_str(flat(s.get('schema:creator', '')))}",
         f"publisher: {yaml_str(who.name)}",
     ]
+    # WHY THE SEAT IS EMPTY, on the record and not left to a consumer to infer from an empty
+    # string. See `publisher_basis`: the three answers are different facts and only one of them
+    # means anything further could be found.
+    if not who.name:
+        L.append(f"publisher_basis: {publisher_basis(pubrec)}")
+    # THE DISTRIBUTOR IS ITS OWN FIELD, beside the publisher and never in it. Every consumer here
+    # reads a flat field, and the alternative was to leave each one walking `publishers` and
+    # deciding for itself which party to show, which is the same fault a layer up: several readers
+    # of one string, each guessing. `publishers` stays as the full statement, this is the answer to
+    # the one question anything asks of it, and check.py holds the two to each other.
+    if distributors(pubrec):
+        L.append(f"distributor: {yaml_str(' / '.join(p.name for p in distributors(pubrec)))}")
     # The raw is written wherever reading it changed the answer, and left out where it would only
     # repeat the line above. Correcting how a source is READ is right; editing what it SAID is not.
     if pub_stated != who.name:
@@ -593,20 +701,23 @@ def main():
     # faults: an imprint quoting the umbrella line, and a distributor standing where the publisher
     # belongs. A pass that stops resolving either should say so on the run it stops.
     quoting = distributed = unnamed = 0
+    why = Counter()
     for sid, vs in by_series.items():
         s = vs[0] if sid.startswith("T:") else series[sid]
         chain = [s] + list(vs)
         if is_yuri_imprint(imprint_of(chain)[0]):
             quoting += 1
-        pubrec = next((r for r in chain if values(r.get("schema:publisher", ""))), s)
-        if any(p.role == "distributor" for p in publishers(pubrec)):
+        pubrec = publisher_record(chain)
+        if distributors(pubrec):
             distributed += 1
         if not publisher_of(pubrec).name:
             unnamed += 1
+            why[publisher_basis(pubrec)] += 1
     print(f"imprint quotable: {quoting} of {len(by_series)} works state the 百合姫 brand that "
           "carries their label")
     print(f"distributors    : {distributed} works name one beside the publisher")
-    print(f"no publisher    : {unnamed} works where MADB names nobody in that role")
+    print(f"no publisher    : {unnamed} works where MADB names nobody in that role"
+          + (f" ({', '.join(f'{k} {n}' for k, n in sorted(why.items()))})" if why else ""))
 
 
 if __name__ == "__main__":

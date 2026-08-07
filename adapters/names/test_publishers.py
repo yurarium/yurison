@@ -170,6 +170,17 @@ def main(s):
     s.eq(P.unnamed({}, three), [(202, "講談社", "publisher")],
          "one publisher spelled three ways is one entry in the queue, not three")
 
+    # ── WHICH FIELDS HOLD A NAME A READER SEES ─────────────────────────────────────────────────
+    #
+    # The queue here and `publishers with no English` in check.py both walk a print row, and both
+    # walked their own list of fields until one of them gained `distributor` and the other did not.
+    # One list now, and this pins what it holds so a field added to the row reaches both or
+    # neither (STANDING-INSTRUCTIONS §3).
+    s.eq([f for f, _n in P.NAME_FIELDS], ["publisher", "distributor", "imprint"],
+         "the publisher, the distributor and the imprint are all shown, so all are queued")
+    s.check(all(n is P.publisher_of for f, n in P.NAME_FIELDS if f != "imprint"),
+            "a distributor is a publisher's name in another seat and normalises the same way")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "names.publishers"))

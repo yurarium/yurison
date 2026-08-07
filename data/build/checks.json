@@ -115,6 +115,12 @@
    "value": 0
   },
   {
+   "name": "titles with no translation of our own",
+   "means": "titles whose only English is the publisher's or the licensor's, so a reader who moves those down EN_ORDER is shown a romanisation instead of an alternative. A rise means a translation stopped reaching the shipped file, which is coverage lost and never a tidy-up.",
+   "budget": 214,
+   "value": 214
+  },
+  {
    "name": "publishers with no English",
    "means": "distinct publisher and imprint names that render as Japanese in English-only mode. A rise means new publishers entered the corpus faster than their names were rendered.",
    "budget": 32,
@@ -172,13 +178,15 @@
    "name": "stock phrasing in comments",
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage.",
    "budget": 903,
-   "value": 903
+   "value": null,
+   "not_measured": "source-quality budget; measured at check-in"
   },
   {
    "name": "modules without a test",
    "means": "Python modules no suite covers. Offline tests are the enforcement for factoring as well: a module that cannot be tested without a network has not separated its logic from its I/O, so this number falling is the refactoring, not a proxy for it.",
    "budget": 0,
-   "value": 0
+   "value": null,
+   "not_measured": "source-quality budget; measured at check-in"
   },
   {
    "name": "captures with no floor",
@@ -214,19 +222,22 @@
    "name": "three as an organising shape",
    "means": "lists of exactly three items, and runs of three bold-led paragraphs, in documents that ship at 1.0. Three reads as rhetoric; four reads as an inventory. When there really are three things, write them as prose or find the fourth that was left out to make the shape work.",
    "budget": 28,
-   "value": 28
+   "value": null,
+   "not_measured": "source-quality budget; measured at check-in"
   },
   {
    "name": "scraped counters in chapter names",
    "means": "chapter names ending in the view or like counts printed next to them on the source page. A rise means an extractor has gone back to flattening a chapter block into one run of text instead of reading the element the page names as the title.",
    "budget": 1,
-   "value": 1
+   "value": null,
+   "not_measured": "source-quality budget; measured at check-in"
   },
   {
    "name": "shadowed names in build.py",
    "means": "names rebound more than 300 lines from their first binding. Two shipped bugs came from this; see adapters/lint/shadowing.py for why the count is not simply falling.",
    "budget": 40,
-   "value": 40
+   "value": null,
+   "not_measured": "source-quality budget; measured at check-in"
   },
   {
    "name": "rows with a moving address",

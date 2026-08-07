@@ -1028,6 +1028,34 @@ def budget_shadowed_names(ctx):
 # They are not dropped: `--gate` runs them before a commit, which is when the source can have
 # changed, and a run that skips them says so in checks.json rather than omitting the row. A budget
 # that quietly stops being measured is the failure this project keeps meeting.
+def budget_titles_with_no_translation_of_our_own(ctx):
+    """Titles holding an official or licensed English name and no translation we made.
+
+    EN_ORDER IS A READER PREFERENCE, not a ranking applied once at build time. A reader who moves
+    official-jp and licensed down is asking to see what the publisher did not choose, and only a
+    record holding more than one form can answer. Where the only English is the publisher's, that
+    reader falls through to a romanisation, so the control silently does nothing.
+
+    MEASURED ON THE SHIPPED FILE, because the store holds one name per title and assembles
+    en_forms at build time. A count taken from the store would read zero forever while the
+    interface offered a control with nothing behind it, which is the shape of blind spot §14b
+    exists to refuse.
+
+    A count, so it ratchets down as translations are written. It is deliberately not a floor on
+    how many titles hold several forms: that number falls whenever the corpus legitimately
+    shrinks, so it would need explaining away on ordinary churn, and it says nothing at all about
+    the titles that never held a second form.
+    """
+    f = ROOT / "data" / "build" / "feed" / "names.json"
+    if not f.exists():
+        return 0
+    titles = (_load(f, {}) or {}).get("titles") or {}
+    return sum(1 for v in titles.values()
+               if isinstance(v, dict)
+               and set(v.get("en_forms") or {}) & {"official-jp", "licensed"}
+               and not (v.get("en_forms") or {}).get("translated"))
+
+
 SOURCE_BUDGETS = {"stock phrasing in comments", "three as an organising shape",
                   "modules without a test", "shadowed names in build.py",
                   "scraped counters in chapter names"}
@@ -1270,6 +1298,10 @@ BUDGETS_DEF = [
      "records carrying a publisher-side yuri label whose imprint holds no term saying so, which "
      "is a label the work page cannot show a reader the evidence for. A rise means a pass has "
      "gone back to storing a field from a record other than the one that justified the label."),
+    ("titles with no translation of our own", budget_titles_with_no_translation_of_our_own,
+     "titles whose only English is the publisher's or the licensor's, so a reader who moves those "
+     "down EN_ORDER is shown a romanisation instead of an alternative. A rise means a translation "
+     "stopped reaching the shipped file, which is coverage lost and never a tidy-up."),
     ("publishers with no English", budget_publishers_with_no_english,
      "distinct publisher and imprint names that render as Japanese in English-only mode. A rise "
      "means new publishers entered the corpus faster than their names were rendered."),
@@ -1538,6 +1570,7 @@ def main():
         recorded.update(tightened)
         BUDGETS.parent.mkdir(parents=True, exist_ok=True)
         BUDGETS.write_text(json.dumps(dict(sorted(recorded.items())), indent=1) + "\n")
+
 
     # A report only a build log ever sees is a report nobody reads. The technical view exists to
     # carry facts about our own process, and "which invariants degraded on the last run" is exactly

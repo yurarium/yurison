@@ -1,13 +1,8 @@
 {
- "generated": "2026-08-07T21:27:52+00:00",
+ "generated": "2026-08-07T21:40:11+00:00",
  "since_last": {
-  "at": "2026-08-07T21:17:21+00:00",
-  "statistics": {
-   "works": -3,
-   "print_works": -1,
-   "with_identifier": -3,
-   "chapters": -6
-  }
+  "at": "2026-08-07T21:33:34+00:00",
+  "statistics": {}
  },
  "means": {
   "duplicate_chapters": "Merged chapters that two sources described separately",
@@ -142,6 +137,12 @@
     "means": "records carrying a publisher-side yuri label whose imprint holds no term saying so, which is a label the work page cannot show a reader the evidence for. A rise means a pass has gone back to storing a field from a record other than the one that justified the label.",
     "budget": 0,
     "value": 0
+   },
+   {
+    "name": "titles with no translation of our own",
+    "means": "titles whose only English is the publisher's or the licensor's, so a reader who moves those down EN_ORDER is shown a romanisation instead of an alternative. A rise means a translation stopped reaching the shipped file, which is coverage lost and never a tidy-up.",
+    "budget": 214,
+    "value": 214
    },
    {
     "name": "publishers with no English",
@@ -413,7 +414,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-07T21:17:20+00:00",
+  "previous_at": "2026-08-07T21:33:33+00:00",
   "drops": []
  },
  "outstanding": [
@@ -599,7 +600,7 @@
   {
    "kind": "debt",
    "key": "data_debts",
-   "count": 10,
+   "count": 11,
    "what": "Bring down counts that may only ratchet downward",
    "rows": {
     "bookwalker listings unconfirmed": 0,
@@ -614,6 +615,7 @@
     "renderings with nothing to show": 46,
     "rows with a moving address": 0,
     "scraped counters in chapter names": 1,
+    "titles with no translation of our own": 214,
     "uncertain readings": 74,
     "undated cmoa candidates": 1220,
     "unreadable bookwalker rows": 15,

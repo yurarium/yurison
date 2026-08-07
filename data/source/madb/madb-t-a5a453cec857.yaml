@@ -1,0 +1,52 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-a5a453cec857
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "悪役令嬢の中の人 = The person in a villainess : 断罪された転生者のため嘘つきヒロインに復讐いたします"
+  yomi: "The person in a villainess"
+creator: "[キャラクターデザイン]紫真依 / [原作]まきぶろ / [漫画]白梅ナズナ"
+publisher: "[頒布]講談社 (発売)"
+imprint: ""
+volume_count: 3
+first_published: 2022-05
+last_published: 2023-06
+volumes:
+  - madb_id: M868555
+    number: "1"
+    isbn: "9784758023863"
+    published: 2022-05
+  - madb_id: M875994
+    number: "2"
+    isbn: "9784758024594"
+    published: 2022-11
+  - madb_id: M928070
+    number: "3"
+    isbn: "9784758025362"
+    published: 2023-06
+identified_by:
+  route: isbn-from-platform
+  platform: "pixivコミック"
+  url: "https://comic.pixiv.net/works/7926"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

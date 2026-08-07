@@ -1,0 +1,51 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C434695
+route: isbn-from-platform
+grouping: series-link
+madb_id: C434695
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C434695
+record_type: manga_book_series
+title:
+  ja: "安達としまむら"
+  yomi: "アダチ ト シマムラ"
+creator: "[キャラクターデザイン]のん / [原作]入間人間 / [漫画]柚原もけ"
+publisher: "KADOKAWA"
+imprint: "電撃コミックスNEXT"
+volume_count: 3
+first_published: 2019-11
+last_published: 2021-05
+volumes:
+  - madb_id: M813854
+    number: "1"
+    isbn: "9784049128703"
+    published: 2019-11
+  - madb_id: M825723
+    number: "2"
+    isbn: "9784049134827"
+    published: 2020-10
+  - madb_id: M848754
+    number: "3"
+    isbn: "9784049138115"
+    published: 2021-05
+identified_by:
+  route: isbn-from-platform
+  platform: "カドコミ"
+  url: "https://comic-walker.com/detail/KC_004197_S"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C434695
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

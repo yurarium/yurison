@@ -1,0 +1,56 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-642551c1b3c6
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "紅茶の魔女の優雅なる宮廷生活 : チートをひた隠す最弱魔導師の窓際ライフ"
+  yomi: "コウチャ ノ マジョ ノ ユウガ ナル キュウテイ セイカツ : チート オ ヒタカクス サイジャク マドウシ ノ マドギワ ライフ"
+creator: "[原作]蛙田アメコ / [漫画]ヨリフジ"
+publisher: "コアミックス"
+imprint: "ゼノンコミックス"
+volume_count: 4
+first_published: 2023-01
+last_published: 2024-06
+volumes:
+  - madb_id: M880602
+    number: "1"
+    isbn: "9784867204580"
+    published: 2023-01
+  - madb_id: M928543
+    number: "2"
+    isbn: "9784867205082"
+    published: 2023-06
+  - madb_id: M945950
+    number: "3"
+    isbn: "9784867205938"
+    published: 2023-12
+  - madb_id: M970037
+    number: "4"
+    isbn: "9784867206522"
+    published: 2024-06
+identified_by:
+  route: isbn-from-platform
+  platform: "コミックゼノン"
+  url: "https://comic-zenon.com/episode/11341664176573766903"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

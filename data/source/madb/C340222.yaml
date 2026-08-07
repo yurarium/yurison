@@ -1,0 +1,103 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C340222
+route: isbn-from-platform
+grouping: title-match
+madb_id: C340222
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C340222
+record_type: manga_book_series
+title:
+  ja: "小林さんちのメイドラゴン"
+  yomi: "コバヤシサンチ ノ メイドラゴン"
+creator: "[著]クール教信者"
+publisher: "双葉社"
+imprint: "ACTION COMICS"
+volume_count: 16
+first_published: 2014-05
+last_published: 2026-04-18
+volumes:
+  - madb_id: M420746
+    number: "1"
+    isbn: "9784575844054"
+    published: 2014-05
+  - madb_id: M442811
+    number: "2"
+    isbn: "9784575845709"
+    published: 2015-02
+  - madb_id: M452146
+    number: "3"
+    isbn: "9784575846799"
+    published: 2015-09
+  - madb_id: M464302
+    number: "4"
+    isbn: "9784575847963"
+    published: 2016-05
+  - madb_id: M477015
+    number: "5"
+    isbn: "9784575848946"
+    published: 2016-12
+  - madb_id: M484153
+    number: "6"
+    isbn: "9784575850024"
+    published: 2017-07
+  - madb_id: M518356
+    number: "7"
+    isbn: "9784575851342"
+    published: 2018-04
+  - madb_id: M524913
+    number: "8"
+    isbn: "9784575852677"
+    published: 2019-02
+  - madb_id: M813177
+    number: "9"
+    isbn: "9784575853742"
+    published: 2019-11
+  - madb_id: M822248
+    number: "10"
+    isbn: "9784575854763"
+    published: 2020-08
+  - madb_id: M849241
+    number: "11"
+    isbn: "9784575855890"
+    published: 2021-06
+  - madb_id: M967671
+    number: "15"
+    isbn: "9784575859584"
+    published: 2024-04
+  - madb_id: M1036337
+    number: "16"
+    isbn: "9784575860535"
+    published: 2025-02-03
+  - madb_id: M1064107
+    number: "17"
+    isbn: "9784575861006"
+    published: 2025-06-14
+  - madb_id: M1087582
+    number: "18"
+    isbn: "9784575861525"
+    published: 2025-11-24
+  - madb_id: M1112181
+    number: "19"
+    isbn: "9784575862065"
+    published: 2026-04-18
+identified_by:
+  route: isbn-from-platform
+  platform: "webアクション"
+  url: "https://comic-action.com/episode/12207421983825422803"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C340222
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

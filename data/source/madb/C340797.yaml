@@ -1,0 +1,123 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C340797
+route: isbn-from-platform
+grouping: series-link
+madb_id: C340797
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C340797
+record_type: manga_book_series
+title:
+  ja: "紅殻のパンドラ"
+  yomi: "コウカク ノ パンドラ"
+creator: "[原案]士郎正宗 / [漫画]六道神士"
+publisher: ""
+imprint: "角川コミックス・エース"
+volume_count: 21
+first_published: 2013-03
+last_published: 2021-08
+volumes:
+  - madb_id: M377538
+    number: "01"
+    isbn: "9784041206454"
+    published: 2013-03
+  - madb_id: M408959
+    number: "02"
+    isbn: "9784041208496"
+    published: 2013-08
+  - madb_id: M417827
+    number: "03"
+    isbn: "9784041209882"
+    published: 2014-01
+  - madb_id: M422438
+    number: "04"
+    isbn: "9784041016824"
+    published: 2014-06
+  - madb_id: M441950
+    number: "05"
+    isbn: "9784041016831"
+    published: 2014-12
+  - madb_id: M448279
+    number: "06"
+    isbn: "9784041030813"
+    published: 2015-06
+  - madb_id: M459782
+    number: "07"
+    isbn: "9784041037812"
+    published: 2015-12
+  - madb_id: M462923
+    number: "08"
+    isbn: "9784041039861"
+    published: 2016-03
+  - madb_id: M474452
+    number: "09"
+    isbn: "9784041048689"
+    published: 2016-10
+  - madb_id: M480081
+    number: "10"
+    isbn: "9784041054420"
+    published: 2017-03
+  - madb_id: M492244
+    number: "11"
+    isbn: "9784041060797"
+    published: 2017-09
+  - madb_id: M517076
+    number: "12"
+    isbn: "9784041065372"
+    published: 2018-03
+  - madb_id: M530967
+    number: "13"
+    isbn: "9784041071434"
+    published: 2018-07
+  - madb_id: M522219
+    number: "14"
+    isbn: "9784041076002"
+    published: 2018-11
+  - madb_id: M527108
+    number: "15"
+    isbn: "9784041081068"
+    published: 2019-04
+  - madb_id: M811065
+    number: "16"
+    isbn: "9784041086759"
+    published: 2019-09
+  - madb_id: M817168
+    number: "17"
+    isbn: "9784041090312"
+    published: 2020-02
+  - madb_id: M822356
+    number: "18"
+    isbn: "9784041097250"
+    published: 2020-07
+  - madb_id: M826710
+    number: "19"
+    isbn: "9784041108079"
+    published: 2020-11
+  - madb_id: M845881
+    number: "20"
+    isbn: "9784041111840"
+    published: 2021-03
+  - madb_id: M851602
+    number: "21"
+    isbn: "9784041115619"
+    published: 2021-08
+identified_by:
+  route: isbn-from-platform
+  platform: "pixivコミック"
+  url: "https://comic.pixiv.net/works/2082"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C340797
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

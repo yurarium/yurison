@@ -1,0 +1,83 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C360463
+route: isbn-from-platform
+grouping: title-match
+madb_id: C360463
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C360463
+record_type: manga_book_series
+title:
+  ja: "新米姉妹のふたりごはん"
+  yomi: "シンマイ シマイ ノ フタリ ゴハン"
+creator: "[著]柊ゆたか"
+publisher: "KADOKAWA"
+imprint: "電撃コミックスNEXT"
+volume_count: 11
+first_published: 2015-12
+last_published: 2025-02-21
+volumes:
+  - madb_id: M459428
+    number: "1"
+    isbn: "9784048656535"
+    published: 2015-12
+  - madb_id: M470704
+    number: "2"
+    isbn: "9784048659970"
+    published: 2016-07
+  - madb_id: M479693
+    number: "3"
+    isbn: "9784048927161"
+    published: 2017-02
+  - madb_id: M492027
+    number: "4"
+    isbn: "9784048932424"
+    published: 2017-08
+  - madb_id: M517475
+    number: "5"
+    isbn: "9784048937160"
+    published: 2018-03
+  - madb_id: M523906
+    number: "6"
+    isbn: "9784049122923"
+    published: 2019-01
+  - madb_id: M812690
+    number: "7"
+    isbn: "9784049128369"
+    published: 2019-10
+  - madb_id: M823461
+    number: "8"
+    isbn: "9784049133899"
+    published: 2020-08
+  - madb_id: M849619
+    number: "9"
+    isbn: "9784049138573"
+    published: 2021-06
+  - madb_id: M869671
+    number: "10"
+    isbn: "9784049144321"
+    published: 2022-05
+  - madb_id: M1060536
+    number: "11"
+    isbn: "9784049162462"
+    published: 2025-02-21
+identified_by:
+  route: isbn-from-platform
+  platform: "pixivコミック"
+  url: "https://comic.pixiv.net/works/3287"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C360463
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

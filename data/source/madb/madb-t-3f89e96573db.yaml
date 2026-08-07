@@ -1,0 +1,52 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-3f89e96573db
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "灼熱の卓球娘reburn!!"
+  yomi: "シャクネツ ノ タッキュウムスメ reburn !!"
+creator: "朝野やぐら / アサノヤグラ"
+publisher: "竹書房"
+imprint: "Bamboo comics"
+volume_count: 3
+first_published: 2024-03
+last_published: 2024-12-27
+volumes:
+  - madb_id: M965488
+    number: "1"
+    isbn: "9784801982345"
+    published: 2024-03
+  - madb_id: M965489
+    number: "Game 2"
+    isbn: "9784801982352"
+    published: 2024-03
+  - madb_id: M1034694
+    number: "Game 3"
+    isbn: "9784801985056"
+    published: 2024-12-27
+identified_by:
+  route: isbn-from-platform
+  platform: "竹コミ"
+  url: "https://takecomic.jp/series/b3efcd5f3a6a7"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

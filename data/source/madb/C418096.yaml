@@ -1,0 +1,54 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C418096
+route: isbn-from-platform
+grouping: series-link
+madb_id: C418096
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C418096
+record_type: manga_book_series
+title:
+  ja: "わたしのために脱ぎなさいっ! = TAKE OFF YOUR CLOTHES FOR ME!"
+  yomi: "TAKE OFF YOUR CLOTHES FOR ME!"
+creator: "[著]九郎"
+publisher: "KADOKAWA"
+imprint: "MFCキューンシリーズ"
+volume_count: 4
+first_published: 2018-11
+last_published: 2020-03
+volumes:
+  - madb_id: M830941
+    number: "4"
+    isbn: "9784040649689"
+  - madb_id: M522648
+    number: "1"
+    isbn: "9784040652108"
+    published: 2018-11
+  - madb_id: M809282
+    number: "2"
+    isbn: "9784040658339"
+    published: 2019-07
+  - madb_id: M819283
+    number: "3"
+    isbn: "9784040644837"
+    published: 2020-03
+identified_by:
+  route: isbn-from-platform
+  platform: "カドコミ"
+  url: "https://comic-walker.com/detail/KC_000188_S"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C418096
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

@@ -1,0 +1,55 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C436703
+route: isbn-from-platform
+grouping: mixed
+madb_id: C436703
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C436703
+record_type: manga_book_series
+title:
+  ja: "田所さん"
+  yomi: "タドコロ サン"
+creator: "[著]TATSUBON"
+publisher: "キルタイムコミュニケーション"
+imprint: "ヴァルキリーコミックス"
+volume_count: 4
+first_published: 2020-05
+last_published: 2022-01
+volumes:
+  - madb_id: M819897
+    number: "1"
+    isbn: "9784799213674"
+    published: 2020-05
+  - madb_id: M825876
+    number: "2"
+    isbn: "9784799214244"
+    published: 2020-11
+  - madb_id: M850161
+    number: "3"
+    isbn: "9784799215197"
+    published: 2021-07
+  - madb_id: M859988
+    number: "4"
+    isbn: "9784799215906"
+    published: 2022-01
+identified_by:
+  route: isbn-from-platform
+  platform: "キミコミ"
+  url: "https://kimicomi.com/series/a869ecfca8da9"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C436703
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

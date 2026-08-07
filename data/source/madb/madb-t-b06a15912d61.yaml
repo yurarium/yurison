@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-b06a15912d61
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。"
+  yomi: "カオ ダケ イイ クラスメイト ガ ヤタラ ト グイグイ クル ユリ ノ ハナシ"
+creator: "はちこ / 能代リョウ / ノシロリョウ / ハチコ"
+publisher: "KADOKAWA"
+imprint: "角川コミックス・エース"
+volume_count: 2
+first_published: 2025-04-09
+last_published: 2025-11-15
+volumes:
+  - madb_id: M1062592
+    number: "1"
+    isbn: "9784041158135"
+    published: 2025-04-09
+  - madb_id: M1088938
+    number: "2"
+    isbn: "9784041165492"
+    published: 2025-11-15
+identified_by:
+  route: isbn-from-platform
+  platform: "カドコミ"
+  url: "https://comic-walker.com/detail/KC_005942_S"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

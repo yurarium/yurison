@@ -1,0 +1,87 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C434760
+route: isbn-from-platform
+grouping: title-match
+madb_id: C434760
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C434760
+record_type: manga_book_series
+title:
+  ja: "魔法少女にあこがれて"
+  yomi: "マホウ ショウジョ ニ アコガレテ"
+creator: "[著]小野中彰大"
+publisher: "竹書房"
+imprint: "Bamboo comics"
+volume_count: 12
+first_published: 2019-12
+last_published: 2026-03-23
+volumes:
+  - madb_id: M814023
+    number: "1"
+    isbn: "9784801968097"
+    published: 2019-12
+  - madb_id: M823544
+    number: "2"
+    isbn: "9784801968622"
+    published: 2020-05
+  - madb_id: M825974
+    number: "3"
+    isbn: "9784801970731"
+    published: 2020-10
+  - madb_id: M845959
+    number: "4"
+    isbn: "9784801972124"
+    published: 2021-03
+  - madb_id: M851111
+    number: "5"
+    isbn: "9784801973725"
+    published: 2021-08
+  - madb_id: M859500
+    number: "6"
+    isbn: "9784801975071"
+    published: 2022-01
+  - madb_id: M870385
+    number: "7"
+    isbn: "9784801976351"
+    published: 2022-06
+  - madb_id: M876388
+    number: "8"
+    isbn: "9784801978799"
+    published: 2022-10
+  - madb_id: M929368
+    number: "9"
+    isbn: "9784801979765"
+    published: 2023-03
+  - madb_id: M933210
+    number: "10"
+    isbn: "9784801981188"
+    published: 2023-08
+  - madb_id: M948117
+    number: "11"
+    isbn: "9784801982321"
+    published: 2024-01
+  - madb_id: M1109906
+    number: "12"
+    isbn: "9784801988897"
+    published: 2026-03-23
+identified_by:
+  route: isbn-from-platform
+  platform: "竹コミ"
+  url: "https://takecomic.jp/series/0d7dee548d547"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C434760
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

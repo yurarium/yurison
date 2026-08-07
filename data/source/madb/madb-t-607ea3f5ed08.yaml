@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-607ea3f5ed08
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "月はヒツジを数えない"
+  yomi: "ツキ ワ ヒツジ オ カゾエナイ"
+creator: "桜木蓮 / サクラギレン"
+publisher: "KADOKAWA"
+imprint: "角川コミックス・エース"
+volume_count: 2
+first_published: 2025-11-22
+last_published: 2026-01-02
+volumes:
+  - madb_id: M1093820
+    number: "1"
+    isbn: "9784041169285"
+    published: 2025-11-22
+  - madb_id: M1109068
+    number: "2"
+    isbn: "9784041169292"
+    published: 2026-01-02
+identified_by:
+  route: isbn-from-platform
+  platform: "カドコミ"
+  url: "https://comic-walker.com/detail/KC_006665_S"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

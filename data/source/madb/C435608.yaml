@@ -1,0 +1,63 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C435608
+route: isbn-from-platform
+grouping: mixed
+madb_id: C435608
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C435608
+record_type: manga_book_series
+title:
+  ja: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい : THE COMIC"
+  yomi: "オマエ ゴトキ ガ マオウ ニ カテル ト オモウナ ト ユウシャ パーティ オ ツイホウ サレタ ノデ オウト デ キママ ニ クラシタイ : ザ コミック"
+creator: "[キャラクター原案]キンタ / [原作]kiki / [漫画]南方純"
+publisher: "マイクロマガジン社"
+imprint: "Ride Comics"
+volume_count: 6
+first_published: 2020-02
+last_published: 2024-06
+volumes:
+  - madb_id: M816861
+    number: "01"
+    isbn: "9784896379808"
+    published: 2020-02
+  - madb_id: M848582
+    number: "02"
+    isbn: "9784867161449"
+    published: 2021-06
+  - madb_id: M865956
+    number: "03"
+    isbn: "9784867162538"
+    published: 2022-03
+  - madb_id: M876269
+    number: "04"
+    isbn: "9784867163528"
+    published: 2022-11
+  - madb_id: M933225
+    number: "05"
+    isbn: "9784867164617"
+    published: 2023-09
+  - madb_id: M969483
+    number: "06"
+    isbn: "9784867165782"
+    published: 2024-06
+identified_by:
+  route: isbn-from-platform
+  platform: "ライコミ"
+  url: "https://comicride.jp/series/7b86cbca64ebe"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C435608
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

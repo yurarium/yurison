@@ -1,0 +1,52 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-45f9f68dc8e7
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "恋より青く"
+  yomi: "コイ ヨリ アオク"
+creator: "深海紺 / フカウミコン"
+publisher: "[頒布]集英社"
+imprint: "集英社ホームコミックス. オギャー!!"
+volume_count: 3
+first_published: 2024-03
+last_published: 2025-09-27
+volumes:
+  - madb_id: M966592
+    number: "2"
+    isbn: "9784834233292"
+    published: 2024-03
+  - madb_id: M1034341
+    number: "3"
+    isbn: "9784834233353"
+    published: 2024-12-27
+  - madb_id: M1079188
+    number: "4"
+    isbn: "9784834233452"
+    published: 2025-09-27
+identified_by:
+  route: isbn-from-platform
+  platform: "COMIC OGYAAA!!"
+  url: "https://comic-ogyaaa.com/episode/12207421983939282905"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

@@ -1,0 +1,63 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C437728
+route: isbn-from-platform
+grouping: title-match
+madb_id: C437728
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C437728
+record_type: manga_book_series
+title:
+  ja: "声優ラジオのウラオモテ"
+  yomi: "セイユウ ラジオ ノ ウラ オモテ"
+creator: "[キャラクターデザイン]さばみぞれ / [原作]二月公 / [漫画]巻本梅実"
+publisher: "KADOKAWA"
+imprint: "電撃コミックスNEXT"
+volume_count: 6
+first_published: 2020-08
+last_published: 2026-01-09
+volumes:
+  - madb_id: M823027
+    number: "1"
+    isbn: "9784049133455"
+    published: 2020-08
+  - madb_id: M848047
+    number: "2"
+    isbn: "9784049136999"
+    published: 2021-03
+  - madb_id: M853293
+    number: "3"
+    isbn: "9784049140194"
+    published: 2021-09
+  - madb_id: M971841
+    number: "4"
+    isbn: "9784049157604"
+    published: 2024-06
+  - madb_id: M1063929
+    number: "5"
+    isbn: "9784049164190"
+    published: 2025-05-07
+  - madb_id: M1109358
+    number: "6"
+    isbn: "9784049168815"
+    published: 2026-01-09
+identified_by:
+  route: isbn-from-platform
+  platform: "pixivコミック"
+  url: "https://comic.pixiv.net/works/10368"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C437728
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

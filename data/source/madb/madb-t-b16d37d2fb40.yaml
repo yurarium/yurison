@@ -1,0 +1,64 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-b16d37d2fb40
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "限界OLさんは悪役令嬢さまに仕えたい"
+  yomi: "ゲンカイ オーエル サン ワ アクヤク レイジョウサマ ニ ツカエタイ"
+creator: "ネコ太郎 / ネコタロウ"
+publisher: "秋田書店"
+imprint: "ヤングチャンピオン・コミックス"
+volume_count: 6
+first_published: 2023-03
+last_published: 2026-05-22
+volumes:
+  - madb_id: M925797
+    number: "1"
+    isbn: "9784253310116"
+    published: 2023-03
+  - madb_id: M934812
+    number: "2"
+    isbn: "9784253310123"
+    published: 2023-10
+  - madb_id: M970293
+    number: "3"
+    isbn: "9784253310130"
+    published: 2024-06
+  - madb_id: M1061764
+    number: "4"
+    isbn: "9784253310147"
+    published: 2025-04-19
+  - madb_id: M1087980
+    number: "5"
+    isbn: "9784253004817"
+    published: 2025-11-01
+  - madb_id: M1113949
+    number: "6"
+    isbn: "9784253013208"
+    published: 2026-05-22
+identified_by:
+  route: isbn-from-platform
+  platform: "ヤングチャンピオン"
+  url: "https://youngchampion.jp/series/90af950945671"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

@@ -1,0 +1,68 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-52c8bb8d95b6
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "相席いいですか?"
+  yomi: "アイセキ イイデスカ"
+creator: "河上大志郎 / カワカミダイシロウ"
+publisher: "集英社"
+imprint: "ヤングジャンプコミックス"
+volume_count: 7
+first_published: 2024-03
+last_published: 2025-10-10
+volumes:
+  - madb_id: M966549
+    number: "1"
+    isbn: "9784088931708"
+    published: 2024-03
+  - madb_id: M970306
+    number: "2"
+    isbn: "9784088932804"
+    published: 2024-06
+  - madb_id: M1033348
+    number: "3"
+    isbn: "9784088933801"
+    published: 2024-09-06
+  - madb_id: M1035499
+    number: "4"
+    isbn: "9784088935140"
+    published: 2025-01-10
+  - madb_id: M1061502
+    number: "5"
+    isbn: "9784088936246"
+    published: 2025-04-12
+  - madb_id: M1065551
+    number: "6"
+    isbn: "9784088937434"
+    published: 2025-07-11
+  - madb_id: M1086889
+    number: "7"
+    isbn: "9784088938387"
+    published: 2025-10-10
+identified_by:
+  route: isbn-from-platform
+  platform: "となりのヤングジャンプ"
+  url: "https://tonarinoyj.jp/episode/14079602755399113146"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

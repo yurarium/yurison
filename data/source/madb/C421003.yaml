@@ -1,0 +1,99 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C421003
+route: isbn-from-platform
+grouping: title-match
+madb_id: C421003
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C421003
+record_type: manga_book_series
+title:
+  ja: "裏世界ピクニック"
+  yomi: "ウラセカイ ピクニック"
+creator: "[作画]水野英多 / [原作]宮澤伊織"
+publisher: "スクウェア・エニックス"
+imprint: "ガンガンコミックス"
+volume_count: 15
+first_published: 2018-08
+last_published: 2026-05-15
+volumes:
+  - madb_id: M528571
+    number: "1"
+    isbn: "9784757558052"
+    published: 2018-08
+  - madb_id: M523546
+    number: "2"
+    isbn: "9784757559738"
+    published: 2019-01
+  - madb_id: M810267
+    number: "3"
+    isbn: "9784757562356"
+    published: 2019-08
+  - madb_id: M825146
+    number: "4"
+    isbn: "9784757565487"
+    published: 2020-03
+  - madb_id: M829369
+    number: "5"
+    isbn: "9784757570009"
+    published: 2020-12
+  - madb_id: M847483
+    number: "6"
+    isbn: "9784757571501"
+    published: 2021-03
+  - madb_id: M855457
+    number: "7"
+    isbn: "9784757575257"
+    published: 2021-10
+  - madb_id: M868391
+    number: "8"
+    isbn: "9784757578074"
+    published: 2022-03
+  - madb_id: M875303
+    number: "9"
+    isbn: "9784757581333"
+    published: 2022-09
+  - madb_id: M927710
+    number: "10"
+    isbn: "9784757584655"
+    published: 2023-03
+  - madb_id: M934070
+    number: "11"
+    isbn: "9784757587854"
+    published: 2023-09
+  - madb_id: M966793
+    number: "12"
+    isbn: "9784757590953"
+    published: 2024-03
+  - madb_id: M1061090
+    number: "14"
+    isbn: "9784757597310"
+    published: 2025-03-28
+  - madb_id: M1079123
+    number: "15"
+    isbn: "9784301000525"
+    published: 2025-09-20
+  - madb_id: M1113838
+    number: "16"
+    isbn: "9784301005155"
+    published: 2026-05-15
+identified_by:
+  route: isbn-from-platform
+  platform: "ガンガンONLINE"
+  url: "https://www.ganganonline.com/title/38"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C421003
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

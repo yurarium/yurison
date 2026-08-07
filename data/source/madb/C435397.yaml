@@ -1,0 +1,91 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C435397
+route: isbn-from-platform
+grouping: title-match
+madb_id: C435397
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C435397
+record_type: manga_book_series
+title:
+  ja: "笑顔のたえない職場です。"
+  yomi: "エガオ ノ タエナイ ショクバ デス"
+creator: "[著]くずしろ"
+publisher: "講談社"
+imprint: "KCDX"
+volume_count: 13
+first_published: 2019-12
+last_published: 2026-06-13
+volumes:
+  - madb_id: M815999
+    number: "1"
+    isbn: "9784065179857"
+    published: 2019-12
+  - madb_id: M825581
+    number: "2"
+    isbn: "9784065210550"
+    published: 2020-10
+  - madb_id: M846810
+    number: "3"
+    isbn: "9784065229392"
+    published: 2021-04
+  - madb_id: M855057
+    number: "4"
+    isbn: "9784065250907"
+    published: 2021-10
+  - madb_id: M867879
+    number: "5"
+    isbn: "9784065271087"
+    published: 2022-03
+  - madb_id: M875302
+    number: "6"
+    isbn: "9784065291207"
+    published: 2022-09
+  - madb_id: M929209
+    number: "7"
+    isbn: "9784065310762"
+    published: 2023-03
+  - madb_id: M932505
+    number: "8"
+    isbn: "9784065327005"
+    published: 2023-08
+  - madb_id: M947371
+    number: "9"
+    isbn: "9784065343036"
+    published: 2024-01
+  - madb_id: M971496
+    number: "10"
+    isbn: "9784065359211"
+    published: 2024-06
+  - madb_id: M1079249
+    number: "13"
+    isbn: "9784065409701"
+    published: 2025-09-27
+  - madb_id: M1095313
+    number: "14"
+    isbn: "9784065421550"
+    published: 2026-01-02
+  - madb_id: M1114967
+    number: "15"
+    isbn: "9784065438312"
+    published: 2026-06-13
+identified_by:
+  route: isbn-from-platform
+  platform: "コミックDAYS"
+  url: "https://comic-days.com/episode/2551460909501894661"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C435397
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

@@ -1,0 +1,87 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C368198
+route: isbn-from-platform
+grouping: title-match
+madb_id: C368198
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C368198
+record_type: manga_book_series
+title:
+  ja: "明日ちゃんのセーラー服"
+  yomi: "アケビ チャン ノ セーラーフク"
+creator: "[著]博"
+publisher: "集英社"
+imprint: "ヤングジャンプコミックス"
+volume_count: 12
+first_published: 2017-04
+last_published: 2026-05-08
+volumes:
+  - madb_id: M481247
+    number: "1"
+    isbn: "9784088906713"
+    published: 2017-04
+  - madb_id: M497589
+    number: "2"
+    isbn: "9784088907659"
+    published: 2017-10
+  - madb_id: M519329
+    number: "3"
+    isbn: "9784088910161"
+    published: 2018-05
+  - madb_id: M522223
+    number: "4"
+    isbn: "9784088911151"
+    published: 2018-11
+  - madb_id: M528023
+    number: "5"
+    isbn: "9784088912233"
+    published: 2019-05
+  - madb_id: M813697
+    number: "6"
+    isbn: "9784088913841"
+    published: 2019-11
+  - madb_id: M822535
+    number: "7"
+    isbn: "9784088915494"
+    published: 2020-08
+  - madb_id: M846957
+    number: "8"
+    isbn: "9784088917771"
+    published: 2021-04
+  - madb_id: M855093
+    number: "9"
+    isbn: "9784088921020"
+    published: 2021-10
+  - madb_id: M967834
+    number: "13"
+    isbn: "9784088932224"
+    published: 2024-04
+  - madb_id: M1062636
+    number: "15"
+    isbn: "9784088936413"
+    published: 2025-05-09
+  - madb_id: M1113319
+    number: "16"
+    isbn: "9784088938936"
+    published: 2026-05-08
+identified_by:
+  route: isbn-from-platform
+  platform: "となりのヤングジャンプ"
+  url: "https://tonarinoyj.jp/episode/12207421983966650782"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C368198
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

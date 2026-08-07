@@ -1,0 +1,55 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C448546
+route: isbn-from-platform
+grouping: mixed
+madb_id: C448546
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C448546
+record_type: manga_book_series
+title:
+  ja: "キグナスの乙女たち : 新・魔法科高校の劣等生"
+  yomi: "キグナス ノ オトメタチ : シン マホウカ コウコウ ノ レットウセイ"
+creator: "[キャラクター原案]石田可奈 / [原作]佐島勤 / [著]La-na"
+publisher: "KADOKAWA"
+imprint: "MFコミックス"
+volume_count: 4
+first_published: 2021-09
+last_published: 2023-10
+volumes:
+  - madb_id: M853133
+    number: "1"
+    isbn: "9784046808332"
+    published: 2021-09
+  - madb_id: M869098
+    number: "2"
+    isbn: "9784046813190"
+    published: 2022-04
+  - madb_id: M880770
+    number: "3"
+    isbn: "9784046817686"
+    published: 2023-01
+  - madb_id: M941869
+    number: "4"
+    isbn: "9784046828484"
+    published: 2023-10
+identified_by:
+  route: isbn-from-platform
+  platform: "カドコミ"
+  url: "https://comic-walker.com/detail/KC_003255_S"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C448546
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

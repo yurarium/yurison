@@ -1,0 +1,51 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C449723
+route: isbn-from-platform
+grouping: series-link
+madb_id: C449723
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C449723
+record_type: manga_book_series
+title:
+  ja: "推しが隣で授業に集中できない! = GIRL,PLZ MAKE ME CONCENTRATE ON THE CLASS!?"
+  yomi: "GIRL,PLZ MAKE ME CONCENTRATE ON THE CLASS!?"
+creator: "[原作]筒井テツ / [漫画]菅原こゆび"
+publisher: "講談社"
+imprint: "モーニングKC"
+volume_count: 3
+first_published: 2021-04
+last_published: 2021-09
+volumes:
+  - madb_id: M847485
+    number: "1"
+    isbn: "9784065229972"
+    published: 2021-04
+  - madb_id: M849349
+    number: "2"
+    isbn: "9784065234501"
+    published: 2021-06
+  - madb_id: M852493
+    number: "3"
+    isbn: "9784065246795"
+    published: 2021-09
+identified_by:
+  route: isbn-from-platform
+  platform: "コミックDAYS"
+  url: "https://comic-days.com/episode/3269754496746872802"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C449723
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

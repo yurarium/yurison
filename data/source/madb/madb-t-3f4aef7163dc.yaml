@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-3f4aef7163dc
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "週に一度クラスメイトを買う話"
+  yomi: "シュウ ニ イチド クラスメイト オ カウ ハナシ : フタリ ノ ジカン イイワケ ノ ゴセンエン"
+creator: "右腹 / 羽田宇佐 / ハネダウサ / ミギハラ"
+publisher: "秋田書店"
+imprint: "ヤングチャンピオン・コミックス"
+volume_count: 2
+first_published: 2025-03-24
+last_published: 2025-12-26
+volumes:
+  - madb_id: M1036819
+    number: "1"
+    isbn: "9784253312332"
+    published: 2025-03-24
+  - madb_id: M1094845
+    number: "2"
+    isbn: "9784253009454"
+    published: 2025-12-26
+identified_by:
+  route: isbn-from-platform
+  platform: "ヤングチャンピオン"
+  url: "https://youngchampion.jp/series/e95df2815bad1"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

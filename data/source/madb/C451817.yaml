@@ -1,0 +1,55 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C451817
+route: isbn-from-platform
+grouping: mixed
+madb_id: C451817
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C451817
+record_type: manga_book_series
+title:
+  ja: "愛されてもいいんだよ = It's ok to be loved"
+  yomi: "It's ok to be loved"
+creator: "[取材協力]御坊 / [著]天野しゅにんた"
+publisher: "講談社"
+imprint: "ワイドKC"
+volume_count: 4
+first_published: 2021-05
+last_published: 2022-04
+volumes:
+  - madb_id: M848092
+    number: "1"
+    isbn: "9784065234068"
+    published: 2021-05
+  - madb_id: M851359
+    number: "2"
+    isbn: "9784065244531"
+    published: 2021-08
+  - madb_id: M856425
+    number: "3"
+    isbn: "9784065261248"
+    published: 2021-11
+  - madb_id: M869495
+    number: "4"
+    isbn: "9784065270776"
+    published: 2022-04
+identified_by:
+  route: isbn-from-platform
+  platform: "コミックDAYS"
+  url: "https://comic-days.com/episode/3269754496332137928"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C451817
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

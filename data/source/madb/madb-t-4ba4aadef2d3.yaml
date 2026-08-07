@@ -1,0 +1,56 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-4ba4aadef2d3
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "この恋を星には願わない"
+  yomi: "コノ コイ オ ホシ ニワ ネガワナイ"
+creator: "紫のあ / シノア"
+publisher: "KADOKAWA"
+imprint: "it COMICS"
+volume_count: 4
+first_published: 2024-01
+last_published: 2026-01-02
+volumes:
+  - madb_id: M948010
+    number: "2"
+    isbn: "9784049154924"
+    published: 2024-01
+  - madb_id: M1032727
+    number: "3"
+    isbn: "9784049158717"
+    published: 2024-08-06
+  - madb_id: M1061186
+    number: "4"
+    isbn: "9784049163094"
+    published: 2025-03-28
+  - madb_id: M1109090
+    number: "5"
+    isbn: "9784049168792"
+    published: 2026-01-02
+identified_by:
+  route: isbn-from-platform
+  platform: "pixivコミック"
+  url: "https://comic.pixiv.net/works/9127"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

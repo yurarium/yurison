@@ -1,0 +1,62 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C418112
+route: isbn-from-platform
+grouping: series-link
+madb_id: C418112
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C418112
+record_type: manga_book_series
+title:
+  ja: "できそこないの姫君たち"
+  yomi: "デキソコナイ ノ ヒメギミ タチ"
+creator: "[著]アジイチ"
+publisher: "竹書房"
+imprint: "Bamboo comics"
+volume_count: 6
+first_published: 2019-01
+last_published: 2021-10
+volumes:
+  - madb_id: M824975
+    number: "4"
+    isbn: "9784801970434"
+  - madb_id: M523332
+    number: "1"
+    isbn: "9784801964709"
+    published: 2019-01
+  - madb_id: M808725
+    number: "2"
+    isbn: "9784801966635"
+    published: 2019-07
+  - madb_id: M816673
+    number: "3"
+    isbn: "9784801968554"
+    published: 2020-02
+  - madb_id: M847408
+    number: "5"
+    isbn: "9784801972506"
+    published: 2021-04
+  - madb_id: M854023
+    number: "6"
+    isbn: "9784801974173"
+    published: 2021-10
+identified_by:
+  route: isbn-from-platform
+  platform: "竹コミ"
+  url: "https://takecomic.jp/series/21c8e22896612"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C418112
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

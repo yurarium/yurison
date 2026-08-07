@@ -1,0 +1,51 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C421663
+route: isbn-from-platform
+grouping: series-link
+madb_id: C421663
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C421663
+record_type: manga_book_series
+title:
+  ja: "ワインガールズ"
+  yomi: "ワイン ガールズ"
+creator: "[著]真田一輝"
+publisher: "マイクロマガジン社"
+imprint: ""
+volume_count: 3
+first_published: 2017-12
+last_published: 2020-04
+volumes:
+  - madb_id: M514373
+    number: "VOLUME1"
+    isbn: "9784896376876"
+    published: 2017-12
+  - madb_id: M522056
+    number: "VOLUME2"
+    isbn: "9784896378313"
+    published: 2018-11
+  - madb_id: M818434
+    number: "VOLUME3"
+    isbn: "9784896379969"
+    published: 2020-04
+identified_by:
+  route: isbn-from-platform
+  platform: "キミコミ"
+  url: "https://kimicomi.com/series/f42014b3e7df6"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C421663
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

@@ -134,12 +134,16 @@ def admitted_by(captures, retrieved):
     return L
 
 
-def owned_elsewhere(out):
-    """work_ids another route already wrote, which this one must leave alone.
+def owned_elsewhere(out, route=ROUTE):
+    """work_ids another route already wrote, which `route` must leave alone.
 
     A 百合姫 work that also sits on the shop's shelf is ONE work with one id, and the imprint route
     reached it with better evidence. Overwriting it here would replace `marketing_label: yuri` with
     `none` on a work whose publisher applied the label.
+
+    `route` is a parameter because there is now more than one caller: the platform route
+    (`by_platform_isbn.py`) has to ask the same question about its own name, and a second copy of
+    this function would have been a second definition of what "already held" means.
     """
     out = pathlib.Path(out)
     held = set()
@@ -147,7 +151,7 @@ def owned_elsewhere(out):
         return held
     for f in out.glob("*.yaml"):
         text = f.read_text()
-        if f"route: {ROUTE}" not in text:
+        if f"route: {route}" not in text:
             held.add(f.stem)
     return held
 

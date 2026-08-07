@@ -1,0 +1,56 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-16e4cf5f4ed4
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "姉の親友、私の恋人。"
+  yomi: "アネ ノ シンユウ ワタシ ノ コイビト"
+creator: "[著]藤松盟"
+publisher: "KADOKAWA"
+imprint: "電撃コミックスNEXT"
+volume_count: 4
+first_published: 2021-12
+last_published: 2023-10
+volumes:
+  - madb_id: M860289
+    number: "1"
+    isbn: "9784049141184"
+    published: 2021-12
+  - madb_id: M873104
+    number: "2"
+    isbn: "9784049145083"
+    published: 2022-07
+  - madb_id: M926841
+    number: "3"
+    isbn: "9784049149555"
+    published: 2023-03
+  - madb_id: M942165
+    number: "4"
+    isbn: "9784049153347"
+    published: 2023-10
+identified_by:
+  route: isbn-from-platform
+  platform: "pixivコミック"
+  url: "https://comic.pixiv.net/works/7637"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

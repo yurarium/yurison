@@ -1,0 +1,55 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C449694
+route: isbn-from-platform
+grouping: mixed
+madb_id: C449694
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C449694
+record_type: manga_book_series
+title:
+  ja: "女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました = Exiled woman,form the strongest tag team with legendary witch"
+  yomi: "Exiled woman,form the strongest tag team with legendary witch"
+creator: "[キャラクター原案]三弥カズトモ / [作画]りりうら世都 / [原作]蛙田あめこ"
+publisher: "小学館"
+imprint: "サンデーうぇぶり少年サンデーコミックス"
+volume_count: 4
+first_published: 2021-10
+last_published: 2023-07
+volumes:
+  - madb_id: M854661
+    number: "1"
+    isbn: "9784098507702"
+    published: 2021-10
+  - madb_id: M869743
+    number: "2"
+    isbn: "9784098511334"
+    published: 2022-05
+  - madb_id: M879040
+    number: "3"
+    isbn: "9784098514304"
+    published: 2022-12
+  - madb_id: M930941
+    number: "4"
+    isbn: "9784098525355"
+    published: 2023-07
+identified_by:
+  route: isbn-from-platform
+  platform: "サンデーうぇぶり"
+  url: "https://www.sunday-webry.com/episode/3269754496551508177"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C449694
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

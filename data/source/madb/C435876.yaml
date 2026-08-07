@@ -1,0 +1,71 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C435876
+route: isbn-from-platform
+grouping: title-match
+madb_id: C435876
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C435876
+record_type: manga_book_series
+title:
+  ja: "上伊那ぼたん、酔へる姿は百合の花"
+  yomi: "カミイナ ボタン ヨエル スガタ ワ ユリ ノ ハナ"
+creator: "[著]塀"
+publisher: "秋田書店"
+imprint: "ヤングチャンピオン・コミックス"
+volume_count: 8
+first_published: 2020-02
+last_published: 2026-06-06
+volumes:
+  - madb_id: M817702
+    number: "1"
+    isbn: "9784253142366"
+    published: 2020-02
+  - madb_id: M829079
+    number: "2"
+    isbn: "9784253142373"
+    published: 2021-01
+  - madb_id: M867756
+    number: "3"
+    isbn: "9784253142380"
+    published: 2022-03
+  - madb_id: M930700
+    number: "4"
+    isbn: "9784253142397"
+    published: 2023-07
+  - madb_id: M1033860
+    number: "5"
+    isbn: "9784253142403"
+    published: 2024-09-06
+  - madb_id: M1060899
+    number: "6"
+    isbn: "9784253314169"
+    published: 2025-03-28
+  - madb_id: M1087814
+    number: "7"
+    isbn: "9784253004701"
+    published: 2025-11-01
+  - madb_id: M1114554
+    number: "8"
+    isbn: "9784253013642"
+    published: 2026-06-06
+identified_by:
+  route: isbn-from-platform
+  platform: "チャンピオンクロス"
+  url: "https://championcross.jp/series/ae4257e66bab5"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C435876
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

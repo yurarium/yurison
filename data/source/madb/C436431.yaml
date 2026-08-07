@@ -1,0 +1,55 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C436431
+route: isbn-from-platform
+grouping: mixed
+madb_id: C436431
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C436431
+record_type: manga_book_series
+title:
+  ja: "ガンバレッド×シスターズ = GUNBURED × SISTERS"
+  yomi: "GUNBURED × SISTERS"
+creator: "[著]ミトガワワタル"
+publisher: "小学館"
+imprint: "サンデーGXコミックス"
+volume_count: 4
+first_published: 2020-03
+last_published: 2021-11
+volumes:
+  - madb_id: M819190
+    number: "1"
+    isbn: "9784091575883"
+    published: 2020-03
+  - madb_id: M822105
+    number: "2"
+    isbn: "9784091576040"
+    published: 2020-08
+  - madb_id: M847025
+    number: "3"
+    isbn: "9784091576279"
+    published: 2021-04
+  - madb_id: M856547
+    number: "4"
+    isbn: "9784091576613"
+    published: 2021-11
+identified_by:
+  route: isbn-from-platform
+  platform: "サンデーうぇぶり"
+  url: "https://www.sunday-webry.com/episode/3269754496551508625"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C436431
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

@@ -1,0 +1,64 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-916c6b30470e
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "忍者と殺し屋のふたりぐらし"
+  yomi: "ニンジャ ト コロシヤ ノ フタリグラシ"
+creator: "ハンバーガー / ハンバーガー"
+publisher: "KADOKAWA"
+imprint: "電撃コミックスNEXT"
+volume_count: 6
+first_published: 2022-01
+last_published: 2025-12-02
+volumes:
+  - madb_id: M861436
+    number: "1"
+    isbn: "9784049141917"
+    published: 2022-01
+  - madb_id: M878785
+    number: "2"
+    isbn: "9784049147377"
+    published: 2022-11
+  - madb_id: M932463
+    number: "3"
+    isbn: "9784049151640"
+    published: 2023-07
+  - madb_id: M969079
+    number: "4"
+    isbn: "9784049157130"
+    published: 2024-04
+  - madb_id: M1061445
+    number: "5"
+    isbn: "9784049163599"
+    published: 2025-03-05
+  - madb_id: M1095255
+    number: "6"
+    isbn: "9784049168907"
+    published: 2025-12-02
+identified_by:
+  route: isbn-from-platform
+  platform: "カドコミ"
+  url: "https://comic-walker.com/detail/KC_004464_S"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

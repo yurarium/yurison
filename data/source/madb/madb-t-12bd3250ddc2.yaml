@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: madb-t-12bd3250ddc2
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "頂のリヴィーツァ"
+  yomi: "Lvitsa of Ascention"
+creator: "[著]山座一心"
+publisher: "講談社"
+imprint: "モーニングKC"
+volume_count: 2
+first_published: 2024-04
+last_published: 2024-07
+volumes:
+  - madb_id: M967766
+    number: "1"
+    isbn: "9784065352564"
+    published: 2024-04
+  - madb_id: M971410
+    number: "2"
+    isbn: "9784065354636"
+    published: 2024-07
+identified_by:
+  route: isbn-from-platform
+  platform: "コミックDAYS"
+  url: "https://comic-days.com/episode/14079602755257155085"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

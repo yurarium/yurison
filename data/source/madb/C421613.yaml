@@ -1,0 +1,63 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C421613
+route: isbn-from-platform
+grouping: mixed
+madb_id: C421613
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C421613
+record_type: manga_book_series
+title:
+  ja: "サキュバスじゃないモン!"
+  yomi: "サキュバス ジャ ナイモン"
+creator: "[著]ほりとも"
+publisher: "キルタイムコミュニケーション"
+imprint: "ヤングアンリアルコミックス"
+volume_count: 6
+first_published: 2018-05
+last_published: 2024-03
+volumes:
+  - madb_id: M519057
+    number: "1"
+    isbn: "9784799211502"
+    published: 2018-05
+  - madb_id: M521365
+    number: "2"
+    isbn: "9784799212219"
+    published: 2018-12
+  - madb_id: M819924
+    number: "3"
+    isbn: "9784799213629"
+    published: 2020-05
+  - madb_id: M847368
+    number: "4"
+    isbn: "9784799214886"
+    published: 2021-05
+  - madb_id: M873701
+    number: "5"
+    isbn: "9784799216811"
+    published: 2022-09
+  - madb_id: M966081
+    number: "6"
+    isbn: "9784799218792"
+    published: 2024-03
+identified_by:
+  route: isbn-from-platform
+  platform: "キミコミ"
+  url: "https://kimicomi.com/series/5fa1c045cc164"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C421613
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

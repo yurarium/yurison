@@ -1,0 +1,59 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C447301
+route: isbn-from-platform
+grouping: mixed
+madb_id: C447301
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C447301
+record_type: manga_book_series
+title:
+  ja: "転生王女と天才令嬢の魔法革命 = The Magical Revolution of Reincarnation Princess and Genius Young Lady"
+  yomi: "The Magical Revolution of Reincarnation Princess and Genius Young Lady"
+creator: "[キャラクターデザイン]きさらぎゆり / [原作]鴉ぴえろ / [漫画]南高春告"
+publisher: "KADOKAWA"
+imprint: "電撃コミックスNEXT"
+volume_count: 5
+first_published: 2021-01
+last_published: 2023-03
+volumes:
+  - madb_id: M830295
+    number: "1"
+    isbn: "9784049136555"
+    published: 2021-01
+  - madb_id: M852155
+    number: "2"
+    isbn: "9784049138962"
+    published: 2021-08
+  - madb_id: M862849
+    number: "3"
+    isbn: "9784049142518"
+    published: 2022-02
+  - madb_id: M876394
+    number: "4"
+    isbn: "9784049145519"
+    published: 2022-08
+  - madb_id: M926872
+    number: "5"
+    isbn: "9784049148817"
+    published: 2023-03
+identified_by:
+  route: isbn-from-platform
+  platform: "カドコミ"
+  url: "https://comic-walker.com/detail/KC_003176_S"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C447301
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

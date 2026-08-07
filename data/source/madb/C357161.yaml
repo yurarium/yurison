@@ -1,0 +1,55 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C357161
+route: isbn-from-platform
+grouping: series-link
+madb_id: C357161
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C357161
+record_type: manga_book_series
+title:
+  ja: "やさしい教師の躾けかた。"
+  yomi: "ヤサシイ キョウシ ノ シツケカタ"
+creator: "[著]宙"
+publisher: "一迅社"
+imprint: "IDコミックス　／　4コマkingsぱれっとcomics"
+volume_count: 4
+first_published: 2011-01
+last_published: 2015-02
+volumes:
+  - madb_id: M454918
+    number: "1"
+    isbn: "9784758081047"
+    published: 2011-01
+  - madb_id: M454895
+    number: "2"
+    isbn: "9784758081368"
+    published: 2011-11
+  - madb_id: M454803
+    number: "3"
+    isbn: "9784758081801"
+    published: 2013-07
+  - madb_id: M454682
+    number: "4"
+    isbn: "9784758082099"
+    published: 2015-02
+identified_by:
+  route: isbn-from-platform
+  platform: "一迅プラス"
+  url: "https://ichicomi.com/episode/2550912965923202682"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C357161
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

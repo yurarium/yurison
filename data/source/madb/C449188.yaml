@@ -1,0 +1,51 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C449188
+route: isbn-from-platform
+grouping: mixed
+madb_id: C449188
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C449188
+record_type: manga_book_series
+title:
+  ja: "SHWD(シュード) : Special Hazardous Waste Disposal"
+  yomi: "シュード : スペシャル ハザーダス ウェイスト ディスポーザル"
+creator: "[著]sono.N"
+publisher: "実業之日本社"
+imprint: "RuelleCOMICS"
+volume_count: 3
+first_published: 2021-04
+last_published: 2023-06
+volumes:
+  - madb_id: M846443
+    number: "01"
+    isbn: "9784408640068"
+    published: 2021-04
+  - madb_id: M873076
+    number: "02"
+    isbn: "9784408640655"
+    published: 2022-08
+  - madb_id: M928857
+    number: "03"
+    isbn: "9784408640969"
+    published: 2023-06
+identified_by:
+  route: isbn-from-platform
+  platform: "COMICリュエル"
+  url: "https://comic.j-nbooks.jp/series/25f1325d1fd40"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C449188
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

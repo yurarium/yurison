@@ -1,0 +1,79 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C418849
+route: isbn-from-platform
+grouping: title-match
+madb_id: C418849
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C418849
+record_type: manga_book_series
+title:
+  ja: "不揃いの連理"
+  yomi: "フゾロイ ノ レンリ"
+creator: "[著]みかん氏"
+publisher: "KADOKAWA"
+imprint: "Kadokawa Comics"
+volume_count: 10
+first_published: 2019-03
+last_published: 2025-06-11
+volumes:
+  - madb_id: M526007
+    number: "1"
+    isbn: "9784041079973"
+    published: 2019-03
+  - madb_id: M814542
+    number: "2"
+    isbn: "9784041088432"
+    published: 2019-12
+  - madb_id: M823270
+    number: "3"
+    isbn: "9784041097212"
+    published: 2020-08
+  - madb_id: M846800
+    number: "4"
+    isbn: "9784041113479"
+    published: 2021-04
+  - madb_id: M852542
+    number: "5"
+    isbn: "9784041119037"
+    published: 2021-09
+  - madb_id: M867840
+    number: "6"
+    isbn: "9784041124703"
+    published: 2022-04
+  - madb_id: M880925
+    number: "7"
+    isbn: "9784041132470"
+    published: 2023-01
+  - madb_id: M967433
+    number: "8"
+    isbn: "9784041142615"
+    published: 2024-03
+  - madb_id: M1035575
+    number: "9"
+    isbn: "9784041157282"
+    published: 2024-12-10
+  - madb_id: M1065326
+    number: "10"
+    isbn: "9784041162453"
+    published: 2025-06-11
+identified_by:
+  route: isbn-from-platform
+  platform: "カドコミ"
+  url: "https://comic-walker.com/detail/KC_003570_S"
+  retrieved: 2026-08-07
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C418849
+  retrieved: 2026-08-07
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

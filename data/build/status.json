@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-07T22:22:34+00:00",
+ "generated": "2026-08-07T22:30:10+00:00",
  "since_last": {
-  "at": "2026-08-07T22:11:22+00:00",
+  "at": "2026-08-07T22:22:34+00:00",
   "statistics": {}
  },
  "means": {
@@ -38,10 +38,20 @@
   }
  },
  "gate": {
-  "invariants_passing": 18,
+  "invariants_passing": 21,
   "invariants": [
    {
     "name": "ruby covers its surface",
+    "violations": 0,
+    "examples": []
+   },
+   {
+    "name": "a kana name's reading spells it",
+    "violations": 0,
+    "examples": []
+   },
+   {
+    "name": "a division cites its source",
     "violations": 0,
     "examples": []
    },
@@ -91,6 +101,11 @@
     "examples": []
    },
    {
+    "name": "a reading can show its source",
+    "violations": 0,
+    "examples": []
+   },
+   {
     "name": "English mode has no Japanese",
     "violations": 0,
     "examples": []
@@ -133,6 +148,18 @@
   ],
   "budgets": [
    {
+    "name": "citations withheld from readers",
+    "means": "readings whose recorded address is on a route the site may not link to, so the citation is held back. All of them are NDL creator searches on the disallowed /api path. Falls as the record page is recorded in place of the query; a rise means a pass stored a query again.",
+    "budget": 36,
+    "value": 36
+   },
+   {
+    "name": "one page cited for two claims",
+    "means": "records whose reading and whose English name cite the same page while naming different kinds of source, so at most one of the two can be right about where it came from. A rise means an entry carried one address for two claims again.",
+    "budget": 24,
+    "value": 25
+   },
+   {
     "name": "labels with nothing to quote",
     "means": "records carrying a publisher-side yuri label whose imprint holds no term saying so, which is a label the work page cannot show a reader the evidence for. A rise means a pass has gone back to storing a field from a record other than the one that justified the label.",
     "budget": 0,
@@ -155,6 +182,24 @@
     "means": "works whose English rendering holds neither a romanisation nor an English name while the surface is Japanese. A rise means a composed name lost its romanisation.",
     "budget": 46,
     "value": 46
+   },
+   {
+    "name": "kana names with no stated division",
+    "means": "author names written entirely in kana whose romanisation ships as one unbroken word of eight letters or more, because the surface states no boundary and the reading is the surface. A coverage deficit and not a fault count: こかむも is printed Kokamumo by its own publisher and belongs in this number as much as Igarashiyumiko did. It falls only when a source states a division, which `a division cites its source` is what enforces, and it never reaches zero.",
+    "budget": 263,
+    "value": 263
+   },
+   {
+    "name": "credits the corpus files as a venue",
+    "means": "credits in the author store that this corpus also records as a publisher or an imprint, and that carry no mark saying what they are. Candidates rather than faults, because a doujin artist is their own imprint. A rise means a route put a company where a byline goes.",
+    "budget": 20,
+    "value": 20
+   },
+   {
+    "name": "credits carrying their own cataloguing",
+    "means": "author records the build publishes no rendering for, which today is a name with a role welded on to it and the person held separately beside it. A rise means a capture started writing cataloguing into the author position again.",
+    "budget": 38,
+    "value": 38
    },
    {
     "name": "credits that restate a name",
@@ -421,7 +466,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-07T22:11:21+00:00",
+  "previous_at": "2026-08-07T22:22:33+00:00",
   "drops": []
  },
  "outstanding": [
@@ -607,17 +652,22 @@
   {
    "kind": "debt",
    "key": "data_debts",
-   "count": 12,
+   "count": 17,
    "what": "Bring down counts that may only ratchet downward",
    "rows": {
     "bookwalker listings unconfirmed": 0,
     "bookwalker series unread": 0,
     "captures with no floor": 11,
+    "citations withheld from readers": 36,
+    "credits carrying their own cataloguing": 38,
     "credits matching a chapter": 0,
     "credits that restate a name": 0,
+    "credits the corpus files as a venue": 20,
     "implausible ruby spans": 0,
     "incomplete attested rows": 16,
+    "kana names with no stated division": 263,
     "labels with nothing to quote": 0,
+    "one page cited for two claims": 24,
     "publishers with no English": 32,
     "renderings with nothing to show": 46,
     "rows with a moving address": 0,

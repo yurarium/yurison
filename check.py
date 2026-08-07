@@ -891,7 +891,53 @@ def budget_credits_that_are_not_people(ctx):
     return bad
 
 
+def budget_credits_that_are_a_reading(ctx):
+    """Credits that are the reading of the credit beside them, counted as a second person.
+
+    運命のヤマダダダダダダダダダダ is credited to `おにぎりパクパク / オニギリ パクパク`, which is one
+    person written twice. MADB states a name and its reading in one creator field and the slash
+    between them is not a credit boundary.
+
+    `adapters/madb/extract.people` ALREADY KNOWS THIS. Its comment says a trailing all-katakana part
+    is the reading of the name before it, and it drops one. That function feeds the agreement test
+    and nothing else, so the creator string written into the record never passes through it: the
+    rule is implemented once and applied in one of the two places that need it (§3).
+
+    Two tests, because two things go wrong. A part that folds to another part is the same string in
+    two scripts, おにぎりパクパク against オニギリ パクパク. A part that matches another part's stored
+    reading catches the kanji case, 蓬餅 against ヨモギモチ, which no fold can see.
+    """
+    import re as _re
+    try:
+        store = (_yaml(NAMES / "authors.yaml", {}) or {}).get("names") or {}
+    except Exception:
+        store = {}
+
+    def _kata(s):
+        return "".join(chr(ord(c) + 0x60) if "ぁ" <= c <= "ゖ" else c for c in str(s or ""))
+
+    def _flat(s):
+        return _re.sub(r"[\s　・]", "", _kata(s))
+
+    bad = 0
+    for r in ctx["series"]:
+        parts = [x.strip() for x in _re.split(r"\s*/\s*", str(r.get("author") or "")) if x.strip()]
+        for i, a in enumerate(parts):
+            for b in parts[i + 1:]:
+                if a == b:
+                    continue
+                ra = (store.get(a) or {}).get("reading") or ""
+                rb = (store.get(b) or {}).get("reading") or ""
+                if (_flat(a) == _flat(b) or (ra and _flat(ra) == _flat(b))
+                        or (rb and _flat(rb) == _flat(a))):
+                    bad += 1
+    return bad
+
+
 BUDGETS_DEF = [
+    ("credits that are a reading", budget_credits_that_are_a_reading,
+     "author fields where one credit is the reading of another, so one person is counted twice. "
+     "A rise means a route wrote a name and its reading into one field as two credits."),
     ("credits that are not people", budget_credits_that_are_not_people,
      "author fields holding a credit made only of digits or markup. A rise means a parser folded "
      "something that is not a name into a byline."),

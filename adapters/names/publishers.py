@@ -103,6 +103,18 @@ def imprint_of(s):
     return (named[-1] if named else (segs[0] if segs else "")) or ""
 
 
+# THE FIELDS ON A PRINT ROW THAT HOLD A NAME A READER IS SHOWN, and how each is normalised for
+# comparison. Named here rather than written out at each use, because `check.py`'s
+# `publishers with no English` counts exactly the names this queue offers to be named, and the two
+# loops had drifted apart the moment a field was added to one of them
+# (STANDING-INSTRUCTIONS §3).
+#
+# `distributor` is a publisher's name in a different seat, so it normalises the same way. It became
+# its own field when the source layer stopped storing MADB's `[発売]講談社` in the publisher field,
+# and it is on the page beside the publisher, so it needs an English rendering like any other name.
+NAME_FIELDS = (("publisher", publisher_of), ("distributor", publisher_of), ("imprint", imprint_of))
+
+
 def corpus_names(build="data/build"):
     """Every publisher and imprint string the corpus carries, and how many volumes carry it.
 
@@ -113,7 +125,7 @@ def corpus_names(build="data/build"):
     out = {}
     for r in rows:
         for pr in (r.get("print") or []):
-            for field, norm in (("publisher", publisher_of), ("imprint", imprint_of)):
+            for field, norm in NAME_FIELDS:
                 raw = str(pr.get(field) or "").strip()
                 if not raw:
                     continue

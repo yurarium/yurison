@@ -194,6 +194,56 @@ def main(s):
     s.eq(m.publisher_of({"schema:publisher": "[頒布]大垣書店"}).name, "",
          "a record naming only a distributor names no publisher")
 
+    # ── THE ROLE TABLE IS THE ONE THE RELEASE HOLDS ────────────────────────────────────────────
+    #
+    # A table built for 発売 and 頒布 leaves the rest of the bracket inside the name, so the party
+    # holding the OTHER role becomes the publisher by default. 15 records of release 1.2.18 were in
+    # that state and each shape is pinned below, because the fault reappears one word at a time.
+    s.eq(m.publisher_of({"schema:publisher": ["[発売・共同刊行]コミックス", "講談社"]}).name, "講談社",
+         "a co-publisher written first does not take the seat from the publisher")
+    s.eq(m.publisher_of({"schema:publisher": ["[製作・発売]熊日情報文化センター",
+                                              "熊本日日新聞社"]}).name, "熊本日日新聞社",
+         "nor does a party that produced and delivered")
+    s.eq(m.publisher_of({"schema:publisher": ["[特別編集] コミックメーカー",
+                                              "ビクターエンタテインメント"]}).name,
+         "ビクターエンタテインメント", "nor an editing credit MADB brackets in the same position")
+    s.eq(m.publisher_of({"schema:publisher": ["[発売所]松島書店", "[発行人]松島広治"]}).name,
+         "松島広治", "and 発行人 is the publishing role, so the person holding it answers")
+    # AND WHERE A CO-PUBLISHER IS ALL THERE IS, it is the answer rather than nobody.
+    s.eq(m.publisher_of({"schema:publisher": "[共同刊行]あかね書房"}).name, "あかね書房",
+         "a co-publisher alone published the book")
+
+    # ── WHY THE SEAT IS EMPTY, WHICH IS THREE DIFFERENT FACTS ──────────────────────────────────
+    #
+    # STANDING-INSTRUCTIONS §5: absence is a state. An empty publisher field says the same thing
+    # whether MADB looked and found nothing, named somebody else, or never spoke, and only one of
+    # those means anything further could be found.
+    s.eq(m.publisher_basis({"schema:publisher": ["[発売]講談社", "一迅社"]}), "",
+         "a record that names a publisher needs no reason for an empty seat")
+    s.eq(m.publisher_basis({"schema:publisher": "[頒布]大垣書店"}), "not-stated",
+         "a distributor alone means somebody published it and MADB does not say who")
+    s.eq(m.publisher_basis({"schema:publisher": "[出版者不明]"}), "unknown-to-source",
+         "and 出版者不明 means the cataloguer looked and the book does not say")
+    s.eq(m.publisher_basis({"schema:publisher": "[s.n.]"}), "unknown-to-source",
+         "which is what ISBD's sine nomine says in Latin on 4 records")
+    s.eq(m.publisher_basis({}), "absent", "a record with no field at all makes no claim either way")
+
+    s.eq([p.name for p in m.distributors({"schema:publisher": ["[発売]講談社", "一迅社"]})],
+         ["講談社"], "the distributor is reported on its own, never as the publisher")
+    s.eq(m.distributors({"schema:publisher": "一迅社"}), [],
+         "and a record naming nobody in that role reports none")
+
+    # WHICH RECORD OF THE CHAIN THE PUBLISHER IS READ FROM. A summary naming only a distributor is
+    # saying nothing about who published, so it must not silence a volume that names one.
+    DIST_ONLY = {"schema:publisher": "[発売]講談社"}
+    FULL = {"schema:publisher": ["[発売]講談社", "一迅社"]}
+    s.check(m.publisher_record([DIST_ONLY, FULL]) is FULL,
+            "a distributor-only series record yields to the volume that names the publisher")
+    s.check(m.publisher_record([{}, DIST_ONLY]) is DIST_ONLY,
+            "and where the chain names none, the record that stated anything is still read")
+    s.check(m.publisher_record([FULL, {"schema:publisher": "別の社"}]) is FULL,
+            "the first record naming a publisher wins, so volumes cannot outvote their series")
+
     # AND THE JOIN THE SET COMPARISON RESTORES. ハイガクラ's volumes name the distributor beside
     # the publisher and its series record names the publisher alone, so comparing one value against
     # one value refused 14 title joins of that shape across release 1.2.18.
@@ -219,6 +269,9 @@ def main(s):
     text = m.render("C7", VOLS, {"C7": SER}, "series-link", "1.2.18", "2026-08-07",
                     m.ROUTE_IMPRINT, m.LABEL_IMPRINT)
     s.check('publisher: "一迅社"' in text, "the record states the publisher")
+    s.check('distributor: "講談社"' in text,
+            "and the distributor in a field of its own, which is the whole of the fix")
+    s.check("publisher_basis:" not in text, "a record naming a publisher gives no reason for a gap")
     s.check('publisher_stated: "[発売]講談社 / 一迅社"' in text,
             "and keeps the field it was read out of, so the reading can be disputed")
     s.check('  - name: "講談社"\n    role: distributor\n    role_stated: "発売"' in text,
@@ -251,6 +304,19 @@ def main(s):
                     m.ROUTE_IMPRINT, m.LABEL_IMPRINT)
     s.check('publisher: "一迅社"' in thin, "a silent series record takes the publisher its books name")
     s.check("publisher_from: volumes" in thin, "and says that is where it was read")
+
+    # A CHAIN THAT NAMES NOBODY IN THE ROLE. The record must say the publisher is unknown and name
+    # the distributor beside it, because the alternative is a blank field a consumer reads as "not
+    # filled in yet" and a distributor quietly standing in for a publisher is what started this.
+    NOPUB = {"schema:identifier": "C9", "schema:name": "頒布のみ",
+             "schema:brand": ["IDコミックス", "Yurihime comics"],
+             "schema:publisher": "[頒布]講談社　∥　コウダンシャ"}
+    nopub = m.render("C9", [dict(VOLS[0])], {"C9": NOPUB}, "series-link", "1.2.18", "2026-08-07",
+                     m.ROUTE_IMPRINT, m.LABEL_IMPRINT)
+    s.check('publisher: ""' in nopub, "a distributor is not promoted into the empty publisher seat")
+    s.check("publisher_basis: not-stated" in nopub, "and the record says why the seat is empty")
+    s.check('distributor: "講談社"' in nopub, "with the party MADB did name in its own field")
+    s.check('publisher_stated: "[頒布]講談社"' in nopub, "and the string all of it was read out of")
 
 
 if __name__ == "__main__":

@@ -540,6 +540,30 @@ def series_addresses(s):
     s.eq(_map.get("講談社", {}).get("basis"), "official-jp",
          "the basis travels with the name, so the interface can say whose name it is")
 
+    # ── THE PRINT BLOCK CARRIES BOTH PARTIES ───────────────────────────────────────────────────
+    #
+    # MADB writes `["[発売]講談社", "一迅社"]` and the source layer separates them. The block below
+    # is what the interface reads, so the separation only holds if it survives this far: while it
+    # did not, the volumes section and the evidence table each named 講談社 as the publisher of 132
+    # works 一迅社 published, and agreed with each other while doing it.
+    _rec = {"work_id": "C1", "publisher": "一迅社", "distributor": "講談社",
+            "imprint": "Yurihime comics", "volume_count": 7, "last_published": "2024-06",
+            "marketing_label": "yuri", "first_publication": {"date": "2022-01"}}
+    _blk = b._print_block(_rec)
+    s.eq(_blk["publisher"], "一迅社", "the publisher reaches the interface as the publisher")
+    s.eq(_blk["distributor"], "講談社", "and the distributor as the distributor")
+    s.eq(_blk["first"], "2022-01", "with the date the work was first published")
+    # NEITHER FIELD IS WRITTEN EMPTY. A key present and blank is a fact stated about nobody, and
+    # the interface would have to tell that apart from a field it has never been given.
+    _plain = b._print_block({"work_id": "C2", "publisher": "太田出版", "imprint": "F×COMICS"})
+    s.check("distributor" not in _plain, "a work nobody distributed carries no distributor key")
+    s.check("publisher_basis" not in _plain, "and a named publisher needs no reason for a gap")
+    # AND WHERE MADB NAMED ONLY A DISTRIBUTOR, the reason travels with the empty name.
+    _gap = b._print_block({"work_id": "C3", "publisher": "", "publisher_basis": "not-stated",
+                            "distributor": "講談社", "imprint": ""})
+    s.eq(_gap["publisher_basis"], "not-stated", "an unnamed publisher says which kind of unnamed")
+    s.eq(_gap["distributor"], "講談社", "beside the party MADB did name")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

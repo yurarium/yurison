@@ -860,6 +860,38 @@ def _shop_address(rec):
     return basis.get("url") if basis.get("source") == "bookwalker" else None
 
 
+def _print_block(rec):
+    """One work's book run, as the works list carries it under a row's `print`.
+
+    ONE PLACE THE BLOCK IS BUILT. Three copies of this literal stood in the works-list assembly, so
+    a field added for a reader reached whichever of the three the author happened to be looking at
+    and the other two rows silently lacked it. STANDING-INSTRUCTIONS §3 covers this: the fact with
+    three producers is the SHAPE of the block.
+
+    WHO PUBLISHED AND WHO DELIVERED, kept apart all the way to the reader. MADB writes a
+    distributor as `[発売]講談社` in the same field as the publisher, `adapters/madb/extract.py`
+    reads the role out of the bracket, and both fields travel from there. `publisher_basis` says
+    why the publisher is missing where it is, because an empty name and an unanswered question look
+    identical on a page.
+    """
+    return {
+        "work_id": rec["work_id"],
+        # WHERE TO BUY IT, which the record has carried all along. A retailer is Tier C and its
+        # shelf is never a marketing_label (§4); a link to the shop selling the book says only that
+        # the shop sells it, which is what a reader following it wants. Absent on a record from the
+        # bibliography, which knows the edition and not the shop.
+        "shop_url": _shop_address(rec),
+        "volumes": rec.get("volume_count"),
+        "publisher": rec.get("publisher"),
+        **({"publisher_basis": rec["publisher_basis"]} if rec.get("publisher_basis") else {}),
+        **({"distributor": rec["distributor"]} if rec.get("distributor") else {}),
+        "imprint": rec.get("imprint"),
+        "first": (rec.get("first_publication") or {}).get("date"),
+        "last": rec.get("last_published"),
+        "label": rec.get("marketing_label"),
+    }
+
+
 # WHERE EACH SHOP'S YURI SHELF IS CAPTURED. The key is the name `admitted_by` writes for the
 # comparator and the value is the capture that read it. Declared rather than inferred, because the
 # two captures spell the shop differently in their own `source:` field, `bookwalker.jp` in one and
@@ -1784,6 +1816,11 @@ def main():
                         if _bylines.credited(base.get("creator", "")) else "")
                        or byline_credit.get(wid, ""),
             "publisher": base.get("publisher", ""),
+            # Beside the publisher and never in it. The source layer reads the role out of MADB's
+            # `[発売]講談社` and these two carry the halves it separated: who delivered the book,
+            # and why nobody is named as having published it where that is the case.
+            **({"distributor": base["distributor"]} if base.get("distributor") else {}),
+            **({"publisher_basis": base["publisher_basis"]} if base.get("publisher_basis") else {}),
             "imprint": base.get("imprint", ""),
             "volume_count": base.get("volume_count", 0),
             "grouping": base.get("grouping"),
@@ -4465,21 +4502,7 @@ def main():
                 _named += 1
                 _eds = [_pw[m] for m in _print_by_id.get(_found_id, []) if m in _pw]
                 if _eds:
-                    _srow["print"] = [{
-                        "work_id": _e2["work_id"],
-                        # WHERE TO BUY IT, which the record has carried all along. A retailer is
-                        # Tier C and its shelf is never a marketing_label (§4); a link to the shop
-                        # selling the book says only that the shop sells it, which is what a reader
-                        # following it wants. Absent on a record from the bibliography, which knows
-                        # the edition and not the shop.
-                        "shop_url": _shop_address(_e2),
-                        "volumes": _e2.get("volume_count"),
-                        "publisher": _e2.get("publisher"),
-                        "imprint": _e2.get("imprint"),
-                        "first": (_e2.get("first_publication") or {}).get("date"),
-                        "last": _e2.get("last_published"),
-                        "label": _e2.get("marketing_label"),
-                    } for _e2 in _eds]
+                    _srow["print"] = [_print_block(_e2) for _e2 in _eds]
                     _joined += 1
         print(f"work identifiers: {_named} of {len(series_rows)} rows carry one; "
               f"{_joined} also carry their print edition")
@@ -4508,12 +4531,7 @@ def main():
             _pid = _byanchor.get("madb:" + str(_pw2.get("work_id")))
             _fp2 = _pw2.get("first_publication") or {}
             if _pid and _pid in _row_by_id:
-                _row_by_id[_pid].setdefault("print", []).append({
-                    "work_id": _pw2["work_id"], "volumes": _pw2.get("volume_count"),
-                    "shop_url": _shop_address(_pw2),
-                    "publisher": _pw2.get("publisher"), "imprint": _pw2.get("imprint"),
-                    "first": _fp2.get("date"), "last": _pw2.get("last_published"),
-                    "label": _pw2.get("marketing_label")})
+                _row_by_id[_pid].setdefault("print", []).append(_print_block(_pw2))
                 _folded += 1
                 continue
             series_rows.append({
@@ -4536,11 +4554,7 @@ def main():
                 "state_claims": [],
                 "id": _pid,
                 "completed_claim": _pw2.get("completed_claim"),
-                "print": [{"work_id": _pw2["work_id"], "volumes": _pw2.get("volume_count"),
-                           "shop_url": _shop_address(_pw2),
-                           "publisher": _pw2.get("publisher"), "imprint": _pw2.get("imprint"),
-                           "first": _fp2.get("date"), "last": _pw2.get("last_published"),
-                           "label": _pw2.get("marketing_label")}],
+                "print": [_print_block(_pw2)],
             })
             if _pid:
                 _row_by_id[_pid] = series_rows[-1]

@@ -3937,6 +3937,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  なごり悠:
+    basis: romaji
+    furigana_spans:
+    - - なごり
+      - null
+    - - 悠
+      - ゆう
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ナゴリ ユウ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   ななせ悠:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -5525,6 +5541,14 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  まんの:
+    basis: romaji
+    reading: マンノ
+    reading_at: '2026-08-07'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   まんの(カバーイラスト):
     basis: romaji
     reading: マンノ(カバーイラスト)
@@ -6163,6 +6187,14 @@ names:
     basis: romaji
     reading: ヤマジエビネ
     reading_at: '2026-08-06'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
+  やまだしゅら:
+    basis: romaji
+    reading: ヤマダシュラ
+    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -6900,6 +6932,14 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  アサダアツシ:
+    basis: romaji
+    reading: アサダアツシ
+    reading_at: '2026-08-07'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   アサルトリリィプロジェクト:
     basis: romaji
     reading: アサルトリリィプロジェクト
@@ -7600,6 +7640,14 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  コミックニュータイプ:
+    basis: romaji
+    reading: コミックニュータイプ
+    reading_at: '2026-08-07'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   コミックニュータイプ(編):
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -8204,6 +8252,14 @@ names:
   ナスムスビム:
     basis: romaji
     reading: ナスムスビム
+    reading_at: '2026-08-07'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
+  ナナセミオリ:
+    basis: romaji
+    reading: ナナセミオリ
     reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
@@ -12121,6 +12177,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  出内テツオ:
+    basis: romaji
+    furigana_spans:
+    - - 出内
+      - いでうち
+    - - テツオ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: イデウチ テツオ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   出水:
     basis: romaji
     furigana_spans:
@@ -14090,6 +14162,17 @@ names:
     reading_source_kind: national-library
     reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1032879
     verified: true
+  圷　見南子:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アクツ 　 ミ ナコ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   圷見南子:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -14291,6 +14374,22 @@ names:
       on pen names and coinages
     reading: シオ コチョウ
     reading_at: '2026-08-06'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  境井ラク:
+    basis: romaji
+    furigana_spans:
+    - - 境井
+      - さかい
+    - - ラク
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: サカイ ラク
+    reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
@@ -17667,6 +17766,22 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784403623127
     verified: true
+  市川ヒロ:
+    basis: romaji
+    furigana_spans:
+    - - 市川
+      - いちかわ
+    - - ヒロ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: イチカワ ヒロ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   市川ヒロミ:
     basis: romaji
     furigana_spans:
@@ -17704,6 +17819,24 @@ names:
     reading_source_kind: national-library
     reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1109048
     verified: true
+  幌山あき:
+    basis: romaji
+    furigana_spans:
+    - - 幌
+      - ほろ
+    - - 山
+      - やま
+    - - あき
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ホロ ヤマ アキ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   平尾アウリ:
     basis: romaji
     furigana_spans:
@@ -17802,6 +17935,24 @@ names:
     reading_source_kind: platform
     reading_url: https://yanmaga.jp/comics/authors/8fc199c61b5ec0b00b74e772faa597fe
     verified: true
+  広輪凪:
+    basis: romaji
+    furigana_spans:
+    - - 広
+      - ひろ
+    - - 輪
+      - わ
+    - - 凪
+      - なぎ
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ヒロ ワ ナギ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   広輪凪(カバーイラスト):
     basis: romaji
     furigana_spans:
@@ -21491,6 +21642,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  桐灰きねそ:
+    basis: romaji
+    furigana_spans:
+    - - 桐灰
+      - きりばい
+    - - きねそ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: キリバイ キネ ソ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   桐野いつき:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -22026,6 +22193,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  森奈津子:
+    basis: romaji
+    furigana_spans:
+    - - 森
+      - もり
+    - - 奈津子
+      - なつこ
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: モリ ナツコ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   森奈津子(作):
     basis: romaji
     furigana_spans:
@@ -22189,6 +22372,22 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=4758070016
     verified: true
+  森永みるく ほか:
+    basis: romaji
+    furigana_spans:
+    - - 森永
+      - もりなが
+    - - みるく ほか
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: モリナガ ミルク   ホカ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   森紗はるき:
     basis: romaji
     furigana_spans:
@@ -25141,6 +25340,22 @@ names:
     reading_source_kind: national-library
     reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1076431
     verified: true
+  犬島ななこ:
+    basis: romaji
+    furigana_spans:
+    - - 犬島
+      - いぬじま
+    - - ななこ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: イヌジマ ナナコ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   犬甘あんず:
     basis: romaji
     furigana_spans:
@@ -25431,6 +25646,24 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I029028884
     verified: true
+  玉置こさめ:
+    basis: romaji
+    furigana_spans:
+    - - 玉
+      - たま
+    - - 置
+      - お
+    - - こさめ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: タマ オコ サメ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   玉置こさめ(作):
     basis: romaji
     furigana_spans:
@@ -29471,6 +29704,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  荒井チェイサー:
+    basis: romaji
+    furigana_spans:
+    - - 荒井
+      - あらい
+    - - チェイサー
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アライ チェイサー
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   荒井チェイサー(作):
     basis: romaji
     furigana_spans:
@@ -29657,6 +29906,22 @@ names:
     reading_source_kind: national-library
     reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1032900
     verified: true
+  萩埜まこと:
+    basis: romaji
+    furigana_spans:
+    - - 萩埜
+      - はぎの
+    - - まこと
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ハギノ マコト
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   葛城かなで:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -31918,6 +32183,22 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784047260771
     verified: true
+  鈴木　りつ:
+    basis: romaji
+    furigana_spans:
+    - - 鈴木
+      - すずき
+    - - 　りつ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: スズキ 　 リツ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   鈴木りつ:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest

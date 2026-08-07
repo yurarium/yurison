@@ -49,8 +49,22 @@ ROLE = re.compile(r"^\[[^\]]*\]")
 # stripping one leading group leaves `[訳]` standing where a person should be. A group is a role
 # when it is spelt out of role words and nothing else; anything else in brackets is a name and
 # keeps its content.
-ROLE_ONLY = re.compile(r"^[著作画原訳編監修構成脚本案翻・\s]+$")
+# The role words that actually appear, not every word that could be one. 漫 企 and 者 were
+# missing, so 漫画, 企画 and 著者 were read as names. A katakana role is spelled out because
+# admitting katakana to the class would strip a katakana name in brackets, which is not a role.
+ROLE_ONLY = re.compile(r"^(?:[著作画原訳編監修構成脚本案翻者漫企・\s]+"
+                       r"|キャラクター原案|カバーイラスト|イラスト|カバー|デザイン)$")
 BRACKET = re.compile(r"\[([^\]]*)\]")
+
+# A ROLE WRITTEN IN ROUND BRACKETS AFTER THE NAME. openBD and the platforms write `苗川采(著者)`
+# and `Ｍａｇｐｉｅ（翻訳）` where MADB writes `[著]苗川采`, and only the square form was being
+# removed. 138 credits carried one, 96 of them 著者, and each left the name unmatched in the store
+# so the row rendered as Japanese on an English page.
+#
+# ANCHORED AT THE END AND LENGTH-LIMITED, because a bracket in the middle of a name is part of the
+# name: `sono.N（SHUEISHA）` is not a role and `LYCORIS(企画)` is. Only a trailing bracket whose
+# whole content is role words comes off.
+TRAILING_ROLE = re.compile(r"[（(]\s*([^）)]{1,10})\s*[）)]\s*$")
 
 
 def credit_name(part):
@@ -61,6 +75,7 @@ def credit_name(part):
     """
     part = re.sub(r"\[+", "[", re.sub(r"\]+", "]", part))
     kept = BRACKET.sub(lambda m: "" if ROLE_ONLY.match(m.group(1)) else m.group(1), part)
+    kept = TRAILING_ROLE.sub(lambda m: "" if ROLE_ONLY.match(m.group(1)) else m.group(0), kept)
     return kept.strip()
 
 

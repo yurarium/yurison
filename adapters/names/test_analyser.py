@@ -44,6 +44,17 @@ def main(s):
     s.check(p4.is_credit_line("原作／宮澤伊織"), "a credit line is recognised by its role marker")
     s.check(not p4.is_credit_line("君の名は"), "an ordinary title is not a credit line")
 
+    # ONE ROLE VOCABULARY. This file kept eleven words of its own while `inputs.ROLES` held forty,
+    # so a role the splitter knew and this did not let the whole field into the store as a person:
+    # はいむらきよたか(キャラクターデザイン) shipped in names.json with the role inside the name.
+    for line in ("はいむらきよたか(キャラクターデザイン)", "石田可奈(キャラクターデザイン)",
+                 "広輪凪(カバーイラスト)", "ｆｉｎｉｔｅ(校正)", "潮一葉 ネーム"):
+        s.check(p4.is_credit_line(line), f"a role welded to a name is a credit line: {line}")
+    # AND THE COUNTER-CASE THAT KEEPS THE SINGLE CHARACTERS OUT. 作, 画, 絵 and 著 are what pen
+    # names are built from, so a substring test on them would take a person with it.
+    for who in ("作田ハジメ", "はいむらきよたか", "絵日はな", "文月ナオ", "阿部潤"):
+        s.check(not p4.is_credit_line(who), f"and a pen name is not one: {who}")
+
     s.check(p4.has_japanese("第1話"), "japanese detected")
     s.check(not p4.has_japanese("Chapter 1"), "plain english is not japanese")
 

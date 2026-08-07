@@ -1265,6 +1265,55 @@ def budget_kana_names_with_no_stated_division(ctx):
     return n
 
 
+def budget_credits_the_corpus_files_as_a_venue(ctx):
+    """Credits in the author store that the corpus records elsewhere as a publisher or an imprint.
+
+    IT ASKS A QUESTION THE FIX DOES NOT (§14b). `entities.kind` reads a vocabulary of organisation
+    words, so a measure built on that vocabulary can only ever report what the vocabulary already
+    catches. This one never looks at the name: it asks whether this same string appears in
+    data/names/publishers.yaml or on a volume's publisher or imprint field, which is the corpus
+    filing it as something other than a person. 一迅社 and ガレットワークス are here and carry no
+    organisation word between them.
+
+    CANDIDATES, NOT FAULTS, and the counter-case is why. A doujin artist is their own imprint, so
+    山名沢湖 and 雪尾ゆき are filed as publishers of their own books and are people. Marking a credit
+    on this evidence alone would take them with it, which is exactly why the adapter does not use it.
+    The number is the honest residue: it falls when a credit is marked or the corpus stops filing it
+    both ways, and it never has to reach zero.
+    """
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    try:
+        import entities
+    except Exception:
+        return 0
+    pubs = (_yaml(NAMES / "publishers.yaml", {}) or {}).get("names") or {}
+    filed = entities.filed_elsewhere(pubs, ctx["series"])
+    return sum(1 for k, v in (ctx["names"].get("authors") or {}).items()
+               if k in filed and not v.get("entity"))
+
+
+def budget_credits_carrying_their_own_cataloguing(ctx):
+    """Store records the build declines to publish a rendering for.
+
+    COUNTED ON THE OUTPUT, so the filter is observable (STANDING-INSTRUCTIONS §13). A filter that
+    silently drops rows looks identical to one that has stopped working, so this compares the store
+    against what shipped instead of asking `entities.kind` again. `はいむらきよたか(キャラクター
+    デザイン)` is a person with a role welded on and the store holds the person beside it, so the
+    lookup is meant to reach the person; the record is kept and its rendering withheld.
+
+    A rise means a route started writing cataloguing into the author position again, which is what
+    `pass4_analyser.is_credit_line` is there to stop.
+
+    FOLDED, because the shipped map is keyed the way the interface asks: `build.py` writes it under
+    the folded string so a name reaches it under whichever width and spacing a platform used.
+    Comparing raw counts 147 records that shipped perfectly well under their folded key.
+    """
+    shipped = ((ctx["names_shipped"] or {}).get("authors") or {})
+    fold = (lambda t: unicodedata.normalize("NFKC", t or "").replace(" ", "").replace("　", ""))
+    return sum(1 for k, v in (ctx["names"].get("authors") or {}).items()
+               if v.get("reading") and k not in shipped and fold(k) not in shipped)
+
+
 def budget_renderings_with_nothing_to_show(ctx):
     """Renderings that leave a Japanese name with no English form at all.
 
@@ -1417,6 +1466,14 @@ BUDGETS_DEF = [
      "coverage deficit and not a fault count: こかむも is printed Kokamumo by its own publisher and "
      "belongs in this number as much as Igarashiyumiko did. It falls only when a source states a "
      "division, which `a division cites its source` is what enforces, and it never reaches zero."),
+    ("credits the corpus files as a venue", budget_credits_the_corpus_files_as_a_venue,
+     "credits in the author store that this corpus also records as a publisher or an imprint, and "
+     "that carry no mark saying what they are. Candidates rather than faults, because a doujin "
+     "artist is their own imprint. A rise means a route put a company where a byline goes."),
+    ("credits carrying their own cataloguing", budget_credits_carrying_their_own_cataloguing,
+     "author records the build publishes no rendering for, which today is a name with a role "
+     "welded on to it and the person held separately beside it. A rise means a capture started "
+     "writing cataloguing into the author position again."),
     ("credits that restate a name", budget_credits_that_restate_a_name,
      "author fields where one credit is the reading of another, so one person is counted twice. "
      "A rise means a route wrote a name and its reading into one field as two credits."),

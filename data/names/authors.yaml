@@ -146,6 +146,7 @@ names:
     verified: true
   DYTM(カバーイラスト):
     basis: romaji
+    entity: notation
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: DYTM ( カバー イラスト )
@@ -287,6 +288,7 @@ names:
     en_pass: 0
     en_source: surface
     en_source_kind: platform
+    entity: project
     note: already Latin on the platform's own page; no romanisation involved
     script: latin
     verified: true
@@ -475,6 +477,7 @@ names:
     verified: true
   '[編]乙女☆妄想族':
     basis: romaji
+    entity: notation
     furigana_spans:
     - - '['
       - null
@@ -804,6 +807,7 @@ names:
     verified: false
   「真夜中ぱんチ」製作委員会:
     basis: romaji
+    entity: committee
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: マヨナカパンチセイサクイインカイ
@@ -912,6 +916,7 @@ names:
     verified: true
   あおと響(絵):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - あおと
       - null
@@ -4202,6 +4207,7 @@ names:
     verified: true
   にわかあめ（よよはち×ナツノアメ）:
     basis: romaji
+    entity: notation
     reading: ニワカアメ（ヨヨハチ×ナツノアメ）
     reading_at: '2026-08-06'
     reading_basis: surface
@@ -4358,6 +4364,7 @@ names:
     verified: true
   ののかなこ（FiFS):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - ののかなこ（FiFS)
       - null
@@ -4410,6 +4417,7 @@ names:
     verified: true
   のん(キャラクターデザイン):
     basis: romaji
+    entity: notation
     reading: ノン(キャラクターデザイン)
     reading_at: '2026-08-07'
     reading_basis: surface
@@ -4426,6 +4434,7 @@ names:
     verified: true
   はいむらきよたか(キャラクターデザイン):
     basis: romaji
+    entity: notation
     reading: ハイムラキヨタカ(キャラクターデザイン)
     reading_at: '2026-08-07'
     reading_basis: surface
@@ -5631,6 +5640,7 @@ names:
     verified: true
   まんの(カバーイラスト):
     basis: romaji
+    entity: notation
     reading: マンノ(カバーイラスト)
     reading_at: '2026-08-07'
     reading_basis: surface
@@ -6484,6 +6494,7 @@ names:
     verified: false
   ゆるゆり資料集編纂室:
     basis: romaji
+    entity: desk
     furigana_spans:
     - - ゆるゆり
       - null
@@ -7070,6 +7081,7 @@ names:
     verified: true
   アサルトリリィプロジェクト:
     basis: romaji
+    entity: project
     reading: アサルトリリィプロジェクト
     reading_at: '2026-08-06'
     reading_basis: surface
@@ -7913,6 +7925,7 @@ names:
     verified: true
   コミックニュータイプ(編):
     basis: romaji
+    entity: notation
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading_at: '2026-08-06'
@@ -8226,6 +8239,7 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
+    entity: studio
     reading: スタジオ クロマト
     reading_at: '2026-08-07'
     reading_basis: surface
@@ -8239,6 +8253,7 @@ names:
     en_at: '2026-08-02'
     en_pass: 1
     en_source: surface
+    entity: studio
     reading: スタジオ コロリド
     reading_at: '2026-08-07'
     reading_basis: surface
@@ -8381,6 +8396,7 @@ names:
     verified: true
   タカヒロ（みなとそふと）:
     basis: romaji
+    entity: notation
     reading: タカヒロ（ミナトソフト）
     reading_at: '2026-08-07'
     reading_basis: surface
@@ -10242,6 +10258,7 @@ names:
     verified: false
   三廼(キャラクターデザイン):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 三廼
       - みつや
@@ -11614,6 +11631,7 @@ names:
     verified: false
   代々木アニメーション学院:
     basis: romaji
+    entity: school
     furigana_spans:
     - - 代々木
       - よよぎ
@@ -11736,6 +11754,7 @@ names:
     verified: true
   仲谷鳰 ほか:
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 仲谷
       - なかや
@@ -12648,6 +12667,7 @@ names:
     verified: false
   円谷プロダクション:
     basis: romaji
+    entity: company
     furigana_spans:
     - - 円谷
       - つぶらや
@@ -13419,6 +13439,7 @@ names:
     verified: true
   南部くまこ(作):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 南部
       - なんぶ
@@ -13489,6 +13510,7 @@ names:
     verified: true
   博（ひろ）:
     basis: romaji
+    entity: notation
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ヒロ
@@ -14766,6 +14788,7 @@ names:
     verified: false
   圭島ユウ(絵):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 圭
       - けい
@@ -15070,6 +15093,7 @@ names:
     verified: false
   壇九（TANJIU):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 壇
       - だん
@@ -15993,6 +16017,7 @@ names:
     verified: true
   天華百剣プロジェクト:
     basis: romaji
+    entity: project
     furigana_spans:
     - - 天華
       - てんか
@@ -18217,6 +18242,7 @@ names:
     verified: true
   嵩乃朔 ほか:
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 嵩
       - かさ
@@ -18689,6 +18715,7 @@ names:
     verified: false
   広輪凪(カバーイラスト):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 広
       - ひろ
@@ -20111,6 +20138,7 @@ names:
     verified: false
   星井七億(作):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 星井
       - ほしい
@@ -20673,6 +20701,7 @@ names:
     verified: true
   曽我部修司（FiFS):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 曽我部
       - そがべ
@@ -21120,6 +21149,7 @@ names:
     verified: false
   本間　リョウタ（FiFS）:
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 本間
       - ほんま
@@ -21157,6 +21187,7 @@ names:
     verified: true
   本間リョウタ（FiFS):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 本間
       - ほんま
@@ -21362,6 +21393,7 @@ names:
     verified: true
   東方Project:
     basis: romaji
+    entity: project
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: トウホウプロジェクト
@@ -21394,6 +21426,7 @@ names:
     verified: true
   東河みそ(絵):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 東河
       - とうが
@@ -22020,6 +22053,7 @@ names:
     verified: false
   柳川麻衣(作):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 柳川
       - やながわ
@@ -22979,6 +23013,7 @@ names:
     verified: false
   森奈津子(作):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 森
       - もり
@@ -23083,6 +23118,7 @@ names:
     verified: true
   森島明子(絵):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 森島
       - もりしま
@@ -23142,6 +23178,7 @@ names:
     verified: true
   森永みるく ほか:
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 森永
       - もりなが
@@ -23606,6 +23643,7 @@ names:
     verified: false
   橘みんみ（プラス81）:
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 橘
       - たちばな
@@ -24902,6 +24940,7 @@ names:
     verified: false
   浅見百合子 ほか:
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 浅見
       - あさみ
@@ -25543,6 +25582,7 @@ names:
     verified: true
   潮一葉 ネーム:
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 潮
       - うしお
@@ -26480,6 +26520,7 @@ names:
     verified: false
   玉置こさめ(作):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 玉
       - たま
@@ -27832,6 +27873,7 @@ names:
     verified: true
   石田可奈(キャラクターデザイン):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 石田
       - いしだ
@@ -29767,6 +29809,7 @@ names:
     verified: false
   羽印(ういん):
     basis: romaji
+    entity: notation
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ハネ シルシ
@@ -30460,6 +30503,7 @@ names:
     verified: true
   若（わか）:
     basis: romaji
+    entity: notation
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ワカ
@@ -30618,6 +30662,7 @@ names:
     verified: false
   荒井チェイサー(作):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - 荒井
       - あらい
@@ -34010,6 +34055,7 @@ names:
     verified: false
   電撃G'sマガジン:
     basis: romaji
+    entity: magazine
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: デンゲキジーズマガジン
@@ -35837,6 +35883,7 @@ names:
     verified: true
   Ｎｉｍｒｏｄ(校正):
     basis: romaji
+    entity: notation
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: Nimrod ( コウセイ )
@@ -35875,6 +35922,7 @@ names:
     verified: false
   ＷｅｅｋｌｙＥｖｅｒｙｄａｙ(編纂):
     basis: romaji
+    entity: notation
     furigana_spans:
     - - ＷｅｅｋｌｙＥｖｅｒｙｄａｙ
       - weeklyeveryday
@@ -35895,6 +35943,7 @@ names:
     verified: false
   ｆｉｎｉｔｅ(校正):
     basis: romaji
+    entity: notation
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: finite ( コウセイ )
@@ -35906,6 +35955,7 @@ names:
     verified: false
   ｓｏｎｏ．Ｎ(絵):
     basis: romaji
+    entity: notation
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: sono． N ( エ )

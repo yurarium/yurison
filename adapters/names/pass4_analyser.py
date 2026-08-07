@@ -359,8 +359,24 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
 # A credit line is not a name. 原作／宮澤伊織(早川書房刊) 作画／水野英多 went through the analyser as
 # one string and came back "Gensaku Kigō Miyazawa Iori Kigō …" — it romanised the ROLE LABELS and
 # read ／ as 記号, the word "symbol". An analyser will always try; the guard has to be ours.
-ROLE = ("原作", "作画", "漫画", "脚本", "構成", "企画", "監修", "協力", "編集", "案", "著")
+#
+# THE ROLE VOCABULARY IS `inputs.ROLES`, NOT A THIRD COPY OF IT. This file carried eleven words of
+# its own while the splitter that feeds the store knew forty, and the eleven were missing
+# キャラクターデザイン, カバーイラスト, 校正, 編纂, 表紙 and ネーム. So
+# はいむらきよたか(キャラクターデザイン) was not recognised as a credit line, entered the store as a
+# person, and shipped in names.json romanised with the role label inside the name. Twelve records
+# were in that state, and STANDING-INSTRUCTIONS §3 says the drift will happen in exactly this way.
+#
+# THE SINGLE-CHARACTER ROLES ARE LEFT OUT, which is the counter-case `inputs.ROLE_HEAD` already
+# records from the other direction: 作, 画, 絵, 文, 著 and 編 are ordinary characters that pen names
+# are built from, and a substring test on them would call 作田ハジメ a credit line.
 SEP = "／/・、,＆&+"
+
+
+def _roles():
+    """The multi-character roles, from the one list that holds them (adapters/names/inputs.py)."""
+    from names.inputs import ROLES
+    return tuple(r for r in ROLES if len(r) > 1)
 
 
 def has_japanese(s):
@@ -372,7 +388,7 @@ def is_credit_line(s):
         return True                       # a name that long is a sentence about several people
     if any(c in s for c in SEP):
         return True
-    return any(r in s for r in ROLE)
+    return any(r in s for r in _roles())
 
 
 def _split_authors():

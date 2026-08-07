@@ -1,0 +1,5746 @@
+# THIN-EVIDENCE REVIEW QUEUE. Works whose only support is one retailer's yuri shelf, examined.
+# NOT AN EVICTION LIST. Nothing here has left the corpus and nothing here may leave it on this
+# file's say-so. DEFINITIONS §2 admits a work on a licensed retailer's yuri shelf as presumptive
+# and rebuttable, and the rebuttal is the project owner's to make. A takedown is a different thing
+# again (REQUIREMENTS §4).
+#
+# WHY THE POPULATION IS THIS ONE. 1,837 of 3,076 works rest on a shelf and nothing else, which is
+# most of the database, and §2's `rebuttable` had no mechanism behind it. The operator found one
+# entry that does not belong and one query that narrows without knowing the answer first: a yuri
+# line contributes dozens of works, so an imprint contributing one or two, on a single shelf row,
+# has nothing supporting it. That returns the 296 rows below. `adapters/thin/evidence.py` holds
+# the query and reproduces it exactly.
+#
+# WHAT A VERDICT MEANS.
+#   contradicted   Not one page the admitting shop serves for this work still files it on the shelf
+#                  that admitted it. The comparator has withdrawn its own claim, which is the one
+#                  form of rebuttal that needs no judgement about the manga from anybody.
+#   corroborated   A source other than that shelf designates the work: the publisher's own title
+#                  or imprint carries the word, or Web漫画アンテナ's 百合 tag names it.
+#   unsupported    Nothing found either way. NOT a fault and NOT a suspicion. Most of the shelf is
+#                  accurate and most of these rows are expected to be sound; what this records is
+#                  that somebody looked, so nobody looks again from nothing.
+#
+# DESIGNATION, NEVER JUDGEMENT (§7). No row here asks whether a work IS yuri. Each asks whether any
+# source designates it so and whether anything a source says contradicts the one shelf that does.
+# Where sources conflict, both are written and the conflict is left standing.
+#
+# WHAT WAS READ. Every candidate's own page at the shop that admitted it, plus the publisher's own
+# カドコミ page where the work is serialised there. `said` is OUR paraphrase of the source's own
+# structured fields. Publisher synopsis was read during the pass and is stored nowhere
+# (REQUIREMENTS §2, §4).
+#
+# BOOK☆WALKER TAGS A VOLUME, NOT A WORK, and that is what makes this file's numbers what they are.
+# Reading series pages alone put 22 works here as contradicted. Reading the volumes each of those
+# pages links leaves 3. 霧尾ファンクラブ is why: its series page carries 女性向け and 女性マンガ, volume 1
+# carries those plus 学園, and volume 2 carries 百合. The work is unmistakably yuri and a series page
+# would have called it rebutted. So a work counts as contradicted only when the tag is on none of
+# the pages reached, and a series page lists between 2 and 13 of its volumes rather than all of
+# them, so even that is a finding about the volumes reached.
+#
+# 11 ROWS WERE NOT RE-READ. Their コミックシーモア row could not be re-identified from the capture by
+# title, and guessing a shop row would attribute one work's filing to another. They carry `unread`
+# and whatever structural signals the corpus holds.
+#
+# SIGNALS THAT DID NOT DISCRIMINATE, recorded so they are not re-derived. BOOK☆WALKER's 男性向け
+# facet is on 46% of the whole shelf and 37% of these rows, and is FALSE on the one work known not
+# to belong. Which listing a row came from separates nothing: all 221 BOOK☆WALKER rows here came
+# from the volume store. Cross-retailer agreement was measured by the operator beforehand: 20 works
+# appear on both shelves, so absence from the other carries no information. コミックシーモア's own
+# re-reading corroborated 64 of the 64 rows it could reach, so for that shop the recheck is a
+# record rather than a discriminator.
+#
+# `hand_findings` HOLDS WHAT NO RULE HERE CATCHES. Scope and content questions a person noticed
+# while reading, each with the page that raised it. They are not verdicts about the shelf and they
+# are not evidence about anything until somebody follows them up.
+#
+# `reviews`, NOT `candidates`. build.py globs data/queue/ for the key `candidates` and treats what
+# it finds as a discovery queue. These works are already in the database, so listing them there
+# would put a fact about our own confidence in front of a reader (STANDING-INSTRUCTIONS §6).
+source: yurarium
+role: review-queue
+record_type: shelf_rebuttal_review
+generated: '2026-08-07'
+query: evidence is exactly one retailer shelf row, and the work's imprint appears on no more than two
+  shelf-only works, or it names no imprint at all
+query_module: adapters/thin/evidence.py
+summary:
+  works: 296
+  verdicts:
+    contradicted: 3
+    unsupported: 220
+    corroborated: 73
+  signals:
+    platform_declined: 10
+    prominent: 60
+    male_directed: 82
+    antenna: 30
+    author_in_field: 59
+    container: 13
+    other_category: 5
+    title_term: 43
+    imprint_term: 3
+  unread: 11
+hand_findings:
+- work: w01338
+  title: サンストーン
+  question: scope, DEFINITIONS §6
+  source: コミックシーモア
+  url: https://www.cmoa.jp/title/182054/
+  retrieved: '2026-08-07'
+  note: The shop credits ステファン・セジク and 上田香子, which is a foreign author and a Japanese translator. A Japanese
+    edition that is a translation of a non-Japanese original is out of scope whatever shelf it sits on,
+    and this is the shop stating it. Confirm against 誠文堂新光社 before acting.
+- work: w01456
+  title: Roaming
+  question: scope, DEFINITIONS §6
+  source: コミックシーモア
+  url: https://www.cmoa.jp/title/302784/
+  retrieved: '2026-08-07'
+  note: Credited to マリコ・タマキ, ジリアンタマキ and 金原瑞人, the last of whom is a translator. Same question as サンストーン
+    and the same next step, at トゥーヴァージンズ.
+- works:
+  - w02348
+  - w02333
+  title: ON a LEASH / 落差
+  question: scope, DEFINITIONS §6
+  source: BOOK☆WALKER
+  url: https://bookwalker.jp/series/526523/
+  retrieved: '2026-08-07'
+  note: Both are SNP under the NETCOMICS imprint, 94 and 68 volumes of per-chapter releases, and BOOK☆WALKER
+    still tags both 百合. NETCOMICS publishes Korean webtoons, so the scope question is live and nothing
+    read here answers it. The shop names no origin and no translator, so this needs the publisher.
+- work: w03057
+  title: 見てはいけない 淫情の懺悔
+  question: content, DEFINITIONS §7
+  source: BOOK☆WALKER
+  url: https://bookwalker.jp/dee636799f-b437-478f-8b11-34d0caa8c3db/
+  retrieved: '2026-08-07'
+  note: Imprint BLIC-ERO, and the shop tags it 百合, 萌え and おとなマンガ. §7 excludes on a 成年コミックマーク, an 18禁 designation,
+    an adult imprint or adult-only distribution, and BOOK☆WALKER keeps its R18 stock on a separate store,
+    so this shelf is all-ages and the work is admitted. Whether it wants `explicit_content` is the open
+    question.
+- works:
+  - w02706
+  - w01728
+  - w01604
+  - w01578
+  title: コミック百合姫 / まんがタイムきららＭＡＸ / ちゃおデラックスホラー / 百合姫表紙集
+  question: the row is not a work
+  source: BOOK☆WALKER
+  url: https://bookwalker.jp/series/192567/
+  retrieved: '2026-08-07'
+  note: Three magazines and a cover-art collection, carried as works, the first with 119 'volumes'. DEFINITIONS
+    §2 has nothing to say about them because the question is not whether they are yuri. They inflate the
+    corpus count and one of them, まんがタイムきららＭＡＸ, is among the three the shop no longer shelves.
+reviews:
+- work: w01778
+  title: おしえて！ギャル子ちゃん
+  imprint: null
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: contradicted
+  suspicion: 10
+  signals:
+    platform_declined: true
+    prominent: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/21226/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 男性向け、少年マンガ, and not under tag 14, the shelf that admitted it
+  - source: カドコミ
+    url: https://comic-walker.com/detail/KC_007125_S
+    retrieved: '2026-08-07'
+    said: the publisher's own platform files it as 少年 / ギャグ・コメディ and applies 日常系、学園モノ、女主人公、ドキドキハラハラ、大人向け、アニメ化、笑える、ショート、おっぱい、社会、群像劇、考えさせられる、生活・ライフスタイル,
+      applying neither 百合 nor GL
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de5d4d1451-8fa1-4f44-8f1d-7c27d5469067/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、少年マンガ、MFコミック、ギャグ・コメディ, and not under tag 14, the shelf that
+      admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/def49d8b46-026f-45d6-adc2-5440f2090a86/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少年マンガ、男性向け、ギャグ・コメディ, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de404655ff-455f-411d-a037-9efb00a911e8/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少年マンガ、男性向け、社会、ライフスタイル、アニメ化･実写化、ギャグ・コメディ, and not under tag 14, the
+      shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dec28b50c8-41f7-42d9-99d2-953a50df68df/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 限定特典、男性向け、少年マンガ、ギャグ・コメディ, and not under tag 14, the shelf that admitted
+      it
+- work: w01728
+  title: まんがタイムきららＭＡＸ
+  imprint: まんがタイムきらら
+  publisher: 芳文社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: contradicted
+  suspicion: 6
+  signals:
+    prominent: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/192567/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 男性向け、4コマ、青年マンガ、マンガ雑誌、雑誌、まんがタイムきららMAX、異世界系作品, and not under tag
+      14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de8057868c-af4f-4b2c-b69f-31b283c9ab39/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、4コマ、青年マンガ、マンガ雑誌、雑誌、まんがタイムきららMAX、異世界系作品, and not under tag 14,
+      the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de829e1d1d-2bf0-4a01-91dc-a01f1b07dc74/
+    retrieved: '2026-08-07'
+    said: this volume is filed under マンガ雑誌、雑誌、男性向け、まんがタイムきららMAX、4コマ、青年マンガ、異世界系作品, and not under tag 14,
+      the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/def0d775e8-7922-417a-92fb-58cc1290acdb/
+    retrieved: '2026-08-07'
+    said: this volume is filed under マンガ雑誌、雑誌、男性向け、まんがタイムきららMAX、4コマ、青年マンガ、異世界系作品, and not under tag 14,
+      the shelf that admitted it
+- work: w01734
+  title: アルバート家の令嬢は没落をご所望です
+  imprint: B's-LOG COMICS
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 5
+  signals:
+    platform_declined: true
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/193991/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、ファンタジー、異世界系作品、角川ビーンズ文庫, and not under tag 14, the
+      shelf that admitted it
+  - source: カドコミ
+    url: https://comic-walker.com/detail/KC_001530_S
+    retrieved: '2026-08-07'
+    said: the publisher's own platform files it as 女性 / ファンタジー and applies コミカライズ、異世界、ラブコメ、転生、悪役令嬢, applying
+      neither 百合 nor GL
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de7bca0ad0-cddb-4002-b9f5-ac6f9eb8f27c/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、ファンタジー、異世界系作品、角川ビーンズ文庫, and not under tag 14, the shelf
+      that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/ded9466876-ea36-4534-8faf-f6964db9c280/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、ファンタジー、執事、百合、ラブコメディ、異世界系作品、恋愛、ギャグ・コメディ、学園, tag 14 (百合)
+      among them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de609aa4ac-4528-4b6c-9167-ff01800c0bc6/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、ファンタジー、異世界系作品、角川ビーンズ文庫, and not under tag 14, the shelf
+      that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de05e889a7-a8ca-44cc-b11f-123164ad70af/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、ファンタジー、異世界系作品、角川ビーンズ文庫, and not under tag 14, the shelf
+      that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deea36f6ab-9442-4dd2-a9f0-86745aebe40b/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、めがイラスト、KADOKAWA(女性向け)、異世界系作品, and not under tag 14, the shelf
+      that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de30f418a1-f7aa-4dda-b2cc-27f6fcdf8907/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、異世界系作品、めがイラスト, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dedc2ced75-7a28-444e-8550-91231d3b379f/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、めがイラスト、KADOKAWA(女性向け)、異世界系作品, and not under tag 14, the shelf
+      that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de5ae72f85-6025-4c03-806a-c10191f8a703/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、めがイラスト、KADOKAWA(女性向け)、異世界系作品, and not under tag 14, the shelf
+      that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de827d3d31-d62b-43fa-b890-b323b21b723a/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、めがイラスト、異世界系作品, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de9636bb8a-2877-4bb2-aa15-8222c56ac7d4/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、異世界系作品、めがイラスト, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deabb77bea-93c5-4eb6-a91c-80a199c753f9/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、異世界系作品、めがイラスト, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de57c08423-3419-4cb0-a0ce-7bb620099775/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、異世界系作品、めがイラスト, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de65269a16-58c9-4633-801c-cfea014c7ee5/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、異世界系作品、めがイラスト, and not under tag 14, the shelf that admitted
+      it
+- work: w01735
+  title: 異世界でも風俗嬢やってみた
+  imprint: トレイルコミックス
+  publisher: 芳文社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: contradicted
+  suspicion: 5
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/194664/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 男性向け、青年マンガ、ファンタジー、異世界系作品、分冊版、完結, and not under tag 14, the shelf
+      that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de12c77e46-6e04-41b0-8f86-5d9f50422bbb/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、青年マンガ、ファンタジー、異世界系作品、分冊版、完結、ギャグ・コメディ, and not under tag 14, the
+      shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/decb7d8411-ef16-4835-b755-650618a6ef4d/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、ファンタジー、異世界系作品、分冊版、完結、ギャグ・コメディ, and not under tag 14, the
+      shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de2c740f2b-173a-46b2-b21a-1ec010f59938/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、青年マンガ、ファンタジー、異世界系作品、分冊版、完結、ギャグ・コメディ, and not under tag 14, the
+      shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deb2d06c75-070c-42d4-a17f-f36483238d49/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、青年マンガ、ファンタジー、異世界系作品、分冊版、完結、ギャグ・コメディ, and not under tag 14, the
+      shelf that admitted it
+- work: w01819
+  title: 落命魔女と時をかける旦那様の死なない婚約印
+  imprint: ＦＬＯＳ　ＣＯＭＩＣ
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 5
+  signals:
+    platform_declined: true
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/235410/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 異世界系作品、少女マンガ、女性向け、ファンタジー、完結、恋愛, and not under tag 14, the shelf
+      that admitted it
+  - source: カドコミ
+    url: https://comic-walker.com/detail/KC_002608_S
+    retrieved: '2026-08-07'
+    said: the publisher's own platform files it as 少女 / ファンタジー and applies 異世界、ラブコメ, applying neither
+      百合 nor GL
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de5cc9b82c-34e8-4af2-8e38-4e0b76e67482/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 異世界系作品、少女マンガ、女性向け、ファンタジー、完結、恋愛, and not under tag 14, the shelf that
+      admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/debc87a0cb-e516-4123-a117-01698357fdfd/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 異世界系作品、少女マンガ、女性向け、ファンタジー、完結, and not under tag 14, the shelf that
+      admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deddea567e-5ffa-4107-bdc0-8ccbee4dfafa/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少女マンガ、女性向け、ファンタジー、異世界系作品、完結、恋愛, and not under tag 14, the shelf that
+      admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de28a59018-1480-4ecb-8b0e-6e292d0252e3/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 異世界系作品、少女マンガ、女性向け、ファンタジー、完結、恋愛、百合, tag 14 (百合) among them
+- work: w01804
+  title: あなたのためなら女にでも
+  imprint: MFC　ジーンピクシブシリーズ
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 4
+  signals:
+    platform_declined: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/227659/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 少女マンガ、女性向け、恋愛、完結、ラブコメディ、百合, tag 14 (百合) among them
+  - source: カドコミ
+    url: https://comic-walker.com/detail/KC_003490_S
+    retrieved: '2026-08-07'
+    said: the publisher's own platform files it as 少女 / 恋愛 and applies ラブコメ、女装, applying neither 百合 nor
+      GL
+- work: w02017
+  title: モダン†ロマネスコ
+  imprint: MFコミックス　アライブシリーズ
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 4
+  signals:
+    antenna: true
+    platform_declined: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/352258/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 少年マンガ、男性向け、バトル・格闘・アクション、ホラー、ファンタジー、百合, tag 14 (百合) among them
+  - source: カドコミ
+    url: https://comic-walker.com/detail/KC_003743_S
+    retrieved: '2026-08-07'
+    said: the publisher's own platform files it as 少年 / バトル・アクション and applies 学園モノ、美少女, applying neither
+      百合 nor GL
+- work: w02118
+  title: ピエタとトランジ
+  imprint: MFコミックス　ジーンシリーズ
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 4
+  signals:
+    platform_declined: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/404882/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 少女マンガ、女性向け、ミステリー・推理・サスペンス、完結, and not under tag 14, the shelf
+      that admitted it
+  - source: カドコミ
+    url: https://comic-walker.com/detail/KC_002718_S
+    retrieved: '2026-08-07'
+    said: the publisher's own platform files it as 少女 / ミステリー・サスペンス and applies コミカライズ, applying neither
+      百合 nor GL
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de868b6140-12f4-47c0-a4b5-aef3f43741f0/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少女マンガ、女性向け、ミステリー・推理・サスペンス、完結, and not under tag 14, the shelf that
+      admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/ded391b186-2247-40f9-af2c-342b074d3db4/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少女マンガ、女性向け、ミステリー・推理・サスペンス、百合、推理、サスペンス、完結、学園、スリル, tag 14 (百合) among
+      them
+- work: w02122
+  title: 海鳥東月の『でたらめ』な事情
+  imprint: アライブ＋
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 4
+  signals:
+    platform_declined: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/407072/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 少年マンガ、男性向け、完結, and not under tag 14, the shelf that admitted
+      it
+  - source: カドコミ
+    url: https://comic-walker.com/detail/KC_004535_S
+    retrieved: '2026-08-07'
+    said: the publisher's own platform files it as 少年 and applies 女子高校生(JK), applying neither 百合 nor GL
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/ded41000d4-1e7f-42cc-abba-97f88aa1d8b2/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少年マンガ、男性向け、完結, and not under tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dec6995730-6bcc-499a-8010-a49fc426402b/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少年マンガ、男性向け、百合、バトル・格闘・アクション、完結、アクション, tag 14 (百合) among them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deb1dd9202-fc49-4f23-bfa1-694670777165/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、めがイラスト、MF文庫J, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de180accad-6975-42fb-9086-816731640563/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、めがイラスト、MF文庫J, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de16fa4f07-d32d-455e-b547-a3ddb200e803/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、めがイラスト、MF文庫J, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de94d75778-4eb0-47d7-8420-af55e240ee87/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、めがイラスト、MF文庫J, and not under tag 14, the shelf that admitted
+      it
+- work: w02152
+  title: 俺の×××はいらないらしい
+  imprint: it COMICS
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 4
+  signals:
+    platform_declined: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/429651/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、SF、完結, and not under tag 14, the shelf that admitted
+      it
+  - source: カドコミ
+    url: https://comic-walker.com/detail/KC_000583_S
+    retrieved: '2026-08-07'
+    said: the publisher's own platform files it as 女性 / ギャグ・コメディ and applies ショート, applying neither 百合
+      nor GL
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de96ab3a8a-35f1-4e30-81e2-b31ddd623850/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、SF、完結、ギャグ・コメディ, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de99d6c231-790b-4523-880a-8e2b6db1a7f6/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合、完結、ギャグ・コメディ、ガールズ、宇宙, tag 14 (百合) among them
+- work: w02156
+  title: 後宮一番の悪女
+  imprint: ＦＬＯＳ　ＣＯＭＩＣ
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 4
+  signals:
+    platform_declined: true
+    prominent: true
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/433534/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、恋愛、百合、完結, tag 14 (百合) among them
+  - source: カドコミ
+    url: https://comic-walker.com/detail/KC_001546_S
+    retrieved: '2026-08-07'
+    said: the publisher's own platform files it as 女性 / 恋愛 and applies コミカライズ、悪役令嬢、中華・後宮, applying neither
+      百合 nor GL
+- work: w02190
+  title: 鈴木りつ短編集考幻学入門
+  imprint: 青騎士コミックス
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 4
+  signals:
+    platform_declined: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de45593173-7c3d-442e-9de6-5cdc1d9ffa89/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合、ギャグ・コメディ, tag 14 (百合) among them
+  - source: カドコミ
+    url: https://comic-walker.com/detail/KC_008443_S
+    retrieved: '2026-08-07'
+    said: the publisher's own platform files it as 青年 / ギャグ・コメディ and applies 日常系、現代、女主人公、和風, applying
+      neither 百合 nor GL
+- work: w01628
+  title: メガネさんシリーズ
+  imprint: 新居さとし
+  publisher: 新居さとし
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 3
+  signals:
+    container: true
+    prominent: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/139585/
+    retrieved: '2026-08-07'
+    said: the series page is filed under ダイレクト出版、同人誌・個人出版、異世界系作品, and not under tag 14, the shelf that
+      admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de99a7a152-d37e-4acb-ac9e-7341a5dd53ea/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、異世界系作品, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/ded80c5011-6845-483b-9f44-726190fe89fe/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版、異世界系作品, tag 14 (百合) among them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de2d486259-4660-4b12-81e7-ac6b3ac4dbbf/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、異世界系作品、創作同人2019年3月, and not under tag 14, the shelf
+      that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de674cfd24-cd2a-4b78-adb7-a0d840b140ad/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、異世界系作品, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deebcdf74c-733e-4bbe-84ac-d34dfd389a17/
+    retrieved: '2026-08-07'
+    said: this volume is filed under COMITIA134、ダイレクト出版、同人誌・個人出版、異世界系作品, and not under tag 14, the shelf
+      that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de42fd8c28-ee41-466a-9027-a2abd42d5a69/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、創作同人2018年3月、異世界系作品, and not under tag 14, the shelf
+      that admitted it
+- work: w01783
+  title: GP-KIDS東方ファンブック
+  imprint: GP-KIDS/高菜しんの
+  publisher: GP-KIDS/高菜しんの
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 3
+  signals:
+    container: true
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/217047/
+    retrieved: '2026-08-07'
+    said: the series page is filed under ダイレクト出版、同人誌・個人出版、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、「東方電書祭2022」クーポン対象作品,
+      and not under tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dec5fa7df4-e662-414c-a384-2a23c28ad70d/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、「東方電書祭2022」クーポン対象作品,
+      and not under tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dec3e72d67-782f-4530-92d9-9e468e782c32/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、「東方電書祭2022」クーポン対象作品,
+      tag 14 (百合) among them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de098474dc-9118-4d8f-8438-51795fb10b60/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、「東方電書祭2022」クーポン対象作品,
+      and not under tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de088cf57a-9b79-46bb-b50d-541ff28b6743/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、「東方電書祭2022」クーポン対象作品,
+      and not under tag 14, the shelf that admitted it
+- work: w01315
+  title: 女の子のナイショの話
+  imprint: Kobunsha BLコミックシリーズ
+  publisher: 光文社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 2
+  signals:
+    other_category: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/132611/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少女・女性マンガ (少女・女性マンガ > 女性マンガ > 光文社), crediting 乙女☆妄想族, genre 37 (百合・GL)
+      among its genres
+- work: w01578
+  title: 百合姫表紙集 2011-2025
+  imprint: 一迅社
+  publisher: 一迅社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 2
+  signals:
+    title_term: true
+    container: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de0fe83c8a-ffff-446b-a626-ef9e88086214/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合, tag 14 (百合) among them
+- work: w01673
+  title: poprication総集編
+  imprint: poprication
+  publisher: poprication
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 2
+  signals:
+    container: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/164615/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 「東方Project」シリーズ、「東方Project」シリーズ 二次創作、ダイレクト出版、同人誌・個人出版、百合、「東方電書祭2022」クーポン対象作品,
+      tag 14 (百合) among them
+- work: w01727
+  title: 百合シリーズ
+  imprint: スタジオぷち屋 桜那えいか、
+  publisher: スタジオぷち屋 桜那えいか、
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 2
+  signals:
+    title_term: true
+    container: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/192546/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01857
+  title: コピー本総集編2011-2015
+  imprint: 宇宙りんご
+  publisher: 宇宙りんご
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 2
+  signals:
+    container: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de25c6fa8e-7297-403e-8cf2-823699101e4e/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、百合, tag 14 (百合) among them
+- work: w02076
+  title: コミックシャイニーシリーズ
+  imprint: コミックシャイニー
+  publisher: キルタイムコミュニケーション
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 2
+  signals:
+    container: true
+    prominent: true
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/399631/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、ラブコメディ、SF、ファンタジー、雑誌、萌え、恋愛、百合、メイド、完結, tag 14 (百合) among
+      them
+- work: w02195
+  title: 【合本版】ユリユリっ！～しいく部のふたり～
+  imprint: comipo comics
+  publisher: viviON
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 2
+  signals:
+    title_term: true
+    container: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/458368/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、百合、合本版, tag 14 (百合) among them
+- work: w02196
+  title: 【合本版】純蒸パイルバンカー
+  imprint: comipo comics
+  publisher: viviON
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 2
+  signals:
+    container: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/458369/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 少年マンガ、男性向け、百合、バトル・格闘・アクション、合本版、完結, tag 14 (百合) among them
+- work: w02257
+  title: ●合本版●君めく夜に焦がれて
+  imprint: COMICアンブル
+  publisher: ライブコミックス
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 2
+  signals:
+    container: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/491623/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、百合、恋愛, tag 14 (百合) among them
+- work: w02388
+  title: 真紅に燃ゆ
+  imprint: ぶんか社コミックス ホラーMシリーズ
+  publisher: ぶんか社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 2
+  signals:
+    other_category: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/54706/
+    retrieved: '2026-08-07'
+    said: the series page is filed under ホラー、女性向け、女性マンガ、百合, tag 14 (百合) among them
+- work: w03065
+  title: きみの秘密は私のもの 私の秘密は私のもの-総集編-
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 2
+  signals:
+    container: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dee9c4bc07-372b-4449-a5db-4b3646c43957/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w03110
+  title: アーシェラ将軍シリーズ
+  imprint: 黒戌舎
+  publisher: 黒戌舎
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 2
+  signals:
+    container: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/def68b5893-4cbb-4167-a4b0-a24109e95582/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w00248
+  title: あなたの未来を許さない
+  imprint: PASH! コミックス
+  publisher: 主婦と生活社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 1
+  signals:
+    antenna: true
+    prominent: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/508433/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 少年マンガ、男性向け、バトル・格闘・アクション、ミステリー・推理・サスペンス、女性向け、アニメ、女性マンガ、デスゲーム、百合,
+      tag 14 (百合) among them
+- work: w00270
+  title: お葉花を愛でる
+  imprint: SHŌNEN CHAMPION COMICS
+  publisher: 秋田書店
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 1
+  signals:
+    antenna: true
+    prominent: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/343427/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年・青年マンガ (少年・青年マンガ > 少年マンガ > 秋田書店 > 週刊少年チャンピオン > お葉花を愛でる > お葉花を愛でる　1
+      > 漫画(まんが)・電子書籍のコミックシーモアTOP > 少年・青年マンガ > 少年マンガ > 秋田書店 > 少年チャンピオン・コミックス > お葉花を愛でる), crediting 柴田賢志郎,
+      genre 37 (百合・GL) among its genres
+- work: w00340
+  title: あくまであまい私の彼女
+  imprint: シリウスKC
+  publisher: 講談社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 1
+  signals:
+    antenna: true
+    prominent: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/296392/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年マンガ (少年・青年マンガ > 少年マンガ > 講談社 > 月刊少年シリウス > あくまであまい私の彼女), crediting やとさきはる,
+      genre 37 (百合・GL) among its genres
+- work: w00458
+  title: きさらぎ異聞
+  imprint: Howl comics
+  publisher: '[頒布]講談社'
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 1
+  signals:
+    antenna: true
+    prominent: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/273244/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > 一迅社 > HOWLコミックス > きさらぎ異聞 【連載版】), crediting
+      x0o0x_、筒井いつき, genre 37 (百合・GL) among its genres
+- work: w00823
+  title: はなにあらし
+  imprint: サンデーうぇぶり少年サンデーコミックス
+  publisher: 小学館
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 1
+  signals:
+    antenna: true
+    prominent: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/144504/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年マンガ (少年・青年マンガ > 少年マンガ > 小学館 > 月刊サンデーGX > はなにあらし > はなにあらし 1 > 漫画(まんが)・電子書籍のコミックシーモアTOP
+      > 少年・青年マンガ > 少年マンガ > 小学館 > サンデーうぇぶりコミックス > はなにあらし), crediting 古鉢るか, genre 37 (百合・GL) among its genres
+- work: w01242
+  title: オクターヴ
+  imprint: アフタヌーンKC
+  publisher: 講談社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/72426/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > 講談社 > アフタヌーン > オクターヴ), crediting 秋山はる, genre
+      37 (百合・GL) among its genres
+- work: w01247
+  title: ストレッチ
+  imprint: ビッグスピリッツコミックススペシャル
+  publisher: 小学館
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/75223/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > 小学館 > やわらかスピリッツ > ストレッチ), crediting アキリ, genre
+      37 (百合・GL) among its genres
+- work: w01338
+  title: サンストーン
+  imprint: null
+  publisher: G-NOVELS
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/182054/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年・青年マンガ (少年・青年マンガ > 青年マンガ > 誠文堂新光社 > G-NOVELS > サンストーン), crediting
+      ステファン・セジク、上田香子, genre 37 (百合・GL) among its genres
+- work: w01415
+  title: 殺し屋やめたい! = I wanna be fired!
+  imprint: モーニングKC
+  publisher: 講談社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/230351/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年・青年マンガ (少年・青年マンガ > 青年マンガ > 講談社 > コミックＤＡＹＳ > 殺し屋やめたい！), crediting 外木寸,
+      genre 37 (百合・GL) among its genres
+- work: w01427
+  title: 同級生の推し作家に百合妄想がバレた結果
+  imprint: 星海社COMICS
+  publisher: '[頒布]講談社 (発売)'
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 1
+  signals:
+    title_term: true
+    antenna: true
+    prominent: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/320963/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > ナンバーナイン > 百合コレ > 同級生の推し作家に百合妄想がバレた結果), crediting
+      紺色3号, genre 37 (百合・GL) among its genres
+- work: w01604
+  title: ちゃおデラックスホラー
+  imprint: ちゃおデラックス
+  publisher: 小学館
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/125046/
+    retrieved: '2026-08-07'
+    said: the series page is filed under マンガ雑誌、雑誌、女性向け、ちゃおデラックス、百合、歴史, tag 14 (百合) among them
+- work: w01621
+  title: レズと七人の彼女たち
+  imprint: null
+  publisher: 電書バト
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 1
+  signals:
+    title_term: true
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/136032/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 実話・体験、女性マンガ、女性向け、恋愛、百合, tag 14 (百合) among them
+- work: w01623
+  title: エデンの処女（おとめ）
+  imprint: リュエルコミックス
+  publisher: 実業之日本社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/137953/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、完結, tag 14 (百合) among them
+- work: w01630
+  title: 完パコLOVE
+  imprint: アールコミックス
+  publisher: 主婦と生活社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/146185/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、ビジネス、恋愛、百合、完結, tag 14 (百合) among them
+- work: w01634
+  title: 学校のしおり
+  imprint: ポルリン
+  publisher: ポルリン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/147677/
+    retrieved: '2026-08-07'
+    said: the series page is filed under ダイレクト出版、同人誌・個人出版、百合, tag 14 (百合) among them
+- work: w01650
+  title: 銀河スタンプラリー
+  imprint: 宇宙りんご
+  publisher: 宇宙りんご
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/156827/
+    retrieved: '2026-08-07'
+    said: the series page is filed under ダイレクト出版、同人誌・個人出版、4コマ, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deca8d088e-3af3-4875-a70c-8e59cd4dd9c5/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、4コマ, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de568ce673-249a-4fe2-9c46-cfc8445cfc16/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 4コマ、SF、百合、C97、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de55a95688-0e94-42c1-8237-69dfb3596025/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版, and not under tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de7a2a503a-074c-4b56-a636-106a2182e5e8/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 4コマ、ダイレクト出版、同人誌・個人出版, and not under tag 14, the shelf that admitted
+      it
+- work: w01731
+  title: コミュ障VS百合
+  imprint: ひみつせらぴー
+  publisher: ひみつせらぴー
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 1
+  signals:
+    title_term: true
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/193489/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01761
+  title: センコウガール
+  imprint: マンガワン女子部
+  publisher: 小学館
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/201135/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、完結、百合, tag 14 (百合) among them
+- work: w01801
+  title: 黒百合短編集
+  imprint: ぴのこ堂出版
+  publisher: ぴのこ堂出版
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 1
+  signals:
+    title_term: true
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/225340/
+    retrieved: '2026-08-07'
+    said: the series page is filed under ダイレクト出版、同人誌・個人出版、ミステリー・推理・サスペンス、百合, tag 14 (百合) among them
+- work: w01808
+  title: レディーズメイド
+  imprint: TSコミックス
+  publisher: 少年画報社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    other_category: true
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/22996/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 男性向け、青年マンガ、百合、完結, tag 14 (百合) among them
+- work: w01812
+  title: 漫画家さんと文具屋さん
+  imprint: Ｈ．Ｈ．Ｒ
+  publisher: Ｈ．Ｈ．Ｒ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/232973/
+    retrieved: '2026-08-07'
+    said: the series page is filed under COMITIA128、ダイレクト出版、同人誌・個人出版, and not under tag 14, the shelf
+      that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de2bf1b16f-52ff-4a1e-b2d0-3163f4687bac/
+    retrieved: '2026-08-07'
+    said: this volume is filed under COMITIA128、ダイレクト出版、同人誌・個人出版, and not under tag 14, the shelf that
+      admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de57dc6177-5c1a-49e7-8f0c-e6ebb9871c1f/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de29898367-bdc6-4843-837b-9ad4b2dd4588/
+    retrieved: '2026-08-07'
+    said: this volume is filed under COMITIA131、ダイレクト出版、同人誌・個人出版, and not under tag 14, the shelf that
+      admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de361ced44-e5e1-4b6c-b2b8-5fba7a0e54cd/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01828
+  title: 朝日の境界
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/240210/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w01849
+  title: すいんぐ‼
+  imprint: ジャルダンコミックス
+  publisher: 実業之日本社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/252738/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、スポーツ、萌え、完結, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deff4fb85f-a82d-44cb-a2c2-7681567e101a/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、スポーツ、萌え、完結, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de374d25bc-e0d7-4215-85d1-614955b66262/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、スポーツ、萌え、百合、ゴルフ、部活, tag 14 (百合) among them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de43b372ad-4fe2-486a-ac16-e1c980121acd/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、スポーツ、萌え、部活、ゴルフ、百合、完結, tag 14 (百合) among them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de89204c68-af5e-4c6e-aeb7-c8b0b061fba3/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、スポーツ、萌え、完結, and not under tag 14, the shelf that admitted
+      it
+- work: w01861
+  title: 裸足のニーナ
+  imprint: デジコレ　マカロン
+  publisher: 小学館
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/260086/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、百合、完結, tag 14 (百合) among them
+- work: w01874
+  title: ポラリティ透明期
+  imprint: ジャルダンコミックス
+  publisher: 実業之日本社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/268604/
+    retrieved: '2026-08-07'
+    said: the series page is filed under ファンタジー、完結、異世界系作品, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/ded4b79c65-4f73-45b8-b0d4-ab6d129b0bd0/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ファンタジー、完結、異世界系作品, and not under tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de48ea73fc-d8e0-47c2-a024-3fd03b6a1d45/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ファンタジー、恋愛、SF、異世界系作品、百合, tag 14 (百合) among them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de16559922-f0bd-4853-bd5f-c71bfe2e3429/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ファンタジー、完結、異世界系作品, and not under tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de1c600421-9ce7-4a34-829f-7da1750b17c3/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ファンタジー、完結、異世界系作品, and not under tag 14, the shelf that admitted it
+- work: w01878
+  title: ロボットJSにスキはありません!!
+  imprint: とりからの巣
+  publisher: とりからの巣
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/269932/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 4コマ、百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02003
+  title: わくとこまこ
+  imprint: デジコレ
+  publisher: 小学館
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 1
+  signals:
+    antenna: true
+    prominent: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/342683/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、百合、完結、eBigcomic4, tag 14 (百合) among them
+- work: w02019
+  title: よぬりめ
+  imprint: よぬりめ
+  publisher: よぬりめ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/353010/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、ダイレクト出版、同人誌・個人出版、「東方電書祭2022」クーポン対象作品,
+      tag 14 (百合) among them
+- work: w02064
+  title: 霧尾ファンクラブ
+  imprint: リュエルコミックス
+  publisher: 実業之日本社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/388000/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性向け、女性マンガ, and not under tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de1954424b-5b3a-4c0c-8f96-6b0a0511e598/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、女性マンガ、学園, and not under tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de39097d03-d9e0-412b-841d-9df406381746/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、女性マンガ、恋愛、百合、学園, tag 14 (百合) among them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de7747da4b-614f-4fa3-a364-0a49c90d2b81/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、学園, and not under tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de8f8ab545-430d-496f-bd4e-a90e4311d597/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合、恋愛、学園, tag 14 (百合) among them
+- work: w02099
+  title: ハッピーシュート！
+  imprint: とりからの巣
+  publisher: とりからの巣
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/400573/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 4コマ、百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02115
+  title: となりの席の地味な奴
+  imprint: UPコミック
+  publisher: PICK UP PRESS
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/404611/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w02128
+  title: 飛野さんのバカ
+  imprint: GANMA！
+  publisher: GANMA!
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 1
+  signals:
+    antenna: true
+    prominent: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/411593/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 男性向け、青年マンガ、完結, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de17493c57-6453-496e-9bbe-c8eb46083592/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、青年マンガ、完結、学園, and not under tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deda656153-1bb3-4be1-87b8-bd4c4c2a8a26/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、青年マンガ、百合、ラブコメディ、ガンマ、GANMA！、完結、日常、学園, tag 14 (百合) among them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de68dfe0a3-dfdc-41db-957a-05b698e163f6/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、青年マンガ、完結、学園, and not under tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dee6b95bfb-0a66-4319-b6ae-7f562c004879/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、青年マンガ、完結、学園, and not under tag 14, the shelf that admitted it
+- work: w02206
+  title: 彼女とカメラと彼女の季節
+  imprint: モーニング・ツー
+  publisher: 講談社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/4629/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 男性向け、ナタリー大賞、カメラ、モーニング・ツー、モーニング、完結、青年マンガ、女性向け、女性マンガ、百合, tag 14
+      (百合) among them
+- work: w02240
+  title: 君めく夜に焦がれて
+  imprint: COMICアンブル
+  publisher: ライブコミックス
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 1
+  signals:
+    antenna: true
+    prominent: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/482086/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、百合、恋愛, tag 14 (百合) among them
+- work: w02263
+  title: 転生して成長チートを手に入れたら、最凶スキルもついたのですが!?
+  imprint: マンガボックス
+  publisher: マンガボックス
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/496787/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 男性向け、少年マンガ、異世界系作品、ファンタジー、マンガボックス、バトル・格闘・アクション, and not under
+      tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/defdea046e-709d-46ed-a01f-a9281cf822db/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、少年マンガ、異世界系作品、ファンタジー、マンガボックス、バトル・格闘・アクション、バトル, and not under
+      tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de0d24a3a2-e209-438f-9911-8941058dd5ba/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少年マンガ、男性向け、ファンタジー、異世界系作品、マンガボックス、バトル・格闘・アクション、百合、限定特典、バトル、ハーレム, tag
+      14 (百合) among them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/defd710e81-c026-45d2-b93b-658acb6c0cfc/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、少年マンガ、異世界系作品、ファンタジー、マンガボックス、バトル・格闘・アクション、バトル, and not under
+      tag 14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de65c16815-9720-4bde-8567-fc18ead640d5/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、少年マンガ、異世界系作品、ファンタジー、マンガボックス、バトル・格闘・アクション、バトル, and not under
+      tag 14, the shelf that admitted it
+- work: w02333
+  title: 落差
+  imprint: NETCOMICS
+  publisher: SNP
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/518608/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、百合、恋愛、フルカラー, tag 14 (百合) among them
+- work: w02348
+  title: ON a LEASH ~ 戦場で出会った彼女に囚われて ~
+  imprint: NETCOMICS
+  publisher: SNP
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/526523/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、レディースコミック、百合、ファンタジー、フルカラー、恋愛, tag 14 (百合) among them
+- work: w02384
+  title: やみつきリリィホリックちゅう♪
+  imprint: 赤月めう
+  publisher: 赤月めう
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 1
+  signals:
+    title_term: true
+    prominent: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/542632/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02425
+  title: トランススイッチ
+  imprint: TSコミックス
+  publisher: 少年画報社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    other_category: true
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/56714/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 男性向け、青年マンガ、百合, tag 14 (百合) among them
+- work: w02457
+  title: 魔法少女三十路
+  imprint: ヒーローズコミックス ふらっと
+  publisher: ヒーローズ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    prominent: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/599522/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02470
+  title: 「不死犠コネクト」シリーズ
+  imprint: シャイニーコミックス
+  publisher: キルタイムコミュニケーション
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    container: true
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de5cf09085-efac-4531-833c-857301c58f0a/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合、ファンタジー、ホラー、学園、ギャグ・コメディ, tag 14 (百合) among them
+- work: w03057
+  title: 見てはいけない 淫情の懺悔
+  imprint: BLIC-ERO
+  publisher: クロスフォリオ出版
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 1
+  signals:
+    other_category: true
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dee636799f-b437-478f-8b11-34d0caa8c3db/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合、萌え、おとなマンガ, tag 14 (百合) among them
+- work: w00106
+  title: 悪役令嬢のお嫁さま
+  imprint: Seasons Fantasy
+  publisher: 文藝春秋
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/334898/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > 文藝春秋 > Seasons > 悪役令嬢のお嫁さま), crediting かわのあきこ,
+      genre 37 (百合・GL) among its genres
+- work: w00117
+  title: ひきこまり吸血姫の悶々
+  imprint: ビッグガンガンコミックス
+  publisher: スクウェア・エニックス
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+    prominent: true
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/247251/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > スクウェア・エニックス > 月刊ビッグガンガン > ひきこまり吸血姫の悶々 > ひきこまり吸血姫の悶々
+      1巻 > 漫画(まんが)・電子書籍のコミックシーモアTOP > 少年・青年マンガ > 青年マンガ > スクウェア・エニックス > ビッグガンガンコミックス > ひきこまり吸血姫の悶々), crediting
+      小林湖底（GA文庫／SBクリエイティブ刊）、りいちゅ, genre 37 (百合・GL) among its genres
+- work: w00128
+  title: ボイタボイネ
+  imprint: Blade comics. Pixiv
+  publisher: マッグガーデン
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/361871/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年・青年マンガ (少年・青年マンガ > 少年マンガ > マッグガーデン > MAGCOMI > ボイタボイネ > ボイタボイネ 1巻
+      > 漫画(まんが)・電子書籍のコミックシーモアTOP > 少年・青年マンガ > 少年マンガ > マッグガーデン > ブレイドコミックス ピクシブシリーズ > ボイタボイネ), crediting
+      夏草, genre 37 (百合・GL) among its genres
+- work: w00154
+  title: 死に戻り王女は生き延びるために百合ハーレムを作ることにした
+  imprint: ヒーローズコミックスわいるど
+  publisher: '[頒布]小学館クリエイティブ'
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+    antenna: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/311613/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > ヒーローズ > ヒーローズコミックス わいるど > 死に戻り王女は生き延びるために百合ハーレムを作ることにした
+      > 死に戻り王女は生き延びるために百合ハーレムを作ることにした(1) > 漫画(まんが)・電子書籍のコミックシーモアTOP > 少年・青年マンガ > 青年マンガ > ヒーローズ > わいるどヒーローズ
+      > 死に戻り王女は生き延びるために百合ハーレムを作ることにした), crediting 朱白あおい、糀もろみ、村田真哉、柳井伸彦, genre 37 (百合・GL) among its genres
+- work: w00218
+  title: GURU
+  imprint: KCDX. 週刊少年マガジン
+  publisher: 講談社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/351836/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年・青年マンガ (少年・青年マンガ > 少年マンガ > 講談社 > マガジンポケット > ＧＵＲＵ), crediting 陣ノ内康暉,
+      genre 37 (百合・GL) among its genres
+- work: w00287
+  title: ナキノン
+  imprint: HCヒーローズコミックス
+  publisher: '[頒布]小学館クリエイティブ'
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/309546/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年・青年マンガ (少年・青年マンガ > 青年マンガ > ヒーローズ > ヒーローズコミックス > ナキノン > ナキノン(1) > 漫画(まんが)・電子書籍のコミックシーモアTOP
+      > 少年・青年マンガ > 青年マンガ > ヒーローズ > ヒーローズ > ナキノン), crediting 根岸岳春, genre 37 (百合・GL) among its genres
+- work: w00404
+  title: 銀青のプルースト
+  imprint: ジャンプコミックス
+  publisher: 集英社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/327848/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年マンガ (少年・青年マンガ > 少年マンガ > 集英社 > 少年ジャンプ+ > 銀青のプルースト > 銀青のプルースト 1 > 漫画(まんが)・電子書籍のコミックシーモアTOP
+      > 少年・青年マンガ > 少年マンガ > 集英社 > ジャンプコミックスDIGITAL > 銀青のプルースト), crediting えもふう, genre 37 (百合・GL) among
+      its genres
+- work: w00456
+  title: 君のためのカーテンコール
+  imprint: Howl comics
+  publisher: '[頒布]講談社'
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/286353/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > 一迅社 > HOWLコミックス > 君のためのカーテンコール), crediting
+      さとうしほ、恵茂田喜々, genre 37 (百合・GL) among its genres
+- work: w00584
+  title: ガチ恋カウント2.9
+  imprint: Manga time comis
+  publisher: 芳文社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/308668/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年・青年マンガ (少年・青年マンガ > 青年マンガ > 芳文社 > まんがホーム > ガチ恋カウント2.9 > ガチ恋カウント2.9
+      1巻 > 漫画(まんが)・電子書籍のコミックシーモアTOP > 少年・青年マンガ > 青年マンガ > 芳文社 > まんがタイムコミックス > ガチ恋カウント2.9), crediting 天海杏菜,
+      genre 37 (百合・GL) among its genres
+- work: w00830
+  title: 気をつけなよ、お姉さん。
+  imprint: 4コマkingsぱれっとcomics
+  publisher: '[頒布]講談社'
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+    prominent: true
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/224904/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > 一迅社 > REXコミックス > 気をつけなよ、お姉さん。), crediting
+      サスケ, genre 37 (百合・GL) among its genres
+- work: w00916
+  title: 伊勢さんと志摩さん
+  imprint: ラバココミックス
+  publisher: 芳文社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/186882/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、完結、分冊版、百合, tag 14 (百合) among them
+- work: w01241
+  title: 2週間のアバンチュール
+  imprint: F×COMICS
+  publisher: 太田出版
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/18616/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > 太田出版 > EROTICS f), crediting 中村明日美子, genre
+      37 (百合・GL) among its genres
+- work: w01243
+  title: すきなひと
+  imprint: 楽園コミックス
+  publisher: 白泉社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/74600/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > 白泉社 > 楽園 > すきなひと), crediting 日坂水柯, genre 37
+      (百合・GL) among its genres
+- work: w01264
+  title: 桜Ｔｒｉｃｋ
+  imprint: Manga time KR comics　／　Kirara menu
+  publisher: 芳文社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    prominent: true
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/70678/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > 芳文社 > まんがタイムKRコミックス > 桜Trick > 桜Trick 1巻 >
+      漫画(まんが)・電子書籍のコミックシーモアTOP > 少年・青年マンガ > 青年マンガ > 芳文社 > まんがタイムきららミラク > 桜Trick), crediting タチ, genre
+      37 (百合・GL) among its genres
+- work: w01270
+  title: 悪戯ちょうちょ
+  imprint: Action comics　／　comic high's brand
+  publisher: 双葉社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/71457/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少女マンガ (少女・女性マンガ > 少女マンガ > 双葉社 > コミックハイ！ > 悪戯ちょうちょ), crediting 綾瀬マナ,
+      genre 37 (百合・GL) among its genres
+- work: w01272
+  title: 虹晴の従姉
+  imprint: null
+  publisher: null
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/83272/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年・青年マンガ (少年・青年マンガ > 青年マンガ > ブックウォーカー > KCGコミックス), crediting 砂音鈴, genre
+      37 (百合・GL) among its genres
+- work: w01273
+  title: とろとろ姫あわせ
+  imprint: 百合コミックス
+  publisher: 宙出版
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    imprint_term: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/136438/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > 宙出版 > OHZORA 女性コミックス), crediting 長倉けいこ, genre
+      37 (百合・GL) among its genres
+- work: w01287
+  title: となりのロボット
+  imprint: null
+  publisher: 秋田書店
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/92720/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少女マンガ (少女・女性マンガ > 少女マンガ > 秋田書店 > プリンセスGOLD), crediting 西UKO, genre 37
+      (百合・GL) among its genres
+- work: w01292
+  title: アフターアワーズ
+  imprint: BIG COMICS SPECIALヒバナ
+  publisher: 小学館
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/103813/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > 小学館 > ビッグスピリッツ > アフターアワーズ > アフターアワーズ 1 > 漫画(まんが)・電子書籍のコミックシーモアTOP
+      > 少年・青年マンガ > 青年マンガ > 小学館 > ビッグコミックス > アフターアワーズ), crediting 西尾雄太, genre 37 (百合・GL) among its genres
+- work: w01294
+  title: GIRL FRIENDS
+  imprint: 'Action comics : comic high''s brand'
+  publisher: 双葉社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    prominent: true
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/14580/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少女マンガ (少女・女性マンガ > 少女マンガ > 双葉社 > コミックハイ！ > GIRL FRIENDS), crediting 森永みるく,
+      genre 37 (百合・GL) among its genres
+- work: w01296
+  title: 小百合さんの妹は天使
+  imprint: MFコミックス　／　フラッパーシリーズ
+  publisher: KADOKAWA
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    prominent: true
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/92436/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > KADOKAWA > MFコミックス　フラッパーシリーズ > 小百合さんの妹は天使),
+      crediting 伊藤ハチ, genre 37 (百合・GL) among its genres
+- work: w01298
+  title: ゆるゆり コミックアンソロジー
+  imprint: IDコミックス　／　DNAメディアコミックス
+  publisher: 一迅社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+    prominent: true
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/163766/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少女・女性マンガ (少女・女性マンガ > 少女マンガ > 一迅社 > DNAメディアコミックス), crediting アンソロジー,
+      genre 37 (百合・GL) among its genres
+- work: w01310
+  title: まんがで綴る百合な日々
+  imprint: null
+  publisher: null
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read: []
+  unread: the shop's own row for this work was not re-identified from the capture, so its page was not
+    read
+- work: w01317
+  title: 柚子森さん
+  imprint: ビッグスピリッツコミックス
+  publisher: 小学館
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    prominent: true
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/123773/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > 小学館 > やわらかスピリッツ > 柚子森さん), crediting 江島絵理,
+      genre 37 (百合・GL) among its genres
+- work: w01318
+  title: 私と彼女のお泊まり映画
+  imprint: Bunch comics
+  publisher: 新潮社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/123688/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > 新潮社 > バンチコミックス > 私と彼女のお泊まり映画 > 私と彼女のお泊まり映画
+      1巻 > 漫画(まんが)・電子書籍のコミックシーモアTOP > 少年・青年マンガ > 青年マンガ > 新潮社 > くらげバンチ > 私と彼女のお泊まり映画), crediting 安田剛助,
+      genre 37 (百合・GL) among its genres
+- work: w01321
+  title: 吾妻さんと板倉先輩は恋をする。
+  imprint: IDコミックス　／　yh COMICS
+  publisher: null
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/130352/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少女マンガ (少女・女性マンガ > 少女マンガ > 一迅社 > 百合姫コミックス > 吾妻さんと板倉先輩は恋をする。), crediting
+      中村ユキチ, genre 37 (百合・GL) among its genres
+- work: w01332
+  title: 百合ドリル
+  imprint: MFCキューンシリーズ
+  publisher: KADOKAWA
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+    prominent: true
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/145259/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年マンガ (少年・青年マンガ > 少年マンガ > KADOKAWA > MFC　キューンシリーズ), crediting 奥たまむし,
+      genre 37 (百合・GL) among its genres
+- work: w01337
+  title: 'シナモン = Cinnamon : 人外×人間百合アンソロジー'
+  imprint: null
+  publisher: KADOKAWA
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read: []
+  unread: the shop's own row for this work was not re-identified from the capture, so its page was not
+    read
+- work: w01345
+  title: セイキマツブルー = Seikimatsu Blue
+  imprint: ガムコミックス
+  publisher: ワニブックス
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/166170/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > ワニブックス > コミックガム > セイキマツブルー > 漫画(まんが)・電子書籍のコミックシーモアTOP
+      > 少年・青年マンガ > 青年マンガ > ワニブックス > ガムコミックス), crediting ヒロタシンタロウ, genre 37 (百合・GL) among its genres
+- work: w01348
+  title: 毒百合乙女童話
+  imprint: null
+  publisher: KADOKAWA
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/171794/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > KADOKAWA), crediting ヨシジマシウ, genre 37 (百合・GL)
+      among its genres
+- work: w01359
+  title: あの娘と目が合うたび私は
+  imprint: null
+  publisher: KADOKAWA
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read: []
+  unread: the shop's own row for this work was not re-identified from the capture, so its page was not
+    read
+- work: w01385
+  title: 百合な片想いちゃん
+  imprint: null
+  publisher: KADOKAWA
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/184798/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > KADOKAWA), crediting ゆりかご, genre 37 (百合・GL)
+      among its genres
+- work: w01388
+  title: 一端の子
+  imprint: SHŌNEN CHAMPION COMICS EXTRA
+  publisher: 秋田書店
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/188461/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年マンガ (少年・青年マンガ > 少年マンガ > 秋田書店 > 別冊少年チャンピオン > 一端の子 > 漫画(まんが)・電子書籍のコミックシーモアTOP
+      > 少年・青年マンガ > 少年マンガ > 秋田書店 > 少年チャンピオン・コミックス エクストラ), crediting 深山はな, genre 37 (百合・GL) among its genres
+- work: w01392
+  title: アイドル総選挙4位だった私が魔王を倒すんですか？（Lilie comics）
+  imprint: リーリエコミックス
+  publisher: '[発売]れんが書房新社'
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/200510/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > 道玄坂書房 > Lilie comics > アイドル総選挙4位だった私が魔王を倒すんですか？
+      【コミックス版】), crediting 高坂はしやん、伊予嶺つく, genre 37 (百合・GL) among its genres
+- work: w01393
+  title: カノジョと秘密と恋もよう
+  imprint: 4コマkingsぱれっとcomics
+  publisher: '[発売]講談社'
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/202369/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > 一迅社 > 4コマKINGSぱれっとコミックス > カノジョと秘密と恋もよう), crediting
+      TOもえ, genre 37 (百合・GL) among its genres
+- work: w01414
+  title: 女の子同士で付き合ってます。
+  imprint: null
+  publisher: ワニブックス
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/212691/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少女・女性マンガ (少女・女性マンガ > 女性マンガ > ワニブックス), crediting みしぇ, genre 37 (百合・GL)
+      among its genres
+- work: w01417
+  title: JKとともだちのオカン
+  imprint: null
+  publisher: KADOKAWA
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/218116/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > KADOKAWA > コミックエッセイ), crediting ムロマキ, genre
+      37 (百合・GL) among its genres
+- work: w01420
+  title: 来陽と青梅
+  imprint: SH?NEN CHAMPION COMICS
+  publisher: 秋田書店
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/217910/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年マンガ (少年・青年マンガ > 少年マンガ > 秋田書店 > 少年チャンピオン・コミックス > 来陽と青梅 > 来陽と青梅 1 >
+      漫画(まんが)・電子書籍のコミックシーモアTOP > 少年・青年マンガ > 少年マンガ > 秋田書店 > 別冊少年チャンピオン > 来陽と青梅), crediting 深山はな, genre
+      37 (百合・GL) among its genres
+- work: w01433
+  title: '冷たくて柔らか : PiNKY CANDY KiSS'
+  imprint: マーガレットコミックス
+  publisher: 集英社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/269920/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > 集英社 > マーガレットコミックスDIGITAL > 冷たくて 柔らか > 冷たくて
+      柔らか 1 > 漫画(まんが)・電子書籍のコミックシーモアTOP > 少女・女性マンガ > 女性マンガ > 集英社 > ココハナ > 冷たくて 柔らか), crediting ウオズミアミ,
+      genre 37 (百合・GL) among its genres
+- work: w01435
+  title: 仕事の後はぬくもりを
+  imprint: null
+  publisher: イースト・プレス
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/326808/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > イースト・プレス > 仕事の後はぬくもりを), crediting 岩下継, genre
+      37 (百合・GL) among its genres
+- work: w01443
+  title: フツーの恋って何?
+  imprint: 路草COMICS
+  publisher: トゥーヴァージンズ
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/280866/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少女マンガ (少女・女性マンガ > 少女マンガ > トゥーヴァージンズ > 路草コミックス > フツーの恋って何？), crediting
+      いくたはな, genre 37 (百合・GL) among its genres
+- work: w01452
+  title: らぶあんどぴーす = LOVE & PEACE
+  imprint: 月刊少年マガジン
+  publisher: 講談社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/264068/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年・青年マンガ (少年・青年マンガ > 少年マンガ > 講談社 > 月刊少年マガジン > らぶ あんど ぴーす), crediting
+      原田重光、蘇募ロウ, genre 37 (百合・GL) among its genres
+- work: w01454
+  title: '抱かれたい女(ひと) = person who wants to be embraced : JDだけどアラサー女子に買われています'
+  imprint: 夜サンデー少年サンデーコミックス
+  publisher: 小学館
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read: []
+  unread: the shop's own row for this work was not re-identified from the capture, so its page was not
+    read
+- work: w01456
+  title: Roaming
+  imprint: null
+  publisher: トゥーヴァージンズ
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/302784/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少女・女性マンガ (少女・女性マンガ > 女性マンガ > トゥーヴァージンズ > TWO VIRGINS > Roaming), crediting
+      マリコ・タマキ、ジリアンタマキ、金原瑞人, genre 37 (百合・GL) among its genres
+- work: w01457
+  title: 仕事の後は抱きしめて
+  imprint: null
+  publisher: イースト・プレス
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/282979/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > イースト・プレス > 仕事の後は抱きしめて), crediting 岩下継, genre
+      37 (百合・GL) among its genres
+- work: w01464
+  title: ノス＆ザクロ
+  imprint: null
+  publisher: イースト・プレス
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/282978/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年・青年マンガ (少年・青年マンガ > 青年マンガ > イースト・プレス > ノス＆ザクロ), crediting ラリアット, genre
+      37 (百合・GL) among its genres
+- work: w01465
+  title: ラストサマー・バケーション = LAST SUMMER VACATION
+  imprint: BRIDGE COMICS
+  publisher: KADOKAWA
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/264741/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > KADOKAWA > ＢＲＩＤＧＥ　ＣＯＭＩＣＳ > ラストサマー・バケーション),
+      crediting 東洋トタン, genre 37 (百合・GL) among its genres
+- work: w01470
+  title: Killer Twinkle
+  imprint: SHŌNEN CHAMPION COMICS
+  publisher: 秋田書店
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read: []
+  unread: the shop's own row for this work was not re-identified from the capture, so its page was not
+    read
+- work: w01478
+  title: 会って食べると書きまして。
+  imprint: ゲッサン少年サンデーコミックススペシャル
+  publisher: 小学館
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/315892/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年・青年マンガ (少年・青年マンガ > 少年マンガ > 小学館 > ゲッサン > 会って食べると書きまして。 > 会って食べると書きまして。
+      1 > 漫画(まんが)・電子書籍のコミックシーモアTOP > 少年・青年マンガ > 少年マンガ > 小学館 > ゲッサン少年サンデーコミックス > 会って食べると書きまして。), crediting
+      田口ケンジ, genre 37 (百合・GL) among its genres
+- work: w01503
+  title: schadenliebe
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de001dd5ae-135e-4742-ba0b-610d1c46b755/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w01509
+  title: 明晰夢
+  imprint: でんでんむしむし
+  publisher: でんでんむしむし
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de01476ecb-9d43-4925-8e53-b14df556fbe8/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、百合, tag 14 (百合) among them
+- work: w01520
+  title: 月形家の二人遊び
+  imprint: Drop Dead!
+  publisher: Drop Dead!
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de03b57087-8793-4484-a1c3-7367a42668be/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01521
+  title: ガール／フレンド
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de03fb0b8d-d03f-445b-8a0c-84eae31e0115/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w01551
+  title: 【English ver】The Monsters of Summer
+  imprint: わんこ院
+  publisher: わんこ院
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de0a1cff81-cb8f-47b1-b618-68bf0e3021b9/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作, tag 14
+      (百合) among them
+- work: w01575
+  title: 君だけが光
+  imprint: 楽園
+  publisher: 白泉社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de0e4d0908-d8ea-41af-95fe-3b2e52d03477/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、ビジネス、青年マンガ、恋愛、百合、女性マンガ、楽園、学園, tag 14 (百合) among them
+- work: w01591
+  title: 15才
+  imprint: コミックハイ!
+  publisher: 双葉社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/11076/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 男性向け、完結、青年マンガ、百合, tag 14 (百合) among them
+- work: w01624
+  title: 熱を産んだ夜
+  imprint: 井庭人
+  publisher: 井庭人
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de137c5791-f26a-459d-9fe1-1c8855de1d5f/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、COMITIA128、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01638
+  title: ママ母手帳
+  imprint: null
+  publisher: 電書バト
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/149219/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 実話・体験、女性マンガ、女性向け、百合、完結, tag 14 (百合) among them
+- work: w01639
+  title: 永遠亭の姫様による盆栽の育て方
+  imprint: あんこストロベリー
+  publisher: あんこストロベリー
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de14922c41-49a8-4d6b-8921-08283496fa20/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、ダイレクト出版、同人誌・個人出版、「東方電書祭2022」クーポン対象作品,
+      tag 14 (百合) among them
+- work: w01646
+  title: 少女十色
+  imprint: 口達者同盟
+  publisher: 口達者同盟
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de1537f663-11e5-4f73-bd96-143223b8d4f5/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、百合, tag 14 (百合) among them
+- work: w01651
+  title: 愛眼娘
+  imprint: バナナブックス
+  publisher: バナナブックス
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/156922/
+    retrieved: '2026-08-07'
+    said: the series page is filed under ダイレクト出版、同人誌・個人出版、百合, tag 14 (百合) among them
+- work: w01665
+  title: 野ばらの森の乙女たち
+  imprint: なかよし
+  publisher: 講談社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/16107/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性向け、少女マンガ、恋愛、百合、なかよし, tag 14 (百合) among them
+- work: w01686
+  title: あやの浮気者っ！
+  imprint: いんどの宮殿！
+  publisher: いんどの宮殿！
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de16add654-2d5f-418e-90f0-38d96db66dc1/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、ダイレクト出版、同人誌・個人出版、「東方電書祭2022」クーポン対象作品,
+      tag 14 (百合) among them
+- work: w01693
+  title: 部長に終りはありません
+  imprint: 高橋真弥
+  publisher: 高橋真弥
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/174153/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01696
+  title: ハイパースーツ・ガジェッティア
+  imprint: BCCKS Distribution
+  publisher: BCCKS Distribution
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de1755eca6-1681-4c61-962f-b2f4e49027a1/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、バトル・格闘・アクション、フェチ、百合, tag 14 (百合) among them
+- work: w01698
+  title: 創作百合漫画
+  imprint: Caramel Crunch
+  publisher: Caramel Crunch
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+    prominent: true
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/177493/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01704
+  title: CPL
+  imprint: めでぃかるカンパニー
+  publisher: めでぃかるカンパニー
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de17a9498c-e625-490e-a56b-c36f530a5414/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、男性向け、百合、COMITIA144, tag 14 (百合) among them
+- work: w01715
+  title: 女子大生が合コンでお姉さんに持ち帰られる話
+  imprint: 雪尾ゆき
+  publisher: 雪尾ゆき
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/184760/
+    retrieved: '2026-08-07'
+    said: the series page is filed under ダイレクト出版、同人誌・個人出版、百合, tag 14 (百合) among them
+- work: w01726
+  title: フレックスこあタイム
+  imprint: 踏月
+  publisher: 踏月
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/190042/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、ダイレクト出版、同人誌・個人出版、「東方電書祭2022」クーポン対象作品,
+      tag 14 (百合) among them
+- work: w01771
+  title: セーラー服に、棘
+  imprint: ぴのこ堂出版
+  publisher: ぴのこ堂出版
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/207748/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01784
+  title: リリィ･マーブル
+  imprint: スキマ
+  publisher: スキマ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/217448/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、百合、スポーツ、ラブコメディ、完結, tag 14 (百合) among them
+- work: w01788
+  title: 乙女×文楽／The Ghost in the Doll
+  imprint: 夢乃むえ
+  publisher: 夢乃むえ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/218950/
+    retrieved: '2026-08-07'
+    said: the series page is filed under ダイレクト出版、同人誌・個人出版、ファンタジー、ホラー、百合, tag 14 (百合) among them
+- work: w01796
+  title: Koishi is desperate series.
+  imprint: サイコパシー幾何学
+  publisher: サイコパシー幾何学
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/223862/
+    retrieved: '2026-08-07'
+    said: the series page is filed under ホラー、百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、ダイレクト出版、同人誌・個人出版、「東方電書祭2022」クーポン対象作品,
+      tag 14 (百合) among them
+- work: w01799
+  title: パロスの剣
+  imprint: null
+  publisher: フェアベル
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/22410/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 少女マンガ、女性向け、恋愛、ファンタジー、百合, tag 14 (百合) among them
+- work: w01803
+  title: おまえをリコーダーで殴りたい
+  imprint: Drop Dead!
+  publisher: Drop Dead!
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/225912/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01806
+  title: 和太鼓†ガールズ～改訂版～
+  imprint: すたひろ
+  publisher: すたひろ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/228288/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 少女マンガ、百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01824
+  title: 燃える氷
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/239107/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w01845
+  title: 三つ編み
+  imprint: 山名沢湖
+  publisher: 山名沢湖
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de25000912-d598-47eb-af78-0b7bf1eae84c/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少女マンガ、女性マンガ、百合、COMITIA130、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01846
+  title: 男だけど死神姫の嫁になりました(仮)
+  imprint: トレイルコミックス
+  publisher: 芳文社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/250141/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、ファンタジー、ラブコメディ、異世界系作品、分冊版、完結, and not under tag 14,
+      the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dee8e93fdc-8a17-42a7-b598-21ceb09d9dfa/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、ファンタジー、ラブコメディ、異世界系作品、分冊版、完結、結婚、ハーレム, and not under tag
+      14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de0c31a32e-9e1d-4e82-b325-23763277d261/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 異世界系作品、青年マンガ、男性向け、ファンタジー、ラブコメディ、分冊版、完結、百合、ペット, tag 14 (百合) among
+      them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de6db128e7-ca89-432e-ad5d-21399c22bc65/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、ファンタジー、ラブコメディ、異世界系作品、分冊版、完結、結婚、ハーレム, and not under tag
+      14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deec90028d-1c75-47d7-8b0a-a2f1da30785a/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、ファンタジー、ラブコメディ、異世界系作品、分冊版、完結、結婚、ハーレム, and not under tag
+      14, the shelf that admitted it
+- work: w01848
+  title: 愛していいのは、カラダだけ
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    prominent: true
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/252426/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、女性マンガ、女性向け, tag 14 (百合) among them
+- work: w01875
+  title: 恋の方程式
+  imprint: ぐるめ
+  publisher: ぐるめ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/268850/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01888
+  title: JKが呪いのバイブについて話す話
+  imprint: ごきげん工房
+  publisher: ごきげん工房
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de277e79b9-568f-45db-b6a0-31c2d6073303/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ミステリー・推理・サスペンス、百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01919
+  title: クラウディアの花園
+  imprint: ナイーブタ
+  publisher: ナイーブタ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/296185/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、ホラー、男性向け、女性向け、百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w01948
+  title: 花粉症からはじまる百合
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/301245/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w01954
+  title: 先輩の妹が気になる
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/305994/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w01956
+  title: 龍と虎
+  imprint: コルクスタジオ
+  publisher: コルク
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/307179/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、百合、歴史、時代劇マンガ、恋愛, tag 14 (百合) among them
+- work: w01962
+  title: アサルトリリィ Last Bullet
+  imprint: 月刊ブシロード
+  publisher: ブシロードワークス
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/310200/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、バトル・格闘・アクション、百合, tag 14 (百合) among them
+- work: w01964
+  title: 鎧塚さんをバブらせたい
+  imprint: コミックcoral
+  publisher: コンパス
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+    prominent: true
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/310449/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 少女マンガ、女性向け、百合、ラブコメディ、完結, tag 14 (百合) among them
+- work: w01965
+  title: strawberry syrup
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de310ecdb6-27a1-4215-bde6-6f5f90888c18/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w01998
+  title: さざめとりお
+  imprint: KADOKAWA
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de3382624e-bbb5-4930-bc1d-95b3d4f06ff7/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、恋愛、百合, tag 14 (百合) among them
+- work: w01999
+  title: 君の為だけの首輪
+  imprint: コミックcoral
+  publisher: コンパス
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+    prominent: true
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/339806/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、百合、恋愛、完結, tag 14 (百合) among them
+- work: w02014
+  title: 1枚で読む百合SS
+  imprint: izure
+  publisher: パルソラ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de34d4351a-0c3b-4fce-a5bd-6a66ad21b04d/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合、恋愛, tag 14 (百合) among them
+- work: w02026
+  title: イベリスの花嫁
+  imprint: スピリッツ女子部
+  publisher: 小学館
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/358409/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、恋愛、ビッグコミックスピリッツ、完結、ドラマ、百合, tag 14 (百合) among them
+- work: w02035
+  title: ミスターユーリ！
+  imprint: ぐるめ
+  publisher: ぐるめ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/364192/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02052
+  title: ベラドンナの恋人
+  imprint: スピリッツ女子部
+  publisher: 小学館
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de3760d705-f811-4755-a281-184f80a9545d/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、ファンタジー、恋愛、ビッグコミックスピリッツ、百合, tag 14 (百合) among them
+- work: w02055
+  title: どうしたら幼馴染の彼女になれますか!?
+  imprint: バンブーコミックス
+  publisher: 竹書房
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    antenna: true
+    prominent: true
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/381470/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、百合、完結, tag 14 (百合) among them
+- work: w02058
+  title: LatteComi コミックアンソロジー【百合】（単話版）（LatteComi）
+  imprint: LatteComi
+  publisher: ブシロードワークス
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/384142/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、女性マンガ、女性向け, tag 14 (百合) among them
+- work: w02059
+  title: Whisper， My button.
+  imprint: サークルコネクト
+  publisher: サークルコネクト
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de3846a1e8-a324-4a11-a70f-3cf90242d53d/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02060
+  title: パーリーモンスター
+  imprint: 河津ケント
+  publisher: 河津ケント
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de384edeff-1fa1-4036-8370-d31ebfb64033/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02068
+  title: NOAH
+  imprint: NOAH編集部
+  publisher: NOAH編集部
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/391715/
+    retrieved: '2026-08-07'
+    said: the series page is filed under AI生成、ダイレクト出版、同人誌・個人出版, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dea53916b6-40a3-4d74-a6e1-42fb63e5c04a/
+    retrieved: '2026-08-07'
+    said: this volume is filed under AI生成、ダイレクト出版、同人誌・個人出版, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de298c3833-ec40-416c-8916-c143306acd36/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、SF、ファンタジー、百合, tag 14 (百合) among them
+- work: w02075
+  title: ワタシはサバサバしてただけなのに
+  imprint: コミックなにとぞ
+  publisher: DPNブックス
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/399625/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w02083
+  title: ゆずせん
+  imprint: CottonClub
+  publisher: CottonClub
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de3ac1f4ff-108d-4e95-b5b3-3edf278e45e5/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版、限定特典, tag 14 (百合) among them
+- work: w02103
+  title: ララのうた
+  imprint: PASH! コミックス
+  publisher: 主婦と生活社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/403349/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性向け、アニメ、女性マンガ、少女マンガ、ファンタジー、ラブコメディ、恋愛、異世界系作品, and not under tag
+      14, the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de70560136-ed45-48eb-bf63-9c2ee8cdfbe0/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、アニメ、女性マンガ、少女マンガ、ファンタジー、ラブコメディ、恋愛、異世界系作品, and not under tag 14,
+      the shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de752ad8f4-b879-4491-98c7-d609e9cde9f6/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、アニメ、女性マンガ、少女マンガ、ファンタジー、ラブコメディ、恋愛、神話、異世界系作品、百合、冒険, tag 14 (百合)
+      among them
+- work: w02151
+  title: 真夜中だけのおともだち
+  imprint: あおい華葉
+  publisher: あおい華葉
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de4280d0f2-efc0-4b9f-8f75-4efcb4f3a40a/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02167
+  title: ジャガイモ農家の村娘、剣神と謳われるまで。
+  imprint: ノヴァコミックス
+  publisher: 一二三書房
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/441234/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 男性向け、青年マンガ、ファンタジー、異世界系作品、バトル・格闘・アクション、百合, tag 14 (百合) among them
+- work: w02202
+  title: おいしいかおり
+  imprint: マッグガーデンコミックスBeat'sシリーズ
+  publisher: マッグガーデン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/46204/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 少女マンガ、男性向け、青年マンガ、料理・グルメ、百合、Beat&#039;s, tag 14 (百合) among them
+- work: w02219
+  title: 『英雄』に憧れた少女は吸血鬼に堕ちても『英雄』を目指す
+  imprint: マンガBANGコミックス
+  publisher: Amazia
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/474640/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、百合、バトル・格闘・アクション、ファンタジー、異世界系作品、完結、マンガBANG!, tag 14
+      (百合) among them
+- work: w02264
+  title: キスをするまで何度でも
+  imprint: ぶんか社
+  publisher: ぶんか社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de49686784-1235-4b70-9954-8cdde6b7c843/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、女性マンガ、百合、恋愛、学園, tag 14 (百合) among them
+- work: w02269
+  title: TSロリシリーズ（コスモブルー）
+  imprint: ASTRO COMICS
+  publisher: 宙出版
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de49e172c2-2048-4525-bbd4-f8b5b0f86871/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、バトル・格闘・アクション、ファンタジー、異世界系作品、百合, tag 14 (百合) among them
+- work: w02273
+  title: ヴァルキリードライヴ ビクニズム
+  imprint: ファミ通クリアコミックス
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de4a4037a7-1186-486e-b284-e73c1430f81f/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、ゲーム、青年マンガ、アニメ、閃乱カグラ 関連作品、バトル・格闘・アクション、百合、バトル, tag 14 (百合) among
+      them
+- work: w02296
+  title: Flower fizz
+  imprint: ヒイラギ
+  publisher: ヒイラギ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de4fb1ded6-03b4-4fa6-8351-c814fe4424ac/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、男性向け、女性向け、百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02304
+  title: 花の三騎士
+  imprint: マンガBANGコミックス
+  publisher: Amazia
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/503646/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、ファンタジー、百合、完結、異世界系作品、マンガBANG!, tag 14 (百合) among them
+- work: w02334
+  title: これが最後の×××かも
+  imprint: バンチコミックスコラル
+  publisher: 新潮社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/520891/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、恋愛、くらげバンチ、完結, and not under tag 14, the shelf that
+      admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de1ccaf6ed-86c0-4346-8a8b-f2914f727715/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、恋愛、くらげバンチ、完結, and not under tag 14, the shelf that admitted
+      it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de759d752c-27fb-43a3-bd16-c9c2ab42c879/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、恋愛、くらげバンチ、完結、百合, tag 14 (百合) among them
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/def00c0689-e10e-41eb-8a2f-0b3c37226193/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、恋愛、くらげバンチ、完結, and not under tag 14, the shelf that admitted
+      it
+- work: w02346
+  title: この関西人がウザすぎる!!～なにわギャルとイケズ京男に振り回されています～
+  imprint: コミックMELO
+  publisher: マンガボックス
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/525638/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、ラブコメディ、マンガボックス、百合、恋愛, tag 14 (百合) among them
+- work: w02387
+  title: 従姉ヴァレリア
+  imprint: null
+  publisher: ぶんか社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/54691/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性向け、女性マンガ、ホラー、百合, tag 14 (百合) among them
+- work: w02415
+  title: 気持ちスクラップ
+  imprint: 河津ケント
+  publisher: 河津ケント
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de55caa4f0-106f-4e1d-967f-83e822f2395f/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02427
+  title: アーシェラ将軍と秘書サディ
+  imprint: null
+  publisher: 少年画報社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de5688d74b-d9ba-4a47-bd44-3943a5261ba8/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、青年マンガ、ファンタジー、百合, tag 14 (百合) among them
+- work: w02429
+  title: ミルキーミルキーウェイ
+  imprint: ちどりあし
+  publisher: ちどりあし
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de5697f1e9-0625-4fcb-9674-2e525cf07121/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、第八回博麗神社秋季例大祭、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、ダイレクト出版、同人誌・個人出版,
+      tag 14 (百合) among them
+- work: w02431
+  title: 清き百合には毒がある
+  imprint: とばり湊
+  publisher: とばり湊
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de56dd4e25-7648-4c44-8d04-1ee88f4d1b0b/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作, tag 14
+      (百合) among them
+- work: w02441
+  title: ハナキリン～自転する彼女と公転する私【電子単行本】
+  imprint: .FiZZ
+  publisher: forcs
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/576207/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 少女マンガ、女性向け、百合、完結, tag 14 (百合) among them
+- work: w02445
+  title: Killer Twinkle～アンチはステージに上がれません～
+  imprint: 少年チャンピオン・コミックス
+  publisher: 秋田書店
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/578432/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 少年マンガ、男性向け、百合、ヤンキー、別冊少年チャンピオン, tag 14 (百合) among them
+- work: w02446
+  title: ヲトヒメ イン ザ クローゼット
+  imprint: CottonClub
+  publisher: CottonClub
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de57c1f131-4b61-4b2a-872b-5471700f39f6/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版、限定特典, tag 14 (百合) among them
+- work: w02447
+  title: あかり三部作
+  imprint: 漫画帝国
+  publisher: 漫画帝国
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/581076/
+    retrieved: '2026-08-07'
+    said: the series page is filed under ファンタジー、関西コミティア57、ダイレクト出版、同人誌・個人出版, and not under tag 14, the
+      shelf that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deee47cf73-84ab-4cb0-93d0-d5c9f1cc4328/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ファンタジー、関西コミティア57、ダイレクト出版、同人誌・個人出版, and not under tag 14, the shelf
+      that admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/decb5b27d2-6198-4d38-90ce-1ba76f0ca75b/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ホラー、関西コミティア57、ダイレクト出版、同人誌・個人出版, and not under tag 14, the shelf that
+      admitted it
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dee2ffcffc-ba52-4def-aa8c-18a148302843/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02477
+  title: プチフール ヨウハセレクション
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de5d4e6953-e499-49a4-9cd4-d3fae11cce01/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w02482
+  title: わすれさくら
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de5e6e8188-6e2e-4676-8086-0de55e983e86/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02484
+  title: ツンアリチビマリ全編
+  imprint: Fifiruu.FIF
+  publisher: Fifiruu.FIF
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de5eb40bc7-f1c2-4dd9-9054-a67510eee209/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、ファンタジー、男性向け、百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、「東方電書祭2022」クーポン対象作品,
+      tag 14 (百合) among them
+- work: w02530
+  title: Valentine with…
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de67f21fd7-a3d3-449d-ae6b-9e879fec609c/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02538
+  title: 夏美のマル秘身代わり日記 男子寮潜入48時間
+  imprint: BFPコミック
+  publisher: Big Fields Publishing
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de69b6b555-a882-417a-922c-354fff15179c/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、百合, tag 14 (百合) among them
+- work: w02547
+  title: 春風 -友達とエアセックスしてみた-
+  imprint: 川村マユ見
+  publisher: 川村マユ見
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de6bd7a70d-4eb4-419c-a3ef-10e6622db028/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、女性向け、百合、ダイレクト出版、同人誌・個人出版、女性マンガ, tag 14 (百合) among them
+- work: w02564
+  title: デキアイ 伝え！電子楽器倶楽部　単行本
+  imprint: ミュージック・コミックス
+  publisher: ミュージック・コミックス
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de71d94e1a-66cc-442a-a2b6-f42edb6f323c/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合、バトル・格闘・アクション, tag 14 (百合) among them
+- work: w02572
+  title: てるもこ！〜輝夜×妹紅再録集〜
+  imprint: さとうメメ子
+  publisher: さとうメメ子
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de7391b783-ef0a-4c83-ab6c-6043caa72c7c/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、「東方電書祭2022」クーポン対象作品,
+      tag 14 (百合) among them
+- work: w02578
+  title: 西園寺薫子と使用人椿の一生
+  imprint: 東京ネームタンク
+  publisher: ナンバーナイン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de75621fb2-6582-48ea-bbd2-ad0a6d230b87/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少女マンガ、女性向け、萌え、恋愛、百合, tag 14 (百合) among them
+- work: w02586
+  title: つかず、はなれず
+  imprint: 井庭人
+  publisher: 井庭人
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de76f771ee-3127-456d-82ad-469717f93a3d/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02587
+  title: バナナのナナ
+  imprint: ブレイドコミックス
+  publisher: マッグガーデン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/7727/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、完結、青年マンガ、男性向け、少年マンガ、バトル・格闘・アクション、月刊コミックブレイド, tag 14 (百合) among
+      them
+- work: w02593
+  title: くされ女子！
+  imprint: null
+  publisher: ブックマン社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/7881/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 実話・体験、女性向け、女性マンガ、百合、BL, tag 14 (百合) among them
+- work: w02603
+  title: お嬢様と心中
+  imprint: でんでんむしむし
+  publisher: でんでんむしむし
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de7b13c2bc-9487-4488-9f15-2f2f360be68b/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、第16回いっせい配信「創作同人2021年7月」、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02615
+  title: 好きになった人があなただっただけです
+  imprint: 雪尾ゆき
+  publisher: 雪尾ゆき
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de7df5cbe1-768f-4b01-bcfe-072d157c410c/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、C96、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02647
+  title: センセー私と付き合って！
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de84abfe20-7762-466c-812b-1ca36f8f4133/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02657
+  title: いつか大人になるその前に
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de866abec4-949b-4f6d-a619-d14dd2ccc729/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02660
+  title: 私の女神が今日も推せる 【単話版】
+  imprint: comicGAGA
+  publisher: 東京漫画社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de86d3b866-e81b-4c69-a751-430c868ad187/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02661
+  title: さよなら、私の神様
+  imprint: poprication
+  publisher: poprication
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de87088bfe-9487-44d2-995c-758c606ff3e7/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少女マンガ、ファンタジー、男性向け、女性向け、百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、ダイレクト出版、同人誌・個人出版,
+      tag 14 (百合) among them
+- work: w02678
+  title: ゆりにん～レズビアンカップル妊活奮闘記～
+  imprint: ぶんか社
+  publisher: ぶんか社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de89c418cb-f246-4bcc-9d5f-b70df132a9b5/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、女性マンガ、百合、妊娠, tag 14 (百合) among them
+- work: w02682
+  title: ゆりいろ恋もよう
+  imprint: Love Jossie
+  publisher: 白泉社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de8a4bc118-415a-4bd0-b13f-960150a8f927/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、ラブコメディ、百合、Love Jossie、学園, tag 14 (百合) among them
+- work: w02689
+  title: 夫のためにレズ風俗に行きました
+  imprint: LScomic
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de8cbffafd-82a1-4dce-89a7-7d324e63dc95/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w02699
+  title: お姉ちゃんと夏休み
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de8f9fe59f-9d71-46e5-a607-125cf957b54a/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w02704
+  title: puberty girls
+  imprint: れれBOX
+  publisher: れれBOX
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de90cbdd40-de8d-43a1-bd37-8ddb79e808b4/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02706
+  title: コミック百合姫
+  imprint: コミック百合姫
+  publisher: 一迅社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+    imprint_term: true
+    prominent: true
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/91324/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 男性向け、雑誌、マンガ雑誌、シリーズ予約、百合, tag 14 (百合) among them
+- work: w02712
+  title: 今日も代返してください。
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de91827c19-8f19-499c-aacd-d792563e00ce/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02722
+  title: 百合百景・夜伽
+  imprint: 黒戌舎
+  publisher: 黒戌舎
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de932b383a-f63d-4c8a-beca-51d78676172a/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、百合、COMITIA127、COMITIA, tag 14 (百合) among them
+- work: w02730
+  title: 理想と恋
+  imprint: null
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de966b2725-1d4a-4739-9e5e-d07530bb3800/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、恋愛、百合, tag 14 (百合) among them
+- work: w02738
+  title: 百合短編集（――）
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de9814514b-fd23-42ce-95ac-c71c61eb9f92/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w02751
+  title: あの娘パンツ穿いてなくない？
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de9b061f15-6776-464e-a746-84b10f9f8371/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w02775
+  title: 大人になるってこと
+  imprint: Qualism
+  publisher: Qualism
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dea079171e-ed45-44d4-937f-5dbfe6c2a2fe/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02782
+  title: 夢の中の私は現実よりうまく笑えない
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dea3921aea-46c3-4982-909f-3ba8fa909ed8/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02797
+  title: 私と右腕
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dea7784b86-3bff-449f-88e1-d56cf6542065/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02807
+  title: エンドレスルーム
+  imprint: まんがタイムＫＲコミックスつぼみシリーズ
+  publisher: 芳文社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deaa25571b-be23-4adb-9954-046405b4b0f6/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02815
+  title: 密蜂
+  imprint: UMIN'S CLUB
+  publisher: UMIN'S CLUB
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deac412867-aa32-46f4-a46e-c291ed7221f1/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少女マンガ、百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02819
+  title: 先輩と後輩のおはなし。
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deae8626c2-4b0c-4689-914c-ca73e955bf8b/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02824
+  title: 創作百合まとめ！
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deaf376c55-776c-48d6-8988-81239a895428/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02826
+  title: ハッピー同棲百合漫画日和
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deafec1fa4-ba55-46c4-9762-5af7748e4339/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w02829
+  title: 百合色ミュージアム（OrangeVox）
+  imprint: OrangeVox
+  publisher: OrangeVox
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deb02edbe6-780d-43cd-8748-d373d2c54c6e/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合、4コマ、コミックエッセイ、合本版, tag 14 (百合) among them
+- work: w02832
+  title: 成美ちゃんは愛されたい
+  imprint: いんどの宮殿！
+  publisher: いんどの宮殿！
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deb0bd9093-4946-477b-9dc1-18e3fe9f5105/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、ダイレクト出版、同人誌・個人出版、「東方電書祭2022」クーポン対象作品,
+      tag 14 (百合) among them
+- work: w02846
+  title: 京アミ！
+  imprint: ポルリン
+  publisher: ポルリン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deb64f1f11-8aea-464e-a06f-59e4d7695fe3/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、百合, tag 14 (百合) among them
+- work: w02881
+  title: こたつでみかんを(1)改訂版
+  imprint: いつかものがたり
+  publisher: いつかものがたり
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/debdd25fbe-f471-4441-b9b5-f35e8f67bac8/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少女マンガ、百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02900
+  title: 神田と柳田
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dec13cf2aa-e817-4b84-9b5f-503157b7f194/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02916
+  title: 放課後のキミは猫
+  imprint: 狗古堂
+  publisher: 狗古堂
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dec67718ee-6ceb-47a3-bd35-43dbc510bc0c/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、百合, tag 14 (百合) among them
+- work: w02921
+  title: うどみょん１
+  imprint: たまごやき
+  publisher: たまごやき
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dec756147d-5e6b-48a1-a451-86e1856516ff/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作、ダイレクト出版、同人誌・個人出版、「東方電書祭2022」クーポン対象作品,
+      tag 14 (百合) among them
+- work: w02930
+  title: ねじとくぎの日常
+  imprint: ネジ式１３番地
+  publisher: ネジ式１３番地
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dec99a8ff8-5b9d-4fcf-b155-65c73b9ea7bb/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02937
+  title: ふたりぽっち
+  imprint: フェアベル
+  publisher: フェアベル
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/decc2e3972-9615-423d-9958-513bc89fb4ce/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、少女マンガ、恋愛、百合、学園, tag 14 (百合) among them
+- work: w02941
+  title: 八重へ
+  imprint: 金曜日の魔女
+  publisher: 金曜日の魔女
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deccdd25cf-5b98-4ab3-8c0f-ad09c55fe56f/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w02958
+  title: ゆめのかよいじ【雑誌掲載版】
+  imprint: Jコミックテラス×ナンバーナイン
+  publisher: ナンバーナイン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/ded0d6560a-de0d-4040-b8b0-7092ecce4e1e/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合、アニメ化･実写化、SF, tag 14 (百合) among them
+- work: w02970
+  title: ブルーダイヤモンド
+  imprint: 朱村咲
+  publisher: 朱村咲
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/ded2d04803-34cc-4ddf-a101-f8419400f039/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、百合、COMITIA, tag 14 (百合) among them
+- work: w02975
+  title: うつゆり 【電子限定 完全版】
+  imprint: バーズコミックス　デラックス
+  publisher: 幻冬舎コミックス
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/ded3b10163-c5e1-40a6-8958-5434a8eb3c4d/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、青年マンガ、百合、スピカ、完結、学園、ギャグ・コメディ, tag 14 (百合) among them
+- work: w03003
+  title: 雪雲色の情景を、あなたと。
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/ded9e2fa14-315e-4022-bb86-66d98752489d/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w03006
+  title: ペンライトより光って-アンコール-
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deda87a703-e742-457e-9343-c58e06c5492c/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w03012
+  title: かんむりふたつ
+  imprint: 山名沢湖
+  publisher: 山名沢湖
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dedbfd2d24-a133-4618-b0cf-5a4af4331fbf/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少女マンガ、女性マンガ、百合、創作同人2019年7月、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w03018
+  title: 推しの百合を絶対に邪魔させない騎士たち
+  imprint: コミックエッセイ
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dedca16989-3f2e-4e8c-8bef-93447c4888f6/
+    retrieved: '2026-08-07'
+    said: this volume is filed under エッセイ、青年マンガ、男性向け、百合、ギャグ・コメディ, tag 14 (百合) among them
+- work: w03030
+  title: なんで私の安息の地で見知らぬギャルが泣いてるの
+  imprint: 空想舩
+  publisher: 空想舩
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dee00d9639-7548-4853-b32d-dc358375cde7/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、百合, tag 14 (百合) among them
+- work: w03043
+  title: 女の子が女の子のママになる話
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dee3afbbfc-d857-4a4f-be0d-ed072d2479ce/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、ラブコメディ、百合, tag 14 (百合) among them
+- work: w03093
+  title: 緋色のナナ
+  imprint: アートファクトリー
+  publisher: アートファクトリー
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deef5d3859-1f9a-4782-904c-dcc05b5bd2b3/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 4コマ、百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w03098
+  title: 短編集あなたがいる惑星
+  imprint: 珠虫さとり
+  publisher: 珠虫さとり
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/def148d95c-e113-4809-bd05-21e72d0fc13b/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w03101
+  title: きょうもバレずに過ごせた！
+  imprint: サンデーうぇぶりコミックス
+  publisher: 小学館
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/def1f1b471-a99b-4c85-a16f-599110b5e048/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 少年マンガ、男性向け、サンデーうぇぶり、百合、ギャグ・コメディ、学園, tag 14 (百合) among them
+- work: w03112
+  title: ヴァルキリードライヴ セイレーン -ブレイクアウト-
+  imprint: ファミ通クリアコミックス
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/def6ff25c2-e6ba-4120-ab33-547f1c178429/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、青年マンガ、アニメ、閃乱カグラ 関連作品、バトル・格闘・アクション、百合、バトル、ソーシャルゲーム, tag 14 (百合)
+      among them
+- work: w03120
+  title: 春待ちスノードロップ
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals:
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/def97dad3d-f9db-4588-a489-96298609bb2f/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w03130
+  title: 実は私男の子なんだ！
+  imprint: 空想舩
+  publisher: 空想舩
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/defac18ff2-5140-44b3-adfa-496cde462330/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 4コマ、百合、COMITIA155、ダイレクト出版、同人誌・個人出版, tag 14 (百合) among them
+- work: w03132
+  title: 「私の彼女を抱いてくれ！」と言われた実録百合漫画
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/defac865d9-2c7f-4778-add2-8040ec5c3d6a/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w03137
+  title: 親友は、私の名前で不倫中
+  imprint: LScomic
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/defc57e6ba-0bb4-4098-a039-20bb95fb8250/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、恋愛、百合, tag 14 (百合) among them
+- work: w03140
+  title: 化狸ノ記録帳
+  imprint: とばり湊
+  publisher: とばり湊
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: 0
+  signals: {}
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/defc9ab7be-e313-46ea-86fc-7f2716919b77/
+    retrieved: '2026-08-07'
+    said: this volume is filed under ダイレクト出版、同人誌・個人出版、百合、「東方Project」シリーズ、「東方Project」シリーズ 二次創作, tag 14
+      (百合) among them
+- work: w03145
+  title: ゆりかべ
+  imprint: スキマ
+  publisher: スキマ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: 0
+  signals:
+    title_term: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/defe6204de-bde7-498d-a493-fd4d65020556/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合、ラブコメディ, tag 14 (百合) among them
+- work: w00226
+  title: 犬も歩けば姫に当たる
+  imprint: じるみて
+  publisher: forcs
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: -1
+  signals:
+    antenna: true
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/defc7a4e0c-cf91-4d48-b40e-55cc0ad19381/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合、ラブコメディ, tag 14 (百合) among them
+- work: w00719
+  title: 好きな女の子が私にだけなぜか厳しい
+  imprint: チャンピオンREDコミックス
+  publisher: 秋田書店
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: -1
+  signals:
+    antenna: true
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/280537/
+    retrieved: '2026-08-07'
+    said: the shop files it under 青年マンガ (少年・青年マンガ > 青年マンガ > 秋田書店 > チャンピオンクロス > 好きな女の子が私にだけなぜか厳しい > 漫画(まんが)・電子書籍のコミックシーモアTOP
+      > 少年・青年マンガ > 青年マンガ > 秋田書店 > チャンピオンREDコミックス), crediting はちこ, genre 37 (百合・GL) among its genres
+- work: w01269
+  title: くちびるためいきさくらいろ
+  imprint: Action comics　／　comic high's brand
+  publisher: 双葉社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/52487/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少女マンガ (少女・女性マンガ > 少女マンガ > 双葉社 > コミックハイ！ > くちびるためいきさくらいろ), crediting
+      森永みるく, genre 37 (百合・GL) among its genres
+- work: w01286
+  title: モモイロデイズ
+  imprint: 百合コミックス
+  publisher: 宙出版
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: -1
+  signals:
+    imprint_term: true
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/136437/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > 宙出版 > OHZORA 女性コミックス), crediting 青井はな, genre
+      37 (百合・GL) among its genres
+- work: w01312
+  title: エクレア
+  imprint: null
+  publisher: KADOKAWA
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/124076/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年マンガ (少年・青年マンガ > 少年マンガ > KADOKAWA > エクレア), crediting アンソロジー, genre
+      37 (百合・GL) among its genres
+- work: w01316
+  title: SIS
+  imprint: Kobunshaアンソロジー
+  publisher: 光文社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read: []
+  unread: the shop's own row for this work was not re-identified from the capture, so its page was not
+    read
+- work: w01322
+  title: 総合タワーリシチ
+  imprint: コミック　／　YKコミックス
+  publisher: 少年画報社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read: []
+  unread: the shop's own row for this work was not re-identified from the capture, so its page was not
+    read
+- work: w01346
+  title: '好きなのは女の子 : エクレアSpecial : 北尾タキ百合作品傑作選'
+  imprint: null
+  publisher: KADOKAWA
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: -1
+  signals:
+    title_term: true
+    author_in_field: true
+  read: []
+  unread: the shop's own row for this work was not re-identified from the capture, so its page was not
+    read
+- work: w01351
+  title: 'シロップ = syrup : 社会人百合アンソロジー'
+  imprint: ACTION COMICS
+  publisher: 双葉社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: -1
+  signals:
+    title_term: true
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/174665/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > 双葉社 > 漫画アクション > シロップ), crediting アンソロジー, genre
+      37 (百合・GL) among its genres
+- work: w01365
+  title: 最後の制服
+  imprint: Manga time KR comics
+  publisher: 芳文社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read: []
+  unread: the shop's own row for this work was not re-identified from the capture, so its page was not
+    read
+- work: w01374
+  title: 杉並区立魔法女学園平和維持部 = peace keeping club of suginami municipal school for witches
+  imprint: null
+  publisher: 太田出版
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/169776/
+    retrieved: '2026-08-07'
+    said: the shop files it under 少年・青年マンガ (少年・青年マンガ > 青年マンガ > 太田出版), crediting 吉富昭仁, genre 37 (百合・GL)
+      among its genres
+- work: w01396
+  title: ファインダー越しのあの子（Lilie comics）
+  imprint: リーリエコミックス
+  publisher: '[発売]れんが書房新社'
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/208079/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > 道玄坂書房 > Lilie comics > ファインダー越しのあの子【コミックス版】),
+      crediting カボちゃ, genre 37 (百合・GL) among its genres
+- work: w01419
+  title: 彩香ちゃんは弘子先輩に恋してる = AYAKA is in LOVE×LOVE×LOVE with HIROKO
+  imprint: ACTION COMICS
+  publisher: 双葉社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/228191/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > 双葉社 > webアクションコミックス > 彩香ちゃんは弘子先輩に恋してる), crediting
+      Sal Jiang, genre 37 (百合・GL) among its genres
+- work: w01440
+  title: 嘘から始まる恋の夏
+  imprint: IDコミックス. Yh comics
+  publisher: '[頒布]講談社'
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read: []
+  unread: the shop's own row for this work was not re-identified from the capture, so its page was not
+    read
+- work: w01442
+  title: 私たちの恋が花開くとき
+  imprint: Bamboo comics. BCf
+  publisher: 竹書房
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read: []
+  unread: the shop's own row for this work was not re-identified from the capture, so its page was not
+    read
+- work: w01453
+  title: 'SAL : Stories About Love'
+  imprint: null
+  publisher: 双葉社
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/243253/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > 双葉社 > 漫画アクション > SAL), crediting Sal Jiang,
+      genre 37 (百合・GL) among its genres
+- work: w01467
+  title: ハラスメントが怖いマキ先輩!
+  imprint: null
+  publisher: viviON viviON THOTH
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: -1
+  signals:
+    antenna: true
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/313038/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > forcs > じるみて > ハラスメントが怖いマキ先輩！), crediting
+      大沢やよい, genre 37 (百合・GL) among its genres
+- work: w01477
+  title: ワンナイト百合アンソロジー
+  imprint: IDコミックス. YH comics
+  publisher: '[頒布]講談社'
+  shelf:
+    comparator: コミックシーモア
+    term: 百合・GL
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: -1
+  signals:
+    title_term: true
+    author_in_field: true
+  read:
+  - source: コミックシーモア
+    url: https://www.cmoa.jp/title/318144/
+    retrieved: '2026-08-07'
+    said: the shop files it under 女性マンガ (少女・女性マンガ > 女性マンガ > 一迅社 > 百合姫コミックス), crediting アンソロジー, genre 37
+      (百合・GL) among its genres
+- work: w01550
+  title: 純潔ロマンス
+  imprint: 復刊ドットコム
+  publisher: 復刊ドットコム
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de09f38c29-4bbf-4a41-abfa-475e222faf98/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w01668
+  title: リレイション・バレイ
+  imprint: リレバ
+  publisher: リレバ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/163477/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 「東方Project」シリーズ、「東方Project」シリーズ 二次創作、ダイレクト出版、同人誌・個人出版、百合、「東方電書祭2022」クーポン対象作品,
+      tag 14 (百合) among them
+- work: w01700
+  title: ユリトラジャンプ～ウルトラジャンプ百合アンソロジー～
+  imprint: ヤングジャンプコミックスDIGITAL
+  publisher: 集英社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: -1
+  signals:
+    title_term: true
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/177932/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 男性向け、青年マンガ、ウルトラジャンプ、百合, tag 14 (百合) among them
+- work: w01729
+  title: お姉ちゃんが好きな人
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de192b2a42-98c4-4734-8373-3d2e27206fb4/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w01830
+  title: あねのむすめ
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/241363/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 百合、女性マンガ、女性向け, tag 14 (百合) among them
+- work: w01831
+  title: 恋する資格
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/241365/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w01914
+  title: 先輩の後輩
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/294231/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w02297
+  title: 生徒指導の百合先生
+  imprint: コミックエッセイ
+  publisher: KADOKAWA
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: -1
+  signals:
+    title_term: true
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de4fcd280e-bfba-4dee-820e-89a6fe189dca/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合、エッセイ、ギャグ・コメディ, tag 14 (百合) among them
+- work: w02365
+  title: ハラスメントが怖いマキ先輩！【電子単行本】
+  imprint: じるみて
+  publisher: forcs
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/533813/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、百合、ラブコメディ, tag 14 (百合) among them
+- work: w02421
+  title: 収納魔法が切実に欲しいと願っていたら、転生してしまった（コミック）
+  imprint: ＧＡコミック
+  publisher: SBクリエイティブ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/563507/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 異世界系作品、少年マンガ、男性向け、ファンタジー、百合, tag 14 (百合) among them
+- work: w02456
+  title: 貴女依存症【単行本版】
+  imprint: ラブ・ペイン・コミックス
+  publisher: グループ・ゼロ
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/series/597867/
+    retrieved: '2026-08-07'
+    said: the series page is filed under 女性マンガ、女性向け、百合、恋愛, tag 14 (百合) among them
+- work: w02691
+  title: ちぇりーおんとっぷ
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de8d23a0ab-a836-48c2-8496-94ab7deda28b/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02764
+  title: Ｓｉｓ［秘密の恋心］
+  imprint: null
+  publisher: 光文社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/de9d2c3776-c077-4e4f-aef3-ae1ebf389ee9/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性向け、女性マンガ、百合, tag 14 (百合) among them
+- work: w02786
+  title: 私たちの恋が花開くとき　異世界恋愛百合アンソロジーコミック
+  imprint: バンブーコミックス BCf
+  publisher: 竹書房
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: -1
+  signals:
+    title_term: true
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dea4725ae0-dc6d-4753-8346-ecc93f998ec9/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 異世界系作品、少女マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w02834
+  title: パピーラブ・トゥルーエンド
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/deb17a93f3-1cff-480a-a93e-e7892cb92dc5/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 百合、女性マンガ、女性向け, tag 14 (百合) among them
+- work: w02883
+  title: 眠る窓枠、水面のオリオン
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/debe2b2ee8-ce06-434a-9f46-83ec7fabe880/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02933
+  title: '2332'
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/decae2bd0a-ee69-4a53-bd05-5b2a02d61760/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them
+- work: w02945
+  title: モーニングルーティン ナイトルーティン
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/decd6148e1-a17a-493e-8f9c-ce64db3c38e7/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w02997
+  title: 純水ルミネッセンス
+  imprint: 楽園
+  publisher: 白泉社
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/ded74e03c1-e1e7-45a9-bf77-72362f1dc88b/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 男性向け、青年マンガ、ラブコメディ、恋愛、百合、女性マンガ、楽園、学園, tag 14 (百合) among them
+- work: w03066
+  title: 内緒の初恋ハニーディズ
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: unsupported
+  suspicion: -1
+  signals:
+    author_in_field: true
+    male_directed: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dee9f3ef0c-9778-46c2-8792-251f07cf2e59/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 青年マンガ、男性向け、百合, tag 14 (百合) among them
+- work: w03067
+  title: いろんな百合まとめ
+  imprint: null
+  publisher: ライトリーズン
+  shelf:
+    comparator: BOOK☆WALKER
+    term: 百合
+    retrieved: '2026-08-05'
+  verdict: corroborated
+  suspicion: -1
+  signals:
+    title_term: true
+    author_in_field: true
+  read:
+  - source: BOOK☆WALKER
+    url: https://bookwalker.jp/dee9f9e5f8-37f0-4e10-8459-a7a095ebf714/
+    retrieved: '2026-08-07'
+    said: this volume is filed under 女性マンガ、女性向け、百合, tag 14 (百合) among them

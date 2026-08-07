@@ -813,6 +813,61 @@ def inv_a_division_cites_its_source(ctx):
     return bad
 
 
+def inv_nicovideo_channel_agrees(ctx):
+    """The channel a ニコニコ work is filed under, against the channel we recorded ourselves.
+
+    THE FAULT. `adapters/nicovideo/releases.py` read the channel from the first `/official/` link
+    in the page, and that link is the opening banner of the sidebar, which is the same on every
+    page of the site. All 180 works read `nicomanga`, including the 32 the breadcrumb puts on
+    きららベース. It stood for six days, from the day the platform was onboarded, because nothing
+    read the field.
+
+    WHY THIS MEASURE AND NOT THE PARSER'S (§14b). Asking the pages again would ask the code that
+    was wrong. `data/source/nicovideo/resolved.yaml` and `data/source/webpages/nicovideo-titles.yaml`
+    state the channel for the works whose identity was settled by hand, and the adapter reads
+    neither: it takes `comic_id` out of the first and nothing at all out of the second. So this
+    compares two independent records of one fact, which is §3's invariant rather than a second
+    opinion from the same source.
+
+    WHAT IT CANNOT SEE, said here because a check that does not name its blind spot grows one.
+    Only four works carry a channel we recorded by hand, so 157 of the 161 are unexamined by the
+    comparison. The second clause covers the specific way this failed: a value read from something
+    that does not vary by page is the SAME for every work, and that is arithmetic on the output
+    owing nothing to the parser. It would have caught the original fault on its own.
+
+    Zero comparisons is a violation and not a pass. A check that quietly stopped matching anything
+    reports exactly as clean as one that ran (§4).
+
+    fallback: keep ニコニコ漫画 as the platform and drop the channel. A channel is where within a
+    platform a work sits, so losing it costs a qualifier; getting it wrong files the work under a
+    publisher it has nothing to do with.
+    """
+    rows = ctx["nicovideo_channels"]
+    if not rows:
+        return []
+    recorded = ctx["nicovideo_recorded_channels"]
+    bad, compared = [], 0
+    for r in rows:
+        want = recorded.get(str(r.get("comic_id") or ""))
+        if not want:
+            continue
+        compared += 1
+        got = r.get("channel")
+        if got != want:
+            bad.append(f"{r.get('work_title')}: recorded as {want}, "
+                       f"the platform page reads {got or 'no channel'}")
+    if not compared:
+        bad.append(f"{len(rows)} ニコニコ work(s) and not one channel recorded to compare against; "
+                   "the comparison this check makes is no longer being made")
+    # No floor under this. The adapter refuses to write a file holding fewer than 20 works, so
+    # a population that has collapsed to one channel is a fault however few rows carry one.
+    channels = {r.get("channel") for r in rows if r.get("channel")}
+    if len(channels) == 1:
+        bad.append(f"every ニコニコ channel we hold reads {next(iter(channels))}, which is what a "
+                   "value taken from an element that does not vary by page looks like")
+    return bad
+
+
 INVARIANTS = [
     ("ruby covers its surface", inv_ruby_covers_its_surface),
     ("a kana name's reading spells it", inv_kana_reading_spells_its_name),
@@ -838,6 +893,7 @@ INVARIANTS = [
     ("undated works say where and why", inv_undated_works_say_where_and_why),
     ("per-book dates cite their page", inv_per_book_dates_cite_their_page),
     ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role),
+    ("nicovideo channels agree with our own records", inv_nicovideo_channel_agrees),
 ]
 
 
@@ -1811,7 +1867,32 @@ def context():
         # own file cannot be shown one, and self_test then reports it healthy having exercised
         # nothing.
         "madb_records": _madb_records(),
+        # Both sides of the ニコニコ channel comparison, loaded here for the same reason as the
+        # two above: a check that opens its own file cannot be shown a canary.
+        "nicovideo_channels": (_yaml(ROOT / "data" / "source" / "nicovideo" / "nicovideo.yaml",
+                                     {}) or {}).get("works") or [],
+        "nicovideo_recorded_channels": _nicovideo_recorded_channels(),
     }
+
+
+def _nicovideo_recorded_channels():
+    """`{comic_id: channel}` for the ニコニコ works whose channel a person wrote down.
+
+    These files settle identity by hand, one confirmed search result at a time, and the adapter
+    reads no channel out of either. That is what makes them a second record of the fact rather
+    than an echo of the first.
+    """
+    out = {}
+    for rel in ("data/source/nicovideo/resolved.yaml",
+                "data/source/webpages/nicovideo-titles.yaml"):
+        for w in (_yaml(ROOT / rel, {}) or {}).get("works") or []:
+            cid = str(w.get("comic_id") or "")
+            if not cid:
+                m = re.search(r"manga\.nicovideo\.jp/comic/(\d+)", str(w.get("url") or ""))
+                cid = m.group(1) if m else ""
+            if cid and w.get("channel"):
+                out[cid] = w["channel"]
+    return out
 
 
 def _madb_records():
@@ -1839,6 +1920,25 @@ def _plant_stale_translation(c):
                 c["names"][kind][name] = dict(c["names"][kind][name] or {},
                                               en="CANARY STALE VALUE")
                 return
+
+
+def _plant_nicovideo_banner(c):
+    """File ONE work whose channel we recorded under the sidebar's banner, as the adapter did."""
+    for r in c["nicovideo_channels"]:
+        if str(r.get("comic_id") or "") in c["nicovideo_recorded_channels"]:
+            r["channel"], r["channel_slug"] = "ニコニコ漫画（公式）", "nicomanga"
+            return
+
+
+def _plant_one_nicovideo_channel_for_all(c):
+    """Give every work the same channel, which is the shape of a value read off a fixed element.
+
+    The value is one we really recorded, so the comparison agrees with all four of its rows and
+    only the uniformity clause is left to object.
+    """
+    one = next(iter(c["nicovideo_recorded_channels"].values()), "きららベース")
+    for r in c["nicovideo_channels"]:
+        r["channel"] = one
 
 
 def self_test():
@@ -1895,6 +1995,15 @@ def self_test():
         # The distributor MADB names ahead of the publisher, stored as the publisher.
         ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role,
          lambda c: c["madb_records"].append({"work_id": "CANARY", "publisher": "[発売]講談社"})),
+        # BOTH CANARIES ARE THE FILE AS IT STOOD ON 2026-08-07 (§14b), not an invented bad value:
+        # every work was filed under ニコニコ漫画（公式）, the first banner in the sidebar. The
+        # first plants it on one recorded work, so only the comparison can catch it; the second
+        # plants a channel that IS recorded on every work, so only the uniformity clause can.
+        # Probing them together would let either cover for the other going quiet.
+        ("nicovideo channels agree with our own records", inv_nicovideo_channel_agrees,
+         _plant_nicovideo_banner),
+        ("nicovideo channels agree with our own records", inv_nicovideo_channel_agrees,
+         _plant_one_nicovideo_channel_for_all),
         # BOTH OF THESE CANARIES ARE STRINGS THE PIPELINE REALLY PRODUCES (§14b), which is a
         # different claim from a canary the check happens to catch. openBD returns トリイ シズク for
         # とりいしづく, with づ folded to ず by the collation, and the only thing keeping it out of

@@ -74,6 +74,77 @@ def main(s):
     s.check("番外編" != whole["latest_episode"],
             "an extra sitting between numbered chapters is not mistaken for the newest")
 
+    # ── which channel the work is in ──────────────────────────────────────────────────────────
+    #
+    # QUOTED FROM THE PAGES, NOT WRITTEN HERE. Every string below is byte for byte out of
+    # manga.nicovideo.jp as fetched on 2026-08-07, cut to the two blocks that matter. A pattern
+    # tested against markup somebody imagined proves the pattern matches what they imagined, and
+    # the bug this covers was exactly that: the old rule read a real element correctly and the
+    # element was the wrong one.
+    #
+    # The sidebar is here because it is the counter-case. It renders a banner for every official
+    # channel on the site and opens with ニコニコ漫画（公式）, so any rule that is not scoped to
+    # the breadcrumb answers `nicomanga` for every work on the platform. All 180 we held did.
+    SIDEBAR = (
+        '<div id="mg_official" class="menu_block">\n    <h2 class="menu_legend">\n      公式マンガ\n'
+        '    </h2>\n    <ul>\n'
+        '      <li><a href="/official/nicomanga/"><div class="mg_banner"><img '
+        'data-original="https://deliver.cdn.nicomanga.jp/thumb/4265156q" src="/manga/img/_.gif" '
+        'title="ニコニコ漫画（公式）" alt="ニコニコ漫画（公式）" class="lazyload"></div></a></li>'
+        '<li><a href="/official/kirara/"><div class="mg_banner"><img '
+        'data-original="https://deliver.cdn.nicomanga.jp/thumb/5709925q" src="/manga/img/_.gif" '
+        'title="きららベース" alt="きららベース" class="lazyload">'
+        '<p class="date_balloon">08/01更新</p></div></a></li>\n    </ul>\n  </div>')
+    CRUMB = ('<ul class="sg_pankuzu">\n'
+             '                        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">'
+             '<a href="/manga/" itemprop="url"><span itemprop="title">マンガ</span></a></li>\n'
+             '                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">'
+             '<a href="{href}" itemprop="url"><span itemprop="title">{label}</span></a></li>\n'
+             '                    <li class="active" itemscope '
+             'itemtype="http://data-vocabulary.org/Breadcrumb">'
+             '<span itemprop="title">{work}</span></li>\n            </ul>')
+
+    tart = CRUMB.format(href="/official/kirara", label="[公式] きららベース",
+                        work="おちこぼれフルーツタルト") + SIDEBAR
+    s.eq(nv.channel(tart), {"channel": "きららベース", "channel_slug": "kirara"},
+         "the channel is the one the breadcrumb names")
+    s.check("nicomanga" not in str(nv.channel(tart)),
+            "and not the first banner in the sidebar, which is on every page of the site")
+
+    # 「[公式]」 is the breadcrumb's own label for a channel, not part of its name. data/platforms.yaml
+    # records it as きららベース, and a value carrying the prefix would join to nothing.
+    s.eq(nv.channel(tart)["channel"], "きららベース", "the 公式 label is not part of the name")
+
+    # A slug with a hyphen in it. `[a-z0-9_]+` stopped at the hyphen and would have filed
+    # ニコニコ百合姫's works under a channel called `nico`, which is not a channel at all.
+    spica = CRUMB.format(href="/official/nico-yurihime", label="[公式] ニコニコ百合姫",
+                         work="スピカをつかまえて") + SIDEBAR
+    s.eq(nv.channel(spica), {"channel": "ニコニコ百合姫", "channel_slug": "nico-yurihime"},
+         "a hyphen belongs to the slug and does not end it")
+
+    # THE STATE THIS MUST NOT FILL IN. ニコニコ漫画 carries a section anybody may post to, and a
+    # work there has no channel: the second crumb is a genre listing, and the sidebar is unchanged.
+    # 19 of the 180 works we hold are in this position, so a rule that always answers is wrong 19
+    # times and looks right (§5).
+    solo = ('<ul class="sg_pankuzu">\n'
+            '                        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">'
+            '<a href="/manga/" itemprop="url"><span itemprop="title">マンガ</span></a></li>\n'
+            '                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">'
+            '<a href="/manga/list?category=%E3%81%9D%E3%81%AE%E4%BB%96%E3%83%9E%E3%83%B3%E3%82%AC" '
+            'itemprop="url"><span itemprop="title">その他マンガ</span></a></li>\n'
+            '                    <li class="active" itemscope '
+            'itemtype="http://data-vocabulary.org/Breadcrumb">'
+            '<span itemprop="title">同居人に片思いしてる百合漫画</span></li>\n            </ul>') + SIDEBAR
+    s.eq(nv.channel(solo), {},
+         "a work outside the official channels is recorded as being in none")
+
+    # An error page renders the sidebar and no breadcrumb of its own. Four of the 184 pages the
+    # last run fetched were these.
+    s.eq(nv.channel(SIDEBAR), {}, "a page with no breadcrumb yields no channel")
+
+    dated = nv.parse('<div class="meta_info">2026年08月01日更新</div>' + tart)
+    s.eq(dated.get("channel_slug"), "kirara", "and parse carries the channel onto the record")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "nicovideo.releases"))

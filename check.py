@@ -839,7 +839,38 @@ SOURCE_BUDGETS = {"stock phrasing in comments", "three as an organising shape",
                   "modules without a test", "shadowed names in build.py",
                   "scraped counters in chapter names"}
 
+RUBY_KANJI = re.compile(r"[一-鿿々]")
+RUBY_KANA = re.compile(r"[ぁ-ゖァ-ヺー]")
+
+
+def budget_implausible_ruby_spans(ctx):
+    """Ruby spans holding fewer kana than the run has kanji, which nobody could read aloud.
+
+    `ruby spells the reading` passes on every one of these, because い + ぬのえさはいろう does
+    concatenate to いぬのえさはいろう. It checks the spelling and says nothing about where the
+    boundaries fell, so 狗之餌 shipped carrying い while 廃狼 carried the other eight.
+
+    A run of N kanji needs at least N kana. That is arithmetic and not a heuristic, which is why
+    this counts only the impossible ones and leaves the merely surprising alone: 承る is one kanji
+    and four kana, and a rule with an upper bound would spend its life arguing about it.
+    """
+    bad = 0
+    for r in ctx["series"]:
+        for key in ("work_en", "author_en"):
+            for span in ((r.get(key) or {}).get("ruby") or []):
+                base, rt = (span + [None, None])[:2] if isinstance(span, list) else (None, None)
+                if not rt:
+                    continue
+                nk = len(RUBY_KANJI.findall(str(base or "")))
+                if nk and len(RUBY_KANA.findall(str(rt))) < nk:
+                    bad += 1
+    return bad
+
+
 BUDGETS_DEF = [
+    ("implausible ruby spans", budget_implausible_ruby_spans,
+     "furigana runs holding fewer kana than they have kanji. A rise means the aligner placed a "
+     "boundary somewhere no reading could fall, which the spelling check cannot see."),
     ("uncertain readings", budget_uncertain_readings,
      "readings assembled character by character because no analyser could read the word. A rise "
      "means new works whose kanji nothing can read, or a regression in the analyser passes."),

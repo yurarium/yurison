@@ -53,6 +53,19 @@ def main(s):
                 "a ruby reading is kana or absent, never romaji")
 
     # A reading that cannot be aligned must fail cleanly rather than inventing a pairing.
+    # A SPACED SURFACE AGAINST A SPACED READING. The solver takes the first split that fits and
+    # tries the shortest first, so with the spaces stripped 狗之餌 took one kana and 廃狼 took the
+    # other eight. The boundary is written on both sides and is used.
+    s.eq(kana.align("狗之餌 廃狼", "イヌノエサ ハイロウ"),
+         [("狗之餌", "イヌノエサ"), (" ", None), ("廃狼", "ハイロウ")],
+         "a boundary written on both sides places the split")
+    s.eq(kana.align("宮原 都", "ミヤハラ ミヤコ"),
+         [("宮原", "ミヤハラ"), (" ", None), ("都", "ミヤコ")],
+         "and does so where a naive split would still have fitted")
+    # COUNTS MUST MATCH. A reading is word-separated and a surface is not, so spaces that do not
+    # correspond say nothing and the whole-string search has to run as before.
+    s.check(kana.align("ゆりでなるえすぽわーる", "ユリ デ ナル エスポワール"),
+            "a reading spaced where the surface is not still aligns")
     bad = kana.align("君の名は", "ぜんぜんちがう")
     s.check(bad is None or "".join(t for t, _ in bad) == "君の名は",
             "a mismatched reading does not corrupt the surface")

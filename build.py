@@ -854,7 +854,9 @@ def load_names():
             if sp and not _kana.ruby_spells(sp, rd):
                 sp = None
             if not sp:
-                got = _kana.align(k_ja, rd.replace(" ", ""))
+                # The reading keeps its spaces. Where the surface is spaced the same way they are
+                # the boundary, and align() strips them itself when they are not.
+                got = _kana.align(k_ja, rd)
                 if got:
                     sp = [[t, _kana.to_hiragana(x) if x else None] for t, x in got]
             # JUKUGO-RUBY, where the split can be established. The layout rules distinguish a

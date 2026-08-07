@@ -526,6 +526,35 @@ def align(surface, reading):
     # reading. 銀玉の価値を上げる方法 lost its furigana to a character nobody can see.
     surface = unicodedata.normalize("NFC", surface)
     reading = unicodedata.normalize("NFC", reading)
+
+    # WHERE BOTH SIDES ARE SPACED THE SAME WAY, THE SPACES CORRESPOND, AND THEY SETTLE THE SPLIT.
+    # `狗之餌 廃狼` reads `イヌノエサ ハイロウ` and the boundary is written on both sides. Stripping
+    # it left the solver below free to place the split anywhere that fits, and it takes the first
+    # fit while trying the shortest first, so the leading run got ONE kana and the remainder landed
+    # on the last: 狗之餌 carried い and 廃狼 carried ぬのえさはいろう. 30 spans shipped holding fewer
+    # kana than they have kanji, which is not a reading anybody could produce.
+    #
+    # Segment counts have to match. A reading is word-separated by the analyser and a surface is
+    # not, so `ゆりでなる♡えすぽわーる` against `ユリ デ ナル ...` has spaces that mean something
+    # else entirely. Where the counts disagree this says nothing and the whole-string search runs
+    # exactly as before.
+    s_parts = [p for p in re.split(r"[ 　]+", surface) if p]
+    r_parts = [p for p in re.split(r"[ 　]+", reading) if p]
+    if len(s_parts) > 1 and len(s_parts) == len(r_parts):
+        seps = re.findall(r"[ 　]+", surface.strip())
+        out, whole = [], True
+        for i, (s, r) in enumerate(zip(s_parts, r_parts)):
+            if i:
+                out.append((seps[i - 1] if i - 1 < len(seps) else " ", None))
+            got = align(s, r)
+            if got is None:
+                whole = False
+                break
+            out.extend(got)
+        if whole:
+            return out
+    reading = re.sub(r"[ 　]+", "", reading)
+
     if not any(not is_kana(c) and (c.isalnum() or "一" <= c <= "鿿") for c in surface):
         return [(surface, None)]                      # nothing to annotate
 

@@ -154,8 +154,29 @@ def main(s):
         s.check("first_published: 2021-08-06" in text, "with the bibliography's date")
         s.check("marketing_label: none" in text, "and the label it is entitled to")
 
-        # THE JOIN FILE, which is what makes the identity claim an identifier rather than a title.
+        # THE CONTENT-FLAG REGISTER. Attaching a book run to a serialisation puts the publisher's
+        # imprint on a work for the first time, and four of the 226 turned out to be on an adult
+        # imprint. §14's policy does not withhold them, so the register records and REPORTS, and
+        # the file has a consumer in the same commit: build.py reads it and check.py asserts that
+        # the register and the published report agree.
         import yaml                                                            # noqa: PLC0415
+        adult = {"C1": {"schema:identifier": "C1", "schema:name": "悪魔のモカちゃん",
+                        "schema:brand": "ヤングアンリアルコミックス", "schema:publisher": "三和出版"},
+                 "C2": {"schema:identifier": "C2", "schema:name": "雨夜の月",
+                        "schema:brand": "ヤンマガKCスペシャル", "schema:publisher": "講談社"}}
+        rows = bp.designations({"C1": [VOL1], "C2": [VOL1]}, adult,
+                               {"C1": ["https://comic.pixiv.net/works/6807"]},
+                               {"https://comic.pixiv.net/works/6807": {"work": "悪魔のモカちゃん"}})
+        s.eq([r["work_id"] for r in rows], ["C1"],
+             "only the record on a designated imprint is flagged")
+        s.eq(rows[0]["work_title"], "悪魔のモカちゃん",
+             "under the title the reader sees, which is the platform's")
+        reg = yaml.safe_load(bp.render_register(rows, "2026-08-07"))
+        s.eq(reg["flagged_total"], 1, "the register states its own count")
+        s.eq(reg["works"][0]["withhold"], False,
+             "and withholds nothing, because every platform here is a publisher's own web arm")
+
+        # THE JOIN FILE, which is what makes the identity claim an identifier rather than a title.
         doc = yaml.safe_load(bp.render_joins(
             [{"platform_url": "https://comic-days.com/episode/1", "work": "雨夜の月",
               "madb_work_id": "C900", "agreement": "agreed"}], "2026-08-07"))

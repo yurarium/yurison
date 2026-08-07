@@ -1,0 +1,38 @@
+# Works whose print record carries a designation (DEFINITIONS §7), found when this pass attached
+# the book run to a serialisation the database already held and published.
+#
+# RECORDED AND REPORTED, NOT WITHHELD. STANDING-INSTRUCTIONS §14 is the policy: every platform in
+# this database is a commercial publisher's own web arm, so a designation on the imprint does not
+# withhold the serialisation by itself. `withhold` is false on every row and setting it is a
+# reviewed decision taken by hand.
+#
+# THIS FILE HAS A CONSUMER, in the commit that created it. build.py's `content_flags` reads it,
+# run.json reports it, status.html shows the count, and check.py's `content flags are accounted
+# for` fails if the register and the report disagree. A register nothing consumes reads as a
+# control that is working, which is what §13 is written about.
+
+source: editions
+retrieved: 2026-08-07
+record_type: withheld
+flagged_total: 4
+works:
+  - work_title: "サキュバスじゃないモン!"
+    url: "https://kimicomi.com/series/5fa1c045cc164"
+    work_id: "C421613"
+    reason: "published on ヤングアンリアルコミックス, an adult imprint"
+    withhold: false
+  - work_title: "悪魔のモカちゃん"
+    url: "https://comic.pixiv.net/works/6807"
+    work_id: "C434808"
+    reason: "published on ヤングアンリアルコミックス, an adult imprint"
+    withhold: false
+  - work_title: "タコと天使たち"
+    url: "https://kimicomi.com/series/a5503338d0099"
+    work_id: "madb-t-935fe5e12633"
+    reason: "published on ヤングアンリアルコミックス, an adult imprint"
+    withhold: false
+  - work_title: "Qyootie Q! ―麒麟娘と婚約事情―"
+    url: "https://kimicomi.com/series/22386346e628c"
+    work_id: "madb-t-dd5eb4e59b11"
+    reason: "published on ヤングアンリアルコミックス, an adult imprint"
+    withhold: false

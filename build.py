@@ -45,7 +45,14 @@ ALLOWED_SOURCES = {"madb", "openbd", "ndl", "openbd-jpro", "publisher", "ichijin
                    # `madb` and not a second kind of record inside it: what is stored is a date
                    # for a work another source already holds, and the join it rests on is written
                    # into the record. See adapters/madb/by_title.py for what had to agree.
-                   "madb-title"}
+                   "madb-title",
+                   # Carries no records at all: one content-flag register, written by
+                   # adapters/madb/by_platform_isbn.py when attaching a book run to a serialisation
+                   # turns up an imprint DEFINITIONS §7 designates. It is not in `madb/` because
+                   # `load_dir` reads every yaml there as a work record, and it is not in the
+                   # platform's own directory because the imprint is the bibliography's statement
+                   # rather than the platform's.
+                   "editions"}
 
 # Sources carrying work-level records that merge into a work. Others (release feeds) are
 # platform-level and compile separately.

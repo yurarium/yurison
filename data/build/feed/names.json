@@ -11709,6 +11709,13 @@
    },
    "reading_basis": "researched"
   },
+  "お姉さまと巨人(わたし):お嬢さまが異世界転生": {
+   "en": "MY SISTER AND GIANT",
+   "basis": "official-jp",
+   "en_forms": {
+    "official-jp": "MY SISTER AND GIANT"
+   }
+  },
   "お姉さまと巨人(わたし)=MYSISTERANDGIANT:お嬢さまが異世界転生": {
    "reading": "オ アネサマ ト キョジン   =   MY   SISTER   AND   GIANT   :   オジョウサマ ガ イセカイ テンショウ",
    "romaji": {
@@ -15022,9 +15029,10 @@
     "double": "Kono Koi o Hoshi ni wa Negawanai",
     "plain": "Kono Koi o Hoshi ni wa Negawanai"
    },
-   "en": "I Won't Wish This Love on a Star",
-   "basis": "translated",
+   "en": "There is no love wishing upon a star",
+   "basis": "official-jp",
    "en_forms": {
+    "official-jp": "There is no love wishing upon a star",
     "translated": "I Won't Wish This Love on a Star"
    },
    "reading_basis": "researched"
@@ -25738,6 +25746,13 @@
    },
    "reading_basis": "surface"
   },
+  "わたしのために脱ぎなさいっ!": {
+   "en": "TAKE OFF YOUR CLOTHES FOR ME!",
+   "basis": "official-jp",
+   "en_forms": {
+    "official-jp": "TAKE OFF YOUR CLOTHES FOR ME!"
+   }
+  },
   "わたしのために脱ぎなさいっ!=TAKEOFFYOURCLOTHESFORME!": {
    "reading": "ワタシ ノ タメ ニ ヌギ ナサ イッ !   =   TAKE   OFF   YOUR   CLOTHES   FOR   ME !",
    "ruby": [
@@ -25763,35 +25778,6 @@
    "basis": "official-jp",
    "en_forms": {
     "official-jp": "TAKE OFF YOUR CLOTHES FOR ME!"
-   },
-   "reading_basis": "analyser",
-   "unverified": true
-  },
-  "わたしのために脱ぎなさいっ!": {
-   "reading": "ワタシ ノ タメ ニ ヌギ ナサ イッ！",
-   "ruby": [
-    [
-     "わたしのために",
-     null
-    ],
-    [
-     "脱",
-     "ぬ"
-    ],
-    [
-     "ぎなさいっ！",
-     null
-    ]
-   ],
-   "romaji": {
-    "macron": "Watashi no Tame ni Nugi Nasa I!",
-    "double": "Watashi no Tame ni Nugi Nasa I!",
-    "plain": "Watashi no Tame ni Nugi Nasa I!"
-   },
-   "en": "Take It Off for Me!",
-   "basis": "translated",
-   "en_forms": {
-    "translated": "Take It Off for Me!"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -30996,6 +30982,14 @@
    "reading_basis": "analyser",
    "unverified": true
   },
+  "ギャルメイドと悪役令嬢:おじょーさまのハッピーエンドしか勝たん!": {
+   "en": "The Gyaru Maid and the Villainess: Nothing Beats My Lady's Happy Ending!",
+   "basis": "translated",
+   "en_forms": {
+    "translated": "The Gyaru Maid and the Villainess: Nothing Beats My Lady's Happy Ending!"
+   },
+   "unverified": true
+  },
   "ギャルメイドと悪役令嬢~おじょーさまのハッピーエンドしか勝たん!~": {
    "reading": "ギャルメイド ト アクヤク レイジョウ   ～ オ ジョー サマ ノ ハッピーエンド シカ カタン！ ～",
    "ruby": [
@@ -32219,6 +32213,20 @@
    "reading_basis": "analyser",
    "unverified": true
   },
+  "サチとユーカ": {
+   "reading": "サチ ト ユーカ",
+   "romaji": {
+    "macron": "Sachi to Yūka",
+    "double": "Sachi to Yuuka",
+    "plain": "Sachi to Yuka"
+   },
+   "en": "SACHI and YUUKA",
+   "basis": "official-jp",
+   "en_forms": {
+    "official-jp": "SACHI and YUUKA"
+   },
+   "reading_basis": "analyser"
+  },
   "サチとユーカ=SACHIandYUUKA": {
    "reading": "サチ ト ユーカ   =   SACHI   and   YUUKA",
    "romaji": {
@@ -32830,6 +32838,51 @@
    },
    "reading_basis": "analyser"
   },
+  "シナモン:人外×人間百合アンソロジー": {
+   "reading": "シナモン   :   ジンガイ × ニンゲン ユリ アンソロジー",
+   "ruby": [
+    [
+     "シナモン : ",
+     null
+    ],
+    [
+     "人",
+     "じん"
+    ],
+    [
+     "外",
+     "がい"
+    ],
+    [
+     "×",
+     null
+    ],
+    [
+     "人間",
+     "にんげん"
+    ],
+    [
+     "百合",
+     "ゆり"
+    ],
+    [
+     "アンソロジー",
+     null
+    ]
+   ],
+   "romaji": {
+    "macron": "Shinamon : Jingai x Ningen Yuri Ansorojī",
+    "double": "Shinamon : Jingai x Ningen Yuri Ansorojii",
+    "plain": "Shinamon : Jingai x Ningen Yuri Ansoroji"
+   },
+   "en": "Cinnamon: A Nonhuman x Human Yuri Anthology",
+   "basis": "translated",
+   "en_forms": {
+    "translated": "Cinnamon: A Nonhuman x Human Yuri Anthology"
+   },
+   "reading_basis": "analyser",
+   "unverified": true
+  },
   "シナモン=Cinnamon:人外×人間百合アンソロジー": {
    "reading": "シナモン   =   Cinnamon   :   ジンガイ × ニンゲン ユリ アンソロジー",
    "ruby": [
@@ -33205,6 +33258,47 @@
    "basis": "official-jp",
    "en_forms": {
     "official-jp": "The princess of sylph"
+   },
+   "reading_basis": "analyser",
+   "unverified": true
+  },
+  "シロップ:社会人百合アンソロジー": {
+   "reading": "シロップ   :   シャカイジン ユリ アンソロジー",
+   "ruby": [
+    [
+     "シロップ : ",
+     null
+    ],
+    [
+     "社",
+     "しゃ"
+    ],
+    [
+     "会",
+     "かい"
+    ],
+    [
+     "人",
+     "じん"
+    ],
+    [
+     "百合",
+     "ゆり"
+    ],
+    [
+     "アンソロジー",
+     null
+    ]
+   ],
+   "romaji": {
+    "macron": "Shiroppu : Shakaijin Yuri Ansorojī",
+    "double": "Shiroppu : Shakaijin Yuri Ansorojii",
+    "plain": "Shiroppu : Shakaijin Yuri Ansoroji"
+   },
+   "en": "Syrup: A Working Women's Yuri Anthology",
+   "basis": "translated",
+   "en_forms": {
+    "translated": "Syrup: A Working Women's Yuri Anthology"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -33778,6 +33872,13 @@
     "translated": "Starlight Melody"
    },
    "reading_basis": "surface"
+  },
+  "ステラ★レコード": {
+   "en": "STELLA★RECORD",
+   "basis": "official-jp",
+   "en_forms": {
+    "official-jp": "STELLA★RECORD"
+   }
   },
   "ステラ★レコード=STELLA★RECORD": {
    "reading": "ステラ ★ レコード   =   STELLA ★ RECORD",
@@ -34400,6 +34501,20 @@
    },
    "reading_basis": "analyser",
    "unverified": true
+  },
+  "セイキマツブルー": {
+   "reading": "セイキマツブルー",
+   "romaji": {
+    "macron": "Seikimatsuburū",
+    "double": "Seikimatsuburuu",
+    "plain": "Seikimatsuburu"
+   },
+   "en": "Seikimatsu Blue",
+   "basis": "official-jp",
+   "en_forms": {
+    "official-jp": "Seikimatsu Blue"
+   },
+   "reading_basis": "analyser"
   },
   "セイキマツブルー=SeikimatsuBlue": {
    "reading": "セイキマツブルー   =   Seikimatsu   Blue",
@@ -41718,6 +41833,20 @@
    },
    "reading_basis": "surface"
   },
+  "ラストサマー・バケーション": {
+   "reading": "ラスト サマー・ バケーション",
+   "romaji": {
+    "macron": "Rasuto Samā Bakēshon",
+    "double": "Rasuto Samaa Bakeeshon",
+    "plain": "Rasuto Sama Bakeshon"
+   },
+   "en": "LAST SUMMER VACATION",
+   "basis": "official-jp",
+   "en_forms": {
+    "official-jp": "LAST SUMMER VACATION"
+   },
+   "reading_basis": "analyser"
+  },
   "ラストサマー・バケーション=LASTSUMMERVACATION": {
    "reading": "ラストサマー・ バケーション   =   LAST   SUMMER   VACATION",
    "romaji": {
@@ -43526,6 +43655,43 @@
    "basis": "translated",
    "en_forms": {
     "translated": "I Can't Defy the Lonely Girl"
+   },
+   "reading_basis": "analyser",
+   "unverified": true
+  },
+  "ローダンセ:主従百合アンソロジー": {
+   "reading": "ローダンセ   :   シュジュウ ユリ アンソロジー",
+   "ruby": [
+    [
+     "ローダンセ : ",
+     null
+    ],
+    [
+     "主",
+     "しゅ"
+    ],
+    [
+     "従",
+     "じゅう"
+    ],
+    [
+     "百合",
+     "ゆり"
+    ],
+    [
+     "アンソロジー",
+     null
+    ]
+   ],
+   "romaji": {
+    "macron": "Rōdanse : Shujū Yuri Ansorojī",
+    "double": "Roodanse : Shujuu Yuri Ansorojii",
+    "plain": "Rodanse : Shuju Yuri Ansoroji"
+   },
+   "en": "Rhodanthe: A Mistress and Servant Yuri Anthology",
+   "basis": "translated",
+   "en_forms": {
+    "translated": "Rhodanthe: A Mistress and Servant Yuri Anthology"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -50483,6 +50649,13 @@
    "reading_basis": "analyser",
    "unverified": true
   },
+  "先輩、美味しいですか?": {
+   "en": "Senpai,does it taste good?",
+   "basis": "official-jp",
+   "en_forms": {
+    "official-jp": "Senpai,does it taste good?"
+   }
+  },
   "先輩、美味しいですか?=Senpai,doesittastegood?": {
    "reading": "センパイ、 オイシイデス カ ?   =   Senpai , does   it   taste   good ?",
    "ruby": [
@@ -50516,43 +50689,6 @@
    "basis": "official-jp",
    "en_forms": {
     "official-jp": "Senpai,does it taste good?"
-   },
-   "reading_basis": "analyser",
-   "unverified": true
-  },
-  "先輩、美味しいですか?": {
-   "reading": "センパイ、 オイシイデス カ？",
-   "ruby": [
-    [
-     "先",
-     "せん"
-    ],
-    [
-     "輩",
-     "ぱい"
-    ],
-    [
-     "、",
-     null
-    ],
-    [
-     "美味",
-     "おい"
-    ],
-    [
-     "しいですか？",
-     null
-    ]
-   ],
-   "romaji": {
-    "macron": "Senpai, Oishiidesu Ka?",
-    "double": "Senpai, Oishiidesu Ka?",
-    "plain": "Senpai, Oishidesu Ka?"
-   },
-   "en": "Senpai, Are You Delicious?",
-   "basis": "translated",
-   "en_forms": {
-    "translated": "Senpai, Are You Delicious?"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -53174,9 +53310,10 @@
     "double": "Houtai Shoujo Kikan",
     "plain": "Hotai Shojo Kikan"
    },
-   "en": "Bandage Girls Period",
-   "basis": "translated",
+   "en": "Bandage Girls Period.",
+   "basis": "official-jp",
    "en_forms": {
+    "official-jp": "Bandage Girls Period.",
     "translated": "Bandage Girls Period"
    },
    "reading_basis": "analyser",
@@ -70471,7 +70608,11 @@
     "double": "Akuyaku Reijou no Naka no Hito : Danzai Sareta Tenshousha no Tame Usotsuki Hiroin ni Fukushuu Itashimasu",
     "plain": "Akuyaku Reijo no Naka no Hito : Danzai Sareta Tenshosha no Tame Usotsuki Hiroin ni Fukushu Itashimasu"
    },
-   "basis": "romaji",
+   "en": "The person in a villainess",
+   "basis": "official-jp",
+   "en_forms": {
+    "official-jp": "The person in a villainess"
+   },
    "reading_basis": "analyser",
    "unverified": true
   },
@@ -71997,6 +72138,21 @@
    "basis": "translated",
    "en_forms": {
     "translated": "Tokorozawa-san Is 177cm"
+   },
+   "reading_basis": "analyser",
+   "unverified": true
+  },
+  "抱かれたい女(ひと):JDだけどアラサー女子に買われています": {
+   "reading": "イダカレタイ オンナ   :   JDダケド アラサー ジョシ ニ カワレテ イマス",
+   "romaji": {
+    "macron": "Idakaretai Onna : JDdakedo Arasā Joshi ni Kawarete Imasu",
+    "double": "Idakaretai Onna : JDdakedo Arasaa Joshi ni Kawarete Imasu",
+    "plain": "Idakaretai Onna : JDdakedo Arasa Joshi ni Kawarete Imasu"
+   },
+   "en": "person who wants to be embraced: I'm a University Student and a Woman Pushing Thirty Is Buying Me",
+   "basis": "translated",
+   "en_forms": {
+    "translated": "person who wants to be embraced: I'm a University Student and a Woman Pushing Thirty Is Buying Me"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -77107,6 +77263,79 @@
    "basis": "translated",
    "en_forms": {
     "translated": "Bookworm"
+   },
+   "reading_basis": "analyser",
+   "unverified": true
+  },
+  "杉並区立魔法女学園平和維持部": {
+   "reading": "スギナミ クリツ マホウ ジョガクエン ヘイワ イジ ブ",
+   "ruby": [
+    [
+     "杉",
+     "すぎ"
+    ],
+    [
+     "並",
+     "なみ"
+    ],
+    [
+     "区",
+     "く"
+    ],
+    [
+     "立",
+     "りつ"
+    ],
+    [
+     "魔",
+     "ま"
+    ],
+    [
+     "法",
+     "ほう"
+    ],
+    [
+     "女",
+     "じょ"
+    ],
+    [
+     "学",
+     "がく"
+    ],
+    [
+     "園",
+     "えん"
+    ],
+    [
+     "平",
+     "へい"
+    ],
+    [
+     "和",
+     "わ"
+    ],
+    [
+     "維",
+     "い"
+    ],
+    [
+     "持",
+     "じ"
+    ],
+    [
+     "部",
+     "ぶ"
+    ]
+   ],
+   "romaji": {
+    "macron": "Suginami Kuritsu Mahō Jogakuen Heiwa Iji Bu",
+    "double": "Suginami Kuritsu Mahou Jogakuen Heiwa Iji Bu",
+    "plain": "Suginami Kuritsu Maho Jogakuen Heiwa Iji Bu"
+   },
+   "en": "peace keeping club of suginami municipal school for witches",
+   "basis": "official-jp",
+   "en_forms": {
+    "official-jp": "peace keeping club of suginami municipal school for witches"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -85466,6 +85695,13 @@
    },
    "reading_basis": "analyser",
    "unverified": true
+  },
+  "白と黒": {
+   "en": "Black & White",
+   "basis": "official-jp",
+   "en_forms": {
+    "official-jp": "Black & White"
+   }
   },
   "白と黒=Black&White": {
    "reading": "シロ ト クロ   =   Black   &   White",
@@ -137894,11 +138130,11 @@
    "en": "Kodansha",
    "basis": "official-jp"
   },
-  "週刊少年マガジン": {
+  "講談社コミックス. 週刊少年マガジン": {
    "en": "Weekly Shonen Magazine",
    "basis": "romaji"
   },
-  "講談社コミックス. 週刊少年マガジン": {
+  "週刊少年マガジン": {
    "en": "Weekly Shonen Magazine",
    "basis": "romaji"
   },
@@ -137906,11 +138142,11 @@
    "en": "Sirius KC",
    "basis": "romaji"
   },
-  "MFコミックス. フラッパーシリーズ": {
+  "フラッパーシリーズ": {
    "en": "Flapper Series",
    "basis": "romaji"
   },
-  "フラッパーシリーズ": {
+  "MFコミックス. フラッパーシリーズ": {
    "en": "Flapper Series",
    "basis": "romaji"
   },
@@ -137946,11 +138182,11 @@
    "en": "Gangan Comics",
    "basis": "romaji"
   },
-  "アライブ+シリーズ": {
+  "MFコミックス. アライブ+シリーズ": {
    "en": "Alive+ Series",
    "basis": "romaji"
   },
-  "MFコミックス. アライブ+シリーズ": {
+  "アライブ+シリーズ": {
    "en": "Alive+ Series",
    "basis": "romaji"
   },
@@ -138010,11 +138246,11 @@
    "en": "Ichijinsha",
    "basis": "official-jp"
   },
-  "IDコミックス. Yurihime comics": {
+  "コミック百合姫": {
    "en": "Comic Yuri Hime",
    "basis": "official-jp"
   },
-  "コミック百合姫": {
+  "IDコミックス. Yurihime comics": {
    "en": "Comic Yuri Hime",
    "basis": "official-jp"
   },
@@ -138074,11 +138310,11 @@
    "en": "HERO'S Comics Wilde",
    "basis": "romaji"
   },
-  "MFコミックス. ジーンシリーズ": {
+  "ジーンシリーズ": {
    "en": "Gene Series",
    "basis": "romaji"
   },
-  "ジーンシリーズ": {
+  "MFコミックス. ジーンシリーズ": {
    "en": "Gene Series",
    "basis": "romaji"
   },
@@ -138146,11 +138382,11 @@
    "en": "Homesha",
    "basis": "official-jp"
   },
-  "オギャー!!": {
+  "集英社ホームコミックス. オギャー!!": {
    "en": "COMIC OGYAAA!!",
    "basis": "official-jp"
   },
-  "集英社ホームコミックス. オギャー!!": {
+  "オギャー!!": {
    "en": "COMIC OGYAAA!!",
    "basis": "official-jp"
   },
@@ -138242,11 +138478,11 @@
    "en": "Bessatsu Friend",
    "basis": "romaji"
   },
-  "4コマkingsぱれっとcomics": {
+  "IDコミックス　／　4コマkingsぱれっとcomics": {
    "en": "4-koma kings palette comics",
    "basis": "romaji"
   },
-  "IDコミックス　／　4コマkingsぱれっとcomics": {
+  "4コマkingsぱれっとcomics": {
    "en": "4-koma kings palette comics",
    "basis": "romaji"
   },
@@ -138610,11 +138846,11 @@
    "en": "Comic Yuri Hime",
    "basis": "official-jp"
   },
-  "IDコミックス　／　DNAメディアコミックス": {
+  "DNAメディアコミックス": {
    "en": "DNA Media Comics",
    "basis": "romaji"
   },
-  "DNAメディアコミックス": {
+  "IDコミックス　／　DNAメディアコミックス": {
    "en": "DNA Media Comics",
    "basis": "romaji"
   },
@@ -148821,6 +149057,7 @@
   "サタノファニ": "Satanofani",
   "サタノファニ:妖艶彩色本・極": "Satanofani, :, Yōen Saishiki Hon, Kyoku",
   "サタノファニ=SATANOPHANY": "Satanofani = SATANOPHANY",
+  "サチとユーカ": "Sachi to Yūka",
   "サチとユーカ=SACHIandYUUKA": "Sachi to Yūka = SACHI And YUUKA",
   "サテライト・コインランドリー": "Sateraito, Koinrandorī",
   "サテライト・コインランドリー(MFC)": "Sateraito, Koinrandorī (MFC)",
@@ -148874,6 +149111,7 @@
   "シチサブロー/シチサブロー": "Shichisaburō, Shichisaburō",
   "シナジー": "Shinajī",
   "シナジー(ナンバーナイン)": "Shinajī (Nanbā Nain)",
+  "シナモン:人外×人間百合アンソロジー": "Shinamon : Jingai x Ningen Yuri Ansorojī",
   "シナモン=Cinnamon:人外×人間百合アンソロジー": "Shinamon, =, Cinnamon, :, Jingai x Ningen Yuri Ansorojī",
   "シフト.70\"後藤葉子\"(1)": "Shifuto . 70 \" Gotō Yōko \" ( 1 )",
   "シフト.75お姉さまの授業参観(1)": "Shifuto . 75 o Anesama no Jugyō Sankan ( 1 )",
@@ -148904,6 +149142,7 @@
   "シルフの花姫": "Shirufu no Hana Hime",
   "シルフの花姫=Theprincessofsylph": "Shirufu no Hana Hime, =, The, princess, of, sylph",
   "シルフの花姫(電撃コミックスNEXT)": "Shirufu no Hana Hime (Dengeki Komikkusu NEXT)",
+  "シロップ:社会人百合アンソロジー": "Shiroppu : Shakaijin Yuri Ansorojī",
   "シロップ=syrup:社会人百合アンソロジー": "Shiroppu, =, syrup, :, Shakaijin Yuri Ansorojī",
   "シングルマザーとフリーター": "Shingurumazā to Furītā",
   "シングルマザーとフリーター(ナンバーナイン)": "Shingurumazā to Furītā (Nanbā Nain)",
@@ -148988,6 +149227,7 @@
   "スロー・ステップ!(アライブ+)": "Surō, Suteppu! (Araibu +)",
   "スーサイドエイジ": "Sūsaidoeiji",
   "スーパーナックルお嬢様/25年9月期JUMP新世界漫画賞/週刊少年ジャンプ": "Sūpā Nakkuru Ojōsama, 25 Nen 9 Gatsu Ki JUMP Shinsekai Manga Shō, Shūkan Shōnen Janpu",
+  "セイキマツブルー": "Seikimatsuburū",
   "セイキマツブルー=SeikimatsuBlue": "Seikimatsuburū, =, Seikimatsu, Blue",
   "セイ少女黙示録ですぺあ": "Sei Shōjo Mokushirokudesupe A",
   "セッ○スしないと出られない部屋~百合ver.~": "Se ○ Su Shinai to Derarenai Heya ~ Yuri Ver . ~",
@@ -149651,6 +149891,7 @@
   "ロンリーガールに花束を樫風短編集(百合姫コミックス)": "Ronrī Gāru ni Hanataba o, Kashifū Tanpenshū (Yuri Hime Komikkusu)",
   "ロンリーガールに逆らえない": "Ronrī Gāru ni Sakaraenai",
   "ロンリーガールに逆らえない(百合姫コミックス)": "Ronrī Gāru ni Sakaraenai (Yuri Hime Komikkusu)",
+  "ローダンセ:主従百合アンソロジー": "Rōdanse : Shujū Yuri Ansorojī",
   "ローダンセ=Rhodanthe:主従百合アンソロジー": "Rōdanse, =, Rhodanthe, :, Shujū Yuri Ansorojī",
   "ワイルアライブ": "Wairu Araibu",
   "ワインガールズ": "Wain Gāruzu",
@@ -151379,6 +151620,7 @@
   "所沢さんは177cm(ライトリーズン)": "Tokorozawasan wa 177 Cm (Raito Rīzun)",
   "扇城ひな": "Ōgijō Hina",
   "手原和憲": "Tehara Kazunori",
+  "抱かれたい女(ひと):JDだけどアラサー女子に買われています": "Idakaretai Onna, :, JDdakedo Arasā Joshi ni Kawarete Imasu",
   "抱かれたい女(ひと)=personwhowantstobeembraced:JDだけどアラサー女子に買われています": "Idakaretai Onna, =, person, who, wants, to, be, embraced, :, JDdakedo Arasā Joshi ni Kawarete Imasu",
   "抱かれたい女〜JDだけどアラサー女子に買われています〜": "Idakaretai Onna ~ JDdakedo Arasā Joshi ni Kawarete Imasu ~",
   "抱かれたい女~JDだけどアラサー女子に買われています~": "Idakaretai Onna ~ JDdakedo Arasā Joshi ni Kawarete Imasu ~",
@@ -151719,6 +151961,7 @@
   "朱村咲": "Akemura Saki",
   "朱白あおい/糀もろみ(脚本)/村田真哉(構成)/柳井伸彦": "Shu Shiro, Aoi, Kōji Moromi ( Kyakuhon ), Murata Shin'ya ( Kōsei ), Yanai Nobuhiko",
   "朱白あおい,糀もろみ,村田真哉,柳井伸彦": "Akashiro Aoi, Kōji Moromi, Murata Shin'ya, Yanai Nobuhiko",
+  "杉並区立魔法女学園平和維持部": "Suginami Kuritsu Mahō Jogakuen Heiwa Iji Bu",
   "杉並区立魔法女学園平和維持部=peacekeepingclubofsuginamimunicipalschoolforwitches": "Suginami Kuritsu Mahō Jogakuen Heiwa Iji Bu, =, peace, keeping, club, of, suginami, municipal, school, for, witches",
   "杉谷エコ": "Sugitani Eko",
   "杉谷ユカリ": "Sugitani Yukari",

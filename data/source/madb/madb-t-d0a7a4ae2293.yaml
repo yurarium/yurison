@@ -11,7 +11,9 @@ grouping: title-only
 madb_id: null
 record_type: manga_book_series
 title:
-  ja: "先輩、美味しいですか? = Senpai,does it taste good?"
+  ja: "先輩、美味しいですか?"
+  en: "Senpai,does it taste good?"
+  en_basis: parallel-title
   yomi: "Senpai,does it taste good?"
 creator: "[著]みかん氏"
 publisher: "KADOKAWA"

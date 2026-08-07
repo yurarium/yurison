@@ -11,7 +11,9 @@ grouping: title-only
 madb_id: null
 record_type: manga_book_series
 title:
-  ja: "偽りのマリィゴールド = false marigold"
+  ja: "偽りのマリィゴールド"
+  en: "false marigold"
+  en_basis: parallel-title
   yomi: "false marigold"
 creator: "[著]サスケ"
 publisher: "KADOKAWA"

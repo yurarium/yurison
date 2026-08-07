@@ -67,6 +67,20 @@ net.PAUSE = max(net.PAUSE, 1.6)
 # markup would fail this legitimately, and the answer is to read the markup again.
 FLOOR = 0.9
 
+# THE CEILING ON SILENCE, AND WHY THE FLOOR ABOVE CANNOT SEE THE FAILURE IT GUARDS. This shop
+# answers a query that matched nothing with 404, so a run whose requests were all being refused
+# produces a note for every work, clears the floor, and writes a file saying the shop stocks
+# nothing. That is the shape STANDING-INSTRUCTIONS §14b is about: the guard shares its subject's
+# blind spot. Measured on the run of 2026-08-07, 39 of 639 works had every query answer nothing,
+# which is 6%. A run over a third is a shop that stopped answering this project.
+SILENCE_CEILING = 0.35
+
+
+# What a note says when the shop's own answer was 404. One spelling, written once, because the
+# ceiling above counts these and a second copy of the wording would stop counting them the day
+# either was reworded.
+NOTHING = "answered nothing"
+
 
 def gap_works(path=SERIES):
     """Every work with a web serialisation and no print edition, as the build states it.
@@ -101,7 +115,7 @@ def ask(work, cache):
         if r.text is None:
             # 404 is how this shop says a query matched nothing, which is an answer and not a
             # failure. Anything else is a request that did not happen and is worth naming.
-            notes.append(f"{kind} query answered nothing"
+            notes.append(f"{kind} query {NOTHING}"
                          if net.is_permanent(r) else f"{kind} query failed: {r.error}")
             continue
         found = shop.pick(shop.tiles(r.text), work.get("work"))
@@ -124,6 +138,17 @@ def confirm(row, cache):
     if r.text is None:
         return {}, f"volume page not read: {r.error}"
     return shop.details(r.text), None
+
+
+def silenced(rows):
+    """How many works the shop refused to answer at all, which is what the ceiling counts.
+
+    A work whose query came back 200 with results that name something else is the shop ANSWERING,
+    and it is not counted here. The difference is the whole point: the first says the shop stopped
+    talking to us and the second says this work is not in its catalogue.
+    """
+    return sum(1 for r in rows if not r.get("hits") and r.get("notes")
+               and all(NOTHING in n for n in r["notes"]))
 
 
 def merge(doc, rows):
@@ -273,6 +298,12 @@ def main(argv=None):
         sys.exit(f"HEALTH: {answered} of {len(todo)} works produced neither a hit nor a reason "
                  f"(under the {FLOOR:.0%} floor). That is a run that stopped and not a shop with "
                  "thin stock. Refusing to write.")
+    silent = silenced(rows)
+    if todo and silent > len(todo) * SILENCE_CEILING:
+        sys.exit(f"HEALTH: {silent} of {len(todo)} works had every query answer nothing "
+                 f"(over the {SILENCE_CEILING:.0%} ceiling). This shop says 'no results' with a "
+                 "404, so a run being refused looks exactly like a shop with no stock. Refusing "
+                 "to write.")
 
     doc.setdefault("source", "bookwalker.jp")
     doc.setdefault("role", "print-edition-discovery")

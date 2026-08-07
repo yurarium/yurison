@@ -7,7 +7,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 import testkit                                                                 # noqa: E402
-from shopquery import shop                                                     # noqa: E402
+from shopquery import capture, shop                                            # noqa: E402
 
 COVERS = ["adapters/shopquery/shop.py", "adapters/shopquery/capture.py"]
 
@@ -157,6 +157,21 @@ def main(s):
          "a shop that printed no credit cannot agree")
     s.eq(shop.classify(got["author"], None), "title-only",
          "and neither can a work this database credits to nobody")
+
+    # THE CEILING ON SILENCE. This shop answers a query matching nothing with 404, so a run being
+    # refused produces a note for every work, clears the completeness floor, and writes a file
+    # saying the shop stocks nothing. The two kinds of silence have to be told apart or the guard
+    # is blind exactly where its subject is (STANDING-INSTRUCTIONS §14b).
+    refused = {"hits": [], "notes": ["author query answered nothing",
+                                     "title query answered nothing"]}
+    answered = {"hits": [], "notes": ["author query returned no title this database recognises"]}
+    s.eq(capture.silenced([refused, refused]), 2, "a shop that refused every query is counted")
+    s.eq(capture.silenced([answered, answered]), 0,
+         "a shop that answered and named something else is not, because it answered")
+    s.eq(capture.silenced([{"hits": [{"agreement": "creator"}], "notes": []}]), 0,
+         "and neither is a work the shop stocks")
+    s.check(capture.SILENCE_CEILING < 1.0,
+            "the ceiling is a share the run can exceed, not a formality")
 
     s.eq(shop.query_url("卯花りりか"),
          "https://bookwalker.jp/search/?word=%E5%8D%AF%E8%8A%B1%E3%82%8A%E3%82%8A%E3%81%8B&qcat=2",

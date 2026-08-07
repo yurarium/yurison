@@ -61,6 +61,19 @@ ATTRIBUTION = {
     "romaji": ("derived",),                       # ours
 }
 
+# A PUBLISHER'S NAME IS SOURCED DIFFERENTLY FROM A WORK'S, so it gets its own row rather than
+# bending the table above. `official-jp` for a work means the English title the work carries; for a
+# company it means the Latin name the company signs itself with, which is on its own site and
+# nowhere else. `licensed` has no meaning here at all: nobody licenses a publisher's name.
+PUBLISHER_ATTRIBUTION = {
+    "official-jp": ("publisher-jp", "platform"),
+    "romaji": ("derived",),
+    "translated": ("derived",),
+}
+KIND_ATTRIBUTION = {"titles": ATTRIBUTION, "authors": ATTRIBUTION,
+                    "publishers": PUBLISHER_ATTRIBUTION}
+CURATED_KINDS = ("titles", "authors", "publishers")
+
 # A source_kind may be named here without being usable as evidence: a candidate records where a
 # string was seen, and seeing it in a community database is the ordinary case.
 SOURCE_KINDS = ("platform", "publisher-jp", "licensor", "community-db", "derived",
@@ -149,11 +162,12 @@ def problems(kind, ja, e):
 
     if e.get("en"):
         basis = e.get("basis")
-        if basis not in ATTRIBUTION:
-            out.append(f"{where}: basis {basis!r} is not one of {sorted(ATTRIBUTION)}")
-        elif e.get("source_kind") not in ATTRIBUTION[basis]:
+        table = KIND_ATTRIBUTION.get(kind, ATTRIBUTION)
+        if basis not in table:
+            out.append(f"{where}: basis {basis!r} is not one of {sorted(table)}")
+        elif e.get("source_kind") not in table[basis]:
             out.append(f"{where}: basis {basis!r} needs evidence from "
-                       f"{' or '.join(ATTRIBUTION[basis])}, not {e.get('source_kind')!r}")
+                       f"{' or '.join(table[basis])}, not {e.get('source_kind')!r}")
         if e.get("source_kind") != "derived" and not e.get("source_url"):
             out.append(f"{where}: an attributed name needs the page it was read from")
     elif e.get("basis"):
@@ -186,10 +200,10 @@ def problems(kind, ja, e):
 def check(doc):
     """Validate a whole file. Returns the list of problems across every entry."""
     out = []
-    for kind in ("titles", "authors"):
+    for kind in CURATED_KINDS:
         for ja, e in (doc.get(kind) or {}).items():
             out += problems(kind, ja, e)
-    for key in set(doc) - {"titles", "authors"}:
+    for key in set(doc) - set(CURATED_KINDS):
         out.append(f"unknown top-level key {key!r}")
     return out
 
@@ -244,7 +258,7 @@ def duplicate_keys(path=None):
     lines = pathlib.Path(path or FILE).read_text().split("\n")
     section, seen = None, collections.defaultdict(list)
     for n, line in enumerate(lines, 1):
-        head = re.match(r"^(titles|authors):", line)
+        head = re.match(r"^(%s):" % "|".join(CURATED_KINDS), line)
         if head:
             section = head.group(1)
             continue
@@ -321,7 +335,7 @@ def todo(build="data/build", limit=None, curated=None):
 def apply(store, doc):
     """Record every entry. Returns (applied, candidates)."""
     applied = candidates = 0
-    for kind in ("titles", "authors"):
+    for kind in CURATED_KINDS:
         for ja, e in (doc.get(kind) or {}).items():
             fact = {k: e.get(k) for k in
                     ("en", "candidate", "basis", "source", "source_kind", "source_url", "note",
@@ -393,8 +407,9 @@ def main(argv=None):
     stray = unmatched(doc, known_titles(a.build))
     for s in stray:
         print(f"  STRAY  titles/{s}: names no work in the catalogue")
-    counts = {k: len(doc.get(k) or {}) for k in ("titles", "authors")}
-    print(f"{counts['titles']} title(s), {counts['authors']} author(s); "
+    counts = {k: len(doc.get(k) or {}) for k in CURATED_KINDS}
+    print(f"{counts['titles']} title(s), {counts['authors']} author(s), "
+          f"{counts['publishers']} publisher(s); "
           f"{len(bad)} rejected, {len(stray)} matching nothing, {len(dups)} written twice")
     if bad or stray:
         return 1

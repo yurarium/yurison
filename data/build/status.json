@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-07T21:40:11+00:00",
+ "generated": "2026-08-07T22:22:34+00:00",
  "since_last": {
-  "at": "2026-08-07T21:33:34+00:00",
+  "at": "2026-08-07T22:11:22+00:00",
   "statistics": {}
  },
  "means": {
@@ -141,8 +141,8 @@
    {
     "name": "titles with no translation of our own",
     "means": "titles whose only English is the publisher's or the licensor's, so a reader who moves those down EN_ORDER is shown a romanisation instead of an alternative. A rise means a translation stopped reaching the shipped file, which is coverage lost and never a tidy-up.",
-    "budget": 214,
-    "value": 214
+    "budget": 224,
+    "value": 224
    },
    {
     "name": "publishers with no English",
@@ -193,6 +193,12 @@
     "value": 175
    },
    {
+    "name": "titles carrying cataloguing punctuation",
+    "means": "titles a reader is shown that still hold a bibliography's own ISBD markup: an equals sign in any spelling, or a reissue marker from the closed set adapters/isbd.py holds. A subtitle after the same colon is content and is not counted. A rise means a capture route wrote a catalogue string through as a name.",
+    "budget": 23,
+    "value": 23
+   },
+   {
     "name": "incomplete attested rows",
     "means": "attested releases missing a chapter name, author or access state. The classic sign of a moved CSS selector — the adapter still returns rows, just emptier ones.",
     "budget": 16,
@@ -232,7 +238,8 @@
     "name": "scraped counters in chapter names",
     "means": "chapter names ending in the view or like counts printed next to them on the source page. A rise means an extractor has gone back to flattening a chapter block into one run of text instead of reading the element the page names as the title.",
     "budget": 1,
-    "value": 1
+    "value": null,
+    "not_measured": "source-quality budget; measured at check-in"
    },
    {
     "name": "rows with a moving address",
@@ -414,7 +421,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-07T21:33:33+00:00",
+  "previous_at": "2026-08-07T22:11:21+00:00",
   "drops": []
  },
  "outstanding": [
@@ -600,7 +607,7 @@
   {
    "kind": "debt",
    "key": "data_debts",
-   "count": 11,
+   "count": 12,
    "what": "Bring down counts that may only ratchet downward",
    "rows": {
     "bookwalker listings unconfirmed": 0,
@@ -615,7 +622,8 @@
     "renderings with nothing to show": 46,
     "rows with a moving address": 0,
     "scraped counters in chapter names": 1,
-    "titles with no translation of our own": 214,
+    "titles carrying cataloguing punctuation": 23,
+    "titles with no translation of our own": 224,
     "uncertain readings": 74,
     "undated cmoa candidates": 1220,
     "unreadable bookwalker rows": 15,
@@ -636,9 +644,9 @@
    "slow": 55
   },
   "english_basis": {
-   "translated": 2677,
+   "translated": 2673,
+   "official-jp": 116,
    "licensed": 112,
-   "official-jp": 112,
    "none": 109,
    "romaji": 66
   },

@@ -10,6 +10,7 @@ Fails closed: any validation error aborts the build without writing.
 Usage:  build.py [--out data/build]
 """
 import argparse, datetime, glob, json, pathlib, re, statistics, sys, unicodedata
+import urllib.parse as urlparse
 from collections import Counter, defaultdict
 
 sys.path.insert(0, "adapters")
@@ -853,6 +854,90 @@ def _shop_address(rec):
     return basis.get("url") if basis.get("source") == "bookwalker" else None
 
 
+# WHERE EACH SHOP'S YURI SHELF IS CAPTURED. The key is the name `admitted_by` writes for the
+# comparator and the value is the capture that read it. Declared rather than inferred, because the
+# two captures spell the shop differently in their own `source:` field, `bookwalker.jp` in one and
+# `cmoa` in the other, so a host guessed out of either would be a third spelling of one shop.
+SHELF_CAPTURES = {"bookwalker.jp": "data/queue/bookwalker-yuri.yaml",
+                  "cmoa.jp": "data/queue/cmoa-yuri.yaml"}
+
+
+def shelf_page_url(listing_url, page):
+    """One page of a shop's shelf listing, or the listing unchanged where no page is known.
+
+    The captures state a listing address with `page=1` on it and then record which page each work
+    was read from, so the address a row cites is built by putting that number back rather than by
+    composing a URL from parts. A page the capture did not state leaves the address alone: a
+    citation to page 1 of a shelf the work is not on is the fault this whole change is about.
+    """
+    base = str(listing_url or "").strip()
+    if not base or not page:
+        return base or None
+    parts = urlparse.urlsplit(base)
+    query = [(k, v) for k, v in urlparse.parse_qsl(parts.query) if k != "page"]
+    query.append(("page", str(int(page))))
+    return urlparse.urlunsplit(parts._replace(query=urlparse.urlencode(query)))
+
+
+def shelf_citations(captures=None):
+    """Where each shop's yuri shelf can be read, and which page of it a work was found on.
+
+    `{comparator: {"url": the shelf, "pages": {shop id: (page number, that page's address)}}}`.
+
+    WHY THE SHELF AND NOT THE BOOK. DEFINITIONS §2 admits a work because a licensed retailer filed
+    it under 百合, and the shelf is the only page that shows the filing. A row citing the shop's
+    page for the book sends a reader to check a claim that page does not make, which is worse than
+    citing nothing: it invites the check and then fails it. One operator followed such a citation,
+    found no 百合 anywhere on the series page it led to, and concluded the entry was wrong.
+
+    THE CAPTURE HEADER'S CLAIM IS NOT LEANED ON. `bookwalker-yuri.yaml` says the genre is
+    "presented on every work page", which would make the book's page a second place to check. It is
+    a statement about WORK pages, and 646 of the addresses we hold are SERIES pages, which it never
+    covered. It is also a year-old reading of a shop that redraws its pages at will. So the shelf
+    is cited because it is where the capture read the claim, which is a fact about our own act.
+    """
+    out = {}
+    for comparator, path in sorted((captures or SHELF_CAPTURES).items()):
+        p = pathlib.Path(path)
+        if not p.exists():
+            continue
+        doc = yaml.safe_load(p.read_text()) or {}
+        shelf = str(doc.get("source_url") or "").strip()
+        if not shelf:
+            continue
+        listings = {str(k): str((v or {}).get("url") or "")
+                    for k, v in (doc.get("listings") or {}).items()}
+        pages = {}
+        for item in doc.get("items") or []:
+            key, page = str(item.get("id") or ""), item.get("page")
+            base = listings.get(str(item.get("listing") or "")) or shelf
+            if key and page:
+                pages[key] = (int(page), shelf_page_url(base, page))
+        out[comparator] = {"url": shelf, "pages": pages}
+    return out
+
+
+def cite_shelf(entry, shelves, shop_id=""):
+    """A comparator entry with the address its claim can be checked at.
+
+    `admitted_by` names the shop and the shelf and states no address at all, so the shelf rows on a
+    work page carried no citation and the only BOOK☆WALKER link beside them pointed at the book.
+    This puts the shelf on the entry; `classify/credence.py` turns it into the row.
+
+    NOTHING IS INVENTED. A comparator with no capture here keeps the entry it had, and a work the
+    capture states no page for cites the shelf without one. The alternative in both cases is an
+    address nobody read.
+    """
+    shelf = shelves.get(str(entry.get("comparator") or "").strip().lower())
+    if not shelf:
+        return entry
+    page, url = shelf["pages"].get(str(shop_id or ""), (None, shelf["url"]))
+    cited = dict(entry, url=url)
+    if page:
+        cited["page"] = page
+    return cited
+
+
 def _record_address(rec, name):
     """The page THIS source holds the work on, or None.
 
@@ -1523,6 +1608,10 @@ def main():
     undated_works = 0
     undated_by_basis = {}
 
+    # Read once, ahead of the loop: 4,300 works would otherwise re-parse two capture files each.
+    shelf_cites = shelf_citations()
+    shelf_cited = shelf_paged = 0
+
     works, errors, warnings = [], [], []
     for wid, by_source in sorted(src.items()):
         # THE PRIMARY IS THE BEST RECORD THERE IS, which is not always the bibliography's. A work
@@ -1684,9 +1773,20 @@ def main():
         # It is recorded rather than assumed. §2 requires knowing WHICH comparator admitted a work,
         # so a reader can tell whether it is here because a publisher called it yuri or because a
         # shop shelved it there, and the field carries the shelf and the day it was read.
+        #
+        # AND WHERE THE SHELVING CAN BE READ. The field named the shop and stated no address, so
+        # the evidence row built from it carried no citation and the nearest BOOK☆WALKER link on
+        # the page was the shop's page for the book, which says nothing about 百合. The shop id is
+        # taken from the retailer's own record rather than from `base`, because `base` is the
+        # bibliography's record wherever there is one and only the shop knows its own id.
         admitted = base.get("admitted_by")
         if admitted:
+            admitted = [cite_shelf(_adm, shelf_cites,
+                                   (by_source.get("bookwalker") or {}).get("shop_id"))
+                        for _adm in admitted]
             w["admitted_by"] = admitted
+            shelf_cited += sum(1 for _adm in admitted if _adm.get("url"))
+            shelf_paged += sum(1 for _adm in admitted if _adm.get("page"))
 
         if not w.get("marketing_label") and not w.get("content_tier") and not admitted:
             errors.append(f"{wid}: fails the inclusion test — neither axis set and no comparator "
@@ -4595,6 +4695,9 @@ def main():
                         "slow": "within a year", "dormant": "older than a year"}},
         ensure_ascii=False, indent=1, default=jsonable))
     _st = Counter(r["state"] for r in series_rows)
+    if shelf_cited:
+        print(f"shelf citations : {shelf_cited} comparator entries cite the shelf the claim is on, "
+              f"{shelf_paged} of them the page it was read from")
     if undated_works:
         print(f"undated works   : {undated_works} recorded with no attested publication date")
         # WHICH SILENCE, because a total says how far there is to go and nothing about how to get

@@ -98,6 +98,21 @@ def main(s):
     s.eq(shelf[0]["term"], "百合", "quoting the shelf")
     s.check("url" not in shelf[0],
             "and no address, because the record states none; a work page is not a shelf listing")
+    s.check("page" not in shelf[0], "and no page of a listing nobody stated")
+
+    # THE ADDRESS IS THE SHELF'S, NOT THE BOOK'S, and this is where that shows. `BOOKWALKER_SHELF`
+    # holds https://bookwalker.jp/de001dd5ae/ as the page its own record was read from, and a row
+    # citing that sends a reader to check a 百合 filing on a page that states none. One operator
+    # did exactly that and concluded the entry was wrong. build.py puts the shelf on the entry.
+    cited = credence.shelf_rows(dict(BOOKWALKER_SHELF, admitted_by=[
+        dict(BOOKWALKER_SHELF["admitted_by"][0],
+             url="https://bookwalker.jp/tag/14/?qcat=2&order=title&page=27", page=27)]))
+    s.eq(cited[0]["url"], "https://bookwalker.jp/tag/14/?qcat=2&order=title&page=27",
+         "the row cites the shelf the shop filed the work on")
+    s.ne(cited[0]["url"], BOOKWALKER_SHELF["marketing_label_basis"]["url"],
+         "and never the record's own address, which is a different fact about a different page")
+    s.eq(cited[0]["page"], 27,
+         "with the page it was read from, so the number needs no parsing back out of a URL")
 
     # A comparator that sells nothing is not a retailer, whatever it lists.
     aggregated = credence.shelf_rows({"admitted_by": [

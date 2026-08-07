@@ -429,3 +429,39 @@ Verified against MADB release 1.2.18 on 2026-08-01. 『つぼみ』 was added as
 seven are absent from MADB and need publisher sources. See [MADB.md](MADB.md).
 
 To be extended with any further yuri-identified magazines a publisher-side sweep reveals.
+
+## 9. Rebuttal, and the margin where this database declines to decide
+
+§2 admits a work a comparator lists and calls the admission presumptive and rebuttable. For most of
+this project's life nothing could rebut it, so the word did no work. `data/rebuttals.yaml` is the
+mechanism, and it is deliberately narrow.
+
+**A rebuttal is a finding about sources, never about a work.** It records that no source supports
+the designation, or that a better-placed source contradicts it. `アルバート家の令嬢は没落をご所望です`
+was removed because カドコミ, the publisher's own platform, files it 女性 / ファンタジー with 異世界,
+ラブコメ, 転生 and 悪役令嬢 and applies neither 百合 nor GL, while one retailer volume carried the
+shelf tag. That is a disagreement between sources with a clear winner, and §4 already says which of
+the two speaks for the publisher.
+
+**A work examined and kept is recorded too.** Without it the same works are re-examined at every
+capture, and the reasoning is lost each time. `upheld` carries them, with `borderline` where the
+call was close, so a later reader knows the question was asked and answered.
+
+### Where this stops
+
+At the outer margin, deciding whether a work is yuri would mean reasoning about the gender or the
+sexuality of its characters, or about what its author intended. **This database does not do that.**
+Neither is quantifiable from a source, both would come down to the feeling of whoever happened to be
+looking, and §7's rule that this is designation and never judgement is not a posture that can hold
+for the easy cases and lapse for the hard ones. It is exactly at the margin that it has to hold.
+
+So a work nothing settles stays, and stays on whatever designation a source gave it. `海鳥東月の
+『でたらめ』な事情` is in although the relationship is not a romance, because nothing in the
+definitions requires one. `鈴木りつ短編集 考幻学入門` is in as an anthology containing yuri, which is
+a different thing from a yuri work and is admitted as one. `ピエタとトランジ` and
+`あなたのためなら女にでも` are in and marked borderline, which is the whole of what can honestly be
+said about them.
+
+This costs precision and it is the cheaper of the two errors. A work wrongly present is visible,
+citable and can be rebutted by anyone who looks. A work wrongly absent is invisible, and the reader
+who needed it never learns it existed.

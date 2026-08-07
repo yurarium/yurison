@@ -1,0 +1,72 @@
+# DEFINITIONS §2 admits a work a comparator lists, and calls that admission "presumptive and
+# rebuttable". Until now nothing could rebut it. This file is the mechanism.
+#
+# WHAT A REBUTTAL IS. The operator has looked at a work admitted on a comparator's shelf and found
+# the shelf wrong. It is not a takedown: REQUIREMENTS §4 keeps that separate, it names a requester
+# and a date, and it answers a demand rather than a judgement. It is not a content withholding
+# either, which is `data/source/*/withheld.yaml` and is about what a reader might meet.
+#
+# WHAT IT IS NOT ALLOWED TO BECOME. §7 says designation and never judgement. A rebuttal records
+# that no source supports the designation, or that a better source contradicts it. It does not
+# record an opinion about the work. Where the only way to decide would be to reason about the
+# gender or sexuality of characters, or about what an author intended, the answer is `undecided`
+# and the work stays. That is the operator's standing instruction and the reason the last column
+# below exists.
+#
+# NOT YET READ BY ANYTHING, and this line is here so that is not mistaken. The four works below
+# are still published. Wiring it means dropping a work from the series rows, the feed, the index,
+# its work page and the identity registry together: `withheld_works()` is keyed on a folded title
+# and filters archive months only, so it is not the hook. A work removed from one view and left in
+# another is worse than one not removed, which is why this states the position instead of a
+# half-applied change.
+source: operator
+role: comparator-rebuttal
+record_type: rebuttal
+reviewed: 2026-08-07
+basis: data/queue/thin-evidence-review.yaml
+rebutted:
+  - work: w01734
+    title: "アルバート家の令嬢は没落をご所望です"
+    disposition: out
+    why: >-
+      Misfiled. カドコミ, the publisher's own platform, files it 女性 / ファンタジー with 異世界,
+      ラブコメ, 転生 and 悪役令嬢, and applies neither 百合 nor GL. One BOOK☆WALKER volume carries
+      tag 14 and nothing else supports it.
+  - work: w01819
+    title: "落命魔女と時をかける旦那様の死なない婚約印"
+    disposition: out
+    why: "Misfiled. The publisher's own platform files it 少女 / ファンタジー, 異世界 and ラブコメ."
+  - work: w02152
+    title: "俺の×××はいらないらしい"
+    disposition: out
+    why: "Misfiled. The publisher's own platform declines the designation."
+  - work: w02156
+    title: "後宮一番の悪女"
+    disposition: out
+    why: "Misfiled. The publisher's own platform declines the designation."
+
+# UPHELD, and why each is recorded rather than left silent. A work examined and kept is as much a
+# finding as one removed: without the record the same works are re-examined at every capture.
+upheld:
+  - work: w02122
+    title: "海鳥東月の『でたらめ』な事情"
+    disposition: in
+    why: >-
+      In, in the broad sense. The relationship is not a romance, which is what made the publisher's
+      platform file it elsewhere, and DEFINITIONS does not require one.
+  - work: w02190
+    title: "鈴木りつ短編集 考幻学入門"
+    disposition: in
+    why: >-
+      An anthology containing yuri, which is a different thing from a yuri work and is admitted as
+      such. The shelf is describing part of the book.
+  - work: w02118
+    title: "ピエタとトランジ"
+    disposition: in
+    note: borderline
+    why: "Marginal and kept. Recorded as borderline so a later reader knows it was considered."
+  - work: w01804
+    title: "あなたのためなら女にでも"
+    disposition: in
+    note: borderline
+    why: "Marginal and kept. Recorded as borderline so a later reader knows it was considered."

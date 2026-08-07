@@ -580,7 +580,60 @@ def inv_curated_values_reach_the_store(ctx):
     return bad
 
 
+def inv_ruby_covers_its_surface(ctx):
+    """The base text of a furigana span set must reconstruct the string it annotates.
+
+    INDEPENDENT OF THE ALIGNER (§14b). `ruby spells the reading` asks whether the ruby spells the
+    READING, using `kana.ruby_spells`, which is the function `build.py` filters with, so nothing
+    reaching it can fail it. Nobody asked the other question: whether the bases still add up to the
+    TITLE. A span set that drops a character, repeats one, or annotates a string it was not built
+    from passes the first question and fails this one.
+
+    Folded under NFKC, because `align` normalises before building spans while the row keeps the
+    width the source used: 20 rows differ only as （私に） against (私に), which is the aligner
+    working. Whitespace goes too, since a set carries separator spans the surface writes its own
+    way. What survives the folding is a real difference in what the spans cover.
+    """
+    bad = []
+    for r in ctx["series"]:
+        for key, surface in (("work_en", r.get("work")), ("author_en", r.get("author"))):
+            spans = (r.get(key) or {}).get("ruby")
+            if not spans or not surface:
+                continue
+            built = "".join(str((s or [""])[0] or "") for s in spans)
+            a = unicodedata.normalize("NFKC", built).replace(" ", "").replace("\u3000", "")
+            b = unicodedata.normalize("NFKC", str(surface)).replace(" ", "").replace("\u3000", "")
+            if a != b:
+                bad.append(f"{r.get('id')} {key}: ruby covers {a[:40]!r}, surface is {b[:40]!r}")
+    return bad
+
+
+def inv_dates_within_a_row_are_ordered(ctx):
+    """A row cannot first appear after it last appeared.
+
+    INDEPENDENT BY CONSTRUCTION (§14b). `first date precedes its editions` tests the exact condition
+    `build.py` enforces when it moves a first date back to the earliest volume, so it holds by
+    construction and detects nothing. This asks what no pass enforces: that a row's own dates are in
+    order. `first` is assembled from the sources and then moved back by the print run, `latest` comes
+    from the serialisation, `latest_any` from whichever event is newest. Nothing makes them agree,
+    and a row beginning after it ended is incoherent however it arose.
+
+    Compared on the month, because a volume states 2024-03 where a chapter states 2024-03-18.
+    """
+    bad = []
+    for r in ctx["series"]:
+        first, latest, any_ = r.get("first"), r.get("latest"), r.get("latest_any")
+        for name, later in (("latest", latest), ("latest_any", any_)):
+            if first and later and str(first)[:7] > str(later)[:7]:
+                bad.append(f"{r.get('id')}: first {first} after {name} {later}")
+        if latest and any_ and str(latest)[:7] > str(any_)[:7]:
+            bad.append(f"{r.get('id')}: latest {latest} after latest_any {any_}")
+    return bad
+
+
 INVARIANTS = [
+    ("ruby covers its surface", inv_ruby_covers_its_surface),
+    ("dates within a row are ordered", inv_dates_within_a_row_are_ordered),
     ("curated values reach the store", inv_curated_values_reach_the_store),
     ("ruby spells the reading", inv_ruby_spells_reading),
     ("one row per identifier", inv_one_row_per_identifier),
@@ -913,67 +966,70 @@ def budget_implausible_ruby_spans(ctx):
 NOT_A_PERSON = re.compile(r"^(?:[#＃]?\d+[(（]?\d*[)）]?|[\d\W_]+)$")
 
 
-def budget_credits_that_are_not_people(ctx):
-    """Credits in an author field that no parser should have put there.
+def budget_credits_matching_a_chapter(ctx):
+    """Credits that name a chapter of the same work.
 
-    `平良深姉妹はどっちもヤんでる` is credited to `金子ある / #1(1)`, and `#1(1)` is a chapter title
-    the gigaviewer route folded into the byline; the same string sits in comic-days' own feed as a
-    chapter. `ひととせ` is credited to `７`, which BOOK☆WALKER's shelf gave as the creator of a book
-    whose publisher is ななつぼし.
+    WHY NOT A REGEX (§14b). The previous measure carried its own copy of `credits.is_a_person`'s
+    pattern, so it could only report what that pattern already catches, and the copies had drifted:
+    the check recognised fewer forms than the adapter, missing 第3話, so neither number meant
+    what it said.
 
-    A whole credit made of digits and punctuation is the test, so a person whose name merely
-    contains one is untouched: タイザン5 is a pen name and stays.
+    THE FAULT IS OBSERVABLE WITHOUT A PATTERN. 平良深姉妹はどっちもヤんでる was credited to
+    `金子ある / #1(1)` because a route read a page title's middle field as an author, and that same
+    string sits in the platform's feed as a chapter of that work. So compare the credits against the
+    chapter names this database already holds for the work. A credit naming a chapter is wrong
+    whatever it is made of, and no rule about digits is involved.
     """
-    import re as _re
+    chapters = {}
+    for rel in ctx["releases"]:
+        w, ep = str(rel.get("work") or ""), str(rel.get("ep") or "").strip()
+        if w and ep:
+            chapters.setdefault(w, set()).add(unicodedata.normalize("NFKC", ep))
     bad = 0
     for r in ctx["series"]:
-        for part in _re.split(r"\s*/\s*", str(r.get("author") or "")):
-            part = part.strip()
-            if part and NOT_A_PERSON.match(part):
+        eps = chapters.get(str(r.get("work") or ""))
+        if not eps:
+            continue
+        for part in re.split(r"\s*/\s*", str(r.get("author") or "")):
+            if part.strip() and unicodedata.normalize("NFKC", part.strip()) in eps:
                 bad += 1
     return bad
 
 
-def budget_credits_that_are_a_reading(ctx):
-    """Credits that are the reading of the credit beside them, counted as a second person.
+def budget_credits_that_restate_a_name(ctx):
+    """Credits where one part restates another, asked without the name store.
 
-    運命のヤマダダダダダダダダダダ is credited to `おにぎりパクパク / オニギリ パクパク`, which is one
-    person written twice. MADB states a name and its reading in one creator field and the slash
-    between them is not a credit boundary.
+    WHY NOT THE STORE (§14b). The previous measure compared each part against the store's recorded
+    reading of the part before it, which is how `credits.dedupe` decides the same question. The
+    measure was blind wherever the fix was blind, read 0, and a reader found
+    `田口ケンジ / タグチケンジ` on a live page with every gate green.
 
-    `adapters/madb/extract.people` ALREADY KNOWS THIS. Its comment says a trailing all-katakana part
-    is the reading of the name before it, and it drops one. That function feeds the agreement test
-    and nothing else, so the creator string written into the record never passes through it: the
-    rule is implemented once and applied in one of the two places that need it (§3).
+    THE SIGNAL IS IN THE STRINGS. A name written partly in katakana keeps that katakana in its
+    reading: 田口ケンジ reads タグチケンジ and both end ケンジ. A part written wholly in katakana,
+    ending in the same katakana run another part ends in, is restating that part. Nothing here
+    consults the store, the analyser, or anything that produced the field.
 
-    Two tests, because two things go wrong. A part that folds to another part is the same string in
-    two scripts, おにぎりパクパク against オニギリ パクパク. A part that matches another part's stored
-    reading catches the kanji case, 蓬餅 against ヨモギモチ, which no fold can see.
+    WHAT IT CANNOT SEE, named because §14b asks for it. A name carrying no katakana, 蓬餅 against
+    ヨモギモチ, leaves no shared run to match on. Those need a reading from somewhere, which is the
+    fix's job. This counts a population the store cannot reach, so the two are blind in different
+    places instead of the same one.
     """
-    import re as _re
-    try:
-        store = (_yaml(NAMES / "authors.yaml", {}) or {}).get("names") or {}
-    except Exception:
-        store = {}
-
-    def _kata(s):
-        return "".join(chr(ord(c) + 0x60) if "ぁ" <= c <= "ゖ" else c for c in str(s or ""))
-
-    def _flat(s):
-        return _re.sub(r"[\s　・]", "", _kata(s))
-
+    kata_tail = re.compile(r"[ァ-ヺー]+$")
+    has_kanji = re.compile(r"[一-鿿々]")
+    all_kata = re.compile(r"^[ァ-ヺー・\s]+$")
     bad = 0
     for r in ctx["series"]:
-        parts = [x.strip() for x in _re.split(r"\s*/\s*", str(r.get("author") or "")) if x.strip()]
-        for i, a in enumerate(parts):
-            for b in parts[i + 1:]:
-                if a == b:
+        parts = [x.strip() for x in re.split(r"\s*/\s*", str(r.get("author") or "")) if x.strip()]
+        for n, part in enumerate(parts):
+            if not all_kata.match(part):
+                continue
+            for other in parts[:n] + parts[n + 1:]:
+                if not has_kanji.search(other):
                     continue
-                ra = (store.get(a) or {}).get("reading") or ""
-                rb = (store.get(b) or {}).get("reading") or ""
-                if (_flat(a) == _flat(b) or (ra and _flat(ra) == _flat(b))
-                        or (rb and _flat(rb) == _flat(a))):
+                tail = kata_tail.search(other)
+                if tail and part.endswith(tail.group(0)) and len(part) > len(tail.group(0)):
                     bad += 1
+                    break
     return bad
 
 
@@ -1028,10 +1084,10 @@ BUDGETS_DEF = [
     ("renderings with nothing to show", budget_renderings_with_nothing_to_show,
      "works whose English rendering holds neither a romanisation nor an English name while the "
      "surface is Japanese. A rise means a composed name lost its romanisation."),
-    ("credits that are a reading", budget_credits_that_are_a_reading,
+    ("credits that restate a name", budget_credits_that_restate_a_name,
      "author fields where one credit is the reading of another, so one person is counted twice. "
      "A rise means a route wrote a name and its reading into one field as two credits."),
-    ("credits that are not people", budget_credits_that_are_not_people,
+    ("credits matching a chapter", budget_credits_matching_a_chapter,
      "author fields holding a credit made only of digits or markup. A rise means a parser folded "
      "something that is not a name into a byline."),
     ("implausible ruby spans", budget_implausible_ruby_spans,
@@ -1173,6 +1229,14 @@ def self_test():
                                        "print": [{"first": "2000-01"}]})),
         ("curated values reach the store", inv_curated_values_reach_the_store,
          _plant_stale_translation),
+        # Ruby whose bases no longer add up to the title they annotate.
+        ("ruby covers its surface", inv_ruby_covers_its_surface,
+         lambda c: c["series"].append({"id": "CANARY", "work": "カナリア",
+                                       "work_en": {"ruby": [["ちがう", None]]}})),
+        # A row that begins after it ended.
+        ("dates within a row are ordered", inv_dates_within_a_row_are_ordered,
+         lambda c: c["series"].append({"id": "CANARY", "work": "CANARY",
+                                       "first": "2030-01", "latest": "2020-01"})),
     ]
     ok = True
     for name, fn, plant in probes:

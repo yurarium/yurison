@@ -268,6 +268,11 @@ works:
     title: "妖怪殲滅のサイコリリー"
     anchors:
       - "web:https://manga-one.com/viewer/225633"
+      - "web:https://manga-one.com/title/2565"
+    attached:
+      - anchor: "web:https://manga-one.com/title/2565"
+        basis: "https://manga-one.com/viewer/225633 states a canonical address of https://manga-one.com/manga/2565/chapter/225633, so マンガワン places this chapter in work 2565; https://manga-one.com/title/2565 was fetched 2026-08-07, answered 200 and titles itself 妖怪殲滅のサイコリリー 第1話 | マンガワン"
+        retrieved: 2026-08-07
   - id: w00045
     title: "胡蝶の夢"
     anchors:
@@ -2228,6 +2233,11 @@ works:
     title: "かわいい同盟"
     anchors:
       - "web:https://manga-one.com/viewer/290902"
+      - "web:https://manga-one.com/title/26962"
+    attached:
+      - anchor: "web:https://manga-one.com/title/26962"
+        basis: "https://manga-one.com/viewer/290902 states a canonical address of https://manga-one.com/manga/26962/chapter/290902, so マンガワン places this chapter in work 26962; https://manga-one.com/title/26962 was fetched 2026-08-07, answered 200 and titles itself かわいい同盟 第1話 | マンガワン"
+        retrieved: 2026-08-07
   - id: w00314
     title: "白妙様、秘密ですよ"
     anchors:
@@ -4052,6 +4062,11 @@ works:
       - "madb:C418294"
       - "madb:bw-188653"
       - "web:https://manga.nicovideo.jp/comic/42550"
+      - "web:https://manga-one.com/title/603"
+    attached:
+      - anchor: "web:https://manga-one.com/title/603"
+        basis: "https://manga-one.com/viewer/70173 states a canonical address of https://manga-one.com/manga/603/chapter/70173, so マンガワン places this chapter in work 603; https://manga-one.com/title/603 was fetched 2026-08-07, answered 200 and titles itself 付き合ってあげてもいいかな 重大発表！ | マンガワン"
+        retrieved: 2026-08-07
   - id: w00523
     title: "ボドカン！ ～女、囚人同士、監獄でナニも起こらないはずがなく～"
     anchors:

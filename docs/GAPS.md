@@ -1030,3 +1030,60 @@ before and after.
 and inventing one would be inventing an address. `series_url` reaches only カドコミ and COMIC FUZ,
 and never a series row. Closing these means capturing each platform's work-level address, which is a
 fetch and not an edit.
+
+### §21's fault: the addresses are read, and build.py has the last move (2026-08-07)
+
+The fetch above was done. All 507 rows were read, 507 work-level addresses were established, and
+each was attached to the identifier its work already answers to. `identity.py` reports 3,155
+identifiers and 0 new, and `check.py`'s new budget `rows with a moving address` reads 0 where it
+reads 507 against the registry as it stood before.
+
+**The chapter page states the answer.** Every GigaViewer instance emits `<link rel="alternate"
+type="application/atom+xml" href="https://HOST/atom/series/ID">`, so a chapter says which series it
+belongs to in the platform's own numbering, and no title comparison is needed to establish it. 506
+rows read that way through `adapters/gigaviewer/workaddress.py`. The last one is チャンピオンクロス,
+which runs comici rather than GigaViewer and links `/series/<hash>`; `comici.series_link` reads it,
+in the module that engine already has, because a second parser is where a fix fails to land.
+
+**Two addresses, because the platforms differ.**
+
+| | |
+|---|---|
+| `https://HOST/atom/series/ID` | the work's feed. Served by all eighteen GigaViewer hosts, so it is the one shape that reaches every row. |
+| `https://HOST/series/ID/first_episode` | the work's reader address, and the link a platform puts behind a series on its own listings. 337 of the 506. |
+
+一迅プラス, コミックガルド, MAGCOMI and webアクション serve no route for the second, which is 169
+rows and 128 of them 一迅プラス. The first two answer it with HTTP 200 carrying their front page and
+the words ページが見つかりません, so a status code decides nothing: the test that accepted an address
+is whether the page it returned names the same series. That is how the soft 404 was found, and
+without it 129 rows would have been attached to an address that does not exist.
+
+**A title is the guard and not the evidence.** The series link already ties the address to the work,
+so the og:title comparison exists to catch the other failure, a row whose `url` belongs to somebody
+else. Every one of the 507 named its own work. The same comparison rejected Killer♡Twinkle on
+チャンピオンクロス, where the platform writes a different heart character, which is the shape it is
+there for.
+
+**Two shapes outside the 507 had the same fault and are closed in the string.** ヤンマガWeb writes
+`/comics/<work>/<32 hex>` and マンガワン writes `/manga/<work id>/chapter/<chapter id>` while serving
+the work at `/title/<work id>`, so `identity.stable_url` now reduces both. That is 20 rows whose
+anchor is the work's address rather than a chapter's. マンガワン's other shape, `/viewer/<chapter
+id>`, holds no work id, and its 3 rows were closed by fetching: the viewer redirects and the page
+states a canonical `/manga/<work id>/chapter/<chapter id>`.
+
+**What build.py has to do, and it is the only thing left.** A row's `url` is still its newest
+chapter's, so the anchor is still built from an address that moves. Everything above makes that
+safe to change rather than changing it: the work-level addresses are attached, so the row can start
+carrying one and nothing will be minted. What the row needs is a `series_url` field holding the
+work-level address, which the release rows for カドコミ and COMIC FUZ already carry and no series row
+does, and `identity.web_anchor` should prefer it over `url`. Either address above will resolve. The
+feed address is the one to emit if a single shape is wanted, because it is the only one that exists
+on every host; the reader address is better for the 337 where it exists and needs the capture to say
+which those are.
+
+**What was left alone, with numbers.** 2 rows on コミックノヴァ, `www.123hon.com/vw/<work>/<chapter>/`.
+The work-level address is in the string, but `https://www.123hon.com/vw/nekomaho/` answers 403 to
+this project's identity, so the reduction cannot be shown to lead anywhere and the rule was not
+written. Nothing else in the corpus carries a chapter address: comicブースト's `/content/<work>0001`
+is the work's own page and stays put across 81 chapters, and the remaining hosts address a work
+directly.

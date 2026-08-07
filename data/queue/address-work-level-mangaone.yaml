@@ -1,0 +1,32 @@
+# Work-level addresses for the マンガワン rows whose chapter address is /viewer/<chapter id>.
+#
+# WHY THESE ARE NOT IN address-in-string.yaml. マンガワン writes a chapter two ways. The
+# /manga/<work id>/chapter/<chapter id> form carries the work and identity.stable_url reduces
+# it. The /viewer/<chapter id> form carries nothing, so the work id had to be fetched.
+#
+# WHAT THE EVIDENCE IS. /viewer/<chapter id> redirects, and the page it lands on states a
+# canonical address of /manga/<work id>/chapter/<chapter id>. That is the platform naming the
+# work this chapter belongs to. The work address /title/<work id> was then fetched and
+# answered with the work's own title.
+#
+# READ BY: identity.py --attachments.
+source: data/build/series.json
+role: address-stabilise
+retrieved: 2026-08-07
+record_type: stable_address
+joins:
+  - id: w00044
+    title: "妖怪殲滅のサイコリリー"
+    url: "https://manga-one.com/viewer/225633"
+    anchor: "web:https://manga-one.com/title/2565"
+    basis: "https://manga-one.com/viewer/225633 states a canonical address of https://manga-one.com/manga/2565/chapter/225633, so マンガワン places this chapter in work 2565; https://manga-one.com/title/2565 was fetched 2026-08-07, answered 200 and titles itself 妖怪殲滅のサイコリリー 第1話 | マンガワン"
+  - id: w00313
+    title: "かわいい同盟"
+    url: "https://manga-one.com/viewer/290902"
+    anchor: "web:https://manga-one.com/title/26962"
+    basis: "https://manga-one.com/viewer/290902 states a canonical address of https://manga-one.com/manga/26962/chapter/290902, so マンガワン places this chapter in work 26962; https://manga-one.com/title/26962 was fetched 2026-08-07, answered 200 and titles itself かわいい同盟 第1話 | マンガワン"
+  - id: w00522
+    title: "付き合ってあげてもいいかな"
+    url: "https://manga-one.com/viewer/70173"
+    anchor: "web:https://manga-one.com/title/603"
+    basis: "https://manga-one.com/viewer/70173 states a canonical address of https://manga-one.com/manga/603/chapter/70173, so マンガワン places this chapter in work 603; https://manga-one.com/title/603 was fetched 2026-08-07, answered 200 and titles itself 付き合ってあげてもいいかな 重大発表！ | マンガワン"

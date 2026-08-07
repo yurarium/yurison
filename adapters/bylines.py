@@ -490,7 +490,11 @@ def main(argv=None):
             groups += [(w["title"]["ja"], g) for g in groups_among(names)]
         elif w["work_id"] in read_print:
             r = read_print[w["work_id"]]
-            print_rows.append((w["title"]["ja"], w["work_id"], r["author"], r.get("url") or "",
+            # `source` is what the writer below emits and `url` is what a hand-added row
+            # carries, so both are accepted. Reading only one silently emptied the field on
+            # every rewrite, and the rewrite is how this file is maintained.
+            print_rows.append((w["title"]["ja"], w["work_id"], r["author"],
+                               r.get("source") or r.get("url") or "",
                                (r.get("note") or "").strip()))
             groups += [(w["title"]["ja"], g) for g in groups_among(r["author"].split(" / "))]
         else:

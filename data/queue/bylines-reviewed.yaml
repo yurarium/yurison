@@ -26,6 +26,7 @@ works:
       pass recorded this work as unresolved after searching the site, the award announcement and
       ニコニコ漫画; all of those were text searches, and the credit was never in the text.
 
+
   - work_title: "かわいい同盟"
     author: "南文夏"
     url: "https://manga-one.com/manga/26962/chapter/290902"
@@ -87,6 +88,18 @@ works:
 # rule matters because it is applied nineteen times below and an inconsistent one would put
 # 蔵王大志 beside eleven people whose manga is in the book and his is not.
 print_works:
+  - work_title: "Yrhm百合姫20thアンソロジー"
+    work_id: "madb-t-152d10214034"
+    author: "青乃下 / 岩見樹代子 / 樫風 / コダマナオコ / サブロウタ / 竹嶋えく / 未幡 / まにお / ゆあま"
+    url: "https://www.ichijinsha.co.jp/yurihime/title/アンソロジー/yrhm-百合姫20thアンソロジー/"
+    source: "https://www.ichijinsha.co.jp/yurihime/title/アンソロジー/yrhm-百合姫20thアンソロジー/"
+    note: >-
+      The magazine's own site states the line-up where the publisher's book database does not.
+      コミック百合姫 keeps a 作品紹介 page per title, and this one gives ＜COMICS＞ as the nine names
+      above, which is the credit for the work. It also names へちま for ＜COVER＞ and あおのなち for
+      ＜ILLUST＞; those are separate roles and are not folded into the credit. The page agrees with
+      its own blurb, which says 作家9名. Earlier searches missed it because they asked the book
+      database at data.ichijinsha.co.jp, which does not carry the title.
   - work_id: C357167
     work_title: "ゆるゆり コミックアンソロジー"
     author: "内村かなめ / 切口からし / 倉田 嘘 / 栗原あおい / すこやか / 奈春 / ねこ太 / 古居すぐり / 間狩 修 / 真西まり / 水鳥なや / 源 久也 / 森島明子 / 八色 / 邪 武丸 / 吉辺あくろ"
@@ -303,12 +316,3 @@ unresolved:
     note: >-
       No source states the line-up. ISBN 9784758070140, 2007, and the oldest of the three. Same
       three places searched, same answer.
-
-  - work_id: madb-t-152d10214034
-    work_title: "Yrhm百合姫20thアンソロジー"
-    url: "https://www.cmoa.jp/search/result/?header_word=%E7%99%BE%E5%90%88%E5%A7%AB20th%E3%82%A2%E3%83%B3%E3%82%BD%E3%83%AD%E3%82%B8%E3%83%BC"
-    note: >-
-      No source names the line-up. コミックシーモア carries the volume and files it under
-      アンソロジー, and unlike its three neighbours it sells no 単話, so there is no per-story row
-      to read a contributor off. Searched: コミックシーモア for the volume and for 単話 under the
-      title, and 一迅社's own book database, which does not carry it.

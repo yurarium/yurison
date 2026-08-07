@@ -57,6 +57,24 @@ names:
     en_source_kind: derived
     note: DPN is already Latin and ブックス is the English word books.
     verified: false
+  GP-KIDS/高菜しんの:
+    basis: romaji
+    furigana_spans:
+    - - GP-KIDS/
+      - null
+    - - 高菜
+      - たかな
+    - - しんの
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: GP - KIDS / タカナ シン ノ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   HCヒーローズコミックス:
     basis: romaji
     en: HC HERO'S Comics
@@ -354,6 +372,17 @@ names:
     en_source_kind: derived
     note: ごきげん is kana and 工房 is read こうぼう.
     verified: false
+  じるみて:
+    basis: official-jp
+    en: jilmitte
+    en_at: '2026-08-07'
+    en_source: forcs-comic.jp
+    en_source_kind: publisher-jp
+    en_url: https://forcs-comic.jp/jilmitte/
+    note: forcs's women's manga label, which the publisher addresses as jilmitte on its own site and whose
+      editorial account is @jilmitte. Lower case is the label's own styling. The name is a contraction
+      of 全人類に見てほしい, which forcs states and which is why no reading of the kana would have produced this.
+    verified: true
   すたひろ:
     basis: romaji
     en: Sutahiro
@@ -426,6 +455,22 @@ names:
     en_source: read off the name itself
     en_source_kind: derived
     note: Kana throughout.
+    verified: false
+  とばり湊:
+    basis: romaji
+    furigana_spans:
+    - - とばり
+      - null
+    - - 湊
+      - みなと
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: トバリ ミナト
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
     verified: false
   とりからの巣:
     basis: romaji
@@ -610,6 +655,22 @@ names:
     en_source: read off the name itself
     en_source_kind: derived
     note: BOX is already Latin and れれ is kana.
+    verified: false
+  わんこ院:
+    basis: romaji
+    furigana_spans:
+    - - わんこ
+      - null
+    - - 院
+      - いん
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ワンコイン
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
     verified: false
   アクションコミックス:
     basis: romaji
@@ -1148,6 +1209,28 @@ names:
     en_url: https://www.jp.square-enix.com/
     note: The company signs its own site SQUARE ENIX CO., LTD.
     verified: true
+  スタジオぷち屋 桜那えいか、:
+    basis: romaji
+    furigana_spans:
+    - - スタジオぷち
+      - null
+    - - 屋
+      - や
+    - - ' '
+      - null
+    - - 桜那
+      - さくらな
+    - - えいか、
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: スタジオ プチヤ   サクラナ エ イカ、
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   スピリッツ女子部:
     basis: romaji
     en: Spirits Joshibu
@@ -1183,6 +1266,27 @@ names:
     en_source: read off the name itself
     en_source_kind: derived
     note: A katakana coinage, romanised as it is said.
+    verified: false
+  デジコレ:
+    basis: official-jp
+    en: Digicolle
+    en_at: '2026-08-07'
+    en_source: e-comi.shogakukan.co.jp
+    en_source_kind: publisher-jp
+    en_url: http://e-comi.shogakukan.co.jp/digicolle
+    note: 小学館's own e-comic store addresses the label digicolle and carries its logo as logo-digicolle.svg,
+      with the lockup printed デジコレ DIGITAL COMICS. So the truncation of デジタルコミックコレクション does have a Latin
+      form and the publisher writes it.
+    verified: true
+  デジコレ　マカロン:
+    basis: romaji
+    en: Digicolle Macaron
+    en_at: '2026-08-07'
+    en_source: read off the name itself
+    en_source_kind: derived
+    note: The マカロン strand of デジコレ, which 小学館 also files as デジコレ マカロン GENERAL and デジコレ マカロン LADIES. デジコレ
+      is the publisher's own digicolle; マカロン is the French macaron as Japanese borrows it, so a syllable-by-syllable
+      pass would transliterate a transliteration.
     verified: false
   トゥーヴァージンズ:
     basis: official-jp
@@ -1450,6 +1554,17 @@ names:
     en_source_kind: derived
     note: ファミ通 is spelled Famitsu by KADOKAWA in its own addresses, and クリア is the English word clear.
     verified: false
+  フェアベル:
+    basis: official-jp
+    en: Fairbell
+    en_at: '2026-08-07'
+    en_source: fairbell.jp
+    en_source_kind: publisher-jp
+    en_url: https://www.fairbell.jp/
+    note: The company signs its own bookshop © FAIRBELL Co.,LTD. The first round looked at fairbell.co.jp,
+      which is parked; the live sites are fairbell.jp and fairbell.net, and a parked domain says nothing
+      about whether a company publishes a Latin name.
+    verified: true
   フラッパーシリーズ:
     basis: romaji
     en: Flapper Series
@@ -1970,6 +2085,22 @@ names:
     note: The company writes its own name in Japanese throughout and publishes no English form, so this
       is the romanisation of the name it uses and not a translation of what it means.
     verified: true
+  井庭人:
+    basis: romaji
+    furigana_spans:
+    - - 井庭
+      - いば
+    - - 人
+      - にん
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: イバニン
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   光文社:
     basis: official-jp
     en: Kobunsha
@@ -2010,6 +2141,22 @@ names:
     note: The company publishes at futabasha.co.jp and prints no other Latin form on the front page or
       the company page; the domain is its own spelling.
     verified: true
+  口達者同盟:
+    basis: romaji
+    furigana_spans:
+    - - 口達者
+      - くちだっしゃ
+    - - 同盟
+      - どうめい
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: クチダッシャ ドウメイ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   夜サンデー少年サンデーコミックス:
     basis: romaji
     en: Yoru Sunday Shonen Sunday Comics
@@ -2290,6 +2437,22 @@ names:
     en_source_kind: derived
     note: 光文社's line. COMICS is already Latin and 熱帯 is read ねったい.
     verified: false
+  狗古堂:
+    basis: romaji
+    furigana_spans:
+    - - 狗
+      - いぬ
+    - - 古堂
+      - こどう
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: イヌ コドウ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   白泉社:
     basis: official-jp
     en: Hakusensha
@@ -2308,6 +2471,29 @@ names:
     en_source: read off the name itself
     en_source_kind: derived
     note: 宙出版's line. 百合 is read ゆり, the reading the genre carries throughout this site.
+    verified: false
+  百合コレ:
+    basis: romaji
+    en: Yuri Kore
+    en_at: '2026-08-07'
+    en_source: read off the name itself
+    en_source_kind: derived
+    note: 'ナンバーナイン''s yuri label, and the largest single name here: 496 of the 595 rows with no English
+      were this one. Searched again and still nothing. no9.co.jp publishes no label list, the company''s
+      own note account documents Blend and nothing else, its press releases name No.9 Comics and Blend
+      Comics, and the label page at bookwalker.jp/label/11249 carries the Japanese alone with no Latin
+      anywhere on it.
+
+      So the name is spelled out rather than expanded. コレ is a truncation of コレクション, and writing Yuri
+      Collection would publish a name the label does not use; the store already settled this shape when
+      カドコミ was recorded as Kadokomi rather than expanded. What makes it a decision worth recording is
+      that 百合 is not in doubt and neither is the kana, so the reading carries no guess even though the
+      spelling is ours.'
+    reading: ユリ コレ
+    reading_at: '2026-08-07'
+    reading_basis: researched
+    reading_source: read off the name itself
+    reading_source_kind: derived
     verified: false
   百合姫books:
     basis: romaji
@@ -2340,6 +2526,40 @@ names:
     note: The company signs its own site AKITA PUBLISHING CO.,LTD. Akita Shoten is the transliteration
       a reader will also meet, and it is not the name the company gives itself.
     verified: true
+  空想舩:
+    basis: romaji
+    furigana_spans:
+    - - 空想
+      - くうそう
+    - - 舩
+      - ふね
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: クウソウ フネ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  空色の音:
+    basis: romaji
+    furigana_spans:
+    - - 空色
+      - そらいろ
+    - - の
+      - null
+    - - 音
+      - おと
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ソライロ ノ オト
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   竹書房:
     basis: official-jp
     en: Takeshobo
@@ -2407,6 +2627,19 @@ names:
     note: A KADOKAWA brand rather than a company of its own now. KADOKAWA is the group's Latin spelling
       of 角川 and 書店 romanises to shoten; the brand pages print no Latin form.
     verified: false
+  詳伝社:
+    basis: official-jp
+    en: Shodensha Publishing
+    en_at: '2026-08-07'
+    en_source: shodensha.co.jp
+    en_source_kind: publisher-jp
+    en_url: https://www.shodensha.co.jp/
+    note: 'Not a house. The one record spelled this way is Free soul by やまじえびね, ISBN 4396763387, and the
+      4396 prefix is 祥伝社''s: openBD returns 祥伝社 for every other ISBN carrying it, and the book is a FEEL
+      COMICS volume from 祥伝社''s FEEL YOUNG. So the national bibliography holds a character error, and
+      the English name of the company that published the book is the one already curated for 祥伝社. The
+      Japanese is left as catalogued, because the source layer records what the source said.'
+    verified: true
   講談社:
     basis: official-jp
     en: Kodansha
@@ -2435,6 +2668,22 @@ names:
     en_source_kind: derived
     note: The 週刊少年マガジン half of 講談社コミックス.
     verified: false
+  赤紅:
+    basis: romaji
+    furigana_spans:
+    - - 赤
+      - あか
+    - - 紅
+      - くれない
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アカ クレナイ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
   路草COMICS:
     basis: romaji
     en: Rosou COMICS
@@ -2444,6 +2693,18 @@ names:
     en_source_kind: derived
     note: トゥーヴァージンズ's web magazine. COMICS is already Latin and 路草 is read ろそう; the magazine's own site
       did not resolve for us.
+    verified: false
+  踏月:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: トウツキ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    reading_uncertain: true
     verified: false
   週刊少年マガジン:
     basis: romaji
@@ -2514,6 +2775,40 @@ names:
     note: The service prints DENSHO-BATO on its own logo. It is run by 有限会社佐藤漫画製作所 and distributes an
       author's own volumes to the stores.
     verified: true
+  青騎士コミックス:
+    basis: romaji
+    en: Aokishi Comics
+    en_at: '2026-08-07'
+    en_source: read off the name itself
+    en_source_kind: derived
+    note: KADOKAWA's product pages print no Latin form, which is where the first round stopped. The magazine
+      itself publishes at note.com/aokishi and posts as @aokishimanga, so あおきし is the publisher's own
+      answer to the reading and せいきし is out. The Latin spelling is still ours, so this stays a romanisation.
+    reading: アオキシ コミックス
+    reading_at: '2026-08-07'
+    reading_basis: researched
+    reading_source: read off the name itself
+    reading_source_kind: derived
+    verified: false
+  黒戌舎:
+    basis: romaji
+    furigana_spans:
+    - - 黒
+      - くろ
+    - - 戌
+      - いぬ
+    - - 舎
+      - しゃ
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: クロ イヌシャ
+    reading_at: '2026-08-07'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: sudachi
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
   ＦＵＺコミックス:
     basis: romaji
     en: FUZ Comics

@@ -521,7 +521,7 @@ def series_addresses(s):
     _rows = [{"print": [{"publisher": "[頒布]講談社", "imprint": "IDコミックス／Yuri-hime comics"},
                         {"publisher": "講談社 (発売)", "imprint": "百合コレ"},
                         {"publisher": "", "imprint": ""}]}]
-    _map = b.publisher_map(_pub_store, _rows)
+    _map = b.publisher_map(_pub_store, {}, _rows)
     s.eq(_map.get("講談社", {}).get("en"), "Kodansha",
          "the name the interface asks with is a key")
     s.eq(_map.get("[頒布]講談社", {}).get("en"), "Kodansha",
@@ -535,10 +535,19 @@ def series_addresses(s):
     # the interface print an empty publisher instead.
     s.check("百合コレ" not in _map, "a store record with no English name ships no key")
     s.check("" not in _map, "an empty publisher field contributes no key")
-    s.eq(b.publisher_map({}, _rows), {}, "an empty store maps nothing rather than raising")
-    s.eq(b.publisher_map(_pub_store, []), {}, "no rows map nothing")
+    s.eq(b.publisher_map({}, {}, _rows), {}, "an empty store maps nothing rather than raising")
+    s.eq(b.publisher_map(_pub_store, {}, []), {}, "no rows map nothing")
     s.eq(_map.get("講談社", {}).get("basis"), "official-jp",
          "the basis travels with the name, so the interface can say whose name it is")
+
+    # THE AUTHOR MAP ANSWERS WHERE THE PUBLISHER STORE CANNOT, because a work self-published
+    # through a shop names its own author as its publisher and that name is already spelt once.
+    # The map is keyed folded, which is how build.py holds it.
+    _selfpub = b.publisher_map({}, {"嵩乃朔": {"romaji": {"macron": "Takano Saku"},
+                                               "basis": "romaji"}},
+                               [{"print": [{"publisher": "嵩乃朔", "imprint": "嵩乃朔"}]}])
+    s.eq(_selfpub.get("嵩乃朔", {}).get("en"), "Takano Saku",
+         "a self-publishing author is spelt once, by the store that already spells them")
 
 
 if __name__ == "__main__":

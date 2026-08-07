@@ -1549,32 +1549,138 @@ def budget_publishers_with_no_english(ctx):
     itself, as `[発売]講談社` and as `[頒布]講談社`, and all three were counted while the interface
     renders all three as Kodansha. Cataloguing is stripped first now, so this counts publishers.
 
-    REUSES THE ADAPTER'S NORMALISERS, and §14b says to say so and to name what that hides. It
-    cannot see a disagreement between `publishers.publisher_of` here and `publisherOf` in app.js,
-    which is the one way a name in the store can still render as Japanese. What guards that instead
-    is the shipped file being keyed by the RAW catalogued string as well as the normalised one, so
-    either implementation's answer finds the record.
+    MEASURED ON THE SHIPPED MAP, WHICH IS WHERE §14b BIT. It used to re-run `publishers.render`
+    over the store, which is the producer's own join: a name the build had failed to write into
+    feed/names.json still counted as rendered, because the check derived its own answer instead of
+    reading the build's. It also could not see a romanisation, because the store holds a reading
+    and only the build spells it. What it counts now is the keys the shipped file HAS.
 
-    So it reads the shipped mapping wherever the build puts it, and counts the distinct names the
-    data carries that the mapping has no entry for. Names, not rows: one publisher rendered once
-    serves every work it publishes.
+    STILL SHARES THE NORMALISERS, and §14b says to say so and to name what that hides. It cannot
+    see a disagreement between `publishers.publisher_of` here and `publisherOf` in app.js, which is
+    the one way a name in the shipped file can still render as Japanese. What guards that instead
+    is the file being keyed by the RAW catalogued string as well as the normalised one, so either
+    implementation's answer finds the record.
+
+    Names, not rows: one publisher rendered once serves every work it publishes.
     """
     sys.path.insert(0, str(ROOT / "adapters" / "names"))
     try:
         import publishers as _pub
     except Exception:                                                       # noqa: BLE001
         return 0
-    names = {}
+    shipped = (ctx["names_shipped"] or {}).get("publishers")
+    if shipped is None:
+        return 0
+    return len(_pub.unnamed(shipped, _pub.corpus_names_from_rows(ctx["series"])))
+
+
+# THE INTERFACE'S OWN NORMALISERS, TRANSCRIBED FROM kari/app.js AND DELIBERATELY NOT IMPORTED.
+#
+# §3 says two implementations of one rule will drift, and here there are already two that cannot be
+# merged because one runs in a browser. Both `publishers.py` and `build.py` say so in their
+# docstrings and both say the same thing about what guards it: the map is keyed by the raw
+# catalogued string as well as the normalised one, so a drift costs a lookup the other key answers.
+#
+# That is not a check, it is a hope, and it was wrong. The measure below asks the question directly
+# by asking it the way app.js asks it, which is the §14b instruction: a check that reuses the
+# subject's normalisers cannot report the subject's normalisers disagreeing with the browser's.
+#
+# So this is a third copy on purpose, and it earns that by being a copy of the CONSUMER rather than
+# of the producer. Keep it byte-for-byte with `publisherOf` and `imprintOf` in app.js; where the
+# two differ, the difference is the finding.
+_IMPRINT_ALIAS = {"yurihimecomics": "コミック百合姫", "yurihimecomic": "コミック百合姫",
+                  "コミック百合姫": "コミック百合姫", "百合姫コミックス": "コミック百合姫"}
+
+
+def _app_publisher_of(s):
+    s = re.sub(r"^\s*\[[^\]]*\]\s*", "", str(s or ""))
+    return re.sub(r"\s*[（(][^）)]*[）)]\s*$", "", s).strip()
+
+
+def _app_imprint_of(s):
+    bare = re.sub(r"^\s*\[[^\]]*\]\s*", "", str(s or ""))
+    segs = [x.strip() for x in re.split(r"[=／/.．]", bare) if x.strip()]
+    for seg in reversed(segs):
+        k = re.sub(r"[\s・-]", "", seg.lower())
+        if _IMPRINT_ALIAS.get(k) or _IMPRINT_ALIAS.get(seg):
+            return _IMPRINT_ALIAS.get(k) or _IMPRINT_ALIAS.get(seg)
+    named = [x for x in segs if x != "IDコミックス"]
+    return (named[-1] if named else (segs[0] if segs else "")) or ""
+
+
+def budget_publisher_keys_the_interface_misses(ctx):
+    """Publisher names app.js asks the shipped map for and does not get.
+
+    THE FAULT THIS FOUND, and it had been invisible to every measure in the file. `GP-KIDS/高菜しんの`
+    is catalogued in the publisher field AND the imprint field, and the two normalise differently:
+    as a publisher it is itself, and as an imprint it is 高菜しんの, because the slash separates an
+    imprint from a person. The corpus census keyed its slots on the catalogued string alone, so
+    whichever field was read first decided what the shown name was, the other field's name never
+    entered the map, and the interface asked for a key nothing held.
+
+    `publishers with no English` could not see it, because it shares that census. This one owes the
+    producer nothing: it normalises the way the browser does, asks the way the browser asks, and
+    counts what comes back empty. It is the only measure here that can catch the two normalisers
+    disagreeing, which is the risk both modules name and neither could observe.
+
+    Japanese only. A name already in Latin passes through the interface untouched and needs no
+    entry, which is the same rule `platName` follows.
+    """
+    shipped = (ctx["names_shipped"] or {}).get("publishers")
+    if shipped is None:
+        return 0
+    japanese = re.compile(r"[぀-ヿ一-鿿々]")
+    missing = set()
     for r in ctx["series"]:
         for pr in (r.get("print") or []):
-            for field, norm in (("publisher", _pub.publisher_of), ("imprint", _pub.imprint_of)):
+            for field, norm in (("publisher", _app_publisher_of), ("imprint", _app_imprint_of)):
                 raw = str(pr.get(field) or "").strip()
                 if not raw:
                     continue
-                slot = names.setdefault(raw, {"kind": field, "shown": norm(raw), "volumes": 0})
-                slot["volumes"] += 1
-    store = _pub.load_store(ROOT / "data" / "names" / "publishers.yaml")
-    return len(_pub.unnamed(_pub.render(store, names), names))
+                shown = norm(raw)
+                rec = shipped.get(shown) or shipped.get(unicodedata.normalize("NFKC", shown))
+                if japanese.search(shown) and not (rec or {}).get("en"):
+                    missing.add(shown)
+    return len(missing)
+
+
+def budget_names_rendered_two_ways(ctx):
+    """Strings the shipped maps spell one way as a publisher and another way as a person.
+
+    THE FAULT THIS IS FOR. 25 print rows name their own author as the publisher, because a work
+    self-published through a shop's individual-publishing service has nobody else to name. So the
+    same string is rendered by two maps, and two of them had already drifted on the live site:
+    ガレットワークス was `Galette Works` beside its books and `Garettowākusu` beside its name, and
+    ネジ式１３番地 was `Nejishiki 13-banchi` one place and `Neji Shiki Ichisan Banchi` the other.
+    One person, one page, two spellings, and nothing in either producer could see the other.
+
+    ARITHMETIC ON THE RENDERED RESULT, per §14b. It compares two shipped strings and consults
+    neither store, neither basis and neither producer's code, so it can fail on anything the build
+    is able to emit. What it cannot see is a name rendered two ways in two places that are not
+    these two maps.
+
+    A budget, because it is not zero today and the residue is legitimate: where a publisher-side
+    source names a circle in Latin and the person's record only romanises it, the publisher entry
+    is the better answer and the fix belongs on the author side.
+    """
+    n = ctx["names_shipped"] or {}
+    pubs, people = n.get("publishers") or {}, n.get("authors") or {}
+    if not (pubs and people):
+        return 0
+
+    def fold(t):
+        return unicodedata.normalize("NFKC", t or "").replace(" ", "")
+
+    bad = set()
+    for ja, rec in pubs.items():
+        person = people.get(fold(ja))
+        if not person:
+            continue
+        theirs = person.get("en") or (person.get("romaji") or {}).get("macron")
+        ours = rec.get("en")
+        if theirs and ours and theirs != ours:
+            bad.add(fold(ja))
+    return len(bad)
 
 def budget_labels_with_nothing_to_quote(ctx):
     """Records carrying a yuri label whose imprint states no term that says so.
@@ -1674,6 +1780,14 @@ BUDGETS_DEF = [
     ("publishers with no English", budget_publishers_with_no_english,
      "distinct publisher and imprint names that render as Japanese in English-only mode. A rise "
      "means new publishers entered the corpus faster than their names were rendered."),
+    ("publisher keys the interface misses", budget_publisher_keys_the_interface_misses,
+     "publisher names app.js asks the shipped map for and does not get, normalised the way the "
+     "browser normalises. A rise means the two implementations of the cataloguing rule have "
+     "drifted, which is the one failure the budget above cannot see."),
+    ("names rendered two ways", budget_names_rendered_two_ways,
+     "strings the shipped maps spell one way as a publisher and another way as a person, which "
+     "happens because a self-published work names its own author as its publisher. A rise means a "
+     "publisher name was written by hand where the name store already spelt it."),
     ("renderings with nothing to show", budget_renderings_with_nothing_to_show,
      "works whose English rendering holds neither a romanisation nor an English name while the "
      "surface is Japanese. A rise means a composed name lost its romanisation."),

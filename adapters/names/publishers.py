@@ -35,7 +35,17 @@ TWO RULES TRIED AND REJECTED, because both are the obvious shortcuts and both ar
   rule publishes one party's name as another's. The corpus holds three volumes whose record uses
   the unambiguous `A = B` form, which is not worth a mechanism.
 
-A name nobody has sourced stays Japanese, which is NAMES-PLAN §6 and costs a reader nothing.
+AND WHERE NOBODY HAS SOURCED ONE, A ROMANISATION, MARKED AS ONE. That is the project owner's
+ruling, and it is the treatment author names already get: §5d says an acknowledged guess is a
+different speech act from an assertion, so a Latin form may be published provided a reader can tell
+it from a name the company signs itself with. `basis` carries that distinction into the data and
+`romaji` is the value that says the Latin is ours. The two rules tried and rejected above still
+stand: what is rejected is inventing a name, not spelling out a reading.
+
+The romanisation comes from the reading, through the same pass and the same romaniser as every
+other name, so nothing here spells a name a second way. What that leaves is the join, and `english`
+below is where it lives: 32 names had no English and 13 of them were people the name store already
+held, because a work self-published through a shop names its own author as its publisher.
 
 WHERE THE MAP IS WRITTEN NOW. build.py, inside feed/names.json, under a `publishers` key. This
 module used to emit feed/publishers.json from deploy.sh, which made the interface fetch a second
@@ -55,6 +65,7 @@ import json
 import pathlib
 import re
 import sys
+import unicodedata
 
 import yaml
 
@@ -103,13 +114,20 @@ def imprint_of(s):
     return (named[-1] if named else (segs[0] if segs else "")) or ""
 
 
-def corpus_names(build="data/build"):
-    """Every publisher and imprint string the corpus carries, and how many volumes carry it.
+def corpus_names_from_rows(rows):
+    """Every publisher and imprint string these series rows carry, and how many carry it.
 
-    Read off the SERIES rows, which is where the interface reads them, so the queue is ordered by
-    what a reader is most likely to be looking at.
+    KEYED BY THE FIELD AS WELL AS THE STRING, which it was not, and the difference was a name
+    missing from the shipped map. `GP-KIDS/高菜しんの` is catalogued in BOTH fields and the two
+    normalise differently: as a publisher it is itself, and as an imprint it is 高菜しんの, because
+    the slash separates an imprint from a person. Keyed on the string alone, whichever field was
+    read first decided what the shown name was and the other one was merged into it, so the map
+    held no 高菜しんの and the interface asked for a key nothing answered.
+
+    Found by normalising the corpus the way app.js does and asking the shipped map for what came
+    back, which is §14b: every measure in the pipeline shared this census, so none of them could
+    see it. `publisher keys the interface misses` is that measure, kept.
     """
-    rows = json.loads((pathlib.Path(build) / "series.json").read_text())["series"]
     out = {}
     for r in rows:
         for pr in (r.get("print") or []):
@@ -117,25 +135,135 @@ def corpus_names(build="data/build"):
                 raw = str(pr.get(field) or "").strip()
                 if not raw:
                     continue
-                slot = out.setdefault(raw, {"kind": field, "shown": norm(raw), "volumes": 0})
+                slot = out.setdefault((field, raw), {"kind": field, "raw": raw,
+                                                     "shown": norm(raw), "volumes": 0})
                 slot["volumes"] += 1
     return out
 
 
-def render(store, names):
-    """`{key: {en, basis, source}}` for every name that has an English form, keyed both ways."""
+def corpus_names(build="data/build"):
+    """Every publisher and imprint string the corpus carries, and how many volumes carry it.
+
+    Read off the SERIES rows, which is where the interface reads them, so the queue is ordered by
+    what a reader is most likely to be looking at.
+    """
+    rows = json.loads((pathlib.Path(build) / "series.json").read_text())["series"]
+    return corpus_names_from_rows(rows)
+
+
+def fold(s):
+    """The interface's key: NFKC, spaces removed. `foldKey` in app.js and `_fold` in build.py."""
+    return unicodedata.normalize("NFKC", s or "").replace(" ", "")
+
+
+def english(raw, shown, store, people):
+    """The English rendering for one publisher string, or None where nothing can render it.
+
+    ONE PRODUCER FOR ONE FACT, which is §3 and which this file had already lost. 25 of the print
+    rows name their own author as the publisher, because a work self-published through a shop's
+    individual-publishing service has nobody else to name, and the same string was therefore being
+    rendered twice: once from data/names/publishers.yaml and once from authors.yaml, by different
+    code, with nothing forcing agreement. Two of them had already drifted on the live site.
+    ガレットワークス was `Galette Works` beside its books and `Garettowākusu` beside its name, and
+    ネジ式１３番地 was `Nejishiki 13-banchi` and `Neji Shiki Ichisan Banchi`. So a publisher string
+    that a person's record already answers CONSUMES that answer rather than deriving a second one.
+
+    THE ORDER, and why it is this way round:
+
+      the publisher store, whatever its basis. A publisher-side source is about the company, and a
+      reviewed romanisation with a note beats a machine's segmentation of the same characters.
+
+      the person's record, where the string is one the name store already holds. This is the
+      self-publishing case. It also means the reading pass never has to read these names, so the
+      known word-boundary defect in kana names is inherited rather than re-derived, and it heals
+      here the moment it heals there.
+
+    A ROMANISATION IS OUR SPELLING OF THE JAPANESE AND MUST SAY SO. The record carries `basis`,
+    which is `official-jp` where a company signs itself in Latin and `romaji` where the Latin is
+    ours, and the romanisation is shipped in all three styles beside it so the reader's style
+    control reaches a publisher name as it reaches every other name.
+    """
+    # THE NAME BEING SHOWN IS ASKED ABOUT FIRST, and the catalogued string only afterwards. Both
+    # asked the raw string first, which is a record about a catalogue entry rather than about a
+    # name, and one entry answers for two: `GP-KIDS/高菜しんの` is filed in both fields, so the
+    # imprint — which is 高菜しんの alone — was answered by the record for the whole string and the
+    # person's own name lost to it. A record about the name outranks a record about the line it was
+    # catalogued on, whichever store holds it.
+    rec = (store.get(shown) or people.get(fold(shown))
+           or store.get(raw) or people.get(fold(raw)))
+    if not rec:
+        return None
+    romaji = rec.get("romaji") or {}
+    en = rec.get("en") or romaji.get("macron")
+    if not en:
+        return None
+    # A romanisation stays `romaji` even when the record forgot to say so: `en` with no basis is a
+    # record from before the field existed, and calling that official would assert a source.
+    fact = {"en": en, "basis": (rec.get("basis") if rec.get("en") else "romaji") or "romaji"}
+    # THE STYLE CONTROL MAY ONLY RESTYLE A STRING THE READING PRODUCED. 青騎士コミックス is written
+    # `Aokishi Comics`, because コミックス is the English word it stands for and a romaniser cannot
+    # know that; spelling the reading out gives `Aokishi Komikkusu`. Shipping both would let the
+    # macron toggle replace a reviewed name with a transliteration of it, silently, and only for
+    # readers who had touched the control. So the three styles travel only where they agree with
+    # the name being shown, which is exactly the case where they are the same claim.
+    if romaji and en == romaji.get("macron"):
+        fact["romaji"] = romaji
+    for flag in ("unverified", "uncertain"):
+        if rec.get(flag):
+            fact[flag] = True
+    return fact
+
+
+def render(store, people, names):
+    """`{key: {en, basis, ...}}` for every name that has an English form, keyed both ways.
+
+    Keyed by the string the catalogue holds AND by the string the interface shows, because the
+    cataloguing is stripped in two places and §3 says two implementations of one rule will drift.
+    A raw key means a drift costs a lookup the other key still answers.
+
+    SHOWN NAMES FIRST, THEN THE RAW ALIASES, in two passes and not one. A raw string can be the
+    shown name of one field and the alias of another: `GP-KIDS/高菜しんの` is the publisher's name
+    entire and the imprint's catalogue line, so writing each slot's two keys as it went let the
+    imprint's rendering claim the publisher's own name, and the publisher rendered as the person
+    inside it. An alias may fill a gap; it may never displace a name.
+    """
     out = {}
-    for raw, info in sorted(names.items()):
-        shown = info["shown"]
-        rec = store.get(raw) or store.get(shown)
-        if not (rec and rec.get("en")):
-            continue
-        fact = {"en": rec["en"], "basis": rec.get("basis") or "romaji",
-                "source": rec.get("source") or ""}
-        for key in {raw, shown}:
-            if key:
-                out.setdefault(key, fact)
+    facts = []
+    for _slot, info in sorted(names.items()):
+        fact = english(info["raw"], info["shown"], store, people)
+        if fact:
+            facts.append((info["raw"], info["shown"], fact))
+    for _raw, shown, fact in facts:
+        if shown:
+            out.setdefault(shown, fact)
+    for raw, _shown, fact in facts:
+        if raw:
+            out.setdefault(raw, fact)
     return out
+
+
+def unreadable(names, store, people):
+    """Publisher strings nothing can render yet, as the shown name. The reading pass queues on this.
+
+    ASKED BEFORE ANYTHING IS RENDERED, so it reads the stores as they sit on disk rather than the
+    map the build has not written yet. A record holding a reading can be romanised, so it counts as
+    answered here even though it carries no `en`: what is outstanding is a name with neither.
+
+    Only what nothing can reach. Reading every publisher name would put an analyser's guess and its
+    note on top of 290 curated records, which is churn at best and, where a curated note is
+    overwritten, the loss of the reason somebody recorded.
+    """
+    out = {}
+    for _slot, info in names.items():
+        raw, shown = info["raw"], info["shown"]
+        if not JAPANESE.search(shown):
+            continue
+        rec = (store.get(raw) or store.get(shown)
+               or people.get(fold(raw)) or people.get(fold(shown)) or {})
+        if rec.get("en") or rec.get("reading"):
+            continue
+        out[shown] = info["volumes"]
+    return sorted(out, key=lambda s: (-out[s], s))
 
 
 def unnamed(rendered, names):
@@ -146,8 +274,8 @@ def unnamed(rendered, names):
     one publisher three times and puts each of them lower down the queue than it belongs.
     """
     agg = {}
-    for raw, info in names.items():
-        shown = info["shown"]
+    for _slot, info in names.items():
+        raw, shown = info["raw"], info["shown"]
         if not JAPANESE.search(shown) or shown in rendered or raw in rendered:
             continue
         slot = agg.setdefault(shown, [0, shown, info["kind"]])
@@ -162,6 +290,21 @@ def load_store(path="data/names/publishers.yaml"):
     return (yaml.safe_load(p.read_text()) or {}).get("names") or {}
 
 
+def shipped_maps(build="data/build"):
+    """`(publishers, authors)` out of the map the build wrote, in the shape a reader gets it.
+
+    THE REPORT READS THE OUTPUT. It used to render the store again with its own copy of the rule,
+    which meant it could not see a publisher the build had failed to write and could not see the
+    romanisation the build renders from a reading. §14b: a report sharing its subject's derivation
+    reports its subject's assumptions back.
+    """
+    p = pathlib.Path(build) / "feed" / "names.json"
+    if not p.exists():
+        return {}, {}
+    doc = json.loads(p.read_text())
+    return doc.get("publishers") or {}, doc.get("authors") or {}
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--build", default="data/build")
@@ -172,7 +315,9 @@ def main(argv=None):
     a = ap.parse_args(argv)
 
     names = corpus_names(a.build)
-    rendered = render(load_store(a.store), names)
+    rendered, _people = shipped_maps(a.build)
+    if not rendered:
+        rendered = render(load_store(a.store), {}, names)
     todo = unnamed(rendered, names)
 
     if a.todo:

@@ -1318,7 +1318,7 @@ def _rendered(kind, k, rec, render):
     return render(k, rec, is_person=(kind == "authors" and not entity))
 
 
-def publisher_map(names, rows):
+def publisher_map(names, people, rows):
     """`{key: {en, basis}}` for the interface, keyed by the catalogued string AND by the shown one.
 
     KEYED BOTH WAYS ON PURPOSE. The cataloguing around a name is stripped in two places, by
@@ -1327,27 +1327,15 @@ def publisher_map(names, rows):
     drift is that the raw catalogued string answers too: a normaliser that misses something asks
     with a string this map still knows, instead of a publisher silently going back to Japanese.
 
-    The normalisers come from adapters/names/publishers.py rather than being written again here,
-    so the Python side has one copy and not two.
+    THE WHOLE OF THE RULE COMES FROM adapters/names/publishers.py, including which record answers
+    for a string and what an answer looks like. This used to hold its own copy of the join while
+    the module held another for the report and check.py's budget, which is three readings of one
+    fact; the module's is the only one now. `people` is the author map, because a self-published
+    work names its own author as its publisher and that name is already rendered once.
     """
     sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
     import publishers as _pub
-    out = {}
-    for row in rows:
-        for pr in (row.get("print") or []):
-            for field, norm in (("publisher", _pub.publisher_of), ("imprint", _pub.imprint_of)):
-                raw = str(pr.get(field) or "").strip()
-                if not raw:
-                    continue
-                shown = norm(raw)
-                rec = names.get(raw) or names.get(shown)
-                if not (rec and rec.get("en")):
-                    continue
-                fact = {"en": rec["en"], "basis": rec.get("basis") or "romaji"}
-                for key in {raw, shown}:
-                    if key:
-                        out.setdefault(key, fact)
-    return out
+    return _pub.render(names, people, _pub.corpus_names_from_rows(rows))
 
 
 
@@ -4789,6 +4777,18 @@ def main():
         if _cut:
             print(f"names           : {len(_cut)} kana name(s) divided from a record we already "
                   f"hold; {sum(_left.values())} left whole")
+
+        # PUBLISHERS TOO, and only the ones nothing else can reach. 32 publisher and imprint names
+        # had no English at all, so 550 print rows named their publisher in Japanese beside an
+        # English title, and hand-writing 32 romanisations would put a second spelling of 13 names
+        # the author store already spells. `unreadable` asks both stores first for that reason, and
+        # the queue it returns is the residue: labels and self-publishing circles nobody has
+        # written a Latin name for anywhere.
+        import publishers as _pubq
+        _p4.fill_missing(_pubq.unreadable(_pubq.corpus_names_from_rows(series_rows),
+                                          _pubq.load_store("data/names/publishers.yaml"),
+                                          _pubq.load_store("data/names/authors.yaml")),
+                         "publishers")
     except Exception as e:                      # never let a naming helper break the build
         print(f"names           : automatic reading pass skipped ({e})")
 
@@ -4931,8 +4931,10 @@ def main():
     print(f"titles known to this build: {len(_known_titles)}")
 
     # A COMPANY NAME IS A NAME, so it ships beside the other two instead of in a file of its own.
-    _pub_shipped = publisher_map(_pub_names, series_rows)
-    print(f"publishers      : {len(_pub_shipped)} key(s) with an English name in feed/names.json")
+    _pub_shipped = publisher_map(_pub_names, _auth_folded, series_rows)
+    _pub_romanised = sum(1 for v in _pub_shipped.values() if v.get("basis") == "romaji")
+    print(f"publishers      : {len(_pub_shipped)} key(s) with an English name in feed/names.json, "
+          f"{_pub_romanised} of them a romanisation")
 
     (out / "feed" / "names.json").write_text(json.dumps(
         {"generated": str(_today),

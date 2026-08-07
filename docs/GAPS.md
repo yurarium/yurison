@@ -1388,3 +1388,116 @@ ISBD punctuation still attached, so it does not match w01495, which holds the sa
 The comparison that would settle it cannot be made until the title is parsed, and that fix is in
 hand. Once the string is split, revisit rather than assume: the parallel title names an omnibus,
 and an omnibus of a work is an edition of it.
+
+## 25. The 32 that resisted, and what the second round did with them (2026-08-07)
+
+§24 left 32 publisher and imprint names with no English, on 595 field occurrences across 550 print
+rows. All 32 render in English now. Five of them were found rather than romanised, one was proved
+to be a different company under a catalogued character error, and the rest carry a romanisation
+marked as ours. This entry records where the five were, because each was missed in a way that will
+recur, and what was searched for the rest, because that is what makes the fallback a last resort
+rather than a shortcut.
+
+### The five a second look reached
+
+**フェアベル → Fairbell.** The first round read fairbell.co.jp, found a parked domain, and stopped.
+The company's live sites are fairbell.jp and fairbell.net, and its bookshop signs itself
+© FAIRBELL Co.,LTD. **A parked domain is evidence about a domain, not about a company.**
+
+**じるみて → jilmitte.** forcs addresses the label at forcs-comic.jp/jilmitte and its editorial
+account is @jilmitte. **A label's own address carries its Latin spelling even when no page prints
+it as text**, which is the shape a text search does not find.
+
+**デジコレ → Digicolle.** 小学館's own e-comic store addresses it at
+e-comi.shogakukan.co.jp/digicolle, carries logo-digicolle.svg, and prints the lockup
+デジコレ DIGITAL COMICS. The first round looked at the corporate site, where the label is filed
+under its full name デジタルコミックコレクション and the truncation never appears. **The store is a
+different publication from the company site**, and a label lives in the store.
+
+**詳伝社 → Shodensha Publishing.** Not a house at all. The single record is Free soul by
+やまじえびね, ISBN 4396763387, and the 4396 prefix is 祥伝社's: openBD answers 祥伝社 for other
+ISBNs carrying it, and the book is a FEEL COMICS volume out of 祥伝社's FEEL YOUNG. The first round
+suspected the character error and declined to act on a suspicion, which was right; **an ISBN prefix
+turns the suspicion into an identification** without asking anyone to guess. The Japanese stays as
+catalogued, because the source layer records what the source said.
+
+**青騎士コミックス → Aokishi Comics.** KADOKAWA's product pages print no Latin form, which is where
+the first round stopped. The magazine publishes at note.com/aokishi and posts as @aokishimanga, so
+あおきし is the publisher's own answer and せいきし is out. The Latin spelling is still ours, so it
+is filed as a romanisation. **A magazine has a publication of its own, separate from its
+publisher's catalogue.**
+
+### 百合コレ, which is 496 of the 595 and was searched again
+
+ナンバーナイン's yuri label. no9.co.jp publishes no label list; the company's note account
+documents Blend and nothing else; its press releases name No.9 Comics and Blend Comics and neither
+is this; the label page at bookwalker.jp/label/11249 carries the Japanese alone with no Latin
+anywhere on it, in the heading, the breadcrumb, the description or the logo. Nothing states what
+コレ truncates.
+
+So it is spelled out and not expanded: **Yuri Kore**, marked as a romanisation. Yuri Collection
+would publish a name the label does not use, and the store settled that shape already when カドコミ
+was recorded as Kadokomi. What is not in doubt is the reading, so the entry carries it as
+researched and the row does not tell a reader the pronunciation is uncertain when it is not.
+
+### What the residue is, and why romanising it is the answer rather than a queue
+
+The remaining 25 are self-publishing: 13 are people the name store already holds, because a work
+published through a shop's individual-publishing service names its own author as its publisher, and
+the rest are one-person circles. Searched: each circle name against its artist, against pixiv and
+BOOTH, and against the shop listing the books. 空色の音's books carry a signature reading
+`sora amakaze` in the blurb, which is the artist signing a description rather than the circle
+naming itself in Latin, so it is recorded here and not used. 赤紅 is 秋月ルコ's circle and とばり湊
+is こよぬい's, both confirmed and neither spelt in Latin anywhere. The others return nothing at all.
+
+These are not a backlog. NAMES-PLAN §4a says so directly: a circle with no tankōbon, no database
+entry and no English-language presence has no Latin name to find, and a marked romanisation is a
+finished state. What would change it is a sighting, and the store overwrites on one.
+
+### Two strings that are records rather than names
+
+**GP-KIDS/高菜しんの** and **スタジオぷち屋 桜那えいか、** are an imprint and a person catalogued into
+one publisher field, the second with the trailing comma of a truncated list still on it. They
+romanise as what they are, `GP - KIDS / Takana Shin no` and
+`Sutajio Puchiya Sakurana e Ika,`, and both read as the artefacts they are. One row each. Stripping
+a trailing comma is a rule with counter-cases and worth writing only when a second case turns up;
+this is recorded so that the second case is recognised as one.
+
+### The name that was missing from the map, and how it was found
+
+Written up because the finding is about the measure and not about the name. Every count of unnamed
+publishers in this repository, including the one at the top of §24, was derived from the same
+census of the corpus. Normalising the corpus the way `app.js` does instead, and then asking the
+shipped map for what came back, found a name the map did not hold: **高菜しんの**.
+
+`GP-KIDS/高菜しんの` is catalogued in the publisher field AND the imprint field, and the two
+normalise differently, because the slash separates an imprint from a person. The census keyed its
+slots on the catalogued string alone, so whichever field was read first decided what the shown name
+was, and the imprint's name never entered the map. §14b, exactly: **the measure was blind in
+precisely the place the producer was blind**, and it took a measure that owed the producer nothing
+to see it.
+
+Two faults, one string. The census now keys on the field as well, and the map is written in two
+passes so a raw catalogued string may fill a gap but never displace a name: writing each slot's two
+keys as it went let the imprint's rendering claim the publisher's own key, so the publisher rendered
+as the person inside it.
+
+`publisher keys the interface misses` is the measure, kept as a budget at 0. It carries a
+transcription of `publisherOf` and `imprintOf` from `app.js`, which is a third copy of a rule on
+purpose: it is a copy of the CONSUMER, and it is the only thing in the tree that can observe the two
+implementations disagreeing. Both modules had written down that the risk exists and that the
+double keying guards it. The double keying is a mitigation and was never a check.
+
+### What was tightened
+
+`publishers with no English` reaches 0 and now measures the SHIPPED map rather than re-running the
+producer's own join, which is §14b: the old measure could not see a name the build had failed to
+write, and could not see a romanisation at all, because the store holds a reading and only the
+build spells it.
+
+`names rendered two ways` is new, at 2. It counts strings the shipped maps spell one way as a
+publisher and another way as a person. Both entries in it predate this round: ガレットワークス is
+`Galette Works` beside its books and `Garettowākusu` beside its name, and ネジ式１３番地 is
+`Nejishiki 13-banchi` and `Neji Shiki Ichisan Banchi`. **The fix belongs on the author side.**
+Each is a circle whose publisher entry is the better answer and whose person record has never been
+told so.

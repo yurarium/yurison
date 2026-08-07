@@ -39714,3 +39714,114 @@ publishers:
     reviewed: '2026-08-07'
     note: >-
       金曜日 is read きんようび and 魔女 is read まじょ; both are everyday words with one reading each.
+
+  # ── The five that a second round of research reached, and the one it confirmed cannot be ──────
+  #
+  # GAPS §24 recorded 32 names with nothing behind them. Five of them had a source after all, and
+  # each was missed the first time in a way worth naming, because the same shapes will recur.
+
+  "フェアベル":
+    en: "Fairbell"
+    basis: official-jp
+    source: "fairbell.jp"
+    source_kind: publisher-jp
+    source_url: "https://www.fairbell.jp/"
+    reviewed: '2026-08-07'
+    note: >-
+      The company signs its own bookshop © FAIRBELL Co.,LTD. The first round looked at
+      fairbell.co.jp, which is parked; the live sites are fairbell.jp and fairbell.net, and a
+      parked domain says nothing about whether a company publishes a Latin name.
+
+  "じるみて":
+    en: "jilmitte"
+    basis: official-jp
+    source: "forcs-comic.jp"
+    source_kind: publisher-jp
+    source_url: "https://forcs-comic.jp/jilmitte/"
+    reviewed: '2026-08-07'
+    note: >-
+      forcs's women's manga label, which the publisher addresses as jilmitte on its own site and
+      whose editorial account is @jilmitte. Lower case is the label's own styling. The name is a
+      contraction of 全人類に見てほしい, which forcs states and which is why no reading of the kana
+      would have produced this.
+
+  "デジコレ":
+    en: "Digicolle"
+    basis: official-jp
+    source: "e-comi.shogakukan.co.jp"
+    source_kind: publisher-jp
+    source_url: "http://e-comi.shogakukan.co.jp/digicolle"
+    reviewed: '2026-08-07'
+    note: >-
+      小学館's own e-comic store addresses the label digicolle and carries its logo as
+      logo-digicolle.svg, with the lockup printed デジコレ DIGITAL COMICS. So the truncation of
+      デジタルコミックコレクション does have a Latin form and the publisher writes it.
+
+  "デジコレ　マカロン":
+    en: "Digicolle Macaron"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      The マカロン strand of デジコレ, which 小学館 also files as デジコレ マカロン GENERAL and
+      デジコレ マカロン LADIES. デジコレ is the publisher's own digicolle; マカロン is the French
+      macaron as Japanese borrows it, so a syllable-by-syllable pass would transliterate a
+      transliteration.
+
+  "詳伝社":
+    en: "Shodensha Publishing"
+    basis: official-jp
+    source: "shodensha.co.jp"
+    source_kind: publisher-jp
+    source_url: "https://www.shodensha.co.jp/"
+    reviewed: '2026-08-07'
+    note: >-
+      Not a house. The one record spelled this way is Free soul by やまじえびね, ISBN 4396763387,
+      and the 4396 prefix is 祥伝社's: openBD returns 祥伝社 for every other ISBN carrying it, and
+      the book is a FEEL COMICS volume from 祥伝社's FEEL YOUNG. So the national bibliography holds
+      a character error, and the English name of the company that published the book is the one
+      already curated for 祥伝社. The Japanese is left as catalogued, because the source layer
+      records what the source said.
+
+  "青騎士コミックス":
+    en: "Aokishi Comics"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reading: "アオキシ コミックス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      KADOKAWA's product pages print no Latin form, which is where the first round stopped. The
+      magazine itself publishes at note.com/aokishi and posts as @aokishimanga, so あおきし is the
+      publisher's own answer to the reading and せいきし is out. The Latin spelling is still ours,
+      so this stays a romanisation.
+    reading_note: >-
+      The magazine's own note address and account handle both spell it aokishi.
+
+  "百合コレ":
+    en: "Yuri Kore"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reading: "ユリ コレ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reviewed: '2026-08-07'
+    note: >-
+      ナンバーナイン's yuri label, and the largest single name here: 496 of the 595 rows with no
+      English were this one. Searched again and still nothing. no9.co.jp publishes no label list,
+      the company's own note account documents Blend and nothing else, its press releases name
+      No.9 Comics and Blend Comics, and the label page at bookwalker.jp/label/11249 carries the
+      Japanese alone with no Latin anywhere on it.
+
+      So the name is spelled out rather than expanded. コレ is a truncation of コレクション, and
+      writing Yuri Collection would publish a name the label does not use; the store already
+      settled this shape when カドコミ was recorded as Kadokomi rather than expanded. What makes it
+      a decision worth recording is that 百合 is not in doubt and neither is the kana, so the
+      reading carries no guess even though the spelling is ours.
+    reading_note: >-
+      百合 read ユリ is the ordinary reading and the word this database is named for; コレ is kana
+      and reads itself. Nothing about the pronunciation is open, only the spelling.

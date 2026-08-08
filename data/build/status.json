@@ -1,14 +1,8 @@
 {
- "generated": "2026-08-08T14:43:33+00:00",
+ "generated": "2026-08-08T14:53:39+00:00",
  "since_last": {
-  "at": "2026-08-08T13:46:47+00:00",
-  "statistics": {
-   "works": 5,
-   "print_works": 5,
-   "print_only": 5,
-   "volumes": 45,
-   "with_identifier": 5
-  }
+  "at": "2026-08-08T14:43:33+00:00",
+  "statistics": {}
  },
  "means": {
   "duplicate_chapters": "Merged chapters that two sources described separately",
@@ -250,8 +244,8 @@
    {
     "name": "imprint strings that reach no line",
     "means": "imprint strings the corpus carries that no entry in data/names/imprints.yaml answers for, so the string stands as its own object. A coverage deficit: it falls as houses are curated and it will not reach zero, because some of these are a company name or a magazine sitting in the imprint field. A rise means new imprint spellings entered faster than they were placed.",
-    "budget": 140,
-    "value": 140
+    "budget": 139,
+    "value": 139
    },
    {
     "name": "imprint names the interface disagrees with",
@@ -346,7 +340,7 @@
    {
     "name": "works showing a romanisation",
     "means": "works with no English name, showing a romanisation instead. Distinct from the budget above, which a romanisation satisfies: this is the one that answers 'can a reader tell what this is'. Never reaches zero, because romanising is right for a coinage.",
-    "budget": 178,
+    "budget": 180,
     "value": 180
    },
    {
@@ -627,7 +621,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-08T13:46:46+00:00",
+  "previous_at": "2026-08-08T14:43:32+00:00",
   "drops": []
  },
  "outstanding": [
@@ -836,7 +830,7 @@
     "credits the corpus files as a venue": 20,
     "implausible ruby spans": 0,
     "imprint names the interface disagrees with": 0,
-    "imprint strings that reach no line": 140,
+    "imprint strings that reach no line": 139,
     "incomplete attested rows": 14,
     "invented markup in tests": 75,
     "kana left in a romanisation": 0,
@@ -862,7 +856,7 @@
     "updates naming a work we do not hold": 27,
     "volumes with an isbn and no date": 0,
     "works offered twice in a list": 0,
-    "works showing a romanisation": 178,
+    "works showing a romanisation": 180,
     "works without English": 104
    }
   }

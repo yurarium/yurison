@@ -258,6 +258,30 @@ lines:
       - アライブ＋
       - アライブ+シリーズ
 
+  # ── ブシロード ───────────────────────────────────────────────────────────────────────────────
+  #
+  # TWO GROUP COMPANIES, ONE LINE, AND IT IS NEITHER A RENAME NOR A TRANSFER. This was left
+  # unresolved as "two companies neither of which is curated here". The dates settle it: ブシロード
+  # ワークス carries the line from 2021-07 to 2026-03 and the single ブシロードメディア row sits at
+  # 2022-01, INSIDE that run. A successor does not publish one book in the middle of its
+  # predecessor's output, so the two spellings are not a sequence and there is nothing to date the
+  # change to.
+  #
+  # Both are Bushiroad group companies naming the same line, which is what `publishers` holding
+  # more than one company is for. 角川コミックス・エース is the same shape arrived at differently:
+  # there the older records kept the old house name after a rename, here two arms of one group are
+  # both catalogued as the publisher of one imprint.
+  - id: bushiroad-comics
+    publishers: [ブシロードワークス, ブシロードメディア]
+    name: ブシロードコミックス
+    name_basis:
+      source: corpus
+      note: >-
+        The corpus spelling, used on every row. Bushiroad indexes its books by title and publishes
+        no list of book lines, so no publisher page states a name to prefer over it.
+    spellings:
+      - ブシロードコミックス
+
   - id: kadokawa-comics-ace
     publishers: [KADOKAWA, 角川書店]
     name: 角川コミックス・エース

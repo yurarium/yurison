@@ -219,8 +219,8 @@
   {
    "name": "imprint strings that reach no line",
    "means": "imprint strings the corpus carries that no entry in data/names/imprints.yaml answers for, so the string stands as its own object. A coverage deficit: it falls as houses are curated and it will not reach zero, because some of these are a company name or a magazine sitting in the imprint field. A rise means new imprint spellings entered faster than they were placed.",
-   "budget": 140,
-   "value": 140
+   "budget": 139,
+   "value": 139
   },
   {
    "name": "imprint names the interface disagrees with",

@@ -121,8 +121,9 @@ def index(lines):
 
     KEYED ON THE PUBLISHER AS WELL AS THE SPELLING, so a line can be reached only from the house
     that runs it. `角川コミックス・エース` is catalogued under KADOKAWA and under 角川書店 and both
-    are listed on the entry; `ブシロードコミックス` sits under two companies neither of which is
-    curated here, and it stays unresolved instead of being attached to a guess.
+    are listed on the entry, and `ブシロードコミックス` is the same shape reached differently: two
+    arms of one group are both catalogued as the publisher of one line, which the dates show is
+    neither a rename nor a transfer.
     """
     out = {}
     for line in lines:

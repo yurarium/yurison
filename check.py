@@ -1778,7 +1778,7 @@ INVARIANTS = [
      inv_interface_folds_a_name_key_as_the_build_does),
     ("names reach a page only through their renderer",
      inv_names_reach_a_page_only_through_their_renderer),
-    ("a name in 併記 is rendered in both", inv_a_name_in_both_mode_is_rendered_in_both),
+    ("a name reaches both lines of a bilingual row", inv_a_name_in_both_mode_is_rendered_in_both),
     ("every Japanese field the data carries has a ruling",
      inv_every_japanese_field_has_a_ruling),
 ]
@@ -3905,7 +3905,7 @@ def self_test():
         # and 併記 renders each row by asking twice, so the heading answered in Japanese and the
         # English title never appeared. Every other language setting was right, which is what made
         # it survive.
-        ("a name in 併記 is rendered in both", inv_a_name_in_both_mode_is_rendered_in_both,
+        ("a name reaches both lines of a bilingual row", inv_a_name_in_both_mode_is_rendered_in_both,
          lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
              "${bilingual(() => workLabel(r))}", "${workLabel(r)}")})),
         # THE CANARY IS THE TABLE LOSING AN ENTRY, planted in the SOURCE the context holds so it

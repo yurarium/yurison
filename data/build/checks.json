@@ -93,10 +93,8 @@
   },
   {
    "name": "status.html shows no Japanese of its own",
-   "violations": 1,
-   "examples": [
-    "status.html:gate shows 併記 in English mode"
-   ]
+   "violations": 0,
+   "examples": []
   },
   {
    "name": "no build-machine paths in published files",
@@ -194,16 +192,14 @@
    "examples": []
   },
   {
-   "name": "a name in 併記 is rendered in both",
+   "name": "a name reaches both lines of a bilingual row",
    "violations": 0,
    "examples": []
   },
   {
    "name": "every Japanese field the data carries has a ruling",
-   "violations": 1,
-   "examples": [
-    "status[].gate.invariants[].name: holds Japanese and nothing says whether it is a name"
-   ]
+   "violations": 0,
+   "examples": []
   }
  ],
  "budgets": [

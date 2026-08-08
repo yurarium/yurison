@@ -674,6 +674,53 @@ def inv_one_row_per_identifier(ctx):
     return bad
 
 
+def _credit_surfaces(ctx):
+    """Every spelling the credit registry answers for, folded the way its anchors are folded."""
+    out = set()
+    for e in (ctx["credits"] or {}).get("credits") or []:
+        for a in e.get("anchors") or []:
+            a = str(a or "")
+            if a.startswith("credit:"):
+                out.add(a[len("credit:"):])
+    return out
+
+
+def inv_credit_identifiers_resolve(ctx):
+    """Every credit identifier in use must exist, and every retired one must reach a live one.
+
+    AN ADDRESS PUBLISHED ONCE HAS TO KEEP RESOLVING, which is the whole reason these identifiers are
+    opaque and minted. A retired one keeps `merged_into` and a stub forwards from it, so a
+    `merged_into` naming an id that is not in the file, or a pair of them naming each other, is an
+    address that resolves nowhere and a forwarder that cannot be written. The work registry met the
+    same failure from the other side: 20 of 26 retired ids had no forwarder and twenty published
+    addresses stopped working inside a day.
+
+    It also asserts that the derived edge file only names identifiers the registry holds live, since
+    an edge on a retired id is a work pointing at an address that forwards.
+    """
+    entries = (ctx["credits"] or {}).get("credits") or []
+    by_id = {str(e.get("id")): e for e in entries if e.get("id")}
+    live = {k for k, e in by_id.items() if not e.get("merged_into")}
+    bad = []
+    for cid, e in sorted(by_id.items()):
+        target = e.get("merged_into")
+        if not target:
+            continue
+        seen = {cid}
+        while target and str(target) not in live:
+            if str(target) not in by_id or str(target) in seen:
+                bad.append(f"{cid} retires into {target}, which is not a live identifier")
+                break
+            seen.add(str(target))
+            target = by_id[str(target)].get("merged_into")
+        if not e.get("merge_basis"):
+            bad.append(f"{cid} is retired with no basis recorded")
+    for row in (ctx["credit_works"] or {}).get("credits") or []:
+        if str(row.get("id")) not in live:
+            bad.append(f"the edge file names {row.get('id')}, which is not a live identifier")
+    return bad
+
+
 # The cataloguing MADB wraps around a publisher's name. Written here as a shape and not as a list
 # of role words, deliberately: `adapters/madb/extract.py` decides which words are roles, and a copy
 # of its table here would report exactly what the adapter already handles and nothing else
@@ -1231,6 +1278,7 @@ INVARIANTS = [
     ("curated values reach the store", inv_curated_values_reach_the_store),
     ("ruby spells the reading", inv_ruby_spells_reading),
     ("one row per identifier", inv_one_row_per_identifier),
+    ("every credit identifier resolves", inv_credit_identifiers_resolve),
     ("first date precedes its editions", inv_first_date_precedes_its_editions),
     ("no ruby over bare Latin", inv_no_ruby_over_latin),
     ("feed holds only attested rows", inv_feed_is_attested),
@@ -2172,6 +2220,75 @@ def budget_credits_carrying_their_own_cataloguing(ctx):
                if v.get("reading") and k not in shipped and fold(k) not in shipped)
 
 
+def budget_credit_fields_no_identifier_covers(ctx):
+    """Name-shaped runs of a shipped credit field that no credit identifier accounts for.
+
+    THE MEASURE FOR THE CREDIT IDENTIFIERS, BUILT NOT TO SHARE THEIR BLIND SPOT (§14b). Everything
+    that assigns one finds a credit with `inputs.split_credits_detail`, so a count that asked the same
+    splitter could only ever report what the splitter already handles. That is the shape that let
+    `田口ケンジ / タグチケンジ` reach a reader with every gate green: the measure and the fix asked one
+    question and got one answer.
+
+    This asks a different question. It deletes every registered spelling out of the credit field AS
+    SHIPPED and reports what is left that still looks like a name. That is arithmetic on the string,
+    and it consults no splitter, no fold, no name store and no registry lookup, so it can fail on
+    anything the pipeline is able to emit: a credit the splitter drops, a fold that collapsed two
+    people into one key, a registry the pass forgot to write.
+
+    IT COUNTS CANDIDATES AND NOT FAULTS, and the residue is legible. A role label is name-shaped and
+    is legitimately unregistered, so 原作 and 著者 are in it, along with the imprint notes a
+    bibliography rides along inside a bracket (早川書房刊, GA文庫) and one furigana gloss, the ひろ of
+    博（ひろ）. Excluding those would mean holding a copy of the role vocabulary here, which is the
+    third shape §14b names and the one that had already drifted.
+
+    WHAT IS IN IT THAT IS A FAULT, today: `フォローする` is a Follow button a page capture handed over
+    as a byline, and 虫原 and 科戸コウ are credits only a release row names. Both are counted rather
+    than minted, because an address for a button is worse than a number that is not zero.
+
+    DISTINCT RUNS, so a new uncovered name cannot hide behind a role label already in the list. The
+    count is 19 and does not grow with the corpus.
+    """
+    surfaces = _credit_surfaces(ctx)
+    if not surfaces:
+        return 0
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        import credit_identity
+    except Exception:                                                       # noqa: BLE001
+        return 0
+    left = set()
+    for r in list(ctx["series"]) + list(ctx["releases"]):
+        left.update(credit_identity.uncovered(r.get("author") or "", surfaces))
+    return len(left)
+
+
+def budget_credits_sharing_a_reading_nobody_ruled_on(ctx):
+    """Readings the shipped name map gives to several credits that no ruling has settled.
+
+    WHY IT HAS TO BE COUNTED. 82 readings answered for 164 credits when the identifiers were minted,
+    and 74 of the pairs were one credit a source had recorded twice: MADB states a name beside its own
+    reading in the field where the slash separates two people, so 秋山はる and アキヤマハル both
+    became records. Left alone, that is one artist with two addresses each showing half their works.
+
+    THE RESIDUE IS RULED ON AND NOT FILTERED, which is why this is at zero instead of absent. A
+    reading newly sourced can put two credits together that nobody has looked at, and the pairs that
+    need a person are exactly the ones a rule cannot settle: かぼちゃ against カボちゃ differ in which
+    characters are katakana, which is what a stylised pen name does on purpose. So a new pair arrives
+    as a number that has risen and blocks at check-in, where somebody can rule on it.
+
+    READ OFF THE SHIPPED FILE, not the store. The store holds a reading and only the build spells it,
+    folds the key and decides what ships, so asking the store would count records rather than the
+    renderings a reader can see two of, and would answer 0 while the duplicate was live.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        import credit_identity
+    except Exception:                                                       # noqa: BLE001
+        return 0
+    return len(credit_identity.unruled((ctx["names_shipped"] or {}).get("authors") or {},
+                                       ctx["credit_rulings"] or {}))
+
+
 def budget_renderings_with_nothing_to_show(ctx):
     """Renderings that leave a Japanese name with no English form at all.
 
@@ -2716,6 +2833,15 @@ BUDGETS_DEF = [
     ("credits matching a chapter", budget_credits_matching_a_chapter,
      "author fields holding a credit made only of digits or markup. A rise means a parser folded "
      "something that is not a name into a byline."),
+    ("credit fields an identifier does not cover", budget_credit_fields_no_identifier_covers,
+     "name-shaped runs of a shipped credit field that no credit identifier accounts for, measured by "
+     "deleting the registered spellings out of the field and reading what is left. A rise means a "
+     "credit stopped reaching an identifier, and the count owes nothing to the splitter that assigns "
+     "them, so it can say so."),
+    ("credits sharing a reading nobody has ruled on", budget_credits_sharing_a_reading_nobody_ruled_on,
+     "readings the shipped name map gives to several credits with no ruling on the pair. Should be "
+     "0: a rise means a newly sourced reading has put two credits together and nobody has said "
+     "whether they are one credit written twice or two names that sound alike."),
     ("implausible ruby spans", budget_implausible_ruby_spans,
      "furigana runs holding fewer kana than they have kanji. A rise means the aligner placed a "
      "boundary somewhere no reading could fall, which the spelling check cannot see."),
@@ -2872,6 +2998,13 @@ def context():
         "names_shipped": _load(BUILD / "feed" / "names.json", {}),
         "cmoa_capture": _capture_works("data/queue/cmoa-volumes.yaml"),
         "identity": (_yaml(ROOT / "data" / "identity" / "works.yaml", {}) or {}).get("works") or [],
+        # THE CREDIT REGISTRY AND WHAT WAS RULED ABOUT IT. Whole documents rather than their `credits`
+        # lists, because two of the three checks below read a second key: the rulings file is asked
+        # which pairs are settled and the edge file which identifiers a work points at. Loaded here so
+        # a canary can be planted in front of them.
+        "credits": _yaml(ROOT / "data" / "identity" / "credits.yaml", {}) or {},
+        "credit_rulings": _yaml(ROOT / "data" / "identity" / "credit-rulings.yaml", {}) or {},
+        "credit_works": _yaml(ROOT / "data" / "identity" / "credit-works.yaml", {}) or {},
         # THE SOURCE LAYER, not the build. Two checks below ask what the RECORD states, because
         # that is where the fact is produced and a build in between can only lose it. Loaded here
         # with everything else so a canary can be planted in front of them; a check that opens its
@@ -2899,6 +3032,20 @@ def _fixture_files():
     d = ROOT / "data" / "fixtures"
     return {str(p.relative_to(d))[: -len(".fixture")]: p.read_text(encoding="utf-8")
             for p in sorted(d.rglob("*.fixture"))} if d.exists() else {}
+
+
+def _plant_edge_on_a_retired_credit(c):
+    """Point a work's credit edge at an identifier a merge has retired.
+
+    THE CANARY IS A STATE THE PIPELINE PRODUCES (§14b). `identity.index` resolves a retired anchor
+    to its successor, so an edge lands on the survivor as long as the resolution runs. Skipping it
+    is what put 13 print pairs into one row under one id in the works registry, and the same slip
+    here would leave a work linking to an address that forwards somewhere else.
+    """
+    retired = next((e["id"] for e in (c["credits"] or {}).get("credits") or []
+                    if e.get("merged_into")), None)
+    if retired:
+        c["credit_works"].setdefault("credits", []).append({"id": retired, "works": [{"id": "w1"}]})
 
 
 def _capture_passes():
@@ -3127,6 +3274,17 @@ def self_test():
         # quiet, and the two are asserting different things.
         ("a fixture states where it came from", inv_fixture_states_where_it_came_from,
          lambda c: c["fixtures"].update({"CANARY": _anonymous_fixture()})),
+        # A RETIREMENT THAT REACHES NOTHING. This is the state the work registry was in when 20 of
+        # its 26 retired ids had no forwarder: `merged_into` recorded and nothing live at the end of
+        # it, so the address resolved nowhere and no stub could be written for it.
+        ("every credit identifier resolves", inv_credit_identifiers_resolve,
+         lambda c: c["credits"].setdefault("credits", []).append(
+             {"id": "c99999", "credit": "カナリア", "merged_into": "c99998",
+              "merge_basis": "a canary", "anchors": ["credit:カナリア"]})),
+        # AND A WORK POINTING AT AN ADDRESS THAT FORWARDS, which is the same fault from the other
+        # side and is what put 13 print pairs into one row under one id.
+        ("every credit identifier resolves", inv_credit_identifiers_resolve,
+         _plant_edge_on_a_retired_credit),
     ]
     ok = True
     for name, fn, plant in probes:
@@ -3212,6 +3370,36 @@ def self_test():
         print("  self-test FAILED — 'one work under two names in a list' counted two authors' "
               "works as one")
         ok = False
+    # A CREDIT THAT NO LONGER REACHES AN IDENTIFIER, which is the fault this measure exists for and
+    # the one a measure built on the assigner's own splitter could never see. Taking a spelling out
+    # of the registry reproduces exactly what a pass that stopped minting for it would leave behind,
+    # and the residue has to name the credit rather than fall silent.
+    c = copy.deepcopy(ctx)
+    was = budget_credit_fields_no_identifier_covers(c)
+    entries = (c["credits"] or {}).get("credits") or []
+    dropped = next((e for e in entries
+                    if any(str(a).startswith("credit:") for a in e.get("anchors") or [])
+                    and not e.get("merged_into")), None)
+    if dropped:
+        c["credits"]["credits"] = [e for e in entries if e is not dropped]
+        if budget_credit_fields_no_identifier_covers(c) <= was:
+            print("  self-test FAILED — 'credit fields an identifier does not cover' did not count "
+                  f"a credit the registry stopped answering for ({dropped.get('credit')})")
+            ok = False
+
+    # A PAIR OF CREDITS SHARING A READING WITH NOBODY'S RULING ON IT, which is the state
+    # data/names/authors.yaml was in for all 82 pairs on the morning of 2026-08-08. Taking a ruling
+    # away puts one pair back into it, and a count that cannot rise here is a count that would let an
+    # artist quietly hold two addresses.
+    c = copy.deepcopy(ctx)
+    was = budget_credits_sharing_a_reading_nobody_ruled_on(c)
+    rulings = (c["credit_rulings"] or {}).get("rulings") or []
+    if rulings:
+        c["credit_rulings"]["rulings"] = rulings[1:]
+        if budget_credits_sharing_a_reading_nobody_ruled_on(c) != was + 1:
+            print("  self-test FAILED — 'credits sharing a reading nobody has ruled on' did not "
+                  "count a pair whose ruling was taken away")
+            ok = False
 
     # THE CANARY IS THE FAILURE ITSELF, NOT AN INVENTED ONE (§14b). A capture written without a row
     # for a work it was told to read is a document this pipeline really produced: it is what

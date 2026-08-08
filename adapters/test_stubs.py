@@ -89,5 +89,20 @@ def main(s):
     s.eq([k for k in stubs.written("work", rows, {"w0001": "nowhere"})], ["work/w0002/index.html"],
          "and a target nothing resolves to forwards nowhere rather than to a blank page")
 
+    # ── THE ROOT IS THE DIRECTORY, AND IT WAS ACCEPTED AND IGNORED ─────────────────────────────
+    #
+    # Every link in a forwarder was spelt `work/` regardless of what `root` said. Invisible while
+    # `work` was the only root; a bug the moment a second kind of record needed the same page, since
+    # a retired credit identifier would have sent its reader to a work that does not exist.
+    other = stubs.forwarders("credit", {"c00001"}, {"c00002": "c00001"})
+    s.eq(sorted(other), ["credit/c00002/index.html"], "a second root writes under its own name")
+    s.check("../../credit/c00001/" in other["credit/c00002/index.html"],
+            "and points inside it")
+    s.check("work/" not in other["credit/c00002/index.html"],
+            "with no path back to the work registry")
+    s.check('rel="canonical" href="../../credit/c00001/"' in other["credit/c00002/index.html"],
+            "the canonical link included, which is the one a search engine reads")
+
+
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

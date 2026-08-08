@@ -155,8 +155,49 @@ def _break_after_role_brackets(masked):
     return ROLE_BRACKET_BREAK.sub(sub, masked)
 
 
-def split_authors(credit, interpunct=True):
-    """A credit line to a list of (name, stated_reading_or_None).
+# Whitespace, colons and the separators a role label arrives glued to, cleaned off a captured role
+# so that `原作／` and `原作：` and ` 原作` all report the same word.
+ROLE_EDGE = re.compile(r"^[\s　:：/／・･]+|[\s　:：/／・･]+$")
+
+
+def _label(text):
+    return ROLE_EDGE.sub("", str(text or "").replace(MASK, "・")) or None
+
+
+def _roles_on(part):
+    """(this part's role, the next part's role) for one split chunk.
+
+    THE SPLITTER ALREADY KNOWS EVERY PLACE A LABEL SITS, so reading one off adds no vocabulary and
+    no second traversal. `原作：士郎正宗` puts it at the head and `冬眠結(漫画)` inside a bracket, and
+    both belong to the name beside them.
+
+    A TAIL LABEL BELONGS TO THE CREDIT AFTER IT, which is the whole reason `ROLE_TAIL` exists.
+    `原作／宮澤伊織　作画／水野英多` splits on the slash into `原作`, `宮澤伊織　作画` and `水野英多`,
+    so 作画 arrives glued to the END of 宮澤伊織's chunk while labelling 水野英多. Reading it as
+    宮澤伊織's role puts every person in that field under the next person's job: the first version of
+    this function credited 宮澤伊織 with 作画 and left shirakaba with nothing.
+    """
+    m = ROLE_HEAD.match(part)
+    if m:
+        return _label(m.group(0)), None
+    for b in BRACKETED.finditer(part):
+        inner = b.group(1).replace(MASK, "・").strip()
+        if ROLE_ONLY.match(inner):
+            return _label(inner), None
+    tail = ROLE_TAIL.search(part)
+    return None, (_label(tail.group(0)) if tail else None)
+
+
+def split_credits_detail(credit, interpunct=True):
+    """A credit line to a list of (name, stated_reading_or_None, role_or_None).
+
+    WHY THE ROLE IS RETURNED AT ALL. A credit becomes a reference when a work links to the person it
+    names, and one person is 原作 on one work and 作画 on another. So the role belongs on the EDGE
+    between the work and the credit, and it can only get there if the splitter that finds the name
+    also says which label it took off. `split_authors` is this function with the role dropped, so
+    the identity a page is built on and the name the store is keyed on come out of one traversal.
+    Deriving the role in a second pass over the same string is the shape STANDING-INSTRUCTIONS §3
+    counts seven shipped bugs from.
 
     The reading is only ever non-None for the bracketed-kana case described in the module docstring.
 
@@ -171,10 +212,19 @@ def split_authors(credit, interpunct=True):
     for chunk in re.split(r"%s|%s" % (seps.pattern, BREAK), masked):
         parts.extend(ROLE_BREAK.split(chunk))
     out, seen = [], set()
+    # A label the previous chunk ended with, or a chunk that was nothing but a label. Either way it
+    # names the job of the credit that comes next, and it is spent on that one credit rather than
+    # carried down the rest of the field: `原作／A／B` says what A did and says nothing about B.
+    carried = None
     for raw in parts:
         p = raw.replace(MASK, "・").strip()
-        if not p or ROLE_ONLY.match(p):
+        if not p:
             continue
+        if ROLE_ONLY.match(p):
+            carried = _label(p)
+            continue
+        role, ahead = _roles_on(p)
+        role, carried = role or carried, ahead
         p = OTHERS_TAIL.sub("", ROLE_TAIL.sub("", ROLE_HEAD.sub("", p))).strip()
         name, reading = _peel_bracket(p)
         name = name.strip(" 　:：")
@@ -186,8 +236,16 @@ def split_authors(credit, interpunct=True):
         if name in seen:
             continue
         seen.add(name)
-        out.append((name, reading))
+        out.append((name, reading, role))
     return out
+
+
+def split_authors(credit, interpunct=True):
+    """A credit line to a list of (name, stated_reading_or_None).
+
+    The role the splitter took off is available from `split_credits_detail`, which this wraps.
+    """
+    return [(n, r) for n, r, _role in split_credits_detail(credit, interpunct)]
 
 
 def _peel_bracket(part, depth=4):

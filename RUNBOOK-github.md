@@ -303,3 +303,47 @@ curl -s https://yurarium.github.io/kari/work/RETIRED/ | grep -c "This record is 
 `adapters/test_stubs.py` covers the forwarder, the chain, and the two guards: a live identifier is
 never turned into a forwarder, and one that is not a well-formed id writes nothing, because a path
 is built from it.
+
+## 12. Credit identifiers, and ruling on two spellings of one credit
+
+Every credit a work names holds an opaque identifier, minted in `adapters/credit_identity.py` and
+stored in `data/identity/credits.yaml`. Same promise as a work's: 華葉 was read ハナハ, then カヨウ,
+then カバ inside one day, and a romanised address would have broken twice. The pass runs after a
+build, because it reads
+`data/build/series.json` and `data/build/feed/names.json`:
+
+```
+./build.py && python3 adapters/credit_identity.py
+```
+
+It is re-runnable and mints nothing on unchanged data. It writes the registry and, beside it,
+`data/identity/credit-works.yaml`, which is derived and rewritten whole: the works each credit is
+named on, with the role on the edge, since one person is 原作 on one work and 作画 on another.
+
+**When the gate says a reading is shared and nobody has ruled on it.** The budget `credits sharing a
+reading nobody has ruled on` sits at 0 and rises when a newly sourced reading puts two credits
+together. Ask what the two spellings are to each other:
+
+```
+python3 adapters/credit_identity.py --propose --dry-run
+```
+
+That prints the shape and the works behind each spelling and decides nothing. A whole-string change
+of kana script, and a name written beside its own reading in kana, are things a SOURCE does to a
+name, so they propose that one credit was recorded twice. A partial flip is not: かぼちゃ and
+カボちゃ differ in which characters are katakana, which is what a stylised pen name does on purpose,
+and that pair is two credits. Two spellings with different kanji are two credits unless something
+other than the reading says otherwise.
+
+**Write the call into `data/identity/credit-rulings.yaml`** with a basis, and run the pass again.
+A `merge` retires the losing identifier where one was minted, and where the losing spelling holds
+none it attaches the spelling to the winner instead, so a later run that meets it in a credit field
+resolves to the same address. A `keep` is recorded in the registry's `homophones` list, which is what
+DEFINITIONS §9 does for a work a rebuttal examined and upheld: without it the same pair is
+re-examined at every capture and the reasoning is lost each time.
+
+**A retired credit identifier serves what a retired work identifier serves.**
+`credit_identity.forwarders` builds it through `adapters/stubs.py`, so it carries the same
+`rel=canonical`, `noindex,nofollow`, meta refresh, `location.replace` and sentence naming the
+successor. It is not written by `deploy.sh` yet, because no credit page exists to forward to. Wire it
+in the commit that ships the page.

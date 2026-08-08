@@ -31,8 +31,20 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 from names.inputs import split_authors  # noqa: E402
 
-ID = re.compile(r"^w(\d+)$")
+# THE PREFIX IS A PARAMETER BECAUSE A SECOND KIND OF OBJECT NEEDS THE SAME PROMISE. A work is `w`
+# and a credit is `c` (adapters/credit_identity.py). Everything below the minting is already blind to
+# which kind it is holding: `index`, `assign`, `attach` and `merge` read `id`, `anchors` and
+# `merged_into` and never look at the letter, so generalising meant parameterising one function
+# rather than writing a second scheme that would drift from this one's rules about a contested anchor.
 WIDTH = 5
+PREFIX = "w"
+
+
+def id_re(prefix=PREFIX):
+    return re.compile(r"^%s(\d+)$" % re.escape(prefix))
+
+
+ID = id_re()
 BRACKETED = re.compile(r"[【\[（(][^】\]）)]*[】\]）)]")
 NOISE = re.compile(r"[\s　・!！?？。、,，~〜ー―\-–—:：;；'\"“”‘’]+")
 
@@ -125,14 +137,20 @@ def print_anchor(work_id):
     return f"madb:{wid}" if wid else None
 
 
-def mint(taken):
-    """The next free identifier. Sequential so that assignment order is auditable."""
+def mint(taken, prefix=PREFIX, width=WIDTH):
+    """The next free identifier. Sequential so that assignment order is auditable.
+
+    HIGHEST TAKEN PLUS ONE, and never the count of what is taken. A retired entry stays in the file
+    for ever, so the two numbers part company the moment anything merges, and counting would hand
+    out an identifier somebody already holds a link to.
+    """
+    pat = ID if prefix == PREFIX else id_re(prefix)
     n = 0
     for i in taken:
-        m = ID.match(str(i or ""))
+        m = pat.match(str(i or ""))
         if m:
             n = max(n, int(m.group(1)))
-    return f"w{n + 1:0{WIDTH}d}"
+    return f"{prefix}{n + 1:0{width}d}"
 
 
 def index(entries):
@@ -145,12 +163,20 @@ def index(entries):
     return out
 
 
-def assign(entries, wanted):
+def assign(entries, wanted, prefix=PREFIX, relabel=True):
     """Give every work in `wanted` an id, keeping every existing assignment.
 
     `wanted` is [(identifying_anchor, attached_anchors, title)]. **A work is looked up only by the
     anchor that identifies it**, which is its own URL or its own C-number. Attached anchors are
     what a join adds, and they are deliberately not used to find a work.
+
+    `relabel` IS TRUE FOR A WORK AND FALSE FOR A CREDIT, and the difference is not cosmetic. Titles
+    are corrected here often, several on 2026-08-04 alone, so a work's entry follows its row and the
+    registry shows the current title. A credit's label is the spelling the identifier was minted for,
+    and a merge lends the retired spelling's anchor to the survivor, so following the row lets the
+    losing spelling become the survivor's label: 獅尾's entry came back reading `ししお` on the run
+    after ししお was retired into it, and its own `merge_basis` then named a spelling the entry no
+    longer showed.
 
     That distinction is the whole of the correctness here, and the corpus supplies the reason.
     超深宇宙より愛をこめて exists as a 15-chapter serialisation and as a 1-chapter 読み切り版, two
@@ -175,12 +201,12 @@ def assign(entries, wanted):
             continue
         wid = owner.get(ident_anchor)
         if not wid:
-            wid = mint(by_id)
+            wid = mint(by_id, prefix)
             e = {"id": wid, "title": title, "anchors": [ident_anchor]}
             by_id[wid] = e
             entries.append(e)
             owner[ident_anchor] = wid
-        else:
+        elif relabel or not by_id[wid].get("title"):
             by_id[wid]["title"] = title or by_id[wid].get("title")
         e = by_id[wid]
         for a in attached or []:

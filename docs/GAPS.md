@@ -1673,3 +1673,33 @@ disposition is available: no reading can be recorded, and the rendering should s
 **One constraint that will recur.** For some artists the attestation sits in works §7 excludes. The
 reading of a person's name is not itself excluded material and belongs here, but a citation is a
 link, so record the basis and the reasoning and do not address it. あおい華葉 is the worked example.
+
+## Digital delivery dates are accepted where no paper record is reachable (2026-08-08)
+
+**The owner's ruling, which reverses part of an earlier one.** Where no accessible record of a paper
+version exists, the date a shop began delivering the digital edition is accepted as the best
+available, with its source recorded as any other date is. Flagged here as data to follow up, because
+it is the weakest date the database carries and a better one may appear.
+
+**What it overrides, and what it does not.** `adapters/cmoa_volumes.py` measured 配信開始日 against a
+print date on 353 volumes and found 154 delivered before print and 45 more than three years after,
+the extreme being 128 months. That finding stands wherever a print date exists: there the print date
+wins and the delivery date is not evidence about it. What is overridden is the digital-only case,
+which the module also refused on the grounds that cmoa's blurb for #ミカちゃんともなちゃん states the
+file is the ebook edition of a 同人誌, so an earlier publication exists without being dated. That
+argument is sound and the owner's judgement is that a dated row a reader can act on beats an
+undated one, provided the basis says what it rests on.
+
+**The population.** 1,209 of 1,833 cmoa works read `first_publication_basis:
+shop-delivery-date-only` with `first_publication_date` null. 1,347 works in the corpus carry no first
+date at all and 1,308 of those have a print block naming a shop. BOOK☆WALKER states no ISBN on any
+of 5,968 volumes read, so an ISBN-keyed route cannot reach its rows; 真夜中だけのおともだち is the
+example the owner raised, a single volume self-published through BOOK☆WALKER with no date anywhere.
+
+**The date was not kept.** The capture recorded the basis and discarded the value, because the ruling
+at the time said it was unusable. So this is a recovery from `cmoa-cache` and the BOOK☆WALKER
+captures rather than a new fetch, and it should stay that way: the pages are already on disk.
+
+**What a reader must be able to tell.** A delivery date is not a publication date and the interface
+should not present it as one. It needs its own basis in the store and its own words on the page, in
+the same way 発売日 and 奥付 are two facts about one book rather than one fact at two precisions.

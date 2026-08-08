@@ -277,7 +277,26 @@ pixiv or X).
 genre's acknowledged ancestry, but it is not manga. It may later be added as non-record
 contextual notes; it will not be given work records.
 
-**Deferred:** doujinshi — see §7.
+**Doujinshi, where a platform sells it:** a doujinshi offered for general sale through a major
+book platform this project already reads is **in scope**. Decided 2026-08-08 by the project owner.
+The listing is what admits it: a platform stocking a title and filing it under a genre is the same
+matter of record that admits anything else here, and it arrives with the same things attached, an
+address a reader can open and a shelf we can cite.
+
+**AND THAT IS THE LIMIT, DELIBERATELY.** This is not a first phase of taking doujinshi generally,
+and a later round should not read it as an invitation. A doujinshi distributed only at events, or
+only through a circle, stays out, and the reason is not that it matters less. It is that nothing
+about it is a matter of record: publication for a doujinshi is a nebulous idea to begin with, since
+the first offering is usually the first day of an event, sometimes across several events, sometimes
+mail order before or after, and no register records any of that the way a 奥付 records a commercial
+printing. A category whose members cannot be enumerated and whose dates do not exist is not a gap in
+this database, it is outside what this database is able to say (§9).
+
+**A consequence worth stating.** For a doujinshi admitted this way, the day the platform began
+delivering the file may be the only datable event in its history. That is why a delivery date is
+accepted as the first publication date where no paper record is reachable, and why an undated row of
+this kind is not a backlog waiting on a bibliography. See docs/GAPS.md, "Digital delivery dates are
+accepted where no paper record is reachable".
 
 ### Works and releases are different things
 

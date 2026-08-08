@@ -30942,6 +30942,20 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  フィダンツァートのためいき:
+    basis: romaji
+    furigana_spans:
+    - - フィダンツァートのためいき
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: フィダンツァート ノ タメイキ
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   'フィダンツァートのためいき : 完全版':
     basis: translated
     en: 'The Fidanzato''s Sigh: Complete Edition'
@@ -68424,25 +68438,25 @@ names:
   竜宮城へようこそ:
     basis: translated
     en: Welcome to the Dragon Palace
-    en_at: '2026-08-06'
-    en_reviewed: '2026-08-06'
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 竜
-      - りゅう
-    - - 宮城
-      - みやぎ
-    - - へようこそ
-      - null
     note: 竜宮城 is the palace under the sea in the Urashima Tarō tale, where time runs differently, and
       dragon palace is the English the story is told in.
-    reading: リュウ ミヤギ エ ヨウコソ
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading: リュウグウジョウ エ ヨウコソ
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: リュウ ミヤギ エ ヨウコソ
+    reading_note: 竜宮城 is リュウグウジョウ, one compound naming the palace under the sea. The store held リュウ ミヤギ,
+      which is the analyser cutting 竜|宮城 and reading the second half as the prefecture. The curated English
+      on this entry already calls it the Dragon Palace, so the record contradicted itself.
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   竜王さまの気ままな異世界ライフ:
     basis: translated
@@ -69686,18 +69700,28 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ラブラブ シタイ タツノミヤ サン ワ ジョウリク シマシタ
+    reading: ラブラブ シタイ リュウグウ サン ワ ジョウリク シマシタ
     reading_at: '2026-08-08'
-    reading_basis: stated
+    reading_basis: researched
     reading_conflicts:
     - basis: analyser
       source: sudachi
       value: ケッコン シタイ リュウグウサン ワ ジョウリク シマシタ
+    - basis: stated
+      source: ndlsearch.ndl.go.jp
+      value: ラブラブ シタイ タツノミヤ サン ワ ジョウリク シマシタ
+    reading_note: '竜宮 is リュウグウ, the undersea palace of the 浦島太郎 tale, and 上陸 in the title is her coming
+      ashore from it. The store read タツノミヤ, a surname, which contradicts the curated English on the same
+      work without the gloss: that entry calls her the Dragon Palace Princess and its note cites the synopsis
+      calling her 姫 of an undersea people. A round recorded タツノミヤ as a case where a furigana gloss corrected
+      the name beside it; the gloss is over 結婚 and says nothing about 竜宮, so what it corrected was 結婚
+      to ラブラブ and the surname reading came from the analyser splitting the compound. 竜宮城へようこそ shows the
+      same split on a work with no gloss anywhere near it.'
     reading_reviewed: '2026-08-08'
     reading_source: ndlsearch.ndl.go.jp
-    reading_source_kind: national-library
+    reading_source_kind: derived
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032975211
-    verified: true
+    verified: false
   結婚したい竜宮さんは上陸しました:
     basis: translated
     en: The Marriage-Minded Dragon Palace Princess Has Come Ashore

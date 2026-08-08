@@ -2525,9 +2525,19 @@ def budget_titles_carrying_cataloguing_punctuation(ctx):
     sys.path.insert(0, str(ROOT / "adapters"))
     import isbd
 
+    # WHAT A READER IS SHOWN IS THE WORK, and a record is a transcription of one edition. This
+    # counted works.json too, where a MADB record faithfully carries `X : 完全版` for a reissue that
+    # is now filed under the work it reissues, so 13 of 15 were the record layer doing its job
+    # (§5 keeps a source record as it arrived). The work is what carries the name, and where a
+    # publisher states that name it is canonical: an edition files under it.
+    #
+    # A SIGN A PUBLISHER PRINTS IS NOT PUNCTUATION. ルミナス＝ブルー is one name with a fullwidth
+    # sign in it, so `isbd.RULED` holds it and this asks that map before the pattern, which is
+    # otherwise deliberately loose enough to catch every spelling of the mark.
     bad = 0
-    for title in ([str((r.get("title") or {}).get("ja") or "") for r in ctx["works"]]
-                  + [str(r.get("work") or "") for r in ctx["series"]]):
+    for title in [str(r.get("work") or "") for r in ctx["series"]]:
+        if title in isbd.RULED:
+            continue
         if EQUALS_ANY.search(title) or isbd.edition_statement(title):
             bad += 1
     return bad
@@ -4006,8 +4016,11 @@ def self_test():
     # equals sign, which `isbd.areas` would never split and this must still see.
     c = copy.deepcopy(ctx)
     was = budget_titles_carrying_cataloguing_punctuation(c)
-    c["works"].append({"work_id": "CANARY", "title": {"ja": "カナリア＝CANARY"}})
-    c["series"].append({"id": "CANARY", "work": "カナリア : 完全版"})
+    # BOTH ARE PLANTED AS WORKS, because that is what this counts now. It used to walk works.json
+    # too, where a record faithfully transcribes an edition it is filed under, so one canary sat in
+    # each layer. A record is not a title a reader is shown.
+    c["series"].append({"id": "CANARY1", "work": "カナリア＝CANARY"})
+    c["series"].append({"id": "CANARY2", "work": "カナリア : 完全版"})
     if budget_titles_carrying_cataloguing_punctuation(c) != was + 2:
         print("  self-test FAILED — 'titles carrying cataloguing punctuation' did not count "
               "its canaries")

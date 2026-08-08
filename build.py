@@ -5199,7 +5199,11 @@ def main():
                        for part in re.split(r"\s*/\s*", _pw2.get("creator") or "")]
             _cparts = [(x, r) for x, r in _cparts if x]
             series_rows.append({
-                "work": (_pw2.get("title") or {}).get("ja") or "",
+                # ALIASED HERE TOO, and it was reached only from the web path. A curated alias
+                # says which of two spellings names the work, and a print-only row could not ask:
+                # フィダンツァートのためいき : 完全版 is 一迅社's 2018 reissue of a 2010 book the house
+                # lists under the plain name, and the ISBD colon marked the edition.
+                "work": work_alias(((_pw2.get("title") or {}).get("ja") or "").strip()),
                 "author": " / ".join(x for x, _job in _cparts),
                 **({"credits": [{"name": x, **({"role": j} if j else {})} for x, j in _cparts]}
                    if any(j for _x, j in _cparts) else {}),

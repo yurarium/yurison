@@ -100,6 +100,11 @@ Areas = namedtuple("Areas", "name parallel other")
 # KEYED ON THE WHOLE CATALOGUED STRING, so this can never generalise into a rule about signs. Each
 # entry is one book somebody looked up, with the page in the comment above.
 RULED = {
+    # 一迅社 prints ルミナス＝ブルー（1）, one name with a fullwidth sign inside it and no spaces
+    # (data.ichijinsha.co.jp/detail/75807921). MADB transcribes it as a spaced ASCII `=`, which is
+    # what an ISBD parallel title looks like. The name is the whole string and there is no parallel.
+    "ルミナス＝ブルー": ("ルミナス＝ブルー", ""),
+    "ルミナス = ブルー": ("ルミナス＝ブルー", ""),
     "ニニンがシノブ伝ぷらす = 2×2=SHINOBUDEN+": ("ニニンがシノブ伝ぷらす", "2×2=SHINOBUDEN+"),
     "School zone = スクールゾーン": ("スクールゾーン", "School zone"),
 }

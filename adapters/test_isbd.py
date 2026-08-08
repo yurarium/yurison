@@ -65,8 +65,13 @@ def main(s):
     #
     # Each of these is a real record. The rule was wrong in this direction before and pinning the
     # refusals is worth more than pinning the splits.
-    s.eq(m.title_proper("ルミナス = ブルー"), "ルミナス = ブルー",
+    # THE REFUSAL IS SHOWN ON A BOOK NOBODY HAS LOOKED UP, because 一迅社 has since settled this one:
+    # it prints ルミナス＝ブルー, one name with a fullwidth sign inside it, so the spaced ASCII form a
+    # cataloguer wrote now resolves to the house's spelling.
+    s.eq(m.title_proper("ひかり = やみ"), "ひかり = やみ",
          "a parallel half holding Japanese is not a translation")
+    s.eq(m.title_proper("ルミナス = ブルー"), "ルミナス＝ブルー",
+         "and a sign the publisher prints inside a name is restored to the form they print")
     s.eq(m.parallel_title("ルミナス = ブルー"), "", "so no English name is taken from it")
     # THE RULE IS UNCHANGED AND IS SHOWN ON A BOOK NOBODY HAS LOOKED UP. These two shapes used to be
     # pinned on School zone and ニニンがシノブ伝ぷらす, which a publisher has since settled, so the

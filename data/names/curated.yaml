@@ -9,6 +9,33 @@
 # than only with the result.
 
 titles:
+  結婚(らぶらぶ)したい竜宮さんは上陸しました:
+    reading_source: ndlsearch.ndl.go.jp
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032975211
+    reading: "ラブラブ シタイ リュウグウ サン ワ ジョウリク シマシタ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      竜宮 is リュウグウ, the undersea palace of the 浦島太郎 tale, and 上陸 in the title is her coming ashore from it. The store read タツノミヤ, a surname, which contradicts the curated English on the same work without the gloss: that entry calls her the Dragon Palace Princess and its note cites the synopsis calling her 姫 of an undersea people. A round recorded タツノミヤ as a case where a furigana gloss corrected the name beside it; the gloss is over 結婚 and says nothing about 竜宮, so what it corrected was 結婚 to ラブラブ and the surname reading came from the analyser splitting the compound. 竜宮城へようこそ shows the same split on a work with no gloss anywhere near it.
+
+  竜宮城へようこそ:
+    en: "Welcome to the Dragon Palace"
+    basis: translated
+    note: >-
+      竜宮城 is the palace under the sea in the Urashima Tarō tale, where time runs differently, and
+      dragon palace is the English the story is told in.
+    reading: "リュウグウジョウ エ ヨウコソ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      竜宮城 is リュウグウジョウ, one compound naming the palace under the sea. The store held リュウ ミヤギ, which is the analyser cutting 竜|宮城 and reading the second half as the prefecture. The curated English on this entry already calls it the Dragon Palace, so the record contradicted itself.
+
   ゆりでなるｖえすぽわーる:
     reading: "ユリ デ ナル ♡ エスポワール"
     reading_basis: researched
@@ -26280,15 +26307,6 @@ titles:
       真実の愛 is love that is the real thing as against a counterfeit. The comma after the topic and the
       full stop are the title's own.
 
-  竜宮城へようこそ:
-    en: "Welcome to the Dragon Palace"
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-06'
-    note: >-
-      竜宮城 is the palace under the sea in the Urashima Tarō tale, where time runs differently, and
-      dragon palace is the English the story is told in.
 
   笑っちゃうほど恋してる:
     en: "So in Love It's Laughable"
@@ -29436,15 +29454,6 @@ titles:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033517347
 
-  結婚(らぶらぶ)したい竜宮さんは上陸しました:
-    reading: ラブラブ シタイ タツノミヤ サン ワ ジョウリク シマシタ
-    reading_basis: stated
-    reviewed: '2026-08-08'
-    source: ndlsearch.ndl.go.jp
-    source_kind: national-library
-    reading_source: ndlsearch.ndl.go.jp
-    reading_source_kind: national-library
-    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032975211
 
 
   '遠山えま百合集  : センセイとの時間。':

@@ -40000,6 +40000,16 @@
    },
    "reading_basis": "surface"
   },
+  "フィダンツァートのためいき": {
+   "reading": "フィダンツァート ノ タメイキ",
+   "romaji": {
+    "macron": "Fidantsāto no Tameiki",
+    "double": "Fidantsaato no Tameiki",
+    "plain": "Fidantsato no Tameiki"
+   },
+   "basis": "romaji",
+   "reading_basis": "analyser"
+  },
   "フィダンツァートのためいき:完全版": {
    "reading": "フィダンツァート ノ タメイキ   :   カンゼン バン",
    "ruby": [
@@ -95675,15 +95685,11 @@
    "unverified": true
   },
   "竜宮城へようこそ": {
-   "reading": "リュウ ミヤギ エ ヨウコソ",
+   "reading": "リュウグウジョウ エ ヨウコソ",
    "ruby": [
     [
-     "竜",
-     "りゅう"
-    ],
-    [
-     "宮城",
-     "みやぎ"
+     "竜宮城",
+     "りゅうぐうじょう"
     ],
     [
      "へようこそ",
@@ -95691,17 +95697,16 @@
     ]
    ],
    "romaji": {
-    "macron": "Ryū Miyagi e Yōkoso",
-    "double": "Ryuu Miyagi e Youkoso",
-    "plain": "Ryu Miyagi e Yokoso"
+    "macron": "Ryūgūjō e Yōkoso",
+    "double": "Ryuuguujou e Youkoso",
+    "plain": "Ryugujo e Yokoso"
    },
    "en": "Welcome to the Dragon Palace",
    "basis": "translated",
    "en_forms": {
     "translated": "Welcome to the Dragon Palace"
    },
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "竜王さまの気ままな異世界ライフ": {
    "reading": "リュウオウサマ ノ キママナ イセカイ ライフ",
@@ -97621,20 +97626,14 @@
    "reading_basis": "researched"
   },
   "結婚(らぶらぶ)したい竜宮さんは上陸しました": {
-   "reading": "ラブラブ シタイ タツノミヤ サン ワ ジョウリク シマシタ",
+   "reading": "ラブラブ シタイ リュウグウ サン ワ ジョウリク シマシタ",
    "romaji": {
-    "macron": "Raburabu Shitai Tatsunomiya San wa Jōriku Shimashita",
-    "double": "Raburabu Shitai Tatsunomiya San wa Jouriku Shimashita",
-    "plain": "Raburabu Shitai Tatsunomiya San wa Joriku Shimashita"
+    "macron": "Raburabu Shitai Ryūgū San wa Jōriku Shimashita",
+    "double": "Raburabu Shitai Ryuuguu San wa Jouriku Shimashita",
+    "plain": "Raburabu Shitai Ryugu San wa Joriku Shimashita"
    },
    "basis": "romaji",
-   "reading_basis": "stated",
-   "reading_cite": {
-    "source": "ndlsearch.ndl.go.jp",
-    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032975211",
-    "kind": "national-library",
-    "reviewed": "2026-08-08"
-   }
+   "reading_basis": "researched"
   },
   "結婚したい竜宮さんは上陸しました": {
    "reading": "ケッコン シタイ リュウグウサン ワ ジョウリク シマシタ",
@@ -190912,6 +190911,7 @@
   "ファンシー革命": "Fanshī Kakumei",
   "ファンシー革命(HARTACOMIX)": "Fanshī Kakumei (HARTA COMIX)",
   "ファーストペンギン・レクイエム": "Fāsutopengin, Rekuiemu",
+  "フィダンツァートのためいき": "Fidantsāto no Tameiki",
   "フィダンツァートのためいき:完全版": "Fidantsāto no Tameiki : Kanzen Ban",
   "フェアウェイの声をきかせて": "Feawei no Koe o Kikasete",
   "フォーゲット・ミー・ノット": "Fō Getto, Mī, Notto",

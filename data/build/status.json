@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-08T21:10:20+00:00",
+ "generated": "2026-08-08T21:33:12+00:00",
  "since_last": {
-  "at": "2026-08-08T21:05:30+00:00",
+  "at": "2026-08-08T21:28:25+00:00",
   "statistics": {}
  },
  "means": {
@@ -419,13 +419,13 @@
     "name": "works showing a romanisation",
     "means": "works with no English name, showing a romanisation instead. Distinct from the budget above, which a romanisation satisfies: this is the one that answers 'can a reader tell what this is'. Never reaches zero, because romanising is right for a coinage.",
     "budget": 179,
-    "value": 179
+    "value": 180
    },
    {
     "name": "titles carrying cataloguing punctuation",
     "means": "titles a reader is shown that still hold a bibliography's own ISBD markup: an equals sign in any spelling, or a reissue marker from the closed set adapters/isbd.py holds. A subtitle after the same colon is content and is not counted. A rise means a capture route wrote a catalogue string through as a name.",
-    "budget": 15,
-    "value": 15
+    "budget": 0,
+    "value": 0
    },
    {
     "name": "works offered twice in a list",
@@ -449,7 +449,8 @@
     "name": "invented markup in tests",
     "means": "page-shaped string literals of 200 characters or more in test files, which is markup somebody wrote from memory standing in for a page. Falls as tests move to data/fixtures/; does not reach zero, because some platforms have no cached page to cut. A rise means a test went back to inventing one.",
     "budget": 75,
-    "value": 75
+    "value": null,
+    "not_measured": "source-quality budget; measured at check-in"
    },
    {
     "name": "nicovideo works with no rights",
@@ -503,7 +504,8 @@
     "name": "scraped counters in chapter names",
     "means": "chapter names ending in the view or like counts printed next to them on the source page. A rise means an extractor has gone back to flattening a chapter block into one run of text instead of reading the element the page names as the title.",
     "budget": 1,
-    "value": 1
+    "value": null,
+    "not_measured": "source-quality budget; measured at check-in"
    },
    {
     "name": "updates naming a work we do not hold",
@@ -697,7 +699,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-08T21:05:29+00:00",
+  "previous_at": "2026-08-08T21:28:24+00:00",
   "drops": []
  },
  "outstanding": [
@@ -710,7 +712,7 @@
   {
    "kind": "research",
    "key": "english_names",
-   "count": 158,
+   "count": 159,
    "what": "Name in English the works that carry only a romanisation",
    "rows": [
     "2332",
@@ -849,6 +851,7 @@
     "ハクせつシリーズ",
     "ハニー＆ハニー",
     "ファインダー越しのあの子（Lilie comics）",
+    "フィダンツァートのためいき",
     "ボドカン！",
     "ヤンキー×ジャーキー",
     "リンリンサイド！！",
@@ -888,7 +891,7 @@
   {
    "kind": "debt",
    "key": "data_debts",
-   "count": 34,
+   "count": 33,
    "what": "Bring down counts that may only ratchet downward",
    "rows": {
     "adapters fetching without net.py": 35,
@@ -930,7 +933,7 @@
     "rows with a moving address": 0,
     "scraped counters in chapter names": 1,
     "targets a capture wrote no row for": 4,
-    "titles carrying cataloguing punctuation": 15,
+    "titles carrying cataloguing punctuation": 0,
     "titles shorter than their own reading": 3,
     "titles with no translation of our own": 171,
     "uncertain readings": 53,
@@ -956,11 +959,11 @@
    "slow": 57
   },
   "english_basis": {
-   "translated": 2644,
+   "translated": 2643,
    "official-jp": 115,
    "licensed": 110,
    "none": 108,
-   "romaji": 71
+   "romaji": 72
   },
   "print_works": 2484,
   "print_only": 1698,

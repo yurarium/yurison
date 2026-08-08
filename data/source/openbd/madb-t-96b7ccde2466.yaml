@@ -1,0 +1,35 @@
+# Derived from openBD. Raw payloads are NOT committed — openBD forbids transferring
+# use rights to third parties (REQUIREMENTS §3). No synopsis text is stored (§2).
+source: openbd
+retrieved: 2026-08-08
+work_id: madb-t-96b7ccde2466
+record_type: volume_enrichment
+volumes:
+  - isbn: "9784832239906"
+    openbd: present
+    published: 2023-05
+    published_basis: openbd-registration
+  - isbn: "9784832239982"
+    openbd: present
+    published: 2023-06
+    published_basis: openbd-registration
+  - isbn: "9784832203372"
+    openbd: present
+    published: 2023-11-01
+    published_basis: openbd-registration
+  - isbn: "9784832203846"
+    openbd: present
+    published: 2024-04
+    published_basis: openbd-registration
+  - isbn: "9784832204201"
+    openbd: present
+  - isbn: "9784832204690"
+    openbd: present
+  - isbn: "9784832204911"
+    openbd: present
+  - isbn: "9784832205314"
+    openbd: present
+  - isbn: "9784832205666"
+    openbd: present
+  - isbn: "9784832206038"
+    openbd: present

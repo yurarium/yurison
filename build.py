@@ -22,6 +22,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402
 import identity  # noqa: E402
 import importdates  # noqa: E402
+import isbndate  # noqa: E402
 from names import credits as _credits  # noqa: E402
 from names import openbd_reading  # noqa: E402
 import bylines as _bylines  # noqa: E402
@@ -1869,8 +1870,26 @@ def main():
         vols = []
         for v in base.get("volumes") or []:
             o = enrich.get(v.get("isbn", ""), {})
-            m = {k: (str(v[k]) if k == "published" else v[k]) for k in ("madb_id", "number", "isbn", "published") if k in v}
-            if o.get("published") and o["published"] != v.get("published"):
+            m = {k: (str(v[k]) if k == "published" else v[k])
+                 for k in ("madb_id", "number", "isbn", "published", "published_basis") if k in v}
+            # WHAT THE SECOND CATALOGUE ADDS TO THIS VOLUME'S DATE. The test here was string
+            # equality, so 2013-05 against 2013-05-24 read as a disagreement: the day went into
+            # `published_openbd` and the reader went on seeing the month. That is one fact at two
+            # precisions and the finer form is worth taking, while 2013-05 against 2013-06-02 is
+            # two sources disagreeing and the held date stands. `isbndate.resolve` is the one
+            # producer of that distinction; see its docstring for what each catalogue was measured
+            # to be worth, including the publisher route that states a different date and not a
+            # finer one.
+            _vol_date, _vol_relation = isbndate.resolve(m.get("published"), o.get("published"))
+            if _vol_relation in isbndate.TAKEN:
+                m["published"] = _vol_date
+                # A DATE THIS BUILD MOVED SAYS WHERE IT MOVED FROM. `published_basis` names the
+                # catalogue in `cmoa_volumes.PREFERENCE`'s vocabulary and `published_source` names
+                # the file, because `first_publication` below reports both and a volume dated from
+                # the enrichment layer would otherwise be attributed to the bibliography.
+                m["published_basis"] = o.get("published_basis") or "openbd-registration"
+                m["published_source"] = "openbd"
+            elif _vol_relation == isbndate.DISAGREES:
                 # Keep the higher-priority value; record rather than discard the disagreement (§1).
                 m["published_openbd"] = o["published"]
             if o.get("cover_url"):
@@ -1931,14 +1950,27 @@ def main():
         # fourth here, and `adapters/lint/shadowing.py` counts each of those as a rebinding of a
         # name that lives for two thousand lines. Two shipped bugs came from that shape.
         #
-        # The last of the four is THE BIBLIOGRAPHY REACHED BY TITLE AND A PERSON'S NAME, for a
+        # The last of them is THE BIBLIOGRAPHY REACHED BY TITLE AND A PERSON'S NAME, for a
         # shop's row that states no ISBN. adapters/madb/by_title.py carries what had to agree
         # before that was written, and the record carries the count of what matched, so the join
         # can be withdrawn on better evidence rather than only trusted (DEFINITIONS §5).
-        dated = ([(str(v["published"]), "madb", "madb-tankobon")
+        #
+        # A VOLUME NOW CARRIES ITS OWN BASIS WHERE THE MERGE ABOVE MOVED ITS DATE, so the first of
+        # the four reads the row instead of assuming the bibliography. Assuming it was right while
+        # every dated volume came from MADB and would have been silently wrong from the moment one
+        # did not, which is the same shape as the row that took every enrichment date for openBD's.
+        #
+        # A DATE WE DECIDED NOT TO TAKE IS NOT A CANDIDATE FOR THE WORK'S OWN DATE. `published_openbd`
+        # was the third of these and it is gone, because it fed the merge's rejects back in through
+        # the door the merge had just closed. `min` over strings picks the EARLIEST, so a value the
+        # row records as a disagreement won whenever it fell earlier, and 2025-09-08 read off the
+        # bibliography shipped as 2025-09 attributed to openBD: a day given back for a month, from
+        # the source the merge had ranked second, on a page that named the wrong one of the two.
+        # The comment beside `published_openbd` above already said the higher-priority value is kept
+        # and the disagreement recorded, and this is the line that made that untrue.
+        dated = ([(str(v["published"]), v.get("published_source") or "madb",
+                   v.get("published_basis") or "madb-tankobon")
                   for v in vols if v.get("published")]
-                 + [(str(v["published_openbd"]), "openbd", "openbd-registration")
-                    for v in vols if v.get("published_openbd")]
                  + [(str(o["published"]), "openbd",
                      o.get("published_basis") or "openbd-registration")
                     for o in enrich.values()

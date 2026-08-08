@@ -1,0 +1,19 @@
+# Derived from openBD. Raw payloads are NOT committed — openBD forbids transferring
+# use rights to third parties (REQUIREMENTS §3). No synopsis text is stored (§2).
+source: openbd
+retrieved: 2026-08-08
+work_id: madb-t-2a52bccf2bbd
+record_type: volume_enrichment
+volumes:
+  - isbn: "9784046844873"
+    openbd: present
+    published: 2025-02
+    published_basis: openbd-registration
+  - isbn: "9784046850768"
+    openbd: present
+    published: 2025-08
+    published_basis: openbd-registration
+  - isbn: "9784046857446"
+    openbd: present
+    published: 2026-02
+    published_basis: openbd-registration

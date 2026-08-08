@@ -1154,6 +1154,30 @@ def budget_undated_cmoa_candidates(ctx):
     return _undated_retailer_rows("data/queue/cmoa-volumes.yaml", "cmoa.jp")
 
 
+def budget_volumes_with_an_isbn_and_no_date(ctx):
+    """Volumes a reader is shown that state an ISBN and carry no publication date.
+
+    An ISBN encodes no date and it is a key into registries that state one, so a volume holding an
+    ISBN and no date is a lookup nobody has done. This is the gap `adapters/isbndate.py` closes and
+    the number that keeps it visible after it has been closed once.
+
+    §14b, WHAT IT IS MEASURED OVER. The built works and not `data/source/madb/`, where the gap was
+    found. Counting the source records would leave this reporting 26 for ever, because the answer
+    lands in the enrichment layer and the merge is what brings the two together; the check would
+    have been blind in exactly the place the fix works. Over the built rows it falls when a reader
+    would see a date and rises when one stops reaching the page, whichever route supplied it.
+
+    Its floor is not zero. openBD held no record at all for 245 of the corpus's 2,321 ISBNs, and
+    for a book nobody registered there is nothing to look up.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        import isbndate
+    except Exception:                                                       # noqa: BLE001
+        return 0
+    return len(isbndate.undated_isbn_volumes(ctx["works"]))
+
+
 def budget_bookwalker_series_unread(ctx):
     """BOOK☆WALKER rows whose series listing nobody has read to the end.
 
@@ -2061,6 +2085,11 @@ BUDGETS_DEF = [
      "`first_publication` is the earliest date across the volumes read. Falls as "
      "adapters/recon/bookwalker_volumes.py --follow-series re-reads them, and reaches zero, "
      "because every row counted here names a series to fetch."),
+    ("volumes with an isbn and no date", budget_volumes_with_an_isbn_and_no_date,
+     "volumes on a work page stating an ISBN and no publication date. An ISBN is a key into a "
+     "registry that states one, so each of these is a lookup nobody has done. Falls as "
+     "adapters/openbd/enrich.py --fetch works through the corpus. Its floor is the books openBD "
+     "has no record of, which was 245 of 2,321 ISBNs when this was written."),
     ("undated cmoa candidates", budget_undated_cmoa_candidates,
      "the same count for the コミックシーモア half of the queue, falling as adapters/cmoa_volumes.py "
      "works through it. Its floor is high and known: cmoa states an ISBN or an 出版年月 only where "

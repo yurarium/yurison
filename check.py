@@ -44,6 +44,10 @@ READER_TEXT = [SITE_ROOT / "index.html", SITE_ROOT / "README.md",
                ROOT / "README.md"]     # this repo goes public at 1.0; its README is public text
 
 JAPANESE = re.compile(r"[぀-ヿ一-鿿　-〿＀-￯]")
+# Kana and the marks that only ever appear beside them. Narrower than JAPANESE on purpose: this
+# asks whether a string a reader is shown INSTEAD of the Japanese still holds a character they
+# cannot read, and a stray 　 or ＆ is a different complaint.
+KANA_ANY = re.compile(r"[ぁ-ゖァ-ヺヽヾゝゞー]")
 KANA = re.compile(r"^[぀-ヿ\s・ー]*$")
 
 
@@ -347,13 +351,23 @@ def inv_content_flags_are_accounted_for(ctx):
     # the marketing flags reported and unchecked: a fire-drill deleted all three from the report and
     # this passed, which is the shape the whole invariant exists to catch. So they are recomputed
     # here from the DEPLOYED works list, using build.py's own patterns rather than a second copy.
-    expect_marketing = set()
+    #
+    # ONE WORK IS OFTEN TWO ROWS, AND THE TWO SPELL IT DIFFERENTLY. A serialisation row and a book
+    # row for the same work sit side by side in series.json, and 昨日シたのに覚えてないの？ 百合えっ
+    # ち短編集 is spaced on the platform where the bibliography writes ISBD's colon. `marketing_flags`
+    # keys on `norm_work` and reports one row for the pair; comparing the raw strings asked for two
+    # and named the surviving spelling as unaccounted for. So the comparison is on the same
+    # normalised form, which is the ANSWER build.py reached and not the PATTERN it reached it with:
+    # the patterns above are still applied here to a list build.py did not hand over, so a flag that
+    # stopped being raised at all is still what this catches.
+    expect_marketing, norm = set(), lambda t: t
     try:
         sys.path.insert(0, str(ROOT))
         import importlib.util
         _spec = importlib.util.spec_from_file_location("buildpat", ROOT / "build.py")
         _b = importlib.util.module_from_spec(_spec)
         _spec.loader.exec_module(_b)
+        norm = _b.norm_work
         for r in (_load(SITE / "series.json", {}) or {}).get("series", []):
             w = r.get("work") or ""
             if _b.ADULT_MARKETED.search(w) and _b.COLLECTION_MARK.search(w):
@@ -361,14 +375,16 @@ def inv_content_flags_are_accounted_for(ctx):
     except Exception as e:
         bad.append(f"could not recompute the marketing signal: {type(e).__name__}")
 
+    reported_norm = {norm(t) for t in reported}
+    expect_norm = {norm(t) for t in expect_marketing}
     for title in expect_marketing:
-        if title not in reported:
+        if norm(title) not in reported_norm:
             bad.append(f"adult-marketed and not reported: {title[:30]}")
 
     for title, row in reported.items():
         # The file register records what a SOURCE said; the marketing signal is what the build
         # noticed. Both must be reported; only the first must exist on disk.
-        if title not in reg and title not in expect_marketing:
+        if title not in reg and norm(title) not in expect_norm:
             bad.append(f"reported as flagged but not in any register: {title[:30]}")
 
     # A withheld work must be absent from everything served, checked on the bytes.
@@ -1951,6 +1967,67 @@ def budget_labels_with_nothing_to_quote(ctx):
                and not YURI_TERM_IN_IMPRINT.search(str(r.get("imprint") or "")))
 
 
+def budget_kana_left_in_a_romanisation(ctx):
+    """Values the shipped names file offers in place of Japanese that still hold a kana character.
+
+    A romanisation exists so that a reader who cannot read kana has something to read, so one kana
+    left in it is the whole point of the string undone. `kana.romanise` emits a character it has no
+    table entry for, which is the right default for ☆ and × and was wrong for kana: ＲＤーＳｏｕｎｄｓ
+    shipped as `RDー Sounds` because the ー lengthened nothing, and 竹ヶ原 romanised as `takeヶhara`.
+
+    WHAT IT ASKS THAT THE PRODUCER DOES NOT (§14b). `romanise` decides what to emit by looking a
+    mora up in BASE, DIGRAPH and PUNCT; this looks at the finished string and asks whether any
+    character in it is kana. It shares no table with the subject and would have caught both faults
+    above on the shipped bytes, which is where a reader met them.
+
+    IT COVERS THE COMPOSED CREDIT LINES TOO, and that is where the one remaining case is:
+    西沢5ミリ renders as `Nishisawa 5 ミリ`, a credit whose parts are rendered one at a time and one
+    of whose parts has no rendering. That is `credits`, not `kana`, so the number is not zero and
+    naming why is better than scoping it out.
+    """
+    n = ctx["names_shipped"] or {}
+    bad = 0
+    for kind in ("titles", "authors", "publishers", "credit_parts", "phrases"):
+        for v in (n.get(kind) or {}).values():
+            vals = list((v.get("romaji") or {}).values()) if isinstance(v, dict) else [v]
+            for s in vals:
+                if isinstance(s, str) and KANA_ANY.search(s):
+                    bad += 1
+    return bad
+
+
+def budget_titles_shorter_than_their_own_reading(ctx):
+    """Records whose reading states other title information the stored name does not carry.
+
+    A bibliography marks other title information with ISBD's ` : `, and MADB writes that mark into
+    the READING of a title even where it has put the words themselves in a field of their own. A
+    record holding 怪異部 beside カイイブ : エムケン ワイシ ノ カイゲンショウ ニ ツイテ is a name its
+    own catalogue entry contradicts, and the works list showed `Kaii Bu` for a work published as
+    怪異部～M県Y市の怪現象について～. 20 records of this corpus were in that state and 17 of them
+    are now stated whole.
+
+    WHAT KEEPS THIS NUMBER OFF ZERO, and why that is the honest answer. MADB's
+    `schema:alternativeHeadline` is cut short on a few Latin values: 紗痲 states `Fallin` where the
+    reading says フォーリン ジェイル, 冷たくて柔らか states `PiNK` where it says
+    ピンキー キャンディ キス. `extract.subtitle` refuses those, so the record keeps the shorter name
+    and the reading goes on saying there is more. Recovering the words from the kana is the guess
+    NAMES-PLAN forbids, so this falls when a source STATES the rest, and not before.
+
+    WHAT IT SHARES WITH ITS SUBJECT (§14b). `extract.subtitle` consults the reading for a Latin
+    value and never for a Japanese one, so for the 16 Japanese subtitles this asks a question the
+    producer did not, on a field the producer did not write. For the Latin ones it reports the
+    refusals, which is the number above and is what it is here to keep visible. It cannot see a
+    subtitle MADB states in neither place: 3 of the 20 had no reading of their own and were found
+    by looking at the field instead.
+    """
+    n = 0
+    for r in ctx["madb_records"]:
+        t = r.get("title") if isinstance(r.get("title"), dict) else {}
+        if " : " in str(t.get("yomi") or "") and " : " not in str(t.get("ja") or ""):
+            n += 1
+    return n
+
+
 def budget_citations_withheld_from_readers(ctx):
     """Readings holding an address the site may not link to, so the citation is not shown.
 
@@ -2020,6 +2097,15 @@ BUDGETS_DEF = [
      "records whose reading and whose English name cite the same page while naming different "
      "kinds of source, so at most one of the two can be right about where it came from. A rise "
      "means an entry carried one address for two claims again."),
+    ("kana left in a romanisation", budget_kana_left_in_a_romanisation,
+     "strings the shipped names file offers in place of Japanese that still hold a kana character, "
+     "which undoes the one job a romanisation has. A rise means a renderer met a kana it has no "
+     "table entry for and printed it."),
+    ("titles shorter than their own reading", budget_titles_shorter_than_their_own_reading,
+     "MADB records whose stated reading carries ISBD's mark for other title information while the "
+     "stored name carries none, so the work is held under a name shorter than the one the "
+     "catalogue read out. Falls when a source states the missing words; a rise means a route went "
+     "back to reading the title out of one field."),
     ("labels with nothing to quote", budget_labels_with_nothing_to_quote,
      "records carrying a publisher-side yuri label whose imprint holds no term saying so, which "
      "is a label the work page cannot show a reader the evidence for. A rise means a pass has "

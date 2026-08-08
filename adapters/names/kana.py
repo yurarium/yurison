@@ -23,6 +23,20 @@ WHICH HEPBURN. Modified (revised) Hepburn, the library standard:
   - っ doubles the following consonant, except before ch where Hepburn writes tch: まっちゃ → matcha.
   - えい is `ei`, not `ē`. Long i is `ii`, not `ī`. Both are Hepburn as written, not oversights.
 
+WHERE A DISPUTED RULE IS SETTLED. Hepburn is a family and its members disagree, so the tie-breaker
+is the National Diet Library's own transcription rules, `読みの基準（2021年1月）`, 別紙２ for the kana
+and 別紙３ for the romanisation. NDL is where most of our stated readings come from, so following it
+means the reading and the rendering answer to one authority. Its rules settle ん (`撥音「ン」は、
+すべて「n」を使用する` and the apostrophe before a vowel or y), the particles (`助詞「ハ」「ヘ」「ヲ」は
+「ワ」「エ」「オ」と記録する`, which is a rule about the READING and is why `romanise` applies none),
+Latin passing through untouched, ヴ and ワ゛ヰ゛ヱ゛ヲ゛ taking v, small ヵ and ヶ taking ka and ke, and
+ヂ ヅ ヰ ヱ taking ji zu i e. Each rule is pinned in `test_kana.py` with the case that broke it.
+
+Where NDL and modified Hepburn genuinely part company, Hepburn wins, because NDL's romanisation is
+a sort key and ours is a name a reader is shown. Two places: NDL ignores every long vowel, which is
+our `plain` style and not our `macron` one, and NDL writes a sokuon with nothing to double as `tsu`,
+which would spell 保健室の鍵閉めてっ as `shimetetsu`.
+
 WHAT THIS GETS WRONG, AND WHY IT IS SURVIVABLE. おう is a long o inside a morpheme (とうきょう →
 Tōkyō) but two vowels across a morpheme boundary (おもう → omou, not omō), and telling those apart
 needs morphological analysis this deliberately does not do — §5c warns that analysers are unreliable
@@ -81,12 +95,29 @@ BASE = {
     "ま": "ma", "み": "mi", "む": "mu", "め": "me", "も": "mo",
     "や": "ya", "ゆ": "yu", "よ": "yo",
     "ら": "ra", "り": "ri", "る": "ru", "れ": "re", "ろ": "ro",
+    # を IS ALWAYS `o`, and it is the one particle this table can settle. Modern Japanese writes を
+    # for nothing but the object marker, so there is no word it could be part of, and every
+    # authority agrees: NDL's romanisation table gives ヲ → o and modified Hepburn does the same.
+    # は and へ are the opposite case and are decided in `romanise`.
     "わ": "wa", "ゐ": "i", "ゑ": "e", "を": "o",
     "ゔ": "vu",
     # Small kana standing alone — they only reach here when nothing combined with them, which is
     # itself a signal the string is decorative rather than a reading.
     "ぁ": "a", "ぃ": "i", "ぅ": "u", "ぇ": "e", "ぉ": "o",
     "ゃ": "ya", "ゅ": "yu", "ょ": "yo", "ゎ": "wa",
+    # SMALL ヵ AND ヶ, which are kana and were not in this table, so every romanisation of a string
+    # holding one printed the character itself: 竹ヶ原 came out `takeヶhara`. NDL's romanisation
+    # table lists both, as ka and ke, and that is what these are.
+    #
+    # A READING RECORDS THE SOUND AND SHOULD NEVER GET HERE. ヶ in a place name is a genitive
+    # marker read か or が, which is what `KE_SMALL` is for and what アサガヤ is; these two entries
+    # are the fallback for a reading that copied its surface, and a fallback that prints the kana
+    # is not one.
+    "ゕ": "ka", "ゖ": "ke",
+    # ワ゛ヰ゛ヱ゛ヲ゛ as single characters. They sit above the range `to_hiragana` folds, so they
+    # arrive here spelled in katakana and are listed that way. NDL records them as ヴァ ヴィ ヴェ ヴォ,
+    # so they take the same v as ヴ does.
+    "ヷ": "va", "ヸ": "vi", "ヹ": "ve", "ヺ": "vo",
 }
 
 # Two-kana morae. Youon plus the extended set katakana uses for foreign sounds, which titles are
@@ -132,7 +163,12 @@ HIRAGANA_START = 0x3041
 # listed here is emitted unchanged, which is the right default for ☆ and × and their friends.
 PUNCT = {"、": ", ", "。": ". ", "・": " ", "〜": "~", "～": "~", "＝": "=", "！": "!", "？": "?",
          "「": "“", "」": "”", "『": "“", "』": "”", "（": " (", "）": ") ",
-         "…": "...", "‥": "..", "　": " ", "＆": " & ", "／": "/"}
+         "…": "...", "‥": "..", "　": " ", "＆": " & ", "／": "/",
+         # A ー THAT LENGTHENS NOTHING IS A DASH, and that is what it was being used as. It only
+         # reaches this table when no vowel precedes it, which is a title drawing a line rather
+         # than a reading marking length: ラブライブ!flowers*ー蓮ノ空… opens and closes a phrase with
+         # one, and the opening one romanised as `*ー` with the kana still in it.
+         PROLONG: "-"}
 
 # What may sit between kana without making a string un-romanisable. Symbols are included because a
 # title like ガールズ×ヴァンパイア is fully determined — the × is already Latin and stays Latin.
@@ -203,13 +239,40 @@ def kana_only(s):
     return seen
 
 
+def _expand_iteration(s):
+    """Write out ゝ ゞ ヽ ヾ, which stand for the kana before them.
+
+    `is_kana` admits them, so a string holding one passes `kana_only` and goes to `romanise`, which
+    had no entry for them and printed the mark itself. They are exactly determined, unlike ー with
+    nothing before it: the plain mark repeats the preceding kana and the dakuten mark repeats it
+    voiced, ミヽ being ミミ and トキヾ being トキギ. So they are resolved instead of refused.
+
+    A mark with nothing before it, or after something that cannot take a voice mark, is left where
+    it is and reaches `romanise` as a raw character, because there is nothing to repeat.
+    """
+    if not any(c in "ゝゞヽヾ" for c in s):
+        return s
+    out = []
+    for c in s:
+        if c in "ゝヽ" and out:
+            out.append(out[-1])
+        elif c in "ゞヾ" and out:
+            voiced = RENDAKU.get(to_katakana(out[-1]))
+            if isinstance(voiced, list):
+                voiced = voiced[0]                        # ハ takes バ; パ is the handakuten
+            out.append(to_hiragana(voiced) if voiced else c)
+        else:
+            out.append(c)
+    return "".join(out)
+
+
 def morae(reading):
     """Split a kana string into morae, each carrying whatever lengthened it.
 
     Returns a list of dicts: {'r': romaji, 'v': final vowel, 'long': the lengthening kana or None}.
     Non-kana characters pass through as {'raw': c} so a partly-Latin title still renders.
     """
-    s = to_hiragana(reading)
+    s = _expand_iteration(to_hiragana(reading))
     out, i, n = [], 0, len(s)
     while i < n:
         c = s[i]
@@ -257,8 +320,39 @@ def romanise(reading, style="macron"):
 
     style: 'macron' (Yūri) | 'double' (Yuuri) | 'plain' (Yuri).
 
-    The doubled style writes the kana that was actually there — おう becomes `ou` and おお becomes
-    `oo`, because those are two different spellings and we were given which one it was.
+    WHAT THE THREE DISAGREE ABOUT, AND IT IS ONLY THIS: how a long vowel is written. Every other
+    rule below is one rule applied three times, because a reader choosing a spelling of length has
+    not asked for a different transcription of anything else. The differences are:
+
+        あ+あ  ā / aa / a          お+う  ō / ou / o          ー after a  ā / aa / a
+        い+い  ii / ii / ii        お+お  ō / oo / o          ー after i  ī / ii / i
+        う+う  ū / uu / u          え+い  ei / ei / ei        ー after o  ō / oo / o
+
+    The doubled style writes length as a repeated LETTER, and where the kana says which letter that
+    is it uses that one: おう becomes `ou` and おお becomes `oo`, two different spellings we were
+    handed. ー names no letter of its own, so there it repeats the vowel ー lengthens.
+
+    The macron style writes long i as `ii` and not `ī`, because that is Hepburn's own spelling, and
+    the plain style therefore has nothing to strip there. That is why the plain column above is not
+    simply the macron column with the marks taken off; see the length branch below.
+
+    えい is `ei` in all three. Hepburn writes Keiko, not Kēko, so there is no length to disagree
+    about.
+
+    THE PARTICLE RULE IS NOT APPLIED HERE, in any style, and the reason is below so that nobody
+    adds it. は sounds わ and へ sounds え when they do a particle's work, and a READING already
+    records the sound: NDL's own rule is `助詞「ハ」「ヘ」「ヲ」は「ワ」「エ」「オ」と記録する`, so
+    コンニチワ arrives spelled as it is said. What arrives here is kana with no word boundaries in
+    it, and the counter-case is one mora long: 母 is ハハ and must be `haha`, 部屋 is ヘヤ and must be
+    `heya`. Nothing in a reading tells those from a particle, so converting here would rename two
+    common words to fix a spelling the source is supposed to have settled. を is the one that CAN
+    be settled and is settled in BASE, because modern Japanese writes it for nothing else.
+
+    A WORD ALREADY IN LATIN IS NOT ROMANISED, in any style. It falls to the raw branch and is
+    emitted as it stands, which is NDL's rule too (`ラテン文字は、そのままラテン文字で記録する`).
+    Romanising it would mean reading Latin letters as their Japanese names, which is right for a
+    single letter standing for itself and wrong for a word; `LETTER_NAME` and its one reader in
+    `_ruby_worth_printing` are where that distinction lives.
     """
     ms = morae(reading)
     parts, pending_sokuon = [], False
@@ -268,11 +362,27 @@ def romanise(reading, style="macron"):
             continue
         if "raw" in m:
             parts.append(PUNCT.get(m["raw"], m["raw"]))
-            pending_sokuon = False
+            # WHITESPACE DOES NOT CANCEL A SOKUON. A stored reading is word-divided and the divider
+            # falls wherever the analyser put it, so ひよ&びびっと! is filed `ヒヨ & ビビッ ト !` with
+            # the っ at the end of one word and the consonant it doubles at the start of the next.
+            # Clearing the flag here ate the mora outright and shipped `bibi to`. 10 stored names
+            # were in that state. Any other mark does cancel it, because a mark between the two is
+            # the string saying they are not one word.
+            pending_sokuon = pending_sokuon and m["raw"].isspace()
             continue
         r = m["r"]
         if m.get("n"):
-            # Apostrophe only where the next mora would otherwise merge into it.
+            # ん IS ALWAYS `n`, INCLUDING BEFORE b, m AND p. That is modified Hepburn, the library
+            # standard, and NDL says the same in one line: `撥音「ン」は、すべて「n」を使用する`. So
+            # 南部 is Nanbu and 群馬 is Gunma. Traditional Hepburn writes Nambu and Gumma and real
+            # people spell themselves both ways, which is what `basis: stated` in the name store is
+            # for: a stated preference overrides this and the mechanical fallback only has to be
+            # consistent.
+            #
+            # THE APOSTROPHE, and it is the reason the rule exists. Without it しんいち reads as
+            # し-に-ち, so a following vowel or y takes one: kin'in, pan'ya, Shin'ichi. It is not a
+            # diacritic and the plain style keeps it, because a reader who asked for Yuri instead of
+            # Yūri did not ask to be told a different name.
             nxt = ms[idx + 1] if idx + 1 < len(ms) else None
             if nxt and "r" in nxt and (nxt["r"][0] in VOWELS or nxt["r"][0] == "y"):
                 r = "n'"
@@ -280,6 +390,7 @@ def romanise(reading, style="macron"):
             pending_sokuon = False
             continue
         if pending_sokuon:
+            # っ doubles the following consonant, and before ch Hepburn writes tch: matcha, kotchi.
             r = ("t" + r) if r.startswith("ch") else (r[0] + r)
             pending_sokuon = False
         v, long = m["v"], m["long"]
@@ -305,6 +416,11 @@ def romanise(reading, style="macron"):
             # 'plain' drops any other length entirely, which is the point of the style.
         parts.append(r)
     if pending_sokuon:
+        # A SOKUON WITH NOTHING LEFT TO DOUBLE IS DROPPED, in all three styles, and this line is
+        # the decision rather than an oversight. 友達だよねっ ends on one and so do 3 other stored
+        # names. Hepburn has no letter for a glottal stop that closes nothing, and NDL's sort-key
+        # rule writes `tsu` there, which would spell 保健室の鍵閉めてっ as `shimetetsu`: a mora
+        # nobody says, in a name a reader is shown. `Tomodachi da yo ne` is what anybody writes.
         parts.append("")
     return "".join(parts)
 

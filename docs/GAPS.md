@@ -1772,3 +1772,69 @@ so the change is a label switching on a field that is already there rather than 
 配信開始 / Delivered from where `first_event` is `shop-delivery`, the same wording on the volumes line
 where `delivered_from` is set, and an `EV_HOLDS` entry so the source row reads 配信開始日 instead of
 the raw key.
+
+### A date the shop states in its own blurb is a printing (2026-08-08)
+
+**The owner's ruling.** A date コミックシーモア states inside its own description of a work attests
+that date. The previous round found these and left them, because nothing said whether a shop
+writing a date in prose is the shop stating a fact. It is, and what it states is a PRINTING, so it
+outranks the delivery date on the same row under the rule that a print date always wins.
+
+**What the cache holds.** 279 of the 1,833 captured work pages mention a doujin word in the shop's
+blurb, and 58 of those put a date or a numbered sales event beside it. 33 yielded a date: 24 at
+month precision, six at year precision and three at day precision. All 33 were dated by delivery
+before this round and are now dated by a publication, so `shop-delivery-date` falls from 1,209 to
+1,176. Of the 33, ten were `earlier-edition-unsourced`, which is the only follow-up state that was
+ever work anybody could do, so that population falls from 165 to 155. The other 23 were already
+settled under DEFINITIONS §6 and gain a better date without changing what is owed on them.
+
+A promoted row leaves the follow-up measure altogether, which is stronger than being settled in it:
+the measure exists to sort rows carrying the weakest date the database holds, and these no longer
+carry it.
+
+**Every one of the 33 precedes its own delivery date**, by gaps running from six weeks to thirteen
+years, 森島明子's 2010 printing against a 2023 delivery being the longest. `a stated printing
+precedes the delivery` is the invariant on that, and §14b is why it is worth having: `blurbdate`
+reads a sentence in the description box and never opens a volume row, so 配信開始日 is a number it
+cannot consult. A four-digit run picked out of a plot summary lands anywhere, and landing after the
+shop began selling the file is the half of "anywhere" a machine can recognise.
+
+**The blurb is read from a narrower span than the edition statement**, and the reason is worth
+recording because it is the trap this round could most easily have fallen into. `description` reads
+the whole `title_intro_box`, which carries the shop's own metadata table under the prose, and one of
+its lines is `配信開始日 ： 2015年8月18日`. A date rule reading that span finds the line on all 1,971
+cached pages and hands the delivery date back as though the shop had stated a printing.
+`cmoa_volumes.synopsis` stops at the table. Reading the narrower span changes none of
+`edition_statement`'s 174 and 79 answers and does move the loose doujin-word count from 284 to 279,
+because seven pages carry the word in the shop's own tags rather than in its prose.
+
+**An event number is recorded and is not turned into a date.** 36 rows name a sales event and 21 of
+them name only that. The mapping exists and this corpus even states four points on it, but three
+things argued against assembling one. Comiket 98 was cancelled in 2020 and its number was consumed
+anyway, so counting two events to the year across that gap returns a wrong year in silence.
+`関西コミティア68` is a different series from `COMITIA68` and a table keyed on the number alone merges
+them, which is why `blurbdate.sold_at` matches the regional name first and why the test pins it.
+And a table nobody sourced is a second producer of a fact, which is the shape STANDING-INSTRUCTIONS
+§3 attributes seven shipped bugs to. So the row keeps its delivery date, records `comitia 150` or
+`comiket 102`, and stays open. Nine of the rows still in `earlier-edition-unsourced` name an event,
+which makes them the most answerable rows in that population: an event calendar dates them.
+
+**The counter-cases, which are most of the work.** A blurb is full of numbers. Page counts run to
+【165ページ】, `創作百合同人誌15冊発刊記念` puts a count of books next to a publishing word,
+`1000年後の地球` and `結婚でこの地を離れて12年` are plot, `2025年5月現在` says what is true today,
+`2011年～2014年にかけて` is a range that dates no single edition, and `個人誌『夢落 2021年3月号』` is an
+issue label inside a title. A date is taken only where a publishing word sits within twenty
+characters of it, and 発売 is deliberately not one of those words: a shop uses it to announce a
+different book's release. `adapters/test_blurbdate.py` pins all of these.
+
+The three refusals the previous round pinned are inherited rather than restated. `blurbdate.dates`
+asks `delivery.edition_statement` first, so a page that never said what edition it is can hold
+whatever dates it likes and none of them is about a printing of it. 同人誌風マンガ, コミティアの人気作家
+and 参加した同人誌即売会で each stay refused with a date bolted on.
+
+**One page the sweep can see and the rules cannot.** cmoa title 247855 reads
+`※著者個人誌『夢落 2021年3月号』に描き下し原稿を追加した合冊版です`, which says plainly that the file is
+a 合冊版 of the author's own 個人誌, and `delivery.edition_statement` answers None on it because none of
+its patterns covers 合冊版 predicated on 個人誌. Widening them would move the 174 and 79 counts that this
+round and the last one both report, so it is left as a gap to close deliberately rather than in
+passing.

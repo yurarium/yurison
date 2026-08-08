@@ -100,6 +100,7 @@ import urllib.request
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
+import blurbdate                                                               # noqa: E402
 import cmoa                                                                    # noqa: E402
 import delivery                                                                # noqa: E402
 import paths                                                                   # noqa: E402
@@ -196,13 +197,21 @@ def first_publication(rec):
         return first["printed"], first.get("printed_basis") or "shop-publication-month"
     if first.get("isbn"):
         return None, "isbn-stated-not-catalogued"
+    # A PRINTING THE SHOP STATED IN WORDS. `read_editions` puts it on the row from the work page's
+    # description, so it is absent until that stage has run. It sits BELOW the catalogue branches
+    # above on purpose: a bibliography holds a record and a blurb holds a sentence, so where both
+    # exist the record answers. It sits ABOVE the delivery date because it is a printing, and a
+    # printing always wins (adapters/blurbdate.py, and the owner's ruling of 2026-08-08).
+    stated = rec.get("edition_date")
     # THE DELIVERY DATE, WHICH THIS MODULE SPENT ITS DOCSTRING REFUSING. The owner reversed the
     # digital-only half of that refusal on 2026-08-08 (DEFINITIONS §6, docs/GAPS.md), and
     # `delivery.promote` is where the rule now lives so the print-date refusal has one home. It is
     # stricter than the branch above: this function reads volume 1 and `promote` reads every volume,
     # so a work whose fifth volume states a printing is refused here even though volume 1 says
     # nothing. The old basis name `shop-delivery-date-only` said the date was unusable and is gone.
-    date, _refused = delivery.promote(vols)
+    date, refused = delivery.promote(vols, stated_print=stated)
+    if refused == delivery.REFUSED_BLURB:
+        return stated, blurbdate.BASIS
     if date:
         return date, delivery.BASIS
     if first.get("delivered"):
@@ -272,7 +281,17 @@ def settle(w):
     # magazine, and a tankōbon publisher is not the venue of a serialised work's first chapter.
     w["first_publication_country"] = "JP" if date else None
     w["first_publication_venue"] = (w.get("publisher") or None) if date else None
-    if basis == delivery.BASIS:
+    if basis == blurbdate.BASIS:
+        # WHICH PAGE STATES THE DATE. The sentence sits in the description box on the work page,
+        # which is volume 1's own page on this shop: `record` gives volume 1 the work URL and every
+        # later volume a `/vol/n/` address under it. So citing the work page cites the page the
+        # sentence is on, and a reader can open it and read the shop's words for themselves.
+        w["first_publication_source"] = w.get("url")
+        # WHICH CLAIM THE SHOP MADE. 発行 and 初出 are different assertions about different events
+        # and the row has to say which, for the same reason a delivery date has to say it is one.
+        w["first_publication_event"] = w.get("edition_date_event")
+        w.pop("first_publication_followup", None)
+    elif basis == delivery.BASIS:
         # WHICH VOLUME'S PAGE STATES THE DATE. A delivery date is read off a volume page and not
         # from a catalogue, so unlike the branch above there IS a page to cite, and the volume
         # holding the earliest date is the one that states it. `first_publication_source` is that
@@ -378,6 +397,10 @@ HEADER = """\
 #                              volume of the work. No print edition, so no ISBN will ever exist and
 #                              no ISBN route can help. The date names the delivery and is exactly
 #                              true of it. adapters/delivery.py holds the rule and the wording.
+#   shop-blurb-print-date      the shop's own description states when the doujin edition this file
+#                              was made from was published. That is a printing, so it answers ahead
+#                              of the delivery date and behind any catalogue record.
+#                              adapters/blurbdate.py holds the rule and the wording.
 #   shop-delivery-date-refused a delivery date is stated and another volume states a printing, so
 #                              the printing answers and this one is not evidence about it. Nothing
 #                              in this capture is in that state, and the term exists so that a row
@@ -394,6 +417,21 @@ HEADER = """\
 #   edition_statement            what the shop's own description says this file's edition is. The
 #                                term is recorded and the sentence is not, because a shop's あらすじ
 #                                is copyrighted (REQUIREMENTS §2).
+#
+# WHAT A ROW DATED FROM THE DESCRIPTION CARRIES INSTEAD.
+#   edition_date                 the printing the description states, at the precision it stated:
+#                                2016, 2022-05 or 2023-12-03. Not padded to a day.
+#   edition_date_event           `issue` for 発行 and `first-appearance` for 初出, which are two
+#                                claims about two events and need not fall on the same day
+#   first_publication_event      the same claim, once the date is the row's answer
+#   first_publication_source     the work page, which is where the sentence is
+#
+# AND ONE FIELD ANY OF THESE ROWS MAY CARRY.
+#   edition_event                the sales event the description names, as `comitia 150` or
+#                                `comiket 102`. Recorded as an event and never converted to a day:
+#                                Comiket 98 was cancelled and its number used up, and 関西コミティア
+#                                numbers a separate series, so arithmetic on the number is wrong in
+#                                two ways that produce a plausible date. adapters/blurbdate.py.
 #
 # TWO FIELDS THAT APPEAR ONLY WHERE THEY SAY SOMETHING.
 #   printed_source   the page a per-book route read the date off. A bulk catalogue has none, and
@@ -431,6 +469,16 @@ INTRO_BOX = re.compile(r'<div class="title_intro_box".*?(?=<div id="comic_descri
 INTRO_OPEN = re.compile(r'<div class="title_intro_box"')
 TAGS = re.compile(r"<[^>]+>")
 
+# THE SYNOPSIS ALONE, WHICH IS A NARROWER SPAN OF THE SAME BOX AND EXISTS FOR ONE REASON. The box
+# above holds the shop's own metadata table after the blurb, and one of its lines is
+# `配信開始日 ： 2015年8月18日`. A rule looking for a date in the box would find that line on every
+# page in the cache and hand the delivery date back as though the shop had stated a printing, which
+# is the one answer this whole round exists to avoid. So `blurbdate` reads the synopsis and
+# `delivery.edition_statement` keeps reading the box, whose wider span changes none of its 174 and
+# 79 answers and does change `mentions_doujin` on seven pages where the word is in the shop's own
+# tags. `comic_description_related_text_box` opens the table on all 1,971 cached pages.
+SYNOPSIS = re.compile(r'<div id="comic_description".*?(?=<div class="related_box)', re.S)
+
 
 def description(body):
     """The shop's own description of a work, as text, or "" where the page carries no box.
@@ -447,16 +495,40 @@ def description(body):
     return re.sub(r"\s+", " ", TAGS.sub(" ", seg)).strip()
 
 
-def read_editions(doc, cache):
-    """Fill `edition_statement` from each work's cached page, as `(doc, counts)`. No network.
+def synopsis(body):
+    """The shop's blurb without the metadata table under it, or "" where the page carries neither.
+
+    Falls back to `description` where the table's own element is absent, so a template that has
+    renamed one marker is read imperfectly and not reported as silent. A date rule reading the wider
+    span is the risk `SYNOPSIS` was written for, and it is a bounded one: the table names 配信開始日,
+    which is already on the row from the volume page, so a wrong answer here would agree with the
+    delivery date and be visible as such rather than inventing a new number.
+    """
+    body = str(body or "")
+    m = SYNOPSIS.search(body)
+    if not m:
+        return description(body)
+    return re.sub(r"\s+", " ", TAGS.sub(" ", m.group(0))).strip()
+
+
+def read_editions(doc, cache, today=None):
+    """Fill what the shop's description says about the edition, as `(doc, counts)`. No network.
 
     THE PAGES ARE ALREADY PAID FOR, which is why this is a separate stage and why it never fetches:
     the delivery dates and the descriptions were both on the work pages the capture read, and only
     the dates were kept. A row whose page is not in the cache keeps no statement and sorts to
     `unclassified`, which is the truthful answer for a page nobody has read.
+
+    THREE FACTS COME OFF ONE READING OF ONE PAGE. Which edition the file is, when the shop says the
+    earlier edition was published, and which sales event it names. They are filled together so no
+    later stage has to open the page again and reach a different answer from it.
+
+    NONE OF THEM IS THE SENTENCE. A shop's あらすじ is copyrighted (REQUIREMENTS §2), so what lands
+    on the row is one of `delivery`'s or `blurbdate`'s own terms, the date, and the event number the
+    shop printed.
     """
     tally = {"pages_read": 0, "mentions_doujin": 0, delivery.EARLIER_EDITION: 0,
-             delivery.OWN_DOUJIN: 0, "no_cached_page": 0}
+             delivery.OWN_DOUJIN: 0, "no_cached_page": 0, "blurb_dated": 0, "event_named": 0}
     for tid, w in doc["works"].items():
         body = fetch(cmoa.work_url(tid), cache, offline=True)
         if body is None:
@@ -472,6 +544,22 @@ def read_editions(doc, cache):
             tally[said] += 1
         else:
             w.pop("edition_statement", None)
+        # The date and the event come off the SYNOPSIS and the statement off the box. `SYNOPSIS`
+        # carries the reason, which is that the box holds the shop's own 配信開始日 line.
+        blurb = synopsis(body)
+        date, claim = blurbdate.stated(blurb, today=today)
+        if date:
+            w["edition_date"], w["edition_date_event"] = date, claim
+            tally["blurb_dated"] += 1
+        else:
+            w.pop("edition_date", None)
+            w.pop("edition_date_event", None)
+        event = blurbdate.sold_at(blurb) if said else None
+        if event:
+            w["edition_event"] = event[0] + (f" {event[1]}" if event[1] else "")
+            tally["event_named"] += 1
+        else:
+            w.pop("edition_event", None)
         settle(w)
     return doc, tally
 
@@ -497,6 +585,16 @@ def counts(doc):
             if w.get(field):
                 k = prefix + w[field].replace("-", "_")
                 out[k] = out.get(k, 0) + 1
+    # WHAT THE SHOP DATED ITSELF, at the precision it stated. A month is what most of these say and
+    # a year is what six of them say, so rounding either to a day would state a day nobody wrote.
+    # `events_named` counts rows naming a sales event, which is a lead a person could date from an
+    # event calendar and which this pass deliberately does not date (adapters/blurbdate.py).
+    for w in works:
+        if w.get("edition_date"):
+            out["blurb_date_" + blurbdate.precision(w["edition_date"])] = \
+                out.get("blurb_date_" + blurbdate.precision(w["edition_date"]), 0) + 1
+        if w.get("edition_event"):
+            out["events_named"] = out.get("events_named", 0) + 1
     return out
 
 
@@ -530,12 +628,16 @@ def yaml_document(doc):
         # each carry a null saying the catalogue has no per-book page.
         if w.get("first_publication_source"):
             L.append(f"    first_publication_source: {js(w['first_publication_source'])}")
-        # THREE FIELDS THAT ONLY A DELIVERY-DATED ROW CARRIES. `first_publication_event` names the
-        # event the date is of, which is what stops a reader downstream treating it as a printing;
-        # the follow-up state says whether anything is waiting on a source; and
-        # `edition_statement` is what the shop's own description says about this file's edition,
-        # recorded as a term because the sentence itself is copyrighted (REQUIREMENTS §2).
-        for k in ("first_publication_event", "first_publication_followup", "edition_statement"):
+        # WHAT THE SHOP SAID ABOUT THIS FILE'S EDITION, written only on the rows it said it about.
+        # `first_publication_event` names the event the date is of, which is what stops a reader
+        # downstream treating a delivery for a printing; the follow-up state says whether anything
+        # is waiting on a source; `edition_statement` is which edition the description says the file
+        # is; `edition_date` is the printing the description dates and `edition_date_event` the
+        # claim it dated; and `edition_event` is the sales event it named, recorded as an event
+        # because this pass will not turn an event number into a day. Every one of them is a term
+        # or a number and never the sentence, which is copyrighted (REQUIREMENTS §2).
+        for k in ("first_publication_event", "first_publication_followup", "edition_statement",
+                  "edition_date", "edition_date_event", "edition_event"):
             if w.get(k):
                 L.append(f"    {k}: {js(w[k])}")
         L.append("    volumes:")
@@ -804,7 +906,9 @@ def main(argv=None):
         print(f"{tally['mentions_doujin']} description(s) mention a doujin word; the shop states "
               f"an earlier edition on {tally[delivery.EARLIER_EDITION]} and states the file is "
               f"itself a doujinshi on {tally[delivery.OWN_DOUJIN]}")
-        print(f"{after - before} work(s) gained a delivery date, {after} dated in all -> {a.out}")
+        print(f"{tally['blurb_dated']} description(s) date the earlier edition themselves and "
+              f"{tally['event_named']} name the sales event without dating it")
+        print(f"{after - before} work(s) gained a date, {after} dated in all -> {a.out}")
         return report(doc, shelf)
 
     if a.madb:

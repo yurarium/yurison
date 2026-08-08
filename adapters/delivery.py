@@ -65,6 +65,11 @@ BASIS_NOTE = {
 # not a bound in either direction and averaging the two would invent a third date nobody stated.
 REFUSED_PRINT = "print-date-stated"
 
+# The shop states a printing in its own description instead of on a volume row. Same refusal and a
+# different place to have found it, so a reader of the row can tell which one happened.
+# `adapters/blurbdate.py` reads it and the owner's ruling of 2026-08-08 admits it.
+REFUSED_BLURB = "blurb-print-date-stated"
+
 # The shop states this file is the electronic edition of something published before it. The blurb
 # predicates the FILE on the earlier edition, which is what makes it a statement about publishing
 # instead of a word occurring in a plot summary.
@@ -175,7 +180,7 @@ def delivery_dates(items):
     return [str(v["delivered"])[:10] for v in (items or []) if v.get("delivered")]
 
 
-def promote(items):
+def promote(items, stated_print=None):
     """`(date, refusal)`: the delivery date this work may carry, or why it may not carry one.
 
     THE EARLIEST DELIVERY AND NOT VOLUME ONE'S. The claim being made is that the shop began
@@ -188,7 +193,14 @@ def promote(items):
     A PRINT DATE REFUSES OUTRIGHT. Not the earlier of the two and not an average: the 353-volume
     measurement puts the delivery date on either side of the printing by up to 128 months, so it is
     neither an upper nor a lower bound and combining them would state a date no source holds.
+
+    `stated_print` IS A PRINTING THIS FUNCTION CANNOT SEE. `adapters/blurbdate.py` reads one out of
+    the shop's own description, which is on the work page and not on the volume rows here, so the
+    caller passes it in. It refuses exactly as a printed volume does, and the refusal reads
+    differently so a row says which of the two happened.
     """
+    if stated_print:
+        return None, REFUSED_BLURB
     if print_dates(items):
         return None, REFUSED_PRINT
     got = delivery_dates(items)

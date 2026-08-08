@@ -36,6 +36,10 @@
 #                              volume of the work. No print edition, so no ISBN will ever exist and
 #                              no ISBN route can help. The date names the delivery and is exactly
 #                              true of it. adapters/delivery.py holds the rule and the wording.
+#   shop-blurb-print-date      the shop's own description states when the doujin edition this file
+#                              was made from was published. That is a printing, so it answers ahead
+#                              of the delivery date and behind any catalogue record.
+#                              adapters/blurbdate.py holds the rule and the wording.
 #   shop-delivery-date-refused a delivery date is stated and another volume states a printing, so
 #                              the printing answers and this one is not evidence about it. Nothing
 #                              in this capture is in that state, and the term exists so that a row
@@ -52,6 +56,21 @@
 #   edition_statement            what the shop's own description says this file's edition is. The
 #                                term is recorded and the sentence is not, because a shop's あらすじ
 #                                is copyrighted (REQUIREMENTS §2).
+#
+# WHAT A ROW DATED FROM THE DESCRIPTION CARRIES INSTEAD.
+#   edition_date                 the printing the description states, at the precision it stated:
+#                                2016, 2022-05 or 2023-12-03. Not padded to a day.
+#   edition_date_event           `issue` for 発行 and `first-appearance` for 初出, which are two
+#                                claims about two events and need not fall on the same day
+#   first_publication_event      the same claim, once the date is the row's answer
+#   first_publication_source     the work page, which is where the sentence is
+#
+# AND ONE FIELD ANY OF THESE ROWS MAY CARRY.
+#   edition_event                the sales event the description names, as `comitia 150` or
+#                                `comiket 102`. Recorded as an event and never converted to a day:
+#                                Comiket 98 was cancelled and its number used up, and 関西コミティア
+#                                numbers a separate series, so arithmetic on the number is wrong in
+#                                two ways that produce a plausible date. adapters/blurbdate.py.
 #
 # TWO FIELDS THAT APPEAR ONLY WHERE THEY SAY SOMETHING.
 #   printed_source   the page a per-book route read the date off. A bulk catalogue has none, and
@@ -87,14 +106,19 @@ counts:
   by_basis_madb_tankobon: 536
   by_basis_publisher_own_page: 47
   by_basis_books_or_jp_registration: 2
-  by_basis_shop_delivery_date: 1209
+  by_basis_shop_delivery_date: 1176
   by_basis_openbd_registration: 28
+  by_basis_shop_blurb_print_date: 33
   by_basis_shop_publication_month: 11
   followup_unclassified: 965
   shop_states_earlier_edition_stated: 174
-  followup_no_earlier_record_expected: 79
   shop_states_own_doujin_edition: 79
-  followup_earlier_edition_unsourced: 165
+  followup_earlier_edition_unsourced: 155
+  followup_no_earlier_record_expected: 56
+  blurb_date_year: 6
+  blurb_date_month: 24
+  events_named: 36
+  blurb_date_day: 3
 excluded: {"published on ヤングアンリアルコミックス, an adult imprint": 4, "the shop files it under 青年マンガ 恋愛 百合・GL お色気 ライトアダルト": 3, "the shop files it under 青年マンガ 百合・GL お色気 ライトアダルト": 1, "the shop files it under 青年マンガ 恋愛 学園 百合・GL お色気 ライトアダルト": 1, "the shop files it under 青年マンガ 学園 百合・GL お色気 ライトアダルト": 1, "the shop files it under 青年マンガ 百合・GL 読者体験 お色気 ライトアダルト": 1}
 excluded_ids: ["244158", "244159", "244970", "270604", "270648", "271195", "300231", "309245", "347960", "348544", "348572"]
 works:
@@ -10336,14 +10360,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2018-11-02"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2016"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/161054/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2016"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "嘘つきピアスホール（百合同人誌）"
@@ -22469,14 +22494,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2021-07-30"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2018-11"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ライトリーズン"
     first_publication_source: "https://www.cmoa.jp/title/226411/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2018-11"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "夜明けと引き金"
@@ -22493,14 +22519,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2021-07-30"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2019-06"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ライトリーズン"
     first_publication_source: "https://www.cmoa.jp/title/226412/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2019-06"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "愛を食べて生きる狼"
@@ -25970,14 +25997,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2022-02-04"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2019-11"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ライトリーズン"
     first_publication_source: "https://www.cmoa.jp/title/238015/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2019-11"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "不完全で欠けない月"
@@ -27153,14 +27181,16 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2022-04-29"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2020-02"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/243743/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "first-appearance"
     edition_statement: "own-doujin-edition"
+    edition_date: "2020-02"
+    edition_date_event: "first-appearance"
+    edition_event: "comitia"
     volumes:
       - volume: 1
         title: "エプロン"
@@ -27909,14 +27939,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2022-06-24"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2022-05"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/246840/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2022-05"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "このお屋敷の百合事情"
@@ -29406,14 +29437,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2022-10-07"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2022-08"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/253730/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2022-08"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "タイニードールにキスを託して"
@@ -29430,14 +29462,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2022-10-07"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2022-08"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/253731/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2022-08"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "Long way to go-メイド百合再録集-"
@@ -32775,14 +32808,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2023-03-17"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2018"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/264859/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2018"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "ひたいに降る白"
@@ -32892,6 +32926,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "earlier-edition-unsourced"
     edition_statement: "earlier-edition-stated"
+    edition_event: "comiket 95"
     volumes:
       - volume: 1
         title: "百合好きさんとガチ百合さん"
@@ -35229,14 +35264,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2023-07-14"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2010"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "クロスフォリオ出版"
     first_publication_source: "https://www.cmoa.jp/title/272884/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "earlier-edition-unsourced"
+    first_publication_event: "issue"
     edition_statement: "earlier-edition-stated"
+    edition_date: "2010"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "ハニー＆マスタード〈番外編〉"
@@ -36536,6 +36572,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comiket 102"
     volumes:
       - volume: 1
         title: "知らないピアスとマンボウの寿司"
@@ -37185,14 +37222,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2023-12-08"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2023-10"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ライトリーズン"
     first_publication_source: "https://www.cmoa.jp/title/282893/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2023-10"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "アンビバレンス"
@@ -37258,14 +37296,16 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2024-01-16"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2023-12-03"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "DLcomics"
     first_publication_source: "https://www.cmoa.jp/title/283996/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2023-12-03"
+    edition_date_event: "issue"
+    edition_event: "comitia 146"
     volumes:
       - volume: 1
         title: "私に落ちないなんて言わせないよ?"
@@ -37837,14 +37877,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2024-02-23"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2023-09"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/287789/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2023-09"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "あなたの星空と同じで"
@@ -37861,14 +37902,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2024-02-23"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2023-12"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/287790/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2023-12"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "荊棘ヲ纏イテ楽園ニ踊ル-百合短編再録集-"
@@ -38653,6 +38695,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "earlier-edition-unsourced"
     edition_statement: "earlier-edition-stated"
+    edition_event: "comitia 134"
     volumes:
       - volume: 1
         title: "好奇心は猫を殺す"
@@ -38992,6 +39035,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "earlier-edition-unsourced"
     edition_statement: "earlier-edition-stated"
+    edition_event: "comitia"
     volumes:
       - volume: 1
         title: "明けても暮れても"
@@ -39955,14 +39999,16 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2024-07-12"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2024-05-26"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "DLcomics"
     first_publication_source: "https://www.cmoa.jp/title/296711/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2024-05-26"
+    edition_date_event: "issue"
+    edition_event: "comitia 148"
     volumes:
       - volume: 1
         title: "恋するきみの殺しかた。"
@@ -42756,14 +42802,16 @@ works:
     volumes_found: 6
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2024-10-04"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2024-01"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/304425/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2024-01"
+    edition_date_event: "issue"
+    edition_event: "comitia-kansai"
     volumes:
       - volume: 1
         title: "ギャップのある女子2人が百合な話。 準備号"
@@ -43462,6 +43510,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia"
     volumes:
       - volume: 1
         title: "ゆりっとファンタジー"
@@ -44190,6 +44239,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia 150"
     volumes:
       - volume: 1
         title: "綺麗な百合には裏がある"
@@ -44583,14 +44633,16 @@ works:
     volumes_found: 2
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2024-12-20"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2022"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/311779/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2022"
+    edition_date_event: "issue"
+    edition_event: "comitia"
     volumes:
       - volume: 1
         title: "scent＆seed vol.1"
@@ -45024,14 +45076,16 @@ works:
     volumes_found: 5
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2025-02-01"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2024-11"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/313870/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2024-11"
+    edition_date_event: "issue"
+    edition_event: "comitia 150"
     volumes:
       - volume: 1
         title: "あなたみたいに【連載版】 1巻"
@@ -46511,14 +46565,16 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2025-03-28"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2023"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/319499/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "earlier-edition-unsourced"
+    first_publication_event: "issue"
     edition_statement: "earlier-edition-stated"
+    edition_date: "2023"
+    edition_date_event: "issue"
+    edition_event: "comitia"
     volumes:
       - volume: 1
         title: "ちょっと雑な関係のブルース"
@@ -46828,6 +46884,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia-kansai 68"
     volumes:
       - volume: 1
         title: "デカい本棚を組み立てる百合"
@@ -47003,6 +47060,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "earlier-edition-unsourced"
     edition_statement: "earlier-edition-stated"
+    edition_event: "comitia 148"
     volumes:
       - volume: 1
         title: "キスとディストピア"
@@ -47030,6 +47088,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "earlier-edition-unsourced"
     edition_statement: "earlier-edition-stated"
+    edition_event: "comitia 145"
     volumes:
       - volume: 1
         title: "ずーっと一緒がいいからさ！"
@@ -47077,6 +47136,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "earlier-edition-unsourced"
     edition_statement: "earlier-edition-stated"
+    edition_event: "comitia 139"
     volumes:
       - volume: 1
         title: "ファイとスイののんびり旅行記～猫ノ辺行～"
@@ -47104,6 +47164,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "earlier-edition-unsourced"
     edition_statement: "earlier-edition-stated"
+    edition_event: "comitia 149"
     volumes:
       - volume: 1
         title: "キュウに1000年その1"
@@ -49252,14 +49313,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2025-06-25"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2024-08"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/327096/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "earlier-edition-unsourced"
+    first_publication_event: "issue"
     edition_statement: "earlier-edition-stated"
+    edition_date: "2024-08"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "Anemone-カードが導く恋のお話-"
@@ -49556,6 +49618,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia 127"
     volumes:
       - volume: 1
         title: "溺れるクジラ"
@@ -49619,14 +49682,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2025-06-25"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2024-12"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/327123/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "earlier-edition-unsourced"
+    first_publication_event: "issue"
     edition_statement: "earlier-edition-stated"
+    edition_date: "2024-12"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "ENSEMBLE-アンサンブル-"
@@ -49643,14 +49707,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2025-06-25"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2025-03"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/327124/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "earlier-edition-unsourced"
+    first_publication_event: "issue"
     edition_statement: "earlier-edition-stated"
+    edition_date: "2025-03"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "恋せよオトメ。"
@@ -50989,14 +51054,15 @@ works:
     volumes_found: 4
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2025-07-18"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2025-06"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/330860/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "earlier-edition-unsourced"
+    first_publication_event: "issue"
     edition_statement: "earlier-edition-stated"
+    edition_date: "2025-06"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "ご主人様にはなりません！！ 1"
@@ -52239,14 +52305,16 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2025-10-10"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2025-08"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/338587/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "earlier-edition-unsourced"
+    first_publication_event: "issue"
     edition_statement: "earlier-edition-stated"
+    edition_date: "2025-08"
+    edition_date_event: "issue"
+    edition_event: "comiket 106"
     volumes:
       - volume: 1
         title: "わたしのメイドがかわいい 総集編"
@@ -52263,14 +52331,16 @@ works:
     volumes_found: 3
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2025-10-10"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2022-11"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/338588/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "earlier-edition-unsourced"
+    first_publication_event: "issue"
     edition_statement: "earlier-edition-stated"
+    edition_date: "2022-11"
+    edition_date_event: "issue"
+    edition_event: "comitia 142"
     volumes:
       - volume: 1
         title: "わたしのメイドがかわいい 1"
@@ -52717,6 +52787,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia 153"
     volumes:
       - volume: 1
         title: "サボタージュ"
@@ -52958,6 +53029,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia 152"
     volumes:
       - volume: 1
         title: "幼なじみのユウウツ"
@@ -53123,6 +53195,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia"
     volumes:
       - volume: 1
         title: "この続きはご想像にお任せします ─やナい創作百合再録集─"
@@ -53563,14 +53636,15 @@ works:
     volumes_found: 4
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2025-11-07"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2019-09"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/342553/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2019-09"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "でき姫のうすい本 1&2できそこないの姫君たち番外編"
@@ -54806,6 +54880,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "earlier-edition-unsourced"
     edition_statement: "earlier-edition-stated"
+    edition_event: "comitia 152"
     volumes:
       - volume: 1
         title: "【OLお姉さん×VTuber少女】お隣さん百合漫画 ① 「強く抱きしめていたら」"
@@ -55283,6 +55358,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia 154"
     volumes:
       - volume: 1
         title: "ファイとスイののんびり旅行記 ～山に登ろうよ～"
@@ -55330,6 +55406,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia 153"
     volumes:
       - volume: 1
         title: "傍らの秘密"
@@ -55449,6 +55526,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia 154"
     volumes:
       - volume: 1
         title: "夜雨対牀"
@@ -55611,6 +55689,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia 154"
     volumes:
       - volume: 1
         title: "淡影の甘露"
@@ -55917,14 +55996,16 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2026-05-01"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2023"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/351871/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "earlier-edition-unsourced"
+    first_publication_event: "issue"
     edition_statement: "earlier-edition-stated"
+    edition_date: "2023"
+    edition_date_event: "issue"
+    edition_event: "comitia"
     volumes:
       - volume: 1
         title: "蝶と茸の白昼夢。 醒めない白昼夢"
@@ -56205,14 +56286,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2026-05-01"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2022-09"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/352448/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2022-09"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "Smoking Room"
@@ -56229,14 +56311,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2026-05-01"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2023-09"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/352455/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2023-09"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "玉響の花筐"
@@ -56253,14 +56336,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2026-05-01"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2022-11"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/352456/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2022-11"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "身長差カノジョ"
@@ -56910,6 +56994,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia 155"
     volumes:
       - volume: 1
         title: "SHWD[シュード]Extra ep.1"
@@ -57113,6 +57198,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia 155"
     volumes:
       - volume: 1
         title: "ひかるとなら遊園地"
@@ -57152,14 +57238,15 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2026-05-01"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2026-02"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/358377/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2026-02"
+    edition_date_event: "issue"
     volumes:
       - volume: 1
         title: "わたしは赤い糸を信じてる"
@@ -57225,14 +57312,16 @@ works:
     volumes_found: 2
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2026-05-01"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2024-11"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/358382/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "no-earlier-record-expected"
+    first_publication_event: "issue"
     edition_statement: "own-doujin-edition"
+    edition_date: "2024-11"
+    edition_date_event: "issue"
+    edition_event: "comitia 150"
     volumes:
       - volume: 1
         title: "ギャルと大学生が一緒にごはんを作る漫画 1 キャベツ編"
@@ -57453,6 +57542,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "no-earlier-record-expected"
     edition_statement: "own-doujin-edition"
+    edition_event: "comitia 155"
     volumes:
       - volume: 1
         title: "同じクラスの先輩"
@@ -57607,14 +57697,16 @@ works:
     volumes_found: 1
     dates_stated: 0
     isbns_stated: 0
-    first_publication_date: "2026-05-01"
-    first_publication_basis: "shop-delivery-date"
+    first_publication_date: "2026-02-22"
+    first_publication_basis: "shop-blurb-print-date"
     first_publication_country: "JP"
     first_publication_venue: "ナンバーナイン"
     first_publication_source: "https://www.cmoa.jp/title/358404/"
-    first_publication_event: "shop-delivery"
-    first_publication_followup: "earlier-edition-unsourced"
+    first_publication_event: "issue"
     edition_statement: "earlier-edition-stated"
+    edition_date: "2026-02-22"
+    edition_date_event: "issue"
+    edition_event: "comitia 155"
     volumes:
       - volume: 1
         title: "私の好きは雪に解けない。"
@@ -57825,6 +57917,7 @@ works:
     first_publication_event: "shop-delivery"
     first_publication_followup: "earlier-edition-unsourced"
     edition_statement: "earlier-edition-stated"
+    edition_event: "comitia 155"
     volumes:
       - volume: 1
         title: "夕日の見えるバルコニーで、君と×× 1"

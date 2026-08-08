@@ -36,10 +36,14 @@ tankobon, so NDL holds no record and there is no reading to state. That is `no-r
 never a licence to keep the analyser's guess and call it sourced.
 """
 import html as _html
+import pathlib
 import re
 import unicodedata
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
+# Beside the repository, where every other cache directory in this project lives, and
+# derived from this file so it names no particular machine.
+DEFAULT_CACHE = pathlib.Path(__file__).resolve().parents[2].parent / "ndl-cache"
 PAUSE = 1.6
 
 HOST = "https://ndlsearch.ndl.go.jp"
@@ -243,7 +247,14 @@ def main(argv=None):
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--titles", help="a file of Japanese titles, one per line; stdin otherwise")
-    ap.add_argument("--cache", default=None, help="directory to keep fetched pages in")
+    # A CACHE NOBODY PASSES IS A CACHE NOBODY HAS. This defaulted to None, so a two hour
+    # sweep of 124 publisher labels left nothing on disk and a re-run would pay for it
+    # again. NDL rate-limits to roughly one page every few seconds, which makes its pages
+    # the most expensive bytes this project fetches, and every other adapter here keeps a
+    # cache directory beside the repository. Pass --no-cache to refuse one deliberately.
+    ap.add_argument("--cache", default=str(DEFAULT_CACHE),
+                    help="directory to keep fetched pages in")
+    ap.add_argument("--no-cache", action="store_true", help="fetch without keeping pages")
     ap.add_argument("--pause", type=float, default=PAUSE)
     ap.add_argument("--retries", type=int, default=5, help="attempts before a 503 counts as one")
     ap.add_argument("--max-records", type=int, default=4,
@@ -252,7 +263,7 @@ def main(argv=None):
 
     src = pathlib.Path(a.titles).read_text() if a.titles else sys.stdin.read()
     want = [t.strip() for t in src.split("\n") if t.strip()]
-    cache = pathlib.Path(a.cache) if a.cache else None
+    cache = None if a.no_cache else pathlib.Path(a.cache)
     if cache:
         cache.mkdir(parents=True, exist_ok=True)
 

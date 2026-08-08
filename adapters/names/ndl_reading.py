@@ -11,8 +11,17 @@ WHAT IT READS. `?creator=<name>` returns records carrying `dc:creator` and, besi
 `adapters/names/curate.py` that is `reading_basis: stated` with `reading_source_kind:
 national-library`, and it is the only route that reaches most pen names at all.
 
-  THE HTML RECORD PAGES ARE NOT AN ALTERNATIVE. ndlsearch.ndl.go.jp returns 503 for them while the
-  API answers normally, so anything wanting a second look at a record has to want it from the API.
+  THE HTML RECORD PAGES ARE AN ALTERNATIVE, AND THIS SAID THEY WERE NOT. It claimed
+  ndlsearch.ndl.go.jp returns 503 for /books/ pages while the API answered normally. That was
+  wrong, and it mattered: the API is disallowed by robots and this paragraph read as the closing of
+  the last door, so a later round built adapters/names/ndl_books.py to test the claim and found the
+  pages serve the full bibliographic table including タイトルよみ. 53 publisher readings and 36
+  title readings came from them.
+
+  A 503 IS THE SERVER REFUSING, NOT AN ABSENT RECORD, which is the mistake behind the original
+  claim. The pages rate-limit hard, roughly one request every few seconds, and a sweep that goes
+  faster is told 503 for every page. Read that as "no record" and you conclude the national library
+  holds nothing about anybody.
 
 THE API IS DISALLOWED BY ROBOTS, FOUND 2026-08-05 AND NOT KNOWN WHEN THE ROUNDS ABOVE WERE RUN.
 `https://ndlsearch.ndl.go.jp/robots.txt` lists `Disallow: /api` under `User-agent: *`, and

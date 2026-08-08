@@ -100,6 +100,7 @@ def main(s):
     if not interface.APP_JS.exists():
         print("  note: kari/app.js is not beside this repository, so the probes did not run")
         return
+    _comparisons(s)
     app = interface.APP_JS.read_text(encoding="utf-8")
     s.eq(entrypoints.findings(app), [],
          "kari/app.js as it stands puts no name on a page except through its renderer")
@@ -115,6 +116,26 @@ def main(s):
         s.check(before in app, f"{what}: the line the probe replaces is still in kari/app.js")
         s.check(bool(entrypoints.findings(app.replace(before, after, 1))),
                 f"{what}: caught when written back into the file")
+
+
+def _comparisons(s):
+    """A comparison reads the same in either order, and the rule only saw one of them.
+
+    `x !== ln.name` came back as a read consumed by whatever call enclosed it, which for a
+    `.filter(...)` is the filter, while `ln.name !== x` came back as tested. That made the guarantee depend
+    on which side of the operator somebody wrote the field, which is not a distinction it rests on.
+    """
+    for src, want, why in (
+            ("function f(r) { return list.filter(x => x !== r.work); }", [],
+             "a field compared from the right of the operator is a test"),
+            ("function f(r) { return list.filter(x => r.work !== x); }", [],
+             "and so is the same comparison written the other way round"),
+            ("function f(r) { return list.filter(x => esc(r.work)); }", 1,
+             "while a value handed to esc inside the same callback is still a rendering"),
+            ("function f(r) { return g(a, r.work); }", 1,
+             "and an argument after a comma is not a comparison, whatever sits before it")):
+        got = entrypoints.findings(src, surfaces=ONE, safe={})
+        s.eq(len(got) if want else got, want if want else [], f"{why}: {src[:44]}")
 
 
 def _refuse():

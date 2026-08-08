@@ -448,3 +448,40 @@ with the company's name and listing 378 works claims to describe a publisher whe
 coverage of one, which is the same category error the works list made when a count of the entries we
 hold read as the length of a work. The page says what it is: the yuri works this database holds from
 that publisher.
+
+### The credit field is divided once, in the build, 2026-08-08
+
+A credit field is a catalogue's notation wrapped round some people: `[著]嵩乃朔 [ほか]`,
+`南部くまこ(作) / 東河みそ(絵)`, `iimAn&惟丞`, `若（わか）`. `kari/app.js` held two readers of it.
+`credit()` glossed a role inside square brackets against a table of six words and looked the rest up
+as a name; `creditNames()` split on the slash and took a leading bracket off. Neither knew about a
+role in round brackets, a doubled bracket, `ほか`, an ampersand or an interpunct, so 236 catalogue
+credit lines and 97 bylines on the 発売 tab reached an English page in Japanese while the store held
+every person in them.
+
+**The division ships.** `adapters/names/creditline.py` divides every credit field a reader can meet,
+using `names.inputs.split_credits_detail`, which is the splitter the name store is keyed on, and
+`feed/names.json` carries the answer under `credit_parts`. The interface renders what it is given.
+Two rules live in that module and nowhere else, because both need the store and the store does not
+exist when a splitter runs: an interpunct divides only where a romanisation is recorded for every
+piece, which keeps `矢立肇・富野由悠季` apart and `るいす・まくられん` whole; and a katakana part is
+the reading of another part where the store or the surface says so, which is what tells
+`紬めめ / ツムギメメ` from `[原作]王月よう / [漫画]アジイチ`.
+
+**In place, so nothing is lost.** The renderer replaces each name and each role where the field puts
+them and leaves the field's own separators alone. Rebuilding the line would drop whatever the
+division did not find, and a byline that has quietly lost a company is worse than one a reader can
+see is in Japanese. `credit fields the division does not account for` counts the fields where that
+could happen and stands at zero; where it is not zero the field is drawn as the catalogue wrote it.
+
+**One gloss table.** `ROLE_EN` holds the atoms and `roleWord` composes a compound out of them, so
+`キャラクター原案・漫画` reads "character design and art" without anybody listing that combination.
+`every credit role has an English gloss` asks the interface about every role the splitter can
+produce and every role the corpus states, and it blocks at zero: a role is a closed vocabulary
+somebody wrote down, so a role with no gloss is a missing table entry and not a name nobody has
+researched.
+
+**What is still Japanese in English is a name and nothing else.** `no cataloguing notation in an
+English rendering` blocks on a role, on `ほか` and on a reading printed beside its own name.
+`renderings still Japanese in English mode` keeps what §6 leaves standing, which is a person the
+store has never met, and it falls when somebody finds a reading.

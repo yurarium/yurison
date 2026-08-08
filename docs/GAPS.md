@@ -2191,3 +2191,38 @@ the string is never taken apart. The module docstring names it as the case that 
 unresolved count rather than being split silently. It is listed as a spelling of comic high's brand
 in full, which places the row without teaching the segmenter a separator on the strength of one
 example.
+
+## 30. What is still Japanese on an English credit line, and why each class is stuck (2026-08-08)
+
+`renderings still Japanese in English mode` fell from 334 to 113 when the credit division moved into
+the build. The whole of the remainder is a NAME, which is the state NAMES-PLAN §6 calls finished, and
+it divides into four classes with different prospects. Measured over 172 surviving runs of kana or
+kanji across 113 renderings.
+
+**94 runs: a credit with no record in the name store.** `さばみぞれ`, `二月公`, `巻本梅実`,
+`なおたけ`, `黒布直導`, `我美蘭`. No source this project reads states a reading, and §6 says show the
+Japanese rather than guess one. This falls when a research pass finds a source, and nothing an
+interface change can do will move it.
+
+**25 runs: an editorial desk.** `Be編集部`, `百合姫編集部`, `ちゃお編集部`, `アンブル編集部`,
+`comicGAGA編集部`, `まんがタイムきららＭＡＸ編集部`. A magazine's name with 編集部 after it, credited
+as the compiler of an anthology. These are closable and are not closed: 編集部 is a common noun and
+glossing it is translation rather than a guess at a reading, so `Be編集部` could read "Be editorial
+department" today. It was left alone because the gloss would have to fire on a NAME field, which
+means a second producer of a name rendering beside the store, and STANDING-INSTRUCTIONS §3 counts
+seven shipped bugs from that shape. The right home is a record in the store with `kind: venue`,
+which is where the credit registry already files these.
+
+**15 runs: a record the store holds with no reading.** `角川青羽`, `伊実`, `時一二`. The store has
+met the credit and every source it asked came back empty. Same prospect as the first class and a
+shorter distance to travel, since the record exists and only wants a source.
+
+**A handful inside a compound the store knows in part.** `さりい・Ｂ` and `るいす・まくられん` are one
+credit each, and the store can render one half. Splitting them would print half of somebody's name,
+which `adapters/names/inputs.py` records as the reason ・ is not a separator for a caller that
+prints. Nothing here is a gap; it is the rule working.
+
+**What moved out of this count entirely.** A role with no gloss, `ほか`, a doubled bracket, a
+reading printed beside its own name, and a Latin pen name a cataloguer typed in full width. Each of
+those has a right answer, and each is now an invariant that blocks rather than a number that
+tolerates.

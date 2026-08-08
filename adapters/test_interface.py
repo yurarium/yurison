@@ -62,9 +62,21 @@ NAMES = {
         "宮澤伊織": {"reading": "ミヤザワ イオリ", "basis": "romaji",
                  "romaji": {"macron": "Miyazawa Iori", "double": "Miyazawa Iori",
                             "plain": "Miyazawa Iori"}},
+        # A creator MADB writes as the name beside its own reading, which is the shape the 発売
+        # tab used to publish as two artists.
+        "紬めめ": {"reading": "ツムギ メメ", "basis": "romaji",
+                "romaji": {"macron": "Tsumugi Meme", "double": "Tsumugi Meme",
+                           "plain": "Tsumugi Meme"}},
     },
     "phrases": {"第1話": "Ch. 1"},
-    "credit_parts": {"宮澤伊織/水野英多": ["宮澤伊織", "水野英多"]},
+    # THE DIVISION AS `adapters/names/creditline.py` SHIPS IT. `p` is the people in order with the
+    # job on each; the browser divides nothing itself, which is what stopped `credit()` and
+    # `creditNames()` being two readers of one notation.
+    "credit_parts": {
+        "宮澤伊織/水野英多": {"p": [{"n": "宮澤伊織"}, {"n": "水野英多"}]},
+        "[著]仲谷鳰ほか": {"p": [{"n": "仲谷鳰", "r": "著"}, {"etc": 1}]},
+        "紬めめ/ツムギメメ": {"p": [{"n": "紬めめ"}], "drop": [" / ツムギメメ"]},
+    },
     "publishers": {"一迅社": {"en": "Ichijinsha", "basis": "official-jp"}},
     "imprints": {"Yurihime comics": {"id": "yurihime", "name": "コミック百合姫"}},
 }
@@ -88,6 +100,42 @@ def main(s):
          "list of name fields going stale as passes add to the data")
     s.eq(interface.unruled({"series": [{"an_invented_field": "plain english"}]}), [],
          "and a field with no Japanese in it raises no question")
+
+    # ── the character class, which was wrong and said nothing about it ────────────────────────
+    #
+    # `豈` has two code points, and the literal in this file held U+8C48 where the compatibility
+    # range meant U+F900. The class therefore ran from U+8C48 to U+FAFF and swallowed Hangul, so
+    # six credit rows naming Korean artists were counted as Japanese left on an English page. Both
+    # ends of every range are pinned here because the fault was invisible by eye.
+    for ch, want, why in ((chr(0x3040), True, "the kana block opens"),
+                          (chr(0x30ff), True, "and closes"),
+                          (chr(0x3400), True, "extension A opens"),
+                          (chr(0x9fff), True, "the unified ideographs close"),
+                          (chr(0xf900), True, "the compatibility ideographs open"),
+                          (chr(0xfaff), True, "and close"),
+                          ("싱", False, "Hangul is a script this project makes no claim about"),
+                          ("한국어", False, "and a whole Korean word is not Japanese"),
+                          (chr(0xa000), False, "nor is Yi, which sits in the gap the range spanned"),
+                          ("A", False, "and Latin is not")):
+        s.eq(bool(interface.KANA_KANJI.search(ch)), want,
+             f"{why}: KANA_KANJI on {ch!r}")
+    s.check(interface.JAPANESE_ANY.search("　") and not interface.JAPANESE_ANY.search("싱"),
+            "the wider class takes the ideographic space and still leaves Hangul out")
+
+    # ── a trailing [] means each item of that list, and used to mean the list ─────────────────
+    #
+    # `series[].print[]` was read as `series[].print`, so the walk handed the record branch a
+    # SERIES row with the whole print list beside it. A series row carries no publisher, so every
+    # one of 2,520 volume blocks was skipped and the surface reported clean having rendered
+    # nothing.
+    rows = {"series": [{"work": "カナリア",
+                        "print": [{"publisher": "一迅社", "imprint": "Yurihime comics"}]}]}
+    s.eq([v for _row, v in interface._values_at(rows, "series[].print[]")],
+         [{"publisher": "一迅社", "imprint": "Yurihime comics"}],
+         "the walk reaches each print block, not the list holding them")
+    _calls, _about = interface.calls_for(rows)
+    s.check(any(s_.path == "series[].print[]" for s_, _v in _about),
+            "so the publisher names on a volume row are rendered rather than silently skipped")
 
     calls, about = interface.calls_for({"works": [{"title": {"ja": "怪異部 : M県Y市の怪現象について"},
                                                   "creator": "[著]やまじえびね"}]})
@@ -166,6 +214,33 @@ def main(s):
     ja_linked = iface.with_prefs(LANG="ja").values([("linkedCredits", {"author": "仲谷鳰"})])
     s.check("仲谷鳰" in ja_linked[0] and 'href="/kari/credit/c00173/"' in ja_linked[0],
             "and in Japanese it is the same address under the name as written")
+
+    # ── a credit line, divided by the build and rendered in place ────────────────────────────
+    #
+    # RUN AGAINST THE REAL FILE. Each of these is a shape one of the two renderers this replaced
+    # could not read: a role in a bracket with no gloss in the six-word table, the word that closes
+    # an anthology credit, and a reading printed beside the name it reads.
+    credits = iface.labels([("credit", "[著]仲谷鳰 ほか"),
+                            ("creditNames", "[著]仲谷鳰 ほか"),
+                            ("credit", "紬めめ / ツムギメメ"),
+                            ("roleWord", "キャラクター原案・漫画"),
+                            ("roleWord", "校正")])
+    s.eq(credits[0], "[author]Nakatani Nio and others",
+         "the catalogue tab glosses the role, renders the name through the store and says in "
+         "English that the field names some of its contributors")
+    s.eq(credits[1], "Nakatani Nio / and others",
+         "and the 発売 tab lists the people the build divided out, which is what that tab shows")
+    s.eq(credits[2], "Tsumugi Meme",
+         "a reading printed beside its own name is taken off an English page, because kana beside "
+         "a romanisation is the same name twice in a script the page is not written in")
+    s.eq(credits[3], "character design and art",
+         "A COMPOUND ROLE IS COMPOSED FROM ITS ATOMS. Listing every combination is what the old "
+         "table did at a smaller size, and it is why it held キャラクターデザイン原案 and neither "
+         "of its halves")
+    s.eq(credits[4], "proofreading", "and an atom the corpus states once is still glossed")
+    ja_credit = iface.with_prefs(LANG="ja").labels([("credit", "[著]仲谷鳰 ほか")])
+    s.eq(ja_credit[0], "[著]仲谷鳰 ほか",
+         "in Japanese the field is the field, notation and all")
 
     s.raises(interface.Unavailable,
              lambda: interface.render([["noSuchFunction", 1]], names=NAMES),

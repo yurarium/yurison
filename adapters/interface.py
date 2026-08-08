@@ -60,8 +60,24 @@ APP_JS = SITE_ROOT / "kari" / "app.js"
 # somewhere else on the row hands the row over with `work` set to that field, which is what
 # renderReleases does with `workLabel({ work: w.title.ja })`. That much is a model of the caller,
 # and it is the part the lint checks rather than assumes.
-KANA_KANJI = re.compile(r"[぀-ヿ㐀-鿿豈-﫿]")
-JAPANESE_ANY = re.compile(r"[぀-ヿ㐀-鿿豈-﫿　-〿＀-￯]")
+
+# WRITTEN AS CODE POINTS, because the literal form of this class was wrong and nothing said so.
+# The compatibility-ideograph range was typed with the character 豈, which has two code points:
+# U+F900, the compatibility ideograph the range meant, and U+8C48, the ordinary character an editor
+# inserts. The file held U+8C48, so the class ran from U+8C48 to U+FAFF and swallowed everything
+# between, Hangul syllables among it. Six credit rows naming Korean artists counted as "still
+# Japanese in English mode" on the strength of a name in a script this project makes no claim about.
+#
+# kari/app.js spells the same class \u3040-\u30ff\u3400-\u9fff\uf900-\ufaff and has always been
+# right, which is STANDING-INSTRUCTIONS §3 once more: one fact, two spellings, and the copy nobody
+# could read by eye is the one that drifted. `test_interface.py` pins both ends of each range and
+# pins that Hangul falls outside.
+KANA_KANJI = re.compile("[\u3040-\u30ff\u3400-\u9fff\uf900-\ufaff]")
+# The same scripts plus the CJK punctuation and the full-width and half-width forms, for asking
+# whether a FIELD carries anything Japanese at all. Wider on purpose: a field holding only an
+# ideographic space is still a field somebody has to rule on.
+JAPANESE_ANY = re.compile("[\u3000-\u303f\u3040-\u30ff\u3400-\u9fff\uf900-\ufaff"
+                          "\uff00-\uffef]")
 
 
 class Surface:
@@ -77,9 +93,16 @@ class Surface:
     that stays Japanese in English mode is a fault and blocks. An imprint whose line has no English
     name yet is a coverage deficit with a budget already counting it, and blocking on it would
     stop every commit until somebody had romanised 44 publishing lines.
+
+    `reads` names what the JAVASCRIPT reads, where that is not the tail of the data path. The two
+    agree for `works[].title.ja`, which app.js reads as `title.ja`, and they cannot agree for
+    `credits[].works[].roles[]`: the browser holds the role list in a variable and reads `w.roles`.
+    Left to the default, that surface contributes an accessor no file will ever contain, and the
+    lint then guards a field nothing reads, which is the silence §4 is about.
     """
 
-    def __init__(self, path, entry, arg, category, why, holds_at_zero=True, fields=()):
+    def __init__(self, path, entry, arg, category, why, holds_at_zero=True, fields=(),
+                 reads=()):
         # `entry` may name more than one function where the interface legitimately has more than
         # one: the publisher parts exist as a plain-string form and an escaped form carrying each
         # name's mark, and both are entry points for the same three fields. The first is the one
@@ -88,6 +111,7 @@ class Surface:
         self.arg = arg
         self.category, self.why, self.holds_at_zero = category, why, holds_at_zero
         self.fields = tuple(fields)
+        self.reads = (reads,) if isinstance(reads, str) else tuple(reads)
 
     @property
     def renders_with(self):
@@ -110,6 +134,8 @@ class Surface:
     @property
     def accessors(self):
         """What app.js reads for this surface, one accessor per field it accounts for."""
+        if self.reads:
+            return self.reads
         return tuple(p.split("[].", 1)[1] if "[]." in p else p for p in self.ruled_paths)
 
 
@@ -138,6 +164,14 @@ SURFACES = [
             "the works tab's title, from the row that joined the platforms"),
     Surface("series[].author", "authorLabel", "row:author", "person",
             "the works tab's byline", holds_at_zero=False),
+    # THE SAME FIELD, THROUGH THE OTHER FUNCTION THAT RENDERS IT. The list rows call `authorLabel`
+    # and the work page calls `creditLine`, which calls `linkedCredits`, which composes the field
+    # out of the shipped division and wraps each person in their address. Measuring only the first
+    # left the second unmeasured, and they answer differently: `linkedCredits` places the names
+    # inside the field as written and `authorLabel` composes a new line from them.
+    Surface("series[].author", "linkedCredits", "row:author", "person",
+            "the same byline on a work page, where each person is a link to their record",
+            holds_at_zero=False),
     Surface("series[].latest_ep", "phraseOf", "value", "phrase",
             "the newest chapter's name, shown beside the row"),
     Surface("series[].collection", ("workTextOf", "workLabel"), "value", "title",
@@ -156,6 +190,39 @@ SURFACES = [
             "the chapter name on an update row"),
     Surface("releases[].collection", ("workTextOf", "workLabel"), "value", "title",
             "the collection an instalment belongs to, which is a work and gets a work's rendering"),
+
+    # ── the two record pages, 2,241 credits and 164 houses ────────────────────────────────────
+    #
+    # WALKED BECAUSE THEY ARE PAGES A READER OPENS. `credits.json` and `publishers.json` are
+    # fetched only when one of those addresses is visited, which is why they are separate files and
+    # is also why nothing here read them: the surfaces above are the four collections the tabs
+    # load. A page nobody walks is a page nobody measures, and adding these found a credit's
+    # homophone list writing `esc(o.credit)` straight into the markup.
+    Surface("credits[].credit", ("authorLabel", "creditChip"), "row:author", "person",
+            "the name a credit page is headed with, and the same name in a work list",
+            holds_at_zero=False),
+    Surface("credits[].homophones[].credit", ("authorLabel", "creditChip"), "row:author", "person",
+            "a credit held apart from this one because they share a reading; the pair is "
+            "information hung beside a record and never a merge", holds_at_zero=False),
+    # THE JOB ON THE EDGE FROM A WORK TO A PERSON. `roleWord` glosses it, and unlike a name a role
+    # is a closed vocabulary somebody wrote down, so this holds at zero: a role with no gloss is a
+    # missing table entry rather than a name nobody has researched.
+    Surface("credits[].works[].roles[]", ("roleWord", "roleWords"), "value", "role",
+            "the job a credit did on one work, shown under the work's title on a credit page",
+            reads="roles"),
+    Surface("publishers[].name", ("pubBoth", "publisherChip", "pubEn"), "value", "publisher",
+            "the house a publisher page is headed with", holds_at_zero=False),
+    # `imprintOf` IS AN ENTRY POINT AND NOT AN EXCEPTION. It maps a catalogued spelling onto the
+    # line's own name and hands that to `pubBoth`; the read of `name` inside it is the registry
+    # answering, which is the same act as `pubEn` reading a record. Listing it here says so, rather
+    # than parking it in the exception table where a reader would have to take a sentence's word
+    # for it.
+    Surface("publishers[].lines[].name", ("pubBoth", "publisherChip", "imprintOf"), "value",
+            "publisher", "a yuri line on the house that runs it, which is the one thing a "
+            "publisher page shows that no other page can", holds_at_zero=False, reads="name"),
+    Surface("publishers[].lines[].parent", ("pubBoth", "publisherChip", "imprintOf"), "value",
+            "publisher", "the umbrella a sub-line sits under, named beside it because both are "
+            "real", holds_at_zero=False, reads="parent"),
 ]
 
 # Fields whose values hold Japanese and are NOT a name. Each is ruled here so that a field arriving
@@ -209,6 +276,30 @@ NOT_A_NAME = {
     "releases[].same_title_elsewhere": "a title held by a different work, named for the reader",
     "releases[].id": "a chapter identifier a platform assigned",
     "releases[].kind_basis": "why a row was called a chapter, quoted from what it was read off",
+
+    # ── the record pages ──────────────────────────────────────────────────────────────────────
+    "credits[].homophones[].reading": "the reading the two credits share, which is why they are "
+                                      "held apart; the page names the other credit and not this",
+    "credits[].homophones[].basis": "how that reading was arrived at, kept for the ruling file "
+                                    "and not drawn",
+    # A SPELLING IS A HISTORICAL VARIANT AND IS QUOTED ON PURPOSE. `Yuri-hime comics` is what a
+    # 2008 volume says, and the line's own name heads the row above it. The page shows the count
+    # and puts the spellings in a tooltip, which is prose in its own right rather than the label.
+    "publishers[].lines[].spellings[].raw": "a catalogued spelling of one line, quoted as the "
+                                            "volume that carried it prints it",
+
+    # ── status.html, which is the page for facts about us ─────────────────────────────────────
+    #
+    # §1 puts coverage, confidence and backlog here rather than in front of a reader, so a
+    # Japanese title in this file is the SUBJECT of a sentence about our own work and not a label
+    # the page failed to render. That is the one place on this site where the rule points the
+    # other way, and it is worth saying so beside the fields rather than in a document.
+    "status[].outstanding[].rows[]": "the works a queue still holds, listed by the name they are "
+                                     "filed under; the English-name queue is a list of titles "
+                                     "with no English name, so naming them in English is not "
+                                     "available and would defeat the point of the list",
+    "status[].gate.budgets[].means": "what one budget counts, in a sentence that quotes the "
+                                     "source or the shop it is about",
 }
 
 RENDERING_RECORDS = ("work_en.", "author_en.", "title.en")
@@ -394,10 +485,19 @@ def _values_at(collections, path):
     `workLabel` wants `work_en` beside `work`, and handing it the string alone would ask the
     interface a question no caller asks.
     """
-    # `works[]` is the record itself and `works[].title.ja` is a field of it, so the trailing
-    # marker is taken off before the split rather than being left to fall through as a key nothing
-    # holds, which is how this returned nothing at all for the publisher surfaces.
-    head, _, rest = (path[:-2] if path.endswith("[]") else path).partition("[].")
+    # A TRAILING `[]` MEANS "EACH ITEM OF THAT LIST", AND IT USED TO MEAN "THE LIST".
+    # `series[].print[]` was read as `series[].print`, so the walk handed `calls_for` the SERIES row
+    # with the whole print list beside it. The record branch then asked that row for `publisher`,
+    # `distributor` and `imprint`, which a series row does not carry, so every one of 2,520 volume
+    # blocks was skipped and the surface rendered nothing at all while reporting clean. That is the
+    # §4 silence exactly: a check that walks no rows is indistinguishable from a check that walks
+    # rows and finds nothing.
+    #
+    # `works[]` is different only in that the list is the collection itself, which is why the
+    # marker comes off the HEAD and not off the tail.
+    head, _, rest = path.partition("[].")
+    if not rest and head.endswith("[]"):
+        head = head[:-2]
     rows = collections.get(head) or []
     out = []
     for row in rows:

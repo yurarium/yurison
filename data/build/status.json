@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-08T08:55:19+00:00",
+ "generated": "2026-08-08T09:01:17+00:00",
  "since_last": {
-  "at": "2026-08-08T07:36:08+00:00",
+  "at": "2026-08-08T08:55:19+00:00",
   "statistics": {}
  },
  "means": {
@@ -205,6 +205,12 @@
     "value": 2
    },
    {
+    "name": "publisher readings nobody has settled",
+    "means": "publisher and imprint keys shipped as a romanisation of ours over a reading no source states, which is what the mark beside them says. A coverage deficit and the other half of the budget above it: that one reached zero by romanising, and a romanisation is the reading spelt out. It falls as readings get sourced, and it is measured on the shipped map so that hiding the mark would show as a fall nobody earned.",
+    "budget": 21,
+    "value": 21
+   },
+   {
     "name": "renderings with nothing to show",
     "means": "works whose English rendering holds neither a romanisation nor an English name while the surface is Japanese. A rise means a composed name lost its romanisation.",
     "budget": 46,
@@ -297,6 +303,12 @@
    {
     "name": "bookwalker listings unconfirmed",
     "means": "BOOK☆WALKER rows whose series listing was read before the reader compared what it read against the shop's own 全N件. Until 2026-08-06 the last row of a listing swallowed the markup printed underneath it and was identified by the related-series link in there, so it was dropped; a listing is sorted newest first, so the row dropped is the OLDEST volume and `first_publication` is the earliest date across the volumes read. Falls as adapters/recon/bookwalker_volumes.py --follow-series re-reads them, and reaches zero, because every row counted here names a series to fetch.",
+    "budget": 0,
+    "value": 0
+   },
+   {
+    "name": "volumes with an isbn and no date",
+    "means": "volumes on a work page stating an ISBN and no publication date. An ISBN is a key into a registry that states one, so each of these is a lookup nobody has done. Falls as adapters/openbd/enrich.py --fetch works through the corpus. Its floor is the books openBD has no record of, which was 245 of 2,321 ISBNs when this was written.",
     "budget": 0,
     "value": 0
    },
@@ -405,20 +417,6 @@
    "drop": null
   },
   {
-   "source": "openbd",
-   "files": 509,
-   "works": 509,
-   "rows": 1098,
-   "retrieved": "2026-08-06",
-   "age_days": 2,
-   "in_scope": true,
-   "empty": false,
-   "checked_rows": 0,
-   "well_formed": 0,
-   "malformed": 0,
-   "drop": null
-  },
-  {
    "source": "editions",
    "files": 1,
    "works": 4,
@@ -501,11 +499,25 @@
    "well_formed": 6127,
    "malformed": 0,
    "drop": null
+  },
+  {
+   "source": "openbd",
+   "files": 820,
+   "works": 820,
+   "rows": 2076,
+   "retrieved": "2026-08-08",
+   "age_days": 0,
+   "in_scope": true,
+   "empty": false,
+   "checked_rows": 0,
+   "well_formed": 0,
+   "malformed": 0,
+   "drop": null
   }
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-08T07:36:06+00:00",
+  "previous_at": "2026-08-08T08:55:18+00:00",
   "drops": []
  },
  "outstanding": [
@@ -690,7 +702,7 @@
   {
    "kind": "debt",
    "key": "data_debts",
-   "count": 19,
+   "count": 20,
    "what": "Bring down counts that may only ratchet downward",
    "rows": {
     "bookwalker listings unconfirmed": 0,
@@ -708,6 +720,7 @@
     "names rendered two ways": 2,
     "one page cited for two claims": 12,
     "publisher keys the interface misses": 0,
+    "publisher readings nobody has settled": 21,
     "publishers with no English": 0,
     "renderings with nothing to show": 46,
     "rows with a moving address": 0,
@@ -719,6 +732,7 @@
     "undated cmoa candidates": 1220,
     "unreadable bookwalker rows": 15,
     "updates naming a work we do not hold": 27,
+    "volumes with an isbn and no date": 0,
     "works showing a romanisation": 174,
     "works without English": 105
    }

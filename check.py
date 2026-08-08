@@ -910,8 +910,8 @@ def budget_imprint_names_the_interface_disagrees_with(ctx):
         for pr in (r.get("print") or []):
             raw = str(pr.get("imprint") or "").strip()
             fact = shipped.get(raw)
-            if fact and _app_imprint_of(raw) != fact["name"]:
-                pairs.add((_app_imprint_of(raw), fact["name"]))
+            if fact and _app_imprint_of(raw, shipped) != fact["name"]:
+                pairs.add((_app_imprint_of(raw, shipped), fact["name"]))
     return len(pairs)
 
 
@@ -2442,15 +2442,27 @@ def _app_publisher_of(s):
     return re.sub(r"\s*[（(][^）)]*[）)]\s*$", "", s).strip()
 
 
-def _app_imprint_of(s):
-    bare = re.sub(r"^\s*\[[^\]]*\]\s*", "", str(s or ""))
-    segs = [x.strip() for x in re.split(r"[=／/.．]", bare) if x.strip()]
-    for seg in reversed(segs):
-        k = re.sub(r"[\s・-]", "", seg.lower())
-        if _IMPRINT_ALIAS.get(k) or _IMPRINT_ALIAS.get(seg):
-            return _IMPRINT_ALIAS.get(k) or _IMPRINT_ALIAS.get(seg)
-    named = [x for x in segs if x != "IDコミックス"]
-    return (named[-1] if named else (segs[0] if segs else "")) or ""
+def _app_imprint_of(s, shipped=None):
+    """kari/app.js's imprintOf, transcribed. It reads the registry now, so this does too.
+
+    IT USED TO SEGMENT AND GUESS, holding four aliases and a rule that took the most specific
+    segment, and this copy held the same four so the two could be compared. Both now ask the map the
+    build ships, keyed by the catalogued string and by its folded form, and an unknown string keeps
+    its catalogued spelling.
+
+    SO THE BUDGET BESIDE THIS CAN NO LONGER FIND A DISAGREEMENT, and that is the point rather than a
+    loss: the two implementations stopped having separate opinions to differ about. What is still
+    worth measuring is a string reaching no line at all, which `imprint strings that reach no line`
+    counts, and that one cannot be satisfied by agreement.
+    """
+    raw = re.sub(r"^\s*\[[^\]]*\]\s*", "", str(s or "")).strip()
+    if not raw:
+        return ""
+    m = shipped or {}
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    import key as _key
+    hit = m.get(raw) or m.get(_key.fold(raw))
+    return (hit or {}).get("name") or raw
 
 
 def budget_publisher_keys_the_interface_misses(ctx):

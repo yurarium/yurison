@@ -5308,6 +5308,30 @@ def main():
 
     # AN IMPRINT IS ONE OBJECT WITH MANY RECORDED SPELLINGS, and the field holds the spellings.
     _imp_shipped = imprint_map(series_rows)
+
+    # A LINE'S CANONICAL NAME IS A NAME A READER MEETS, so it needs a rendering like any other.
+    # The publisher pass ran against the CATALOGUED spellings, and the registry then chose a
+    # canonical name for each line, so eleven names that reach the page had never been offered for
+    # naming: ハルタコミックス, FUZコミックス, まんがタイムKRコミックスつぼみシリーズ and the MF
+    # series among them. They are keyed here so the same lookup answers for them, raw and folded
+    # alike, which is the rule the publisher map already follows.
+    sys.path.insert(0, str(pathlib.Path(__file__).parent / 'adapters' / 'names'))
+    import publishers as _pubmod
+    _imp_named = 0
+    for _fact in {id(v): v for v in _imp_shipped.values()}.values():
+        _nm = (_fact or {}).get("name")
+        if not _nm or _nm in _pub_shipped or _fold(_nm) in _pub_shipped:
+            continue
+        _one = _pubmod.render(_pub_names, _auth_folded,
+                              {("imprint", _nm): {"kind": "imprint", "raw": _nm,
+                                                  "shown": _nm, "volumes": 1}})
+        _rendered = _one.get(_nm) or _one.get(_fold(_nm))
+        if _rendered:
+            _pub_shipped.setdefault(_nm, _rendered)
+            _pub_shipped.setdefault(_fold(_nm), _rendered)
+            _imp_named += 1
+    if _imp_named:
+        print(f"imprints        : {_imp_named} line name(s) given a rendering of their own")
     _imp_lines = len({v["id"] for v in _imp_shipped.values()})
     print(f"imprints        : {_imp_lines} line(s) answering {len(_imp_shipped)} key(s) in "
           f"feed/names.json")

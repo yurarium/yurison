@@ -21,7 +21,7 @@ it measures nothing about the data.
 | 4 | imprint strings that reach no line | 139 | **done, 18** (100 were the field repeating its publisher and moved to a measure that says so; 21 genuine lines added; the 18 left are magazines and companies, which are not lines) |
 | 5 | one work under two names in a list | 71 | **done, 53** (9 merged on identical title plus shared credit; the rest fold equal with titles that differ, which is where an earlier round found 3 of 41 were bad anchors, so each wants a ruling) |
 | 6 | labels with nothing to quote | 49 | **done, 0** (the YH spellings placed on 百合姫コミックス, so the line the reader is shown carries the term; bare IDコミックス still not the yuri line) |
-| 7 | credits carrying their own cataloguing | 38 | queued |
+| 7 | credits carrying their own cataloguing | 38 | **examined, unchanged**: this counts a working filter and not a debt. All 38 are a person with a role welded on, correctly withheld so the lookup reaches the person; 34 of the 38 have a person record that reads BETTER than the welded one, which reads the notation aloud (`アオ ト ヒビキ ( エ )` against `アオト ヒビキ`). It falls when captures stop welding, which is upstream in the capture and not curation. |
 | 8 | updates naming a work we do not hold | 27 | queued |
 | 9 | titles carrying cataloguing punctuation | 23 | queued |
 | 10 | credits the corpus files as a venue | 20 | queued |

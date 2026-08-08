@@ -99,38 +99,41 @@ def main(argv=None):
     import argparse
     import datetime
     import json
-    import time
-    import urllib.request
 
     import yaml
 
+    import net                                                         # noqa: PLC0415
+    import paths                                                       # noqa: PLC0415
     from names.openbd_reading import unsettled_readings                # noqa: PLC0415
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--build", default="data/build")
-    ap.add_argument("--cache", required=True, help="where fetched pages live; outside the repo")
+    # Defaulted, not required: see adapters/paths.py for the rule.
+    ap.add_argument("--cache", default=str(paths.cache("platform-reading-cache")),
+                    help="where fetched pages live; outside the repo")
     ap.add_argument("--platform", default="ヤンマガWeb")
     ap.add_argument("--reviewed", default=datetime.date.today().isoformat())
     a = ap.parse_args(argv)
 
     cache = pathlib.Path(a.cache)
     cache.mkdir(parents=True, exist_ok=True)
-    ua = ("Mozilla/5.0 (compatible; yurarium/1.0; +https://yurarium.github.io) "
-          "bibliographic metadata collection")
+
+    refused = []
 
     def fetch(url):
-        f = cache / (re.sub(r"[^A-Za-z0-9]", "_", url)[-140:] + ".html")
-        if f.exists():
-            return f.read_text()
-        req = urllib.request.Request(url, headers={"User-Agent": ua})
-        try:
-            with urllib.request.urlopen(req, timeout=40) as r:
-                t = r.read(2_000_000).decode("utf-8", "replace")
-        except Exception as e:                                                # noqa: BLE001
-            t = f"__ERROR__ {type(e).__name__} {e}"
-        f.write_text(t)
-        time.sleep(1.5)
-        return t
+        """The page, or "" where there is none or the platform would not serve it.
+
+        THE ERROR USED TO BE CACHED, and here it was worse than a wasted run: a failure was written
+        into the cache as a page beginning `__ERROR__`, that page parsed to no author link and no
+        reading, and the artist was filed `no-author-page`, which is a statement about the artist.
+        A refusal is collected instead and printed, so a run against a platform that was down does
+        not read as a run that found nothing to state.
+        """
+        r = net.fetch(url, cache, net.AGE_LISTING)
+        if net.is_refusal(r):
+            refused.append(url)
+            return ""
+        return r.text or ""
 
     wanted = unsettled_readings()
     series = json.loads((pathlib.Path(a.build) / "series.json").read_text())["series"]
@@ -164,7 +167,10 @@ def main(argv=None):
         if name not in found:
             unresolved[name] = "no-author-page"
 
-    print(f"{len(pages)} work page(s) on {a.platform}; {len(found)} reading(s) stated")
+    # Printed even at nought, because a run that met no refusals and a run whose refusals were
+    # swallowed look identical from the output otherwise (STANDING-INSTRUCTIONS §4).
+    print(f"{len(pages)} work page(s) on {a.platform}; {len(found)} reading(s) stated; "
+          f"{len(refused)} page(s) the platform would not serve")
     print(yaml.safe_dump({"authors": found}, allow_unicode=True, sort_keys=True, width=100))
     return 0
 

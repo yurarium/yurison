@@ -34,17 +34,17 @@ cache has no entry for, and with all 2,321 asked openBD holds a date for 1,860 o
 figure above was a thin cache and not a thin catalogue. What each of those answers is worth against
 the date the bibliography already states is `adapters/isbndate.py`, which is what reads them.
 
-Usage:  enrich.py --cache $YURI_CACHE/openbd-cache/openbd.json \
-                  --works data/source/madb --out data/source/openbd --retrieved 2026-08-01 \
+Usage:  enrich.py --works data/source/madb --out data/source/openbd --retrieved 2026-08-01 \
                   --madb-cache $YURI_CACHE/madb-cache/1.2.18 --fetch
 """
-import argparse, glob, json, pathlib, sys
+import argparse, glob, pathlib, sys
 
 import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 from madb import isbn_dates                                                    # noqa: E402
+from names import openbd_reading                                               # noqa: E402
 
 # Health assertion: openBD resolved ~77% of this corpus on 2026-08-01. A large drop means the API
 # changed or the fetch failed, and the adapter must not write a thinned record set (§6).
@@ -96,7 +96,13 @@ def answer(volume, record, madb, primary_source):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--cache", required=True)
+    # NOT REQUIRED ANY MORE, AND THAT IS THE FIX. A cache path with no default is a cache path
+    # somebody types, and two callers typed two different ones: this pass read
+    # openbd-cache/openbd.json while the name pass filled names-cache/openbd.json, the two drifted
+    # to 2,401 and 2,425 ISBNs, and 978 volumes went unanswered here on which file was opened.
+    # `openbd_reading` owns the location now, so leaving this alone is the way to be right.
+    ap.add_argument("--cache", default=None,
+                    help="override openbd_reading's cache location; the default is shared")
     ap.add_argument("--works", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--retrieved", required=True)
@@ -124,18 +130,16 @@ def main():
     # re-runnable, it is re-runnable by somebody who remembers to run something else first
     # (STANDING-INSTRUCTIONS §7).
     #
-    # `openbd_reading.fetch` and not a second fetcher: batching, the pause and the resume point are
-    # one decision with one place to make it (§3). It asks only for ISBNs the cache has no entry
-    # for, so a re-run with nothing new costs no request at all.
+    # `openbd_reading` and not a second client: batching, the pause, the resume point, the retry
+    # policy and now WHERE THE FILE IS are one decision with one place to make it (§3). It asks
+    # only for ISBNs it has no answer for, so a re-run with nothing new costs no request at all.
     if a.fetch:
-        from names import openbd_reading                                       # noqa: PLC0415
-        store = pathlib.Path(a.cache)
-        if store.name != "openbd.json":
-            sys.exit(f"--fetch writes {store.parent}/openbd.json and --cache names {store.name}. "
-                     "Point them at one file or the run would read a cache it did not fill.")
-        openbd_reading.fetch(sorted(set(all_isbns)), store.parent)
+        openbd_reading.fetch(sorted(set(all_isbns)), a.cache)
 
-    cache = json.loads(pathlib.Path(a.cache).read_text())
+    # READ THROUGH THE SAME MODULE THAT WRITES IT. Opening the file here would be a second reader
+    # of a format with one writer, and the format grew a date beside each answer the day absences
+    # started expiring.
+    cache, _asked = openbd_reading.load(a.cache)
     # HOW MANY OF THIS CORPUS'S ISBNs THE CACHE ANSWERS FOR, not how big the cache is. The measure
     # was `len(cache)` over the corpus, which is a ratio between two different populations: the
     # cache is shared with the name passes and the retailer captures, and once it grew past the

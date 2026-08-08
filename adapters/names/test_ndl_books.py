@@ -139,6 +139,99 @@ def main(s):
     s.raises(ValueError, lambda: nb.build_url("/statistics"),
              "nor any other path robots.txt withholds")
 
+    sweep(s)
+
+
+def sweep(s):
+    """What the run writes down, with every request answered from this file and none sent.
+
+    THE BUG THESE PIN. A sweep against NDL meets 503 for asking too fast, and a 503 arrives at the
+    caller as a page that is not there, which is the same shape as a work the library does not
+    hold. Reading the first as the second writes the work off, and nothing ever asks again. So the
+    two cases are separated here by what reaches the ledger and not only by what is printed.
+    """
+    import contextlib
+    import io
+    import json
+    import tempfile
+
+    import net
+    from names import store as store_mod
+
+    EMPTY = "<html>no results</html>"
+
+    def run(answers, titles, extra=()):
+        """main() with `answers` standing in for the network, and a store of its own."""
+        sent = []
+
+        def fake_fetch(url, cache, max_age_days=None, attempts=None):
+            sent.append(url)
+            return answers(url)
+
+        with tempfile.TemporaryDirectory() as d:
+            tpath = pathlib.Path(d) / "titles.txt"
+            tpath.write_text("\n".join(titles))
+            real = net.fetch
+            net.fetch = fake_fetch
+            out = io.StringIO()
+            try:
+                with contextlib.redirect_stdout(out), contextlib.redirect_stderr(io.StringIO()):
+                    nb.main(["--titles", str(tpath), "--no-cache", "--store", d, *extra])
+                rows = [json.loads(x) for x in out.getvalue().splitlines() if x.startswith("{")]
+                return rows, store_mod.NameStore(d).attempts, sent
+            finally:
+                net.fetch = real
+
+    refused = net.Result(None, 503, "u", None, False, "HTTP 503", "ndlsearch.ndl.go.jp", 5)
+    answered = net.Result(EMPTY, 200, "u", None, False, None, "ndlsearch.ndl.go.jp", 1)
+
+    rows, attempts, _ = run(lambda url: refused, ["怪異部"])
+    s.eq(rows[0]["status"], "fetch-failed", "a refused search is reported as a fetch that failed")
+    s.eq(attempts, {}, "and NOTHING is written down, because 503 is evidence about us")
+
+    rows, attempts, _ = run(lambda url: answered, ["怪異部"])
+    s.eq(rows[0]["status"], "no-record", "a search NDL answered and that held nothing is a miss")
+    s.eq([e["source"] for e in attempts["怪異部"]], ["ndl-books"],
+         "and that one IS written down, so the next run does not pay for it again")
+
+    # THE RECORD PAGE, which is where the swallow used to be: a refusal here was caught and the
+    # loop moved on, so the title reported `no-record` for a record NDL declined to serve.
+    found = net.Result('<a href="/books/R100000002-I026095900">x</a>', 200, "u", None, False,
+                       None, "ndlsearch.ndl.go.jp", 1)
+    rows, attempts, _ = run(lambda url: refused if "/books/" in url else found, ["怪異部"])
+    s.eq(rows[0]["status"], "fetch-failed", "a refused RECORD page is a fetch that failed too")
+    s.eq(attempts, {}, "and writes down no absence for the work it was about")
+
+    # AND THE SAVING. A title whose absence is on file is not asked about at all.
+    def with_prior(answers, titles, at):
+        with tempfile.TemporaryDirectory() as d:
+            st = store_mod.NameStore(d)
+            st.attempt(titles[0], None, nb.SOURCE)
+            st.attempts[titles[0]][0]["at"] = at
+            st.compact()
+            sent = []
+
+            def fake_fetch(url, cache, max_age_days=None, attempts=None):
+                sent.append(url)
+                return answers(url)
+
+            tpath = pathlib.Path(d) / "titles.txt"
+            tpath.write_text("\n".join(titles))
+            real = net.fetch
+            net.fetch = fake_fetch
+            try:
+                with contextlib.redirect_stdout(io.StringIO()), \
+                        contextlib.redirect_stderr(io.StringIO()):
+                    nb.main(["--titles", str(tpath), "--no-cache", "--store", d])
+            finally:
+                net.fetch = real
+            return sent
+
+    s.eq(with_prior(lambda url: answered, ["怪異部"], store_mod.today()), [],
+         "a fresh absence costs no request at all")
+    s.check(with_prior(lambda url: answered, ["怪異部"], "2019-01-01"),
+            "and an old one is asked again, because a catalogue gains records")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

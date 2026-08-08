@@ -153,16 +153,21 @@ def main(argv=None):
     import datetime
     import pathlib
     import sys
-    import time
-    import urllib.request
 
     import yaml
 
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
+    import net                                                         # noqa: PLC0415
+    import paths                                                       # noqa: PLC0415
     from build import norm_work                                        # noqa: PLC0415
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--cache", required=True, help="where fetched pages live; outside the repo")
+    # Defaulted, not required: see adapters/paths.py for the rule and why the alternative left a
+    # two hour sweep with nothing on disk. This directory already holds bookwalker.jp pages that
+    # thin/sources.py fetched, and net.py keys them by host, so sharing it is a saving.
+    ap.add_argument("--cache", default=str(paths.cache("shop-reading-cache")),
+                    help="where fetched pages live; outside the repo")
     ap.add_argument("--source", default="data/source/bookwalker")
     ap.add_argument("--names", default="data/names/titles.yaml")
     ap.add_argument("--limit", type=int, default=0, help="stop after this many pages")
@@ -172,24 +177,23 @@ def main(argv=None):
 
     cache = pathlib.Path(a.cache)
     cache.mkdir(parents=True, exist_ok=True)
-    ua = ("Mozilla/5.0 (compatible; yurarium/1.0; +https://yurarium.github.io) "
-          "bibliographic metadata collection")
+    # 1.5 s, which is what this route asked for before it shared a fetcher. Asked for by host, so
+    # net.PAUSE stays where it is for the other 26.
+    net.set_pause("bookwalker.jp", 1.5)
 
     def fetch(url):
-        f = cache / (re.sub(r"[^A-Za-z0-9]", "_", url)[-140:] + ".html")
-        if f.exists():
-            return f.read_text()
-        if a.offline:
-            return ""
-        req = urllib.request.Request(url, headers={"User-Agent": ua})
-        try:
-            with urllib.request.urlopen(req, timeout=40) as r:
-                t = r.read(2_000_000).decode("utf-8", "replace")
-        except Exception as e:                                                # noqa: BLE001
-            t = f"__ERROR__ {type(e).__name__} {e}"
-        f.write_text(t)
-        time.sleep(1.5)
-        return t
+        """The page, or None where the shop said there is none. Raises net.Refused otherwise.
+
+        THE ERROR USED TO BE CACHED. A failure was written into the cache directory as a page
+        beginning `__ERROR__`, so a shop that was briefly down left a permanent answer on disk: the
+        file existed, it was served for ever after, and the work was counted `no-page` on every
+        subsequent run. net.py does not cache a refusal, and the raise is what stops it being
+        counted as an absence here.
+        """
+        r = net.cached(url, cache) if a.offline else net.fetch(url, cache, net.AGE_LISTING)
+        if r is None:
+            return None                                   # offline, and this page was never got
+        return net.body(r)
 
     held = (yaml.safe_load(pathlib.Path(a.names).read_text()) or {}).get("names") or {}
     # SETTLED IS FINAL (NAMES-PLAN §4): a title a source has stated is never asked about again.
@@ -207,10 +211,18 @@ def main(argv=None):
     if a.limit:
         queue = queue[:a.limit]
 
-    found, misses = {}, {"no-page": 0, "no-keywords": 0, "title-disagrees": 0}
+    found = {}
+    # `refused` is kept apart from `no-page` because they are different facts. The shop stating it
+    # has no such page is about the book; the shop declining to answer is about the shop, and a run
+    # that met a wall of refusals must not read as a run that found the books absent.
+    misses = {"no-page": 0, "refused": 0, "no-keywords": 0, "title-disagrees": 0}
     for key, shop_title, url in queue:
-        page = fetch(url)
-        if not page or page.startswith("__ERROR__"):
+        try:
+            page = fetch(url)
+        except net.Refused:
+            misses["refused"] += 1
+            continue
+        if not page:
             misses["no-page"] += 1
             continue
         got = title_reading(page, want=shop_title)
@@ -224,8 +236,10 @@ def main(argv=None):
     # exactly like a batch of works the shop happens not to carry. Nothing is written into
     # data/source from here, so the cost of the confusion is a wasted run rather than a lost
     # capture; it is still worth refusing rather than printing an empty answer.
-    print(f"HEALTH: {len(queue) - misses['no-page']} of {len(queue)} page(s) answered")
-    if queue and misses["no-page"] == len(queue):
+    unanswered = misses["no-page"] + misses["refused"]
+    print(f"HEALTH: {len(queue) - unanswered} of {len(queue)} page(s) answered "
+          f"({misses['refused']} refused)")
+    if queue and unanswered == len(queue):
         print("Refusing to write: not one page answered. That is the shop unreachable rather than "
               "a batch it does not carry, and the two look identical from here.")
         return 1

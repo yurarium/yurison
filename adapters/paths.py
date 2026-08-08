@@ -13,6 +13,22 @@ Neither needs stating. The caches sit beside the repository and so does the site
 repository's parent is the root of both. Derive it and the machine drops out of the code.
 
 Override with `YURI_CACHE` (caches) or `YURARIUM_SITE` (published site) if the layout differs.
+
+A `--cache` FLAG DEFAULTS, ALWAYS, AND `paths.cache()` IS THE DEFAULT. The tree had it both ways
+and the split was arbitrary, so here is the rule and the argument for it.
+
+`names/ndl_books.py` took `--cache` with no default, and a two hour sweep of 124 publisher labels
+left nothing on disk because nobody passed one. That is §7: a run that needs somebody to remember
+something is not finished. The case for requiring the flag is that these caches are large and sit
+outside the repository, so an operator should say where the megabytes go. `cache()` answers that
+without the flag: the location is derived from the repository's parent, it names no machine, one
+environment variable moves all of them together, and `.githooks/leak-guard.sh` rejects a
+build-machine path written into the source, so a hand-typed default could not be right anyway.
+
+So the flag is for a caller who means to point somewhere else, and forgetting it costs nothing.
+Two callers sharing one question share one default and cannot drift: `names/openbd_reading.py` and
+`openbd/enrich.py` asked openBD the same thing into two directories for exactly as long as the
+location was something a person typed.
 """
 import os
 import pathlib

@@ -93,6 +93,19 @@ def today():
     return datetime.date.today().isoformat()
 
 
+def days_since(stamp):
+    """Days since an `at` date. An unreadable or missing one counts as today, so it never expires.
+
+    Failing towards "recent" is the safe direction here: it makes the attempt keep suppressing the
+    question, which costs a lookup nobody makes. Failing the other way would re-ask a two hour
+    sweep every run because one date was written badly.
+    """
+    try:
+        return (datetime.date.today() - datetime.date.fromisoformat(str(stamp))).days
+    except (TypeError, ValueError):
+        return 0
+
+
 def same_reading(a, b):
     """Are these the same reading, ignoring where the word boundary was drawn?
 
@@ -583,8 +596,15 @@ class NameStore:
 
         Only call this on a real negative answer. See the module docstring: recording an attempt
         against a source that never replied is how a name gets permanently written off.
+
+        `pass_` MAY BE None, AND IS FOR A ROUTE THAT IS NOT ONE OF THE FOUR. The field exists to
+        say which of NAMES-PLAN §4's numbered passes did the asking. `ndl-books` is not one of
+        them, and writing its own name into both fields would state the same fact twice, which is
+        the shape §3 is about. The key is left out entirely so the file does not fill with nulls.
         """
-        entry = {"pass": pass_, "source": source, "at": today()}
+        entry = {"source": source, "at": today()}
+        if pass_ is not None:
+            entry["pass"] = pass_
         self._append("attempts", {"ja": ja, "attempt": entry})
         self._dirty += 1
         self._note_attempt(ja, entry)
@@ -599,8 +619,29 @@ class NameStore:
 
     # -- reading --------------------------------------------------------------------------------
 
-    def tried(self, ja, source):
-        return any(e.get("source") == source for e in self.attempts.get(ja, ()))
+    def tried(self, ja, source, stale_after_days=None):
+        """Whether `source` has already been asked about `ja` and answered nothing.
+
+        `stale_after_days` lets an absence expire. A CATALOGUE ABSENCE IS NOT PERMANENT: a work
+        with no record at the National Diet Library today gets one when its next volume is
+        deposited, and a book openBD has never carried gets registered when the publisher files it.
+        An attempt with no expiry answers "we asked once, in 2026" for ever, which turns a saving
+        into a hole nothing can fill.
+
+        THE DEFAULT IS STILL FOR EVER, and deliberately. The four numbered passes were written
+        against `resolved is final` and their sources are community databases whose answer for a
+        name does not change on a schedule; expiring those would re-ask 2,002 names against
+        Wikidata every few months for almost nothing. The callers that pay per request pass a
+        number, and each says why it chose that one.
+        """
+        for e in self.attempts.get(ja, ()):
+            if e.get("source") != source:
+                continue
+            if stale_after_days is None:
+                return True
+            if days_since(e.get("at")) < stale_after_days:
+                return True
+        return False
 
     def supplies(self, kind, ja, want):
         """Does this record now carry what a source promising `want` was supposed to add?
@@ -622,7 +663,7 @@ class NameStore:
     def resolved_reading(self, kind, ja):
         return bool(self.records[kind].get(ja, {}).get("reading"))
 
-    def open_for(self, kind, names, source, want="either"):
+    def open_for(self, kind, names, source, want="either", stale_after_days=None):
         """The names this source still has something to say about.
 
         `want` is what would count as progress: 'reading' for a source that gives kana, 'en' for
@@ -633,7 +674,7 @@ class NameStore:
         """
         out = []
         for ja in names:
-            if self.tried(ja, source):
+            if self.tried(ja, source, stale_after_days):
                 continue
             r = self.records[kind].get(ja, {})
             if want == "reading" and r.get("reading"):
@@ -685,6 +726,8 @@ HEADER_NOTE = (
 ATTEMPTS_NOTE = (
     "Which sources have been ASKED about which name and answered nothing. NAMES-PLAN §4: without "
     "this every restart re-pays for every miss, and the 'closed, nothing to find' bucket never "
-    "populates. An entry here means the source replied and had no answer — never that a request "
-    "failed or that a source was unavailable."
+    "populates. An entry here means the source replied and had no answer, never that a request "
+    "failed or that a source was unavailable. `at` is what an expiry is measured from: a catalogue "
+    "absence is a fact about today, and the routes that pay per request re-ask once it is old "
+    "enough. See NameStore.tried."
 )

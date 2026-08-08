@@ -239,6 +239,90 @@ def main(s):
     _cut, uncut = ob.boundary_entries(ABSENT, {"寝路": "ネジ"}, "2026-08-07")
     s.eq(uncut, {"寝路": "no-record"}, "no record is its own answer, as it is for a reading")
 
+    ledger(s)
+
+
+def ledger(s):
+    """The store of what openBD has already said, including what it said nothing about."""
+    import json
+    import tempfile
+
+    import net
+
+    HELD = {"summary": {"title": "A", "publisher": "B"}}
+
+    with tempfile.TemporaryDirectory() as d:
+        ob.save({"9784000000001": HELD, "9784000000002": None},
+                {"9784000000001": "2026-08-08", "9784000000002": "2026-08-08"}, d)
+        recs, asked = ob.load(d)
+        s.eq(recs["9784000000002"], None, "a null survives a round trip; it is an answer")
+        s.eq(asked["9784000000002"], "2026-08-08", "and carries the day it was established")
+
+        ask, known = ob.worth_asking(list(recs), recs, asked, 90)
+        s.eq(ask, [], "neither ISBN is worth a request today")
+        s.eq(known, ["9784000000002"], "and the null is what the saving comes from")
+
+        ob.save(recs, {**asked, "9784000000002": "2020-01-01"}, d)
+        recs, asked = ob.load(d)
+        ask, known = ob.worth_asking(list(recs), recs, asked, 90)
+        s.eq(ask, ["9784000000002"],
+             "an old absence is asked again, because a publisher registers a book eventually")
+        s.eq(known, [], "and stops counting as a saving")
+        s.check("9784000000001" not in ask,
+                "a book openBD HELD is never asked again; a registration does not change")
+
+    # THE OLD FLAT FILE IS STILL READ. 2,400 answers sit in one on this machine, and rebuilding it
+    # to gain a date would cost 48 requests to learn what is already known.
+    with tempfile.TemporaryDirectory() as d:
+        ob.store_path(d).write_text(json.dumps({"9784000000003": HELD, "9784000000004": None}))
+        recs, asked = ob.load(d)
+        s.eq(recs["9784000000003"], HELD, "a file in the old shape loads")
+        s.eq(asked, {}, "with no dates, because it never carried any")
+        ask, _known = ob.worth_asking(list(recs), recs, asked, 90)
+        s.eq(ask, ["9784000000004"],
+             "so its undated nulls read as expired and are stamped by one cheap re-ask")
+
+    # A REFUSED BATCH IS NOT FIFTY BOOKS NOBODY REGISTERED. openBD answers with a null per ISBN it
+    # does not hold, so once a 503 has been flattened into "no body" the two are the same shape.
+    # Writing the first down as the second would put fifty books beyond every run for 90 days.
+    with tempfile.TemporaryDirectory() as d:
+        real = net.fetch
+        net.fetch = lambda url, cache, *a, **k: net.Result(
+            None, 503, url, None, False, "HTTP 503", ob.HOST, 5)
+        try:
+            s.raises(net.Refused, lambda: ob.fetch(["9784000000005"], d),
+                     "a refused batch raises instead of recording an absence")
+        finally:
+            net.fetch = real
+        s.check(not ob.store_path(d).exists(), "and writes nothing at all")
+
+    # A SHORT ANSWER IS REFUSED TOO. zip() would pair the first n and leave the rest looking
+    # unasked, which is the truncated payload `healthy()` was written against, one layer lower.
+    with tempfile.TemporaryDirectory() as d:
+        real = net.fetch
+        net.fetch = lambda url, cache, *a, **k: net.Result(
+            "[]", 200, url, None, False, None, ob.HOST, 1)
+        try:
+            s.raises(net.Refused, lambda: ob.fetch(["9784000000005", "9784000000006"], d),
+                     "an answer shorter than the question is refused")
+        finally:
+            net.fetch = real
+
+    # AND THE ORDINARY CASE STILL WORKS: a null openBD really did state is kept, with its date.
+    with tempfile.TemporaryDirectory() as d:
+        real = net.fetch
+        net.fetch = lambda url, cache, *a, **k: net.Result(
+            json.dumps([HELD, None]), 200, url, None, False, None, ob.HOST, 1)
+        try:
+            got = ob.fetch(["9784000000007", "9784000000008"], d)
+        finally:
+            net.fetch = real
+        s.eq(got["9784000000008"], None, "openBD holding nothing for an ISBN is recorded as such")
+        recs, asked = ob.load(d)
+        s.check(asked.get("9784000000008"), "with the date it was asked, so it can expire")
+        s.eq(ob.worth_asking(["9784000000008"], recs, asked, 90)[1], ["9784000000008"],
+             "and the next run skips it")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

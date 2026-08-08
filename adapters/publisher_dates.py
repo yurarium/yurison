@@ -253,7 +253,7 @@ def run(doc, cache, offline=False, rules=None):
         if rules is not None and not probe.allowed(path, rules.get(host) or []):
             refused.append((isbn, url))
             continue
-        r = _cached(url, cache) if offline else net.fetch(url, cache, max_age_days=AGE)
+        r = net.cached(url, cache) if offline else net.fetch(url, cache, max_age_days=AGE)
         date, why = accept(parser(r.text) if r and r.text else None, isbn, shop_title,
                            isbn in PAGES)
         if date:
@@ -276,14 +276,6 @@ def note_refuted(doc):
         for v in w.get("volumes") or []:
             if v.get("isbn") in REFUTED and v.get("printed_source"):
                 v["publisher_isbn"] = REFUTED[v["isbn"]]
-
-
-def _cached(url, cache):
-    f = pathlib.Path(cache) / net.cache_key(url)
-    if not f.exists():
-        return None
-    return net.Result(f.read_text(encoding="utf-8", errors="replace"), 200, url, None, True, None,
-                      url.split("/")[2])
 
 
 def main(argv=None):

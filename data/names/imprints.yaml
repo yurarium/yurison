@@ -7,6 +7,12 @@
 # producer of "which line is this string"; the module's docstring carries the matching rule and
 # what it deliberately refuses to do.
 #
+# CURATED HOUSE BY HOUSE, not string by string. Each block below is a house whose whole imprint
+# field was read and decided, and `test_imprints.py` asserts how many of its strings are left
+# unplaced, so a later round that folds one of the refused shapes in shows up as a number falling.
+# What every block refuses: a company's name in this field, which is a distributor recording who
+# made the book, and a magazine's name where nothing says it stands for the book line.
+#
 # WHAT A SPELLING IS. A string a record carries, written here as a reader would see it. The module
 # compares folded (NFKC, lowercased, spaces and hyphens and 中黒 removed), so one entry covers
 # `Yuri-hime comics`, `Yurihime comics`, `YURIHIME COMICS` and `Yuri-Hime COMICS`. A compound
@@ -515,3 +521,1194 @@ lines:
     name_basis: *xfolio
     spellings:
       - YURI HUB
+
+  # ── ナンバーナイン ───────────────────────────────────────────────────────────────────────────
+  #
+  # One line and 496 rows, which is more than every other house in this file put together. The
+  # company distributes self-published work electronically, so 百合コレ is a genre shelf the
+  # distributor runs rather than a printed logotype, and it is recorded here because a reader
+  # meeting 496 works under it is meeting a line.
+  - id: yuri-kore
+    publishers: [ナンバーナイン]
+    name: 百合コレ
+    name_basis:
+      source: corpus
+      note: >-
+        ナンバーナイン publishes no label list. no9.co.jp and corp.no9.co.jp carry none, its press
+        release announcing the move into paper names No.9 Comics and Blend Comics and this is
+        neither, and BOOK☆WALKER files it at bookwalker.jp/label/11249 with the Japanese alone.
+        Recorded in GAPS §24 and §25, where the name was searched twice. The corpus holds one
+        spelling and it is the one the company's own distribution uses.
+    spellings:
+      - 百合コレ
+
+  # ── 新書館 ───────────────────────────────────────────────────────────────────────────────────
+  #
+  # Two lines and four strings, both of them one name written once in Latin and once in kana. The
+  # house names its magazines in Latin on its own comics site, which is what decides which spelling
+  # each line is called by.
+  - id: hirari-comics
+    publishers: [新書館]
+    name: ひらり、コミックス
+    name_basis:
+      source: corpus
+      note: >-
+        The book line of the magazine ひらり、, whose comma is part of its name. 新書館's comics site
+        lists its live magazines and ひらり、 is not among them, so no publisher page states a
+        current form and the corpus's kana spelling is used. MADB writes the Latin `hirari、comics`
+        on 27 of the 34 rows, keeping the Japanese comma inside a Latin string, which is a
+        transcription and not a second name.
+    spellings:
+      - ひらり、コミックス
+      - hirari、comics
+
+  - id: wings-comics
+    publishers: [新書館]
+    name: WINGS COMICS
+    name_basis:
+      source: 新書館
+      url: https://www.shinshokan.com/comic/
+      retrieved: 2026-08-08
+      note: >-
+        The house's own comics site names the magazine Wings in Latin in its own navigation, so the
+        Latin is the publisher's rather than a cataloguer's. ウィングス・コミックス is the same name
+        in kana with a 中黒 in it.
+    spellings:
+      - WINGS COMICS
+      - ウィングス・コミックス
+
+  # ── 竹書房 ───────────────────────────────────────────────────────────────────────────────────
+  #
+  # One line written both ways and one sub-line under it. BCf is kept apart because ISBD's ". "
+  # states a series inside a series and nothing here says the two are one; the house publishes no
+  # label index of its own, so the safe reading is the one that folds nothing.
+  - id: bamboo-comics
+    publishers: [竹書房]
+    name: バンブーコミックス
+    name_basis:
+      source: corpus
+      note: >-
+        takeshobo.co.jp lists its books and its authors and publishes no label index. MADB writes
+        the Latin `Bamboo comics` on 28 of the 30 rows and the kana on 2, which is one logotype
+        transcribed two ways.
+    spellings:
+      - バンブーコミックス
+      - Bamboo comics
+
+  - id: bamboo-comics-bcf
+    publishers: [竹書房]
+    name: バンブーコミックス BCf
+    parent: バンブーコミックス
+    name_basis:
+      source: corpus
+      note: >-
+        Stated as a sub-series on both of its rows, once with ISBD's ". " and once with a space.
+        Nothing the house publishes says what BCf abbreviates, so it is recorded as catalogued and
+        not expanded.
+    spellings:
+      - バンブーコミックス BCf
+      - Bamboo comics. BCf
+
+  # ── コンパス ─────────────────────────────────────────────────────────────────────────────────
+  - id: compass-comics
+    publishers: [コンパス]
+    name: コンパスコミックス
+    name_basis:
+      source: corpus
+      note: One spelling on all 20 rows.
+    spellings:
+      - コンパスコミックス
+
+  - id: comic-coral
+    publishers: [コンパス]
+    name: コミックcoral
+    name_basis:
+      source: corpus
+      note: Two rows.
+    spellings:
+      - コミックcoral
+
+  # ── 双葉社 ───────────────────────────────────────────────────────────────────────────────────
+  #
+  # The house docs/MADB.md uses to show that the separator is the cataloguer's: `Action comics :
+  # comic high's brand` and `Action comics　／　comic high's brand` are one thing under two
+  # notations. The specific element is the identity, so comic high's brand is the line and
+  # アクションコミックス is the umbrella recorded beside it.
+  - id: action-comics
+    publishers: [双葉社]
+    name: アクションコミックス
+    name_basis:
+      source: corpus
+      note: >-
+        14 rows, written ACTION COMICS on 9, アクションコミックス on 4 and `Action comics` on 1.
+        futabasha.co.jp serves a frame with no label index behind it.
+    spellings:
+      - アクションコミックス
+      - ACTION COMICS
+
+  - id: comic-highs-brand
+    publishers: [双葉社]
+    name: comic high's brand
+    parent: アクションコミックス
+    name_basis:
+      source: corpus
+      note: >-
+        The book line of the magazine コミックハイ!, stated as a sub-series of アクションコミックス
+        under two separators. The magazine's own name sits in the imprint field on a third row and is
+        NOT folded in: 百合姫 could be, because MADB's own `IDコミックス. Yurihime comics =
+        コミック百合姫` states the equation, and nothing states this one.
+    spellings:
+      - comic high's brand
+      # ISBD's " : " is not one of the separators `publishers.segments` knows, so this string is
+      # never taken apart and has to be listed whole. The module docstring names it as the case
+      # that shows up in the unresolved count instead of being split silently.
+      - "Action comics : comic high's brand"
+
+  # ── 秋田書店 ─────────────────────────────────────────────────────────────────────────────────
+  #
+  # Four lines. The macron is what the transcriptions differ by: `SH?NEN CHAMPION COMICS` is the
+  # same string with Ō lost in an encoding, which is a cataloguing accident and not a spelling the
+  # house uses, and it is listed so that the rows carrying it still reach the line.
+  - id: shonen-champion-comics
+    publishers: [秋田書店]
+    name: 少年チャンピオン・コミックス
+    name_basis:
+      source: corpus
+      note: >-
+        8 rows over three transcriptions of one logotype. The kana form carries 2 and is used here
+        because it is the one that survives a character set.
+    spellings:
+      - 少年チャンピオン・コミックス
+      - SHŌNEN CHAMPION COMICS
+      - SH?NEN CHAMPION COMICS
+
+  - id: shonen-champion-comics-extra
+    publishers: [秋田書店]
+    name: SHŌNEN CHAMPION COMICS EXTRA
+    parent: 少年チャンピオン・コミックス
+    name_basis:
+      source: corpus
+      note: One row. Listed in full so the entry above cannot reach it.
+    spellings:
+      - SHŌNEN CHAMPION COMICS EXTRA
+
+  - id: young-champion-comics
+    publishers: [秋田書店]
+    name: ヤングチャンピオン・コミックス
+    name_basis:
+      source: corpus
+      note: Six rows, one spelling.
+    spellings:
+      - ヤングチャンピオン・コミックス
+
+  - id: bonita-comics
+    publishers: [秋田書店]
+    name: BONITA COMICS
+    name_basis:
+      source: corpus
+      note: Two rows.
+    spellings:
+      - BONITA COMICS
+
+  - id: champion-red-comics
+    publishers: [秋田書店]
+    name: チャンピオンREDコミックス
+    name_basis:
+      source: corpus
+      note: One row.
+    spellings:
+      - チャンピオンREDコミックス
+
+  # ── 徳間書店 ─────────────────────────────────────────────────────────────────────────────────
+  - id: ryu-comics
+    publishers: [徳間書店]
+    name: RYU COMICS
+    name_basis:
+      source: corpus
+      note: >-
+        11 rows, differing only in case. The book line of the magazine 月刊コミックリュウ, whose own
+        address is comic-ryu.jp, so the Latin is the publisher's.
+    spellings:
+      - RYU COMICS
+      - Ryu comics
+
+  - id: ryu-comics-special
+    publishers: [徳間書店]
+    name: Ryu comics special
+    parent: RYU COMICS
+    name_basis:
+      source: corpus
+      note: One row, stated as a sub-series.
+    spellings:
+      - Ryu comics special
+
+  # ── マイクロマガジン社 ───────────────────────────────────────────────────────────────────────
+  - id: ride-comics
+    publishers: [マイクロマガジン社]
+    name: ライドコミックス
+    name_basis:
+      source: corpus
+      note: Seven rows, four in kana and three in Latin. One name, two transcriptions.
+    spellings:
+      - ライドコミックス
+      - Ride Comics
+
+  # ── ジーオーティー ───────────────────────────────────────────────────────────────────────────
+  - id: girls-garden-comics
+    publishers: [ジーオーティー]
+    name: girls×garden comics
+    name_basis:
+      source: corpus
+      note: >-
+        11 rows, 7 of them dropping the word comics off the end of the same Latin logotype. The
+        short form names no second line: the two sit on books from the same house in the same
+        anthology run.
+    spellings:
+      - girls×garden comics
+      - girls×garden
+
+  - id: medu-comics
+    publishers: [ジーオーティー]
+    name: MeDu COMICS
+    name_basis:
+      source: corpus
+      note: Two rows.
+    spellings:
+      - MeDu COMICS
+
+  # ── ヒーローズ ───────────────────────────────────────────────────────────────────────────────
+  - id: heros-comics
+    publishers: [ヒーローズ]
+    name: HCヒーローズコミックス
+    name_basis:
+      source: corpus
+      note: >-
+        The umbrella, one row. The National Diet Library files it エイチシー, which is what settled
+        the letters when the name store read them.
+    spellings:
+      - HCヒーローズコミックス
+
+  - id: heros-comics-furatto
+    publishers: [ヒーローズ]
+    name: ヒーローズコミックスふらっと
+    parent: HCヒーローズコミックス
+    name_basis:
+      source: corpus
+      note: Four rows, three of them closed up and one with a space in it.
+    spellings:
+      - ヒーローズコミックスふらっと
+      - ヒーローズコミックス ふらっと
+
+  - id: heros-comics-wild
+    publishers: [ヒーローズ]
+    name: ヒーローズコミックスわいるど
+    parent: HCヒーローズコミックス
+    name_basis:
+      source: corpus
+      note: Two rows. A separate strand and not a restyling of ふらっと.
+    spellings:
+      - ヒーローズコミックスわいるど
+
+  # ── 実業之日本社 ─────────────────────────────────────────────────────────────────────────────
+  - id: ruelle-comics
+    publishers: [実業之日本社]
+    name: リュエルコミックス
+    name_basis:
+      source: corpus
+      note: Three rows, two in kana and one in the Latin `RuelleCOMICS`.
+    spellings:
+      - リュエルコミックス
+      - RuelleCOMICS
+
+  - id: ruelle-rouge
+    publishers: [実業之日本社]
+    name: Ruelle rouge
+    name_basis:
+      source: corpus
+      note: >-
+        One row. Kept apart from リュエルコミックス: rouge is a second word and not a transcription
+        of anything in the name above, so folding it would file a book under a label it does not
+        carry.
+    spellings:
+      - Ruelle rouge
+
+  - id: jardin-comics
+    publishers: [実業之日本社]
+    name: ジャルダンコミックス
+    name_basis:
+      source: corpus
+      note: Two rows.
+    spellings:
+      - ジャルダンコミックス
+
+  # ── マッグガーデン ───────────────────────────────────────────────────────────────────────────
+  - id: blade-comics
+    publishers: [マッグガーデン]
+    name: ブレイドコミックス
+    name_basis:
+      source: corpus
+      note: Five rows, four of them the Latin transcription of the same logotype.
+    spellings:
+      - ブレイドコミックス
+      - Blade comics
+
+  - id: blade-comics-pixiv
+    publishers: [マッグガーデン]
+    name: Blade comics. Pixiv
+    parent: ブレイドコミックス
+    name_basis:
+      source: corpus
+      note: One row, stated as a sub-series with ISBD's ". ".
+    spellings:
+      - Blade comics. Pixiv
+
+  - id: mag-garden-comics-beats
+    publishers: [マッグガーデン]
+    name: マッグガーデンコミックスBeat'sシリーズ
+    name_basis:
+      source: corpus
+      note: One row.
+    spellings:
+      - マッグガーデンコミックスBeat'sシリーズ
+
+  # ── 小学館 ───────────────────────────────────────────────────────────────────────────────────
+  #
+  # The largest string count of any unplaced house and almost no repetition in it: 15 lines over 17
+  # strings, because 小学館 gives each magazine and each platform its own book line and the
+  # cataloguing of them is consistent. What is NOT here is the four web magazines the field also
+  # carries, スピリッツ女子部, 裏サンデー女子部, マンガワン女子部 and やわらかスピリッツ. A magazine
+  # name in this field is left alone and counted, which is the ruling test_imprints.py pins on
+  # まんがタイムきらら.
+  - id: big-comics
+    publishers: [小学館]
+    name: ビッグコミックス
+    name_basis: &shogakukan
+      source: corpus
+      note: >-
+        shogakukan.co.jp indexes its books by magazine and publishes no list of book lines, so the
+        canonical name is the corpus's own spelling.
+    spellings:
+      - ビッグコミックス
+
+  - id: shonen-sunday-comics
+    publishers: [小学館]
+    name: 少年サンデーコミックス
+    name_basis: *shogakukan
+    spellings:
+      - 少年サンデーコミックス
+
+  - id: ura-shonen-sunday-comics
+    publishers: [小学館]
+    name: 裏少年サンデーコミックス
+    parent: 少年サンデーコミックス
+    name_basis: *shogakukan
+    spellings:
+      - 裏少年サンデーコミックス
+
+  - id: sunday-webry-shonen-sunday-comics
+    publishers: [小学館]
+    name: サンデーうぇぶり少年サンデーコミックス
+    parent: 少年サンデーコミックス
+    name_basis: *shogakukan
+    spellings:
+      - サンデーうぇぶり少年サンデーコミックス
+
+  - id: yoru-sunday-shonen-sunday-comics
+    publishers: [小学館]
+    name: 夜サンデー少年サンデーコミックス
+    parent: 少年サンデーコミックス
+    name_basis: *shogakukan
+    spellings:
+      - 夜サンデー少年サンデーコミックス
+
+  - id: gessan-shonen-sunday-comics-special
+    publishers: [小学館]
+    name: ゲッサン少年サンデーコミックススペシャル
+    parent: 少年サンデーコミックス
+    name_basis: *shogakukan
+    spellings:
+      - ゲッサン少年サンデーコミックススペシャル
+
+  - id: sunday-webry-comics
+    publishers: [小学館]
+    name: サンデーうぇぶりコミックス
+    name_basis:
+      source: corpus
+      note: >-
+        One row, and kept apart from サンデーうぇぶり少年サンデーコミックス because the longer name
+        states the 少年サンデー line and this one does not.
+    spellings:
+      - サンデーうぇぶりコミックス
+
+  - id: sunday-gx-comics
+    publishers: [小学館]
+    name: サンデーGXコミックス
+    name_basis: *shogakukan
+    spellings:
+      - サンデーGXコミックス
+
+  - id: manga-one-comics
+    publishers: [小学館]
+    name: マンガワンコミックス
+    name_basis: *shogakukan
+    spellings:
+      - マンガワンコミックス
+
+  - id: ciao-comics
+    publishers: [小学館]
+    name: ちゃおコミックス
+    name_basis: *shogakukan
+    spellings:
+      - ちゃおコミックス
+
+  - id: ciao-plus-comics
+    publishers: [小学館]
+    name: ちゃおプラスコミックス
+    parent: ちゃおコミックス
+    name_basis: *shogakukan
+    spellings:
+      - ちゃおプラスコミックス
+
+  - id: ciao-deluxe
+    publishers: [小学館]
+    name: ちゃおデラックス
+    parent: ちゃおコミックス
+    name_basis: *shogakukan
+    spellings:
+      - ちゃおデラックス
+
+  - id: big-spirits-comics
+    publishers: [小学館]
+    name: ビッグスピリッツコミックス
+    name_basis:
+      source: corpus
+      note: Two rows, one in kana and one as the Latin `Big Spirits Comics`.
+    spellings:
+      - ビッグスピリッツコミックス
+      - Big Spirits Comics
+
+  - id: big-spirits-comics-special
+    publishers: [小学館]
+    name: ビッグスピリッツコミックススペシャル
+    parent: ビッグスピリッツコミックス
+    name_basis: *shogakukan
+    spellings:
+      - ビッグスピリッツコミックススペシャル
+
+  - id: big-comics-special-hibana
+    publishers: [小学館]
+    name: BIG COMICS SPECIALヒバナ
+    parent: ビッグコミックス
+    name_basis:
+      source: corpus
+      note: The ヒバナ strand of the house's BIG COMICS SPECIAL run. One row.
+    spellings:
+      - BIG COMICS SPECIALヒバナ
+
+  - id: corocoro-comics-special
+    publishers: [小学館]
+    name: コロコロコミックススペシャル
+    name_basis: *shogakukan
+    spellings:
+      - コロコロコミックススペシャル
+
+  - id: digicolle
+    publishers: [小学館]
+    name: デジコレ
+    name_basis:
+      source: 小学館
+      url: https://e-comi.shogakukan.co.jp/digicolle
+      retrieved: 2026-08-08
+      note: >-
+        The house's own e-comic store addresses the label at that path and prints the lockup
+        デジコレ DIGITAL COMICS. The corporate site files it under its full name
+        デジタルコミックコレクション and the truncation never appears there, which is why an earlier
+        round could not find it (GAPS §25).
+    spellings:
+      - デジコレ
+
+  - id: digicolle-macaron
+    publishers: [小学館]
+    name: デジコレ　マカロン
+    parent: デジコレ
+    name_basis:
+      source: corpus
+      note: The マカロン strand, one row.
+    spellings:
+      - デジコレ　マカロン
+
+  # ── 講談社 ───────────────────────────────────────────────────────────────────────────────────
+  #
+  # 14 lines over 14 strings, all of them KC: the house names a book line after each magazine and
+  # the field states which. Left alone and counted: 月刊少年マガジン, 別冊フレンド, なかよし and
+  # モーニング・ツー, which are magazines standing in the imprint field with nothing saying they mean
+  # the book line, unlike コミック百合姫 where MADB writes the equation out.
+  - id: kodansha-comics
+    publishers: [講談社]
+    name: 講談社コミックス
+    name_basis: &kodansha
+      source: corpus
+      note: >-
+        kc.kodansha.co.jp indexes by magazine and by title. The canonical name is the corpus's own
+        spelling.
+    spellings:
+      - 講談社コミックス
+
+  - id: kodansha-comics-shonen-magazine
+    publishers: [講談社]
+    name: 講談社コミックス. 週刊少年マガジン
+    parent: 講談社コミックス
+    name_basis:
+      source: corpus
+      note: Three rows, stated as a sub-series with ISBD's ". ".
+    spellings:
+      - 講談社コミックス. 週刊少年マガジン
+
+  - id: kodansha-comics-magazine
+    publishers: [講談社]
+    name: 講談社コミックスマガジン
+    parent: 講談社コミックス
+    name_basis: *kodansha
+    spellings:
+      - 講談社コミックスマガジン
+
+  - id: kc-deluxe
+    publishers: [講談社]
+    name: KCデラックス
+    name_basis:
+      source: corpus
+      note: >-
+        Two rows, one in kana and one as KCDX. The National Diet Library files the label ケーシー,
+        which is what settled the letters when the name store read them.
+    spellings:
+      - KCデラックス
+      - KCDX
+
+  - id: kcdx-shonen-magazine
+    publishers: [講談社]
+    name: KCDX. 週刊少年マガジン
+    parent: KCデラックス
+    name_basis:
+      source: corpus
+      note: Two rows, stated as a sub-series.
+    spellings:
+      - KCDX. 週刊少年マガジン
+
+  - id: yanmaga-kc
+    publishers: [講談社]
+    name: ヤンマガKC
+    name_basis: *kodansha
+    spellings:
+      - ヤンマガKC
+
+  - id: morning-kc
+    publishers: [講談社]
+    name: モーニングKC
+    name_basis: *kodansha
+    spellings:
+      - モーニングKC
+
+  - id: sirius-kc
+    publishers: [講談社]
+    name: シリウスKC
+    name_basis: *kodansha
+    spellings:
+      - シリウスKC
+
+  - id: afternoon-kc
+    publishers: [講談社]
+    name: アフタヌーンKC
+    name_basis: *kodansha
+    spellings:
+      - アフタヌーンKC
+
+  - id: kc-kiss
+    publishers: [講談社]
+    name: KC Kiss
+    name_basis: *kodansha
+    spellings:
+      - KC Kiss
+
+  - id: wide-kc
+    publishers: [講談社]
+    name: ワイドKC
+    name_basis: *kodansha
+    spellings:
+      - ワイドKC
+
+  - id: premium-kc
+    publishers: [講談社]
+    name: プレミアムKC
+    name_basis: *kodansha
+    spellings:
+      - プレミアムKC
+
+  - id: magazine-edge-comics
+    publishers: [講談社]
+    name: マガジンエッジコミックス
+    name_basis: *kodansha
+    spellings:
+      - マガジンエッジコミックス
+
+  # ── 集英社 ───────────────────────────────────────────────────────────────────────────────────
+  #
+  # One line written two ways and three strands stated on top of it, which is the shape the ISBD
+  # rule was written for: the strand is the identity and ヤングジャンプコミックス is the parent.
+  - id: young-jump-comics
+    publishers: [集英社]
+    name: ヤングジャンプコミックス
+    name_basis: &shueisha
+      source: corpus
+      note: >-
+        shueisha.co.jp indexes by magazine and by title rather than by book line, so the canonical
+        name is the corpus's own spelling.
+    spellings:
+      - ヤングジャンプコミックス
+      - ヤングジャンプ・コミックス
+
+  - id: young-jump-comics-ultra
+    publishers: [集英社]
+    name: ヤングジャンプコミックス・ウルトラ
+    parent: ヤングジャンプコミックス
+    name_basis: *shueisha
+    spellings:
+      - ヤングジャンプコミックス・ウルトラ
+
+  - id: young-jump-comics-gj
+    publishers: [集英社]
+    name: ヤングジャンプコミックスGJ
+    parent: ヤングジャンプコミックス
+    name_basis: *shueisha
+    spellings:
+      - ヤングジャンプコミックスGJ
+
+  - id: young-jump-comics-digital
+    publishers: [集英社]
+    name: ヤングジャンプコミックスDIGITAL
+    parent: ヤングジャンプコミックス
+    name_basis: *shueisha
+    spellings:
+      - ヤングジャンプコミックスDIGITAL
+
+  - id: jump-comics
+    publishers: [集英社]
+    name: ジャンプコミックス
+    name_basis: *shueisha
+    spellings:
+      - ジャンプコミックス
+
+  - id: jump-comics-plus
+    publishers: [集英社]
+    name: JUMP COMICS+
+    parent: ジャンプコミックス
+    name_basis:
+      source: corpus
+      note: >-
+        The 少年ジャンプ+ strand, two rows. Listed in full so ジャンプコミックス cannot reach it, and
+        held apart for the reason KADOKAWA's アライブ＋ is: a ＋ on the end of a line's name has been
+        a second line every time this file has met one.
+    spellings:
+      - JUMP COMICS+
+
+  - id: margaret-comics
+    publishers: [集英社]
+    name: マーガレットコミックス
+    name_basis: *shueisha
+    spellings:
+      - マーガレットコミックス
+
+  # ── KADOKAWA, continued ──────────────────────────────────────────────────────────────────────
+  #
+  # Four lines the label index does not carry, kept apart from the 25 above because the index is
+  # what those rest on and these rest on the corpus. 単行本コミックス is the largest and is the
+  # least like a name: 10 rows state it, and it reads as the cataloguer saying the book is a
+  # tankōbon rather than naming a line. It is recorded because a reader meets it as a line on the
+  # page and the alternative is 10 rows showing a phrase nothing answers for.
+  - id: kadokawa-tankobon-comics
+    publishers: [KADOKAWA]
+    name: 単行本コミックス
+    name_basis:
+      source: corpus
+      note: >-
+        Ten rows and the publisher's label index does not list it. Not folded into any named line:
+        which of KADOKAWA's 25 lines each of those books belongs to is a question the field does not
+        answer, and guessing one would file a book under a label it does not carry.
+    spellings:
+      - 単行本コミックス
+
+  - id: kadokawa-comics
+    publishers: [KADOKAWA]
+    name: Kadokawa Comics
+    name_basis:
+      source: corpus
+      note: Three rows. Not 角川コミックス・エース, which the index lists separately and which has its own entry.
+    spellings:
+      - Kadokawa Comics
+
+  - id: kadokawa-comic-essay
+    publishers: [KADOKAWA]
+    name: コミックエッセイ
+    name_basis:
+      source: KADOKAWA
+      url: https://www.kadokawa.co.jp/label-list/
+      retrieved: 2026-08-08
+      note: The label index carries it under コミックエッセイ as a genre and as a label of that name.
+    spellings:
+      - コミックエッセイ
+
+  - id: kadokawa-pixiv-essay
+    publishers: [KADOKAWA]
+    name: ピクシブエッセイ
+    name_basis:
+      source: corpus
+      note: One row. The label index does not list it.
+    spellings:
+      - ピクシブエッセイ
+
+  - id: lscomic
+    publishers: [KADOKAWA]
+    name: LScomic
+    name_basis:
+      source: corpus
+      note: Two rows. The label index does not list it.
+    spellings:
+      - LScomic
+
+  # ── スクウェア・エニックス ───────────────────────────────────────────────────────────────────
+  #
+  # One umbrella and four strands. The ONLINE strand is where the truncated string lands: MADB holds
+  # `ガンガンコミックスonline　／　GC ONLIN`, which is a catalogued value cut off mid-word with the
+  # cataloguer's separator still in it. It is not a name and gets no entry of its own; the segment
+  # before the separator is a spelling of this line, so the row reaches the line and the truncation
+  # never has to be read as anything.
+  - id: gangan-comics
+    publishers: [スクウェア・エニックス]
+    name: ガンガンコミックス
+    name_basis: &squareenix
+      source: corpus
+      note: >-
+        jp.square-enix.com indexes its comics by magazine. The canonical name is the corpus's own
+        spelling.
+    spellings:
+      - ガンガンコミックス
+
+  - id: gangan-comics-online
+    publishers: [スクウェア・エニックス]
+    name: ガンガンコミックスonline
+    parent: ガンガンコミックス
+    name_basis:
+      source: corpus
+      note: >-
+        The book line of ガンガンONLINE. Two rows, one of them the truncated
+        `ガンガンコミックスonline　／　GC ONLIN`, whose first segment is this name and whose second is
+        the same name abbreviated and cut short. Only the first is listed: GC ONLIN is not a
+        spelling anybody uses and giving it one would put a catalogue artefact in front of a reader.
+    spellings:
+      - ガンガンコミックスonline
+
+  - id: gangan-comics-up
+    publishers: [スクウェア・エニックス]
+    name: ガンガンコミックスup!
+    parent: ガンガンコミックス
+    name_basis: *squareenix
+    spellings:
+      - ガンガンコミックスup!
+
+  - id: young-gangan-comics
+    publishers: [スクウェア・エニックス]
+    name: ヤングガンガンコミックス
+    name_basis: *squareenix
+    spellings:
+      - ヤングガンガンコミックス
+
+  - id: big-gangan-comics
+    publishers: [スクウェア・エニックス]
+    name: ビッグガンガンコミックス
+    name_basis: *squareenix
+    spellings:
+      - ビッグガンガンコミックス
+
+  # ── 白泉社 ───────────────────────────────────────────────────────────────────────────────────
+  #
+  # 楽園 is left alone with the other magazine names. It is 白泉社's yuri-adjacent magazine and its
+  # book line is 楽園コミックス, and the two rows carrying the magazine's bare name say nothing about
+  # which line the book is in.
+  - id: young-animal-comics
+    publishers: [白泉社]
+    name: YOUNG ANIMAL COMICS
+    name_basis: &hakusensha
+      source: corpus
+      note: hakusensha.co.jp indexes by magazine and by title. The canonical name is the corpus's own spelling.
+    spellings:
+      - YOUNG ANIMAL COMICS
+
+  - id: rakuen-comics
+    publishers: [白泉社]
+    name: 楽園コミックス
+    name_basis: *hakusensha
+    spellings:
+      - 楽園コミックス
+
+  - id: love-jossie
+    publishers: [白泉社]
+    name: Love Jossie
+    name_basis: *hakusensha
+    spellings:
+      - Love Jossie
+
+  - id: jets-comics
+    publishers: [白泉社]
+    name: JETS COMICS
+    name_basis: *hakusensha
+    spellings:
+      - JETS COMICS
+
+  - id: hc-special
+    publishers: [白泉社]
+    name: HC SPECIAL
+    name_basis: *hakusensha
+    spellings:
+      - HC SPECIAL
+
+  # ── 少年画報社 ───────────────────────────────────────────────────────────────────────────────
+  #
+  # ヤングキング is the magazine and stays out with the other magazine names, even though YK plainly
+  # abbreviates it: the abbreviation is evidence about the line's name and not about which line the
+  # six rows carrying the magazine belong to.
+  - id: yk-comics
+    publishers: [少年画報社]
+    name: YKコミックス
+    name_basis:
+      source: corpus
+      note: >-
+        Eight rows, one of them catalogued `コミック　／　YKコミックス`, where the first segment is the
+        word for a comic and the second is the line.
+    spellings:
+      - YKコミックス
+
+  - id: ts-comics
+    publishers: [少年画報社]
+    name: TSコミックス
+    name_basis:
+      source: corpus
+      note: Two rows.
+    spellings:
+      - TSコミックス
+
+  # ── キルタイムコミュニケーション ─────────────────────────────────────────────────────────────
+  - id: valkyrie-comics
+    publishers: [キルタイムコミュニケーション]
+    name: ヴァルキリーコミックス
+    name_basis:
+      source: corpus
+      note: Nine rows, one spelling.
+    spellings:
+      - ヴァルキリーコミックス
+
+  - id: young-unreal-comics
+    publishers: [キルタイムコミュニケーション]
+    name: ヤングアンリアルコミックス
+    name_basis:
+      source: corpus
+      note: Four rows.
+    spellings:
+      - ヤングアンリアルコミックス
+
+  - id: shiny-comics
+    publishers: [キルタイムコミュニケーション]
+    name: シャイニーコミックス
+    name_basis:
+      source: corpus
+      note: >-
+        Four rows, three of them this way round and one as コミックシャイニー. The two are the same
+        two words in the two orders a Japanese comics label uses, on books from one house in one
+        run, so they are one line. Kept as the majority spelling.
+    spellings:
+      - シャイニーコミックス
+      - コミックシャイニー
+
+  # ── 幻冬舎コミックス ─────────────────────────────────────────────────────────────────────────
+  - id: birz-comics
+    publishers: [幻冬舎コミックス]
+    name: バーズコミックス
+    name_basis:
+      source: corpus
+      note: 15 rows, one spelling.
+    spellings:
+      - バーズコミックス
+
+  - id: birz-comics-deluxe
+    publishers: [幻冬舎コミックス]
+    name: バーズコミックス　デラックス
+    parent: バーズコミックス
+    name_basis:
+      source: corpus
+      note: One row.
+    spellings:
+      - バーズコミックス　デラックス
+
+  # ── 宙出版 ───────────────────────────────────────────────────────────────────────────────────
+  #
+  # 百合コミックス is here because the house runs a line under that name and two rows carry it. It
+  # is not 一迅社's 百合姫コミックス under another spelling: matching is scoped by publisher, so the
+  # two can never reach each other.
+  - id: ohzora-yuri-comics
+    publishers: [宙出版]
+    name: 百合コミックス
+    name_basis:
+      source: corpus
+      note: Two rows.
+    spellings:
+      - 百合コミックス
+
+  - id: missy-comics
+    publishers: [宙出版]
+    name: Missy comics
+    name_basis:
+      source: corpus
+      note: Four rows.
+    spellings:
+      - Missy comics
+
+  - id: astro-comics
+    publishers: [宙出版]
+    name: ASTRO COMICS
+    name_basis:
+      source: corpus
+      note: One row.
+    spellings:
+      - ASTRO COMICS
+
+  # ── 祥伝社 ───────────────────────────────────────────────────────────────────────────────────
+  - id: fc-jam
+    publishers: [祥伝社]
+    name: FC jam
+    name_basis:
+      source: corpus
+      note: Five rows.
+    spellings:
+      - FC jam
+
+  - id: feel-comics
+    publishers: [祥伝社]
+    name: FEEL COMICS
+    name_basis:
+      source: corpus
+      note: >-
+        The book line of FEEL YOUNG, three rows. It is also what identified 詳伝社 as a catalogued
+        character error for 祥伝社 in GAPS §25.
+    spellings:
+      - FEEL COMICS
+
+  # ── 光文社 ───────────────────────────────────────────────────────────────────────────────────
+  - id: nettai-comics
+    publishers: [光文社]
+    name: 熱帯COMICS
+    name_basis:
+      source: corpus
+      note: Four rows.
+    spellings:
+      - 熱帯COMICS
+
+  # ── ホーム社 ─────────────────────────────────────────────────────────────────────────────────
+  - id: ogyaa
+    publishers: [ホーム社]
+    name: オギャー!!
+    parent: 集英社ホームコミックス
+    name_basis:
+      source: corpus
+      note: >-
+        Five rows, one of them catalogued `集英社ホームコミックス. オギャー!!`, which is what names the
+        umbrella. ホーム社 is 集英社's subsidiary and the books carry both.
+    spellings:
+      - オギャー!!
+      - 集英社ホームコミックス. オギャー!!
+
+  # ── パルソラ ─────────────────────────────────────────────────────────────────────────────────
+  - id: yomuco
+    publishers: [パルソラ]
+    name: コミックノベル「yomuco」
+    name_basis:
+      source: corpus
+      note: 11 rows, one spelling, brackets and all.
+    spellings:
+      - コミックノベル「yomuco」
+
+  # ── The rest, one line each ──────────────────────────────────────────────────────────────────
+  #
+  # Houses carrying a single line in this corpus, where the corpus holds one spelling or two of one
+  # name. Grouped here rather than given a heading each, because there is nothing to say about a
+  # house beyond the line it runs.
+  - id: manga-bang-comics
+    publishers: [Amazia]
+    name: マンガBANGコミックス
+    name_basis:
+      source: corpus
+      note: Two rows. The National Diet Library files it `Manga bang komikkusu`, carrying the letters through.
+    spellings:
+      - マンガBANGコミックス
+
+  - id: zenon-comics
+    publishers: [コアミックス]
+    name: ゼノンコミックス
+    name_basis:
+      source: corpus
+      note: Two rows.
+    spellings:
+      - ゼノンコミックス
+
+  - id: gum-comics
+    publishers: [ワニブックス]
+    name: ガムコミックス
+    name_basis:
+      source: corpus
+      note: Two rows, one in kana and one as the Latin `Gum comics`.
+    spellings:
+      - ガムコミックス
+      - Gum comics
+
+  - id: nova-comics
+    publishers: [一二三書房]
+    name: NOVA COMICS
+    name_basis:
+      source: corpus
+      note: Two rows, one in Latin and one as ノヴァコミックス.
+    spellings:
+      - NOVA COMICS
+      - ノヴァコミックス
+
+  - id: bunch-comics
+    publishers: [新潮社]
+    name: Bunch comics
+    name_basis:
+      source: corpus
+      note: One row.
+    spellings:
+      - Bunch comics
+
+  - id: bunch-comics-coral
+    publishers: [新潮社]
+    name: バンチコミックスコラル
+    parent: Bunch comics
+    name_basis:
+      source: corpus
+      note: >-
+        One row. コラル is a strand of the BUNCH line and is recorded under it rather than folded in,
+        which is the rule this file follows wherever a sub-line has a name of its own.
+    spellings:
+      - バンチコミックスコラル
+
+  - id: michikusa-comics
+    publishers: [トゥーヴァージンズ]
+    name: 路草COMICS
+    name_basis:
+      source: corpus
+      note: >-
+        Two rows. The magazine publishes at michikusacomics.jp, which is what corrected the reading
+        from Rosou to Michikusa in GAPS §26.
+    spellings:
+      - 路草COMICS
+
+  - id: lilie-comics
+    publishers: [道玄坂書房]
+    name: リーリエコミックス
+    name_basis:
+      source: corpus
+      note: Two rows.
+    spellings:
+      - リーリエコミックス
+
+  - id: comipo-comics
+    publishers: [viviON]
+    name: comipo comics
+    name_basis:
+      source: corpus
+      note: Two rows.
+    spellings:
+      - comipo comics
+
+  - id: comic-ambre
+    publishers: [ライブコミックス]
+    name: COMICアンブル
+    name_basis:
+      source: corpus
+      note: Two rows.
+    spellings:
+      - COMICアンブル
+
+  - id: netcomics
+    publishers: [SNP]
+    name: NETCOMICS
+    name_basis:
+      source: corpus
+      note: Two rows.
+    spellings:
+      - NETCOMICS
+
+  - id: minna-no-comic
+    publishers: [eBookJapan Plus]
+    name: みんなのコミック
+    name_basis:
+      source: corpus
+      note: Three rows.
+    spellings:
+      - みんなのコミック
+
+  - id: be-comics
+    publishers: [ふゅーじょんぷろだくと]
+    name: Be comics
+    name_basis:
+      source: corpus
+      note: Four rows.
+    spellings:
+      - Be comics
+
+  - id: pash-comics
+    publishers: [主婦と生活社]
+    name: PASH! コミックス
+    name_basis:
+      source: corpus
+      note: Two rows.
+    spellings:
+      - PASH! コミックス
+
+  - id: jilmitte
+    publishers: [forcs]
+    name: じるみて
+    name_basis:
+      source: forcs
+      url: https://forcs-comic.jp/jilmitte
+      retrieved: 2026-08-08
+      note: >-
+        The label's own address carries its Latin spelling, jilmitte, and its editorial account is
+        @jilmitte. Recorded in GAPS §25, where a text search could not find it because no page
+        prints it as text. Two rows.
+    spellings:
+      - じるみて
+
+  - id: kobunsha-bl-comic-series
+    publishers: [光文社]
+    name: Kobunsha BLコミックシリーズ
+    name_basis:
+      source: corpus
+      note: One row.
+    spellings:
+      - Kobunsha BLコミックシリーズ
+
+  - id: kobunsha-anthology
+    publishers: [光文社]
+    name: Kobunshaアンソロジー
+    name_basis:
+      source: corpus
+      note: One row.
+    spellings:
+      - Kobunshaアンソロジー
+
+  - id: izure
+    publishers: [パルソラ]
+    name: izure
+    name_basis:
+      source: corpus
+      note: One row.
+    spellings:
+      - izure

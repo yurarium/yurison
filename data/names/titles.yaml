@@ -7045,6 +7045,24 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  いちゃらぶしかない百合アンソロジーコミックsugar:
+    basis: romaji
+    furigana_spans:
+    - - いちゃらぶしかない
+      - null
+    - - 百合
+      - ゆり
+    - - アンソロジーコミックsugar
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: イチャ ラブ シカ ナイ ユリ アンソロジー コミック sugar
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   いっそ、恋だったらよかったのに:
     basis: translated
     en: I Almost Wish It Had Just Been Love
@@ -11702,6 +11720,20 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  これでわかってよ!:
+    basis: romaji
+    furigana_spans:
+    - - これでわかってよ!
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: コレ デ ワカッテ ヨ !
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   'これはよい抱き枕 : 水瀬るるう百合作品集':
@@ -21699,6 +21731,20 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  イヴとイヴ:
+    basis: romaji
+    furigana_spans:
+    - - イヴとイヴ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: イヴ ト イヴ
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   イヴとイヴたち:
     basis: translated
     en: Eve and the Eves
@@ -34582,6 +34628,24 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  レズ風俗アンソロジーリピーター:
+    basis: romaji
+    furigana_spans:
+    - - レズ
+      - null
+    - - 風俗
+      - ふうぞく
+    - - アンソロジーリピーター
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: レズ フウゾク アンソロジー リピーター
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   レゾナントブルー:
@@ -66796,6 +66860,30 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  私に体、売ってみない?:
+    basis: romaji
+    furigana_spans:
+    - - 私
+      - わたし
+    - - に
+      - null
+    - - 体
+      - からだ
+    - - 、
+      - null
+    - - 売
+      - う
+    - - ってみない?
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ワタシ ニ カラダ、 ウッテ ミナイ ?
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   私に体、売ってみない？【単行本版】:

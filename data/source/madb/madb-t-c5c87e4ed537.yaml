@@ -2,9 +2,9 @@
 # Curation and content classification belong in the overlay layer.
 source: madb
 source_version: "1.2.18"
-retrieved: 2026-08-05
+retrieved: 2026-08-07
 work_id: madb-t-c5c87e4ed537
-route: isbn-from-capture
+route: imprint-selection
 grouping: title-only
 # No cm104 series record; volumes grouped by normalised title. Verify before
 # treating as one work — see docs/MADB.md.
@@ -15,6 +15,7 @@ title:
   yomi: "コハル ト ミナト : ワタシ ノ パートナー ワ オンナノコ"
 creator: "[著]ひあるろん&達磨"
 publisher: "一迅社"
+distributor: "講談社"
 publisher_stated: "[頒布]講談社 / 一迅社"
 publishers:
   - name: "講談社"
@@ -22,7 +23,7 @@ publishers:
     role_stated: "頒布"
   - name: "一迅社"
     role: publisher
-imprint: "IDコミックス"
+imprint: "YH comics"
 imprint_stated: "IDコミックス / YH comics"
 volume_count: 2
 first_published: 2023-08
@@ -35,19 +36,12 @@ volumes:
     number: "2"
     isbn: "9784758027052"
     published: 2024-06
-admitted_by:
-  - comparator: cmoa.jp
-    shelf: "genre 37 (百合・GL)"
-    retrieved: 2026-08-05
-    note: >-
-      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
-      and rebuttable, and never a marketing_label (§4).
-marketing_label: none
+marketing_label: yuri
 marketing_label_basis:
   source: madb
   url: 
-  retrieved: 2026-08-05
+  retrieved: 2026-08-07
   note: >-
-    Admitted under DEFINITIONS §2 on a licensed retailer's yuri shelf and identified
-    by ISBN. A shop's genre shelf is never publisher-side labelling (§4), so this
-    axis stays `none`, which says nothing about content.
+    Published under a 一迅社 百合姫 imprint. The `imprint` field names the brand
+    that was matched, spelled as MADB spells it (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

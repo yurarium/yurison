@@ -1962,3 +1962,190 @@ to see.
 The case for it is not empty and is worth keeping in view. A title whose correct ruby no reading can
 produce, which is what the remaining class above is, has nowhere to be recorded today. Admit the
 field when that is the problem being solved, and not as a way around a solver bug.
+## 27. The line the extractor could not spell (2026-08-08)
+
+`adapters/madb/extract.IMPRINTS` held four spellings of 一迅社's 百合姫 line and the abbreviated
+logotype was not among them. 一迅社 prints `YH comics` on the spine beside the spelt-out form every
+year from 2015, on volumes of the same series, so release 1.2.18 states it on 94 volume records and
+38 series records. Every one of the 132 names 一迅社 as the publisher, which is what made the
+substring safe to add: the pattern was matched against the normalised brand of all 401,311 book and
+139,130 series records before it was written, and it reaches this house and no other.
+
+**What the fault cost, measured on the two sides it fell on.** The corpus went from 302 works and
+646 volumes on this route to **351 works and 740 volumes**. 43 of the 49 new works were already
+here, admitted on a retailer's shelf and stored `marketing_label: none`, so what they gained is the
+publisher-side label their own books carry. Six are works this database did not hold at all:
+これでわかってよ!, イヴとイヴ, 私に体、売ってみない?, レズ風俗アンソロジーリピーター,
+いちゃらぶしかない百合アンソロジーコミックsugar and 小春と湊 : わたしのパートナーは女の子. The
+remaining volumes landed on works already held, which is the quieter half: 星屑テレパス went from 6
+volumes to 10 and one 21-volume run to 23.
+
+**A budget rose because the fault stopped being invisible.** `labels with nothing to quote` reads 0
+where it now reads 49, and the change is in what is measured rather than in what is wrong. That
+budget counts records carrying a yuri label whose imprint states no term saying so, and its subject
+is `YURI_TERM_IN_IMPRINT`, which recognises 百合, ガールズラブ and yuri. `YH` is none of those. The
+works that would have been counted never had the label that would have put them in the count, so a
+zero read as nothing to fix while 49 records were in exactly the state it exists to find.
+
+**Teaching the pattern `YH` was considered and is wrong.** It would empty the class by fiat: the
+check asks whether the imprint a work page quotes says anything a reader can weigh, and `YH comics`
+does not say it to a reader, whatever it says to a cataloguer. A measure that recognises the
+abbreviation stops being able to report the case it was written for.
+
+**What DID reduce it, from 51 to 49.** Adding the spelling made the series brand of C434622 and
+C353604 match where it had not, and both records went from quoting `Yurihime comics` and
+`Yuri-hime comics anthology series` to quoting an abbreviation that states nothing. That is the
+same fault as the umbrella `IDコミックス` one spelling further in: the label is right and the
+evidence beside it has stopped saying anything. `extract.imprint_of` now ranks a mute spelling last
+among the source's own, so it is taken only where the whole chain offers nothing else. The other 49
+offer nothing else, and their records say so honestly.
+
+**What the six new works brought with them.** Two credits sharing a reading, from one MADB creator
+field holding two names followed by their two readings, `ひあるろん / 達磨 / ダルマ / ヒアルロン`;
+both are ruled and merged in `data/identity/credit-rulings.yaml`. One duplicate row: 一迅社's 2018
+printing of 私に体、売ってみない? against BOOK☆WALKER's 私に体、売ってみない？【単行本版】 under
+コンパス, which `data/source/madb-title/` had already dated from the same ISBN, so the two are
+merged on the ISBN and not on the title. And rises of two, one and six in
+`kana names with no stated division`, `author readings no source states` and
+`works showing a romanisation`, which are six works arriving with no reading anybody has collected.
+
+**The lesson is about health floors and not about the spelling.** `MIN_VOLUMES` is 400 and the pass
+was matching 646, so nothing in the adapter could have said that a quarter of the line was missing.
+A floor catches a selection that has stopped working and cannot catch one that never covered its
+subject. What found this was reading the release's own brand field and counting the spellings, which
+is what `docs/MADB.md` records and what no assertion in the pipeline does.
+
+## 28. The eleven line names, and the two lookups that hid them (2026-08-08)
+
+The imprint registry chose a canonical name for each of its 44 lines after the publisher naming
+rounds had run, so eleven names reached a reader in Japanese having never been offered for naming.
+All eleven render now. Two of them needed a source; six needed nothing but a lookup that folds the
+way the interface does; and the remaining three were already answered and could not be found.
+
+### What each of the eleven rests on
+
+**ハルタコミックス → HARTA COMIX**, and the letters are the publisher's. Every one of the 11 rows
+this corpus holds is catalogued HARTA COMIX, the National Diet Library files the series title of
+ISBN 9784047380905 the same way, and KADOKAWA addresses the ハルタ label on its own platform at
+`comic-walker.com/label/harta`. The label index prints the Japanese and no Latin form as text, so
+the address is what makes this the company's spelling rather than ours. `official-jp`.
+
+**MANGAバル コミックス → MANGA Bar Comics.** KADOKAWA's own English site names the magazine MANGA
+Bar and links it to `comic-walker.com/label/bar`, at
+`group.kadokawa.co.jp/global/business/publishing.html`. That settles バル, which is the only element
+that was in question: MANGA is Latin on the label and コミックス is the English word it stands for.
+`official-jp`.
+
+**HOWLコミックス → HOWL Comics.** The same reading IDコミックス already gets in this file: HOWL is
+一迅社's own letters and not a transcription of anything. The National Diet Library files the series
+title of ISBN 9784758026055 as Howl comics and both rows of this corpus are catalogued that way.
+一迅社 publishes no label index, which is why the Japanese name still comes from BOOK☆WALKER's list
+for the house. `official-jp`.
+
+**4コマKINGSぱれっとコミックス → 4-koma KINGS Palette Comics**, a romanisation and the only one of
+the eleven. 4コマ names the four-panel form and ぱれっと is the magazine's own kana spelling of
+palette, so both are ours. `publisher readings nobody has settled` does not move, because the
+catalogued spelling `4コマkingsぱれっとcomics` was already in it and this is the second key on one
+decision.
+
+**The other seven were already named** and the map could not be asked for them. FUZコミックス,
+まんがタイムKRコミックスつぼみシリーズ, MFC キューンシリーズ, MFC ジーンピクシブシリーズ and the
+アライブ, ジーン and フラッパー strands of MFコミックス all had a reviewed English name and a
+sourced reading, written for the string the corpus carries.
+
+### The lookup, which is the finding
+
+The store is keyed by the catalogued string and the registry names each line NFKC-normalised with
+ordinary spaces. Those differ by nothing a reader could see: `ＦＵＺコミックス` against
+`FUZコミックス`, `MFC　キューンシリーズ` with an ideographic space against `MFC キューンシリーズ`
+with a plain one. An exact lookup answered for the catalogued form and not for the line's own name,
+so `publishers.english` asks the folded key last, after the exact ones, using the interface's own
+`fold` and not the registry's. Measured before it was written: exactly two keys in the store collide
+under that fold and both pairs already agree on their English, so nothing here decides between two
+records.
+
+**And a second lookup, in `build.py`, which is why MFC キューンシリーズ was not even on the list.**
+The pass that renders a line name skips a name the map already holds, and it tested the
+space-stripped fold. `MFCキューンシリーズ` was in the map under the catalogued spelling, so the pass
+concluded the line was named. `pubRec` in `app.js` tries the string and its NFKC form and does not
+remove spaces, so it asked for `MFC キューンシリーズ` and got nothing, and 35 rows showed the line in
+Japanese. The skip now asks what the reader's lookup asks. This is §14b in its plainest form: a
+producer's test for "do I have this already" has to be the consumer's lookup, or it answers a
+question nobody is asking.
+
+**`publisher keys the interface misses` was measuring the previous interface.** It reads 5 where it
+now reads 1, and the fall is a repair to the measure rather than to the data. `check.py` holds a
+transcription of `imprintOf` on purpose, as a copy of the CONSUMER, and when `imprintOf` stopped
+segmenting and started returning the registry's canonical name the transcription followed it while
+the caller went on invoking it with no map. So the copy resolved every imprint string to itself,
+which is what the old interface did: it counted four catalogued strings that had stopped being shown
+and could not see eleven canonical names that were. A copy of the consumer has to be CALLED the way
+the consumer is called.
+
+### What is left, and it is not a name
+
+`ガンガンコミックスonline　／　GC ONLIN` is the one string still reaching a reader in Japanese. It is
+a truncated catalogued value with a separator in it, not a label anybody prints, and §29 places it.
+
+## 29. Working the imprint field outward from the corpus (2026-08-08)
+
+The registry covered four houses when this round started and `imprint strings that reach no line`
+stood at 278. It covers 33 houses now and the budget reads **140**. 114 lines were added over 132
+strings, so the ratio is nearer one to one than the first four houses gave, and the reason is in the
+data rather than in the curating: 一迅社 writes its yuri line about twenty ways and most houses write
+each of theirs once.
+
+### What the residue is, and it is mostly one shape
+
+141 strings on 451 rows. **99 of them, on 359 rows, are the imprint field repeating the publisher**,
+which is what a shop's individual-publishing service produces: the artist is the publisher of record
+and the cataloguer has nothing else to put in the field. Those are not lines and this file refuses
+them, which `test_imprints.py` pins on ガレットワークス, a company whose books クロスフォリオ出版
+delivers and which carries 37 of the 92 remaining rows on its own.
+
+The other 42 strings, on 92 rows, are ordinary lines nobody has curated: 6 rows at ブシロードワークス,
+6 at 小学館 and 6 at 少年画報社, and a long tail of one and two. What each of them needs is somebody
+reading the house.
+
+### Two shapes the file refuses, and both are rulings rather than gaps
+
+**A company name in the imprint field.** A distributor writing who made the book, not a line.
+
+**A magazine name where nothing says it stands for the book line.** 百合姫 could be folded because
+MADB's own `IDコミックス. Yurihime comics = コミック百合姫` writes the equation out. コミックハイ!,
+楽園, ヤングキング, まんがタイムきらら and 講談社's and 小学館's own magazine names have no such
+statement, so folding them would decide by resemblance what only a source can decide. Both refusals
+are asserted per house in `test_imprints.py`, so a later round that folds one in shows up as a number
+falling rather than as a tidy-up.
+
+### The curating unit is a house
+
+Curating by string places whatever somebody happened to look at and leaves a count nobody can read.
+Curating a house means reading what it publishes, deciding every string it carries, and recording
+the ones the file refuses, which is what makes the per-house residue an assertion. 15 houses now sit
+at zero.
+
+### Where a name came from, house by house
+
+Most of these houses index their books by magazine and by title and publish no list of book lines,
+so `name_basis: corpus` carries most of the entries and each says what was read. Where a publisher
+page did answer, it is cited: 新書館's comics site names Wings in Latin in its own navigation,
+小学館's e-comic store addresses デジコレ at `e-comi.shogakukan.co.jp/digicolle`, forcs addresses
+じるみて at `forcs-comic.jp/jilmitte`, and KADOKAWA's label index carries コミックエッセイ.
+
+### The truncated string, which was never a naming question
+
+`ガンガンコミックスonline　／　GC ONLIN` is a catalogued value cut off mid-word with the cataloguer's
+separator still in it. The segment before the separator is `ガンガンコミックスonline`, which is the
+line, so the row reaches it and the truncation is never read as anything. `GC ONLIN` is not listed as
+a spelling: it is the same name abbreviated and then cut, and giving it an entry would put a
+catalogue artefact in front of a reader. That was the last string in
+`publisher keys the interface misses`, which now reads 0.
+
+### One string the segmenter will not split, listed whole instead
+
+`Action comics : comic high's brand` uses ISBD's " : ", which `publishers.segments` does not know, so
+the string is never taken apart. The module docstring names it as the case that shows up in the
+unresolved count rather than being split silently. It is listed as a spelling of comic high's brand
+in full, which places the row without teaching the segmenter a separator on the strength of one
+example.

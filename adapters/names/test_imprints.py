@@ -184,15 +184,30 @@ def main(s):
     s.check(all("HOWLコミックス" != v["name"] for v in shipped.values()),
             "and a line no row carries is not shipped, so the map states only what the corpus holds")
 
-    # ── THE FOUR HOUSES ARE COMPLETE, measured against the corpus rather than asserted ──────────
+    # ── THE CURATED HOUSES ARE COMPLETE, measured against the corpus rather than asserted ───────
     #
     # A curating round that drops a spelling would leave these houses partly unplaced, and the
     # budget in check.py counts the whole corpus so a handful going missing hides inside it.
+    #
+    # THE RESIDUE PER HOUSE IS THE ASSERTION, and every non-zero number here is a ruling. A company
+    # name in the imprint field is left alone (ガレットワークス, 一迅社, KADOKAWA, ナンバーナイン's
+    # two distribution partners) and so is a magazine name with nothing saying it means the book
+    # line (まんがタイムきらら, コミックハイ!, 楽園, ヤングキング, and 講談社's and 小学館's own).
+    # Those are the two shapes this file refuses, and a number falling here means somebody folded
+    # one of them in.
     build = pathlib.Path(__file__).resolve().parents[2] / "data" / "build" / "series.json"
     if build.exists():
         corpus = I.series_rows(build.parent)
         _held, left = I.census(corpus, lines)
-        for house, want in (("一迅社", 1), ("芳文社", 1), ("クロスフォリオ出版", 1), ("KADOKAWA", 6)):
+        for house, want in (("一迅社", 1), ("芳文社", 1), ("クロスフォリオ出版", 1), ("KADOKAWA", 1),
+                            ("ナンバーナイン", 3), ("新書館", 0), ("竹書房", 0), ("コンパス", 0),
+                            ("双葉社", 2), ("秋田書店", 0), ("徳間書店", 0), ("マイクロマガジン社", 0),
+                            ("ジーオーティー", 0), ("ヒーローズ", 0), ("実業之日本社", 0),
+                            ("マッグガーデン", 0), ("小学館", 4), ("講談社", 4), ("集英社", 0),
+                            ("スクウェア・エニックス", 0), ("白泉社", 1), ("少年画報社", 1),
+                            ("キルタイムコミュニケーション", 0), ("幻冬舎コミックス", 0),
+                            ("宙出版", 1), ("祥伝社", 0), ("光文社", 0), ("ホーム社", 0),
+                            ("パルソラ", 0)):
             got = sorted(u["raw"] for u in left.values() if u["publisher"] == house)
             s.eq(len(got), want, f"{house} has {want} imprint string(s) left to place: {got}")
 

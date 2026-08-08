@@ -145,6 +145,37 @@ def main(s):
     s.eq(_spelt["romaji"]["plain"], "Yuri Kore",
          "they do travel where the name shown IS the romanisation")
 
+    # ── THE SAME NAME UNDER TWO TYPESETTINGS ───────────────────────────────────────────────────
+    #
+    # The store is keyed by the strings the CORPUS carries and the imprint registry names each line
+    # NFKC-normalised with ordinary spaces, so six lines carrying a reviewed English name and a
+    # sourced reading rendered in Japanese: the exact lookup answered for `ＦＵＺコミックス` and not
+    # for `FUZコミックス`, and for `MFC　キューンシリーズ` with an ideographic space and not for
+    # `MFC キューンシリーズ` with a plain one.
+    _typeset = {"ＦＵＺコミックス": {"en": "FUZ Comics", "basis": "official-jp"},
+                "MFC　キューンシリーズ": {"en": "MFC Cune Series", "basis": "romaji"}}
+    s.eq(P.english("FUZコミックス", "FUZコミックス", _typeset, {})["en"], "FUZ Comics",
+         "full-width letters and ordinary ones are one name")
+    s.eq(P.english("MFC キューンシリーズ", "MFC キューンシリーズ", _typeset, {})["en"],
+         "MFC Cune Series", "and so are an ideographic space and a plain one")
+    s.eq(P.unreadable(
+        P.corpus_names_from_rows([{"print": [{"publisher": "KADOKAWA",
+                                              "imprint": "MFC キューンシリーズ"}]}]),
+        _typeset, {}), [],
+        "and the reading pass does not queue a name the renderer can already answer")
+
+    # AND THE FOLD DOES NOT REACH ACROSS A REAL DIFFERENCE. `4コマkingsぱれっとcomics` and
+    # `4コマKINGSぱれっとコミックス` are two spellings of one line and differ in CONTENT, not in
+    # typesetting, so each keeps its own entry and neither answers for the other.
+    s.eq(P.english("4コマKINGSぱれっとコミックス", "4コマKINGSぱれっとコミックス",
+                   {"4コマkingsぱれっとcomics": {"en": "4-koma kings palette comics",
+                                                 "basis": "romaji"}}, {}), None,
+         "comics against コミックス is a different string and not a different typesetting")
+    # AN EXACT RECORD STILL WINS, because a fold names a family and a key names one member.
+    s.eq(P.english("MFC キューンシリーズ", "MFC キューンシリーズ",
+                   dict(_typeset, **{"MFC キューンシリーズ": {"en": "Exact", "basis": "romaji"}}),
+                   {})["en"], "Exact", "the record written about this string outranks the fold")
+
     # ── what the reading pass is asked to read ─────────────────────────────────────────────────
     #
     # Only what nothing else can reach. Reading every publisher name would put an analyser's guess

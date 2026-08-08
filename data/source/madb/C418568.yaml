@@ -3,38 +3,30 @@
 source: madb
 source_version: "1.2.18"
 retrieved: 2026-08-07
-work_id: C433159
+work_id: C418568
 route: imprint-selection
 grouping: series-link
-madb_id: C433159
-madb_url: https://mediaarts-db.artmuseums.go.jp/id/C433159
+madb_id: C418568
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C418568
 record_type: manga_book_series
 title:
-  ja: "教師×生徒の百合アンソロジーコミック"
-  yomi: "キョウシ × セイト ノ ユリ アンソロジー コミック"
-creator: ""
+  ja: "これでわかってよ!"
+  yomi: "コレ デ ワカッテヨ !"
+creator: "[著]みもと"
 publisher: "一迅社"
-distributor: "講談社"
-publisher_stated: "[発売]講談社 / 一迅社"
-publishers:
-  - name: "講談社"
-    role: distributor
-    role_stated: "発売"
-  - name: "一迅社"
-    role: publisher
 imprint: "YH comics"
 imprint_stated: "IDコミックス / YH comics"
 volume_count: 1
-first_published: 2019-08
-last_published: 2019-08
+first_published: 2017-01
+last_published: 2017-01
 volumes:
-  - madb_id: M809392
-    isbn: "9784758079686"
-    published: 2019-08
+  - madb_id: M520633
+    isbn: "9784758076234"
+    published: 2017-01
 marketing_label: yuri
 marketing_label_basis:
   source: madb
-  url: https://mediaarts-db.artmuseums.go.jp/id/C433159
+  url: https://mediaarts-db.artmuseums.go.jp/id/C418568
   retrieved: 2026-08-07
   note: >-
     Published under a 一迅社 百合姫 imprint. The `imprint` field names the brand

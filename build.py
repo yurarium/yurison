@@ -5315,12 +5315,20 @@ def main():
     # naming: ハルタコミックス, FUZコミックス, まんがタイムKRコミックスつぼみシリーズ and the MF
     # series among them. They are keyed here so the same lookup answers for them, raw and folded
     # alike, which is the rule the publisher map already follows.
+    #
+    # THE SKIP ASKS WHAT THE READER'S LOOKUP ASKS, and asking anything else is what hid
+    # MFC キューンシリーズ for a round. `pubRec` in app.js tries the string and its NFKC form and
+    # does not remove spaces; this tested the space-stripped fold, found the catalogued
+    # `MFCキューンシリーズ` already in the map, and concluded the line was named. It was named under
+    # a key nothing asks for, so 35 rows showed the line in Japanese in English-only mode
+    # (STANDING-INSTRUCTIONS §14b: a producer's "do I have this already" must be the consumer's
+    # lookup, or it answers a question nobody is asking).
     sys.path.insert(0, str(pathlib.Path(__file__).parent / 'adapters' / 'names'))
     import publishers as _pubmod
     _imp_named = 0
     for _fact in {id(v): v for v in _imp_shipped.values()}.values():
         _nm = (_fact or {}).get("name")
-        if not _nm or _nm in _pub_shipped or _fold(_nm) in _pub_shipped:
+        if not _nm or _nm in _pub_shipped or unicodedata.normalize("NFKC", _nm) in _pub_shipped:
             continue
         _one = _pubmod.render(_pub_names, _auth_folded,
                               {("imprint", _nm): {"kind": "imprint", "raw": _nm,

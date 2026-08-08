@@ -167,6 +167,26 @@ def fold(s):
     return unicodedata.normalize("NFKC", s or "").replace(" ", "")
 
 
+def folded(store):
+    """`{fold(name): record}` for a store keyed by the string somebody typed.
+
+    WHY THE STORE NEEDS ASKING TWICE. Its keys are the strings the CORPUS carries, one record per
+    catalogued spelling, and the imprint registry then chose a canonical name for each line which is
+    written NFKC-normalised with ordinary spaces. Those differ from the catalogued form by nothing a
+    reader could see: `ＦＵＺコミックス` against `FUZコミックス`, `MFC　キューンシリーズ` with an
+    ideographic space against `MFC キューンシリーズ` with a plain one. An exact lookup answers for the
+    catalogued string and not for the line's own name, so six lines with a reviewed English name and
+    a sourced reading in this file rendered in Japanese on the page.
+
+    `fold` and not `imprints.fold`, deliberately. This one is the INTERFACE's key, it folds width
+    and spaces and nothing else, and the two spellings it joins are one string under two
+    typesettings. Case folding would join more and is not needed: measured over the store on
+    2026-08-08, exactly two keys collide under this fold and both pairs already agree on their
+    English, so nothing here decides between two records.
+    """
+    return {fold(name): rec for name, rec in (store or {}).items()}
+
+
 def english(raw, shown, store, people):
     """The English rendering for one publisher string, or None where nothing can render it.
 
@@ -200,8 +220,14 @@ def english(raw, shown, store, people):
     # imprint — which is 高菜しんの alone — was answered by the record for the whole string and the
     # person's own name lost to it. A record about the name outranks a record about the line it was
     # catalogued on, whichever store holds it.
+    #
+    # AND THE FOLDED KEY LAST, so that an exact record still wins where the store holds one. It is
+    # last because a fold joins two catalogued spellings and an exact key names one of them; where
+    # both exist the specific record is the one somebody wrote about that string.
+    folds = folded(store)
     rec = (store.get(shown) or people.get(fold(shown))
-           or store.get(raw) or people.get(fold(raw)))
+           or store.get(raw) or people.get(fold(raw))
+           or folds.get(fold(shown)) or folds.get(fold(raw)))
     if not rec:
         return None
     romaji = rec.get("romaji") or {}
@@ -269,8 +295,12 @@ def unreadable(names, store, people):
         raw, shown = info["raw"], info["shown"]
         if not JAPANESE.search(shown):
             continue
+        # THE SAME LOOKUP `english` PERFORMS, folded key and all, or this queues a reading for a
+        # name the renderer can already answer (STANDING-INSTRUCTIONS §3).
+        folds = folded(store)
         rec = (store.get(raw) or store.get(shown)
-               or people.get(fold(raw)) or people.get(fold(shown)) or {})
+               or people.get(fold(raw)) or people.get(fold(shown))
+               or folds.get(fold(raw)) or folds.get(fold(shown)) or {})
         if rec.get("en") or rec.get("reading"):
             continue
         out[shown] = info["volumes"]

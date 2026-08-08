@@ -2525,10 +2525,19 @@ def budget_publisher_keys_the_interface_misses(ctx):
 
     Japanese only. A name already in Latin passes through the interface untouched and needs no
     entry, which is the same rule `platName` follows.
+
+    THE IMPRINT MAP IS PASSED IN, and for one round it was not. `imprintOf` stopped segmenting and
+    started returning the registry's canonical name for the line, this copy followed it, and the
+    caller went on invoking it with no map. So the copy of the consumer resolved every imprint
+    string to itself, which is what the OLD interface did, and the measure quietly went on
+    answering the previous question: it read 5 while 11 canonical line names reached a reader in
+    Japanese and 4 catalogued strings it was counting had stopped being shown at all. A copy of the
+    consumer has to be called the way the consumer is called (STANDING-INSTRUCTIONS §14b).
     """
     shipped = (ctx["names_shipped"] or {}).get("publishers")
     if shipped is None:
         return 0
+    lines = (ctx["names_shipped"] or {}).get("imprints") or {}
     japanese = re.compile(r"[぀-ヿ一-鿿々]")
     missing = set()
     for r in ctx["series"]:
@@ -2539,7 +2548,7 @@ def budget_publisher_keys_the_interface_misses(ctx):
             # interface's. The field list is duplicated for the same reason the functions are.
             for field, norm in (("publisher", _app_publisher_of),
                                 ("distributor", _app_publisher_of),
-                                ("imprint", _app_imprint_of)):
+                                ("imprint", lambda s: _app_imprint_of(s, lines))):
                 raw = str(pr.get(field) or "").strip()
                 if not raw:
                     continue

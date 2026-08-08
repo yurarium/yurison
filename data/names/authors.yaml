@@ -7978,6 +7978,7 @@ names:
     verified: true
   ガレットワークス:
     basis: romaji
+    entity: company
     reading: ガレットワークス
     reading_at: '2026-08-07'
     reading_basis: surface
@@ -9098,6 +9099,7 @@ names:
     verified: true
   ネジ式１３番地:
     basis: romaji
+    entity: company
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ネジシキジュウサンバンチ
@@ -9562,6 +9564,7 @@ names:
     en_at: '2026-08-05'
     en_pass: 1
     en_source: surface
+    entity: company
     reading: ポルリン
     reading_at: '2026-08-05'
     reading_basis: surface
@@ -10343,6 +10346,7 @@ names:
     en_source: openBD
     en_source_kind: publisher-jp
     en_url: https://api.openbd.jp/v1/get?isbn=9784758029858
+    entity: company
     note: The company publishes at ichijinsha.co.jp and prints no other Latin form of its name on the
       site; the domain is its own spelling.
     reading: イチジンシャ

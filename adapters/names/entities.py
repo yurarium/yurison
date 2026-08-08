@@ -60,6 +60,27 @@ KINDS = (
     ("desk", ("編集部", "編纂室", "資料室")),
 )
 
+# RULED ONE AT A TIME, because the class word is not in the name. `KINDS` above is a vocabulary of
+# words that SAY what a thing is, and it is deliberately small: a rule matching 社 would catch every
+# artist whose pen name ends in it, and one matching ワークス would catch a person who chose it.
+# These four carry no such word and are organisations anyway, which only the corpus can say.
+#
+# The evidence is the corpus filing them on both sides. 一迅社 is the publisher on 428 print rows and
+# credited once, on an anthology it compiled. ポルリン publishes two rows and is credited on three.
+# ガレットワークス is credited on five works and is the circle behind ガレット, and the imprint round
+# ruled it a company when it refused to make it a line. ネジ式１３番地 publishes and is credited once
+# each.
+#
+# A NAME HERE IS NOT EXCUSED FROM THE MEASURE, it is answered by it. `credits the corpus files as a
+# venue` counts a credit the corpus also files as a publisher and which nothing has ruled on, so a
+# ruling is what removes it, and the ruling is written down where somebody can disagree with it.
+RULED = {
+    "一迅社": "company",
+    "ポルリン": "company",
+    "ガレットワークス": "company",
+    "ネジ式１３番地": "company",
+}
+
 NOTATION = "notation"
 
 
@@ -102,7 +123,8 @@ def kind(name):
     None IS NOT "THIS IS A PERSON". It is silence, which is the honest answer for a credit no rule
     recognises, and it is what keeps the vocabulary from having to know every organisation on earth.
     """
-    return organisation(name) or (NOTATION if notation(name) else None)
+    return RULED.get(str(name or "")) or organisation(name) or (
+        NOTATION if notation(name) else None)
 
 
 def sweep(names):

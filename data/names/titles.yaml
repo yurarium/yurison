@@ -8608,6 +8608,49 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  'お姉さまと巨人 : お嬢さまが異世界転生':
+    basis: official-jp
+    en: MY SISTER AND GIANT
+    en_at: '2026-08-08'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'My Elder Sister and the Giant (Me): The Young Lady Is Reborn in Another World'
+    en_reviewed: '2026-08-08'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/M869334
+    furigana_spans:
+    - - お
+      - null
+    - - 姉
+      - あね
+    - - さまと
+      - null
+    - - 巨人
+      - わたし
+    - - ' : お'
+      - null
+    - - 嬢
+      - じょう
+    - - さまが
+      - null
+    - - 異世界
+      - いせかい
+    - - 転生
+      - てんしょう
+    note: 'The parallel title MADB records after '' = '', ending where the subtitle after '' : '' begins.
+      お嬢さまが異世界転生 is the book''s own subtitle and stays with the Japanese name, which is why the English
+      here is the two words and not the whole line.'
+    reading: 'オ アネサマ ト ワタシ : オジョウサマ ガ イセカイ テンショウ'
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: 'the source writes this title お姉さまと巨人(わたし) : お嬢さまが異世界転生, which prints the reading of
+      the run before each bracket'
+    reading_source: title-furigana
+    translation_note: The title glosses 巨人 as わたし, so the giant is the narrator, and the publisher's English
+      drops both the gloss and the subtitle.
+    verified: true
   お姉さまと巨人 ～お嬢さまが異世界転生～:
     basis: translated
     en: Onee-sama and the Giant ~The Young Lady's Isekai Reincarnation~
@@ -22067,15 +22110,19 @@ names:
     - - エデンの
       - null
     - - 処女
-      - しょじょ
+      - おとめ
     note: 処女 is a virgin and the garden is Eden's, so the English is the one the Japanese is borrowing.
-    reading: エデン ノ ショジョ
+    reading: エデン ノ オトメ
     reading_at: '2026-08-06'
-    reading_basis: analyser
+    reading_basis: stated
+    reading_corroborated:
+    - yurarium
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-06'
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I031370365
+    verified: true
   エデンの処女（おとめ）:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -30943,12 +30990,21 @@ names:
     reading_source: surface
     verified: true
   フィダンツァートのためいき:
-    basis: romaji
+    basis: translated
+    en: The Fidanzato's Sigh
+    en_at: '2026-08-06'
+    en_reviewed: '2026-08-06'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - フィダンツァートのためいき
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: フィダンツァート is Italian fidanzato, the betrothed, borrowed without translation into the Japanese
+      title, so the English borrows it the same way. ためいき is the sigh let out. This entry was keyed on
+      the catalogued spelling, which carried the ISBD colon and 完全版 after it; the work is named for the
+      2010 book and data/work-aliases.yaml says so, so the English drops the edition statement with the
+      name. 完全版, the edition with nothing left out, is glossed by the interface from its own closed set
+      wherever a record carries it.
     reading: フィダンツァート ノ タメイキ
     reading_at: '2026-08-08'
     reading_basis: analyser
@@ -34877,26 +34933,14 @@ names:
     en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - ロックは
-      - null
-    - - 淑女
-      - しゅくじょ
-    - - の
-      - null
-    - - 嗜
-      - たしな
-    - - みでして
-      - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: ロック ワ シュクジョ ノ タシナミデシテ
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ロック ワ レディ ノ タシナミ デシテ
+    reading_at: '2026-08-04'
+    reading_basis: stated
+    reading_reviewed: '2026-08-04'
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033124127
+    verified: true
   ロボットJSにスキはありません!!:
     basis: romaji
     furigana_spans:
@@ -40174,6 +40218,20 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  '入味 : この娘と食卓を囲む日から':
+    basis: romaji
+    reading: 'ルーウェイ : コノ コ ト ショクタク オ カコム ヒ カラ'
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: stated
+      source: title-furigana
+      value: 'ルーウェイ : コノ ムスメ ト ショクタク ヲ カコム ヒ カラ'
+    reading_reviewed: '2026-08-08'
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033214720
+    verified: true
   入味 この娘と食卓を囲む日から:
     basis: translated
     en: 'Flavor Soaks In: From the Day I Started Sharing a Table With This Girl'
@@ -48700,25 +48758,21 @@ names:
     en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 少女
-      - しょうじょ
-    - - たちの
-      - null
-    - - 痕
-      - あと
-    - - にくちづけを
-      - null
     note: '痕 is a mark or trace, likely a bite scar given the plot: a school deep in the forest whose
       students are secretly vampires, bound to each other by a blood "sister system" that lets them hunt
       without being discovered.'
-    reading: ショウジョタチ ノ アト ニ クチヅケ ヲ
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ショウジョタチ ノ キズアト ニ クチズケ オ
+    reading_at: '2026-08-04'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: stated
+      source: title-furigana
+      value: ショウジョタチ ノ キズアト ニ クチヅケ ヲ
+    reading_reviewed: '2026-08-04'
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032896031
+    verified: true
   少女たちの記憶:
     basis: translated
     en: The Girls' Memories
@@ -51024,10 +51078,8 @@ names:
       - ねんがん
     - - の
       - null
-    - - 悪役
-      - あくやく
-    - - 令嬢
-      - れいじょう
+    - - 悪役令嬢
+      - らすぼす
     - - の
       - null
     - - 身体
@@ -51044,13 +51096,15 @@ names:
       - null
     note: The synopsis is a sickly girl reincarnated as an otome game's villainess, delighted just to
       be healthy, obliviously breaking every flag meant to lead to her own defeat.
-    reading: ネンガン ノ アクヤク レイジョウ ノ カラダ ヲ テ ニ イレタ ゾ !
-    reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading: ネンガン ノ ラスボス ノ カラダ ヲ テ ニ イレタ ゾ !
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: the source writes this title 念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!, which prints the reading of the
+      run before each bracket
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: title-furigana
     reading_source_kind: analyser
-    verified: false
+    verified: true
   思ってたのと違うあの子の話:
     basis: translated
     en: A Story About the Girl Who Wasn't What I Expected
@@ -51366,9 +51420,14 @@ names:
     reading_source_kind: analyser
     verified: false
   恋する小惑星:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: Asteroid in Love
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Adopted from the anime's own English release, the manga being unlicensed, so the rendering is
+      marked as ours.
     reading: コイスル アステロイド
     reading_at: '2026-08-08'
     reading_basis: stated
@@ -51376,6 +51435,12 @@ names:
     - basis: analyser
       source: sudachi
       value: コイ スル ショウワクセイ
+    reading_corroborated:
+    - yurarium
+    reading_note: 'The work writes itself 恋する小惑星（アステロイド）, glossing 小惑星, and the national library transcribes
+      the whole title as コイスル アステロイド. So the catalogue and the bracket agree, and this entry was two until
+      adapters/names/gloss.py took the gloss off at ingest: the English was decided against the glossed
+      spelling and the reading against the plain one.'
     reading_reviewed: '2026-08-08'
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: national-library
@@ -53858,6 +53923,42 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  '抱かれたい女 : JDだけどアラサー女子に買われています':
+    basis: translated
+    en: 'person who wants to be embraced: I''m a University Student and a Woman Pushing Thirty Is Buying
+      Me'
+    en_at: '2026-08-06'
+    en_reviewed: '2026-08-06'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 抱
+      - いだ
+    - - かれたい
+      - null
+    - - 女
+      - ひと
+    - - ' : JDだけどアラサー'
+      - null
+    - - 女子
+      - じょし
+    - - に
+      - null
+    - - 買
+      - か
+    - - われています
+      - null
+    note: 'The catalogue prints the book''s own Latin line beside the Japanese, which settles the ambiguity
+      in 抱かれたい女: the wanting is hers. The bracketed ひと is the work''s own gloss, telling the reader to
+      say 女 as person. JD clips 女子大生 and アラサー is around thirty, both stated in full because the shorthand
+      means nothing in English.'
+    reading: 'イダカレタイ ヒト : JDダケド アラサー ジョシ ニ カワレテ イマス'
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: 'the source writes this title 抱かれたい女(ひと) : JDだけどアラサー女子に買われています, which prints the reading
+      of the run before each bracket'
+    reading_source: title-furigana
+    verified: true
   '抱かれたい女(ひと) : JDだけどアラサー女子に買われています':
     basis: translated
     en: 'person who wants to be embraced: I''m a University Student and a Woman Pushing Thirty Is Buying
@@ -59552,6 +59653,33 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  永久にラーメンを食べる方法:
+    basis: translated
+    en: How to Eat Ramen Forever
+    en_at: '2026-08-06'
+    en_reviewed: '2026-08-06'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 永久
+      - とこしえ
+    - - にラーメンを
+      - null
+    - - 食
+      - た
+    - - べる
+      - null
+    - - 方法
+      - ほうほう
+    note: The bracketed とこしえ is the work's own gloss on 永久, choosing the old poetic reading over the everyday
+      one. ラーメン is already English.
+    reading: トコシエ ニ ラーメン ヲ タベル ホウホウ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: the source writes this title 永久（とこしえ）にラーメンを食べる方法, which prints the reading of the run
+      before each bracket
+    reading_source: title-furigana
+    verified: true
   永久（とこしえ）にラーメンを食べる方法:
     basis: translated
     en: How to Eat Ramen Forever
@@ -62899,17 +63027,21 @@ names:
     - - の
       - null
     - - 人狼
-      - じんろう
+      - うぇあうるふ
     note: The synopsis is a boarding school where losing one's "purity" means expulsion, tagged mystery
       rather than fantasy, so 人狼 plausibly names the hidden-traitor party game as much as a literal werewolf;
       English "werewolf" carries the same double reading, so the ambiguity survives untouched.
-    reading: シロキ オトメ ノ ジンロウ
-    reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading: シロキ オトメ ノ ウェアウルフ
+    reading_at: '2026-08-04'
+    reading_basis: stated
+    reading_corroborated:
+    - yurarium
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-04'
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033371467
+    verified: true
   白き乙女の人狼（ウェアウルフ）:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -64250,6 +64382,41 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  百合合コンと迷い込んだノンケの娘:
+    basis: translated
+    en: A Yuri Group Date and the Straight Girl Who Wandered In
+    en_at: '2026-08-06'
+    en_reviewed: '2026-08-06'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 百合
+      - れず
+    - - 合
+      - ごう
+    - - コンと
+      - null
+    - - 迷
+      - まよ
+    - - い
+      - null
+    - - 込
+      - こ
+    - - んだノンケの
+      - null
+    - - 娘
+      - むすめ
+    note: 合コン is the arranged group meeting between two sets of friends, which Japanese has a word for
+      and English does not. ノンケ is not being that way inclined, built from ケ as in 気, and straight is
+      what it comes to. The parenthetical レズ glosses 百合 for the shop's readers and the English lets one
+      word carry both.
+    reading: レズ ゴウコン ト マヨイコンダ ノンケ ノ ムスメ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: the source writes this title 百合(レズ)合コンと迷い込んだノンケの娘, which prints the reading of the run
+      before each bracket
+    reading_source: title-furigana
+    verified: true
   百合好きさんとガチ百合さん:
     basis: translated
     en: Miss Yuri Fan and Miss Actually Yuri
@@ -64921,21 +65088,23 @@ names:
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
-    - - 監獄
-      - かんごく
-    - - 街
-      - がい
+    - - 監獄街
+      - ぷりずんたうん
     - - へようこそ!
       - null
-    note: 監獄 is the gaol as a building rather than the sentence served in it, and 街 is a town's built-up
-      part.
-    reading: カンゴクガイ エ ヨウコソ !
-    reading_at: '2026-08-06'
-    reading_basis: analyser
+    note: '監獄 is the gaol as a building rather than the sentence served in it, and 街 is a town''s built-up
+      part. The title prints プリズンタウン over 監獄街, so the English is what the work says its own name is. This
+      entry was two: the same English was decided twice, once against the catalogued spelling with the
+      gloss in it and once against the spelling every other source uses.'
+    reading: プリズンタウン ヘ ヨウコソ !
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: the source writes this title 監獄街 (プリズンタウン) へようこそ!, which prints the reading of the run
+      before each bracket
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: title-furigana
     reading_source_kind: analyser
-    verified: false
+    verified: true
   目には目を:
     basis: translated
     en: An Eye for an Eye
@@ -69729,29 +69898,27 @@ names:
     en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 結婚
-      - けっこん
-    - - したい
-      - null
-    - - 竜宮
-      - りゅうぐう
-    - - さんは
-      - null
-    - - 上陸
-      - じょうりく
-    - - しました
-      - null
     note: 竜宮, the Dragon Palace, is the undersea kingdom of the Urashima Tarō folktale; 竜宮さん nicknames
       her by where she is from the way オオカミさん and 足羽さん name characters by trait two checkpoints back.
       The synopsis calls her 姫, princess, of an undersea people, which "princess" makes explicit rather
       than leaving the folklore reference to carry it alone.
-    reading: ケッコン シタイ リュウグウサン ワ ジョウリク シマシタ
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading: ラブラブ シタイ リュウグウ サン ワ ジョウリク シマシタ
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_note: '竜宮 is リュウグウ, the undersea palace of the 浦島太郎 tale, and 上陸 in the title is her coming
+      ashore from it. The store read タツノミヤ, a surname, which contradicts the English on this same entry:
+      it calls her the Dragon Palace Princess and the note below cites the synopsis calling her 姫 of an
+      undersea people. A round recorded タツノミヤ as a case where a furigana gloss corrected the name beside
+      it; the gloss is over 結婚 and says nothing about 竜宮, so what it corrected was 結婚 to ラブラブ and the
+      surname reading came from the analyser splitting the compound. 竜宮城へようこそ shows the same split on
+      a work with no gloss anywhere near it. THIS ENTRY WAS TWO. The reading was keyed on the catalogued
+      form, 結婚(らぶらぶ)したい竜宮さんは上陸しました, and the English on the form every other source uses, so one work carried
+      two curated decisions that could not see each other. `adapters/names/gloss.py` takes the gloss off
+      at ingest and the two keys became one.'
+    reading_reviewed: '2026-08-04'
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032975211
     verified: false
   結婚するってよ:
     basis: translated
@@ -72617,6 +72784,24 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  豹藤さんは攻略したい:
+    basis: romaji
+    reading: ヒョウドウサンハオトシタイ
+    reading_at: '2026-08-06'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: stated
+      source: title-furigana
+      value: ヒョウ フジサン ワ オト シタイ
+    reading_note: BOOK☆WALKER's own page for this work carries the reading in its keywords field, beside
+      the title. The shop is the publisher's retail arm and the string is the yomi registered for the
+      edition. The publisher's blurb on the same page glosses 豹藤（ひょうどう） in running text, which is the
+      same reading written a second way. It replaces 'ヒョウ フジサン ワ コウリャク シタイ', which no source had stated.
+    reading_reviewed: '2026-08-06'
+    reading_source: BOOK☆WALKER
+    reading_source_kind: platform
+    reading_url: https://bookwalker.jp/de640f54a8-0664-4c88-8643-7379f85af56d/
+    verified: true
   豹藤さんは攻略（おと）したい:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest

@@ -77,7 +77,10 @@ SOURCED_BASES = {"reading": SOURCED, "en": ("official-jp", "licensed")}
 # cited for it. Naming it here rather than treating an absent address as the fault is what keeps
 # the fault population real: the one record left is 新・魔法科高校の劣等生 キグナスの乙女たち,
 # whose own note says the rendering is ours and whose basis says a licensor's.
-SELF_SOURCED = ("surface",)
+# `title-furigana` is the same statement about a title. A work whose own title prints how a word in
+# it is read (`恋する小惑星（アステロイド）`) states the reading in the string, so there is no page
+# behind it beyond the source record already carrying that string. `names/gloss.py` records it.
+SELF_SOURCED = ("surface", "title-furigana")
 
 # The parts of a citation a reader is offered, and the store field each is read from. `{v}` is the
 # claim: `reading` or `en`. Kept in step with `store._stamped`, which writes them.

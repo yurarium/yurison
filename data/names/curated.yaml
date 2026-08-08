@@ -9,18 +9,6 @@
 # than only with the result.
 
 titles:
-  結婚(らぶらぶ)したい竜宮さんは上陸しました:
-    reading_source: ndlsearch.ndl.go.jp
-    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032975211
-    reading: "ラブラブ シタイ リュウグウ サン ワ ジョウリク シマシタ"
-    reading_basis: researched
-    reading_source_kind: derived
-    source: "yurarium"
-    source_kind: derived
-    reviewed: '2026-08-08'
-    reading_note: >-
-      竜宮 is リュウグウ, the undersea palace of the 浦島太郎 tale, and 上陸 in the title is her coming ashore from it. The store read タツノミヤ, a surname, which contradicts the curated English on the same work without the gloss: that entry calls her the Dragon Palace Princess and its note cites the synopsis calling her 姫 of an undersea people. A round recorded タツノミヤ as a case where a furigana gloss corrected the name beside it; the gloss is over 結婚 and says nothing about 竜宮, so what it corrected was 結婚 to ラブラブ and the surname reading came from the analyser splitting the compound. 竜宮城へようこそ shows the same split on a work with no gloss anywhere near it.
-
   竜宮城へようこそ:
     en: "Welcome to the Dragon Palace"
     basis: translated
@@ -542,7 +530,7 @@ titles:
     translation: White and Black
     translation_note: 白 comes first in the Japanese and the publisher's own English reverses the pair.
 
-  "お姉さまと巨人(わたし) : お嬢さまが異世界転生":
+  "お姉さまと巨人 : お嬢さまが異世界転生":
     en: "MY SISTER AND GIANT"
     basis: official-jp
     source: "mediaarts-db"
@@ -2979,6 +2967,23 @@ titles:
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
+    reading_source: ndlsearch.ndl.go.jp
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032975211
+    reading: "ラブラブ シタイ リュウグウ サン ワ ジョウリク シマシタ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      竜宮 is リュウグウ, the undersea palace of the 浦島太郎 tale, and 上陸 in the title is her
+      coming ashore from it. The store read タツノミヤ, a surname, which contradicts the English on
+      this same entry: it calls her the Dragon Palace Princess and the note below cites the synopsis
+      calling her 姫 of an undersea people. A round recorded タツノミヤ as a case where a furigana
+      gloss corrected the name beside it; the gloss is over 結婚 and says nothing about 竜宮, so what
+      it corrected was 結婚 to ラブラブ and the surname reading came from the analyser splitting the
+      compound. 竜宮城へようこそ shows the same split on a work with no gloss anywhere near it.
+      THIS ENTRY WAS TWO. The reading was keyed on the catalogued form,
+      結婚(らぶらぶ)したい竜宮さんは上陸しました, and the English on the form every other source uses,
+      so one work carried two curated decisions that could not see each other.
+      `adapters/names/gloss.py` takes the gloss off at ingest and the two keys became one.
     note: >-
       竜宮, the Dragon Palace, is the undersea kingdom of the Urashima Tarō folktale; 竜宮さん nicknames
       her by where she is from the way オオカミさん and 足羽さん name characters by trait two checkpoints
@@ -3687,6 +3692,11 @@ titles:
       rather than fantasy, so 人狼 plausibly names the hidden-traitor party game as much as a literal
       werewolf; English "werewolf" carries the same double reading, so the ambiguity survives
       untouched.
+    reading: シロキ オトメ ノ ウェアウルフ
+    reading_basis: stated
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033371467
 
   痛かったら喜んでください:
     en: If It Hurts, Please Be Happy About It
@@ -5025,15 +5035,6 @@ titles:
     note: >-
       青い again carries "unripe" alongside literally blue, rendered here as green to keep the immaturity sense English "green" already has; the synopsis pairs the same fruit-ripening image, "実りきらない", this feeling that will not fully ripen, describing a shy bar worker and a bar regular.
 
-  恋する小惑星（アステロイド）:
-    en: Asteroid in Love
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      Adopted from the anime's own English release rather than translated fresh, unlicensed manga marked ours, the same shape as several titles this evening.
-
   怪獣ロマンティクス:
     en: Kaiju Romantics
     basis: translated
@@ -5410,6 +5411,11 @@ titles:
     reviewed: '2026-08-04'
     note: >-
       痕 is a mark or trace, likely a bite scar given the plot: a school deep in the forest whose students are secretly vampires, bound to each other by a blood "sister system" that lets them hunt without being discovered.
+    reading: ショウジョタチ ノ キズアト ニ クチズケ オ
+    reading_basis: stated
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032896031
 
   小柳ちゃんの守り方!:
     en: How to Protect Koyanagi
@@ -6657,6 +6663,11 @@ titles:
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-04'
+    reading: ロック ワ レディ ノ タシナミ デシテ
+    reading_basis: stated
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033124127
 
   ロイヤルテーラー ―王宮の裁縫師―:
     en: 'Royal Tailor: The Palace Tailor'
@@ -11716,15 +11727,6 @@ titles:
     note: >-
       百合男子 is a man who reads yuri, which is who the story is about rather than who is in it.
 
-  "監獄街 (プリズンタウン) へようこそ!":
-    en: "Welcome to Prison Town!"
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-05'
-    note: >-
-      The furigana over 監獄街 is プリズンタウン, so the reading of the title is already the English.
-
   "瞬きできない":
     en: "I Can't Blink"
     basis: translated
@@ -14168,6 +14170,11 @@ titles:
     reviewed: '2026-08-06'
     note: >-
       処女 is a virgin and the garden is Eden's, so the English is the one the Japanese is borrowing.
+    reading: エデン ノ オトメ
+    reading_basis: stated
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I031370365
 
   "創作百合再録集":
     en: "Original Yuri: A Reprint Collection"
@@ -21971,16 +21978,19 @@ titles:
       ストロング is the borrowed word and the shelf label on Japan's high-percentage canned drinks, which
       is the joke the anthology's subtitle explains.
 
-  "フィダンツァートのためいき : 完全版":
-    en: "The Fidanzato's Sigh: Complete Edition"
+  "フィダンツァートのためいき":
+    en: "The Fidanzato's Sigh"
     basis: translated
     source: yurarium
     source_kind: derived
     reviewed: '2026-08-06'
     note: >-
       フィダンツァート is Italian fidanzato, the betrothed, borrowed without translation into the Japanese
-      title, so the English borrows it the same way. ためいき is the sigh let out, and 完全版 is the edition
-      with nothing left out.
+      title, so the English borrows it the same way. ためいき is the sigh let out. This entry was
+      keyed on the catalogued spelling, which carried the ISBD colon and 完全版 after it; the work
+      is named for the 2010 book and data/work-aliases.yaml says so, so the English drops the
+      edition statement with the name. 完全版, the edition with nothing left out, is glossed by the
+      interface from its own closed set wherever a record carries it.
 
   "ユリキュール : アルコール百合アンソロジー":
     en: "Yuriqueur: An Alcohol Yuri Anthology"
@@ -23730,7 +23740,7 @@ titles:
       stiffness goes, one verb for the whole action. The ♀ is the work's own way of settling the
       masseuse's sex and the English states it.
 
-  百合(レズ)合コンと迷い込んだノンケの娘:
+  "百合合コンと迷い込んだノンケの娘":
     en: "A Yuri Group Date and the Straight Girl Who Wandered In"
     basis: translated
     source: yurarium
@@ -25782,7 +25792,7 @@ titles:
       ただいま is what a person says on coming through their own front door, so the phrase is a homecoming
       rather than a greeting. The series title keeps its full stop.
 
-  永久（とこしえ）にラーメンを食べる方法:
+  "永久にラーメンを食べる方法":
     en: "How to Eat Ramen Forever"
     basis: translated
     source: yurarium
@@ -27742,7 +27752,9 @@ titles:
     reviewed: '2026-08-06'
     note: >-
       監獄 is the gaol as a building rather than the sentence served in it, and 街 is a town's built-up
-      part.
+      part. The title prints プリズンタウン over 監獄街, so the English is what the work says its own
+      name is. This entry was two: the same English was decided twice, once against the catalogued
+      spelling with the gloss in it and once against the spelling every other source uses.
 
   私の推しは悪役令嬢。　小冊子:
     en: "My Favourite Is the Villainess. Booklet"
@@ -27936,7 +27948,7 @@ titles:
       the two named here make 会食, dining together. English has no letters that mean anything, so the
       sentence says what it is doing. The full stop is the title's own.
 
-  "抱かれたい女(ひと) : JDだけどアラサー女子に買われています":
+  "抱かれたい女 : JDだけどアラサー女子に買われています":
     en: "person who wants to be embraced: I'm a University Student and a Woman Pushing Thirty Is Buying Me"
     basis: translated
     source: yurarium
@@ -28916,7 +28928,7 @@ titles:
   # a second time. The route reaches 1,548 and the shop answers slowly, so the rest is a
   # resumable run: adapters/names/shop_reading.py --cache $YURI_CACHE/shop-reading-cache, and
   # a title a source has stated is never asked about again.
-  "豹藤さんは攻略（おと）したい":
+  "豹藤さんは攻略したい":
     reading: "ヒョウドウサンハオトシタイ"
     reading_basis: stated
     reading_source_kind: platform
@@ -29110,16 +29122,6 @@ titles:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034320623
 
-  エデンの処女（おとめ）:
-    reading: エデン ノ オトメ
-    reading_basis: stated
-    reviewed: '2026-08-08'
-    source: ndlsearch.ndl.go.jp
-    source_kind: national-library
-    reading_source: ndlsearch.ndl.go.jp
-    reading_source_kind: national-library
-    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I031370365
-
   'キグナスの乙女たち : 新・魔法科高校の劣等生':
     reading: 'キグナス ノ オトメタチ : シン マホウカ コウコウ ノ レットウセイ'
     reading_basis: stated
@@ -29174,16 +29176,6 @@ titles:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034008529
 
-  ロックは淑女(レディ)の嗜みでして:
-    reading: ロック ワ レディ ノ タシナミ デシテ
-    reading_basis: stated
-    reviewed: '2026-08-08'
-    source: ndlsearch.ndl.go.jp
-    source_kind: national-library
-    reading_source: ndlsearch.ndl.go.jp
-    reading_source_kind: national-library
-    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033124127
-
   一端の子:
     reading: イッタン ノ コ
     reading_basis: stated
@@ -29232,7 +29224,7 @@ titles:
       closed set the interface names in EDITION_EN, and the reading of the title itself is the
       catalogue's. NDL's record is https://ndlsearch.ndl.go.jp/books/R100000002-I031272770.
 
-  '入味(ルーウェイ) : この娘と食卓を囲む日から':
+  "入味 : この娘と食卓を囲む日から":
     reading: 'ルーウェイ : コノ コ ト ショクタク オ カコム ヒ カラ'
     reading_basis: stated
     reviewed: '2026-08-08'
@@ -29310,16 +29302,6 @@ titles:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034139066
 
-  少女たちの痕(きずあと)にくちづけを:
-    reading: ショウジョタチ ノ キズアト ニ クチズケ オ
-    reading_basis: stated
-    reviewed: '2026-08-08'
-    source: ndlsearch.ndl.go.jp
-    source_kind: national-library
-    reading_source: ndlsearch.ndl.go.jp
-    reading_source_kind: national-library
-    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032896031
-
   彼氏の女友達がぐいぐい来る〈私に〉:
     reading: カレシ ノ オンナトモダチ ガ グイグイ クル ワタシ ニ
     reading_basis: stated
@@ -29341,14 +29323,24 @@ titles:
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033184885
 
   恋する小惑星:
+    en: Asteroid in Love
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-08'
+    note: >-
+      Adopted from the anime's own English release, the manga being unlicensed, so the rendering is
+      marked as ours.
     reading: コイスル アステロイド
     reading_basis: stated
-    reviewed: '2026-08-08'
-    source: ndlsearch.ndl.go.jp
-    source_kind: national-library
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033652100
+    reading_note: >-
+      The work writes itself 恋する小惑星（アステロイド）, glossing 小惑星, and the national library
+      transcribes the whole title as コイスル アステロイド. So the catalogue and the bracket agree, and
+      this entry was two until adapters/names/gloss.py took the gloss off at ingest: the English was
+      decided against the glossed spelling and the reading against the plain one.
 
 
   灼熱の卓球娘reburn!!:
@@ -29394,16 +29386,6 @@ titles:
       catalogue reading a mark aloud; the store keeps the mark, which is what 〇〇する話 and 【タテスク】 already
       do, because the blank is part of the title rather than something to pronounce. NDL's record is
       https://ndlsearch.ndl.go.jp/books/R100000002-I031668059.
-
-  白き乙女の人狼（ウェアウルフ）:
-    reading: シロキ オトメ ノ ウェアウルフ
-    reading_basis: stated
-    reviewed: '2026-08-08'
-    source: ndlsearch.ndl.go.jp
-    source_kind: national-library
-    reading_source: ndlsearch.ndl.go.jp
-    reading_source_kind: national-library
-    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033371467
 
   '百合ラブスレイブ : ふたりだけの放課後':
     reading: 'ユリ ラブ スレイブ : フタリ ダケ ノ ホウカゴ'

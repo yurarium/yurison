@@ -29,6 +29,7 @@ import identity  # noqa: E402
 import importdates  # noqa: E402
 import isbndate  # noqa: E402
 from names import credits as _credits  # noqa: E402
+from names import gloss as _gloss  # noqa: E402
 from names import key as _namekey  # noqa: E402
 from names import openbd_reading  # noqa: E402
 import bylines as _bylines  # noqa: E402
@@ -1049,14 +1050,31 @@ def can_testify(chapters):
 
 _WORK_ALIASES = None
 
+# Every title a source wrote with a reading gloss in it, keyed on the name it leaves behind. The
+# gloss is visible at ingest and nowhere afterwards, and the reading half of the rule runs later,
+# in the naming autopilot, so `work_alias` writes down what it took out. `glossed_titles` is the
+# one reader; `names/gloss.py` turns a pair into a reading.
+_GLOSSED = {}
+
+
+def glossed_titles():
+    """`{name: the string a source wrote it as}` for every gloss taken out of a title this run."""
+    return dict(_GLOSSED)
+
 
 def work_alias(title):
     """The canonical title where two sources write one work differently.
 
-    Curated in `data/work-aliases.yaml` and not derived, because nothing in a title says whether a
-    bracketed suffix marks another edition of this work or a different work: 【タテスク】 is the
-    first and 【読み切り版】 is the second. Matched after `norm_work`, so a source need not
-    reproduce width or punctuation to be recognised.
+    TWO THINGS DECIDE IT, and only one of them can be a rule. A reading gloss printed inside a
+    title is a class with a shape: `恋する小惑星（アステロイド）` is 恋する小惑星, and
+    `names/gloss.py` holds the rule and the counter-case it turns on. Everything else is curated in
+    `data/work-aliases.yaml`, because nothing in a title says whether a bracketed suffix marks
+    another edition of this work or a different work: 【タテスク】 is the first and 【読み切り版】
+    is the second.
+
+    The gloss comes off first, so a curated entry is written against the name and not against one
+    source's spelling of it. Curated matching is after `norm_work`, so a source need not reproduce
+    width or punctuation to be recognised.
     """
     global _WORK_ALIASES                                                    # noqa: PLW0603
     if _WORK_ALIASES is None:
@@ -1064,7 +1082,29 @@ def work_alias(title):
         rows = (yaml.safe_load(p.read_text()) or {}).get("aliases") or [] if p.exists() else []
         _WORK_ALIASES = {norm_work(r["variant"]): r["canonical"] for r in rows
                          if r.get("variant") and r.get("canonical")}
+    title = str(title or "")
+    named = _gloss.plain(title)
+    if named and named != title:
+        _GLOSSED.setdefault(named, title)
+        title = named
     return _WORK_ALIASES.get(norm_work(title), title)
+
+
+def catalogued_title(title):
+    """A print record's title area with the work's own name in the Japanese slot.
+
+    The web path aliases a work's title where it reads one and this is the same call on the print
+    path's record, which reaches `works.json`, `index.json` and the corpus statement in
+    `titles.json`. Those are three surfaces a reader meets, and until this they carried
+    `恋する小惑星 (アステロイド)` while the serialisation row for the same work carried the name
+    (STANDING-INSTRUCTIONS §13: check every surface separately).
+
+    `yomi` is left alone. Where MADB states one for a glossed title it has already applied the
+    gloss, so it agrees with the shortened name rather than with the string it was cut from.
+    """
+    ja = (title or {}).get("ja")
+    named = work_alias(ja) if ja else ja
+    return title if named == ja else {**title, "ja": named}
 
 
 # Kana and kanji. A string with none of these needs no reading: it is already Latin.
@@ -2309,7 +2349,7 @@ def main():
 
         w = {
             "work_id": wid,
-            "title": base["title"],
+            "title": catalogued_title(base["title"]),
             # `or` is not enough: a BOOK☆WALKER row whose authors list is empty comes through as
             # " / ", which is truthy and names nobody. See adapters/bylines.credited.
             "creator": (base.get("creator", "")
@@ -5471,6 +5511,21 @@ def main():
     try:
         sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
         import pass4_analyser as _p4
+        # A TITLE THAT PRINTS ITS OWN READING IS ANSWERED BEFORE THE ANALYSER IS ASKED. The gloss
+        # states what the analyser would otherwise guess, and it is right where the analyser is
+        # wrong: 恋する小惑星 is said アステロイド and reads ショウワクセイ off the characters. The
+        # gloss survives only at ingest, so `work_alias` wrote down what it removed and this is
+        # where the second half of that fact is spent.
+        _gl_written, _gl_disagreed, _gl_left = _gloss.fill_store(
+            glossed_titles(), _p4.segment_reader())
+        if _gl_written:
+            print(f"names           : {len(_gl_written)} title(s) read as their own gloss prints "
+                  f"them, {_gl_left} already answered")
+        for _gl_title, _gl_held, _gl_want in _gl_disagreed:
+            # NOT RESOLVED HERE. A reviewer settled one of these and a bracket states the other,
+            # and a build has no standing to pick. Printed so it is a thing somebody looks at.
+            print(f"names           : {_gl_title} is read {_gl_held!r} and its gloss "
+                  f"says {_gl_want!r}")
         _p4.fill_missing({r["work"] for r in series_rows}, "titles")
         # THE PEOPLE, NOT ONLY THE FIELDS. The store holds one record per PERSON and this was fed
         # whole credit fields, which `is_credit_line` then declines to read, so nobody named only

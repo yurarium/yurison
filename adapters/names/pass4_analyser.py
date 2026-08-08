@@ -773,6 +773,39 @@ def reader():
     return read
 
 
+def segment_reader():
+    """A callable giving `(reading, furigana spans)` for one fragment, or None where nothing can.
+
+    WHAT ASKS FOR THIS. `names/gloss.py` reads a title that prints a reading in brackets, and it
+    reads it in pieces so the bracket answers for the run it sits after and the analyser answers
+    for everything else. It needs both halves of the answer for each piece: the reading, and the
+    spans the ruby is cut from, which have to be cut from the same fragment or the ruby spells
+    something the reading does not say.
+
+    Both come out of this file and neither is recomputed anywhere, which is the point. `gloss.py`
+    stays pure and offline, this holds the Sudachi import, and the alignment a caller gets is the
+    one `fill_missing` would have produced for the same string.
+
+    Cached per call, and it returns None where SudachiPy is absent, the same as `reader` above.
+    """
+    try:
+        from sudachipy import Dictionary, SplitMode
+    except ImportError:
+        return None
+    tok = Dictionary().create()
+    modes = [SplitMode.C, SplitMode.A]
+    seen = {}
+
+    def read(fragment):
+        key = str(fragment or "")
+        if key not in seen:
+            got, _uncertain = analyse_best(tok, key, modes)
+            seen[key] = (got, furigana_spans(tok, key, modes[0]) if got else None)
+        return seen[key]
+
+    return read
+
+
 def fill_missing(strings, kind, quiet=False, refresh=False):
     """Give every string a reading if one can be found. Idempotent, offline, safe to call always.
 

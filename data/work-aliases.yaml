@@ -11,20 +11,18 @@
 # from the serialisation it sits beside, while 【タテスク】 is the same work in another format.
 # Nothing in the string says which, so each is decided on its evidence and recorded here.
 #
+# ONE CLASS HERE TURNED OUT TO BE A RULE AND HAS LEFT. A reading gloss printed inside a title,
+# 念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!, was the single entry of its kind: マガポケ prints
+# the gloss over 悪役令嬢 and コミックDAYS does not, so one work stood as two rows of 111 and 87
+# chapters, and the chapter titles aligned across the split (マガポケ's 【第101話】飛行戦闘
+# continues the run コミックDAYS carries to 第８７話). `adapters/names/gloss.py` now takes the gloss
+# off every title that prints one and reads the run it covers the way the bracket says, so that
+# entry answered a question nothing asks any more and was removed with the rule that replaced it.
+#
 # `variant` is matched after norm_work, so width, spacing and punctuation need not be reproduced
 # exactly. Adding a row merges two rows in the build: check the chapter count afterwards, because
 # two coverages of one story should dedupe to the longer, never sum.
 aliases:
-  - variant: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
-    canonical: "念願の悪役令嬢の身体を手に入れたぞ!"
-    note: >-
-      マガポケ prints the ruby gloss (ラスボス) over 悪役令嬢 in the title and コミックDAYS does not,
-      so one work stood as two rows of 111 and 87 chapters. Same author, same story, and the
-      chapter titles align: マガポケ's 【第101話】飛行戦闘 continues the run コミックDAYS carries to
-      第８７話. The canonical form is the one without the gloss, which is what the print edition and
-      the other platforms use.
-    retrieved: 2026-08-04
-
   - variant: "フィダンツァートのためいき : 完全版"
     canonical: "フィダンツァートのためいき"
     note: >-

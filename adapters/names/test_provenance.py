@@ -123,8 +123,18 @@ def main(s):
     # the NDL reasoning does not reach it; what it is not is a page a reader can read.
     s.check(provenance.is_address(OPENBD["reading_url"]), "the openBD endpoint is a well-formed address")
     s.check(not provenance.citable(OPENBD["reading_url"]), "and it is not a document to show a reader")
-    s.eq(provenance.cite(OPENBD), None, "so no citation is rendered for it")
-    s.eq(len(provenance.uncitable({"東雲水生": OPENBD})), 1, "and the withheld citation is counted")
+    # THE ADDRESS IS STILL REFUSED AND THE BOOK IS STILL NAMED. This asserted that openBD readings
+    # render no citation at all, which was one ruling too many: the endpoint is not a page, and the
+    # ISBN inside it identifies the registration that states the reading, which a reader can act on.
+    # 196 readings showed nothing on that reasoning. The URL is not rendered and never will be.
+    _cited = provenance.cite(OPENBD)
+    s.eq(_cited.get("isbn"), "9784758027335", "the registration it names is cited")
+    s.check("url" not in _cited, "and the endpoint itself is not offered")
+    s.eq(provenance.uncitable({"東雲水生": OPENBD}), [], "a record that cites is not silently withheld")
+    # A refused address with nothing identifying what it named is still silence, and still counted.
+    _bare = dict(OPENBD, reading_url="https://api.openbd.jp/v1/coverage")
+    s.eq(provenance.cite(_bare), None, "an endpoint naming no book cites nothing")
+    s.eq(len(provenance.uncitable({"東雲水生": _bare})), 1, "and that one is counted as withheld")
     s.eq(provenance.faults({"東雲水生": OPENBD}), [],
          "the invariant is silent: an address WAS recorded, which is the question it asks")
 

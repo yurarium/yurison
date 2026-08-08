@@ -15,7 +15,7 @@ it measures nothing about the data.
 | # | budget | at start | state |
 |---|---|---:|---|
 | 1 | renderings still Japanese in English mode | 334 | in progress |
-| 2 | citations withheld from readers | 244 | queued |
+| 2 | citations withheld from readers | 244 | **done, 36** (an ISBN cites where a query cannot) |
 | 3 | nicovideo works with no rights | 189 | queued |
 | 4 | imprint strings that reach no line | 139 | queued |
 | 5 | one work under two names in a list | 71 | queued |

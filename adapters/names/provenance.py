@@ -88,8 +88,18 @@ SELF_SOURCED = ("surface",)
 # STANDING-INSTRUCTIONS §6 keeps those off a reader's page. The citation says which document, where
 # and when, which is what a reader can act on; 704 notes shipped in feed/names.json before this and
 # nothing rendered one.
+import re
+
 PARTS = (("source", "{v}_source"), ("url", "{v}_url"), ("kind", "{v}_source_kind"),
          ("reviewed", "{v}_reviewed"))
+
+# AN ISBN IS A CITATION EVEN WHERE A URL IS NOT. openBD answers by ISBN and its only address is a
+# query against its API, which is not a page a reader can open, so 227 readings it genuinely stated
+# were shown nothing at all. That is our filing showing through: the fact is the publisher's own
+# registration for a book, and the book has an identifier a reader can act on. The identifier is
+# lifted out of the query rather than stored twice, because the query already carries it and a
+# second copy is a second producer of one fact.
+ISBN_IN_QUERY = re.compile(r"[?&]isbn=(\d{10,13})")
 
 # The same list plus the note, for `faults`, which asks whether a citation was left behind by a
 # claim that went away. A note is part of the debris in that case even though it is not shown.
@@ -129,13 +139,26 @@ def cite(record, claim="reading"):
     # rendering it would put "openBD" in front of a reader with nothing to open, which is a fact
     # about our filing and not about the name. A closed route is worse: it would publish an
     # invitation to a path the host asked us not to take.
-    if not citable(record.get(f"{claim}_url")):
-        return None
+    url = record.get(f"{claim}_url")
+    isbn = None
+    if not citable(url):
+        # A QUERY THAT NAMES A BOOK STILL NAMES THE BOOK. The address is refused, and what it
+        # identified is kept, so the citation says which registration was read without inviting a
+        # reader down a route we do not send them. Anything else with no citable address still
+        # returns None, which is the honest answer where nothing identifies the source.
+        m = ISBN_IN_QUERY.search(str(url or ""))
+        if not m:
+            return None
+        isbn = m.group(1)
     out = {}
     for key, field in PARTS:
+        if key == "url" and isbn:
+            continue
         value = record.get(field.format(v=claim))
         if value:
             out[key] = value
+    if isbn:
+        out["isbn"] = isbn
     return out or None
 
 
@@ -194,12 +217,20 @@ def uncitable(names, claim="reading"):
     The gap between what the store legitimately records and what a page may link to. Everything
     here is a reading a reader would otherwise be offered a citation for, so the count is the
     number of citations silently withheld, and silence is the thing this project designs against.
+
+    A RECORD THAT CITES BY ANOTHER ROUTE IS NOT SILENT. openBD answers by ISBN and its only address
+    is a query against its API, which is not a page to send anybody to, so these were counted here
+    and shown nothing. `cite` now keeps the identifier out of the refused query, so the reader is
+    told which registration was read. The address is still not shown and never will be; what has
+    changed is that the citation is no longer empty, which is what this counts. A record with no
+    identifier of any kind stays here, because that one really does show nothing.
     """
     return [(ja, (r or {}).get(f"{claim}_url"))
             for ja, r in sorted((names or {}).items())
             if (r or {}).get(claim) and owes_a_document(r, claim)
             and is_address((r or {}).get(f"{claim}_url"))
-            and not citable((r or {}).get(f"{claim}_url"))]
+            and not citable((r or {}).get(f"{claim}_url"))
+            and not cite(r, claim)]
 
 
 def borrowed(names):

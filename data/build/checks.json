@@ -95,10 +95,10 @@
    "name": "deployed data matches built",
    "violations": 4,
    "examples": [
-    "status.json",
+    "index.json",
+    "run.json",
     "series.json",
-    "feed/names.json",
-    "feed/current.json"
+    "works.json"
    ]
   },
   {
@@ -184,12 +184,6 @@
    "means": "strings the shipped maps spell one way as a publisher and another way as a person, which happens because a self-published work names its own author as its publisher. A rise means a publisher name was written by hand where the name store already spelt it.",
    "budget": 2,
    "value": 2
-  },
-  {
-   "name": "publisher readings nobody has settled",
-   "means": "publisher and imprint keys shipped as a romanisation of ours over a reading no source states, which is what the mark beside them says. A coverage deficit and the other half of the budget above it: that one reached zero by romanising, and a romanisation is the reading spelt out. It falls as readings get sourced, and it is measured on the shipped map so that hiding the mark would show as a fall nobody earned.",
-   "budget": 21,
-   "value": 21
   },
   {
    "name": "renderings with nothing to show",
@@ -296,6 +290,12 @@
   {
    "name": "bookwalker listings unconfirmed",
    "means": "BOOK☆WALKER rows whose series listing was read before the reader compared what it read against the shop's own 全N件. Until 2026-08-06 the last row of a listing swallowed the markup printed underneath it and was identified by the related-series link in there, so it was dropped; a listing is sorted newest first, so the row dropped is the OLDEST volume and `first_publication` is the earliest date across the volumes read. Falls as adapters/recon/bookwalker_volumes.py --follow-series re-reads them, and reaches zero, because every row counted here names a series to fetch.",
+   "budget": 0,
+   "value": 0
+  },
+  {
+   "name": "volumes with an isbn and no date",
+   "means": "volumes on a work page stating an ISBN and no publication date. An ISBN is a key into a registry that states one, so each of these is a lookup nobody has done. Falls as adapters/openbd/enrich.py --fetch works through the corpus. Its floor is the books openBD has no record of, which was 245 of 2,321 ISBNs when this was written.",
    "budget": 0,
    "value": 0
   },

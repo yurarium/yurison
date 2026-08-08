@@ -24,14 +24,19 @@ primary record states no date, where its answer fills a hole, and for a work who
 came from somewhere else.
 
 WHAT THAT IS WORTH TODAY, STATED SO IT IS NOT MISTAKEN FOR A RESULT. Every ISBN-bearing record in
-the corpus is MADB's own, and MADB holds no date for any of the 19 volumes its own extraction left
+the corpus is MADB's own, and MADB holds no date for any of the 26 volumes its own extraction left
 undated, so the MADB half of this pass supplies nothing at present. The run prints the number, and
 a pass that supplied nothing says so rather than reading as a pass that worked. It supplies
 something the moment a work source that is not the bibliography states an ISBN.
 
+RE-MEASURED 2026-08-08, WITH THE CACHE FILLED. `--fetch` asks openBD about every corpus ISBN the
+cache has no entry for, and with all 2,321 asked openBD holds a date for 1,860 of them. The thin
+figure above was a thin cache and not a thin catalogue. What each of those answers is worth against
+the date the bibliography already states is `adapters/isbndate.py`, which is what reads them.
+
 Usage:  enrich.py --cache $YURI_CACHE/openbd-cache/openbd.json \
                   --works data/source/madb --out data/source/openbd --retrieved 2026-08-01 \
-                  --madb-cache $YURI_CACHE/madb-cache/1.2.18
+                  --madb-cache $YURI_CACHE/madb-cache/1.2.18 --fetch
 """
 import argparse, glob, json, pathlib, sys
 
@@ -97,9 +102,10 @@ def main():
     ap.add_argument("--retrieved", required=True)
     ap.add_argument("--madb-cache", default=None,
                     help="a pinned MADB release directory, for ISBNs openBD does not hold")
+    ap.add_argument("--fetch", action="store_true",
+                    help="ask openBD about any ISBN the cache does not already hold")
     a = ap.parse_args()
 
-    cache = json.loads(pathlib.Path(a.cache).read_text())
     madb = isbn_dates.load(a.madb_cache) if a.madb_cache else {}
     files = sorted(glob.glob(f"{a.works}/*.yaml"))
     if not files:
@@ -108,6 +114,28 @@ def main():
     all_isbns = []
     for f in files:
         all_isbns += [v["isbn"] for v in (yaml.safe_load(open(f)).get("volumes") or []) if v.get("isbn")]
+
+    # THE PASS COMPLETES ITS OWN CACHE, and until 2026-08-08 it did not. This read a JSON file
+    # somebody else had filled, and the somebody else was `names/openbd_reading.py`, which fetches
+    # over `corpus_isbns()` into whatever cache it is pointed at. So the two passes asked openBD
+    # the same question into two files, and this one read the thinner: openbd-cache held 1,310 of
+    # the corpus's 2,321 ISBNs while names-cache held all of them, and 978 volumes went unanswered
+    # here for no reason except which file was opened. A pass that cannot fill its own cache is not
+    # re-runnable, it is re-runnable by somebody who remembers to run something else first
+    # (STANDING-INSTRUCTIONS §7).
+    #
+    # `openbd_reading.fetch` and not a second fetcher: batching, the pause and the resume point are
+    # one decision with one place to make it (§3). It asks only for ISBNs the cache has no entry
+    # for, so a re-run with nothing new costs no request at all.
+    if a.fetch:
+        from names import openbd_reading                                       # noqa: PLC0415
+        store = pathlib.Path(a.cache)
+        if store.name != "openbd.json":
+            sys.exit(f"--fetch writes {store.parent}/openbd.json and --cache names {store.name}. "
+                     "Point them at one file or the run would read a cache it did not fill.")
+        openbd_reading.fetch(sorted(set(all_isbns)), store.parent)
+
+    cache = json.loads(pathlib.Path(a.cache).read_text())
     # HOW MANY OF THIS CORPUS'S ISBNs THE CACHE ANSWERS FOR, not how big the cache is. The measure
     # was `len(cache)` over the corpus, which is a ratio between two different populations: the
     # cache is shared with the name passes and the retailer captures, and once it grew past the

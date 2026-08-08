@@ -159,8 +159,10 @@ correct for the MADB figure to read nought while every ISBN-bearing record in th
 own, because the pass refuses to write MADB's answer back over a record that came from MADB.
 
 The openBD payload is `$YURI_CACHE/openbd-cache/openbd.json`, which `names/openbd_reading.fetch`
-fills and the retailer captures share. Ask it for the corpus's own ISBNs before running this, or
-the pass enriches whatever somebody last happened to fetch.
+fills and the retailer captures share. Pass `--fetch` and the run fills it itself, asking only for
+the corpus ISBNs the cache has no entry for; a re-run with nothing new costs no request. Without it
+the pass enriches whatever somebody last happened to fetch, which on 2026-08-08 was 1,310 of the
+corpus's 2,321 ISBNs while the name pass had already asked about all of them.
 
 **Stage C — browser (slow, ~30 min, allowed to fail)**
 

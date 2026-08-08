@@ -1546,3 +1546,87 @@ publisher and another way as a person. Both entries in it predate this round: �
 `Nejishiki 13-banchi` and `Neji Shiki Ichisan Banchi`. **The fix belongs on the author side.**
 Each is a circle whose publisher entry is the better answer and whose person record has never been
 told so.
+
+## 26. The readings under the romanisations (2026-08-08)
+
+§25 took `publishers with no English` to zero, and it did it largely by romanising. That finished
+the rendering and moved the sourcing: a romanisation is the reading spelt in Latin, so 254 of the
+323 shipped publisher keys were a Latin form of ours and **134 of them stood on a reading no source
+states**, each carrying the mark that says so and none carrying a `reading_basis` at all. Nothing
+counted them. The first budget's fall to zero read as the work being finished, which is
+STANDING-INSTRUCTIONS §13 in a number rather than in a file.
+
+107 are settled here and the count is **21**. `publisher readings nobody has settled` is the budget,
+new at 134 and ratcheted to 21 in the same run, and it reads the SHIPPED map and asks for the mark:
+an earlier attempt emptied this class by suppressing the mark in list views and was rejected, so the
+measure is built where that would show as a fall nobody earned.
+
+### Where the 107 came from
+
+53 came from the National Diet Library, which files a publisher transcription beside the label on
+its `/books/` records, in katakana on some and as a transliteration of the kana on others.
+`ndlsearch.ndl.go.jp/robots.txt` disallows `/api` and that route stays closed; the record pages are
+open, and they answer. They rate-limit hard, returning 503 to anything faster than one page every
+few seconds, which is why the sweep took two hours for 124 labels and why only 61 of the 134 came
+back with an answer at all.
+
+Four came from a house stating the reading of its own name. 宙出版 titles its front page
+宙（おおぞら）出版のHP。, which is a furigana gloss the company put there itself; xfolio.jp titles
+itself Xfolio（クロスフォリオ); bookman.co.jp spells the katakana half of ブックマン社; and 一ノらい's
+circle らいおん小屋 publishes at liongoyaithinoli.wixsite.com.
+
+The remaining 50 were settled here, each with a note saying what was weighed. They are the labels
+made of loanwords and everyday compounds, where every element has one reading: 別冊 is ベッサツ,
+女子部 is ジョシブ, 出版 is シュッパン, and there is no competing candidate to weigh them against.
+
+### Three names the round found were already wrong
+
+路草COMICS was published as Rosou COMICS and is Michikusa COMICS. §25 recorded that the magazine's
+own site did not resolve and read the two characters on their on readings. It publishes at
+michikusacomics.jp, and the National Diet Library files the label Michikusa komikkusu
+independently. **A magazine that could not be found is not a magazine with no address.**
+
+らいおん小屋 was Lion Koya and is Lion Goya. 小屋 standing alone is こや and voices to ごや after a
+modifier, as it does in 犬小屋 and 山小屋, and nothing mechanical decides which. The circle's own
+site at liongoyaithinoli.wixsite.com spells it liongoya.
+
+わんこ院 was one of the eight circle names §24 left unread, on the ground that 院 after a kana word
+has more than one defensible reading. The National Diet Library holds a volume the circle issued
+and files the publisher Wankoin. The analyser had guessed the same string, which is the answer
+rather than a coincidence: what was missing was never the reading, only something able to state it.
+
+### What the catalogue settled that no rule would have
+
+Letters in a comics label were the largest single question, and the tempting rule is that an
+initialism is said letter by letter. The catalogue holds the counter-case. It files
+HCヒーローズコミックス as エイチシー and KCデラックス as ケーシー, and then files あすかコミックスDX
+as アスカコミックスデラックス and UPコミック as アップコミック, because those letters spell a word.
+`KCDX. 週刊少年マガジン` comes back ケーシーディーエックス, so the same two letters go both ways in
+one house. A rule applied across the set would have been wrong four times; asking per label was not
+avoidable work.
+
+Where the catalogue leaves a Latin run as it found it, so does this: サンデーGXコミックス comes back
+`Sande GX komikkusu` and マンガBANGコミックス comes back `Manga bang komikkusu`. Those readings carry
+the letters through, and the note says nothing states how they are spoken and that the Latin
+rendering does not turn on the answer.
+
+### The 21 that resist, and why
+
+Twelve are people, and they heal from the author side: あおい華葉、さとうメメ子、とばり湊、井庭人、
+夢乃むえ、川村マユ見、河津ケント、珠虫さとり、赤月めう、雪尾ゆき、高橋真弥、高菜しんの. A work
+self-published through a shop's individual-publishing service names its own author as its
+publisher, and `publishers.english` consumes the author store for exactly that, so settling the
+person settles this. **Do not settle them here**, because two producers of one fact is what
+`names rendered two ways` already counts. The National Diet Library answered one of them in
+passing, filing 川村マユ見 as カワムラ マユミ at
+`ndlsearch.ndl.go.jp/books/R100000001-I01211008001685179`.
+
+Seven are circle names in kanji nobody has read aloud in print: 空色の音、赤紅、黒戌舎、空想舩、
+狗古堂、踏月、口達者同盟. Each was searched against the artist, against the National Diet Library and
+against the shop listing the books. None of the seven is in the national collection, which is what
+made わんこ院 different, and a circle with no book in a catalogue and no Latin anywhere has nothing
+left to ask.
+
+Two are records rather than names: `GP-KIDS/高菜しんの` and `スタジオぷち屋 桜那えいか、`, an imprint
+beside a person and a circle beside an author with the trailing comma of a truncated list still
+attached. §25 recorded both. A reading for either would be a reading of a catalogue line.

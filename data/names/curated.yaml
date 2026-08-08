@@ -37740,22 +37740,41 @@ publishers:
       is the magazine's book line.
 
   "宙出版":
+    reading: "オオゾラ シュッパン"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    reading_source: "ohzora.jp"
+    reading_url: "https://ohzora.jp/"
+    reading_note: >-
+      The company titles its own front page 宙（おおぞら）出版のHP。, glossing the kanji with its
+      reading, and publishes at ohzora.jp. 宙 alone is ordinarily read チュウ or ソラ, so this is a
+      case where only the house could settle it and the house does.
     en: "Ohzora Shuppan"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The company writes its own name 宙（おおぞら）出版, stating the reading itself, and publishes at
       ohzora.jp. Nothing on the site renders the whole name in Latin, so this romanises the reading
       the company gives.
 
   "角川書店":
+    reading: "カドカワ ショテン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I028573718"
+    reading_note: >-
+      The National Diet Library files this label Kadokawa Shoten on its record for a volume in it,
+      which is a cataloguing authority stating the reading. The National Diet Library files
+      角川コミックス・エース as カドカワコミックスエース, which settles 角川 as カドカワ, and 書店
+      is ショテン throughout the trade.
     en: "Kadokawa Shoten"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       A KADOKAWA brand rather than a company of its own now. KADOKAWA is the group's Latin spelling of
       角川 and 書店 romanises to shoten; the brand pages print no Latin form.
@@ -37783,11 +37802,20 @@ publishers:
       no Latin form of the brand.
 
   "学研パブリッシング":
+    reading: "ガッケン パブリッシング"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I026279877"
+    reading_note: >-
+      The National Diet Library files this label Gakkenpaburisshingu on its record for a volume in
+      it, which is a cataloguing authority stating the reading. The group publishes at gakken.co.jp
+      and heads its own English navigation About Gakken Group, which states the reading of 学研.
     en: "Gakken Publishing"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       Gakken is the group's own Latin spelling on gakken.co.jp and パブリッシング is the English word
       publishing. The imprint's company was folded into the group and prints nothing itself.
@@ -37803,11 +37831,19 @@ publishers:
       This subsidiary keeps no site of its own.
 
   "ブックマン社":
+    reading: "ブックマン シャ"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    reading_source: "bookman.co.jp"
+    reading_url: "https://bookman.co.jp/"
+    reading_note: >-
+      株式会社ブックマン社 publishes at bookman.co.jp, so the house spells the katakana half of its
+      own name; 社 in a publisher's name is シャ.
     en: "Bookman-sha"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The company publishes at bookman.co.jp, which spells ブックマン as Bookman, and prints no Latin form
       of the whole name; 社 romanises to sha.
@@ -37833,20 +37869,35 @@ publishers:
       romanisation would not be. The company keeps no site we could reach.
 
   "DPNブックス":
+    reading: "DPN ブックス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      DPN is the imprint's own Latin spelling and nothing states how the three letters are spoken,
+      so they are transcribed as written. ブックス is the English word books.
     en: "DPN Books"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       DPN is already Latin and ブックス is the English word books.
 
   "道玄坂書房":
+    reading: "ドウゲンザカ ショボウ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I030382114"
+    reading_note: >-
+      The National Diet Library files this label Dogenzakashobo on its record for a volume in it,
+      which is a cataloguing authority stating the reading. 道玄坂 is the Shibuya street,
+      ドウゲンザカ, and 書房 is ショボウ throughout the trade.
     en: "Dogenzaka Shobo"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       道玄坂 is the Shibuya street, read どうげんざか, and 書房 is the ordinary word for a book house. The
       publisher keeps no site we could reach.
@@ -37902,20 +37953,33 @@ publishers:
       romanisation would not be.
 
   "漫画帝国":
+    reading: "マンガ テイコク"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      漫画 is マンガ and 帝国 is テイコク. Both are everyday words with one reading each.
     en: "Manga Teikoku"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       漫画 and 帝国 are both everyday words with one reading each, まんが and ていこく.
 
   "クロスフォリオ出版":
+    reading: "クロスフォリオ シュッパン"
+    reading_basis: stated
+    reading_source_kind: publisher-jp
+    reading_source: "xfolio.jp"
+    reading_url: "https://xfolio.jp/"
+    reading_note: >-
+      The platform titles its own front page Xfolio（クロスフォリオ), which states that the Latin
+      name and the katakana are one name. 出版 is シュッパン and has no second reading.
     en: "Xfolio Publishing"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The platform signs itself Xfolio throughout xfolio.jp, including on the publishing arm's own
       portfolio, and 出版 is publishing. The arm prints no Latin form of its own name, so the whole is
@@ -37965,31 +38029,61 @@ publishers:
       as it is said.
 
   "角川コミックス・エース":
+    reading: "カドカワ コミックス エース"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A21870300000"
+    reading_note: >-
+      The National Diet Library files the label カドカワコミックスエース beside the Japanese on its
+      record for a volume in it, which settles 角川 as カドカワ rather than the カクカワ a
+      character-by-character reading gives.
     en: "Kadokawa Comics Ace"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       KADOKAWA's own Latin spelling of 角川, and エース is the English word ace. The house prints no Latin
       form of this label on its own site.
 
   "電撃コミックスNEXT":
+    reading: "デンゲキ コミックス ネクスト"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      電撃 is デンゲキ, which KADOKAWA spells in its own addresses for the brand, and NEXT is the
+      English word next. Japanese Wikipedia's article on 電撃コミックス glosses this label
+      でんげきコミックスネクスト, which is a lead and not an attribution, and it agrees.
     en: "Dengeki Comics NEXT"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       電撃 is read でんげき and KADOKAWA spells it Dengeki in its own addresses, NEXT is already Latin, and
       コミックス is the English word comics. The house prints no Latin form of this label on its own site.
 
   "電撃コミックスEX":
+    reading: "デンゲキ コミックス イーエックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A22601100000"
+    reading_note: >-
+      The National Diet Library files this label デンゲキコミックスイーエックス on its record for a
+      volume in it, which is a cataloguing authority stating the reading. The two letters could be
+      said one by one or as the word ex, and KADOKAWA's label pages print neither. Japanese
+      Wikipedia's article on 電撃コミックス glosses this one でんげきコミックスイーエックス and its
+      sister label でんげきコミックスネクスト, which is a community database and so a lead rather
+      than a source; what makes it the answer here is that it is the only place the question is put
+      and that the same catalogue treats letters spelling no word this way, filing
+      HCヒーローズコミックス as エイチシー and KCデラックス as ケーシー.
     en: "Dengeki Comics EX"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The same label as 電撃コミックスNEXT with a different suffix, and EX is already Latin.
 
@@ -38004,30 +38098,53 @@ publishers:
       contraction on comic-walker.com, so it is romanised as it is said.
 
   "MFCキューンシリーズ":
+    reading: "エムエフシー キューン シリーズ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034668568"
+    reading_note: >-
+      The National Diet Library files the label エムエフシーキューンシリーズ, which settles MFC as
+      three letters and キューン as the magazine コミックキューン.
     en: "MFC Cune Series"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       MFC is already Latin. キューン is the magazine コミックキューン, which spells itself comiccune.jp and signs
       its own account comic_cune. シリーズ is the English word series.
 
   "MFC　キューンシリーズ":
+    reading: "エムエフシー キューン シリーズ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034566667"
+    reading_note: >-
+      The same label as MFCキューンシリーズ, catalogued with a full-width space. The National Diet
+      Library files it エムエフシーキューンシリーズ.
     en: "MFC Cune Series"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The same label as MFCキューンシリーズ, catalogued with a full-width space.
 
   "MFC　ジーンピクシブシリーズ":
+    reading: "エムエフシー ジーン ピクシブ シリーズ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034668567"
+    reading_note: >-
+      The National Diet Library files the label エムエフシージーンピクシブシリーズ.
     en: "MFC Gene Pixiv Series"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       MFC is already Latin, ジーン is the magazine コミックジーン, and ピクシブ is pixiv, which writes itself in
       Latin.
@@ -38051,30 +38168,51 @@ publishers:
       The book line of ドラゴンエイジ, and all three words are English written in katakana.
 
   "単行本コミックス":
+    reading: "タンコウボン コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031918342"
+    reading_note: >-
+      The National Diet Library files this label Tankobon komikkusu on its record for a volume in
+      it, which is a cataloguing authority stating the reading. 単行本 is タンコウボン, the
+      ordinary word for a standalone volume, and has no second reading.
     en: "Tankobon Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       KADOKAWA's catalogue label for a volume that belongs to no named line. 単行本 is read たんこうぼん and is
       the ordinary word for a standalone volume.
 
   "MFコミックス":
+    reading: "エムエフ コミックス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The National Diet Library files MFCキューンシリーズ as エムエフシーキューンシリーズ, so MF in
+      the same house's labels is エムエフ.
     en: "MF Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       MF is already Latin and コミックス is the English word comics.
 
   "MFコミックス　フラッパーシリーズ":
+    reading: "エムエフ コミックス フラッパー シリーズ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The book line of 月刊コミックフラッパー, whose own address is comic-flapper.com. MF is
+      エムエフ on the National Diet Library's transcription of MFCキューンシリーズ.
     en: "MF Comics Flapper Series"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The book line of 月刊コミックフラッパー, whose own address is comic-flapper.com.
 
@@ -38088,11 +38226,17 @@ publishers:
       The same line as MFコミックス　フラッパーシリーズ, catalogued without the MFコミックス front.
 
   "MFコミックス　アライブシリーズ":
+    reading: "エムエフ コミックス アライブ シリーズ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The book line of 月刊コミックアライブ, whose own address is comic-alive.jp. MF is エムエフ on
+      the National Diet Library's transcription of MFCキューンシリーズ.
     en: "MF Comics Alive Series"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The book line of 月刊コミックアライブ, whose own address is comic-alive.jp.
 
@@ -38124,11 +38268,17 @@ publishers:
       KADOKAWA's own listing writes the label アライブ＋; the plus stands.
 
   "MFコミックス　ジーンシリーズ":
+    reading: "エムエフ コミックス ジーン シリーズ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The book line of 月刊コミックジーン. MF is エムエフ on the National Diet Library's
+      transcription of MFCキューンシリーズ.
     en: "MF Comics Gene Series"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The book line of 月刊コミックジーン. ジーン is the English word gene.
 
@@ -38151,31 +38301,55 @@ publishers:
       KADOKAWA's own Latin spelling of カドカワ, and the rest is English in katakana.
 
   "あすかコミックスDX":
+    reading: "アスカ コミックス デラックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034557469"
+    reading_note: >-
+      The National Diet Library files the label アスカコミックスデラックス. DX stands for the word
+      deluxe and is not said as its two letters, which is the counter-case to the letter-by-letter
+      pattern the same catalogue follows for KC and HC.
     en: "Asuka Comics DX"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The book line of the magazine ASUKA, which KADOKAWA lists in Latin as ASUKA. DX is already
       Latin.
 
   "中経☆コミックス":
+    reading: "チュウケイ ☆ コミックス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      中経出版 is チュウケイシュッパン, so the label's kanji is チュウケイ. The star is part of the
+      label as catalogued and is not spoken.
     en: "Chukei☆Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       中経出版's line, carried into KADOKAWA. 中経 is read ちゅうけい and the star is part of the label as
       catalogued.
 
   "ファミ通クリアコミックス":
+    reading: "ファミツウ クリア コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034096107"
+    reading_note: >-
+      The National Diet Library files this label Famitsu kuria komikkusu on its record for a volume
+      in it, which is a cataloguing authority stating the reading. ファミ通 is ファミツウ, which
+      KADOKAWA spells famitsu in its own addresses, and クリア is the English word clear in kana.
     en: "Famitsu Clear Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       ファミ通 is spelled Famitsu by KADOKAWA in its own addresses, and クリア is the English word clear.
 
@@ -38199,123 +38373,246 @@ publishers:
       pixiv writes its own name in Latin, and エッセイ is the English word essay.
 
   "MANGAバルCOMICS":
+    reading: "マンガ バル コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034480208"
+    reading_note: >-
+      The National Diet Library files the label マンガバルコミックス, which settles バル as one
+      syllable of the magazine's name and not as an abbreviation.
     en: "MANGA Bar COMICS"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       MANGA and COMICS are already Latin. バル is the Spanish bar as Japanese uses it, which is what the
       magazine MANGAバル is named after.
 
   "ヤンマガKC":
+    reading: "ヤンマガ ケーシー"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I028194995"
+    reading_note: >-
+      The National Diet Library files this label Yanmaga keshi on its record for a volume in it,
+      which is a cataloguing authority stating the reading. The book line of 週刊ヤングマガジン,
+      whose own site is yanmaga.jp, so ヤンマガ is the magazine's own kana name. The National Diet
+      Library transcribes the letters of a comics label one by one where they are not a word: it
+      files HCヒーローズコミックス as エイチシー and KCデラックス as ケーシー. It does not do so
+      where they spell one, filing あすかコミックスDX as デラックス, so the pattern is applied here
+      only to letters that spell nothing.
     en: "Yanmaga KC"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The book line of 週刊ヤングマガジン, whose own site is yanmaga.jp. KC is already Latin.
 
   "モーニングKC":
+    reading: "モーニング ケーシー"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031381125"
+    reading_note: >-
+      The National Diet Library files this label Moningu keshi on its record for a volume in it,
+      which is a cataloguing authority stating the reading. The book line of モーニング, whose own
+      site is morning.kodansha.co.jp. The National Diet Library transcribes the letters of a comics
+      label one by one where they are not a word: it files HCヒーローズコミックス as エイチシー and
+      KCデラックス as ケーシー. It does not do so where they spell one, filing あすかコミックスDX
+      as デラックス, so the pattern is applied here only to letters that spell nothing.
     en: "Morning KC"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The book line of モーニング, whose own site is morning.kodansha.co.jp.
 
   "シリウスKC":
+    reading: "シリウス ケーシー"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033570145"
+    reading_note: >-
+      The National Diet Library files this label Shiriusu keshi on its record for a volume in it,
+      which is a cataloguing authority stating the reading. The book line of 月刊少年シリウス,
+      whose name is the star Sirius in katakana. The National Diet Library transcribes the letters
+      of a comics label one by one where they are not a word: it files HCヒーローズコミックス as
+      エイチシー and KCデラックス as ケーシー. It does not do so where they spell one, filing
+      あすかコミックスDX as デラックス, so the pattern is applied here only to letters that spell
+      nothing.
     en: "Sirius KC"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The book line of 月刊少年シリウス. シリウス is the star Sirius written in katakana.
 
   "アフタヌーンKC":
+    reading: "アフタヌーン ケーシー"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The book line of アフタヌーン, whose own site is afternoon.kodansha.co.jp. The National Diet
+      Library transcribes the letters of a comics label one by one where they are not a word: it
+      files HCヒーローズコミックス as エイチシー and KCデラックス as ケーシー. It does not do so
+      where they spell one, filing あすかコミックスDX as デラックス, so the pattern is applied here
+      only to letters that spell nothing.
     en: "Afternoon KC"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The book line of アフタヌーン, whose own site is afternoon.kodansha.co.jp.
 
   "KCデラックス":
+    reading: "ケーシー デラックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034564896"
+    reading_note: >-
+      The National Diet Library files the label ケーシーデラックス, so KC is said letter by letter
+      here and is not read as the words behind it.
     en: "KC Deluxe"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       KC is already Latin and デラックス is the English word deluxe.
 
   "プレミアムKC":
+    reading: "プレミアム ケーシー"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      プレミアム is the English word premium in kana. The National Diet Library transcribes the
+      letters of a comics label one by one where they are not a word: it files
+      HCヒーローズコミックス as エイチシー and KCデラックス as ケーシー. It does not do so where
+      they spell one, filing あすかコミックスDX as デラックス, so the pattern is applied here only
+      to letters that spell nothing.
     en: "Premium KC"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
       romanisation would not be.
 
   "ワイドKC":
+    reading: "ワイド ケーシー"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031433103"
+    reading_note: >-
+      The National Diet Library files this label Waido keshi on its record for a volume in it,
+      which is a cataloguing authority stating the reading. ワイド is the English word wide in
+      kana. The National Diet Library transcribes the letters of a comics label one by one where
+      they are not a word: it files HCヒーローズコミックス as エイチシー and KCデラックス as
+      ケーシー. It does not do so where they spell one, filing あすかコミックスDX as デラックス, so
+      the pattern is applied here only to letters that spell nothing.
     en: "Wide KC"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
       romanisation would not be.
 
   "講談社コミックス":
+    reading: "コウダンシャ コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034745829"
+    reading_note: >-
+      The National Diet Library files this label Kodansha komikkusu. Shukan shonen magajin on its
+      record for a volume in it, which is a cataloguing authority stating the reading. The house
+      publishes at kodansha.co.jp and signs its site KODANSHA LTD., which states the reading of the
+      kanji. コミックス is the English word comics.
     en: "Kodansha Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The house is Kodansha by its own spelling, and コミックス is the English word comics.
 
   "講談社コミックスマガジン":
+    reading: "コウダンシャ コミックス マガジン"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The 週刊少年マガジン half of 講談社コミックス, on the reading kodansha.co.jp states for the
+      house.
     en: "Kodansha Comics Magazine"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The 週刊少年マガジン half of 講談社コミックス.
 
   "週刊少年マガジン":
+    reading: "シュウカン ショウネン マガジン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034745829"
+    reading_note: >-
+      The National Diet Library files this label Kodansha komikkusu. Shukan shonen magajin on its
+      record for a volume in it, which is a cataloguing authority stating the reading. The magazine
+      publishes at shonenmagazine.com, which is 講談社's own spelling of 少年 as ショウネン. 週刊
+      is シュウカン and has no second reading.
     en: "Weekly Shonen Magazine"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The magazine's own site is shonenmagazine.com, which is 講談社's spelling of the name; 週刊 is read
       しゅうかん and means weekly.
 
   "月刊少年マガジン":
+    reading: "ゲッカン ショウネン マガジン"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The monthly companion to 週刊少年マガジン, whose own site shonenmagazine.com spells 少年 as
+      ショウネン. 月刊 is ゲッカン and has no second reading.
     en: "Monthly Shonen Magazine"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The monthly companion to 週刊少年マガジン, on the same spelling of the title.
 
   "別冊フレンド":
+    reading: "ベッサツ フレンド"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      別冊 is ベッサツ throughout Japanese publishing and 講談社 abbreviates this title to ベツフレ
+      in its own address betsufure.kodansha.co.jp, which is that reading shortened. フレンド is the
+      English word friend in kana.
     en: "Bessatsu Friend"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       別冊 is read べっさつ and フレンド is the English word friend. 講談社's own address for it is
       betsufure.kodansha.co.jp.
@@ -38387,20 +38684,39 @@ publishers:
       The same line with ウルトラ, the English word ultra.
 
   "ヤングジャンプコミックスGJ":
+    reading: "ヤングジャンプ コミックス ジージェイ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I029566904"
+    reading_note: >-
+      The National Diet Library files this label Yangu janpu komikkusu jije on its record for a
+      volume in it, which is a cataloguing authority stating the reading. ヤングジャンプ is the
+      magazine's kana name. GJ is 集英社's own suffix and nothing states how it is spoken, so it is
+      transcribed as written.
     en: "Young Jump Comics GJ"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The same line; GJ is already Latin.
 
   "ヤングジャンプコミックスDIGITAL":
+    reading: "ヤングジャンプ コミックス デジタル"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I08X10000000072055200"
+    reading_note: >-
+      The National Diet Library files this label ヤングジャンプコミックスデジタル on its record for
+      a volume in it, which is a cataloguing authority stating the reading. ヤングジャンプ is the
+      magazine's kana name and DIGITAL is the English word, which Japanese borrows as デジタル.
     en: "Young Jump Comics DIGITAL"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The same line; DIGITAL is already Latin.
 
@@ -38424,38 +38740,74 @@ publishers:
       romanisation would not be.
 
   "サンデーGXコミックス":
+    reading: "サンデー GX コミックス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      小学館 files the magazine's logo as logo-sundaygx.png on its own e-comic store, which leaves
+      the two letters as they are written. Nothing states how they are spoken, so they are
+      transcribed as written.
     en: "Sunday GX Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The book line of 月刊サンデーGX. サンデー is the English word Sunday and GX is Latin.
 
   "裏少年サンデーコミックス":
+    reading: "ウラ ショウネン サンデー コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I025833843"
+    reading_note: >-
+      The National Diet Library files this label Ura shonen sande komikkusu on its record for a
+      volume in it, which is a cataloguing authority stating the reading. 小学館's own e-comic
+      store carries the logo as logo-urasunday.png, which states 裏 as ウラ.
     en: "Ura Shonen Sunday Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       裏 is read うら and names 小学館's 裏サンデー, whose own address is urasunday.com.
 
   "少年サンデーコミックス":
+    reading: "ショウネン サンデー コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031605423"
+    reading_note: >-
+      The National Diet Library files this label Shonen sande komikkusu on its record for a volume
+      in it, which is a cataloguing authority stating the reading. 小学館 publishes 少年サンデー at
+      websunday.net and files the label's logo as logo-sunday.png on its own e-comic store, so 少年
+      is ショウネン.
     en: "Shonen Sunday Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       少年サンデー is the magazine, whose own site is websunday.net.
 
   "サンデーうぇぶり少年サンデーコミックス":
+    reading: "サンデー ウェブリ ショウネン サンデー コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I028920319"
+    reading_note: >-
+      The National Diet Library files this label Sande ueburi shonen sande komikkusu on its record
+      for a volume in it, which is a cataloguing authority stating the reading. 小学館's own
+      e-comic store carries the logo as logo-sunday-webry.png, and the magazine publishes at
+      sunday-webry.com. 少年 is ショウネン on the same store's logo-sunday.png.
     en: "Sunday Webry Shonen Sunday Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       サンデーうぇぶり spells itself sunday-webry.com in its own address.
 
@@ -38469,20 +38821,41 @@ publishers:
       The same platform's own book line.
 
   "ゲッサン少年サンデーコミックススペシャル":
+    reading: "ゲッサン ショウネン サンデー コミックス スペシャル"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031717547"
+    reading_note: >-
+      The National Diet Library files this label Gessan shonen sande komikkusu supesharu on its
+      record for a volume in it, which is a cataloguing authority stating the reading. 小学館's own
+      e-comic store carries the logo as logo-gessan.png, which states the magazine's kana name, and
+      logo-sunday.png for 少年サンデー.
     en: "Gessan Shonen Sunday Comics Special"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       ゲッサン is the magazine's own kana name, from 月刊サンデー, and スペシャル is the English word special.
 
   "夜サンデー少年サンデーコミックス":
+    reading: "ヨル サンデー ショウネン サンデー コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032186019"
+    reading_note: >-
+      The National Diet Library files this label Yoru sande shonen sande komikkusu on its record
+      for a volume in it, which is a cataloguing authority stating the reading. 小学館's own
+      e-comic store carries the label's logo as logo-yoru-sunday.png, which states 夜 as ヨル and
+      not the ヤ of an on reading. 少年サンデー is ショウネンサンデー on the same store's
+      logo-sunday.png and on the magazine's own websunday.net.
     en: "Yoru Sunday Shonen Sunday Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       夜 is read よる and names the 夜サンデー strand of the same line.
 
@@ -38496,29 +38869,54 @@ publishers:
       マンガワン is the app 小学館 spells MangaONE in its own addresses.
 
   "マンガワン女子部":
+    reading: "マンガワン ジョシブ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I09D175060000d0000000"
+    reading_note: >-
+      The National Diet Library files this label マンガワンジョシブ on its record for a volume in
+      it, which is a cataloguing authority stating the reading. 小学館's own e-comic store carries
+      the logo as logo-mangaone-joshibu.png, which states the whole of 女子部 as ジョシブ.
     en: "MangaONE Joshibu"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       女子部 is read じょしぶ. It is the name of a strand, so it is romanised and not translated.
 
   "裏サンデー女子部":
+    reading: "ウラ サンデー ジョシブ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I09D122790115d0000000"
+    reading_note: >-
+      The National Diet Library files this label ウラサンデージョシブ on its record for a volume in
+      it, which is a cataloguing authority stating the reading. 小学館's own e-comic store carries
+      the logo as logo-urasunday-joshi.png, which states 裏 as ウラ and 女子 as ジョシ. 部 in a
+      section name is ブ.
     en: "Ura Sunday Joshibu"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       裏サンデー spells itself urasunday.com in its own address, and 女子部 is read じょしぶ.
 
   "スピリッツ女子部":
+    reading: "スピリッツ ジョシブ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      スピリッツ is the English word spirits, from ビッグコミックスピリッツ, and 小学館 files its
+      sister strand's logo as logo-mangaone-joshibu.png, which states 女子部 as ジョシブ.
     en: "Spirits Joshibu"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       スピリッツ is the English word spirits, from ビッグコミックスピリッツ.
 
@@ -38552,11 +38950,18 @@ publishers:
       romanisation would not be.
 
   "BIG COMICS SPECIALヒバナ":
+    reading: "ビッグ コミックス スペシャル ヒバナ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I027580932"
+    reading_note: >-
+      The National Diet Library files the label ビッグコミックススペシャルヒバナ.
     en: "BIG COMICS SPECIAL Hibana"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       Most of the label is already Latin. ヒバナ is the magazine ヒバナ, kana throughout.
 
@@ -38598,21 +39003,35 @@ publishers:
       コロコロコミック spells itself CoroCoro in 小学館's own addresses.
 
   "まんがタイムKRコミックス":
+    reading: "マンガタイム ケーアール コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784832297562"
+    reading_note: >-
+      The National Diet Library files the label マンガタイムケーアールコミックス, which states both
+      that まんがタイム is one word and that KR is said letter by letter.
     en: "Manga Time KR Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       まんがタイム is the English word time in kana, and 芳文社 spells the magazine mangatime in its own
       address. KR is already Latin. The house prints no Latin form of this label on its own site.
 
   "まんがタイムＫＲコミックスつぼみシリーズ":
+    reading: "マンガタイム ケーアール コミックス ツボミ シリーズ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The same label as まんがタイムKRコミックス, which the National Diet Library files as
+      マンガタイムケーアールコミックス, with the つぼみ strand, whose name is already kana.
     en: "Manga Time KR Comics Tsubomi Series"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The same line with the つぼみ strand, whose name is kana and romanises directly.
 
@@ -38635,20 +39054,40 @@ publishers:
       きらら is kana, so its romanisation is the name.
 
   "芳文社コミックス":
+    reading: "ホウブンシャ コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I023881767"
+    reading_note: >-
+      The National Diet Library files this label Hobunsha komikkusu on its record for a volume in
+      it, which is a cataloguing authority stating the reading. The house publishes at
+      houbunsha.co.jp and signs its site HOUBUNSHA CO., LTD, which states the reading of the kanji.
     en: "Houbunsha Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The house signs itself HOUBUNSHA CO., LTD, and コミックス is the English word comics.
 
   "ＦＵＺコミックス":
+    reading: "ファズ コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I8322f026e00000000000"
+    reading_note: >-
+      The National Diet Library files this label ファズコミックス on its record for a volume in it,
+      which is a cataloguing authority stating the reading. FUZ is 芳文社's own Latin spelling,
+      printed COMIC FUZ at comic-fuz.com, and nothing on the magazine's pages says how the three
+      letters are spoken. They are transcribed as they are written, which is what the store does
+      with every Latin run, and the Latin rendering does not turn on the answer.
     en: "FUZ Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       FUZ is the magazine COMIC FUZ, which 芳文社 prints in Latin at comic-fuz.com. The label is
       catalogued in full-width letters.
@@ -38699,58 +39138,99 @@ publishers:
       The same line for ビッグガンガン.
 
   "ガンガンコミックスup!":
+    reading: "ガンガン コミックス アップ!"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The same line. up! is the English word up, which the National Diet Library transcribes アップ
+      where it stands alone in UPコミック.
     en: "Gangan Comics up!"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The same line; up! is already Latin.
 
   "ガンガンコミックスonline":
+    reading: "ガンガン コミックス オンライン"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The book line of ガンガンONLINE. online is the English word, which Japanese borrows as
+      オンライン.
     en: "Gangan Comics online"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The same line for ガンガンONLINE; online is already Latin.
 
   "ZERO-SUMコミックス":
+    reading: "ゼロサム コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784825100961"
+    reading_note: >-
+      The National Diet Library files the label ゼロサムコミックス, which states that 一迅社's
+      ZERO-SUM is read as the English words zero sum.
     en: "ZERO-SUM Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       ZERO-SUM is already Latin, from 一迅社's magazine コミックZERO-SUM.
 
   "4コマkingsぱれっとcomics":
+    reading: "ヨンコマ キングス パレット コミックス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      4コマ is ヨンコマ, the name of the four-panel form. kings and comics are the English words,
+      and ぱれっと is the magazine's own kana spelling of palette, which Japanese borrows as
+      パレット.
     en: "4-koma kings palette comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       kings and comics are already Latin. 4コマ is read よんコマ and names the four-panel form, and ぱれっと is
       the magazine's own kana spelling of palette.
 
   "DNAメディアコミックス":
+    reading: "ディーエヌエー メディア コミックス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      DNA is ディーエヌエー in Japanese, in this label as anywhere else.
     en: "DNA Media Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       Katakana here spells an English word, so the source word is the name and a syllable-by-syllable
       romanisation would not be.
 
   "百合姫books":
+    reading: "ユリヒメ ブックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I000009152880"
+    reading_note: >-
+      The National Diet Library files this label Yurihime books on its record for a volume in it,
+      which is a cataloguing authority stating the reading. 一迅社 prints its magazine's own title
+      as Comic Yuri Hime, which states 百合姫 as ユリヒメ. books is the English word.
     en: "Yuri Hime books"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The magazine prints its own title in Latin as Comic Yuri Hime, which is the entry コミック百合姫
       already carries; books is already Latin.
@@ -38766,39 +39246,69 @@ publishers:
       romanisation would not be.
 
   "少年チャンピオン・コミックス":
+    reading: "ショウネン チャンピオン コミックス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      少年 in a magazine name is ショウネン, as 小学館 spells it at websunday.net and 講談社 at
+      shonenmagazine.com. チャンピオン is the English word champion in kana.
     en: "Shonen Champion Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       少年 is read しょうねん and チャンピオン is the English word champion.
 
   "チャンピオンREDコミックス":
+    reading: "チャンピオン レッド コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033166337"
+    reading_note: >-
+      The National Diet Library files this label Chanpion reddo komikkusu on its record for a
+      volume in it, which is a cataloguing authority stating the reading. 秋田書店's line. RED is
+      the English word red, which Japanese borrows as レッド.
     en: "Champion RED Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       RED is already Latin.
 
   "楽園":
+    reading: "ラクエン"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      白泉社's magazine. 楽園 is ラクエン, the ordinary word for paradise, and has no second
+      reading.
     en: "Rakuen"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       白泉社's magazine, read らくえん. The site at hakusensha.co.jp/rakuen prints no Latin form of the
       title, so this romanises the reading.
 
   "楽園コミックス":
+    reading: "ラクエン コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I028436439"
+    reading_note: >-
+      The National Diet Library files this label Rakuen komikkusu on its record for a volume in it,
+      which is a cataloguing authority stating the reading. The magazine's book line, on the same
+      reading.
     en: "Rakuen Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The magazine's book line, on the same reading.
 
@@ -38813,11 +39323,21 @@ publishers:
       romanisation would not be.
 
   "バンブーコミックス BCf":
+    reading: "バンブー コミックス ビーシーエフ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784801991002"
+    reading_note: >-
+      The National Diet Library files this label バンブーコミックスビーシーエフ on its record for a
+      volume in it, which is a cataloguing authority stating the reading. バンブー is the English
+      word bamboo in kana. BCf is 竹書房's own suffix and nothing states how it is spoken, so it is
+      transcribed as written.
     en: "Bamboo Comics BCf"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The same line; BCf is already Latin.
 
@@ -38924,11 +39444,21 @@ publishers:
       The book line of マッグガーデン's コミックブレイド.
 
   "マッグガーデンコミックスBeat'sシリーズ":
+    reading: "マッグガーデン コミックス ビーツ シリーズ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I9784800018113"
+    reading_note: >-
+      The National Diet Library files this label マッグガーデンコミックスビーツシリーズ on its
+      record for a volume in it, which is a cataloguing authority stating the reading. The house
+      signs itself MAG Garden on its own logo at mag-garden.co.jp and writes the Japanese
+      マッグガーデン beside it. Beat's is the English word beats.
     en: "Mag Garden Comics Beat's Series"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The house signs itself MAG Garden corp, and Beat's is already Latin.
 
@@ -38971,11 +39501,19 @@ publishers:
       The magazine the シャイニーコミックス line belongs to.
 
   "YKコミックス":
+    reading: "ワイケー コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034710406"
+    reading_note: >-
+      The National Diet Library files the label ワイケーコミックス, so 少年画報社's YK is said
+      letter by letter and not as ヤングキング, the words it abbreviates.
     en: "YK Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       少年画報社's ヤングキング line; YK is already Latin.
 
@@ -38990,38 +39528,68 @@ publishers:
       romanisation would not be.
 
   "TSコミックス":
+    reading: "ティーエス コミックス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      少年画報社's line. The letters spell no word, and the same house's YKコミックス is filed
+      ワイケーコミックス by the National Diet Library.
     en: "TS Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       少年画報社's line; TS is already Latin.
 
   "熱帯COMICS":
+    reading: "ネッタイ コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034087733"
+    reading_note: >-
+      The National Diet Library files this label Nettai komikkusu on its record for a volume in it,
+      which is a cataloguing authority stating the reading. 光文社 links its own magazine COMIC熱帯
+      at comicnettai.com from the footer of its site, which states 熱帯 as ネッタイ.
     en: "Nettai COMICS"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       光文社's line. COMICS is already Latin and 熱帯 is read ねったい.
 
   "Kobunsha BLコミックシリーズ":
+    reading: "コウブンシャ ビーエル コミック シリーズ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I33400000000000012576"
+    reading_note: >-
+      The National Diet Library files the label コウブンシャビーエルコミックシリーズ.
     en: "Kobunsha BL Comic Series"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       Kobunsha and BL are already Latin; the rest is English in katakana.
 
   "Kobunshaアンソロジー":
+    reading: "コウブンシャ アンソロジー"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I027965994"
+    reading_note: >-
+      The National Diet Library files the label コウブンシャアンソロジー, which states the reading
+      of 光文社 that the Latin half of the label stands for.
     en: "Kobunsha Anthology"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       Kobunsha is already Latin and アンソロジー is the English word anthology.
 
@@ -39056,29 +39624,50 @@ publishers:
       own spelling of it.
 
   "Nemuki+コミックス":
+    reading: "ネムキ プラス コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033305898"
+    reading_note: >-
+      The National Diet Library files the label ネムキプラスコミックス, which states that the plus
+      sign in the magazine's name is spoken.
     en: "Nemuki+ Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       Nemuki+ is already Latin.
 
   "HJコミックス":
+    reading: "エイチジェイ コミックス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      ホビージャパン's line, and the company signs itself HobbyJAPAN Co., Ltd. The letters spell no
+      word, so they are said one by one, which is how the National Diet Library files the same
+      shape in HCヒーローズコミックス.
     en: "HJ Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       ホビージャパン's line; HJ is already Latin.
 
   "Hugピクシブシリーズ":
+    reading: "ハグ ピクシブ シリーズ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      Hug is the English word hug, which Japanese borrows as ハグ, and ピクシブ is pixiv's own kana
+      spelling of itself.
     en: "Hug Pixiv Series"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       Hug is already Latin and pixiv writes its own name in Latin.
 
@@ -39093,29 +39682,51 @@ publishers:
       syllable-by-syllable romanisation would not be.
 
   "星海社COMICS":
+    reading: "セイカイシャ コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I031416788"
+    reading_note: >-
+      The National Diet Library files this label Seikaisha komikkusu on its record for a volume in
+      it, which is a cataloguing authority stating the reading. The house titles its own front page
+      星海社 | Seikaisha, which settles 海 as カイ and not the うみ a character-by-character
+      reading offers. COMICS is the English word comics.
     en: "Seikaisha COMICS"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The house titles its own front page 星海社 | Seikaisha, and COMICS is already Latin.
 
   "ＧＡコミック":
+    reading: "ジーエー コミック"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      SBクリエイティブ's GA line, whose sister imprint GA文庫 is read ジーエーぶんこ, so the two
+      letters are said one by one.
     en: "GA Comic"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       SBクリエイティブ's line, catalogued in full-width letters; GA is already Latin.
 
   "ぶんか社コミックス ホラーMシリーズ":
+    reading: "ブンカシャ コミックス ホラー エム シリーズ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The house signs itself BUNKASHA, so ぶんか社 is ブンカシャ. ホラー is the English word horror
+      in kana and the single letter M is エム.
     en: "Bunkasha Comics Horror M Series"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The house signs itself BUNKASHA; ホラー is the English word horror and M is already Latin.
 
@@ -39130,11 +39741,20 @@ publishers:
       by-syllable romanisation would not be.
 
   "百合コミックス":
+    reading: "ユリ コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I025383753"
+    reading_note: >-
+      The National Diet Library files this label Yuri komikkusu on its record for a volume in it,
+      which is a cataloguing authority stating the reading. 宙出版's line. 百合 is ユリ, the
+      reading the flower carries and the one the store already settled for 百合コレ.
     en: "Yuri Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       宙出版's line. 百合 is read ゆり, the reading the genre carries throughout this site.
 
@@ -39167,30 +39787,53 @@ publishers:
       listing.
 
   "HCヒーローズコミックス":
+    reading: "エイチシー ヒーローズ コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034584946"
+    reading_note: >-
+      The National Diet Library files the label エイチシーヒーローズコミックス.
     en: "HC HERO'S Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The same line; HC is already Latin.
 
   "東京ネームタンク":
+    reading: "トウキョウ ネームタンク"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I029507089"
+    reading_note: >-
+      The National Diet Library files this label Tokyo nemu tanku on its record for a volume in it,
+      which is a cataloguing authority stating the reading. 東京 is トウキョウ and the workshop
+      publishes at nametank.jp, which spells the katakana half of its own name.
     en: "Tokyo Name Tank"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       東京 is read とうきょう and ネームタンク is the English words name tank; the workshop publishes at
       nametank.jp.
 
   "Jコミックテラス×ナンバーナイン":
+    reading: "ジェイ コミック テラス ナンバーナイン"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      Jコミックテラス is the operator of マンガ図書館Z, whose J is the single letter ジェイ, and
+      ナンバーナイン is already kana. The multiplication sign joins two companies on one catalogue
+      line and is not part of either name, so it is not spoken.
     en: "J Comic Terrace x No9"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       Jコミックテラス is the operator of マンガ図書館Z, and ナンバーナイン signs itself No9 on its own site, which the
       entry for it already records.
@@ -39214,20 +39857,32 @@ publishers:
       Bushiroad is the group's own Latin spelling on bushiroad.com.
 
   "月刊ブシロード":
+    reading: "ゲッカン ブシロード"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      月刊 is ゲッカン and means monthly; ブシロード is the group's own kana name.
     en: "Monthly Bushiroad"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       月刊 is read げっかん and means monthly; Bushiroad is the group's own spelling.
 
   "コミックノベル「yomuco」":
+    reading: "コミック ノベル yomuco"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      コミックノベル is the English words comic novel in kana. yomuco is the label's own Latin
+      coinage and nothing states how it is spoken, so it is transcribed as written. The brackets
+      are cataloguing around the name and are not spoken.
     en: "Comic Novel yomuco"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       yomuco is already Latin, and コミックノベル is the English words comic novel.
 
@@ -39242,11 +39897,16 @@ publishers:
       romanisation would not be.
 
   "コミックcoral":
+    reading: "コミック コーラル"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      coral is the English word, which Japanese borrows as コーラル.
     en: "Comic coral"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       coral is already Latin.
 
@@ -39280,11 +39940,17 @@ publishers:
       みんな is kana, read みんな, and コミック is the English word comic.
 
   "マンガBANGコミックス":
+    reading: "マンガ BANG コミックス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The book line of Amazia's app マンガBANG!. BANG is the app's own Latin spelling and nothing
+      states how it is spoken, so it is transcribed as written.
     en: "Manga BANG Comics"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The book line of Amazia's app マンガBANG!, whose BANG is already Latin.
 
@@ -39298,21 +39964,38 @@ publishers:
       道玄坂書房's line. リーリエ is the German Lilie, the lily, which is the flower the genre is named for.
 
   "路草COMICS":
-    en: "Rosou COMICS"
+    reading: "ミチクサ コミックス"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032201637"
+    reading_note: >-
+      The National Diet Library files this label Michikusa komikkusu on its record for a volume in
+      it, which is a cataloguing authority stating the reading. TWO VIRGINS publishes the magazine
+      路草 at michikusacomics.jp, so the house reads the name ミチクサ. ロソウ, the on reading this
+      entry carried before, is refuted by the magazine's own address.
+    en: "Michikusa COMICS"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
-      トゥーヴァージンズ's web magazine. COMICS is already Latin and 路草 is read ろそう; the magazine's own site
-      did not resolve for us.
+      トゥーヴァージンズ's web magazine, which publishes at michikusacomics.jp. COMICS is already
+      Latin and the magazine's own address reads 路草 as みちくさ. The ろそう this entry carried
+      before was the on reading of the two characters and nothing had stated it; the first round
+      recorded that the magazine's site did not resolve, and the address is what resolves it.
 
   "COMICアンブル":
+    reading: "コミック アンブル"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      ライブコミックス's magazine. COMIC is the English word comics and アンブル is already kana.
     en: "COMIC Ambre"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       ライブコミックス's magazine. COMIC is already Latin and アンブル is the French ambre as Japanese borrows it.
 
@@ -39326,20 +40009,34 @@ publishers:
       なにとぞ is kana, so its romanisation is the name.
 
   "UPコミック":
+    reading: "アップ コミック"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000137-I91050200C00000000253"
+    reading_note: >-
+      The National Diet Library files the label アップコミック. UP is the English word up here and
+      not two letters, which is the reading a letter-by-letter rule would have produced.
     en: "UP Comic"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       UP is already Latin.
 
   "コミックMELO":
+    reading: "コミック MELO"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      MELO is the magazine's own Latin spelling and nothing states how it is spoken, so it is
+      transcribed as written.
     en: "Comic MELO"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       MELO is already Latin.
 
@@ -39354,11 +40051,17 @@ publishers:
       romanisation would not be.
 
   "BFPコミック":
+    reading: "BFP コミック"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      BFP is Big Fields Publishing, which the corpus carries as the publisher in Latin, and nothing
+      states how the initials are spoken, so they are transcribed as written.
     en: "BFP Comic"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       BFP is Big Fields Publishing, which the corpus carries as the publisher in Latin.
 
@@ -39373,11 +40076,17 @@ publishers:
       romanisation would not be.
 
   "ハイカラ数寄屋":
+    reading: "ハイカラ スキヤ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      ハイカラ is the Japanese word from high collar and 数寄屋 is スキヤ, the tea house style,
+      which is the reading it carries in 数寄屋橋 and 数寄屋造り alike.
     en: "Haikara Sukiya"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       ハイカラ is the Japanese word from high collar and 数寄屋 is the tea house style, read すきや.
 
@@ -39391,29 +40100,61 @@ publishers:
       A katakana coinage, romanised as it is said.
 
   "らいおん小屋":
-    en: "Lion Koya"
+    reading: "ライオン ゴヤ"
+    reading_basis: stated
+    reading_source_kind: author
+    reading_source: "liongoyaithinoli.wixsite.com"
+    reading_url: "https://liongoyaithinoli.wixsite.com/website"
+    reading_note: >-
+      一ノらい's circle publishes at liongoyaithinoli.wixsite.com/website under the heading
+      らいおん小屋, so the circle spells its own name liongoya. That settles the one thing a reader
+      cannot work out: 小屋 voices to ゴヤ here, as it does in 犬小屋 and 山小屋, rather than
+      staying コヤ as it does standing alone. The English name carried Koya before this and was
+      wrong.
+    en: "Lion Goya"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
-      らいおん is the English word lion in kana, and 小屋 is read こや.
+      一ノらい's circle, which publishes at liongoyaithinoli.wixsite.com/website under the heading
+      らいおん小屋. らいおん is the English word lion in kana, and the circle's own address says
+      小屋 voices to ごや here. The こや this entry carried before is the reading of the word
+      standing alone.
 
   "ギロチン銀座":
+    reading: "ギロチン ギンザ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I033149976"
+    reading_note: >-
+      The National Diet Library files this label Girochin ginza on its record for a volume in it,
+      which is a cataloguing authority stating the reading. ギロチン is the guillotine in kana and
+      銀座 is the Tokyo district, ギンザ.
     en: "Guillotine Ginza"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       ギロチン is the guillotine and 銀座 is the Tokyo district, read ぎんざ.
 
   "やまこ屋":
+    reading: "ヤマコ ヤ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I034819225"
+    reading_note: >-
+      The National Diet Library files this label Yamakoya on its record for a volume in it, which
+      is a cataloguing authority stating the reading. やまこ is already kana and 屋 in a shop name
+      is ヤ.
     en: "Yamakoya"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       やまこ is kana and 屋 in a shop name is read や.
 
@@ -39427,20 +40168,32 @@ publishers:
       A coinage on the English zipper, which is what the katakana ジッパ carries.
 
   "スイートピー&COCOA BREAK":
+    reading: "スイートピー & ココア ブレイク"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      スイートピー is the flower sweet pea in kana and COCOA BREAK is the English words, which
+      Japanese borrows as ココアブレイク. The ampersand is written and not spelled out.
     en: "Sweet Pea & COCOA BREAK"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       COCOA BREAK is already Latin and スイートピー is the English flower name sweet pea.
 
   "無責任会社サタデー":
+    reading: "ムセキニン ガイシャ サタデー"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      無責任 is ムセキニン. 会社 takes the voiced ガイシャ after a modifier, as it does in 株式会社
+      and 有限会社, and サタデー is the English word Saturday in kana.
     en: "Musekinin Gaisha Saturday"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       無責任会社 is read むせきにんがいしゃ and サタデー is the English word Saturday.
 
@@ -39463,20 +40216,31 @@ publishers:
       A katakana coinage, romanised as it is said.
 
   "あーねすとROOM":
+    reading: "アーネスト ルーム"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      あーねすと is the English earnest in kana and ROOM is the English word, which Japanese
+      borrows as ルーム.
     en: "Earnest ROOM"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       ROOM is already Latin and あーねすと is the English earnest in kana.
 
   "ブラクラ堂":
+    reading: "ブラクラ ドウ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      ブラクラ is a coinage already in kana and 堂 in a shop name is ドウ.
     en: "Burakura-do"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       ブラクラ is a coinage and 堂 in a shop name is read どう.
 
@@ -39499,20 +40263,34 @@ publishers:
       Kana throughout; the full stop is part of the name.
 
   "星屑ドルチェ":
+    reading: "ホシクズ ドルチェ"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032945563"
+    reading_note: >-
+      The National Diet Library files this label Hoshikuzu doruche on its record for a volume in
+      it, which is a cataloguing authority stating the reading. 星屑 is ホシクズ, the ordinary word
+      for stardust, and ドルチェ is the Italian dolce as Japanese borrows it.
     en: "Hoshikuzu Dolce"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       星屑 is read ほしくず and ドルチェ is the Italian dolce as Japanese borrows it.
 
   "とりからの巣":
+    reading: "トリカラ ノ ス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      とりから is already kana and 巣 standing alone after の is ス.
     en: "Torikara no Su"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       とりから is kana and 巣 is read す.
 
@@ -39544,29 +40322,47 @@ publishers:
       Kana throughout.
 
   "宇宙りんご":
+    reading: "ウチュウ リンゴ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      宇宙 is ウチュウ and りんご is already kana. ソラ is a gloss 宇宙 takes in song and story
+      titles, and it is a gloss the writer marks with furigana; nothing this circle publishes marks
+      one, so the ordinary reading stands.
     en: "Uchu Ringo"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       宇宙 is read うちゅう and りんご is kana.
 
   "いんどの宮殿！":
+    reading: "インド ノ キュウデン！"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      いんど is India in kana and 宮殿 is キュウデン, the ordinary word for a palace. The mark is
+      part of the name as catalogued.
     en: "Indo no Kyuden!"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       いんど is kana for India and 宮殿 is read きゅうでん; the mark is part of the name.
 
   "ぴのこ堂出版":
+    reading: "ピノコ ドウ シュッパン"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      ぴのこ is already kana, 堂 in a shop name is ドウ, and 出版 is シュッパン.
     en: "Pinoko-do Shuppan"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       ぴのこ is kana, 堂 in a shop name is read どう, and 出版 is read しゅっぱん.
 
@@ -39607,11 +40403,17 @@ publishers:
       Kana for the English words medical company.
 
   "サイコパシー幾何学":
+    reading: "サイコパシー キカガク"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      サイコパシー is the English word psychopathy in kana and 幾何学 is キカガク, the name of the
+      subject, with no second reading.
     en: "Psychopathy Kikagaku"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       サイコパシー is the English word psychopathy and 幾何学 is read きかがく.
 
@@ -39625,11 +40427,16 @@ publishers:
       Kana throughout.
 
   "ごきげん工房":
+    reading: "ゴキゲン コウボウ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      ごきげん is already kana and 工房 is コウボウ, the ordinary word for a workshop.
     en: "Gokigen Kobo"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       ごきげん is kana and 工房 is read こうぼう.
 
@@ -39662,11 +40469,17 @@ publishers:
       romanisation would not be.
 
   "NOAH編集部":
+    reading: "ノア ヘンシュウブ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      NOAH is the English name Noah, which Japanese borrows as ノア, and 編集部 is ヘンシュウブ
+      throughout publishing.
     en: "NOAH Henshubu"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       NOAH is already Latin and 編集部 is read へんしゅうぶ.
 
@@ -39689,11 +40502,16 @@ publishers:
       Kana throughout.
 
   "れれBOX":
+    reading: "レレ ボックス"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      れれ is already kana and BOX is the English word, which Japanese borrows as ボックス.
     en: "Rere BOX"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       BOX is already Latin and れれ is kana.
 
@@ -39716,20 +40534,31 @@ publishers:
       Kana throughout.
 
   "ネジ式１３番地":
+    reading: "ネジシキ ジュウサン バンチ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      ネジ式 is ネジシキ and 番地 is バンチ. A house number is said as a whole number, so 13 is
+      ジュウサン and not the digit-by-digit イチサン.
     en: "Nejishiki 13-banchi"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       ネジ式 is read ねじしき and 番地 is read ばんち; the digits are catalogued full-width.
 
   "金曜日の魔女":
+    reading: "キンヨウビ ノ マジョ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      金曜日 is キンヨウビ and 魔女 is マジョ. Both are everyday words with one reading each.
     en: "Kinyobi no Majo"
     basis: romaji
     source: "read off the name itself"
     source_kind: derived
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       金曜日 is read きんようび and 魔女 is read まじょ; both are everyday words with one reading each.
 
@@ -39843,3 +40672,23 @@ publishers:
     reading_note: >-
       百合 read ユリ is the ordinary reading and the word this database is named for; コレ is kana
       and reads itself. Nothing about the pronunciation is open, only the spelling.
+
+  "わんこ院":
+    reading: "ワンコイン"
+    reading_basis: stated
+    reading_source_kind: national-library
+    reading_source: "ndlsearch.ndl.go.jp"
+    reading_url: "https://ndlsearch.ndl.go.jp/books/R100000002-I032942046"
+    reading_note: >-
+      The National Diet Library files this publisher Wankoin on its record for a volume it issued.
+      GAPS §24 left the name unread because 院 after a kana word could be イン or ヰン and nothing
+      stated which; a catalogue that holds the book states it.
+    en: "Wankoin"
+    basis: romaji
+    source: "read off the name itself"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    note: >-
+      A one-person circle. GAPS §24 left this among the kanji names nobody had read aloud in
+      print, and the romanisation stood on an analyser's segmentation until the National Diet
+      Library was asked; it holds a volume the circle issued and files the publisher Wankoin.

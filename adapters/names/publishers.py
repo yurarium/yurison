@@ -294,6 +294,34 @@ def unnamed(rendered, names):
     return sorted((tuple(v) for v in agg.values()), reverse=True)
 
 
+def unsettled_readings(shipped):
+    """Shipped publisher keys whose Latin form is ours and whose READING nothing has settled.
+
+    A COVERAGE DEFICIT. `publishers with no English` reached zero by romanising,
+    which moved the outstanding work rather than finishing it: a romanisation is spelt out of a
+    reading, so 134 of the 254 romanised keys were published on a reading no source states and
+    carried the mark that says so. Nothing counted them, and a number nobody keeps is a number that
+    can rise without anyone noticing, which is exactly what the first budget's fall concealed.
+
+    It falls only as readings get sourced. Suppressing the mark would empty it too, which is why
+    this reads the SHIPPED map and asks for the mark rather than asking the store how it feels
+    about a record: what a reader is shown is the subject, and a rendering change that hid the mark
+    would show here as a fall nobody earned.
+
+    Keys and not names, because that is the file's own shape and the one a rise is measured
+    against. A label catalogued two ways answers under both, so 講談社コミックス. 週刊少年マガジン
+    and 週刊少年マガジン are two keys and one decision; settling the name clears both.
+
+    §14b, WHAT IT SHARES: nothing but the file. `unverified` is computed in build.py out of
+    `verified` and `reading_basis`, and this reads neither. What it therefore cannot see is a
+    reading that is sourced to a page saying something else, which no count can see and only a
+    reader following the citation will.
+    """
+    return sorted(k for k, v in (shipped or {}).items()
+                  if (v or {}).get("basis") == "romaji"
+                  and ((v or {}).get("unverified") or (v or {}).get("uncertain")))
+
+
 def load_store(path="data/names/publishers.yaml"):
     p = pathlib.Path(path)
     if not p.exists():

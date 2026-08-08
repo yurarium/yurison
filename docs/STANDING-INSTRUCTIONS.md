@@ -402,6 +402,18 @@ reason I think there is not a fact about the world or a fact about the first rou
 that catalogues books says nothing about an artist who has not published one; a shop that sells
 files says nothing about a work that was never sold. Neither silence is evidence of absence.
 
+**ASK THEM AGAIN AFTER THE SECOND ROUTE, AND THE THIRD.** Two attempts is not exhaustion, and the
+second answer is the one most likely to be mistaken for the last: the first refusal is obviously
+partial and invites a search, while the second arrives already dressed as a conclusion. Enumerate
+what could hold this fact before deciding nothing does. For a person's name that is the national
+library, the publisher, the platform the work runs on, the shop that sells it, an anthology's
+colophon, a contest result, the artist's own site or account, and a work of theirs we hold under a
+different spelling. Most of those cost one request against a cache that is already paid for.
+
+**Stop when the list is empty, and say what was on it.** A residue recorded as "nothing reaches
+this" is a claim, and a reader cannot tell it from "I stopped after two". Writing down which routes
+were tried turns the first into a finding and makes the second impossible to publish by accident.
+
 **What this does not license.** A route the host asked us not to take stays closed, and no amount of
 wanting the data changes that (§REQUIREMENTS). Nor does it license inventing an answer where no
 source holds one: an unreachable fact recorded as unreachable, with what was tried, is a finished

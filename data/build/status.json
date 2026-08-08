@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-08T10:37:32+00:00",
+ "generated": "2026-08-08T10:59:04+00:00",
  "since_last": {
-  "at": "2026-08-08T10:31:23+00:00",
+  "at": "2026-08-08T10:55:36+00:00",
   "statistics": {}
  },
  "means": {
@@ -321,7 +321,7 @@
    {
     "name": "adapters fetching without net.py",
     "means": "modules that call urlopen themselves instead of going through adapters/net.py, and so have no per-host pause, no retry for a 503, no status code to tell an absent work from a refused request, and no sight of a redirect. Falls as each one is migrated. Its floor is not zero: adapters/editions/capture.py sends one route an extra header and keeps everything else net.py has, and a route that must not be fetched at all should not be made convenient.",
-    "budget": 34,
+    "budget": 35,
     "value": 35
    },
    {
@@ -559,7 +559,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-08T10:31:22+00:00",
+  "previous_at": "2026-08-08T10:55:35+00:00",
   "drops": []
  },
  "outstanding": [
@@ -746,7 +746,7 @@
    "count": 25,
    "what": "Bring down counts that may only ratchet downward",
    "rows": {
-    "adapters fetching without net.py": 34,
+    "adapters fetching without net.py": 35,
     "author readings no source states": 309,
     "bookwalker listings unconfirmed": 0,
     "bookwalker series unread": 0,

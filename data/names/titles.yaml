@@ -5008,53 +5008,35 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: 【カンケツ】 フユキ センパイ ト ナツイ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: 【カンケツ】 フユキ センパイ ト ナツイ
+    reading_note: 冬木 is フユキ and 夏井 is ナツイ, both ordinary surnames, and the winter and summer pairing is
+      deliberate. 【完結】 is a shelf marker stating the serialisation ended.
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   【百合】奴隷扱いの娘が足を舐めて幸せになる(かもしれない)話:
     basis: romaji
-    furigana_spans:
-    - - 【
-      - null
-    - - 百合
-      - ゆり
-    - - 】
-      - null
-    - - 奴隷
-      - どれい
-    - - 扱
-      - あつか
-    - - いの
-      - null
-    - - 娘
-      - むすめ
-    - - が
-      - null
-    - - 足
-      - あし
-    - - を
-      - null
-    - - 舐
-      - な
-    - - めて
-      - null
-    - - 幸
-      - しあわ
-    - - せになる(かもしれない)
-      - null
-    - - 話
-      - はなし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 【ユリ】 ドレイ アツカイ ノ ムスメ ガ アシ ヲ ナメテ シアワセニ ナル ( カ モ シレナイ ) ハナシ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading: 【ユリ】 ドレイ アツカイ ノ ムスメ ガ アシ ヲ ナメテ シアワセ ニ ナル （カ モ シレナイ） ハナシ
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: 【ユリ】 ドレイ アツカイ ノ ムスメ ガ アシ ヲ ナメテ シアワセニ ナル ( カ モ シレナイ ) ハナシ
+    reading_note: 幸せになる was split as シアワセニ ナル, which is not how になる divides. 娘 is kept as ムスメ, the unmarked
+      reading; コ is possible and nothing here states it.
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   【한국어 ver.】부끄럼쟁이레이무씨-はずかしがりやの霊夢さん:
     basis: translated
@@ -40462,8 +40444,8 @@ names:
   其れの手も借りるほど:
     basis: romaji
     en: Sore no Te mo Kariru Hodo
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -40483,11 +40465,17 @@ names:
       plot device: the synopsis has an actual hand at stake. No English proverb bends the same way, so
       kept romaji like the other titles in this set that share the trick.'
     reading: ソレ ノ テ モ カリル ホド
-    reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ソレ ノ テ モ カリル ホド
+    reading_note: 其れ is それ. From 猫の手も借りたい, so the joke needs それ and nothing else fits.
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   内緒の初恋ハニーディズ:
     basis: translated
@@ -40625,19 +40613,16 @@ names:
     verified: false
   冬馬くん:
     basis: romaji
-    furigana_spans:
-    - - 冬馬
-      - とうま
-    - - くん
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トウマクン
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading: トウマ クン
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_note: 冬馬 as a given name is トウマ. The reading was right and くん was run into it, and an honorific
+      is not part of the name it follows.
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   冬馬くん【単話版】:
     basis: translated
@@ -61340,8 +61325,8 @@ names:
   犬も歩けば姫に当たる:
     basis: romaji
     en: Inu mo Arukeba Hime ni Ataru
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -61367,11 +61352,17 @@ names:
       笑う門だよ福音さん double theirs on a name sharing a word with the proverb. No English proverb bends the
       same way.
     reading: イヌ モ アルケバ ヒメ ニ アタル
-    reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: イヌ モ アルケバ ヒメ ニ アタル
+    reading_note: 犬も歩けば棒に当たる with 棒 replaced by 姫. The proverb fixes every reading in it.
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   犬神さんと猫山さん:
     basis: translated
@@ -68596,33 +68587,27 @@ names:
   笑う門だよ福音さん:
     basis: romaji
     en: Warau Kadoda yo Fukuinsan
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 笑
-      - わら
-    - - う
-      - null
-    - - 門
-      - もん
-    - - だよ
-      - null
-    - - 福音
-      - ふくいん
-    - - さん
-      - null
     note: 'Breaks the proverb 笑う門には福来る, fortune comes to the laughing household, the same way 蓼食う君も好き好き
       breaks its own proverb: 福来る, fortune comes, becomes 福音さん, Ms. Fukuin, a name that happens to share
       the kanji 福 with the proverb''s own punchline. No English proverb shares that shape to swap a name
       into.'
-    reading: ワラウ モンダ ヨ フクインサン
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading: ワラウ カド ダ ヨ フクイン サン
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ワラウ モンダ ヨ フクインサン
+    reading_note: 笑う門には福来る, where 門 is かど. The analyser read もん and glued だ to it as モンダ, so the proverb
+      the title is playing on disappeared. 福音 is the character's name and reads フクイン, which is also the
+      福 of 福来る.
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   笑っちゃうほど恋してる:
     basis: translated
@@ -71222,29 +71207,22 @@ names:
   花子さんと花子ちゃん:
     basis: romaji
     en: Hanako-san and Hanako-chan
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 花子
-      - はなこ
-    - - さんと
-      - null
-    - - 花子
-      - はなこ
-    - - ちゃん
-      - null
     note: 花子 is a common given name and also the name of Japan's best-known school ghost, トイレの花子さん, Hanako
       of the toilet; the title's whole joke is two characters sharing that name, told apart only by which
       honorific follows it, which only survives if the honorifics stay. No synopsis beyond the bare title
       to confirm the ghost-story reading, so the note flags it as likely rather than settled.
-    reading: ハナコサン ト ハナコチャン
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading: ハナコ サン ト ハナコ チャン
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_note: Two Hanakos, one addressed as さん and one as ちゃん, which is the whole title. Both honorifics
+      were run into the name.
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   花粉症からはじまる百合:
     basis: translated

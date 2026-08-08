@@ -9,6 +9,103 @@
 # than only with the result.
 
 titles:
+  笑う門だよ福音さん:
+    en: Warau Kadoda yo Fukuinsan
+    basis: romaji
+    note: >-
+      Breaks the proverb 笑う門には福来る, fortune comes to the laughing household, the same way
+      蓼食う君も好き好き breaks its own proverb: 福来る, fortune comes, becomes 福音さん, Ms. Fukuin, a
+      name that happens to share the kanji 福 with the proverb's own punchline. No English proverb
+      shares that shape to swap a name into.
+    reading: "ワラウ カド ダ ヨ フクイン サン"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      笑う門には福来る, where 門 is かど. The analyser read もん and glued だ to it as モンダ, so the proverb the title is playing on disappeared. 福音 is the character's name and reads フクイン, which is also the 福 of 福来る.
+
+  冬馬くん:
+    reading: "トウマ クン"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      冬馬 as a given name is トウマ. The reading was right and くん was run into it, and an honorific is not part of the name it follows.
+
+  花子さんと花子ちゃん:
+    en: Hanako-san and Hanako-chan
+    basis: romaji
+    note: >-
+      花子 is a common given name and also the name of Japan's best-known school ghost, トイレの花子さん,
+      Hanako of the toilet; the title's whole joke is two characters sharing that name, told apart
+      only by which honorific follows it, which only survives if the honorifics stay. No synopsis
+      beyond the bare title to confirm the ghost-story reading, so the note flags it as likely rather
+      than settled.
+    reading: "ハナコ サン ト ハナコ チャン"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      Two Hanakos, one addressed as さん and one as ちゃん, which is the whole title. Both honorifics were run into the name.
+
+  【完結】冬木先輩と夏井:
+    reading: "【カンケツ】 フユキ センパイ ト ナツイ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      冬木 is フユキ and 夏井 is ナツイ, both ordinary surnames, and the winter and summer pairing is deliberate. 【完結】 is a shelf marker stating the serialisation ended.
+
+  其れの手も借りるほど:
+    en: Sore no Te mo Kariru Hodo
+    basis: romaji
+    note: >-
+      Bends 猫の手も借りたい, wanting even a cat's help because there's no help to spare, into a literal plot device: the synopsis has an actual hand at stake. No English proverb bends the same way, so kept romaji like the other titles in this set that share the trick.
+    reading: "ソレ ノ テ モ カリル ホド"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      其れ is それ. From 猫の手も借りたい, so the joke needs それ and nothing else fits.
+
+  犬も歩けば姫に当たる:
+    en: Inu mo Arukeba Hime ni Ataru
+    basis: romaji
+    note: >-
+      Breaks 犬も歩けば棒に当たる, "even a dog that walks will be hit by a stick", the proverb for
+      going out and courting fortune, by swapping 棒, stick, for 姫, princess, referring to the
+      No.1 hostess the narrator meets; the narrator's own nickname is 忠犬, loyal dog, which doubles
+      the pun the way 蓼食う君も好き好き and 笑う門だよ福音さん double theirs on a name sharing a
+      word with the proverb. No English proverb bends the same way.
+    reading: "イヌ モ アルケバ ヒメ ニ アタル"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      犬も歩けば棒に当たる with 棒 replaced by 姫. The proverb fixes every reading in it.
+
+  【百合】奴隷扱いの娘が足を舐めて幸せになる(かもしれない)話:
+    reading: "【ユリ】 ドレイ アツカイ ノ ムスメ ガ アシ ヲ ナメテ シアワセ ニ ナル （カ モ シレナイ） ハナシ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      幸せになる was split as シアワセニ ナル, which is not how になる divides. 娘 is kept as ムスメ, the unmarked reading; コ is possible and nothing here states it.
+
   "ギャルメイドと悪役令嬢 : おじょーさまのハッピーエンドしか勝たん!":
     en: "The Gyaru Maid and the Villainess: Nothing Beats My Lady's Happy Ending!"
     basis: translated
@@ -2586,18 +2683,6 @@ titles:
     note: >-
       The work's own Latin title, set on its series art. art only:
 
-  花子さんと花子ちゃん:
-    en: Hanako-san and Hanako-chan
-    basis: romaji
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      花子 is a common given name and also the name of Japan's best-known school ghost, トイレの花子さん,
-      Hanako of the toilet; the title's whole joke is two characters sharing that name, told apart
-      only by which honorific follows it, which only survives if the honorifics stay. No synopsis
-      beyond the bare title to confirm the ghost-story reading, so the note flags it as likely rather
-      than settled.
 
   花の色に染まるな:
     en: Don't Be Dyed by the Flower's Colour
@@ -2939,17 +3024,6 @@ titles:
       resurrections", so 第十二号 counts one attempt within a much longer sequence rather than naming
       a twelfth version of anything.
 
-  笑う門だよ福音さん:
-    en: Warau Kadoda yo Fukuinsan
-    basis: romaji
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      Breaks the proverb 笑う門には福来る, fortune comes to the laughing household, the same way
-      蓼食う君も好き好き breaks its own proverb: 福来る, fortune comes, becomes 福音さん, Ms. Fukuin, a
-      name that happens to share the kanji 福 with the proverb's own punchline. No English proverb
-      shares that shape to swap a name into.
 
   竜人ボディガードとお嬢様:
     en: The Dragonkin Bodyguard and the Young Lady
@@ -3638,18 +3712,6 @@ titles:
       member, so the word is both the sport's own vocabulary and the romantic pursuit, a pairing
       English "target" keeps intact.
 
-  犬も歩けば姫に当たる:
-    en: Inu mo Arukeba Hime ni Ataru
-    basis: romaji
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      Breaks 犬も歩けば棒に当たる, "even a dog that walks will be hit by a stick", the proverb for
-      going out and courting fortune, by swapping 棒, stick, for 姫, princess, referring to the
-      No.1 hostess the narrator meets; the narrator's own nickname is 忠犬, loyal dog, which doubles
-      the pun the way 蓼食う君も好き好き and 笑う門だよ福音さん double theirs on a name sharing a
-      word with the proverb. No English proverb bends the same way.
 
   # --- 2026-08-04 batch eight: continuing the queue -------------------------------------------
 
@@ -5975,14 +6037,6 @@ titles:
     source_kind: derived
     reviewed: '2026-08-04'
 
-  其れの手も借りるほど:
-    en: Sore no Te mo Kariru Hodo
-    basis: romaji
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      Bends 猫の手も借りたい, wanting even a cat's help because there's no help to spare, into a literal plot device: the synopsis has an actual hand at stake. No English proverb bends the same way, so kept romaji like the other titles in this set that share the trick.
 
   共依存魔法少女:
     en: Codependent Magical Girl

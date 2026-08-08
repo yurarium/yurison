@@ -17,6 +17,11 @@ sys.path.insert(0, "adapters")
 from crossplatform import carriage, episode_key, merge_releases  # noqa: E402
 
 import yaml
+# Imported for its effect and not for a name: it points yaml.safe_load at libyaml, once, for every
+# read below and for every read any adapter this file imports will do. Without it this build spends
+# about 40 seconds per pass over data/ in the pure-Python parser. Do not "tidy" the unused import
+# away; adapters/yamlfast.py says what it does and what was proved before it was turned on.
+import yamlfast  # noqa: F401,E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402

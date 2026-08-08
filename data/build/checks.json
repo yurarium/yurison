@@ -98,8 +98,14 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 0,
-   "examples": []
+   "violations": 6,
+   "examples": [
+    "index.json",
+    "run.json",
+    "status.json",
+    "series.json",
+    "works.json"
+   ]
   },
   {
    "name": "no refutation of print serials",
@@ -165,6 +171,16 @@
    "name": "the interface folds a name key as the build does",
    "violations": 0,
    "examples": []
+  },
+  {
+   "name": "names reach a page only through their renderer",
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "name": "every Japanese field the data carries has a ruling",
+   "violations": 0,
+   "examples": []
   }
  ],
  "budgets": [
@@ -213,14 +229,32 @@
   {
    "name": "publisher keys the interface misses",
    "means": "publisher names app.js asks the shipped map for and does not get, normalised the way the browser normalises. A rise means the two implementations of the cataloguing rule have drifted, which is the one failure the budget above cannot see.",
-   "budget": 5,
-   "value": 5
+   "budget": 10,
+   "value": 10
   },
   {
    "name": "imprint strings that reach no line",
    "means": "imprint strings the corpus carries that no entry in data/names/imprints.yaml answers for, so the string stands as its own object. A coverage deficit: it falls as houses are curated and it will not reach zero, because some of these are a company name or a magazine sitting in the imprint field. A rise means new imprint spellings entered faster than they were placed.",
    "budget": 278,
    "value": 278
+  },
+  {
+   "name": "renderings still Japanese in English mode",
+   "means": "rows the interface shows in kana or kanji on an English page, on the surfaces where that is coverage rather than a fault: a credit line whose role has no gloss, a person with no reading, a publishing line with no name. The invariant blocks on work titles; this is the rest, and nothing counted it before.",
+   "budget": 439,
+   "value": 439
+  },
+  {
+   "name": "full-width forms in English renderings",
+   "means": "English renderings holding a full-width character and no kana or kanji, which is what narrowing the invariant to a script let past. Mostly a Latin pen name catalogued in full width; some are official titles and are correct, so this will not reach zero.",
+   "budget": 181,
+   "value": 181
+  },
+  {
+   "name": "interface reads outside an entry point",
+   "means": "reads of a name-carrying field in kari/app.js that are excepted in entrypoints.SAFE rather than going through the function that renders that kind of name. Each names its function, its field, what is done with the value and how many there are. A rise means a new call site was argued for instead of using the renderer.",
+   "budget": 11,
+   "value": 11
   },
   {
    "name": "imprint names the interface disagrees with",
@@ -345,8 +379,8 @@
   {
    "name": "stock phrasing in comments",
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage.",
-   "budget": 902,
-   "value": 902
+   "budget": 897,
+   "value": 897
   },
   {
    "name": "invented markup in tests",

@@ -23142,8 +23142,8 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ガイドヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ ～ ゲキカワ ゴスロリ マジンサマ、 サイコー !～
-    reading_at: '2026-08-04'
+    reading: ガイド ヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ
+    reading_at: '2026-08-08'
     reading_basis: researched
     reading_conflicts:
     - basis: analyser
@@ -23152,10 +23152,12 @@ names:
     - basis: researched
       source: derived
       value: ガイドヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ ～ ゲキカワゴスロリ マジンサマ、 サイコー !～
-    reading_note: Read from the title. Checked by aligning it against the surface, so every kana run in
-      the title is accounted for and the ruby lands on the right characters.
-    reading_pass: 4
-    reading_reviewed: '2026-08-04'
+    - basis: researched
+      source: derived
+      value: ガイドヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ ～ ゲキカワ ゴスロリ マジンサマ、 サイコー !～
+    reading_note: 死霊術師 is one word, the necromancer, and takes シリョウジュツシ; the analyser divided it after
+      死霊 and left ジュツシ standing alone. Nothing else in the title was in doubt.
+    reading_reviewed: '2026-08-08'
     reading_source: derived
     reading_source_kind: derived
     verified: false
@@ -25157,6 +25159,7 @@ names:
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
+    en_url: https://www.ichijinsha.co.jp/
     furigana_spans:
     - - コミック
       - null
@@ -40405,70 +40408,28 @@ names:
     en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 公爵
-      - こうしゃく
-    - - 令嬢
-      - れいじょう
-    - - の
-      - null
-    - - 籠絡
-      - ろうらく
-    - - ミッション～
-      - null
-    - - 魔王
-      - まおう
-    - - との
-      - null
-    - - 政略
-      - せいりゃく
-    - - 結婚
-      - けっこん
-    - - が、
-      - null
-    - - 人類
-      - じんるい
-    - - 最後
-      - さいご
-    - - の
-      - null
-    - - 切
-      - き
-    - - り
-      - null
-    - - 札
-      - ふだ
-    - - です！…って、
-      - null
-    - - 魔王
-      - まおう
-    - - が
-      - null
-    - - 女
-      - おんな
-    - - の
-      - null
-    - - 子
-      - こ
-    - - の
-      - null
-    - - 場合
-      - ばあい
-    - - はどうすればいいのですか！？～
-      - null
     note: 'Only translatable once the key was repaired: youngchampion.jp truncates its listing at a fixed
       length, so the second half of the title, which is the whole joke, was missing until it was recovered
       from the page''s own og:title. 籠絡 is winning somebody over by working on them rather than seducing
       them outright, and the synopsis supports the scheming reading: Cecilia marries the demon lord to
       stop humanity being wiped out and finds the demon lord has a secret. 切り札 is the trump card, kept
       as a card so the gamble survives.'
-    reading: コウシャク レイジョウ ノ ロウラク ミッション ～ マオウ ト ノ セイリャク ケッコン ガ、 ジンルイ サイゴ ノ キリフダデス！…．． ッテ、 マオウ ガ オンナノコ ノ
-      バアイ ワ ドウ スレバ イイ ノデス カ！？ ～
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading: コウシャク レイジョウ ノ ロウラク ミッション
+    reading_at: '2026-08-04'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: コウシャク レイジョウ ノ ロウラク ミッション ～ マオウ ト ノ セイリャク ケッコン ガ、 ジンルイ サイゴ ノ キリフダデス！…．． ッテ、 マオウ ガ オンナノコ ノ
+        バアイ ワ ドウ スレバ イイ ノデス カ！？ ～
+    reading_corroborated:
+    - yurarium
+    reading_note: 公爵令嬢 is the duke's daughter, コウシャク レイジョウ, and 籠絡 is ロウラク, winning somebody over. Both
+      are ordinary compounds with one reading each, and what the analyser could not do is say so with
+      anything behind it.
+    reading_reviewed: '2026-08-04'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   共依存魔法少女:
     basis: translated
@@ -51408,35 +51369,23 @@ names:
     en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 怪異
-      - かいい
-    - - 部
-      - ぶ
-    - - ～M
-      - null
-    - - 県
-      - けん
-    - - Y
-      - null
-    - - 市
-      - し
-    - - の
-      - null
-    - - 怪
-      - かい
-    - - 現象
-      - げんしょう
-    - - について～
-      - null
     note: について is the register of a school report or a case file, and the redacted prefecture is the same
       joke, so the English keeps the stiffness rather than reading as a summary.
-    reading: カイイ ブ ～ M ケン Y シ ノ カイ ゲンショウ ニ ツイテ ～
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading: カイイ ブ
+    reading_at: '2026-08-03'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カイイ ブ ～ M ケン Y シ ノ カイ ゲンショウ ニ ツイテ ～
+    reading_corroborated:
+    - yurarium
+    reading_note: 怪異 is カイイ, the strange occurrence, and 部 is the school club. Both are the ordinary on-readings
+      and the compound is transparent; what the analyser could not do is say so with a source, and there
+      is no tankobon for a catalogue to hold.
+    reading_reviewed: '2026-08-03'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   恋い初め:
     basis: translated
@@ -53058,11 +53007,14 @@ names:
     - basis: analyser
       source: sudachi
       value: アクヤク レイジョウ ノ ナカ ノ ヒト 〜 ダンザイ サレタ テンショウシャ ノ タメ ウソツキ ヒロイン ニ フクシュウ イタシマス 〜
+    - basis: stated
+      source: ndlsearch.ndl.go.jp
+      value: アクヤク レイジョウ ノ ナカ ノ ヒト
     reading_note: 転生者 is てんせいしゃ.
-    reading_pass: 4
     reading_reviewed: '2026-08-04'
-    reading_source: yurarium
+    reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: derived
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033275345
     verified: false
   悪役令嬢は天使のようなライバル美少女に愛を誓われる:
     basis: translated
@@ -73709,50 +73661,22 @@ names:
     en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 週
-      - しゅう
-    - - に
-      - null
-    - - 一度
-      - いちど
-    - - クラスメイトを
-      - null
-    - - 買
-      - か
-    - - う
-      - null
-    - - 話
-      - はなし
-    - - ' ～ふたりの'
-      - null
-    - - 時間
-      - じかん
-    - - 、
-      - null
-    - - 言
-      - い
-    - - い
-      - null
-    - - 訳
-      - わけ
-    - - の
-      - null
-    - - 五千
-      - ごせん
-    - - 円
-      - えん
-    - - ～
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シュウ ニ イチド クラスメイト ヲ カウ ハナシ   ～ フタリ ノ ジカン、 イイワケ ノ ゴセン エン ～
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: シュウ ニ イチド クラスメイト オ カウ ハナシ
+    reading_at: '2026-08-03'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シュウ ニ イチド クラスメイト ヲ カウ ハナシ   ～ フタリ ノ ジカン、 イイワケ ノ ゴセン エン ～
+    reading_corroborated:
+    - yurarium
+    reading_reviewed: '2026-08-03'
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034694258
+    verified: true
   週刊悪魔と暮らす創刊号:
     basis: translated
     en: 'Living with a Demon Weekly: First Issue'

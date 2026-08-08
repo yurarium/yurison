@@ -10369,9 +10369,15 @@ names:
     reading_url: https://api.openbd.jp/v1/get?isbn=9784832241817
     verified: true
   一迅社:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: official-jp
+    en: Ichijinsha
+    en_at: '2026-08-05'
+    en_reviewed: '2026-08-05'
+    en_source: openBD
+    en_source_kind: publisher-jp
+    en_url: https://api.openbd.jp/v1/get?isbn=9784758029858
+    note: The company publishes at ichijinsha.co.jp and prints no other Latin form of its name on the
+      site; the domain is its own spelling.
     reading: イチジンシャ
     reading_at: '2026-08-05'
     reading_basis: stated

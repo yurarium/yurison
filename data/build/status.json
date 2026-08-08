@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-08T09:07:38+00:00",
+ "generated": "2026-08-08T09:24:51+00:00",
  "since_last": {
-  "at": "2026-08-08T09:01:17+00:00",
+  "at": "2026-08-08T09:18:48+00:00",
   "statistics": {}
  },
  "means": {
@@ -175,6 +175,18 @@
     "value": 12
    },
    {
+    "name": "kana left in a romanisation",
+    "means": "strings the shipped names file offers in place of Japanese that still hold a kana character, which undoes the one job a romanisation has. A rise means a renderer met a kana it has no table entry for and printed it.",
+    "budget": 1,
+    "value": 1
+   },
+   {
+    "name": "titles shorter than their own reading",
+    "means": "MADB records whose stated reading carries ISBD's mark for other title information while the stored name carries none, so the work is held under a name shorter than the one the catalogue read out. Falls when a source states the missing words; a rise means a route went back to reading the title out of one field.",
+    "budget": 3,
+    "value": 3
+   },
+   {
     "name": "labels with nothing to quote",
     "means": "records carrying a publisher-side yuri label whose imprint holds no term saying so, which is a label the work page cannot show a reader the evidence for. A rise means a pass has gone back to storing a field from a record other than the one that justified the label.",
     "budget": 0,
@@ -255,20 +267,20 @@
    {
     "name": "uncertain readings",
     "means": "readings assembled character by character because no analyser could read the word. A rise means new works whose kanji nothing can read, or a regression in the analyser passes.",
-    "budget": 74,
-    "value": 74
+    "budget": 75,
+    "value": 75
    },
    {
     "name": "works without English",
     "means": "works that render in Japanese in English-only mode. Should be 0; a rise means the automatic naming pass stopped covering something it used to.",
-    "budget": 105,
-    "value": 105
+    "budget": 104,
+    "value": 104
    },
    {
     "name": "works showing a romanisation",
     "means": "works with no English name, showing a romanisation instead. Distinct from the budget above, which a romanisation satisfies: this is the one that answers 'can a reader tell what this is'. Never reaches zero, because romanising is right for a coinage.",
-    "budget": 174,
-    "value": 174
+    "budget": 173,
+    "value": 173
    },
    {
     "name": "titles carrying cataloguing punctuation",
@@ -517,7 +529,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-08T09:01:16+00:00",
+  "previous_at": "2026-08-08T09:18:47+00:00",
   "drops": []
  },
  "outstanding": [
@@ -530,7 +542,7 @@
   {
    "kind": "research",
    "key": "english_names",
-   "count": 152,
+   "count": 151,
    "what": "Name in English the works that carry only a romanisation",
    "rows": [
     "2332",
@@ -571,7 +583,6 @@
     "Honey Latte Girl",
     "I love my friend",
     "I'm sorry I know",
-    "Killer Twinkle",
     "Koishi is desperate series.",
     "LOVE CUBIC",
     "LOVESHISHAMO",
@@ -702,7 +713,7 @@
   {
    "kind": "debt",
    "key": "data_debts",
-   "count": 20,
+   "count": 22,
    "what": "Bring down counts that may only ratchet downward",
    "rows": {
     "bookwalker listings unconfirmed": 0,
@@ -715,6 +726,7 @@
     "credits the corpus files as a venue": 20,
     "implausible ruby spans": 0,
     "incomplete attested rows": 14,
+    "kana left in a romanisation": 1,
     "kana names with no stated division": 263,
     "labels with nothing to quote": 0,
     "names rendered two ways": 2,
@@ -727,14 +739,15 @@
     "scraped counters in chapter names": 1,
     "targets a capture wrote no row for": 4,
     "titles carrying cataloguing punctuation": 23,
+    "titles shorter than their own reading": 3,
     "titles with no translation of our own": 172,
-    "uncertain readings": 74,
+    "uncertain readings": 75,
     "undated cmoa candidates": 1220,
     "unreadable bookwalker rows": 15,
     "updates naming a work we do not hold": 27,
     "volumes with an isbn and no date": 0,
-    "works showing a romanisation": 174,
-    "works without English": 105
+    "works showing a romanisation": 173,
+    "works without English": 104
    }
   }
  ],
@@ -750,10 +763,10 @@
    "slow": 57
   },
   "english_basis": {
-   "translated": 2674,
+   "translated": 2675,
    "official-jp": 117,
    "licensed": 112,
-   "none": 109,
+   "none": 108,
    "romaji": 65
   },
   "print_works": 2514,

@@ -824,6 +824,13 @@ titles:
       girlfriend is the thing she is not, yet.
 
   怪異部～M県Y市の怪現象について～:
+    reading: カイイ ブ
+    reading_basis: researched
+    reading_note: >-
+      怪異 is カイイ, the strange occurrence, and 部 is the school club. Both are the ordinary on-readings
+      and the compound is transparent; what the analyser could not do is say so with a source, and
+      there is no tankobon for a catalogue to hold.
+    reading_source_kind: derived
     en: 'The Uncanny Club: On the Strange Phenomena of Y City, M Prefecture'
     basis: translated
     source: yurarium
@@ -1560,6 +1567,11 @@ titles:
     source: yurarium
     source_kind: derived
   週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～:
+    reading: シュウ ニ イチド クラスメイト オ カウ ハナシ
+    reading_basis: stated
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034694258
     basis: translated
     en: 'Buying a Classmate Once a Week: Our Time Together, and Five Thousand Yen for an Excuse'
     reviewed: '2026-08-03'
@@ -4703,6 +4715,8 @@ titles:
   # --- 2026-08-04 batch fourteen: continuing the queue ----------------------------------------
 
   悪役令嬢の中の人〜断罪された転生者のため嘘つきヒロインに復讐いたします〜:
+    reading_source: ndlsearch.ndl.go.jp
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033275345
     en: The Person Inside the Villainess ~Taking Revenge on the Lying Heroine for the Falsely Condemned Reincarnator~
     basis: translated
     source: yurarium
@@ -9513,6 +9527,13 @@ titles:
   # --- titles that were waiting on a repaired key ---------------------------------------------
 
   公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です！…って、魔王が女の子の場合はどうすればいいのですか！？～:
+    reading: コウシャク レイジョウ ノ ロウラク ミッション
+    reading_basis: researched
+    reading_note: >-
+      公爵令嬢 is the duke's daughter, コウシャク レイジョウ, and 籠絡 is ロウラク, winning somebody over. Both are
+      ordinary compounds with one reading each, and what the analyser could not do is say so with
+      anything behind it.
+    reading_source_kind: derived
     en: 'The Duke''s Daughter''s Seduction Mission: A Political Marriage to the Demon Lord Is Humanity''s Last Card, but What Am I Supposed to Do If the Demon Lord Is a Girl?!'
     basis: translated
     source: yurarium
@@ -13132,6 +13153,7 @@ titles:
       reads as a list of the things she is met over. The order is restored here.
 
   "コミック百合姫":
+    source_url: https://www.ichijinsha.co.jp/
     en: "Comic Yuri Hime"
     basis: "translated"
     source: "yurarium"
@@ -29159,15 +29181,6 @@ titles:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033652100
 
-  悪役令嬢の中の人:
-    reading: アクヤク レイジョウ ノ ナカ ノ ヒト
-    reading_basis: stated
-    reviewed: '2026-08-08'
-    source: ndlsearch.ndl.go.jp
-    source_kind: national-library
-    reading_source: ndlsearch.ndl.go.jp
-    reading_source_kind: national-library
-    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033275345
 
   灼熱の卓球娘reburn!!:
     reading: シャクネツ ノ タッキュウムスメ reburn !!
@@ -29282,15 +29295,6 @@ titles:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032975211
 
-  週に一度クラスメイトを買う話:
-    reading: シュウ ニ イチド クラスメイト オ カウ ハナシ
-    reading_basis: stated
-    reviewed: '2026-08-08'
-    source: ndlsearch.ndl.go.jp
-    source_kind: national-library
-    reading_source: ndlsearch.ndl.go.jp
-    reading_source_kind: national-library
-    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034694258
 
   '遠山えま百合集  : センセイとの時間。':
     reading: 'トオヤマ エマ ユリシュウ : センセイ トノ ジカン 。'
@@ -29351,17 +29355,6 @@ titles:
     source: derived
     source_kind: derived
 
-  怪異部:
-    reading: カイイ ブ
-    reading_basis: researched
-    reading_note: >-
-      怪異 is カイイ, the strange occurrence, and 部 is the school club. Both are the ordinary on-readings
-      and the compound is transparent; what the analyser could not do is say so with a source, and
-      there is no tankobon for a catalogue to hold.
-    reading_source_kind: derived
-    reviewed: '2026-08-08'
-    source: derived
-    source_kind: derived
 
   LatteComi コミックアンソロジー【百合】（単話版）（LatteComi）:
     reading: LatteComi コミック アンソロジー 【ユリ】 （タンワバン） （LatteComi）
@@ -29411,7 +29404,7 @@ titles:
     source_kind: derived
     reviewed: '2026-08-08'
 
-  ガイド役の天使を殴り倒したら、死霊術師になりました:
+  ガイド役の天使を殴り倒したら、死霊術師になりました ～激カワゴスロリ魔神様、サイコー!～:
     reading: ガイド ヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ
     reading_basis: researched
     reading_note: >-
@@ -29422,17 +29415,6 @@ titles:
     source_kind: derived
     reviewed: '2026-08-08'
 
-  公爵令嬢の籠絡ミッション:
-    reading: コウシャク レイジョウ ノ ロウラク ミッション
-    reading_basis: researched
-    reading_note: >-
-      公爵令嬢 is the duke's daughter, コウシャク レイジョウ, and 籠絡 is ロウラク, winning somebody over. Both are
-      ordinary compounds with one reading each, and what the analyser could not do is say so with
-      anything behind it.
-    reading_source_kind: derived
-    source: derived
-    source_kind: derived
-    reviewed: '2026-08-08'
 
   百合色ミュージアム（OrangeVox）:
     reading: ユリイロ ミュージアム （OrangeVox）
@@ -34390,6 +34372,10 @@ authors:
       (一迅社).
 
   "一迅社":
+    en: "Ichijinsha"
+    basis: official-jp
+    note: >-
+      The company publishes at ichijinsha.co.jp and prints no other Latin form of its name on the site; the domain is its own spelling.
     reading: "イチジンシャ"
     reading_basis: stated
     reading_source_kind: publisher-jp
@@ -38236,15 +38222,6 @@ publishers:
     reviewed: '2026-08-07'
     note: >-
       The company signs its own site KODANSHA LTD.
-  "一迅社":
-    en: "Ichijinsha"
-    basis: official-jp
-    source: ichijinsha.co.jp
-    source_kind: publisher-jp
-    source_url: https://www.ichijinsha.co.jp/
-    reviewed: '2026-08-07'
-    note: >-
-      The company publishes at ichijinsha.co.jp and prints no other Latin form of its name on the site; the domain is its own spelling.
   "芳文社":
     en: "Houbunsha"
     basis: official-jp
@@ -38425,15 +38402,6 @@ publishers:
     reviewed: '2026-08-07'
     note: >-
       The company titles its own front page KTC - KILL TIME COMMUNICATION OFFICIAL WEB SITE.
-  "コミック百合姫":
-    en: "Comic Yuri Hime"
-    basis: official-jp
-    source: ichijinsha.co.jp
-    source_kind: publisher-jp
-    source_url: https://www.ichijinsha.co.jp/
-    reviewed: '2026-08-07'
-    note: >-
-      Ichijinsha's yuri imprint. The magazine prints its own title in Latin letters as Comic Yuri Hime, and MADB files the imprint as IDコミックス / Yuri-hime comics.
   "IDコミックス":
     en: "ID Comics"
     basis: official-jp

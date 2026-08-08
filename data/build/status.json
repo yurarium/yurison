@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-08T09:01:17+00:00",
+ "generated": "2026-08-08T09:07:38+00:00",
  "since_last": {
-  "at": "2026-08-08T08:55:19+00:00",
+  "at": "2026-08-08T09:01:17+00:00",
   "statistics": {}
  },
  "means": {
@@ -183,8 +183,8 @@
    {
     "name": "titles with no translation of our own",
     "means": "titles whose only English is the publisher's or the licensor's, so a reader who moves those down EN_ORDER is shown a romanisation instead of an alternative. A rise means a translation stopped reaching the shipped file, which is coverage lost and never a tidy-up.",
-    "budget": 225,
-    "value": 225
+    "budget": 172,
+    "value": 172
    },
    {
     "name": "publishers with no English",
@@ -517,7 +517,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-08T08:55:18+00:00",
+  "previous_at": "2026-08-08T09:01:16+00:00",
   "drops": []
  },
  "outstanding": [
@@ -727,7 +727,7 @@
     "scraped counters in chapter names": 1,
     "targets a capture wrote no row for": 4,
     "titles carrying cataloguing punctuation": 23,
-    "titles with no translation of our own": 225,
+    "titles with no translation of our own": 172,
     "uncertain readings": 74,
     "undated cmoa candidates": 1220,
     "unreadable bookwalker rows": 15,

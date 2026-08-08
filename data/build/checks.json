@@ -198,6 +198,12 @@
    "value": 260
   },
   {
+   "name": "author readings no source states",
+   "means": "author names a reader meets as a romanisation carrying the unverified mark, because the reading behind the romanisation is a morphological analyser's and nobody else's. A coverage deficit and not a fault count, and the number a naming round is against. It falls when a name is sourced or a reviewer weighs a reading, since those are the two bases `build.py` clears the mark for. A fall with no new citation behind it means the mark stopped rendering, which is the failure this counts to prevent.",
+   "budget": 703,
+   "value": 703
+  },
+  {
    "name": "credits the corpus files as a venue",
    "means": "credits in the author store that this corpus also records as a publisher or an imprint, and that carry no mark saying what they are. Candidates rather than faults, because a doujin artist is their own imprint. A rise means a route put a company where a byline goes.",
    "budget": 20,
@@ -260,8 +266,8 @@
   {
    "name": "stock phrasing in comments",
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage.",
-   "budget": 902,
-   "value": 902
+   "budget": 900,
+   "value": 900
   },
   {
    "name": "modules without a test",

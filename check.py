@@ -1584,6 +1584,37 @@ def budget_kana_names_with_no_stated_division(ctx):
     return n
 
 
+def budget_author_readings_no_source_states(ctx):
+    """Author names shipping as a romanisation of ours under the unverified mark.
+
+    THE DEFICIT THE NAMING WORK IS AGAINST, and it is written as a budget because there is no
+    correct value for it and no floor anybody can compute. Every name in here renders in English as
+    a romanisation of a reading nobody but a morphological analyser has ever produced, which is the
+    one thing NAMES-PLAN section 1 says must never be presented as if it had a source. The mark is
+    what says so on the page, and this is the same population counted where a person can watch it
+    move.
+
+    IT FALLS ONLY WHEN A NAME GETS SOURCED. `build.py` clears the mark for `stated` and for
+    `researched` and for nothing else, so the only way to move this number is to find a source or
+    to weigh one, and both of those leave a citation on the record. Suppressing the mark would move
+    it too, which is why the number is kept beside the reason: a fall with no new citations behind
+    it is the failure, not the success.
+
+    NOT `uncertain readings`, WHICH SITS A FEW LINES ABOVE IT. That one counts the store's
+    `reading_uncertain`, a flag pass 4 sets when it could not read a word at all and assembled the
+    reading character by character. This one counts what a READER meets, which is 703 names against
+    that budget's 73, and the two moved in opposite directions for a whole round without anyone
+    being able to see it.
+
+    MEASURED ON WHAT SHIPS AND OWING THE PASSES NOTHING (section 14b). The routes that reduce it
+    select on `reading_basis`; this reads the rendered record, where `basis` is what the English
+    column holds and the mark is what the browser draws. A pass that recorded a reading and failed
+    to reach the feed would settle a name by its own measure and change nothing here.
+    """
+    return sum(1 for v in ((ctx["names_shipped"] or {}).get("authors") or {}).values()
+               if v.get("basis") == "romaji" and (v.get("uncertain") or v.get("unverified")))
+
+
 def budget_credits_the_corpus_files_as_a_venue(ctx):
     """Credits in the author store that the corpus records elsewhere as a publisher or an imprint.
 
@@ -1992,6 +2023,13 @@ BUDGETS_DEF = [
      "coverage deficit and not a fault count: こかむも is printed Kokamumo by its own publisher and "
      "belongs in this number as much as Igarashiyumiko did. It falls only when a source states a "
      "division, which `a division cites its source` is what enforces, and it never reaches zero."),
+    ("author readings no source states", budget_author_readings_no_source_states,
+     "author names a reader meets as a romanisation carrying the unverified mark, because the "
+     "reading behind the romanisation is a morphological analyser's and nobody else's. A coverage "
+     "deficit and not a fault count, and the number a naming round is against. It falls when a "
+     "name is sourced or a reviewer weighs a reading, since those are the two bases `build.py` "
+     "clears the mark for. A fall with no new citation behind it means the mark stopped rendering, "
+     "which is the failure this counts to prevent."),
     ("credits the corpus files as a venue", budget_credits_the_corpus_files_as_a_venue,
      "credits in the author store that this corpus also records as a publisher or an imprint, and "
      "that carry no mark saying what they are. Candidates rather than faults, because a doujin "

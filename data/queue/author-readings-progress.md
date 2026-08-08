@@ -173,3 +173,62 @@ back, so a shop row with no authors in it is treated as the silence it is.
 Four of the five were then settled off コミックシーモア, which files each anthology volume under
 `アンソロジー` and names the artist on every 単話 it sells separately: one row per story. The
 fifth, Yrhm百合姫20thアンソロジー, sells no 単話 and stays unresolved.
+
+---
+
+# Author readings, 2026-08-08: third checkpoint
+
+The measure this round is against is what a READER meets, and it is now a budget so it cannot be
+lost: `author readings no source states` counts authors in `data/build/feed/names.json` shipping
+`basis: romaji` under the unverified mark. It stood at 769 at the start of the round.
+
+## What the corpus growing reopened
+
+The second checkpoint recorded openBD and MADB as exhausted "until the corpus grows", and it grew:
+the store went from 1,757 author names to 2,336, most of the difference from the ニコニコ漫画
+serialisation pass. Both were asked again at no request cost, out of the caches already on disk.
+
+| route | settled | evidence |
+|---|---:|---|
+| MADB `ja-hrkt` creator transcription, release 1.2.18 | 48 | `stated` / `national-library` |
+| openBD collationkey, over 2,417 corpus ISBNs | 46 | `stated` / `publisher-jp` |
+
+Four names came back from both and the two agree on all four. 90 distinct names, 62 of them names a
+reader meets, so the number fell 769 to 703.
+
+## NDL, measured and closed again
+
+`/books/` record pages are open and answer 200, which contradicts what
+`bookwalker-yuri-authors.yaml` recorded in August (503 on the HTML pages). The route is still shut,
+for a different reason: `https://ndlsearch.ndl.go.jp/search?cs=bib&creator=` returns the identical
+564,314 bytes whatever creator is asked about, because the document holds no results at all and the
+records are fetched afterwards from `/api`, which robots.txt still disallows. There is no permitted
+way to get from a person's name to a record id, so the open record pages cannot be reached.
+
+Whoever resumes: the byte count is the finding. A page that answers 200 and states nothing looks
+exactly like a creator the library has never catalogued.
+
+## The lead the second checkpoint declined, taken as a bounded route
+
+`adapters/names/kmanga_reading.py`. まんが王国 prints the kana in the byline of every title page it
+sells: `<a href="/search/author/15404">甲斐谷忍<span class="f10">（かいたにしのぶ）</span></a>`, and
+it prints nothing where it knows nothing. `researched` with `derived` beside it, never `stated`,
+because a retailer does not say where its kana came from and the page cannot separate a publisher's
+registered yomi from the shop's own filing key.
+
+What makes it a route and not a bulk import: the shop's own spelling of the credit has to equal ours
+before a book is opened and again after, each gloss is read out of the anchor its name sits in, two
+books glossing one name differently settle nothing, and every entry carries the page, the book and
+the string it replaces so the decision can be argued with.
+
+Measured on the thirty most-credited names: 20 settled, 10 the shop does not stock. The run is one
+request at a time and takes hours, so the queue is ordered by how many works credit the name and the
+cache makes it resumable.
+
+## Routes still closed, so the next round does not pay for them again
+
+- **BOOK☆WALKER author pages.** `bookwalker.jp/author/{id}` carries the name in the title, the
+  description and the keywords field, and a reading in none of them.
+- **コミックシーモア author pages.** `/search/author/{id}` states the name and no kana. Its keyword
+  search is disallowed by robots (`/search/result/`) in any case.
+- **DMM.** `/search/` is disallowed by robots, so the listings that carry kana cannot be reached.

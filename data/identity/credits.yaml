@@ -9344,6 +9344,24 @@ credits:
       - anchor: "credit:タグチケンジ"
         basis: "タグチケンジ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `田口ケンジ / タグチケンジ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 田口ケンジ credits 1 work(s), among them 会って食べると書きまして。. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
         retrieved: 2026-08-08
+  - id: c02239
+    credit: "ひあるろん"
+    anchors:
+      - "credit:ひあるろん"
+      - "credit:ヒアルロン"
+    attached:
+      - anchor: "credit:ヒアルロン"
+        basis: "ヒアルロン is the same spelling with its kana converted between the two scripts wholesale, and it is the reading half of the same four-part credit field as 達磨 above, `ひあるろん / 達磨 / ダルマ / ヒアルロン`. MADB writes the names first and their readings after, so ひあるろん is the name and survives, which is also what this file does with every other pair of one kana spelling and its script flip. Neither spelling credits a work of its own, because the works list holds the artist as half of the ampersand-joined credit ひあるろん＆達磨."
+        retrieved: 2026-08-08
+  - id: c02240
+    credit: "達磨"
+    anchors:
+      - "credit:達磨"
+      - "credit:ダルマ"
+    attached:
+      - anchor: "credit:ダルマ"
+        basis: "ダルマ is the whole of that reading written in kana. Both arrived on 2026-08-08 with 小春と湊 : わたしのパートナーは女の子, whose MADB creator field is `ひあるろん / 達磨 / ダルマ / ヒアルロン` — two names followed by the two readings in the same order, on the slash that also separates two people, so the store kept all four halves as credits. Neither spelling credits a work of its own, and that is a second fault rather than an argument against the merge: the works list holds this pair as the single ampersand-joined credit ひあるろん＆達磨, which no splitter divides. 達磨 is the name and survives."
+        retrieved: 2026-08-08
 
 # Credits sharing one reading that were examined and KEPT APART. Recorded so the
 # question is not re-derived at every capture and so the reasoning is not lost each

@@ -3,38 +3,38 @@
 source: madb
 source_version: "1.2.18"
 retrieved: 2026-08-07
-work_id: madb-t-2296bd03ef37
+work_id: C423569
 route: imprint-selection
-grouping: title-only
-# No cm104 series record; volumes grouped by normalised title. Verify before
-# treating as one work — see docs/MADB.md.
-madb_id: null
+grouping: series-link
+madb_id: C423569
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C423569
 record_type: manga_book_series
 title:
-  ja: "嘘から始まる恋の夏 : squall"
-  yomi: "ウソ カラ ハジマル コイ ノ ナツ : squall"
-creator: "LYCORIS / ろここ / ロココ"
+  ja: "私に体、売ってみない?"
+  yomi: "ワタクシ ニ カラダ  ウッテミナイ"
+creator: "[著]真田ハイジ"
 publisher: "一迅社"
 distributor: "講談社"
-publisher_stated: "[頒布]講談社 / 一迅社"
+publisher_stated: "[発売]講談社 / 一迅社"
 publishers:
   - name: "講談社"
     role: distributor
-    role_stated: "頒布"
+    role_stated: "発売"
   - name: "一迅社"
     role: publisher
-imprint: "IDコミックス. Yh comics"
+imprint: "yh comics"
+imprint_stated: "IDコミックス / yh comics"
 volume_count: 1
-first_published: 2025-04-30
-last_published: 2025-04-30
+first_published: 2018-02
+last_published: 2018-02
 volumes:
-  - madb_id: M1063692
-    isbn: "9784758028660"
-    published: 2025-04-30
+  - madb_id: M515784
+    isbn: "9784758077736"
+    published: 2018-02
 marketing_label: yuri
 marketing_label_basis:
   source: madb
-  url: 
+  url: https://mediaarts-db.artmuseums.go.jp/id/C423569
   retrieved: 2026-08-07
   note: >-
     Published under a 一迅社 百合姫 imprint. The `imprint` field names the brand

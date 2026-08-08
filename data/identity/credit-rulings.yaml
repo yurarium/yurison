@@ -1,11 +1,12 @@
 # What was decided about every pair of credits sharing one reading.
 #
-# 82 readings answer for 164 credits in feed/names.json, and a shared reading is evidence and never
-# proof. `shape` is what the two spellings are to each other, computed by
-# `credit_identity.relation`, and it PROPOSES: a whole-string script change and a name beside its own
-# reading in kana are things a SOURCE does, so they say one credit was recorded twice. A partial
-# script flip and two unrelated spellings are not, so they say nothing and the pair stays two
-# credits.
+# 84 readings answer for 168 credits in feed/names.json, and a shared reading is evidence and never
+# proof. The last two arrived with the re-extraction of 2026-08-08, on one MADB creator field
+# holding two names followed by their two readings. `shape` is what the two spellings are to each
+# other, computed by `credit_identity.relation`, and it PROPOSES: a whole-string script change and
+# a name beside its own reading in kana are things a SOURCE does, so they say one credit was
+# recorded twice. A partial script flip and two unrelated spellings are not, so they say nothing
+# and the pair stays two credits.
 #
 # The shape does not decide, because it cannot see the works and the publishers around a pair. On the
 # 13 pairs where it could not settle the question the basis says what did.
@@ -19,7 +20,7 @@
 # `credits sharing a reading nobody has ruled on`, so a newly sourced reading that puts two credits
 # together arrives as a number that has risen.
 retrieved: 2026-08-08
-count: 82
+count: 84
 rulings:
   - reading: "4kaエンピツ"
     surfaces:
@@ -406,6 +407,14 @@ rulings:
     decision: "merge"
     keep: "玉崎たま"
     basis: "タマサキタマ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `玉崎たま / タマサキタマ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 玉崎たま credits 7 work(s), among them 無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+  - reading: "ダルマ"
+    surfaces:
+      - "ダルマ"
+      - "達磨"
+    shape: "kana-reading"
+    decision: "merge"
+    keep: "達磨"
+    basis: "ダルマ is the whole of that reading written in kana. Both arrived on 2026-08-08 with 小春と湊 : わたしのパートナーは女の子, whose MADB creator field is `ひあるろん / 達磨 / ダルマ / ヒアルロン`, two names followed by the two readings in the same order, on the slash that also separates two people, so the store kept all four halves as credits. Neither spelling credits a work of its own, and that is a second fault rather than an argument against the merge: the works list holds this pair as the single ampersand-joined credit ひあるろん＆達磨, which no splitter divides. 達磨 is the name and survives."
   - reading: "チバラキ"
     surfaces:
       - "チバラキ"
@@ -542,6 +551,14 @@ rulings:
     decision: "merge"
     keep: "ばったん"
     basis: "バッタン is the same spelling with its kana converted between the two scripts wholesale, and it credits no work of its own. A source states both forms in one credit field, `ばったん / バッタン`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. ばったん credits 2 work(s), among them ファタールゲーム. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+  - reading: "ヒアルロン"
+    surfaces:
+      - "ひあるろん"
+      - "ヒアルロン"
+    shape: "full-script-flip"
+    decision: "merge"
+    keep: "ひあるろん"
+    basis: "ヒアルロン is the same spelling with its kana converted between the two scripts wholesale, and it is the reading half of the same four-part credit field as 達磨 above, `ひあるろん / 達磨 / ダルマ / ヒアルロン`. MADB writes the names first and their readings after, so ひあるろん is the name and survives, which is also what this file does with every other pair of one kana spelling and its script flip. Neither spelling credits a work of its own, because the works list holds the artist as half of the ampersand-joined credit ひあるろん＆達磨."
   - reading: "ヒノヒロコ"
     surfaces:
       - "ひの宙子"

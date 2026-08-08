@@ -1836,3 +1836,56 @@ somebody else's pass.
 `feed/names.json`, which is where the 82 shared readings were measured. The registry answers for them
 through an attached anchor, so nothing is lost, and a later pass that wants the name store to hold
 one record per credit can read the rulings file to do it.
+
+## 27. The line the extractor could not spell (2026-08-08)
+
+`adapters/madb/extract.IMPRINTS` held four spellings of 一迅社's 百合姫 line and the abbreviated
+logotype was not among them. 一迅社 prints `YH comics` on the spine beside the spelt-out form every
+year from 2015, on volumes of the same series, so release 1.2.18 states it on 94 volume records and
+38 series records. Every one of the 132 names 一迅社 as the publisher, which is what made the
+substring safe to add: the pattern was matched against the normalised brand of all 401,311 book and
+139,130 series records before it was written, and it reaches this house and no other.
+
+**What the fault cost, measured on the two sides it fell on.** The corpus went from 302 works and
+646 volumes on this route to **351 works and 740 volumes**. 43 of the 49 new works were already
+here, admitted on a retailer's shelf and stored `marketing_label: none`, so what they gained is the
+publisher-side label their own books carry. Six are works this database did not hold at all:
+これでわかってよ!, イヴとイヴ, 私に体、売ってみない?, レズ風俗アンソロジーリピーター,
+いちゃらぶしかない百合アンソロジーコミックsugar and 小春と湊 : わたしのパートナーは女の子. The
+remaining volumes landed on works already held, which is the quieter half: 星屑テレパス went from 6
+volumes to 10 and one 21-volume run to 23.
+
+**A budget rose because the fault stopped being invisible.** `labels with nothing to quote` reads 0
+where it now reads 49, and the change is in what is measured rather than in what is wrong. That
+budget counts records carrying a yuri label whose imprint states no term saying so, and its subject
+is `YURI_TERM_IN_IMPRINT`, which recognises 百合, ガールズラブ and yuri. `YH` is none of those. The
+works that would have been counted never had the label that would have put them in the count, so a
+zero read as nothing to fix while 49 records were in exactly the state it exists to find.
+
+**Teaching the pattern `YH` was considered and is wrong.** It would empty the class by fiat: the
+check asks whether the imprint a work page quotes says anything a reader can weigh, and `YH comics`
+does not say it to a reader, whatever it says to a cataloguer. A measure that recognises the
+abbreviation stops being able to report the case it was written for.
+
+**What DID reduce it, from 51 to 49.** Adding the spelling made the series brand of C434622 and
+C353604 match where it had not, and both records went from quoting `Yurihime comics` and
+`Yuri-hime comics anthology series` to quoting an abbreviation that states nothing. That is the
+same fault as the umbrella `IDコミックス` one spelling further in: the label is right and the
+evidence beside it has stopped saying anything. `extract.imprint_of` now ranks a mute spelling last
+among the source's own, so it is taken only where the whole chain offers nothing else. The other 49
+offer nothing else, and their records say so honestly.
+
+**What the six new works brought with them.** Two credits sharing a reading, from one MADB creator
+field holding two names followed by their two readings, `ひあるろん / 達磨 / ダルマ / ヒアルロン`;
+both are ruled and merged in `data/identity/credit-rulings.yaml`. One duplicate row: 一迅社's 2018
+printing of 私に体、売ってみない? against BOOK☆WALKER's 私に体、売ってみない？【単行本版】 under
+コンパス, which `data/source/madb-title/` had already dated from the same ISBN, so the two are
+merged on the ISBN and not on the title. And rises of two, one and six in
+`kana names with no stated division`, `author readings no source states` and
+`works showing a romanisation`, which are six works arriving with no reading anybody has collected.
+
+**The lesson is about health floors and not about the spelling.** `MIN_VOLUMES` is 400 and the pass
+was matching 646, so nothing in the adapter could have said that a quarter of the line was missing.
+A floor catches a selection that has stopped working and cannot catch one that never covered its
+subject. What found this was reading the release's own brand field and counting the spellings, which
+is what `docs/MADB.md` records and what no assertion in the pipeline does.

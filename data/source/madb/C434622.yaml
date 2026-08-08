@@ -25,7 +25,7 @@ publishers:
 imprint: "Yurihime comics"
 imprint_stated: "IDコミックス / Yurihime comics"
 imprint_from: volumes
-volume_count: 6
+volume_count: 8
 first_published: 2019-12
 last_published: 2024-07
 volumes:
@@ -33,14 +33,30 @@ volumes:
     number: "vol. 1"
     isbn: "9784758079761"
     published: 2019-12
+  - madb_id: M813639
+    number: "volume 1"
+    isbn: "9784758079952"
+    published: 2019-12
   - madb_id: M823115
     number: "vol. 2"
     isbn: "9784758021043"
+    published: 2020-08
+  - madb_id: M823135
+    number: "volume 2"
+    isbn: "9784758021050"
     published: 2020-08
   - madb_id: M847606
     number: "3"
     isbn: "9784758022187"
     published: 2021-04
+  - madb_id: M847652
+    number: "3"
+    isbn: "9784758022194"
+    published: 2021-04
+  - madb_id: M860231
+    number: "4"
+    isbn: "9784758023382"
+    published: 2022-02
   - madb_id: M860248
     number: "4"
     isbn: "9784758023375"
@@ -49,6 +65,14 @@ volumes:
     number: "5"
     isbn: "9784758024891"
     published: 2023-01
+  - madb_id: M880151
+    number: "5"
+    isbn: "9784758024907"
+    published: 2023-01
+  - madb_id: M970690
+    number: "6"
+    isbn: "9784758027236"
+    published: 2024-07
   - madb_id: M970815
     number: "6"
     isbn: "9784758027229"

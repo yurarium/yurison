@@ -10999,7 +10999,7 @@ works:
       - "madb:madb-t-06db852dea73"
       - "madb:bw-ba861696-210f-406c-9b5d-6daf68709c63"
   - id: w01432
-    title: "ゆりぐらし : No Love,No Life!"
+    title: "ゆりぐらし"
     anchors:
       - "madb:madb-t-0d7acc157425"
       - "madb:bw-f8632617-3431-4b4d-b479-8cb587df2cd8"
@@ -12081,6 +12081,7 @@ works:
     title: null
     anchors:
       - "madb:bw-1391e2a8-8884-4fef-83dc-5ad9cfc51004"
+      - "madb:C423569"
   - id: w01628
     title: null
     anchors:
@@ -20347,6 +20348,32 @@ works:
     title: "サタノファニ : 妖艶彩色本・極"
     anchors:
       - "madb:C450589"
+  - id: w03162
+    title: null
+    anchors:
+      - "madb:C418568"
+  - id: w03163
+    title: null
+    anchors:
+      - "madb:C419068"
+  - id: w03164
+    title: null
+    merged_into: w01627
+    merge_basis: "One book under two publishers, settled on the ISBN rather than on the title. w03164 is 一迅社's 2018-02 printing of 私に体、売ってみない? on its 百合姫 line, ISBN 9784758077736, which entered the corpus on 2026-08-08 when YH comics was added to the imprint selection. w01627 is BOOK☆WALKER's 私に体、売ってみない？【単行本版】 under コンパス, and data/source/madb-title/bw-1391e2a8-8884-4fef-83dc-5ad9cfc51004.yaml had already dated it from that same ISBN, on a title match with the creator 真田ハイジ agreeing. 【単行本版】 names an edition and DEFINITIONS §7 binds the test to the work, so a reissue under a second imprint is the same work. The older identifier survives."
+    anchors:
+      - "madb:C423569"
+  - id: w03165
+    title: "レズ風俗アンソロジーリピーター"
+    anchors:
+      - "madb:C434599"
+  - id: w03166
+    title: "いちゃらぶしかない百合アンソロジーコミックsugar"
+    anchors:
+      - "madb:madb-t-a5f6777c514a"
+  - id: w03167
+    title: null
+    anchors:
+      - "madb:madb-t-bde72604ee95"
 
 # Related works. A relation and not a merge: whether a one-shot beside a
 # serialisation is a distinct work, an instalment the run absorbed, or a story a

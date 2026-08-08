@@ -4977,6 +4977,14 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ひあるろん:
+    basis: romaji
+    reading: ヒアルロン
+    reading_at: '2026-08-08'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   ひげなむち:
     basis: romaji
     reading: ヒゲナムチ
@@ -8945,6 +8953,14 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ダルマ:
+    basis: romaji
+    reading: ダルマ
+    reading_at: '2026-08-08'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   チバラキ:
     basis: romaji
     reading: チバ ラキ
@@ -9412,6 +9428,14 @@ names:
     reading_source: openBD
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784801980716
+    verified: true
+  ヒアルロン:
+    basis: romaji
+    reading: ヒアルロン
+    reading_at: '2026-08-08'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
     verified: true
   ヒジキ:
     basis: romaji
@@ -35824,6 +35848,20 @@ names:
     reading_source_kind: national-library
     reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1032871
     verified: true
+  達磨:
+    basis: romaji
+    furigana_spans:
+    - - 達磨
+      - だるま
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ダルマ
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   遠井音:
     basis: romaji
     furigana_spans:

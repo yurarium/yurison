@@ -4,7 +4,7 @@ Findings from working the 文化庁メディア芸術データベース bulk dat
 2026-08-01, release 1.2.18.
 
 The short version: magazine contents are unusable for our magazines, but the 単行本 imprint field
-enumerates the whole Phase 1 corpus. 646 volumes, 302 works, all with ISBNs.
+enumerates the whole Phase 1 corpus. 740 volumes, 351 works, all with ISBNs.
 
 ## Release cadence
 
@@ -99,9 +99,9 @@ Magazine contents are a dead end, but 単行本 are not. cm101 carries `schema:b
 レーベル, and the 百合姫 line is there.
 
 Matching `schema:brand` against a normalised form of `Yurihime comics` / `コミック百合姫` /
-`百合姫コミックス` / `百合姫books` yields **646 volumes across 302 works, 2006-02 to 2026-06-15, every
-one with an ISBN.** That is the Phase 1 corpus, at the size §7 predicted, and the ISBNs give a direct
-join to openBD.
+`百合姫コミックス` / `百合姫books` / `YH comics` yields **740 volumes across 351 works, 2006-02 to
+2026-06-15, every one with an ISBN.** That is the Phase 1 corpus, at the size §7 predicted, and
+the ISBNs give a direct join to openBD.
 
 MADB spells the imprint at least seven ways, including case and hyphenation variants and one that
 drops the `IDコミックス` prefix entirely:
@@ -147,14 +147,15 @@ volumes of the same series: C357075 carries `YH comics`, `Yuri-hime comics`, `Yu
 `yh comics` across its own run, and one series carries `Yuri-hime comics` beside `百合姫コミックス`.
 Same line, four transcriptions.
 
-**`YH comics` is missing from `extract.IMPRINTS`,** which is a live fault rather than a note. 36
-一迅社 series records in release 1.2.18 state it, 30 of them are in this corpus, and each was stored
-as `imprint: IDコミックス` with `marketing_label: none` because the selection never matched. They
-entered on a retailer's shelf instead, so the publisher-side label they are entitled to is missing.
-Adding the spelling is one line; landing it needs a re-extraction, and `labels with nothing to
-quote` would then rise from 0 to about 30 because `YURI_TERM_IN_IMPRINT` does not recognise `YH`
-either. That budget reading 0 today is partly this fault hiding inside it: the works that would be
-counted never got the label that would put them in the count.
+**`YH comics` was missing from `extract.IMPRINTS` and was added on 2026-08-08.** Release 1.2.18
+states it on 94 volume records and 38 series records, all of them 一迅社, and each affected work was
+stored as `imprint: IDコミックス` with `marketing_label: none` because the selection never matched.
+The re-extraction took this route from 302 works and 646 volumes to 351 and 740: 43 works already
+here on a retailer's shelf gained the publisher-side label their books carry, 6 were works the
+database did not hold, and the rest of the volumes landed on runs already held. `labels with nothing
+to quote` rose from 0 to 49 in the same run, because `YURI_TERM_IN_IMPRINT` recognises 百合,
+ガールズラブ and yuri and `YH` is none of them. See [GAPS §27](GAPS.md) for why teaching the pattern
+`YH` would be the wrong repair and what the rise is measuring instead.
 
 The imprint is publisher-side labelling, so it establishes `marketing_label: yuri` mechanically
 under [Definitions §4](DEFINITIONS.md), with the brand field as its basis. The interpretive axis
@@ -162,17 +163,17 @@ still needs a human.
 
 ### Grouping traps
 
-**About a third of volumes carry no `schema:isPartOf`.** 197 of 646. These are recent records
-ingested from NDL that MADB has not yet resolved to a series. Grouping on the series link alone
-drops them. The extractor falls back to normalised-title matching and records which route produced
+**Nearly a third of volumes carry no `schema:isPartOf`.** 228 of 740, re-measured 2026-08-08.
+These are recent records ingested from NDL that MADB has not yet resolved to a series. Grouping
+on the series link alone drops them. The extractor falls back to normalised-title matching and records which route produced
 each work:
 
 | Route | Works |
 |---|---|
-| `series-link` | 222 |
-| `mixed` | 12 |
-| `title-match` | 15 |
-| `title-only` | 53 |
+| `series-link` | 255 |
+| `mixed` | 13 |
+| `title-match` | 16 |
+| `title-only` | 67 |
 
 **Volumes of one work can sit on both sides.** 半熟女子 vol 1 (`Yuri-Hime COMICS`, no series link)
 and vol 2 (`IDコミックス / Yuri-hime comics`, linked to C357308) are the same work. Series-link
@@ -195,7 +196,7 @@ part bulk data supports best. Whether to reorder is open.
 
 ## Note on platform onboarding
 
-The 302-work catalogue is also the identification set for web platforms that apply no genre labels.
+The 351-work catalogue is also the identification set for web platforms that apply no genre labels.
 See [Requirements §5](REQUIREMENTS.md); the short version is that its narrowness is currently the
 binding constraint on release coverage.
 

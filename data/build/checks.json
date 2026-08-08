@@ -93,8 +93,14 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 0,
-   "examples": []
+   "violations": 7,
+   "examples": [
+    "index.json",
+    "run.json",
+    "status.json",
+    "series.json",
+    "works.json"
+   ]
   },
   {
    "name": "no refutation of print serials",
@@ -108,11 +114,6 @@
   },
   {
    "name": "undated works say where and why",
-   "violations": 0,
-   "examples": []
-  },
-  {
-   "name": "a delivery date never stands beside a printing",
    "violations": 0,
    "examples": []
   },
@@ -143,6 +144,11 @@
   },
   {
    "name": "a fixture states where it came from",
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "name": "the interface folds a name key as the build does",
    "violations": 0,
    "examples": []
   }
@@ -271,14 +277,26 @@
   {
    "name": "works showing a romanisation",
    "means": "works with no English name, showing a romanisation instead. Distinct from the budget above, which a romanisation satisfies: this is the one that answers 'can a reader tell what this is'. Never reaches zero, because romanising is right for a coinage.",
-   "budget": 170,
-   "value": 170
+   "budget": 174,
+   "value": 174
   },
   {
    "name": "titles carrying cataloguing punctuation",
    "means": "titles a reader is shown that still hold a bibliography's own ISBD markup: an equals sign in any spelling, or a reissue marker from the closed set adapters/isbd.py holds. A subtitle after the same colon is content and is not counted. A rise means a capture route wrote a catalogue string through as a name.",
    "budget": 23,
    "value": 23
+  },
+  {
+   "name": "works offered twice in a list",
+   "means": "rows beyond the first that a shipped list gives to one identity work. 41 works were listed twice or three times in index.json, which emitted one row per source record and asked identity nothing. A rise means a collapse stopped running, or a new list shipped without asking which work a record belongs to.",
+   "budget": 0,
+   "value": 0
+  },
+  {
+   "name": "one work under two names in a list",
+   "means": "pairs of rows in one list whose titles fold equal and whose credits share a person, which is one work offered twice under two names. Measured on the shipped rows and never on the identity registry, so it reports the pairs the registry has not joined. A queue rather than a fault count: each pair needs deciding, and the number falls by deciding them.",
+   "budget": 69,
+   "value": 69
   },
   {
    "name": "incomplete attested rows",
@@ -289,8 +307,8 @@
   {
    "name": "stock phrasing in comments",
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage.",
-   "budget": 903,
-   "value": 903
+   "budget": 898,
+   "value": 898
   },
   {
    "name": "invented markup in tests",
@@ -349,14 +367,14 @@
   {
    "name": "undated cmoa candidates",
    "means": "the same count for the コミックシーモア half of the queue, falling as adapters/cmoa_volumes.py works through it. Its floor is high and known: cmoa states an ISBN or an 出版年月 only where a volume was printed, and 754 of the 1,844 rows come from two digital distributors whose pages carry neither.",
-   "budget": 11,
-   "value": 11
+   "budget": 1220,
+   "value": 1220
   },
   {
    "name": "three as an organising shape",
    "means": "lists of exactly three items, and runs of three bold-led paragraphs, in documents that ship at 1.0. Three reads as rhetoric; four reads as an inventory. When there really are three things, write them as prose or find the fourth that was left out to make the shape work.",
-   "budget": 27,
-   "value": 27
+   "budget": 28,
+   "value": 28
   },
   {
    "name": "scraped counters in chapter names",

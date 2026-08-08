@@ -165,6 +165,10 @@ def assign(entries, wanted):
     entries = [dict(e) for e in entries]
     owner = index(entries)
     by_id = {e["id"]: e for e in entries}
+    # A JOIN SOMEBODY UNDID STAYS UNDONE. `propose` re-derives its joins from the two populations on
+    # every run, so a wrong one removed by hand comes straight back unless this pass knows the
+    # decision. See `detach`.
+    no = refused(entries)
     out = []
     for ident_anchor, attached, title in wanted:
         if not ident_anchor:
@@ -181,6 +185,8 @@ def assign(entries, wanted):
         e = by_id[wid]
         for a in attached or []:
             if not a:
+                continue
+            if wid in no.get(a, []):
                 continue
             held = owner.get(a)
             if held and held != wid:
@@ -211,11 +217,18 @@ def attach(entries, anchor, wid, basis, retrieved=None):
 
     Returns `(entries, error)`. An anchor another live work already holds is refused rather than
     moved: that is a claim that two works are one, and it is a merge.
+
+    AN ANCHOR SOMEBODY DETACHED IS REFUSED TOO, and that is what makes a detachment stick. The
+    joins files are re-applied on every run, so a wrong join removed by hand would come back the
+    next morning. See `detach`.
     """
     entries = [dict(e) for e in entries]
     by_id = {e["id"]: e for e in entries}
     if wid not in by_id:
         return entries, f"{wid} is not in the registry"
+    if wid in refused(entries).get(anchor, []):
+        return entries, (f"{anchor} was detached from {wid} by hand and is not re-joined. The "
+                         f"reason is in the registry beside {wid}.")
     held = index(entries).get(anchor)
     if held and held != wid:
         return entries, (f"{anchor} is already held by {held}. Attaching it to {wid} as well would "
@@ -274,6 +287,49 @@ def merge(entries, loser, winner, basis):
     lo["merged_into"] = winner
     lo["merge_basis"] = basis
     return entries
+
+
+def detach(entries, anchor, basis, retrieved=None):
+    """Take an anchor off the work holding it, and record that it must not come back.
+
+    THE OPPOSITE OF `attach`, AND NOT THE OPPOSITE OF `merge`. A merge says two works are one and
+    retires an identifier, which is why it is irreversible for anyone holding a link. This says a
+    join was wrong: the record belongs to some other work, so the anchor leaves and the next
+    assignment mints an identifier for it. No published address breaks, because what gets published
+    is the `w` identifier and that one keeps every anchor it is entitled to.
+
+    WHY THE REFUSAL IS STORED. The join came from a capture file that is re-applied on every run,
+    so removing the anchor alone would last exactly until the next `--attachments`. The capture is
+    left alone, because it is the record of what the shop answered and deleting it would lose the
+    evidence; the DECISION lives here, once, and `attach` consults it.
+
+    THE CASE IT WAS WRITTEN FOR. BOOK☆WALKER was asked what it stocks by AUTHOR, and a prolific
+    author's shelf answers with their other books. Three joins came back agreeing on the person and
+    on nothing else: けいおん! onto けいおん！Ｓｈｕｆｆｌｅ, 百合百景 onto 両片想いな双子姉妹, and a
+    colour art book onto サタノファニ. The second is the one to remember, because it left no
+    duplicate row to notice: the work simply displayed another work's volumes as its own.
+    """
+    entries = [dict(e) for e in entries]
+    for e in entries:
+        if anchor not in (e.get("anchors") or []):
+            continue
+        e["anchors"] = [a for a in e["anchors"] if a != anchor]
+        e["attached"] = [a for a in (e.get("attached") or []) if a.get("anchor") != anchor]
+        if not e["attached"]:
+            e.pop("attached")
+        e.setdefault("detached", []).append(
+            {"anchor": anchor, "basis": basis, "retrieved": retrieved or _today()})
+        return entries
+    return entries
+
+
+def refused(entries):
+    """{anchor: [id]} for every anchor a work has been detached from, so it is not re-joined."""
+    out = {}
+    for e in entries:
+        for d in e.get("detached") or []:
+            out.setdefault(d["anchor"], []).append(e["id"])
+    return out
 
 
 VARIANT = re.compile(r"[／/｜|]*(?:読み?切り?版?|ぱいろっと版?|出張版|試し読み版?)$")
@@ -415,6 +471,10 @@ def main(argv=None):
                          "reported. Several files are taken in one call because the assignment "
                          "that follows mints an identifier for any address still unclaimed, and a "
                          "second invocation would be too late for the file it had not read yet.")
+    ap.add_argument("--detach", metavar="ANCHOR",
+                    help="take an anchor off the work holding it, for a join that was wrong. Needs "
+                         "--basis. The reason is stored, so the joins files cannot re-apply it, and "
+                         "the record gets an identifier of its own on the next assignment.")
     ap.add_argument("--basis", help="why the two are one work")
     a = ap.parse_args(argv)
 
@@ -432,6 +492,17 @@ def main(argv=None):
                              "works are one, and it is not reversible for anyone holding a link.")
         entries = merge(entries, a.merge[0], a.merge[1], a.basis)
         doc = dict(doc or {}, works=entries)
+
+    if a.detach:
+        if not a.basis:
+            raise SystemExit("--detach needs --basis: undoing a join is a finding about the two "
+                             "records, and the next run has to be able to read why.")
+        held = index(entries).get(a.detach)
+        if not held:
+            raise SystemExit(f"{a.detach} is held by no work; there is nothing to detach.")
+        entries = detach(entries, a.detach, a.basis)
+        doc = dict(doc or {}, works=entries)
+        print(f"{a.detach} detached from {held}")
 
     if a.attach:
         if not a.basis:
@@ -556,6 +627,15 @@ def main(argv=None):
             L.append(f"      - anchor: {js(at.get('anchor'))}")
             L.append(f"        basis: {js(at.get('basis'))}")
             L.append(f"        retrieved: {at.get('retrieved')}")
+        # A JOIN THAT WAS UNDONE, AND WHY. Emitted for the same reason as `attached` and with one
+        # more: this is what stops the joins files putting it back, so losing it in a rewrite would
+        # silently restore the wrong join.
+        if e.get("detached"):
+            L.append("    detached:")
+        for dt in e.get("detached") or []:
+            L.append(f"      - anchor: {js(dt.get('anchor'))}")
+            L.append(f"        basis: {js(dt.get('basis'))}")
+            L.append(f"        retrieved: {dt.get('retrieved')}")
     L.append("")
     L.append("# Related works. A relation and not a merge: whether a one-shot beside a")
     L.append("# serialisation is a distinct work, an instalment the run absorbed, or a story a")

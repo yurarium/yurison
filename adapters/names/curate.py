@@ -42,6 +42,7 @@ import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
+from names import key  # noqa: E402
 from names.store import NameStore  # noqa: E402
 
 FILE = pathlib.Path(__file__).resolve().parents[2] / "data" / "names" / "curated.yaml"
@@ -274,15 +275,16 @@ def check(doc):
     return out
 
 
-def _fold(t):
-    """Width-folded, for deciding whether a curated key names a work we hold.
-
-    NFKC only. build.py's lookup also strips spaces, and this deliberately does not: a key that
-    differs by a full-width bracket is one work under two spellings and applies correctly, while a
-    key with a stray space is a typo that happens to apply. The first should pass silently and the
-    second is worth a reader's attention, so they are not folded together here.
-    """
-    return unicodedata.normalize("NFKC", t or "")
+# ONE PRODUCER OF THE KEY (§3). This module folded with NFKC alone while `build.py` and the
+# interface folded with NFKC and then stripped spaces, so "names a work we hold" had two meanings
+# and this one was the stricter: a curated key that differs from a held title by a space was
+# reported as naming nothing while applying perfectly.
+#
+# THE REASONING FOR THE DIFFERENCE WAS SOUND AND IS KEPT, as its own question. A key that differs
+# by a full-width bracket is one work under two spellings; a key that differs by a stray space is a
+# typo that happens to work, and whoever typed it should hear about it. `spaced_keys` reports those,
+# and `unmatched` no longer answers a question the renderer would answer differently.
+_fold = key.fold
 
 
 def unmatched(doc, known):
@@ -307,6 +309,19 @@ def unmatched(doc, known):
                          "curated names against the corpus")
     folded = {_fold(k) for k in known}
     return sorted(k for k in (doc.get("titles") or {}) if k not in known and _fold(k) not in folded)
+
+
+def spaced_keys(doc, known):
+    """Curated keys that reach a held title only because the fold strips spaces.
+
+    Not a fault: the key applies and the reading is shown. It is a hand-typed string that agrees
+    with the catalogue about every character except the whitespace, which is worth telling whoever
+    typed it so the file stays legible. See the note above `_fold`.
+    """
+    if known is None:
+        return []
+    return sorted(k for k in (doc.get("titles") or {})
+                  if k not in known and any(key.spaced(k, t) for t in known))
 
 
 def duplicate_keys(path=None):

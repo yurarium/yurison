@@ -7,7 +7,7 @@
 #
 # A merged entry keeps `merged_into` and stays resolvable, because an address published
 # once has to keep working. See adapters/identity.py.
-generated: 2026-08-07
+generated: 2026-08-08
 works:
   - id: w00001
     title: "娘が彼女を連れてきた話"
@@ -367,13 +367,12 @@ works:
         basis: "あきらかに年齢を詐称している女子高生VTuber lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/491340/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00054
-    title: "サタノファニ = SATANOPHANY"
+    title: "サタノファニ"
     anchors:
       - "web:https://comic-days.com/episode/12207421983566481726"
       - "web:https://comic-days.com/atom/series/13932016480029395540"
       - "web:https://comic-days.com/series/13932016480029395540/first_episode"
       - "madb:C368867"
-      - "madb:C450589"
       - "madb:madb-t-f2ab6d5672fb"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/13932016480029395540"
@@ -385,12 +384,13 @@ works:
       - anchor: "madb:C368867"
         basis: "サタノファニ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/114793/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
-      - anchor: "madb:C450589"
-        basis: "サタノファニ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/114793/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
-        retrieved: 2026-08-07
       - anchor: "madb:madb-t-f2ab6d5672fb"
         basis: "サタノファニ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/114793/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
+    detached:
+      - anchor: "madb:C450589"
+        basis: "C450589 is サタノファニ : 妖艶彩色本・極, a single unnumbered volume under プレミアムKC, where the manga runs 1 to 29 under ヤンマガKC. A colour art book carries no volume number in the run and is not the serialisation; DEFINITIONS §6 admits print manga and this is a different kind of book. The join came from a BOOK☆WALKER author query agreeing on 山田恵庸 alone."
+        retrieved: 2026-08-08
   - id: w00055
     title: "ぜんぶ壊して地獄で愛して"
     anchors:
@@ -861,7 +861,7 @@ works:
       - "web:https://kimicomi.com/series/330f3ad1270c8"
       - "madb:madb-t-dabc24234506"
   - id: w00115
-    title: "シャドウ・アサシンズ・ワールド"
+    title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
     anchors:
       - "web:https://comic-days.com/episode/12207421984000540113"
       - "web:https://comic-days.com/atom/series/2550912964454042523"
@@ -1170,7 +1170,7 @@ works:
         basis: "the chapter page at https://comic-trail.com/episode/12207421983793454538 links its own series feed at https://comic-trail.com/atom/series/2551460909751842548, so the platform places this chapter in series 2551460909751842548, and the og:title there names the work: 第10話〈２〉  / お嬢様、懺悔する。 - しる | コミックトレイル｜漫画とつながるフェス空間！. https://comic-trail.com/series/2551460909751842548/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
         retrieved: 2026-08-07
   - id: w00156
-    title: "超深宇宙より愛をこめて【読み切り版】"
+    title: "超深宇宙より愛をこめて"
     anchors:
       - "web:https://ichicomi.com/episode/12207421983947227379"
       - "madb:madb-t-91483dd6f954"
@@ -2384,7 +2384,7 @@ works:
         basis: "かわいい同盟 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/561005/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00314
-    title: "白妙様、秘密ですよ／読切版"
+    title: "白妙様、秘密ですよ"
     anchors:
       - "web:https://comic-boost.com/content/01650001"
       - "madb:madb-t-cb368e6d704e"
@@ -6232,7 +6232,7 @@ works:
         basis: "the chapter page at https://tonarinoyj.jp/episode/2550689798287081420 links its own series feed at https://tonarinoyj.jp/atom/series/2550689798287079678, so the platform places this chapter in series 2550689798287079678, and the og:title there names the work: ヒロイン. - 嶋原翌 | となりのヤングジャンプ. https://tonarinoyj.jp/series/2550689798287079678/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
         retrieved: 2026-08-07
   - id: w00736
-    title: "ペンションライフ・ヴァンパイア = PENSION LIFE VAMPIRE"
+    title: "ペンションライフ・ヴァンパイア"
     anchors:
       - "web:https://shonenjumpplus.com/episode/9324103629526673449"
       - "web:https://shonenjumpplus.com/atom/series/4856001361066822000"
@@ -7074,7 +7074,7 @@ works:
         basis: "the chapter page at https://tonarinoyj.jp/episode/14079602755146639491 links its own series feed at https://tonarinoyj.jp/atom/series/14079602755146639201, so the platform places this chapter in series 14079602755146639201, and the og:title there names the work: [10Pショート読切] レチタティーヴォ - 吉野條二 | となりのヤングジャンプ. https://tonarinoyj.jp/series/14079602755146639201/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
         retrieved: 2026-08-07
   - id: w00820
-    title: "猫魔法が世界に革命を起こすそうですよ?"
+    title: "猫魔法が世界に革命を起こすそうですよ? : 劣等種なんて言われるのならケモノ魔法でリベンジします"
     anchors:
       - "web:https://www.123hon.com/vw/nekomaho/sv_pt00064d322845b1b4_01b/"
       - "madb:madb-t-7dc04bbcea37"
@@ -7083,7 +7083,7 @@ works:
         basis: "猫魔法が世界に革命を起こすそうですよ? lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/459252/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
   - id: w00821
-    title: "おとなになっても = Even if we become adults"
+    title: "おとなになっても"
     anchors:
       - "web:https://comic-days.com/episode/14079602755122004379"
       - "web:https://comic-days.com/atom/series/10834108156680164519"
@@ -7236,18 +7236,18 @@ works:
         basis: "the chapter page at https://www.sunday-webry.com/episode/4856001361386900883 links its own series feed at https://www.sunday-webry.com/atom/series/4856001361386899936, so the platform places this chapter in series 4856001361386899936, and the og:title there names the work: つめあと / つめあと - 椎野つばめ | サンデーうぇぶり. https://www.sunday-webry.com/series/4856001361386899936/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
         retrieved: 2026-08-07
   - id: w00837
-    title: "けいおん!"
+    title: "けいおん！Ｓｈｕｆｆｌｅ"
     anchors:
       - "web:https://comic-fuz.com/manga/1897"
-      - "madb:C335320"
       - "madb:C435773"
     attached:
-      - anchor: "madb:C335320"
-        basis: "けいおん！Ｓｈｕｆｆｌｅ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/2757/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
-        retrieved: 2026-08-07
       - anchor: "madb:C435773"
         basis: "けいおん！Ｓｈｕｆｆｌｅ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/2757/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
+    detached:
+      - anchor: "madb:C335320"
+        basis: "けいおん! is a different work from けいおん！Ｓｈｕｆｆｌｅ, and the join came from asking BOOK☆WALKER what it stocks by AUTHOR. data/queue/shop-query.yaml holds two hits for かきふらい, each agreeing on the person and on nothing else. MADB numbers C335320 volumes 1 to 4 under まんがタイムKRコミックス / Kirara menu, 2008-05 to 2010-10, and C435773 restarts at volume 1 under Kirara menu, 2020-03 to 2024-04. A run that starts again at one is a second work."
+        retrieved: 2026-08-08
   - id: w00838
     title: "魔女ノ結婚"
     anchors:
@@ -8531,11 +8531,10 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_000549_S"
       - "madb:bw-500d5bf9-60c3-488d-a1e9-bef250dd0b5a"
-      - "madb:C367890"
-    attached:
+    detached:
       - anchor: "madb:C367890"
-        basis: "両片想いな双子姉妹 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
-        retrieved: 2026-08-07
+        basis: "C367890 is 百合百景 and w00957 is 両片想いな双子姉妹, two works by はちこ. The join came from asking BOOK☆WALKER by AUTHOR, so the shelf answered with the author's other book and the hit agreed on the person alone. 百合百景 is separately held as w01587 with its own BOOK☆WALKER record, and the contested-anchor report already named w01587 as claiming this one. Nothing about the pair was a duplicate row, so the only visible symptom was 両片想いな双子姉妹 showing another work's volumes as its own."
+        retrieved: 2026-08-08
   - id: w00958
     title: "世が夜なら！"
     anchors:
@@ -8818,7 +8817,7 @@ works:
         basis: "the chapter page at https://www.sunday-webry.com/episode/3269754496551508177 links its own series feed at https://www.sunday-webry.com/atom/series/3269754496548915303, so the platform places this chapter in series 3269754496548915303, and the og:title there names the work: 1. 第1話 / 女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました - 蛙田あめこ/りりうら世都/三弥カズトモ | サンデーうぇぶり. https://www.sunday-webry.com/series/3269754496548915303/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
         retrieved: 2026-08-07
   - id: w00982
-    title: "ストライク・オア・ガター = strike or gutter"
+    title: "ストライク・オア・ガター"
     anchors:
       - "web:https://tonarinoyj.jp/episode/13933686331772859580"
       - "web:https://tonarinoyj.jp/atom/series/13933686331772859124"
@@ -10571,7 +10570,7 @@ works:
     anchors:
       - "madb:C420904"
   - id: w01352
-    title: "おやすみシェヘラザード = Nighty night,Sheherazade"
+    title: "おやすみシェヘラザード"
     anchors:
       - "madb:C421181"
       - "madb:bw-167971"
@@ -10691,7 +10690,7 @@ works:
     anchors:
       - "madb:C433146"
   - id: w01376
-    title: "ゆりでなる♡えすぽわーる"
+    title: "ゆりでなるｖえすぽわーる"
     anchors:
       - "madb:C433149"
       - "madb:bw-212250"
@@ -10995,7 +10994,7 @@ works:
         basis: "creator ちさこ is named on the platform page"
         retrieved: 2026-08-07
   - id: w01431
-    title: "ステラ★レコード = STELLA★RECORD"
+    title: "ステラ★レコード"
     anchors:
       - "madb:madb-t-06db852dea73"
       - "madb:bw-ba861696-210f-406c-9b5d-6daf68709c63"
@@ -11819,6 +11818,7 @@ works:
       - "madb:bw-107988"
       - "web:https://manga.nicovideo.jp/comic/30773"
       - "web:https://comic-walker.com/detail/KC_002377_S"
+      - "madb:C367890"
     attached:
       - anchor: "web:https://manga.nicovideo.jp/comic/30773"
         basis: "creator はちこ is named on the platform page"
@@ -15425,7 +15425,7 @@ works:
     anchors:
       - "madb:bw-433790"
   - id: w02158
-    title: "ひよ＆びびっと！"
+    title: "ひよ&びびっと!"
     anchors:
       - "madb:bw-434264"
       - "web:https://manga.nicovideo.jp/comic/60568"
@@ -20335,6 +20335,18 @@ works:
     title: null
     anchors:
       - "madb:C319020"
+  - id: w03159
+    title: "ぬるめた"
+    anchors:
+      - "web:https://comic-fuz.com/manga/2389"
+  - id: w03160
+    title: "けいおん!"
+    anchors:
+      - "madb:C335320"
+  - id: w03161
+    title: "サタノファニ : 妖艶彩色本・極"
+    anchors:
+      - "madb:C450589"
 
 # Related works. A relation and not a merge: whether a one-shot beside a
 # serialisation is a distinct work, an instalment the run absorbed, or a story a
@@ -20348,6 +20360,42 @@ works:
 # 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
 # one-shot after the run it came before.
 related:
+  - a: w00169
+    b: w01216
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-08
+  - a: w00353
+    b: w01210
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-08
+  - a: w00461
+    b: w01440
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-08
+  - a: w00511
+    b: w01419
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-08
+  - a: w00644
+    b: w01209
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-08
+  - a: w00697
+    b: w01454
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-08
+  - a: w00807
+    b: w01452
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-08
+  - a: w00894
+    b: w01415
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-08
+  - a: w00930
+    b: w01439
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-08
   - a: w00957
     b: w01587
     note: "one print record matches both titles and a shared author"

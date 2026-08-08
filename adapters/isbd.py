@@ -83,6 +83,28 @@ EDITIONS = ("完全版", "電子単行本", "新装版", "合本版", "分冊版
 Areas = namedtuple("Areas", "name parallel other")
 
 
+# WHERE THE PUBLISHER HAS SETTLED IT AND THE STRING CANNOT. `areas` refuses to split a pair whose
+# right-hand side is Japanese, because ISBD writes the title proper first and a Japanese right-hand
+# side means the order is reversed and no rule in the string says which half is the name. That
+# refusal is correct and stays. What it cannot know is what the book says, and a publisher's own
+# catalogue can:
+#
+#   ニニンがシノブ伝ぷらす = 2×2=SHINOBUDEN+   KADOKAWA prints `ニニンがシノブ伝ぷらす 1`
+#                                              (kadokawa.co.jp/product/322106000448/)
+#   School zone = スクールゾーン               MAG Garden prints `スクールゾーン 1`
+#                                              (mag-garden.co.jp/comics/7023/)
+#
+# So the second is a REVERSED pair, Latin first, and the corpus agreed without being able to prove
+# it: it already holds スクールゾーン as a work and identity had joined the two.
+#
+# KEYED ON THE WHOLE CATALOGUED STRING, so this can never generalise into a rule about signs. Each
+# entry is one book somebody looked up, with the page in the comment above.
+RULED = {
+    "ニニンがシノブ伝ぷらす = 2×2=SHINOBUDEN+": ("ニニンがシノブ伝ぷらす", "2×2=SHINOBUDEN+"),
+    "School zone = スクールゾーン": ("スクールゾーン", "School zone"),
+}
+
+
 def areas(title):
     """One catalogued title split into the areas ISBD marked in it.
 
@@ -110,6 +132,9 @@ def areas(title):
     head = s[:c.start()] if c else s
 
     e = EQUALS.search(head)
+    hit = RULED.get(s) or RULED.get(str(title or "").strip())
+    if hit:
+        return Areas(hit[0], hit[1], other)
     if not e:
         return Areas(s, "", other)
     ja, en = head[:e.start()].strip(), head[e.end():].strip()

@@ -68,11 +68,23 @@ def main(s):
     s.eq(m.title_proper("ルミナス = ブルー"), "ルミナス = ブルー",
          "a parallel half holding Japanese is not a translation")
     s.eq(m.parallel_title("ルミナス = ブルー"), "", "so no English name is taken from it")
-    s.eq(m.title_proper("School zone = スクールゾーン"), "School zone = スクールゾーン",
-         "and the same shape the other way round is refused for the same reason")
-    s.eq(m.title_proper("ニニンがシノブ伝ぷらす = 2×2=SHINOBUDEN+"),
-         "ニニンがシノブ伝ぷらす = 2×2=SHINOBUDEN+",
+    # THE RULE IS UNCHANGED AND IS SHOWN ON A BOOK NOBODY HAS LOOKED UP. These two shapes used to be
+    # pinned on School zone and ニニンがシノブ伝ぷらす, which a publisher has since settled, so the
+    # rule needs its own examples or the ruling would read as the rule loosening.
+    s.eq(m.title_proper("Moonlit garden = 月の庭"), "Moonlit garden = 月の庭",
+         "the same shape the other way round is refused for the same reason")
+    s.eq(m.title_proper("あいうえお = A=B+C"), "あいうえお = A=B+C",
          "a second equals sign leaves no way to say where the name ends")
+
+    # WHERE A PUBLISHER HAS SETTLED WHAT THE STRING CANNOT. The refusals above stand because nothing
+    # in the characters says which half is the name. MAG Garden prints スクールゾーン 1 and KADOKAWA
+    # prints ニニンがシノブ伝ぷらす 1, so for these two books the answer is known and recorded.
+    s.eq(m.title_proper("School zone = スクールゾーン"), "スクールゾーン",
+         "a reversed pair the publisher has settled takes the name the book carries")
+    s.eq(m.parallel_title("School zone = スクールゾーン"), "School zone",
+         "and the Latin half is its parallel title")
+    s.eq(m.title_proper("ニニンがシノブ伝ぷらす = 2×2=SHINOBUDEN+"), "ニニンがシノブ伝ぷらす",
+         "and two signs are no obstacle once somebody has read the cover")
     s.eq(m.title_proper("X = Y = Z"), "X = Y = Z", "so nothing is guessed")
     s.eq(m.title_proper("ある話 : 副題 = SUBTITLE"), "ある話 : 副題 = SUBTITLE",
          "ISBD writes the parallel title before the other title information, never after it")

@@ -85,6 +85,17 @@ def main(s):
     s.ne(nb.fold("恋する小惑星"), nb.fold("恋する小惑星アンソロジー"),
          "a prefix is not a match; that is how the wrong book answers")
 
+    # THE QUERY IS ALLOWED TO BE LOOSER THAN THE MATCH. Searching the whole stored title found
+    # nothing for thirteen works NDL holds, because our string carries a subtitle and a platform's
+    # brackets and the catalogue's does not.
+    s.eq(nb.search_terms("遠山えま百合集 : センセイとの時間。"),
+         ["遠山えま百合集 : センセイとの時間。", "遠山えま百合集"],
+         "the whole title first, then the title proper")
+    s.eq(nb.search_terms("ゆうやけトリップ【単話版】"),
+         ["ゆうやけトリップ【単話版】", "ゆうやけトリップ"], "and the platform's apparatus comes off")
+    s.eq(nb.search_terms("魔王と百合"), ["魔王と百合"],
+         "a title with neither is searched once, not four times")
+
     s.eq(nb.record_ids(SEARCH),
          ["R100000002-I026095900", "R100000002-I026964517", "R100000002-I028032719"],
          "each result once, in the order the search ranked them")

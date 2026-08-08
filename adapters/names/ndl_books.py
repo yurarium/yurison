@@ -61,6 +61,11 @@ _RECORD = re.compile(r"/books/(R\d+-I\d+)")
 # because NDL is transcribing a printed title page and has none of it.
 _APPARATUS = re.compile(r"[【（(\[][^】）)\]]*[】）)\]]\s*$")
 
+# ISBD's other-title-information mark, as `adapters/isbd.py` reads it. Not imported from there: that
+# module answers what a work is CALLED and this one only wants somewhere shorter to search, so it
+# is allowed to be loose in ways a stored name may not be.
+COLON = re.compile(r"\s*:\s*")
+
 
 def _text(fragment):
     """One HTML fragment as the text a reader sees, with the markup and entities gone."""
@@ -111,6 +116,29 @@ def fold(title):
         prev = s
         s = _APPARATUS.sub("", s).strip()
     return re.sub(r"[\s　]+", "", s).lower()
+
+
+def search_terms(title):
+    """The keywords to search a title under, best first, without repeats.
+
+    ONE QUERY IS NOT ENOUGH, and the shape of the miss is worth recording. Our catalogue stores a
+    title with everything the platform prints on it, so `遠山えま百合集 : センセイとの時間。` goes to
+    NDL with the ISBD colon and the subtitle attached and matches nothing, while `遠山えま百合集`
+    returns the one record that holds it. Thirteen titles came back `no-record` for that reason and
+    NDL had every one of them.
+
+    Widening the SEARCH does not widen what is accepted: `reading()` still compares the record's own
+    `タイトル` against the full stored title, so a head that matches a different book is refused
+    exactly as it was before. The head is a way to find the record, not a way to agree with it.
+    """
+    s = str(title or "").strip()
+    out = []
+    for term in (s, COLON.split(s)[0], _APPARATUS.sub("", s).strip(),
+                 COLON.split(_APPARATUS.sub("", s))[0].strip()):
+        t = term.strip()
+        if t and t not in out:
+            out.append(t)
+    return out
 
 
 def reading(page, title):
@@ -206,6 +234,7 @@ def main(argv=None):
     that this record is about this work is not.
     """
     import argparse
+    import hashlib
     import json
     import pathlib
     import sys
@@ -236,7 +265,12 @@ def main(argv=None):
         into an answer; treating it as a negative would have written 61 works off as having no
         catalogue record.
         """
-        p = cache / (re.sub(r"[^A-Za-z0-9._-]", "_", key)[:120] + ".html") if cache else None
+        # THE CACHE NAME IS A HASH BECAUSE THE KEYS ARE JAPANESE. Substituting the unsafe
+        # characters mapped every kanji and kana to `_`, so `search-遠山えま百合集` and
+        # `search-怪異部` were one file, and the second title silently read the first title's
+        # results and reported `no-record`. A cache that answers the wrong question is worse than
+        # no cache: it looks exactly like a work NDL does not hold.
+        p = cache / (hashlib.sha1(key.encode()).hexdigest()[:24] + ".html") if cache else None
         if p and p.exists():
             return p.read_text()
         req = urllib.request.Request(url, headers={"User-Agent": UA})
@@ -255,24 +289,32 @@ def main(argv=None):
         return body
 
     for t in want:
-        row = {"title": t}
-        try:
-            page = get(search_url(t), "search-" + t)
-        except Exception as e:                                              # noqa: BLE001
-            print(json.dumps({**row, "status": "fetch-failed", "error": str(e)},
+        row, got, seen, failed = {"title": t}, [], set(), None
+        for term in search_terms(t):
+            try:
+                page = get(search_url(term), "search-" + term)
+            except Exception as e:                                          # noqa: BLE001
+                failed = str(e)
+                continue
+            for rid in record_ids(page)[:a.max_records]:
+                if rid in seen:
+                    continue
+                seen.add(rid)
+                try:
+                    rec = get(record_url(rid), rid)
+                except Exception:                                           # noqa: BLE001
+                    continue
+                r = reading(rec, t)
+                if r:
+                    got.append((r, rid))
+            if got:
+                break
+        if not got and failed:
+            print(json.dumps({**row, "status": "fetch-failed", "error": failed},
                              ensure_ascii=False))
             continue
-        got, ids = [], record_ids(page)[:a.max_records]
-        for rid in ids:
-            try:
-                rec = get(record_url(rid), rid)
-            except Exception:                                               # noqa: BLE001
-                continue
-            r = reading(rec, t)
-            if r:
-                got.append((r, rid))
         answer, ev = settle([r for r, _ in got])
-        print(json.dumps({**row, "reading": answer, **ev, "searched": len(ids),
+        print(json.dumps({**row, "reading": answer, **ev, "searched": len(seen),
                           "records": [rid for _, rid in got]}, ensure_ascii=False))
     return 0
 

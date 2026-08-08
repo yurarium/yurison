@@ -18,7 +18,22 @@ import isbd                                                                    #
 
 # Imprint patterns identifying the 一迅社 百合姫 line. Matched against a normalised schema:brand.
 # MADB spells this at least seven ways; see docs/MADB.md.
-IMPRINTS = ("yurihimecomics", "コミック百合姫", "百合姫コミックス", "百合姫books")
+#
+# `yhcomics` IS THE ABBREVIATED LOGOTYPE AND WAS MISSING UNTIL 2026-08-08. 一迅社 prints YH comics
+# on the spine alongside the spelt-out form every year from 2015, on volumes of the same series:
+# C357075 carries YH comics, Yuri-hime comics, Yurihime comics and yh comics across its own run.
+# Release 1.2.18 states it on 94 volume records and 38 series records, and every one of the 132
+# names 一迅社 as the publisher, so the pattern reaches this house and no other. Without it those
+# volumes failed the selection, entered instead on a retailer's shelf, and were stored
+# `imprint: IDコミックス` with `marketing_label: none`. The publisher-side label those books are
+# entitled to was the thing the record did not hold.
+#
+# A SUBSTRING RULE IS DANGEROUS HERE and this one was measured before it was written. `yhcomics`
+# was matched against the normalised brand of all 401,311 book and 139,130 series records of the
+# release: 132 hits, all 一迅社, no other house and no other line. Compare `百合姫コミックス`,
+# which as a substring would reach nothing else either, and the pattern that opened this
+# investigation, which reached KADOKAWA's BRIDGE COMICS. The test is the release, not the shape.
+IMPRINTS = ("yurihimecomics", "yhcomics", "コミック百合姫", "百合姫コミックス", "百合姫books")
 
 # The role MADB writes in a bracket around a publisher's name, and what each one means. A value is
 # read as a role ONLY if it is in here. MADB brackets other things in the same position: `[LEGO]`,
@@ -254,10 +269,25 @@ def publisher_basis(rec):
 IMPRINT_PATTERNS = tuple(norm(p) for p in IMPRINTS)
 
 
+# THE SPELLINGS THAT NAME THE LINE WITHOUT SAYING WHAT IT IS. `YH comics` is the logotype
+# abbreviated, so it identifies the line to somebody who already knows it and states nothing a
+# reader can weigh. That matters because the imprint a record stores is what the work page quotes
+# as the publisher's own term, and `check.py`'s `labels with nothing to quote` counts the rows
+# where the quotation would say nothing. Ranked last among the source's own spellings rather than
+# excluded: where MADB states the line only this way, this is still the evidence there is.
+MUTE_PATTERNS = tuple(norm(p) for p in ("yhcomics",))
+
+
 def is_yuri_imprint(text):
     """Whether a brand names 一迅社's 百合姫 line."""
     n = norm(text)
     return any(p in n for p in IMPRINT_PATTERNS)
+
+
+def is_mute_imprint(text):
+    """Whether a brand names the line in a spelling that does not say which line it is."""
+    n = norm(text)
+    return any(p in n for p in MUTE_PATTERNS)
 
 
 def imprint_of(recs):
@@ -277,14 +307,28 @@ def imprint_of(recs):
     matched brand wins where the pass matched one, and every other record keeps the value it
     already had.
 
+    AND AMONG THE MATCHES, THE ONE THAT SAYS WHICH LINE IT IS. Adding `YH comics` to the selection
+    made the series brand of C434622 and C353604 match where it had not, and both records went from
+    quoting `Yurihime comics` and `Yuri-hime comics anthology series` to quoting an abbreviation
+    that states nothing. Same fault as the umbrella above, one spelling further in: the label is
+    right and the evidence beside it has stopped saying anything. So a mute spelling is taken only
+    where the whole chain offers nothing else, which is 49 of the 51 works in release 1.2.18.
+
     `recs` is the record itself followed by its volumes. The series brand carries the match on 299
     of the 302 works; the other three are where selection on the volumes is the only evidence
     there is, and MADB leaves the brand off the series record entirely on one of them.
     """
+    mute = None
     for rec in recs:
         for b in (split_reading(x) for x in values(rec.get("schema:brand", ""))):
-            if is_yuri_imprint(b):
+            if not is_yuri_imprint(b):
+                continue
+            if not is_mute_imprint(b):
                 return b, rec
+            if mute is None:
+                mute = (b, rec)
+    if mute:
+        return mute
     for rec in recs:
         got = values(rec.get("schema:brand", ""))
         if got:

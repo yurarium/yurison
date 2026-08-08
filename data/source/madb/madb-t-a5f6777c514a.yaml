@@ -3,7 +3,7 @@
 source: madb
 source_version: "1.2.18"
 retrieved: 2026-08-07
-work_id: madb-t-2296bd03ef37
+work_id: madb-t-a5f6777c514a
 route: imprint-selection
 grouping: title-only
 # No cm104 series record; volumes grouped by normalised title. Verify before
@@ -11,9 +11,9 @@ grouping: title-only
 madb_id: null
 record_type: manga_book_series
 title:
-  ja: "嘘から始まる恋の夏 : squall"
-  yomi: "ウソ カラ ハジマル コイ ノ ナツ : squall"
-creator: "LYCORIS / ろここ / ロココ"
+  ja: "いちゃらぶしかない百合アンソロジーコミックsugar"
+  yomi: "イチャラブ シカ ナイ ユリ アンソロジー コミック sugar"
+creator: ""
 publisher: "一迅社"
 distributor: "講談社"
 publisher_stated: "[頒布]講談社 / 一迅社"
@@ -23,14 +23,15 @@ publishers:
     role_stated: "頒布"
   - name: "一迅社"
     role: publisher
-imprint: "IDコミックス. Yh comics"
+imprint: "YH comics"
+imprint_stated: "IDコミックス / YH comics"
 volume_count: 1
-first_published: 2025-04-30
-last_published: 2025-04-30
+first_published: 2022-01
+last_published: 2022-01
 volumes:
-  - madb_id: M1063692
-    isbn: "9784758028660"
-    published: 2025-04-30
+  - madb_id: M858522
+    isbn: "9784758023467"
+    published: 2022-01
 marketing_label: yuri
 marketing_label_basis:
   source: madb

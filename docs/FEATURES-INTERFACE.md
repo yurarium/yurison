@@ -434,9 +434,12 @@ neither is our claim, so the one form a reader has no reason to doubt was the on
 evidence. 234 titles now cite the licensor's or the publisher's own page, which
 `data/names/curated.yaml` had held all along and the build simply never emitted.
 
-**Every credit and every publisher on the page is a link.** Each name still reaches output through
-`authorLabel` or `pubBoth`, so the reader's language, romanisation style, name order and furigana all
-apply as before; what is added is the address.
+Every credit and every publisher on the page is a link. Each name still reaches output through
+`authorLabel` or `publisherPartsHtml`, so the reader's language, romanisation style, name order and
+furigana all apply as before; what is added is the address. The work page had grown its own copy of
+the three names on a volume row so it could wrap two of them in an anchor, which `names reach a page
+only through their renderer` reported the moment that check landed, and the link belongs in the
+renderer rather than at the call site.
 
 ### The framing this must not get wrong
 

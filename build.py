@@ -5516,6 +5516,48 @@ def main():
         print(f"  note: {_folded_key} has {_folded_dups + 1} records that fold together; "
               f"kept the fullest")
 
+    # THE CATALOGUED SPELLING OF A TITLE IS THE SAME TITLE, and until now the map did not say so.
+    # A cataloguer writes a subtitle after an ISBD colon and a platform writes it inside 〜 〜, so
+    # `シャドウ・アサシンズ・ワールド : 影は薄いけど、最強忍者やってます` and
+    # `シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～` are one work under two
+    # strings. The store is keyed on the platform's spelling, the 発売 tab and the catalogue draw
+    # the record's, and folding normalises width and spaces and cannot join a colon to a tilde. So
+    # eight works were rendered in English everywhere the series row is read and in Japanese on the
+    # two tabs that read the bibliographic record.
+    #
+    # THE JOIN ALREADY EXISTS AND IS NOT GUESSED AT. `print[].work_id` is the record this row was
+    # matched to, decided by identity.py against evidence, so this adds a key and no opinion. A
+    # rule that stripped the subtitle instead would be a second producer of the title (§3) and
+    # would answer for strings nothing has matched.
+    #
+    # AN EXISTING KEY IS LEFT ALONE. Where a catalogued spelling already has a record of its own,
+    # that record was curated against that spelling and knows more than this does.
+    _record_title = {w["work_id"]: ((w.get("title") or {}).get("ja") or "").strip()
+                     for w in works if w.get("work_id")}
+    _alias_titles = 0
+    for r in series_rows:
+        _row_cands = [x for x in (_title_names.get(r.get("work")),
+                                  _title_folded.get(_fold(r.get("work")))) if x]
+        if not _row_cands:
+            continue
+        _row_rec = max(_row_cands, key=_fullness)
+        for _pr in (r.get("print") or []):
+            _cat = _record_title.get(_pr.get("work_id")) or ""
+            if not _cat or norm_work(_cat) in _wh_names:
+                continue
+            _cat_key = _fold(_cat)
+            if _cat_key and _cat_key not in _title_folded:
+                # MARKED AS AN ALIAS, and copied rather than shared, so a count over the shipped
+                # file can tell one title held twice from two titles. `titles with no translation
+                # of our own` rose by 2 the first time this ran, entirely because two records were
+                # answering under a second key. The interface reads `en` and `romaji` and neither
+                # notices the extra field.
+                _title_folded[_cat_key] = dict(_row_rec, alias_of=_fold(r.get("work")))
+                _alias_titles += 1
+    if _alias_titles:
+        print(f"titles          : {_alias_titles} catalogued spelling(s) keyed onto the record of "
+              f"the work they name")
+
     _named_w = _named_a = 0
     for r in series_rows + releases:
         # AN EXACT MATCH IS NOT AUTOMATICALLY THE BETTER ONE. The same work reaches us spelled
@@ -5600,12 +5642,20 @@ def main():
     # naming: ハルタコミックス, FUZコミックス, まんがタイムKRコミックスつぼみシリーズ and the MF
     # series among them. They are keyed here so the same lookup answers for them, raw and folded
     # alike, which is the rule the publisher map already follows.
+    #
+    # THE SKIP ASKS WHAT THE READER'S LOOKUP ASKS, and asking anything else is what hid
+    # MFC キューンシリーズ for a round. `pubRec` in app.js tries the string and its NFKC form and
+    # does not remove spaces; this tested the space-stripped fold, found the catalogued
+    # `MFCキューンシリーズ` already in the map, and concluded the line was named. It was named under
+    # a key nothing asks for, so 35 rows showed the line in Japanese in English-only mode
+    # (STANDING-INSTRUCTIONS §14b: a producer's "do I have this already" must be the consumer's
+    # lookup, or it answers a question nobody is asking).
     sys.path.insert(0, str(pathlib.Path(__file__).parent / 'adapters' / 'names'))
     import publishers as _pubmod
     _imp_named = 0
     for _fact in {id(v): v for v in _imp_shipped.values()}.values():
         _nm = (_fact or {}).get("name")
-        if not _nm or _nm in _pub_shipped or _fold(_nm) in _pub_shipped:
+        if not _nm or _nm in _pub_shipped or unicodedata.normalize("NFKC", _nm) in _pub_shipped:
             continue
         _one = _pubmod.render(_pub_names, _auth_folded,
                               {("imprint", _nm): {"kind": "imprint", "raw": _nm,

@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+"""entrypoints.py: proving a name cannot reach a page except through the function that renders it.
+
+COVERS = ['adapters/lint/entrypoints.py']
+
+WHAT THIS HAS TO PROVE. Not that the lint runs, but that it FAILS on each of the four escapes that
+actually shipped, because a lint that passes on today's file has said nothing about tomorrow's.
+Each probe below is one of them, written back into the real `kari/app.js` so the fault is in its own
+setting rather than in a snippet built to be caught.
+
+The tokeniser gets its own assertions first. Everything above it rests on the claim that a comment
+mentioning `w.t`, a template holding a brace and a regular expression containing a slash are read as
+what they are, and the first version of it emitted `&&` as two `&` tokens, which turned thirteen
+conditions into thirteen renderings.
+"""
+import pathlib
+import sys
+
+HERE = pathlib.Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(HERE.parent))
+import entrypoints
+import interface
+import testkit
+
+
+def kinds(src):
+    return [(k, t) for k, t, _ in entrypoints.tokens(src) if k not in ("ws",)]
+
+
+# One surface and one entry point, so the rules can be exercised without the real table moving
+# under the test.
+ONE = [interface.Surface("rows[].work", "workLabel", "row:work", "title", "a row's title")]
+
+
+def main(s):
+    # ── the tokeniser ─────────────────────────────────────────────────────────────────────────
+    tricky = ("const re = /a\\/b[/]c/g;\n"
+              "// a comment mentioning w.t and `a backtick`\n"
+              "const s = 'a string with ${not} an interpolation';\n"
+              "const t = `outer ${ inner.work } and ${ {a: 1}.a } tail`;\n"
+              "if (a && b !== c) esc(d.work);\n")
+    s.eq("".join(t for _k, t, _p in entrypoints.tokens(tricky)), tricky,
+         "the tokens concatenate back to the source byte for byte, which is the only thing making "
+         "every rule below a statement about the file rather than about a lossy reading of it")
+    s.check(("regex", "/a\\/b[/]c/g") in kinds(tricky),
+            "a regular expression holding an escaped slash and a class is one token, not a divide")
+    s.check(any(k == "comment" for k, _ in kinds(tricky)),
+            "and a comment is a token, so `w.t` written in prose is not a read")
+    s.check(("punct", "&&") in kinds(tricky),
+            "a two-character operator is emitted whole; emitting it twice as `&` is what made "
+            "every `a && b` look like a value being passed on")
+    s.check(("punct", "!==") in kinds(tricky), "and so is a three-character one")
+    s.check(("punct", "${") in kinds(tricky), "an interpolation opens with its own token")
+    s.check(any(k == "template" for k, _ in kinds(tricky)),
+            "the text around an interpolation is template, so a brace inside it is not a scope")
+    s.check(not any(k == "name" and t == "not" for k, t in kinds(tricky)),
+            "and `${not}` inside a single-quoted STRING is text, not an interpolation")
+
+    # ── the rule ──────────────────────────────────────────────────────────────────────────────
+    ok = "function draw(r) { return `<li>${workLabel(r)}</li>`; }"
+    s.eq(entrypoints.findings(ok, ONE, {}), [],
+         "a row handed to its entry point is what the rule asks for")
+
+    s.eq(len(entrypoints.findings("function draw(r) { return `<li>${esc(r.work)}</li>`; }",
+                                  ONE, {})), 1,
+         "escaping the field instead is the fault that shipped 2,430 rows of Japanese")
+    s.eq(len(entrypoints.findings("function draw(r) { return `<li>${r.work}</li>`; }", ONE, {})), 1,
+         "and interpolating it raw is the same fault with the escaping left off")
+    s.eq(entrypoints.findings("function draw(r) { return r.work ? workLabel(r) : ''; }", ONE, {}),
+         [], "asking WHETHER there is a title is a yes or a no and reaches no page")
+    s.eq(entrypoints.findings("function workLabel(r) { return esc(r.work); }", ONE, {}), [],
+         "the entry point reads the field itself, which is where the read belongs")
+    s.eq(entrypoints.findings("function sort(a, b) { return a.work.localeCompare(b.work); }",
+                              ONE, {}), [],
+         "a method called on the value is the consumer, and an ordering shows nothing")
+
+    # The exception table, and the count that stops it laundering a second read.
+    src = "function draw(r) { return group(r.work); }"
+    s.eq(len(entrypoints.findings(src, ONE, {})), 1, "an unruled consumer is a finding")
+    s.eq(entrypoints.findings(src, ONE, {("draw", "work", "through:group"): (1, "a grouping key")}),
+         [], "and an exception naming the function, the field and the consumer allows it")
+    two = "function draw(r) { return group(r.work) + group(r.work); }"
+    s.check(any("2 times" in b for b in entrypoints.findings(
+        two, ONE, {("draw", "work", "through:group"): (1, "a grouping key")})),
+        "A SECOND READ UNDER THE SAME EXCEPTION FAILS. Keyed on the triple alone this let the "
+        "fourth historical fault through: renderReleases was allowed one String(w.creator) for "
+        "its search key and a second one splitting the field for display went unremarked")
+    s.eq(len(entrypoints.findings(
+        "function draw(r) { return workLabel(r); }", ONE,
+        {("draw", "work", "through:group"): (1, "a grouping key")})), 1,
+        "and an exception nobody exercises fails too, because a line claiming something nobody "
+        "does is reasoning the next person will lean on")
+
+    s.raises(ValueError, _refuse,
+             "an exception that would allow a rendering is refused outright, so the table cannot "
+             "be the place a leak is parked")
+
+    # ── the four faults, in the real file ─────────────────────────────────────────────────────
+    if not interface.APP_JS.exists():
+        print("  note: kari/app.js is not beside this repository, so the probes did not run")
+        return
+    app = interface.APP_JS.read_text(encoding="utf-8")
+    s.eq(entrypoints.findings(app), [],
+         "kari/app.js as it stands puts no name on a page except through its renderer")
+    for what, before, after in (
+            ("the catalogue tab printing index.json's title raw",
+             "${workLabel({ work: w.t })}", "${esc(w.t)}"),
+            ("the 発売 tab labelling a volume from the record title",
+             "const label = workLabel({ work: w.title.ja });", "const label = esc(w.title.ja);"),
+            ("a byline interpolated straight into a row", "${authorLabel(r)}", "${r.author}"),
+            ("the credit field pulled apart outside its entry point",
+             "const people = creditNames(w.creator);",
+             "const people = String(w.creator || '').split('/').map(esc).join(' / ');")):
+        s.check(before in app, f"{what}: the line the probe replaces is still in kari/app.js")
+        s.check(bool(entrypoints.findings(app.replace(before, after, 1))),
+                f"{what}: caught when written back into the file")
+
+
+def _refuse():
+    """Load the module's own guard against an exception that would allow a rendering."""
+    entrypoints.SAFE[("draw", "work", "interpolated")] = (1, "a leak somebody wanted through")
+    try:
+        entrypoints._refuse_bad_safe()
+    finally:
+        del entrypoints.SAFE[("draw", "work", "interpolated")]
+
+
+if __name__ == "__main__":
+    sys.exit(testkit.run(main, "entrypoints"))

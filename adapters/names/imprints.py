@@ -49,6 +49,16 @@ string by construction, and the count of what it missed is then zero for the res
 (STANDING-INSTRUCTIONS §14b). `imprint strings that reach no imprint object` is that count, and it
 is measured in check.py off the shipped map, consulting nothing in this file.
 
+THE UNIT OF CURATION IS A HOUSE, and the residue per house is asserted in test_imprints.py. Curating
+by string would place whatever happened to be looked at and leave a count nobody can read; curating a
+house means reading what it publishes, deciding every string it carries, and recording the ones the
+file refuses. Two shapes are refused wherever they appear, and both are pinned as counter-cases: a
+COMPANY name in the imprint field, which is what a distributor writes when it did not make the book,
+and a MAGAZINE name with nothing saying it stands for the book line. コミック百合姫 is folded into
+百合姫コミックス only because MADB's own `IDコミックス. Yurihime comics = コミック百合姫` states the
+equation; コミックハイ!, 楽園, ヤングキング and まんがタイムきらら have no such statement and stay
+out.
+
 WHAT NO COUNT HERE CAN SEE: a string folded into the wrong line under the same publisher. Matching
 is scoped by publisher so a line cannot be reached from another house, and `an imprint spelling
 belongs to its own publisher` holds that. Within one house the guard is the counter-case, pinned in
@@ -111,8 +121,9 @@ def index(lines):
 
     KEYED ON THE PUBLISHER AS WELL AS THE SPELLING, so a line can be reached only from the house
     that runs it. `角川コミックス・エース` is catalogued under KADOKAWA and under 角川書店 and both
-    are listed on the entry; `ブシロードコミックス` sits under two companies neither of which is
-    curated here, and it stays unresolved instead of being attached to a guess.
+    are listed on the entry, and `ブシロードコミックス` is the same shape reached differently: two
+    arms of one group are both catalogued as the publisher of one line, which the dates show is
+    neither a rename nor a transfer.
     """
     out = {}
     for line in lines:

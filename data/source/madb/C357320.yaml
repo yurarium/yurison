@@ -5,7 +5,7 @@ source_version: "1.2.18"
 retrieved: 2026-08-07
 work_id: C357320
 route: imprint-selection
-grouping: series-link
+grouping: title-match
 madb_id: C357320
 madb_url: https://mediaarts-db.artmuseums.go.jp/id/C357320
 record_type: manga_book_series
@@ -15,9 +15,9 @@ title:
 creator: "[著]なもり"
 publisher: "一迅社"
 imprint: "IDコミックス　／　Yuri-hime comics"
-volume_count: 3
+volume_count: 8
 first_published: 2013-08
-last_published: 2019-11
+last_published: 2025-01-03
 volumes:
   - madb_id: M454642
     number: "1"
@@ -35,6 +35,46 @@ volumes:
     number: "3"
     isbn: "9784758079839"
     published: 2019-11
+  - madb_id: M829297
+    number: "4"
+    isbn: "9784758022002"
+    published: 2021-01
+  - madb_id: M829342
+    number: "4"
+    isbn: "9784758021999"
+    published: 2021-01
+  - madb_id: M858392
+    number: "5"
+    isbn: "9784758023436"
+    published: 2022-01
+  - madb_id: M858505
+    number: "5"
+    isbn: "9784758023429"
+    published: 2022-01
+  - madb_id: M879406
+    number: "6"
+    isbn: "9784758024846"
+    published: 2023-01
+  - madb_id: M879423
+    number: "6"
+    isbn: "9784758024839"
+    published: 2023-01
+  - madb_id: M965925
+    number: "7"
+    isbn: "9784758026628"
+    published: 2024-03
+  - madb_id: M965926
+    number: "7"
+    isbn: "9784758026635"
+    published: 2024-03
+  - madb_id: M1035042
+    number: "8"
+    isbn: "9784758028226"
+    published: 2025-01-03
+  - madb_id: M1035124
+    number: "8"
+    isbn: "9784758028219"
+    published: 2025-01-03
 marketing_label: yuri
 marketing_label_basis:
   source: madb

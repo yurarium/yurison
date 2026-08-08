@@ -205,14 +205,40 @@ def main(s):
     s.check(not m.is_yuri_imprint("IDコミックス"),
             "and the umbrella line on its own does not, which is why the row was withheld")
 
+    # THE ABBREVIATED LOGOTYPE, MISSING FROM THE PATTERN LIST UNTIL 2026-08-08. 一迅社 prints
+    # YH comics on the spine beside the spelt-out form from 2015, so 132 records of release 1.2.18
+    # named the yuri line in a spelling the selection did not know. Every case in the release is
+    # asserted here, lower-case and mixed and joined to the umbrella, because the fault was one
+    # spelling and the fix has to cover the family.
+    for spelt in ("YH comics", "yh COMICS", "IDコミックス. YH comics", "IDコミックス. Yh comics",
+                  "IDコミックス　／　yh COMICS"):
+        s.check(m.is_yuri_imprint(spelt), f"{spelt} names the 百合姫 line")
+    # AND THE COUNTER-CASES THE SUBSTRING RULE WOULD REACH IF IT WERE LOOSER. YH is two letters,
+    # so the guard is that it stays a whole word against the neighbours a comics catalogue holds.
+    for other in ("YKコミックス", "HCヒーローズコミックス", "YOUNG ANIMAL COMICS", "Yh"):
+        s.check(not m.is_yuri_imprint(other), f"{other} does not")
+
+    # THE ABBREVIATION IS THE LAST RESORT. C434622's series record is branded YH comics and its
+    # volumes carry Yurihime comics, so before the ranking the record quoted a term saying nothing
+    # while the source had one that said it. The evidence table is what reads this field.
+    ABBREV = {"schema:brand": ["IDコミックス", "YH comics"]}
+    SPELT = {"schema:brand": ["IDコミックス", "Yurihime comics"]}
+    s.eq(m.imprint_of([ABBREV, SPELT])[0], "Yurihime comics",
+         "a spelling naming the line beats the abbreviation, wherever in the chain it sits")
+    s.check(m.imprint_of([ABBREV, SPELT])[1] is SPELT, "and the record it was read from is reported")
+    s.eq(m.imprint_of([ABBREV, {"schema:brand": "アフタヌーンKC"}])[0], "YH comics",
+         "and where the chain states the line only that way, that is the evidence there is")
+
     # THE COUNTER-CASE TO THE OBVIOUS RULE. Taking the LAST value would be the most specific one in
     # every record stating several, and it is not always a brand at all.
     SUB = {"schema:brand": ["Emerald comics", "Romance comics = ロマンスコミックス", "プロポーズのゆくえ"]}
     s.eq(m.imprint_of([SUB])[0], "Emerald comics",
          "a record with nothing matched keeps its stated brand rather than a sub-series title")
 
-    # A work whose own record names no 百合姫 brand: the volumes are what selection saw.
-    BARE = {"schema:brand": "yh COMICS"}
+    # A work whose own record names no 百合姫 brand: the volumes are what selection saw. This
+    # fixture used to read `yh COMICS`, which was a 百合姫 spelling the pattern list did not hold,
+    # so the test asserted the fault as though it were the shape being tested.
+    BARE = {"schema:brand": "アフタヌーンKC"}
     VOL = {"schema:brand": ["IDコミックス", "Yuri-hime comics anthology series"]}
     s.eq(m.imprint_of([BARE, VOL])[0], "Yuri-hime comics anthology series",
          "and where only a volume carries the line, that is the brand the record states")

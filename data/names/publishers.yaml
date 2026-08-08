@@ -1,5 +1,27 @@
 generated: '2026-08-08'
 names:
+  4コマKINGSぱれっとコミックス:
+    basis: romaji
+    en: 4-koma KINGS Palette Comics
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: read off the name itself
+    en_source_kind: derived
+    note: 'KINGS is Latin on the label and コミックス is the English word it stands for. 4コマ and ぱれっと are ours:
+      4コマ names the four-panel form and is read ヨンコマ, and ぱれっと is the magazine''s own kana spelling of
+      palette. 一迅社 publishes no label index and prints no Latin form, so this is a romanisation. The catalogued
+      spelling 4コマkingsぱれっとcomics has its own entry, rendered in the lower case MADB gave it.'
+    reading: ヨンコマ キングス パレット コミックス
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_note: 4コマ is ヨンコマ, the name of the four-panel form. KINGS and コミックス are the English words,
+      and ぱれっと is the magazine's own kana spelling of palette, which Japanese borrows as パレット. The National
+      Diet Library files the series title of ISBN 9784758083478 as IDコミックス. 4コマkingsぱれっとcomics and states
+      no reading for it.
+    reading_reviewed: '2026-08-08'
+    reading_source: read off the name itself
+    reading_source_kind: derived
+    verified: false
   4コマkingsぱれっとcomics:
     basis: romaji
     en: 4-koma kings palette comics
@@ -160,6 +182,20 @@ names:
     reading_source: read off the name itself
     reading_source_kind: derived
     verified: false
+  HOWLコミックス:
+    basis: official-jp
+    en: HOWL Comics
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: ndlsearch.ndl.go.jp
+    en_source_kind: national-library
+    en_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033256400
+    note: 'HOWL is 一迅社''s own letters: the label is named HOWLコミックス and the Latin half is not a transcription
+      of anything. コミックス is the English word it stands for, which is the same reading IDコミックス gets in
+      this file. The National Diet Library files the series title of ISBN 9784758026055 as Howl comics,
+      and both rows of this corpus are catalogued that way. 一迅社 publishes no label index of its own, so
+      the Japanese name comes from BOOK☆WALKER''s list for the house.'
+    verified: true
   Hugピクシブシリーズ:
     basis: romaji
     en: Hug Pixiv Series
@@ -265,6 +301,29 @@ names:
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I027965994
+    verified: true
+  MANGAバル コミックス:
+    basis: official-jp
+    en: MANGA Bar Comics
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: group.kadokawa.co.jp
+    en_source_kind: publisher-jp
+    en_url: https://group.kadokawa.co.jp/global/business/publishing.html
+    note: KADOKAWA's own English site names the magazine MANGA Bar and links it to comic-walker.com/label/bar,
+      so バル is the publisher's own answer and not a romanisation. MANGA is Latin on the label already
+      and コミックス is the English word it stands for. The one row this corpus holds is catalogued MANGAバルCOMICS,
+      which the National Diet Library files the same way; that spelling has its own entry here, rendered
+      with COMICS as the book prints it.
+    reading: マンガ バル コミックス
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: The National Diet Library files the label マンガバルコミックス, which settles バル as a syllable
+      of the magazine's name rather than an abbreviation.
+    reading_reviewed: '2026-08-08'
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034480208
     verified: true
   MANGAバルCOMICS:
     basis: romaji
@@ -1928,6 +1987,20 @@ names:
     reading_source: read off the name itself
     reading_source_kind: derived
     verified: false
+  ハルタコミックス:
+    basis: official-jp
+    en: HARTA COMIX
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: ndlsearch.ndl.go.jp
+    en_source_kind: national-library
+    en_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033862871
+    note: The line's own name is Latin on the book. Every one of the 11 rows this corpus holds is catalogued
+      HARTA COMIX, and the National Diet Library files the series title of ISBN 9784047380905 the same
+      way, which is a cataloguing authority transcribing what is printed. KADOKAWA's label index writes
+      the Japanese ハルタコミックス and prints no Latin form as text, but it addresses the ハルタ label on its own
+      platform at comic-walker.com/label/harta, so the letters are the publisher's rather than ours.
+    verified: true
   バナナブックス:
     basis: romaji
     en: Banana Books

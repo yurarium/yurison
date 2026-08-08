@@ -1552,10 +1552,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "kadokawa-tankobon-comics",
      "name": "単行本コミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 10,
      "works": [
       "w00683",
@@ -1791,10 +1791,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "kadokawa-comics",
      "name": "Kadokawa Comics",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 3,
      "works": [
       "w00027",
@@ -1873,10 +1873,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "kadokawa-comic-essay",
      "name": "コミックエッセイ",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 3,
      "works": [
       "w02126",
@@ -1959,10 +1959,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "lscomic",
      "name": "LScomic",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w02689",
@@ -2090,10 +2090,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "kadokawa-pixiv-essay",
      "name": "ピクシブエッセイ",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w02294"
@@ -2165,10 +2165,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "big-comics",
      "name": "ビッグコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 6,
      "works": [
       "w00079",
@@ -2190,10 +2190,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "sunday-gx-comics",
      "name": "サンデーGXコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 5,
      "works": [
       "w00990",
@@ -2214,10 +2214,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "ura-shonen-sunday-comics",
      "name": "裏少年サンデーコミックス",
-     "parent": null,
-     "resolved": false,
+     "parent": "少年サンデーコミックス",
+     "resolved": true,
      "rows": 5,
      "works": [
       "w00044",
@@ -2238,10 +2238,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "sunday-webry-shonen-sunday-comics",
      "name": "サンデーうぇぶり少年サンデーコミックス",
-     "parent": null,
-     "resolved": false,
+     "parent": "少年サンデーコミックス",
+     "resolved": true,
      "rows": 4,
      "works": [
       "w00102",
@@ -2260,10 +2260,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "manga-one-comics",
      "name": "マンガワンコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 4,
      "works": [
       "w00313",
@@ -2283,10 +2283,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "ciao-comics",
      "name": "ちゃおコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 3,
      "works": [
       "w01864",
@@ -2325,10 +2325,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "gessan-shonen-sunday-comics-special",
      "name": "ゲッサン少年サンデーコミックススペシャル",
-     "parent": null,
-     "resolved": false,
+     "parent": "少年サンデーコミックス",
+     "resolved": true,
      "rows": 2,
      "works": [
       "w00980",
@@ -2367,10 +2367,39 @@
      ]
     },
     {
-     "id": null,
-     "name": "BIG COMICS SPECIALヒバナ",
+     "id": "big-spirits-comics",
+     "name": "ビッグスピリッツコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
+     "rows": 2,
+     "works": [
+      "w01317",
+      "w01352"
+     ],
+     "spellings": [
+      {
+       "raw": "ビッグスピリッツコミックス",
+       "rows": 1,
+       "years": [
+        "2016",
+        "2016"
+       ]
+      },
+      {
+       "raw": "Big Spirits Comics",
+       "rows": 1,
+       "years": [
+        "2018",
+        "2018"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "big-comics-special-hibana",
+     "name": "BIG COMICS SPECIALヒバナ",
+     "parent": "ビッグコミックス",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w01292"
@@ -2387,30 +2416,10 @@
      ]
     },
     {
-     "id": null,
-     "name": "Big Spirits Comics",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w01352"
-     ],
-     "spellings": [
-      {
-       "raw": "Big Spirits Comics",
-       "rows": 1,
-       "years": [
-        "2018",
-        "2018"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
+     "id": "ciao-deluxe",
      "name": "ちゃおデラックス",
-     "parent": null,
-     "resolved": false,
+     "parent": "ちゃおコミックス",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w01604"
@@ -2427,10 +2436,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "ciao-plus-comics",
      "name": "ちゃおプラスコミックス",
-     "parent": null,
-     "resolved": false,
+     "parent": "ちゃおコミックス",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00033"
@@ -2447,10 +2456,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "corocoro-comics-special",
      "name": "コロコロコミックススペシャル",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00021"
@@ -2467,10 +2476,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "sunday-webry-comics",
      "name": "サンデーうぇぶりコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w03101"
@@ -2487,10 +2496,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "digicolle",
      "name": "デジコレ",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w02003"
@@ -2507,10 +2516,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "digicolle-macaron",
      "name": "デジコレ　マカロン",
-     "parent": null,
-     "resolved": false,
+     "parent": "デジコレ",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w01861"
@@ -2527,30 +2536,10 @@
      ]
     },
     {
-     "id": null,
-     "name": "ビッグスピリッツコミックス",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w01317"
-     ],
-     "spellings": [
-      {
-       "raw": "ビッグスピリッツコミックス",
-       "rows": 1,
-       "years": [
-        "2016",
-        "2016"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
+     "id": "big-spirits-comics-special",
      "name": "ビッグスピリッツコミックススペシャル",
-     "parent": null,
-     "resolved": false,
+     "parent": "ビッグスピリッツコミックス",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w01247"
@@ -2587,10 +2576,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "yoru-sunday-shonen-sunday-comics",
      "name": "夜サンデー少年サンデーコミックス",
-     "parent": null,
-     "resolved": false,
+     "parent": "少年サンデーコミックス",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w01454"
@@ -2607,10 +2596,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "shonen-sunday-comics",
      "name": "少年サンデーコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00918"
@@ -2651,7 +2640,7 @@
   "h00004": {
    "id": "h00004",
    "name": "講談社",
-   "rows": 178,
+   "rows": 225,
    "works": [
     "w01224",
     "w01225",
@@ -2674,6 +2663,7 @@
     "w00156",
     "w00164",
     "w00165",
+    "w00166",
     "w00167",
     "w00168",
     "w00199",
@@ -2712,10 +2702,13 @@
     "w00459",
     "w00460",
     "w00462",
+    "w01240",
     "w01149",
     "w00978",
     "w01169",
+    "w00463",
     "w00464",
+    "w00466",
     "w00585",
     "w00591",
     "w00630",
@@ -2748,23 +2741,31 @@
     "w00958",
     "w00965",
     "w00967",
+    "w00974",
     "w00979",
     "w00984",
     "w00991",
+    "w00908",
     "w01197",
     "w01199",
     "w01242",
     "w01126",
     "w01127",
+    "w01321",
     "w01128",
+    "w01325",
     "w01129",
     "w01130",
     "w01131",
+    "w01326",
+    "w01327",
+    "w01333",
     "w01139",
     "w01140",
     "w01141",
     "w01142",
     "w01143",
+    "w01342",
     "w01147",
     "w01150",
     "w01151",
@@ -2773,6 +2774,7 @@
     "w01154",
     "w01155",
     "w01156",
+    "w03163",
     "w01157",
     "w01158",
     "w01159",
@@ -2781,33 +2783,57 @@
     "w01164",
     "w01167",
     "w01168",
+    "w01355",
+    "w01356",
     "w01172",
     "w01173",
     "w01174",
     "w01176",
+    "w01361",
     "w01177",
     "w01178",
+    "w01362",
+    "w01363",
+    "w01627",
     "w01179",
     "w01180",
     "w01181",
+    "w01367",
+    "w01368",
     "w01182",
+    "w01369",
     "w01183",
     "w01184",
     "w01185",
     "w01187",
+    "w01371",
     "w01188",
     "w01189",
+    "w01375",
+    "w01377",
+    "w01383",
+    "w03165",
     "w01190",
+    "w01386",
     "w01191",
     "w01192",
+    "w01394",
     "w01193",
+    "w01397",
+    "w01399",
     "w01194",
+    "w01400",
     "w01195",
+    "w01411",
     "w01196",
     "w01198",
     "w01415",
+    "w01421",
+    "w01422",
     "w03161",
+    "w01424",
     "w01200",
+    "w01425",
     "w01201",
     "w01665",
     "w02206",
@@ -2817,18 +2843,28 @@
     "w01205",
     "w01206",
     "w01439",
+    "w01440",
     "w01207",
+    "w01447",
     "w01209",
     "w01452",
     "w01210",
     "w01211",
     "w01212",
+    "w01458",
+    "w03166",
+    "w01460",
     "w01216",
+    "w03167",
     "w01217",
+    "w01469",
     "w01219",
     "w01221",
+    "w01473",
     "w01222",
-    "w01223"
+    "w01476",
+    "w01223",
+    "w01477"
    ],
    "seats": [
     "publisher",
@@ -2836,10 +2872,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "yanmaga-kc",
      "name": "ヤンマガKC",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 10,
      "works": [
       "w00004",
@@ -2864,10 +2900,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "morning-kc",
      "name": "モーニングKC",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 7,
      "works": [
       "w00167",
@@ -2890,10 +2926,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "sirius-kc",
      "name": "シリウスKC",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 4,
      "works": [
       "w01226",
@@ -2913,10 +2949,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "kodansha-comics-shonen-magazine",
      "name": "講談社コミックス. 週刊少年マガジン",
-     "parent": null,
-     "resolved": false,
+     "parent": "講談社コミックス",
+     "resolved": true,
      "rows": 3,
      "works": [
       "w01224",
@@ -2935,10 +2971,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "kc-kiss",
      "name": "KC Kiss",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w00100",
@@ -2956,10 +2992,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "kcdx-shonen-magazine",
      "name": "KCDX. 週刊少年マガジン",
-     "parent": null,
-     "resolved": false,
+     "parent": "KCデラックス",
+     "resolved": true,
      "rows": 2,
      "works": [
       "w00097",
@@ -2977,10 +3013,39 @@
      ]
     },
     {
-     "id": null,
+     "id": "kc-deluxe",
+     "name": "KCデラックス",
+     "parent": null,
+     "resolved": true,
+     "rows": 2,
+     "works": [
+      "w00091",
+      "w00455"
+     ],
+     "spellings": [
+      {
+       "raw": "KCDX",
+       "rows": 1,
+       "years": [
+        "2019",
+        "2019"
+       ]
+      },
+      {
+       "raw": "KCデラックス",
+       "rows": 1,
+       "years": [
+        "2024",
+        "2024"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "afternoon-kc",
      "name": "アフタヌーンKC",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w00585",
@@ -3020,46 +3085,6 @@
     },
     {
      "id": null,
-     "name": "KCDX",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w00091"
-     ],
-     "spellings": [
-      {
-       "raw": "KCDX",
-       "rows": 1,
-       "years": [
-        "2019",
-        "2019"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "KCデラックス",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w00455"
-     ],
-     "spellings": [
-      {
-       "raw": "KCデラックス",
-       "rows": 1,
-       "years": [
-        "2024",
-        "2024"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
      "name": "なかよし",
      "parent": null,
      "resolved": false,
@@ -3079,10 +3104,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "premium-kc",
      "name": "プレミアムKC",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w03161"
@@ -3099,10 +3124,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "magazine-edge-comics",
      "name": "マガジンエッジコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00803"
@@ -3139,10 +3164,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "wide-kc",
      "name": "ワイドKC",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00949"
@@ -3179,10 +3204,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "kodansha-comics",
      "name": "講談社コミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00958"
@@ -3199,10 +3224,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "kodansha-comics-magazine",
      "name": "講談社コミックスマガジン",
-     "parent": null,
-     "resolved": false,
+     "parent": "講談社コミックス",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00991"
@@ -3248,10 +3273,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "valkyrie-comics",
      "name": "ヴァルキリーコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 9,
      "works": [
       "w00009",
@@ -3276,10 +3301,41 @@
      ]
     },
     {
-     "id": null,
+     "id": "shiny-comics",
+     "name": "シャイニーコミックス",
+     "parent": null,
+     "resolved": true,
+     "rows": 4,
+     "works": [
+      "w00008",
+      "w00673",
+      "w02076",
+      "w02470"
+     ],
+     "spellings": [
+      {
+       "raw": "シャイニーコミックス",
+       "rows": 3,
+       "years": [
+        "2025",
+        "2025"
+       ]
+      },
+      {
+       "raw": "コミックシャイニー",
+       "rows": 1,
+       "years": [
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    {
+     "id": "young-unreal-comics",
      "name": "ヤングアンリアルコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 4,
      "works": [
       "w00387",
@@ -3294,48 +3350,6 @@
        "years": [
         "2018",
         "2024"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "シャイニーコミックス",
-     "parent": null,
-     "resolved": false,
-     "rows": 3,
-     "works": [
-      "w00008",
-      "w00673",
-      "w02470"
-     ],
-     "spellings": [
-      {
-       "raw": "シャイニーコミックス",
-       "rows": 3,
-       "years": [
-        "2025",
-        "2025"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "コミックシャイニー",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w02076"
-     ],
-     "spellings": [
-      {
-       "raw": "コミックシャイニー",
-       "rows": 1,
-       "years": [
-        null,
-        null
        ]
       }
      ]
@@ -3364,10 +3378,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "gangan-comics-up",
      "name": "ガンガンコミックスup!",
-     "parent": null,
-     "resolved": false,
+     "parent": "ガンガンコミックス",
+     "resolved": true,
      "rows": 4,
      "works": [
       "w00175",
@@ -3387,10 +3401,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "young-gangan-comics",
      "name": "ヤングガンガンコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 3,
      "works": [
       "w01268",
@@ -3409,10 +3423,39 @@
      ]
     },
     {
-     "id": null,
+     "id": "gangan-comics-online",
+     "name": "ガンガンコミックスonline",
+     "parent": "ガンガンコミックス",
+     "resolved": true,
+     "rows": 2,
+     "works": [
+      "w00197",
+      "w00232"
+     ],
+     "spellings": [
+      {
+       "raw": "ガンガンコミックスonline　／　GC ONLIN",
+       "rows": 1,
+       "years": [
+        "2012",
+        "2012"
+       ]
+      },
+      {
+       "raw": "ガンガンコミックスonline",
+       "rows": 1,
+       "years": [
+        "2025",
+        "2025"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "gangan-comics",
      "name": "ガンガンコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00013"
@@ -3429,50 +3472,10 @@
      ]
     },
     {
-     "id": null,
-     "name": "ガンガンコミックスonline",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w00232"
-     ],
-     "spellings": [
-      {
-       "raw": "ガンガンコミックスonline",
-       "rows": 1,
-       "years": [
-        "2025",
-        "2025"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "ガンガンコミックスonline　／　GC ONLIN",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w00197"
-     ],
-     "spellings": [
-      {
-       "raw": "ガンガンコミックスonline　／　GC ONLIN",
-       "rows": 1,
-       "years": [
-        "2012",
-        "2012"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
+     "id": "big-gangan-comics",
      "name": "ビッグガンガンコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00117"
@@ -3508,12 +3511,14 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "ride-comics",
      "name": "ライドコミックス",
      "parent": null,
-     "resolved": false,
-     "rows": 4,
+     "resolved": true,
+     "rows": 7,
      "works": [
+      "w00048",
+      "w00075",
       "w01814",
       "w01920",
       "w02423",
@@ -3527,20 +3532,7 @@
         "2020",
         "2025"
        ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "Ride Comics",
-     "parent": null,
-     "resolved": false,
-     "rows": 3,
-     "works": [
-      "w00048",
-      "w00075"
-     ],
-     "spellings": [
+      },
       {
        "raw": "Ride Comics",
        "rows": 3,
@@ -3586,11 +3578,11 @@
    ],
    "lines": [
     {
-     "id": null,
-     "name": "ACTION COMICS",
+     "id": "action-comics",
+     "name": "アクションコミックス",
      "parent": null,
-     "resolved": false,
-     "rows": 10,
+     "resolved": true,
+     "rows": 14,
      "works": [
       "w00020",
       "w00105",
@@ -3601,7 +3593,11 @@
       "w00896",
       "w00960",
       "w01351",
-      "w01419"
+      "w01419",
+      "w02417",
+      "w02502",
+      "w02949",
+      "w02963"
      ],
      "spellings": [
       {
@@ -3610,6 +3606,14 @@
        "years": [
         "2014",
         "2025"
+       ]
+      },
+      {
+       "raw": "アクションコミックス",
+       "rows": 4,
+       "years": [
+        "2009",
+        "2013"
        ]
       },
       {
@@ -3623,37 +3627,15 @@
      ]
     },
     {
-     "id": null,
-     "name": "アクションコミックス",
-     "parent": null,
-     "resolved": false,
-     "rows": 4,
-     "works": [
-      "w02417",
-      "w02502",
-      "w02949",
-      "w02963"
-     ],
-     "spellings": [
-      {
-       "raw": "アクションコミックス",
-       "rows": 4,
-       "years": [
-        "2009",
-        "2013"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "Action comics　／　comic high's brand",
-     "parent": null,
-     "resolved": false,
-     "rows": 2,
+     "id": "comic-highs-brand",
+     "name": "comic high's brand",
+     "parent": "アクションコミックス",
+     "resolved": true,
+     "rows": 3,
      "works": [
       "w01269",
-      "w01270"
+      "w01270",
+      "w01294"
      ],
      "spellings": [
       {
@@ -3663,19 +3645,7 @@
         "2012",
         "2012"
        ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "Action comics : comic high's brand",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w01294"
-     ],
-     "spellings": [
+      },
       {
        "raw": "Action comics : comic high's brand",
        "rows": 1,
@@ -3756,10 +3726,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "young-jump-comics",
      "name": "ヤングジャンプコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 5,
      "works": [
       "w00051",
@@ -3788,10 +3758,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "young-jump-comics-ultra",
      "name": "ヤングジャンプコミックス・ウルトラ",
-     "parent": null,
-     "resolved": false,
+     "parent": "ヤングジャンプコミックス",
+     "resolved": true,
      "rows": 4,
      "works": [
       "w00633",
@@ -3811,10 +3781,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "jump-comics",
      "name": "ジャンプコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 3,
      "works": [
       "w00029",
@@ -3833,10 +3803,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "jump-comics-plus",
      "name": "JUMP COMICS+",
-     "parent": null,
-     "resolved": false,
+     "parent": "ジャンプコミックス",
+     "resolved": true,
      "rows": 2,
      "works": [
       "w00736"
@@ -3853,10 +3823,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "margaret-comics",
      "name": "マーガレットコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w00072",
@@ -3874,10 +3844,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "young-jump-comics-digital",
      "name": "ヤングジャンプコミックスDIGITAL",
-     "parent": null,
-     "resolved": false,
+     "parent": "ヤングジャンプコミックス",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w01700"
@@ -3894,10 +3864,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "young-jump-comics-gj",
      "name": "ヤングジャンプコミックスGJ",
-     "parent": null,
-     "resolved": false,
+     "parent": "ヤングジャンプコミックス",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00982"
@@ -3957,11 +3927,11 @@
    ],
    "lines": [
     {
-     "id": null,
-     "name": "Bamboo comics",
+     "id": "bamboo-comics",
+     "name": "バンブーコミックス",
      "parent": null,
-     "resolved": false,
-     "rows": 28,
+     "resolved": true,
+     "rows": 30,
      "works": [
       "w00035",
       "w00099",
@@ -3983,6 +3953,7 @@
       "w00383",
       "w00418",
       "w00419",
+      "w02055",
       "w01450",
       "w01403",
       "w01451",
@@ -4000,20 +3971,7 @@
         "2008",
         "2026"
        ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "バンブーコミックス",
-     "parent": null,
-     "resolved": false,
-     "rows": 2,
-     "works": [
-      "w00187",
-      "w02055"
-     ],
-     "spellings": [
+      },
       {
        "raw": "バンブーコミックス",
        "rows": 2,
@@ -4025,33 +3983,14 @@
      ]
     },
     {
-     "id": null,
-     "name": "Bamboo comics. BCf",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w01442"
-     ],
-     "spellings": [
-      {
-       "raw": "Bamboo comics. BCf",
-       "rows": 1,
-       "years": [
-        "2026",
-        "2026"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
+     "id": "bamboo-comics-bcf",
      "name": "バンブーコミックス BCf",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
+     "parent": "バンブーコミックス",
+     "resolved": true,
+     "rows": 2,
      "works": [
-      "w02786"
+      "w02786",
+      "w01442"
      ],
      "spellings": [
       {
@@ -4060,6 +3999,14 @@
        "years": [
         null,
         null
+       ]
+      },
+      {
+       "raw": "Bamboo comics. BCf",
+       "rows": 1,
+       "years": [
+        "2026",
+        "2026"
        ]
       }
      ]
@@ -4102,7 +4049,7 @@
   "h00012": {
    "id": "h00012",
    "name": "一迅社",
-   "rows": 422,
+   "rows": 428,
    "works": [
     "w00056",
     "w00055",
@@ -4353,6 +4300,7 @@
     "w01139",
     "w01140",
     "w01141",
+    "w03162",
     "w01339",
     "w01142",
     "w01143",
@@ -4369,6 +4317,7 @@
     "w01154",
     "w01155",
     "w01156",
+    "w03163",
     "w01157",
     "w01158",
     "w01159",
@@ -4395,6 +4344,7 @@
     "w01178",
     "w01362",
     "w01363",
+    "w01627",
     "w01179",
     "w01180",
     "w01181",
@@ -4412,6 +4362,7 @@
     "w01375",
     "w01377",
     "w01383",
+    "w03165",
     "w01190",
     "w01386",
     "w01191",
@@ -4510,8 +4461,10 @@
     "w01212",
     "w01213",
     "w01458",
+    "w03166",
     "w01460",
     "w01216",
+    "w03167",
     "w01217",
     "w01469",
     "w01219",
@@ -4532,7 +4485,7 @@
      "name": "百合姫コミックス",
      "parent": "IDコミックス",
      "resolved": true,
-     "rows": 354,
+     "rows": 400,
      "works": [
       "w00056",
       "w00055",
@@ -4548,6 +4501,7 @@
       "w00174",
       "w00164",
       "w00165",
+      "w00166",
       "w00168",
       "w00199",
       "w00200",
@@ -4591,10 +4545,13 @@
       "w00459",
       "w00460",
       "w00462",
+      "w01240",
       "w01149",
       "w00978",
       "w01169",
+      "w00463",
       "w00464",
+      "w00466",
       "w01070",
       "w01495",
       "w00630",
@@ -4615,6 +4572,8 @@
       "w00965",
       "w00966",
       "w00967",
+      "w00974",
+      "w00908",
       "w01197",
       "w01199",
       "w00994",
@@ -4749,9 +4708,13 @@
       "w01127",
       "w01321",
       "w01128",
+      "w01325",
       "w01129",
       "w01130",
       "w01131",
+      "w01326",
+      "w01327",
+      "w01333",
       "w01132",
       "w01133",
       "w01134",
@@ -4759,14 +4722,17 @@
       "w01136",
       "w01137",
       "w01138",
+      "w01336",
       "w01139",
       "w01140",
       "w01141",
+      "w03162",
       "w01142",
       "w01143",
       "w01144",
       "w01145",
       "w01146",
+      "w01342",
       "w01147",
       "w01148",
       "w01150",
@@ -4776,6 +4742,7 @@
       "w01154",
       "w01155",
       "w01156",
+      "w03163",
       "w01157",
       "w01158",
       "w01159",
@@ -4789,33 +4756,57 @@
       "w01167",
       "w01168",
       "w01170",
+      "w01355",
       "w01171",
+      "w01356",
       "w01172",
       "w01173",
       "w01174",
       "w01175",
       "w01176",
+      "w01361",
       "w01177",
       "w01178",
+      "w01362",
+      "w01363",
+      "w01627",
       "w01179",
       "w01180",
       "w01181",
+      "w01367",
+      "w01368",
       "w01182",
+      "w01369",
       "w01183",
       "w01184",
       "w01185",
       "w01187",
+      "w01371",
       "w01188",
       "w01189",
+      "w01375",
+      "w01377",
+      "w01383",
+      "w03165",
       "w01190",
+      "w01386",
       "w01191",
       "w01192",
+      "w01394",
       "w01193",
+      "w01397",
+      "w01399",
       "w01194",
+      "w01400",
       "w01195",
+      "w01411",
       "w01196",
       "w01198",
+      "w01421",
+      "w01422",
+      "w01424",
       "w01200",
+      "w01425",
       "w01201",
       "w01512",
       "w01525",
@@ -4874,16 +4865,24 @@
       "w01440",
       "w01207",
       "w01208",
+      "w01447",
       "w01209",
       "w01210",
       "w01211",
       "w01212",
       "w01213",
+      "w01458",
+      "w03166",
+      "w01460",
       "w01216",
+      "w03167",
       "w01217",
+      "w01469",
       "w01219",
       "w01221",
+      "w01473",
       "w01222",
+      "w01476",
       "w01223",
       "w01477"
      ],
@@ -4910,6 +4909,14 @@
        "years": [
         "2007",
         "2025"
+       ]
+      },
+      {
+       "raw": "YH comics",
+       "rows": 35,
+       "years": [
+        "2017",
+        "2023"
        ]
       },
       {
@@ -4945,6 +4952,22 @@
        ]
       },
       {
+       "raw": "yh comics",
+       "rows": 6,
+       "years": [
+        "2018",
+        "2022"
+       ]
+      },
+      {
+       "raw": "Yh comics",
+       "rows": 4,
+       "years": [
+        "2019",
+        "2024"
+       ]
+      },
+      {
        "raw": "IDコミックス　／　Yuri-hime comics anthology series",
        "rows": 4,
        "years": [
@@ -4969,6 +4992,14 @@
        ]
       },
       {
+       "raw": "IDコミックス. YH comics",
+       "rows": 2,
+       "years": [
+        "2025",
+        "2025"
+       ]
+      },
+      {
        "raw": "IDコミックス　／　YURIHIME COMICS",
        "rows": 1,
        "years": [
@@ -4988,8 +5019,8 @@
        "raw": "Yuri-hime comics anthology series",
        "rows": 1,
        "years": [
-        "2010",
-        "2010"
+        "2007",
+        "2007"
        ]
       },
       {
@@ -5023,80 +5054,6 @@
         "2025",
         "2025"
        ]
-      },
-      {
-       "raw": "IDコミックス. YH comics",
-       "rows": 1,
-       "years": [
-        "2025",
-        "2025"
-       ]
-      }
-     ]
-    },
-    {
-     "id": "id-comics",
-     "name": "IDコミックス",
-     "parent": null,
-     "resolved": true,
-     "rows": 47,
-     "works": [
-      "w00166",
-      "w01240",
-      "w00463",
-      "w00466",
-      "w00936",
-      "w00952",
-      "w00974",
-      "w00908",
-      "w01466",
-      "w01325",
-      "w01326",
-      "w01327",
-      "w01333",
-      "w01336",
-      "w01339",
-      "w01342",
-      "w01355",
-      "w01356",
-      "w01361",
-      "w01362",
-      "w01363",
-      "w01367",
-      "w01368",
-      "w01369",
-      "w01371",
-      "w01375",
-      "w01377",
-      "w01383",
-      "w01386",
-      "w01394",
-      "w01397",
-      "w01399",
-      "w01400",
-      "w01401",
-      "w01405",
-      "w01411",
-      "w01421",
-      "w01422",
-      "w01424",
-      "w01425",
-      "w01447",
-      "w01458",
-      "w01460",
-      "w01469",
-      "w01471",
-      "w01473",
-      "w01476"
-     ],
-     "spellings": [
-      {
-       "raw": "IDコミックス",
-       "rows": 47,
-       "years": [
-        "2016",
-        "2024"
-       ]
       }
      ]
     },
@@ -5125,6 +5082,32 @@
        "years": [
         "2018",
         "2018"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "id-comics",
+     "name": "IDコミックス",
+     "parent": null,
+     "resolved": true,
+     "rows": 7,
+     "works": [
+      "w00936",
+      "w00952",
+      "w01466",
+      "w01339",
+      "w01401",
+      "w01405",
+      "w01471"
+     ],
+     "spellings": [
+      {
+       "raw": "IDコミックス",
+       "rows": 7,
+       "years": [
+        "2016",
+        "2022"
        ]
       }
      ]
@@ -5290,10 +5273,52 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "shonen-champion-comics",
+     "name": "少年チャンピオン・コミックス",
+     "parent": null,
+     "resolved": true,
+     "rows": 8,
+     "works": [
+      "w00092",
+      "w00270",
+      "w00521",
+      "w01404",
+      "w01420",
+      "w02445",
+      "w01470"
+     ],
+     "spellings": [
+      {
+       "raw": "SHŌNEN CHAMPION COMICS",
+       "rows": 4,
+       "years": [
+        "2023",
+        "2026"
+       ]
+      },
+      {
+       "raw": "SH?NEN CHAMPION COMICS",
+       "rows": 2,
+       "years": [
+        "2020",
+        "2021"
+       ]
+      },
+      {
+       "raw": "少年チャンピオン・コミックス",
+       "rows": 2,
+       "years": [
+        "2020",
+        "2026"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "young-champion-comics",
      "name": "ヤングチャンピオン・コミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 6,
      "works": [
       "w00057",
@@ -5314,33 +5339,10 @@
      ]
     },
     {
-     "id": null,
-     "name": "SHŌNEN CHAMPION COMICS",
-     "parent": null,
-     "resolved": false,
-     "rows": 4,
-     "works": [
-      "w00092",
-      "w00270",
-      "w00521",
-      "w01470"
-     ],
-     "spellings": [
-      {
-       "raw": "SHŌNEN CHAMPION COMICS",
-       "rows": 4,
-       "years": [
-        "2023",
-        "2026"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
+     "id": "bonita-comics",
      "name": "BONITA COMICS",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w00296",
@@ -5358,52 +5360,10 @@
      ]
     },
     {
-     "id": null,
-     "name": "SH?NEN CHAMPION COMICS",
-     "parent": null,
-     "resolved": false,
-     "rows": 2,
-     "works": [
-      "w01404",
-      "w01420"
-     ],
-     "spellings": [
-      {
-       "raw": "SH?NEN CHAMPION COMICS",
-       "rows": 2,
-       "years": [
-        "2020",
-        "2021"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "少年チャンピオン・コミックス",
-     "parent": null,
-     "resolved": false,
-     "rows": 2,
-     "works": [
-      "w01404",
-      "w02445"
-     ],
-     "spellings": [
-      {
-       "raw": "少年チャンピオン・コミックス",
-       "rows": 2,
-       "years": [
-        "2020",
-        "2026"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
+     "id": "shonen-champion-comics-extra",
      "name": "SHŌNEN CHAMPION COMICS EXTRA",
-     "parent": null,
-     "resolved": false,
+     "parent": "少年チャンピオン・コミックス",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w01388"
@@ -5420,10 +5380,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "champion-red-comics",
      "name": "チャンピオンREDコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00719"
@@ -5492,10 +5452,10 @@
    ],
    "lines": [
     {
-     "id": null,
-     "name": "ヒーローズコミックス ふらっと",
-     "parent": null,
-     "resolved": false,
+     "id": "heros-comics-furatto",
+     "name": "ヒーローズコミックスふらっと",
+     "parent": "HCヒーローズコミックス",
+     "resolved": true,
      "rows": 4,
      "works": [
       "w02457",
@@ -5523,10 +5483,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "heros-comics-wild",
      "name": "ヒーローズコミックスわいるど",
-     "parent": null,
-     "resolved": false,
+     "parent": "HCヒーローズコミックス",
+     "resolved": true,
      "rows": 2,
      "works": [
       "w00119",
@@ -5544,10 +5504,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "heros-comics",
      "name": "HCヒーローズコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00287"
@@ -5592,10 +5552,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "birz-comics",
      "name": "バーズコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 15,
      "works": [
       "w00132",
@@ -5626,10 +5586,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "birz-comics-deluxe",
      "name": "バーズコミックス　デラックス",
-     "parent": null,
-     "resolved": false,
+     "parent": "バーズコミックス",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w02975"
@@ -5664,15 +5624,16 @@
    ],
    "lines": [
     {
-     "id": null,
-     "name": "Blade comics",
+     "id": "blade-comics",
+     "name": "ブレイドコミックス",
      "parent": null,
-     "resolved": false,
-     "rows": 4,
+     "resolved": true,
+     "rows": 5,
      "works": [
       "w00379",
       "w00546",
-      "w00901"
+      "w00901",
+      "w02587"
      ],
      "spellings": [
       {
@@ -5682,14 +5643,22 @@
         "2018",
         "2023"
        ]
+      },
+      {
+       "raw": "ブレイドコミックス",
+       "rows": 1,
+       "years": [
+        "2010",
+        "2010"
+       ]
       }
      ]
     },
     {
-     "id": null,
+     "id": "blade-comics-pixiv",
      "name": "Blade comics. Pixiv",
-     "parent": null,
-     "resolved": false,
+     "parent": "ブレイドコミックス",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00128"
@@ -5706,30 +5675,10 @@
      ]
     },
     {
-     "id": null,
-     "name": "ブレイドコミックス",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w02587"
-     ],
-     "spellings": [
-      {
-       "raw": "ブレイドコミックス",
-       "rows": 1,
-       "years": [
-        "2010",
-        "2010"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
+     "id": "mag-garden-comics-beats",
      "name": "マッグガーデンコミックスBeat'sシリーズ",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w02202"
@@ -5764,10 +5713,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "bushiroad-comics",
      "name": "ブシロードコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 4,
      "works": [
       "w02411",
@@ -5842,11 +5791,11 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "ogyaa",
      "name": "オギャー!!",
-     "parent": null,
-     "resolved": false,
-     "rows": 4,
+     "parent": "集英社ホームコミックス",
+     "resolved": true,
+     "rows": 5,
      "works": [
       "w00188",
       "w00526",
@@ -5860,19 +5809,7 @@
         "2022",
         "2024"
        ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "集英社ホームコミックス. オギャー!!",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w00188"
-     ],
-     "spellings": [
+      },
       {
        "raw": "集英社ホームコミックス. オギャー!!",
        "rows": 1,
@@ -5899,10 +5836,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "jilmitte",
      "name": "じるみて",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w00226",
@@ -5955,10 +5892,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "pash-comics",
      "name": "PASH! コミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w00248",
@@ -6023,14 +5960,15 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "yk-comics",
      "name": "YKコミックス",
      "parent": null,
-     "resolved": false,
-     "rows": 7,
+     "resolved": true,
+     "rows": 8,
      "works": [
       "w00293",
       "w01246",
+      "w01322",
       "w01350",
       "w01372",
       "w01402",
@@ -6044,6 +5982,14 @@
        "years": [
         "2014",
         "2025"
+       ]
+      },
+      {
+       "raw": "コミック　／　YKコミックス",
+       "rows": 1,
+       "years": [
+        "2017",
+        "2017"
        ]
       }
      ]
@@ -6074,10 +6020,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "ts-comics",
      "name": "TSコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w01808",
@@ -6090,26 +6036,6 @@
        "years": [
         "2011",
         "2013"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "コミック　／　YKコミックス",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w01322"
-     ],
-     "spellings": [
-      {
-       "raw": "コミック　／　YKコミックス",
-       "rows": 1,
-       "years": [
-        "2017",
-        "2017"
        ]
       }
      ]
@@ -6161,10 +6087,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "bushiroad-comics",
      "name": "ブシロードコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00318"
@@ -6202,10 +6128,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "young-animal-comics",
      "name": "YOUNG ANIMAL COMICS",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 4,
      "works": [
       "w00428",
@@ -6245,10 +6171,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "hc-special",
      "name": "HC SPECIAL",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00360"
@@ -6265,10 +6191,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "jets-comics",
      "name": "JETS COMICS",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w03157"
@@ -6285,10 +6211,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "love-jossie",
      "name": "Love Jossie",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w02682"
@@ -6305,10 +6231,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "rakuen-comics",
      "name": "楽園コミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w01243"
@@ -6348,11 +6274,11 @@
    ],
    "lines": [
     {
-     "id": null,
-     "name": "girls×garden",
+     "id": "girls-garden-comics",
+     "name": "girls×garden comics",
      "parent": null,
-     "resolved": false,
-     "rows": 7,
+     "resolved": true,
+     "rows": 11,
      "works": [
       "w01323",
       "w01324",
@@ -6360,7 +6286,9 @@
       "w01379",
       "w01381",
       "w01382",
-      "w01389"
+      "w01389",
+      "w01615",
+      "w02998"
      ],
      "spellings": [
       {
@@ -6370,22 +6298,7 @@
         "2018",
         "2020"
        ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "girls×garden comics",
-     "parent": null,
-     "resolved": false,
-     "rows": 4,
-     "works": [
-      "w01381",
-      "w01382",
-      "w01615",
-      "w02998"
-     ],
-     "spellings": [
+      },
       {
        "raw": "girls×garden comics",
        "rows": 4,
@@ -6397,10 +6310,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "medu-comics",
      "name": "MeDu COMICS",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w00393",
@@ -6465,10 +6378,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "zenon-comics",
      "name": "ゼノンコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w00596",
@@ -6537,10 +6450,40 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "ruelle-comics",
+     "name": "リュエルコミックス",
+     "parent": null,
+     "resolved": true,
+     "rows": 3,
+     "works": [
+      "w00983",
+      "w01623",
+      "w02064"
+     ],
+     "spellings": [
+      {
+       "raw": "リュエルコミックス",
+       "rows": 2,
+       "years": [
+        "2017",
+        "2022"
+       ]
+      },
+      {
+       "raw": "RuelleCOMICS",
+       "rows": 1,
+       "years": [
+        "2021",
+        "2021"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "jardin-comics",
      "name": "ジャルダンコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w01849",
@@ -6558,31 +6501,10 @@
      ]
     },
     {
-     "id": null,
-     "name": "リュエルコミックス",
-     "parent": null,
-     "resolved": false,
-     "rows": 2,
-     "works": [
-      "w01623",
-      "w02064"
-     ],
-     "spellings": [
-      {
-       "raw": "リュエルコミックス",
-       "rows": 2,
-       "years": [
-        "2017",
-        "2022"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
+     "id": "ruelle-rouge",
      "name": "Ruelle rouge",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w00639"
@@ -6590,26 +6512,6 @@
      "spellings": [
       {
        "raw": "Ruelle rouge",
-       "rows": 1,
-       "years": [
-        "2021",
-        "2021"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "RuelleCOMICS",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w00983"
-     ],
-     "spellings": [
-      {
-       "raw": "RuelleCOMICS",
        "rows": 1,
        "years": [
         "2021",
@@ -6634,13 +6536,14 @@
    ],
    "lines": [
     {
-     "id": null,
-     "name": "Gum comics",
+     "id": "gum-comics",
+     "name": "ガムコミックス",
      "parent": null,
-     "resolved": false,
-     "rows": 1,
+     "resolved": true,
+     "rows": 2,
      "works": [
-      "w00764"
+      "w00764",
+      "w01345"
      ],
      "spellings": [
       {
@@ -6650,19 +6553,7 @@
         "2005",
         "2005"
        ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "ガムコミックス",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w01345"
-     ],
-     "spellings": [
+      },
       {
        "raw": "ガムコミックス",
        "rows": 1,
@@ -6688,13 +6579,14 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "nova-comics",
      "name": "NOVA COMICS",
      "parent": null,
-     "resolved": false,
-     "rows": 1,
+     "resolved": true,
+     "rows": 2,
      "works": [
-      "w00820"
+      "w00820",
+      "w02167"
      ],
      "spellings": [
       {
@@ -6704,19 +6596,7 @@
         "2025",
         "2025"
        ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "ノヴァコミックス",
-     "parent": null,
-     "resolved": false,
-     "rows": 1,
-     "works": [
-      "w02167"
-     ],
-     "spellings": [
+      },
       {
        "raw": "ノヴァコミックス",
        "rows": 1,
@@ -6821,10 +6701,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "michikusa-comics",
      "name": "路草COMICS",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w00832",
@@ -6928,10 +6808,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "fc-jam",
      "name": "FC jam",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 5,
      "works": [
       "w00970",
@@ -6952,10 +6832,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "feel-comics",
      "name": "FEEL COMICS",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 3,
      "works": [
       "w01873",
@@ -7573,10 +7453,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "yuri-kore",
      "name": "百合コレ",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 496,
      "works": [
       "w02110",
@@ -8191,10 +8071,10 @@
    ],
    "lines": [
     {
-     "id": null,
-     "name": "Ryu comics",
+     "id": "ryu-comics",
+     "name": "RYU COMICS",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 11,
      "works": [
       "w01353",
@@ -8229,10 +8109,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "ryu-comics-special",
      "name": "Ryu comics special",
-     "parent": null,
-     "resolved": false,
+     "parent": "RYU COMICS",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w01376"
@@ -8773,8 +8653,8 @@
    "works": [
     "w01953",
     "w02368",
-    "w01555",
     "w01627",
+    "w01555",
     "w01707",
     "w01747",
     "w01790",
@@ -8799,16 +8679,16 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "compass-comics",
      "name": "コンパスコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 20,
      "works": [
       "w01953",
       "w02368",
-      "w01555",
       "w01627",
+      "w01555",
       "w01707",
       "w01747",
       "w01790",
@@ -8838,10 +8718,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "comic-coral",
      "name": "コミックcoral",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w01964",
@@ -8881,10 +8761,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "missy-comics",
      "name": "Missy comics",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 4,
      "works": [
       "w01409",
@@ -8926,10 +8806,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "ohzora-yuri-comics",
      "name": "百合コミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w01273",
@@ -8947,10 +8827,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "astro-comics",
      "name": "ASTRO COMICS",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w02269"
@@ -9110,10 +8990,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "nettai-comics",
      "name": "熱帯COMICS",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 4,
      "works": [
       "w02043",
@@ -9133,10 +9013,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "kobunsha-bl-comic-series",
      "name": "Kobunsha BLコミックシリーズ",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w01315"
@@ -9153,10 +9033,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "kobunsha-anthology",
      "name": "Kobunshaアンソロジー",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w01316"
@@ -9187,10 +9067,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "lilie-comics",
      "name": "リーリエコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w01392",
@@ -9454,10 +9334,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "manga-bang-comics",
      "name": "マンガBANGコミックス",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w02304",
@@ -9761,11 +9641,11 @@
    ],
    "lines": [
     {
-     "id": null,
-     "name": "hirari、comics",
+     "id": "hirari-comics",
+     "name": "ひらり、コミックス",
      "parent": null,
-     "resolved": false,
-     "rows": 27,
+     "resolved": true,
+     "rows": 34,
      "works": [
       "w01274",
       "w01275",
@@ -9793,26 +9673,6 @@
       "w01320",
       "w01360",
       "w01373",
-      "w01437"
-     ],
-     "spellings": [
-      {
-       "raw": "hirari、comics",
-       "rows": 27,
-       "years": [
-        "2012",
-        "2022"
-       ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "ひらり、コミックス",
-     "parent": null,
-     "resolved": false,
-     "rows": 7,
-     "works": [
       "w01843",
       "w02232",
       "w02408",
@@ -9822,6 +9682,14 @@
       "w03092"
      ],
      "spellings": [
+      {
+       "raw": "hirari、comics",
+       "rows": 27,
+       "years": [
+        "2012",
+        "2022"
+       ]
+      },
       {
        "raw": "ひらり、コミックス",
        "rows": 7,
@@ -9833,17 +9701,19 @@
      ]
     },
     {
-     "id": null,
+     "id": "wings-comics",
      "name": "WINGS COMICS",
      "parent": null,
-     "resolved": false,
-     "rows": 6,
+     "resolved": true,
+     "rows": 10,
      "works": [
       "w01276",
       "w01306",
       "w01387",
       "w01391",
       "w01408",
+      "w01997",
+      "w03008",
       "w01441"
      ],
      "spellings": [
@@ -9854,22 +9724,7 @@
         "2013",
         "2022"
        ]
-      }
-     ]
-    },
-    {
-     "id": null,
-     "name": "ウィングス・コミックス",
-     "parent": null,
-     "resolved": false,
-     "rows": 4,
-     "works": [
-      "w01391",
-      "w01408",
-      "w01997",
-      "w03008"
-     ],
-     "spellings": [
+      },
       {
        "raw": "ウィングス・コミックス",
        "rows": 4,
@@ -9907,10 +9762,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "bunch-comics",
      "name": "Bunch comics",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w01318"
@@ -9927,10 +9782,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "bunch-comics-coral",
      "name": "バンチコミックスコラル",
-     "parent": null,
-     "resolved": false,
+     "parent": "Bunch comics",
+     "resolved": true,
      "rows": 1,
      "works": [
       "w02334"
@@ -9963,10 +9818,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "be-comics",
      "name": "Be comics",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 4,
      "works": [
       "w01328",
@@ -10657,10 +10512,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "minna-no-comic",
      "name": "みんなのコミック",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 3,
      "works": [
       "w01618",
@@ -10944,10 +10799,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "yomuco",
      "name": "コミックノベル「yomuco」",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 11,
      "works": [
       "w01667",
@@ -10974,10 +10829,10 @@
      ]
     },
     {
-     "id": null,
+     "id": "izure",
      "name": "izure",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 1,
      "works": [
       "w02014"
@@ -12473,10 +12328,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "comipo-comics",
      "name": "comipo comics",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w02195",
@@ -12508,10 +12363,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "comic-ambre",
      "name": "COMICアンブル",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w02240",
@@ -12613,10 +12468,10 @@
    ],
    "lines": [
     {
-     "id": null,
+     "id": "netcomics",
      "name": "NETCOMICS",
      "parent": null,
-     "resolved": false,
+     "resolved": true,
      "rows": 2,
      "works": [
       "w02333",

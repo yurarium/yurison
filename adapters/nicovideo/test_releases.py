@@ -145,6 +145,14 @@ def main(s):
     dated = nv.parse('<div class="meta_info">2026年08月01日更新</div>' + tart)
     s.eq(dated.get("channel_slug"), "kirara", "and parse carries the channel onto the record")
 
+    # A PAGE IS HTML AND ITS TEXT IS ESCAPED. ひよ&びびっと! was captured as `ひよ&amp;びびっと!`,
+    # the analyser read `amp` as a word, and the romanisation shipped to readers as
+    # `Hiyo & Amp ; Bibi to !`. Every other file holding this title has it right.
+    _amp = nv.parse('<title>ひよ&amp;びびっと! / ゆとりいぬ おすすめ無料漫画 - ニコニコ漫画</title>'
+                    '<div class="meta_info">2026年8月1日更新</div>')
+    s.eq(_amp.get("title"), "ひよ&びびっと!", "an entity in the title is read as the character")
+    s.eq(_amp.get("author"), "ゆとりいぬ", "and the author survives the split")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "nicovideo.releases"))

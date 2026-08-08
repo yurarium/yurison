@@ -42,6 +42,7 @@ Usage:  releases.py --works data/coverage/webcomics-works.yaml --out data/source
                     --cache $YURI_CACHE/nico-cache --retrieved 2026-08-01
 """
 import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
+import html as htmlmod
 from collections import Counter
 
 import yaml
@@ -113,7 +114,7 @@ def episodes(html):
         if not link:
             continue
         n = EP_NUMBER.search(b)
-        out.append({"title": link.group(2).strip(),
+        out.append({"title": _text(link.group(2)),
                     "url": "https://manga.nicovideo.jp" + link.group(1),
                     "number": int(n.group(1)) if n else None})
     return out
@@ -149,6 +150,16 @@ def channel(html):
     return {"channel": m.group(2), "channel_slug": m.group(1)} if m else {}
 
 
+# A PAGE IS HTML AND ITS TEXT IS ESCAPED, so a title carrying an ampersand arrives as `&amp;` and
+# every pass downstream treats those five characters as part of the name. ひよ&びびっと! was stored
+# as `ひよ&amp;びびっと!`, the analyser read `amp` as a word, and the romanisation shipped as
+# `Hiyo & Amp ; Bibi to !`. The other files that hold this title have it right, so the fault is
+# here and not in what was captured. Applied to every string read out of the markup, because the
+# next one to carry an entity will be a different field.
+def _text(s):
+    return htmlmod.unescape(str(s or "")).strip()
+
+
 def parse(html):
     """Read div.meta_info. Absent or unparsable means no date — never a guessed one (§6)."""
     m = re.search(r'class="meta_info"(.*?)</div>', html, re.S)
@@ -174,15 +185,15 @@ def parse(html):
     if t:
         # ニコニコ states its works as "タイトル / 作者", which is a cleaner identity than the
         # comparator cell that named the work for us.
-        head = t.group(1).split(" - ")[0].strip()
+        head = _text(t.group(1).split(" - ")[0])
         # The title element is "タイトル / 作者 おすすめ無料漫画 - ニコニコ漫画". The trailing
         # editorial phrase varies (おすすめ漫画 / おすすめ無料漫画) and was landing in the author
         # field — "むちゃ おすすめ漫画".
         head = re.sub(r"\s*おすすめ(無料)?漫画\s*$", "", head).strip()
         if "/" in head:
-            out["title"], _, out["author"] = (x.strip() for x in head.partition("/"))
+            out["title"], _, out["author"] = (_text(x) for x in head.partition("/"))
         else:
-            out["title"] = head
+            out["title"] = _text(head)
     # The work page renders the first few episodes AND the latest one, each with its title and a
     # /watch/ link. The 更新 date in meta_info is the date THAT episode appeared, so naming it costs
     # nothing and turns a work-level row into one that says which chapter — which is what a reader

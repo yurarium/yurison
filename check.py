@@ -646,6 +646,29 @@ def _lifted_out_of_notation(who, stated):
                for p in parts if _NOTATION_HEAD.match(p) or _NOTATION_TAIL.search(p))
 
 
+def inv_no_html_entity_in_a_stored_name(ctx):
+    """A name holding an HTML entity, which is markup that got into the data and stayed.
+
+    A capture reads escaped text out of a page, so a title with an ampersand arrives as five
+    characters that are not in its name. Nothing downstream can tell them from the name: the
+    analyser read `amp` as a word and shipped `Hiyo & Amp ; Bibi to !` to readers, and the store
+    was keyed on the escaped string, so it never met the same work under its real title.
+
+    AN INVARIANT AND NOT A BUDGET. An entity in a name is always wrong, there is no quantity of it
+    to work down, and the fix belongs in whichever pass wrote it.
+
+    IT READS THE SHIPPED NAMES AND THE SERIES ROWS, not the capture that produced them, so it does
+    not share the blind spot of the adapter that escaped the text (§14b). An adapter that unescapes
+    correctly and a check that asks the same adapter would agree while the reader saw markup.
+    """
+    ent = re.compile(r"&(?:amp|lt|gt|quot|apos|nbsp|#\d+);")
+    bad = []
+    for kind in ("titles", "authors", "publishers"):
+        bad += [f"{kind}: {k}" for k in (ctx["names_shipped"] or {}).get(kind) or {} if ent.search(k)]
+    bad += [f"series: {r.get('work')}" for r in ctx["series"] if ent.search(str(r.get("work") or ""))]
+    return bad
+
+
 def inv_a_record_without_a_publisher_says_why(ctx):
     """A record naming no publisher must state which kind of nothing that is.
 
@@ -956,6 +979,7 @@ INVARIANTS = [
     ("per-book dates cite their page", inv_per_book_dates_cite_their_page),
     ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role),
     ("a record without a publisher says why", inv_a_record_without_a_publisher_says_why),
+    ("no HTML entity in a stored name", inv_no_html_entity_in_a_stored_name),
     ("nicovideo channels agree with our own records", inv_nicovideo_channel_agrees),
 ]
 
@@ -2270,6 +2294,11 @@ def self_test():
         ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role,
          lambda c: c["madb_records"].append({"work_id": "CANARY", "publisher": "講談社",
                                              "publisher_stated": "[発売]講談社"})),
+        # THE STRING THE PIPELINE REALLY WROTE (§14b), not one invented for the canary. The
+        # nicovideo capture stored exactly this until the parser was taught to unescape, and the
+        # romanisation built from it reached readers.
+        ("no HTML entity in a stored name", inv_no_html_entity_in_a_stored_name,
+         lambda c: c["series"].append({"work": "ひよ&amp;びびっと!"})),
         # A publisher field left empty with nothing saying which kind of empty it is.
         ("a record without a publisher says why", inv_a_record_without_a_publisher_says_why,
          lambda c: c["madb_records"].append({"work_id": "CANARY", "publisher": ""})),

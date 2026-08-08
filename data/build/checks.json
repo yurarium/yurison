@@ -93,8 +93,14 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 0,
-   "examples": []
+   "violations": 6,
+   "examples": [
+    "index.json",
+    "run.json",
+    "series.json",
+    "works.json",
+    "feed/names.json"
+   ]
   },
   {
    "name": "no refutation of print serials",
@@ -149,6 +155,12 @@
    "means": "records whose reading and whose English name cite the same page while naming different kinds of source, so at most one of the two can be right about where it came from. A rise means an entry carried one address for two claims again.",
    "budget": 12,
    "value": 12
+  },
+  {
+   "name": "titles shorter than their own reading",
+   "means": "MADB records whose stated reading carries ISBD's mark for other title information while the stored name carries none, so the work is held under a name shorter than the one the catalogue read out. Falls when a source states the missing words; a rise means a route went back to reading the title out of one field.",
+   "budget": 3,
+   "value": 3
   },
   {
    "name": "labels with nothing to quote",
@@ -225,20 +237,20 @@
   {
    "name": "uncertain readings",
    "means": "readings assembled character by character because no analyser could read the word. A rise means new works whose kanji nothing can read, or a regression in the analyser passes.",
-   "budget": 74,
-   "value": 74
+   "budget": 75,
+   "value": 75
   },
   {
    "name": "works without English",
    "means": "works that render in Japanese in English-only mode. Should be 0; a rise means the automatic naming pass stopped covering something it used to.",
-   "budget": 105,
-   "value": 105
+   "budget": 104,
+   "value": 104
   },
   {
    "name": "works showing a romanisation",
    "means": "works with no English name, showing a romanisation instead. Distinct from the budget above, which a romanisation satisfies: this is the one that answers 'can a reader tell what this is'. Never reaches zero, because romanising is right for a coinage.",
-   "budget": 174,
-   "value": 174
+   "budget": 173,
+   "value": 173
   },
   {
    "name": "titles carrying cataloguing punctuation",
@@ -255,8 +267,8 @@
   {
    "name": "stock phrasing in comments",
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage.",
-   "budget": 905,
-   "value": 905
+   "budget": 900,
+   "value": 900
   },
   {
    "name": "modules without a test",

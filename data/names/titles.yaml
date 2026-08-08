@@ -1516,6 +1516,29 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  'Killer Twinkle : アンチはステージに上がれません':
+    basis: translated
+    en: 'Killer Twinkle: No Haters on Stage'
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 'Killer Twinkle : アンチはステージに'
+      - null
+    - - 上
+      - あ
+    - - がれません
+      - null
+    note: The bibliography's spelling of the entry above, which the platform writes with wave dashes.
+      Same English, so the work reads one way whichever spelling is on display.
+    reading: 'Killer   Twinkle   :   アンチ ワ ステージ ニ アガレマセン'
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   Killer Twinkle～アンチはステージに上がれません～:
     basis: translated
     en: 'Killer Twinkle: No Haters on Stage'
@@ -24405,6 +24428,40 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  'ギャルメイドと悪役令嬢 : おじょーさまのハッピーエンドしか勝たん':
+    basis: translated
+    en: 'The Gyaru Maid and the Villainess: Nothing Beats My Lady''s Happy Ending!'
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - ギャルメイドと
+      - null
+    - - 悪役
+      - あくやく
+    - - 令嬢
+      - れいじょう
+    - - ' : おじょーさまのハッピーエンドしか'
+      - null
+    - - 勝
+      - か
+    - - たん
+      - null
+    note: ギャル names the subculture; 悪役令嬢 is the villainess of an otome game, which English-language readers
+      of the genre already call the villainess. しか勝たん is current slang meaning nothing else compares,
+      and おじょーさま is the maid's address to her mistress, which the English keeps as My Lady. This is the
+      bibliography's spelling of a title the platform writes ～おじょーさまのハッピーエンドしか勝たん！～, and it carries the
+      same English so the work reads one way whichever spelling is on display. MADB drops the ！ from its
+      subtitle field and keeps it in the reading, so the exclamation stands in the English and not in
+      the key.
+    reading: 'ギャル メイド ト アクヤク レイジョウ   :   オ ジョー サマ ノ ハッピーエンド シカ カタン'
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   'ギャルメイドと悪役令嬢 : おじょーさまのハッピーエンドしか勝たん!':
     basis: translated
     en: 'The Gyaru Maid and the Villainess: Nothing Beats My Lady''s Happy Ending!'
@@ -34938,6 +34995,38 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  'ロンリーガールに花束を : 樫風短編集':
+    basis: translated
+    en: 'Flowers for the Lonely Girl: Kashikaze Short Stories'
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - ロンリーガールに
+      - null
+    - - 花束
+      - はなたば
+    - - 'を : '
+      - null
+    - - 樫
+      - かし
+    - - 風
+      - ふう
+    - - 短編集
+      - たんぺんしゅう
+    note: 〜に花束を with the verb unsaid is the shape of a dedication, the same construction as アルジャーノンに花束を.
+      短編集 is the collection of short pieces and 樫風 is the artist, whose reading the store holds. The English
+      is the one already held under the shop's spelling ロンリーガールに花束を 樫風短編集, so the work reads one way whichever
+      of the two is on display.
+    reading: 'ロンリー ガール ニ ハナタバ ヲ   :   カシフウ タンペンシュウ'
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
   ロンリーガールに花束を 樫風短編集:
     basis: translated
     en: 'Flowers for the Lonely Girl: Kashikaze Short Stories'
@@ -36376,6 +36465,34 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  '世界でいちばん美しいひと : ふじちか短編集':
+    basis: translated
+    en: 'The Most Beautiful Person in the World: Fujichika Short Stories'
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 世界
+      - せかい
+    - - でいちばん
+      - null
+    - - 美
+      - うつく
+    - - 'しいひと : ふじちか'
+      - null
+    - - 短編集
+      - たんぺんしゅう
+    note: ひと in kana is a person with no marking of sex, which the English keeps. The subtitle is the
+      same title with the artist named after it, and 短編集 is the collection of short pieces. The English
+      is the one already held under the shop's spelling 世界でいちばん美しいひと ふじちか短編集.
+    reading: 'セカイ デ イチバン ウツクシイ ヒト   :   フジ チカ タンペンシュウ'
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   世界でいちばん美しいひと ふじちか短編集:
@@ -43877,6 +43994,42 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  '嘘から始まる恋の夏 : squall':
+    basis: translated
+    en: A Summer of Love That Begins With a Lie -Squall-
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 嘘
+      - うそ
+    - - から
+      - null
+    - - 始
+      - はじ
+    - - まる
+      - null
+    - - 恋
+      - こい
+    - - の
+      - null
+    - - 夏
+      - なつ
+    - - ' : squall'
+      - null
+    note: 'から始まる places the lie at the origin, so the whole summer follows from it, and 恋の夏 is the summer
+      belonging to the love. squall is the side story''s own subtitle: an official comicalisation, told
+      from the teacher''s side, of a relationship the visual novel did not depict. The English is the
+      one already held under the shop''s spelling 嘘から始まる恋の夏-squall-, dashes and all, so the work reads
+      one way whichever spelling is on display.'
+    reading: 'ウソ カラ ハジマル コイ ノ ナツ   :   squall'
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   嘘から始まる恋の夏 IntroductionBook:
@@ -56263,6 +56416,40 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  '昨日シたのに覚えてないの? : 百合えっち短編集':
+    basis: translated
+    en: We Did It Yesterday, and You Don't Remember?? A Yuri Ecchi Short Story Collection
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 昨日
+      - きのう
+    - - シたのに
+      - null
+    - - 覚
+      - おぼ
+    - - 'えてないの? : '
+      - null
+    - - 百合
+      - ゆり
+    - - えっち
+      - null
+    - - 短編集
+      - たんぺんしゅう
+    note: 'シた is した with the verb written in katakana, which is how Japanese marks that the doing was
+      sexual, and the question is put to the other person, so the English addresses her. The subtitle
+      names the book: an author''s first collection, built entirely around 百合えっち, kept as the paired loanwords
+      English fandom already uses. The English is the one already held under the platform''s spelling
+      昨日シたのに覚えてないの？ 百合えっち短編集.'
+    reading: 'キノウシタ ノ ニ オボエテナイ ノ ?   :   ユリ エッチ タンペンシュウ'
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   昨日シたのに覚えてないの？ 百合えっち短編集:
     basis: translated
     en: We Did It Yesterday, and You Don't Remember?? A Yuri Ecchi Short Story Collection
@@ -60771,6 +60958,55 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  '無力聖女と無能王女 : 魔力ゼロで召喚された聖女の異世界救国記':
+    basis: translated
+    en: 'The Powerless Saint and the Incompetent Princess: A Zero-Mana Saint''s Isekai Nation-Saving Chronicle'
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 無力
+      - むりょく
+    - - 聖女
+      - せいじょ
+    - - と
+      - null
+    - - 無能
+      - むのう
+    - - 王女
+      - おうじょ
+    - - ' : '
+      - null
+    - - 魔力
+      - まりょく
+    - - ゼロで
+      - null
+    - - 召喚
+      - しょうかん
+    - - された
+      - null
+    - - 聖女
+      - せいじょ
+    - - の
+      - null
+    - - 異世界
+      - いせかい
+    - - 救国
+      - きゅうこく
+    - - 記
+      - き
+    note: '聖女 is the saint of light-novel fantasy, a role and not a canonisation. The synopsis spells
+      the subtitle out: a freeter summoned to save a kingdom as its saint turns out to have no magical
+      power, paired with a princess who cannot use magic either. The English is the one already held under
+      the platform''s spelling ～魔力ゼロで召喚された聖女の異世界救国記～.'
+    reading: 'ムリョク セイジョ ト ムノウ オウジョ   :   マリョク ゼロ デ ショウカン サレタ セイジョ ノ イセカイ キュウコクキ'
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～:
@@ -66226,6 +66462,46 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  '私たちの恋が花開くとき : 異世界恋愛百合アンソロジーコミック':
+    basis: translated
+    en: 'When Our Love Blossoms: An Otherworld Romance Yuri Anthology Comic'
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 私
+      - わたし
+    - - たちの
+      - null
+    - - 恋
+      - こい
+    - - が
+      - null
+    - - 花
+      - はな
+    - - 開
+      - ひら
+    - - 'くとき : '
+      - null
+    - - 異世界
+      - いせかい
+    - - 恋愛
+      - れんあい
+    - - 百合
+      - ゆり
+    - - アンソロジーコミック
+      - null
+    note: 花開く is the flower opening, a verb Japanese also uses of a talent or a feeling coming into its
+      own, and 異世界 is the other world of the transported-hero genre. The English is the one already held
+      under the platform's spelling 私たちの恋が花開くとき　異世界恋愛百合アンソロジーコミック.
+    reading: 'ワタシタチ ノ コイ ガ ハナ ヒラク トキ   :   イセカイ レンアイ ユリ アンソロジー コミック'
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   私たちの恋が花開くとき　異世界恋愛百合アンソロジーコミック:

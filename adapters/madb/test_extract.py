@@ -30,6 +30,58 @@ def main(s):
     s.eq(m.parallel_title("ふつうの子"), "",
          "a title with no parallel title yields none")
 
+    # ── THE CATALOGUED TITLE IS SPLIT ACROSS TWO FIELDS ────────────────────────────────────────
+    #
+    # MADB puts the title proper in schema:name and the other title information in
+    # schema:alternativeHeadline, and writes the reading of BOTH into schema:name's ja-hrkt half
+    # with ISBD's colon between them. Reading schema:name alone stored 怪異部 for a work whose own
+    # reading says カイイブ : エムケン ワイシ ノ カイゲンショウ ニ ツイテ, and the works list showed
+    # `Kaii Bu` for 怪異部～M県Y市の怪現象について～. 20 records of this corpus were in that state.
+    KAII = {"schema:name": ["怪異部", {"@value": "カイイブ : エムケン ワイシ ノ カイゲンショウ ニ ツイテ",
+                                       "@language": "ja-hrkt"}],
+            "schema:alternativeHeadline": "M県Y市の怪現象について"}
+    s.eq(m.catalogued_name(KAII), "怪異部 : M県Y市の怪現象について",
+         "the two fields are one ISBD line")
+    s.eq(m.title_proper(m.catalogued_name(KAII)), "怪異部 : M県Y市の怪現象について",
+         "and isbd keeps the subtitle, which is why nothing there had to change")
+
+    # MADB DOES NOT ALWAYS READ THE SUBTITLE ALOUD, and that is silence about the reading rather
+    # than about the title. 3 of the 20 are here, and the corpus holds the full name for each of
+    # them from a platform: ゆりゆりぱにっく～尊すぎる事案が発生しています！～.
+    YURI = {"schema:name": ["ゆりゆりぱにっく", {"@value": "ユリユリ パニック", "@language": "ja-hrkt"}],
+            "schema:alternativeHeadline": "尊すぎる事案が発生しています"}
+    s.eq(m.catalogued_name(YURI), "ゆりゆりぱにっく : 尊すぎる事案が発生しています",
+         "a subtitle the reading never states is still the subtitle")
+
+    # A LATIN VALUE IS OFTEN A PREFIX OF THE REAL ONE, and the reading is what proves it. Grafting
+    # `Fallin` on publishes a name no edition carries: the work is 紗痲 Fallin' Jail.
+    SHAMA = {"schema:name": ["紗痲", {"@value": "シャマ : フォーリン ジェイル", "@language": "ja-hrkt"}],
+             "schema:alternativeHeadline": "Fallin"}
+    s.eq(m.subtitle(SHAMA), "", "a Latin value the reading does not repeat is cut short")
+    s.eq(m.catalogued_name(SHAMA), "紗痲", "so the record keeps the name it can stand behind")
+    TH = {"schema:name": ["王都で気ままに暮らしたい",
+                          {"@value": "オウト デ キママ ニ クラシタイ : ザ コミック", "@language": "ja-hrkt"}],
+          "schema:alternativeHeadline": "TH"}
+    s.eq(m.subtitle(TH), "", "`TH` against ザ コミック is the same fault two letters in")
+    # AND THE COUNTER-CASE, which is why the test is on the reading and not on the script. Where
+    # MADB repeats the Latin unchanged, the field is whole and is taken.
+    SQ = {"schema:name": ["嘘から始まる恋の夏",
+                          {"@value": "ウソ カラ ハジマル コイ ノ ナツ : squall", "@language": "ja-hrkt"}],
+          "schema:alternativeHeadline": "squall"}
+    s.eq(m.catalogued_name(SQ), "嘘から始まる恋の夏 : squall",
+         "a Latin value its own reading repeats is stated whole")
+
+    # A LIST STATES SEVERAL PIECES IN NO STATED ORDER, so neither end can be picked. 172 records
+    # hold one and the release puts the subtitle at both ends of it.
+    s.eq(m.subtitle({"schema:alternativeHeadline": ["コミック", "平凡会社員の成り上がり迷宮録"]}), "",
+         "several values with no order between them yield none")
+    s.eq(m.subtitle({}), "", "a record stating no subtitle states none")
+    s.eq(m.catalogued_name({"schema:name": "ふつうの子"}), "ふつうの子",
+         "and a record with one field is that field")
+    # A VALUE ALREADY INSIDE THE NAME IS NOT ADDED TWICE.
+    s.eq(m.catalogued_name({"schema:name": "citrus : 完全版", "schema:alternativeHeadline": "完全版"}),
+         "citrus : 完全版", "a subtitle the name already carries is not repeated")
+
     # MADB hands the same logical field back as a string, a dict or a list depending on the record,
     # so every consumer would otherwise have to know all three shapes.
     s.eq(m.flat("plain"), "plain", "a string passes through")
@@ -313,6 +365,16 @@ def main(s):
              "schema:publisher": "[頒布]講談社　∥　コウダンシャ"}
     nopub = m.render("C9", [dict(VOLS[0])], {"C9": NOPUB}, "series-link", "1.2.18", "2026-08-07",
                      m.ROUTE_IMPRINT, m.LABEL_IMPRINT)
+    # AND THE COMPOSED TITLE HAS TO REACH THE FILE, which is the half a function-level test cannot
+    # show. A title-only work takes its descriptive fields from the first volume, and that is the
+    # record the subtitle sits on.
+    solo = m.render("T:怪異部", [dict(VOLS[0], **KAII)], {}, "title-only", "1.2.18", "2026-08-07",
+                    m.ROUTE_IMPRINT, m.LABEL_IMPRINT)
+    s.check('ja: "怪異部 : M県Y市の怪現象について"' in solo,
+            "the record states the whole name its own reading reads out")
+    s.check('yomi: "カイイブ : エムケン ワイシ ノ カイゲンショウ ニ ツイテ"' in solo,
+            "and the reading it was checked against, unchanged")
+
     s.check('publisher: ""' in nopub, "a distributor is not promoted into the empty publisher seat")
     s.check("publisher_basis: not-stated" in nopub, "and the record says why the seat is empty")
     s.check('distributor: "講談社"' in nopub, "with the party MADB did name in its own field")

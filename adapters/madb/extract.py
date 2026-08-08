@@ -331,6 +331,77 @@ LABEL_IMPRINT = ("yuri",
 title_proper = isbd.title_proper
 parallel_title = isbd.parallel_title
 
+# Does this string hold Japanese? `isbd.areas` asks it of a parallel half and `subtitle` below asks
+# it of a 副書名, and it is the same question about the same catalogued string, so it is the same
+# regex (STANDING-INSTRUCTIONS §3).
+JAPANESE = isbd.JAPANESE
+
+
+def subtitle(rec):
+    """The 副書名 MADB states in a field of its own, or '' where the field cannot be trusted whole.
+
+    MADB does not always write a whole ISBD line into `schema:name`. On 5,976 volume records of
+    release 1.2.18 it puts the title proper in `schema:name` and the OTHER TITLE INFORMATION in
+    `schema:alternativeHeadline`, and writes the reading of both, joined by ISBD's ` : `, into the
+    ja-hrkt half of `schema:name`. So 怪異部 sits on disk beside a reading that says
+    カイイブ : エムケン ワイシ ノ カイゲンショウ ニ ツイテ, and the works list showed `Kaii Bu`
+    for a work called 怪異部～M県Y市の怪現象について～.
+
+    TWO SHAPES OF THIS FIELD ARE REFUSED, and each costs a record that looks recoverable.
+
+    A LIST STATES SEVERAL PIECES IN NO STATED ORDER. 172 records hold one, and the order varies
+    inside the release: 東京ダンジョンタワー is ["コミック", "平凡会社員の成り上がり迷宮録"] with
+    the subtitle second, while 婚約破棄されたりされなかったりですが、不幸令嬢になりました。 is
+    ["ざまぁしなくても幸せです", "アンソロジーコミック"] with it first. Picking an end would be
+    inventing an order MADB did not write.
+
+    A LATIN VALUE IS OFTEN CUT SHORT, and the reading is what proves it. 紗痲 states `Fallin`
+    against a reading of フォーリン ジェイル, 冷たくて柔らか states `PiNK` against
+    ピンキー キャンディ キス, and 「お前ごときが魔王に勝てると思うな」… states `TH` against
+    ザ コミック. Each is a prefix of the real subtitle, and grafting one on publishes a name no
+    edition carries. Where the reading REPEATS the Latin unchanged the field is whole and is taken:
+    嘘から始まる恋の夏 states `squall` against a reading of squall.
+
+    The reading cannot check a Japanese value, because it is kana and the value is not, and
+    recovering 怪異部's subtitle from its reading is the guess this refuses to make in the other
+    direction. What it can do is settle the Latin cases, which is where the truncation lives: every
+    Japanese value in this corpus is whole and 3 of the 4 Latin ones are not.
+
+    NOT LOOKED AT: `schema:alternateName`, which cm104 series records carry and cm101 volumes also
+    hold. It is a different field doing several jobs at once. 小林さんちのメイドラゴン has
+    `The maid dragon of Kobayashi-san` there, which is a parallel title; 捏造トラップ has `NTR`;
+    ゆりてつ has 私立百合ヶ咲女子高鉄道部, which is a subtitle; もうひとつのユリトピア has
+    `屋上の百合霊さん SIDE A`, which names the volume's place in another work. MADB's own reading
+    never carries the ISBD colon on any of the 49 in this corpus, which is the catalogue saying
+    these are not part of the title it transcribed.
+    """
+    v = rec.get("schema:alternativeHeadline")
+    if isinstance(v, list):
+        return ""
+    other = str(v or "").strip()
+    if not other or JAPANESE.search(other):
+        return other
+    read = reading(rec.get("schema:name", ""))
+    tail = read.split(" : ", 1)[1].strip() if " : " in read else ""
+    return other if tail == other else ""
+
+
+def catalogued_name(rec):
+    """The record's title as one ISBD line, from the fields MADB split it across.
+
+    `isbd.py` reads a catalogued title and keeps a subtitle; assembling the string it reads is this
+    module's job, because the split into two fields is MADB's shape and not ISBD's. Everything
+    downstream still asks isbd what the name is, so the two marks keep one reader.
+
+    An edition statement reaches this the same way a subtitle does, and should:
+    `キングダム : 完全版` is what MADB's two fields say, `isbd.edition_statement` recognises it, and
+    `titles carrying cataloguing punctuation` counts it. That count going up is the record gaining
+    a fact, and the budget is where a person decides what to do about it.
+    """
+    name = primary(rec.get("schema:name", ""))
+    other = subtitle(rec)
+    return f"{name} : {other}" if other and other not in name else name
+
 
 def title_index(series):
     """`{normalised series title: series id}`, for volumes MADB has not linked to their series."""
@@ -541,13 +612,18 @@ def render(sid, vs, series, how, tag, retrieved, route, label, extra=()):
         L += ["# No cm104 series record; volumes grouped by normalised title. Verify before",
               "# treating as one work — see docs/MADB.md.",
               "madb_id: null"]
+    # THE CATALOGUED TITLE, WHICH IS NOT ONE FIELD. MADB writes the title proper in schema:name and
+    # any other title information in schema:alternativeHeadline, so reading schema:name alone stored
+    # 怪異部 for a work its own reading calls カイイブ : エムケン ワイシ ノ カイゲンショウ ニ ツイテ.
+    # `catalogued_name` puts the line back together and isbd is still the only thing that reads it.
+    name = catalogued_name(s)
     L += [
         "record_type: manga_book_series",
         "title:",
-        f"  ja: {yaml_str(title_proper(primary(s.get('schema:name', ''))))}",
+        f"  ja: {yaml_str(title_proper(name))}",
     ]
-    if parallel_title(primary(s.get("schema:name", ""))):
-        L.append(f"  en: {yaml_str(parallel_title(primary(s.get('schema:name', ''))))}")
+    if parallel_title(name):
+        L.append(f"  en: {yaml_str(parallel_title(name))}")
         L.append("  en_basis: parallel-title")
     if reading(s.get("schema:name", "")):
         L.append(f"  yomi: {yaml_str(reading(s.get('schema:name', '')))}")

@@ -217,6 +217,147 @@ def main(s):
     s.eq(kana.romanise("ビール", "plain"), "biru", "while a prolongation mark is still dropped")
     s.eq(kana.romanise("カイイ", "macron"), "kaii", "the macron style already spelled it this way")
 
+    # ── THE THREE STYLES, RULE BY RULE ─────────────────────────────────────────────────────────
+    #
+    # Modified (revised) Hepburn is the library standard and is what NAMES-PLAN §8.1 names. Where a
+    # rule below is disputed between traditions, the reading in force is the one the National Diet
+    # Library states in `読みの基準（2021年1月）別紙３．ローマ字読み形記録要領`, because NDL is where
+    # most of our stated readings come from and its rules are written down in one place.
+    #
+    # THE THREE MAY DIFFER ONLY ABOUT VOWEL LENGTH. That is the whole reason there are three, and
+    # every case in this section either pins a length difference as deliberate or pins an agreement.
+
+    # ん IS ALWAYS `n`, INCLUDING BEFORE b, m AND p. Modified Hepburn, and NDL says it in one line:
+    # 撥音「ン」は、すべて「n」を使用する. Traditional Hepburn writes Nambu and Gumma.
+    for st in ("macron", "double", "plain"):
+        s.eq(kana.romanise("ナンブ", st), "nanbu", f"ん before b is n, not m ({st})")
+        s.eq(kana.romanise("グンマ", st), "gunma", f"and before m ({st})")
+        s.eq(kana.romanise("ポンプ", st), "ponpu", f"and before p ({st})")
+        # THE APOSTROPHE IS NOT A DIACRITIC, so the plain style keeps it. Without it しんいち reads
+        # as し-に-ち, which is a different name and not a plainer spelling of the same one.
+        s.eq(kana.romanise("キンイン", st), "kin'in", f"ん before a vowel takes an apostrophe ({st})")
+        s.eq(kana.romanise("パンヤ", st), "pan'ya", f"and before y ({st})")
+        s.eq(kana.romanise("アンナイ", st), "annai", f"and before anything else takes none ({st})")
+
+    # LONG O: おう AND おお ARE THE SAME SOUND AND TWO SPELLINGS. The macron and plain styles answer
+    # about the sound; the doubled style answers about the spelling, which is the information it
+    # exists to keep.
+    s.eq([kana.romanise("トウキョウ", st) for st in ("macron", "double", "plain")],
+         ["tōkyō", "toukyou", "tokyo"], "おう written three ways")
+    s.eq([kana.romanise("オオサカ", st) for st in ("macron", "double", "plain")],
+         ["ōsaka", "oosaka", "osaka"], "おお differs from おう in the doubled style alone")
+
+    # LENGTH FROM ー AGAINST LENGTH FROM A VOWEL KANA. ー names no letter of its own, so the doubled
+    # style repeats the vowel and the two sources come out alike. The macron style separates them
+    # for i and only for i, because Hepburn spells a long i written いい as `ii`.
+    s.eq([kana.romanise("ビール", st) for st in ("macron", "double", "plain")],
+         ["bīru", "biiru", "biru"], "ー after i")
+    s.eq([kana.romanise("ミイラ", st) for st in ("macron", "double", "plain")],
+         ["miira", "miira", "miira"], "and い after い, which Hepburn writes out in every style")
+    s.eq([kana.romanise("アラサー", st) for st in ("macron", "double", "plain")],
+         ["arasā", "arasaa", "arasa"], "ー after a")
+    s.eq([kana.romanise("カアサン", st) for st in ("macron", "double", "plain")],
+         ["kāsan", "kaasan", "kasan"], "and あ after あ, which agrees, there being no ii rule for a")
+    # えい IS NOT A LONG VOWEL IN ANY STYLE. Hepburn writes Keiko, not Kēko.
+    for st in ("macron", "double", "plain"):
+        s.eq(kana.romanise("ケイコ", st), "keiko", f"えい is ei ({st})")
+
+    # っ DOUBLES THE FOLLOWING CONSONANT, AND BEFORE ch HEPBURN WRITES tch. Nothing about length, so
+    # all three agree.
+    for st in ("macron", "double", "plain"):
+        s.eq(kana.romanise("マッチャ", st), "matcha", f"っ before ch is tch ({st})")
+        s.eq(kana.romanise("コッチ", st), "kotchi", f"and before chi ({st})")
+        s.eq(kana.romanise("ザッシ", st), "zasshi", f"while sh doubles its first letter ({st})")
+        s.eq(kana.romanise("キッテ", st), "kitte", f"and an ordinary consonant doubles ({st})")
+
+    # A SOKUON SEPARATED FROM ITS CONSONANT BY A WORD BREAK WAS EATEN. A stored reading is
+    # word-divided and the divider falls where the analyser put it: ひよ&びびっと! is filed
+    # `ヒヨ & ビビッ ト !` and shipped as `bibi to`, a mora short. 10 stored names were like this.
+    s.eq(kana.romanise("ヒヨ & ビビッ ト !", "macron"), "hiyo & bibi tto !",
+         "a sokuon carries across a word break to the consonant it doubles")
+    s.eq(kana.romanise("ハヅ ッ チ ワ", "macron"), "hazu  tchi wa",
+         "including where the break leaves it standing alone, and tch still applies")
+    # AND THE COUNTER-CASE. A mark between the two is the string saying they are not one word.
+    s.eq(kana.romanise("ヤッ！タ", "macron"), "ya!ta",
+         "a mark between the sokuon and the next mora does cancel it")
+    # A SOKUON WITH NOTHING LEFT TO DOUBLE IS DROPPED, deliberately. Hepburn has no letter for a
+    # glottal stop closing nothing, and NDL's sort-key rule would spell 保健室の鍵閉めてっ `shimetetsu`.
+    for st in ("macron", "double", "plain"):
+        s.eq(kana.romanise("トモダチダ ヨ ネッ", st), "tomodachida yo ne",
+             f"a final sokuon is dropped rather than spelled ({st})")
+
+    # PARTICLES ARE NOT CONVERTED HERE, AND THE COUNTER-CASE IS ONE MORA LONG. A reading records
+    # the sound, which is NDL's rule too, so コンニチワ arrives spelled as it is said. Converting ハ
+    # here would rename 母 and 部屋, and nothing in a reading says which ハ is a particle.
+    for st in ("macron", "double", "plain"):
+        s.eq(kana.romanise("ハハ", st), "haha", f"母 is haha, not wawa ({st})")
+        s.eq(kana.romanise("ヘヤ", st), "heya", f"部屋 is heya, not eya ({st})")
+        s.eq(kana.romanise("アノコワヤサシイ", st), "anokowayasashii",
+             f"a reading that records the particle's sound needs no rule ({st})")
+        # を IS THE ONE THAT CAN BE SETTLED, because modern Japanese writes it for nothing else.
+        s.eq(kana.romanise("ジヲカク", st), "jiokaku", f"を is o wherever it stands ({st})")
+    s.eq(kana.PARTICLE_SOUND["は"], "わ",
+         "the surface-side rule stays where the surface is, which is alignment")
+
+    # ヴ IS v, which is modified Hepburn and NDL's table. The four single characters ワ゛ヰ゛ヱ゛ヲ゛
+    # sit above the range to_hiragana folds and had no entry at all, so they printed themselves.
+    for st in ("macron", "double", "plain"):
+        s.eq(kana.romanise("ヴァンパイア", st), "vanpaia", f"ヴァ is va ({st})")
+        s.eq(kana.romanise("ヷ", st), "va", f"and so is ワ゛, which NDL records as ヴァ ({st})")
+    s.eq(kana.romanise("ヺ", "macron"), "vo", "as ヲ゛ is ヴォ")
+
+    # SMALL KANA. Standing alone they are their own sound, which is NDL's 2音 rule: ペルシァ is
+    # perushia. ヵ and ヶ are kana and were in no table, so 竹ヶ原 romanised as `takeヶhara`.
+    for st in ("macron", "double", "plain"):
+        s.eq(kana.romanise("ペルシァ", st), "perushia", f"a small vowel standing alone is a vowel ({st})")
+        s.eq(kana.romanise("タケヶハラ", st), "takekehara", f"and small ヶ is ke, not a character ({st})")
+        s.eq(kana.romanise("ヵ", st), "ka", f"as small ヵ is ka ({st})")
+    # THE READING SHOULD NOT GET HERE, and that is why the table above is a fallback and not the
+    # rule: ヶ in a place name is read が, which is where alignment reads it.
+    s.eq(kana.KE_SMALL["ヶ"], ("か", "が"), "a reading of ヶ is か or が, and this is not that")
+
+    # A WORD ALREADY IN LATIN IS NOT ROMANISED, which is NDL's rule as well: ラテン文字は、そのまま
+    # ラテン文字で記録する. Romanising it would read the letters as their Japanese names, which is
+    # right for a single letter standing for itself and wrong for a word.
+    for st in ("macron", "double", "plain"):
+        s.eq(kana.romanise("Killer Twinkle", st), "Killer Twinkle", f"Latin passes through ({st})")
+        s.eq(kana.romanise("20ネン", st), "20nen", f"and so do digits ({st})")
+
+    # A ー WITH NO VOWEL BEFORE IT IS A DASH, and it was printing itself. ＲＤーＳｏｕｎｄｓ shipped as
+    # `RDー Sounds` and ラブライブ!flowers*ー蓮ノ空… opened a phrase with one.
+    s.eq(kana.romanise("RDー Sounds", "macron"), "RD- Sounds",
+         "a prolongation mark lengthening nothing is the dash it was drawn as")
+    s.eq(kana.romanise("ンー", "macron"), "n-", "including after ん, which carries no vowel")
+
+    # ITERATION MARKS ARE EXACTLY DETERMINED, so they are written out rather than printed. is_kana
+    # admits them, so a string holding one passes kana_only and reached romanise with no entry.
+    s.eq(kana.romanise("ミヽ", "macron"), "mimi", "ヽ repeats the kana before it")
+    s.eq(kana.romanise("トキヾ", "macron"), "tokigi", "and ヾ repeats it voiced")
+    s.eq(kana.romanise("ハヾ", "macron"), "haba", "ハ takes the dakuten and not the handakuten")
+    s.eq(kana.romanise("ヽ", "macron"), "ヽ", "a mark with nothing before it has nothing to repeat")
+
+    # 四つ仮名 AND THE OBSOLETE KANA, all of them NDL's table and modified Hepburn alike.
+    for st in ("macron", "double", "plain"):
+        s.eq(kana.romanise("チカヂカ", st), "chikajika", f"ヂ is ji ({st})")
+        s.eq(kana.romanise("イソヅリ", st), "isozuri", f"ヅ is zu ({st})")
+        s.eq(kana.romanise("ヰタ", st), "ita", f"ヰ is i ({st})")
+        s.eq(kana.romanise("ヱニス", st), "enisu", f"and ヱ is e ({st})")
+
+    # THE PROPERTY BEHIND THE WHOLE SECTION. Where a reading holds no long vowel there is nothing
+    # for the three styles to disagree about, so they must agree exactly. A difference here is a
+    # rule that reached one style and not the others, which is the fault this audit was for.
+    for probe in ("ナンブ", "キンイン", "パンヤ", "マッチャ", "コッチ", "ハハ", "ヘヤ", "ジヲカク",
+                  "ヴァンパイア", "ヷ", "ペルシァ", "タケヶハラ", "チカヂカ", "ヰタ", "ケイコ",
+                  "Killer Twinkle", "20ネン", "ミヽ", "ヒヨ & ビビッ ト !", "トモダチダ ヨ ネッ"):
+        got = {kana.romanise(probe, st) for st in ("macron", "double", "plain")}
+        s.eq(len(got), 1, f"the three styles agree on {probe}, which carries no length")
+
+    # AND ITS COUNTER-CASE: where there IS a long vowel they must differ, or a style is not doing
+    # the one job it has.
+    for probe in ("ユウリ", "トウキョウ", "オオサカ", "アラサー", "カアサン", "ネエサン"):
+        got = [kana.romanise(probe, st) for st in ("macron", "double", "plain")]
+        s.eq(len(set(got)), 3, f"the three styles differ on {probe}, which is long")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "kana"))

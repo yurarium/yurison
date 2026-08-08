@@ -44,6 +44,10 @@ READER_TEXT = [SITE_ROOT / "index.html", SITE_ROOT / "README.md",
                ROOT / "README.md"]     # this repo goes public at 1.0; its README is public text
 
 JAPANESE = re.compile(r"[぀-ヿ一-鿿　-〿＀-￯]")
+# Kana and the marks that only ever appear beside them. Narrower than JAPANESE on purpose: this
+# asks whether a string a reader is shown INSTEAD of the Japanese still holds a character they
+# cannot read, and a stray 　 or ＆ is a different complaint.
+KANA_ANY = re.compile(r"[ぁ-ゖァ-ヺヽヾゝゞー]")
 KANA = re.compile(r"^[぀-ヿ\s・ー]*$")
 
 
@@ -1907,6 +1911,35 @@ def budget_labels_with_nothing_to_quote(ctx):
                and not YURI_TERM_IN_IMPRINT.search(str(r.get("imprint") or "")))
 
 
+def budget_kana_left_in_a_romanisation(ctx):
+    """Values the shipped names file offers in place of Japanese that still hold a kana character.
+
+    A romanisation exists so that a reader who cannot read kana has something to read, so one kana
+    left in it is the whole point of the string undone. `kana.romanise` emits a character it has no
+    table entry for, which is the right default for ☆ and × and was wrong for kana: ＲＤーＳｏｕｎｄｓ
+    shipped as `RDー Sounds` because the ー lengthened nothing, and 竹ヶ原 romanised as `takeヶhara`.
+
+    WHAT IT ASKS THAT THE PRODUCER DOES NOT (§14b). `romanise` decides what to emit by looking a
+    mora up in BASE, DIGRAPH and PUNCT; this looks at the finished string and asks whether any
+    character in it is kana. It shares no table with the subject and would have caught both faults
+    above on the shipped bytes, which is where a reader met them.
+
+    IT COVERS THE COMPOSED CREDIT LINES TOO, and that is where the one remaining case is:
+    西沢5ミリ renders as `Nishisawa 5 ミリ`, a credit whose parts are rendered one at a time and one
+    of whose parts has no rendering. That is `credits`, not `kana`, so the number is not zero and
+    naming why is better than scoping it out.
+    """
+    n = ctx["names_shipped"] or {}
+    bad = 0
+    for kind in ("titles", "authors", "publishers", "credit_parts", "phrases"):
+        for v in (n.get(kind) or {}).values():
+            vals = list((v.get("romaji") or {}).values()) if isinstance(v, dict) else [v]
+            for s in vals:
+                if isinstance(s, str) and KANA_ANY.search(s):
+                    bad += 1
+    return bad
+
+
 def budget_titles_shorter_than_their_own_reading(ctx):
     """Records whose reading states other title information the stored name does not carry.
 
@@ -2008,6 +2041,10 @@ BUDGETS_DEF = [
      "records whose reading and whose English name cite the same page while naming different "
      "kinds of source, so at most one of the two can be right about where it came from. A rise "
      "means an entry carried one address for two claims again."),
+    ("kana left in a romanisation", budget_kana_left_in_a_romanisation,
+     "strings the shipped names file offers in place of Japanese that still hold a kana character, "
+     "which undoes the one job a romanisation has. A rise means a renderer met a kana it has no "
+     "table entry for and printed it."),
     ("titles shorter than their own reading", budget_titles_shorter_than_their_own_reading,
      "MADB records whose stated reading carries ISBD's mark for other title information while the "
      "stored name carries none, so the work is held under a name shorter than the one the "

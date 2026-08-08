@@ -124,6 +124,13 @@ def main(s):
     s.check("agrees" in agreeing["reading_note"],
             "an agreement is recorded as one; it is evidence and not a change")
 
+    # A RECORD WITH NO READING IS A REAL STATE AND THE NOTE HAS TO SAY IT. 生肉 is in it on
+    # purpose: セイニク was refuted and nothing replaced it. Formatting the absent string put the
+    # word `None` into a sentence a person has to read.
+    empty = km.entry("生肉", "ナマニク", ev, None, "u", "2026-08-08")
+    s.check("None" not in empty["reading_note"], "an absent reading is not formatted as one")
+    s.check("replaces nothing" in empty["reading_note"], "the note says the record was empty")
+
     # THE WALK: one search per name, then only the books whose tile credits the person.
     pages = {"https://comic.k-manga.jp/search/word/%E6%9D%BE%E4%BA%95%E5%8B%9D%E6%B3%95": SEARCH,
              "https://comic.k-manga.jp/title/100543": SOMMELIER,
@@ -142,6 +149,45 @@ def main(s):
     s.eq(unres, {"甲斐谷忍": "no-page"}, "a search that did not come back settles nothing")
     s.eq((ok, answered, asked), (False, 0, 1), "and the run refuses to be read as a clean one")
     s.eq(km.healthy(0, 0)[0], True, "an empty queue is not an unhealthy run")
+
+    # A READING THAT CANNOT BE PLACED IS REFUSED, however right its sounds are. 筋肉☆太郎 is
+    # キンニクタロウ, and the shop states no boundary, so the mark between the two kanji runs leaves
+    # the aligner nothing to anchor on: 筋肉 came out over き and 太郎 over んにくたろう, which is
+    # the exact shape `implausible ruby spans` counts and it went from 0 to 2 on this round.
+    s.eq(km.alignable("筋肉☆太郎", "キンニクタロウ"), False,
+         "a run of two kanji under one kana is nobody's reading of it")
+
+    # THE COUNTER-CASES A CRUDER RULE BROKE. Refusing any reading that drops a mark the surface
+    # carries would take these with it, and here the shop is reading the mark ALOUD, which is more
+    # than any other source in this project does.
+    s.eq(km.alignable("小鬼36℃", "コオニサンジュウロクド"), True, "℃ spoken as ド is a better reading")
+    s.eq(km.alignable("惚れた女の遺言.mp3", "ホレタオンナノユイゴンドットエムピースリー"), True,
+         "and so is .mp3 spoken out")
+    s.eq(km.alignable("甲斐谷忍", "カイタニシノブ"), True, "an ordinary name places without trouble")
+
+    # A NEGATIVE IS WORTH RECORDING AND ONLY ONE KIND OF NEGATIVE IS ONE. `store.attempt` writes a
+    # name off for good, so the rule has to be narrow: `no-page` covers a request that failed and a
+    # name an offline re-read never asked about, and writing either down as an absence teaches every
+    # later round to skip a name the shop does stock.
+    s.eq(km.negatives({"あ": "no-record", "い": "no-page", "う": "ruby-would-be-implausible",
+                       "え": "filing-key-normalised", "お": "conflicting"}),
+         ["あ"], "only the shop answering and holding nothing is written off")
+    s.eq(km.negatives({}), [], "and an empty round writes nothing")
+
+    # ONE FILE PER PAGE, WHICH THE READABLE NAME ALONE DOES NOT GUARANTEE. The shared key in three
+    # adapters here truncates to the last 140 characters, and the longest author name in the store
+    # lands on exactly 140 with the truncation already into the constant prefix. Two names sharing
+    # a tail would read back each other's page, and somebody else's page parses to "not credited",
+    # which is what a person the shop does not stock looks like.
+    tail = "%E3%81%84" * 20
+    a = "https://comic.k-manga.jp/search/word/" + "%E3%81%82" + tail
+    b = "https://comic.k-manga.jp/search/word/" + "%E3%81%86" + tail
+    s.check(km.cache_name(a) != km.cache_name(b),
+            "two long URLs with the same tail are two files")
+    s.eq(km.cache_name(a, legacy=True), km.cache_name(b, legacy=True),
+         "which the name they were first written under does not manage, and it is kept anyway "
+         "because several hundred pages are on disk under it")
+    s.eq(km.cache_name("https://x/1"), km.cache_name("https://x/1"), "and one URL is one file")
 
     # THE ORDER IS PART OF THE MODULE, because an hours-long run gets stopped and what it reached
     # is what a reader sees. Sorted by name, the symbols and the handles go first.

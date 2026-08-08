@@ -1610,6 +1610,14 @@ def budget_author_readings_no_source_states(ctx):
     select on `reading_basis`; this reads the rendered record, where `basis` is what the English
     column holds and the mark is what the browser draws. A pass that recorded a reading and failed
     to reach the feed would settle a name by its own measure and change nothing here.
+
+    IT HAS A FLOOR OF EIGHT AND NOBODY CAN SOURCE THEM. A refuted reading leaves the record with no
+    reading and no English, and `basis: romaji` and the mark stay on it, so 伊実 and 生肉 and the
+    six others count here while rendering as the Japanese they are. Those are decisions somebody
+    made and researched: 伊実 is a Chinese creator NDL deliberately files without kana, and there is
+    nothing to replace the guess with. They are left in the count because taking them out would
+    mean this number and the population the naming rounds are measured against are two different
+    sets, and worth naming here so the next round does not spend a day on them.
     """
     return sum(1 for v in ((ctx["names_shipped"] or {}).get("authors") or {}).values()
                if v.get("basis") == "romaji" and (v.get("uncertain") or v.get("unverified")))

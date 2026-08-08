@@ -3244,7 +3244,7 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "オダマサル, サトウ ツトム, イシダ カナ, モリ ユウ",
+    "reading": "オダマサル, サトウ ツトム, イシダ カナ, モリユウ",
     "ruby": [
      [
       "おだまさる",
@@ -3283,18 +3283,21 @@
       null
      ],
      [
-      "森夕",
-      null
+      "森",
+      "もり"
+     ],
+     [
+      "夕",
+      "ゆう"
      ]
     ],
     "romaji": {
-     "double": "Odamasaru, Satou Tsutomu, Ishida Kana, Mori Yuu",
-     "macron": "Odamasaru, Satō Tsutomu, Ishida Kana, Mori Yū",
-     "plain": "Odamasaru, Sato Tsutomu, Ishida Kana, Mori Yu"
+     "double": "Odamasaru, Satou Tsutomu, Ishida Kana, Moriyuu",
+     "plain": "Odamasaru, Sato Tsutomu, Ishida Kana, Moriyu",
+     "macron": "Odamasaru, Satō Tsutomu, Ishida Kana, Moriyū"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "surface",
+    "basis": "romaji"
    }
   },
   {
@@ -3389,7 +3392,7 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "オダマサル, サトウ ツトム, イシダ カナ, モリ ユウ",
+    "reading": "オダマサル, サトウ ツトム, イシダ カナ, モリユウ",
     "ruby": [
      [
       "おだまさる",
@@ -3428,18 +3431,21 @@
       null
      ],
      [
-      "森夕",
-      null
+      "森",
+      "もり"
+     ],
+     [
+      "夕",
+      "ゆう"
      ]
     ],
     "romaji": {
-     "double": "Odamasaru, Satou Tsutomu, Ishida Kana, Mori Yuu",
-     "macron": "Odamasaru, Satō Tsutomu, Ishida Kana, Mori Yū",
-     "plain": "Odamasaru, Sato Tsutomu, Ishida Kana, Mori Yu"
+     "double": "Odamasaru, Satou Tsutomu, Ishida Kana, Moriyuu",
+     "plain": "Odamasaru, Sato Tsutomu, Ishida Kana, Moriyu",
+     "macron": "Odamasaru, Satō Tsutomu, Ishida Kana, Moriyū"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "surface",
+    "basis": "romaji"
    }
   },
   {
@@ -3936,8 +3942,8 @@
     ],
     "romaji": {
      "double": "Fumio Aya, Momota Rou, Shiokouji",
-     "macron": "Fumio Aya, Momota Rō, Shiokōji",
-     "plain": "Fumio Aya, Momota Ro, Shiokoji"
+     "plain": "Fumio Aya, Momota Ro, Shiokoji",
+     "macron": "Fumio Aya, Momota Rō, Shiokōji"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -4039,10 +4045,14 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "アヤ ツキ ツカサ, サキ, フタバ ワ ヅキ",
+    "reading": "サツキツカサ, サキ, フタバ ワ ヅキ",
     "ruby": [
      [
-      "彩月つかさ",
+      "彩月",
+      "さつき"
+     ],
+     [
+      "つかさ",
       null
      ],
      [
@@ -4063,9 +4073,9 @@
      ]
     ],
     "romaji": {
-     "double": "Aya Tsuki Tsukasa, Saki, Futaba Wa Zuki",
-     "macron": "Aya Tsuki Tsukasa, Saki, Futaba Wa Zuki",
-     "plain": "Aya Tsuki Tsukasa, Saki, Futaba Wa Zuki"
+     "double": "Satsukitsukasa, Saki, Futaba Wa Zuki",
+     "plain": "Satsukitsukasa, Saki, Futaba Wa Zuki",
+     "macron": "Satsukitsukasa, Saki, Futaba Wa Zuki"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -4166,8 +4176,8 @@
     ],
     "romaji": {
      "double": "Inunoesa / Hairou",
-     "macron": "Inunoesa / Hairō",
-     "plain": "Inunoesa / Hairo"
+     "plain": "Inunoesa / Hairo",
+     "macron": "Inunoesa / Hairō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -4382,8 +4392,8 @@
     ],
     "romaji": {
      "double": "Yorunohitsujigumo, Agarizaki Yuiko, Sonofuwan",
-     "macron": "Yorunohitsujigumo, Agarizaki Yuiko, Sonofuwan",
-     "plain": "Yorunohitsujigumo, Agarizaki Yuiko, Sonofuwan"
+     "plain": "Yorunohitsujigumo, Agarizaki Yuiko, Sonofuwan",
+     "macron": "Yorunohitsujigumo, Agarizaki Yuiko, Sonofuwan"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -4670,8 +4680,8 @@
     ],
     "romaji": {
      "double": "Shinjou Hajime, Fumi Natsuichi, Kuga Fuuna",
-     "macron": "Shinjō Hajime, Fumi Natsuichi, Kuga Fūna",
-     "plain": "Shinjo Hajime, Fumi Natsuichi, Kuga Funa"
+     "plain": "Shinjo Hajime, Fumi Natsuichi, Kuga Funa",
+     "macron": "Shinjō Hajime, Fumi Natsuichi, Kuga Fūna"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -5055,8 +5065,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -5227,15 +5237,15 @@
     "reading_basis": "surface"
    },
    "author_en": {
-    "reading": "ヨツバ ◎ マスミ。",
+    "reading": "ヨツバマスミ",
     "romaji": {
-     "macron": "Yotsuba ◎ Masumi.",
-     "double": "Yotsuba ◎ Masumi.",
-     "plain": "Yotsuba ◎ Masumi."
+     "macron": "Yotsubamasumi",
+     "double": "Yotsubamasumi",
+     "plain": "Yotsubamasumi"
     },
     "en": "Masumi Yotsuba",
     "basis": "romaji",
-    "reading_basis": "analyser"
+    "reading_basis": "researched"
    }
   },
   {
@@ -5320,8 +5330,8 @@
     ],
     "romaji": {
      "double": "Tokomichi, Miyazawa Iori, Mebachi",
-     "macron": "Tokomichi, Miyazawa Iori, Mebachi",
-     "plain": "Tokomichi, Miyazawa Iori, Mebachi"
+     "plain": "Tokomichi, Miyazawa Iori, Mebachi",
+     "macron": "Tokomichi, Miyazawa Iori, Mebachi"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -5516,8 +5526,8 @@
     ],
     "romaji": {
      "double": "Sakaminami Ka, Mikawa Goosuto, kappe",
-     "macron": "Sakaminami Ka, Mikawa Gōsuto, kappe",
-     "plain": "Sakaminami Ka, Mikawa Gosuto, kappe"
+     "plain": "Sakaminami Ka, Mikawa Gosuto, kappe",
+     "macron": "Sakaminami Ka, Mikawa Gōsuto, kappe"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -5652,8 +5662,8 @@
     ],
     "romaji": {
      "double": "koko, Shimizu Yuu, Toosaka Asagi",
-     "macron": "koko, Shimizu Yū, Tōsaka Asagi",
-     "plain": "koko, Shimizu Yu, Tosaka Asagi"
+     "plain": "koko, Shimizu Yu, Tosaka Asagi",
+     "macron": "koko, Shimizu Yū, Tōsaka Asagi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -5873,8 +5883,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -5975,8 +5985,8 @@
     ],
     "romaji": {
      "double": "Yuzuhara Moke, Iruma Hitoma, Non",
-     "macron": "Yuzuhara Moke, Iruma Hitoma, Non",
-     "plain": "Yuzuhara Moke, Iruma Hitoma, Non"
+     "plain": "Yuzuhara Moke, Iruma Hitoma, Non",
+     "macron": "Yuzuhara Moke, Iruma Hitoma, Non"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -6242,8 +6252,8 @@
     ],
     "romaji": {
      "double": "Ringosui, Hayashi Shougo, Ankotaku",
-     "macron": "Ringosui, Hayashi Shōgo, Ankotaku",
-     "plain": "Ringosui, Hayashi Shogo, Ankotaku"
+     "plain": "Ringosui, Hayashi Shogo, Ankotaku",
+     "macron": "Ringosui, Hayashi Shōgo, Ankotaku"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -6540,8 +6550,8 @@
     ],
     "romaji": {
      "double": "Miyazawa Iori / Mizuno Eita / shirakaba",
-     "macron": "Miyazawa Iori / Mizuno Eita / shirakaba",
-     "plain": "Miyazawa Iori / Mizuno Eita / shirakaba"
+     "plain": "Miyazawa Iori / Mizuno Eita / shirakaba",
+     "macron": "Miyazawa Iori / Mizuno Eita / shirakaba"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -7532,8 +7542,8 @@
     ],
     "romaji": {
      "double": "Nanbu Kumako, Haruki Yachi Ka",
-     "macron": "Nanbu Kumako, Haruki Yachi Ka",
-     "plain": "Nanbu Kumako, Haruki Yachi Ka"
+     "plain": "Nanbu Kumako, Haruki Yachi Ka",
+     "macron": "Nanbu Kumako, Haruki Yachi Ka"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -7661,8 +7671,8 @@
     ],
     "romaji": {
      "double": "Shimazu, Karasu Piero, Kisaragi Yuri",
-     "macron": "Shimazu, Karasu Piero, Kisaragi Yuri",
-     "plain": "Shimazu, Karasu Piero, Kisaragi Yuri"
+     "plain": "Shimazu, Karasu Piero, Kisaragi Yuri",
+     "macron": "Shimazu, Karasu Piero, Kisaragi Yuri"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -7732,7 +7742,7 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "トウミンユウ, ダイダイキゴウ",
+    "reading": "トウミンユウ, ダイダイ",
     "ruby": [
      [
       "冬眠結",
@@ -7744,17 +7754,16 @@
      ],
      [
       "橙々",
-      null
+      "だいだい"
      ]
     ],
     "romaji": {
-     "double": "Toumin'yuu, Daidaikigou",
-     "macron": "Tōmin'yū, Daidaikigō",
-     "plain": "Tomin'yu, Daidaikigo"
+     "double": "Toumin'yuu, Daidai",
+     "plain": "Tomin'yu, Daidai",
+     "macron": "Tōmin'yū, Daidai"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "stated",
+    "basis": "romaji"
    }
   },
   {
@@ -7829,8 +7838,8 @@
     ],
     "romaji": {
      "double": "SWAV / Asaura / Nishima Gomeyuki",
-     "macron": "SWAV / Asaura / Nishima Gomeyuki",
-     "plain": "SWAV / Asaura / Nishima Gomeyuki"
+     "plain": "SWAV / Asaura / Nishima Gomeyuki",
+     "macron": "SWAV / Asaura / Nishima Gomeyuki"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -8809,14 +8818,23 @@
    },
    "author_en": {
     "reading": "カヨウ",
+    "ruby": [
+     [
+      "火",
+      "か"
+     ],
+     [
+      "曜",
+      "よう"
+     ]
+    ],
     "romaji": {
      "macron": "Kayō",
      "double": "Kayou",
      "plain": "Kayo"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "researched"
    }
   },
   {
@@ -9303,8 +9321,8 @@
     ],
     "romaji": {
      "double": "Okano Kuko, Fuwa Ni A",
-     "macron": "Okano Kuko, Fuwa Ni A",
-     "plain": "Okano Kuko, Fuwa Ni A"
+     "plain": "Okano Kuko, Fuwa Ni A",
+     "macron": "Okano Kuko, Fuwa Ni A"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -9757,8 +9775,8 @@
     ],
     "romaji": {
      "double": "Musshu / Mikami Teren / Takeshima Eku",
-     "macron": "Musshu / Mikami Teren / Takeshima Eku",
-     "plain": "Musshu / Mikami Teren / Takeshima Eku"
+     "plain": "Musshu / Mikami Teren / Takeshima Eku",
+     "macron": "Musshu / Mikami Teren / Takeshima Eku"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -10011,8 +10029,8 @@
     ],
     "romaji": {
      "double": "Dekairuka / Eriize / Gawako",
-     "macron": "Dekairuka / Erīze / Gawako",
-     "plain": "Dekairuka / Erize / Gawako"
+     "plain": "Dekairuka / Erize / Gawako",
+     "macron": "Dekairuka / Erīze / Gawako"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -10776,8 +10794,8 @@
     ],
     "romaji": {
      "double": "Yosshaa!, QZO。, Wa Tanuki Nao",
-     "macron": "Yosshā!, QZO。, Wa Tanuki Nao",
-     "plain": "Yossha!, QZO。, Wa Tanuki Nao"
+     "plain": "Yossha!, QZO。, Wa Tanuki Nao",
+     "macron": "Yosshā!, QZO。, Wa Tanuki Nao"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -10944,8 +10962,8 @@
     ],
     "romaji": {
      "double": "Inunoesa / Hairou",
-     "macron": "Inunoesa / Hairō",
-     "plain": "Inunoesa / Hairo"
+     "plain": "Inunoesa / Hairo",
+     "macron": "Inunoesa / Hairō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -11705,8 +11723,8 @@
     ],
     "romaji": {
      "double": "Minakata Sunao, kiki, Kinta",
-     "macron": "Minakata Sunao, kiki, Kinta",
-     "plain": "Minakata Sunao, kiki, Kinta"
+     "plain": "Minakata Sunao, kiki, Kinta",
+     "macron": "Minakata Sunao, kiki, Kinta"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -11786,8 +11804,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -11946,8 +11964,8 @@
     ],
     "romaji": {
      "double": "Toono Meza, Ayano Urasuke",
-     "macron": "Tōno Meza, Ayano Urasuke",
-     "plain": "Tono Meza, Ayano Urasuke"
+     "plain": "Tono Meza, Ayano Urasuke",
+     "macron": "Tōno Meza, Ayano Urasuke"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -13260,8 +13278,8 @@
     ],
     "romaji": {
      "double": "Batatchi, Hoshizaki Kon, Saneda",
-     "macron": "Batatchi, Hoshizaki Kon, Saneda",
-     "plain": "Batatchi, Hoshizaki Kon, Saneda"
+     "plain": "Batatchi, Hoshizaki Kon, Saneda",
+     "macron": "Batatchi, Hoshizaki Kon, Saneda"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -13376,8 +13394,8 @@
     ],
     "romaji": {
      "double": "Tokitou Setsuna, Acacia",
-     "macron": "Tokitō Setsuna, Acacia",
-     "plain": "Tokito Setsuna, Acacia"
+     "plain": "Tokito Setsuna, Acacia",
+     "macron": "Tokitō Setsuna, Acacia"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -13492,8 +13510,8 @@
     ],
     "romaji": {
      "double": "Tokitou Setsuna, Acacia",
-     "macron": "Tokitō Setsuna, Acacia",
-     "plain": "Tokito Setsuna, Acacia"
+     "plain": "Tokito Setsuna, Acacia",
+     "macron": "Tokitō Setsuna, Acacia"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -13639,8 +13657,8 @@
     ],
     "romaji": {
      "double": "Fumio Aya, Momota Rou, Shiokouji",
-     "macron": "Fumio Aya, Momota Rō, Shiokōji",
-     "plain": "Fumio Aya, Momota Ro, Shiokoji"
+     "plain": "Fumio Aya, Momota Ro, Shiokoji",
+     "macron": "Fumio Aya, Momota Rō, Shiokōji"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -13760,8 +13778,8 @@
     ],
     "romaji": {
      "double": "Akeo, Hanamiya Mii, Shiokouji",
-     "macron": "Akeo, Hanamiya Mii, Shiokōji",
-     "plain": "Akeo, Hanamiya Mii, Shiokoji"
+     "plain": "Akeo, Hanamiya Mii, Shiokoji",
+     "macron": "Akeo, Hanamiya Mii, Shiokōji"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -13891,11 +13909,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "ノギ ヤスヒト, カマイケ カズマ, ハイムラキヨタカ",
+    "reading": "ノギヤスヒト, カマチカズマ, ハイムラキヨタカ",
     "ruby": [
      [
       "乃木康仁",
-      null
+      "のぎやすひと"
      ],
      [
       ", ",
@@ -13903,7 +13921,7 @@
      ],
      [
       "鎌池和馬",
-      null
+      "かまちかずま"
      ],
      [
       ", ",
@@ -13915,13 +13933,12 @@
      ]
     ],
     "romaji": {
-     "double": "Nogi Yasuhito, Kamaike Kazuma, Haimurakiyotaka",
-     "macron": "Nogi Yasuhito, Kamaike Kazuma, Haimurakiyotaka",
-     "plain": "Nogi Yasuhito, Kamaike Kazuma, Haimurakiyotaka"
+     "double": "Nogiyasuhito, Kamachikazuma, Haimurakiyotaka",
+     "plain": "Nogiyasuhito, Kamachikazuma, Haimurakiyotaka",
+     "macron": "Nogiyasuhito, Kamachikazuma, Haimurakiyotaka"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -15289,8 +15306,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -15528,8 +15545,8 @@
     ],
     "romaji": {
      "double": "Arata Iri / Atoha / Koin",
-     "macron": "Arata Iri / Atoha / Koin",
-     "plain": "Arata Iri / Atoha / Koin"
+     "plain": "Arata Iri / Atoha / Koin",
+     "macron": "Arata Iri / Atoha / Koin"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -16599,8 +16616,8 @@
     ],
     "romaji": {
      "double": "Obata Rui, Jin'an",
-     "macron": "Obata Rui, Jin'an",
-     "plain": "Obata Rui, Jin'an"
+     "plain": "Obata Rui, Jin'an",
+     "macron": "Obata Rui, Jin'an"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -16782,8 +16799,8 @@
     ],
     "romaji": {
      "double": "Tamaki Mitsune, Hajitani Kiyuu, Oukawa Yuu",
-     "macron": "Tamaki Mitsune, Hajitani Kiyū, Ōkawa Yū",
-     "plain": "Tamaki Mitsune, Hajitani Kiyu, Okawa Yu"
+     "plain": "Tamaki Mitsune, Hajitani Kiyu, Okawa Yu",
+     "macron": "Tamaki Mitsune, Hajitani Kiyū, Ōkawa Yū"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -17101,8 +17118,8 @@
     ],
     "romaji": {
      "double": "Touhoupurojekuto, Mizuyama Mero",
-     "macron": "Tōhōpurojekuto, Mizuyama Mero",
-     "plain": "Tohopurojekuto, Mizuyama Mero"
+     "plain": "Tohopurojekuto, Mizuyama Mero",
+     "macron": "Tōhōpurojekuto, Mizuyama Mero"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -17319,7 +17336,7 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "トウミンユウ, ダイダイキゴウ",
+    "reading": "トウミンユウ, ダイダイ",
     "ruby": [
      [
       "冬眠結",
@@ -17331,17 +17348,16 @@
      ],
      [
       "橙々",
-      null
+      "だいだい"
      ]
     ],
     "romaji": {
-     "double": "Toumin'yuu, Daidaikigou",
-     "macron": "Tōmin'yū, Daidaikigō",
-     "plain": "Tomin'yu, Daidaikigo"
+     "double": "Toumin'yuu, Daidai",
+     "plain": "Tomin'yu, Daidai",
+     "macron": "Tōmin'yū, Daidai"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "stated",
+    "basis": "romaji"
    }
   },
   {
@@ -17760,8 +17776,8 @@
     ],
     "romaji": {
      "double": "Sumeragi, Sasa Tougorou, Miyukiruria",
-     "macron": "Sumeragi, Sasa Tōgorō, Miyukiruria",
-     "plain": "Sumeragi, Sasa Togoro, Miyukiruria"
+     "plain": "Sumeragi, Sasa Togoro, Miyukiruria",
+     "macron": "Sumeragi, Sasa Tōgorō, Miyukiruria"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -19163,8 +19179,8 @@
     ],
     "romaji": {
      "double": "Nanbu Kumako, Haruki Yachi Ka",
-     "macron": "Nanbu Kumako, Haruki Yachi Ka",
-     "plain": "Nanbu Kumako, Haruki Yachi Ka"
+     "plain": "Nanbu Kumako, Haruki Yachi Ka",
+     "macron": "Nanbu Kumako, Haruki Yachi Ka"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -19292,8 +19308,8 @@
     ],
     "romaji": {
      "double": "Shimazu, Karasu Piero, Kisaragi Yuri",
-     "macron": "Shimazu, Karasu Piero, Kisaragi Yuri",
-     "plain": "Shimazu, Karasu Piero, Kisaragi Yuri"
+     "plain": "Shimazu, Karasu Piero, Kisaragi Yuri",
+     "macron": "Shimazu, Karasu Piero, Kisaragi Yuri"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -19363,7 +19379,7 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "トウミンユウ, ダイダイキゴウ",
+    "reading": "トウミンユウ, ダイダイ",
     "ruby": [
      [
       "冬眠結",
@@ -19375,17 +19391,16 @@
      ],
      [
       "橙々",
-      null
+      "だいだい"
      ]
     ],
     "romaji": {
-     "double": "Toumin'yuu, Daidaikigou",
-     "macron": "Tōmin'yū, Daidaikigō",
-     "plain": "Tomin'yu, Daidaikigo"
+     "double": "Toumin'yuu, Daidai",
+     "plain": "Tomin'yu, Daidai",
+     "macron": "Tōmin'yū, Daidai"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "stated",
+    "basis": "romaji"
    }
   },
   {
@@ -20148,14 +20163,23 @@
    },
    "author_en": {
     "reading": "カヨウ",
+    "ruby": [
+     [
+      "火",
+      "か"
+     ],
+     [
+      "曜",
+      "よう"
+     ]
+    ],
     "romaji": {
      "macron": "Kayō",
      "double": "Kayou",
      "plain": "Kayo"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "researched"
    }
   },
   {
@@ -20350,8 +20374,8 @@
     ],
     "romaji": {
      "double": "Mimoto, Desuyama Hanako",
-     "macron": "Mimoto, Desuyama Hanako",
-     "plain": "Mimoto, Desuyama Hanako"
+     "plain": "Mimoto, Desuyama Hanako",
+     "macron": "Mimoto, Desuyama Hanako"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -20631,8 +20655,8 @@
     ],
     "romaji": {
      "double": "Kannazuki Hato, Wafuu, Tobi",
-     "macron": "Kannazuki Hato, Wafū, Tobi",
-     "plain": "Kannazuki Hato, Wafu, Tobi"
+     "plain": "Kannazuki Hato, Wafu, Tobi",
+     "macron": "Kannazuki Hato, Wafū, Tobi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -20763,8 +20787,8 @@
     ],
     "romaji": {
      "double": "Okano Kuko, Fuwa Ni A",
-     "macron": "Okano Kuko, Fuwa Ni A",
-     "plain": "Okano Kuko, Fuwa Ni A"
+     "plain": "Okano Kuko, Fuwa Ni A",
+     "macron": "Okano Kuko, Fuwa Ni A"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -21028,19 +21052,31 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "ニ ノ コ, ニシ   ジョウ ヒ, Re タケ",
+    "reading": "ニノコ, ニシジョウヨウ, Re タケ",
     "ruby": [
      [
-      "にの子",
+      "にの",
       null
+     ],
+     [
+      "子",
+      "こ"
      ],
      [
       ", ",
       null
      ],
      [
-      "西条陽",
-      null
+      "西",
+      "にし"
+     ],
+     [
+      "条",
+      "じょう"
+     ],
+     [
+      "陽",
+      "よう"
      ],
      [
       ", ",
@@ -21052,9 +21088,9 @@
      ]
     ],
     "romaji": {
-     "double": "Ni No Ko, Nishi Jou Hi, Re Take",
-     "macron": "Ni No Ko, Nishi Jō Hi, Re Take",
-     "plain": "Ni No Ko, Nishi Jo Hi, Re Take"
+     "double": "Ninoko, Nishijouyou, Re Take",
+     "plain": "Ninoko, Nishijoyo, Re Take",
+     "macron": "Ninoko, Nishijōyō, Re Take"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -21149,11 +21185,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -21161,7 +21197,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -21173,13 +21209,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -21445,8 +21480,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -21901,8 +21936,8 @@
     ],
     "romaji": {
      "double": "Sorayama Toki / Goshiki Ami / Izumino Sen / Gochou",
-     "macron": "Sorayama Toki / Goshiki Ami / Izumino Sen / Gochō",
-     "plain": "Sorayama Toki / Goshiki Ami / Izumino Sen / Gocho"
+     "plain": "Sorayama Toki / Goshiki Ami / Izumino Sen / Gocho",
+     "macron": "Sorayama Toki / Goshiki Ami / Izumino Sen / Gochō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -23367,8 +23402,8 @@
     ],
     "romaji": {
      "double": "Kobayashi Kotei / Riichu",
-     "macron": "Kobayashi Kotei / Riichu",
-     "plain": "Kobayashi Kotei / Richu"
+     "plain": "Kobayashi Kotei / Richu",
+     "macron": "Kobayashi Kotei / Riichu"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -23468,8 +23503,8 @@
     ],
     "romaji": {
      "double": "Inunoesa / Hairou",
-     "macron": "Inunoesa / Hairō",
-     "plain": "Inunoesa / Hairo"
+     "plain": "Inunoesa / Hairo",
+     "macron": "Inunoesa / Hairō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -24363,8 +24398,8 @@
     ],
     "romaji": {
      "double": "Shinjou Hajime, Fumi Natsuichi, Kuga Fuuna",
-     "macron": "Shinjō Hajime, Fumi Natsuichi, Kuga Fūna",
-     "plain": "Shinjo Hajime, Fumi Natsuichi, Kuga Funa"
+     "plain": "Shinjo Hajime, Fumi Natsuichi, Kuga Funa",
+     "macron": "Shinjō Hajime, Fumi Natsuichi, Kuga Fūna"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -25014,8 +25049,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -25310,8 +25345,8 @@
     ],
     "romaji": {
      "double": "Migihara, Haneda Usa, U35",
-     "macron": "Migihara, Haneda Usa, U35",
-     "plain": "Migihara, Haneda Usa, U35"
+     "plain": "Migihara, Haneda Usa, U35",
+     "macron": "Migihara, Haneda Usa, U35"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -25543,15 +25578,15 @@
     "reading_basis": "surface"
    },
    "author_en": {
-    "reading": "ヨツバ ◎ マスミ。",
+    "reading": "ヨツバマスミ",
     "romaji": {
-     "macron": "Yotsuba ◎ Masumi.",
-     "double": "Yotsuba ◎ Masumi.",
-     "plain": "Yotsuba ◎ Masumi."
+     "macron": "Yotsubamasumi",
+     "double": "Yotsubamasumi",
+     "plain": "Yotsubamasumi"
     },
     "en": "Masumi Yotsuba",
     "basis": "romaji",
-    "reading_basis": "analyser"
+    "reading_basis": "researched"
    }
   },
   {
@@ -25743,8 +25778,8 @@
     ],
     "romaji": {
      "double": "Sakaminami Ka, Mikawa Goosuto, kappe",
-     "macron": "Sakaminami Ka, Mikawa Gōsuto, kappe",
-     "plain": "Sakaminami Ka, Mikawa Gosuto, kappe"
+     "plain": "Sakaminami Ka, Mikawa Gosuto, kappe",
+     "macron": "Sakaminami Ka, Mikawa Gōsuto, kappe"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -26258,8 +26293,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -26767,8 +26802,8 @@
     ],
     "romaji": {
      "double": "Aruto / Emoto Nao",
-     "macron": "Aruto / Emoto Nao",
-     "plain": "Aruto / Emoto Nao"
+     "plain": "Aruto / Emoto Nao",
+     "macron": "Aruto / Emoto Nao"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -27532,8 +27567,8 @@
     ],
     "romaji": {
      "double": "Yuzuhara Moke, Iruma Hitoma, Non",
-     "macron": "Yuzuhara Moke, Iruma Hitoma, Non",
-     "plain": "Yuzuhara Moke, Iruma Hitoma, Non"
+     "plain": "Yuzuhara Moke, Iruma Hitoma, Non",
+     "macron": "Yuzuhara Moke, Iruma Hitoma, Non"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -28994,8 +29029,8 @@
     ],
     "romaji": {
      "double": "Miyazawa Iori / Mizuno Eita / shirakaba",
-     "macron": "Miyazawa Iori / Mizuno Eita / shirakaba",
-     "plain": "Miyazawa Iori / Mizuno Eita / shirakaba"
+     "plain": "Miyazawa Iori / Mizuno Eita / shirakaba",
+     "macron": "Miyazawa Iori / Mizuno Eita / shirakaba"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -29872,8 +29907,8 @@
     ],
     "romaji": {
      "double": "Shimazu, Karasu Piero, Kisaragi Yuri",
-     "macron": "Shimazu, Karasu Piero, Kisaragi Yuri",
-     "plain": "Shimazu, Karasu Piero, Kisaragi Yuri"
+     "plain": "Shimazu, Karasu Piero, Kisaragi Yuri",
+     "macron": "Shimazu, Karasu Piero, Kisaragi Yuri"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -30054,8 +30089,8 @@
     ],
     "romaji": {
      "double": "SWAV / Asaura / Nishima Gomeyuki",
-     "macron": "SWAV / Asaura / Nishima Gomeyuki",
-     "plain": "SWAV / Asaura / Nishima Gomeyuki"
+     "plain": "SWAV / Asaura / Nishima Gomeyuki",
+     "macron": "SWAV / Asaura / Nishima Gomeyuki"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -31647,14 +31682,23 @@
    },
    "author_en": {
     "reading": "カヨウ",
+    "ruby": [
+     [
+      "火",
+      "か"
+     ],
+     [
+      "曜",
+      "よう"
+     ]
+    ],
     "romaji": {
      "macron": "Kayō",
      "double": "Kayou",
      "plain": "Kayo"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "researched"
    }
   },
   {
@@ -31769,8 +31813,8 @@
     ],
     "romaji": {
      "double": "Hachiko, Noshiro Ryou",
-     "macron": "Hachiko, Noshiro Ryō",
-     "plain": "Hachiko, Noshiro Ryo"
+     "plain": "Hachiko, Noshiro Ryo",
+     "macron": "Hachiko, Noshiro Ryō"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -32064,8 +32108,8 @@
     ],
     "romaji": {
      "double": "Okano Kuko, Fuwa Ni A",
-     "macron": "Okano Kuko, Fuwa Ni A",
-     "plain": "Okano Kuko, Fuwa Ni A"
+     "plain": "Okano Kuko, Fuwa Ni A",
+     "macron": "Okano Kuko, Fuwa Ni A"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -32850,8 +32894,8 @@
     ],
     "romaji": {
      "double": "Akashiro Aoi, Kouji Moromi, Murata Shin'ya, Yanai Nobuhiko",
-     "macron": "Akashiro Aoi, Kōji Moromi, Murata Shin'ya, Yanai Nobuhiko",
-     "plain": "Akashiro Aoi, Koji Moromi, Murata Shin'ya, Yanai Nobuhiko"
+     "plain": "Akashiro Aoi, Koji Moromi, Murata Shin'ya, Yanai Nobuhiko",
+     "macron": "Akashiro Aoi, Kōji Moromi, Murata Shin'ya, Yanai Nobuhiko"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -33009,8 +33053,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -33210,8 +33254,8 @@
     ],
     "romaji": {
      "double": "Purapa / Asakura Neru / Sawayakasamehada",
-     "macron": "Purapa / Asakura Neru / Sawayakasamehada",
-     "plain": "Purapa / Asakura Neru / Sawayakasamehada"
+     "plain": "Purapa / Asakura Neru / Sawayakasamehada",
+     "macron": "Purapa / Asakura Neru / Sawayakasamehada"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -34749,10 +34793,14 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "アヤ ツキ ツカサ, サキ, フタバ ワ ヅキ",
+    "reading": "サツキツカサ, サキ, フタバ ワ ヅキ",
     "ruby": [
      [
-      "彩月つかさ",
+      "彩月",
+      "さつき"
+     ],
+     [
+      "つかさ",
       null
      ],
      [
@@ -34773,9 +34821,9 @@
      ]
     ],
     "romaji": {
-     "double": "Aya Tsuki Tsukasa, Saki, Futaba Wa Zuki",
-     "macron": "Aya Tsuki Tsukasa, Saki, Futaba Wa Zuki",
-     "plain": "Aya Tsuki Tsukasa, Saki, Futaba Wa Zuki"
+     "double": "Satsukitsukasa, Saki, Futaba Wa Zuki",
+     "plain": "Satsukitsukasa, Saki, Futaba Wa Zuki",
+     "macron": "Satsukitsukasa, Saki, Futaba Wa Zuki"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -34904,8 +34952,8 @@
     ],
     "romaji": {
      "double": "Sumeragi Hiyoko, Koyuki, Mika Pikazo, mocha",
-     "macron": "Sumeragi Hiyoko, Koyuki, Mika Pikazo, mocha",
-     "plain": "Sumeragi Hiyoko, Koyuki, Mika Pikazo, mocha"
+     "plain": "Sumeragi Hiyoko, Koyuki, Mika Pikazo, mocha",
+     "macron": "Sumeragi Hiyoko, Koyuki, Mika Pikazo, mocha"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -35106,8 +35154,8 @@
     ],
     "romaji": {
      "double": "Inunoesa / Hairou",
-     "macron": "Inunoesa / Hairō",
-     "plain": "Inunoesa / Hairo"
+     "plain": "Inunoesa / Hairo",
+     "macron": "Inunoesa / Hairō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -35853,8 +35901,8 @@
     ],
     "romaji": {
      "double": "Aono Shimo / Inori. / Hanagata",
-     "macron": "Aono Shimo / Inori. / Hanagata",
-     "plain": "Aono Shimo / Inori. / Hanagata"
+     "plain": "Aono Shimo / Inori. / Hanagata",
+     "macron": "Aono Shimo / Inori. / Hanagata"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -37397,8 +37445,8 @@
     ],
     "romaji": {
      "double": "Shinjou Hajime, Fumi Natsuichi, Kuga Fuuna",
-     "macron": "Shinjō Hajime, Fumi Natsuichi, Kuga Fūna",
-     "plain": "Shinjo Hajime, Fumi Natsuichi, Kuga Funa"
+     "plain": "Shinjo Hajime, Fumi Natsuichi, Kuga Funa",
+     "macron": "Shinjō Hajime, Fumi Natsuichi, Kuga Fūna"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -37820,8 +37868,8 @@
     ],
     "romaji": {
      "double": "Hashiba Misato, zinbei",
-     "macron": "Hashiba Misato, zinbei",
-     "plain": "Hashiba Misato, zinbei"
+     "plain": "Hashiba Misato, zinbei",
+     "macron": "Hashiba Misato, zinbei"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -37897,8 +37945,8 @@
     ],
     "romaji": {
      "double": "Mikami Teren, Chigusa Minori",
-     "macron": "Mikami Teren, Chigusa Minori",
-     "plain": "Mikami Teren, Chigusa Minori"
+     "plain": "Mikami Teren, Chigusa Minori",
+     "macron": "Mikami Teren, Chigusa Minori"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -38073,8 +38121,8 @@
     ],
     "romaji": {
      "double": "Minakata Sunao, kiki, Kinta",
-     "macron": "Minakata Sunao, kiki, Kinta",
-     "plain": "Minakata Sunao, kiki, Kinta"
+     "plain": "Minakata Sunao, kiki, Kinta",
+     "macron": "Minakata Sunao, kiki, Kinta"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -38215,8 +38263,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -38497,8 +38545,8 @@
     ],
     "romaji": {
      "double": "Ringoame Saado, Kawada Akio",
-     "macron": "Ringoame Sādo, Kawada Akio",
-     "plain": "Ringoame Sado, Kawada Akio"
+     "plain": "Ringoame Sado, Kawada Akio",
+     "macron": "Ringoame Sādo, Kawada Akio"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -38673,8 +38721,8 @@
     ],
     "romaji": {
      "double": "Migihara, Haneda Usa, U35",
-     "macron": "Migihara, Haneda Usa, U35",
-     "plain": "Migihara, Haneda Usa, U35"
+     "plain": "Migihara, Haneda Usa, U35",
+     "macron": "Migihara, Haneda Usa, U35"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -39051,8 +39099,8 @@
     ],
     "romaji": {
      "double": "Batatchi, Hoshizaki Kon, Saneda",
-     "macron": "Batatchi, Hoshizaki Kon, Saneda",
-     "plain": "Batatchi, Hoshizaki Kon, Saneda"
+     "plain": "Batatchi, Hoshizaki Kon, Saneda",
+     "macron": "Batatchi, Hoshizaki Kon, Saneda"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -39186,8 +39234,8 @@
     ],
     "romaji": {
      "double": "koko, Shimizu Yuu, Toosaka Asagi",
-     "macron": "koko, Shimizu Yū, Tōsaka Asagi",
-     "plain": "koko, Shimizu Yu, Tosaka Asagi"
+     "plain": "koko, Shimizu Yu, Tosaka Asagi",
+     "macron": "koko, Shimizu Yū, Tōsaka Asagi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -39425,8 +39473,8 @@
     ],
     "romaji": {
      "double": "Arata Iri / Atoha / Koin",
-     "macron": "Arata Iri / Atoha / Koin",
-     "plain": "Arata Iri / Atoha / Koin"
+     "plain": "Arata Iri / Atoha / Koin",
+     "macron": "Arata Iri / Atoha / Koin"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -40208,8 +40256,8 @@
     ],
     "romaji": {
      "double": "Tamaki Mitsune, Hajitani Kiyuu, Oukawa Yuu",
-     "macron": "Tamaki Mitsune, Hajitani Kiyū, Ōkawa Yū",
-     "plain": "Tamaki Mitsune, Hajitani Kiyu, Okawa Yu"
+     "plain": "Tamaki Mitsune, Hajitani Kiyu, Okawa Yu",
+     "macron": "Tamaki Mitsune, Hajitani Kiyū, Ōkawa Yū"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -40428,8 +40476,8 @@
     ],
     "romaji": {
      "double": "Sumeragi, Sasa Tougorou, Miyukiruria",
-     "macron": "Sumeragi, Sasa Tōgorō, Miyukiruria",
-     "plain": "Sumeragi, Sasa Togoro, Miyukiruria"
+     "plain": "Sumeragi, Sasa Togoro, Miyukiruria",
+     "macron": "Sumeragi, Sasa Tōgorō, Miyukiruria"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -41345,8 +41393,8 @@
     ],
     "romaji": {
      "double": "Honma Ryouta, Sogabe Shuuji, Nonokanako",
-     "macron": "Honma Ryōta, Sogabe Shūji, Nonokanako",
-     "plain": "Honma Ryota, Sogabe Shuji, Nonokanako"
+     "plain": "Honma Ryota, Sogabe Shuji, Nonokanako",
+     "macron": "Honma Ryōta, Sogabe Shūji, Nonokanako"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -41642,8 +41690,8 @@
     ],
     "romaji": {
      "double": "Shimazu, Karasu Piero, Kisaragi Yuri",
-     "macron": "Shimazu, Karasu Piero, Kisaragi Yuri",
-     "plain": "Shimazu, Karasu Piero, Kisaragi Yuri"
+     "plain": "Shimazu, Karasu Piero, Kisaragi Yuri",
+     "macron": "Shimazu, Karasu Piero, Kisaragi Yuri"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -41713,7 +41761,7 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "トウミンユウ, ダイダイキゴウ",
+    "reading": "トウミンユウ, ダイダイ",
     "ruby": [
      [
       "冬眠結",
@@ -41725,17 +41773,16 @@
      ],
      [
       "橙々",
-      null
+      "だいだい"
      ]
     ],
     "romaji": {
-     "double": "Toumin'yuu, Daidaikigou",
-     "macron": "Tōmin'yū, Daidaikigō",
-     "plain": "Tomin'yu, Daidaikigo"
+     "double": "Toumin'yuu, Daidai",
+     "plain": "Tomin'yu, Daidai",
+     "macron": "Tōmin'yū, Daidai"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "stated",
+    "basis": "romaji"
    }
   },
   {
@@ -42433,14 +42480,23 @@
    },
    "author_en": {
     "reading": "カヨウ",
+    "ruby": [
+     [
+      "火",
+      "か"
+     ],
+     [
+      "曜",
+      "よう"
+     ]
+    ],
     "romaji": {
      "macron": "Kayō",
      "double": "Kayou",
      "plain": "Kayo"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "researched"
    }
   },
   {
@@ -42635,8 +42691,8 @@
     ],
     "romaji": {
      "double": "Mimoto, Desuyama Hanako",
-     "macron": "Mimoto, Desuyama Hanako",
-     "plain": "Mimoto, Desuyama Hanako"
+     "plain": "Mimoto, Desuyama Hanako",
+     "macron": "Mimoto, Desuyama Hanako"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -42751,8 +42807,8 @@
     ],
     "romaji": {
      "double": "Fukatsu, Niru Kajitsu, WOOMA",
-     "macron": "Fukatsu, Niru Kajitsu, WOOMA",
-     "plain": "Fukatsu, Niru Kajitsu, WOOMA"
+     "plain": "Fukatsu, Niru Kajitsu, WOOMA",
+     "macron": "Fukatsu, Niru Kajitsu, WOOMA"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -42978,8 +43034,8 @@
     ],
     "romaji": {
      "double": "Kannazuki Hato, Wafuu, Tobi",
-     "macron": "Kannazuki Hato, Wafū, Tobi",
-     "plain": "Kannazuki Hato, Wafu, Tobi"
+     "plain": "Kannazuki Hato, Wafu, Tobi",
+     "macron": "Kannazuki Hato, Wafū, Tobi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -43221,8 +43277,8 @@
     ],
     "romaji": {
      "double": "Okano Kuko, Fuwa Ni A",
-     "macron": "Okano Kuko, Fuwa Ni A",
-     "plain": "Okano Kuko, Fuwa Ni A"
+     "plain": "Okano Kuko, Fuwa Ni A",
+     "macron": "Okano Kuko, Fuwa Ni A"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -43317,11 +43373,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -43329,7 +43385,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -43341,13 +43397,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -43502,8 +43557,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -43766,8 +43821,8 @@
     ],
     "romaji": {
      "double": "Ajiichi, Ouzuki You",
-     "macron": "Ajiichi, Ōzuki Yō",
-     "plain": "Ajichi, Ozuki Yo"
+     "plain": "Ajichi, Ozuki Yo",
+     "macron": "Ajiichi, Ōzuki Yō"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -44416,14 +44471,22 @@
    "surfaced": false,
    "feed_date": "2026-07-10",
    "author_en": {
-    "reading": "クラサキ モロコ / ミカミ テレン / ミマン",
+    "reading": "クラサキモロコ / ミカミ テレン / ミマン",
     "ruby": [
      [
       "漫画／",
       null
      ],
      [
-      "倉崎もろこ",
+      "倉",
+      "くら"
+     ],
+     [
+      "崎",
+      "さき"
+     ],
+     [
+      "もろこ",
       null
      ],
      [
@@ -44444,13 +44507,12 @@
      ]
     ],
     "romaji": {
-     "double": "Kurasaki Moroko / Mikami Teren / Miman",
-     "macron": "Kurasaki Moroko / Mikami Teren / Miman",
-     "plain": "Kurasaki Moroko / Mikami Teren / Miman"
+     "double": "Kurasakimoroko / Mikami Teren / Miman",
+     "plain": "Kurasakimoroko / Mikami Teren / Miman",
+     "macron": "Kurasakimoroko / Mikami Teren / Miman"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -45177,10 +45239,14 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "アヤ ツキ ツカサ, サキ, フタバ ワ ヅキ",
+    "reading": "サツキツカサ, サキ, フタバ ワ ヅキ",
     "ruby": [
      [
-      "彩月つかさ",
+      "彩月",
+      "さつき"
+     ],
+     [
+      "つかさ",
       null
      ],
      [
@@ -45201,9 +45267,9 @@
      ]
     ],
     "romaji": {
-     "double": "Aya Tsuki Tsukasa, Saki, Futaba Wa Zuki",
-     "macron": "Aya Tsuki Tsukasa, Saki, Futaba Wa Zuki",
-     "plain": "Aya Tsuki Tsukasa, Saki, Futaba Wa Zuki"
+     "double": "Satsukitsukasa, Saki, Futaba Wa Zuki",
+     "plain": "Satsukitsukasa, Saki, Futaba Wa Zuki",
+     "macron": "Satsukitsukasa, Saki, Futaba Wa Zuki"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -45298,11 +45364,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -45310,7 +45376,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -45322,13 +45388,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -45419,11 +45484,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -45431,7 +45496,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -45443,13 +45508,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -45540,11 +45604,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -45552,7 +45616,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -45564,13 +45628,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -45661,11 +45724,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -45673,7 +45736,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -45685,13 +45748,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -45782,11 +45844,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -45794,7 +45856,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -45806,13 +45868,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -45903,11 +45964,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -45915,7 +45976,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -45927,13 +45988,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -46024,11 +46084,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -46036,7 +46096,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -46048,13 +46108,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -46145,11 +46204,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -46157,7 +46216,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -46169,13 +46228,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -46266,11 +46324,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -46278,7 +46336,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -46290,13 +46348,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -46387,11 +46444,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -46399,7 +46456,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -46411,13 +46468,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -46508,11 +46564,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -46520,7 +46576,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -46532,13 +46588,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -46629,11 +46684,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -46641,7 +46696,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -46653,13 +46708,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -46750,11 +46804,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -46762,7 +46816,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -46774,13 +46828,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -46871,11 +46924,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -46883,7 +46936,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -46895,13 +46948,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -46992,11 +47044,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -47004,7 +47056,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -47016,13 +47068,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -47113,11 +47164,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -47125,7 +47176,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -47137,13 +47188,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -47234,11 +47284,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -47246,7 +47296,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -47258,13 +47308,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -47355,11 +47404,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -47367,7 +47416,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -47379,13 +47428,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -47476,11 +47524,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -47488,7 +47536,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -47500,13 +47548,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -47597,11 +47644,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -47609,7 +47656,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -47621,13 +47668,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -47718,11 +47764,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -47730,7 +47776,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -47742,13 +47788,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -47839,11 +47884,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -47851,7 +47896,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -47863,13 +47908,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -47977,8 +48021,8 @@
     ],
     "romaji": {
      "double": "Kobayashi Kotei / Riichu",
-     "macron": "Kobayashi Kotei / Riichu",
-     "plain": "Kobayashi Kotei / Richu"
+     "plain": "Kobayashi Kotei / Richu",
+     "macron": "Kobayashi Kotei / Riichu"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -48364,8 +48408,8 @@
     ],
     "romaji": {
      "double": "Miyazawa Iori, Piyopiyomaru, Imai Tetsuya",
-     "macron": "Miyazawa Iori, Piyopiyomaru, Imai Tetsuya",
-     "plain": "Miyazawa Iori, Piyopiyomaru, Imai Tetsuya"
+     "plain": "Miyazawa Iori, Piyopiyomaru, Imai Tetsuya",
+     "macron": "Miyazawa Iori, Piyopiyomaru, Imai Tetsuya"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -58808,8 +58852,8 @@
     ],
     "romaji": {
      "double": "Akeo, Hanamiya Mii, Shiokouji",
-     "macron": "Akeo, Hanamiya Mii, Shiokōji",
-     "plain": "Akeo, Hanamiya Mii, Shiokoji"
+     "plain": "Akeo, Hanamiya Mii, Shiokoji",
+     "macron": "Akeo, Hanamiya Mii, Shiokōji"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -59433,8 +59477,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -59775,8 +59819,8 @@
     ],
     "romaji": {
      "double": "Ringoame Saado, Kawada Akio",
-     "macron": "Ringoame Sādo, Kawada Akio",
-     "plain": "Ringoame Sado, Kawada Akio"
+     "plain": "Ringoame Sado, Kawada Akio",
+     "macron": "Ringoame Sādo, Kawada Akio"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -60637,8 +60681,8 @@
     ],
     "romaji": {
      "double": "Ryoubi Ieri / Takeuchi Kazunari",
-     "macron": "Ryōbi Ieri / Takeuchi Kazunari",
-     "plain": "Ryobi Ieri / Takeuchi Kazunari"
+     "plain": "Ryobi Ieri / Takeuchi Kazunari",
+     "macron": "Ryōbi Ieri / Takeuchi Kazunari"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -60892,8 +60936,8 @@
     ],
     "romaji": {
      "double": "La-na, Satou Tsutomu, Ishida Kana",
-     "macron": "La-na, Satō Tsutomu, Ishida Kana",
-     "plain": "La-na, Sato Tsutomu, Ishida Kana"
+     "plain": "La-na, Sato Tsutomu, Ishida Kana",
+     "macron": "La-na, Satō Tsutomu, Ishida Kana"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -60948,15 +60992,15 @@
     "reading_basis": "surface"
    },
    "author_en": {
-    "reading": "ヨツバ ◎ マスミ。",
+    "reading": "ヨツバマスミ",
     "romaji": {
-     "macron": "Yotsuba ◎ Masumi.",
-     "double": "Yotsuba ◎ Masumi.",
-     "plain": "Yotsuba ◎ Masumi."
+     "macron": "Yotsubamasumi",
+     "double": "Yotsubamasumi",
+     "plain": "Yotsubamasumi"
     },
     "en": "Masumi Yotsuba",
     "basis": "romaji",
-    "reading_basis": "analyser"
+    "reading_basis": "researched"
    }
   },
   {
@@ -61041,8 +61085,8 @@
     ],
     "romaji": {
      "double": "Tokomichi, Miyazawa Iori, Mebachi",
-     "macron": "Tokomichi, Miyazawa Iori, Mebachi",
-     "plain": "Tokomichi, Miyazawa Iori, Mebachi"
+     "plain": "Tokomichi, Miyazawa Iori, Mebachi",
+     "macron": "Tokomichi, Miyazawa Iori, Mebachi"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -61254,8 +61298,8 @@
     ],
     "romaji": {
      "double": "Akeo, Hanamiya Mii, Shiokouji",
-     "macron": "Akeo, Hanamiya Mii, Shiokōji",
-     "plain": "Akeo, Hanamiya Mii, Shiokoji"
+     "plain": "Akeo, Hanamiya Mii, Shiokoji",
+     "macron": "Akeo, Hanamiya Mii, Shiokōji"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -61521,8 +61565,8 @@
     ],
     "romaji": {
      "double": "Ringosui, Hayashi Shougo, Ankotaku",
-     "macron": "Ringosui, Hayashi Shōgo, Ankotaku",
-     "plain": "Ringosui, Hayashi Shogo, Ankotaku"
+     "plain": "Ringosui, Hayashi Shogo, Ankotaku",
+     "macron": "Ringosui, Hayashi Shōgo, Ankotaku"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -62170,8 +62214,8 @@
     ],
     "romaji": {
      "double": "Arata Iri / Atoha / Koin",
-     "macron": "Arata Iri / Atoha / Koin",
-     "plain": "Arata Iri / Atoha / Koin"
+     "plain": "Arata Iri / Atoha / Koin",
+     "macron": "Arata Iri / Atoha / Koin"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -62365,8 +62409,8 @@
     ],
     "romaji": {
      "double": "Aruto / Emoto Nao",
-     "macron": "Aruto / Emoto Nao",
-     "plain": "Aruto / Emoto Nao"
+     "plain": "Aruto / Emoto Nao",
+     "macron": "Aruto / Emoto Nao"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -62751,8 +62795,8 @@
     ],
     "romaji": {
      "double": "Yuzuhara Moke, Iruma Hitoma, Non",
-     "macron": "Yuzuhara Moke, Iruma Hitoma, Non",
-     "plain": "Yuzuhara Moke, Iruma Hitoma, Non"
+     "plain": "Yuzuhara Moke, Iruma Hitoma, Non",
+     "macron": "Yuzuhara Moke, Iruma Hitoma, Non"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -63477,8 +63521,8 @@
     ],
     "romaji": {
      "double": "Yorunohitsujigumo, Agarizaki Yuiko, Sonofuwan",
-     "macron": "Yorunohitsujigumo, Agarizaki Yuiko, Sonofuwan",
-     "plain": "Yorunohitsujigumo, Agarizaki Yuiko, Sonofuwan"
+     "plain": "Yorunohitsujigumo, Agarizaki Yuiko, Sonofuwan",
+     "macron": "Yorunohitsujigumo, Agarizaki Yuiko, Sonofuwan"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -63701,10 +63745,18 @@
     "reading_basis": "analyser"
    },
    "author_en": {
-    "reading": "ビゼン ヤスノリ, Spider Lily",
+    "reading": "ビゼンヤスノリ, Spider Lily",
     "ruby": [
      [
-      "備前やすのり",
+      "備",
+      "び"
+     ],
+     [
+      "前",
+      "ぜん"
+     ],
+     [
+      "やすのり",
       null
      ],
      [
@@ -63717,13 +63769,12 @@
      ]
     ],
     "romaji": {
-     "double": "Bizen Yasunori, Spider Lily",
-     "macron": "Bizen Yasunori, Spider Lily",
-     "plain": "Bizen Yasunori, Spider Lily"
+     "double": "Bizen'yasunori, Spider Lily",
+     "plain": "Bizen'yasunori, Spider Lily",
+     "macron": "Bizen'yasunori, Spider Lily"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -64820,7 +64871,7 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "トウミンユウ, ダイダイキゴウ",
+    "reading": "トウミンユウ, ダイダイ",
     "ruby": [
      [
       "冬眠結",
@@ -64832,17 +64883,16 @@
      ],
      [
       "橙々",
-      null
+      "だいだい"
      ]
     ],
     "romaji": {
-     "double": "Toumin'yuu, Daidaikigou",
-     "macron": "Tōmin'yū, Daidaikigō",
-     "plain": "Tomin'yu, Daidaikigo"
+     "double": "Toumin'yuu, Daidai",
+     "plain": "Tomin'yu, Daidai",
+     "macron": "Tōmin'yū, Daidai"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "stated",
+    "basis": "romaji"
    }
   },
   {
@@ -65041,8 +65091,8 @@
     ],
     "romaji": {
      "double": "SWAV / Asaura / Nishima Gomeyuki",
-     "macron": "SWAV / Asaura / Nishima Gomeyuki",
-     "plain": "SWAV / Asaura / Nishima Gomeyuki"
+     "plain": "SWAV / Asaura / Nishima Gomeyuki",
+     "macron": "SWAV / Asaura / Nishima Gomeyuki"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -65599,14 +65649,23 @@
    },
    "author_en": {
     "reading": "カヨウ",
+    "ruby": [
+     [
+      "火",
+      "か"
+     ],
+     [
+      "曜",
+      "よう"
+     ]
+    ],
     "romaji": {
      "macron": "Kayō",
      "double": "Kayou",
      "plain": "Kayo"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "researched"
    }
   },
   {
@@ -65722,8 +65781,8 @@
     ],
     "romaji": {
      "double": "Hachiko, Noshiro Ryou",
-     "macron": "Hachiko, Noshiro Ryō",
-     "plain": "Hachiko, Noshiro Ryo"
+     "plain": "Hachiko, Noshiro Ryo",
+     "macron": "Hachiko, Noshiro Ryō"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -66164,7 +66223,7 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "オダマサル, サトウ ツトム, イシダ カナ, モリ ユウ",
+    "reading": "オダマサル, サトウ ツトム, イシダ カナ, モリユウ",
     "ruby": [
      [
       "おだまさる",
@@ -66203,18 +66262,21 @@
       null
      ],
      [
-      "森夕",
-      null
+      "森",
+      "もり"
+     ],
+     [
+      "夕",
+      "ゆう"
      ]
     ],
     "romaji": {
-     "double": "Odamasaru, Satou Tsutomu, Ishida Kana, Mori Yuu",
-     "macron": "Odamasaru, Satō Tsutomu, Ishida Kana, Mori Yū",
-     "plain": "Odamasaru, Sato Tsutomu, Ishida Kana, Mori Yu"
+     "double": "Odamasaru, Satou Tsutomu, Ishida Kana, Moriyuu",
+     "plain": "Odamasaru, Sato Tsutomu, Ishida Kana, Moriyu",
+     "macron": "Odamasaru, Satō Tsutomu, Ishida Kana, Moriyū"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "surface",
+    "basis": "romaji"
    }
   },
   {
@@ -66689,8 +66751,8 @@
     ],
     "romaji": {
      "double": "Rigai Mayu, Chokingyo.",
-     "macron": "Rigai Mayu, Chokingyo.",
-     "plain": "Rigai Mayu, Chokingyo."
+     "plain": "Rigai Mayu, Chokingyo.",
+     "macron": "Rigai Mayu, Chokingyo."
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -66866,8 +66928,8 @@
     ],
     "romaji": {
      "double": "Akashiro Aoi, Kouji Moromi, Murata Shin'ya, Yanai Nobuhiko",
-     "macron": "Akashiro Aoi, Kōji Moromi, Murata Shin'ya, Yanai Nobuhiko",
-     "plain": "Akashiro Aoi, Koji Moromi, Murata Shin'ya, Yanai Nobuhiko"
+     "plain": "Akashiro Aoi, Koji Moromi, Murata Shin'ya, Yanai Nobuhiko",
+     "macron": "Akashiro Aoi, Kōji Moromi, Murata Shin'ya, Yanai Nobuhiko"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -68132,8 +68194,8 @@
     ],
     "romaji": {
      "double": "Hashiba Misato, zinbei",
-     "macron": "Hashiba Misato, zinbei",
-     "plain": "Hashiba Misato, zinbei"
+     "plain": "Hashiba Misato, zinbei",
+     "macron": "Hashiba Misato, zinbei"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -70876,8 +70938,8 @@
     ],
     "romaji": {
      "double": "Mikami Teren, Chigusa Minori",
-     "macron": "Mikami Teren, Chigusa Minori",
-     "plain": "Mikami Teren, Chigusa Minori"
+     "plain": "Mikami Teren, Chigusa Minori",
+     "macron": "Mikami Teren, Chigusa Minori"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -71106,8 +71168,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -71388,8 +71450,8 @@
     ],
     "romaji": {
      "double": "Ringoame Saado, Kawada Akio",
-     "macron": "Ringoame Sādo, Kawada Akio",
-     "plain": "Ringoame Sado, Kawada Akio"
+     "plain": "Ringoame Sado, Kawada Akio",
+     "macron": "Ringoame Sādo, Kawada Akio"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -71878,11 +71940,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "ノギ ヤスヒト, カマイケ カズマ, ハイムラキヨタカ",
+    "reading": "ノギヤスヒト, カマチカズマ, ハイムラキヨタカ",
     "ruby": [
      [
       "乃木康仁",
-      null
+      "のぎやすひと"
      ],
      [
       ", ",
@@ -71890,7 +71952,7 @@
      ],
      [
       "鎌池和馬",
-      null
+      "かまちかずま"
      ],
      [
       ", ",
@@ -71902,13 +71964,12 @@
      ]
     ],
     "romaji": {
-     "double": "Nogi Yasuhito, Kamaike Kazuma, Haimurakiyotaka",
-     "macron": "Nogi Yasuhito, Kamaike Kazuma, Haimurakiyotaka",
-     "plain": "Nogi Yasuhito, Kamaike Kazuma, Haimurakiyotaka"
+     "double": "Nogiyasuhito, Kamachikazuma, Haimurakiyotaka",
+     "plain": "Nogiyasuhito, Kamachikazuma, Haimurakiyotaka",
+     "macron": "Nogiyasuhito, Kamachikazuma, Haimurakiyotaka"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -73969,8 +74030,8 @@
     ],
     "romaji": {
      "double": "Touhoupurojekuto, Mizuyama Mero",
-     "macron": "Tōhōpurojekuto, Mizuyama Mero",
-     "plain": "Tohopurojekuto, Mizuyama Mero"
+     "plain": "Tohopurojekuto, Mizuyama Mero",
+     "macron": "Tōhōpurojekuto, Mizuyama Mero"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -74781,8 +74842,8 @@
     ],
     "romaji": {
      "double": "Tokitou Setsuna, Acacia",
-     "macron": "Tokitō Setsuna, Acacia",
-     "plain": "Tokito Setsuna, Acacia"
+     "plain": "Tokito Setsuna, Acacia",
+     "macron": "Tokitō Setsuna, Acacia"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -74935,8 +74996,8 @@
     ],
     "romaji": {
      "double": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
-     "macron": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
-     "plain": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio"
+     "plain": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
+     "macron": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -75056,8 +75117,8 @@
     ],
     "romaji": {
      "double": "Akeo, Hanamiya Mii, Shiokouji",
-     "macron": "Akeo, Hanamiya Mii, Shiokōji",
-     "plain": "Akeo, Hanamiya Mii, Shiokoji"
+     "plain": "Akeo, Hanamiya Mii, Shiokoji",
+     "macron": "Akeo, Hanamiya Mii, Shiokōji"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -77038,8 +77099,8 @@
     ],
     "romaji": {
      "double": "Obata Rui, Jin'an",
-     "macron": "Obata Rui, Jin'an",
-     "plain": "Obata Rui, Jin'an"
+     "plain": "Obata Rui, Jin'an",
+     "macron": "Obata Rui, Jin'an"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -77788,8 +77849,8 @@
     ],
     "romaji": {
      "double": "SWAV / Asaura / Nishima Gomeyuki",
-     "macron": "SWAV / Asaura / Nishima Gomeyuki",
-     "plain": "SWAV / Asaura / Nishima Gomeyuki"
+     "plain": "SWAV / Asaura / Nishima Gomeyuki",
+     "macron": "SWAV / Asaura / Nishima Gomeyuki"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -78228,14 +78289,23 @@
    },
    "author_en": {
     "reading": "カヨウ",
+    "ruby": [
+     [
+      "火",
+      "か"
+     ],
+     [
+      "曜",
+      "よう"
+     ]
+    ],
     "romaji": {
      "macron": "Kayō",
      "double": "Kayou",
      "plain": "Kayo"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "researched"
    }
   },
   {
@@ -78518,8 +78588,8 @@
     ],
     "romaji": {
      "double": "Honma Ryouta, Sogabe Shuuji, Nonokanako",
-     "macron": "Honma Ryōta, Sogabe Shūji, Nonokanako",
-     "plain": "Honma Ryota, Sogabe Shuji, Nonokanako"
+     "plain": "Honma Ryota, Sogabe Shuji, Nonokanako",
+     "macron": "Honma Ryōta, Sogabe Shūji, Nonokanako"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -78626,8 +78696,8 @@
     ],
     "romaji": {
      "double": "Mimoto, Desuyama Hanako",
-     "macron": "Mimoto, Desuyama Hanako",
-     "plain": "Mimoto, Desuyama Hanako"
+     "plain": "Mimoto, Desuyama Hanako",
+     "macron": "Mimoto, Desuyama Hanako"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -79093,8 +79163,8 @@
     ],
     "romaji": {
      "double": "Kannazuki Hato, Wafuu, Tobi",
-     "macron": "Kannazuki Hato, Wafū, Tobi",
-     "plain": "Kannazuki Hato, Wafu, Tobi"
+     "plain": "Kannazuki Hato, Wafu, Tobi",
+     "macron": "Kannazuki Hato, Wafū, Tobi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -79291,19 +79361,31 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "ニ ノ コ, ニシ   ジョウ ヒ, Re タケ",
+    "reading": "ニノコ, ニシジョウヨウ, Re タケ",
     "ruby": [
      [
-      "にの子",
+      "にの",
       null
+     ],
+     [
+      "子",
+      "こ"
      ],
      [
       ", ",
       null
      ],
      [
-      "西条陽",
-      null
+      "西",
+      "にし"
+     ],
+     [
+      "条",
+      "じょう"
+     ],
+     [
+      "陽",
+      "よう"
      ],
      [
       ", ",
@@ -79315,9 +79397,9 @@
      ]
     ],
     "romaji": {
-     "double": "Ni No Ko, Nishi Jou Hi, Re Take",
-     "macron": "Ni No Ko, Nishi Jō Hi, Re Take",
-     "plain": "Ni No Ko, Nishi Jo Hi, Re Take"
+     "double": "Ninoko, Nishijouyou, Re Take",
+     "plain": "Ninoko, Nishijoyo, Re Take",
+     "macron": "Ninoko, Nishijōyō, Re Take"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -79412,11 +79494,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -79424,7 +79506,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -79436,13 +79518,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -79838,8 +79919,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -80621,8 +80702,8 @@
     ],
     "romaji": {
      "double": "Nadaka Harutsugu, Karasu Piero, Kisaragi Yuri",
-     "macron": "Nadaka Harutsugu, Karasu Piero, Kisaragi Yuri",
-     "plain": "Nadaka Harutsugu, Karasu Piero, Kisaragi Yuri"
+     "plain": "Nadaka Harutsugu, Karasu Piero, Kisaragi Yuri",
+     "macron": "Nadaka Harutsugu, Karasu Piero, Kisaragi Yuri"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -84887,8 +84968,8 @@
     ],
     "romaji": {
      "double": "Yosshaa!, QZO。, Wa Tanuki Nao",
-     "macron": "Yosshā!, QZO。, Wa Tanuki Nao",
-     "plain": "Yossha!, QZO。, Wa Tanuki Nao"
+     "plain": "Yossha!, QZO。, Wa Tanuki Nao",
+     "macron": "Yosshā!, QZO。, Wa Tanuki Nao"
     },
     "reading_basis": "analyser",
     "basis": "romaji",
@@ -85089,8 +85170,8 @@
     ],
     "romaji": {
      "double": "Sorayama Toki / Goshiki Ami / Izumino Sen / Gochou",
-     "macron": "Sorayama Toki / Goshiki Ami / Izumino Sen / Gochō",
-     "plain": "Sorayama Toki / Goshiki Ami / Izumino Sen / Gocho"
+     "plain": "Sorayama Toki / Goshiki Ami / Izumino Sen / Gocho",
+     "macron": "Sorayama Toki / Goshiki Ami / Izumino Sen / Gochō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -85366,15 +85447,15 @@
     "reading_basis": "surface"
    },
    "author_en": {
-    "reading": "ヨツバ ◎ マスミ。",
+    "reading": "ヨツバマスミ",
     "romaji": {
-     "macron": "Yotsuba ◎ Masumi.",
-     "double": "Yotsuba ◎ Masumi.",
-     "plain": "Yotsuba ◎ Masumi."
+     "macron": "Yotsubamasumi",
+     "double": "Yotsubamasumi",
+     "plain": "Yotsubamasumi"
     },
     "en": "Masumi Yotsuba",
     "basis": "romaji",
-    "reading_basis": "analyser"
+    "reading_basis": "researched"
    }
   },
   {
@@ -85426,15 +85507,15 @@
     "reading_basis": "surface"
    },
    "author_en": {
-    "reading": "ヨツバ ◎ マスミ。",
+    "reading": "ヨツバマスミ",
     "romaji": {
-     "macron": "Yotsuba ◎ Masumi.",
-     "double": "Yotsuba ◎ Masumi.",
-     "plain": "Yotsuba ◎ Masumi."
+     "macron": "Yotsubamasumi",
+     "double": "Yotsubamasumi",
+     "plain": "Yotsubamasumi"
     },
     "en": "Masumi Yotsuba",
     "basis": "romaji",
-    "reading_basis": "analyser"
+    "reading_basis": "researched"
    }
   },
   {
@@ -85486,15 +85567,15 @@
     "reading_basis": "surface"
    },
    "author_en": {
-    "reading": "ヨツバ ◎ マスミ。",
+    "reading": "ヨツバマスミ",
     "romaji": {
-     "macron": "Yotsuba ◎ Masumi.",
-     "double": "Yotsuba ◎ Masumi.",
-     "plain": "Yotsuba ◎ Masumi."
+     "macron": "Yotsubamasumi",
+     "double": "Yotsubamasumi",
+     "plain": "Yotsubamasumi"
     },
     "en": "Masumi Yotsuba",
     "basis": "romaji",
-    "reading_basis": "analyser"
+    "reading_basis": "researched"
    }
   },
   {
@@ -85546,15 +85627,15 @@
     "reading_basis": "surface"
    },
    "author_en": {
-    "reading": "ヨツバ ◎ マスミ。",
+    "reading": "ヨツバマスミ",
     "romaji": {
-     "macron": "Yotsuba ◎ Masumi.",
-     "double": "Yotsuba ◎ Masumi.",
-     "plain": "Yotsuba ◎ Masumi."
+     "macron": "Yotsubamasumi",
+     "double": "Yotsubamasumi",
+     "plain": "Yotsubamasumi"
     },
     "en": "Masumi Yotsuba",
     "basis": "romaji",
-    "reading_basis": "analyser"
+    "reading_basis": "researched"
    }
   },
   {
@@ -85606,15 +85687,15 @@
     "reading_basis": "surface"
    },
    "author_en": {
-    "reading": "ヨツバ ◎ マスミ。",
+    "reading": "ヨツバマスミ",
     "romaji": {
-     "macron": "Yotsuba ◎ Masumi.",
-     "double": "Yotsuba ◎ Masumi.",
-     "plain": "Yotsuba ◎ Masumi."
+     "macron": "Yotsubamasumi",
+     "double": "Yotsubamasumi",
+     "plain": "Yotsubamasumi"
     },
     "en": "Masumi Yotsuba",
     "basis": "romaji",
-    "reading_basis": "analyser"
+    "reading_basis": "researched"
    }
   },
   {
@@ -85666,15 +85747,15 @@
     "reading_basis": "surface"
    },
    "author_en": {
-    "reading": "ヨツバ ◎ マスミ。",
+    "reading": "ヨツバマスミ",
     "romaji": {
-     "macron": "Yotsuba ◎ Masumi.",
-     "double": "Yotsuba ◎ Masumi.",
-     "plain": "Yotsuba ◎ Masumi."
+     "macron": "Yotsubamasumi",
+     "double": "Yotsubamasumi",
+     "plain": "Yotsubamasumi"
     },
     "en": "Masumi Yotsuba",
     "basis": "romaji",
-    "reading_basis": "analyser"
+    "reading_basis": "researched"
    }
   },
   {
@@ -86367,8 +86448,8 @@
     ],
     "romaji": {
      "double": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
-     "macron": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
-     "plain": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio"
+     "plain": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
+     "macron": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -86519,8 +86600,8 @@
     ],
     "romaji": {
      "double": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
-     "macron": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
-     "plain": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio"
+     "plain": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
+     "macron": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -86671,8 +86752,8 @@
     ],
     "romaji": {
      "double": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
-     "macron": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
-     "plain": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio"
+     "plain": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
+     "macron": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -86823,8 +86904,8 @@
     ],
     "romaji": {
      "double": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
-     "macron": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
-     "plain": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio"
+     "plain": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
+     "macron": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -87782,8 +87863,8 @@
     ],
     "romaji": {
      "double": "Toono Meza, Ayano Urasuke",
-     "macron": "Tōno Meza, Ayano Urasuke",
-     "plain": "Tono Meza, Ayano Urasuke"
+     "plain": "Tono Meza, Ayano Urasuke",
+     "macron": "Tōno Meza, Ayano Urasuke"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -88107,15 +88188,15 @@
     "reading_basis": "surface"
    },
    "author_en": {
-    "reading": "ヨツバ ◎ マスミ。",
+    "reading": "ヨツバマスミ",
     "romaji": {
-     "macron": "Yotsuba ◎ Masumi.",
-     "double": "Yotsuba ◎ Masumi.",
-     "plain": "Yotsuba ◎ Masumi."
+     "macron": "Yotsubamasumi",
+     "double": "Yotsubamasumi",
+     "plain": "Yotsubamasumi"
     },
     "en": "Masumi Yotsuba",
     "basis": "romaji",
-    "reading_basis": "analyser"
+    "reading_basis": "researched"
    }
   },
   {
@@ -88247,8 +88328,8 @@
     ],
     "romaji": {
      "double": "Batatchi, Hoshizaki Kon, Saneda",
-     "macron": "Batatchi, Hoshizaki Kon, Saneda",
-     "plain": "Batatchi, Hoshizaki Kon, Saneda"
+     "plain": "Batatchi, Hoshizaki Kon, Saneda",
+     "macron": "Batatchi, Hoshizaki Kon, Saneda"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -88753,8 +88834,8 @@
     ],
     "romaji": {
      "double": "Arata Iri / Atoha / Koin",
-     "macron": "Arata Iri / Atoha / Koin",
-     "plain": "Arata Iri / Atoha / Koin"
+     "plain": "Arata Iri / Atoha / Koin",
+     "macron": "Arata Iri / Atoha / Koin"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -89430,8 +89511,8 @@
     ],
     "romaji": {
      "double": "Tamaki Mitsune, Hajitani Kiyuu, Oukawa Yuu",
-     "macron": "Tamaki Mitsune, Hajitani Kiyū, Ōkawa Yū",
-     "plain": "Tamaki Mitsune, Hajitani Kiyu, Okawa Yu"
+     "plain": "Tamaki Mitsune, Hajitani Kiyu, Okawa Yu",
+     "macron": "Tamaki Mitsune, Hajitani Kiyū, Ōkawa Yū"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -89725,8 +89806,8 @@
     ],
     "romaji": {
      "double": "Ringosui, Hayashi Shougo, Ankotaku",
-     "macron": "Ringosui, Hayashi Shōgo, Ankotaku",
-     "plain": "Ringosui, Hayashi Shogo, Ankotaku"
+     "plain": "Ringosui, Hayashi Shogo, Ankotaku",
+     "macron": "Ringosui, Hayashi Shōgo, Ankotaku"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -91334,7 +91415,7 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "トウミンユウ, ダイダイキゴウ",
+    "reading": "トウミンユウ, ダイダイ",
     "ruby": [
      [
       "冬眠結",
@@ -91346,17 +91427,16 @@
      ],
      [
       "橙々",
-      null
+      "だいだい"
      ]
     ],
     "romaji": {
-     "double": "Toumin'yuu, Daidaikigou",
-     "macron": "Tōmin'yū, Daidaikigō",
-     "plain": "Tomin'yu, Daidaikigo"
+     "double": "Toumin'yuu, Daidai",
+     "plain": "Tomin'yu, Daidai",
+     "macron": "Tōmin'yū, Daidai"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "stated",
+    "basis": "romaji"
    }
   },
   {
@@ -91722,14 +91802,23 @@
    },
    "author_en": {
     "reading": "カヨウ",
+    "ruby": [
+     [
+      "火",
+      "か"
+     ],
+     [
+      "曜",
+      "よう"
+     ]
+    ],
     "romaji": {
      "macron": "Kayō",
      "double": "Kayou",
      "plain": "Kayo"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "researched"
    }
   },
   {
@@ -91845,8 +91934,8 @@
     ],
     "romaji": {
      "double": "Hachiko, Noshiro Ryou",
-     "macron": "Hachiko, Noshiro Ryō",
-     "plain": "Hachiko, Noshiro Ryo"
+     "plain": "Hachiko, Noshiro Ryo",
+     "macron": "Hachiko, Noshiro Ryō"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -91955,8 +92044,8 @@
     ],
     "romaji": {
      "double": "Purapa, Asakura Neru, Sawayakasamehada",
-     "macron": "Purapa, Asakura Neru, Sawayakasamehada",
-     "plain": "Purapa, Asakura Neru, Sawayakasamehada"
+     "plain": "Purapa, Asakura Neru, Sawayakasamehada",
+     "macron": "Purapa, Asakura Neru, Sawayakasamehada"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -92544,8 +92633,8 @@
     ],
     "romaji": {
      "double": "Akashiro Aoi, Kouji Moromi, Murata Shin'ya, Yanai Nobuhiko",
-     "macron": "Akashiro Aoi, Kōji Moromi, Murata Shin'ya, Yanai Nobuhiko",
-     "plain": "Akashiro Aoi, Koji Moromi, Murata Shin'ya, Yanai Nobuhiko"
+     "plain": "Akashiro Aoi, Koji Moromi, Murata Shin'ya, Yanai Nobuhiko",
+     "macron": "Akashiro Aoi, Kōji Moromi, Murata Shin'ya, Yanai Nobuhiko"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -92704,8 +92793,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -93005,8 +93094,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -93101,8 +93190,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -93197,8 +93286,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -93293,8 +93382,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -93389,8 +93478,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -93485,8 +93574,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -93581,8 +93670,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -93677,8 +93766,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -93773,8 +93862,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -93869,8 +93958,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -93965,8 +94054,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -94061,8 +94150,8 @@
     ],
     "romaji": {
      "double": "Fujikawa Yotsuba / Kakatobushi",
-     "macron": "Fujikawa Yotsuba / Kakatobushi",
-     "plain": "Fujikawa Yotsuba / Kakatobushi"
+     "plain": "Fujikawa Yotsuba / Kakatobushi",
+     "macron": "Fujikawa Yotsuba / Kakatobushi"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -94882,8 +94971,8 @@
     ],
     "romaji": {
      "double": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
-     "macron": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
-     "plain": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio"
+     "plain": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
+     "macron": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -95003,8 +95092,8 @@
     ],
     "romaji": {
      "double": "Akeo, Hanamiya Mii, Shiokouji",
-     "macron": "Akeo, Hanamiya Mii, Shiokōji",
-     "plain": "Akeo, Hanamiya Mii, Shiokoji"
+     "plain": "Akeo, Hanamiya Mii, Shiokoji",
+     "macron": "Akeo, Hanamiya Mii, Shiokōji"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -95127,8 +95216,8 @@
     ],
     "romaji": {
      "double": "Sabaneko, Chatsufusa, Fuumi",
-     "macron": "Sabaneko, Chatsufusa, Fūmi",
-     "plain": "Sabaneko, Chatsufusa, Fumi"
+     "plain": "Sabaneko, Chatsufusa, Fumi",
+     "macron": "Sabaneko, Chatsufusa, Fūmi"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -96471,8 +96560,8 @@
     ],
     "romaji": {
      "double": "Dekairuka / Eriize / Gawako",
-     "macron": "Dekairuka / Erīze / Gawako",
-     "plain": "Dekairuka / Erize / Gawako"
+     "plain": "Dekairuka / Erize / Gawako",
+     "macron": "Dekairuka / Erīze / Gawako"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -97774,8 +97863,8 @@
     ],
     "romaji": {
      "double": "Hashiba Misato, zinbei",
-     "macron": "Hashiba Misato, zinbei",
-     "plain": "Hashiba Misato, zinbei"
+     "plain": "Hashiba Misato, zinbei",
+     "macron": "Hashiba Misato, zinbei"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -97851,8 +97940,8 @@
     ],
     "romaji": {
      "double": "Mikami Teren, Chigusa Minori",
-     "macron": "Mikami Teren, Chigusa Minori",
-     "plain": "Mikami Teren, Chigusa Minori"
+     "plain": "Mikami Teren, Chigusa Minori",
+     "macron": "Mikami Teren, Chigusa Minori"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -98128,8 +98217,8 @@
     ],
     "romaji": {
      "double": "Minakata Sunao, kiki, Kinta",
-     "macron": "Minakata Sunao, kiki, Kinta",
-     "plain": "Minakata Sunao, kiki, Kinta"
+     "plain": "Minakata Sunao, kiki, Kinta",
+     "macron": "Minakata Sunao, kiki, Kinta"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -98210,8 +98299,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -98490,8 +98579,8 @@
     ],
     "romaji": {
      "double": "Ringoame Saado, Kawada Akio",
-     "macron": "Ringoame Sādo, Kawada Akio",
-     "plain": "Ringoame Sado, Kawada Akio"
+     "plain": "Ringoame Sado, Kawada Akio",
+     "macron": "Ringoame Sādo, Kawada Akio"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -98640,8 +98729,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -98717,8 +98806,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -98794,8 +98883,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -98871,8 +98960,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -98948,8 +99037,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -99025,8 +99114,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -99102,8 +99191,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -99179,8 +99268,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -99256,8 +99345,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -99823,8 +99912,8 @@
     ],
     "romaji": {
      "double": "Aono Shimo / Inori. / Hanagata",
-     "macron": "Aono Shimo / Inori. / Hanagata",
-     "plain": "Aono Shimo / Inori. / Hanagata"
+     "plain": "Aono Shimo / Inori. / Hanagata",
+     "macron": "Aono Shimo / Inori. / Hanagata"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -101865,8 +101954,8 @@
     ],
     "romaji": {
      "double": "Aruto / Emoto Nao",
-     "macron": "Aruto / Emoto Nao",
-     "plain": "Aruto / Emoto Nao"
+     "plain": "Aruto / Emoto Nao",
+     "macron": "Aruto / Emoto Nao"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -102226,8 +102315,8 @@
     ],
     "romaji": {
      "double": "Yuzuhara Moke, Iruma Hitoma, Non",
-     "macron": "Yuzuhara Moke, Iruma Hitoma, Non",
-     "plain": "Yuzuhara Moke, Iruma Hitoma, Non"
+     "plain": "Yuzuhara Moke, Iruma Hitoma, Non",
+     "macron": "Yuzuhara Moke, Iruma Hitoma, Non"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -102542,8 +102631,8 @@
     ],
     "romaji": {
      "double": "Rinri Kiyo, Syousa., jimao",
-     "macron": "Rinri Kiyo, Syousa., jimao",
-     "plain": "Rinri Kiyo, Syousa., jimao"
+     "plain": "Rinri Kiyo, Syousa., jimao",
+     "macron": "Rinri Kiyo, Syousa., jimao"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -102694,8 +102783,8 @@
     ],
     "romaji": {
      "double": "Sumeragi, Sasa Tougorou, Miyukiruria",
-     "macron": "Sumeragi, Sasa Tōgorō, Miyukiruria",
-     "plain": "Sumeragi, Sasa Togoro, Miyukiruria"
+     "plain": "Sumeragi, Sasa Togoro, Miyukiruria",
+     "macron": "Sumeragi, Sasa Tōgorō, Miyukiruria"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -104978,14 +105067,23 @@
    },
    "author_en": {
     "reading": "カヨウ",
+    "ruby": [
+     [
+      "火",
+      "か"
+     ],
+     [
+      "曜",
+      "よう"
+     ]
+    ],
     "romaji": {
      "macron": "Kayō",
      "double": "Kayou",
      "plain": "Kayo"
     },
     "basis": "romaji",
-    "reading_basis": "analyser",
-    "unverified": true
+    "reading_basis": "researched"
    }
   },
   {
@@ -105170,8 +105268,8 @@
     ],
     "romaji": {
      "double": "Honma Ryouta, Sogabe Shuuji, Nonokanako",
-     "macron": "Honma Ryōta, Sogabe Shūji, Nonokanako",
-     "plain": "Honma Ryota, Sogabe Shuji, Nonokanako"
+     "plain": "Honma Ryota, Sogabe Shuji, Nonokanako",
+     "macron": "Honma Ryōta, Sogabe Shūji, Nonokanako"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -105456,11 +105554,11 @@
     "unverified": true
    },
    "author_en": {
-    "reading": "バンザイ カズヒロ エンカイ, ウカイ ユウジ, ネコメタル",
+    "reading": "バンザイコトブキダイエンカイ, ウカイユウシ, ネコメタル",
     "ruby": [
      [
       "万歳寿大宴会",
-      null
+      "ばんざいことぶきだいえんかい"
      ],
      [
       ", ",
@@ -105468,7 +105566,7 @@
      ],
      [
       "鵜飼有志",
-      null
+      "うかいゆうし"
      ],
      [
       ", ",
@@ -105480,13 +105578,12 @@
      ]
     ],
     "romaji": {
-     "double": "Banzai Kazuhiro Enkai, Ukai Yuuji, Nekometaru",
-     "macron": "Banzai Kazuhiro Enkai, Ukai Yūji, Nekometaru",
-     "plain": "Banzai Kazuhiro Enkai, Ukai Yuji, Nekometaru"
+     "double": "Banzaikotobukidaienkai, Ukaiyuushi, Nekometaru",
+     "plain": "Banzaikotobukidaienkai, Ukaiyushi, Nekometaru",
+     "macron": "Banzaikotobukidaienkai, Ukaiyūshi, Nekometaru"
     },
-    "reading_basis": "analyser",
-    "basis": "romaji",
-    "unverified": true
+    "reading_basis": "researched",
+    "basis": "romaji"
    }
   },
   {
@@ -105877,8 +105974,8 @@
     ],
     "romaji": {
      "double": "Ajiichi, Ouzuki You",
-     "macron": "Ajiichi, Ōzuki Yō",
-     "plain": "Ajichi, Ozuki Yo"
+     "plain": "Ajichi, Ozuki Yo",
+     "macron": "Ajiichi, Ōzuki Yō"
     },
     "reading_basis": "surface",
     "basis": "romaji"
@@ -107044,8 +107141,8 @@
     ],
     "romaji": {
      "double": "Miyazawa Iori, Piyopiyomaru, Imai Tetsuya",
-     "macron": "Miyazawa Iori, Piyopiyomaru, Imai Tetsuya",
-     "plain": "Miyazawa Iori, Piyopiyomaru, Imai Tetsuya"
+     "plain": "Miyazawa Iori, Piyopiyomaru, Imai Tetsuya",
+     "macron": "Miyazawa Iori, Piyopiyomaru, Imai Tetsuya"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -107661,8 +107758,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -107740,8 +107837,8 @@
     ],
     "romaji": {
      "double": "Ootaka Shin / Homare",
-     "macron": "Ōtaka Shin / Homare",
-     "plain": "Otaka Shin / Homare"
+     "plain": "Otaka Shin / Homare",
+     "macron": "Ōtaka Shin / Homare"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -108020,8 +108117,8 @@
     ],
     "romaji": {
      "double": "Ringoame Saado, Kawada Akio",
-     "macron": "Ringoame Sādo, Kawada Akio",
-     "plain": "Ringoame Sado, Kawada Akio"
+     "plain": "Ringoame Sado, Kawada Akio",
+     "macron": "Ringoame Sādo, Kawada Akio"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -108442,15 +108539,15 @@
     "reading_basis": "surface"
    },
    "author_en": {
-    "reading": "ヨツバ ◎ マスミ。",
+    "reading": "ヨツバマスミ",
     "romaji": {
-     "macron": "Yotsuba ◎ Masumi.",
-     "double": "Yotsuba ◎ Masumi.",
-     "plain": "Yotsuba ◎ Masumi."
+     "macron": "Yotsubamasumi",
+     "double": "Yotsubamasumi",
+     "plain": "Yotsubamasumi"
     },
     "en": "Masumi Yotsuba",
     "basis": "romaji",
-    "reading_basis": "analyser"
+    "reading_basis": "researched"
    }
   },
   {
@@ -109148,8 +109245,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -109304,8 +109401,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -109460,8 +109557,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -109616,8 +109713,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -109772,8 +109869,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -109928,8 +110025,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -110084,8 +110181,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -110240,8 +110337,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"
@@ -110396,8 +110493,8 @@
     ],
     "romaji": {
      "double": "Hata Ryousuke / Nakajima Rei / Ushio Hitoha / Akai Maruborou",
-     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō",
-     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro"
+     "plain": "Hata Ryosuke / Nakajima Rei / Ushio Hitoha / Akai Maruboro",
+     "macron": "Hata Ryōsuke / Nakajima Rei / Ushio Hitoha / Akai Maruborō"
     },
     "reading_basis": "stated",
     "basis": "romaji"

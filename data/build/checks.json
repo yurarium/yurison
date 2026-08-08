@@ -83,8 +83,10 @@
   },
   {
    "name": "content flags are accounted for",
-   "violations": 0,
-   "examples": []
+   "violations": 1,
+   "examples": [
+    "adult-marketed and not reported: 昨日シたのに覚えてないの? : 百合えっち短編集"
+   ]
   },
   {
    "name": "archives are unchanged",
@@ -93,12 +95,13 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 4,
+   "violations": 7,
    "examples": [
+    "index.json",
+    "run.json",
     "status.json",
     "series.json",
-    "feed/names.json",
-    "feed/current.json"
+    "works.json"
    ]
   },
   {
@@ -188,8 +191,8 @@
   {
    "name": "renderings with nothing to show",
    "means": "works whose English rendering holds neither a romanisation nor an English name while the surface is Japanese. A rise means a composed name lost its romanisation.",
-   "budget": 46,
-   "value": 46
+   "budget": 38,
+   "value": 38
   },
   {
    "name": "kana names with no stated division",
@@ -200,8 +203,8 @@
   {
    "name": "author readings no source states",
    "means": "author names a reader meets as a romanisation carrying the unverified mark, because the reading behind the romanisation is a morphological analyser's and nobody else's. A coverage deficit and not a fault count, and the number a naming round is against. It falls when a name is sourced or a reviewer weighs a reading, since those are the two bases `build.py` clears the mark for. A fall with no new citation behind it means the mark stopped rendering, which is the failure this counts to prevent.",
-   "budget": 703,
-   "value": 703
+   "budget": 309,
+   "value": 309
   },
   {
    "name": "credits the corpus files as a venue",
@@ -236,8 +239,8 @@
   {
    "name": "uncertain readings",
    "means": "readings assembled character by character because no analyser could read the word. A rise means new works whose kanji nothing can read, or a regression in the analyser passes.",
-   "budget": 73,
-   "value": 73
+   "budget": 52,
+   "value": 52
   },
   {
    "name": "works without English",

@@ -116,6 +116,69 @@ def main(s):
         s.check(before in app, f"{what}: the line the probe replaces is still in kari/app.js")
         s.check(bool(entrypoints.findings(app.replace(before, after, 1))),
                 f"{what}: caught when written back into the file")
+    _one_language(s, app)
+
+
+def _one_language(s, app):
+    """A renderer that answers in one language, asked once, under 併記.
+
+    The fault a reader reported: the work page heading called `workLabel` directly, and `workLabel`
+    answers in Japanese for anything that is not `en` because 併記 is `bilingual()`'s job. It was
+    right in ja and right in en, so nothing but the third setting showed it.
+    """
+    ONELANG = {"workLabel": "a title", "creditNames": "the people in a credit field"}
+    s.eq(entrypoints.single_language_findings(
+        "function draw(r) { return `<li>${bilingual(() => workLabel(r))}</li>`; }", ONELANG, {}),
+        [], "a renderer asked inside bilingual() is asked once per language")
+    s.eq(len(entrypoints.single_language_findings(
+        "function draw(r) { return `<li>${workLabel(r)}</li>`; }", ONELANG, {})), 1,
+        "asked directly it answers in Japanese under 併記 and says nothing about it")
+    s.eq(entrypoints.single_language_findings(
+        "function cmp(r) { return inLang('ja', () => workLabel(r)); }", ONELANG, {}), [],
+        "AND inLang IS THE OTHER WRAPPER. The credit page compares two renderings to decide "
+        "whether to say 'credited as', and a comparison wants one language on purpose")
+    s.eq(entrypoints.single_language_findings(
+        "function draw(r) { const row = () => workLabel(r); return bilingual(row); }",
+        ONELANG, {}), [],
+        "A CALLBACK HANDED OVER BY NAME IS STILL WRAPPED. The 更新 and 発売 tabs both build the "
+        "row in a named function and pass it, so a rule reading only the enclosing calls would "
+        "report the two surfaces that have been right the longest")
+    s.eq(len(entrypoints.single_language_findings(
+        "function draw(r) { const row = () => workLabel(r); return row('ja'); }",
+        ONELANG, {})), 1,
+        "and the same callback called instead of handed over is the fault again")
+    s.eq(entrypoints.single_language_findings(
+        "function creditNames(c) { return workLabel(c); }", ONELANG,
+        {("creditNames", "workLabel"): (1, "its own callers wrap it")}), [],
+        "one such renderer calling another passes the obligation on, where an entry says so")
+    s.check(any("2 times" in b for b in entrypoints.single_language_findings(
+        "function creditNames(c) { return workLabel(c) + workLabel(c); }", ONELANG,
+        {("creditNames", "workLabel"): (1, "its own callers wrap it")})),
+        "a second call under the same entry fails, for the reason SAFE is counted")
+    s.eq(len(entrypoints.single_language_findings(
+        "function draw(r) { return bilingual(() => workLabel(r)); }", ONELANG,
+        {("creditNames", "workLabel"): (1, "its own callers wrap it")})), 1,
+        "and an entry nobody exercises fails, so the table cannot outlive the code it describes")
+
+    s.eq(entrypoints.single_language_findings(app), [],
+         "kari/app.js as it stands asks every one-language renderer once per language")
+    for what, before, after in (
+            ("the work page heading",
+             "${bilingual(() => workLabel(r))}", "${workLabel(r)}"),
+            ("the credit page heading",
+             "${bilingual(() => authorLabel({ author: fact.credit }))}",
+             "${authorLabel({ author: fact.credit })}"),
+            ("the works list on a credit or publisher page",
+             "bilingual(() => workLabel(w))}</a>", "workLabel(w)}</a>"),
+            ("the work page byline",
+             "r.author ? bilingual(() => creditLine(r)) : ''", "r.author ? creditLine(r) : ''"),
+            ("the 発売 row",
+             '`<div class="relv">${bilingual(row)}</div>`',
+             '`<div class="relv">${row(LANG)}</div>`'),
+            ("the 作品 index row", "<span>${bilingual(() => `", "<span>${(() => `")):
+        s.check(before in app, f"{what}: the line the probe replaces is still in kari/app.js")
+        s.check(bool(entrypoints.single_language_findings(app.replace(before, after, 1))),
+                f"{what}: caught when the wrapper is taken off again")
 
 
 def _comparisons(s):

@@ -1058,6 +1058,40 @@ def inv_no_html_entity_in_a_stored_name(ctx):
     return bad
 
 
+def inv_a_name_in_both_mode_is_rendered_in_both(ctx):
+    """Every call to a one-language renderer in kari/app.js sits inside a 併記 wrapper.
+
+    THE FAULT. `workLabel` and `authorLabel` answer in the reader's language and leave 併記 to
+    `bilingual()`, which calls them once per language with LANG forced. Called directly with the
+    toggle on 併記 they answer in Japanese and report nothing, so the work page heading, the 作品
+    rows, the 発売 rows and the works list on a credit or a publisher page shipped with no English
+    at all. Each of them was right in ja and right in en, which is why a reader found it before any
+    check did.
+
+    WHY THE RENDERER CHECKS ABOVE MISS IT. Those ask whether a name reaches a page through the
+    function that renders it, and every one of these call sites does. What was wrong is how many
+    times it was asked.
+
+    §14b, WHAT THIS CANNOT SEE. It reads call sites and not output, so a renderer added to app.js
+    and left out of `entrypoints.ONE_LANGUAGE` is invisible to it, and `creditText` composing a
+    byline out of `personShown` is not covered today.
+
+    fallback: none. This reads a file already written and cannot degrade a build.
+    """
+    sys.path.insert(0, str(ROOT / "adapters" / "lint"))
+    # THE SOURCE THE CONTEXT HOLDS, which is what the entry-point invariant above reads and what
+    # the canary is planted in. Reading the file again here would give a check the probe cannot
+    # reach, and a canary that lands somewhere the check does not look proves nothing (§4).
+    src = ctx.get("interface_js")
+    if not src:
+        return []
+    try:
+        import entrypoints
+    except Exception as e:                                                      # noqa: BLE001
+        return [f"adapters/lint/entrypoints.py will not import, so nothing was checked: {e}"]
+    return entrypoints.single_language_findings(src)
+
+
 def inv_interface_folds_a_name_key_as_the_build_does(ctx):
     """The browser's fold and the build's fold, run against each other on the corpus.
 
@@ -1744,6 +1778,7 @@ INVARIANTS = [
      inv_interface_folds_a_name_key_as_the_build_does),
     ("names reach a page only through their renderer",
      inv_names_reach_a_page_only_through_their_renderer),
+    ("a name in 併記 is rendered in both", inv_a_name_in_both_mode_is_rendered_in_both),
     ("every Japanese field the data carries has a ruling",
      inv_every_japanese_field_has_a_ruling),
 ]
@@ -3866,6 +3901,13 @@ def self_test():
          inv_names_reach_a_page_only_through_their_renderer,
          lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
              "${workLabel({ work: w.t })}", "${esc(w.t)}")})),
+        # THE CANARY IS THE FAULT A READER FOUND. The work page heading asked `workLabel` once,
+        # and 併記 renders each row by asking twice, so the heading answered in Japanese and the
+        # English title never appeared. Every other language setting was right, which is what made
+        # it survive.
+        ("a name in 併記 is rendered in both", inv_a_name_in_both_mode_is_rendered_in_both,
+         lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
+             "${bilingual(() => workLabel(r))}", "${workLabel(r)}")})),
         # THE CANARY IS THE TABLE LOSING AN ENTRY, planted in the SOURCE the context holds so it
         # reaches the file the check evaluates. 著 is the commonest role in the corpus by a long
         # way, 766 credits state it, and it was in the six-word table this replaced, so a round

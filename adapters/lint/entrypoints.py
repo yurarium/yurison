@@ -438,6 +438,141 @@ def _refuse_bad_safe():
 _refuse_bad_safe()
 
 
+# ── 併記: a renderer that answers in one language has to be asked twice ────────────────────────
+#
+# WHAT WENT WRONG. `workLabel` and `authorLabel` each test `LANG === 'en'` and otherwise answer in
+# Japanese, because 併記 is `bilingual()`'s job: it calls a renderer once per language with LANG
+# forced and stacks the two lines. Asked directly with the toggle on 併記 they answer in Japanese
+# and say nothing about it, so the work page heading, the 作品 rows, the 発売 rows and the works
+# list on a credit or a publisher page all lost their English half. Every one of them looked right
+# in ja and in en, which is why it survived a reader, a build and a green gate.
+#
+# The reads rule above cannot see this. Those call sites DO go through the renderer, which is the
+# whole of what it asks.
+#
+# WHAT IS ASSERTED. Every call to one of `ONE_LANGUAGE` sits inside a call to `bilingual` or to
+# `inLang`, or inside a callback handed to `bilingual` by name, or is named in `PASSES_ON` below.
+#
+# §14b, WHAT THIS CANNOT SEE. It reads call sites and not output, so a renderer added to app.js
+# and left out of `ONE_LANGUAGE` is invisible to it. `creditText` and `personShown` compose names
+# without going through the three below and are not covered today.
+ONE_LANGUAGE = {
+    "workLabel": "a title, in the reader's language",
+    "authorLabel": "a byline, in the reader's language",
+    "workTextOf": "a collection's title, which is a title",
+    "creditNames": "the people in a credit field, each rendered by authorLabel",
+    "creditChip": "one credited name, with the address of its page",
+    "linkedCredits": "a whole byline, linked name by name",
+    "creditLine": "the same byline, with the tail counted where it is long",
+    "epText": "a chapter name with the work's own name taken off the front",
+}
+WRAPPERS = ("bilingual", "inLang")
+
+# A call from one of the above into another. The obligation passes to the OUTER one's callers, and
+# each entry says which caller carries it, so an entry cannot stand for a site nobody wraps. Keyed
+# with a count for the reason SAFE is: an entry with no number covers a second call added beside
+# the first.
+PASSES_ON = {
+    ("creditNames", "authorLabel"): (
+        1, "the 発売 row wraps creditNames, and the row is built once per language"),
+    ("creditChip", "authorLabel"): (
+        1, "a chip is wrapped where it is placed: in linkedCredits, or on the credit page"),
+    ("linkedCredits", "authorLabel"): (
+        2, "the byline the work page draws, wrapped at the fact it fills"),
+    ("linkedCredits", "creditChip"): (
+        1, "the same byline, one linked name at a time"),
+    ("creditLine", "linkedCredits"): (
+        2, "the 作者 fact on the work page wraps creditLine"),
+    ("epText", "workTextOf"): (
+        1, "the 更新 row wraps epText, and epText only runs at all in English"),
+}
+
+
+def _bilingual_callbacks(sig):
+    """Source spans of every `const NAME = …` that `bilingual(NAME)` is handed.
+
+    `bilingual(row)` and `bilingual(line)` pass a function by name, so a call inside that
+    function's body is wrapped without any `bilingual(` enclosing it lexically. Without this the
+    rule reports the two tabs that have been correct the longest.
+    """
+    byref = {sig[k + 2][1] for k in range(len(sig) - 3)
+             if sig[k][1] == "bilingual" and sig[k + 1][1] == "(" and sig[k + 2][0] == "name"
+             and sig[k + 3][1] in (")", ",")}
+    spans = []
+    for k in range(len(sig) - 2):
+        if sig[k][1] not in ("const", "let") or sig[k + 1][0] != "name":
+            continue
+        if sig[k + 1][1] not in byref or sig[k + 2][1] != "=":
+            continue
+        depth, j = 0, k + 3
+        while j < len(sig):
+            t = sig[j][1]
+            if t in ("(", "[", "{", "${"):
+                depth += 1
+            elif t in (")", "]", "}"):
+                depth -= 1
+            elif t == ";" and depth == 0:
+                break
+            j += 1
+        spans.append((sig[k + 3][2], sig[min(j, len(sig) - 1)][2]))
+    return spans
+
+
+def single_language_findings(src, renderers=None, passes_on=None):
+    """Every call to a one-language renderer that no 併記 wrapper encloses."""
+    renderers = ONE_LANGUAGE if renderers is None else renderers
+    passes_on = PASSES_ON if passes_on is None else passes_on
+    toks = tokens(src)
+    if "".join(t[1] for t in toks) != src:
+        return ["the tokeniser did not read kari/app.js back byte for byte, so nothing below can "
+                "be relied on"]
+    sig = _significant(toks)
+    spans = function_at(toks)
+    callbacks = _bilingual_callbacks(sig)
+    bad, seen, stack = [], {}, []
+    for k, (kind, text, pos) in enumerate(sig):
+        if text == "(":
+            stack.append(sig[k - 1][1] if k and sig[k - 1][0] == "name" else None)
+        elif text in ("[", "{", "${"):
+            stack.append(None)
+        elif text in (")", "]", "}"):
+            if stack:
+                stack.pop()
+        if kind != "name" or text not in renderers:
+            continue
+        if k + 1 >= len(sig) or sig[k + 1][1] != "(":
+            continue
+        # The declaration is not a call. `function workLabel(r)` reads as one to a rule that only
+        # looks for a name followed by a bracket.
+        if k and sig[k - 1][1] == "function":
+            continue
+        if any(c in WRAPPERS for c in stack):
+            continue
+        if any(a <= pos <= b for a, b in callbacks):
+            continue
+        holder = None
+        for name, a, b in spans:
+            if a <= pos <= b and (holder is None or a >= holder[1]):
+                holder = (name, a)
+        fn = holder[0] if holder else "(top level)"
+        key = (fn, text)
+        if key in passes_on:
+            seen[key] = seen.get(key, 0) + 1
+            if seen[key] <= passes_on[key][0]:
+                continue
+            bad.append(f"kari/app.js:{line_of(src, pos)}: {fn} calls {text} {seen[key]} times "
+                       f"outside 併記; the entry below allows {passes_on[key][0]} "
+                       f"({passes_on[key][1]})")
+            continue
+        bad.append(f"kari/app.js:{line_of(src, pos)}: {fn} calls {text} outside bilingual(), so "
+                   f"under 併記 it answers in Japanese alone ({renderers[text]})")
+    for key, (n, why) in sorted(passes_on.items()):
+        if seen.get(key, 0) != n:
+            bad.append(f"PASSES_ON says {key[0]} calls {key[1]} {n} time(s) and it happens "
+                       f"{seen.get(key, 0)}; the entry is stale ({why})")
+    return bad
+
+
 def findings(src, surfaces=None, safe=None):
     """Every read of a name-carrying field that does not go through its entry point."""
     surfaces = interface.SURFACES if surfaces is None else surfaces
@@ -497,26 +632,41 @@ def _self_test():
     the four escapes that actually shipped, written back into a copy of the source.
     """
     src = interface.APP_JS.read_text(encoding="utf-8")
-    ok = not findings(src)
+    ok = not findings(src) and not single_language_findings(src)
     print(f"{'ok' if ok else 'FAIL'}  kari/app.js as it stands: "
-          f"{len(findings(src))} finding(s)")
+          f"{len(findings(src))} read finding(s), "
+          f"{len(single_language_findings(src))} 併記 finding(s)")
     probes = [
-        ("the catalogue tab prints index.json's title raw",
+        (findings, "the catalogue tab prints index.json's title raw",
          "${workLabel({ work: w.t })}", "${esc(w.t)}"),
-        ("the 発売 tab labels a volume from the record title",
+        (findings, "the 発売 tab labels a volume from the record title",
          "const label = workLabel({ work: w.title.ja });", "const label = esc(w.title.ja);"),
-        ("a byline interpolated straight into the row",
+        (findings, "a byline interpolated straight into the row",
          "${authorLabel(r)}", "${r.author}"),
-        ("the credit field pulled apart outside its entry point",
+        (findings, "the credit field pulled apart outside its entry point",
          "const people = creditNames(w.creator);",
          "const people = String(w.creator || '').split('/').map(esc).join(' / ');"),
+        # The 併記 escapes, each one a heading or a row that shipped in Japanese alone.
+        (single_language_findings, "the work page heading asks the renderer once",
+         "${bilingual(() => workLabel(r))}", "${workLabel(r)}"),
+        (single_language_findings, "the credit page heading asks it once",
+         "${bilingual(() => authorLabel({ author: fact.credit }))}",
+         "${authorLabel({ author: fact.credit })}"),
+        (single_language_findings, "the works list on a record page asks it once",
+         "bilingual(() => workLabel(w))}</a>", "workLabel(w)}</a>"),
+        (single_language_findings, "the work page byline asks it once",
+         "r.author ? bilingual(() => creditLine(r)) : ''", "r.author ? creditLine(r) : ''"),
+        (single_language_findings, "the 発売 row is built for one language",
+         '`<div class="relv">${bilingual(row)}</div>`', '`<div class="relv">${row(LANG)}</div>`'),
+        (single_language_findings, "the 作品 index row is built for one language",
+         "<span>${bilingual(() => `", "<span>${(() => `"),
     ]
     caught = 0
-    for what, before, after in probes:
+    for rule, what, before, after in probes:
         if before not in src:
             print(f"  ?    {what}: the line it replaces is not in kari/app.js any more")
             continue
-        got = findings(src.replace(before, after, 1))
+        got = rule(src.replace(before, after, 1))
         if got:
             caught += 1
             print(f"  ok   {what}: caught, {got[0].split(': ', 1)[1][:70]}")
@@ -538,7 +688,11 @@ def main():
     for b in bad:
         print(f"  {b}")
     print(f"{len(bad)} field read(s) that do not go through an entry point")
-    return 1 if bad else 0
+    one = single_language_findings(src)
+    for b in one:
+        print(f"  {b}")
+    print(f"{len(one)} renderer call(s) that 併記 never reaches")
+    return 1 if bad or one else 0
 
 
 if __name__ == "__main__":

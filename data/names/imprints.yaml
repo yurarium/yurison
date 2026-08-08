@@ -1,0 +1,517 @@
+# One imprint line per entry, holding every spelling the corpus records for it.
+#
+# WHY THIS FILE EXISTS. A book line reaches us through three catalogues that transcribe it
+# differently, and the corpus stored each transcription as though it were a line of its own.
+# 一迅社's single yuri line arrived as 27 strings. Built over that, a publisher page would have
+# given one line twenty entries. `adapters/names/imprints.py` reads this file and is the only
+# producer of "which line is this string"; the module's docstring carries the matching rule and
+# what it deliberately refuses to do.
+#
+# WHAT A SPELLING IS. A string a record carries, written here as a reader would see it. The module
+# compares folded (NFKC, lowercased, spaces and hyphens and 中黒 removed), so one entry covers
+# `Yuri-hime comics`, `Yurihime comics`, `YURIHIME COMICS` and `Yuri-Hime COMICS`. A compound
+# statement needs no entry: `IDコミックス. Yurihime comics` is split on the cataloguer's separators
+# and matched on its most specific segment.
+#
+# EXACT ON A SEGMENT, NEVER A SUBSTRING, which is the rule this file depends on. `百合姫コミックス`
+# has 10 sibling lines under 一迅社 and a substring match eats ZERO-SUMコミックス, HOWLコミックス
+# and DNAメディアコミックス, none of which is a yuri line. `Yuri-hime comics anthology series` is
+# listed in full for the same reason: it must not be reached by the entry above it.
+#
+# `name` IS WHAT A READER IS SHOWN and carries where it came from. Where the publisher states its
+# own list of labels, that spelling wins even when the corpus mostly holds another; where nobody
+# states one, the corpus's own most-recorded spelling is used and `name_basis` says so. Names are
+# written NFKC-normalised, because full-width Latin inside a Japanese name is the source's
+# typesetting and the interface folds it anyway.
+#
+# `parent` IS RECORDED AND NOT MERGED AWAY. ISBD's ". " states a series inside a series, and the
+# outer element is real: IDコミックス is 一迅社's general comics umbrella and carries 47 rows of
+# this corpus that make no yuri claim at all. Naming the parent keeps that visible; folding a
+# sub-line into it, or it into a sub-line, would lose the one distinction a publisher page is for.
+#
+# `publishers` MAY HOLD MORE THAN ONE COMPANY SPELLING. 角川コミックス・エース is catalogued under
+# KADOKAWA on 37 rows and under 角川書店 on one, because the house was renamed and the older
+# records were not. Matching is scoped to these, so a line can never be reached from another house.
+lines:
+
+  # ── 一迅社 ───────────────────────────────────────────────────────────────────────────────────
+  #
+  # THE HOUSE THIS FILE WAS BUILT FOR. 27 strings, 8 lines, and one string left alone.
+  - id: id-comics
+    publishers: [一迅社]
+    name: IDコミックス
+    name_basis:
+      source: 一迅社
+      url: https://www.ichijinsha.co.jp/
+      retrieved: 2026-08-08
+      note: >-
+        The umbrella every 一迅社 comic carries, and a line in its own right where a record states
+        nothing more specific. Every one of the 47 rows holding it alone entered on a retailer's
+        shelf and carries marketing_label none, so this is not the yuri line under another name.
+    spellings:
+      - IDコミックス
+
+  - id: yurihime-comics
+    publishers: [一迅社]
+    name: 百合姫コミックス
+    parent: IDコミックス
+    name_basis:
+      source: 一迅社
+      url: https://www.ichijinsha.co.jp/yurihime/
+      retrieved: 2026-08-08
+      note: >-
+        The publisher's own page for the magazine names the book line 百合姫コミックス, and
+        BOOK☆WALKER's label list for the house gives the same spelling. MADB writes コミック百合姫
+        in the same field from 2025, which is the MAGAZINE's name standing in for the book line;
+        it is recorded below as a spelling and is not what the line is called.
+    spellings:
+      - 百合姫コミックス
+      # The Latin logotype as it is printed on the book, in the two forms it has had. Both MADB and
+      # openBD change from Yuri-hime to Yurihime at books published in 2015, and MADB modified all
+      # of its pre-2025 records in one 2024 sweep that emitted both forms, so the change is the
+      # publisher's and both catalogues transcribed it faithfully.
+      - Yuri-hime comics
+      # The abbreviation, running alongside the spelt-out form every year from 2015. Volumes of one
+      # series carry both: C357075 holds YH comics, Yuri-hime comics, Yurihime comics and
+      # yh comics across its own run.
+      - YH comics
+      # The magazine's name in the book line's field, on records from 2023 onward. MADB's own
+      # `IDコミックス. Yurihime comics = コミック百合姫` states the two as one thing.
+      - コミック百合姫
+      # Listed in full so the entry above cannot reach it, and folded here because no publisher-side
+      # source names an anthology label: BOOK☆WALKER's list of 21 一迅社 labels does not hold one.
+      - Yuri-hime comics anthology series
+
+  - id: yurihime-books
+    publishers: [一迅社]
+    name: 百合姫books
+    name_basis:
+      source: corpus
+      note: >-
+        Kept apart from 百合姫コミックス deliberately. It is the same 百合姫 brand in a different
+        format, and merging a books line into a comics line would file whatever it holds under a
+        label its own publisher did not use. One row, published 2007.
+    spellings:
+      - 百合姫books
+
+  - id: zero-sum-comics
+    publishers: [一迅社]
+    name: ZERO-SUMコミックス
+    parent: IDコミックス
+    name_basis:
+      source: BOOK☆WALKER
+      url: https://bookwalker.jp/company/32/
+      retrieved: 2026-08-08
+      note: >-
+        Not a yuri line. It holds 10 works of this corpus, all admitted on a retailer's shelf, and
+        it is the sibling a loose match on 一迅社's imprint field would eat first.
+    spellings:
+      - ZERO-SUMコミックス
+      - Zero-sum comics
+
+  - id: howl-comics
+    publishers: [一迅社]
+    name: HOWLコミックス
+    parent: IDコミックス
+    name_basis:
+      source: BOOK☆WALKER
+      url: https://bookwalker.jp/company/32/
+      retrieved: 2026-08-08
+    spellings:
+      - HOWLコミックス
+      - Howl comics
+
+  - id: palette-comics
+    publishers: [一迅社]
+    name: 4コマKINGSぱれっとコミックス
+    parent: IDコミックス
+    name_basis:
+      source: BOOK☆WALKER
+      url: https://bookwalker.jp/company/32/
+      retrieved: 2026-08-08
+    spellings:
+      - 4コマKINGSぱれっとコミックス
+      - 4コマkingsぱれっとcomics
+
+  - id: dna-media-comics
+    publishers: [一迅社]
+    name: DNAメディアコミックス
+    parent: IDコミックス
+    name_basis:
+      source: 一迅社
+      url: https://www.ichijinsha.co.jp/
+      retrieved: 2026-08-08
+    spellings:
+      - DNAメディアコミックス
+      - DNA media comics
+
+  - id: comic-lake
+    publishers: [一迅社]
+    name: comic LAKE
+    parent: IDコミックス
+    name_basis:
+      source: BOOK☆WALKER
+      url: https://bookwalker.jp/company/32/
+      retrieved: 2026-08-08
+    spellings:
+      - comic LAKE
+      - LAKE
+
+  # ── KADOKAWA ─────────────────────────────────────────────────────────────────────────────────
+  #
+  # 45 strings and 25 lines, so most of this house's variation is real. It runs 電撃, MF, HARTA,
+  # BEAM and 角川エース at once, and the brief for this work was right to say so. What repeats here
+  # is the sub-series: MFC's five are written with the parent, without it, with a full-width space,
+  # with ISBD's ". " and with a slash, which is five spellings of one line and no new lines.
+  #
+  # Every name below is KADOKAWA's own, from its label index. That index writes the same brand as
+  # both MFC and MFコミックス, so those two are one line here, and it lists アライブ＋ separately
+  # from MFコミックス アライブシリーズ, so those two are not.
+  - id: dengeki-comics-next
+    publishers: [KADOKAWA]
+    name: 電撃コミックスNEXT
+    name_basis: &kadokawa_labels
+      source: KADOKAWA
+      url: https://www.kadokawa.co.jp/
+      retrieved: 2026-08-08
+      note: The publisher's own comic label index.
+    spellings:
+      - 電撃コミックスNEXT
+
+  - id: dengeki-comics-ex
+    publishers: [KADOKAWA]
+    name: 電撃コミックスEX
+    name_basis: *kadokawa_labels
+    spellings:
+      - 電撃コミックスEX
+      - Dengeki Comics EX
+
+  - id: mfc
+    publishers: [KADOKAWA]
+    name: MFC
+    name_basis: *kadokawa_labels
+    spellings:
+      - MFC
+      - MFコミックス
+
+  - id: mfc-kyun
+    publishers: [KADOKAWA]
+    name: MFC キューンシリーズ
+    parent: MFC
+    name_basis: *kadokawa_labels
+    spellings:
+      - MFC キューンシリーズ
+
+  - id: mfc-flapper
+    publishers: [KADOKAWA]
+    name: MFコミックス フラッパーシリーズ
+    parent: MFC
+    name_basis: *kadokawa_labels
+    spellings:
+      - MFコミックス フラッパーシリーズ
+      - フラッパーシリーズ
+
+  - id: mfc-gene-pixiv
+    publishers: [KADOKAWA]
+    name: MFC ジーンピクシブシリーズ
+    parent: MFC
+    name_basis: *kadokawa_labels
+    spellings:
+      - MFC ジーンピクシブシリーズ
+
+  - id: mfc-gene
+    publishers: [KADOKAWA]
+    name: MFコミックス ジーンシリーズ
+    parent: MFC
+    name_basis: *kadokawa_labels
+    spellings:
+      - MFコミックス ジーンシリーズ
+      - ジーンシリーズ
+
+  - id: mfc-alive
+    publishers: [KADOKAWA]
+    name: MFコミックス アライブシリーズ
+    parent: MFC
+    name_basis: *kadokawa_labels
+    spellings:
+      - MFコミックス アライブシリーズ
+      - アライブシリーズ
+
+  - id: alive-plus
+    publishers: [KADOKAWA]
+    name: アライブ＋
+    parent: MFC
+    name_basis:
+      source: KADOKAWA
+      url: https://www.kadokawa.co.jp/
+      retrieved: 2026-08-08
+      note: >-
+        The publisher's label index carries アライブ＋ and MFコミックス アライブシリーズ as two
+        entries, so the ＋ is a second line and not a restyling of the first. Both are held.
+    spellings:
+      - アライブ＋
+      - アライブ+シリーズ
+
+  - id: kadokawa-comics-ace
+    publishers: [KADOKAWA, 角川書店]
+    name: 角川コミックス・エース
+    name_basis: *kadokawa_labels
+    spellings:
+      - 角川コミックス・エース
+
+  - id: kadocomi
+    publishers: [KADOKAWA]
+    name: カドコミ
+    name_basis: *kadokawa_labels
+    spellings:
+      - カドコミ
+
+  - id: beam-comix
+    publishers: [KADOKAWA]
+    name: ビームコミックス
+    name_basis: *kadokawa_labels
+    spellings:
+      - ビームコミックス
+      - BEAM COMIX
+
+  - id: harta-comix
+    publishers: [KADOKAWA]
+    name: ハルタコミックス
+    name_basis:
+      source: KADOKAWA
+      url: https://www.kadokawa.co.jp/
+      retrieved: 2026-08-08
+      note: >-
+        The corpus holds only the Latin logotype. The publisher's index writes the line
+        ハルタコミックス, so that is the name and HARTA COMIX is its English.
+    spellings:
+      - ハルタコミックス
+      - HARTA COMIX
+
+  - id: dragon-comics-age
+    publishers: [KADOKAWA]
+    name: ドラゴンコミックスエイジ
+    name_basis: *kadokawa_labels
+    spellings:
+      - ドラゴンコミックスエイジ
+
+  - id: it-comics
+    publishers: [KADOKAWA]
+    name: it COMICS
+    name_basis: *kadokawa_labels
+    spellings:
+      - it COMICS
+
+  - id: bridge-comics
+    publishers: [KADOKAWA]
+    name: BRIDGE COMICS
+    name_basis: *kadokawa_labels
+    spellings:
+      # Both spellings are the same eight letters, one of them full-width, which NFKC settles. This
+      # line is here under its own name because a pattern written for the 一迅社 investigation
+      # reached it as a false positive, and it is a KADOKAWA line with nothing to do with 百合姫.
+      - BRIDGE COMICS
+
+  - id: kadokawa-digital-comics
+    publishers: [KADOKAWA]
+    name: カドカワデジタルコミックス
+    name_basis: *kadokawa_labels
+    spellings:
+      - カドカワデジタルコミックス
+
+  - id: asuka-comics-dx
+    publishers: [KADOKAWA]
+    name: あすかコミックスDX
+    name_basis: *kadokawa_labels
+    spellings:
+      - あすかコミックスDX
+      - ASUKA COMICS DX
+
+  - id: aokishi-comics
+    publishers: [KADOKAWA]
+    name: 青騎士コミックス
+    name_basis: *kadokawa_labels
+    spellings:
+      - 青騎士コミックス
+      - AOKISHI COMICS
+      # A second Latin transcription of the same logotype, listed because COMIX and COMICS do not
+      # fold together.
+      - AOKISHI COMIX
+
+  - id: chukei-comics
+    publishers: [KADOKAWA]
+    name: 中経☆コミックス
+    name_basis:
+      source: corpus
+      note: The publisher's index does not list it. Three rows, all from BOOK☆WALKER's taxonomy.
+    spellings:
+      - 中経☆コミックス
+
+  - id: flos-comic
+    publishers: [KADOKAWA]
+    name: FLOS COMIC
+    name_basis: *kadokawa_labels
+    spellings:
+      - FLOS COMIC
+
+  - id: kitora
+    publishers: [KADOKAWA]
+    name: KITORA
+    name_basis:
+      source: corpus
+      note: Two rows. The publisher's index does not list it.
+    spellings:
+      - KITORA
+
+  - id: famitsu-clear-comics
+    publishers: [KADOKAWA]
+    name: ファミ通クリアコミックス
+    name_basis:
+      source: corpus
+      note: Two rows. The publisher's index does not list it.
+    spellings:
+      - ファミ通クリアコミックス
+
+  - id: bs-log-comics
+    publishers: [KADOKAWA]
+    name: B's-LOG COMICS
+    name_basis: *kadokawa_labels
+    spellings:
+      - B's-LOG COMICS
+
+  - id: mangabaru-comics
+    publishers: [KADOKAWA]
+    name: MANGAバル コミックス
+    name_basis: *kadokawa_labels
+    spellings:
+      - MANGAバル コミックス
+      - MANGAバルCOMICS
+
+  # ── 芳文社 ───────────────────────────────────────────────────────────────────────────────────
+  #
+  # 18 strings and 7 lines. The house is worth reading closely because the two ISBD sub-series in
+  # its records go opposite ways, and only the publisher's own label pages say which is which.
+  - id: manga-time-kr-comics
+    publishers: [芳文社]
+    name: まんがタイムKRコミックス
+    name_basis: &houbunsha_labels
+      source: 芳文社
+      url: https://houbunsha.co.jp/search/label.php
+      retrieved: 2026-08-08
+      note: The publisher's own label pages, one page per line.
+    spellings:
+      - まんがタイムKRコミックス
+      - Manga time KR comics
+      # KIRARA MENU IS THIS LINE'S OWN NUMBERING AND NOT A LINE. It is printed in the 奥付 of
+      # まんがタイムKRコミックス books as a running number from トリコロ volume 1, and 芳文社's label
+      # index holds no page for it. MADB catalogues it as a sub-series on 34 rows, which is where
+      # the split came from.
+      - Kirara menu
+
+  - id: manga-time-kr-comics-tsubomi
+    publishers: [芳文社]
+    name: まんがタイムKRコミックスつぼみシリーズ
+    parent: まんがタイムKRコミックス
+    name_basis:
+      source: 芳文社
+      url: https://houbunsha.co.jp/search/labeldetail.php?p=krtubomi
+      retrieved: 2026-08-08
+      note: >-
+        A line of its own, on the publisher's own evidence: it has its own label page where
+        きららMENU has none. Keeping it separate is what lets a publisher page say that つぼみ's book
+        line is a yuri line while まんがタイムKRコミックス at large is not.
+    spellings:
+      - まんがタイムKRコミックスつぼみシリーズ
+      - Tsubomi series
+
+  - id: fuz-comics
+    publishers: [芳文社]
+    name: FUZコミックス
+    name_basis: *houbunsha_labels
+    spellings:
+      - FUZコミックス
+      - FUZ comics
+
+  - id: manga-time-comics
+    publishers: [芳文社]
+    name: まんがタイムコミックス
+    name_basis: *houbunsha_labels
+    spellings:
+      - まんがタイムコミックス
+      - Manga time comics
+      # A cataloguer's typo, on one record, kept because the row exists and a reader looking at that
+      # volume should still reach the line.
+      - Manga time comis
+
+  - id: houbunsha-comics
+    publishers: [芳文社]
+    name: 芳文社コミックス
+    name_basis: *houbunsha_labels
+    spellings:
+      - 芳文社コミックス
+
+  - id: trail-comics
+    publishers: [芳文社]
+    name: トレイルコミックス
+    parent: 芳文社コミックス
+    name_basis:
+      source: BOOK☆WALKER
+      url: https://bookwalker.jp/company/28/
+      retrieved: 2026-08-08
+      note: >-
+        MADB states it as 芳文社コミックス. トレイル and the retailer's taxonomy as
+        トレイルコミックス. Three rows in all.
+    spellings:
+      - トレイルコミックス
+      - トレイル
+
+  - id: rabaco-comics
+    publishers: [芳文社]
+    name: ラバココミックス
+    name_basis:
+      source: corpus
+      note: One row.
+    spellings:
+      - ラバココミックス
+
+  # ── クロスフォリオ出版 ───────────────────────────────────────────────────────────────────────
+  #
+  # 5 strings and 4 lines. The house distributes other people's books electronically, so its lines
+  # are cut by genre and the cuts are exactly what a publisher page needs to show: BLIC-GL is a
+  # yuri line and BLIC is not. None of the three BLIC entries is folded into another for that
+  # reason, short as the strings are and however much they look like one name with a suffix.
+  - id: blic-gl
+    publishers: [クロスフォリオ出版]
+    name: BLIC-GL
+    name_basis: &xfolio
+      source: クロスフォリオ出版
+      url: https://blic-publishing.com/comic-all/
+      retrieved: 2026-08-08
+    spellings:
+      - BLIC-GL
+
+  - id: blic
+    publishers: [クロスフォリオ出版]
+    name: BLIC
+    name_basis: *xfolio
+    spellings:
+      - BLIC
+
+  - id: blic-ero
+    publishers: [クロスフォリオ出版]
+    name: BLIC-ERO
+    name_basis: *xfolio
+    adult: true
+    adult_note: >-
+      The house's own adult line. DEFINITIONS §7 counts publication under an adult imprint as an
+      exclusion signal, and one row of this corpus carries it, so the line is named here to make
+      that row findable. Nothing is decided by this file.
+    spellings:
+      - BLIC-ERO
+
+  - id: yuri-hub
+    publishers: [クロスフォリオ出版]
+    name: YURI HUB
+    name_basis: *xfolio
+    spellings:
+      - YURI HUB

@@ -266,7 +266,7 @@ and 345 imprints. 28 publishers carry ten works or more; **65 carry exactly one*
 one work has nothing to put on a page, so it stays a plain name and does not become a link.
 
 **What a publisher page shows that nothing else can: which of its imprints are yuri lines.**
-百合コレ holds 496 works, IDコミックス／Yuri-hime comics 120, まんがタイムKRコミックス 116. That
+百合コレ holds 496 works, 百合姫コミックス 354, まんがタイムKRコミックス 151. That
 concentration is the same structural signal used to find entries admitted on a shop's shelf with
 nothing behind them, and on a publisher page a reader can see it directly. One house runs a yuri
 line; another has a single book somebody shelved as yuri.
@@ -275,10 +275,30 @@ line; another has a single book somebody shelved as yuri.
 
 **First, the record has to say who the publisher is.** MADB writes a distributor as `[発売]講談社`
 and `[頒布]講談社`, and those stand in the publisher field as though they were companies: 102 works
-under one, 80 under the other. Built today, 講談社 would have three pages. The same fault splits
-IDコミックス across two, because the label is selected on a volume's brand and stored on the series
-record, whose brand is the umbrella line: 162 works under one spelling and 120 under another.
-Building pages over that would design around the damage instead of fixing it.
+under one, 80 under the other. Built today, 講談社 would have three pages. Building pages over that
+would design around the damage instead of fixing it.
+
+**Then the same question about the imprint, which is settled.** One line reaches us as many strings,
+because MADB, openBD and a retailer each transcribe the printed logotype their own way and our own
+extractor stores whichever spelling the record it read stated. 一迅社 runs a single yuri line and
+the corpus held 27 strings for it. `data/names/imprints.yaml` holds one entry per line with every
+recorded spelling on it, `adapters/names/imprints.py` decides which line a string names, and the
+build ships the answer in `feed/names.json`. The four houses carrying most of the corpus come to 44
+lines out of 95 strings, and `imprint strings that reach no line` counts what is left.
+
+**A spelling is a historical variant and is not thrown away.** The line's own name is what a page
+is headed with; a reader looking at a 2008 volume still sees `Yuri-hime comics`, which is what that
+volume says, because the record keeps the string it was catalogued under. The years each spelling
+covers are measured off the rows rather than written down, so a page can show the line's history
+without a second copy of a fact the rows already hold.
+
+**The sub-line is the identity and the umbrella is recorded beside it.** ISBD's ". " states a series
+inside a series, and both halves are real: `IDコミックス. Yurihime comics` is the yuri line, and
+bare `IDコミックス` is 一迅社's general comics umbrella carrying 47 works that make no yuri claim at
+all. Folding either into the other would destroy the one thing a publisher page is for. Only the
+publisher can settle which is which, and 芳文社 has one of each: `Manga time KR comics. Kirara menu`
+is the parent line, because KIRARA MENU is that line's own running number in the 奥付, while
+つぼみシリーズ has its own label page and is its own line.
 
 A publisher page also needs the publisher's name in English, and 301 publisher and
 imprint names have none: the renderer carries a hand-written map of 7. That work is needed whether

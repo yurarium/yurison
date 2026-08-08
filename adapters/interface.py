@@ -232,6 +232,13 @@ SURFACES = [
 # A `ja` field beside an `en` one is the commonest shape here: the row carries both languages and
 # the interface picks one, so the Japanese side is Japanese on purpose.
 NOT_A_NAME = {
+    # A GATE FINDING IS DIAGNOSTIC OUTPUT, NOT A NAME. check.py reports an example beside a failing
+    # invariant so a person can act on it, and an example naming a Japanese work carries that title
+    # verbatim. It is never rendered to a reader as a name and must not be romanised: the point of
+    # quoting it is that it matches what the data holds.
+    "status[].gate.invariants[].examples[]":
+        "a gate finding, quoted so a person can act on it. It names the work that failed and must "
+        "stay verbatim, because the point of quoting it is that it matches what the data holds.",
     "index[].y": "the yomi, a reading aid shown only in Japanese",
     "series[].completed_basis": "why a run is called finished, in English",
     "series[].completed_basis_ja": "the same sentence in Japanese, shown in Japanese mode",

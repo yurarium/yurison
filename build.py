@@ -5243,6 +5243,27 @@ def main():
         # and then collected, keeps its serialisation date and is untouched.
         # THE OPERATOR'S ANSWER TO A COMPARATOR ADMISSION, carried to the row so the interface can
         # keep a doubtful entry out of a default listing without losing it. See rebuttals().
+        # A PRINTING BEATS A DELIVERY ON THE SAME WORK, and the rule had nowhere to run once two
+        # records became one. `delivery.promote` refuses a delivery date where the record states a
+        # printing, which is right per record; merging two records puts a delivery-dated block
+        # beside a printed one, and the work then carried the shop's date while its own book had a
+        # colophon. SIS reads 2012-06 in print and was delivered in 2016; 私たちの恋が花開くとき was
+        # delivered 2026-01-05 and printed 2026-01-16.
+        #
+        # The delivery date is NOT discarded. It stays on the block it belongs to, because it is a
+        # true statement about that edition; what it stops doing is standing for the work.
+        for _srow in series_rows:
+            _blocks = _srow.get("print") or []
+            _printed = [b.get("first") for b in _blocks if b.get("first")]
+            if not _printed:
+                continue
+            for _b in _blocks:
+                _b.pop("delivered_from", None)
+            if _srow.get("first_event") == "shop-delivery":
+                _srow["first"] = min(_printed)
+                _srow.pop("first_event", None)
+                _srow.pop("first_followup", None)
+
         _rebut = rebuttals()
         _marked = 0
         for _vrow in series_rows:

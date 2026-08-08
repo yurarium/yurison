@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-08T10:59:04+00:00",
+ "generated": "2026-08-08T11:18:35+00:00",
  "since_last": {
-  "at": "2026-08-08T10:55:36+00:00",
+  "at": "2026-08-08T11:06:38+00:00",
   "statistics": {}
  },
  "means": {
@@ -224,8 +224,8 @@
    {
     "name": "publisher readings nobody has settled",
     "means": "publisher and imprint keys shipped as a romanisation of ours over a reading no source states, which is what the mark beside them says. A coverage deficit and the other half of the budget above it: that one reached zero by romanising, and a romanisation is the reading spelt out. It falls as readings get sourced, and it is measured on the shipped map so that hiding the mark would show as a fall nobody earned.",
-    "budget": 17,
-    "value": 17
+    "budget": 16,
+    "value": 16
    },
    {
     "name": "renderings with nothing to show",
@@ -242,8 +242,8 @@
    {
     "name": "author readings no source states",
     "means": "author names a reader meets as a romanisation carrying the unverified mark, because the reading behind the romanisation is a morphological analyser's and nobody else's. A coverage deficit and not a fault count, and the number a naming round is against. It falls when a name is sourced or a reviewer weighs a reading, since those are the two bases `build.py` clears the mark for. A fall with no new citation behind it means the mark stopped rendering, which is the failure this counts to prevent.",
-    "budget": 309,
-    "value": 309
+    "budget": 308,
+    "value": 308
    },
    {
     "name": "credits the corpus files as a venue",
@@ -290,8 +290,8 @@
    {
     "name": "works showing a romanisation",
     "means": "works with no English name, showing a romanisation instead. Distinct from the budget above, which a romanisation satisfies: this is the one that answers 'can a reader tell what this is'. Never reaches zero, because romanising is right for a coinage.",
-    "budget": 173,
-    "value": 173
+    "budget": 172,
+    "value": 172
    },
    {
     "name": "titles carrying cataloguing punctuation",
@@ -559,7 +559,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-08T10:55:35+00:00",
+  "previous_at": "2026-08-08T11:06:37+00:00",
   "drops": []
  },
  "outstanding": [
@@ -747,7 +747,7 @@
    "what": "Bring down counts that may only ratchet downward",
    "rows": {
     "adapters fetching without net.py": 35,
-    "author readings no source states": 309,
+    "author readings no source states": 308,
     "bookwalker listings unconfirmed": 0,
     "bookwalker series unread": 0,
     "captures with no floor": 11,
@@ -766,7 +766,7 @@
     "nicovideo works with no rights": 189,
     "one page cited for two claims": 12,
     "publisher keys the interface misses": 0,
-    "publisher readings nobody has settled": 17,
+    "publisher readings nobody has settled": 16,
     "publishers with no English": 0,
     "renderings with nothing to show": 38,
     "rows with a moving address": 0,
@@ -780,7 +780,7 @@
     "unreadable bookwalker rows": 15,
     "updates naming a work we do not hold": 27,
     "volumes with an isbn and no date": 0,
-    "works showing a romanisation": 173,
+    "works showing a romanisation": 172,
     "works without English": 104
    }
   }
@@ -797,11 +797,11 @@
    "slow": 57
   },
   "english_basis": {
-   "translated": 2675,
+   "translated": 2676,
    "official-jp": 117,
    "licensed": 112,
    "none": 108,
-   "romaji": 65
+   "romaji": 64
   },
   "print_works": 2514,
   "print_only": 1727,

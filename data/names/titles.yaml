@@ -63342,10 +63342,14 @@ names:
     reading_source_kind: analyser
     verified: false
   白百合に×いを込めて:
-    basis: romaji
-    en: Shirayuri ni ×i o Komete
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
+    basis: translated
+    en: A ____ Upon the White Lily
+    en_at: '2026-08-08'
+    en_conflicts:
+    - basis: romaji
+      source: yurarium
+      value: Shirayuri ni ×i o Komete
+    en_reviewed: '2026-08-08'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -63357,10 +63361,17 @@ names:
       - こ
     - - めて
       - null
-    note: The × masks a single kanji in the title itself, on the platform's own page; whatever reads before
-      い is withheld by design, not missing data, so translating would mean guessing the masked word and
-      asserting a reading the title deliberately will not give. A speed-manga entry themed "runner-up",
-      with no further synopsis to narrow the guess.
+    note: 'THE BLANK IS THE TITLE, so the English keeps it. × masks a single character before い on the
+      platform''s own page, withheld by design and not missing data, and the candidates are 呪い and 祝い,
+      a curse and a blessing, which is the joke. They are のろい and いわい, so the mask hides how the word
+      sounds as well as which word it is, and no reading can be recorded.
+
+      An earlier round concluded from that same fact that the title could only be romanised, since translating
+      would mean guessing the masked word. That was wrong about the options. A romanisation can only transliterate
+      the mark, which is how this shipped as "Shirayuri ni ×i o Komete", and a reader learns less from
+      that than from nothing. Mirroring the elision guesses nothing: を込めて is investing something in the
+      flower, and the English leaves the same hole the Japanese does. A speed-manga entry themed "runner-up",
+      with no synopsis to narrow the word.'
     reading: シラユリ ニ ×イ ヲ コメテ
     reading_at: '2026-08-05'
     reading_basis: analyser

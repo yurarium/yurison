@@ -3508,16 +3508,24 @@ titles:
   # --- 2026-08-04 batch seven: continuing the queue -------------------------------------------
 
   白百合に×いを込めて:
-    en: Shirayuri ni ×i o Komete
-    basis: romaji
-    source: yurarium
+    en: "A ____ Upon the White Lily"
+    basis: translated
+    source: "yurarium"
     source_kind: derived
-    reviewed: '2026-08-04'
+    reviewed: '2026-08-08'
     note: >-
-      The × masks a single kanji in the title itself, on the platform's own page; whatever reads
-      before い is withheld by design, not missing data, so translating would mean guessing the
-      masked word and asserting a reading the title deliberately will not give. A speed-manga entry
-      themed "runner-up", with no further synopsis to narrow the guess.
+      THE BLANK IS THE TITLE, so the English keeps it. × masks a single character before い on the
+      platform's own page, withheld by design and not missing data, and the candidates are 呪い and
+      祝い, a curse and a blessing, which is the joke. They are のろい and いわい, so the mask hides
+      how the word sounds as well as which word it is, and no reading can be recorded.
+
+      An earlier round concluded from that same fact that the title could only be romanised, since
+      translating would mean guessing the masked word. That was wrong about the options. A
+      romanisation can only transliterate the mark, which is how this shipped as
+      "Shirayuri ni ×i o Komete", and a reader learns less from that than from nothing. Mirroring
+      the elision guesses nothing: を込めて is investing something in the flower, and the English
+      leaves the same hole the Japanese does. A speed-manga entry themed "runner-up", with no
+      synopsis to narrow the word.
 
   白月光プロジェクト～あの時の彼女を取り戻す～【タテスク】:
     en: 'The Moonlight Project: Getting Back the Her From Back Then'
@@ -29643,6 +29651,24 @@ titles:
       seen; the romanisation stands until the work itself publishes something in Latin letters.
 
 authors:
+  あおい華葉:
+    reading: "アオイ カバ"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      華葉 is カバ. Settled by the project owner. The store had assembled ハナハ from the characters
+      one at a time and my own guess was カヨウ, the ordinary compound reading, so this is a case
+      where nothing about the kanji predicts the answer and only the artist's own filing does.
+
+      NO ADDRESS IS RECORDED, AND THAT IS DELIBERATE. What attests this reading sits almost entirely
+      in works §7 excludes from the database. The reading of a person's name is not itself excluded
+      material and belongs here, but a citation is a link, and putting one in a published file would
+      point a reader into material this project does not carry. So the basis says a person weighed
+      it and the note says where the evidence lives without addressing it.
+
   こかむも:
     en: Kokamumo
     basis: official-jp

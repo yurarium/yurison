@@ -200,8 +200,8 @@
   {
    "name": "publisher readings nobody has settled",
    "means": "publisher and imprint keys shipped as a romanisation of ours over a reading no source states, which is what the mark beside them says. A coverage deficit and the other half of the budget above it: that one reached zero by romanising, and a romanisation is the reading spelt out. It falls as readings get sourced, and it is measured on the shipped map so that hiding the mark would show as a fall nobody earned.",
-   "budget": 17,
-   "value": 17
+   "budget": 16,
+   "value": 16
   },
   {
    "name": "renderings with nothing to show",
@@ -218,8 +218,8 @@
   {
    "name": "author readings no source states",
    "means": "author names a reader meets as a romanisation carrying the unverified mark, because the reading behind the romanisation is a morphological analyser's and nobody else's. A coverage deficit and not a fault count, and the number a naming round is against. It falls when a name is sourced or a reviewer weighs a reading, since those are the two bases `build.py` clears the mark for. A fall with no new citation behind it means the mark stopped rendering, which is the failure this counts to prevent.",
-   "budget": 309,
-   "value": 309
+   "budget": 308,
+   "value": 308
   },
   {
    "name": "credits the corpus files as a venue",
@@ -266,8 +266,8 @@
   {
    "name": "works showing a romanisation",
    "means": "works with no English name, showing a romanisation instead. Distinct from the budget above, which a romanisation satisfies: this is the one that answers 'can a reader tell what this is'. Never reaches zero, because romanising is right for a coinage.",
-   "budget": 173,
-   "value": 173
+   "budget": 172,
+   "value": 172
   },
   {
    "name": "titles carrying cataloguing punctuation",

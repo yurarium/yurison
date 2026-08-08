@@ -854,21 +854,27 @@ names:
     verified: true
   あおい華葉:
     basis: romaji
-    furigana_spans:
-    - - あおい
-      - null
-    - - 華
-      - はな
-    - - 葉
-      - は
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アオイ ハナ ハ
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading: アオイ カバ
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: アオイ ハナ ハ
+    reading_note: '華葉 is カバ. Settled by the project owner. The store had assembled ハナハ from the characters
+      one at a time and my own guess was カヨウ, the ordinary compound reading, so this is a case where nothing
+      about the kanji predicts the answer and only the artist''s own filing does.
+
+      NO ADDRESS IS RECORDED, AND THAT IS DELIBERATE. What attests this reading sits almost entirely in
+      works §7 excludes from the database. The reading of a person''s name is not itself excluded material
+      and belongs here, but a citation is a link, and putting one in a published file would point a reader
+      into material this project does not carry. So the basis says a person weighed it and the note says
+      where the evidence lives without addressing it.'
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   あおたゆきこ:
     basis: romaji

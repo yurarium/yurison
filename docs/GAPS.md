@@ -1630,3 +1630,46 @@ left to ask.
 Two are records rather than names: `GP-KIDS/高菜しんの` and `スタジオぷち屋 桜那えいか、`, an imprint
 beside a person and a circle beside an author with the trailing comma of a truncated list still
 attached. §25 recorded both. A reading for either would be a reading of a catalogue line.
+
+## Task: search the unsettled names one at a time
+
+Recorded 2026-08-08 for the owner to start later. It is written down rather than started because
+it is slow by nature and cannot be hurried: the value is in asking about one name properly, and a
+sweep is what produced the residue.
+
+**The populations.** 271 credited authors and 16 publishers still render as a romanisation whose
+reading nothing states. 117 of the 271 have never been put to the National Diet Library at all: the
+round that settled 460 of them found まんが王国 answered in bulk and made four NDL requests in a
+whole session, which was the right economics for the bulk and left the residue untried on the
+strongest route.
+
+**Why one at a time.** Every name settled by hand this session broke a pattern rather than
+following one. 華葉 is カバ, where the characters predict カヨウ and the store had assembled ハナハ.
+路草 is みちくさ, where a previous round searched for the site and recorded it as not resolving.
+らいおん小屋 is ごや, not こや. 158 of 418 shop-sourced readings contradicted the analyser outright.
+A rule that fits the first ten of these will be wrong about the eleventh.
+
+**What is already known, so it is not redone.**
+
+- Misses are recorded. `data/names/attempts.yaml` holds them per name and source, and a route that
+  asks should write there so the next pass skips what has been answered. 328 まんが王国 misses are
+  already written off. Only a real answer counts: a 503 is the server refusing.
+- NDL rate-limits to roughly one page every few seconds and the `/books/` record pages carry
+  タイトルよみ and 著者標目. `/api` stays closed by robots. Pages cache to `ndl-cache` by default now.
+- NDL's conventions are not verbatim truth: 私 defaults to ワタクシ, を to オ, ○○ to マルマル, and an
+  English subtitle is sometimes spelled out in katakana. Roughly a third need a reviewer's judgement.
+- Seven of the publishers are doujin circles in kanji that are in no national collection, which is
+  what made わんこ院 settleable and these not. Six are people whose author record heals them.
+  とばり湊 and 井庭人 are in `publishers.yaml`, in no author record and in no corpus credit, so
+  nothing on the author side can reach them and they need a decision instead of a search.
+
+**Some of it is not a sourcing problem at all**, and that part is worth doing first because it needs
+no network. `あんじんねこ@創作` carries a handle suffix that is not part of a name. `お久しぶり` is a
+set phrase split as though お were an honorific. `2C=がろあ` and `R-指定` have punctuation spaced
+apart inside a pen name. `○山浩平` masks a character the way `白百合に×いを込めて` does, and the same
+disposition is available: no reading can be recorded, and the rendering should still not be
+`○ Yama Kōhei`.
+
+**One constraint that will recur.** For some artists the attestation sits in works §7 excludes. The
+reading of a person's name is not itself excluded material and belongs here, but a citation is a
+link, so record the basis and the reasoning and do not address it. あおい華葉 is the worked example.

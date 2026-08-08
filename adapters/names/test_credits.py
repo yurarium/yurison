@@ -237,6 +237,21 @@ def main(s):
          [["森夕 / 知らない人", None]],
          "a name the field does not hold collapses the whole set to a bare span")
 
+    # A COMPOSED NAME'S STYLES COME OUT IN A FIXED ORDER. The styles every part can offer were
+    # collected in a set, which answers "which" and says nothing about sequence, so the three keys
+    # landed in whatever order the interpreter hashed them that run. Two builds of one tree then
+    # produced byte-different files holding identical data, which left `deployed data matches
+    # built` unable to settle and put about 1,500 meaningless lines in every build diff.
+    _two = {"A": {"reading": "エー", "romaji": {"plain": "A", "macron": "Ā", "double": "Aa"}},
+            "B": {"reading": "ビー", "romaji": {"macron": "B̄", "plain": "B", "double": "Bb"}}}
+    _c = credits.compose("A / B", _two.get)
+    s.eq(list(_c["romaji"]), ["macron", "double", "plain"],
+         "the styles of a composed name are ordered, not hashed")
+    # A part offering fewer styles narrows the set without disturbing the order of what is left.
+    _thin = {"A": _two["A"], "B": {"reading": "ビー", "romaji": {"plain": "B", "macron": "B̄"}}}
+    s.eq(list(credits.compose("A / B", _thin.get)["romaji"]), ["macron", "plain"],
+         "and a style no part can offer is simply absent")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

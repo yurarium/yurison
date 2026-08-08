@@ -314,9 +314,17 @@ def compose(raw, lookup):
 
     out = {"reading": joiner.join(str(e.get("reading") or "") for e in got)}
     out["ruby"] = spliced_ruby(str(raw or ""), parts, got)
-    styles = set(got[0].get("romaji") or {})
+    # THE STYLES EVERY PART CAN OFFER, in a fixed order. A set answers "which" correctly and says
+    # nothing about sequence, and iterating it put the three keys into the composed record in
+    # whatever order the interpreter happened to hash them that run. The data was identical and the
+    # bytes were not, so two builds of one tree produced different files: `deployed data matches
+    # built` could never settle, and every build carried about 1,500 lines of diff that meant
+    # nothing. A build is a function of its inputs and must read like one.
+    ORDER = ("macron", "double", "plain")
+    have = set(got[0].get("romaji") or {})
     for e in got[1:]:
-        styles &= set(e.get("romaji") or {})
+        have &= set(e.get("romaji") or {})
+    styles = [s for s in ORDER if s in have] + sorted(have.difference(ORDER))
     if not styles:
         return None
     out["romaji"] = {s: joiner.join((e.get("romaji") or {})[s] for e in got) for s in styles}

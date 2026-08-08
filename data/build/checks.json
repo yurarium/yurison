@@ -93,8 +93,14 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 0,
-   "examples": []
+   "violations": 7,
+   "examples": [
+    "index.json",
+    "run.json",
+    "status.json",
+    "series.json",
+    "works.json"
+   ]
   },
   {
    "name": "no refutation of print serials",
@@ -123,6 +129,11 @@
   },
   {
    "name": "a record without a publisher says why",
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "name": "an imprint spelling belongs to its own publisher",
    "violations": 0,
    "examples": []
   },
@@ -190,6 +201,18 @@
    "means": "publisher names app.js asks the shipped map for and does not get, normalised the way the browser normalises. A rise means the two implementations of the cataloguing rule have drifted, which is the one failure the budget above cannot see.",
    "budget": 0,
    "value": 0
+  },
+  {
+   "name": "imprint strings that reach no line",
+   "means": "imprint strings the corpus carries that no entry in data/names/imprints.yaml answers for, so the string stands as its own object. A coverage deficit: it falls as houses are curated and it will not reach zero, because some of these are a company name or a magazine sitting in the imprint field. A rise means new imprint spellings entered faster than they were placed.",
+   "budget": 278,
+   "value": 278
+  },
+  {
+   "name": "imprint names the interface disagrees with",
+   "means": "imprint strings app.js renders as one name and the shipped map calls another, counted as distinct pairs. It is the second producer of one fact, live and visible to a reader: 一迅社's yuri line shows as its magazine's name on 346 rows. It goes to zero when the interface reads feed/names.json's imprints map, and nothing else can move it down.",
+   "budget": 38,
+   "value": 38
   },
   {
    "name": "names rendered two ways",
@@ -284,8 +307,8 @@
   {
    "name": "stock phrasing in comments",
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage.",
-   "budget": 903,
-   "value": 903
+   "budget": 898,
+   "value": 898
   },
   {
    "name": "invented markup in tests",

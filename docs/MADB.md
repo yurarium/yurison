@@ -119,6 +119,43 @@ Yuri-Hime COMICS                            …
 Any exact match on this field loses most of the corpus silently. Normalise (NFKC, casefold, strip
 separators) and match on substrings.
 
+### What the separator means, measured
+
+The notation carries no hierarchy of its own, and this was checked before it was relied on.
+`schema:brand` is a list, and 一迅社's series records give the same pair of names as the list
+`["IDコミックス", "Yurihime comics"]` on 87 records and as the single string
+`IDコミックス　／　Yurihime comics` on 14. The order carries nothing either: the release holds
+`Zero-sum comics　／　IDコミックス`, `REXコミックス　／　IDコミックス` and
+`DNAメディアコミックス　／　IDコミックス` alongside the umbrella-first forms, and one record reads
+`4コマkingsぱれっとcomics　／　4コマKINGSぱれっとCOMICS`, which is one name joined to its own case
+variant. The separator itself changes with the cataloguing of the day: `Action comics : comic
+high's brand` and `Action comics　／　comic high's brand` are the same 双葉社 line under two of them.
+
+So the separator joins list values, the specific element is the identity, and the umbrella is a
+fact about the line and not part of its name.
+
+### The hyphen is the publisher's, and the case is not
+
+The 百合姫 logotype loses its hyphen at books **published** in 2015: every volume dated 2014 is
+`Yuri-hime`, 2015 splits 22 to 28, and nothing after 2016 is hyphenated. openBD turns over in the
+same year. That is not a cataloguing sweep, and the record dates say so directly: MADB modified
+every pre-2025 record of the line in one pass in 2024, and that pass emitted the hyphenated form 193
+times and the bare form 378 times. The form came off the book.
+
+`YH comics` is a different matter and runs alongside the spelt-out form every year from 2015, on the
+volumes of the same series: C357075 carries `YH comics`, `Yuri-hime comics`, `Yurihime comics` and
+`yh comics` across its own run, and one series carries `Yuri-hime comics` beside `百合姫コミックス`.
+Same line, four transcriptions.
+
+**`YH comics` is missing from `extract.IMPRINTS`,** which is a live fault rather than a note. 36
+一迅社 series records in release 1.2.18 state it, 30 of them are in this corpus, and each was stored
+as `imprint: IDコミックス` with `marketing_label: none` because the selection never matched. They
+entered on a retailer's shelf instead, so the publisher-side label they are entitled to is missing.
+Adding the spelling is one line; landing it needs a re-extraction, and `labels with nothing to
+quote` would then rise from 0 to about 30 because `YURI_TERM_IN_IMPRINT` does not recognise `YH`
+either. That budget reading 0 today is partly this fault hiding inside it: the works that would be
+counted never got the label that would put them in the count.
+
 The imprint is publisher-side labelling, so it establishes `marketing_label: yuri` mechanically
 under [Definitions §4](DEFINITIONS.md), with the brand field as its basis. The interpretive axis
 still needs a human.

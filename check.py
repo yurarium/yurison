@@ -761,6 +761,74 @@ def inv_a_record_without_a_publisher_says_why(ctx):
             and not str(r.get("publisher_basis") or "").strip()]
 
 
+def budget_imprint_names_the_interface_disagrees_with(ctx):
+    """Imprint strings the browser renders as one name and the shipped map calls another.
+
+    THE SECOND PRODUCER, COUNTED WHILE IT LASTS. `imprintOf` in app.js decides which imprint a
+    string names by holding its own alias table, and `data/names/imprints.yaml` now decides the same
+    thing with a registry behind it. Two producers of one fact is STANDING-INSTRUCTIONS §3, and the
+    resolution is for the interface to read the shipped map, which is a change to a repository this
+    pipeline does not own. Until it lands the disagreement is real and a reader can see it, so it is
+    a number here instead of a note somewhere.
+
+    The largest single disagreement is 一迅社's yuri line on 346 rows: the browser shows
+    コミック百合姫, which is the magazine, where the publisher's own page calls the book line
+    百合姫コミックス. Most of the rest is the browser showing whichever transcription a cataloguer
+    typed, so a reader meets `HARTA COMIX` on one work and `ハルタコミックス` on another.
+
+    Counted on distinct pairs so that one wrong name does not read as hundreds. It goes to zero when
+    the interface consumes the map, and it cannot be reduced any other way: the registry changing
+    its mind about a line moves both sides of a pair at once only if app.js already agreed.
+
+    §14b, what it shares: `_app_imprint_of`, which is this file's copy of the CONSUMER and the only
+    thing in the tree able to state what the browser does. What it therefore cannot see is that copy
+    drifting from app.js itself, which is the same blind spot `publisher keys the interface misses`
+    names and accepts for the same reason.
+    """
+    shipped = (ctx["names_shipped"] or {}).get("imprints") or {}
+    pairs = set()
+    for r in ctx["series"]:
+        for pr in (r.get("print") or []):
+            raw = str(pr.get("imprint") or "").strip()
+            fact = shipped.get(raw)
+            if fact and _app_imprint_of(raw) != fact["name"]:
+                pairs.add((_app_imprint_of(raw), fact["name"]))
+    return len(pairs)
+
+
+def inv_imprint_spelling_belongs_to_its_own_publisher(ctx):
+    """A line's spelling may not be recorded under a house the line does not name.
+
+    THE FAILURE THIS IS FOR. A loose match eats a real imprint, and the cheapest version of that
+    mistake reaches across companies: the pattern that opened this work matched KADOKAWA's
+    BRIDGE COMICS while looking for 一迅社's 百合姫 line. Matching is scoped by publisher so that
+    cannot happen, and this is the statement of it that can be observed instead of assumed.
+
+    Measured on the shipped map against the corpus, so it holds whatever produced the map. Each
+    entry names the houses its line runs under; a row carrying that spelling under any other house
+    is the finding. The publisher is read with `_app_publisher_of`, which is the interface's copy and
+    not the adapter's, so a drift between the browser's cataloguing rule and the pipeline's shows up
+    here as well.
+
+    fallback: none. The interface would show one company's line under another company's name, and
+    that is the category error the publisher pages are being built to avoid.
+    """
+    shipped = (ctx["names_shipped"] or {}).get("imprints")
+    if not shipped:
+        return []
+    bad = []
+    for r in ctx["series"]:
+        for pr in (r.get("print") or []):
+            raw = str(pr.get("imprint") or "").strip()
+            fact = shipped.get(raw)
+            if not fact or not fact.get("publishers"):
+                continue
+            pub = _app_publisher_of(pr.get("publisher") or "")
+            if pub and pub not in fact["publishers"]:
+                bad.append(f"{pr.get('work_id')}: {raw} is {fact['name']}'s and the row says {pub}")
+    return sorted(set(bad))
+
+
 def inv_first_date_precedes_its_editions(ctx):
     """A work cannot first appear after the volume that collects it was published.
 
@@ -1050,6 +1118,8 @@ INVARIANTS = [
     ("per-book dates cite their page", inv_per_book_dates_cite_their_page),
     ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role),
     ("a record without a publisher says why", inv_a_record_without_a_publisher_says_why),
+    ("an imprint spelling belongs to its own publisher",
+     inv_imprint_spelling_belongs_to_its_own_publisher),
     ("no HTML entity in a stored name", inv_no_html_entity_in_a_stored_name),
     ("nicovideo channels agree with our own records", inv_nicovideo_channel_agrees),
     ("a fixture states where it came from", inv_fixture_states_where_it_came_from),
@@ -2132,6 +2202,51 @@ def budget_publisher_readings_nobody_has_settled(ctx):
     return len(_pub.unsettled_readings((ctx["names_shipped"] or {}).get("publishers") or {}))
 
 
+def budget_imprint_strings_that_reach_no_line(ctx):
+    """Imprint strings the corpus carries that the shipped map answers for with no line.
+
+    AN IMPRINT IS ONE OBJECT WITH MANY RECORDED SPELLINGS. One printed logotype reaches us from
+    MADB, from openBD and from a retailer in three transcriptions, notation and case and the parent
+    line vary on top, and the field stored each result as though it were a line of its own: 一迅社
+    runs one yuri line and the rows held 27 strings for it. `data/names/imprints.yaml` says which
+    spellings are one line and `adapters/names/imprints.py` does the matching. This counts what the
+    registry has not reached.
+
+    A COVERAGE DEFICIT, and the number a curating round is against. It falls as houses are entered
+    and it will not reach zero: some of these strings are not imprints at all. `ガレットワークス` on
+    37 rows is the company whose books クロスフォリオ出版 distributes, and `まんがタイムきらら` is a
+    magazine, both sitting in the imprint field where a line's name goes. Those are for the
+    publisher-page work to answer and folding them into a line to empty this number would be worse
+    than the number.
+
+    §14b, AND WHY THIS IS COUNTED ON THE SHIPPED FILE. The registry is curated for exactly this
+    reason. A matcher that gave every unrecognised string a line of its own would reach every string
+    by construction, and this count would read zero for the rest of its life while the split it
+    exists to measure carried on. So an unmatched string produces no entry, and this asks the corpus
+    for its imprint strings and the shipped map whether it holds each one. It imports nothing from
+    the module, folds nothing, splits nothing, and shares no table with the matcher: the map's own
+    keys are the only thing consulted.
+
+    WHAT IT THEREFORE CANNOT SEE is a string that reaches the WRONG line. `an imprint spelling
+    belongs to its own publisher` catches that across houses. Within one house nothing can, because
+    the two spellings look alike by construction, so the guard is the counter-case pinned in
+    `adapters/names/test_imprints.py`: 一迅社's ZERO-SUM, HOWL, DNAメディア and 4コマKINGS lines and
+    its bare umbrella must each land somewhere other than the yuri line.
+    """
+    # A MISSING MAP COUNTS EVERY STRING, and it is not shortcut to zero. `return 0` on an absent key
+    # is the silence STANDING-INSTRUCTIONS §4 is about: a build that stopped writing the map and a
+    # registry that had placed everything would report the same number. This way the map going away
+    # reads as every string reaching no line, which is what has happened.
+    shipped = (ctx["names_shipped"] or {}).get("imprints") or {}
+    missing = set()
+    for r in ctx["series"]:
+        for pr in (r.get("print") or []):
+            raw = str(pr.get("imprint") or "").strip()
+            if raw and raw not in shipped:
+                missing.add(raw)
+    return len(missing)
+
+
 def budget_labels_with_nothing_to_quote(ctx):
     """Records carrying a yuri label whose imprint states no term that says so.
 
@@ -2304,6 +2419,17 @@ BUDGETS_DEF = [
      "publisher names app.js asks the shipped map for and does not get, normalised the way the "
      "browser normalises. A rise means the two implementations of the cataloguing rule have "
      "drifted, which is the one failure the budget above cannot see."),
+    ("imprint strings that reach no line", budget_imprint_strings_that_reach_no_line,
+     "imprint strings the corpus carries that no entry in data/names/imprints.yaml answers for, so "
+     "the string stands as its own object. A coverage deficit: it falls as houses are curated and "
+     "it will not reach zero, because some of these are a company name or a magazine sitting in the "
+     "imprint field. A rise means new imprint spellings entered faster than they were placed."),
+    ("imprint names the interface disagrees with",
+     budget_imprint_names_the_interface_disagrees_with,
+     "imprint strings app.js renders as one name and the shipped map calls another, counted as "
+     "distinct pairs. It is the second producer of one fact, live and visible to a reader: 一迅社's "
+     "yuri line shows as its magazine's name on 346 rows. It goes to zero when the interface reads "
+     "feed/names.json's imprints map, and nothing else can move it down."),
     ("names rendered two ways", budget_names_rendered_two_ways,
      "strings the shipped maps spell one way as a publisher and another way as a person, which "
      "happens because a self-published work names its own author as its publisher. A rise means a "
@@ -2602,6 +2728,22 @@ def _plant_one_nicovideo_channel_for_all(c):
         r["channel"] = one
 
 
+def _plant_imprint_under_another_house(c):
+    """File a shipped imprint spelling under a company that does not run that line.
+
+    Taken out of the shipped map so the canary is a string the build wrote, and the house is one the
+    corpus already holds, so the row differs from a real one only in the join being wrong. Where the
+    map is empty the check has nothing to say and the probe plants nothing, which self_test reports
+    as an uncaught canary instead of passing quietly.
+    """
+    shipped = (c["names_shipped"] or {}).get("imprints") or {}
+    spelling = next((k for k, v in sorted(shipped.items()) if (v or {}).get("publishers")), None)
+    if spelling:
+        c["series"].append({"id": "CANARY", "work": "CANARY",
+                            "print": [{"work_id": "CANARY", "publisher": "講談社",
+                                       "imprint": spelling}]})
+
+
 def self_test():
     """Prove the invariants can fail. A check that cannot demonstrate a catch is not a check."""
     import copy
@@ -2656,6 +2798,13 @@ def self_test():
         # The distributor MADB names ahead of the publisher, stored as the publisher.
         ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role,
          lambda c: c["madb_records"].append({"work_id": "CANARY", "publisher": "[発売]講談社"})),
+        # A SPELLING THE MAP REALLY HOLDS, PUT UNDER A HOUSE THAT DOES NOT RUN IT (§14b). The
+        # invented version of this canary would be a made-up imprint, which proves only that the
+        # dictionary lookup works. This takes the first spelling the build shipped and files it
+        # under 講談社, which is the shape a substring match produces: the 一迅社 pattern that
+        # opened this work reached KADOKAWA's BRIDGE COMICS in exactly that way.
+        ("an imprint spelling belongs to its own publisher",
+         inv_imprint_spelling_belongs_to_its_own_publisher, _plant_imprint_under_another_house),
         # BOTH CANARIES ARE THE FILE AS IT STOOD ON 2026-08-07 (§14b), not an invented bad value:
         # every work was filed under ニコニコ漫画（公式）, the first banner in the sidebar. The
         # first plants it on one recorded work, so only the comparison can catch it; the second

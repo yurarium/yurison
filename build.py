@@ -1376,6 +1376,24 @@ def publisher_map(names, people, rows):
     return _pub.render(names, people, _pub.corpus_names_from_rows(rows))
 
 
+def imprint_map(rows):
+    """`{key: {id, name, parent}}` for the interface: which line a catalogued imprint string names.
+
+    THE FIELD HELD ONE LINE AS MANY OBJECTS. 一迅社 runs a single yuri line and the print rows carry
+    27 strings for it, because MADB, openBD and a retailer each transcribe one printed logotype
+    differently and `adapters/madb/extract.py` stores whichever spelling the record it read stated.
+    A publisher page over that field would give one line twenty entries, which is why this is the
+    step in front of the pages and not part of them.
+
+    ONE PRODUCER, AND IT IS NOT THIS FUNCTION. `adapters/names/imprints.py` owns the registry and
+    the matching; check.py measures the map this ships. `imprintOf` in app.js is the third reader of
+    the same fact and is the one still deriving its own answer, which is what the shipped map is for.
+    """
+    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
+    import imprints as _imp
+    return _imp.shipped(rows, _imp.load(pathlib.Path("data/names/imprints.yaml")))
+
+
 
 def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
                      contradicted_works, print_candidates, web_works, samples, regenerate=()):
@@ -5002,6 +5020,12 @@ def main():
     print(f"publishers      : {len(_pub_shipped)} key(s) with an English name in feed/names.json, "
           f"{_pub_romanised} of them a romanisation")
 
+    # AN IMPRINT IS ONE OBJECT WITH MANY RECORDED SPELLINGS, and the field holds the spellings.
+    _imp_shipped = imprint_map(series_rows)
+    _imp_lines = len({v["id"] for v in _imp_shipped.values()})
+    print(f"imprints        : {_imp_lines} line(s) answering {len(_imp_shipped)} key(s) in "
+          f"feed/names.json")
+
     (out / "feed" / "names.json").write_text(json.dumps(
         {"generated": str(_today),
          "note": "English renderings and readings, keyed by NFKC-folded title/author. Joined onto "
@@ -5012,6 +5036,12 @@ def main():
          # interface shows. `basis` says whose name it is: official-jp is the company's own and is
          # shown unmarked, romaji is a Latin form of the Japanese and is ours.
          "publishers": _pub_shipped,
+         # WHICH LINE A CATALOGUED IMPRINT STRING NAMES, keyed by the string and by its fold. The
+         # value carries the line's own name and the umbrella it sits inside where it has one, so a
+         # reader looking at a 2008 volume sees what that volume says and still learns which line it
+         # is. A string the registry does not answer for is absent here, which is a state and not a
+         # gap: the interface keeps showing the catalogued string.
+         "imprints": _imp_shipped,
          # Chapter names, collections and credit lines, keyed folded like the rest.
          # phrases carries collection and chapter names, and a withheld work's title lands here
          # too when it names a collection. Filtered on the same register.

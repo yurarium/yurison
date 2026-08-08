@@ -1961,3 +1961,66 @@ the consumer is called.
 
 `ガンガンコミックスonline　／　GC ONLIN` is the one string still reaching a reader in Japanese. It is
 a truncated catalogued value with a separator in it, not a label anybody prints, and §29 places it.
+
+## 29. Working the imprint field outward from the corpus (2026-08-08)
+
+The registry covered four houses when this round started and `imprint strings that reach no line`
+stood at 278. It covers 33 houses now and the budget reads **140**. 114 lines were added over 132
+strings, so the ratio is nearer one to one than the first four houses gave, and the reason is in the
+data rather than in the curating: 一迅社 writes its yuri line about twenty ways and most houses write
+each of theirs once.
+
+### What the residue is, and it is mostly one shape
+
+141 strings on 451 rows. **99 of them, on 359 rows, are the imprint field repeating the publisher**,
+which is what a shop's individual-publishing service produces: the artist is the publisher of record
+and the cataloguer has nothing else to put in the field. Those are not lines and this file refuses
+them, which `test_imprints.py` pins on ガレットワークス, a company whose books クロスフォリオ出版
+delivers and which carries 37 of the 92 remaining rows on its own.
+
+The other 42 strings, on 92 rows, are ordinary lines nobody has curated: 6 rows at ブシロードワークス,
+6 at 小学館 and 6 at 少年画報社, and a long tail of one and two. What each of them needs is somebody
+reading the house.
+
+### Two shapes the file refuses, and both are rulings rather than gaps
+
+**A company name in the imprint field.** A distributor writing who made the book, not a line.
+
+**A magazine name where nothing says it stands for the book line.** 百合姫 could be folded because
+MADB's own `IDコミックス. Yurihime comics = コミック百合姫` writes the equation out. コミックハイ!,
+楽園, ヤングキング, まんがタイムきらら and 講談社's and 小学館's own magazine names have no such
+statement, so folding them would decide by resemblance what only a source can decide. Both refusals
+are asserted per house in `test_imprints.py`, so a later round that folds one in shows up as a number
+falling rather than as a tidy-up.
+
+### The curating unit is a house
+
+Curating by string places whatever somebody happened to look at and leaves a count nobody can read.
+Curating a house means reading what it publishes, deciding every string it carries, and recording
+the ones the file refuses, which is what makes the per-house residue an assertion. 15 houses now sit
+at zero.
+
+### Where a name came from, house by house
+
+Most of these houses index their books by magazine and by title and publish no list of book lines,
+so `name_basis: corpus` carries most of the entries and each says what was read. Where a publisher
+page did answer, it is cited: 新書館's comics site names Wings in Latin in its own navigation,
+小学館's e-comic store addresses デジコレ at `e-comi.shogakukan.co.jp/digicolle`, forcs addresses
+じるみて at `forcs-comic.jp/jilmitte`, and KADOKAWA's label index carries コミックエッセイ.
+
+### The truncated string, which was never a naming question
+
+`ガンガンコミックスonline　／　GC ONLIN` is a catalogued value cut off mid-word with the cataloguer's
+separator still in it. The segment before the separator is `ガンガンコミックスonline`, which is the
+line, so the row reaches it and the truncation is never read as anything. `GC ONLIN` is not listed as
+a spelling: it is the same name abbreviated and then cut, and giving it an entry would put a
+catalogue artefact in front of a reader. That was the last string in
+`publisher keys the interface misses`, which now reads 0.
+
+### One string the segmenter will not split, listed whole instead
+
+`Action comics : comic high's brand` uses ISBD's " : ", which `publishers.segments` does not know, so
+the string is never taken apart. The module docstring names it as the case that shows up in the
+unresolved count rather than being split silently. It is listed as a spelling of comic high's brand
+in full, which places the row without teaching the segmenter a separator on the strength of one
+example.

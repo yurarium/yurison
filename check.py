@@ -270,10 +270,45 @@ def _interface(ctx):
     return ctx["_iface"]
 
 
+def _status_interface(ctx):
+    """status.html's own script, loaded in a context of its own.
+
+    A SECOND CONTEXT AND NOT A SECOND SCRIPT IN THE FIRST. `app-status.js` declares `esc`, `T`,
+    `splitLang`, `SEP` and `render` at the top level and so does `app.js`, and a `const` redeclared
+    in one context's global lexical scope is a SyntaxError. They are two pages and they get two
+    contexts, which is also what a browser gives them.
+    """
+    import tempfile
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import interface
+    if "_siface" not in ctx:
+        src = ctx.get("status_js") or ""
+        if not src:
+            return None
+        fh = tempfile.NamedTemporaryFile("w", suffix=".js", delete=False, encoding="utf-8")
+        fh.write(src)
+        fh.close()
+        # No name map. This page states facts about the collection and draws no name through the
+        # store; handing it one would suggest otherwise.
+        ctx["_siface"] = interface.Interface(names={"titles": {}, "authors": {}, "phrases": {}},
+                                             prefs={"LANG": "en"}, app_js=fh.name)
+    return ctx["_siface"]
+
+
 def _collections(ctx):
-    """The built collections under the names `adapters/interface.py` rules them by."""
+    """The built collections under the names `adapters/interface.py` rules them by.
+
+    THE RECORD PAGES ARE HERE BECAUSE A READER CAN OPEN THEM. `credits.json` and `publishers.json`
+    are fetched only when one of those 2,405 addresses is visited, so neither was in this list and
+    neither was measured; `status.json` is a whole published page nothing walked. A surface nobody
+    walks is a surface nobody measures, and the first walk of the credit pages found the homophone
+    list writing a name into the markup without asking the renderer for it.
+    """
     return {"index": ctx["index"], "series": ctx["series"], "works": ctx["works"],
-            "releases": ctx["releases"]}
+            "releases": ctx["releases"],
+            "credits": list(((ctx["credit_pages"] or {}).get("credits") or {}).values()),
+            "publishers": list(((ctx["publisher_pages"] or {}).get("publishers") or {}).values()),
+            "status": [ctx["status"]] if ctx.get("status") else []}
 
 
 def inv_english_mode_has_no_japanese(ctx):
@@ -351,20 +386,20 @@ def budget_interface_reads_outside_an_entry_point(ctx):
 def budget_renderings_still_japanese_in_english_mode(ctx):
     """Rows the interface still shows in kana or kanji on an English page, where it is a deficit.
 
-    THE HALF OF THE INVARIANT THAT CANNOT BE ZERO TODAY. `English mode has no Japanese` blocks on
-    the surfaces that can be held at zero, which is every work title. The rest is coverage: 236
-    catalogued credit lines carry a role `credit()` has no gloss for (`キャラクター原案` among
-    them) or a person the name store has never met, 97 bylines on the 発売 tab are the same, and
-    105 volume records name a publishing line nobody has romanised yet.
+    WHAT IS LEFT ONCE THE NOTATION IS AN INVARIANT. This counted two different things and reported
+    one number: a role nobody had glossed and a pen name nobody has researched. They are not the
+    same event. `no cataloguing notation in an English rendering` and `every credit role has an
+    English gloss` block on the first at zero, because the catalogue's notation has a right answer
+    and losing it is a fault. What stays here is §6: a name the store cannot render shows as the
+    Japanese, and that is a finished state rather than a failure.
 
-    NONE OF THIS WAS COUNTED BEFORE, and that is the finding rather than the number. The check this
-    replaces read the feed rows through a model of the renderer, so the catalogue tab's credit
-    lines were outside what it looked at entirely and no number anywhere said 236 rows of a public
-    list are in Japanese under an English heading.
+    SO IT FALLS ONLY WHEN A NAME IS RESEARCHED, and it cannot go to zero this week. 94 of the
+    surviving runs are credits with no record in the store at all, 25 are a magazine's editorial
+    desk, 15 are records the store holds no reading for, and the rest are names inside a
+    compound the store has met only in part.
 
     MEASURED BY RUNNING THE INTERFACE, so it owes nothing to any producer and cannot be reduced by
-    changing what the build stores. It falls when a role gets a gloss, a person gets a reading, or
-    a line gets a name.
+    changing what the build stores.
     """
     sys.path.insert(0, str(ROOT / "adapters"))
     import interface
@@ -390,9 +425,14 @@ def budget_full_width_forms_in_english_renderings(ctx):
     it. Blocking there would ask a reader to be shown a title the work does not use.
 
     So the invariant narrowed to kana and kanji, and this counts what the narrowing let past, which
-    is what stops a narrowing from being a silence (§13). Most of it is a Latin pen name catalogued
-    in full width, `Ｈｏｕｒａｉ　Ｄｏｌｌ` among them, which is a cataloguer's typing rather than
-    the name; a few are official titles and are correct.
+    is what stops a narrowing from being a silence (§13).
+
+    308 OF THEM WERE A CATALOGUER'S TYPING AND ARE GONE. `Ｍａｇｐｉｅ`, `ｆｉｎｉｔｅ` and
+    `Ｈｏｕｒａｉ　Ｄｏｌｌ` are Latin pen names typed full width, and the store holds nothing for
+    them because a Latin pen name is not a transliteration of anything; the surface reached an
+    English page with its width intact. `plainLatin` in kari/app.js folds a name holding no kana
+    and no kanji, which is NFKC and not a reading. What is left is mostly a TITLE published with a
+    full-width mark, `2×2＝SHINOBUDEN+` being the recorded one, and those are correct.
     """
     sys.path.insert(0, str(ROOT / "adapters"))
     import interface
@@ -1507,6 +1547,158 @@ def inv_a_shipped_identifier_resolves(ctx):
     return bad
 
 
+def _role_vocabulary(ctx):
+    """Every role string a credit field can state, from the splitter and from the corpus.
+
+    BOTH, BECAUSE NEITHER IS THE WHOLE ANSWER. `inputs.ROLES` is what the splitter will recognise
+    and so is what it can hand the interface tomorrow; the corpus is what it hands it today, and it
+    states compounds that no list holds, because they are built rather than written down:
+    `キャラクター原案・漫画` and `原作監修・文` are two roles joined by the field that wrote them.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    from names import creditline, inputs
+    fields = [str((r.get("c") or "")) for r in ctx["index"]]
+    fields += [str((w.get("creator") or "")) for w in ctx["works"]]
+    fields += [str((r.get("author") or "")) for r in ctx["series"]]
+    fields += [str((r.get("author") or "")) for r in ctx["releases"]]
+    stated = set(creditline.roles_stated([f for f in fields if f]))
+    stated |= {r for e in ((ctx["credit_pages"] or {}).get("credits") or {}).values()
+               for w in (e.get("works") or []) for r in (w.get("roles") or [])}
+    return sorted(stated | set(inputs.ROLES) | set(inputs.BRACKET_ROLES))
+
+
+def inv_every_credit_role_has_an_english_gloss(ctx):
+    """Every job a credit can state comes out of the interface in English.
+
+    WHY THIS IS AN INVARIANT AND NOT A COUNT. A role is a closed vocabulary somebody wrote down, so
+    a role with no gloss is a missing table entry and not a name nobody has researched. That is the
+    difference between this and `renderings still Japanese in English mode`, which counts names
+    §6 leaves standing and cannot go to zero until somebody has looked names up.
+
+    236 catalogue credit lines were in Japanese under an English heading and the largest single
+    cause was this: `ROLE_EN` in kari/app.js held six words and a second table further down the
+    same file held twenty more, so キャラクターデザイン was English on a credit page and Japanese on
+    the catalogue tab. Neither knew about 校正, 編纂, カバーイラスト or ほか著.
+
+    §14b, WHAT IT SHARES AND WHAT IT THEREFORE CANNOT SEE. The vocabulary comes from the PYTHON
+    splitter and from the corpus; the gloss comes from the JavaScript table. Nothing produces both,
+    so the two can disagree and this is where they do. What it cannot see is a role the splitter
+    fails to recognise at all, which is not a gloss problem: that role never becomes a role, and it
+    shows up as notation surviving into a rendering, which the check below is for.
+
+    fallback: the role shows as the source wrote it, which is the fallback every name takes.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import interface
+    roles = _role_vocabulary(ctx)
+    if not roles:
+        return ["no role vocabulary was collected, so nothing here was checked"]
+    try:
+        shown = _interface(ctx).labels([("roleWord", r) for r in roles])
+    except interface.Unavailable as e:
+        return [f"the interface could not be run, so nothing here was checked: {e}"]
+    return [f"{r} has no English gloss in kari/app.js"
+            for r, out in zip(roles, shown) if interface.KANA_KANJI.search(out)]
+
+
+def _notation_left(ctx):
+    """`[(surface, value, the notation that survived)]` over every rendering.
+
+    THE OUTPUT MEASURED AGAINST A VOCABULARY THE RENDERER NEVER CONSULTED (§14b). The roles come
+    from the Python splitter and the words below are the ones the splitter drops; kari/app.js has
+    its own table and its own division, and neither of them is asked here. A role the interface
+    glosses cannot appear in the output, so anything that does is a role the DIVISION did not find
+    or a gloss that did not reach the page, and those are exactly the two ways this class comes
+    back.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import interface
+    roles = [r for r in _role_vocabulary(ctx) if interface.KANA_KANJI.search(r)]
+    # `ほか` closes a credit that names some of its contributors; the interface says "and others".
+    # Neither is a name, and a reader in English has no way to read either as one.
+    words = sorted(set(roles) | {"ほか"}, key=len, reverse=True)
+    calls, about = interface.calls_for(_collections(ctx))
+    if not calls:
+        return []
+    out = _interface(ctx).labels(calls)
+    bad = []
+    for (surface, value), shown in zip(about, out):
+        if surface.category not in ("person", "role"):
+            continue
+        for word in words:
+            # DELIMITED, because a role word is also an ordinary word and pen names are built out
+            # of ordinary words. 文 sits inside 文尾文 and 作 inside 佐喜ハジメ's neighbours; what
+            # makes an occurrence notation is that a bracket or a separator stands either side.
+            if re.search(r"(?:^|[\s\u3000\[\](){}（）〔〕【】/／、,，・･&＆:：])"
+                         + re.escape(word)
+                         + r"(?:$|[\s\u3000\[\](){}（）〔〕【】/／、,，・･&＆:：])", shown):
+                bad.append((surface, value, word))
+                break
+    return bad
+
+
+def inv_no_cataloguing_notation_in_an_english_rendering(ctx):
+    """A credit line in English holds names and nothing else the catalogue wrote around them.
+
+    WHAT THIS BLOCKS THAT A BUDGET TOLERATED. `renderings still Japanese in English mode` counts a
+    row as one number whatever is Japanese about it, so a role nobody glossed and a pen name nobody
+    has researched were the same event. They are not: §6 says a name with no rendering shows as the
+    Japanese and calls that finished, and it says nothing of the kind about `[キャラクター
+    デザイン]`, `(校正)`, `ほか` or a reading printed beside the name it reads. Those are the
+    catalogue's notation, they have a right answer, and once the answer exists nothing should be
+    able to lose it quietly.
+
+    So the guarantee splits. This holds at zero and blocks; the budget keeps the names.
+
+    fallback: the notation shows as the catalogue wrote it, which is what it did before.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import interface
+    try:
+        return sorted({f"{s.path}:{v[:32]} still shows {w}" for s, v, w in _notation_left(ctx)})
+    except interface.Unavailable as e:
+        return [f"the interface could not be run, so nothing here was checked: {e}"]
+
+
+def inv_status_page_shows_no_japanese_of_its_own(ctx):
+    """status.html in English says nothing in Japanese except the rows it is reporting on.
+
+    THE PAGE FOR FACTS ABOUT US IS STILL A PAGE. §1 puts coverage and backlog here rather than in
+    front of a reader, and nothing had ever asked it what it renders: `app-status.js` builds every
+    sentence out of `T('日本語', 'English')` pairs, and a pair whose Japanese half contains a bare
+    ` / ` loses its own numbers, which happened once and was fixed by hand.
+
+    THE DATA IT REPORTS IS ANOTHER MATTER AND IS NOT EXCUSED, IT IS RULED. `outstanding[].rows[]`
+    is the list of works with no English name; naming them in English is the thing that queue
+    exists to do, so the Japanese in it is the subject rather than a failure to render. Those
+    values are ruled in `interface.NOT_A_NAME` and are recognised HERE by being the values
+    themselves, not by the check looking away from a region of the page.
+
+    fallback: none. This reads a file in another repository and cannot degrade a build.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import interface
+    iface = _status_interface(ctx)
+    doc = ctx.get("status") or {}
+    if not iface or not doc:
+        return []
+    sections = ["lastRun", "connectors", "outstanding", "stats", "gate"]
+    try:
+        shown = iface.labels([(fn, doc) for fn in sections])
+    except interface.Unavailable as e:
+        return [f"status.html could not be run, so nothing here was checked: {e}"]
+    ruled = {str(v) for row in (doc.get("outstanding") or [])
+             for v in (row.get("rows") or []) if isinstance(v, str)}
+    ruled |= {str(b.get("means") or "") for b in ((doc.get("gate") or {}).get("budgets") or [])}
+    bad = []
+    for name, text in zip(sections, shown):
+        for run in set(re.findall(r"[\u3040-\u30ff\u3400-\u9fff\uf900-\ufaff]+", text)):
+            if any(run in v for v in ruled):
+                continue
+            bad.append(f"status.html:{name} shows {run} in English mode")
+    return sorted(set(bad))
+
+
 INVARIANTS = [
     ("ruby covers its surface", inv_ruby_covers_its_surface),
     ("a kana name's reading spells it", inv_kana_reading_spells_its_name),
@@ -1524,6 +1716,11 @@ INVARIANTS = [
     ("readings are stored as kana", inv_readings_are_kana),
     ("a reading can show its source", inv_reading_can_show_its_source),
     ("English mode has no Japanese", inv_english_mode_has_no_japanese),
+    ("every credit role has an English gloss", inv_every_credit_role_has_an_english_gloss),
+    ("no cataloguing notation in an English rendering",
+     inv_no_cataloguing_notation_in_an_english_rendering),
+    ("status.html shows no Japanese of its own",
+     inv_status_page_shows_no_japanese_of_its_own),
     ("no build-machine paths in published files", inv_no_absolute_paths_in_published_files),
     ("no stock phrasing in public text", inv_no_stock_phrasing_in_public_text),
     ("content flags are accounted for", inv_content_flags_are_accounted_for),
@@ -3082,6 +3279,26 @@ def budget_credit_identifiers_naming_nobody(ctx):
                if e.get("id") and not e.get("merged_into") and str(e["id"]) not in edges)
 
 
+def budget_credit_fields_the_division_does_not_account_for(ctx):
+    """Credit fields whose shipped division leaves part of the field unexplained.
+
+    THE NUMBER THAT KEEPS A TIDY ANSWER FROM BEING A LOSSY ONE (§13). The 発売 tab rebuilds a
+    byline out of the division, so a division that has lost a contributor would drop that
+    contributor from the page in every language with nothing saying so. `creditline.coverage` takes
+    the names, the roles and the notation out of the field and reports what is left; where anything
+    is, the interface renders the field as written instead of rebuilding it, and this counts how
+    often that happens.
+
+    It was 23 when the measure was written and is 0 now: the doubled bracket, the Korean pen names
+    and the repeated credit each accounted for a share of it. A rise means the splitter has met a
+    shape it cannot divide, and the page it affects is showing the catalogue's own string.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    from names import creditline
+    shipped = (ctx["names_shipped"] or {}).get("credit_parts") or {}
+    return sum(1 for v in shipped.values() if isinstance(v, dict) and v.get("part"))
+
+
 BUDGETS_DEF = [
     ("citations withheld from readers", budget_citations_withheld_from_readers,
      "readings whose recorded address is on a route the site may not link to, so the citation is "
@@ -3126,6 +3343,11 @@ BUDGETS_DEF = [
      "coverage rather than a fault: a credit line whose role has no gloss, a person with no "
      "reading, a publishing line with no name. The invariant blocks on work titles; this is the "
      "rest, and nothing counted it before."),
+    ("credit fields the division does not account for",
+     budget_credit_fields_the_division_does_not_account_for,
+     "credit fields whose shipped division leaves part of the field unexplained, so the interface "
+     "renders the string as the catalogue wrote it instead of rebuilding a byline that would have "
+     "lost something. A rise means the splitter met a shape it cannot divide."),
     ("full-width forms in English renderings",
      budget_full_width_forms_in_english_renderings,
      "English renderings holding a full-width character and no kana or kanji, which is what "
@@ -3359,6 +3581,11 @@ def context():
         # function to its original.
         "interface_js": ((SITE_ROOT / "kari" / "app.js").read_text()
                          if (SITE_ROOT / "kari" / "app.js").exists() else ""),
+        # status.html's script, read here for the same reason app.js is. It is a published page
+        # and nothing had ever asked it what it shows.
+        "status_js": ((SITE_ROOT / "kari" / "app-status.js").read_text()
+                      if (SITE_ROOT / "kari" / "app-status.js").exists() else ""),
+        "status": _load(BUILD / "status.json", {}) or {},
         "series": (_load(BUILD / "series.json", {}) or {}).get("series", []),
         "names": {k: ((_yaml(NAMES / f"{k}.yaml", {}) or {}).get("names") or {})
                   for k in ("titles", "authors")},
@@ -3566,6 +3793,29 @@ def self_test():
          inv_names_reach_a_page_only_through_their_renderer,
          lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
              "${workLabel({ work: w.t })}", "${esc(w.t)}")})),
+        # THE CANARY IS THE TABLE LOSING AN ENTRY, planted in the SOURCE the context holds so it
+        # reaches the file the check evaluates. 著 is the commonest role in the corpus by a long
+        # way, 766 credits state it, and it was in the six-word table this replaced, so a round
+        # that rewrites `ROLE_EN` and drops it is not a hypothetical.
+        ("every credit role has an English gloss", inv_every_credit_role_has_an_english_gloss,
+         lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
+             "'著': 'author', '著者': 'author',", "'著者': 'author',")})),
+        # AND THE SAME LOSS SEEN FROM THE OTHER END. The line still renders and the name is still
+        # replaced; what is left is `[著]` standing in the middle of an English credit, which is
+        # what a reader would meet. One fault, two checks, and they fail for different reasons:
+        # the first reads the table, the second reads the page.
+        ("no cataloguing notation in an English rendering",
+         inv_no_cataloguing_notation_in_an_english_rendering,
+         lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
+             "'著': 'author', '著者': 'author',", "'著者': 'author',")})),
+        # THE STATUS PAGE WRITING A SENTENCE OF ITS OWN IN JAPANESE. Planted in the SOURCE the
+        # context holds, the same way the entry-point probe is, so it reaches the file the check
+        # evaluates. `T('統計', 'Statistics')` is a pair; dropping the English half is what a
+        # section added in a hurry looks like.
+        ("status.html shows no Japanese of its own",
+         inv_status_page_shows_no_japanese_of_its_own,
+         lambda c: c.update({"status_js": (c.get("status_js") or "").replace(
+             "T('統計', 'Statistics')", "T('統計', '統計')")})),
         # A field carrying Japanese that nothing has ruled on, which is what every pass adding a
         # field looks like from here.
         ("every Japanese field the data carries has a ruling", inv_every_japanese_field_has_a_ruling,

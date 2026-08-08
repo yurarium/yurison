@@ -78,7 +78,20 @@ ROLES = ("原作", "作画", "漫画", "キャラクター原案", "キャラク
          "カバーイラスト", "カバー", "デザイン", "翻訳", "訳", "編", "絵", "文",
          # `ほか著雪子` is an anthology credit: some of the contributors, then the role. The two
          # characters are cataloguing and the name is what follows them.
-         "ほか著", "他著")
+         "ほか著", "他著",
+         # Read off the corpus 2026-08-08: `[話]とい天津`, `[取材協力]御坊`,
+         # `[[翻訳協力]][BPS株式会社]` and `[キャラクターデザイン原案]SukeraSparo`. 話 is a single
+         # character and so needs a delimiter at the head of a part, which is what stops it taking
+         # the first character off a pen name.
+         "話", "取材協力", "翻訳協力", "キャラクターデザイン原案")
+
+# ROLES A BRACKET MAY HOLD AND A NAME MAY BEGIN WITH. `[コミック]nishi` states a job and
+# `コミックニュータイプ(編)` is a magazine's editorial desk, and a multi-character role needs no
+# delimiter at the head of a part, so admitting コミック to `ROLES` turned that magazine into
+# `ニュータイプ` credited as art. Inside a bracket the word is the whole content and cannot be the
+# start of anything, which is the one context where it is unambiguous. STANDING-INSTRUCTIONS §2:
+# the counter-case was in the corpus and the rule was shipped for one round without it.
+BRACKET_ROLES = ("コミック",)
 
 # LONGEST FIRST. Python alternation takes the first branch that matches, so `著` ahead of `著者`
 # leaves a stray 者 where a name should be, and `編` ahead of `編集` leaves 集.
@@ -99,7 +112,10 @@ ROLE_PHRASE_LONG = r"(?:%s)(?:[\s　・･/／]+(?:%s))*" % (_ALT_LONG, _ALT_LON
 # before it is widened.
 ROLE_HEAD = re.compile(r"^\s*(?:(?:%s)\s*[:：/／]|(?:%s)\s*[:：]?)\s*"
                        % (ROLE_PHRASE, ROLE_PHRASE_LONG))
-ROLE_ONLY = re.compile(r"^\s*(?:%s)\s*[:：]?\s*$" % ROLE_PHRASE)
+_ALT_BRACKET = "|".join(re.escape(r) for r in
+                       sorted(ROLES + BRACKET_ROLES, key=len, reverse=True))
+_ROLE_PHRASE_BRACKET = r"(?:%s)(?:[\s　・･/／]+(?:%s))*" % (_ALT_BRACKET, _ALT_BRACKET)
+ROLE_ONLY = re.compile(r"^\s*(?:%s)\s*[:：]?\s*$" % _ROLE_PHRASE_BRACKET)
 
 # A role label appearing mid-string after whitespace starts a new credit: `原案：士郎正宗　漫画：
 # 六道神士`. This is the only case where whitespace splits, and it splits because of the label.
@@ -219,7 +235,14 @@ def split_credits_detail(credit, interpunct=True):
     """
     if not credit:
         return []
-    masked = _break_after_role_brackets(_mask_brackets(str(credit)))
+    # A DOUBLED DELIMITER IS STILL ONE DELIMITER, normalised here so that every reader below
+    # sees one. MADB writes `[[著]]椿木とりか` and `[[翻訳協力]][BPS株式会社]`, and against the
+    # doubled form `_roles_on` found no role and `_peel_bracket` found no name, so one company
+    # credited on two works vanished from the byline in every language. `openbd_reading.credit_parts`
+    # had normalised this since it was written and this traversal had not, which is one notation
+    # with two readers (STANDING-INSTRUCTIONS §3).
+    credit = re.sub(r"\[+", "[", re.sub(r"\]+", "]", str(credit)))
+    masked = _break_after_role_brackets(_mask_brackets(credit))
     seps = SEPARATORS if interpunct else SEPARATORS_WHOLE_NAMES
     parts = []
     for chunk in re.split(r"%s|%s" % (seps.pattern, BREAK), masked):
@@ -243,8 +266,11 @@ def split_credits_detail(credit, interpunct=True):
         name = name.strip(" 　:：")
         if not name or ROLE_ONLY.match(name) or name in NOT_A_NAME:
             continue
-        # A part with no Japanese and no Latin left is punctuation, not a person.
-        if not (kana.has_kana(name) or kana.has_kanji(name) or kana.has_latin(name)):
+        # A part with no LETTERS in it is punctuation, not a person. This asked for kana, kanji or
+        # Latin and so dropped four Korean pen names credited on two anthologies, which is a
+        # question about the script somebody's name is written in rather than about whether it is a
+        # name. `isalpha` answers the question the comment was already asking.
+        if not any(ch.isalpha() for ch in name):
             continue
         if name in seen:
             continue
@@ -261,6 +287,19 @@ def split_authors(credit, interpunct=True):
     return [(n, r) for n, r, _role in split_credits_detail(credit, interpunct)]
 
 
+def _is_notation(inner):
+    """Whether a bracket holds cataloguing rather than a name or a reading.
+
+    A ROLE, OR THE WORD THAT CLOSES A CREDIT. `[著]嵩乃朔 [ほか]` was read as a name with the
+    furigana gloss ホカ, because ほか is kana and follows a head that is not, which is the exact
+    shape a printed reading has. It is not one: the bibliography writes an anthology this way and
+    the bracket says "and others". `NOT_A_NAME` already holds that word for the splitter, so
+    asking it here is one vocabulary rather than two.
+    """
+    inner = str(inner or "").replace(MASK, "・").strip()
+    return bool(inner) and (bool(ROLE_ONLY.match(inner)) or inner in NOT_A_NAME)
+
+
 def _peel_bracket(part, depth=4):
     """Split `博（ひろ）` into a name and a reading; strip `宮澤伊織(早川書房刊)` down to the name.
 
@@ -271,7 +310,29 @@ def _peel_bracket(part, depth=4):
     A CREDIT CAN CARRY TWO OF THEM. `壇九（TANJIU)(著者)` is a name, the Latin the artist also goes
     by, and a role, and peeling one bracket left `壇九(著者)`, which is nobody. `depth` bounds the
     peeling so a pathological string cannot loop.
+
+    A DOUBLED DELIMITER IS STILL ONE DELIMITER, and until this line it was two. MADB writes
+    `[[著]]椿木とりか` and `[[翻訳協力]][BPS株式会社]`, and against the doubled form the search below
+    matched `[[翻訳協力]`, left `][BPS株式会社]` as the head, and the part came back as nothing at
+    all: a company credited on two works vanished from the byline in every language. The other
+    doubled shape, `[上田香子][訳]`, peeled the NAME's bracket first and returned `[訳]` as the
+    person, so a reader met a credit called "translation". `openbd_reading.credit_parts` had
+    normalised this since it was written and this traversal had not, which is one notation with two
+    readers (STANDING-INSTRUCTIONS §3).
+
+    A NAME ALONE IN A BRACKET KEEPS ITS CONTENT. `[BPS株式会社]` is how MADB writes a name it took
+    from a Latin catalogue, and returning the brackets with it hands the store a key nothing is
+    filed under.
     """
+    # Notation brackets first and wherever they sit, because which bracket holds the name is not
+    # decided by which comes first: `[上田香子][訳]` puts the person in the leading one.
+    stripped = BRACKETED.sub(
+        lambda m: "" if _is_notation(m.group(1)) else m.group(0), part).strip()
+    if stripped:
+        part = stripped
+    whole = BRACKETED.fullmatch(part)
+    if whole and whole.group(1).strip():
+        part = whole.group(1).strip()
     m = BRACKETED.search(part)
     if not m:
         return part, None

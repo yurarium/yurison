@@ -298,7 +298,7 @@ def reads(toks, accessors):
         # is what the stack would otherwise report.
         if nxt in (".", "?.") and after + 2 < len(sig) and sig[after + 2][1] == "(":
             consumer = f"through:{sig[after + 1][1]}"
-        elif nxt in TEST_OPS:
+        elif nxt in TEST_OPS or _compared_before(sig, k, hit == two):
             consumer = "tested"
         else:
             consumer = "bare"
@@ -314,6 +314,23 @@ def reads(toks, accessors):
                     break
         out.append((hit, pos, consumer))
     return out
+
+
+def _compared_before(sig, k, is_pair):
+    """Whether a comparison operator sits immediately in front of this read.
+
+    A COMPARISON IS A COMPARISON IN EITHER ORDER, and this only looked at the operator AFTER the
+    read. `x !== ln.name` and `ln.name !== x` say the same thing, and the first came back as a read
+    consumed by whatever call enclosed it, which for a `.filter(...)` is the filter. That makes the
+    rule depend on which side of `!==` somebody wrote the field, which is not a distinction the
+    guarantee rests on. The token before the read's base identifier answers it.
+
+    NOT WIDENED FURTHER ON PURPOSE. `f(a, b.name)` has a comma in front and stays a read, and
+    `x || r.work` has `||`, which yields the title when there is one and so passes the value
+    straight through; `TEST_OPS` leaves `||` out for exactly that reason and this shares the list.
+    """
+    base = k - (4 if is_pair else 2)
+    return base >= 0 and sig[base][1] in TEST_OPS
 
 
 def line_of(src, pos):
@@ -333,6 +350,11 @@ NOT_SHOWN = {
     "hits": "asking whether an index matches a query",
     "foldKey": "the key the name store is keyed on",
     "localeCompare": "an ordering",
+    # A LOOKUP THAT ANSWERS WITH A RECORD. Interpolating one prints `[object Object]`, so nothing
+    # it is handed can reach a page through it. `nameFor` is deliberately NOT here and has entries
+    # in SAFE instead: it returns its third argument when there is one, and that argument is a
+    # string, so it CAN hand a name straight back.
+    "pubRec": "the publisher registry lookup, which answers with a record and not with a name",
 }
 
 # Reads outside an entry point that are not a rendering. Each names the function doing the reading,
@@ -394,12 +416,12 @@ SAFE = {
     ("renderWorkPage", "work", "through:nameFor"): (
         1, "the title as a key, to reach the citation for its own English name"),
 
-    # The credit field split into the people in it, each of whom `authorLabel` then renders, and
-    # each of whom is then wrapped in the address of their record. Same shape as `creditLine`
-    # above, and for the same reason: the split is the caller's and the rendering is not.
-    ("linkedCredits", "author", "through:String"): (
-        1, "the credit field, split on the parts the build shipped so each person is rendered by "
-           "authorLabel and linked to their own record"),
+    # THE CREDIT PAGE'S OWN NAME AS A LOOKUP KEY. The heading is drawn by `authorLabel` two lines
+    # below; this reads the record for the reading, the romanisation and the identifier, which are
+    # what the page is for. Same shape and same reason as `renderWorkPage` above, and `nameFor` is
+    # not in NOT_SHOWN because it hands its third argument straight back.
+    ("renderCreditPage", "credit", "through:nameFor"): (
+        1, "the credit as a key, to reach the record holding its reading and its address"),
 }
 
 

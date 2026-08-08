@@ -280,20 +280,67 @@ def _stated_for(work, platform):
 
 
 
-def credit_parts(ja):
-    """The people named in a credit line, or None where it is not one.
+def credit_parts(ja, store=None):
+    """How one credit field divides, in the shape kari/app.js renders it from, or None.
 
-    Shipped so the interface can compose the line from its parts under the reader's own choices.
-    A phrase rendered at build time is one fixed string: it cannot follow a macron preference, and
-    it cannot follow a family-name-first preference either, because both are the reader's to make.
+    `{"p": [{"n": name, "r": role}, …], "etc": 1, "part": 1}`. `etc` says the field names some of
+    its contributors and stops; `part` says this division does NOT account for everything the field
+    says, which is the flag that stops the interface rebuilding a byline out of an incomplete
+    answer.
+
+    SHIPPED RATHER THAN DERIVED IN THE BROWSER, so the reader's romanisation style, name order and
+    furigana all reach a credit line, and so that the division a page draws is the division the name
+    store is keyed on. `adapters/names/creditline.py` holds the rule; this only calls it.
+
+    EVERY FIELD AND NOT ONLY THE PHRASED ONES. This was keyed off `data/names/phrases.yaml`, so a
+    credit field with no analyser phrase shipped no division at all and the interface fell back to
+    dividing the string itself. 2,700 fields reach a reader and 236 of them were rendering in
+    Japanese under an English heading for want of an answer this function already had.
     """
     try:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
-        from names.inputs import split_authors
+        from names import creditline
     except Exception:                                                       # noqa: BLE001
         return None
-    parts = [(n or "").strip() for n, _role in split_authors(ja or "")]
-    return parts if len(parts) > 1 and all(parts) else None
+    parts, drop = creditline._divide(ja or "", store)
+    if not parts:
+        return None
+    out = {"p": parts}
+    if drop:
+        # Literal substrings of the field that say the same thing twice: a reading printed beside
+        # the name it reads. Taken off an English page, where kana beside a romanisation is a
+        # second copy of a name in a script the page is not written in.
+        out["drop"] = drop
+    if creditline.coverage(ja or "", store):
+        out["part"] = 1
+    return out
+
+
+def credit_fields(idx, works, series_rows, releases, registry=None):
+    """Every credit field a reader can meet, from the five collections that carry one.
+
+    READ OFF THE BUILT COLLECTIONS AND NOT OFF A NAME FILE. The division has to answer for the
+    string the INTERFACE looks up, which is `index[].c` on the catalogue tab, `works[].creator` on
+    the 発売 tab and `author` on the other two. A set assembled from anywhere else answers for
+    strings nobody renders and misses the ones somebody does.
+
+    THE REGISTRY IS THE FIFTH, and it holds strings no feed row does. `iimAn&惟丞` and
+    `水谷悠珠＆かえで透` were single credits before a splitter divided on the ampersand; the registry
+    is append-only so both spellings stay, and a credit page heads with one and a homophone list
+    links to it. Without a division those pages showed the joined spelling in Japanese.
+    """
+    seen = set()
+    for rows, key in ((idx or [], "c"), (works or [], "creator"),
+                      (series_rows or [], "author"), (releases or [], "author")):
+        for r in rows:
+            v = (r.get(key) or "").strip() if isinstance(r, dict) else ""
+            if v:
+                seen.add(v)
+    for fact in ((registry or {}).get("credits") or {}).values():
+        v = str((fact or {}).get("credit") or "").strip()
+        if v:
+            seen.add(v)
+    return sorted(seen)
 
 
 def _recompose_credit(ja, phrase, authors):
@@ -5671,6 +5718,26 @@ def main():
     print(f"imprints        : {_imp_lines} line(s) answering {len(_imp_shipped)} key(s) in "
           f"feed/names.json")
 
+    # BUILT BEFORE THE NAME MAP IS WRITTEN, because the credit registry holds spellings no feed
+    # row does and each of them needs a division shipped beside the rest. The file itself is
+    # written further down with the other record page.
+    _credits_shipped = credit_page_data(series_rows)
+
+    # THE DIVISION OF EVERY CREDIT FIELD A READER CAN MEET. Computed here because it needs the
+    # author store, which is what settles an interpunct: 矢立肇・富野由悠季 divides where both halves
+    # are names this map can render, and るいす・まくられん does not.
+    _credit_fields = credit_fields(idx, works, series_rows, releases, _credits_shipped)
+    _credit_div = {}
+    _credit_unaccounted = 0
+    for _cf in _credit_fields:
+        _cd = credit_parts(_cf, _auth_folded)
+        if not _cd:
+            continue
+        _credit_div[_fold(_cf)] = _cd
+        _credit_unaccounted += 1 if _cd.get("part") else 0
+    print(f"credits         : {len(_credit_div)} field(s) divided for the interface, "
+          f"{_credit_unaccounted} not fully accounted for")
+
     (out / "feed" / "names.json").write_text(json.dumps(
         {"generated": str(_today),
          "note": "English renderings and readings, keyed by NFKC-folded title/author. Joined onto "
@@ -5702,11 +5769,7 @@ def main():
          # The people in each credit line, keyed like the phrases, so the interface can render a
          # line from its parts and follow the reader's romanisation style and name order. The
          # composed phrase stays as the fallback for a line whose people we do not all know.
-         "credit_parts": {_fold(k): _cp for k, _cp in (
-             (k, credit_parts(k)) for k in (
-                 (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
-                  ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {})
-         ) if _cp},
+         "credit_parts": _credit_div,
          "phrases": {_fold(k): _recompose_credit(k, v, _auth_names) for k, v in (
              (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
               ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}
@@ -5724,7 +5787,6 @@ def main():
     # SO THE ANSWER SHIPS, and the registry modules are the only things that compute it. These are
     # fetched when a reader opens one of these pages and never for an ordinary visit, which is why
     # they are separate files rather than more keys on `names.json`: that one loads on every visit.
-    _credits_shipped = credit_page_data(series_rows)
     (out / "credits.json").write_text(json.dumps(_credits_shipped, ensure_ascii=False, indent=1,
                                                  default=jsonable))
     _cp_n = len(_credits_shipped.get("credits") or {})

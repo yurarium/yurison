@@ -1838,3 +1838,63 @@ a 合冊版 of the author's own 個人誌, and `delivery.edition_statement` answ
 its patterns covers 合冊版 predicated on 個人誌. Widening them would move the 174 and 79 counts that this
 round and the last one both report, so it is left as a gap to close deliberately rather than in
 passing.
+
+### An anchor must not match inside the word before it (2026-08-08)
+
+**What was wrong.** `kana.align` places a reading over a surface by treating kana and punctuation as
+anchors and searching for a split that spells the reading. The search backtracks, so it is complete,
+but the first solution it finds is arbitrary: a kanji run is tried shortest first and nothing says a
+kanji run should read as few kana as possible. `私の女神が今日も推せる` against
+`ワタシ ノ メガミ ガ キョウ モ オセル` came back with 女神 under メ and 今日 under ミガキョウ, because
+the anchor が matched the ガ INSIDE メガミ. `アイドル総選挙4位…魔王を倒す` did the same, を taking the
+オ inside マオウ. Both spell their reading, so the producer's own gate passed them, and
+`implausible ruby spans` caught them, which is why the gate went red and the readings went unstored.
+
+**Why the readings went unstored is the part worth naming.** The reading of both titles is ordinary
+Japanese with no name and no coinage in it, and neither was ever in doubt. What could not be derived
+was the ruby. Storing a reading drops pass 4's spans by design, `build.py` re-derives them, and the
+derivation was broken, so a correct reading could not be committed and the works kept an
+`unverified` mark that says the reading may be wrong. The mark was reporting the fact that was fine.
+
+**The fix, and the constraint on any fix.** Putting the arithmetic `implausible ruby spans` does
+into the solver would make the check true by construction for spans the solver produced, which is
+§14b's second shape. So the solver was given something else to work from: the analyser's own word
+boundaries in the reading, which were being thrown away. An anchor that STARTS inside one of those
+words has to reach at least the end of that word. That is what okurigana is, kana trailing the stem
+of ONE word, so 推 under オ followed by せる taking セル is admitted and が stopping in the middle of
+メガミ is not.
+
+**The check keeps its independence because the two read different things.** `implausible ruby spans`
+counts kana against kanji on the rendered result and never looks at the segmentation; the solver
+reads the segmentation and never counts a kanji. `毎月庭つき大家つき` against
+`マイツキ ニワツキ オオヤツキ` is the case that proves they are not the same measure: 毎月庭 under マイ
+honours every word boundary, because ツキ does end マイツキ, and it still puts three kanji under two
+kana. The solver cannot see that and the check can.
+
+**Measured before it was believed.** Every surface and reading the store holds was aligned both
+ways. Three of 1,434 curated and sourced pairs change, all of them improvements, and the store's
+implausible-span count falls from 10 to 8. Nothing that aligned before fails to align now, and
+nothing that was refused before is placed now: `能面 battle girl納言` is the case that made the rule,
+where pinning does find a placement and the placement puts `girl` over `girl`, so the pinned result
+is only ever accepted where the unpinned search also found one.
+
+**The remaining class, which this does not touch.** The 24 implausible spans left across the whole
+name store fall into one shape: the SURFACE carries a space and the reading does not divide the same
+way. `幕末女子高生 鬼と夜明け` reads `バクマツ ジョシコウセイ   オニ ト ヨアケ`, four reading words
+against two surface parts, and the equal-count fast path cannot use the boundary that is written on
+both sides. Six author names are the same shape with no spaces in the reading at all, `三田 織` against
+`ミタオリ`. A surface space is a harder boundary than anything the solver currently trusts, and using
+it is the next piece of this.
+
+**A curated `furigana_spans` was considered and refused.** `curate.py` could admit the field, and a
+reviewer could then record correct ruby beside a reading the aligner cannot derive. It was refused.
+The defect was a class and not two rows, so curation would have left three other titles wrong and
+would have reached none of them. A hand-recorded span set is a second producer of a fact the reading
+already determines, which STANDING-INSTRUCTIONS §3 warns about, and it lets a reviewer record spans
+that agree with no reading at all. Papering over an aligner fault one row at a time also lowers the
+count that would otherwise find the class, so the measure stops being able to see what it was built
+to see.
+
+The case for it is not empty and is worth keeping in view. A title whose correct ruby no reading can
+produce, which is what the remaining class above is, has nowhere to be recorded today. Admit the
+field when that is the problem being solved, and not as a way around a solver bug.

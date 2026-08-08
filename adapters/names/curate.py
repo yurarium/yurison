@@ -149,8 +149,13 @@ OURS = "yurarium"
 # A reading keeps the title's own bracketed labels and censoring marks verbatim, because they are
 # part of the string rather than something to pronounce: 【タテスク】 and the 〇 of 〇〇する話 both
 # appear in readings the store already holds.
+# 『』 AND U+2010 WERE ADDED ON 2026-08-08, for two titles a reviewer settled by hand. 鮮血王女 quotes
+# 『死神』 inside its own subtitle and 天華百剣 ‐瞬‐ brackets its subtitle in HYPHEN rather than in the
+# ASCII one. Both marks are already in readings `titles.yaml` holds, which this pattern never saw
+# because it validates the curated file alone. Neither weakens what the rule is for, which is
+# refusing kanji and hiragana.
 KATAKANA = re.compile(r"^[ァ-ヺー・\s0-9０-９A-Za-zＡ-Ｚａ-ｚ"
-                      r"!-/:-@\[-`{-~！-／：-＠［-｀｛-～、。〜…【】〇○◯"
+                      r"!-/:-@\[-`{-~！-／：-＠［-｀｛-～、。〜…【】『』‐〇○◯"
                       r"─━♪♭♯★☆♡♥◎△▽※＆]+$")
 
 

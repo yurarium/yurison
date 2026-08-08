@@ -184,6 +184,15 @@ def main(s):
             "an entry that says nothing at all")
     s.check(curate.problems("titles", "球詠", dict(R, reading=None, reading_basis="stated")),
             "a reading_basis with no reading")
+    # A READING CARRIES THE TITLE'S OWN MARKS, and these two arrived with titles settled by hand.
+    # 鮮血王女 quotes 『死神』 inside its subtitle and 天華百剣 ‐瞬‐ brackets its subtitle in HYPHEN
+    # and not in the ASCII one, so a pattern without them rejects a reading that is entirely kana.
+    s.eq(curate.problems("titles", "球詠", dict(R, reading="『タマヨミ』")), [],
+         "a reading keeps the corner brackets the title puts round a word")
+    s.eq(curate.problems("titles", "球詠", dict(R, reading="タマ ‐ ヨミ ‐")), [],
+         "and the HYPHEN a subtitle is bracketed in")
+    s.check(curate.problems("titles", "球詠", dict(R, reading="『球詠』")),
+            "which does not let a kanji through, since that is what the rule is for")
 
     # A READING SETTLED BY A REVIEWER, where nothing states one. Ranked below a printed kana and
     # above what an analyser aligned, and it has to say what it rests on: a reading with no

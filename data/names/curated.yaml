@@ -9,6 +9,80 @@
 # than only with the result.
 
 titles:
+  可愛原先輩はかわいいがすき！:
+    reading: "カワイハラ センパイ ワ カワイイ ガ スキ！"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      可愛原 is the senpai's surname and the title's whole joke is that it contains 可愛い: she likes
+      cute things and is named for them. 可愛 as a surname element is カワイ, which the pun fixes. 原
+      after it is ハラ, the ordinary second element of a surname, and the analyser's ゲン is the
+      on-reading, which no Japanese surname uses here. カワイバラ is the alternative, since 原 voices
+      in 桑原 and does not in 上原, and nothing about this name settles which; ハラ is the commoner and
+      the pun does not turn on it.
+  天華百剣 ‐瞬‐:
+    reading: "テンカヒャッケン ‐ シュン ‐"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      天華百剣 is てんかひゃっけん: 百 geminates before a k-sound, as it does in 百科 ヒャッカ, so the
+      stored テンカ ヒャク ケン was wrong before the subtitle was reached. ‐瞬‐ is a single kanji
+      bracketed as a subtitle, which is the shape the same franchise uses for ‐斬‐, and a subtitle in
+      that shape takes the on-reading: シュン. The analyser answered マドカ, which is a given-name
+      reading of 瞬 and reads the subtitle as somebody's name.
+  奏 青春バンド百合アンソロジー:
+    reading: "カナデ セイシュン バンド ユリ アンソロジー"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      奏 stands alone ahead of the subtitle, and a single kanji standing alone takes its kun reading:
+      カナデ, the noun of 奏でる, to play an instrument. The subtitle says the anthology is about
+      school bands, so the word means what it says. ソウ is the alternative and needs a compound to
+      sit in, which the title does not give it.
+  鮮血王女、皆殺す ～家族に裏切られ、処刑された少女は蘇り、『死神』となって復讐する～:
+    reading: "センケツ オウジョ、 ミナゴロス ～ カゾク ニ ウラギラレ、 ショケイ サレタ ショウジョ ワ ヨミガエリ、 『シニガミ』 ト ナッテ フクシュウ スル ～"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      皆殺す is the title coining a verb out of 皆殺し, ミナゴロシ, which voices its second element. So
+      it reads ミナゴロス in one word, and the analyser's ミナ コロス split it in two and dropped the
+      voicing, which loses the compound the title is built on. The rest of the subtitle is confirmed
+      as the analyser had it.
+  アイドル総選挙4位だった私が魔王を倒すんですか？（Lilie comics）:
+    reading: "アイドル ソウセンキョ 4イ ダッタ ワタシ ガ マオウ ヲ タオス ンデス カ？ （Lilie comics）"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      Ordinary words throughout and no name in it, so the reading was never the doubtful part. It is
+      recorded because the mark on the page said the reading might be wrong when what was wrong was
+      the ruby derived from it: the anchor を matched the オ inside マオウ, so 魔王 kept マ and 倒 took
+      ウヲタオ. adapters/names/kana.py refuses that placement now.
+  私の女神が今日も推せる 【単話版】:
+    reading: "ワタシ ノ メガミ ガ キョウ モ オセル 【タンワバン】"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      Ordinary words again, and the same defect: the anchor が matched the ガ inside メガミ, so 女神
+      kept メ and 今日 took ミガキョウ. 単話版 is タンワバン, where 話 is ワ in a compound and the
+      analyser gave it the standalone ハナシ.
   笑う門だよ福音さん:
     en: Warau Kadoda yo Fukuinsan
     basis: romaji

@@ -2561,17 +2561,25 @@ names:
     reading_source: surface
     verified: true
   こかむも:
-    basis: romaji
+    basis: official-jp
     en: Kokamumo
-    en_at: '2026-08-02'
+    en_at: '2026-08-08'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: KOKAKI Mumose
+    - basis: romaji
+      source: wikidata
+      value: Kokamumo
     en_pass: 2
-    en_source: wikidata
-    en_url: http://www.wikidata.org/entity/Q131225979
-    note: 'MangaUpdates name order: family=KOKAKI given=Mumose'
+    en_reviewed: '2026-08-08'
+    en_source: publisher
+    en_source_kind: publisher-jp
+    en_url: https://comic-fuz.com/book/24215
+    note: 'The same cover credits the author as Kokamumo. Worth recording beyond this one name: こかむも is
+      an all-kana name of the shape the boundary work divides, and the publisher''s own Latin form is
+      a single word, so it is evidence that a run-together romanisation is sometimes the right answer
+      and not always a lost division.'
     reading: コカムモ
     reading_at: '2026-08-02'
     reading_basis: surface

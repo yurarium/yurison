@@ -15429,16 +15429,24 @@ names:
     reading_source_kind: analyser
     verified: false
   ぬるめた:
-    basis: romaji
-    en: Nurumeta
-    en_at: '2026-08-03'
-    en_reviewed: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
-    note: Reads as the past tense of ぬるめる, to make lukewarm, but nothing in the synopsis — an android
-      girl, her chaotic guardian, and two housemates going through ordinary high school days — connects
-      that verb to the plot. Held as a coinage-sounding title rather than translated as "made lukewarm",
-      which would assert a reading the title does not support.
+    basis: official-jp
+    en: NullMeta
+    en_at: '2026-08-08'
+    en_conflicts:
+    - basis: romaji
+      source: yurarium
+      value: Nurumeta
+    en_reviewed: '2026-08-08'
+    en_source: publisher
+    en_source_kind: publisher-jp
+    en_url: https://comic-fuz.com/book/24215
+    note: 'The tankobon cover sets the title in Latin script as NullMeta, one word, and the collected
+      edition is 芳文社''s まんがタイムKRコミックス. That settles a question searching could not: three stylings circulate,
+      NullMeta, Null Meta and NULL-META, with nothing behind any of them. It also answers the reading
+      held here before, which took ぬるめた for the past tense of ぬるめる, to make lukewarm, and noted that nothing
+      in the synopsis connects that verb to the plot. The publisher''s own spelling says the word is null
+      plus meta. The page is cited and not the cover image, because img.comic-fuz.com refuses a direct
+      request and a citation a reader cannot open is not one.'
     reading: ヌルメタ
     reading_at: '2026-08-02'
     reading_basis: surface

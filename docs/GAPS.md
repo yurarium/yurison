@@ -1703,3 +1703,72 @@ captures rather than a new fetch, and it should stay that way: the pages are alr
 **What a reader must be able to tell.** A delivery date is not a publication date and the interface
 should not present it as one. It needs its own basis in the store and its own words on the page, in
 the same way 発売日 and 奥付 are two facts about one book rather than one fact at two precisions.
+
+### What the recovery found (2026-08-08)
+
+**The value had not been thrown away, only ignored.** Every one of the 1,209 cmoa rows carried
+`delivered` on its volumes and every one of them was day-precise, so `adapters/cmoa_volumes.py
+--delivery` dated all 1,209 with no network at all. BOOK☆WALKER was the same story one layer up:
+`bwingest.py` had been writing `delivered` into every source record it made, so the corpus dates came
+out of `data/source/bookwalker/` and not out of a fetch either. Nothing in this round cost a request.
+真夜中だけのおともだち reads `delivered: "2018-10-20"` and has done since 2026-08-05.
+
+**The population, reproduced and one figure corrected.** 1,209 cmoa rows and 1,347 undated works-list
+rows are both exact. What the brief did not say is that the 1,308 print blocks naming a shop name
+BOOK☆WALKER on every single one of them: cmoa's shop address reaches a record only through
+`marketing_label_basis`, which is BOOK☆WALKER's alone, so the two shops contribute to different
+halves of this problem. cmoa's digital-only rows are not in the corpus at all, because that route
+enters through the ISBN and these have none, so dating them prepares a promotion rather than changing
+a page. 1,297 of the 1,347 corpus rows had a delivery date recoverable from disk; 1,084 works-list
+rows now carry one, and 12 works in the whole corpus still have no date of any kind.
+
+**Two counts of 1,209, which are not the same 1,209.** cmoa has 1,209 rows basised
+`shop-delivery-date-only` and BOOK☆WALKER has 1,209 undated source records. The coincidence is worth
+writing down because it invites the reading that one file is a view of the other.
+
+**What the shop says about an earlier edition, counted.** Over the 1,971 cached cmoa work pages, a
+doujin word appears somewhere on 321 and inside the shop's own description box on 284. Of those the
+shop states the file is the electronic edition of something published earlier on 174, and states the
+file is itself a doujinshi on 79. The remaining 31 use the word in a plot summary, and telling those
+apart is the whole difficulty: `同人誌風マンガ` is a commercial book in the style of one,
+`コミティアの人気作家` describes the author, and `参加した同人誌即売会で` is a scene.
+`adapters/test_delivery.py` pins all three as refusals.
+
+Neither of the first two figures withholds a date, and that is the change DEFINITIONS §6 made on the
+same day. A stated earlier edition does not imply a stated earlier DATE, so the 174 are recorded
+because a reader should be able to see the shop said so, and not as an argument.
+
+**The follow-up measure, and the honest limit on it.** `first_publication_followup` sorts these rows
+and only one of its states is work anybody could do. `no-earlier-record-expected` is finished, because
+the shop says the file is a doujinshi and §6 says the delivery day may be the only datable event it
+has. `earlier-edition-unsourced` is a row a better source could answer. `unclassified` means the shop
+said nothing about the edition, so the row is evidence for neither of the other two.
+
+The split works on cmoa, where 79 are settled and 165 open. It barely works on BOOK☆WALKER, where
+1,065 of 1,084 published rows read `unclassified`, because that shop's descriptions are not held
+offline and the only signal available is the publisher field: 19 rows record the author as her own
+publisher, which is the shop's individual-publishing route describing itself. So `status.html`
+publishes the total and not the split, since a follow-up figure of 0 beside 1,084 rows would read as
+nothing to do when it means nobody has read the descriptions.
+
+No doujinshi distributed only at an event was seen. Every row here arrived through a shop's own
+shelf, which is what DEFINITIONS §6 says admits it, so the out-of-scope case did not arise and there
+is no count to report.
+
+**Where the delivery date is allowed to go, and where it is not.** `delivery.promote` refuses on sight
+where any volume of the work states a printing, which preserves the 353-volume measurement whole. The
+date reaches a reader as `first_publication.date` with `date_event: shop-delivery` beside it, and it
+never reaches `print[].first`, which the interface labels 初刊. It travels there as `delivered_from`
+instead, so 1,140 works are not described as printed editions with a date no printer set. `first date
+precedes its editions` reads the printing and cannot see the delivery date, deliberately: 154 of the
+353 volumes were delivered before the printing, so reading it there would report the commonest case in
+the shop's catalogue as a contradiction. `a delivery date never stands beside a printing` is the
+invariant that covers these rows instead.
+
+**What the interface still needs, which is not built here.** `kari/app.js` labels the works page date
+刊行 and the catalogue panel 初出, and both now sometimes hold a delivery date. The build carries
+`first_event`, `print[].delivered_from` and a `delivery-date` row in the work page's other-data table,
+so the change is a label switching on a field that is already there rather than new plumbing:
+配信開始 / Delivered from where `first_event` is `shop-delivery`, the same wording on the volumes line
+where `delivered_from` is set, and an `EV_HOLDS` entry so the source row reads 配信開始日 instead of
+the raw key.

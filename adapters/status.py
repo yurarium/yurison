@@ -22,6 +22,7 @@ import json
 import pathlib
 
 import captures  # noqa: E402
+import delivery  # noqa: E402
 import yaml
 import yamlfast  # noqa: F401,E402   for its effect: yaml.safe_load reads through libyaml
 
@@ -124,6 +125,10 @@ LABELS = {
     "works": "works", "chapters": "chapters", "volumes": "volumes",
     "print_works": "works with a print edition", "print_only": "works published only in volumes",
     "with_identifier": "works carrying an identifier",
+    # THE WEAKEST DATE IN THE DATABASE, NAMED FOR WHAT IT IS. A reader seeing "delivery dated" in a
+    # delta line has to be able to tell it from a printing without opening anything, so the label
+    # says which event was dated and does not say "first published".
+    "delivery_dated": "works dated by the day a shop began delivering the file",
 }
 
 
@@ -132,6 +137,7 @@ def statistics(series, index):
     states = {}
     for w in series:
         states[w.get("state") or "unknown"] = states.get(w.get("state") or "unknown", 0) + 1
+    _d = delivery.tally(series)
     basis = {}
     for w in series:
         b = (w.get("work_en") or {}).get("basis")
@@ -145,6 +151,15 @@ def statistics(series, index):
         "volumes": sum(len(w.get("volumes") or []) for w in index),
         "with_identifier": sum(1 for w in series if w.get("id")),
         "chapters": sum(w.get("chapters") or 0 for w in series),
+        # THE TOTAL AND NOT THE FOLLOW-UP SPLIT, and the reason is that the split cannot be
+        # computed for this population. DEFINITIONS §6 says that for a doujinshi a platform sells,
+        # the delivery day may be the only datable event in the work's history, so a number counting
+        # these as outstanding would never fall. The state that a better source COULD answer needs
+        # the shop's own description of the edition, and every row here came from BOOK☆WALKER, whose
+        # descriptions are not held offline: 1,065 of 1,084 sort to `unclassified`. Publishing that
+        # as a follow-up figure of 0 would read as nothing to do, which is not what it means. The
+        # split and the sentence for each of its states are in run.json.
+        "delivery_dated": _d["rows"],
     }
 
 

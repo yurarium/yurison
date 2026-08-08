@@ -39,12 +39,28 @@ twenty-eight months. So it is not a publication date, it is not an upper bound o
 not a lower bound either. A capture that filled the date field from it would put a decade's error
 into the field that decides whether a work is in scope, and every row would look answered.
 
-  IT IS NOT THE DATE FOR THE DIGITAL-ONLY ROWS EITHER, which is the tempting exception, because
-  those rows are the ones with nothing else. cmoa's own description of #ミカちゃんともなちゃん says
-  the file is the ebook edition of the author's 個人誌, so the shop is stating that an earlier
-  publication exists and not saying when. Absence of a date is a state
-  (STANDING-INSTRUCTIONS §5) and these rows keep it: `first_publication_basis` reads
-  `shop-delivery-date-only` and `first_publication_date` stays null.
+  IT IS THE DATE FOR THE DIGITAL-ONLY ROWS, REVERSED BY THE PROJECT OWNER ON 2026-08-08. What
+  stands above is the measurement and it is untouched: everything in it is about volumes stating
+  BOTH dates, and where a print date exists the print date wins and `delivery.promote` refuses the
+  delivery date on sight. What changed is the case with nothing else, which this module argued
+  against on these grounds:
+
+    cmoa's own description of #ミカちゃんともなちゃん says the file is the ebook edition of the
+    author's 個人誌, so the shop states that an earlier publication exists and does not say when.
+
+  The argument was that this made the date a stand-in for something better. It does not, and the
+  reason is now in DEFINITIONS §6: publication for a doujinshi is a nebulous idea to begin with,
+  since the first offering is usually a day at an event and no register records it the way a 奥付
+  records a printing. So an earlier EDITION existing does not mean an earlier DATE exists, and this
+  module was treating a value that is undefined as one that was being withheld. Measured over the
+  cache, the shop states an earlier edition on 174 of these pages and says the file is itself a
+  doujinshi on 79.
+
+  What the rows now carry is the delivery event, said as itself: `first_publication_basis` reads
+  `shop-delivery-date` and `first_publication_event` reads `shop-delivery`. Nothing calls it an
+  estimate of an earlier publication, because calling it one asserts the very thing §6 says is
+  usually absent. Absence of a date is still a state (STANDING-INSTRUCTIONS §5) and
+  `shop-delivery-date-refused` is where a row lands that has a printing to defer to instead.
 
 WHAT A DATE HERE BOUNDS. A volume's publication is not a work's first publication where the work
 was serialised in a magazine first; the tankōbon follows the chapters. So `first_publication_date`
@@ -60,6 +76,9 @@ Usage:  cmoa_volumes.py                     capture work pages, resuming from th
         cmoa_volumes.py --limit 50          the first 50 works still outstanding
         cmoa_volumes.py --madb              date the captured ISBNs from MADB, no network
         cmoa_volumes.py --openbd            and from openBD, for what MADB does not hold
+        cmoa_volumes.py --delivery          take the delivery date where nothing else answers, and
+                                            read each cached page for what the shop says its
+                                            edition is. No network; the pages are already on disk
         cmoa_volumes.py --volumes           open each printed volume's own page for its ISBN
         cmoa_volumes.py --report            read the output and print what it holds
 
@@ -73,6 +92,7 @@ import argparse
 import datetime
 import json
 import pathlib
+import re
 import sys
 import time
 import urllib.error
@@ -81,6 +101,7 @@ import urllib.request
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 import cmoa                                                                    # noqa: E402
+import delivery                                                                # noqa: E402
 import paths                                                                   # noqa: E402
 import shelfingest                                                             # noqa: E402
 import yaml                                                                    # noqa: E402
@@ -175,8 +196,17 @@ def first_publication(rec):
         return first["printed"], first.get("printed_basis") or "shop-publication-month"
     if first.get("isbn"):
         return None, "isbn-stated-not-catalogued"
+    # THE DELIVERY DATE, WHICH THIS MODULE SPENT ITS DOCSTRING REFUSING. The owner reversed the
+    # digital-only half of that refusal on 2026-08-08 (DEFINITIONS §6, docs/GAPS.md), and
+    # `delivery.promote` is where the rule now lives so the print-date refusal has one home. It is
+    # stricter than the branch above: this function reads volume 1 and `promote` reads every volume,
+    # so a work whose fifth volume states a printing is refused here even though volume 1 says
+    # nothing. The old basis name `shop-delivery-date-only` said the date was unusable and is gone.
+    date, _refused = delivery.promote(vols)
+    if date:
+        return date, delivery.BASIS
     if first.get("delivered"):
-        return None, "shop-delivery-date-only"
+        return None, "shop-delivery-date-refused"
     return None, "no-date-stated"
 
 
@@ -242,6 +272,25 @@ def settle(w):
     # magazine, and a tankōbon publisher is not the venue of a serialised work's first chapter.
     w["first_publication_country"] = "JP" if date else None
     w["first_publication_venue"] = (w.get("publisher") or None) if date else None
+    if basis == delivery.BASIS:
+        # WHICH VOLUME'S PAGE STATES THE DATE. A delivery date is read off a volume page and not
+        # from a catalogue, so unlike the branch above there IS a page to cite, and the volume
+        # holding the earliest date is the one that states it. `first_publication_source` is that
+        # page, so a reader can check the number against the shop.
+        _early = min((v for v in vols if v.get("delivered")),
+                     key=lambda v: str(v["delivered"])[:10])
+        w["first_publication_source"] = _early.get("url")
+        w["first_publication_event"] = delivery.EVENT
+        # THE FOLLOW-UP STATE, WHICH IS NOT A QUEUE LENGTH. `edition_statement` is filled by
+        # --delivery from the cached page and is absent until that has run, so a row with no
+        # statement sorts to `unclassified` and is counted as unsorted instead of as outstanding.
+        w["first_publication_followup"] = delivery.followup(
+            w.get("edition_statement"),
+            self_published=delivery.self_published(w.get("author"), w.get("publisher"),
+                                                   w.get("imprint")))
+    else:
+        for k in ("first_publication_event", "first_publication_followup"):
+            w.pop(k, None)
     return w
 
 
@@ -299,9 +348,11 @@ HEADER = """\
 #
 # WHAT THE SHOP STATES.
 #   delivered   配信開始日, the day コミックシーモア began selling the file. Present on every volume
-#               page. It is a fact about the shop's stock and NOT a publication of the work: it
+#               page. It is a fact about the shop's stock and not the same fact as a printing: it
 #               runs years late on a digitised back catalogue, 双葉社 stating 2007年12月 for a file
-#               the shop began selling on 2012-10-05. It is never used as first_publication.
+#               the shop began selling on 2012-10-05. Where a print date exists the print date is
+#               the work's and this is not evidence about it. Where none exists anywhere, this is
+#               the date the row carries, ruled by the project owner on 2026-08-08.
 #   printed     出版年月, the print edition's publication month, or the date openBD holds against
 #               the volume's ISBN. This IS a publication of the work and the only field here that
 #               answers DEFINITIONS §6. Absent on the digital distributors, which are most of this
@@ -323,10 +374,26 @@ HEADER = """\
 #                              these rows can be replaced if a publisher page appears.
 #   shop-publication-month     the shop states 出版年月 and neither catalogue holds the ISBN
 #   isbn-stated-not-catalogued an ISBN is stated and no catalogue asked has a record of it
-#   shop-delivery-date-only    the shop states only the day it began selling the file. No print
-#                              edition, so no ISBN will ever exist and no ISBN route can help.
+#   shop-delivery-date         the shop states only the day it began delivering the file, on every
+#                              volume of the work. No print edition, so no ISBN will ever exist and
+#                              no ISBN route can help. The date names the delivery and is exactly
+#                              true of it. adapters/delivery.py holds the rule and the wording.
+#   shop-delivery-date-refused a delivery date is stated and another volume states a printing, so
+#                              the printing answers and this one is not evidence about it. Nothing
+#                              in this capture is in that state, and the term exists so that a row
+#                              which reaches it is visible instead of silently undated.
 #   no-date-stated             the page carries no date of any kind
 #   no-volumes-found           the page listed nothing this pass could read
+#
+# THREE FIELDS A DELIVERY-DATED ROW ALSO CARRIES.
+#   first_publication_event      `shop-delivery`, so nothing downstream reads the date as a printing
+#   first_publication_followup   whether a better date could exist. NOT A BACKLOG:
+#                                `no-earlier-record-expected` is finished work under DEFINITIONS §6,
+#                                `unclassified` means the shop said nothing about the edition, and
+#                                only `earlier-edition-unsourced` is a row a source could answer.
+#   edition_statement            what the shop's own description says this file's edition is. The
+#                                term is recorded and the sentence is not, because a shop's あらすじ
+#                                is copyrighted (REQUIREMENTS §2).
 #
 # TWO FIELDS THAT APPEAR ONLY WHERE THEY SAY SOMETHING.
 #   printed_source   the page a per-book route read the date off. A bulk catalogue has none, and
@@ -347,6 +414,68 @@ HEADER = """\
 """
 
 
+# WHERE cmoa PUTS ITS OWN DESCRIPTION. `title_intro_box` on the work page, present on all 1,971
+# pages in the cache. The box is read and never stored: a shop's あらすじ is copyrighted
+# (REQUIREMENTS §2), so what is kept is one of `delivery`'s terms and the keyword that matched.
+#
+# WHY NOT `meta name="description"`. It concatenates the shop's boilerplate, the volume title and
+# the blurb, so a match cannot be attributed to the blurb. WHY NOT THE WHOLE PAGE: 321 of the 1,971
+# pages carry a doujin word somewhere and 285 carry one in the description. The rest are in reader
+# reviews and in the sidebar of other people's books, and a count over the page would have read as
+# the shop stating something about 36 works it says nothing about.
+# THE END OF THE BOX IS A NAMED ELEMENT AND NOT A COUNT OF CLOSING TAGS. The first version of this
+# ended at the third `</div>`, which lands in the right place on cmoa's current template and is one
+# nested wrapper away from reading half the page. `comic_description_hide` is the shop's own name
+# for the element after the description and follows the box on all 1,971 cached pages.
+INTRO_BOX = re.compile(r'<div class="title_intro_box".*?(?=<div id="comic_description_hide")', re.S)
+INTRO_OPEN = re.compile(r'<div class="title_intro_box"')
+TAGS = re.compile(r"<[^>]+>")
+
+
+def description(body):
+    """The shop's own description of a work, as text, or "" where the page carries no box.
+
+    Falls back to the rest of the page where the box opens and the closing marker is absent, since
+    a template that has moved its own marker is better read imperfectly than reported as silent. A
+    page with no box at all answers "", which is the case a health floor should see.
+    """
+    body = str(body or "")
+    m = INTRO_BOX.search(body) or INTRO_OPEN.search(body)
+    if not m:
+        return ""
+    seg = body[m.start():m.end()] if m.re is INTRO_BOX else body[m.start():]
+    return re.sub(r"\s+", " ", TAGS.sub(" ", seg)).strip()
+
+
+def read_editions(doc, cache):
+    """Fill `edition_statement` from each work's cached page, as `(doc, counts)`. No network.
+
+    THE PAGES ARE ALREADY PAID FOR, which is why this is a separate stage and why it never fetches:
+    the delivery dates and the descriptions were both on the work pages the capture read, and only
+    the dates were kept. A row whose page is not in the cache keeps no statement and sorts to
+    `unclassified`, which is the truthful answer for a page nobody has read.
+    """
+    tally = {"pages_read": 0, "mentions_doujin": 0, delivery.EARLIER_EDITION: 0,
+             delivery.OWN_DOUJIN: 0, "no_cached_page": 0}
+    for tid, w in doc["works"].items():
+        body = fetch(cmoa.work_url(tid), cache, offline=True)
+        if body is None:
+            tally["no_cached_page"] += 1
+            continue
+        tally["pages_read"] += 1
+        text = description(body)
+        if delivery.mentions_doujin(text):
+            tally["mentions_doujin"] += 1
+        said = delivery.edition_statement(text)
+        if said:
+            w["edition_statement"] = said
+            tally[said] += 1
+        else:
+            w.pop("edition_statement", None)
+        settle(w)
+    return doc, tally
+
+
 def counts(doc):
     """What the file holds, by basis. Written into the document so a reader need not recount."""
     works = list((doc.get("works") or {}).values())
@@ -358,6 +487,16 @@ def counts(doc):
     for w in works:
         k = "by_basis_" + (w.get("first_publication_basis") or "unknown").replace("-", "_")
         out[k] = out.get(k, 0) + 1
+    # WHAT THE WEAKEST DATE IN THE FILE AMOUNTS TO, counted here so nothing has to recount it. The
+    # follow-up tally is NOT a backlog: `no_earlier_record_expected` is finished work under
+    # DEFINITIONS §6, `unclassified` means the shop said nothing about the edition, and only
+    # `earlier_edition_unsourced` is a row a better source could answer.
+    for w in works:
+        for field, prefix in (("first_publication_followup", "followup_"),
+                              ("edition_statement", "shop_states_")):
+            if w.get(field):
+                k = prefix + w[field].replace("-", "_")
+                out[k] = out.get(k, 0) + 1
     return out
 
 
@@ -391,6 +530,14 @@ def yaml_document(doc):
         # each carry a null saying the catalogue has no per-book page.
         if w.get("first_publication_source"):
             L.append(f"    first_publication_source: {js(w['first_publication_source'])}")
+        # THREE FIELDS THAT ONLY A DELIVERY-DATED ROW CARRIES. `first_publication_event` names the
+        # event the date is of, which is what stops a reader downstream treating it as a printing;
+        # the follow-up state says whether anything is waiting on a source; and
+        # `edition_statement` is what the shop's own description says about this file's edition,
+        # recorded as a term because the sentence itself is copyrighted (REQUIREMENTS §2).
+        for k in ("first_publication_event", "first_publication_followup", "edition_statement"):
+            if w.get(k):
+                L.append(f"    {k}: {js(w[k])}")
         L.append("    volumes:")
         for v in w.get("volumes") or []:
             L.append(f"      - volume: {v['volume']}")
@@ -633,6 +780,9 @@ def main(argv=None):
                     help="open each volume's own page for its ISBN and dates")
     ap.add_argument("--all-volumes", action="store_true",
                     help="with --volumes, ask about digital-only works too")
+    ap.add_argument("--delivery", action="store_true",
+                    help="re-settle every row and read each cached page for what the shop says "
+                         "about its edition; no network")
     ap.add_argument("--report", action="store_true", help="say what the output file holds")
     a = ap.parse_args(argv)
 
@@ -642,6 +792,19 @@ def main(argv=None):
     doc["asked"] = len(shelf)
 
     if a.report:
+        return report(doc, shelf)
+
+    if a.delivery:
+        before = counts(doc).get("with_first_publication_date", 0)
+        doc, tally = read_editions(doc, a.cache)
+        pathlib.Path(a.out).write_text(yaml_document(doc))
+        after = counts(doc).get("with_first_publication_date", 0)
+        print(f"HEALTH: {tally['pages_read']} of {len(doc['works'])} work page(s) held in the "
+              f"cache, {tally['no_cached_page']} not")
+        print(f"{tally['mentions_doujin']} description(s) mention a doujin word; the shop states "
+              f"an earlier edition on {tally[delivery.EARLIER_EDITION]} and states the file is "
+              f"itself a doujinshi on {tally[delivery.OWN_DOUJIN]}")
+        print(f"{after - before} work(s) gained a delivery date, {after} dated in all -> {a.out}")
         return report(doc, shelf)
 
     if a.madb:

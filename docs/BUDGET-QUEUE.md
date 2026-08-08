@@ -20,7 +20,7 @@ it measures nothing about the data.
 | 3 | nicovideo works with no rights | 189 | **done, 60** (capture re-run with the fixed pattern; 3 of the residue state only the platform's own ©DWANGO, 57 have no cached page and belong to the capture measure) |
 | 4 | imprint strings that reach no line | 139 | **done, 18** (100 were the field repeating its publisher and moved to a measure that says so; 21 genuine lines added; the 18 left are magazines and companies, which are not lines) |
 | 5 | one work under two names in a list | 71 | **done, 53** (9 merged on identical title plus shared credit; the rest fold equal with titles that differ, which is where an earlier round found 3 of 41 were bad anchors, so each wants a ruling) |
-| 6 | labels with nothing to quote | 49 | queued |
+| 6 | labels with nothing to quote | 49 | **done, 0** (the YH spellings placed on 百合姫コミックス, so the line the reader is shown carries the term; bare IDコミックス still not the yuri line) |
 | 7 | credits carrying their own cataloguing | 38 | queued |
 | 8 | updates naming a work we do not hold | 27 | queued |
 | 9 | titles carrying cataloguing punctuation | 23 | queued |

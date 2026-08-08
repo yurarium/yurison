@@ -3079,9 +3079,29 @@ def budget_labels_with_nothing_to_quote(ctx):
     whether the renderer chose to show it. A record labelled from a platform's tag holds its term
     somewhere else and is not counted here.
     """
+    # THE LINE'S NAME COUNTS, THE ABBREVIATION DOES NOT, AND THE TWO ARE DIFFERENT QUESTIONS.
+    # `YH comics` says nothing a reader can weigh, and teaching this pattern those two letters would
+    # empty the class by fiat, which an earlier round refused for that reason. Asking the registry
+    # which LINE the spelling names is not the same move: 一迅社's own page says the line is
+    # 百合姫コミックス, the registry records that with its source, and `imprintOf` shows a reader the
+    # line and not the spelling. So the record quotes a term, and 49 works were being withheld on an
+    # abbreviation nobody had mapped.
+    #
+    # A SPELLING THE REGISTRY DOES NOT PLACE STILL COUNTS, and a line whose own name says nothing
+    # counts too, so this cannot be satisfied by curating an entry that carries no term either.
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    import imprints as _imp
+    _idx = _imp.index(_imp.load())
+
+    def _quotable(rec):
+        imp = str(rec.get("imprint") or "")
+        if YURI_TERM_IN_IMPRINT.search(imp):
+            return True
+        line = _imp.resolve(rec.get("publisher"), imp, _idx)
+        return bool(line and YURI_TERM_IN_IMPRINT.search(str(line.get("name") or "")))
+
     return sum(1 for r in ctx["madb_records"]
-               if r.get("marketing_label") in ("yuri", "gl")
-               and not YURI_TERM_IN_IMPRINT.search(str(r.get("imprint") or "")))
+               if r.get("marketing_label") in ("yuri", "gl") and not _quotable(r))
 
 
 def budget_kana_left_in_a_romanisation(ctx):

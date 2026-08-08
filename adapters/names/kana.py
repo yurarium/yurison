@@ -673,12 +673,27 @@ def align(surface, reading):
     other seven, so 天野 carried むしぇるずあまの. Nothing caught it: the run holds two kanji under
     seven kana, which is plausible arithmetic. Now that a Latin run takes no ruby at all the
     remainder no longer spells the reading, and the whole set goes rather than that.
+
+    THE READING'S OWN WORD BOUNDARIES ARE TRIED FIRST, AND WHY THEY ARE ONLY A PREFERENCE. `pinned`
+    forbids the placement that produced `女神` under メ and `今日` under ミガキョウ, described at
+    `_align`. Where it finds nothing the unpinned search answers exactly as it did before, because
+    the analyser's segmentation is a claim about the reading and not about the surface, and a
+    surface run can legitimately cover several words or half of one.
+
+    A PINNED RESULT NEVER TURNS A REFUSAL INTO A RENDER. Where the unpinned search cannot place the
+    reading the answer stays None, so this changes WHERE the boundaries fall and never WHICH titles
+    carry ruby. `能面 battle girl納言` is the case that made the rule: pinning finds a placement
+    there, and the placement puts `girl` over `girl`, which is the fault the docstring below records
+    a reader finding.
     """
-    got = _align(surface, reading)
-    return got if got and ruby_spells(got, reading) else None
+    loose = _align(surface, reading)
+    if not (loose and ruby_spells(loose, reading)):
+        return None
+    got = _align(surface, reading, pinned=True)
+    return got if got and ruby_spells(got, reading) else loose
 
 
-def _align(surface, reading):
+def _align(surface, reading, pinned=False):
     if not surface or not reading:
         return None
     # COMPOSED, because a decomposed kana is a different string that looks identical. Three titles
@@ -707,13 +722,22 @@ def _align(surface, reading):
         for i, (s, r) in enumerate(zip(s_parts, r_parts)):
             if i:
                 out.append((seps[i - 1] if i - 1 < len(seps) else " ", None))
-            got = _align(s, r)
+            got = _align(s, r, pinned)
             if got is None:
                 whole = False
                 break
             out.extend(got)
         if whole:
             return out
+    # WHERE THE ANALYSER PUT EACH WORD, kept before the spaces go. The search below needs the
+    # boundaries and the comparison below that needs them gone, and reconstructing them afterwards
+    # from a stripped string is not possible.
+    words = []
+    _at = 0
+    for p in r_parts:
+        words.append((_at, _at + len(p)))
+        _at += len(p)
+    starts = {a for a, _ in words}
     reading = re.sub(r"[ 　]+", "", reading)
 
     if not any(not is_kana(c) and (c.isalnum() or "一" <= c <= "鿿") for c in surface):
@@ -735,12 +759,38 @@ def _align(surface, reading):
     if cur:
         runs.append((cur, cur_is_kanji))
 
+    def _word_end(pos):
+        """Where the analyser's word containing `pos` ends, or `pos` where none contains it."""
+        for a, b in words:
+            if a <= pos < b:
+                return b
+        return pos
+
     # Backtracking, not greedy first-match. An anchor kana often also occurs INSIDE the reading of
     # the kanji before it: 100日後に reads ヒャクニチゴニ, and pinning the anchor に to the FIRST ニ
     # leaves 100日後 reading ヒャクニ and the tail unconsumed. The search has to be free to reject a
     # placement and try the next one, which is what makes this the standard alignment rather than a
     # scan. Titles are short and runs are few, so the exhaustive form is fast enough and is much
     # easier to be sure of than a scoring heuristic.
+    #
+    # WHERE BACKTRACKING ALONE IS NOT ENOUGH, AND WHAT `pinned` ADDS. Backtracking finds A placement
+    # and the first one it finds is arbitrary, because a read run is tried shortest first and
+    # nothing says a kanji run should read as few kana as possible. 私の女神が今日も推せる against
+    # ワタシ ノ メガミ ガ キョウ モ オセル came back with 女神 under メ, 今日 under ミガキョウ and the
+    # anchor が matched to the ガ inside メガミ. アイドル総選挙4位…魔王を倒す did the same, を taking
+    # the オ inside マオウ. Both spell the reading, so the producer's own gate passed them.
+    #
+    # `pinned` refuses one placement: an anchor that STARTS inside one of the analyser's words has
+    # to reach at least the end of that word. That is what okurigana is, kana trailing the stem of
+    # ONE word, so 推 under オ followed by せる taking セル to the end of オセル is admitted, and が
+    # stopping in the middle of メガミ is not. It says nothing about how many kana a run should hold.
+    #
+    # §14b, AND WHY THIS DOES NOT MAKE THE CHECK TRUE BY CONSTRUCTION. `implausible ruby spans`
+    # counts kana against kanji on the rendered result and never looks at the segmentation; this
+    # reads the segmentation and never counts a kanji. The two work from different inputs, so a
+    # placement that honours every word boundary and still leaves a run too few kana is exactly what
+    # the check still catches, which is what happens when the analyser hands back a reading it never
+    # split. Putting the arithmetic in here instead would have been the second shape §14b names.
     def solve(i, pos, strict):
         if i == len(runs):
             return [] if pos == len(reading) else None
@@ -764,6 +814,8 @@ def _align(surface, reading):
             lo = (len([c for c in text if not c.isspace()]) if strict
                   else sum(1 for c in text if is_kana(c)))
             for take in range(min(len(text), len(reading) - pos), lo - 1, -1):
+                if pinned and pos not in starts and pos + take < _word_end(pos):
+                    continue
                 if not _anchor_eq(reading[pos:pos + take], text):
                     continue
                 rest = solve(i + 1, pos + take, strict)

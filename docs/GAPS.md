@@ -1836,3 +1836,129 @@ somebody else's pass.
 `feed/names.json`, which is where the 82 shared readings were measured. The registry answers for them
 through an attached anchor, so nothing is lost, and a later pass that wants the name store to hold
 one record per credit can read the rulings file to do it.
+
+### A date the shop states in its own blurb is a printing (2026-08-08)
+
+**The owner's ruling.** A date コミックシーモア states inside its own description of a work attests
+that date. The previous round found these and left them, because nothing said whether a shop
+writing a date in prose is the shop stating a fact. It is, and what it states is a PRINTING, so it
+outranks the delivery date on the same row under the rule that a print date always wins.
+
+**What the cache holds.** 277 of the 1,833 captured work pages mention a doujin word in the shop's
+blurb, and 58 of those put a date or a numbered sales event beside it. 33 yielded a date: 24 at
+month precision, six at year precision and three at day precision. All 33 were dated by delivery
+before this round and are now dated by a publication, so `shop-delivery-date` falls from 1,209 to
+1,176. Of the 33, ten were `earlier-edition-unsourced`, which is the only follow-up state that was
+ever work anybody could do, so that population falls from 165 to 155. The other 23 were already
+settled under DEFINITIONS §6 and gain a better date without changing what is owed on them.
+
+A promoted row leaves the follow-up measure altogether, which is stronger than being settled in it:
+the measure exists to sort rows carrying the weakest date the database holds, and these no longer
+carry it.
+
+**Every one of the 33 precedes its own delivery date**, by gaps running from six weeks to thirteen
+years, 森島明子's 2010 printing against a 2023 delivery being the longest. `a stated printing
+precedes the delivery` is the invariant on that, and §14b is why it is worth having: `blurbdate`
+reads a sentence in the description box and never opens a volume row, so 配信開始日 is a number it
+cannot consult. A four-digit run picked out of a plot summary lands anywhere, and landing after the
+shop began selling the file is the half of "anywhere" a machine can recognise.
+
+**The blurb is read from a narrower span than the edition statement**, and the reason is worth
+recording because it is the trap this round could most easily have fallen into. `description` reads
+the whole `title_intro_box`, which carries the shop's own metadata table under the prose, and one of
+its lines is `配信開始日 ： 2015年8月18日`. A date rule reading that span finds the line on all 1,971
+cached pages and hands the delivery date back as though the shop had stated a printing.
+`cmoa_volumes.synopsis` stops at the table. Reading the narrower span changes none of
+`edition_statement`'s 174 and 79 answers and does move the loose doujin-word count from 284 to 277,
+because seven pages carry the word in the shop's own tags rather than in its prose.
+
+**An event number is recorded and is not turned into a date.** 36 rows name a sales event and 21 of
+them name only that. The mapping exists and this corpus even states four points on it, but three
+things argued against assembling one. Comiket 98 was cancelled in 2020 and its number was consumed
+anyway, so counting two events to the year across that gap returns a wrong year in silence.
+`関西コミティア68` is a different series from `COMITIA68` and a table keyed on the number alone merges
+them, which is why `blurbdate.sold_at` matches the regional name first and why the test pins it.
+And a table nobody sourced is a second producer of a fact, which is the shape STANDING-INSTRUCTIONS
+§3 attributes seven shipped bugs to. So the row keeps its delivery date, records `comitia 150` or
+`comiket 102`, and stays open. Nine of the rows still in `earlier-edition-unsourced` name an event,
+which makes them the most answerable rows in that population: an event calendar dates them.
+
+**The counter-cases, which are most of the work.** A blurb is full of numbers. Page counts run to
+【165ページ】, `創作百合同人誌15冊発刊記念` puts a count of books next to a publishing word,
+`1000年後の地球` and `結婚でこの地を離れて12年` are plot, `2025年5月現在` says what is true today,
+`2011年～2014年にかけて` is a range that dates no single edition, and `個人誌『夢落 2021年3月号』` is an
+issue label inside a title. A date is taken only where a publishing word sits within twenty
+characters of it, and 発売 is deliberately not one of those words: a shop uses it to announce a
+different book's release. `adapters/test_blurbdate.py` pins all of these.
+
+The three refusals the previous round pinned are inherited rather than restated. `blurbdate.dates`
+asks `delivery.edition_statement` first, so a page that never said what edition it is can hold
+whatever dates it likes and none of them is about a printing of it. 同人誌風マンガ, コミティアの人気作家
+and 参加した同人誌即売会で each stay refused with a date bolted on.
+
+**One page the sweep can see and the rules cannot.** cmoa title 247855 reads
+`※著者個人誌『夢落 2021年3月号』に描き下し原稿を追加した合冊版です`, which says plainly that the file is
+a 合冊版 of the author's own 個人誌, and `delivery.edition_statement` answers None on it because none of
+its patterns covers 合冊版 predicated on 個人誌. Widening them would move the 174 and 79 counts that this
+round and the last one both report, so it is left as a gap to close deliberately rather than in
+passing.
+
+### An anchor must not match inside the word before it (2026-08-08)
+
+**What was wrong.** `kana.align` places a reading over a surface by treating kana and punctuation as
+anchors and searching for a split that spells the reading. The search backtracks, so it is complete,
+but the first solution it finds is arbitrary: a kanji run is tried shortest first and nothing says a
+kanji run should read as few kana as possible. `私の女神が今日も推せる` against
+`ワタシ ノ メガミ ガ キョウ モ オセル` came back with 女神 under メ and 今日 under ミガキョウ, because
+the anchor が matched the ガ INSIDE メガミ. `アイドル総選挙4位…魔王を倒す` did the same, を taking the
+オ inside マオウ. Both spell their reading, so the producer's own gate passed them, and
+`implausible ruby spans` caught them, which is why the gate went red and the readings went unstored.
+
+**Why the readings went unstored is the part worth naming.** The reading of both titles is ordinary
+Japanese with no name and no coinage in it, and neither was ever in doubt. What could not be derived
+was the ruby. Storing a reading drops pass 4's spans by design, `build.py` re-derives them, and the
+derivation was broken, so a correct reading could not be committed and the works kept an
+`unverified` mark that says the reading may be wrong. The mark was reporting the fact that was fine.
+
+**The fix, and the constraint on any fix.** Putting the arithmetic `implausible ruby spans` does
+into the solver would make the check true by construction for spans the solver produced, which is
+§14b's second shape. So the solver was given something else to work from: the analyser's own word
+boundaries in the reading, which were being thrown away. An anchor that STARTS inside one of those
+words has to reach at least the end of that word. That is what okurigana is, kana trailing the stem
+of ONE word, so 推 under オ followed by せる taking セル is admitted and が stopping in the middle of
+メガミ is not.
+
+**The check keeps its independence because the two read different things.** `implausible ruby spans`
+counts kana against kanji on the rendered result and never looks at the segmentation; the solver
+reads the segmentation and never counts a kanji. `毎月庭つき大家つき` against
+`マイツキ ニワツキ オオヤツキ` is the case that proves they are not the same measure: 毎月庭 under マイ
+honours every word boundary, because ツキ does end マイツキ, and it still puts three kanji under two
+kana. The solver cannot see that and the check can.
+
+**Measured before it was believed.** Every surface and reading the store holds was aligned both
+ways. Three of 1,434 curated and sourced pairs change, all of them improvements, and the store's
+implausible-span count falls from 10 to 8. Nothing that aligned before fails to align now, and
+nothing that was refused before is placed now: `能面 battle girl納言` is the case that made the rule,
+where pinning does find a placement and the placement puts `girl` over `girl`, so the pinned result
+is only ever accepted where the unpinned search also found one.
+
+**The remaining class, which this does not touch.** The 24 implausible spans left across the whole
+name store fall into one shape: the SURFACE carries a space and the reading does not divide the same
+way. `幕末女子高生 鬼と夜明け` reads `バクマツ ジョシコウセイ   オニ ト ヨアケ`, four reading words
+against two surface parts, and the equal-count fast path cannot use the boundary that is written on
+both sides. Six author names are the same shape with no spaces in the reading at all, `三田 織` against
+`ミタオリ`. A surface space is a harder boundary than anything the solver currently trusts, and using
+it is the next piece of this.
+
+**A curated `furigana_spans` was considered and refused.** `curate.py` could admit the field, and a
+reviewer could then record correct ruby beside a reading the aligner cannot derive. It was refused.
+The defect was a class and not two rows, so curation would have left three other titles wrong and
+would have reached none of them. A hand-recorded span set is a second producer of a fact the reading
+already determines, which STANDING-INSTRUCTIONS §3 warns about, and it lets a reviewer record spans
+that agree with no reading at all. Papering over an aligner fault one row at a time also lowers the
+count that would otherwise find the class, so the measure stops being able to see what it was built
+to see.
+
+The case for it is not empty and is worth keeping in view. A title whose correct ruby no reading can
+produce, which is what the remaining class above is, has nowhere to be recorded today. Admit the
+field when that is the problem being solved, and not as a way around a solver bug.

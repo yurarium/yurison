@@ -229,6 +229,45 @@ def main(s):
         '<div class="title_intro_box"><p>※本作は個人誌作品の電子書籍版となります。</p></div>'),
         "an unterminated box still yields the text it opened on")
 
+    # ── THE SYNOPSIS IS A NARROWER SPAN, AND THE DATE RULE READS THAT ONE ────────────────────
+    # The box holds the shop's own metadata under the blurb and one of its lines is 配信開始日. A
+    # date rule reading the box would find that line on all 1,971 cached pages and hand the
+    # delivery date back as a printing, which is the answer this whole round exists to avoid.
+    boxed = ('<div class="title_intro_box"><div id="comic_description"><p>2016年発行の同人誌です</p>'
+             '<div class="related_box"><div>配信開始日 ： 2015年8月18日</div></div>'
+             '<div id="comic_description_hide"></div>')
+    s.eq(cv.synopsis(boxed), "2016年発行の同人誌です",
+         "the shop's blurb without the table of its own metadata under it")
+    s.check("配信開始日" in cv.description(boxed),
+         "which the wider span does carry, and is why the two spans are not one function")
+    s.eq(cv.synopsis('<div class="title_intro_box"><p>本作は同人誌です</p>'
+                     '<div id="comic_description_hide"></div>'), "本作は同人誌です",
+         "a page whose table element is absent is read imperfectly and not reported as silent")
+    s.eq(cv.synopsis(None), "", "and no page at all yields nothing rather than raising")
+
+    # ── A PRINTING THE SHOP STATED IN WORDS OUTRANKS THE DAY IT BEGAN DELIVERING ─────────────
+    # 33 rows in the capture are in this state. `edition_date` is what `read_editions` puts on the
+    # row from the description; everything below it follows from that one field.
+    said = cv.settle({"url": "https://www.cmoa.jp/title/246840/", "edition_date": "2022-05",
+                      "edition_date_event": "issue", "publisher": "ナンバーナイン",
+                      "volumes": [{"volume": 1, "url": "https://www.cmoa.jp/title/246840/",
+                                   "delivered": "2022-06-24"}]})
+    s.eq(said["first_publication_date"], "2022-05", "the printing answers and the delivery does not")
+    s.eq(said["first_publication_basis"], "shop-blurb-print-date", "and the basis says which it is")
+    s.eq(said["first_publication_event"], "issue",
+         "発行 and 初出 are two claims, so the row says which one the shop made")
+    s.eq(said["first_publication_source"], "https://www.cmoa.jp/title/246840/",
+         "citing the work page, which is where the sentence a reader would check is")
+    s.check("first_publication_followup" not in said,
+            "and the row leaves the delivery population instead of being a settled member of it")
+    # A CATALOGUE STILL OUTRANKS A SENTENCE. The branch order is the whole of this rule.
+    both = cv.settle({"url": "https://www.cmoa.jp/title/1/", "edition_date": "2016",
+                      "edition_date_event": "issue",
+                      "volumes": [{"volume": 1, "url": "https://www.cmoa.jp/title/1/",
+                                   "printed": "2018-03", "printed_basis": "madb-tankobon"}]})
+    s.eq(both["first_publication_basis"], "madb-tankobon",
+         "a bibliography holds a record and a blurb holds a sentence, so the record answers")
+
     # ── A PER-BOOK ROUTE CITES THE PAGE, AND THE CITATION IS WRITTEN OUT ─────────────────────
     # `adapters/publisher_dates.py` reads one page per book, so unlike a bulk catalogue it has a
     # URL to name. `check.py`'s `per-book dates cite their page` is the consumer, and it can only

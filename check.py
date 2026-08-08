@@ -652,6 +652,48 @@ def inv_per_book_dates_cite_their_page(ctx):
             if w.get("first_publication_basis") in cited and not w.get("first_publication_source")]
 
 
+def inv_a_stated_printing_precedes_the_delivery(ctx):
+    """A printing the shop states in words cannot fall after the day it began delivering the file.
+
+    §14b, WHAT THIS SEES THAT THE PRODUCER CANNOT. `adapters/blurbdate.py` reads a sentence in the
+    description box and never opens a volume row, so 配信開始日 is a number it has no access to. This
+    compares the two. A four-digit run picked out of a plot summary lands anywhere, and landing after
+    the shop began selling the file is the half of "anywhere" that a machine can recognise. It caught
+    nothing on the 33 rows the first pass produced, where the gaps run from six weeks to thirteen
+    years, and that is the measurement rather than an assumption about the rule.
+
+    IT IS NOT THE WHOLE CHECK ON THAT RULE, and saying so is the point of §14b. A wrong year that
+    happens to precede the delivery is invisible here, which is why `test_blurbdate.py` pins the
+    constructions and why the term matched is on the row for a person to read.
+
+    COMPARED AT THE PRECISION STATED. Six of these say a year and nothing more, so `2016` is tested
+    against the first four characters of the delivery date. Padding it to `2016-01-01` would invent
+    a day and then test the day.
+
+    fallback: none. Both values are in the file, so a violation is this pass having read the wrong
+    number and not a source withholding one.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        import blurbdate as _b
+    except Exception:                                                       # noqa: BLE001
+        return []
+    bad = []
+    for w in ctx["cmoa_capture"]:
+        if w.get("first_publication_basis") != _b.BASIS:
+            continue
+        stated = str(w.get("first_publication_date") or "")
+        delivered = sorted(str(v.get("delivered"))[:10] for v in (w.get("volumes") or [])
+                           if v.get("delivered"))
+        if not stated:
+            bad.append(f"{w.get('shop_id')}: basised on a stated printing and carries no date")
+            continue
+        if delivered and stated > delivered[0][:len(stated)]:
+            bad.append(f"{w.get('shop_id')}: stated printing {stated} follows the shop's "
+                       f"delivery on {delivered[0]}")
+    return bad
+
+
 def inv_one_row_per_identifier(ctx):
     """No two rows may carry the same work identifier.
 
@@ -1297,6 +1339,7 @@ INVARIANTS = [
     ("a delivery date never stands beside a printing",
      inv_a_delivery_date_never_stands_beside_a_printing),
     ("per-book dates cite their page", inv_per_book_dates_cite_their_page),
+    ("a stated printing precedes the delivery", inv_a_stated_printing_precedes_the_delivery),
     ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role),
     ("a record without a publisher says why", inv_a_record_without_a_publisher_says_why),
     ("an imprint spelling belongs to its own publisher",
@@ -3209,6 +3252,12 @@ def self_test():
         ("per-book dates cite their page", inv_per_book_dates_cite_their_page,
          lambda c: c["cmoa_capture"].append({"shop_id": "CANARY",
                                              "first_publication_basis": "publisher-own-page"})),
+        # A year read out of a plot summary, which is the failure this rule can produce: the shop
+        # began delivering the file in 2015 and the sentence claims it was printed in 2019.
+        ("a stated printing precedes the delivery", inv_a_stated_printing_precedes_the_delivery,
+         lambda c: c["cmoa_capture"].append({
+             "shop_id": "CANARY", "first_publication_basis": "shop-blurb-print-date",
+             "first_publication_date": "2019-04", "volumes": [{"delivered": "2015-08-18"}]})),
         # A second row claiming an id the first row already holds, which is what a merge produced.
         ("one row per identifier", inv_one_row_per_identifier,
          lambda c: c["series"].append({"id": next(r["id"] for r in c["series"] if r.get("id")),

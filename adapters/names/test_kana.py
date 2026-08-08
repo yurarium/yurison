@@ -110,6 +110,32 @@ def main(s):
     s.check(kana.align("BOMBSHELLS 天野", "ボムシェルズアマノ") is None,
             "ruby that cannot spell its own reading is not published at all")
 
+    # ── AN ANCHOR MUST NOT MATCH INSIDE THE WORD BEFORE IT ──────────────────────────────────
+    # Both of these spell their reading and both shipped nothing, because `implausible ruby spans`
+    # is what caught them and the gate stopped the readings being stored at all. が matched the ガ
+    # inside メガミ, so 女神 kept メ and 今日 swallowed ミガキョウ; を matched the オ inside マオウ.
+    s.eq(kana.align("私の女神が今日も推せる", "ワタシ ノ メガミ ガ キョウ モ オセル"),
+         [("私", "ワタシ"), ("の", None), ("女神", "メガミ"), ("が", None), ("今日", "キョウ"),
+          ("も", None), ("推", "オ"), ("せる", None)],
+         "an anchor takes the ガ that is its own word and not the one inside メガミ")
+    s.eq(kana.align("私が魔王を倒す", "ワタシ ガ マオウ ヲ タオス"),
+         [("私", "ワタシ"), ("が", None), ("魔王", "マオウ"), ("を", None), ("倒", "タオ"),
+          ("す", None)],
+         "and を takes the ヲ, leaving 魔王 the マオウ it needs")
+    # OKURIGANA IS THE COUNTER-CASE AND IT IS IN THE SAME TITLE. 推 under オ followed by せる taking
+    # セル puts the anchor inside 推せる, which is allowed because it reaches the end of that word.
+    # A rule demanding an anchor be a whole word refuses this one and every title in 【 】.
+    s.eq(kana.align("推せる", "オセル"), [("推", "オ"), ("せる", None)],
+         "kana trailing a stem inside one word are okurigana and still anchor there")
+    s.eq(kana.align("【完結】冬木先輩と夏井", "【カンケツ】 フユキ センパイ ト ナツイ"),
+         [("【", None), ("完結", "カンケツ"), ("】", None), ("冬木先輩", "フユキセンパイ"),
+          ("と", None), ("夏井", "ナツイ")],
+         "and a bracket the analyser folded into the word beside it still anchors")
+    # THE PINNED SEARCH NEVER TURNS A REFUSAL INTO A RENDER. It finds a placement here, and the
+    # placement puts `girl` over `girl`, which is the fault a reader reported on 紗痲 Fallin' Jail.
+    s.check(kana.align("能面 battle girl納言", "ノウメン battle girl ナゴン") is None,
+            "a title the loose search cannot place is still not placed")
+
     # THE COUNTER-CASES, and they are why Latin and digits are READ runs rather than anchors: a run
     # nothing can place makes the whole title unalignable.
     s.eq(kana.align("100日後に", "ヒャクニチゴニ"), [("100日後", "ヒャクニチゴ"), ("に", None)],

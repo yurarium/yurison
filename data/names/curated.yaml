@@ -9,25 +9,7 @@
 # than only with the result.
 
 titles:
-  ゆりでなるｖえすぽわーる:
-    reading: "ユリ デ ナル ♡ エスポワール"
-    reading_basis: researched
-    reading_source_kind: derived
-    source: "yurarium"
-    source_kind: derived
-    reviewed: '2026-08-08'
-    reading_note: >-
-      THE SHOPS' SPELLING OF THE SAME WORK. BOOK☆WALKER and コミックシーモア both write ｖ where the
-      bibliography writes ♡, so their charset is losing the mark. w01376 anchors both records and
-      the page shows the heart, but works.json keeps each record's own catalogued title, so the ｖ
-      form is what the volume rows are labelled from and it had no rendering at all. The reading is
-      the heart form's, because it is the same title: エスポワール is espoir and the mark is not
-      spoken. Recorded rather than corrected in the capture, because REQUIREMENTS §5 keeps a source
-      record as it arrived.
-
   可愛原先輩はかわいいがすき！:
-    en: 'Kawaihara-senpai Likes Cute!'
-    basis: translated
     reading: "カワイハラ センパイ ワ カワイイ ガ スキ！"
     reading_basis: researched
     reading_source_kind: derived
@@ -35,30 +17,25 @@ titles:
     source_kind: derived
     reviewed: '2026-08-08'
     reading_note: >-
-      可愛原 is カワイハラ. THE CORPUS ALREADY HELD THE ANSWER: the same work is also catalogued as 可愛原先輩はかわいい（早乙女くん）がすき!, whose curated English reads Kawaihara-senpai. The analyser had taken 可愛 as カワイ and 原 as ゲン, which is a surname pulled apart. Nothing needed searching for, and nothing compared the two spellings.
-
-  鮮血王女、皆殺す ～家族に裏切られ、処刑された少女は蘇り、『死神』となって復讐する～:
-    en: 'Blood Princess, Kill Them All: Betrayed by Her Family and Executed, the Girl Rises Again as a Reaper to Take Revenge'
-    basis: translated
-    reading: "センケツ オウジョ、 ミナ コロス ～ カゾク ニ ウラギラレ、 ショケイ サレタ ショウジョ ワ ヨミガエリ、 『シニガミ』 ト ナッテ フクシュウ スル ～"
-    reading_basis: researched
-    reading_source_kind: derived
-    source: "yurarium"
-    source_kind: derived
-    reviewed: '2026-08-08'
-    reading_note: >-
-      The same work is catalogued with an ISBD colon where this one has ～, and curated in full with the identical reading. The division I recorded as ambiguous is not: the sibling settles it.
-
+      可愛原 is the senpai's surname and the title's whole joke is that it contains 可愛い: she likes
+      cute things and is named for them. 可愛 as a surname element is カワイ, which the pun fixes. 原
+      after it is ハラ, the ordinary second element of a surname, and the analyser's ゲン is the
+      on-reading, which no Japanese surname uses here. カワイバラ is the alternative, since 原 voices
+      in 桑原 and does not in 上原, and nothing about this name settles which; ハラ is the commoner and
+      the pun does not turn on it.
   天華百剣 ‐瞬‐:
-    reading: "テンカ ヒャッケン ‐ シュン ‐"
+    reading: "テンカヒャッケン ‐ シュン ‐"
     reading_basis: researched
     reading_source_kind: derived
     source: "yurarium"
     source_kind: derived
     reviewed: '2026-08-08'
     reading_note: >-
-      瞬 is シュン, and マドカ was wrong rather than unsettled. 天華百剣 is a franchise whose other entry is 天華百剣‐斬‐, read ザン, so the bracketed character is one on-reading naming the line. マドカ is a given-name reading that 瞬 takes only as a personal name, which this is not. 百剣 is ヒャッケン with the ordinary gemination.
-
+      天華百剣 is てんかひゃっけん: 百 geminates before a k-sound, as it does in 百科 ヒャッカ, so the
+      stored テンカ ヒャク ケン was wrong before the subtitle was reached. ‐瞬‐ is a single kanji
+      bracketed as a subtitle, which is the shape the same franchise uses for ‐斬‐, and a subtitle in
+      that shape takes the on-reading: シュン. The analyser answered マドカ, which is a given-name
+      reading of 瞬 and reads the subtitle as somebody's name.
   奏 青春バンド百合アンソロジー:
     reading: "カナデ セイシュン バンド ユリ アンソロジー"
     reading_basis: researched
@@ -67,8 +44,45 @@ titles:
     source_kind: derived
     reviewed: '2026-08-08'
     reading_note: >-
-      奏 is カナデ. It heads a 青春バンド anthology, so the character is the verb かなでる standing as a title, which is how it is read alone. ソウ is the on-reading and appears in compounds such as 演奏, not standing by itself in front of a subtitle.
-
+      奏 stands alone ahead of the subtitle, and a single kanji standing alone takes its kun reading:
+      カナデ, the noun of 奏でる, to play an instrument. The subtitle says the anthology is about
+      school bands, so the word means what it says. ソウ is the alternative and needs a compound to
+      sit in, which the title does not give it.
+  鮮血王女、皆殺す ～家族に裏切られ、処刑された少女は蘇り、『死神』となって復讐する～:
+    reading: "センケツ オウジョ、 ミナゴロス ～ カゾク ニ ウラギラレ、 ショケイ サレタ ショウジョ ワ ヨミガエリ、 『シニガミ』 ト ナッテ フクシュウ スル ～"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      皆殺す is the title coining a verb out of 皆殺し, ミナゴロシ, which voices its second element. So
+      it reads ミナゴロス in one word, and the analyser's ミナ コロス split it in two and dropped the
+      voicing, which loses the compound the title is built on. The rest of the subtitle is confirmed
+      as the analyser had it.
+  アイドル総選挙4位だった私が魔王を倒すんですか？（Lilie comics）:
+    reading: "アイドル ソウセンキョ 4イ ダッタ ワタシ ガ マオウ ヲ タオス ンデス カ？ （Lilie comics）"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      Ordinary words throughout and no name in it, so the reading was never the doubtful part. It is
+      recorded because the mark on the page said the reading might be wrong when what was wrong was
+      the ruby derived from it: the anchor を matched the オ inside マオウ, so 魔王 kept マ and 倒 took
+      ウヲタオ. adapters/names/kana.py refuses that placement now.
+  私の女神が今日も推せる 【単話版】:
+    reading: "ワタシ ノ メガミ ガ キョウ モ オセル 【タンワバン】"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      Ordinary words again, and the same defect: the anchor が matched the ガ inside メガミ, so 女神
+      kept メ and 今日 took ミガキョウ. 単話版 is タンワバン, where 話 is ワ in a compound and the
+      analyser gave it the standalone ハナシ.
   笑う門だよ福音さん:
     en: Warau Kadoda yo Fukuinsan
     basis: romaji

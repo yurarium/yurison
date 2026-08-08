@@ -740,6 +740,44 @@ def inv_no_html_entity_in_a_stored_name(ctx):
     return bad
 
 
+def inv_interface_folds_a_name_key_as_the_build_does(ctx):
+    """The browser's copy of the name-store key, held to the one the build uses.
+
+    WHY THERE ARE TWO COPIES AT ALL. `data/build/feed/names.json` is keyed on the FOLDED Japanese
+    string and on nothing else, so the browser has to fold a row's title the same way to find its
+    rendering. `adapters/names/key.fold` is the definition and `foldKey` in `kari/app.js` is the
+    same two operations in JavaScript, which cannot import it. §3 says to add an invariant where a
+    second producer is unavoidable, and this is that invariant.
+
+    WHAT A DISAGREEMENT COSTS. Not a degraded lookup: a lost one. Unlike the publisher map, which is
+    keyed by the raw catalogued string as well as the normalised one so either answer finds the
+    record, the title map holds the folded key alone. A browser folding differently renders Japanese
+    on a work whose English this project holds, and the page says nothing about why.
+
+    WHAT IT CHECKS, AND WHAT THAT CANNOT SEE (§14b). It reads the interface's source and requires
+    the two operations by name: NFKC, then every space removed. It cannot run the JavaScript, so it
+    cannot see a disagreement the two implementations would only reveal on a particular string. That
+    is why the Python side is one function with its own test rather than three closures, which is
+    the half of the problem a check can be relied on for.
+
+    fallback: none. A key is either the same key on both sides or the map stops answering.
+    """
+    src = ctx.get("interface_js")
+    if not src:
+        return []
+    m = re.search(r"function foldKey\s*\([^)]*\)\s*\{(.*?)\n\}", src, re.S)
+    if not m:
+        return ["kari/app.js states no foldKey; the shipped name map is keyed on the folded string "
+                "alone and nothing would find a rendering"]
+    body = m.group(1)
+    bad = []
+    if "normalize('NFKC')" not in body and 'normalize("NFKC")' not in body:
+        bad.append("kari/app.js foldKey does not normalise NFKC; adapters/names/key.fold does")
+    if not re.search(r"replace\(\s*/ /g\s*,\s*['\"]{2}\s*\)", body):
+        bad.append("kari/app.js foldKey does not strip every space; adapters/names/key.fold does")
+    return bad
+
+
 def inv_a_record_without_a_publisher_says_why(ctx):
     """A record naming no publisher must state which kind of nothing that is.
 
@@ -1053,6 +1091,8 @@ INVARIANTS = [
     ("no HTML entity in a stored name", inv_no_html_entity_in_a_stored_name),
     ("nicovideo channels agree with our own records", inv_nicovideo_channel_agrees),
     ("a fixture states where it came from", inv_fixture_states_where_it_came_from),
+    ("the interface folds a name key as the build does",
+     inv_interface_folds_a_name_key_as_the_build_does),
 ]
 
 
@@ -1160,6 +1200,13 @@ def budget_one_work_under_two_names(ctx):
     structurally unable to see. The reverse is also true and both are kept: a collapse that stops
     running produces rows this cannot tell apart from two works, because their titles then agree and
     it would count them as a pair, which is right, and it says nothing about why.
+
+    WHICH FOLD, AND WHY NOT THE RENDERER'S. `names/key.fold` is the key the interface looks a
+    RENDERING up under, and a measure about renderings has to use it or it reports a number the page
+    contradicts. This asks a different question, so it uses `identity.fold`, which is the project's
+    answer to whether two records are the same WORK and is the more aggressive of the two: it strips
+    every space that one does, and bracketed matter besides. So every pair the interface's fold
+    would join is joined here as well, and this cannot under-report against what a reader sees.
 
     IT IS A QUEUE AND NOT A FAULT COUNT. Every pair needs somebody to decide whether it is one work,
     a reissue under another name, or two works an author gave one title. リリウム・テラリウム and
@@ -2583,6 +2630,11 @@ def context():
         # nothing. Loaded with the rest so a canary can be planted in front of the checks that use
         # it, for the reason the comment above gives.
         "index": _load(BUILD / "index.json", []) or [],
+        # THE INTERFACE'S OWN SOURCE. Read here for the same reason as everything else: a check that
+        # opens its own file cannot be shown a canary, and this one is holding a copy of a Python
+        # function to its original.
+        "interface_js": ((SITE_ROOT / "kari" / "app.js").read_text()
+                         if (SITE_ROOT / "kari" / "app.js").exists() else ""),
         "series": (_load(BUILD / "series.json", {}) or {}).get("series", []),
         "names": {k: ((_yaml(NAMES / f"{k}.yaml", {}) or {}).get("names") or {})
                   for k in ("titles", "authors")},
@@ -2836,6 +2888,18 @@ def self_test():
     if budget_titles_carrying_cataloguing_punctuation(c) != was + 2:
         print("  self-test FAILED — 'titles carrying cataloguing punctuation' did not count "
               "its canaries")
+        ok = False
+
+    # THE INTERFACE'S OWN COPY OF THE FOLD, changed to what it looked like before the two were held
+    # together: NFKC and no space stripping, which is `curate._fold` and is what made "the same key"
+    # mean two things. The canary is a real state of this repository and not an invented one.
+    c = copy.deepcopy(ctx)
+    c["interface_js"] = (c.get("interface_js") or "").replace(
+        "return (t || '').normalize('NFKC').replace(/ /g, '');",
+        "return (t || '').normalize('NFKC');")
+    if not inv_interface_folds_a_name_key_as_the_build_does(c):
+        print("  self-test FAILED — 'the interface folds a name key as the build does' did not "
+              "catch a fold that stops stripping spaces")
         ok = False
 
     # THE CANARY IS THE STATE THE BUILD WAS IN THIS MORNING (§14b), not a shape invented for the

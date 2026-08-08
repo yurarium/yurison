@@ -29,6 +29,7 @@ import identity  # noqa: E402
 import importdates  # noqa: E402
 import isbndate  # noqa: E402
 from names import credits as _credits  # noqa: E402
+from names import key as _namekey  # noqa: E402
 from names import openbd_reading  # noqa: E402
 import bylines as _bylines  # noqa: E402
 from classify import credence  # noqa: E402
@@ -5105,12 +5106,16 @@ def main():
 
 
     # PUNCTUATION-TOLERANT LOOKUP. The store is keyed on the exact Japanese string, and the same
-    # work reaches us with both （私に） and (私に) depending on the platform — full-width and
+    # work reaches us with both （私に） and (私に) depending on the platform: full-width and
     # half-width brackets are different characters, so one variant matched and the other silently
     # got nothing. NFKC folds the two together without touching the words, so a lookup miss falls
     # back to the folded key rather than giving up.
-    def _fold(t):
-        return unicodedata.normalize("NFKC", t or "").replace(" ", "")
+    #
+    # ONE PRODUCER OF THE KEY (§3). This was a closure here, `names/curate.py` had its own version
+    # folding with NFKC alone, and `kari/app.js` has a third in JavaScript. So "is this the same
+    # key" had two answers in Python, a measure written against the stricter one reported a number
+    # the page contradicted, and it took a reader counting titles on a live page to find it.
+    _fold = _namekey.fold
 
     # A withheld work's TITLE must not ship either. names.json is keyed by folded title and is
     # published, so leaving it here would put the work's name and English rendering on the public

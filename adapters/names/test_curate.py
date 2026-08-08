@@ -201,8 +201,19 @@ def main(s):
 
     # A key off by one character applies cleanly and names nothing, so the join is checked.
     doc = {"titles": {"球詠": {}, "球詠 ": {}}, "authors": {"まめ魚": {}}}
-    s.eq(curate.unmatched(doc, {"球詠"}), ["球詠 "], "a title matching no work is reported")
+    s.eq(curate.unmatched(doc, {"球詠"}), [], "a key that applies is not reported as naming nothing")
+    s.eq(curate.unmatched({"titles": {"球詠X": {}}}, {"球詠"}), ["球詠X"],
+         "a key differing in a character names no work we hold")
     s.eq(curate.unmatched(doc, {"球詠", "球詠 "}), [], "and one that matches is not")
+    # THIS ASSERTION USED TO GO THE OTHER WAY, and the reason it changed is the point. `unmatched`
+    # folded with NFKC alone while the build and the interface also strip spaces, so `球詠 ` was
+    # reported as naming no work we hold while applying perfectly. Two definitions of one key, and
+    # a measure built on the stricter one reported a number the page contradicted (§3). The stray
+    # space is still worth telling whoever typed it, as its own finding.
+    s.eq(curate.spaced_keys(doc, {"球詠"}), ["球詠 "],
+         "a key that reaches a held title only through the space-stripping is reported as that")
+    s.eq(curate.spaced_keys({"titles": {"球詠（1）": {}}}, {"球詠(1)"}), [],
+         "and a width difference is one spelling of one work, not a spacing question")
     s.eq(curate.unmatched({"authors": {"だれか": {}}}, set()), [],
          "an author may be curated before any of their work is")
 

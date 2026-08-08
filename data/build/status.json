@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-08T22:44:49+00:00",
+ "generated": "2026-08-08T23:35:12+00:00",
  "since_last": {
-  "at": "2026-08-08T21:33:12+00:00",
+  "at": "2026-08-08T22:44:49+00:00",
   "statistics": {}
  },
  "means": {
@@ -39,7 +39,7 @@
   }
  },
  "gate": {
-  "invariants_passing": 36,
+  "invariants_passing": 37,
   "invariants": [
    {
     "name": "ruby covers its surface",
@@ -213,6 +213,11 @@
    },
    {
     "name": "names reach a page only through their renderer",
+    "violations": 0,
+    "examples": []
+   },
+   {
+    "name": "a name in 併記 is rendered in both",
     "violations": 0,
     "examples": []
    },
@@ -697,7 +702,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-08T21:33:10+00:00",
+  "previous_at": "2026-08-08T22:44:48+00:00",
   "drops": []
  },
  "outstanding": [

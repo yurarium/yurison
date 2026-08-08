@@ -1097,6 +1097,38 @@ def budget_unguarded_captures(ctx):
     return n
 
 
+def budget_adapters_fetching_without_net(ctx):
+    """Adapters that open a URL themselves instead of going through adapters/net.py.
+
+    WHAT EACH ONE COSTS. net.py holds four things a hand-rolled fetch does not: the pause is owed
+    per host, so 27 hosts do not queue behind one; the status code survives, so a 404 and a 503 are
+    different events; the final URL comes back, so a work that moved is visible; and a 503 is
+    retried with a backoff every worker on that host pays. A module with its own urlopen has none
+    of them, and the ones this project spends the most time in were exactly the holdouts.
+
+    IT COUNTS THE CALL AND NOT THE IMPORT. `editions/capture.py` imports net for its pause, its key
+    and its outcome handling, and still calls urlopen once for the one route that needs an extra
+    header. That is a considered exception and it is still counted, because the number is "how much
+    fetching happens outside the shared path" and a partial migration is partly outside it.
+
+    net.py itself is not counted, and neither is the resolver's HttpCache: `names/resolver.py` is
+    the four numbered name passes' own transport, with a journal and an offline mode net.py does
+    not have, and folding it in is a separate job from this one.
+    """
+    exempt = {"net.py", "resolver.py"}
+    n = 0
+    for f in sorted(ROOT.glob("adapters/**/*.py")):
+        if f.name.startswith("test_") or f.name in exempt:
+            continue
+        try:
+            src = f.read_text()
+        except Exception:                                                   # noqa: BLE001
+            continue
+        if "urlopen(" in src:
+            n += 1
+    return n
+
+
 def budget_structural_triples(ctx):
     """Three used as an organising shape in documents that ship at 1.0.
 
@@ -2184,6 +2216,12 @@ BUDGETS_DEF = [
      "Python modules no suite covers. Offline tests are the enforcement for factoring as well: a "
      "module that cannot be tested without a network has not separated its logic from its I/O, so "
      "this number falling is the refactoring, not a proxy for it."),
+    ("adapters fetching without net.py", budget_adapters_fetching_without_net,
+     "modules that call urlopen themselves instead of going through adapters/net.py, and so have "
+     "no per-host pause, no retry for a 503, no status code to tell an absent work from a refused "
+     "request, and no sight of a redirect. Falls as each one is migrated. Its floor is not zero: "
+     "adapters/editions/capture.py sends one route an extra header and keeps everything else "
+     "net.py has, and a route that must not be fetched at all should not be made convenient."),
     ("captures with no floor", budget_unguarded_captures,
      "adapters that fetch from a host, write into data/source, and have nothing to refuse on. A "
      "host serving nonsense replaces the last good capture and reports success. adapters/ledger.py "

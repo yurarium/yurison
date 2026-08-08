@@ -133,6 +133,32 @@ def main(s):
         s.eq(st2.records["titles"]["X"].get("reading_url"), "https://example.invalid/yomi",
              "an entry silent about the reading does not strip the reading's page")
 
+    # AN ABSENCE EXPIRES, AND ONLY WHERE IT WAS ASKED TO. A work with no record at the National
+    # Diet Library today has one when its next volume is deposited, so an attempt recorded for ever
+    # turns a saving into a hole. The four numbered passes still get "for ever", because expiring
+    # them would re-ask 2,002 names against Wikidata for a source whose answer does not change on a
+    # schedule.
+    with tempfile.TemporaryDirectory() as d:
+        st3 = store.NameStore(d)
+        st3.attempt("ある作品", "ndl-books", "ndl-books")
+        s.check(st3.tried("ある作品", "ndl-books"), "an attempt is recorded")
+        s.check(st3.tried("ある作品", "ndl-books", 180), "and is fresh on the day it was made")
+        st3.attempts["ある作品"][0]["at"] = "2020-01-01"
+        s.check(not st3.tried("ある作品", "ndl-books", 180),
+                "an absence older than the expiry is worth asking about again")
+        s.check(st3.tried("ある作品", "ndl-books"),
+                "and with no expiry asked for, it still suppresses the question")
+        s.check(not st3.tried("ある作品", "openbd", 180),
+                "an attempt against one source says nothing about another")
+        # A date nothing can read must not re-open a two hour sweep every run.
+        st3.attempts["ある作品"][0]["at"] = "not a date"
+        s.check(st3.tried("ある作品", "ndl-books", 180), "an unreadable date counts as recent")
+        s.eq(st3.open_for("titles", ["ある作品"], "ndl-books", "reading"), [],
+             "open_for skips what this source has already answered nothing for")
+        st3.attempts["ある作品"][0]["at"] = "2020-01-01"
+        s.eq(st3.open_for("titles", ["ある作品"], "ndl-books", "reading", 180), ["ある作品"],
+             "and re-opens it once the absence has expired")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "store"))

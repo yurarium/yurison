@@ -38,13 +38,35 @@ never a licence to keep the analyser's guess and call it sourced.
 import html as _html
 import pathlib
 import re
+import sys
 import unicodedata
 
-UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+
+import net  # noqa: E402
+
 # Beside the repository, where every other cache directory in this project lives, and
 # derived from this file so it names no particular machine.
 DEFAULT_CACHE = pathlib.Path(__file__).resolve().parents[2].parent / "ndl-cache"
+STORE = pathlib.Path(__file__).resolve().parents[2] / "data" / "names"
 PAUSE = 1.6
+
+# The label this route records its negatives under in data/names/attempts.yaml.
+SOURCE = "ndl-books"
+
+# HOW LONG AN ABSENCE IS WORTH BELIEVING, and the one number two things are measured against.
+#
+# NDL catalogues a book when it is deposited, so a work it holds nothing about today has a record
+# as soon as its next volume prints. Six months is about one tankobon cycle: it re-asks twice a
+# year, which costs 124 requests for the publisher-label sweep and a few minutes, and it cannot be
+# wrong by more than one printing. A month would re-pay a two hour sweep twelve times a year for
+# almost no new records; for ever is what we had, and it is how a rate-limited sweep becomes a
+# permanent statement that the national library holds nothing.
+#
+# THE CACHE AGE IS THE SAME NUMBER ON PURPOSE. A search page cached for longer than the absence
+# expires would serve the same empty result back on the day we decided to look again, so the
+# re-ask would cost nothing and find nothing for ever. They are one decision (§3).
+RECHECK_DAYS = 180
 
 HOST = "https://ndlsearch.ndl.go.jp"
 # THE ONE PATH THIS MODULE MAY FETCH. robots.txt disallows `/api` and `/statistics` among others,
@@ -232,18 +254,24 @@ def record_url(rid):
 def main(argv=None):
     """Ask NDL for the stated reading of every title named on stdin, and print what it found.
 
-    Prints rather than writes, because what comes back is EVIDENCE FOR A REVIEWER and not a name.
-    A title reading goes into `data/names/curated.yaml` by hand, with the record it was read from
-    beside it, exactly as the author readings did: the extraction is mechanical and the decision
-    that this record is about this work is not.
+    A READING IS PRINTED AND NOT STORED, because what comes back is EVIDENCE FOR A REVIEWER. It
+    goes into `data/names/curated.yaml` by hand, with the record it was read from beside it,
+    exactly as the author readings did: the extraction is mechanical and the decision that this
+    record is about this work is not.
+
+    THE NEGATIVE IS STORED. `no-record` is a fact this route established at a real cost, and until
+    now it was printed and thrown away, so the next run paid for it again. It goes to
+    `data/names/attempts.yaml` through the store that already holds exactly this for wikidata,
+    MangaUpdates and the pass 0 cache, and a title whose absence is still fresh is not asked about
+    at all.
+
+    A REFUSAL IS NEVER WRITTEN DOWN. That is the whole reason `net.body` raises instead of handing
+    back None: NDL answers 503 to anything asked too fast, a first sweep at 1.6 s between requests
+    had 61 of 100 titles refused, and recording those as absences would have written 61 works off
+    as having no catalogue record and then never asked again.
     """
     import argparse
-    import hashlib
     import json
-    import pathlib
-    import sys
-    import time
-    import urllib.request
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--titles", help="a file of Japanese titles, one per line; stdin otherwise")
@@ -256,64 +284,66 @@ def main(argv=None):
                     help="directory to keep fetched pages in")
     ap.add_argument("--no-cache", action="store_true", help="fetch without keeping pages")
     ap.add_argument("--pause", type=float, default=PAUSE)
-    ap.add_argument("--retries", type=int, default=5, help="attempts before a 503 counts as one")
+    ap.add_argument("--retries", type=int, default=net.ATTEMPTS,
+                    help="requests to make before a refusal is reported as one")
     ap.add_argument("--max-records", type=int, default=4,
                     help="record pages to open per title, best-ranked first")
+    ap.add_argument("--store", default=str(STORE),
+                    help="where the record of what came back nothing is kept")
+    ap.add_argument("--no-store", action="store_true",
+                    help="ask about every title given, and write down no absences")
+    ap.add_argument("--recheck-after", type=int, default=RECHECK_DAYS,
+                    help="days before a recorded absence is worth asking about again")
     a = ap.parse_args(argv)
 
     src = pathlib.Path(a.titles).read_text() if a.titles else sys.stdin.read()
     want = [t.strip() for t in src.split("\n") if t.strip()]
     cache = None if a.no_cache else pathlib.Path(a.cache)
-    if cache:
-        cache.mkdir(parents=True, exist_ok=True)
 
-    def get(url, key):
-        """One page, from the cache where it is there and from NDL where it is not.
+    # POLITENESS IS OWED TO THIS HOST AND NOT TO THE OTHER 26. Raising net.PAUSE, which is what
+    # three adapters still do, would make every host in the process wait for NDL's sake.
+    import urllib.parse
+    net.set_pause(urllib.parse.urlparse(HOST).netloc, a.pause)
 
-        503 IS THE ANSWER TO ASKING TOO FAST, not to asking for the wrong thing. A record page is
-        200 KB and a first run at 1.6 s between requests had 61 of 100 titles refused this way,
-        which reads exactly like a work NDL does not hold. Backing off and asking again turns that
-        into an answer; treating it as a negative would have written 61 works off as having no
-        catalogue record.
-        """
-        # THE CACHE NAME IS A HASH BECAUSE THE KEYS ARE JAPANESE. Substituting the unsafe
-        # characters mapped every kanji and kana to `_`, so `search-遠山えま百合集` and
-        # `search-怪異部` were one file, and the second title silently read the first title's
-        # results and reported `no-record`. A cache that answers the wrong question is worse than
-        # no cache: it looks exactly like a work NDL does not hold.
-        p = cache / (hashlib.sha1(key.encode()).hexdigest()[:24] + ".html") if cache else None
-        if p and p.exists():
-            return p.read_text()
-        req = urllib.request.Request(url, headers={"User-Agent": UA})
-        for attempt in range(a.retries):
-            try:
-                with urllib.request.urlopen(req, timeout=45) as r:
-                    body = r.read().decode("utf-8", "replace")
-                break
-            except urllib.error.HTTPError as e:
-                if e.code not in (429, 503) or attempt == a.retries - 1:
-                    raise
-                time.sleep(a.pause * (2 ** attempt) + 4)
-        if p:
-            p.write_text(body)
-        time.sleep(a.pause)
-        return body
+    from names import store as store_mod                                    # noqa: PLC0415
+    st = None if a.no_store else store_mod.NameStore(a.store)
 
-    for t in want:
+    todo = [t for t in want
+            if st is None or not st.tried(t, SOURCE, a.recheck_after)]
+    # THE NUMBER THAT SAYS WHETHER ANY OF THIS WORKED. A run that skipped nothing and a run with no
+    # ledger take the same shape from the outside, so the count is printed and not inferred from
+    # the run being quicker than the last one.
+    print(f"{len(todo)} title(s) to ask NDL about; {len(want) - len(todo)} skipped, already "
+          f"answered nothing within {a.recheck_after} days", file=sys.stderr, flush=True)
+
+    def get(url):
+        """One page, or None where NDL says it holds nothing. Raises net.Refused where it will not
+        say, which is what keeps a 503 out of the absence ledger."""
+        return net.body(net.fetch(url, cache, max_age_days=a.recheck_after, attempts=a.retries))
+
+    recorded = 0
+    for t in todo:
         row, got, seen, failed = {"title": t}, [], set(), None
         for term in search_terms(t):
             try:
-                page = get(search_url(term), "search-" + term)
-            except Exception as e:                                          # noqa: BLE001
+                page = get(search_url(term))
+            except net.Refused as e:
                 failed = str(e)
+                continue
+            if page is None:                       # NDL answered: there is no such search page
                 continue
             for rid in record_ids(page)[:a.max_records]:
                 if rid in seen:
                     continue
                 seen.add(rid)
                 try:
-                    rec = get(record_url(rid), rid)
-                except Exception:                                           # noqa: BLE001
+                    rec = get(record_url(rid))
+                except net.Refused as e:
+                    # A RECORD PAGE THAT WAS REFUSED USED TO BE SWALLOWED HERE, and the title then
+                    # reported `no-record` when NDL had a record it had declined to serve.
+                    failed = str(e)
+                    continue
+                if rec is None:
                     continue
                 r = reading(rec, t)
                 if r:
@@ -325,8 +355,16 @@ def main(argv=None):
                              ensure_ascii=False))
             continue
         answer, ev = settle([r for r, _ in got])
+        # ASKED AND TOLD NO. Only reached when every request in the loop above was answered, so a
+        # sweep that met a wall of 503s writes nothing down and asks again next time.
+        if st is not None and not answer:
+            st.attempt(t, SOURCE, SOURCE)
+            recorded += 1
         print(json.dumps({**row, "reading": answer, **ev, "searched": len(seen),
                           "records": [rid for _, rid in got]}, ensure_ascii=False))
+    if st is not None:
+        st.compact()
+        print(f"{recorded} absence(s) recorded against {SOURCE}", file=sys.stderr)
     return 0
 
 

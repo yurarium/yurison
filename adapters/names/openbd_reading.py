@@ -25,8 +25,17 @@ transferring use rights on, and a bulk field dump is the case that is unclear. T
 writes lives outside the repository, and what reaches data/ is one reading per name with the ISBN
 it was read from.
 
-Usage:  openbd_reading.py --cache DIR            fetch and print entries for curated.yaml
-        openbd_reading.py --cache DIR --offline  re-read the cache without a request
+ONE CLIENT, ONE CACHE, AND WHY THE SECOND ONE COST 978 VOLUMES. `fetch()` here is the only thing in
+this project that asks openBD anything, and `openbd/enrich.py` and `cmoa_volumes.py` both call it.
+That much was already true. What was not is where the answer landed: the cache directory came in as
+an argument with no default, so the same question was asked into `names-cache/openbd.json` and
+`openbd-cache/openbd.json`, the two files drifted to 2,425 and 2,401 ISBNs, and the enrichment pass
+read the thinner one and left 978 volumes unanswered for no reason except which file was opened.
+A default fixes what a convention did not: `CACHE` is the one location, `--cache` moves it for a
+caller who means to, and the three callers cannot diverge by forgetting.
+
+Usage:  openbd_reading.py                        fetch and print entries for curated.yaml
+        openbd_reading.py --offline              re-read the cache without a request
 """
 import json
 import pathlib
@@ -35,12 +44,32 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
+import net  # noqa: E402
+import paths  # noqa: E402
 from names import ndl_reading  # noqa: E402
 
-UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
+HOST = "api.openbd.jp"
 PAUSE = 1.6
 # openBD takes a comma-separated list. Kept well under the limit so one bad ISBN costs one batch.
 BATCH = 50
+
+# THE one place openBD's answers are kept. See ONE CLIENT, ONE CACHE above.
+CACHE = paths.cache("openbd-cache")
+STORE_NAME = "openbd.json"
+
+# HOW LONG "openBD HOLDS NOTHING FOR THIS ISBN" IS WORTH BELIEVING.
+#
+# A null here is a real answer and it is worth keeping: 245 of the corpus's ISBNs are books nobody
+# registered, and each one costs a request to re-establish. It is not permanent, though. openBD
+# carries a publisher's JPRO registration, and a book missing today is one a publisher has not
+# filed YET, so an absence that never expires would hold a title out of the enrichment pass for
+# ever on the strength of one lookup.
+#
+# Three months, and it can be short because asking is cheap here in a way it is not at NDL: 50
+# ISBNs travel in one request, so re-asking every null the corpus holds costs five requests and
+# about ten seconds. The expiry is set by how fast a registration appears, and not by what asking
+# costs.
+NEGATIVE_DAYS = 90
 
 # `[作画]名前 / [原作]名前` is how MADB writes a credit. The role in brackets is cataloguing.
 ROLE = re.compile(r"^\[[^\]]*\]")
@@ -295,31 +324,103 @@ def boundary_entries(payload, wanted, reviewed):
     return out, unresolved
 
 
-def fetch(isbns, cache, offline=False):
-    """openBD records for these ISBNs, from the cache where it has them and the API where not."""
-    import time
-    import urllib.request
+def store_path(cache=None):
+    """The one file openBD's answers live in. `cache` may name the file itself or its directory."""
+    p = pathlib.Path(cache or CACHE)
+    return p if p.name == STORE_NAME else p / STORE_NAME
 
-    cache = pathlib.Path(cache)
-    cache.mkdir(parents=True, exist_ok=True)
-    store = cache / "openbd.json"
-    held = json.loads(store.read_text()) if store.exists() else {}
-    missing = [i for i in isbns if i not in held]
+
+def load(cache=None):
+    """`(records, asked)`: what openBD said per ISBN, and the date each ISBN was asked about.
+
+    THE DATE IS WHY THE SHAPE CHANGED. The file used to be `{isbn: record or null}`, and a null in
+    it is the most valuable thing there: it is a request already paid for whose answer was
+    "nobody registered this book". With no date beside it that answer is permanent, and a book the
+    publisher files next spring stays out of every enrichment run for ever.
+
+    A FILE IN THE OLD SHAPE IS READ, not rebuilt. 2,400 answers sit in one on this machine and
+    throwing them away to gain a date would cost 48 requests to learn what is already known. Their
+    nulls carry no date, so they read as expired and are asked once more, which is five requests
+    and stamps them.
+    """
+    p = store_path(cache)
+    if not p.exists():
+        return {}, {}
+    doc = json.loads(p.read_text())
+    if isinstance(doc.get("records"), dict):
+        return doc["records"], doc.get("asked") or {}
+    return doc, {}
+
+
+def save(records, asked, cache=None):
+    p = store_path(cache)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps({"records": records, "asked": asked}, ensure_ascii=False))
+
+
+def worth_asking(isbns, records, asked, recheck_after=NEGATIVE_DAYS):
+    """The ISBNs still worth a request, and the ones a recorded absence answers for.
+
+    An ISBN openBD HELD is never asked again: a registration does not change in a way this project
+    reads. An ISBN it did not hold is asked again once the absence is old enough, because that is
+    the answer that can turn into a record.
+    """
+    from names import store as store_mod                                    # noqa: PLC0415
+    ask, known = [], []
+    for i in isbns:
+        if records.get(i):
+            continue
+        when = asked.get(i)
+        if i in records and when and store_mod.days_since(when) < recheck_after:
+            known.append(i)
+        else:
+            ask.append(i)
+    return ask, known
+
+
+def fetch(isbns, cache=None, offline=False, recheck_after=NEGATIVE_DAYS):
+    """openBD records for these ISBNs, from the store where it has them and the API where not.
+
+    A REFUSAL ABORTS AND WRITES NOTHING. openBD answers with a null per ISBN it does not hold, so a
+    host in trouble and a shelf of unregistered books arrive in the same shape once the refusal has
+    been flattened into "no body". `net.body` raises instead of flattening it, and the raise is
+    load-bearing: recording a refused batch as fifty nulls would put fifty books beyond every
+    future run for as long as the absence stands.
+    """
+    records, asked = load(cache)
+    missing, known = worth_asking(isbns, records, asked, recheck_after)
+    print(f"  {len(known)} ISBN(s) skipped: openBD said it holds nothing for them within "
+          f"{recheck_after} days", flush=True)
     if offline or not missing:
-        return {i: held.get(i) for i in isbns}
+        return {i: records.get(i) for i in isbns}
+
+    net.set_pause(HOST, PAUSE)
+    stamp = _today()
     for i in range(0, len(missing), BATCH):
         part = missing[i:i + BATCH]
-        req = urllib.request.Request(query(part), headers={"User-Agent": UA})
-        with urllib.request.urlopen(req, timeout=60) as r:
-            body = json.loads(r.read().decode("utf-8"))
+        page = net.body(net.fetch(query(part), None))
+        if page is None:
+            # The batch endpoint answering 404 is a statement about the endpoint. It says nothing
+            # about any book, and must not be written down as though it had.
+            raise net.Refused(f"openBD answered nothing for a batch of {len(part)}")
+        body = json.loads(page)
+        if not isinstance(body, list) or len(body) != len(part):
+            # zip() would silently pair the first n and leave the rest looking unasked, which is
+            # the truncated answer `healthy()` was written against, arriving one layer lower.
+            raise net.Refused(f"openBD returned {len(body)} answers to {len(part)} ISBNs")
         for isbn, rec in zip(part, body):
-            held[isbn] = rec
+            records[isbn] = rec
+            asked[isbn] = stamp
         # Written per batch rather than at the end, so an interrupted run resumes (NAMES-PLAN §4).
-        store.write_text(json.dumps(held, ensure_ascii=False))
+        save(records, asked, cache)
         print(f"  batch {i // BATCH + 1}: asked {len(part)}, "
               f"openBD holds {sum(1 for x in body if x)}", flush=True)
-        time.sleep(PAUSE)
-    return {i: held.get(i) for i in isbns}
+    return {i: records.get(i) for i in isbns}
+
+
+def _today():
+    import datetime
+    return datetime.date.today().isoformat()
 
 
 def healthy(payload):
@@ -417,7 +518,9 @@ def main(argv=None):
     import yaml
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--cache", required=True, help="where raw openBD payloads go; not the repo")
+    ap.add_argument("--cache", default=str(CACHE),
+                    help="where raw openBD payloads go; not the repo, and one place for all three "
+                         "callers unless you mean otherwise")
     ap.add_argument("--offline", action="store_true", help="use only what the cache holds")
     ap.add_argument("--reviewed", default=datetime.date.today().isoformat())
     a = ap.parse_args(argv)

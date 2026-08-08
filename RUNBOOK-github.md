@@ -152,17 +152,22 @@ adapters/openbd/enrich.py         volume-level dates, from openBD and MADB
 adapters/madb/extract.py
 ```
 
-`enrich.py` wants `--madb-cache <pinned MADB release>` as well as its openBD payload. openBD is a
-publisher's own registration and is thin for older books; the MADB index answers an ISBN openBD
-does not hold, at no request. The pass prints how many dates each catalogue supplied, and it is
-correct for the MADB figure to read nought while every ISBN-bearing record in the corpus is MADB's
-own, because the pass refuses to write MADB's answer back over a record that came from MADB.
+`enrich.py` wants `--madb-cache <pinned MADB release>`. openBD is a publisher's own registration and
+is thin for older books; the MADB index answers an ISBN openBD does not hold, at no request. The
+pass prints how many dates each catalogue supplied, and it is correct for the MADB figure to read
+nought while every ISBN-bearing record in the corpus is MADB's own, because the pass refuses to
+write MADB's answer back over a record that came from MADB.
 
-The openBD payload is `$YURI_CACHE/openbd-cache/openbd.json`, which `names/openbd_reading.fetch`
-fills and the retailer captures share. Pass `--fetch` and the run fills it itself, asking only for
-the corpus ISBNs the cache has no entry for; a re-run with nothing new costs no request. Without it
-the pass enriches whatever somebody last happened to fetch, which on 2026-08-08 was 1,310 of the
-corpus's 2,321 ISBNs while the name pass had already asked about all of them.
+It wants no cache path. `names/openbd_reading.py` owns the location, at
+`$YURI_CACHE/openbd-cache/openbd.json`, and the enrichment pass and the retailer captures all read
+it through that module. Passing one used to be how the two halves diverged: the name pass filled
+`names-cache/openbd.json`, this pass read `openbd-cache/openbd.json`, and on 2026-08-08 that cost
+978 volumes their date for no reason except which file was opened. Pass `--fetch` and the run fills
+the shared file itself, asking only about ISBNs it has no answer for.
+
+That file holds openBD's silences as well as its records, each with the date it was established. An
+ISBN nobody registered costs one request to discover and the answer is worth keeping, so it is
+kept, and re-asked after ninety days because a publisher files a book eventually.
 
 **Stage C — browser (slow, ~30 min, allowed to fail)**
 

@@ -1,10 +1,8 @@
 {
- "generated": "2026-08-08T17:36:03+00:00",
+ "generated": "2026-08-08T17:49:09+00:00",
  "since_last": {
-  "at": "2026-08-08T17:16:27+00:00",
-  "statistics": {
-   "chapters": 2
-  }
+  "at": "2026-08-08T17:36:03+00:00",
+  "statistics": {}
  },
  "means": {
   "duplicate_chapters": "Merged chapters that two sources described separately",
@@ -274,10 +272,16 @@
     "value": 0
    },
    {
+    "name": "an imprint field repeating its publisher",
+    "means": "print rows whose imprint field holds the same name as their publisher field, which a shop's individual-publishing service writes when an artist publishes their own book. There is no line to name; what moves this is the capture writing one name in one place.",
+    "budget": 360,
+    "value": 360
+   },
+   {
     "name": "imprint strings that reach no line",
     "means": "imprint strings the corpus carries that no entry in data/names/imprints.yaml answers for, so the string stands as its own object. A coverage deficit: it falls as houses are curated and it will not reach zero, because some of these are a company name or a magazine sitting in the imprint field. A rise means new imprint spellings entered faster than they were placed.",
-    "budget": 139,
-    "value": 139
+    "budget": 18,
+    "value": 18
    },
    {
     "name": "renderings still Japanese in English mode",
@@ -693,7 +697,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-08T17:16:26+00:00",
+  "previous_at": "2026-08-08T17:36:02+00:00",
   "drops": []
  },
  "outstanding": [
@@ -885,10 +889,11 @@
   {
    "kind": "debt",
    "key": "data_debts",
-   "count": 34,
+   "count": 35,
    "what": "Bring down counts that may only ratchet downward",
    "rows": {
     "adapters fetching without net.py": 35,
+    "an imprint field repeating its publisher": 360,
     "author readings no source states": 312,
     "bookwalker listings unconfirmed": 0,
     "bookwalker series unread": 0,
@@ -906,7 +911,7 @@
     "full-width forms in English renderings": 37,
     "implausible ruby spans": 0,
     "imprint names the interface disagrees with": 0,
-    "imprint strings that reach no line": 139,
+    "imprint strings that reach no line": 18,
     "incomplete attested rows": 14,
     "interface reads outside an entry point": 13,
     "invented markup in tests": 75,

@@ -3024,14 +3024,46 @@ def budget_imprint_strings_that_reach_no_line(ctx):
     # is the silence STANDING-INSTRUCTIONS §4 is about: a build that stopped writing the map and a
     # registry that had placed everything would report the same number. This way the map going away
     # reads as every string reaching no line, which is what has happened.
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    import key as _k
     shipped = (ctx["names_shipped"] or {}).get("imprints") or {}
     missing = set()
     for r in ctx["series"]:
         for pr in (r.get("print") or []):
             raw = str(pr.get("imprint") or "").strip()
-            if raw and raw not in shipped:
+            pub = str(pr.get("publisher") or "").strip()
+            if raw and raw not in shipped and not (pub and _k.fold(raw) == _k.fold(pub)):
                 missing.add(raw)
     return len(missing)
+
+
+def budget_an_imprint_field_repeating_its_publisher(ctx):
+    """Print rows whose imprint field holds the same name as their publisher field.
+
+    A SHOP'S INDIVIDUAL-PUBLISHING SERVICE WRITES THIS. An artist publishes their own book, the
+    service is the publisher of record, and its catalogue puts the same name in both fields. There
+    is no line, so there is nothing a registry could name and no curation anybody can do, which is
+    why these left `imprint strings that reach no line`: counted there they read as 100 lines
+    waiting to be curated and they are none.
+
+    IT IS STILL A FAULT, and a quieter one. `GP-KIDS/高菜しんの` is catalogued in both fields and the
+    two normalise differently, as a publisher to itself and as an imprint to the person, so the map
+    was keyed on whichever field was read first and the interface asked for a key nothing answered.
+    A field holding a name that is not an imprint is where that comes from.
+
+    MEASURED ON THE FIELDS AND NOT ON THE REGISTRY (§14b), so it cannot be satisfied by curating
+    anything: the only thing that moves it is the capture writing one name in one place.
+    """
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    import key as _k
+    n = 0
+    for r in ctx["series"]:
+        for pr in (r.get("print") or []):
+            raw = str(pr.get("imprint") or "").strip()
+            pub = str(pr.get("publisher") or "").strip()
+            if raw and pub and _k.fold(raw) == _k.fold(pub):
+                n += 1
+    return n
 
 
 def budget_labels_with_nothing_to_quote(ctx):
@@ -3332,6 +3364,10 @@ BUDGETS_DEF = [
      "publisher names app.js asks the shipped map for and does not get, normalised the way the "
      "browser normalises. A rise means the two implementations of the cataloguing rule have "
      "drifted, which is the one failure the budget above cannot see."),
+    ("an imprint field repeating its publisher", budget_an_imprint_field_repeating_its_publisher,
+     "print rows whose imprint field holds the same name as their publisher field, which a shop's "
+     "individual-publishing service writes when an artist publishes their own book. There is no "
+     "line to name; what moves this is the capture writing one name in one place."),
     ("imprint strings that reach no line", budget_imprint_strings_that_reach_no_line,
      "imprint strings the corpus carries that no entry in data/names/imprints.yaml answers for, so "
      "the string stands as its own object. A coverage deficit: it falls as houses are curated and "

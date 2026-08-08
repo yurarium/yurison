@@ -71,10 +71,17 @@ def main(s):
     # ---- the framing, which is the whole reason these pages are risky -----------------------------
     # An author page listing three works implies that is the body of work. A publisher reads as
     # obviously bigger than our slice; a person does not, so the page has to say what its list is.
-    s.check("Not their body of work" in page,
-            "a person's page says the list is our yuri coverage and not their output")
+    s.check("The yuri works in this database that name this person" in page,
+            "a person's page says what its list is")
     house = files["publisher/h00004/index.html"]
-    s.check("Not its catalogue" in house, "and a house's page says the same about its shelf")
+    s.check("The yuri works this database holds from this publisher" in house,
+            "and a house's page says what its list is")
+    # SAYING WHAT IT IS NOT WAS THE OTHER HALF AND IS GONE. Both sentences used to close with a
+    # denial, not their body of work and not its catalogue, which told a reader what they were not
+    # looking at. The claim above already limits the list to what this database holds as yuri.
+    for _p in (page, house):
+        s.check("ではない" not in _p and "Not their body" not in _p and "Not its catalogue" not in _p,
+                "and does not go on to say what it is not")
 
     # A MAGAZINE IS A PLACE, NOT A PERSON. 20 of these credits are not people and must not get a
     # person-shaped page: DEFINITIONS treats a magazine as somewhere yuri is published.

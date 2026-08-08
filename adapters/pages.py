@@ -48,21 +48,26 @@ ROLE_EN = {"原作": "story", "作画": "art", "漫画": "art", "著": "author",
            "監修": "supervision", "編": "editor", "編集": "editor", "訳": "translation",
            "翻訳": "translation", "絵": "art", "文": "text", "表紙": "cover", "協力": "assistance"}
 
+# SAY WHAT THE LIST IS AND STOP. Each of these carried a second sentence saying what it was not:
+# not their body of work, not the house's catalogue. The first sentence already says the list is
+# what this database holds as yuri, so the second only tells a reader what they are not looking at,
+# which is a use of their attention and not a fact about the works.
+#
+# A SECOND COPY OF THESE LIVES IN kari/app.js, which renders the same pages live while this
+# pre-renders them. §3 says that will drift and it already had: the two wordings differed before
+# either was trimmed. Neither can import the other because one runs in a browser, so they are kept
+# aligned by hand and this comment is the warning.
 SHAPE_NOTE = {
-    "person": ("この人物が関わったとして本データベースが把握している百合作品の一覧。"
-               "その人の全作品ではない。",
-               "The yuri works in this database that name this person. Not their body of work: "
-               "we hold what is yuri, and they may have published a great deal more."),
+    "person": ("この人物が関わったとして本データベースが把握している百合作品の一覧。",
+               "The yuri works in this database that name this person."),
     "venue": ("この媒体に掲載されたとして本データベースが把握している百合作品の一覧。",
               "The yuri works in this database published in this venue."),
     "organisation": ("この団体が関わったとして本データベースが把握している百合作品の一覧。",
                      "The yuri works in this database that name this organisation."),
 }
 
-HOUSE_NOTE = ("この出版社の作品のうち、本データベースが百合として収録しているものの一覧。"
-              "同社の刊行物すべてではない。",
-              "The yuri works this database holds from this publisher. Not its catalogue: a house "
-              "of this size prints a great deal that is not here.")
+HOUSE_NOTE = ("この出版社の作品のうち、本データベースが百合として収録しているものの一覧。",
+              "The yuri works this database holds from this publisher.")
 
 
 def _page(title, depth, body, query):

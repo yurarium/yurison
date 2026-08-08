@@ -1893,9 +1893,16 @@ def budget_incomplete_attested_rows(ctx):
 
 
 def budget_stock_phrasing_in_comments(ctx):
+    # THE REPOSITORY IS THE SUBJECT, so the scan asks git what is in it. Walking the directory
+    # counted CLAUDE.md, which is ignored and exists only in the main working tree, so the same
+    # commit measured 903 here and 898 in a worktree. A branch then ratcheted the budget down by
+    # 5 in good faith and the merge result put it straight back. A number that depends on which
+    # tree you stand in cannot ratchet, which is what STANDING-INSTRUCTIONS 14a is about.
     try:
-        files = [str(f) for f in list(ROOT.rglob("*.py")) + list(ROOT.rglob("*.md"))
-                 if ".git" not in f.parts and "data" not in f.parts]
+        tracked = subprocess.run(["git", "ls-files", "-z", "*.py", "*.md"], cwd=str(ROOT),
+                                 capture_output=True, text=True, timeout=60).stdout.split("\0")
+        files = [str(ROOT / f) for f in tracked
+                 if f and not f.startswith("data/") and (ROOT / f).exists()]
         out = subprocess.run(
             [sys.executable, str(ROOT / "adapters" / "lint" / "tics.py"), "--comments",
              "--quiet", *files], capture_output=True, text=True, timeout=120)

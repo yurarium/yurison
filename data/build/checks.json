@@ -118,14 +118,8 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 5,
-   "examples": [
-    "index.json",
-    "run.json",
-    "series.json",
-    "works.json",
-    "feed/names.json"
-   ]
+   "violations": 0,
+   "examples": []
   },
   {
    "name": "no refutation of print serials",

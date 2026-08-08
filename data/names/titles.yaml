@@ -19370,6 +19370,20 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  ゆりでなるｖえすぽわーる:
+    reading: ユリ デ ナル ♡ エスポワール
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_note: 'THE SHOPS'' SPELLING OF THE SAME WORK. BOOK☆WALKER and コミックシーモア both write ｖ where
+      the bibliography writes ♡, so their charset is losing the mark. w01376 anchors both records and
+      the page shows the heart, but works.json keeps each record''s own catalogued title, so the ｖ form
+      is what a volume row is labelled from and it had no rendering at all. The reading is the heart form''s,
+      because it is the same title: エスポワール is espoir and the mark is not spoken. Recorded rather than
+      corrected in the capture, which REQUIREMENTS §5 keeps as it arrived.'
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: false
   ゆりどりみどり:
     basis: translated
     en: Yuri, Take Your Pick

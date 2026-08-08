@@ -19388,24 +19388,6 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
-  ゆりでなるｖえすぽわーる:
-    basis: romaji
-    furigana_spans:
-    - - ゆりでなる
-      - null
-    - - ｖ
-      - ぼると
-    - - えすぽわーる
-      - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: ユリ デ ナル ボルト エ スポ ワール
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
   ゆりどりみどり:
     basis: translated
     en: Yuri, Take Your Pick
@@ -53010,6 +52992,8 @@ names:
     - basis: stated
       source: ndlsearch.ndl.go.jp
       value: アクヤク レイジョウ ノ ナカ ノ ヒト
+    reading_corroborated:
+    - yurarium
     reading_note: 転生者 is てんせいしゃ.
     reading_reviewed: '2026-08-04'
     reading_source: ndlsearch.ndl.go.jp

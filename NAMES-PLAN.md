@@ -395,6 +395,44 @@ Level 2 should never guess an alignment it cannot verify — a ruby annotation o
 character is worse than none, and unlike a whole-string reading it is wrong in a specific, visible
 place.
 
+### A rule tried and rejected: dividing the surface by the reading's word spacing
+
+Recorded on 2026-08-08 so it is not derived a third time. `kana.align('毎月庭つき大家つき',
+'マイツキ ニワツキ オオヤツキ')` puts 毎月庭 under マイ and 大家 under ニワツキオオヤ, and a person
+reads that title without difficulty, so there ought to be a rule. The reading is three
+space-separated words and those spaces come from the analyser, which found them by dividing the
+SURFACE. So the proposal was to read them as a division of the pair: one reading word to one
+surface unit, in order, with okurigana settled inside each unit where the question is small.
+
+It is implemented in fifty lines and it does not work, and the reason is worth keeping.
+
+**The spacing does not say WHERE the surface divides.** 毎月庭 is one unbroken kanji run split
+between two reading words, and マイツキ|ニワ can be cut as 毎|月庭 or as 毎月|庭, and both spell the
+reading. Choosing between them needs to know that 毎月 is a word, which is
+lexical knowledge this module deliberately does not carry (it would be the KANJIDIC2 dependency
+§5c avoids). Trying the longest unit first and refusing any run that reads as fewer morae than it
+has kanji picks the human reading here, and picks a wrong one elsewhere: 冬木先輩 against
+`フユキ センパイ` comes out 冬木先 under フユキ and 輩 under センパイ, which `test_kana.py` had
+already pinned as the counter-case from an earlier round.
+
+Measured over the 5,435 readings in the store, segmentation alone raises the placements holding
+fewer kana than they have kanji from 30 to 296, because dividing correctly and then splitting each
+unit by first fit is worse than not dividing at all. Adding the mora floor brings that to 24, below
+where it started, while cutting 939 kanji runs the old answer kept whole. Some of those cuts are
+right (2週間 becomes 2 and 週間) and some are 女社長 becoming 女社 and 長. The corpus number
+improved while a pinned counter-case broke, which is the shape STANDING-INSTRUCTIONS §2 warns
+about.
+
+**The information was thrown away upstream, and that is where to look.**
+`pass4_analyser`
+tokenises, aligns each token separately and gets both 毎月|庭|大家 and 冬木|先輩 right, because
+SudachiPy hands it the token SURFACES beside the readings. The store keeps only the readings joined
+with spaces, so `kana.align` on a whole string is re-deriving a division somebody already had. The
+records this fallback serves are the ones whose reading came from a source with no token structure
+at all, and for those the division was never known, so no rule inside this module can recover it.
+The fix, if it is worth making, is to keep the analyser's division beside the reading rather than
+to guess it back.
+
 ## 6. Fallback for names not yet researched
 
 **Show the Japanese.** This is the same rule `platName()` already follows for platforms — absent

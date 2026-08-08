@@ -1,0 +1,98 @@
+agrees_with: adapters/nicovideo/releases.py:parse
+body_sha256: e3fdf4aed97d0aea256df32bb92594531ae13aa5416ca777e88efe14f1e51743
+cached_as: nico/22768.html
+captured: '2026-08-08'
+format: html
+keep:
+- <title>
+- <ul class="sg_pankuzu">
+- <div id="mg_official"
+- <div class="meta_info">
+- <div id="episode_list"
+- <small class="copyright">
+redact: []
+redact_over: 0
+retrieved: '2026-08-01'
+source_bytes: 120983
+source_sha256: 754076b5824f3780a7d6cc5c142a85f5c048ae018ff8d3db619181ecd1a9bfdd
+trim:
+- in: <div id="mg_official"
+  keep: <li>
+  n: 2
+url: https://manga.nicovideo.jp/comic/22768
+why: '球詠, in きららベース. Every field the adapter reads is here, on one page.
+
+  THE SIDEBAR IS THE COUNTER-CASE AND NOT PADDING. It renders a banner for every official
+  channel on
+
+  the site, opening with ニコニコ漫画（公式） at /official/nicomanga, so a channel pattern that
+  is not
+
+  scoped to the breadcrumb answers nicomanga here, and did for all 180 works we held.
+  A fixture
+
+  without it is one the broken pattern passes.
+
+  The rendered episode list is the platform''s own selection and not the work: 4 items
+  out of 244,
+
+  numbered 1, 20, 243 and 244, with 番外編 at 20 sitting between them. That is the shape
+  that decides
+
+  whether the newest episode is read by position or by number.'
+---
+<title>
+      球詠 / マウンテンプクイチ おすすめ無料漫画 - ニコニコ漫画
+  </title>
+<ul class="sg_pankuzu">
+                        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/manga/" itemprop="url"><span itemprop="title">マンガ</span></a></li>
+                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/official/kirara" itemprop="url"><span itemprop="title">[公式] きららベース</span></a></li>
+                    <li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">球詠</span></li>
+            </ul>
+<div id="mg_official" class="menu_block">
+    <h2 class="menu_legend">
+      公式マンガ
+    </h2>
+    <ul>
+      <li><a href="/official/nicomanga/"><div class="mg_banner"><img data-original="https://deliver.cdn.nicomanga.jp/thumb/4265156q" src="/manga/img/_.gif" title="ニコニコ漫画（公式）" alt="ニコニコ漫画（公式）" class="lazyload"><p class="date_balloon">08/03更新</p></div></a></li><li><a href="/official/m_action/"><div class="mg_banner"><img data-original="https://deliver.cdn.nicomanga.jp/thumb/16742670q?1749547150" src="/manga/img/_.gif" title="月刊のアクション" alt="月刊のアクション" class="lazyload"><p class="date_balloon">08/03更新</p></div></a></li>
+<!-- fixture: 155 more <li> dropped -->
+
+    </ul>
+  </div>
+<div class="meta_info">
+          2026年07月28日更新
+          2016年08月13日開始
+          <span style="padding-left: 16px">
+            [
+              4話 無料
+            ]
+          </span>
+                    <span style="padding-left: 16px">
+            <a href="/manga/list?category=%E9%9D%92%E5%B9%B4%E3%83%9E%E3%83%B3%E3%82%AC">
+              [<span class="category">青年マンガ</span>]
+            </a>
+          </span>
+                    <div id="ko_favorite_top">
+            <div class="meta_info__favorite">
+              <a class="btn favorite"
+                 data-bind="click: toggleState, css: {active: favorite}, attr: {title: favorite()? '作品のお気に入りを解除' : '作品をお気に入りに登録', rel: favorite()? 'tooltip' : 'tooltip_remove'}">
+                <span class="icon_watchlist_add"></span>
+                <span class="text" data-bind="text: favorite()? 'お気に入りに追加済み' : '作品をお気に入りに登録'" sheep-class="text">作品をお気に入りに登録</span>
+              </a>
+            </div>
+          </div>
+        </div>
+<div id="episode_list" class=" inner tile_view ">
+                          <ul style="list-style:none">
+                      <li class="episode_item">
+            <div class="episode" data-number="1" data-idx="0"><div class="thumb episode_thumb"><a href="/watch/mg186573"><img alt="【コミックス版】第1球:あの魔球を、もう一球" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/6021725q?1471309337" class="lazyload"><span class="mg_status status">32 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg186573">【コミックス版】第1球:あの魔球を、もう一球</a></div><div class="body "></div><div class="comment_summary ">ようとるわ いいね10回押しに帰ってきた! 野良JK、中学詠深唯一の前向きなシーンだから印象...</div><div class="counter">再生:229479 | コメント:1068</div></div></div>                        </li>
+                      <li class="episode_item">
+            <div class="episode" data-number="20" data-idx="1"><div class="thumb episode_thumb"><a href="/watch/mg231881"><img alt="番外編〜新変化球？〜" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/6728686q" class="lazyload"><span class="mg_status status">5 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg231881">番外編〜新変化球？〜</a></div><div class="body "></div><div class="comment_summary ">あんま曲がってない(当社比) ドキドキ☆ビジュアル てえてえ 握りと捻りがシュート 避ける...</div><div class="counter">再生:127619 | コメント:224</div></div></div>                        </li>
+                      <li class="episode_item">
+            <div class="episode" data-number="243" data-idx="2"><div class="thumb episode_thumb"><a href="/watch/mg1046375"><img alt="第117球：織り込み済みだけど(前編)" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/18893864q?1779766791" class="lazyload"><span class="mg_status status">16 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg1046375">第117球：織り込み済みだけど(前編)</a></div><div class="body "></div><div class="comment_summary ">(っ&#039;-&#039;)╮=͟͟͞͞ブォンミ</div><div class="counter">再生:13553 | コメント:301</div></div></div>                        </li>
+                      <li class="episode_item">
+            <div class="episode" data-number="244" data-idx="3"><div class="thumb episode_thumb"><a href="/watch/mg1046376"><img alt="第117球：織り込み済みだけど(後編)" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/18893877q?1779766942" class="lazyload"><span class="mg_status status">12 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg1046376">第117球：織り込み済みだけど(後編)</a></div><div class="body "></div><div class="comment_summary ">やめたくなりますよ～ この世界に男は存在しない 實松「大学よりまず来月コミケ行こう」 11...</div><div class="counter">再生:10901 | コメント:410</div></div></div>                        </li>
+                    </ul>
+          <div style="clear:both;"></div>
+              </div>
+<small class="copyright">©️マウンテンプクイチ／芳文社</small>

@@ -27,7 +27,7 @@ BUDGETS RATCHET ONE WAY. Tier-2 numbers are counts with no correct value, only a
 `--gate` tightens the recorded budget to what was actually measured; loosening one requires editing
 docs/budgets.json by hand, which puts the reason in a commit message where it can be argued with.
 """
-import argparse, json, os, pathlib, re, subprocess, sys, unicodedata
+import argparse, ast, json, os, pathlib, re, subprocess, sys, unicodedata
 
 ROOT = pathlib.Path(__file__).resolve().parent
 BUILD = ROOT / "data" / "build"
@@ -287,6 +287,53 @@ def inv_no_absolute_paths_in_published_files(ctx):
             continue
         if hits:
             bad.append(f"{f.relative_to(BUILD)}: {len(hits)} absolute path(s)")
+    return bad
+
+
+def inv_fixture_states_where_it_came_from(ctx):
+    """A committed fixture names the page it was cut from, and matches its own digest.
+
+    WHAT GOES WRONG WITHOUT THIS. Tests run offline, so a parser can only be tested against markup
+    somebody wrote down, and markup somebody wrote down contains what they imagined. The ニコニコ
+    channel pattern read a promotional sidebar banner instead of the breadcrumb and matched on
+    every page of the site, so all 180 works agreed on one wrong answer; the fixture it had been
+    written against had no sidebar in it. Six months on, an invented page and a captured one are
+    the same file. The header is what tells them apart, so it is required rather than encouraged.
+
+    THE DIGEST IS RECOMPUTED HERE, from the bytes after the separator, with no help from
+    adapters/fixtures.py. That is the part of this check that does not share its subject's blind
+    spot (§14b): everything else defers to `fixtures.problems`, which is the one definition of a
+    well-formed header and is therefore also blind to a `fixtures.py` that has stopped splitting
+    the file where it says it does. Hashing the raw text catches that, because it owes the module
+    nothing but the name of the separator.
+
+    WHAT IT CANNOT SEE. Whether the markup is honest. A person who edits a fixture and recomputes
+    its digest passes, and so does one who captured the wrong page. `fixtures.py recheck` answers
+    the second by re-deriving from the caches, and the first is what `why` and a reader are for.
+
+    fallback: none available. Nothing in build.py reads a fixture, so there is nothing to degrade
+    to; a bad fixture is a test that is lying and belongs blocked at check-in.
+    """
+    import hashlib as _h
+    bad = []
+    for name, text in sorted((ctx["fixtures"] or {}).items()):
+        head, sep, body = text.partition("\n---\n")
+        if not sep:
+            bad.append(f"{name}: no separator between the header and the markup")
+            continue
+        m = re.search(r"^body_sha256:\s*(\S+)\s*$", head, re.M)
+        if not m:
+            bad.append(f"{name}: records no body_sha256")
+        elif _h.sha256(body.encode("utf-8")).hexdigest() != m.group(1):
+            bad.append(f"{name}: the markup is not what its body_sha256 says it is, so it has "
+                       "been edited since it was captured")
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        import fixtures
+    except Exception:                                                           # noqa: BLE001
+        return bad + ["adapters/fixtures.py will not import, so no header can be read"]
+    for name, text in sorted((ctx["fixtures"] or {}).items()):
+        bad += fixtures.problems(name, text)
     return bad
 
 
@@ -997,6 +1044,7 @@ INVARIANTS = [
     ("a record without a publisher says why", inv_a_record_without_a_publisher_says_why),
     ("no HTML entity in a stored name", inv_no_html_entity_in_a_stored_name),
     ("nicovideo channels agree with our own records", inv_nicovideo_channel_agrees),
+    ("a fixture states where it came from", inv_fixture_states_where_it_came_from),
 ]
 
 
@@ -1067,6 +1115,62 @@ def budget_untested_modules(ctx):
         return int(out.stdout.strip() or 0)
     except Exception:
         return 0
+
+
+def budget_invented_markup_in_tests(ctx):
+    """String literals in tests that are shaped like a page and came from nobody's page.
+
+    A test can only exercise a parser against markup somebody wrote down, and until
+    `data/fixtures/` existed the only place to write it was the test file. Three faults came out of
+    that in one round, the ニコニコ sidebar being the expensive one: the pattern read a real
+    element correctly and the element was the wrong one, and the invented page did not contain the
+    element it should have preferred.
+
+    WHAT COUNTS. A literal of 200 characters or more holding both `<` and `>`. The threshold is
+    doing real work rather than rounding: `<div class="meta_info">2026年8月3日更新</div>` is 45
+    characters, states one parsing rule, and belongs in the test where a reader sees the rule and
+    its input together. A 700-character block with a breadcrumb and a sidebar in it is impersonating
+    a page, and the page is on disk in a cache.
+
+    MEASURED ON THE TEST FILES AND NOT ON THE FIXTURE LIBRARY, which is the point (§14b). Counting
+    fixtures would rise as the work got done and would say nothing about the tests that never
+    converted. This falls only when a literal is replaced by a capture, and it does not reach zero
+    on its own: several of these are JSON payloads and feed bodies for platforms whose pages nobody
+    has cached.
+    """
+    n = 0
+    for f in sorted(ROOT.glob("**/test_*.py")) + sorted(ROOT.glob("**/*_test.py")):
+        if ".git" in f.parts or "data" in f.parts:
+            continue
+        try:
+            tree = ast.parse(f.read_text(encoding="utf-8", errors="replace"))
+        except SyntaxError:
+            continue
+        for node in ast.walk(tree):
+            if (isinstance(node, ast.Constant) and isinstance(node.value, str)
+                    and len(node.value) >= 200 and "<" in node.value and ">" in node.value
+                    and not (ast.get_docstring(tree) == node.value)):
+                n += 1
+    return n
+
+
+def budget_nicovideo_works_with_no_rights(ctx):
+    """ニコニコ works captured with no copyright line read off their page.
+
+    THE FAULT THIS COUNTS. `rights` matched `<small class="copyright">(C)` and nothing else. Of the
+    157 cached work pages carrying the line, 101 open with something the pattern could not read: ©
+    bare, © with the emoji variation selector, Ⓒ, （C）and (ｃ) in fullwidth, &copy with no
+    semicolon, one @, and three that end the line with `<br />` so the element did not match at
+    all. Every one of those returned [], which is indistinguishable from a page stating no rights
+    (§5), and this is the only field on the platform that names a PUBLISHER.
+
+    MEASURED ON THE CAPTURED ROWS, which owe nothing to the pattern (§14b): the check asks whether
+    a row carries the field, and the producer never asks that question. A budget rather than an
+    invariant because it does not reach zero. A work its own author posted carries no copyright
+    element at all, and 19 of the works here are in that position.
+    """
+    rows = (_yaml(ROOT / "data" / "source" / "nicovideo" / "works.yaml", {}) or {}).get("works")
+    return sum(1 for w in (rows or []) if not w.get("rights"))
 
 
 def budget_unguarded_captures(ctx):
@@ -1436,7 +1540,7 @@ def budget_titles_with_no_translation_of_our_own(ctx):
 
 SOURCE_BUDGETS = {"stock phrasing in comments", "three as an organising shape",
                   "modules without a test", "shadowed names in build.py",
-                  "scraped counters in chapter names"}
+                  "scraped counters in chapter names", "invented markup in tests"}
 
 RUBY_KANJI = re.compile(r"[一-鿿々]")
 RUBY_KANA = re.compile(r"[ぁ-ゖァ-ヺー]")
@@ -2180,6 +2284,16 @@ BUDGETS_DEF = [
      "are a budget here and zero in public text. Public prose is an invariant instead; this is the "
      "backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not "
      "flagged, and why legibility beats camouflage."),
+    ("invented markup in tests", budget_invented_markup_in_tests,
+     "page-shaped string literals of 200 characters or more in test files, which is markup "
+     "somebody wrote from memory standing in for a page. Falls as tests move to "
+     "data/fixtures/; does not reach zero, because some platforms have no cached page to cut. "
+     "A rise means a test went back to inventing one."),
+    ("nicovideo works with no rights", budget_nicovideo_works_with_no_rights,
+     "ニコニコ works captured with no copyright line read off their page, which is the only field "
+     "the platform gives that names a publisher. Falls when the capture re-runs against the "
+     "widened pattern; does not reach zero, because a work its own author posted carries no "
+     "copyright element at all."),
     ("modules without a test", budget_untested_modules,
      "Python modules no suite covers. Offline tests are the enforcement for factoring as well: a "
      "module that cannot be tested without a network has not separated its logic from its I/O, so "
@@ -2289,7 +2403,18 @@ def context():
         "nicovideo_channels": (_yaml(ROOT / "data" / "source" / "nicovideo" / "nicovideo.yaml",
                                      {}) or {}).get("works") or [],
         "nicovideo_recorded_channels": _nicovideo_recorded_channels(),
+        # THE RAW TEXT, not the parsed header, for the reason the comments above give and for one
+        # more: the check that matters here recomputes the body digest, and it can only do that on
+        # bytes nobody has re-serialised on the way in.
+        "fixtures": _fixture_files(),
     }
+
+
+def _fixture_files():
+    """`{name: raw text}` for every committed fixture."""
+    d = ROOT / "data" / "fixtures"
+    return {str(p.relative_to(d))[: -len(".fixture")]: p.read_text(encoding="utf-8")
+            for p in sorted(d.rglob("*.fixture"))} if d.exists() else {}
 
 
 def _capture_passes():
@@ -2297,6 +2422,26 @@ def _capture_passes():
     sys.path.insert(0, str(ROOT / "adapters"))
     import capturegap
     return capturegap.load(ROOT, read=lambda p: _yaml(p, {}) or {})
+
+
+def _plant_edited_fixture(c):
+    """One committed fixture, with its markup changed and its digest left alone.
+
+    THE CANARY IS THE REAL FILE (§14b), not a shape invented for the probe: a fixture that has been
+    edited to make a failing test pass keeps a header that says where it came from and stops being
+    the page it names. Nothing else here can see that.
+    """
+    name = next(iter(c["fixtures"]), None)
+    if name:
+        c["fixtures"][name] = c["fixtures"][name] + "\n<div>a line nobody captured</div>"
+
+
+def _anonymous_fixture():
+    """Markup with a well-formed digest and nothing saying where it came from."""
+    import hashlib as _h
+    body = "<div>markup somebody wrote</div>"
+    return (f"body_sha256: {_h.sha256(body.encode()).hexdigest()}\nformat: html\n"
+            f"---\n{body}")
 
 
 def _nicovideo_recorded_channels():
@@ -2455,6 +2600,20 @@ def self_test():
         # A publisher field left empty with nothing saying which kind of empty it is.
         ("a record without a publisher says why", inv_a_record_without_a_publisher_says_why,
          lambda c: c["madb_records"].append({"work_id": "CANARY", "publisher": ""})),
+        # ONE CANARY PER WAY THE CHECK CAN FAIL, so that none of them can cover for another going
+        # quiet. A fixture whose markup was edited after capture, which is how a failing test gets
+        # quietly made to pass. A page pasted in with no header at all, which is the state this
+        # exists to make impossible. Markup carrying a header that says nothing about where it came
+        # from, which is an invented page wearing a fixture's clothes.
+        ("a fixture states where it came from", inv_fixture_states_where_it_came_from,
+         _plant_edited_fixture),
+        ("a fixture states where it came from", inv_fixture_states_where_it_came_from,
+         lambda c: c["fixtures"].update({"CANARY": "<div>a page somebody pasted in</div>"})),
+        # ITS DIGEST IS CORRECT, so only the header requirements can catch this one. Giving it a
+        # wrong digest too would let the arithmetic above cover for `fixtures.problems` going
+        # quiet, and the two are asserting different things.
+        ("a fixture states where it came from", inv_fixture_states_where_it_came_from,
+         lambda c: c["fixtures"].update({"CANARY": _anonymous_fixture()})),
     ]
     ok = True
     for name, fn, plant in probes:

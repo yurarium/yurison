@@ -1,0 +1,42 @@
+agrees_with: adapters/comicfuz/releases.py:page_props
+body_sha256: fbc62c0c6374f47718414f0ff6bcaed53ef29a9ffa5d976343128ae73eab0512
+cached_as: fuz/441.html
+captured: '2026-08-08'
+format: html
+keep:
+- <script id="__NEXT_DATA__"
+redact:
+- longDescription
+- shortDescription
+- mainThumbnailUrl
+- singleListThumbnailUrl
+- thumbnailUrl
+- firstPageImageUrl
+- headerImageUrl
+- imageUrl
+redact_over: 0
+retrieved: '2026-08-01'
+sample:
+- values:
+  - 2933
+  - 47947
+  - 53783
+  - 76444
+  where: chapterId
+source_bytes: 98220
+source_sha256: 196bfbca13a3f7dd0fb07d9fc61279c677805c4fb9613447cf75aaf641c92218
+trim: []
+url: https://comic-fuz.com/manga/441
+why: "球詠 on COMIC FUZ, cut to one chapter of each access state the platform has.\n\
+  FOUR STATES AND NOT TWO, which is the mistake this adapter shipped: it read every\
+  \ amount as paid\nand reported the platform 14% free when most of it can be read\
+  \ for nothing a chapter a day.\n  2933  pointConsumption {}              free\n\
+  \  47947 amount 30, NO badge              チャージ, one per series per day, free over\
+  \ time\n  53783 amount 60, badge, type 1         先行, paid today and free from 2027/01/01\n\
+  \  76444 amount 60, badge, type 2         a coin purchase with no end\n47947 is\
+  \ the one that was wrong. It is deliberately unlabelled on the page, which is what\
+  \ made it\nlook paid, and 2,067 of the 2,421 chapters held here are that state.\n\
+  The publisher synopsis and every thumbnail are redacted: REQUIREMENTS §2 forbids\
+  \ storing the first\nand the second is signed URLs that state no rule."
+---
+<script id="__NEXT_DATA__" type="application/json">{"props": {"pageProps": {"chapters": [{"chapters": [{"chapterId": 76444, "chapterMainName": "１９巻 第１１４球 「何かおありになりますね」（２）", "thumbnailUrl": "[redacted: thumbnailUrl]", "pointConsumption": {"type": 2, "amount": 60}, "numberOfLikes": 7, "firstPageImageUrl": "[redacted: firstPageImageUrl]", "badge": 2}], "bookIssueHeader": {"bookIssueId": "29515", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　１９巻", "publishedDate": "2026/04/10発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "29090", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　１８巻", "publishedDate": "2025/10/10発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "28659", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　１７巻", "publishedDate": "2025/04/12発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "28236", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　１６巻", "publishedDate": "2024/10/10発売"}}, {"chapters": [{"chapterId": 53783, "chapterMainName": "１５巻 第９０球 「示すしかなかろ」（２）", "thumbnailUrl": "[redacted: thumbnailUrl]", "pointConsumption": {"type": 1, "amount": 60}, "numberOfComments": 5, "numberOfLikes": 79, "updatedDate": "2027/01/01", "firstPageImageUrl": "[redacted: firstPageImageUrl]", "badge": 2}], "bookIssueHeader": {"bookIssueId": "27830", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　１５巻", "publishedDate": "2024/04/11発売"}}, {"chapters": [{"chapterId": 47947, "chapterMainName": "１４巻 第７９球 「冬合宿」（２）", "thumbnailUrl": "[redacted: thumbnailUrl]", "pointConsumption": {"amount": 30}, "numberOfComments": 21, "numberOfLikes": 357, "updatedDate": "2026/07/31", "firstPageImageUrl": "[redacted: firstPageImageUrl]"}], "bookIssueHeader": {"bookIssueId": "27358", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　１４巻", "publishedDate": "2023/10/12発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "26995", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　１３巻", "publishedDate": "2023/04/12発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "26624", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　１２巻", "publishedDate": "2022/10/12発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "26119", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　１１巻", "publishedDate": "2022/03/10発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "25555", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　１０巻", "publishedDate": "2021/09/09発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "24534", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　９巻", "publishedDate": "2021/03/12発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "21940", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　８巻", "publishedDate": "2020/06/12発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "21448", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　７巻", "publishedDate": "2020/04/10発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "13577", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　６巻", "publishedDate": "2019/09/12発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "5475", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　５巻", "publishedDate": "2019/03/12発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "1493", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　４巻", "publishedDate": "2018/07/12発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "1492", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　３巻", "publishedDate": "2018/01/11発売"}}, {"chapters": [], "bookIssueHeader": {"bookIssueId": "1491", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　２巻", "publishedDate": "2017/06/12発売"}}, {"chapters": [{"chapterId": 2933, "chapterMainName": "１巻 第２球 「黒い霧を抜けて」（１）", "thumbnailUrl": "[redacted: thumbnailUrl]", "pointConsumption": {}, "numberOfComments": 37, "numberOfLikes": 2944, "updatedDate": "2023/08/11", "firstPageImageUrl": "[redacted: firstPageImageUrl]"}], "bookIssueHeader": {"bookIssueId": "1490", "headerImageUrl": "[redacted: headerImageUrl]", "text": "球詠　１巻", "publishedDate": "2016/11/11発売"}}], "authorships": [{"author": {"authorId": 522, "authorName": "マウンテンプクイチ", "authorNameKana": "まうんてんぷくいち", "imageUrl": "[redacted: imageUrl]", "isYellEnabled": true}}], "tags": [{"id": 5, "name": "金曜日"}, {"id": 13, "name": "男性向け"}, {"id": 23, "name": "学園"}, {"id": 32, "name": "メディア化"}, {"id": 68, "name": "まんがタイムきららフォワード"}, {"id": 141, "name": "まんがタイムKRコミックス"}, {"id": 537, "name": "スポーツ"}], "manga": {"mangaId": 441, "mangaName": "球詠", "mangaNameKana": "たまよみ", "mainThumbnailUrl": "[redacted: mainThumbnailUrl]", "singleListThumbnailUrl": "[redacted: singleListThumbnailUrl]", "shortDescription": "[redacted: shortDescription]", "numberOfTotalChapterLikes": 119767, "numberOfFavorites": 44029, "longDescription": "[redacted: longDescription]", "latestUpdatedDate": "2026/07/31"}, "sns": {"body": "「球詠」を COMIC FUZ で今すぐ読もう！ #COMICFUZ #球詠", "url": "https://share.comic-fuz.com/manga/441"}, "viewButton": {"chapter": {"chapterId": 2931, "chapterMainName": "１巻 第１球 「あの魔球を、もう一球」（１）", "thumbnailUrl": "[redacted: thumbnailUrl]", "pointConsumption": {}, "numberOfComments": 109, "numberOfLikes": 5216, "updatedDate": "2023/08/11", "firstPageImageUrl": "[redacted: firstPageImageUrl]"}, "buttonTitle": "最初から読む"}, "isCommentEnabled": true}, "__N_SSG": true}, "page": "/manga/[mangaId]", "query": {"mangaId": "441"}, "buildId": "FNaYLwxx2owhUp_E4OJWm", "isFallback": false, "gsp": true, "scriptLoader": [{"async": true, "src": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9025858944511833", "crossOrigin": "anonymous", "strategy": "afterInteractive"}]}</script>

@@ -2,12 +2,24 @@
 """nicovideo/releases.py: dates from meta_info, or none at all.
 
 COVERS = ['adapters/nicovideo/releases.py']
+
+THE PAGES HERE ARE REAL. Every assertion about markup runs against `data/fixtures/nicovideo/`,
+which holds four ニコニコ work pages cut down from the capture cache with their addresses and
+retrieval dates recorded. The short literals below are different in kind: each states one parsing
+rule, so it is written out where a reader can see the rule and the input together.
+
+WHY THAT CHANGED. This file used to carry the pages as string constants somebody wrote, and the
+adapter's two worst faults were faults in what those constants imagined. The sidebar was missing,
+so a pattern reading the wrong element passed. The copyright line was spelt `(C)`, which is the
+minority spelling, and the majority went unread on 98 of 154 pages for as long as the test agreed
+with the author about what a page looks like.
 """
 import pathlib
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import fixtures
 import testkit
 import releases as nv
 
@@ -33,117 +45,119 @@ def main(s):
     unparsable = nv.parse('<div class="meta_info">近日公開</div>')
     s.check(not (unparsable or {}).get("updated"), "text without a date yields no date")
 
-    # Tags inside the block must not break the date, since the markup carries links and spans.
-    tagged = nv.parse('<div class="meta_info"><span>2026年8月3日更新</span></div>')
-    s.eq((tagged or {}).get("updated"), "2026-08-03", "markup inside the block is stripped first")
+    # ── one whole work page, as the platform serves it ────────────────────────────────────────
+    #
+    # 球詠 in きららベース. Read `why` in the fixture header for what each kept block is doing
+    # there; the sidebar in particular looks like padding and is the counter-case.
+    kirara = fixtures.load("nicovideo/work-in-a-channel")
+    whole = nv.parse(kirara)
 
-    # ── the work page's other two facts ───────────────────────────────────────────────────────
-    # Quoted from 運命のヤマダダダダダダダダダダ, which is 芳文社's book found on this platform.
-    WORK = """
-    <div class="meta_info">2026年07月16日更新 2025年06月19日開始 [ 5話 無料 ]</div>
-    <div id="episode_list"><ul>
-    <li class="episode_item"><div class="episode" data-number="1">
-      <div class="title"><a href="/watch/mg926551">第1話</a></div></div></li>
-    <li class="episode_item"><div class="episode" data-number="13">
-      <div class="title"><a href="/watch/mg1006876">番外編</a></div></div></li>
-    <li class="episode_item"><div class="episode" data-number="17">
-      <div class="title"><a href="/watch/mg1100331">第16話</a></div></div></li>
-    </ul></div>
-    <small class="copyright">(C)おにぎりパクパク/芳文社</small>
-    """
-    s.eq(nv.rights(WORK), ["おにぎりパクパク", "芳文社"],
+    s.eq(whole["updated"], "2026-07-28", "the work-level 更新 date is read")
+    s.eq(whole["started"], "2016-08-13", "and 開始, which is a real serialisation start date")
+    s.eq(whole["free_episodes"], 4, "[ 4話 無料 ] states how many episodes are free")
+
+    # THE REAL BLOCK IS NOT ONE LINE. The invented version read
+    # `2026年07月16日更新 2025年06月19日開始 [ 5話 無料 ]` as a single run of text. The page puts
+    # each date on its own line, wraps the free-episode count in a span, and hangs the favourite
+    # button inside the same div, so the whitespace collapse in `parse` is load-bearing rather
+    # than tidiness.
+    s.check("\n" in kirara[kirara.find('class="meta_info"'):][:400],
+            "the block really does span lines, which is what the collapse is for")
+
+    s.eq(whole["title"], "球詠", "ニコニコ states the work and its author in the title element")
+    s.eq(whole["author"], "マウンテンプクイチ", "and the author survives the split on /")
+
+    # ── the copyright line, in the spelling the platform actually uses ────────────────────────
+    #
+    # THE FAULT THIS PINS. `rights` matched `<small class="copyright">(C)` and nothing else, and
+    # returned [] for every other spelling, which is indistinguishable from a page stating no
+    # rights (§5). Across the 184 cached pages, 157 carry the line and 101 of them open with
+    # something the old pattern could not read: © bare, © with the emoji variation selector, Ⓒ,
+    # （C）and (ｃ) in fullwidth, &copy with no semicolon, and one @. This page is one of them.
+    s.eq(nv.rights(kirara), ["マウンテンプクイチ", "芳文社"],
          "the copyright line names the author and the publisher")
+    s.check("©" in kirara, "and this page writes the mark as ©, not as (C)")
     s.eq(nv.rights("<p>no copyright line here</p>"), [],
-         "a page without the line yields nothing rather than a guess")
+         "a page without the element yields nothing rather than a guess")
 
-    eps = nv.episodes(WORK)
-    s.eq([e["title"] for e in eps], ["第1話", "番外編", "第16話"],
-         "every rendered episode is read, extras included")
-    s.eq(eps[-1]["url"], "https://manga.nicovideo.jp/watch/mg1100331",
+    # ── the rendered episode list ─────────────────────────────────────────────────────────────
+    #
+    # PARTIAL BY CONSTRUCTION, and this page proves it in a way the invented one could not: 球詠
+    # has 244 numbered positions and the page renders four of them, the first and the last three.
+    eps = nv.episodes(kirara[kirara.find('id="episode_list"'):])
+    s.eq([e["number"] for e in eps], [1, 20, 243, 244],
+         "the platform renders the opening episode and the newest few, not the work")
+    s.eq(eps[1]["title"], "番外編〜新変化球？〜",
+         "an extra sits between them, at its own position number")
+    s.eq(eps[-1]["url"], "https://manga.nicovideo.jp/watch/mg1046376",
          "an episode link is made absolute")
-    s.eq(eps[1]["number"], 13, "the platform's own position number is kept")
     s.check(all("updated" not in e for e in eps),
             "no episode carries a date, because the platform states none")
 
     # ONE READER OF THIS MARKUP. `parse` used to walk the episode list itself for the newest item,
     # and the discovery pass needed the whole list. Two copies of one rule is the shape that has
     # produced seven bugs here, so `parse` consumes `episodes`.
-    whole = nv.parse(WORK)
-    s.eq(whole["latest_episode"], "第16話", "the newest episode is the highest-numbered one")
-    s.eq(whole["rendered_episodes"], 3, "and the page says how many it showed")
-    s.check("番外編" != whole["latest_episode"],
-            "an extra sitting between numbered chapters is not mistaken for the newest")
+    s.eq(whole["latest_episode"], "第117球：織り込み済みだけど(後編)",
+         "the newest episode is the highest-numbered one")
+    s.eq(whole["rendered_episodes"], 4, "and the page says how many it showed")
+    s.ne(whole["latest_episode"], "番外編〜新変化球？〜",
+         "an extra sitting between numbered chapters is not mistaken for the newest")
 
     # ── which channel the work is in ──────────────────────────────────────────────────────────
     #
-    # QUOTED FROM THE PAGES, NOT WRITTEN HERE. Every string below is byte for byte out of
-    # manga.nicovideo.jp as fetched on 2026-08-07, cut to the two blocks that matter. A pattern
-    # tested against markup somebody imagined proves the pattern matches what they imagined, and
-    # the bug this covers was exactly that: the old rule read a real element correctly and the
-    # element was the wrong one.
-    #
-    # The sidebar is here because it is the counter-case. It renders a banner for every official
-    # channel on the site and opens with ニコニコ漫画（公式）, so any rule that is not scoped to
-    # the breadcrumb answers `nicomanga` for every work on the platform. All 180 we held did.
-    SIDEBAR = (
-        '<div id="mg_official" class="menu_block">\n    <h2 class="menu_legend">\n      公式マンガ\n'
-        '    </h2>\n    <ul>\n'
-        '      <li><a href="/official/nicomanga/"><div class="mg_banner"><img '
-        'data-original="https://deliver.cdn.nicomanga.jp/thumb/4265156q" src="/manga/img/_.gif" '
-        'title="ニコニコ漫画（公式）" alt="ニコニコ漫画（公式）" class="lazyload"></div></a></li>'
-        '<li><a href="/official/kirara/"><div class="mg_banner"><img '
-        'data-original="https://deliver.cdn.nicomanga.jp/thumb/5709925q" src="/manga/img/_.gif" '
-        'title="きららベース" alt="きららベース" class="lazyload">'
-        '<p class="date_balloon">08/01更新</p></div></a></li>\n    </ul>\n  </div>')
-    CRUMB = ('<ul class="sg_pankuzu">\n'
-             '                        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">'
-             '<a href="/manga/" itemprop="url"><span itemprop="title">マンガ</span></a></li>\n'
-             '                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">'
-             '<a href="{href}" itemprop="url"><span itemprop="title">{label}</span></a></li>\n'
-             '                    <li class="active" itemscope '
-             'itemtype="http://data-vocabulary.org/Breadcrumb">'
-             '<span itemprop="title">{work}</span></li>\n            </ul>')
-
-    tart = CRUMB.format(href="/official/kirara", label="[公式] きららベース",
-                        work="おちこぼれフルーツタルト") + SIDEBAR
-    s.eq(nv.channel(tart), {"channel": "きららベース", "channel_slug": "kirara"},
+    # The old rule read a real element correctly and the element was the wrong one. It took the
+    # first /official/ address on the page, which is the first banner in the sidebar, and the
+    # sidebar is identical on every page of the site. All 180 works we held answered `nicomanga`.
+    s.eq(nv.channel(kirara), {"channel": "きららベース", "channel_slug": "kirara"},
          "the channel is the one the breadcrumb names")
-    s.check("nicomanga" not in str(nv.channel(tart)),
-            "and not the first banner in the sidebar, which is on every page of the site")
+    s.check("/official/nicomanga/" in kirara,
+            "the banner the broken rule matched is still in this fixture, or it proves nothing")
+    s.check("nicomanga" not in str(nv.channel(kirara)),
+            "and the answer is not that banner")
 
-    # 「[公式]」 is the breadcrumb's own label for a channel, not part of its name. data/platforms.yaml
-    # records it as きららベース, and a value carrying the prefix would join to nothing.
-    s.eq(nv.channel(tart)["channel"], "きららベース", "the 公式 label is not part of the name")
+    # 「[公式]」 is the breadcrumb's own label for a channel, not part of its name.
+    # data/platforms.yaml records it as きららベース, and a value carrying the prefix joins to
+    # nothing.
+    s.check("[公式] きららベース" in kirara, "the page writes the label into the crumb")
+    s.eq(nv.channel(kirara)["channel"], "きららベース", "and it is not part of the name")
 
     # A slug with a hyphen in it. `[a-z0-9_]+` stopped at the hyphen and would have filed
     # ニコニコ百合姫's works under a channel called `nico`, which is not a channel at all.
-    spica = CRUMB.format(href="/official/nico-yurihime", label="[公式] ニコニコ百合姫",
-                         work="スピカをつかまえて") + SIDEBAR
+    spica = fixtures.load("nicovideo/work-in-a-hyphenated-channel")
     s.eq(nv.channel(spica), {"channel": "ニコニコ百合姫", "channel_slug": "nico-yurihime"},
          "a hyphen belongs to the slug and does not end it")
 
     # THE STATE THIS MUST NOT FILL IN. ニコニコ漫画 carries a section anybody may post to, and a
-    # work there has no channel: the second crumb is a genre listing, and the sidebar is unchanged.
+    # work there has no channel: the second crumb is a genre listing and the sidebar is unchanged.
     # 19 of the 180 works we hold are in this position, so a rule that always answers is wrong 19
     # times and looks right (§5).
-    solo = ('<ul class="sg_pankuzu">\n'
-            '                        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">'
-            '<a href="/manga/" itemprop="url"><span itemprop="title">マンガ</span></a></li>\n'
-            '                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">'
-            '<a href="/manga/list?category=%E3%81%9D%E3%81%AE%E4%BB%96%E3%83%9E%E3%83%B3%E3%82%AC" '
-            'itemprop="url"><span itemprop="title">その他マンガ</span></a></li>\n'
-            '                    <li class="active" itemscope '
-            'itemtype="http://data-vocabulary.org/Breadcrumb">'
-            '<span itemprop="title">同居人に片思いしてる百合漫画</span></li>\n            </ul>') + SIDEBAR
+    solo = fixtures.load("nicovideo/work-in-no-channel")
     s.eq(nv.channel(solo), {},
          "a work outside the official channels is recorded as being in none")
+    s.check("/official/nicomanga/" in solo,
+            "and the sidebar it did not answer from is present here too")
+    s.eq(nv.parse(solo)["title"], "同居人に片思いしてる百合漫画",
+         "the rest of the page is read as usual")
+    s.check("channel" not in nv.parse(solo),
+            "and parse carries no channel key rather than an empty one")
 
-    # An error page renders the sidebar and no breadcrumb of its own. Four of the 184 pages the
-    # last run fetched were these.
-    s.eq(nv.channel(SIDEBAR), {}, "a page with no breadcrumb yields no channel")
+    # A WORK ITS AUTHOR POSTED HAS NO COPYRIGHT ELEMENT AT ALL. The old test asserted this against
+    # `<p>no copyright line here</p>`, which is nobody's page. This is the state on a real one.
+    s.eq(nv.rights(solo), [], "a page that states no rights yields none")
+    s.check('class="copyright"' not in solo, "because the element is genuinely absent")
 
-    dated = nv.parse('<div class="meta_info">2026年08月01日更新</div>' + tart)
-    s.eq(dated.get("channel_slug"), "kirara", "and parse carries the channel onto the record")
+    # WHAT AN ERROR PAGE ACTUALLY LOOKS LIKE, and the invented markup had it backwards on both
+    # counts. The old test built this case as the sidebar with no breadcrumb. The real page is the
+    # other way round: a breadcrumb reading ニコニコ静画 then エラー, and no sidebar whatsoever.
+    # Four of the 184 pages the last run fetched were this.
+    gone = fixtures.load("nicovideo/error-page")
+    s.check("mg_official" not in gone, "an error page renders no channel sidebar")
+    s.check('class="sg_pankuzu"' in gone, "and it does render a breadcrumb")
+    s.eq(nv.channel(gone), {}, "which names no channel, so no channel is recorded")
+    s.check(nv.parse(gone) is None, "and there is no meta_info, so there is no date")
+
+    dated = nv.parse('<div class="meta_info">2026年08月01日更新</div>' + kirara)
+    s.eq(dated.get("channel_slug"), "kirara", "parse carries the channel onto the record")
 
     # A PAGE IS HTML AND ITS TEXT IS ESCAPED. ひよ&びびっと! was captured as `ひよ&amp;びびっと!`,
     # the analyser read `amp` as a word, and the romanisation shipped to readers as

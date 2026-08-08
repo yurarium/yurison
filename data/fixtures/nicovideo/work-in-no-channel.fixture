@@ -1,0 +1,78 @@
+agrees_with: adapters/nicovideo/releases.py:channel
+body_sha256: 3969ace3a172011d4b9b7fa681bb1ad7c3d474c9cb61c276aeea951d882cf3d6
+cached_as: nico/55537.html
+captured: '2026-08-08'
+format: html
+keep:
+- <title>
+- <ul class="sg_pankuzu">
+- <div id="mg_official"
+- <div class="meta_info">
+redact: []
+redact_over: 0
+retrieved: '2026-08-01'
+source_bytes: 176221
+source_sha256: db8918c30f61ab69779bf58692d6ad6c5ace899060ef0ee400b40b5761b35e9c
+trim:
+- in: <div id="mg_official"
+  keep: <li>
+  n: 2
+url: https://manga.nicovideo.jp/comic/55537
+why: '同居人に片思いしてる百合漫画, posted to the section anybody may post to. Its second crumb
+  is
+
+  a genre listing carrying no /official/ address, while the sidebar is exactly what
+  a channel work
+
+  renders, so this is the page a rule that always answers gets wrong. 19 of the 180
+  works we hold sit
+
+  here. IT KEEPS NO COPYRIGHT ANCHOR BECAUSE THE PAGE HAS NONE: a work its author
+  posted carries no
+
+  <small class="copyright"> element at all, so rights() reads [] from a real page
+  rather than from
+
+  an invented one.'
+---
+<title>
+      同居人に片思いしてる百合漫画 / はいじま おすすめ無料漫画 - ニコニコ漫画
+  </title>
+<ul class="sg_pankuzu">
+                        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/manga/" itemprop="url"><span itemprop="title">マンガ</span></a></li>
+                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/manga/list?category=%E3%81%9D%E3%81%AE%E4%BB%96%E3%83%9E%E3%83%B3%E3%82%AC" itemprop="url"><span itemprop="title">その他マンガ</span></a></li>
+                    <li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">同居人に片思いしてる百合漫画</span></li>
+            </ul>
+<div id="mg_official" class="menu_block">
+    <h2 class="menu_legend">
+      公式マンガ
+    </h2>
+    <ul>
+      <li><a href="/official/nicomanga/"><div class="mg_banner"><img data-original="https://deliver.cdn.nicomanga.jp/thumb/4265156q" src="/manga/img/_.gif" title="ニコニコ漫画（公式）" alt="ニコニコ漫画（公式）" class="lazyload"><p class="date_balloon">08/03更新</p></div></a></li><li><a href="/official/m_action/"><div class="mg_banner"><img data-original="https://deliver.cdn.nicomanga.jp/thumb/16742670q?1749547150" src="/manga/img/_.gif" title="月刊のアクション" alt="月刊のアクション" class="lazyload"><p class="date_balloon">08/03更新</p></div></a></li>
+<!-- fixture: 155 more <li> dropped -->
+
+    </ul>
+  </div>
+<div class="meta_info">
+          2023年12月31日更新
+          2021年10月12日開始
+          <span style="padding-left: 16px">
+            [
+              80話 無料
+            ]
+          </span>
+                    <span style="padding-left: 16px">
+            <a href="/manga/list?category=%E3%81%9D%E3%81%AE%E4%BB%96%E3%83%9E%E3%83%B3%E3%82%AC">
+              [<span class="category">その他マンガ</span>]
+            </a>
+          </span>
+                    <div id="ko_favorite_top">
+            <div class="meta_info__favorite">
+              <a class="btn favorite"
+                 data-bind="click: toggleState, css: {active: favorite}, attr: {title: favorite()? '作品のお気に入りを解除' : '作品をお気に入りに登録', rel: favorite()? 'tooltip' : 'tooltip_remove'}">
+                <span class="icon_watchlist_add"></span>
+                <span class="text" data-bind="text: favorite()? 'お気に入りに追加済み' : '作品をお気に入りに登録'" sheep-class="text">作品をお気に入りに登録</span>
+              </a>
+            </div>
+          </div>
+        </div>

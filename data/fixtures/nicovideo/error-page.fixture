@@ -1,0 +1,33 @@
+agrees_with: adapters/nicovideo/releases.py:parse
+body_sha256: a756e29c2cce40a7430fca63037f2126a15f37ac850b611aa3f821510caceb2b
+cached_as: nico/31151.html
+captured: '2026-08-08'
+format: html
+keep:
+- <title>
+- <ul class="sg_pankuzu">
+redact: []
+redact_over: 0
+retrieved: '2026-08-01'
+source_bytes: 10376
+source_sha256: 7c5b3b8c34d393825960c6cb17e460163b21050ed7bbab8d11f81c6e3886f3d5
+trim: []
+url: https://manga.nicovideo.jp/comic/31151
+why: 'What ニコニコ serves for a work id that is gone, and four of the 184 pages the last
+  run
+
+  fetched were this. The page is 10,376 bytes against a work page at 120,983, its
+  breadcrumb reads
+
+  ニコニコ静画 then エラー, and it renders NO SIDEBAR AT ALL. The test this replaced asserted
+  the
+
+  opposite of both halves, on markup somebody wrote from memory.'
+---
+<title>
+      ニコニコ漫画
+  </title>
+<ul class="sg_pankuzu">
+                        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/" itemprop="url"><span itemprop="title">ニコニコ静画</span></a></li>
+                    <li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">エラー</span></li>
+            </ul>

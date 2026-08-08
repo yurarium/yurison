@@ -91,6 +91,18 @@ jobs:
           python3 adapters/run_stage.py adapters/stage-a.yaml \
             --retrieved "$R" --cache "$CACHE" --workers 6
 
+      # WHERE THE FIXTURES GET CHECKED AGAINST REALITY. A committed fixture is a page as it stood
+      # on the day it was captured, and the parser it pins can pass against that page for ever
+      # while failing against today's. This re-derives each one from the cache entry it names, so
+      # it needs no network and it runs here because the caches were refilled a step ago.
+      #
+      # IT REPORTS AND EXITS 0. A page that has moved is worth a person reading, and it is no
+      # reason to fail an unattended update; a check that fires on somebody else's release
+      # schedule gets switched off rather than obeyed.
+      - name: Fixtures against today's pages (reports, does not block)
+        continue-on-error: true
+        run: python3 adapters/fixtures.py recheck
+
       # ── Stage C — browser. Slow, flaky by nature, must not cost the run. ──────────────────────
       - name: Stage C — browser adapters
         if: ${{ steps.browser.outputs.present == 'yes' && !inputs.skip_browser }}

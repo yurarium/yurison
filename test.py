@@ -43,7 +43,9 @@ class Offline(Exception):
 def _refuse(*a, **k):
     raise Offline(
         "this test tried to reach the network. Tests run offline: separate the fetch from the "
-        "logic and test the logic, or add a fixture under data/fixtures/.")
+        "logic and test the logic, or capture the page it wanted. "
+        "adapters/fixtures.py capture <name> --url <url> --cached-as <dir/entry> --keep <anchor> "
+        "cuts a real page down into data/fixtures/ and records where it came from.")
 
 # Block CONNECTING, not the socket type. An earlier version replaced socket.socket with a function
 # and broke `import ssl`, which does `class SSLSocket(socket)`: the guard took down the import

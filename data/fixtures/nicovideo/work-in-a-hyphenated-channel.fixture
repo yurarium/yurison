@@ -1,0 +1,46 @@
+agrees_with: adapters/nicovideo/releases.py:channel
+body_sha256: 2c647959abd4d9e3820ce02d8d6ea2ea908948a6618f94d8d5ac913291b9449e
+cached_as: nico/56012.html
+captured: '2026-08-08'
+format: html
+keep:
+- <ul class="sg_pankuzu">
+- <div id="mg_official"
+redact: []
+redact_over: 0
+retrieved: '2026-08-01'
+source_bytes: 120711
+source_sha256: acac95f338f2ca8bd882f1aa17f00afc6703ddf40e38f641d2200e9a43220b69
+trim:
+- in: <div id="mg_official"
+  keep: <li>
+  n: 2
+url: https://manga.nicovideo.jp/comic/56012
+why: 'ささやくように恋を唄う, in ニコニコ百合姫, whose slug is nico-yurihime. A slug pattern of
+
+  [a-z0-9_]+ stops at the hyphen and would have filed the 28 works in that channel
+  under one called
+
+  nico, which is not a channel at all. No other channel spelling on this platform
+  shows that, so this
+
+  page is held for the hyphen. Cut to the two blocks the channel question turns on,
+  which is why it
+
+  agrees with channel and not with parse.'
+---
+<ul class="sg_pankuzu">
+                        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/manga/" itemprop="url"><span itemprop="title">マンガ</span></a></li>
+                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/official/nico-yurihime" itemprop="url"><span itemprop="title">[公式] ニコニコ百合姫</span></a></li>
+                    <li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">ささやくように恋を唄う</span></li>
+            </ul>
+<div id="mg_official" class="menu_block">
+    <h2 class="menu_legend">
+      公式マンガ
+    </h2>
+    <ul>
+      <li><a href="/official/nicomanga/"><div class="mg_banner"><img data-original="https://deliver.cdn.nicomanga.jp/thumb/4265156q" src="/manga/img/_.gif" title="ニコニコ漫画（公式）" alt="ニコニコ漫画（公式）" class="lazyload"><p class="date_balloon">08/03更新</p></div></a></li><li><a href="/official/m_action/"><div class="mg_banner"><img data-original="https://deliver.cdn.nicomanga.jp/thumb/16742670q?1749547150" src="/manga/img/_.gif" title="月刊のアクション" alt="月刊のアクション" class="lazyload"><p class="date_balloon">08/03更新</p></div></a></li>
+<!-- fixture: 155 more <li> dropped -->
+
+    </ul>
+  </div>

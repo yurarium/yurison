@@ -8,33 +8,28 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import fixtures
 import testkit
 import series_feeds as sf
 
-FEED = """<?xml version="1.0"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>一迅プラス（大室家）</title>
-  <entry>
-    <title>第136話</title>
-    <link href="https://x.jp/episode/136"/>
-    <updated>2026-08-02T15:00:00Z</updated>
-  </entry>
-  <entry>
-    <title>第135話</title>
-    <link href="https://x.jp/episode/135"/>
-    <updated>2026-07-26T03:00:00Z</updated>
-  </entry>
-</feed>"""
-
 
 def main(s):
+    # ── two real feeds ────────────────────────────────────────────────────────────────────────
+    #
+    # Both come out of the series-feed cache with their addresses and retrieval dates recorded.
+    # Their subtitles are cut, because a subtitle is the publisher's synopsis and REQUIREMENTS §2
+    # forbids storing one; nothing here reads it.
+    ordinary = fixtures.load("gigaviewer/series-feed-ordinary")
+    bracketed = fixtures.load("gigaviewer/series-feed-platform-named-in-brackets")
+
     # The feed states its own series name, which is why a misattributed id can be caught. The id is
     # read positionally off a thumbnail URL, and that pairing has been wrong: 夕子先輩は育てられない
     # took on its neighbour's six chapters.
     # The real shape is 一迅プラス（大室家）: platform outside, series inside the brackets. Only the
     # inner part identifies the work, and a title without brackets identifies nothing, so it
     # returns None instead of handing back the platform name as though it were a series.
-    s.eq(sf.feed_series_name(FEED), "大室家", "the series name is taken from inside the brackets")
+    s.eq(sf.feed_series_name(ordinary), "大室家",
+         "the series name is taken from inside the brackets")
     s.check(sf.feed_series_name("<title>一迅プラス</title>") is None,
             "a title with no bracketed series yields None, not the platform name")
     s.check(sf.feed_series_name("<feed></feed>") is None,
@@ -43,10 +38,13 @@ def main(s):
     # THE PLATFORM WHOSE OWN NAME CONTAINS BRACKETS. A greedy match spanned from the first opener
     # to the last closer, so 23 COMIC OGYAAA!! series were named after the platform and its
     # tagline with the real title trapped at the end. Four of them reached the published database.
-    s.eq(sf.feed_series_name(
-        "<title>COMIC OGYAAA!! (コミックオギャー)｜おもしろい、がうまれるところ（あの子は優しすぎる。）</title>"),
-        "あの子は優しすぎる。",
-        "the series is the LAST bracket group, not everything between the first and the last")
+    #
+    # The whole title is here rather than paraphrased, because the fault is in the punctuation:
+    # COMIC OGYAAA!! (コミックオギャー)｜おもしろい、がうまれるところ（あの子は優しすぎる。）
+    s.eq(sf.feed_series_name(bracketed), "あの子は優しすぎる。",
+         "the series is the LAST bracket group, not everything between the first and the last")
+    s.check("(コミックオギャー)" in bracketed,
+            "the earlier bracket group the greedy match ran from is still in this fixture")
 
     # The counter-case that rules out the obvious fix. A non-greedy pattern solves the above and
     # breaks this instead, returning the inner group; counting depth from the end handles both.
@@ -57,15 +55,29 @@ def main(s):
     s.check(sf.last_bracketed("stray ) closer") is None,
             "a closer with no opener claims nothing rather than guessing")
 
-    eps = sf.episodes(FEED)
+    # ── entries, and the day they land on ─────────────────────────────────────────────────────
+    #
+    # The fixture holds the two newest of 大室家's 136 entries. Its stamps are why `jst_date`
+    # exists: 一迅プラス publishes at 15:00:00Z, which is midnight in Tokyo on the following day,
+    # so every chapter of this series is filed a day early by anything reading the UTC date. That
+    # is a real publishing schedule and not a boundary chosen to make a test interesting.
+    eps = sf.episodes(ordinary)
     s.eq(len(eps), 2, "both entries are read")
     if len(eps) == 2:
         s.eq(eps[0]["title"], "第136話", "titles come from the entry")
         s.check(all(e.get("url") for e in eps), "every entry carries its own URL")
+        s.check("2026-07-15T15:00:00Z" in ordinary, "the feed really does stamp 15:00 UTC")
         # Dates are platform-attested here, not heuristic, so they must survive exactly.
-        s.eq(eps[0]["updated"], "2026-08-03",
+        s.eq(eps[0]["updated"], "2026-07-16",
              "15:00 UTC is the next day in Tokyo, and the feed is dated in JST")
-        s.eq(eps[1]["updated"], "2026-07-26", "03:00 UTC is the same day in Tokyo")
+        s.eq(eps[1]["updated"], "2026-06-17", "and the entry before it lands a month earlier")
+
+    # THE OTHER PLATFORM PUBLISHES AT 03:00Z, which is noon in Tokyo on the SAME day. Two feeds
+    # rather than one, because a conversion that simply added a day would pass against 一迅プラス
+    # alone.
+    other = sf.episodes(bracketed)
+    s.check("2024-08-23T03:00:00Z" in bracketed, "COMIC OGYAAA!! stamps 03:00 UTC")
+    s.eq(other[0]["updated"], "2024-08-23", "which is the same day in Tokyo, not the next one")
 
     s.eq(sf.episodes("<feed></feed>"), [], "an empty feed yields no episodes")
 

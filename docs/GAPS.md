@@ -1703,3 +1703,68 @@ captures rather than a new fetch, and it should stay that way: the pages are alr
 **What a reader must be able to tell.** A delivery date is not a publication date and the interface
 should not present it as one. It needs its own basis in the store and its own words on the page, in
 the same way 発売日 and 奥付 are two facts about one book rather than one fact at two precisions.
+
+## What the credit pages still need (2026-08-08)
+
+The two preparatory steps on the author side are done: the duplicated credits are merged and every
+credit the works list names holds an identifier. Nothing renders yet, and this is what stands between
+the registry and a page a reader can open.
+
+**Nothing serves a credit page, so nothing serves a retired credit id either.**
+`adapters/credit_identity.forwarders` produces the same stub 49 retired work ids serve today, with
+`rel=canonical`, `noindex,nofollow`, a meta refresh, a `location.replace` and a sentence naming the
+successor. It is tested and it is deliberately NOT wired into `deploy.sh`, because a forwarder
+pointing at `credit/c00554/` would send a reader to a page that does not exist. Wire it in the commit
+that ships the page, and not before.
+
+**The interface holds no map from a credit to its identifier.** `feed/names.json` is keyed by the
+folded credit string and carries the reading, the romanisations and the ruby; it carries no id. So
+`app.js` can render a credit and cannot link it. The smallest change that closes this is an `id` on
+each entry of the `authors` map, taken from the registry by the same fold the anchors use. That is a
+change to `build.py` and to the reader interface, and the reader-facing part is the owner's to make.
+
+**The address is spelt `credit/<id>/` today and the word is provisional.** `author/` would be wrong
+for the 20 credits that are not people, and the identifier is opaque, so the directory carries no
+claim. Nothing is published, so changing it costs nothing now and costs a redirect later.
+
+**The one-work case is the common case.** 1,504 of the 2,232 credits carrying an edge are named on
+exactly one work, and a page holding one row has to be worth opening. The owner has ruled that every
+author gets an address regardless, so the question is what else belongs on it: the reading and its
+basis, the publishers behind the works, and the relations recorded under `homophones`.
+
+**The role is on the edge and the corpus almost never states it.** 14 of 4,350 edges name one.
+`inputs.split_credits_detail` reads the label off the same traversal that finds the name, so
+`原作／宮澤伊織　作画／水野英多` yields both people with their jobs. The problem is upstream: the
+works list is written with the notation already taken off, so 3,076 of its 3,077 rows say nobody's
+job, and the labels reaching the registry all come from release rows, of which 196 of 805 carry a
+work identifier to hang an edge on. A page wanting to say who drew and who wrote needs the works list
+to keep the field the platform sent, which is a change to how `series.json` composes its author.
+
+**Seven pairs of credits share a reading and are held apart**, recorded in the registry's
+`homophones` list with the reason for each. A page for either should be able to say that the other
+exists, which is what the owner's ruling means by information hung beside a credit. Nothing renders
+that yet, and 須藤佑実 against 須藤祐美 is the one a source check should settle first: both are
+girls×garden comics books from ジーオーティー and both sit in the Avalon anthology line, which is the
+shape of one artist mis-keyed at one source rather than two artists.
+
+**A credit joined by an ampersand is one identifier for two people.** `iimAn&惟丞` and
+`大島永遠&大島智` are single credits in the corpus because no splitter divides on `&`;
+`names.credits` unescapes `&amp;` and says in its own comment that the second is two people.
+Splitting there is a change to `inputs.SEPARATORS`, so it wants the same care the interpunct
+argument got, and until it happens two pages are one.
+
+**Two credits are two people separated by nothing but a space**, from release rows: `狗之餌 廃狼`
+and `織日ちひろ 虫原`. A space is not a separator anywhere in the splitter, on purpose, because
+森島 明子 and 高坂 はしやん are single people written that way. Neither string mints an identifier
+today, since identifiers come from the works list, and both are counted by `credit fields an
+identifier does not cover`.
+
+**`とばり湊` and `井庭人` are in `data/names/publishers.yaml`, in no author record, and in no corpus
+credit at all.** Found while measuring the credit population and left alone: the publisher side is
+somebody else's pass.
+
+**The store still holds the second spellings the registry now merges.** 72 records in
+`data/names/authors.yaml` are a credit written beside its own reading, and they ship in
+`feed/names.json`, which is where the 82 shared readings were measured. The registry answers for them
+through an attached anchor, so nothing is lost, and a later pass that wants the name store to hold
+one record per credit can read the rulings file to do it.

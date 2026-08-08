@@ -127,6 +127,40 @@ def main(s):
     s.eq([n for n, _ in inputs.split_authors("矢立肇・富野由悠季", interpunct=False)],
          ["矢立肇・富野由悠季"], "which is the cost of it, paid in the safe direction")
 
+    # ── THE ROLE THE SPLITTER TAKES OFF, REPORTED RATHER THAN ONLY DISCARDED ────────────────────
+    #
+    # A credit becomes a reference when a work links to the person it names, and one person is 原作
+    # on one work and 作画 on another, so the role belongs on the edge between them. It comes out of
+    # this traversal because a second pass over the same string is how two readers of one fact drift.
+    roles = lambda c: [(n, r) for n, _rd, r in inputs.split_credits_detail(c)]     # noqa: E731
+    s.eq(roles("原案：士郎正宗　漫画：六道神士"), [("士郎正宗", "原案"), ("六道神士", "漫画")],
+         "a label at the head names the credit beside it")
+    s.eq(roles("冬眠結(漫画) 橙々(原作)"), [("冬眠結", "漫画"), ("橙々", "原作")],
+         "and so does one in a bracket")
+
+    # A LABEL AT THE TAIL BELONGS TO THE CREDIT AFTER IT, which is the whole reason ROLE_TAIL
+    # exists. `原作／宮澤伊織　作画／水野英多` splits on the slash into `原作`, `宮澤伊織　作画` and
+    # `水野英多`, so 作画 arrives glued to the end of 宮澤伊織's chunk while labelling 水野英多.
+    # Reading it as 宮澤伊織's put every person in the field under the next person's job.
+    s.eq(roles("原作／宮澤伊織(早川書房刊)　作画／水野英多　キャラクター原案／shirakaba"),
+         [("宮澤伊織", "原作"), ("水野英多", "作画"), ("shirakaba", "キャラクター原案")],
+         "every credit takes the label written before it and not the one written after")
+    s.eq(roles("原作/大鷹シン 漫画/ホマレ"), [("大鷹シン", "原作"), ("ホマレ", "漫画")],
+         "the same where the credit separated its roles with a slash")
+
+    # A LABEL IS SPENT ON ONE CREDIT. `原作／A／B` says what A did and says nothing about B, and
+    # carrying it down the field would file everybody under the first job named.
+    s.eq(roles("原作／宮澤伊織／水野英多"), [("宮澤伊織", "原作"), ("水野英多", None)],
+         "a label reaches the credit after it and stops")
+    s.eq(roles("秋山はる"), [("秋山はる", None)], "and a credit with no label carries none")
+    s.eq(roles("[著]秋山はる"), [("秋山はる", "著")],
+         "MADB's own notation is a label like any other")
+    s.eq(roles("石田可奈(キャラクターデザイン)"), [("石田可奈", "キャラクターデザイン")],
+         "including the one whose absence from a third role list filed it as a reading")
+    s.eq(inputs.split_authors("原案：士郎正宗　漫画：六道神士"), [("士郎正宗", None),
+                                                          ("六道神士", None)],
+         "and the caller that wants names still gets pairs, from the one traversal")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "names.inputs"))

@@ -261,9 +261,36 @@ The work page settled into four parts: the work with no heading, because the pag
 its serialisation, then its collected volumes, then its sources collapsed. Publisher and author
 pages take the same shape. Neither is built yet and the sequence below is the reason why.
 
-**A page for the head of the distribution, not for every string.** The corpus holds 166 publishers
-and 345 imprints. 28 publishers carry ten works or more; **65 carry exactly one**. A publisher with
-one work has nothing to put on a page, so it stays a plain name and does not become a link.
+**Every author gets an identifier and an address, whatever they are credited on.** The project
+owner's ruling, 2026-08-08, and it settles a question the paragraph below had answered the other way
+for publishers. An author with one work has a page holding that one work, and a reader following a
+citation to it arrives somewhere that answers. The alternative makes an author's address depend on
+how much of their output this database happens to hold, which is a fact about our coverage standing
+in the reader's way.
+
+**The credit is the name, and anything linking two credits is ancillary.** The same ruling. A pen
+name is the object, so the identifier belongs to the credit as filed. Where a later source shows that
+two credits are one person, that is information hung beside them and never a merge that replaces one
+with the other. The one thing that does merge is a credit this database recorded twice, which is what
+`data/identity/credit-rulings.yaml` settles for each of the 82 readings the shipped name map gives to
+more than one credit.
+
+2,238 identifiers are minted, in `data/identity/credits.yaml`. They are opaque and sequential for the
+reason work identifiers are: 華葉 was read ハナハ, then カヨウ, then カバ inside one day, and a
+romanised address would have broken twice. See `adapters/credit_identity.py`.
+
+20 of them are not people and must not get a person-shaped page. 円谷プロダクション is a company,
+「真夜中ぱんチ」製作委員会 a committee, 代々木アニメーション学院 a school, and each is a credit a
+source really wrote. 電撃G'sマガジン and nine editorial desks are something else again: DEFINITIONS
+treats a magazine as a place where yuri is published, so its page says where rather than who. The
+registry carries `kind` so the renderer can tell them apart.
+
+**A page for the head of the distribution, and this is the publisher side.** The corpus holds 166
+publishers and 345 imprints. 28 publishers carry ten works or more; **65 carry exactly one**. A
+publisher with one work has nothing to put on a page, so it stays a plain name and does not become a
+link. The ruling above is about authors and leaves this standing: an author with one work is a person
+whose page is the record of that work, while a publisher with one work on our shelf is a company
+whose page would describe our shelf.
 
 **What a publisher page shows that nothing else can: which of its imprints are yuri lines.**
 百合コレ holds 496 works, IDコミックス／Yuri-hime comics 120, まんがタイムKRコミックス 116. That
@@ -285,10 +312,16 @@ imprint names have none: the renderer carries a hand-written map of 7. That work
 or not the pages are built, and it serves both. The company's own English name is preferred where it
 publishes one, and a romanisation is the fallback rather than the default.
 
-**Then the pages**, for the 28. Author pages share the scaffolding and belong in the same pass: the
-three page kinds make a small graph rather than a hierarchy, since a work names its author and its
-publisher, a publisher lists its imprints and their works, and an author lists works and the houses
-behind them.
+**Then the pages**, for the 28 publishers and for every credit. Author pages share the scaffolding
+and belong in the same pass, since a work names its author and its publisher, a publisher lists its
+imprints and their works, and an author lists works and the houses behind them. That is a small graph
+and not a hierarchy.
+
+**On the author side the two preparatory steps are done**, 2026-08-08. `data/identity/credits.yaml`
+holds the identifiers and the merges; `data/identity/credit-works.yaml` holds 4,362 edges from a
+credit to the works it is named on, with the role on the edge, because one person is 原作 on one work
+and 作画 on another. What is left before a page can be served is listed under
+"What the credit pages still need" in [GAPS.md](GAPS.md).
 
 ### The framing this must not get wrong
 

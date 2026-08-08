@@ -251,6 +251,32 @@ def main(s):
          "and the identity holds both addresses")
     s.eq(conflicts, [], "with nothing contested")
 
+    # ── A SECOND KIND OF OBJECT MINTS THROUGH THE SAME MACHINERY ────────────────────────────────
+    #
+    # adapters/credit_identity.py gives a credit the same promise this gives a work, so the prefix
+    # is a parameter here instead of a second scheme with its own rules about a contested anchor.
+    s.eq(ident.mint([]), "w00001", "the first work identifier")
+    s.eq(ident.mint([], "c"), "c00001", "and the first credit identifier, five digits wide too")
+    s.eq(ident.mint(["c00001", "w09999"], "c"), "c00002",
+         "each prefix counts only its own, so a work id cannot advance the credit sequence")
+
+    # HIGHEST TAKEN PLUS ONE, NEVER THE COUNT. A retired entry stays in the file for ever, so the
+    # two numbers part company the moment anything merges, and counting would reissue an address.
+    retired = [{"id": "c00001", "merged_into": "c00003", "anchors": ["credit:a"]},
+               {"id": "c00003", "anchors": ["credit:b"]}]
+    s.eq(ident.mint([e["id"] for e in retired], "c"), "c00004",
+         "a retired identifier is never handed out again")
+
+    # A LABEL FOLLOWS A WORK AND NOT A CREDIT. Titles are corrected here often, so a work's entry
+    # follows its row. A credit's label is the spelling the identifier was minted for, and a merge
+    # lends the retired spelling's anchor to the survivor, so following the row let the losing
+    # spelling become the survivor's label.
+    lent = [{"id": "c00001", "title": "獅尾", "anchors": ["credit:獅尾", "credit:ししお"]}]
+    kept, _c = ident.assign(lent, [("credit:ししお", [], "ししお")], "c", relabel=False)
+    s.eq(kept[0]["title"], "獅尾", "the surviving spelling stays the entry's label")
+    moved, _c = ident.assign(lent, [("credit:ししお", [], "ししお")], "c")
+    s.eq(moved[0]["title"], "ししお", "and a work's title is allowed to move, which is the default")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

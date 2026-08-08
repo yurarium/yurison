@@ -112,32 +112,36 @@ def forward(root, retired, surviving, depth=2):
 
     It forwards. The work has one address now, and a second page carrying the same record would be
     a second address competing with it.
+
+    `root` IS THE DIRECTORY THE RECORDS LIVE UNDER, and it was accepted and then ignored: every
+    link in here was spelt `work/` regardless. That was invisible while `work` was the only root and
+    became a bug the moment a second kind of record needed the same forwarder, because a retired
+    credit id would have sent its reader to a work that does not exist.
     """
     up = "../" * depth
+    to = f"{up}{root}/{esc(surviving)}/"
     return "\n".join([
         "<!doctype html>", '<html lang="ja">', "<head>", '<meta charset="utf-8">',
         '<meta name="robots" content="noindex,nofollow">',
-        f'<link rel="canonical" href="{up}work/{esc(surviving)}/">',
-        f'<meta http-equiv="refresh" content="0; url={up}work/{esc(surviving)}/">',
+        f'<link rel="canonical" href="{to}">',
+        f'<meta http-equiv="refresh" content="0; url={to}">',
         f"<title>{esc(retired)} — Yurarium</title>", "</head>", "<body>",
-        f"<p>This record is now <a href=\"{up}work/{esc(surviving)}/\">{esc(surviving)}</a>.</p>",
+        f'<p>This record is now <a href="{to}">{esc(surviving)}</a>.</p>',
         # The meta refresh serves a reader with no JavaScript; this is for everyone else and is
         # `replace` so the retired address does not sit in the history behind them.
-        f'<script>location.replace("{up}work/{esc(surviving)}/");</script>',
+        f'<script>location.replace("{to}");</script>',
         "</body>", "</html>", ""])
 
 
-def written(root, works, merged=None):
-    """{relative path: html} for every work with an identifier, and every id retired into one."""
+def forwarders(root, live, merged):
+    """{relative path: html} for every retired identifier under `root` that still has somewhere to go.
+
+    PULLED OUT OF `written` SO A SECOND KIND OF RECORD CAN HAVE IT. Retirement is the same operation
+    for anything carrying a minted identifier, and a credit registry retires one for the same reason
+    a work registry does: two records turned out to be one thing and an address published once has
+    to keep resolving. `live` is the set of identifiers that have a page of their own.
+    """
     out = {}
-    for w in works:
-        wid = str(w.get("id") or "")
-        # An id is minted by us and is [A-Za-z0-9], but a path is built from it, so it is checked
-        # rather than trusted: a stray slash would write outside the tree.
-        if not SAFE_ID.match(wid):
-            continue
-        out[f"{root}/{wid}/index.html"] = render(w)
-    live = {str(w.get("id") or "") for w in works}
     for retired, surviving in sorted((merged or {}).items()):
         # Both ends checked: one builds a path and the other builds a URL inside it.
         if not SAFE_ID.match(str(retired)) or not SAFE_ID.match(str(surviving)):
@@ -152,6 +156,20 @@ def written(root, works, merged=None):
             target = str(merged[target])
         if target in live:
             out[f"{root}/{retired}/index.html"] = forward(root, str(retired), target)
+    return out
+
+
+def written(root, works, merged=None):
+    """{relative path: html} for every work with an identifier, and every id retired into one."""
+    out = {}
+    for w in works:
+        wid = str(w.get("id") or "")
+        # An id is minted by us and is [A-Za-z0-9], but a path is built from it, so it is checked
+        # rather than trusted: a stray slash would write outside the tree.
+        if not SAFE_ID.match(wid):
+            continue
+        out[f"{root}/{wid}/index.html"] = render(w)
+    out.update(forwarders(root, {str(w.get("id") or "") for w in works}, merged))
     return out
 
 

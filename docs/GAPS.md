@@ -1889,3 +1889,75 @@ was matching 646, so nothing in the adapter could have said that a quarter of th
 A floor catches a selection that has stopped working and cannot catch one that never covered its
 subject. What found this was reading the release's own brand field and counting the spellings, which
 is what `docs/MADB.md` records and what no assertion in the pipeline does.
+
+## 28. The eleven line names, and the two lookups that hid them (2026-08-08)
+
+The imprint registry chose a canonical name for each of its 44 lines after the publisher naming
+rounds had run, so eleven names reached a reader in Japanese having never been offered for naming.
+All eleven render now. Two of them needed a source; six needed nothing but a lookup that folds the
+way the interface does; and the remaining three were already answered and could not be found.
+
+### What each of the eleven rests on
+
+**ハルタコミックス → HARTA COMIX**, and the letters are the publisher's. Every one of the 11 rows
+this corpus holds is catalogued HARTA COMIX, the National Diet Library files the series title of
+ISBN 9784047380905 the same way, and KADOKAWA addresses the ハルタ label on its own platform at
+`comic-walker.com/label/harta`. The label index prints the Japanese and no Latin form as text, so
+the address is what makes this the company's spelling rather than ours. `official-jp`.
+
+**MANGAバル コミックス → MANGA Bar Comics.** KADOKAWA's own English site names the magazine MANGA
+Bar and links it to `comic-walker.com/label/bar`, at
+`group.kadokawa.co.jp/global/business/publishing.html`. That settles バル, which is the only element
+that was in question: MANGA is Latin on the label and コミックス is the English word it stands for.
+`official-jp`.
+
+**HOWLコミックス → HOWL Comics.** The same reading IDコミックス already gets in this file: HOWL is
+一迅社's own letters and not a transcription of anything. The National Diet Library files the series
+title of ISBN 9784758026055 as Howl comics and both rows of this corpus are catalogued that way.
+一迅社 publishes no label index, which is why the Japanese name still comes from BOOK☆WALKER's list
+for the house. `official-jp`.
+
+**4コマKINGSぱれっとコミックス → 4-koma KINGS Palette Comics**, a romanisation and the only one of
+the eleven. 4コマ names the four-panel form and ぱれっと is the magazine's own kana spelling of
+palette, so both are ours. `publisher readings nobody has settled` does not move, because the
+catalogued spelling `4コマkingsぱれっとcomics` was already in it and this is the second key on one
+decision.
+
+**The other seven were already named** and the map could not be asked for them. FUZコミックス,
+まんがタイムKRコミックスつぼみシリーズ, MFC キューンシリーズ, MFC ジーンピクシブシリーズ and the
+アライブ, ジーン and フラッパー strands of MFコミックス all had a reviewed English name and a
+sourced reading, written for the string the corpus carries.
+
+### The lookup, which is the finding
+
+The store is keyed by the catalogued string and the registry names each line NFKC-normalised with
+ordinary spaces. Those differ by nothing a reader could see: `ＦＵＺコミックス` against
+`FUZコミックス`, `MFC　キューンシリーズ` with an ideographic space against `MFC キューンシリーズ`
+with a plain one. An exact lookup answered for the catalogued form and not for the line's own name,
+so `publishers.english` asks the folded key last, after the exact ones, using the interface's own
+`fold` and not the registry's. Measured before it was written: exactly two keys in the store collide
+under that fold and both pairs already agree on their English, so nothing here decides between two
+records.
+
+**And a second lookup, in `build.py`, which is why MFC キューンシリーズ was not even on the list.**
+The pass that renders a line name skips a name the map already holds, and it tested the
+space-stripped fold. `MFCキューンシリーズ` was in the map under the catalogued spelling, so the pass
+concluded the line was named. `pubRec` in `app.js` tries the string and its NFKC form and does not
+remove spaces, so it asked for `MFC キューンシリーズ` and got nothing, and 35 rows showed the line in
+Japanese. The skip now asks what the reader's lookup asks. This is §14b in its plainest form: a
+producer's test for "do I have this already" has to be the consumer's lookup, or it answers a
+question nobody is asking.
+
+**`publisher keys the interface misses` was measuring the previous interface.** It reads 5 where it
+now reads 1, and the fall is a repair to the measure rather than to the data. `check.py` holds a
+transcription of `imprintOf` on purpose, as a copy of the CONSUMER, and when `imprintOf` stopped
+segmenting and started returning the registry's canonical name the transcription followed it while
+the caller went on invoking it with no map. So the copy resolved every imprint string to itself,
+which is what the old interface did: it counted four catalogued strings that had stopped being shown
+and could not see eleven canonical names that were. A copy of the consumer has to be CALLED the way
+the consumer is called.
+
+### What is left, and it is not a name
+
+`ガンガンコミックスonline　／　GC ONLIN` is the one string still reaching a reader in Japanese. It is
+a truncated catalogued value with a separator in it, not a label anybody prints, and §29 places it.

@@ -378,6 +378,35 @@ kanji, which is arithmetic on the rendered result, owes nothing to the aligner, 
 faults the aligner was content with. Where a check must reuse the subject's code, say so in its
 docstring and name what it therefore cannot see.
 
+## 14c. A route that is closed is not the only route
+
+When a source refuses, or a gap will not close, the next question is whether the same fact is
+reachable another way. Ask it out loud, and challenge the assumption that made the first route look
+like the only one.
+
+**This is written down because the assumption is easy and wrong.** 36 readings cited an NDL
+OpenSearch query, which robots disallows, so the citation was withheld. The record pages under
+`/books/` are open, carry 著者標目 beside タイトルよみ, and were already the source of 463 other
+citations, so 21 of the 36 were reachable the whole time by looking up a work the artist is credited
+on. The route was not closed; one shape of it was.
+
+**And the second assumption was wrong in the same reply that stated it.** Having found that route, I
+said the remaining 14 had no print edition, so no NDL record could exist, so nothing would reach
+them. That is true of NDL, which catalogues on deposit, and false of the question: 418 author
+readings had been settled that same day from まんが王国 bylines, and the shipped citations already
+included platform author pages, an artist's own links page and two accounts on X. A web-only artist
+has a byline on the page their work is published on.
+
+**So the discipline is two questions, not one.** Is there another route to this fact, and is the
+reason I think there is not a fact about the world or a fact about the first route I tried. A source
+that catalogues books says nothing about an artist who has not published one; a shop that sells
+files says nothing about a work that was never sold. Neither silence is evidence of absence.
+
+**What this does not license.** A route the host asked us not to take stays closed, and no amount of
+wanting the data changes that (§REQUIREMENTS). Nor does it license inventing an answer where no
+source holds one: an unreachable fact recorded as unreachable, with what was tried, is a finished
+state (§5). The rule is that the recording happens after the asking, not instead of it.
+
 ## 15. Layout changes ask what kind of control it is
 
 Every control in the interface falls into one of the kinds below, and which one decides where it

@@ -454,6 +454,18 @@ def apply(store, doc):
                 store.record(kind, ja, en=tr, basis="translated", source=OURS,
                              source_kind="derived", translation_note=e.get("translation_note"),
                              at=str(e.get("reviewed")))
+            # A REFUTATION THE FILE HAS WITHDRAWN LEAVES THE RECORD, which is the same rule the
+            # store applies to a citation the file stops carrying and was missing here. A
+            # refutation says nothing can be put in this slot, and research eventually putting
+            # something there is the one outcome it was written to wait for. 生肉's セイニク was
+            # dropped in August with the artist's X handle noted and nothing to do with it;
+            # まんが王国 files them ナマニク and @namanoniku0005 spells the same thing. Replacing
+            # the entry left the record holding a reading AND the refutation of one, so the file
+            # could record the decision and could not reverse it, and `pass4_analyser` reads that
+            # field to decide whether a name may be filled at all.
+            for claim in ("reading", "en"):
+                if e.get(claim) and not e.get(f"{claim}_refuted"):
+                    (store.records[kind].get(ja) or {}).pop(f"{claim}_refuted", None)
             if e.get("en"):
                 applied += 1
             else:

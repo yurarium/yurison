@@ -173,3 +173,142 @@ back, so a shop row with no authors in it is treated as the silence it is.
 Four of the five were then settled off コミックシーモア, which files each anthology volume under
 `アンソロジー` and names the artist on every 単話 it sells separately: one row per story. The
 fifth, Yrhm百合姫20thアンソロジー, sells no 単話 and stays unresolved.
+
+---
+
+# Author readings, 2026-08-08: third checkpoint
+
+The measure this round is against is what a READER meets, and it is now a budget so it cannot be
+lost: `author readings no source states` counts authors in `data/build/feed/names.json` shipping
+`basis: romaji` under the unverified mark. **769 at the start of the round and 309 at the end.**
+
+Nothing about the mark changed. `build.py` clears it for `stated` and for `researched` and for
+nothing else, so every one of those 460 names has a citation or an argument on its record now.
+
+## What the corpus growing reopened
+
+The second checkpoint recorded openBD and MADB as exhausted "until the corpus grows", and it grew:
+the store went from 1,757 author names to 2,336, most of the difference from the ニコニコ漫画
+serialisation pass. Both were asked again at no request cost, out of the caches already on disk.
+
+| route | settled | evidence |
+|---|---:|---|
+| MADB `ja-hrkt` creator transcription, release 1.2.18 | 48 | `stated` / `national-library` |
+| openBD collationkey, over 2,417 corpus ISBNs | 46 | `stated` / `publisher-jp` |
+
+Four names came back from both and the two agree on all four. 90 distinct names, 62 of them names a
+reader meets, so the number fell 769 to 703.
+
+## NDL, measured and closed again
+
+`/books/` record pages are open and answer 200, which contradicts what
+`bookwalker-yuri-authors.yaml` recorded in August (503 on the HTML pages). The route is still shut,
+for a different reason: `https://ndlsearch.ndl.go.jp/search?cs=bib&creator=` returns the identical
+564,314 bytes whatever creator is asked about, because the document holds no results at all and the
+records are fetched afterwards from `/api`, which robots.txt still disallows. There is no permitted
+way to get from a person's name to a record id, so the open record pages cannot be reached.
+
+Whoever resumes: the byte count is the finding. A page that answers 200 and states nothing looks
+exactly like a creator the library has never catalogued.
+
+## The lead the second checkpoint declined, taken as a bounded route
+
+`adapters/names/kmanga_reading.py`. まんが王国 prints the kana in the byline of every title page it
+sells: `<a href="/search/author/15404">甲斐谷忍<span class="f10">（かいたにしのぶ）</span></a>`, and
+it prints nothing where it knows nothing. `researched` with `derived` beside it, never `stated`,
+because a retailer does not say where its kana came from and the page cannot separate a publisher's
+registered yomi from the shop's own filing key.
+
+What makes it a route and not a bulk import: the shop's own spelling of the credit has to equal ours
+before a book is opened and again after, each gloss is read out of the anchor its name sits in, two
+books glossing one name differently settle nothing, and every entry carries the page, the book and
+the string it replaces so the decision can be argued with.
+
+All 761 names were asked, one request at a time, over about two hours in two sittings. The queue
+is ordered by how many works credit the name, and the cache makes it resumable: the first sitting
+was killed at 416 names and the second picked up from there at no cost for anything already asked.
+
+```
+python3 adapters/names/kmanga_reading.py --cache ../kmanga-cache --reviewed <today>
+```
+
+**418 settled, 328 the shop answered nothing for, 15 refused here.** 256 of the 418 agree with the
+reading already on display, which is worth something on its own, and **158 disagree**, which is the
+number that matters: those are names a reader was being shown wrongly. 上城たすく was ウエジョウ and
+is カミジョウ. あまどり協奏曲 was ア マ ドリ キョウソウキョク and the work reads 協奏曲 as
+コンチェルト. タイザン5 was タイザン 5 with the digit unread and is タイザンファイブ. 五葉 was ゴヨウ
+and is イツハ.
+
+## The negatives are written down, which no reading round had done
+
+The 328 names the shop answered nothing for are in `data/names/attempts.yaml` under source
+`k-manga`, so the next round does not spend 328 requests to be told the same thing. That file has
+held this fact for pass 2 since August and no reading route had ever added to it.
+
+Only a real answer is written off. A search that never came back and a reading refused here are
+both left open, because `store.attempt` means the name is never offered again and a name written
+off wrongly is not recoverable without an edit.
+
+## Four refutations met new evidence, and one of them fell
+
+生肉 was refuted in August as an unsupported セイニク, and the reviewer recorded the artist's X
+handle, @namanoniku0005, with nothing to do with it. まんが王国 files them ナマニク. The handle
+spells the same thing, the two were arrived at independently, and the refutation is now replaced by
+a `researched` reading that cites both.
+
+The other three stand and the shop's answer was declined. 伊実 is a Chinese creator NDL deliberately
+files without kana. 時一二 is the same and the shop's シーイーアー is a transliteration of Shi Yi
+Er. 角川青羽 is 角川青羽（上海）文化創意有限公司, a company, and カドカワアオハネ reads a corporate
+body as a person.
+
+Withdrawing a refutation exposed a fault worth having: `curate.apply` recorded one and could never
+remove one, so the record ended up holding a reading AND the refutation of a reading, and
+`pass4_analyser` reads that field to decide whether a name may be filled at all. Fixed with the
+case in `test_curate.py`.
+
+## A rule this round tried and dropped
+
+The shop states no boundary between family and given name, which is the same silence MADB's
+readings carry and is stored as it comes. Three readings had to be refused for it: 筋肉☆太郎 is
+キンニクタロウ, and with no boundary in the kana the aligner had nothing to anchor on at the ☆, so
+it put き over 筋肉 and んにくたろう over 太郎. `implausible ruby spans` went from 0 to 2 and caught
+it. 中村 朱里 and 乃木 康仁 are the same shape with a space where the ☆ is.
+
+The first rule written for it refused any reading that drops a mark the surface carries, and it is
+wrong: 小鬼36℃ is コオニサンジュウロクド and 惚れた女の遺言.mp3 is
+ホレタオンナノユイゴンドットエムピースリー, where the shop is reading the mark ALOUD, which is more
+than any other source here does. `kmanga_reading.alignable` asks `kana.align`, which is the
+function build.py will actually use, and applies the same arithmetic the budget applies.
+
+## Routes still closed, so the next round does not pay for them again
+
+- **BOOK☆WALKER author pages.** `bookwalker.jp/author/{id}` carries the name in the title, the
+  description and the keywords field, and a reading in none of them.
+- **コミックシーモア author pages.** `/search/author/{id}` states the name and no kana. Its keyword
+  search is disallowed by robots (`/search/result/`) in any case.
+- **DMM.** `/search/` is disallowed by robots, so the listings that carry kana cannot be reached.
+
+## Two things another session's round put into this one
+
+Recorded here because they arrived from outside and would otherwise be lost with the session.
+
+**川村マユ見 is カワムラ マユミ**, and the National Diet Library says so on a record page that is
+open: https://ndlsearch.ndl.go.jp/books/R100000001-I01211008001685179. Verified here rather than
+taken on report. The 著者標目 field runs each contributor's name into its own reading and this one
+reads `川村 マユ見 カワムラ マユミ`. `stated` / `national-library`, and it agrees with what the
+analyser had.
+
+That page also settles what the NDL section above could not. The record pages DO state author
+readings, and every one of them is reachable if you have the record id. What is missing is a
+permitted route from a person's name to an id, and it is missing for the reason given above.
+
+**Twelve publisher records are people**, because a work self-published through a shop names its own
+author as its publisher, and `publishers.english` consumes the author store. Ten of them are in this
+population and so are settled by whatever settles them here: あおい華葉、さとうメメ子、夢乃むえ、
+川村マユ見、河津ケント、珠虫さとり、赤月めう、雪尾ゆき、高橋真弥、高菜しんの. The other two,
+とばり湊 and 井庭人, are in `data/names/publishers.yaml` and in no author record and no corpus
+credit at all, so nothing on the author side can reach them.
+
+**NDL rate-limits hard**, on that session's measurement: `/books/` answers 503 to anything faster
+than roughly one request every few seconds, and a sweep of 124 ids took two hours with 61 answering.
+A 503 is the server refusing and is not an absent record, so retry before concluding anything.

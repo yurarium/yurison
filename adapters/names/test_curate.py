@@ -140,6 +140,31 @@ def main(s):
              "the revised wording replaces the one it revises")
         curate.apply(st, {"titles": {"裏世界ピクニック": dict(BOTH, translation="Reverse-Side Picnic")}})
         s.eq(len(rec["en_conflicts"]), 1, "and re-applying the same file changes nothing")
+    # A REFUTATION THE FILE HAS WITHDRAWN LEAVES THE RECORD. A refutation says nothing can be put
+    # in this slot, and research eventually putting something there is the outcome it was written
+    # to wait for. 生肉's セイニク was dropped in August with nothing to replace it; まんが王国 files
+    # the artist ナマニク and the X handle the refutation recorded, @namanoniku0005, spells the same
+    # thing. Applying the replacement left the record holding a reading AND the refutation of one,
+    # so the file could record that decision and could not reverse it, and `pass4_analyser` reads
+    # that field to decide whether a name may be filled at all.
+    with tempfile.TemporaryDirectory() as d:
+        st = NameStore(d)
+        gone = {"reading_refuted": True, "reviewed": "2026-08-05", "source": "yurarium",
+                "source_kind": "derived",
+                "reading_note": "セイニク is a machine guess with nothing behind it."}
+        curate.apply(st, {"authors": {"生肉": gone}})
+        rec = st.records["authors"]["生肉"]
+        s.check(rec.get("reading_refuted"), "the refutation is recorded")
+        s.check(not rec.get("reading"), "and the reading it disowns is gone")
+
+        found = {"reading": "ナマニク", "reading_basis": "researched",
+                 "reading_source_kind": "derived", "reading_note": "まんが王国 files them so.",
+                 "source": "まんが王国", "source_kind": "derived", "reviewed": "2026-08-08"}
+        curate.apply(st, {"authors": {"生肉": found}})
+        rec = st.records["authors"]["生肉"]
+        s.eq(rec["reading"], "ナマニク", "the answer the refutation was waiting for lands")
+        s.check(not rec.get("reading_refuted"),
+                "and the refutation goes, so the record does not hold a reading and its denial")
         st.close()
 
     # A curated READING. The interface renders basis-romaji titles from the kana, so a wrong

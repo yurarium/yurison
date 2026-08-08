@@ -170,6 +170,29 @@ def main(s):
     s.eq(P.unnamed({}, three), [(202, "講談社", "publisher")],
          "one publisher spelled three ways is one entry in the queue, not three")
 
+    # ── THE READING BEHIND A ROMANISATION ──────────────────────────────────────────────────────
+    #
+    # `publishers with no English` fell to zero by romanising, and a romanisation is the reading
+    # spelt in Latin, so the outstanding work moved from the rendering to the sourcing and nothing
+    # counted it. This is what counts it, and the cases below are the four that decide the rule.
+    shipped = {"まんがタイムKRコミックス": {"en": "Manga Time KR Comics", "basis": "romaji",
+                                            "unverified": True},
+               "踏月": {"en": "Tōtsuki", "basis": "romaji", "unverified": True,
+                        "uncertain": True},
+               "宙出版": {"en": "Ohzora Shuppan", "basis": "romaji"},
+               "講談社": {"en": "Kodansha", "basis": "official-jp"},
+               "青騎士コミックス": {"en": "Aokishi Comics", "basis": "romaji",
+                                    "uncertain": True}}
+    s.eq(P.unsettled_readings(shipped),
+         ["まんがタイムKRコミックス", "踏月", "青騎士コミックス"],
+         "a romanisation carrying either mark is counted, and a settled one is not")
+    s.check("講談社" not in P.unsettled_readings(shipped),
+            "a name the house signs itself with is not a romanisation and cannot be counted here")
+    s.check("宙出版" not in P.unsettled_readings(shipped),
+            "and neither is a romanisation whose reading a source states, which is the only way "
+            "this number is allowed to fall")
+    s.eq(P.unsettled_readings({}), [], "an empty map is no answer rather than a bad one")
+
     # ── WHICH FIELDS HOLD A NAME A READER SEES ─────────────────────────────────────────────────
     #
     # The queue here and `publishers with no English` in check.py both walk a print row, and both

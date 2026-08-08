@@ -1877,6 +1877,38 @@ def budget_names_rendered_two_ways(ctx):
             bad.add(fold(ja))
     return len(bad)
 
+
+def budget_publisher_readings_nobody_has_settled(ctx):
+    """Publisher keys shipped as OUR romanisation whose reading no source states.
+
+    WHY THIS EXISTS, AND WHY IT IS NOT THE BUDGET ABOVE. `publishers with no English` reached zero
+    largely by romanising, which finished the rendering and moved the sourcing rather than doing
+    it: a romanisation is the reading spelt in Latin, so a name romanised off a reading nobody has
+    stated is published on a guess and carries the mark that says so. 134 keys were in that state
+    on 2026-08-08 and no number anywhere said so, which is STANDING-INSTRUCTIONS §13: the first
+    budget's fall to zero read as the work being done.
+
+    A DEFICIT, so it falls only when a reading gets sourced. The route that would empty it without
+    doing that is suppressing the mark in the interface, which was tried once and rejected, and
+    this reads the SHIPPED map and asks for the mark precisely so that suppressing it would show
+    up here as a fall nobody earned.
+
+    The rule is `publishers.unsettled_readings`, which owes the producer nothing: `unverified` is
+    computed in build.py out of `verified` and `reading_basis`, and this reads neither, only the
+    file a reader is served. §14b, what it therefore cannot see: a reading cited to a page that
+    says something else. No count can see that; only a reader following the citation will.
+    """
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    try:
+        import publishers as _pub
+    except Exception:                                                       # noqa: BLE001
+        return 0
+    # `names_shipped` and not `names`: the store holds a reading, and only the build spells it and
+    # decides whether to mark it. Asking the store would count records rather than renderings and
+    # would answer 0 while a reader was being shown 134 marks, which is what the first draft did.
+    return len(_pub.unsettled_readings((ctx["names_shipped"] or {}).get("publishers") or {}))
+
+
 def budget_labels_with_nothing_to_quote(ctx):
     """Records carrying a yuri label whose imprint states no term that says so.
 
@@ -1983,6 +2015,12 @@ BUDGETS_DEF = [
      "strings the shipped maps spell one way as a publisher and another way as a person, which "
      "happens because a self-published work names its own author as its publisher. A rise means a "
      "publisher name was written by hand where the name store already spelt it."),
+    ("publisher readings nobody has settled", budget_publisher_readings_nobody_has_settled,
+     "publisher and imprint keys shipped as a romanisation of ours over a reading no source "
+     "states, which is what the mark beside them says. A coverage deficit and the other half of "
+     "the budget above it: that one reached zero by romanising, and a romanisation is the reading "
+     "spelt out. It falls as readings get sourced, and it is measured on the shipped map so that "
+     "hiding the mark would show as a fall nobody earned."),
     ("renderings with nothing to show", budget_renderings_with_nothing_to_show,
      "works whose English rendering holds neither a romanisation nor an English name while the "
      "surface is Japanese. A rise means a composed name lost its romanisation."),

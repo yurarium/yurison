@@ -27,10 +27,14 @@ titles:
     source: "mediaarts-db"
     source_kind: bibliography
     source_url: "https://mediaarts-db.artmuseums.go.jp/id/C419713"
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The parallel title MADB records after ' = ', which ISBD transcribes from the book's
       own title page. The publisher printed this English name; the bibliography copied it.
+    translation: End-of-the-Century Blue
+    translation_note: >-
+      セイキマツ is 世紀末 written in kana, the end of the century and by extension the end of things. The
+      publisher's own English romanises it, so an English reader gets neither.
 
   "ストライク・オア・ガター":
     en: "strike or gutter"
@@ -315,24 +319,31 @@ titles:
     source: "mediaarts-db"
     source_kind: bibliography
     source_url: "https://mediaarts-db.artmuseums.go.jp/id/C450485"
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The parallel title MADB records after ' = ', which ISBD transcribes from the book's
       own title page. The publisher printed this English name; the bibliography copied it.
 
   # A WORK MADB HAS NOT RESOLVED TO A SERIES, so the citation is the volume record the title was
   # read off. Every volume of these three states the same string.
+    translation: White and Black
+    translation_note: 白 comes first in the Japanese and the publisher's own English reverses the pair.
+
   "お姉さまと巨人(わたし) : お嬢さまが異世界転生":
     en: "MY SISTER AND GIANT"
     basis: official-jp
     source: "mediaarts-db"
     source_kind: bibliography
     source_url: "https://mediaarts-db.artmuseums.go.jp/id/M869334"
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The parallel title MADB records after ' = ', ending where the subtitle after ' : ' begins.
       お嬢さまが異世界転生 is the book's own subtitle and stays with the Japanese name, which is why
       the English here is the two words and not the whole line.
+    translation: 'My Elder Sister and the Giant (Me): The Young Lady Is Reborn in Another World'
+    translation_note: >-
+      The title glosses 巨人 as わたし, so the giant is the narrator, and the publisher's English drops
+      both the gloss and the subtitle.
 
   "悪役令嬢の中の人 : 断罪された転生者のため嘘つきヒロインに復讐いたします":
     en: "The person in a villainess"
@@ -340,11 +351,17 @@ titles:
     source: "mediaarts-db"
     source_kind: bibliography
     source_url: "https://mediaarts-db.artmuseums.go.jp/id/M868555"
-    reviewed: '2026-08-07'
+    reviewed: '2026-08-08'
     note: >-
       The parallel title MADB records after ' = ', ending where the subtitle after ' : ' begins.
       The subtitle is a sentence about what the heroine does and is left in Japanese here; the
       English is the publisher's own name for the work.
+    translation: >-
+      The Person Inside the Villainess: For the Condemned Girl Whose Life She Took Over, I Shall Have
+      Revenge on the Lying Heroine
+    translation_note: >-
+      中の人 is the person inside a role, the one working the costume. The publisher's English keeps the
+      phrase and drops the subtitle, which is where the plot is.
 
   "先輩、美味しいですか?":
     en: "Senpai,does it taste good?"
@@ -455,18 +472,28 @@ titles:
     source: sevenseasentertainment.com
     source_kind: licensor
     source_url: https://sevenseasentertainment.com/series/our-teachers-are-dating/
-    reviewed: '2026-08-05'
+    reviewed: '2026-08-08'
     note: >-
       The licensor's own catalogue entry, which states the Japanese title as 羽山先生と寺野先生は付き合っている. An English reader meets the work under this name.
+    translation: Hayama-sensei and Terano-sensei Are Going Out
+    translation_note: >-
+      The Japanese names both teachers. Our Teachers are Dating! replaces them with a class's view of
+      them, which is not the sentence.
+
   捏造トラップ-NTR-:
     en: "NTR: Netsuzou Trap"
     basis: licensed
     source: sevenseasentertainment.com
     source_kind: licensor
     source_url: https://sevenseasentertainment.com/series/ntr-netsuzou-trap/
-    reviewed: '2026-08-05'
+    reviewed: '2026-08-08'
     note: >-
       The licensor's own catalogue entry, which states the Japanese title as 捏造トラップーNTRー. An English reader meets the work under this name.
+    translation: Fabrication Trap -NTR-
+    translation_note: >-
+      捏造 is fabrication in the sense of evidence made up. The licensor's title romanises it; the -NTR-
+      the publisher printed is kept as printed.
+
   見えてますよ! 愛沢さん:
     en: "I See You, Aizawa-san!"
     basis: licensed
@@ -482,9 +509,14 @@ titles:
     source: sevenseasentertainment.com
     source_kind: licensor
     source_url: https://sevenseasentertainment.com/series/i-married-my-best-friend-to-shut-my-parents-up/
-    reviewed: '2026-08-05'
+    reviewed: '2026-08-08'
     note: >-
       The licensor's own catalogue entry, which states the Japanese title as 親がうるさいので後輩(♀)と偽装結婚してみた。. An English reader meets the work under this name.
+    translation: My Parents Wouldn't Let It Drop, So I Tried a Sham Marriage with My Junior (♀).
+    translation_note: >-
+      偽装結婚 is a marriage staged for appearances, which the licensor's I Married My Best Friend leaves
+      out along with 後輩 and the (♀) the publisher prints to say which.
+
   ハロー、メランコリック！:
     en: "Hello, Melancholic!"
     basis: licensed
@@ -911,9 +943,15 @@ titles:
     source: series-art
     source_kind: platform
     source_url: https://cdn.comic-walker.com/integration/cdpf/resources/009434/54410ec9-085b-4cc7-812a-64a138fa0137.jpg
-    reviewed: '2026-08-05'
+    reviewed: '2026-08-08'
     note: >-
       The work's own Latin title, set on its series art. art only:
+    translation: The High School Girl VTuber Who Is Plainly Lying About Her Age
+    translation_note: >-
+      The publisher's own English is set in lower case and reads as a gloss written to explain the
+      Japanese rather than as the work's name; あきらかに is plainly, in the open, which clearly does not
+      quite carry.
+
   あくまで!アットホームな職場です。:
     basis: translated
     en: We're a Demonically Friendly Workplace!
@@ -963,10 +1001,15 @@ titles:
   ささやくように恋を唄う:
     basis: licensed
     en: Whisper Me a Love Song
-    reviewed: '2026-08-03'
+    reviewed: '2026-08-08'
     source: Kodansha
     source_kind: licensor
     source_url: https://kodansha.us/series/whisper-me-a-love-song/
+    translation: Singing of Love as if Whispering
+    translation_note: >-
+      The Japanese is a manner: singing love the way one whispers. The licensor's Whisper Me a Love
+      Song turns it into an instruction addressed to somebody.
+
   しあわせ鳥見んぐ:
     en: "HAPPINESS BIRD WITHIN YOU."
     basis: official-jp
@@ -1746,9 +1789,13 @@ titles:
     source: Yen Press
     source_kind: licensor
     source_url: https://yenpress.com/series/she-loves-to-cook-and-she-loves-to-eat
-    reviewed: '2026-08-03'
+    reviewed: '2026-08-08'
 
   # --- 2026-08-03 batch: queue order, most recently updated first ------------------------------
+    translation: The Woman Who Wants to Cook and the Woman Who Wants to Eat
+    translation_note: >-
+      たい is wanting, not loving, and the two halves are built the same way so that the pair matches.
+      She Loves to Cook, and She Loves to Eat states a habit instead of an appetite.
 
   獄門撫子此処ニ在リ:
     en: Gokumon Nadeshiko Is Here
@@ -1854,12 +1901,17 @@ titles:
     basis: romaji
     source: yurarium
     source_kind: derived
-    reviewed: '2026-08-03'
+    reviewed: '2026-08-08'
     note: >-
       The synopsis is a female demon lord choosing a human bride from five heroines, which makes 百合
       do double duty: the flower and the genre name this very manga belongs to. Translating forces a
       choice between "lily" and "yuri" and loses whichever half is dropped, so it stays romanised to
       keep the pun the title is making about itself.
+    reading: マオウ ト ユリ
+    reading_basis: stated
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033371220
 
   魔法少女リインカーネーション:
     en: Magical Girl Reincarnation
@@ -1876,11 +1928,15 @@ titles:
     source: Yen Press
     source_kind: licensor
     source_url: https://yenpress.com/titles/9781718339316-gushing-over-magical-girls-volume-2-manga
-    reviewed: '2026-08-03'
+    reviewed: '2026-08-08'
     note: >-
       Published under Yen Press's J-Novel Club Manga imprint; the catalogue page confirms the title
       and the Ononaka Akihiro series. Also has a Crunchyroll-streamed anime under the same English
       name.
+    translation: Longing to Be a Magical Girl
+    translation_note: >-
+      あこがれて is looking up to something and wanting to be it. Gushing over Magical Girls turns the
+      aspiration into enthusiasm about other people.
 
   魔法使いの作庭/よみきり:
     en: The Wizard's Garden-Making
@@ -2496,12 +2552,17 @@ titles:
     basis: romaji
     source: yurarium
     source_kind: derived
-    reviewed: '2026-08-04'
+    reviewed: '2026-08-08'
     note: >-
       Breaks the proverb 蓼食う虫も好き好き, "even a bug that eats bitter knotweed has its own taste",
       the Japanese equivalent of "there's no accounting for taste", by swapping 虫, bug, for 君, you,
       which turns 好き好き from the proverb's "has preferences" into a plain "I like you, I like you".
       English's nearest proverb shares no structure that would let it carry the same swap.
+    reading: タデ クウ キミ モ スキズキ
+    reading_basis: stated
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032542471
 
   葬られたきみへ:
     en: "To You Who Were Buried."
@@ -3002,9 +3063,13 @@ titles:
     source: sevenseasentertainment.com
     source_kind: licensor
     source_url: https://sevenseasentertainment.com/series/im-in-love-with-the-villainess-manga/
-    reviewed: '2026-08-05'
+    reviewed: '2026-08-08'
     note: >-
       The licensor's own catalogue entry, which states the Japanese title as 私の推しは悪役令嬢。. An English reader meets the work under this name.
+    translation: My Favourite Is the Villainess.
+    translation_note: >-
+      推し is the one a fan backs, which is not the same as being in love with her, and the distinction
+      is what the work is about. The licensor's title settles the question the title leaves open.
 
   私の幽霊:
     en: My Ghost
@@ -3386,9 +3451,11 @@ titles:
     source: sevenseasentertainment.com
     source_kind: licensor
     source_url: https://sevenseasentertainment.com/series/black-and-white-tough-love-at-the-office/
-    reviewed: '2026-08-05'
+    reviewed: '2026-08-08'
     note: >-
       The licensor's own catalogue entry, which states the Japanese title as 白と黒~Black & White~. An English reader meets the work under this name.
+    translation: White and Black ~Black & White~
+    translation_note: 白 comes first in the Japanese. The publisher's own English subtitle is kept as printed.
 
   白けた夜(ヤングスペリオール新人賞・佳作):
     en: A Night Gone Flat
@@ -5159,9 +5226,13 @@ titles:
     source: sevenseasentertainment.com
     source_kind: licensor
     source_url: https://sevenseasentertainment.com/series/miss-kobayashis-dragon-maid/
-    reviewed: '2026-08-05'
+    reviewed: '2026-08-08'
     note: >-
       The licensor's own catalogue entry, which states the Japanese title as 小林さんちのメイドラゴン. An English reader meets the work under this name.
+    translation: The Maid Dragon at the Kobayashis'
+    translation_note: >-
+      さんち is 〜さんの家, the household rather than the person, which is what the dragon moves into. Miss
+      Kobayashi's makes it one woman's.
 
   小春と湊 わたしのパートナーは女の子:
     en: "Koharu and Minato: Happy Life with My Girlfriend"
@@ -5599,9 +5670,11 @@ titles:
     source: KADOKAWA
     source_kind: publisher-jp
     source_url: https://bookwalker.com/migration/series/498870/
-    reviewed: '2026-08-04'
+    reviewed: '2026-08-08'
     note: >-
       KADOKAWA publishes the manga in English directly through BookWalker Global, its own storefront, under this title.
+    translation: The Two Faces of Voice-Actor Radio
+    translation_note: ウラオモテ is 裏表, back and front, a pair and not a plurality. The Many Sides loses the
 
   声に乗せてファンファーレ:
     en: A Fanfare Carried on My Voice
@@ -6067,9 +6140,13 @@ titles:
     source: Viz Media
     source_kind: licensor
     source_url: https://www.viz.com/how-do-we-relationship
-    reviewed: '2026-08-04'
+    reviewed: '2026-08-08'
     note: >-
       Viz Media's release title trades the original's flat, almost reluctant "I guess I could date you" for a question about the mechanics of a relationship neither started conventionally; kept as the licensed title rather than a literal rendering.
+    translation: I Suppose I Could Go Out With You
+    translation_note: >-
+      てあげてもいい is the grammar of a favour granted with a shrug, and かな leaves it open. The licensor's
+      How Do We Relationship? is a joke of its own and keeps none of that.
 
   今日もひとつ屋根の下:
     en: Under the Same Roof, Today Too
@@ -6236,9 +6313,13 @@ titles:
     source: Yen Press
     source_kind: licensor
     source_url: https://yenpress.com/series/assorted-entanglements
-    reviewed: '2026-08-04'
+    reviewed: '2026-08-08'
     note: >-
       連理 alone points to 連理の枝, the classical image of two branches grown into one, a bond too tangled to separate; Yen Press's title keeps that tangle rather than the branches.
+    translation: Mismatched Branches Grown Together
+    translation_note: >-
+      連理 is the classical image of two branches that have fused, used of lovers; 不揃い is that they do
+      not match. Assorted Entanglements keeps the tangle and loses the joining.
 
   不思議なゆりこさん:
     en: The Mysterious Yuriko
@@ -8360,9 +8441,13 @@ titles:
     source: Seven Seas Entertainment
     source_kind: licensor
     source_url: https://www.penguinrandomhouse.com/books/701492/failed-princesses-vol-1-by-ajiichi/
-    reviewed: '2026-08-04'
+    reviewed: '2026-08-08'
     note: >-
       Ajiichi's series, licensed by Seven Seas since 2019 with all six volumes released; sevenseasentertainment.com blocks automated fetches, cited through Penguin Random House's listing instead.
+    translation: The Princesses Who Came Out Wrong
+    translation_note: >-
+      できそこない is a botched piece of work, said of a thing that was made and came out badly. Failed is
+      what happens to a person who tried.
 
   てぇてぇ二人:
     en: Teetee, the Two of Them
@@ -9935,10 +10020,14 @@ titles:
     source: sevenseasentertainment.com
     source_kind: licensor
     source_url: https://sevenseasentertainment.com/series/the-girl-i-want-is-so-handsome-the-complete-manga-collection/
-    reviewed: '2026-08-05'
+    reviewed: '2026-08-08'
     note: >-
       The licensor's own catalogue entry, which states the Japanese title as イケメンすぎです紫葵先パイ. The
       suffix is what the omnibus edition is called and is kept as the licensor prints it.
+    translation: You're Far Too Handsome, Shiki-senpai!
+    translation_note: >-
+      The title addresses a named person. The licensor's The Girl I Want is So Handsome! drops the
+      name and moves the sentence to the speaker.
 
   "スカーレット":
     en: "Scarlet"
@@ -9969,10 +10058,15 @@ titles:
     source: sevenseasentertainment.com
     source_kind: licensor
     source_url: https://sevenseasentertainment.com/series/my-next-life-as-a-villainess-side-story-girls-patch-manga/
-    reviewed: '2026-08-05'
+    reviewed: '2026-08-08'
     note: >-
       The licensor's own catalogue entry, which states the Japanese title as
       乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった… GIRLS PATCH.
+    translation: >-
+      I Was Reincarnated as the Villainess of an Otome Game, Where Every Flag Leads to Ruin…: girls
+      patch
+    translation_note: >-
+      The base title as translated above. girls patch is already Latin and is left as printed.
 
   "初恋姉妹":
     en: "First Love Sisters"
@@ -9990,9 +10084,13 @@ titles:
     source: sevenseasentertainment.com
     source_kind: licensor
     source_url: https://sevenseasentertainment.com/series/ntr-netsuzou-trap/
-    reviewed: '2026-08-05'
+    reviewed: '2026-08-08'
     note: >-
       The licensor's own catalogue entry, which states the Japanese title as 捏造トラップーNTRー.
+    translation: 'Fabrication Trap: NTR'
+    translation_note: >-
+      捏造 is fabrication in the sense of evidence made up. The licensor's title romanises it; the NTR
+      the publisher printed is kept as printed.
 
   "捏造トラップ":
     en: "NTR: Netsuzou Trap"
@@ -10000,11 +10098,15 @@ titles:
     source: sevenseasentertainment.com
     source_kind: licensor
     source_url: https://sevenseasentertainment.com/series/ntr-netsuzou-trap/
-    reviewed: '2026-08-05'
+    reviewed: '2026-08-08'
     note: >-
       The same series as 捏造トラップ : NTR, held here under the shorter title the 一迅社 edition carried.
       The licensor states the Japanese as 捏造トラップーNTRー, and a reader who knows the work in English
       knows it by this name whichever edition they met.
+    translation: Fabrication Trap
+    translation_note: >-
+      捏造 is fabrication in the sense of evidence made up, which is what the characters do to each
+      other. The licensor's title romanises it and glosses it with an acronym from elsewhere.
 
   "12分のエチュード":
     en: "A Twelve-Minute Étude"
@@ -11720,9 +11822,13 @@ titles:
     source: "bookwalker.jp"
     source_kind: "platform"
     source_url: "https://bookwalker.jp/de4cee0c08-f2bc-4751-b8d0-9687ee0e7a18/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       アトキンソン publishes an English edition of this work and titles it 「【English ver.】Hate but Love These Goddamn Animals-かわいくてにくいあんちくしょう」, pairing Hate but Love These Goddamn Animals with the Japanese かわいくてにくいあんちくしょう in one string. That makes Hate but Love These Goddamn Animals the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+    translation: That Cute, Hateful Wretch
+    translation_note: >-
+      あんちくしょう is one person sworn at, singular and almost fond. The publisher's These Goddamn Animals
+      makes it a group and a species.
 
   "[English ver ]Ayakashi in the Rain":
     en: "Ayakashi in the Rain"
@@ -11860,9 +11966,14 @@ titles:
     source: "bookwalker.jp"
     source_kind: "platform"
     source_url: "https://bookwalker.jp/de9eceb556-2c0c-4a1d-86e4-5f255b49f611/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       アトキンソン publishes an English edition of this work and titles it 「【English Ver.】Present in the Spring-春にして君を抱き」, pairing Present in the Spring with the Japanese 春にして君を抱き in one string. That makes Present in the Spring the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+    translation: In the Spring, I Hold You
+    translation_note: >-
+      春にして is the classical form, in the spring as against any other season, and 抱き is holding
+      somebody. The author's own English, Present in the Spring, keeps the season and replaces the act
+      with being there.
 
   "【English ver.】Chalk-White Promise-白亜の約束":
     en: "Chalk-White Promise"
@@ -11960,9 +12071,13 @@ titles:
     source: "bookwalker.jp"
     source_kind: "platform"
     source_url: "https://bookwalker.jp/defc58385c-1ffb-4a28-8b35-1b08b21ab4d6/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       アトキンソン publishes an English edition of this work and titles it 「【English ver.】Reimu is Easily Embarrassed-はずかしがりやのれいむさん」, pairing Reimu is Easily Embarrassed with the Japanese はずかしがりやのれいむさん in one string. That makes Reimu is Easily Embarrassed the publisher's own English name for the work rather than a translation made here. The page cited is the English edition's, which is where the pairing is stated.
+    translation: Reimu the Bashful
+    translation_note: >-
+      はずかしがりや is a noun, somebody who is easily embarrassed, and の attaches it to the name as an
+      epithet. The author's own English turns it into a statement about her.
 
   "リリィシステム":
     en: "LILY SYSTEM"
@@ -12000,9 +12115,13 @@ titles:
     source: "openBD"
     source_kind: "publisher-jp"
     source_url: "https://api.openbd.jp/v1/get?isbn=9784778322960"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       The book's own English title. openBD carries the publisher's registration for 9784778322960 with the title 「杉並区立魔法女学園平和維持部 = peace keeping club of suginami municipal school for witches」, pairing the Japanese with peace keeping club of suginami municipal school for witches, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+    translation: The Peacekeeping Club of Suginami Municipal Girls' School of Magic
+    translation_note: >-
+      The publisher's own English is set in lower case with the school's name left as a romanisation,
+      and 女学園 is a girls' school rather than a school for witches.
 
   "ヴァンピアーズ : VAMPEERZ,MY PEER VAMPIRES":
     en: "VAMPEERZ,MY PEER VAMPIRES"
@@ -12020,9 +12139,13 @@ titles:
     source: "openBD"
     source_kind: "publisher-jp"
     source_url: "https://api.openbd.jp/v1/get?isbn=9784253229715"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       The book's own English title. openBD carries the publisher's registration for 9784253229715 with the title 「お姫様のお姫様 = Princess of the Princess」, pairing the Japanese with Princess of the Princess, which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than a rendering made here, and it is kept verbatim including its own capitalisation and spacing. This row is the same work under its Japanese title alone.
+    translation: The Princess's Princess
+    translation_note: >-
+      の is possessive here and the title is the same word twice, which Princess of the Princess reads
+      as a rank instead.
 
   "みーちゃんとアイリ":
     en: "Mi-chan and Airi"
@@ -12532,9 +12655,13 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/my-goddess-is-precious-today-too/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 私の女神が今日も推せる ~これからも、いつまでも~. That is the name an English reader meets the work under.
+    translation: My Goddess Is Worth Championing Today Too ~From Now On, and For Always~
+    translation_note: >-
+      推せる is the fan's verb: she is someone one can back, publicly and at length. Precious is a
+      quality she has rather than something the speaker does, and the licensor drops the subtitle.
 
   "乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった… : 絶体絶命! 破滅寸前編":
     en: "My Next Life as a Villainess Side Story: On the Verge of Doom! (Manga)"
@@ -12542,9 +12669,15 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/my-next-life-as-a-villainess-side-story-on-the-verge-of-doom-manga/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった… 絶体絶命! 破滅寸前編. That is the name an English reader meets the work under.
+    translation: >-
+      I Was Reincarnated as the Villainess of an Otome Game, Where Every Flag Leads to Ruin…:
+      Desperate! On the Brink of Ruin
+    translation_note: >-
+      The base title as translated above. 絶体絶命 is a set phrase for having no way out and 破滅寸前 is being
+      a step short of the ruin the base title names.
 
   "私の可愛い子猫ちゃん":
     en: "My Cute Little Kitten"
@@ -12562,9 +12695,13 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/kindred-spirits-on-the-roof/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 屋上の百合霊さん. That is the name an English reader meets the work under.
+    translation: The Lily Ghost on the Roof
+    translation_note: >-
+      百合霊 is 百合 folded into 幽霊, so the coinage says both lily and ghost at once and the work is about
+      ghosts on a school roof. Kindred Spirits on the Roof keeps the roof and drops both.
 
   "魔女が恋する5秒前":
     en: "5 Seconds Before a Witch Falls in Love"
@@ -12602,9 +12739,14 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/i-wont-let-mistress-suck-my-blood/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as ご主人様には吸わせません！. That is the name an English reader meets the work under.
+    translation: I Won't Let My Master Drink
+    translation_note: >-
+      ご主人様 is how a servant addresses whoever they serve and carries no gender; 吸わせません names neither
+      what is drunk nor whose it is. The licensor's Mistress and My Blood both supply what the
+      Japanese leaves out.
 
   "一度だけでも、後悔してます。":
     en: "I Can’t Believe I Slept With You!"
@@ -12612,9 +12754,13 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/i-cant-believe-i-slept-with-you/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 一度だけでも、後悔してます。. That is the name an English reader meets the work under.
+    translation: Even If It Was Only Once, I Regret It.
+    translation_note: >-
+      The Japanese is a flat admission of regret. The licensor's I Can't Believe I Slept With You!
+      supplies both the act and the outrage, and the original states neither.
 
   "お姫様のひみつ":
     en: "Secret of the Princess"
@@ -12642,9 +12788,14 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/the-demon-girl-next-door/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as まちカドまぞく. That is the name an English reader meets the work under.
+    translation: Street-Corner Demon
+    translation_note: >-
+      まちカド is 街角, a street corner, and まぞく is 魔族, the demon kind. Both are written part in kana to
+      soften them, and the joke is the scale: a demon met on the corner of an ordinary street. The
+      licensor's Demon Girl Next Door keeps the scale and loses the corner.
 
   "最後の制服":
     en: "The Last Uniform"
@@ -12662,9 +12813,14 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/my-next-life-as-a-villainess-all-routes-lead-to-doom/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった…. That is the name an English reader meets the work under.
+    translation: I Was Reincarnated as the Villainess of an Otome Game, Where Every Flag Leads to Ruin…
+    translation_note: >-
+      破滅フラグ is a flag in the dating-game sense, a branch that sets an outcome, and しかない is that the
+      character has no other kind. The licensor's All Routes Lead to Doom says the same thing without
+      the game vocabulary the Japanese is built on.
 
   "君に紡ぐ傍白":
     en: "Monologue Woven For You"
@@ -12672,9 +12828,13 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/monologue-woven-for-you/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 君に紡ぐ傍白. That is the name an English reader meets the work under.
+    translation: An Aside Spun for You
+    translation_note: >-
+      傍白 is the theatrical aside, spoken past the other person to the audience, which is a different
+      act from a monologue and is the point of the title.
 
   "やがて君になる　公式コミックアンソロジー":
     en: "Bloom Into You Anthology"
@@ -12682,9 +12842,11 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/bloom-into-you-anthology/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as やがて君になる 公式コミックアンソロジー. That is the name an English reader meets the work under.
+    translation: 'In Time, I Will Become You: The Official Comic Anthology'
+    translation_note: The base title as translated above, with 公式コミックアンソロジー said in English.
 
   "猫とシュガーポット":
     en: "Cats and Sugar Bowls"
@@ -12702,9 +12864,14 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/how-do-i-turn-my-best-friend-into-my-girlfriend/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as どうしたら幼馴染の彼女になれますか!?. That is the name an English reader meets the work under.
+    translation: How Do I Become My Childhood Friend's Girlfriend!?
+    translation_note: >-
+      彼女になれますか asks how the speaker can become the other's girlfriend. The licensor's How Do I Turn My
+      Best Friend Into My Girlfriend reverses who is being changed, and 幼馴染 is a childhood friend
+      rather than a best one.
 
   "はるかなレシーブ":
     en: "Harukana Receive"
@@ -12722,9 +12889,13 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/beauty-and-the-beast-girl/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as ぼっち怪物と盲目少女. That is the name an English reader meets the work under.
+    translation: The Lonely Monster and the Blind Girl
+    translation_note: >-
+      ぼっち is being on one's own and 盲目 is blindness, and the title is the pair of them named plainly.
+      Beauty and the Beast Girl replaces both with a fairy tale the work is not.
 
   "おしえて！ ギャル子ちゃん":
     en: "Please Tell Me! Galko-chan"
@@ -12752,9 +12923,14 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/bloom-into-you/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as やがて君になる. That is the name an English reader meets the work under.
+    translation: In Time, I Will Become You
+    translation_note: >-
+      やがて is in time, eventually; 君になる is to become you. The title is the arc of the work stated as a
+      sentence. Bloom Into You is a different image with a different subject and keeps nothing of the
+      grammar.
 
   "異世界でも風俗嬢やってみた【単話版】":
     en: "Call Girl in Another World (single chapters)"
@@ -12762,9 +12938,13 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/call-girl-in-another-world/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 異世界でも風俗嬢やってみた. 【単話版】 is the edition sold a chapter at a time, which the shop lists apart from the collected volumes; the licensed name carries and only the edition is added here.
+    translation: I Gave Sex Work a Go in the Other World Too (single chapters)
+    translation_note: >-
+      でも is too, carrying over from a life before the isekai, and やってみた is trying a thing rather than
+      being it. Call Girl in Another World names an occupation and drops both.
 
   "私の可愛い子猫ちゃん【合本版】":
     en: "My Cute Little Kitten (omnibus)"
@@ -12802,9 +12982,13 @@ titles:
     source: "yenpress.com"
     source_kind: "licensor"
     source_url: "https://yenpress.com/series/kiss-and-white-lily-for-my-dearest-girl"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Canno, which is 缶乃 in the author's own Latin spelling, and the English is a close rendering of the Japanese. The synopsis names Ayaka and Yurine, who are its leads.
+    translation: A Kiss and a White Lily for That Girl
+    translation_note: >-
+      あの娘 is that girl, at a distance and unnamed, which is the whole posture of the title. The
+      licensor's My Dearest Girl closes that distance and claims the speaker already has her.
 
   "明るい記憶喪失":
     en: "Cheerful Amnesia"
@@ -12822,9 +13006,13 @@ titles:
     source: "yenpress.com"
     source_kind: "licensor"
     source_url: "https://yenpress.com/series/cocoon-entwined"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Yuriko Hara, which is 原百合子. 繭 is the cocoon and 纏う is to be wrapped in something, which is what Entwined carries.
+    translation: Clad in a Cocoon
+    translation_note: >-
+      纏う is to wear, to be wrapped in something. Entwined is two things wound together, which is a
+      different image and loses the one being wrapped.
 
   "アウト・オブ・ザ・コクーン":
     en: "Out of the Cocoon"
@@ -12842,9 +13030,13 @@ titles:
     source: "yenpress.com"
     source_kind: "licensor"
     source_url: "https://yenpress.com/series/kiniro-mosaic"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Yui Hara, which is 原悠衣. The licensor romanises rather than translating, so Kiniro stands where きんいろ, golden, does. The synopsis names Alice, Shino, Aya, Youko, Karen and Honoka.
+    translation: Golden Mosaic
+    translation_note: >-
+      きんいろ is the colour, written in kana and meaning gold; the licensor kept the Japanese as Kiniro,
+      so an English reader is told nothing by it.
 
   "キリング・ミー！":
     en: "Killing Me!"
@@ -12862,7 +13054,7 @@ titles:
     source: "yenpress.com"
     source_kind: "licensor"
     source_url: "https://yenpress.com/series/lilies-blooming-in-100-days-manga"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Muromaki, which is ムロマキ, and the English renders the Japanese closely. Yen Press describes a full-colour collection of a hundred yuri scenes.
     reading: "ヒャクニチゴニサクユリ"
@@ -12874,6 +13066,10 @@ titles:
       BOOK☆WALKER's own page for this work carries the reading in its keywords field, beside the
       title. The shop is the publisher's retail arm and the string is the yomi registered for the
       edition. It replaces '100 ニチゴ ニ サク ユリ', which no source had stated.
+    translation: The Lily That Blooms 100 Days From Now
+    translation_note: >-
+      100日後に is counted forward from now, which is the form the title it echoes uses, and 咲く is one
+      lily rather than several.
 
   "みかん氏短編集　ハッピーエンドはいらない":
     en: "I Don't Need a Happy Ending"
@@ -12881,9 +13077,13 @@ titles:
     source: "yenpress.com"
     source_kind: "licensor"
     source_url: "https://yenpress.com/series/i-don-t-need-a-happy-ending"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Mikanuji, which is みかん氏. ハッピーエンドはいらない is the English title in katakana, and 短編集 says this is the short story collection Yen Press published.
+    translation: 'Mikan''s Short Story Collection: I Don''t Need a Happy Ending'
+    translation_note: >-
+      The licensor's title is the subtitle alone. 短編集 says what the book is and みかん氏 says whose it is,
+      and a reader looking for either finds neither.
 
   "ばっどがーる画集":
     en: "Bad Girl: The Art Book"
@@ -12911,9 +13111,14 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/kase-san-and/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 加瀬さん. Every book in the run is 加瀬さんと plus a noun, which the licensor renders as Kase-san and… with the ellipsis standing in for whichever noun. This row is the series, which the Japanese title marks with シリーズ.
+    translation: The Kase-san Series
+    translation_note: >-
+      The licensor titles the whole series `Kase-san and X`, which is a house pattern rather than the
+      Japanese: every one of these puts the object first and Kase-san second, and the run of them
+      reads as a list of the things she is met over. The order is restored here.
 
   "コミック百合姫":
     en: "Comic Yuri Hime"
@@ -16569,9 +16774,13 @@ titles:
     source: "yenpress.com"
     source_kind: "licensor"
     source_url: "https://yenpress.com/series/the-guy-she-was-interested-in-wasn-t-a-guy-at-all"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Sumiko Arai, which is 新井すみこ, and the English is a close rendering of the Japanese. The synopsis names Mitsuki and Aya, who are its leads.
+    translation: The Person I Had My Eye On Wasn't a Man
+    translation_note: >-
+      気になってる人 says nothing about who is doing the noticing, and the licensor's title supplies a she.
+      じゃなかった is the plain past negative and needs no at all.
 
   "高音さんと嵐ちゃん":
     en: "Takane-san and Arashi-chan"
@@ -16639,9 +16848,13 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/futari-escape/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue entry for ふたりエスケープ, which it publishes as Futari Escape. もっと！ marks this as the further run, and putting it in English is ours.
+    translation: More! Escape for Two
+    translation_note: >-
+      ふたり is the two of them and the licensor left it in Japanese, so the English half of More! Futari
+      Escape says nothing about who is escaping.
 
   "このはな綺譚":
     en: "The Konohana Chronicle"
@@ -18143,9 +18356,14 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/kase-san-and/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue page for the run, which states the Japanese title as 加瀬さん and lists this volume as Kase-san and Morning Glories. あさがお is the morning glory, the flower a Japanese child grows at primary school.
+    translation: Morning Glories and Kase-san.
+    translation_note: >-
+      The licensor titles the whole series `Kase-san and X`, which is a house pattern rather than the
+      Japanese: every one of these puts the object first and Kase-san second, and the run of them
+      reads as a list of the things she is met over. The order is restored here.
 
   "おべんとうと加瀬さん。":
     en: "Kase-san and Bento"
@@ -18153,9 +18371,14 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/kase-san-and/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue page for the run, which states the Japanese title as 加瀬さん and lists this volume as Kase-san and Bento. おべんとう is the packed lunch, which the licensor keeps in Japanese because English has taken the word.
+    translation: The Bento and Kase-san.
+    translation_note: >-
+      The licensor titles the whole series `Kase-san and X`, which is a house pattern rather than the
+      Japanese: every one of these puts the object first and Kase-san second, and the run of them
+      reads as a list of the things she is met over. The order is restored here.
 
   "ショートケーキと加瀬さん。":
     en: "Kase-san and Shortcake"
@@ -18163,9 +18386,14 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/kase-san-and/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue page for the run, which states the Japanese title as 加瀬さん and lists this volume as Kase-san and Shortcake. ショートケーキ is the sponge and cream cake the Japanese word means, which is not the English shortcake.
+    translation: Shortcake and Kase-san.
+    translation_note: >-
+      The licensor titles the whole series `Kase-san and X`, which is a house pattern rather than the
+      Japanese: every one of these puts the object first and Kase-san second, and the run of them
+      reads as a list of the things she is met over. The order is restored here.
 
   "エプロンと加瀬さん。":
     en: "Kase-san and an Apron"
@@ -18173,9 +18401,14 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/kase-san-and/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue page for the run, which states the Japanese title as 加瀬さん and lists this volume as Kase-san and an Apron. エプロン is the English word in katakana.
+    translation: The Apron and Kase-san.
+    translation_note: >-
+      The licensor titles the whole series `Kase-san and X`, which is a house pattern rather than the
+      Japanese: every one of these puts the object first and Kase-san second, and the run of them
+      reads as a list of the things she is met over. The order is restored here.
 
   "さくらと加瀬さん。":
     en: "Kase-san and Cherry Blossoms"
@@ -18183,9 +18416,14 @@ titles:
     source: "sevenseasentertainment.com"
     source_kind: "licensor"
     source_url: "https://sevenseasentertainment.com/series/kase-san-and/"
-    reviewed: '2026-08-06'
+    reviewed: '2026-08-08'
     note: >-
       Seven Seas Entertainment's own catalogue page for the run, which states the Japanese title as 加瀬さん and lists this volume as Kase-san and Cherry Blossoms. さくら is the cherry blossom, which the licensor renders in English here and not as a name.
+    translation: Cherry Blossoms and Kase-san.
+    translation_note: >-
+      The licensor titles the whole series `Kase-san and X`, which is a house pattern rather than the
+      Japanese: every one of these puts the object first and Kase-san second, and the run of them
+      reads as a list of the things she is met over. The order is restored here.
 
   "魔王城デート大作戦！シリーズ":
     en: "Operation Date at the Demon Castle! (series)"
@@ -28491,6 +28729,736 @@ titles:
       "Sha Ma" and was marked as a guess. MADB's own record states `yomi: シャマ : フォーリン
       ジェイル` for this title, which settles both halves: the name is one word, シャマ, and the
       catalogue's truncated title is the same work as the serialisation.
+  'SHWD(シュード) : Special Hazardous Waste Disposal':
+    reading: 'シュード : Special Hazardous Waste Disposal'
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL states シュード for SHWD, which the title's own gloss also gives, and that settles the part
+      nothing could read. Its subtitle is spelled out as スペシャル ハザーダス ウェイスト ディスポーザル, which is how a
+      catalogue files an English string and not how the store holds one: けいおん!shuffle keeps shuffle in
+      Latin on NDL's own record. NDL's record is
+      https://ndlsearch.ndl.go.jp/books/R100000002-I032849066.
+
+  '「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい : THE COMIC':
+    reading: 'オマエ ゴトキ ガ マオウ ニ カテル ト オモウナ ト ユウシャ パーティ オ ツイホウ サレタ ノデ、 オウト デ キママ ニ クラシタイ : THE COMIC'
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL's word division is taken, and its rendering of THE COMIC as ザ コミック is not: a Latin string
+      stays Latin in this store. The corner brackets go with NDL's transcription, which drops them; a
+      reading may keep a title's punctuation or not, and 「」 is one of the few marks the store's own
+      pattern for a reading refuses. NDL's record is
+      https://ndlsearch.ndl.go.jp/books/R100000002-I034566736.
+
+  あなたの未来を許さない（コミック）:
+    reading: アナタ ノ ミライ オ ユルサナイ （コミック）
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL transcribes the book's title page, so its reading stops where the title proper stops and
+      says nothing about the marker our stored title carries after it. The marker is glossed from the
+      closed set the interface names in EDITION_EN, and the reading of the title itself is the
+      catalogue's. NDL's record is https://ndlsearch.ndl.go.jp/books/R100000002-I033909932.
+
+  うらら迷路帖:
+    reading: ウララ メイロチョウ
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I029802299
+
+  'おしえごと : 同人教師と天才ギャル':
+    reading: 'オシエゴト : ドウジン キョウシ ト テンサイ ギャル'
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033100877
+
+  おねロリキャバクラ（同人版）:
+    reading: オネ ロリ キャバクラ （ドウジンバン）
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL transcribes the book's title page, so its reading stops where the title proper stops and
+      says nothing about the marker our stored title carries after it. The marker is glossed from the
+      closed set the interface names in EDITION_EN, and the reading of the title itself is the
+      catalogue's. NDL's record is https://ndlsearch.ndl.go.jp/books/R100000002-I033442975.
+
+  きみとボドゲが作りたい！:
+    reading: キミ ト ボドゲ ガ ツクリタイ !
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034516949
+
+  けいおん!shuffle:
+    reading: ケイオン ! shuffle
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033390364
+
+  ごきげんよう、一局いかが?:
+    reading: ゴキゲンヨウ 、 イッキョク イカガ ?
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034783227
+
+  ひめちゃんは重い女【単話版】:
+    reading: ヒメチャン ワ オモイ オンナ 【タンワバン】
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL transcribes the book's title page, so its reading stops where the title proper stops and
+      says nothing about the marker our stored title carries after it. The marker is glossed from the
+      closed set the interface names in EDITION_EN, and the reading of the title itself is the
+      catalogue's. NDL's record is https://ndlsearch.ndl.go.jp/books/R100000002-I032288283.
+
+  'ふたり暮らしのおとりよせ日和 : WOULD YOU LIKE TO ORDER WITH ME?':
+    reading: 'フタリグラシ ノ オトリヨセ ビヨリ : WOULD YOU LIKE TO ORDER WITH ME?'
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL settles 暮らし as ぐらし in the compound and 日和 as びより, which the analyser read as separate words.
+      Its katakana spelling of the English subtitle is not stored, for the reason the same catalogue
+      keeps shuffle in Latin on けいおん!shuffle. NDL's record is
+      https://ndlsearch.ndl.go.jp/books/R100000002-I034608945.
+
+  ゆうやけトリップ【単話版】:
+    reading: ユウヤケ トリップ 【タンワバン】
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL transcribes the book's title page, so its reading stops where the title proper stops and
+      says nothing about the marker our stored title carries after it. The marker is glossed from the
+      closed set the interface names in EDITION_EN, and the reading of the title itself is the
+      catalogue's. NDL's record is https://ndlsearch.ndl.go.jp/books/R100000002-I033011848.
+
+  ゆゆ式:
+    reading: ユユシキ
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034320623
+
+  エデンの処女（おとめ）:
+    reading: エデン ノ オトメ
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I031370365
+
+  'キグナスの乙女たち : 新・魔法科高校の劣等生':
+    reading: 'キグナス ノ オトメタチ : シン マホウカ コウコウ ノ レットウセイ'
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034312467
+
+  'キャンディ : ふたりの約束':
+    reading: 'キャンディ : フタリ ノ ヤクソク'
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033056961
+
+  'サタノファニ : 妖艶彩色本・極':
+    reading: 'サタノファニ : ヨウエン サイシキボン ・ キワミ'
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I031472642
+
+  ファインダー越しのあの子（Lilie comics）:
+    reading: ファインダーゴシ ノ アノ コ （Lilie comics）
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL transcribes the book's title page, so its reading stops where the title proper stops and
+      says nothing about the marker our stored title carries after it. The marker is glossed from the
+      closed set the interface names in EDITION_EN, and the reading of the title itself is the
+      catalogue's. NDL's record is https://ndlsearch.ndl.go.jp/books/R100000002-I030554847.
+
+  'ロイヤルテーラー : 王宮の裁縫師':
+    reading: 'ロイヤルテーラー : オウキュウ ノ サイホウシ'
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034008529
+
+  ロックは淑女(レディ)の嗜みでして:
+    reading: ロック ワ レディ ノ タシナミ デシテ
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033124127
+
+  一端の子:
+    reading: イッタン ノ コ
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I030101132
+
+  '下僕さんと主ちゃんの日常 : 主のためなら何でもします':
+    reading: 'ゲボクサン ト アルジチャン ノ ニチジョウ : アルジ ノ タメ ナラ ナンデモ シマス'
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033378875
+
+  京アミ！:
+    reading: キョウアミ！
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      Two NDL records state the reading and differ only in whether the exclamation mark is
+      transcribed: キョウアミ and キョウアミ !. The kana is the same on both, so what they settle is that 京アミ is
+      one word, where the analyser divided キョウ from アミ. NDL's record is
+      https://ndlsearch.ndl.go.jp/books/R100000002-I024097725.
+
+  伊勢さんと志摩さん【単話版】:
+    reading: イセサン ト シマサン 【タンワバン】
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL transcribes the book's title page, so its reading stops where the title proper stops and
+      says nothing about the marker our stored title carries after it. The marker is glossed from the
+      closed set the interface names in EDITION_EN, and the reading of the title itself is the
+      catalogue's. NDL's record is https://ndlsearch.ndl.go.jp/books/R100000002-I031272770.
+
+  '入味(ルーウェイ) : この娘と食卓を囲む日から':
+    reading: 'ルーウェイ : コノ コ ト ショクタク オ カコム ヒ カラ'
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033214720
+
+  十字トンボは空を飛ばない:
+    reading: ジュウジ トンボ ワ ソラ オ トバナイ
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034475282
+
+  女子校だからセーフ【単話版】:
+    reading: ジョシコウ ダカラ セーフ 【タンワバン】
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL transcribes the book's title page, so its reading stops where the title proper stops and
+      says nothing about the marker our stored title carries after it. The marker is glossed from the
+      closed set the interface names in EDITION_EN, and the reading of the title itself is the
+      catalogue's. NDL's record is https://ndlsearch.ndl.go.jp/books/R100000002-I031938785.
+
+  姉になりたい義姉vs百合になりたい義妹:
+    reading: アネ ニ ナリタイ アネ vs ユリ ニ ナリタイ イモウト
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034027627
+
+  姉を好きなお姉さんと【単話版】:
+    reading: アネ オ スキナ オネエサン ト 【タンワバン】
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL transcribes the book's title page, so its reading stops where the title proper stops and
+      says nothing about the marker our stored title carries after it. The marker is glossed from the
+      closed set the interface names in EDITION_EN, and the reading of the title itself is the
+      catalogue's. NDL's record is https://ndlsearch.ndl.go.jp/books/R100000002-I031938786.
+
+  '対ありでした。 : お嬢さまは格闘ゲームなんてしない':
+    reading: 'タイアリ デシタ : オジョウサマ ワ カクトウ ゲーム ナンテ シナイ'
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034468656
+
+  '小春と湊 : わたしのパートナーは女の子':
+    reading: 'コハル ト ミナト : ワタシ ノ パートナー ワ オンナノコ'
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034139066
+
+  少女たちの痕(きずあと)にくちづけを:
+    reading: ショウジョタチ ノ キズアト ニ クチズケ オ
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032896031
+
+  彼氏の女友達がぐいぐい来る〈私に〉:
+    reading: カレシ ノ オンナトモダチ ガ グイグイ クル ワタシ ニ
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034710122
+
+  心の声が漏れやすいメイドさん:
+    reading: ココロ ノ コエ ガ モレヤスイ メイドサン
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033184885
+
+  恋する小惑星:
+    reading: コイスル アステロイド
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033652100
+
+  悪役令嬢の中の人:
+    reading: アクヤク レイジョウ ノ ナカ ノ ヒト
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033275345
+
+  灼熱の卓球娘reburn!!:
+    reading: シャクネツ ノ タッキュウムスメ reburn !!
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033845099
+
+  男だけど死神姫の嫁になりました(仮):
+    reading: オトコ ダケド シニガミヒメ ノ ヨメ ニ ナリマシタ (カリ)
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032132160
+
+  異世界でも風俗嬢やってみた:
+    reading: イセカイ デモ フウゾクジョウ ヤッテミタ
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032308283
+
+  異種族女子に○○する話:
+    reading: イシュゾク ジョシ ニ ○○ スル ハナシ
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL settles 異種族 as one word, イシュゾク, where the analyser split イ from シュゾク. Its マルマル for ○○ is a
+      catalogue reading a mark aloud; the store keeps the mark, which is what 〇〇する話 and 【タテスク】 already
+      do, because the blank is part of the title rather than something to pronounce. NDL's record is
+      https://ndlsearch.ndl.go.jp/books/R100000002-I031668059.
+
+  白き乙女の人狼（ウェアウルフ）:
+    reading: シロキ オトメ ノ ウェアウルフ
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033371467
+
+  '百合ラブスレイブ : ふたりだけの放課後':
+    reading: 'ユリ ラブ スレイブ : フタリ ダケ ノ ホウカゴ'
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032670598
+
+  百合ＳＭでふたりの気持ちはつながりますか？【単話版】:
+    reading: ユリ SM デ フタリ ノ キモチ ワ ツナガリマスカ？【タンワバン】
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL keeps SM in Latin rather than spelling it エスエム, and settles つながりますか as one word. NDL
+      transcribes the book's title page, so its reading stops where the title proper stops and says
+      nothing about the marker our stored title carries after it. The marker is glossed from the
+      closed set the interface names in EDITION_EN, and the reading of the title itself is the
+      catalogue's. NDL's record is https://ndlsearch.ndl.go.jp/books/R100000002-I034790168.
+
+  '紅殻のパンドラ : GHOST URN':
+    reading: 'コウカク ノ パンドラ : GHOST URN'
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL settles 紅殻 as コウカク, which is the reading the title's play on 甲殻 rests on and not the ベニガラ
+      the analyser produced for the pigment. Its GHOST URN is spelled out as ゴースト ユーエールエヌ, which is a
+      catalogue filing an English string; a Latin string stays Latin in this store. NDL's record is
+      https://ndlsearch.ndl.go.jp/books/R100000002-I033764892.
+
+  '紅茶の魔女の優雅なる宮廷生活 : チートをひた隠す最弱魔導師の窓際ライフ':
+    reading: 'コウチャ ノ マジョ ノ ユウガナル キュウテイ セイカツ : チート オ ヒタカクス サイジャク マドウシ ノ マドギワ ライフ'
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033517347
+
+  結婚(らぶらぶ)したい竜宮さんは上陸しました:
+    reading: ラブラブ シタイ タツノミヤ サン ワ ジョウリク シマシタ
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032975211
+
+  週に一度クラスメイトを買う話:
+    reading: シュウ ニ イチド クラスメイト オ カウ ハナシ
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034694258
+
+  '遠山えま百合集  : センセイとの時間。':
+    reading: 'トオヤマ エマ ユリシュウ : センセイ トノ ジカン 。'
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032927981
+
+  限界OLと女子大生が○○する話:
+    reading: ゲンカイ OL ト ジョシダイセイ ガ ○○ スル ハナシ
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      NDL's transcription agrees with this one on every word and differs twice on convention: it
+      spells OL as オーエル and reads ○○ as マルマル. A Latin abbreviation stays Latin here and the censoring
+      mark stays a mark, so what NDL settles is the division, and ○ ○ closes up to ○○. NDL's record is
+      https://ndlsearch.ndl.go.jp/books/R100000002-I033738299.
+
+  '鬼と夜明け : 幕末女子高生':
+    reading: 'オニ ト ヨアケ : バクマツ ジョシコウセイ'
+    reading_basis: stated
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: national-library
+    reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033294027
+
+  '魔法を捨てたい女の子 : Enchanted Girl and the Secret Roses':
+    reading: 'マホウ オ ステタイ オンナノコ : Enchanted Girl and the Secret Roses'
+    reading_basis: researched
+    reviewed: '2026-08-08'
+    source: ndlsearch.ndl.go.jp
+    source_kind: national-library
+    reading_source: ndlsearch.ndl.go.jp
+    reading_source_kind: derived
+    reading_note: >-
+      The Japanese half is NDL's. Its katakana spelling of the English subtitle is not stored, and it
+      carries シークッレト for Secret, which is a slip in the record itself. NDL's record is
+      https://ndlsearch.ndl.go.jp/books/R100000002-I032756864.
+
+  うどみょん１:
+    reading: ウドミョン 1
+    reading_basis: researched
+    reading_note: >-
+      The title is written in kana throughout apart from the volume number, so the reading is the
+      surface transcribed. The analyser divided it ウド ミ ョ ン, which splits ょ and ん off as words of
+      their own: neither can stand alone, and no reading of the title has a boundary there.
+    reading_source_kind: derived
+    reviewed: '2026-08-08'
+    source: derived
+    source_kind: derived
+
+  怪異部:
+    reading: カイイ ブ
+    reading_basis: researched
+    reading_note: >-
+      怪異 is カイイ, the strange occurrence, and 部 is the school club. Both are the ordinary on-readings
+      and the compound is transparent; what the analyser could not do is say so with a source, and
+      there is no tankobon for a catalogue to hold.
+    reading_source_kind: derived
+    reviewed: '2026-08-08'
+    source: derived
+    source_kind: derived
+
+  LatteComi コミックアンソロジー【百合】（単話版）（LatteComi）:
+    reading: LatteComi コミック アンソロジー 【ユリ】 （タンワバン） （LatteComi）
+    reading_basis: researched
+    reading_note: >-
+      Everything but the two markers is already kana or Latin. 【百合】 is the shop's genre tag, read ユリ.
+      単話版 is タンワバン: 単話 is a single instalment sold on its own, which the shops write everywhere, and 話
+      in it is ワ rather than the ハナシ an analyser reaches for when the word stands alone. The marker is
+      one of the closed set the interface glosses in EDITION_EN, so it is read the same way wherever
+      it appears.
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-08'
+
+  TSロリシリーズ（コスモブルー）:
+    reading: TS ロリシリーズ （コスモブルー）
+    reading_basis: researched
+    reading_note: >-
+      コスモブルー is the imprint's name and is one word; the analyser divided it コスモ ブルー, which is a
+      boundary inside a name nobody writes with one.
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-08'
+
+  flower・flower:
+    reading: flower・flower
+    reading_basis: researched
+    reading_note: >-
+      The title is Latin throughout, so there is nothing to read: the reading is the surface. It
+      carries the mark only because a Latin string has to be read rather than transcribed, and the
+      analyser answered by putting a space after the nakaguro.
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-08'
+
+  いりぺそ　change the world book:
+    reading: イリペソ　change the world book
+    reading_basis: researched
+    reading_note: >-
+      いりぺそ is the pair who made it, 紙魚いりこ and ぺそー, and the store holds both readings: シミ イリコ and ペソー.
+      So the kana is イリペソ as one name, where the analyser cut イリペ from ソ.
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-08'
+
+  ガイド役の天使を殴り倒したら、死霊術師になりました:
+    reading: ガイド ヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ
+    reading_basis: researched
+    reading_note: >-
+      死霊術師 is one word, the necromancer, and takes シリョウジュツシ; the analyser divided it after 死霊 and left
+      ジュツシ standing alone. Nothing else in the title was in doubt.
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-08'
+
+  公爵令嬢の籠絡ミッション:
+    reading: コウシャク レイジョウ ノ ロウラク ミッション
+    reading_basis: researched
+    reading_note: >-
+      公爵令嬢 is the duke's daughter, コウシャク レイジョウ, and 籠絡 is ロウラク, winning somebody over. Both are
+      ordinary compounds with one reading each, and what the analyser could not do is say so with
+      anything behind it.
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-08'
+
+  百合色ミュージアム（OrangeVox）:
+    reading: ユリイロ ミュージアム （OrangeVox）
+    reading_basis: researched
+    reading_note: >-
+      百合色 is a colour name and one word, ユリイロ, in the way 空色 and 桜色 are. The analyser cut it after 百合,
+      which is the reading of the flower and not of the colour.
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-08'
+
+  阿久津さんは推しに似ている.:
+    reading: アクツサン ワ オシ ニ ニテ イル .
+    reading_basis: researched
+    reading_note: >-
+      阿久津 is アクツ, which is how the surname is read; the rest of the title is kana. The analyser had
+      the same answer and nothing behind it.
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-08'
+
+  愛マイyummy:
+    reading: アイ マイ yummy
+    reading_basis: researched
+    reading_note: >-
+      愛 stands alone here as a pun on the English I, so it is アイ; the rest is katakana and Latin.
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-08'
+
+  能面 battle girl納言:
+    reading: ノウメン battle girl ナゴン
+    reading_basis: researched
+    reading_note: >-
+      能面 is ノウメン, the Noh mask, and 納言 is ナゴン, the court rank that 少納言 and 大納言 are built from. The
+      joke is the rank attached to a girl in a Noh mask, and both halves have one reading each. The
+      Latin in the middle stays Latin.
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-08'
+
+  完パコLOVE:
+    reading: カンパコ LOVE
+    reading_basis: researched
+    reading_note: >-
+      完パコ is one coined word, カンパコ, on the pattern of 完全 shortened to 完 and stuck to a katakana stem.
+      The analyser cut it in two, which puts a boundary in the middle of the coinage.
+    reading_source_kind: derived
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-08'
+
 # ── KATAKANA TITLES, WHERE THE SOURCE WORD IS THE ANSWER ──────────────────────────────────────
 #
 # Katakana marks a FOREIGN word, so romanising one syllable by syllable transliterates a

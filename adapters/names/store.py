@@ -289,8 +289,14 @@ class NameStore:
             cur.pop("furigana_spans", None)
         # Fields that are plain observations rather than competing claims: last writer wins, since
         # they cannot contradict each other in a way that misnames anyone.
+        # `translation_note` is here and not on the claim because `en_conflicts` holds a value, a
+        # basis and a source and nothing else. Our translation of a title that already carries the
+        # publisher's English is a losing claim by rank, so the argument for it has no home on the
+        # claim itself, and a translation with no argument behind it is the machine translation
+        # NAMES-PLAN §5a rules out. It cannot collide with `note`, which belongs to the attributed
+        # name and says which page that was read from.
         for k in ("ja_family", "ja_given", "reading_family", "reading_given",
-                  "script", "note", "suspect_logo_title"):
+                  "script", "note", "translation_note", "suspect_logo_title"):
             if fact.get(k) is not None:
                 cur[k] = fact[k]
         for k in ("handles",):

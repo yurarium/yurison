@@ -287,14 +287,15 @@
    "en": "Lilies Blooming in 100 Days",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Lilies Blooming in 100 Days"
+    "licensed": "Lilies Blooming in 100 Days",
+    "translated": "The Lily That Blooms 100 Days From Now"
    },
    "reading_basis": "stated",
    "reading_cite": {
     "source": "BOOK☆WALKER",
     "url": "https://bookwalker.jp/de5f304615-905f-4c18-a5c3-e57463453f67/",
     "kind": "platform",
-    "reviewed": "2026-08-06",
+    "reviewed": "2026-08-08",
     "note": "BOOK☆WALKER's own page for this work carries the reading in its keywords field, beside the title. The shop is the publisher's retail arm and the string is the yomi registered for the edition. It replaces '100 ニチゴ ニ サク ユリ', which no source had stated."
    }
   },
@@ -2069,15 +2070,19 @@
    "unverified": true
   },
   "LatteComiコミックアンソロジー【百合】(単話版)(LatteComi)": {
-   "reading": "LatteComi   コミック アンソロジー 【ユリ】 （タン ハナシ バン） （LatteComi）",
+   "reading": "LatteComi コミック アンソロジー 【ユリ】 （タンワバン） （LatteComi）",
    "ruby": [
     [
-     "LatteComi コミックアンソロジー【",
+     "LatteComi",
+     null
+    ],
+    [
+     " コミックアンソロジー【",
      null
     ],
     [
      "百合",
-     "ゆり"
+     "【ゆり"
     ],
     [
      "】（",
@@ -2089,25 +2094,32 @@
     ],
     [
      "話",
-     "はなし"
+     "わ"
     ],
     [
      "版",
      "ばん"
     ],
     [
-     "）（LatteComi）",
+     "）（",
+     null
+    ],
+    [
+     "LatteComi",
+     null
+    ],
+    [
+     "）",
      null
     ]
    ],
    "romaji": {
-    "macron": "LatteComi Komikku Ansorojī [Yuri] (Tan Hanashi Ban) (LatteComi)",
-    "double": "LatteComi Komikku Ansorojii [Yuri] (Tan Hanashi Ban) (LatteComi)",
-    "plain": "LatteComi Komikku Ansoroji [Yuri] (Tan Hanashi Ban) (LatteComi)"
+    "macron": "LatteComi Komikku Ansorojī [Yuri] (Tanwaban) (LatteComi)",
+    "double": "LatteComi Komikku Ansorojii [Yuri] (Tanwaban) (LatteComi)",
+    "plain": "LatteComi Komikku Ansoroji [Yuri] (Tanwaban) (LatteComi)"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "Longwaytogo-メイド百合再録集-": {
    "reading": "Long   way   to   go - メイド ユリ サイロクシュウ -",
@@ -2730,15 +2742,14 @@
    "unverified": true
   },
   "SHWD(シュード):SpecialHazardousWasteDisposal": {
-   "reading": "SHWD ( シュード )   :   Special   Hazardous   Waste   Disposal",
+   "reading": "シュード : Special Hazardous Waste Disposal",
    "romaji": {
-    "macron": "SHWD ( Shūdo ) : Special Hazardous Waste Disposal",
-    "double": "SHWD ( Shuudo ) : Special Hazardous Waste Disposal",
-    "plain": "SHWD ( Shudo ) : Special Hazardous Waste Disposal"
+    "macron": "Shūdo : Special Hazardous Waste Disposal",
+    "double": "Shuudo : Special Hazardous Waste Disposal",
+    "plain": "Shudo : Special Hazardous Waste Disposal"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "SHWD[シュード]Extra": {
    "reading": "SHWD [ シュード ] Extra",
@@ -3477,15 +3488,14 @@
    "unverified": true
   },
   "TSロリシリーズ(コスモブルー)": {
-   "reading": "TS ロリシリーズ （コスモ ブルー）",
+   "reading": "TS ロリシリーズ （コスモブルー）",
    "romaji": {
-    "macron": "TS Rorishirīzu (Kosumo Burū)",
-    "double": "TS Rorishiriizu (Kosumo Buruu)",
-    "plain": "TS Rorishirizu (Kosumo Buru)"
+    "macron": "TS Rorishirīzu (Kosumoburū)",
+    "double": "TS Rorishiriizu (Kosumoburuu)",
+    "plain": "TS Rorishirizu (Kosumoburu)"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "TS転生した私が所属するVTuber事務所のライバーを全員堕としにいく話": {
    "reading": "TS テンショウ シタ ワタシ ガ ショゾク スル VTuber ジムショ ノ ライバー ヲ ゼンイン オトシ ニ イク ハナシ",
@@ -4088,15 +4098,14 @@
    "unverified": true
   },
   "flower・flower": {
-   "reading": "flower・ flower",
+   "reading": "flower・flower",
    "romaji": {
     "macron": "Flower Flower",
     "double": "Flower Flower",
     "plain": "Flower Flower"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "linoイラスト集": {
    "reading": "lino   イラストシュウ",
@@ -4591,7 +4600,7 @@
    "unverified": true
   },
   "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい:THECOMIC": {
-   "reading": "「オマエゴトキガ マオウ ニ カテル ト オモウ ナ」 ト ユウシャ パーティ ヲ ツイホウ サレタ ノデ、 オウト デ キママニ クラシタイ   :   THE   COMIC",
+   "reading": "オマエ ゴトキ ガ マオウ ニ カテル ト オモウナ ト ユウシャ パーティ オ ツイホウ サレタ ノデ、 オウト デ キママ ニ クラシタイ : THE COMIC",
    "ruby": [
     [
      "「お",
@@ -4682,18 +4691,29 @@
      "く"
     ],
     [
-     "らしたい : THE COMIC",
+     "らしたい : ",
+     null
+    ],
+    [
+     "THE",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "COMIC",
      null
     ]
    ],
    "romaji": {
-    "macron": "“Omaegotokiga Maō ni Kateru to Omō Na” to Yūsha Pāti o Tsuihō Sareta Node, Ōto de Kimamani Kurashitai : THE COMIC",
-    "double": "“Omaegotokiga Maou ni Kateru to Omou Na” to Yuusha Paati o Tsuihou Sareta Node, Outo de Kimamani Kurashitai : THE COMIC",
-    "plain": "“Omaegotokiga Mao ni Kateru to Omo Na” to Yusha Pati o Tsuiho Sareta Node, Oto de Kimamani Kurashitai : THE COMIC"
+    "macron": "Omae Gotoki ga Maō ni Kateru to Omōna to Yūsha Pāti o Tsuihō Sareta Node, Ōto de Kimama ni Kurashitai : THE COMIC",
+    "double": "Omae Gotoki ga Maou ni Kateru to Omouna to Yuusha Paati o Tsuihou Sareta Node, Outo de Kimama ni Kurashitai : THE COMIC",
+    "plain": "Omae Gotoki ga Mao ni Kateru to Omona to Yusha Pati o Tsuiho Sareta Node, Oto de Kimama ni Kurashitai : THE COMIC"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "「わたくしこそが王となりますゆえ、此度の縁談はお断りさせていただきますわ。かわいい妹が待っておりますの」": {
    "reading": "「ワタクシ コソ ガ オウ ト ナリマス ユエ、 コタビ ノ エンダン ワ オ コトワリサセテ イタダキマス ワ。 カワイイ イモウト ガ マッテ オリマス ノ」",
@@ -7561,7 +7581,8 @@
    "en": "High school girl VTuber who clearly lies about her age",
    "basis": "official-jp",
    "en_forms": {
-    "official-jp": "High school girl VTuber who clearly lies about her age"
+    "official-jp": "High school girl VTuber who clearly lies about her age",
+    "translated": "The High School Girl VTuber Who Is Plainly Lying About Her Age"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -7708,7 +7729,8 @@
    "en": "Kase-san and Morning Glories",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Kase-san and Morning Glories"
+    "licensed": "Kase-san and Morning Glories",
+    "translated": "Morning Glories and Kase-san."
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -8250,7 +8272,7 @@
    "reading_basis": "researched"
   },
   "あなたの未来を許さない(コミック)": {
-   "reading": "アナタ ノ ミライ ヲ ユルサナイ （コミック）",
+   "reading": "アナタ ノ ミライ オ ユルサナイ （コミック）",
    "ruby": [
     [
      "あなたの",
@@ -8283,8 +8305,7 @@
     "plain": "Anata no Mirai o Yurusanai (Komikku)"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "あなたの順位おしえてくださいっ": {
    "reading": "アナタ ノ ジュンイ オシエテ クダサ イッ",
@@ -8778,7 +8799,8 @@
    "en": "Kiss and White Lily for My Dearest Girl",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Kiss and White Lily for My Dearest Girl"
+    "licensed": "Kiss and White Lily for My Dearest Girl",
+    "translated": "A Kiss and a White Lily for That Girl"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -10267,15 +10289,14 @@
    "unverified": true
   },
   "いりぺそchangetheworldbook": {
-   "reading": "イリペ ソ 　 change   the   world   book",
+   "reading": "イリペソ　change the world book",
    "romaji": {
-    "macron": "Iripe So Change The World Book",
-    "double": "Iripe So Change The World Book",
-    "plain": "Iripe So Change The World Book"
+    "macron": "Iripeso Change The World Book",
+    "double": "Iripeso Change The World Book",
+    "plain": "Iripeso Change The World Book"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "いろんな百合まとめ": {
    "reading": "イロンナ ユリ マトメ",
@@ -10482,25 +10503,14 @@
    "unverified": true
   },
   "うどみょん1": {
-   "reading": "ウド ミ ョ ン イチ",
-   "ruby": [
-    [
-     "うどみょん",
-     null
-    ],
-    [
-     "１",
-     "いち"
-    ]
-   ],
+   "reading": "ウドミョン 1",
    "romaji": {
-    "macron": "Udo Mi Yo N Ichi",
-    "double": "Udo Mi Yo N Ichi",
-    "plain": "Udo Mi Yo N Ichi"
+    "macron": "Udomyon 1",
+    "double": "Udomyon 1",
+    "plain": "Udomyon 1"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "うなうさ": {
    "reading": "ウナウ サ",
@@ -10567,8 +10577,13 @@
     "plain": "Urara Meirocho"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I029802299",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "うらら迷路帖アンソロジーコミック": {
    "reading": "ウララ メイロチョウ アンソロジーコミック",
@@ -10841,15 +10856,19 @@
    "unverified": true
   },
   "おしえごと:同人教師と天才ギャル": {
-   "reading": "オシエゴト   :   ドウニン キョウシ ト テンサイ ギャル",
+   "reading": "オシエゴト : ドウジン キョウシ ト テンサイ ギャル",
    "ruby": [
     [
      "おしえごと : ",
      null
     ],
     [
-     "同人",
-     "どうにん"
+     "同",
+     "どう"
+    ],
+    [
+     "人",
+     "じん"
     ],
     [
      "教",
@@ -10877,13 +10896,18 @@
     ]
    ],
    "romaji": {
-    "macron": "Oshiegoto : Dōnin Kyōshi to Tensai Gyaru",
-    "double": "Oshiegoto : Dounin Kyoushi to Tensai Gyaru",
-    "plain": "Oshiegoto : Donin Kyoshi to Tensai Gyaru"
+    "macron": "Oshiegoto : Dōjin Kyōshi to Tensai Gyaru",
+    "double": "Oshiegoto : Doujin Kyoushi to Tensai Gyaru",
+    "plain": "Oshiegoto : Dojin Kyoshi to Tensai Gyaru"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033100877",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "おしえごと同人教師と天才ギャル": {
    "reading": "オシエゴト   ドウニン キョウシ ト テンサイ ギャル",
@@ -11318,15 +11342,19 @@
    "reading_basis": "analyser"
   },
   "おねロリキャバクラ(同人版)": {
-   "reading": "オネ ロリキャバクラ （ドウニン バン）",
+   "reading": "オネ ロリ キャバクラ （ドウジンバン）",
    "ruby": [
     [
      "おねロリキャバクラ（",
      null
     ],
     [
-     "同人",
-     "どうにん"
+     "同",
+     "どう"
+    ],
+    [
+     "人",
+     "じん"
     ],
     [
      "版",
@@ -11338,13 +11366,12 @@
     ]
    ],
    "romaji": {
-    "macron": "One Rorikyabakura (Dōnin Ban)",
-    "double": "One Rorikyabakura (Dounin Ban)",
-    "plain": "One Rorikyabakura (Donin Ban)"
+    "macron": "One Rori Kyabakura (Dōjinban)",
+    "double": "One Rori Kyabakura (Doujinban)",
+    "plain": "One Rori Kyabakura (Dojinban)"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "おひゃくどまいり": {
    "reading": "オ ヒャク ド マイリ",
@@ -11388,7 +11415,8 @@
    "en": "Kase-san and Bento",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Kase-san and Bento"
+    "licensed": "Kase-san and Bento",
+    "translated": "The Bento and Kase-san."
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -11805,7 +11833,8 @@
    "en": "MY SISTER AND GIANT",
    "basis": "official-jp",
    "en_forms": {
-    "official-jp": "MY SISTER AND GIANT"
+    "official-jp": "MY SISTER AND GIANT",
+    "translated": "My Elder Sister and the Giant (Me): The Young Lady Is Reborn in Another World"
    }
   },
   "お姉さまと巨人(わたし)=MYSISTERANDGIANT:お嬢さまが異世界転生": {
@@ -11998,7 +12027,8 @@
    "en": "Princess of the Princess",
    "basis": "official-jp",
    "en_forms": {
-    "official-jp": "Princess of the Princess"
+    "official-jp": "Princess of the Princess",
+    "translated": "The Princess's Princess"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -13046,7 +13076,8 @@
    "en": "Hate but Love These Goddamn Animals",
    "basis": "official-jp",
    "en_forms": {
-    "official-jp": "Hate but Love These Goddamn Animals"
+    "official-jp": "Hate but Love These Goddamn Animals",
+    "translated": "That Cute, Hateful Wretch"
    },
    "reading_basis": "analyser"
   },
@@ -13422,7 +13453,7 @@
    "unverified": true
   },
   "きみとボドゲが作りたい!": {
-   "reading": "キミ ト ボドゲ ガ ツクリタイ！",
+   "reading": "キミ ト ボドゲ ガ ツクリタイ !",
    "ruby": [
     [
      "きみとボドゲが",
@@ -13438,14 +13469,19 @@
     ]
    ],
    "romaji": {
-    "macron": "Kimi to Bodoge ga Tsukuritai!",
-    "double": "Kimi to Bodoge ga Tsukuritai!",
-    "plain": "Kimi to Bodoge ga Tsukuritai!"
+    "macron": "Kimi to Bodoge ga Tsukuritai !",
+    "double": "Kimi to Bodoge ga Tsukuritai !",
+    "plain": "Kimi to Bodoge ga Tsukuritai !"
    },
    "en": "Kimi to Board Game ga Tsukuritai!",
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034516949",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "きみと世界の終りを訪ねて": {
    "reading": "キミ ト セカイ ノ オワリ オ タズネテ",
@@ -14043,7 +14079,8 @@
    "en": "Kiniro Mosaic",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Kiniro Mosaic"
+    "licensed": "Kiniro Mosaic",
+    "translated": "Golden Mosaic"
    },
    "reading_basis": "analyser"
   },
@@ -14379,8 +14416,13 @@
     "plain": "Keion ! Shuffle"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033390364",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "けいおん!Shuffle": {
    "reading": "ケイオン！ シャッフル",
@@ -15862,7 +15904,7 @@
    "unverified": true
   },
   "ごきげんよう、一局いかが?": {
-   "reading": "ゴキゲンヨウ、 イチ キョク イカガ ?",
+   "reading": "ゴキゲンヨウ 、 イッキョク イカガ ?",
    "ruby": [
     [
      "ごきげんよう、",
@@ -15870,7 +15912,7 @@
     ],
     [
      "一",
-     "いち"
+     "いっ"
     ],
     [
      "局",
@@ -15882,14 +15924,19 @@
     ]
    ],
    "romaji": {
-    "macron": "Gokigen'yō, Ichi Kyoku Ikaga ?",
-    "double": "Gokigen'you, Ichi Kyoku Ikaga ?",
-    "plain": "Gokigen'yo, Ichi Kyoku Ikaga ?"
+    "macron": "Gokigen'yō , Ikkyoku Ikaga ?",
+    "double": "Gokigen'you , Ikkyoku Ikaga ?",
+    "plain": "Gokigen'yo , Ikkyoku Ikaga ?"
    },
    "en": "Gokigenyō, Ikkyoku Ikaga?",
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034783227",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "ごくちゅう!": {
    "reading": "ゴクチュウ!",
@@ -16101,7 +16148,8 @@
    "en": "I Won’t Let Mistress Suck My Blood",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "I Won’t Let Mistress Suck My Blood"
+    "licensed": "I Won’t Let Mistress Suck My Blood",
+    "translated": "I Won't Let My Master Drink"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -16262,7 +16310,8 @@
    "en": "Kase-san and Cherry Blossoms",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Kase-san and Cherry Blossoms"
+    "licensed": "Kase-san and Cherry Blossoms",
+    "translated": "Cherry Blossoms and Kase-san."
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -16370,7 +16419,8 @@
    "en": "Whisper Me a Love Song",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Whisper Me a Love Song"
+    "licensed": "Whisper Me a Love Song",
+    "translated": "Singing of Love as if Whispering"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -19160,7 +19210,8 @@
    "en": "Failed Princesses",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Failed Princesses"
+    "licensed": "Failed Princesses",
+    "translated": "The Princesses Who Came Out Wrong"
    },
    "reading_basis": "back-converted",
    "reading_cite": {
@@ -19731,7 +19782,8 @@
    "en": "How Do I Turn My Best Friend Into My Girlfriend?",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "How Do I Turn My Best Friend Into My Girlfriend?"
+    "licensed": "How Do I Turn My Best Friend Into My Girlfriend?",
+    "translated": "How Do I Become My Childhood Friend's Girlfriend!?"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -20564,7 +20616,8 @@
    "en": "Reimu is Easily Embarrassed",
    "basis": "official-jp",
    "en_forms": {
-    "official-jp": "Reimu is Easily Embarrassed"
+    "official-jp": "Reimu is Easily Embarrassed",
+    "translated": "Reimu the Bashful"
    },
    "reading_basis": "analyser"
   },
@@ -21501,7 +21554,7 @@
    "unverified": true
   },
   "ひめちゃんは重い女【単話版】": {
-   "reading": "ヒメチャン ワ オモイ オンナ 【タン ハナシ バン】",
+   "reading": "ヒメチャン ワ オモイ オンナ 【タンワバン】",
    "ruby": [
     [
      "ひめちゃんは",
@@ -21529,7 +21582,7 @@
     ],
     [
      "話",
-     "はなし"
+     "わ"
     ],
     [
      "版",
@@ -21541,13 +21594,12 @@
     ]
    ],
    "romaji": {
-    "macron": "Himechan wa Omoi Onna [Tan Hanashi Ban]",
-    "double": "Himechan wa Omoi Onna [Tan Hanashi Ban]",
-    "plain": "Himechan wa Omoi Onna [Tan Hanashi Ban]"
+    "macron": "Himechan wa Omoi Onna [Tanwaban]",
+    "double": "Himechan wa Omoi Onna [Tanwaban]",
+    "plain": "Himechan wa Omoi Onna [Tanwaban]"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "ひよ&びびっと!": {
    "reading": "ヒヨ ＆ ビビッ ト！",
@@ -21958,7 +22010,7 @@
    "unverified": true
   },
   "ふたり暮らしのおとりよせ日和:WOULDYOULIKETOORDERWITHME?": {
-   "reading": "フタリ クラシ ノ オ トリヨセ ヒヨリ   :   WOULD YOU   LIKE   TO   ORDER   WITH   ME ?",
+   "reading": "フタリグラシ ノ オトリヨセ ビヨリ : WOULD YOU LIKE TO ORDER WITH ME?",
    "ruby": [
     [
      "ふたり",
@@ -21966,7 +22018,7 @@
     ],
     [
      "暮",
-     "く"
+     "ぐ"
     ],
     [
      "らしのおとりよせ",
@@ -21974,21 +22026,76 @@
     ],
     [
      "日和",
-     "ひより"
+     "びより"
     ],
     [
-     " : WOULD YOU LIKE TO ORDER WITH ME?",
+     " : ",
+     null
+    ],
+    [
+     "WOULD",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "YOU",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "LIKE",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "TO",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "ORDER",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "WITH",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "ME",
+     null
+    ],
+    [
+     "?",
      null
     ]
    ],
    "romaji": {
-    "macron": "Futari Kurashi no o Toriyose Hiyori : WOULD YOU LIKE to ORDER WITH ME ?",
-    "double": "Futari Kurashi no o Toriyose Hiyori : WOULD YOU LIKE to ORDER WITH ME ?",
-    "plain": "Futari Kurashi no o Toriyose Hiyori : WOULD YOU LIKE to ORDER WITH ME ?"
+    "macron": "Futarigurashi no Otoriyose Biyori : WOULD YOU LIKE to ORDER WITH ME?",
+    "double": "Futarigurashi no Otoriyose Biyori : WOULD YOU LIKE to ORDER WITH ME?",
+    "plain": "Futarigurashi no Otoriyose Biyori : WOULD YOU LIKE to ORDER WITH ME?"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "ふたり異世界人": {
    "reading": "フタリ イセカイニン",
@@ -22630,7 +22737,8 @@
    "en": "Beauty and the Beast Girl",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Beauty and the Beast Girl"
+    "licensed": "Beauty and the Beast Girl",
+    "translated": "The Lonely Monster and the Blind Girl"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -22874,7 +22982,8 @@
    "en": "The Demon Girl Next Door",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "The Demon Girl Next Door"
+    "licensed": "The Demon Girl Next Door",
+    "translated": "Street-Corner Demon"
    },
    "reading_basis": "analyser"
   },
@@ -23178,7 +23287,8 @@
    "en": "I Don't Need a Happy Ending",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "I Don't Need a Happy Ending"
+    "licensed": "I Don't Need a Happy Ending",
+    "translated": "Mikan's Short Story Collection: I Don't Need a Happy Ending"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -23878,7 +23988,8 @@
    "en": "More! Futari Escape",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "More! Futari Escape"
+    "licensed": "More! Futari Escape",
+    "translated": "More! Escape for Two"
    },
    "reading_basis": "analyser"
   },
@@ -23962,7 +24073,8 @@
    "en": "Bloom Into You",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Bloom Into You"
+    "licensed": "Bloom Into You",
+    "translated": "In Time, I Will Become You"
    },
    "reading_basis": "back-converted",
    "reading_cite": {
@@ -24007,7 +24119,8 @@
    "en": "Bloom Into You Anthology",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Bloom Into You Anthology"
+    "licensed": "Bloom Into You Anthology",
+    "translated": "In Time, I Will Become You: The Official Comic Anthology"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -24256,7 +24369,7 @@
    "reading_basis": "surface"
   },
   "ゆうやけトリップ【単話版】": {
-   "reading": "ユウヤケ トリップ 【タン ハナシ バン】",
+   "reading": "ユウヤケ トリップ 【タンワバン】",
    "ruby": [
     [
      "ゆうやけトリップ【",
@@ -24268,7 +24381,7 @@
     ],
     [
      "話",
-     "はなし"
+     "わ"
     ],
     [
      "版",
@@ -24280,13 +24393,12 @@
     ]
    ],
    "romaji": {
-    "macron": "Yūyake Torippu [Tan Hanashi Ban]",
-    "double": "Yuuyake Torippu [Tan Hanashi Ban]",
-    "plain": "Yuyake Torippu [Tan Hanashi Ban]"
+    "macron": "Yūyake Torippu [Tanwaban]",
+    "double": "Yuuyake Torippu [Tanwaban]",
+    "plain": "Yuyake Torippu [Tanwaban]"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "ゆずせん": {
    "reading": "ユズ セン",
@@ -24414,7 +24526,7 @@
    "reading_basis": "analyser"
   },
   "ゆゆ式": {
-   "reading": "ユ ユ シキ",
+   "reading": "ユユシキ",
    "ruby": [
     [
      "ゆゆ",
@@ -24426,13 +24538,18 @@
     ]
    ],
    "romaji": {
-    "macron": "Yu Yu Shiki",
-    "double": "Yu Yu Shiki",
-    "plain": "Yu Yu Shiki"
+    "macron": "Yuyushiki",
+    "double": "Yuyushiki",
+    "plain": "Yuyushiki"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034320623",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "ゆり×こちょ!": {
    "reading": "ユリ×コチョ！",
@@ -27328,7 +27445,8 @@
    "en": "The Girl I Want is So Handsome! – The Complete Manga Collection",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "The Girl I Want is So Handsome! – The Complete Manga Collection"
+    "licensed": "The Girl I Want is So Handsome! – The Complete Manga Collection",
+    "translated": "You're Far Too Handsome, Shiki-senpai!"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -28029,15 +28147,20 @@
    "unverified": true
   },
   "エデンの処女(おとめ)": {
-   "reading": "エデン ノ ショジョ",
+   "reading": "エデン ノ オトメ",
    "romaji": {
-    "macron": "Eden no Shojo",
-    "double": "Eden no Shojo",
-    "plain": "Eden no Shojo"
+    "macron": "Eden no Otome",
+    "double": "Eden no Otome",
+    "plain": "Eden no Otome"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I031370365",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "エデンの東戸塚": {
    "reading": "エデン ノ ヒガシトツカ",
@@ -28114,7 +28237,8 @@
    "en": "Kase-san and an Apron",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Kase-san and an Apron"
+    "licensed": "Kase-san and an Apron",
+    "translated": "The Apron and Kase-san."
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -29238,7 +29362,7 @@
    "unverified": true
   },
   "ガイド役の天使を殴り倒したら、死霊術師になりました": {
-   "reading": "ガイド ヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウ ジュツシ ニ ナリマシタ",
+   "reading": "ガイド ヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ",
    "ruby": [
     [
      "ガイド",
@@ -29281,16 +29405,8 @@
      null
     ],
     [
-     "死霊",
-     "しりょう"
-    ],
-    [
-     "術",
-     "じゅつ"
-    ],
-    [
-     "師",
-     "し"
+     "死霊術師",
+     "しりょうじゅつし"
     ],
     [
      "になりました",
@@ -29298,13 +29414,12 @@
     ]
    ],
    "romaji": {
-    "macron": "Gaido Yaku no Tenshi o Naguritaoshitara, Shiryō Jutsushi ni Narimashita",
-    "double": "Gaido Yaku no Tenshi o Naguritaoshitara, Shiryou Jutsushi ni Narimashita",
-    "plain": "Gaido Yaku no Tenshi o Naguritaoshitara, Shiryo Jutsushi ni Narimashita"
+    "macron": "Gaido Yaku no Tenshi o Naguritaoshitara, Shiryōjutsushi ni Narimashita",
+    "double": "Gaido Yaku no Tenshi o Naguritaoshitara, Shiryoujutsushi ni Narimashita",
+    "plain": "Gaido Yaku no Tenshi o Naguritaoshitara, Shiryojutsushi ni Narimashita"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "ガイド役の天使を殴り倒したら、死霊術師になりました~激カワゴスロリ魔神様、サイコー!~": {
    "reading": "ガイドヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ ～ ゲキカワ ゴスロリ マジンサマ、 サイコー !～",
@@ -29834,7 +29949,7 @@
    "reading_basis": "analyser"
   },
   "キグナスの乙女たち:新・魔法科高校の劣等生": {
-   "reading": "キグナス ノ オトメタチ   :   シン・ マホウカ コウコウ ノ レットウセイ",
+   "reading": "キグナス ノ オトメタチ : シン マホウカ コウコウ ノ レットウセイ",
    "ruby": [
     [
      "キグナスの",
@@ -29850,31 +29965,15 @@
     ],
     [
      "新",
-     "しん"
+     "し"
     ],
     [
      "・",
      null
     ],
     [
-     "魔",
-     "ま"
-    ],
-    [
-     "法",
-     "ほう"
-    ],
-    [
-     "科",
-     "か"
-    ],
-    [
-     "高",
-     "こう"
-    ],
-    [
-     "校",
-     "こう"
+     "魔法科高校",
+     "んまほうかこうこう"
     ],
     [
      "の",
@@ -29899,8 +29998,13 @@
     "plain": "Kigunasu no Otometachi : Shin Mahoka Koko no Rettosei"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034312467",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "キスして恋": {
    "reading": "キス シテ コイ",
@@ -30553,7 +30657,7 @@
    "unverified": true
   },
   "キャンディ:ふたりの約束": {
-   "reading": "キャンディ   :   フタリ ノ ヤクソク",
+   "reading": "キャンディ : フタリ ノ ヤクソク",
    "ruby": [
     [
      "キャンディ : ふたりの",
@@ -30574,8 +30678,13 @@
     "plain": "Kyandi : Futari no Yakusoku"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033056961",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "キャンディふたりの約束": {
    "reading": "キャンディ   フタリ ノ ヤクソク",
@@ -32333,27 +32442,15 @@
    "reading_basis": "surface"
   },
   "サタノファニ:妖艶彩色本・極": {
-   "reading": "サタノファニ   :   ヨウエン サイシキ ホン・ キョク",
+   "reading": "サタノファニ : ヨウエン サイシキボン ・ キワミ",
    "ruby": [
     [
      "サタノファニ : ",
      null
     ],
     [
-     "妖",
-     "よう"
-    ],
-    [
-     "艶",
-     "えん"
-    ],
-    [
-     "彩色",
-     "さいしき"
-    ],
-    [
-     "本",
-     "ほん"
+     "妖艶彩色本",
+     "ようえんさいしきぼん"
     ],
     [
      "・",
@@ -32361,17 +32458,22 @@
     ],
     [
      "極",
-     "きょく"
+     "きわみ"
     ]
    ],
    "romaji": {
-    "macron": "Satanofani : Yōen Saishiki Hon Kyoku",
-    "double": "Satanofani : Youen Saishiki Hon Kyoku",
-    "plain": "Satanofani : Yoen Saishiki Hon Kyoku"
+    "macron": "Satanofani : Yōen Saishikibon Kiwami",
+    "double": "Satanofani : Youen Saishikibon Kiwami",
+    "plain": "Satanofani : Yoen Saishikibon Kiwami"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I031472642",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "サタノファニ=SATANOPHANY": {
    "reading": "サタノファニ   =   SATANOPHANY",
@@ -33370,7 +33472,8 @@
    "en": "Kase-san and Shortcake",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Kase-san and Shortcake"
+    "licensed": "Kase-san and Shortcake",
+    "translated": "Shortcake and Kase-san."
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -34687,7 +34790,8 @@
    "en": "Seikimatsu Blue",
    "basis": "official-jp",
    "en_forms": {
-    "official-jp": "Seikimatsu Blue"
+    "official-jp": "Seikimatsu Blue",
+    "translated": "End-of-the-Century Blue"
    },
    "reading_basis": "analyser"
   },
@@ -38891,7 +38995,7 @@
    "unverified": true
   },
   "ファインダー越しのあの子(Liliecomics)": {
-   "reading": "ファインダーゴシ ノ アノ コ （Lilie   comics）",
+   "reading": "ファインダーゴシ ノ アノ コ （Lilie comics）",
    "ruby": [
     [
      "ファインダー",
@@ -38910,7 +39014,23 @@
      "こ"
     ],
     [
-     "（Lilie comics）",
+     "（",
+     null
+    ],
+    [
+     "Lilie",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "comics",
+     null
+    ],
+    [
+     "）",
      null
     ]
    ],
@@ -38920,8 +39040,7 @@
     "plain": "Faindagoshi no Ano Ko (Lilie Comics)"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "ファタールゲーム": {
    "reading": "ファタールゲーム",
@@ -43498,7 +43617,7 @@
    "unverified": true
   },
   "ロイヤルテーラー:王宮の裁縫師": {
-   "reading": "ロイヤル テーラー   :   オウキュウ ノ サイホウシ",
+   "reading": "ロイヤルテーラー : オウキュウ ノ サイホウシ",
    "ruby": [
     [
      "ロイヤルテーラー : ",
@@ -43530,13 +43649,18 @@
     ]
    ],
    "romaji": {
-    "macron": "Roiyaru Tērā : Ōkyū no Saihōshi",
-    "double": "Roiyaru Teeraa : Oukyuu no Saihoushi",
-    "plain": "Roiyaru Tera : Okyu no Saihoshi"
+    "macron": "Roiyarutērā : Ōkyū no Saihōshi",
+    "double": "Roiyaruteeraa : Oukyuu no Saihoushi",
+    "plain": "Roiyarutera : Okyu no Saihoshi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034008529",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "ロイヤルテーラー―王宮の裁縫師―": {
    "reading": "ロイヤルテーラー   ― オウキュウ ノ サイホウシ ―",
@@ -43632,15 +43756,20 @@
    "unverified": true
   },
   "ロックは淑女(レディ)の嗜みでして": {
-   "reading": "ロック ワ シュクジョ ノ タシナミデシテ",
+   "reading": "ロック ワ レディ ノ タシナミ デシテ",
    "romaji": {
-    "macron": "Rokku wa Shukujo no Tashinamideshite",
-    "double": "Rokku wa Shukujo no Tashinamideshite",
-    "plain": "Rokku wa Shukujo no Tashinamideshite"
+    "macron": "Rokku wa Redi no Tashinami Deshite",
+    "double": "Rokku wa Redi no Tashinami Deshite",
+    "plain": "Rokku wa Redi no Tashinami Deshite"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033124127",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "ロックは淑女の嗜みでして": {
    "reading": "ロック ワ シュクジョ ノ タシナミデシテ",
@@ -44453,7 +44582,8 @@
    "en": "I Can’t Believe I Slept With You!",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "I Can’t Believe I Slept With You!"
+    "licensed": "I Can’t Believe I Slept With You!",
+    "translated": "Even If It Was Only Once, I Regret It."
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -44554,8 +44684,13 @@
     "plain": "Ittan no Ko"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I030101132",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "七限目は忍者修行です!": {
    "reading": "ナナゲンメ ワ ニンジャ シュギョウデス！",
@@ -45063,7 +45198,7 @@
    "unverified": true
   },
   "下僕さんと主ちゃんの日常:主のためなら何でもします": {
-   "reading": "ゲボクサン ト ヌシチャン ノ ニチジョウ   :   ヌシ ノ タメナラ ナン デ モ シマス",
+   "reading": "ゲボクサン ト アルジチャン ノ ニチジョウ : アルジ ノ タメ ナラ ナンデモ シマス",
    "ruby": [
     [
      "下僕",
@@ -45075,7 +45210,7 @@
     ],
     [
      "主",
-     "ぬし"
+     "あるじ"
     ],
     [
      "ちゃんの",
@@ -45095,7 +45230,7 @@
     ],
     [
      "主",
-     "ぬし"
+     "あるじ"
     ],
     [
      "のためなら",
@@ -45111,13 +45246,18 @@
     ]
    ],
    "romaji": {
-    "macron": "Gebokusan to Nushichan no Nichijō : Nushi no Tamenara Nan de mo Shimasu",
-    "double": "Gebokusan to Nushichan no Nichijou : Nushi no Tamenara Nan de mo Shimasu",
-    "plain": "Gebokusan to Nushichan no Nichijo : Nushi no Tamenara Nan de mo Shimasu"
+    "macron": "Gebokusan to Arujichan no Nichijō : Aruji no Tame Nara Nandemo Shimasu",
+    "double": "Gebokusan to Arujichan no Nichijou : Aruji no Tame Nara Nandemo Shimasu",
+    "plain": "Gebokusan to Arujichan no Nichijo : Aruji no Tame Nara Nandemo Shimasu"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033378875",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "下僕さんと主ちゃんの日常~主のためなら何でもします~": {
    "reading": "ゲボクサン ト ヌシチャン ノ ニチジョウ ～ ヌシ ノ タメナラ ナン デ モ シマス ～",
@@ -45602,7 +45742,8 @@
    "en": "Assorted Entanglements",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Assorted Entanglements"
+    "licensed": "Assorted Entanglements",
+    "translated": "Mismatched Branches Grown Together"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -46675,7 +46816,8 @@
    "en": "My Next Life as a Villainess: All Routes Lead to Doom! (Manga)",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "My Next Life as a Villainess: All Routes Lead to Doom! (Manga)"
+    "licensed": "My Next Life as a Villainess: All Routes Lead to Doom! (Manga)",
+    "translated": "I Was Reincarnated as the Villainess of an Otome Game, Where Every Flag Leads to Ruin…"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -46845,7 +46987,8 @@
    "en": "My Next Life as a Villainess Side Story: On the Verge of Doom! (Manga)",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "My Next Life as a Villainess Side Story: On the Verge of Doom! (Manga)"
+    "licensed": "My Next Life as a Villainess Side Story: On the Verge of Doom! (Manga)",
+    "translated": "I Was Reincarnated as the Villainess of an Otome Game, Where Every Flag Leads to Ruin…: Desperate! On the Brink of Ruin"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -46910,7 +47053,8 @@
    "en": "My Next Life as a Villainess Side Story: Girls Patch (Manga)",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "My Next Life as a Villainess Side Story: Girls Patch (Manga)"
+    "licensed": "My Next Life as a Villainess Side Story: Girls Patch (Manga)",
+    "translated": "I Was Reincarnated as the Villainess of an Otome Game, Where Every Flag Leads to Ruin…: girls patch"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -47573,7 +47717,7 @@
    "unverified": true
   },
   "京アミ!": {
-   "reading": "キョウ アミ！",
+   "reading": "キョウアミ！",
    "ruby": [
     [
      "京",
@@ -47585,13 +47729,12 @@
     ]
    ],
    "romaji": {
-    "macron": "Kyō Ami!",
-    "double": "Kyou Ami!",
-    "plain": "Kyo Ami!"
+    "macron": "Kyōami!",
+    "double": "Kyouami!",
+    "plain": "Kyoami!"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "人喰い姫のカヴァリエーレ": {
    "reading": "ヒトクイ ヒメ ノ カヴァリエーレ",
@@ -48961,7 +49104,8 @@
    "en": "How Do We Relationship?",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "How Do We Relationship?"
+    "licensed": "How Do We Relationship?",
+    "translated": "I Suppose I Could Go Out With You"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -49261,7 +49405,7 @@
    "unverified": true
   },
   "伊勢さんと志摩さん【単話版】": {
-   "reading": "イセサン ト シマサン 【タン ハナシ バン】",
+   "reading": "イセサン ト シマサン 【タンワバン】",
    "ruby": [
     [
      "伊勢",
@@ -49289,7 +49433,7 @@
     ],
     [
      "話",
-     "はなし"
+     "わ"
     ],
     [
      "版",
@@ -49301,13 +49445,12 @@
     ]
    ],
    "romaji": {
-    "macron": "Isesan to Shimasan [Tan Hanashi Ban]",
-    "double": "Isesan to Shimasan [Tan Hanashi Ban]",
-    "plain": "Isesan to Shimasan [Tan Hanashi Ban]"
+    "macron": "Isesan to Shimasan [Tanwaban]",
+    "double": "Isesan to Shimasan [Tanwaban]",
+    "plain": "Isesan to Shimasan [Tanwaban]"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "会って食べると書きまして。": {
    "reading": "アッテ タベル ト カキマシテ。",
@@ -49739,7 +49882,8 @@
    "en": "She Loves to Cook, and She Loves to Eat",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "She Loves to Cook, and She Loves to Eat"
+    "licensed": "She Loves to Cook, and She Loves to Eat",
+    "translated": "The Woman Who Wants to Cook and the Woman Who Wants to Eat"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -51367,65 +51511,20 @@
    "unverified": true
   },
   "入味(ルーウェイ):この娘と食卓を囲む日から": {
-   "reading": "イリ アジ ( ルーウェイ )   :   コノ ムスメ ト ショクタク ヲ カコム ヒ カラ",
-   "ruby": [
-    [
-     "入",
-     "いり"
-    ],
-    [
-     "味",
-     "あじ"
-    ],
-    [
-     "(ルーウェイ) : この",
-     null
-    ],
-    [
-     "娘",
-     "むすめ"
-    ],
-    [
-     "と",
-     null
-    ],
-    [
-     "食",
-     "しょく"
-    ],
-    [
-     "卓",
-     "たく"
-    ],
-    [
-     "を",
-     null
-    ],
-    [
-     "囲",
-     "かこ"
-    ],
-    [
-     "む",
-     null
-    ],
-    [
-     "日",
-     "ひ"
-    ],
-    [
-     "から",
-     null
-    ]
-   ],
+   "reading": "ルーウェイ : コノ コ ト ショクタク オ カコム ヒ カラ",
    "romaji": {
-    "macron": "Iri Aji ( Rūwei ) : Kono Musume to Shokutaku o Kakomu Hi kara",
-    "double": "Iri Aji ( Ruuwei ) : Kono Musume to Shokutaku o Kakomu Hi kara",
-    "plain": "Iri Aji ( Ruwei ) : Kono Musume to Shokutaku o Kakomu Hi kara"
+    "macron": "Rūwei : Kono Ko to Shokutaku o Kakomu Hi kara",
+    "double": "Ruuwei : Kono Ko to Shokutaku o Kakomu Hi kara",
+    "plain": "Ruwei : Kono Ko to Shokutaku o Kakomu Hi kara"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033214720",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "全部君のせいだ": {
    "reading": "ゼンブ キミ ノ セイダ",
@@ -51563,8 +51662,7 @@
     "plain": "Koshaku Reijo no Roraku Misshon"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "公爵令嬢の籠絡ミッション~魔王との政略結婚が、人類最後の切り札です!...って、魔王が女の子の場合はどうすればいいのですか!?~": {
    "reading": "コウシャク レイジョウ ノ ロウラク ミッション ～ マオウ ト ノ セイリャク ケッコン ガ、 ジンルイ サイゴ ノ キリフダデス！…．． ッテ、 マオウ ガ オンナノコ ノ バアイ ワ ドウ スレバ イイ ノデス カ！？ ～",
@@ -53292,7 +53390,8 @@
    "en": "Kase-san and...",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Kase-san and…"
+    "licensed": "Kase-san and…",
+    "translated": "The Kase-san Series"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -53751,13 +53850,13 @@
    },
    "en": "Jūji Tonbo wa Sora o Tobanai",
    "basis": "romaji",
-   "reading_basis": "back-converted",
+   "reading_basis": "stated",
    "reading_cite": {
-    "source": "wikidata",
-    "url": "http://www.wikidata.org/entity/Q138521679",
-    "kind": "community-db"
-   },
-   "unverified": true
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034475282",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "千年エルフと999回の求婚": {
    "reading": "セン ネン エルフ ト 999 カイ ノ キュウコン",
@@ -56120,7 +56219,8 @@
    "en": "Monologue Woven For You",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Monologue Woven For You"
+    "licensed": "Monologue Woven For You",
+    "translated": "An Aside Spun for You"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -58095,7 +58195,8 @@
    "en": "The Many Sides of Voice Actor Radio",
    "basis": "official-jp",
    "en_forms": {
-    "official-jp": "The Many Sides of Voice Actor Radio"
+    "official-jp": "The Many Sides of Voice Actor Radio",
+    "translated": "The Two Faces of Voice-Actor Radio"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -61345,7 +61446,7 @@
    "unverified": true
   },
   "女子校だからセーフ【単話版】": {
-   "reading": "ジョシコウダカラ セーフ 【タン ハナシ バン】",
+   "reading": "ジョシコウ ダカラ セーフ 【タンワバン】",
    "ruby": [
     [
      "女",
@@ -61369,7 +61470,7 @@
     ],
     [
      "話",
-     "はなし"
+     "わ"
     ],
     [
      "版",
@@ -61381,13 +61482,12 @@
     ]
    ],
    "romaji": {
-    "macron": "Joshikōdakara Sēfu [Tan Hanashi Ban]",
-    "double": "Joshikoudakara Seefu [Tan Hanashi Ban]",
-    "plain": "Joshikodakara Sefu [Tan Hanashi Ban]"
+    "macron": "Joshikō Dakara Sēfu [Tanwaban]",
+    "double": "Joshikou Dakara Seefu [Tanwaban]",
+    "plain": "Joshiko Dakara Sefu [Tanwaban]"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "女子高生と王子ちゃん": {
    "reading": "ジョシコウセイ ト オウジチャン",
@@ -62356,7 +62456,7 @@
    "unverified": true
   },
   "姉になりたい義姉vs百合になりたい義妹": {
-   "reading": "アネ ニ ナリタイ ギシ vs ユリ ニ ナリタイ ギマイ",
+   "reading": "アネ ニ ナリタイ アネ vs ユリ ニ ナリタイ イモウト",
    "ruby": [
     [
      "姉",
@@ -62367,42 +62467,31 @@
      null
     ],
     [
-     "義",
-     "ぎ"
-    ],
-    [
-     "姉",
-     "し"
-    ],
-    [
-     "vs",
-     null
-    ],
-    [
-     "百合",
-     "ゆり"
+     "義姉vs百合",
+     "あねvsゆり"
     ],
     [
      "になりたい",
      null
     ],
     [
-     "義",
-     "ぎ"
-    ],
-    [
-     "妹",
-     "まい"
+     "義妹",
+     "いもうと"
     ]
    ],
    "romaji": {
-    "macron": "Ane ni Naritai Gishi Vs Yuri ni Naritai Gimai",
-    "double": "Ane ni Naritai Gishi Vs Yuri ni Naritai Gimai",
-    "plain": "Ane ni Naritai Gishi Vs Yuri ni Naritai Gimai"
+    "macron": "Ane ni Naritai Ane Vs Yuri ni Naritai Imōto",
+    "double": "Ane ni Naritai Ane Vs Yuri ni Naritai Imouto",
+    "plain": "Ane ni Naritai Ane Vs Yuri ni Naritai Imoto"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034027627",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "姉の親友、私の恋人。": {
    "reading": "アネ ノ シンユウ、 ワタシ ノ コイビト。",
@@ -62503,7 +62592,7 @@
    "unverified": true
   },
   "姉を好きなお姉さんと【単話版】": {
-   "reading": "アネ ヲ スキナ オネエサン ト 【タン ハナシ バン】",
+   "reading": "アネ オ スキナ オネエサン ト 【タンワバン】",
    "ruby": [
     [
      "姉",
@@ -62535,7 +62624,7 @@
     ],
     [
      "話",
-     "はなし"
+     "わ"
     ],
     [
      "版",
@@ -62547,13 +62636,12 @@
     ]
    ],
    "romaji": {
-    "macron": "Ane o Sukina Onēsan to [Tan Hanashi Ban]",
-    "double": "Ane o Sukina Oneesan to [Tan Hanashi Ban]",
-    "plain": "Ane o Sukina Onesan to [Tan Hanashi Ban]"
+    "macron": "Ane o Sukina Onēsan to [Tanwaban]",
+    "double": "Ane o Sukina Oneesan to [Tanwaban]",
+    "plain": "Ane o Sukina Onesan to [Tanwaban]"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "姉妹傭兵": {
    "reading": "シマイ ヨウヘイ",
@@ -63205,25 +63293,28 @@
    "unverified": true
   },
   "完パコLOVE": {
-   "reading": "カン パコ LOVE",
+   "reading": "カンパコ LOVE",
    "ruby": [
     [
      "完",
      "かん"
     ],
     [
-     "パコLOVE",
+     "パコ",
+     null
+    ],
+    [
+     "LOVE",
      null
     ]
    ],
    "romaji": {
-    "macron": "Kan Pako LOVE",
-    "double": "Kan Pako LOVE",
-    "plain": "Kan Pako LOVE"
+    "macron": "Kanpako LOVE",
+    "double": "Kanpako LOVE",
+    "plain": "Kanpako LOVE"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "完璧なあなた": {
    "reading": "カンペキナ アナタ",
@@ -63794,7 +63885,7 @@
    "unverified": true
   },
   "対ありでした。:お嬢さまは格闘ゲームなんてしない": {
-   "reading": "タイ アリデシタ。   :   オジョウサマ ワ カクトウ ゲーム ナンテ シナイ",
+   "reading": "タイアリ デシタ : オジョウサマ ワ カクトウ ゲーム ナンテ シナイ",
    "ruby": [
     [
      "対",
@@ -63822,13 +63913,18 @@
     ]
    ],
    "romaji": {
-    "macron": "Tai Arideshita. : Ojōsama wa Kakutō Gēmu Nante Shinai",
-    "double": "Tai Arideshita. : Ojousama wa Kakutou Geemu Nante Shinai",
-    "plain": "Tai Arideshita. : Ojosama wa Kakuto Gemu Nante Shinai"
+    "macron": "Taiari Deshita : Ojōsama wa Kakutō Gēmu Nante Shinai",
+    "double": "Taiari Deshita : Ojousama wa Kakutou Geemu Nante Shinai",
+    "plain": "Taiari Deshita : Ojosama wa Kakuto Gemu Nante Shinai"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034468656",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "対ありでした。~お嬢さまは格闘ゲームなんてしない~": {
    "reading": "タイ アリデシタ。   ～ オジョウサマ ワ カクトウ ゲーム ナンテ シナイ ～",
@@ -64104,7 +64200,7 @@
    "unverified": true
   },
   "小春と湊:わたしのパートナーは女の子": {
-   "reading": "コハル ト ミナト   :   ワタシ ノ パートナー ワ オンナノコ",
+   "reading": "コハル ト ミナト : ワタシ ノ パートナー ワ オンナノコ",
    "ruby": [
     [
      "小春",
@@ -64141,8 +64237,13 @@
     "plain": "Koharu to Minato : Watashi no Patona wa Onnanoko"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034139066",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "小春と湊わたしのパートナーは女の子": {
    "reading": "コハル ト ミナト   ワタシ ノ パートナー ワ オンナノコ",
@@ -64210,7 +64311,8 @@
    "en": "Miss Kobayashi’s Dragon Maid",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Miss Kobayashi’s Dragon Maid"
+    "licensed": "Miss Kobayashi’s Dragon Maid",
+    "translated": "The Maid Dragon at the Kobayashis'"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -64487,15 +64589,20 @@
    "unverified": true
   },
   "少女たちの痕(きずあと)にくちづけを": {
-   "reading": "ショウジョタチ ノ アト ニ クチヅケ ヲ",
+   "reading": "ショウジョタチ ノ キズアト ニ クチズケ オ",
    "romaji": {
-    "macron": "Shōjotachi no Ato ni Kuchizuke o",
-    "double": "Shoujotachi no Ato ni Kuchizuke o",
-    "plain": "Shojotachi no Ato ni Kuchizuke o"
+    "macron": "Shōjotachi no Kizuato ni Kuchizuke o",
+    "double": "Shoujotachi no Kizuato ni Kuchizuke o",
+    "plain": "Shojotachi no Kizuato ni Kuchizuke o"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032896031",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "少女たちの痕にくちづけを": {
    "reading": "ショウジョタチ ノ アト ニ クチヅケ ヲ",
@@ -64912,7 +65019,8 @@
    "en": "Kindred Spirits on the Roof",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Kindred Spirits on the Roof"
+    "licensed": "Kindred Spirits on the Roof",
+    "translated": "The Lily Ghost on the Roof"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -67166,7 +67274,7 @@
    "reading_basis": "researched"
   },
   "彼氏の女友達がぐいぐい来る〈私に〉": {
-   "reading": "カレシ ノ オンナトモダチ ガ グイグイ クル 〈ワタシ ニ〉",
+   "reading": "カレシ ノ オンナトモダチ ガ グイグイ クル ワタシ ニ",
    "ruby": [
     [
      "彼",
@@ -67206,13 +67314,18 @@
     ]
    ],
    "romaji": {
-    "macron": "Kareshi no Onnatomodachi ga Guigui Kuru <Watashi Ni>",
-    "double": "Kareshi no Onnatomodachi ga Guigui Kuru <Watashi Ni>",
-    "plain": "Kareshi no Onnatomodachi ga Guigui Kuru <Watashi Ni>"
+    "macron": "Kareshi no Onnatomodachi ga Guigui Kuru Watashi ni",
+    "double": "Kareshi no Onnatomodachi ga Guigui Kuru Watashi ni",
+    "plain": "Kareshi no Onnatomodachi ga Guigui Kuru Watashi ni"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034710122",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "彼氏はいない女の子たち": {
    "reading": "カレシ ワ イナイ オンナノコタチ",
@@ -67650,8 +67763,13 @@
     "plain": "Kokoro no Koe ga Moreyasui Meidosan"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033184885",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "心の声が漏れやすいメイドさん【単話版】": {
    "reading": "ココロ ノ コエ ガ モレヤスイ メイドサン 【タン ハナシ バン】",
@@ -68370,8 +68488,7 @@
     "plain": "Kaii Bu"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "怪異部~M県Y市の怪現象について~": {
    "reading": "カイイ ブ ～ M ケン Y シ ノ カイ ゲンショウ ニ ツイテ ～",
@@ -68559,7 +68676,7 @@
    "unverified": true
   },
   "恋する小惑星": {
-   "reading": "コイ スル ショウワクセイ",
+   "reading": "コイスル アステロイド",
    "ruby": [
     [
      "恋",
@@ -68570,26 +68687,23 @@
      null
     ],
     [
-     "小",
-     "しょう"
-    ],
-    [
-     "惑",
-     "わく"
-    ],
-    [
-     "星",
-     "せい"
+     "小惑星",
+     "あすてろいど"
     ]
    ],
    "romaji": {
-    "macron": "Koi Suru Shōwakusei",
-    "double": "Koi Suru Shouwakusei",
-    "plain": "Koi Suru Showakusei"
+    "macron": "Koisuru Asuteroido",
+    "double": "Koisuru Asuteroido",
+    "plain": "Koisuru Asuteroido"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033652100",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "恋する小惑星(アステロイド)": {
    "reading": "コイ スル ショウワクセイ （アステロイド）",
@@ -70754,8 +70868,13 @@
     "plain": "Akuyaku Reijo no Naka no Hito"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033275345",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "悪役令嬢の中の人:断罪された転生者のため嘘つきヒロインに復讐いたします": {
    "reading": "アクヤク レイジョウ ノ ナカ ノ ヒト   :   ダンザイ サレタ テンショウシャ ノ タメ ウソツキ ヒロイン ニ フクシュウ イタシマス",
@@ -70849,7 +70968,8 @@
    "en": "The person in a villainess",
    "basis": "official-jp",
    "en_forms": {
-    "official-jp": "The person in a villainess"
+    "official-jp": "The person in a villainess",
+    "translated": "The Person Inside the Villainess: For the Condemned Girl Whose Life She Took Over, I Shall Have Revenge on the Lying Heroine"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -72035,8 +72155,7 @@
     "plain": "Ai Mai Yummy"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "愛焦がれキャラメリゼ": {
    "reading": "マナ コガレ キャラメリゼ",
@@ -72800,7 +72919,8 @@
    "en": "NTR: Netsuzou Trap",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "NTR: Netsuzou Trap"
+    "licensed": "NTR: Netsuzou Trap",
+    "translated": "Fabrication Trap"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -72825,7 +72945,8 @@
    "en": "NTR: Netsuzou Trap",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "NTR: Netsuzou Trap"
+    "licensed": "NTR: Netsuzou Trap",
+    "translated": "Fabrication Trap: NTR"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -72850,7 +72971,8 @@
    "en": "NTR: Netsuzou Trap",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "NTR: Netsuzou Trap"
+    "licensed": "NTR: Netsuzou Trap",
+    "translated": "Fabrication Trap -NTR-"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -75440,7 +75562,8 @@
    "en": "Present in the Spring",
    "basis": "official-jp",
    "en_forms": {
-    "official-jp": "Present in the Spring"
+    "official-jp": "Present in the Spring",
+    "translated": "In the Spring, I Hold You"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -77578,7 +77701,8 @@
    "en": "peace keeping club of suginami municipal school for witches",
    "basis": "official-jp",
    "en_forms": {
-    "official-jp": "peace keeping club of suginami municipal school for witches"
+    "official-jp": "peace keeping club of suginami municipal school for witches",
+    "translated": "The Peacekeeping Club of Suginami Municipal Girls' School of Magic"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -80318,7 +80442,8 @@
    "en": "The Guy She Was Interested In Wasn't a Guy at All",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "The Guy She Was Interested In Wasn't a Guy at All"
+    "licensed": "The Guy She Was Interested In Wasn't a Guy at All",
+    "translated": "The Person I Had My Eye On Wasn't a Man"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -82601,7 +82726,7 @@
    "unverified": true
   },
   "灼熱の卓球娘reburn!!": {
-   "reading": "シャクネツ ノ タッキュウ ムスメ reburn ! !",
+   "reading": "シャクネツ ノ タッキュウムスメ reburn !!",
    "ruby": [
     [
      "灼",
@@ -82616,30 +82741,27 @@
      null
     ],
     [
-     "卓",
-     "たっ"
+     "卓球娘reburn",
+     "たっきゅうむすめreburn"
     ],
     [
-     "球",
-     "きゅう"
-    ],
-    [
-     "娘",
-     "むすめ"
-    ],
-    [
-     "reburn!!",
+     "!!",
      null
     ]
    ],
    "romaji": {
-    "macron": "Shakunetsu no Takkyū Musume Reburn ! !",
-    "double": "Shakunetsu no Takkyuu Musume Reburn ! !",
-    "plain": "Shakunetsu no Takkyu Musume Reburn ! !"
+    "macron": "Shakunetsu no Takkyūmusume Reburn !!",
+    "double": "Shakunetsu no Takkyuumusume Reburn !!",
+    "plain": "Shakunetsu no Takkyumusume Reburn !!"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033845099",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "無力聖女と無能王女": {
    "reading": "ムリョク セイジョ ト ムノウ オウジョ",
@@ -84616,7 +84738,7 @@
    "reading_basis": "researched"
   },
   "男だけど死神姫の嫁になりました(仮)": {
-   "reading": "オトコダケド シ シンキ ノ ヨメ ニ ナリマシタ ( カリ )",
+   "reading": "オトコ ダケド シニガミヒメ ノ ヨメ ニ ナリマシタ (カリ)",
    "ruby": [
     [
      "男",
@@ -84627,16 +84749,8 @@
      null
     ],
     [
-     "死",
-     "し"
-    ],
-    [
-     "神",
-     "しん"
-    ],
-    [
-     "姫",
-     "き"
+     "死神姫",
+     "しにがみひめ"
     ],
     [
      "の",
@@ -84660,13 +84774,18 @@
     ]
    ],
    "romaji": {
-    "macron": "Otokodakedo Shi Shinki no Yome ni Narimashita ( Kari )",
-    "double": "Otokodakedo Shi Shinki no Yome ni Narimashita ( Kari )",
-    "plain": "Otokodakedo Shi Shinki no Yome ni Narimashita ( Kari )"
+    "macron": "Otoko Dakedo Shinigamihime no Yome ni Narimashita (Kari)",
+    "double": "Otoko Dakedo Shinigamihime no Yome ni Narimashita (Kari)",
+    "plain": "Otoko Dakedo Shinigamihime no Yome ni Narimashita (Kari)"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032132160",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "男だけど死神姫の嫁になりました(仮)【単話版】": {
    "reading": "オトコダケド シ シンキ ノ ヨメ ニ ナリマシタ （カリ） 【タン ハナシ バン】",
@@ -84922,7 +85041,7 @@
    "unverified": true
   },
   "異世界でも風俗嬢やってみた": {
-   "reading": "イセカイ デ モ フウゾク ジョウ ヤッテ ミタ",
+   "reading": "イセカイ デモ フウゾクジョウ ヤッテミタ",
    "ruby": [
     [
      "異",
@@ -84958,13 +85077,18 @@
     ]
    ],
    "romaji": {
-    "macron": "Isekai de mo Fūzoku Jō Yatte Mita",
-    "double": "Isekai de mo Fuuzoku Jou Yatte Mita",
-    "plain": "Isekai de mo Fuzoku Jo Yatte Mita"
+    "macron": "Isekai Demo Fūzokujō Yattemita",
+    "double": "Isekai Demo Fuuzokujou Yattemita",
+    "plain": "Isekai Demo Fuzokujo Yattemita"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032308283",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "異世界でも風俗嬢やってみた【単話版】": {
    "reading": "イセカイ デ モ フウゾク ジョウ ヤッテ ミタ 【タン ハナシ バン】",
@@ -85026,7 +85150,8 @@
    "en": "Call Girl in Another World (single chapters)",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Call Girl in Another World (single chapters)"
+    "licensed": "Call Girl in Another World (single chapters)",
+    "translated": "I Gave Sex Work a Go in the Other World Too (single chapters)"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -85252,7 +85377,7 @@
    "unverified": true
   },
   "異種族女子に○○する話": {
-   "reading": "イ シュゾク ジョシ ニ ○ ○ スル ハナシ",
+   "reading": "イシュゾク ジョシ ニ ○○ スル ハナシ",
    "ruby": [
     [
      "異",
@@ -85284,13 +85409,12 @@
     ]
    ],
    "romaji": {
-    "macron": "I Shuzoku Joshi ni ○ ○ Suru Hanashi",
-    "double": "I Shuzoku Joshi ni ○ ○ Suru Hanashi",
-    "plain": "I Shuzoku Joshi ni ○ ○ Suru Hanashi"
+    "macron": "Ishuzoku Joshi ni ○○ Suru Hanashi",
+    "double": "Ishuzoku Joshi ni ○○ Suru Hanashi",
+    "plain": "Ishuzoku Joshi ni ○○ Suru Hanashi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "異種族女子に〇〇する話": {
    "reading": "イシュゾク ジョシ ニ 〇〇 スル ハナシ",
@@ -85849,45 +85973,20 @@
    "unverified": true
   },
   "白き乙女の人狼(ウェアウルフ)": {
-   "reading": "シロキ オトメ ノ ジンロウ （ウェアウルフ）",
-   "ruby": [
-    [
-     "白",
-     "しろ"
-    ],
-    [
-     "き",
-     null
-    ],
-    [
-     "乙女",
-     "おとめ"
-    ],
-    [
-     "の",
-     null
-    ],
-    [
-     "人",
-     "じん"
-    ],
-    [
-     "狼",
-     "ろう"
-    ],
-    [
-     "（ウェアウルフ）",
-     null
-    ]
-   ],
+   "reading": "シロキ オトメ ノ ウェアウルフ",
    "romaji": {
-    "macron": "Shiroki Otome no Jinrō (Weaurufu)",
-    "double": "Shiroki Otome no Jinrou (Weaurufu)",
-    "plain": "Shiroki Otome no Jinro (Weaurufu)"
+    "macron": "Shiroki Otome no Weaurufu",
+    "double": "Shiroki Otome no Weaurufu",
+    "plain": "Shiroki Otome no Weaurufu"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033371467",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "白けた夜(ヤングスペリオール新人賞・佳作)": {
    "reading": "シラケタ ヨル ( ヤングスペリオール シンジンショウ・ カサク )",
@@ -85954,7 +86053,8 @@
    "en": "Black & White",
    "basis": "official-jp",
    "en_forms": {
-    "official-jp": "Black & White"
+    "official-jp": "Black & White",
+    "translated": "White and Black"
    }
   },
   "白と黒=Black&White": {
@@ -86018,7 +86118,8 @@
    "en": "Black and White: Tough Love at the Office",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Black and White: Tough Love at the Office"
+    "licensed": "Black and White: Tough Love at the Office",
+    "translated": "White and Black ~Black & White~"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -87404,7 +87505,7 @@
    "unverified": true
   },
   "百合ラブスレイブ:ふたりだけの放課後": {
-   "reading": "ユリ ラブスレイブ   :   フタリ ダケ ノ ホウカゴ",
+   "reading": "ユリ ラブ スレイブ : フタリ ダケ ノ ホウカゴ",
    "ruby": [
     [
      "百合",
@@ -87428,13 +87529,18 @@
     ]
    ],
    "romaji": {
-    "macron": "Yuri Rabusureibu : Futari Dake no Hōkago",
-    "double": "Yuri Rabusureibu : Futari Dake no Houkago",
-    "plain": "Yuri Rabusureibu : Futari Dake no Hokago"
+    "macron": "Yuri Rabu Sureibu : Futari Dake no Hōkago",
+    "double": "Yuri Rabu Sureibu : Futari Dake no Houkago",
+    "plain": "Yuri Rabu Sureibu : Futari Dake no Hokago"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032670598",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "百合ラブスレイブふたりだけの放課後": {
    "reading": "ユリ ラブスレイブ   フタリ ダケ ノ ホウカゴ",
@@ -88425,29 +88531,32 @@
    "unverified": true
   },
   "百合色ミュージアム(OrangeVox)": {
-   "reading": "ユリ イロ ミュージアム （OrangeVox）",
+   "reading": "ユリイロ ミュージアム （OrangeVox）",
    "ruby": [
     [
-     "百合",
-     "ゆり"
+     "百合色",
+     "ゆりいろ"
     ],
     [
-     "色",
-     "いろ"
+     "ミュージアム（",
+     null
     ],
     [
-     "ミュージアム（OrangeVox）",
+     "OrangeVox",
+     null
+    ],
+    [
+     "）",
      null
     ]
    ],
    "romaji": {
-    "macron": "Yuri Iro Myūjiamu (OrangeVox)",
-    "double": "Yuri Iro Myuujiamu (OrangeVox)",
-    "plain": "Yuri Iro Myujiamu (OrangeVox)"
+    "macron": "Yuriiro Myūjiamu (OrangeVox)",
+    "double": "Yuriiro Myuujiamu (OrangeVox)",
+    "plain": "Yuriro Myujiamu (OrangeVox)"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "百合華のスパイ学校入学したら快楽拷問に耐える訓練ばかりなんですが!?": {
    "reading": "ユリカ ノ スパイ ガッコウ 　 ニュウガク シタラ カイラク ゴウモン ニ タエル クンレン バカリナ ンデスガ ! ?",
@@ -88560,15 +88669,11 @@
    "unverified": true
   },
   "百合SMでふたりの気持ちはつながりますか?【単話版】": {
-   "reading": "ユリ エスエム デ フタリ ノ キモチ ワ ツナガリマス カ？ 【タン ハナシ バン】",
+   "reading": "ユリ SM デ フタリ ノ キモチ ワ ツナガリマスカ？【タンワバン】",
    "ruby": [
     [
-     "百合",
-     "ゆり"
-    ],
-    [
-     "ＳＭ",
-     "えすえむ"
+     "百合ＳＭ",
+     "ゆりSM"
     ],
     [
      "でふたりの",
@@ -88588,7 +88693,7 @@
     ],
     [
      "話",
-     "はなし"
+     "わ"
     ],
     [
      "版",
@@ -88600,13 +88705,12 @@
     ]
    ],
    "romaji": {
-    "macron": "Yuri Esuemu de Futari no Kimochi wa Tsunagarimasu Ka? [Tan Hanashi Ban]",
-    "double": "Yuri Esuemu de Futari no Kimochi wa Tsunagarimasu Ka? [Tan Hanashi Ban]",
-    "plain": "Yuri Esuemu de Futari no Kimochi wa Tsunagarimasu Ka? [Tan Hanashi Ban]"
+    "macron": "Yuri SM de Futari no Kimochi wa Tsunagarimasuka?[tanwaban]",
+    "double": "Yuri SM de Futari no Kimochi wa Tsunagarimasuka?[tanwaban]",
+    "plain": "Yuri SM de Futari no Kimochi wa Tsunagarimasuka?[tanwaban]"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "百年の恋が冷めるまで": {
    "reading": "ヒャク ネン ノ コイ ガ サメル マデ",
@@ -91934,7 +92038,8 @@
    "en": "My Goddess is Precious Today, Too",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "My Goddess is Precious Today, Too"
+    "licensed": "My Goddess is Precious Today, Too",
+    "translated": "My Goddess Is Worth Championing Today Too ~From Now On, and For Always~"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -92291,7 +92396,8 @@
    "en": "I’m in Love with the Villainess (Manga)",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "I’m in Love with the Villainess (Manga)"
+    "licensed": "I’m in Love with the Villainess (Manga)",
+    "translated": "My Favourite Is the Villainess."
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -94378,32 +94484,39 @@
    "reading_basis": "researched"
   },
   "紅殻のパンドラ:GHOSTURN": {
-   "reading": "ベニガラ ノ パンドラ   :   GHOST   URN",
+   "reading": "コウカク ノ パンドラ : GHOST URN",
    "ruby": [
     [
-     "紅",
-     "べに"
+     "紅殻",
+     "こうかく"
     ],
     [
-     "殻",
-     "がら"
+     "のパンドラ : ",
+     null
     ],
     [
-     "のパンドラ : GHOST URN",
+     "GHOST",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "URN",
      null
     ]
    ],
    "romaji": {
-    "macron": "Benigara no Pandora : GHOST URN",
-    "double": "Benigara no Pandora : GHOST URN",
-    "plain": "Benigara no Pandora : GHOST URN"
+    "macron": "Kōkaku no Pandora : GHOST URN",
+    "double": "Koukaku no Pandora : GHOST URN",
+    "plain": "Kokaku no Pandora : GHOST URN"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "紅茶の魔女の優雅なる宮廷生活:チートをひた隠す最弱魔導師の窓際ライフ": {
-   "reading": "コウチャ ノ マジョ ノ ユウガナル キュウテイ セイカツ   :   チート ヲ ヒタ カクス サイジャク マドウシ ノ マドギワ ライフ",
+   "reading": "コウチャ ノ マジョ ノ ユウガナル キュウテイ セイカツ : チート オ ヒタカクス サイジャク マドウシ ノ マドギワ ライフ",
    "ruby": [
     [
      "紅茶",
@@ -94503,13 +94616,18 @@
     ]
    ],
    "romaji": {
-    "macron": "Kōcha no Majo no Yūganaru Kyūtei Seikatsu : Chīto o Hita Kakusu Saijaku Madōshi no Madogiwa Raifu",
-    "double": "Koucha no Majo no Yuuganaru Kyuutei Seikatsu : Chiito o Hita Kakusu Saijaku Madoushi no Madogiwa Raifu",
-    "plain": "Kocha no Majo no Yuganaru Kyutei Seikatsu : Chito o Hita Kakusu Saijaku Madoshi no Madogiwa Raifu"
+    "macron": "Kōcha no Majo no Yūganaru Kyūtei Seikatsu : Chīto o Hitakakusu Saijaku Madōshi no Madogiwa Raifu",
+    "double": "Koucha no Majo no Yuuganaru Kyuutei Seikatsu : Chiito o Hitakakusu Saijaku Madoushi no Madogiwa Raifu",
+    "plain": "Kocha no Majo no Yuganaru Kyutei Seikatsu : Chito o Hitakakusu Saijaku Madoshi no Madogiwa Raifu"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033517347",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "紅茶の魔女の優雅なる宮廷生活チートをひた隠す最弱魔導師の窓際ライフ": {
    "reading": "コウチャ ノ マジョ ノ ユウガナル キュウテイ セイカツ   チート ヲ ヒタ カクス サイジャク マドウシ ノ マドギワ ライフ",
@@ -95723,15 +95841,20 @@
    "reading_basis": "researched"
   },
   "結婚(らぶらぶ)したい竜宮さんは上陸しました": {
-   "reading": "ケッコン シタイ リュウグウサン ワ ジョウリク シマシタ",
+   "reading": "ラブラブ シタイ タツノミヤ サン ワ ジョウリク シマシタ",
    "romaji": {
-    "macron": "Kekkon Shitai Ryūgūsan wa Jōriku Shimashita",
-    "double": "Kekkon Shitai Ryuuguusan wa Jouriku Shimashita",
-    "plain": "Kekkon Shitai Ryugusan wa Joriku Shimashita"
+    "macron": "Raburabu Shitai Tatsunomiya San wa Jōriku Shimashita",
+    "double": "Raburabu Shitai Tatsunomiya San wa Jouriku Shimashita",
+    "plain": "Raburabu Shitai Tatsunomiya San wa Joriku Shimashita"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032975211",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "結婚したい竜宮さんは上陸しました": {
    "reading": "ケッコン シタイ リュウグウサン ワ ジョウリク シマシタ",
@@ -96245,7 +96368,8 @@
    "en": "Cocoon Entwined",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Cocoon Entwined"
+    "licensed": "Cocoon Entwined",
+    "translated": "Clad in a Cocoon"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -96560,7 +96684,8 @@
    "en": "Our Teachers are Dating!",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Our Teachers are Dating!"
+    "licensed": "Our Teachers are Dating!",
+    "translated": "Hayama-sensei and Terano-sensei Are Going Out"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -96905,33 +97030,14 @@
    "unverified": true
   },
   "能面battlegirl納言": {
-   "reading": "ノウメン   battle   girl ナゴン",
-   "ruby": [
-    [
-     "能",
-     "のう"
-    ],
-    [
-     "面",
-     "めん"
-    ],
-    [
-     " battle girl",
-     null
-    ],
-    [
-     "納言",
-     "なごん"
-    ]
-   ],
+   "reading": "ノウメン battle girl ナゴン",
    "romaji": {
     "macron": "Nōmen Battle Girl Nagon",
     "double": "Noumen Battle Girl Nagon",
     "plain": "Nomen Battle Girl Nagon"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "脱いでもいいよね?": {
    "reading": "ヌイデ モ イイ ヨ ネ？",
@@ -98398,8 +98504,13 @@
    },
    "en": "Tade Kuu Kimi mo Sukizuki",
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032542471",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "薄光スノウフレーク": {
    "reading": "ウス ヒカリ スノウフレーク",
@@ -99361,7 +99472,8 @@
    "en": "I Married My Best Friend to Shut My Parents Up",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "I Married My Best Friend to Shut My Parents Up"
+    "licensed": "I Married My Best Friend to Shut My Parents Up",
+    "translated": "My Parents Wouldn't Let It Drop, So I Tried a Sham Marriage with My Junior (♀)."
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -101303,7 +101415,7 @@
    "unverified": true
   },
   "週に一度クラスメイトを買う話": {
-   "reading": "シュウ ニ イチド クラスメイト ヲ カウ ハナシ",
+   "reading": "シュウ ニ イチド クラスメイト オ カウ ハナシ",
    "ruby": [
     [
      "週",
@@ -101340,8 +101452,13 @@
     "plain": "Shu ni Ichido Kurasumeito o Kau Hanashi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034694258",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "週に一度クラスメイトを買う話~ふたりの時間、言い訳の五千円~": {
    "reading": "シュウ ニ イチド クラスメイト ヲ カウ ハナシ   ～ フタリ ノ ジカン、 イイワケ ノ ゴセン エン ～",
@@ -101701,31 +101818,19 @@
    "unverified": true
   },
   "遠山えま百合集:センセイとの時間。": {
-   "reading": "エンザン エ マ ヒャク ゴウシュウ     :   センセイ ト ノ ジカン。",
+   "reading": "トオヤマ エマ ユリシュウ : センセイ トノ ジカン 。",
    "ruby": [
     [
-     "遠",
-     "えん"
-    ],
-    [
-     "山",
-     "ざん"
+     "遠山",
+     "とおやま"
     ],
     [
      "えま",
      null
     ],
     [
-     "百",
-     "ひゃく"
-    ],
-    [
-     "合",
-     "ごう"
-    ],
-    [
-     "集",
-     "しゅう"
+     "百合集",
+     "ゆりしゅう"
     ],
     [
      "  : センセイとの",
@@ -101745,13 +101850,18 @@
     ]
    ],
    "romaji": {
-    "macron": "Enzan e Ma Hyaku Gōshū : Sensei to no Jikan.",
-    "double": "Enzan e Ma Hyaku Goushuu : Sensei to no Jikan.",
-    "plain": "Enzan e Ma Hyaku Goshu : Sensei to no Jikan."
+    "macron": "Tōyama Ema Yurishū : Sensei Tono Jikan .",
+    "double": "Tooyama Ema Yurishuu : Sensei Tono Jikan .",
+    "plain": "Toyama Ema Yurishu : Sensei Tono Jikan ."
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032927981",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "遠山えま百合集センセイとの時間。": {
    "reading": "トオヤマ エマ ユリシュウ 　 センセイ ト ノ ジカン。",
@@ -102840,8 +102950,7 @@
     "plain": "Akutsusan wa Oshi ni Nite Iru ."
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "阿佐ヶ谷サキュバス同人物語": {
    "reading": "アサガヤ サキュバス ドウニン モノガタリ",
@@ -102947,18 +103056,14 @@
    "unverified": true
   },
   "限界OLと女子大生が○○する話": {
-   "reading": "ゲンカイ OL ト ジョシダイセイ ガ ○ ○ スル ハナシ",
+   "reading": "ゲンカイ OL ト ジョシダイセイ ガ ○○ スル ハナシ",
    "ruby": [
     [
-     "限",
-     "げん"
+     "限界OL",
+     "げんかいOL"
     ],
     [
-     "界",
-     "かい"
-    ],
-    [
-     "OLと",
+     "と",
      null
     ],
     [
@@ -102987,13 +103092,12 @@
     ]
    ],
    "romaji": {
-    "macron": "Genkai OL to Joshidaisei ga ○ ○ Suru Hanashi",
-    "double": "Genkai OL to Joshidaisei ga ○ ○ Suru Hanashi",
-    "plain": "Genkai OL to Joshidaisei ga ○ ○ Suru Hanashi"
+    "macron": "Genkai OL to Joshidaisei ga ○○ Suru Hanashi",
+    "double": "Genkai OL to Joshidaisei ga ○○ Suru Hanashi",
+    "plain": "Genkai OL to Joshidaisei ga ○○ Suru Hanashi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "限界OLと女子大生が〇〇する話": {
    "reading": "ゲンカイ OL ト ジョシダイセイ ガ 〇〇 スル ハナシ",
@@ -104987,7 +105091,7 @@
    "unverified": true
   },
   "鬼と夜明け:幕末女子高生": {
-   "reading": "オニト ヨアケ   :   バクマツ ジョシコウセイ",
+   "reading": "オニ ト ヨアケ : バクマツ ジョシコウセイ",
    "ruby": [
     [
      "鬼",
@@ -105006,34 +105110,23 @@
      null
     ],
     [
-     "幕末",
-     "ばくまつ"
-    ],
-    [
-     "女",
-     "じょ"
-    ],
-    [
-     "子",
-     "し"
-    ],
-    [
-     "高",
-     "こう"
-    ],
-    [
-     "生",
-     "せい"
+     "幕末女子高生",
+     "ばくまつじょしこうせい"
     ]
    ],
    "romaji": {
-    "macron": "Onito Yoake : Bakumatsu Joshikōsei",
-    "double": "Onito Yoake : Bakumatsu Joshikousei",
-    "plain": "Onito Yoake : Bakumatsu Joshikosei"
+    "macron": "Oni to Yoake : Bakumatsu Joshikōsei",
+    "double": "Oni to Yoake : Bakumatsu Joshikousei",
+    "plain": "Oni to Yoake : Bakumatsu Joshikosei"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033294027",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "鬼売れアイドルが今日も私を推してくる": {
    "reading": "オニウレ アイドル ガ キョウ モ ワタシ ヲ オシテ クル",
@@ -105724,7 +105817,7 @@
    "unverified": true
   },
   "魔法を捨てたい女の子:EnchantedGirlandtheSecretRoses": {
-   "reading": "マホウ ヲ ステタイ オンナノコ   :   Enchanted   Girl   and   the   Secret   Roses",
+   "reading": "マホウ オ ステタイ オンナノコ : Enchanted Girl and the Secret Roses",
    "ruby": [
     [
      "魔",
@@ -105759,7 +105852,51 @@
      "こ"
     ],
     [
-     " : Enchanted Girl and the Secret Roses",
+     " : ",
+     null
+    ],
+    [
+     "Enchanted",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "Girl",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "and",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "the",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "Secret",
+     null
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "Roses",
      null
     ]
    ],
@@ -105769,8 +105906,7 @@
     "plain": "Maho o Sutetai Onnanoko : Enchanted Girl And The Secret Roses"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "researched"
   },
   "魔法使いの作庭/よみきり": {
    "reading": "マホウ ツカイ ノ サクテイ / ヨミ キリ",
@@ -106046,7 +106182,8 @@
    "en": "Gushing over Magical Girls",
    "basis": "licensed",
    "en_forms": {
-    "licensed": "Gushing over Magical Girls"
+    "licensed": "Gushing over Magical Girls",
+    "translated": "Longing to Be a Magical Girl"
    },
    "reading_basis": "analyser",
    "unverified": true
@@ -106299,8 +106436,13 @@
    },
    "en": "Maou to Yuri",
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "ndlsearch.ndl.go.jp",
+    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033371220",
+    "kind": "national-library",
+    "reviewed": "2026-08-08"
+   }
   },
   "魔王城の様子がおかしい": {
    "reading": "マオウジョウ ノ ヨウス ガ オカシイ",

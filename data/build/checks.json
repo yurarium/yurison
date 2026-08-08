@@ -93,8 +93,13 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 0,
-   "examples": []
+   "violations": 4,
+   "examples": [
+    "status.json",
+    "series.json",
+    "feed/names.json",
+    "feed/current.json"
+   ]
   },
   {
    "name": "no refutation of print serials",
@@ -159,8 +164,8 @@
   {
    "name": "titles with no translation of our own",
    "means": "titles whose only English is the publisher's or the licensor's, so a reader who moves those down EN_ORDER is shown a romanisation instead of an alternative. A rise means a translation stopped reaching the shipped file, which is coverage lost and never a tidy-up.",
-   "budget": 225,
-   "value": 225
+   "budget": 172,
+   "value": 172
   },
   {
    "name": "publishers with no English",
@@ -261,8 +266,8 @@
   {
    "name": "stock phrasing in comments",
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage.",
-   "budget": 905,
-   "value": 905
+   "budget": 900,
+   "value": 900
   },
   {
    "name": "modules without a test",

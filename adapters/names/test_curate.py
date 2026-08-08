@@ -100,6 +100,48 @@ def main(s):
         s.eq(rec["ワインガールズ"]["en"], "Wine Girls", "and does not disturb an applied name")
         st.close()
 
+    # OUR RENDERING BESIDE THE NAME THE WORK ALREADY HAS. The entry holds one `en`, so a title
+    # carrying a licensor's English had nowhere to put a translation of the meaning, and 225 titles
+    # offered a reader who moves `licensed` down EN_ORDER nothing to fall through to.
+    BOTH = dict(LICENSED, translation="Backworld Picnic",
+                translation_note="裏世界 is the world behind this one; the licensor's Otherside "
+                                 "reads as a place name and loses the sense of a reverse side.")
+    s.eq(curate.problems("titles", "裏世界ピクニック", BOTH), [],
+         "an attributed name and our own translation, each with its own argument")
+    s.check(curate.problems("titles", "裏世界ピクニック",
+                            {k: v for k, v in BOTH.items() if k != "translation_note"}),
+            "a translation with no argument behind it is the machine translation §5a rules out")
+    s.check(curate.problems("titles", "ワインガールズ", dict(OURS, translation="Wine Girls")),
+            "and a translation needs a name to sit beside; on its own it is just the `en`")
+    s.check(curate.problems("titles", "裏世界ピクニック",
+                            dict(BOTH, translation="Otherside Picnic")),
+            "a translation repeating the attributed name adds no second form")
+
+    with tempfile.TemporaryDirectory() as d:
+        st = NameStore(d)
+        curate.apply(st, {"titles": {"裏世界ピクニック": BOTH}})
+        rec = st.records["titles"]["裏世界ピクニック"]
+        # THE ATTRIBUTION KEEPS THE DISPLAY. §5's precedence is explicit that a licensor's title
+        # outranks ours, so recording the translation must not take the slot: it is a second form
+        # to offer, not a better answer.
+        s.eq(rec["en"], "Otherside Picnic", "the licensed name still displays")
+        s.eq(rec["basis"], "licensed", "on the basis that says whose name it is")
+        s.eq(rec["en_source"], "Square Enix Manga & Books", "citing the page it was read from")
+        s.eq([c["value"] for c in rec["en_conflicts"]], ["Backworld Picnic"],
+             "with ours kept beside it, which is what build.py assembles en_forms from")
+        s.check("reverse side" in rec["translation_note"], "and the argument for ours survives")
+
+        # RE-WORDING A TRANSLATION REPLACES IT. The old wording standing beside the new one is a
+        # conflict list disagreeing with itself, which is what `_supersede` exists to prevent for
+        # the winning claim and could not reach here, because this claim deliberately does not
+        # supersede: superseding would clear the licensor's name out of the slot.
+        curate.apply(st, {"titles": {"裏世界ピクニック": dict(BOTH, translation="Reverse-Side Picnic")}})
+        s.eq([c["value"] for c in rec["en_conflicts"]], ["Reverse-Side Picnic"],
+             "the revised wording replaces the one it revises")
+        curate.apply(st, {"titles": {"裏世界ピクニック": dict(BOTH, translation="Reverse-Side Picnic")}})
+        s.eq(len(rec["en_conflicts"]), 1, "and re-applying the same file changes nothing")
+        st.close()
+
     # A curated READING. The interface renders basis-romaji titles from the kana, so a wrong
     # reading cannot be fixed by writing the romanisation into `en`: the string is ignored.
     R = {"reading": "タマヨミ", "reading_basis": "stated", "source": "comic-fuz",

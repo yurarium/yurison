@@ -119,9 +119,28 @@ READING_ATTRIBUTION = {
 # page had only the entry's `source` to describe both, so 11 readings claiming `stated` named
 # `yurarium` as the source and carried no page, while the reading_note beside them named
 # BOOK☆WALKER. The note was right and nothing could act on it.
+# `translation` IS OUR RENDERING BESIDE A NAME THE WORK ALREADY HAS, and it exists because the
+# file could not express the two together. An entry carries one `en`, so a title whose English is
+# the publisher's or the licensor's had nowhere to put a translation of the meaning: writing one
+# into `en` replaces the attributed name and demotes it, which §5's precedence forbids, and leaving
+# it out is what put 225 titles in `titles with no translation of our own`. A reader who moves
+# official-jp and licensed down EN_ORDER is asking for exactly the form those entries could not
+# hold, and the control was doing nothing for them.
+#
+# 61 titles already hold both, and every one of them got there by accident: a translation recorded
+# in an earlier round was displaced into `en_conflicts` when the licensor page was found later. The
+# store keeps a displaced claim, so the shape works; nothing could produce it on purpose.
+#
+# It carries `translation_note` for the reason `reading_note` is separate from `note`. One entry
+# holds two decisions, the argument for each is its own, and a translation with no argument behind
+# it is the machine translation §5a rules out.
 KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "reviewed", "note",
         "candidate_note", "reading", "reading_basis", "reading_note", "reading_source_kind",
-        "reading_source", "reading_url", "reading_refuted", "en_refuted"}
+        "reading_source", "reading_url", "reading_refuted", "en_refuted",
+        "translation", "translation_note"}
+
+# What we call ourselves in the store when a claim is our own judgement rather than a finding.
+OURS = "yurarium"
 
 # What a reading may contain. Katakana and the marks that ride along with it: a title's own
 # punctuation stays in its reading, and 100日後 keeps its digits, so a rule allowing katakana alone
@@ -186,6 +205,21 @@ def problems(kind, ja, e):
             out.append(f"{where}: an attributed name needs the page it was read from")
     elif e.get("basis"):
         out.append(f"{where}: a candidate carries no basis; it is not yet a claim about the work")
+
+    if e.get("translation"):
+        # A SECOND FORM, NOT A SECOND OPINION ABOUT WHO NAMED THE WORK. `translation` is only ever
+        # ours, so it takes no source and no basis; what it needs is an attributed name to sit
+        # beside and an argument of its own.
+        if e.get("basis") not in ("official-jp", "licensed"):
+            out.append(f"{where}: `translation` is our rendering beside the name the work already "
+                       f"has, so the entry needs an `en` on basis official-jp or licensed; with "
+                       f"nothing to sit beside, write the translation as `en` on basis translated")
+        if e.get("translation") == e.get("en"):
+            out.append(f"{where}: the translation repeats the attributed name and adds no form")
+        if not (e.get("translation_note") or "").strip():
+            out.append(f"{where}: a translation needs a note saying what it rests on")
+    elif e.get("translation_note"):
+        out.append(f"{where}: translation_note with no translation")
 
     if e.get("reading"):
         rb = e.get("reading_basis")
@@ -397,6 +431,29 @@ def apply(store, doc):
                 if e.get("en_refuted"):
                     store.clear_claim(kind, ja, "en")
                     rec["en_refuted"] = why
+            # OUR RENDERING BESIDE THE WORK'S OWN, recorded as a second claim because that is what
+            # it is. `translated` ranks below `official-jp` and `licensed`, so the store files it
+            # in `en_conflicts` and the attributed name goes on displaying; build.py assembles
+            # `en_forms` from both, and the reader's EN_ORDER control finally has something to
+            # reach for.
+            #
+            # NO `supersede` HERE, and the stale form is dropped by hand instead. Superseding
+            # clears the slot, which for this claim is the licensor's name, so the translation
+            # would take the display and the attribution would be pushed aside. Re-wording a
+            # translation would otherwise leave the old wording standing beside the new one, which
+            # is a conflict list disagreeing with itself: the exact fault `_supersede` was written
+            # for, met by the other door.
+            tr = e.get("translation")
+            if tr:
+                rec = store.records[kind].get(ja) or {}
+                stale = [c for c in (rec.get("en_conflicts") or [])
+                         if c.get("basis") == "translated" and c.get("source") == OURS
+                         and c.get("value") != tr]
+                if stale:
+                    rec["en_conflicts"] = [c for c in rec["en_conflicts"] if c not in stale]
+                store.record(kind, ja, en=tr, basis="translated", source=OURS,
+                             source_kind="derived", translation_note=e.get("translation_note"),
+                             at=str(e.get("reviewed")))
             if e.get("en"):
                 applied += 1
             else:

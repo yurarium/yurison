@@ -200,12 +200,37 @@ def credits_on(rows):
     store yields the name, so an identifier is minted for the string the store is keyed on and the
     renderer looks up. A second splitter here is how the page and the store would come to disagree
     about who wrote what.
+
+    THE ROW'S `credits` SUPPLIES THE ROLE AND NEVER THE NAME, and the distinction is the whole of
+    the correctness here. A row's `author` is REBUILT from its parts, so the role notation has come
+    off by the time this string exists: 3,076 of 3,077 rows named nobody's job and the splitter
+    could only ever agree with them. `build.py` records the roles beside the names as it rebuilds,
+    which is where the missing half comes from.
+
+    Taking the NAMES from that field as well was tried and it minted nine wrong identifiers in one
+    run. The two producers divide the field differently on purpose: the row's copy is built for
+    PRINTING, so it keeps ・ inside a name and 渡辺零・駿馬京 stays one string, while a print row's
+    copy splits on the slash alone and left `七坂なな, 桜木晶, 河合朗` as a single credit and
+    `原案SukeraSparo` with the label welded on. Which way to be wrong differs by what the answer is
+    for, which `inputs.SEPARATORS_WHOLE_NAMES` already states; an identifier is not the printing
+    caller and must not take the printing caller's answer.
+
+    SO THE ROLE IS MATCHED BY CONTAINMENT. A part the store splits further sits inside the part the
+    row recorded, so `[著]七坂なな, 桜木晶` gives all three names the 著 the bracket stated, and
+    `原作／宮澤伊織` matches its own name exactly. A name in no recorded part simply keeps whatever
+    the splitter found, which is what every release row does.
     """
     out = []
     for r in rows or ():
         wid = r.get("id") if str(r.get("id") or "").startswith("w") else r.get("wid")
+        wid = str(wid) if wid else None
+        stated = [(str(c.get("name") or ""), c.get("role"))
+                  for c in (r.get("credits") or ()) if c.get("role")]
         for name, _reading, role in split_credits_detail(r.get("author") or ""):
-            out.append((name, str(wid) if wid else None, role))
+            if not role:
+                role = next((rl for nm, rl in stated if nm == name), None) or next(
+                    (rl for nm, rl in stated if name and name in nm), None)
+            out.append((name, wid, role))
     return out
 
 

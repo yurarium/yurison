@@ -65,10 +65,6 @@ names:
     reading: 4ka エンピツ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: 4 ka エンピツ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'サルビアのブーケ. 上' (講談社).
     reading_pass: 4
@@ -923,10 +919,6 @@ names:
     reading: アオト ヒビキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: アオト ヒビキ
     reading_family: アオト
     reading_given: ヒビキ
     reading_note: Guess confirmed.
@@ -1067,10 +1059,6 @@ names:
     reading: アサギ リュウ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アサギ リュウ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '恋は秘かに実らせるもの' (芳文社).
     reading_pass: 4
@@ -1251,10 +1239,6 @@ names:
     reading: アラオシ ユウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アラ オシ ユウ
     reading_note: 28 records under あらおし, 悠
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -1614,10 +1598,6 @@ names:
     reading: ウタタネ ユウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ウタタ ネ ユウ
     reading_note: Record is for the example work 踊り場にスカートが鳴る. The analyser split うたたね after うたた.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -1931,6 +1911,22 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  かえで透:
+    basis: romaji
+    furigana_spans:
+    - - かえで
+      - null
+    - - 透
+      - とおる
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: カエデ トオル
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   かかとぶし:
     basis: romaji
     en_at: '2026-08-02'
@@ -2033,10 +2029,6 @@ names:
     reading: カズト イズミ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カズ ト イズミ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       '銭湯ハワイ' (芳文社).
     reading_pass: 4
@@ -2169,10 +2161,6 @@ names:
     reading: カワノ アキコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カワ ノ   アキコ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       "悪役令嬢のお嫁さま = THE VILLAINESS' BRIDE. 1" (文藝春秋).
     reading_pass: 4
@@ -2375,10 +2363,6 @@ names:
     reading: クマキエリ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クマキ エリ
     reading_note: MADB records this reading beside the credit on 49 record(s) of the pinned release, e.g.
       'きみはがんばれの魔法'. It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -2425,10 +2409,6 @@ names:
     reading: クモコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: クモコ
     reading_note: Record is for 「触れたい」は恋の始まり, the work we hold. One-part name.
     reading_pass: 2
     reading_reviewed: '2026-08-04'
@@ -2448,10 +2428,6 @@ names:
     reading: クルクル ヒメ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クルクル ヒメ
     reading_note: 'openBD carries this reading as the publisher''s own collationkey on 2 volume(s), e.g.
       ''ゆりぐらし : No Love,No Life!'' (KADOKAWA).'
     reading_pass: 4
@@ -2486,10 +2462,6 @@ names:
     reading: クワバラ タモツ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クワバラ   タモツ
     reading_note: openBD carries this reading as the publisher's own collationkey on 5 volume(s), e.g.
       'あなたと私の周波数' (講談社).
     reading_pass: 4
@@ -2719,6 +2691,14 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  こんぱる:
+    basis: romaji
+    reading: コンパル
+    reading_at: '2026-08-08'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   ごぼう:
     basis: romaji
     reading: ゴボウ
@@ -2831,10 +2811,6 @@ names:
     reading: ササダ アスカ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ササ ダアス カ
     reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
       ''きらきらのなつ : ささだあすか短篇集'' (新書館).'
     reading_pass: 4
@@ -2865,10 +2841,6 @@ names:
     reading: サツマアゲ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: サツマアゲ
     reading_note: openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
       '同棲生活. 3' (KADOKAWA).
     reading_pass: 4
@@ -2930,10 +2902,6 @@ names:
     reading: サネヤロウ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: サネ ヤロウ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '伝説の勇者は実はママでした!?' ([頒布]星雲社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -2976,10 +2944,6 @@ names:
     reading: サワヤカサメハダ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: サワヤカ サメハダ
     reading_note: record is the example work; NDL gives no boundary
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -3029,10 +2993,6 @@ names:
     reading: シオヤ テルコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シオ ヤ テルコ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ステラ★レコード = STELLA★RECORD' (少年画報社).
     reading_pass: 4
@@ -3478,10 +3438,6 @@ names:
     reading: タカウマ ハジメ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タ カ ウ マ ハジメ
     reading_note: Same kana, but the stored value is mis-segmented.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -3594,10 +3550,6 @@ names:
     reading: タミフル
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タミ フル
     reading_note: openBD carries this reading as the publisher's own collationkey on 13 volume(s), e.g.
       '付き合ってあげてもいいかな. 1' (小学館).
     reading_pass: 4
@@ -3629,10 +3581,6 @@ names:
     reading: タワワ ジュン
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タワワ ジュン
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー' (宙出版).
     reading_pass: 4
@@ -3909,10 +3857,6 @@ names:
     reading: トクラ
     reading_at: '2026-08-05'
     reading_basis: surface
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ト クラ
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
@@ -4051,10 +3995,6 @@ names:
     reading: トリイ シヅク
     reading_at: '2026-08-06'
     reading_basis: surface
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ト リイ   シ ヅク
     reading_note: Kana throughout, so the name is its own reading and no lookup was needed. It replaces
       'ト リイ シ ヅク', which an analyser assembled by splitting it in the wrong places. openBD's registration
       agrees on the boundary and files the kana as シズク, which is its collation rule rather than a statement
@@ -4137,10 +4077,6 @@ names:
     reading: ナオイマイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナオ イマイ
     reading_note: openBD carries this reading as the publisher's own collationkey on 5 volume(s), e.g.
       'ゆりでなる♡えすぽわーる 1' (徳間書店).
     reading_pass: 4
@@ -4244,10 +4180,6 @@ names:
     reading: ナナツ フジ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ナナツ フジ
     reading_family: ナナツ
     reading_given: フジ
     reading_note: Record is for 貴女へささげるサディスティック, the work we hold. Guess confirmed.
@@ -4829,10 +4761,6 @@ names:
     reading: ハミ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハミ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       '少女サテライト 1' (芳文社).
     reading_pass: 4
@@ -4977,6 +4905,14 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ひあるろん:
+    basis: romaji
+    reading: ヒアルロン
+    reading_at: '2026-08-08'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   ひげなむち:
     basis: romaji
     reading: ヒゲナムチ
@@ -5068,10 +5004,6 @@ names:
     reading: ヒノ ヒロコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヒ ノ ヒロコ
     reading_note: Same kana, mis-segmented in the stored value. NDL also holds 最果てのセレナード, the work we
       hold, under the same creator.
     reading_pass: 4
@@ -5095,10 +5027,6 @@ names:
     reading: ヒルノ ツキコ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヒル ノ ツキ コ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       '白銀ギムナジウム 上' (一迅社).
     reading_pass: 4
@@ -5144,10 +5072,6 @@ names:
     reading: ピヨピヨマル
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ピヨピヨ マル
     reading_note: One unit, no boundary. ウは宇宙ヤバイのウ!, the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -5178,10 +5102,6 @@ names:
     reading: ファユセ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フ ァ ユ セ
     reading_note: Record is for the example work 竜人ボディガードとお嬢様. One word, no family/given split; the analyser
       broke the small ぁ off.
     reading_pass: 4
@@ -5208,10 +5128,6 @@ names:
     reading: フカサク エミ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フカサ クエ ミ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '購買のプロキオン = Procyon in the school store' (新書館).
     reading_pass: 4
@@ -5240,10 +5156,6 @@ names:
     reading: フジイ カサイ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フジイ カサイ
     reading_note: 悪役令嬢が正ヒロインを口説き落とす話。, KADOKAWA, the database's own work. Around 30 aligned records across
       道玄坂書房, キルタイムコミュニケーション and ぶんか社.
     reading_pass: 4
@@ -5251,6 +5163,14 @@ names:
     reading_source: national-library
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032352948
+    verified: true
+  ふじしまペポ:
+    basis: romaji
+    reading: フジシマペポ
+    reading_at: '2026-08-08'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
     verified: true
   ふじた:
     basis: romaji
@@ -5515,10 +5435,6 @@ names:
     reading: ホッケサマ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ホッケサマ
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''専門学校JK Ctrl+Z''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -5541,10 +5457,6 @@ names:
     reading: ホナミ アヤ
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ホナミ アヤ
     reading_note: 'openBD carries this reading as the publisher''s own collationkey on 2 volume(s), e.g.
       ''ネイルちゃんと深爪さん。 : アンソロジーコミック マジでリアコな私たち編'' (宙出版).'
     reading_pass: 4
@@ -5811,10 +5723,6 @@ names:
     reading: マメネコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: マメネコ
     reading_note: NDL has 純情エッチング and ももいろモンタージュ under まめ猫 / マメネコ. Neither is the work we hold, so identity
       is not fully nailed down, though マメネコ is the only reading the name takes.
     reading_pass: 2
@@ -6012,10 +5920,6 @@ names:
     reading: ミシェ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ミシ ェ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '女の子同士で付き合ってます。' (ワニブックス).
     reading_pass: 4
@@ -6224,10 +6128,6 @@ names:
     reading: ムチマロ
     reading_at: '2026-08-05'
     reading_basis: surface
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ムチ マロ
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
@@ -6832,10 +6732,6 @@ names:
     reading: ヨシムラ カナ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヨシムラ カ ナ
     reading_note: openBD carries this reading as the publisher's own collationkey on 13 volume(s), e.g.
       'Murciélago 1' (スクウェア・エニックス).
     reading_pass: 4
@@ -6995,10 +6891,6 @@ names:
     reading: リンゴスイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: リンゴスイ
     reading_note: record is the example work; one unit
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -7013,10 +6905,6 @@ names:
     reading: リンゴアメ サード
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: リンゴ アメ サード
     reading_note: record is the example work; NDL's own spacing
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -7383,10 +7271,6 @@ names:
     reading: アサギ ユメ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アサギユメ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'サジちゃんの病み日記 1' (芳文社).
     reading_pass: 4
@@ -7550,10 +7434,6 @@ names:
     reading: イコール
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イコール
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'むすんでひらいて' (芳文社).
     reading_pass: 4
@@ -7949,10 +7829,6 @@ names:
     reading: カザマ アヤミ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カザマアヤミ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '星をふたりで' (新書館).
     reading_pass: 4
@@ -8080,10 +7956,6 @@ names:
     reading: ガオシ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ガオシ
     reading_note: openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
       '間宮さんといっしょ. 1' (小学館).
     reading_pass: 4
@@ -8181,10 +8053,6 @@ names:
     reading: クールキョウ シンジャ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クールキョウ シンジャ
     reading_note: Records across the 小林さんちのメイドラゴン family agree. Guess was already right.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -8445,10 +8313,6 @@ names:
     reading: サンクス カメン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: サンクス カメン
     reading_note: heading from サトム・フォーリンラブ; NDL's own spacing
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -8559,10 +8423,6 @@ names:
     reading: ショウマ ケイト
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ショウマ ケイト
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       '友達が私を理解らせにくるので勝利の女神の力を借りてこっちも理解らせにいきます。. Vol. 1' (竹書房).
     reading_pass: 4
@@ -8713,10 +8573,6 @@ names:
     reading: ソーダスイ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ソーダスイ
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''ゆりゆりにっき''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -8766,10 +8622,6 @@ names:
     reading: タカノ ハル
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タカノ ハル
     reading_note: Record is for 愛でたいセンセイ, the work we hold. Guess confirmed.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -8860,10 +8712,6 @@ names:
     reading: タケシス
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タケシス
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー' (宙出版).
     reading_pass: 4
@@ -9220,10 +9068,6 @@ names:
     reading: ネコタロウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ネコ タロウ
     reading_note: Record is for 限界OLさんは悪役令嬢さまに仕えたい, the work we hold. NDL writes it unsplit, so no space
       is proposed.
     reading_pass: 4
@@ -9401,10 +9245,6 @@ names:
     reading: パデラポッロ ノリオ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: パデラポッロ ノリオ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'ご主人様には吸わせません! Vol. 1' (竹書房).
     reading_pass: 4
@@ -9751,10 +9591,6 @@ names:
     reading: マシュー マサキ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: マシュー マサキ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ヒメ・コイ' (一迅社).
     reading_pass: 4
@@ -10066,10 +9902,6 @@ names:
     reading: モロヤン
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: モロヤン
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'トラにツバサ 1' (芳文社).
     reading_pass: 4
@@ -10141,10 +9973,6 @@ names:
     reading: ユキムラ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ユキムラ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '傷心 = Two broken hearts' (新書館).
     reading_pass: 4
@@ -10185,10 +10013,6 @@ names:
     reading: ヨシジマ シウ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヨシジマシウ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '毒百合乙女童話' (KADOKAWA).
     reading_pass: 4
@@ -10293,10 +10117,6 @@ names:
     reading: ラライヤ サトウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ラライヤ サトウ
     reading_note: From the good!アフタヌーン 2023年8号 contributor index, which gives ラライヤサトウ. Different publisher
       from the work we hold, so identity rests on the pen name.
     reading_pass: 4
@@ -10312,10 +10132,6 @@ names:
     reading: ラリアット
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ラリアット
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ノス&ザクロ' (イースト・プレス).
     reading_pass: 4
@@ -10427,10 +10243,6 @@ names:
     reading: イチノセケイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イチノセ ケイ
     reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       '花唄メモワール' (芳文社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -10619,10 +10431,6 @@ names:
     reading: ナナセハチ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナナセ ハチ
     reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       'おやすみストレイシープ' (コアミックス). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -10643,10 +10451,6 @@ names:
     reading: シチフク アクビ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シチフク アクビ
     reading_note: Confirms the guess.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -10917,10 +10721,6 @@ names:
     reading: ミウラジュン
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ミウラ ジュン
     reading_note: MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       '男子高校生、乙女ゲームの悪役令嬢に転生する。' (KADOKAWA). It agrees with the reading already held, which no source had
       stated.
@@ -11066,10 +10866,6 @@ names:
     reading: ウエムラナビア
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ウエ ムラナ ビ ア
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'ゆりさき*とらいあんぐる' (ぶんか社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -11267,10 +11063,6 @@ names:
     reading: ナカジマチズナ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナカジマ チズナ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'エルフ先生のトイレはどこですか?' (KADOKAWA). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -11286,10 +11078,6 @@ names:
     reading: ナカケント
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナカ ケント
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'とくにある日々' ([頒布]小学館クリエイティブ). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -11388,10 +11176,6 @@ names:
     reading: ナカムラ キヨ
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナカムラ キヨ
     reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
       ''お母さん二人いてもいいかな!? : レズビアンのママ生活'' (ベストセラーズ).'
     reading_pass: 4
@@ -11407,10 +11191,6 @@ names:
     reading: ナカムラユキチ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナカムラ ユキチ
     reading_note: MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       'オオカミくんと恋の晩餐' (講談社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -11476,10 +11256,6 @@ names:
     reading: ナカムラ オダク
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ナカムラ オダク
     reading_note: Record is for セイ少女黙示録ですぺあ, the work we hold. Guess confirmed.
     reading_pass: 2
     reading_reviewed: '2026-08-04'
@@ -11674,10 +11450,6 @@ names:
     reading: ヒサカワ ハル
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヒサカワ ハル
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ゆりこん 2' (講談社).
     reading_pass: 4
@@ -11749,10 +11521,6 @@ names:
     reading: オツ ヒヨリ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オツ ヒヨリ
     reading_note: openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g.
       'かわいいあなた' (一迅社).
     reading_pass: 4
@@ -11848,10 +11616,6 @@ names:
     reading: クロウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: クロウ
     reading_note: Single-part name. Record is for わたしのために脱ぎなさいっ!, the work we hold. NDL files the creator
       as 九郎, 漫画家 with transcription クロウ, マンガカ; 漫画家 is the library's disambiguating qualifier and is not
       part of the name, so the reading is クロウ alone.
@@ -11909,10 +11673,6 @@ names:
     reading: カメジマ ジュント
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カメジマ ジュン ト
     reading_note: The analyser split 潤斗. 30 exact matches, all カメジマジュント.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -11972,10 +11732,6 @@ names:
     reading: イガラシ ジュン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イガラシ ジュン
     reading_note: Record is for 拝啓、在りし日に咲く花たちへ, the work we hold. A creator search for this name mostly
       returns an unrelated academic.
     reading_pass: 4
@@ -11996,10 +11752,6 @@ names:
     reading: ゴシキ アミ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ゴシキ アミ
     reading_note: record is the example work
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -12036,10 +11788,6 @@ names:
     reading: イノウエ トサズ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イノウエ ト サズ
     reading_note: Same kana, mis-segmented in the stored value.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -12159,10 +11907,6 @@ names:
     reading: ニシナ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ニシナ
     reading_note: MADB record for 春の光に呑まれても (コミック百合姫), snapshot at `data/source/madb/madb-t-8d36b7fa8508.yaml`,
       creator `仁科 / ニシナ`. NDL holds nothing. comic-walker files 仁科 under に, agreeing. The MADB site's
       certificate has expired, so the id is citable but the page does not load.
@@ -12294,10 +12038,6 @@ names:
     reading: カイシャク
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カイシャク
     reading_note: MADB records this reading beside the credit on 8 record(s) of the pinned release, e.g.
       '鍵姫物語永久アリス輪舞曲' ([頒布]角川書店). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -12335,10 +12075,6 @@ names:
     reading: ヨヨギアニメーションガクイン
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヨヨギアニメーションガクイン
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''専門学校JK Ctrl+Z''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -12361,10 +12097,6 @@ names:
     reading: ナカハラ ツバキ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナカハラ ツバキ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '12分のエチュード 1' (一迅社).
     reading_pass: 4
@@ -12406,10 +12138,6 @@ names:
     reading: ナカトウ ヌイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ナカトウ ヌイ
     reading_family: ナカトウ
     reading_given: ヌイ
     reading_note: NDL also holds トワ・エ・モア, the work we hold, under the same creator. Guess confirmed.
@@ -12487,10 +12215,6 @@ names:
     reading: イサラコ テン
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イ サラ コテ ン
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '元ヤンちゃんとゆるふわ彼女' (宙出版).
     reading_pass: 4
@@ -12520,10 +12244,6 @@ names:
     reading: イセエビボイル
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イセエビ ボイル
     reading_note: ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
       and the work is published on it. It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -12656,10 +12376,6 @@ names:
     reading: ゴチョウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ゴチョウ
     reading_note: volume 4 of the example series; creators 空山　トキ and 伍長 pair with ソラヤマトキ and ゴチョウ
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -12684,10 +12400,6 @@ names:
     reading: フシミ ダイキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: フシミ ダイキ
     reading_family: フシミ
     reading_given: ダイキ
     reading_note: Record is for てくのぱにっくゆにばーす, the work we hold.
@@ -12762,10 +12474,6 @@ names:
     reading: サクラオリコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: サクラ   オリコ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'ふしぎな猫のまちメルティア' (小学館). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -12887,10 +12595,6 @@ names:
     reading: ヨリコ
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヨリコ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '寺野くんと熊崎くん' (竹書房). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -12978,10 +12682,6 @@ names:
     reading: クラセ シノ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クラセ シノ
     reading_note: Guess was right.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -13015,10 +12715,6 @@ names:
     reading: クラタ ウソ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クラタ ウソ
     reading_note: openBD carries this reading as the publisher's own collationkey on 7 volume(s), e.g.
       'リンケージ' (一迅社).
     reading_pass: 4
@@ -13039,10 +12735,6 @@ names:
     reading: クラタ ヒデユキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クラタ ヒデユキ
     reading_note: Guess was right. NOMADS ノーマッズ; the creator index also holds several unrelated academics
       under these characters.
     reading_pass: 4
@@ -13080,10 +12772,6 @@ names:
     reading: リンリ キヨ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: リンリキ ヨ
     reading_note: transcription is on an earlier title under the same heading 倫理, きよ; the example work
       carries the heading with the field blank
     reading_pass: 4
@@ -13146,10 +12834,6 @@ names:
     reading: ヤサシイ ナイゾウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ヤサシイ ナイゾウ
     reading_family: ヤサシイ
     reading_given: ナイゾウ
     reading_note: Record is for このままモブじゃ終われない!, the work we hold. Guess confirmed.
@@ -13169,10 +12853,6 @@ names:
     reading: コウサイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: コウサイ
     reading_note: ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
       and the work is published on it. It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -13272,10 +12952,6 @@ names:
     reading: ヤシオ ゴヨウ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヤシオ ゴ ヨウ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '夜鷹、廻る' (少年画報社).
     reading_pass: 4
@@ -13366,10 +13042,6 @@ names:
     reading: ロクノセ エンジ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ロクノセ エンジ
     reading_note: 一迅社 単話 record for メロウ・アンビバレンス, the one story in the anthology. Sole creator on the record.
     reading_pass: 4
     reading_reviewed: '2026-08-05'
@@ -13447,10 +13119,6 @@ names:
     reading: ツブラヤプロダクション
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ツブラヤプロダクション
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''ウルトラマンSTORY 0''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -13701,10 +13369,6 @@ names:
     reading: キップ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: キップ
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''Qualia -Envy-''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -13727,10 +13391,6 @@ names:
     reading: ゴウダ ナギ
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ゴウダ ナギ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー' (宙出版).
     reading_pass: 4
@@ -13751,10 +13411,6 @@ names:
     reading: カノウ ルリ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カノウ ルリ
     reading_note: Record is for 尾形様のところの中原君, a different work under the same pen name.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -13772,10 +13428,6 @@ names:
     reading: カソク
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カソク
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''キスに溺れて愛されて～外国育ちの弟は熱い指先でナカを掻き乱す～''. The shop is a retailer and does not say where its kana
       came from, so this is weighed and not attributed: what is being recorded is that the shop files
@@ -13810,10 +13462,6 @@ names:
     reading: ドウガトウコウショウジョ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ドウガ トウコウ ショウジョ
     reading_note: a collective pseudonym for the anime committee, not a personal name; NDL spaces it as
       three words but there is no family/given boundary to mark
     reading_pass: 4
@@ -13834,10 +13482,6 @@ names:
     reading: キタオ タキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: キタオ タキ
     reading_note: Record is for the example work 平民の私ですが公爵令嬢様をたぶらかして生きています. Confirms the guess.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -13852,10 +13496,6 @@ names:
     reading: ホクトスイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ホクト 　 スイ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'ちみどろアイスクリーム\u3000１' (芳文社). It replaces 'ホクト \u3000 スイ', which no source had stated.
     reading_pass: 4
@@ -13881,10 +13521,6 @@ names:
     reading: ホクト スイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ホクト スイ
     reading_family: ホクト
     reading_given: スイ
     reading_note: Confirms the guess. 30 exact matches.
@@ -14044,10 +13680,6 @@ names:
     reading: チグサ ミノリ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: チグサ ミノリ
     reading_family: チグサ
     reading_note: Record is for 好都合セミフレンド, the work we hold. Guess was already right.
     reading_pass: 4
@@ -14063,10 +13695,6 @@ names:
     reading: チバラキ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: チバ 　ラキ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'シャイなあの子に懐かれたい' (KADOKAWA). It replaces 'チバ \u3000ラキ', which no source had stated.
     reading_pass: 4
@@ -14092,10 +13720,6 @@ names:
     reading: チバ ラキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: チバ ラキ
     reading_family: チバ
     reading_given: ラキ
     reading_note: Record is for the example work シャイなあの子に懐かれたい. Confirms the guess.
@@ -14112,10 +13736,6 @@ names:
     reading: チノ ナコ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: チノナ コ
     reading_note: 一迅社 単話 record for 知らないあなた. Guess split the name a syllable too late.
     reading_pass: 4
     reading_reviewed: '2026-08-05'
@@ -14170,10 +13790,6 @@ names:
     reading: ナンゴク バナナ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナンゴク バナナ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ときめき☆もののけ女学園 2' (一迅社).
     reading_pass: 4
@@ -14311,10 +13927,6 @@ names:
     reading: ナンブ クマコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナンブ クマコ
     reading_note: heading is from KADOKAWA children's titles, matched on the pen name only
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -14355,10 +13967,6 @@ names:
     reading: ナンゴウ コウタ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナンゴウ コウタ
     reading_note: Guess confirmed.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -14474,10 +14082,6 @@ names:
     reading: ウノハナ ツカサ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ウノハナ ツカサ
     reading_family: ウノハナ
     reading_given: ツカサ
     reading_note: ごきげんよう、一局いかが?, 芳文社, the database's own work. Same creator index as アニマエール!.
@@ -14499,10 +14103,6 @@ names:
     reading: ウハナ リリカ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ウハナ リリカ
     reading_family: ウハナ
     reading_given: リリカ
     reading_note: Record is for コンカフェ嬢は恋を着る, the work we hold. Guess confirmed.
@@ -14519,10 +14119,6 @@ names:
     reading: ウカニウカ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ウ カニ ウ カ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'いえない秘密の愛し方 1' (竹書房).
     reading_pass: 4
@@ -14541,10 +14137,6 @@ names:
     reading: ゲンショ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ゲンショ
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''ソロ神官のVRMMO冒険記 ～どこから見ても狂戦士です本当にありがとうございました～''. The shop is a retailer and does not say where
       its kana came from, so this is weighed and not attributed: what is being recorded is that the shop
@@ -14579,10 +14171,6 @@ names:
     reading: ハラユイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハラ ユイ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       '魔女は満月に咲く' (芳文社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -14625,10 +14213,6 @@ names:
     reading: ハラ ユリコ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハラ ユリコ
     reading_note: 繭、纏う, KADOKAWA, the database's own work. Also aligned on the 一迅社 単話 嘘の理由. NDL is crowded
       with 篠原/杉原/萩原百合子; the title isolates the artist.
     reading_pass: 4
@@ -14827,10 +14411,6 @@ names:
     reading: フルタ トモヒロ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フルタ トモヒロ
     reading_note: Guess was right. Namesake ceramics researcher also present in NDL with no reading.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -14969,10 +14549,6 @@ names:
     reading: コバチ ルカ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: コバチ ルカ
     reading_family: コバチ
     reading_given: ルカ
     reading_note: Record is for はなにあらし, the work we hold. Guess confirmed.
@@ -15006,10 +14582,6 @@ names:
     reading: ミギハラ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ミギハラ
     reading_note: record is the example work; one unit
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -15118,10 +14690,6 @@ names:
     reading: ヨシトミ アキヒト
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヨシトミ アキヒト
     reading_note: Long-running artist with many NDL records, all agreeing. Guess was already right.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -15159,10 +14727,6 @@ names:
     reading: ヨシザワ タクマ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヨシザワ タクマ
     reading_note: Confirms the guess. Single ビッグコミックスペリオール issue record against a KADOKAWA example work,
       so this is the thinnest of the confirmations; the pen name is distinctive enough to carry it.
     reading_pass: 4
@@ -15178,13 +14742,6 @@ names:
     reading: ヨシダ マユリ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヨシダ 　 マユリ
-    - basis: stated
-      source: MADB
-      value: ヨシダマユリ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '犬火の兄弟' (KADOKAWA). It replaces 'ヨシダ \u3000 マユリ', which no source had stated.
     reading_pass: 4
@@ -15231,10 +14788,6 @@ names:
     reading: ヨシダマル ユウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ヨシダマル ユウ
     reading_family: ヨシダマル
     reading_given: ユウ
     reading_note: Record is for じょしまん。, the work we hold. 吉田丸 is the whole family name.
@@ -15373,10 +14926,6 @@ names:
     reading: アズマリュウコウ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アズマ リュウコウ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'ダッフルコートアーミー' (KADOKAWA). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -15392,10 +14941,6 @@ names:
     reading: ワフー
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ワ フー
     reading_note: record is the example work; NDL gives no boundary
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -15588,10 +15133,6 @@ names:
     reading: ヨツハラ フリコ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヨツハラ フリコ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'スリーピングビューティーの見た夢' (一迅社).
     reading_pass: 4
@@ -15642,10 +15183,6 @@ names:
     reading: ドングリプコ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ドングリプコ
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''サブスクただ乗り鈴鈴ちゃん''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -15743,10 +15280,6 @@ names:
     reading: ツチヤ ウサギ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ツチヤ ウサギ
     reading_note: Confirms the guess.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -15807,10 +15340,6 @@ names:
     reading: チキュウ ノ オサカナ ポンチャン
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: チキュウ ノ オ サカナポンチャン
     reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       '霧尾ファンクラブ' (実業之日本社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -15840,10 +15369,6 @@ names:
     reading: アクツミナコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アクツミ ナコ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'バー・パンタ・レイ' ([頒布]幻冬舎). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -15985,10 +15510,6 @@ names:
     reading: ヘイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヘイ
     reading_note: Single-part name. Record is for 上伊那ぼたん、酔へる姿は百合の花 (秋田書店), the work we hold. Guess confirmed.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -16008,10 +15529,6 @@ names:
     reading: シオコウジ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シオコウジ
     reading_note: record is the example work; NDL treats it as one unit, no boundary
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -16322,10 +15839,6 @@ names:
     reading: ナツクサ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナツクサ
     reading_note: Record is for ボイタボイネ, the work we hold. One-part name.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -16384,10 +15897,6 @@ names:
     reading: カリントウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: カリントウ
     reading_note: Confirms the back-conversion. One word, five records agreeing.
     reading_pass: 2
     reading_reviewed: '2026-08-04'
@@ -16494,10 +16003,6 @@ names:
     reading: ヨルノヒツジグモ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヨル ノ ヒツジグモ
     reading_note: One unit, no boundary. NDL's book record writes it word-spaced as ヨル ノ ヒツジグモ.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -16549,10 +16054,6 @@ names:
     reading: オオクラ ナタ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オオクラ ナタ
     reading_note: Guess was right. ニーディガールオーバードーズ anthology, 秋田書店.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -16572,10 +16073,6 @@ names:
     reading: オオバ ドウズ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: オオバ ドウズ
     reading_family: オオバ
     reading_given: ドウズ
     reading_note: Confirms the back-conversion. Single record.
@@ -16613,10 +16110,6 @@ names:
     reading: オオキタ ヒロコ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オオキタ ヒロコ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'Vespa' (一迅社).
     reading_pass: 4
@@ -16756,10 +16249,6 @@ names:
     reading: オオカワブクブ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オオカワ ブク ブ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'やっぱりチンチランド' (KADOKAWA). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -16821,10 +16310,6 @@ names:
     reading: オオトモ メガネ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オオトモ メガネ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'Green' (芳文社).
     reading_pass: 4
@@ -16859,10 +16344,6 @@ names:
     reading: オオサワ アマネ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オオサワ アマネ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '彼女(kano)×彼女(kano)' (新書館).
     reading_pass: 4
@@ -16911,10 +16392,6 @@ names:
     reading: オオクマ ラスコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オオクマラ スコ
     reading_note: Record is for 星屑テレパス, the work we hold. The guess split it as オオクマラ スコ.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -16934,10 +16411,6 @@ names:
     reading: オオクマ サイヤ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オオクマ サイヤ
     reading_note: Guess confirmed.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -16957,10 +16430,6 @@ names:
     reading: オオイシ ヒビ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オオイシ ヒビ
     reading_note: Record is for the example work よくばれ!人間さん. **Sources conflict.** NDL's own cataloguing
       gives オオイシ, ヒビ on all five book records (小学館 and 双葉社, including the example work); the seventeen
       electronic-magazine records supplied by the distributor give オオイシビビ. Taking the catalogue over the
@@ -16983,10 +16452,6 @@ names:
     reading: オオノトウ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オオノトウ
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''初恋の不一致''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -17004,10 +16469,6 @@ names:
     reading: オオノヤスユキ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オオノ ヤスユキ
     reading_note: MADB records this reading beside the credit on 6 record(s) of the pinned release, e.g.
       "That'sイズミコ" (スタジオ・シップ). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -17023,10 +16484,6 @@ names:
     reading: オオノショウマ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オオノ ショウマ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '鬼龍伝' (小学館). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -17047,10 +16504,6 @@ names:
     reading: オオタカ シン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オオタカ シン
     reading_note: record is the example work
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -17168,10 +16621,6 @@ names:
     reading: アマヤ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アマヤ
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''I love my friend''. The shop is a retailer and does not say where its kana came from, so
       this is weighed and not attributed: what is being recorded is that the shop files the person under
@@ -17203,10 +16652,6 @@ names:
     reading: アマノ シュニンタ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: アマノ シュニンタ
     reading_family: アマノ
     reading_given: シュニンタ
     reading_note: Record is for オタクには人生を積むことしかできない, the work we hold.
@@ -17228,10 +16673,6 @@ names:
     reading: アマノ リサ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アマノ リサ
     reading_note: Record is for 継とあやかし, a different work under the same pen name.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -17246,10 +16687,6 @@ names:
     reading: タイヨウマリイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タイヨウ マリイ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       '男子高校生だけどギャルにTSしました' (KADOKAWA). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -17340,10 +16777,6 @@ names:
     reading: オク タマムシ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: オク タマムシ
     reading_family: オク
     reading_given: タマムシ
     reading_note: NDL also holds どれが恋かがわからない, the work we hold, under the same creator. Guess confirmed.
@@ -17363,10 +16796,6 @@ names:
     reading: オクイチ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オクイチ
     reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       '神楽がゆく!' (講談社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -17382,10 +16811,6 @@ names:
     reading: オクニシチエ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オクニシ チエ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'あっぱれ!鍋奉行'. It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -17406,10 +16831,6 @@ names:
     reading: ニョイ ジザイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ニョイ ジザイ
     reading_note: MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       'シンデレラアスリーツ' (講談社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -17477,10 +16898,6 @@ names:
     reading: キクラゲ スグル
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: キクラゲ スグル
     reading_family: キクラゲ
     reading_given: スグル
     reading_note: ふらちな倫理ちゃん, KADOKAWA. 姫海月 reads キクラゲ, confirmed again on the 小学館 record for 乙女たちの推しゴト.
@@ -17612,10 +17029,6 @@ names:
     reading: ウザキウソ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ウザキ ウソ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'ななどなどなど' (芳文社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -17690,10 +17103,6 @@ names:
     reading: モリグチ リョウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: モリグチ リョウ
     reading_note: Confirms the guess. Evidence is two ビッグコミックスペリオール issue records; the example work is
       on 一迅社, so this rests on the pen name being distinctive rather than on a shared imprint.
     reading_pass: 4
@@ -17732,10 +17141,6 @@ names:
     reading: アボウ サトル
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: アボウ サトル
     reading_family: アボウ
     reading_given: サトル
     reading_note: Record is for the example work スロー・ステップ！. Confirms the back-conversion. 30 exact matches.
@@ -17821,10 +17226,6 @@ names:
     reading: アンドウ ユウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: アンドウ ユウ
     reading_family: アンドウ
     reading_given: ユウ
     reading_note: NDL record for the example work itself, 集英社. Creator index is crowded with 安藤優子 and
@@ -17847,10 +17248,6 @@ names:
     reading: アンドウ ユウ
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アンドウ ユウ
     reading_note: openBD carries this reading as the publisher's own collationkey on 6 volume(s), e.g.
       'ストライク・オア・ガター = strike or gutter 1' (集英社).
     reading_pass: 4
@@ -17927,10 +17324,6 @@ names:
     reading: ミヤシタ ミキ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ミヤシタ ミキ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'マイナスりてらしー' (一迅社).
     reading_pass: 4
@@ -18030,10 +17423,6 @@ names:
     reading: ミヤタ ワルツ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ミヤタ ワルツ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '女の子のいちばんやわらかいところ。' (講談社).
     reading_pass: 4
@@ -18070,10 +17459,6 @@ names:
     reading: ミヤベ サチ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ミヤベ サチ
     reading_note: 57 aligned records, ぶんか社 comic meltyKILL run plus 32歳主婦、推しと100万円でデートする.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -18118,10 +17503,6 @@ names:
     reading: ヨリタミユキ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヨリタ ミユキ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'キレイになりたい!' (講談社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -18157,10 +17538,6 @@ names:
     reading: トミザワ ミチカ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: トミザワ ミチ カ
     reading_note: 恋の絶望行進曲, KADOKAWA, the database's own work and the only NDL record under the name. 未知果
       is one given name.
     reading_pass: 4
@@ -18224,10 +17601,6 @@ names:
     reading: ネジ
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ネジ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ごはんのおトモに、死神と！\u3000 1' (幻冬舎コミックス).
     reading_pass: 4
@@ -18270,10 +17643,6 @@ names:
     reading: テラモト カオル
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: テラモト カオル
     reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
       ''ネイルちゃんと深爪さん。 : アンソロジーコミック マジでリアコな私たち編'' (宙出版).'
     reading_pass: 4
@@ -18364,10 +17733,6 @@ names:
     reading: オガワ マイコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オガワ マイコ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       '魚の見る夢 1' (芳文社).
     reading_pass: 4
@@ -18393,10 +17758,6 @@ names:
     reading: オガタ アカネ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オガタ アカネ
     reading_note: 若葉さんちの青い恋, 小学館. Same Sunday orbit as the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -18433,10 +17794,6 @@ names:
     reading: コバヤシ コテイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: コバヤシ コテイ
     reading_note: Guess was right. ひきこまり吸血姫, the example series.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -18565,10 +17922,6 @@ names:
     reading: オバタ ルイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: オバタ ルイ
     reading_family: オバタ
     reading_given: ルイ
     reading_note: Record is for いっそ、恋だったらよかったのに, the work we hold. Guess confirmed.
@@ -18588,10 +17941,6 @@ names:
     reading: ショウコ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ショウコ
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''異世界モテ飯【電子単行本版】''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -18668,10 +18017,6 @@ names:
     reading: コサメ ヒヨリ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: コサメ ヒヨリ
     reading_family: コサメ
     reading_given: ヒヨリ
     reading_note: Guess confirmed. 28 小学館 records, all of スウィートヒート！, which is the example work. One of
@@ -18750,10 +18095,6 @@ names:
     reading: オヒツジ エイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オ ヒツジ エイ
     reading_note: '100 records across three name forms, all オヒツジ: 落ちぶれゼウスと奴隷の子 (朝日新聞出版), 災禍の神は願わない (一迅社),
       ふつつかな悪女ではございますが (一迅社). One artist; 二人の人魚姫 is their モーニングゼロ 2017年8月期 award piece.'
     reading_pass: 4
@@ -18787,10 +18128,6 @@ names:
     reading: オノリン
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オノ   リン
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'レッツ・エンドルフィン・ハイ' (海王社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -18811,10 +18148,6 @@ names:
     reading: オノ リン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オノ リン
     reading_note: 芳文社, plus クラスで2番目に可愛い女の子と友だちになった.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -18883,10 +18216,6 @@ names:
     reading: ヤマグチ エイト
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヤマグチ エイ ト
     reading_note: 疲れきった女が死ぬほど癒やされるために。, KADOKAWA, the database's own work. 18 aligned records including
       the 小学館 すきだから、だよ run.
     reading_pass: 4
@@ -18907,10 +18236,6 @@ names:
     reading: ヤマグチ サトル
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヤマグチ サトル
     reading_note: 'openBD carries this reading as the publisher''s own collationkey on 3 volume(s), e.g.
       ''乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった… : 絶体絶命! 破滅寸前編 1'' (講談社).'
     reading_pass: 4
@@ -18926,10 +18251,6 @@ names:
     reading: ヤマナサワコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヤマナ サワコ
     reading_note: MADB records this reading beside the credit on 6 record(s) of the pinned release, e.g.
       'ラブラブ❤シャーリー'. It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -18950,10 +18271,6 @@ names:
     reading: ヤマザ イッシン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヤマザ イッシン
     reading_note: Guess confirmed. 講談社, 頂のリヴィーツァ, which is the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -18972,9 +18289,6 @@ names:
     - basis: analyser
       source: sudachi
       value: ヤマモト   ワオン
-    - basis: stated
-      source: MADB
-      value: ヤマモトカズネ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '生き残った6人によると' (KADOKAWA). It replaces 'ヤマモト   ワオン', which no source had stated.
     reading_pass: 4
@@ -19012,10 +18326,6 @@ names:
     reading: ヤマモト マト
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヤマモト マ ト
     reading_note: Guess right on the kana, wrong on the boundary. 30 KADOKAWA records of きみはかわいいれぷたいる;
       two of them write ヤマモト, マト.
     reading_pass: 4
@@ -19031,10 +18341,6 @@ names:
     reading: ヤマモトルンルン
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヤマモト ルンルン
     reading_note: MADB records this reading beside the credit on 5 record(s) of the pinned release, e.g.
       '涙子さまの言う通り' (KADOKAWA). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -19269,10 +18575,6 @@ names:
     reading: オカムラ アユム
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オカムラ アユム
     reading_note: 天使も定時で帰りたい!!, 実業之日本社, 12 aligned records.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -19292,10 +18594,6 @@ names:
     reading: オカフジ マイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オカフジ マイ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'フォーゲット・ミー・ノット' (祥伝社).
     reading_pass: 4
@@ -19318,10 +18616,6 @@ names:
     reading: オカノ クコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オカノ クコ
     reading_note: Guess was right.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -19377,10 +18671,6 @@ names:
     reading: イワイ トーキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イワイ トーキ
     reading_note: Guess confirmed. Six 集英社 records (シェイプシフター, バイブマン). The example work さよならミュージアム is not
       among them, but the surname reading is not in doubt and the given part is already katakana.
     reading_pass: 4
@@ -19417,10 +18707,6 @@ names:
     reading: イワブチ キョウカ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イワブチ キョウカ
     reading_note: 'Guess confirmed. Three electronic-magazine records agree: good!アフタヌーン 2023年12号 and
       2026年8号 (講談社), ビッグコミックスペリオール 2024年17号 (小学館). Supplied unsplit as イワブチキョウカ.'
     reading_pass: 4
@@ -19460,10 +18746,6 @@ names:
     reading: イワミ キヨコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イワミ キヨコ
     reading_note: Record is for 今日はカノジョがいないから, the work we hold. Guess confirmed.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -19478,10 +18760,6 @@ names:
     reading: キシネマクマ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: キシネ マ クマ
     reading_note: Guess wrong in its boundaries. Only one record (ビッグコミックスペリオール 2024年23号) and it writes
       the transcription unbroken, so no family/given split is attested. キシネ マクマ looks natural but is not
       in the source.
@@ -19511,10 +18789,6 @@ names:
     reading: キシ トラジロウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: キシ トラジロウ
     reading_family: キシ
     reading_given: トラジロウ
     reading_note: Guess confirmed. 29 records including many of the example work オトメの帝国 (集英社).
@@ -19556,10 +18830,6 @@ names:
     reading: シマ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シマ
     reading_given: シマ
     reading_note: 'Guess confirmed, but only via the title route: a creator search on 島 returns 2.1 million
       records and is useless. 32 records for the example work ぽかぽかたいわん！(KADOKAWA), 島 → シマ. One-element
@@ -19582,10 +18852,6 @@ names:
     reading: シマザキ ムジルシ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シマザキ ムジルシ
     reading_note: Guess was right. エリオと電気人形, the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -19774,10 +19040,6 @@ names:
     reading: カワムラ マユミ
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カワムラ マユミ
     reading_note: The National Diet Library's 著者標目 on this record runs a name into its own reading for
       each of the nine contributors, and this one reads '川村 マユ見 カワムラ マユミ'. The record is キタノステラ (あきの実,
       2021.2), and the pair is taken out of one element rather than off a position, since the field lists
@@ -19868,10 +19130,6 @@ names:
     reading: クドウ エル
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クドウ エル
     reading_note: Guess confirmed. 芳文社, 江口さんちの純情サキュバス, the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -19974,10 +19232,6 @@ names:
     reading: イチカワ ヒロミ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イチカワ ヒロミ
     reading_note: Guess confirmed. 6 records for 二兎の除霊師 (集英社), 市川, ヒロミ → イチカワ, ヒロミ. Same artist as モデルチェンジ,
       which ran in 週刊ヤングジャンプ.
     reading_pass: 4
@@ -20035,10 +19289,6 @@ names:
     reading: ヒラオ アウリ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヒラオ アウリ
     reading_note: openBD carries this reading as the publisher's own collationkey on 20 volume(s), e.g.
       'まんがの作り方 1' (徳間書店).
     reading_pass: 4
@@ -20103,10 +19353,6 @@ names:
     reading: ヒロセ マドカ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヒロセ マドカ
     reading_note: 神ゲーってそういうことですか, KADOKAWA, the database's own work. Nursing-journal records under 廣瀬まどか
       rejected.
     reading_pass: 4
@@ -20122,10 +19368,6 @@ names:
     reading: ヒロセカイト
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヒロセ カイト
     reading_note: ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
       and the work is published on it. It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -20327,10 +19569,6 @@ names:
     reading: アヤノ ウラスケ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アヤノ ウラ スケ
     reading_note: record is the example work; NDL's heading 彩乃, 浦助 puts the boundary after 彩乃
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -20439,10 +19677,6 @@ names:
     reading: ゴトウウドン
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ゴトウ ウドン
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '煙色のまほろば' (小学館). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -20482,10 +19716,6 @@ names:
     reading: ゴトウ ハヤコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ゴトウ ハヤコ
     reading_note: openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g.
       'プアプアlips 1' (竹書房).
     reading_pass: 4
@@ -20550,10 +19780,6 @@ names:
     reading: オボウ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: オボウ
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''レズっ娘クラブ ONE TiME ONLY［ばら売り］［黒蜜］''. The shop is a retailer and does not say where its kana
       came from, so this is weighed and not attributed: what is being recorded is that the shop files
@@ -20601,10 +19827,6 @@ names:
     reading: ミカゲ セキザイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ミカゲ セキザイ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '白雪姫と黒タイツ 1' (扶桑社).
     reading_pass: 4
@@ -20643,10 +19865,6 @@ names:
     reading: トクナガ パン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: トクナガ パン
     reading_note: KADOKAWA; the same creator index also holds モブヘブン【分冊版】, the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -20725,10 +19943,6 @@ names:
     reading: シミズ ハツミ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シミズ ハツミ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'クダンノフォークロア = FOLKLORE OF KUDAN' (講談社 (発売)).
     reading_pass: 4
@@ -20783,10 +19997,6 @@ names:
     reading: シマ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シマ
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''女騎士さまは屈しない！''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -20823,10 +20033,6 @@ names:
     reading: カイセイ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カイセイ
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''au printemps''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -20882,10 +20088,6 @@ names:
     reading: ハジタニ キユウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハジ タニ キユ ウ
     reading_note: record is the example work
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -20966,6 +20168,22 @@ names:
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/49514
     verified: false
+  惟丞:
+    basis: romaji
+    furigana_spans:
+    - - 惟
+      - おもんみ
+    - - 丞
+      - すすむ
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: オモンミ ススム
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   慎結:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -20992,10 +20210,6 @@ names:
     reading: イヌイダイジ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イヌイ ダイジ
     reading_note: Guess confirmed apart from spacing. Record is こいにこいするこに恋す(001), 講談社, the example work.
       Transcription unbroken in the source.
     reading_pass: 4
@@ -21068,10 +20282,6 @@ names:
     reading: トザキ エイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: トザキ エイ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       "バニーズクエスト = BUNNIE'S QUEST. 1" (講談社).
     reading_pass: 4
@@ -21087,10 +20297,6 @@ names:
     reading: トコロケメコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: トコロ ケメコ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '薫風マイファーム' (KADOKAWA). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -21236,10 +20442,6 @@ names:
     reading: キョウソ レイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: キョウソレイ
     reading_note: Guess confirmed and the boundary supplied. 竹書房, ペアリングギア, the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -21331,10 +20533,6 @@ names:
     reading: フミカワ アヤ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フミカワ アヤ
     reading_note: その蒼を、青とよばない, ヒーローズ.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -21349,10 +20547,6 @@ names:
     reading: アライスミコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アライ   スミコ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       '気になってる人が男じゃなかった' (KADOKAWA). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -21373,10 +20567,6 @@ names:
     reading: アライ スミコ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アライ スミコ
     reading_note: 気になってる人が男じゃなかった, KADOKAWA, the database's own work. Four volumes plus the Polish edition,
       all aligned.
     reading_pass: 4
@@ -21428,10 +20618,6 @@ names:
     reading: アライサトシ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アライ サトシ
     reading_note: MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       '秘蜜の金髪ツインテール' (日本文芸社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -21452,10 +20638,6 @@ names:
     reading: ニイジマ アン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ニイジマ アン
     reading_note: record is the example work
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -21475,10 +20657,6 @@ names:
     reading: ニイノミラ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ニイノミラ
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''わたげの恋''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -21496,10 +20674,6 @@ names:
     reading: ヒノシタ アカメ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヒ ノ シタ アカメ
     reading_note: heading is from エーゲ海を渡る花たち and 河畔の街のセリーヌ
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -21582,10 +20756,6 @@ names:
     reading: ヒノ アラシ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヒノ アラシ
     reading_note: Record is for しかばね少女と愛が重い聖騎士の討伐学園ライフ, a different work under the same pen name.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -21637,10 +20807,6 @@ names:
     reading: アサヒ アキシゲ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: アサヒ アキシゲ
     reading_family: アサヒ
     reading_given: アキシゲ
     reading_note: ジャック・ジャンク・ジャンキー, KADOKAWA あすかコミックスDX, the database's own work and the only NDL record
@@ -21668,10 +20834,6 @@ names:
     reading: コンブ ワカメ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: コンブ ワカメ
     reading_note: Guess confirmed. 46 records, 世界で一番おっぱいが好き！and おっぱい百合アンソロジー (KADOKAWA), 最近雇ったメイドが怪しい
       (スクウェア・エニックス).
     reading_pass: 4
@@ -21802,10 +20964,6 @@ names:
     reading: ホシノ カナタ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ホシノ カナタ
     reading_family: ホシノ
     reading_given: カナタ
     reading_note: Reading is solid, but note the record is for ペンギンカフェへようこそ (白泉社), not for either work
@@ -21861,10 +21019,6 @@ names:
     reading: ホシザキ コン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ホシザキ コン
     reading_note: heading is from the light novels; same author writes the example work
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -21879,10 +21033,6 @@ names:
     reading: ホシフミ ロノ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ホシフミ ロ ノ
     reading_note: 実業之日本社; also 僕らは恋に落ちる瀬戸際で. Same kana, one word not two.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -21951,10 +21101,6 @@ names:
     reading: ヒトトセ リン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ヒトトセ リン
     reading_family: ヒトトセ
     reading_given: リン
     reading_note: 'Guess confirmed, and independently by the artist: X handle @hitotoserin and pixiv display
@@ -22156,10 +21302,6 @@ names:
     reading: ハルサメ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハルサメ
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''JKすぷらっしゅ！''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -22219,10 +21361,6 @@ names:
     reading: トキトウ セツナ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: トキトウ セツナ
     reading_note: record is volume 2 of the example work
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -22303,10 +21441,6 @@ names:
     reading: ハレカワ シンタ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハレ カワ シンタ
     reading_note: 'Guess right on the kana, wrong on the boundary: the surname is ハレカワ in one piece. 28
       records across フロンティアワークス and others.'
     reading_pass: 4
@@ -22344,10 +21478,6 @@ names:
     reading: クレ ミチル
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クレ ミチル
     reading_note: Guess confirmed. Single record, good!アフタヌーン 2026年8号 (講談社), supplied unsplit as クレミチル.
       Same magazine family as the example work.
     reading_pass: 4
@@ -22423,10 +21553,6 @@ names:
     reading: ツキナミ コウスケ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ツキナミ コウ スケ
     reading_note: The example work. Kana were right, the boundary was in the wrong place.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -22510,10 +21636,6 @@ names:
     reading: ツキノワ アオ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ツキノワ アオ
     reading_family: ツキノワ
     reading_given: アオ
     reading_note: Guess confirmed. 講談社, シュガーガール・ドリップ, the example work.
@@ -22591,10 +21713,6 @@ names:
     reading: モチヅキ ケイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: モチヅキ ケイ
     reading_note: 'Guess was right. Identity confirmed by the 人間よ強欲であれ : 望月けい画集 record, which spells it
       モチズキ, ケイ under NDL''s づ normalisation.'
     reading_pass: 4
@@ -22651,10 +21769,6 @@ names:
     reading: アサヒ テトラ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アサヒ テトラ
     reading_note: Guess confirmed. メリーバッドエンド百合アンソロジー, KADOKAWA. Only one record; it is a yuri anthology,
       consistent with this artist.
     reading_pass: 4
@@ -22735,10 +21849,6 @@ names:
     reading: アサカゲ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アサカゲ
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''恋の行方は''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -22795,10 +21905,6 @@ names:
     reading: キムラ キョウヘイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: キムラ キョウヘイ
     reading_note: 'Guess confirmed. The book record is the example work itself: 不思議なゆりこさん (講談社), 木村, 享平
       → キムラ, キョウヘイ. Eight 月刊モーニング・ツー issues agree.'
     reading_pass: 4
@@ -22915,10 +22021,6 @@ names:
     reading: ホンマ リョウタ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ホンマ リョウタ
     reading_note: Guess was right. T.Tラバーズ。, the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -23012,10 +22114,6 @@ names:
     reading: スギタニエコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: スギタニ エコ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '愛焦がれキャラメリゼ' (芳文社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -23230,10 +22328,6 @@ names:
     reading: トウヨウ トタン
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: トウヨウ 　 トタン
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'ラストサマー・バケーション = LAST SUMMER VACATION. 上' (KADOKAWA). It replaces 'トウヨウ \u3000 トタン', which no source
       had stated.
@@ -23255,10 +22349,6 @@ names:
     reading: トウヨウ トタン
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: トウヨウ トタン
     reading_note: ラストサマー・バケーション, KADOKAWA, the database's own work. 22 aligned records with 闘う翼に乾杯を。 and
       the 分冊版 run.
     reading_pass: 4
@@ -23295,10 +22385,6 @@ names:
     reading: トウガネ サクラ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: トウガネ サクラ
     reading_note: No NDL holding; the 百合姫 one-shot has no ISBN. The artist's own handle romanises the
       name, confirming the guess. x.com refused this client with HTTP 402, so the handle is read from
       search result titles rather than fetched.
@@ -23358,10 +22444,6 @@ names:
     reading: マツイ リン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: マツイ リン
     reading_note: Guess confirmed. Two 集英社 records of Dear Anemone. The example work 天使と書いて悪魔と読む。 is not
       catalogued, so the link rests on the pen name alone; the reading is the expected one either way.
     reading_pass: 4
@@ -23400,10 +22482,6 @@ names:
     reading: マツヤマ セイジ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: マツヤマ セイジ
     reading_note: 'openBD carries this reading as the publisher''s own collationkey on 4 volume(s), e.g.
       ''ゆりてつ : 私立百合ヶ咲女子高鉄道部. 1'' (小学館).'
     reading_pass: 4
@@ -23446,10 +22524,6 @@ names:
     reading: マツモト トモキ
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: マツモト トモキ
     reading_note: openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
       '囿者は懼れず 1' (スクウェア・エニックス).
     reading_pass: 4
@@ -23498,10 +22572,6 @@ names:
     reading: マツモトヨウスケ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: マツモト ヨウスケ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'モノクロのふたり' (集英社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -23637,10 +22707,6 @@ names:
     reading: ヒイラギ ユタカ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヒイラギ ユタカ
     reading_note: 'Guess confirmed. The example work itself: 新米姉妹のふたりごはん (KADOKAWA), 柊, ゆたか, 1981- → ヒイラギ,
       ユタカ, 1981-. Strip the birth year.'
     reading_pass: 4
@@ -23808,10 +22874,6 @@ names:
     reading: ユズモモ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ユズ モモ
     reading_note: record is the example work; NDL treats it as one unit
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -23864,10 +22926,6 @@ names:
     reading: ヤナイ ノブヒコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヤナイ ノブヒコ
     reading_family: ヤナイ
     reading_note: Guess was right. Fourth position on the same record.
     reading_pass: 4
@@ -23922,10 +22980,6 @@ names:
     reading: シバタコウヘイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シバタ 　 コウヘイ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '魔女とくゅらす' ([頒布]小学館クリエイティブ). It replaces 'シバタ \u3000 コウヘイ', which no source had stated.
     reading_pass: 4
@@ -23946,10 +23000,6 @@ names:
     reading: シバタ コウヘイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シバタ コウヘイ
     reading_note: 青騎士 第1号. NDL separately holds 魔女とくゅらす, the example work, under 柴田, 康平 / シバタ, コウヘイ. Distinguished
       from several academic namesakes by those two manga records.
     reading_pass: 4
@@ -23986,10 +23036,6 @@ names:
     reading: シバタ ケンシロウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シバタ ケンシロウ
     reading_note: Guess confirmed. 21 秋田書店 records including the example work お葉花を愛でる.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -24072,10 +23118,6 @@ names:
     reading: クリサキ キング
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クリサキ キン グ
     reading_note: The analyser split きんぐ across a word boundary. 22 exact matches.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -24116,10 +23158,6 @@ names:
     reading: ネギシ タケハル
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ネギシ タケハル
     reading_family: ネギシ
     reading_given: タケハル
     reading_note: Guess confirmed. 4 records including the example work ナキノン (ヒーローズ).
@@ -24177,10 +23215,6 @@ names:
     reading: モモタ ロウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: モモタ ロウ
     reading_note: Guess was right.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -24200,10 +23234,6 @@ names:
     reading: キリハラ ノン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: キリハラ ノン
     reading_note: heading from other titles, matched on the pen name only; the example work is a ジャンプTOON
       one-shot
     reading_pass: 4
@@ -24246,10 +23276,6 @@ names:
     reading: キリヤマ ハルカ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: キリヤマ ハルカ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ガラスの靴を脱ぎ捨てて' (講談社).
     reading_pass: 4
@@ -24286,10 +23312,6 @@ names:
     reading: キリシマ ユタカ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: キリシマ ユタカ
     reading_note: Guess confirmed. 小学館, あもうときじま. Same artist as the example work きーちゃんともんもん, both listed
       under 桐島豊 on サンデーうぇぶり and on the 小学館コミック author page.
     reading_pass: 4
@@ -24364,10 +23386,6 @@ names:
     reading: クワタ ノリコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クワタ ノリコ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '箱庭コスモス = hakoniwa cosmos' (新書館).
     reading_pass: 4
@@ -24480,10 +23498,6 @@ names:
     reading: サクラギ アキラ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: サクラギ アキラ
     reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
       ''ネイルちゃんと深爪さん。 : アンソロジーコミック マジでリアコな私たち編'' (宙出版).'
     reading_pass: 4
@@ -24512,10 +23526,6 @@ names:
     reading: サクラギ レン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: サクラギ レン
     reading_family: サクラギ
     reading_given: レン
     reading_note: Record is for 月はヒツジを数えない, the work we hold.
@@ -24590,10 +23600,6 @@ names:
     reading: サクラノ イツキ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: サクラノ イツキ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'ふたごわずらい volume 1' (講談社).
     reading_pass: 4
@@ -24627,10 +23633,6 @@ names:
     reading: ウメハラウメ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ウメハラ ウメ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'はっぴー・どーる・でいず' (KADOKAWA). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -24687,10 +23689,6 @@ names:
     reading: ナシオ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ナシオ
     reading_note: ぶんか社, and the record is the example work itself.
     reading_pass: 2
     reading_reviewed: '2026-08-04'
@@ -24723,10 +23721,6 @@ names:
     reading: カジイスパナ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カジイ 　 スパナ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'サレ妻お江戸リコカツ録' (芳文社). It replaces 'カジイ \u3000 スパナ', which no source had stated.
     reading_pass: 4
@@ -24747,10 +23741,6 @@ names:
     reading: カジイ スパナ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カジイ スパナ
     reading_note: Guess confirmed. 14 KADOKAWA records of the example work 明日もまた勇者のとなり.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -24834,10 +23824,6 @@ names:
     reading: モリ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: モリ
     reading_note: Single-part name. MAGCOMI's own author profile for this artist lists 感覚共有メイドさん！ and
       姉になりたい義姉VS百合になりたい義妹 as their books; NDL transcribes the creator of both as モリ.
     reading_pass: 4
@@ -24890,10 +23876,6 @@ names:
     reading: モリイ アキマサ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: モリイ アキマサ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       '百合のあいだは悩ましい 1' (芳文社).
     reading_pass: 4
@@ -24964,10 +23946,6 @@ names:
     reading: モリオマサヒロ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: モリオ マサヒロ
     reading_note: MADB records this reading beside the credit on 9 record(s) of the pinned release, e.g.
       '異世界召喚おじさんの銃無双ライフ' (芳文社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -24988,10 +23966,6 @@ names:
     reading: モリヤマ ダイスケ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: モリヤマ ダイスケ
     reading_note: heading 森山, 大輔, 1971-; birth year dropped from the reading
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -25006,10 +23980,6 @@ names:
     reading: モリシマ アキコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: モリシマ   アキコ
     reading_note: Confirms the guess; only the doubled space changes.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -25095,10 +24065,6 @@ names:
     reading: モリナガ ミルク
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: モリナガ ミルク
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'くちびるためいきさくらいろ' (一迅社).
     reading_pass: 4
@@ -25173,10 +24139,6 @@ names:
     reading: ウエシタ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ウエシタ
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''q.天上の音楽''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -25216,10 +24178,6 @@ names:
     reading: シイタケマル
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シイタケマル
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''偏愛のその先に''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -25242,10 +24200,6 @@ names:
     reading: シイバ ヒロミ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シイバ ヒロミ
     reading_note: Guess confirmed. 30 秋田書店 records of the example work フェアウェイの声をきかせて.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -25281,10 +24235,6 @@ names:
     reading: ツバキ アス
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ツバキ アス
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'Honey crush 1' (一迅社).
     reading_pass: 4
@@ -25309,10 +24259,6 @@ names:
     reading: ツバキ トリカ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ツバキ トリカ
     reading_note: ARIA 2017 issues; NDL also holds ケモノとワルツ, the example work.
     reading_pass: 2
     reading_reviewed: '2026-08-04'
@@ -25355,10 +24301,6 @@ names:
     reading: ラクジ タラヒ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ラク ジ タラ ヒ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'にじいろシークレット' (一迅社).
     reading_pass: 4
@@ -25381,10 +24323,6 @@ names:
     reading: ツチイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ツチイ
     reading_note: Guess confirmed. 30 records including the example work ハルのレジスタ (KADOKAWA), plus ガールズ&パンツァー
       and アズールレーン. One name, no boundary.
     reading_pass: 2
@@ -25416,10 +24354,6 @@ names:
     reading: ヨコモリ モヨコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヨコモリ モ ヨコ
     reading_note: 先輩と後輩、大暴れの日々, 新潮社, the collected form of the example work. Same kana, one word not two.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -25464,10 +24398,6 @@ names:
     reading: カシカゼ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: カシカゼ
     reading_note: Record is for キミが吠えるための歌を、, the work we hold. One-part name, no split.
     reading_pass: 2
     reading_reviewed: '2026-08-04'
@@ -25517,10 +24447,6 @@ names:
     reading: ハシモト ミツル
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハシモト ミツル
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       "さらば友よ = Adieu l'amie" (新書館).
     reading_pass: 4
@@ -25688,10 +24614,6 @@ names:
     reading: キッタ イズミ
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: キッタ イズミ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'リバティ = LIBERTY' (KADOKAWA).
     reading_pass: 4
@@ -25734,10 +24656,6 @@ names:
     reading: ヒノハラ フキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ヒノハラ フキ
     reading_family: ヒノハラ
     reading_given: フキ
     reading_note: Guess confirmed. 18 講談社 records, including the example work タダでは抱かれません.
@@ -25775,10 +24693,6 @@ names:
     reading: ヒヤマ ユキ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヒヤマ ユキ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       '妄想アカデミズム\u3000１' (芳文社).
     reading_pass: 4
@@ -25813,10 +24727,6 @@ names:
     reading: サクライ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: サクライ
     reading_note: The record is 魔王と百合 itself, KADOKAWA. Creator index for 櫻井 is useless, hundreds of unrelated
       people; the title query pins it.
     reading_pass: 4
@@ -25927,10 +24837,6 @@ names:
     reading: タケワカマル
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タケワカマル
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       '紅蓮紀 2' (一迅社).
     reading_pass: 4
@@ -25993,10 +24899,6 @@ names:
     reading: ドクタ ペパコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ドクタ ペパコ
     reading_family: ドクタ
     reading_given: ペパコ
     reading_note: Confirms the guess. 30 exact matches.
@@ -26088,10 +24990,6 @@ names:
     reading: ミズヤマ メロ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ミズヤマ メロ
     reading_note: KADOKAWA, the example work 恋色の境界 itself.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -26122,10 +25020,6 @@ names:
     reading: ミズモリタカシ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ミズモリ タカシ
     reading_note: MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       'ファインプレー!'. It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -26181,10 +25075,6 @@ names:
     reading: ミナセ ルルウ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ミナセ ルル ウ
     reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
       ''これはよい抱き枕 : 水瀬るるう百合作品集'' (芳文社).'
     reading_pass: 4
@@ -26203,10 +25093,6 @@ names:
     reading: ミナセ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ミナセ
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''植物モンスター娘日記 ～聖女だった私が裏切られた果てにアルラウネに転生してしまったので、これからは光合成をしながら静かに植物ライフを過ごします～''. The shop is a
       retailer and does not say where its kana came from, so this is weighed and not attributed: what
@@ -26217,6 +25103,22 @@ names:
     reading_source: まんが王国
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/37762
+    verified: false
+  水谷悠珠:
+    basis: romaji
+    furigana_spans:
+    - - 水谷
+      - みずたに
+    - - 悠珠
+      - ゆず
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ミズタニ ユズ
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
     verified: false
   水野英多:
     basis: romaji
@@ -26325,10 +25227,6 @@ names:
     reading: ヒカワ ショウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヒカワ ショウ
     reading_note: Guess confirmed. 双葉社, 大好きな親友がVチューバーの自分にガチ恋してた話, the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -26343,10 +25241,6 @@ names:
     reading: ナガイサブロウ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナガイ サブロウ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       '深潭回廊' (ふゅーじょんぷろだくと). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -26411,10 +25305,6 @@ names:
     reading: ナガタサンズイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナガタ 　 サンズイ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'ライバルアライバル' (KADOKAWA). It replaces 'ナガタ \u3000 サンズイ', which no source had stated.
     reading_pass: 4
@@ -26435,10 +25325,6 @@ names:
     reading: ナガタ サンズイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナガタ サンズイ
     reading_note: KADOKAWA, ライバルアライバル, the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -26553,10 +25439,6 @@ names:
     reading: エジマ エリ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: エジマ エリ
     reading_note: Guess confirmed. 26 records including the example work 対ありでした。 (KADOKAWA) and 少女決戦オルギア.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -26576,10 +25458,6 @@ names:
     reading: エガワ ヒロミ
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: エガワ ヒロミ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ゆりにんレズビアンカップル妊活奮闘記' (ぶんか社).
     reading_pass: 4
@@ -26639,10 +25517,6 @@ names:
     reading: イケダ リヨコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イケダ リヨコ
     reading_note: MADB records this reading beside the credit on 93 record(s) of the pinned release, e.g.
       'ベルばらKids' (朝日新聞出版). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -26801,10 +25675,6 @@ names:
     reading: コウノスイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: コウノ スイ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'LALA THE MEMORY COLLECTOR' (チャールズ・イー・タトル出版). It agrees with the reading already held, which no
       source had stated.
@@ -26833,10 +25703,6 @@ names:
     reading: ヌマ チヨコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ヌマ チヨコ
     reading_family: ヌマ
     reading_given: チヨコ
     reading_note: Guess confirmed. 38 records including the example work ないしょのおふたりさま。(KADOKAWA).
@@ -26853,10 +25719,6 @@ names:
     reading: ヌマチドロマル
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヌマチ ドロ マル
     reading_note: MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       '生きてるだけでえらい!ってハイネさんが言うから' (KADOKAWA). It agrees with the reading already held, which no source had
       stated.
@@ -26910,10 +25772,6 @@ names:
     reading: ハタ ヒロ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハタ ヒロ
     reading_note: record is volume 2 of the example work
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -26998,10 +25856,6 @@ names:
     reading: リュウサ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: リュウサ
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''奈緒と碧～二人の恋愛物語～''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -27019,10 +25873,6 @@ names:
     reading: ジョウド ルル
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ジョウドルル
     reading_note: From the 月刊!スピリッツ issue index, same magazine family as 由花緒リニューアル. NDL also carries ヘブンの天秤
       as 浄土, るる / ジョウド, ルル. Only the word split changes.
     reading_pass: 4
@@ -27095,10 +25945,6 @@ names:
     reading: アサミ ユリコ
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アサミ ユリコ
     reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
       ''奏 : 青春バンド百合アンソロジー'' (KADOKAWA).'
     reading_pass: 4
@@ -27138,10 +25984,6 @@ names:
     reading: アサノ タツヤ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アサノ タツヤ
     reading_note: heading from 指輪物語 浅野龍哉作品集, the artist who also works with 大塚英志
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -27168,10 +26010,6 @@ names:
     reading: ハマユミバ ソウ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ハマユミバ ソウ
     reading_family: ハマユミバ
     reading_given: ソウ
     reading_note: おちこぼれフルーツタルト, 芳文社, the database's own work. Around 100 aligned records.
@@ -27188,10 +26026,6 @@ names:
     reading: ハマユミバソウ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハマユミバ ソウ
     reading_note: MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       '魔女の花屋さん' (講談社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -27241,10 +26075,6 @@ names:
     reading: ウキアシ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ウキアシ
     reading_note: Guess confirmed. 終のおもまる (講談社), 浮足 → ウキアシ. One-element pen name, no space.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -27327,10 +26157,6 @@ names:
     reading: カイサンブツ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カイサンブツ
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''無限のスキルゲッター！''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -27348,10 +26174,6 @@ names:
     reading: エビガワケイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: エビガワ ケイ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '魔女まじょs-witch' (芳文社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -27389,10 +26211,6 @@ names:
     reading: カイセンドン
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カイセンドン
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''大人ごっこ''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -27413,10 +26231,6 @@ names:
     reading: ショウカキ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ショウカキ
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''だいすきなお従兄ちゃんにきもちいいことたくさん教えられちゃいました。【TL版】''. The shop is a retailer and does not say where
       its kana came from, so this is weighed and not attributed: what is being recorded is that the shop
@@ -27479,10 +26293,6 @@ names:
     reading: スズカゼ ソラ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: スズカゼ ソラ
     reading_family: スズカゼ
     reading_given: ソラ
     reading_note: 別冊少年マガジン 2025年12月号 contributor list, last entry, consistent with a new one-shot. Confirms
@@ -27505,10 +26315,6 @@ names:
     reading: フカヤマ ハナ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フカヤマ ハナ
     reading_note: openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
       '来陽と青梅 1' (秋田書店).
     reading_pass: 4
@@ -27534,10 +26340,6 @@ names:
     reading: フカガワ カスミ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フカガワ カスミ
     reading_family: フカガワ
     reading_note: Guess confirmed. 集英社, ゾンビランドサガ外伝.
     reading_pass: 4
@@ -27572,10 +26374,6 @@ names:
     reading: フカツ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フカツ
     reading_note: 'Guess was right. Positional pairing on 紗痲 Fallin'' Jail【分冊版】1: 深津 / 煮ル果実 / WOOMA to
       フカツ / ニルカジツ / ウーマ.'
     reading_pass: 4
@@ -27645,10 +26443,6 @@ names:
     reading: シブヤケイイチロウ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シブヤ ケイイチロウ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       '瑠璃の宝石' (KADOKAWA). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -27669,10 +26463,6 @@ names:
     reading: ワタリニフネ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ワタリニ フネ
     reading_family: ワタリニ
     reading_given: フネ
     reading_note: Guess confirmed apart from spacing. 30 KADOKAWA records of the example work しまいずまい,
@@ -27695,10 +26485,6 @@ names:
     reading: ワタナベ レイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ワタナベ レイ
     reading_note: heading is from きみと観たいレースがある; the same writer is credited 原作 on サバーキ
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -27893,10 +26679,6 @@ names:
     reading: ハマダ ミフミ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハマダミ フミ
     reading_note: Guess put the boundary one mora late. KADOKAWA, 前略、山暮らしを始めました。; the same artist is credited
       with the example work はるい駈歩 on the BOOK☆WALKER author page.
     reading_pass: 4
@@ -27959,10 +26741,6 @@ names:
     reading: セタ セタ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: セタセタ
     reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
       ''百合鍵 : 先輩の秘密をのぞいてみた'' (KADOKAWA).'
     reading_pass: 4
@@ -27999,10 +26777,6 @@ names:
     reading: カジヤ
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カジヤ
     reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       '盆百千栽' (講談社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -28021,10 +26795,6 @@ names:
     reading: ヒカゲン
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヒカゲン
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''社会人百合スゥとアメ【合併版】''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -28045,10 +26815,6 @@ names:
     reading: カヨウ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カヨウ
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''ちょっといっぱい！''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -28071,10 +26837,6 @@ names:
     reading: ヒノ ハルト
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヒノ ハルト
     reading_note: openBD carries this reading as the publisher's own collationkey on 7 volume(s), e.g.
       'たくのみ。. 1' (小学館).
     reading_pass: 4
@@ -28135,10 +26897,6 @@ names:
     reading: ハイダ コウコウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハイダ コウコウ
     reading_note: 講談社; NDL also holds 灰かぶりの天使, the example work, and スインギンドラゴンタイガーブギ. Confirms the guess.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -28218,10 +26976,6 @@ names:
     reading: ヤキニク テイショク
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ヤキニク テイショク
     reading_family: ヤキニク
     reading_given: テイショク
     reading_note: Guess confirmed.
@@ -28238,10 +26992,6 @@ names:
     reading: ニル カジツ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ニ ル カジツ
     reading_note: record is the example work; NDL's own spacing
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -28259,10 +27009,6 @@ names:
     reading: ニジル
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ニジル
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'クダンノフォークロア = FOLKLORE OF KUDAN' (講談社 (発売)).
     reading_pass: 4
@@ -28329,10 +27075,6 @@ names:
     reading: カタクラ アコ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カタクラ アコ
     reading_note: openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
       '明日の君に花束を' (一迅社).
     reading_pass: 4
@@ -28387,10 +27129,6 @@ names:
     reading: イヌマル
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イヌマル
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '演劇部の魔女と騎士 = WITCH MEETS KNIGHT' (新書館).
     reading_pass: 4
@@ -28432,10 +27170,6 @@ names:
     reading: イヌイ アユ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: イヌイ アユ
     reading_corroborated:
     - コミックシーモア, クロスフォリオ出版
     reading_family: イヌイ
@@ -28472,10 +27206,6 @@ names:
     reading: イヌイナギ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イヌイ ナギ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       "すぴぱらgirl's diary" ([頒布]角川グループパブリッシング). It agrees with the reading already held, which no source
       had stated.
@@ -28497,10 +27227,6 @@ names:
     reading: イヌヤマ アム
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イヌヤマ アム
     reading_note: Guess confirmed. KADOKAWA, 大崎さんと小森さん, the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -28557,10 +27283,6 @@ names:
     reading: イヌカイ アンズ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イヌカイ アンズ
     reading_note: Guess was right. The example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -28579,10 +27301,6 @@ names:
     reading: キツネガサキ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: キツネガサキ
     reading_note: ドM女子とがっかり女王様, KADOKAWA, the database's own work. One unit, no family/given boundary.
     reading_pass: 2
     reading_reviewed: '2026-08-05'
@@ -28685,10 +27403,6 @@ names:
     reading: ネコニャン
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ネコ ニャン
     reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       'Vドライブ!' (芳文社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -28704,10 +27418,6 @@ names:
     reading: ネコヤシキ プシオ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ネコヤシキプ シオ
     reading_note: 'Positional pairing: 入間　人間 / 猫屋敷　ぷしお to イルマ　ヒトマ / ネコヤシキ　プシオ.'
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -28810,10 +27520,6 @@ names:
     reading: ネコメ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ネコメ
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''君の膝の上で死にたかった''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -28984,10 +27690,6 @@ names:
     reading: クガ ツニヤ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クガ ツニヤ
     reading_note: Guess confirmed. Four KADOKAWA and 双葉社 records. A DMM store listing independently writes
       玖珂ツニヤ(くがつにや); the two agree.
     reading_pass: 4
@@ -29003,10 +27705,6 @@ names:
     reading: タマナ ニニコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タマ ナ ニ ニコ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '新人女性漫画家がネットセックスに沼ってVTuberになった話' (光文社).
     reading_pass: 4
@@ -29046,10 +27744,6 @@ names:
     reading: タマキ ミツネ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タマキ ミツネ
     reading_note: Guess was right. Positional pairing on the example work's volume 1.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -29087,10 +27781,6 @@ names:
     reading: タクマ ミユウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: タクマ ミユウ
     reading_family: タクマ
     reading_given: ミユウ
     reading_note: Guess confirmed. KADOKAWA, 旦那の同僚がエルフかもしれません, and the 学園アイドルマスター anthology.
@@ -29142,10 +27832,6 @@ names:
     reading: ルカコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ルカコ
     reading_note: Record is for フレンドガールフレンド, the work we hold. One-part name.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -29186,10 +27872,6 @@ names:
     reading: アマトウ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: アマトウ
     reading_note: となりの吸血鬼さん, KADOKAWA, the database's own work. Replaces the stored value, which was back-converted
       from a mangaupdates romanisation.
     reading_pass: 2
@@ -29244,10 +27926,6 @@ names:
     reading: アマザキ スイカ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: アマザキ スイカ
     reading_family: アマザキ
     reading_given: スイカ
     reading_note: Guess confirmed.
@@ -29312,10 +27990,6 @@ names:
     reading: タナカ コメ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タナカ コメ
     reading_note: Guess confirmed. 25 records, all the example work Killer Twinkle (秋田書店); the collected
       volume gives 田中, こめ → タナカ, コメ.
     reading_pass: 4
@@ -29336,10 +28010,6 @@ names:
     reading: タナカ マサミ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タナカ マサミ
     reading_note: 22 records for the example series give タナカマサミ; space from the written name
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -29359,10 +28029,6 @@ names:
     reading: タナカ タカシ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タナカ タカシ
     reading_note: heading 田中, 天, 1977-, the tabletop RPG writer behind ナイトウィザード and アリアンロッド; birth year
       dropped
     reading_pass: 4
@@ -29378,10 +28044,6 @@ names:
     reading: タナカ カガ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タナカ カ ガ
     reading_note: The analyser split 火蛾 into two words. 講談社 アフタヌーン records; the example work is on コミックDAYS,
       the same publisher.
     reading_pass: 4
@@ -29419,10 +28081,6 @@ names:
     reading: タナカ ミノル
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タナカ ミノル
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'メッてされてキャッ' (一迅社).
     reading_pass: 4
@@ -29460,10 +28118,6 @@ names:
     reading: タグチ ショウイチ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: タグチ ショウイチ
     reading_family: タグチ
     reading_given: ショウイチ
     reading_note: 29 exact matches. MADB agrees (一迅社 / 田口囁一 / イチジンシャ / タグチショウイチ).
@@ -29519,10 +28173,6 @@ names:
     reading: ユイ ヒナコ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ユイ ヒナコ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ぱすてるディズ' (一迅社).
     reading_pass: 4
@@ -29625,10 +28275,6 @@ names:
     reading: タタミ ユカ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タタミ ユカ
     reading_note: Record is for まるせっせんす 1, the work we hold, and it carries the space itself.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -29684,10 +28330,6 @@ names:
     reading: シライ モモキチ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シライ モ モ キチ
     reading_note: Same kana, but the stored value is mis-segmented into four pieces.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -29745,10 +28387,6 @@ names:
     reading: シラカワ スミレ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シラカワ スミレ
     reading_note: Guess confirmed. 講談社, 阿久津さんは推しに似ている, the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -29847,10 +28485,6 @@ names:
     reading: シラタマモチ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シラタマモチ
     reading_note: わたしはサキュバスとキスをした【分冊版】, KADOKAWA, the database's own work. Around 20 aligned 分冊版 records;
       the self-published 白玉もち deposits carry no transcription.
     reading_pass: 4
@@ -29888,10 +28522,6 @@ names:
     reading: シラノアキヒロ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シラノ   アキヒロ
     reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       'しゅがー・みーつ・がーる!' (芳文社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -29917,10 +28547,6 @@ names:
     reading: シラノ アキヒロ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: シラノ アキヒロ
     reading_family: シラノ
     reading_given: アキヒロ
     reading_note: Guess confirmed. 10 records including the example work しゅがー・みーつ・がーる! (芳文社) and アマテラスさんはひきこもりたい!
@@ -29943,10 +28569,6 @@ names:
     reading: モモノ モト
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: モモノ モト
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'レイニーソング' (一迅社).
     reading_pass: 4
@@ -30055,10 +28677,6 @@ names:
     reading: メダマヤキ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: メダマヤキ
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''悪姫の後宮華演''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -30081,10 +28699,6 @@ names:
     reading: アイザキ ウタウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アイザキ ウタウ
     reading_note: Guess confirmed. 11 records including 幼なじみが絶対に結ばれる百合アンソロジー (一迅社) and どうして私が美術科に!? (芳文社).
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -30135,10 +28749,6 @@ names:
     reading: シンクン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シンクン
     reading_note: Record is for 恋と呼ぶには青すぎる, the work we hold. One-part name.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -30158,10 +28768,6 @@ names:
     reading: サナダ ハイジ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: サナダ ハイジ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '私に体、売ってみない?' (講談社).
     reading_pass: 4
@@ -30220,10 +28826,6 @@ names:
     reading: マノ ロカ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: マノ ロカ
     reading_note: Guess confirmed. Two 講談社 records (ゆーあーすらっがー, ヤングマガジン 2026年35号). NDL writes マノロカ unbroken;
       the boundary shown here follows the kanji/hiragana break in the name itself.
     reading_pass: 4
@@ -30281,10 +28883,6 @@ names:
     reading: ヤサカ シュウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ヤサカ シュウ
     reading_family: ヤサカ
     reading_given: シュウ
     reading_note: 竹書房; the same index holds バカに告白【分冊版】, the example work.
@@ -30438,10 +29036,6 @@ names:
     reading: イワミ ショウコ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イワミ ショウコ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'Flower*flower 1' (一迅社).
     reading_pass: 4
@@ -30511,10 +29105,6 @@ names:
     reading: ハガ ミチル
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハ ガ ミチル
     reading_note: record is the example work
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -30534,10 +29124,6 @@ names:
     reading: イソモト ツヨシ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イソモト ツヨシ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ガールズライド' (芳文社).
     reading_pass: 4
@@ -30708,10 +29294,6 @@ names:
     reading: フクイ ハルカ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フクイ ハルカ
     reading_note: The same page gives the furigana as 福井 遥香（ふくい はるか）. It agrees with the reading already
       shown, which until now rested on an analyser.
     reading_pass: 4
@@ -30727,10 +29309,6 @@ names:
     reading: フクハラヒロコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フクハラ ヒロコ
     reading_note: MADB records this reading beside the credit on 27 record(s) of the pinned release, e.g.
       '従姉ヴァレリア' ([発売]集英社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -30762,10 +29340,6 @@ names:
     reading: フクダヒロシ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フクダ ヒロシ
     reading_note: MADB records this reading beside the credit on 324 record(s) of the pinned release,
       e.g. 'ロックは淑女の嗜みでして' (白泉社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -30786,10 +29360,6 @@ names:
     reading: アキ 60
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アキ 60
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '同じ所で眠るまで待って = Wait until I sleep in the same place with you' (新書館).
     reading_pass: 4
@@ -30810,10 +29380,6 @@ names:
     reading: アキヤマ ハル
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アキヤマ ハル
     reading_note: openBD carries this reading as the publisher's own collationkey on 6 volume(s), e.g.
       'オクターヴ vol.4' (講談社).
     reading_pass: 4
@@ -30859,10 +29425,6 @@ names:
     reading: アキヅキ ルコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アキヅキ ルコ
     reading_note: AKIDZUKI is her own romanisation of 秋月, so the reading is アキヅキ and not アキツキ. It agrees
       with the reading already shown, which no source had stated.
     reading_pass: 4
@@ -31057,10 +29619,6 @@ names:
     reading: ソラヤマ トキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ソラヤマ トキ
     reading_note: Guess was right.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -31080,10 +29638,6 @@ names:
     reading: ウツギ ホコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ウツギ ホコ
     reading_note: '異類の友: 空木帆子よみきり集, 小学館.'
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -31124,10 +29678,6 @@ names:
     reading: マドグチ モト
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: マドグチ モト
     reading_note: Guess confirmed. 14 records including the example work 多良さんのウワサ and 東京入星管理局.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -31142,10 +29692,6 @@ names:
     reading: タケウチサチコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タケウチ サチコ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '歌舞伎町カラオケ店員としくにさん' (講談社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -31190,10 +29736,6 @@ names:
     reading: タケミヤ ジン
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: タケミヤ ジン
     reading_family: タケミヤ
     reading_given: ジン
     reading_note: Record is for the example work いとしこいし. 19 records, all agreeing.
@@ -31245,10 +29787,6 @@ names:
     reading: タケシマ エク
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: タケシマ エク
     reading_family: タケシマ
     reading_given: エク
     reading_note: Guess confirmed. 32 records, the example work ささやくように恋を唄う and 君に好きっていわせたい (both 一迅社).
@@ -31265,10 +29803,6 @@ names:
     reading: ササ トウゴロウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ササ トウ ゴロウ
     reading_note: Kana were right, the boundary was in the wrong place.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -31320,10 +29854,6 @@ names:
     reading: ツツイ イツキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ツツイ イツキ
     reading_note: Several NDL records agree (アウトフィット, 夜嵐にわらう, この愛を終わらせてくれないか). None is the work we hold,
       so identity rests on the pen name alone.
     reading_pass: 4
@@ -31344,10 +29874,6 @@ names:
     reading: ツツイ テツ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ツツイ テツ
     reading_note: Guess was right. 推しが隣で授業に集中できない!, the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -31417,10 +29943,6 @@ names:
     reading: ヤツボ ミキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヤツボ ミキ
     reading_note: 廻天のアルバス, 小学館. Also credited in サンデーmini, matching the Sunday context of the example
       work.
     reading_pass: 4
@@ -31576,10 +30098,6 @@ names:
     reading: ヨネダ タロウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヨネダ タロウ
     reading_note: record is the example work
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -31659,10 +30177,6 @@ names:
     reading: コウジ モロミ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: コウジ モロミ
     reading_note: record is the example work
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -31751,10 +30265,6 @@ names:
     reading: スミレ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: スミレ
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''じゃあワンナイトってことで''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -31824,10 +30334,6 @@ names:
     reading: シノア
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: シノア
     reading_note: Guess confirmed. 49 records, the example work この恋を星には願わない (KADOKAWA) and 帰り道 (祥伝社).
       One-element pen name, no space.
     reading_pass: 2
@@ -31843,10 +30349,6 @@ names:
     reading: ツムギメメ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ツムギ   メメ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'ひなちゃんが生きてるなら' ([頒布]講談社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -31872,10 +30374,6 @@ names:
     reading: ツムギ メメ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ツムギ メメ
     reading_family: ツムギ
     reading_given: メメ
     reading_note: Record is for ひなちゃんが生きてるなら, the work we hold.
@@ -31906,10 +30404,6 @@ names:
     reading: コンイロ 3ゴウ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: コンイロ 3 ゴウ
     reading_note: openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g.
       '同級生の推し作家に百合妄想がバレた結果 1' (講談社 (発売)).
     reading_pass: 4
@@ -31971,10 +30465,6 @@ names:
     reading: コンノ キタ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: コンノ キタ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '女の子の設計図 = Drawing of a girl' (新書館).
     reading_pass: 4
@@ -32063,10 +30553,6 @@ names:
     reading: ユイノ チリ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ユイノ チリ
     reading_family: ユイノ
     reading_given: チリ
     reading_note: Guess confirmed. KADOKAWA, お菊さんはいちゃ憑きたい, the example work.
@@ -32093,10 +30579,6 @@ names:
     reading: エモト ナオ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: エモト ナオ
     reading_note: Guess was right.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -32175,10 +30657,6 @@ names:
     reading: アヤセ レツ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: アヤセ レツ
     reading_family: アヤセ
     reading_given: レツ
     reading_note: Guess confirmed. 21 records including the example work ギャングスタガールズ (KADOKAWA).
@@ -32200,10 +30678,6 @@ names:
     reading: アヤセ マナ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アヤセ マナ
     reading_note: openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
       '悪戯ちょうちょ 1' (双葉社).
     reading_pass: 4
@@ -32407,10 +30881,6 @@ names:
     reading: オリヒ チヒロ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: オリヒ チヒロ
     reading_family: オリヒ
     reading_given: チヒロ
     reading_note: Guess confirmed. 一迅社, スピカをつかまえて, the example work.
@@ -32565,10 +31035,6 @@ names:
     reading: ハシバ ミサト
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハシバ ミサト
     reading_note: record is the example work, paired with zinbei ジンベエ; space from the written name
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -32718,10 +31184,6 @@ names:
     reading: ニクマル
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ニクマル
     reading_note: Guess confirmed. 22 小学館 records of アイツノカノジョ. A separate NDL heading ニクマル, ミカコ exists
       for a fashion illustrator; that is a different person, with 1960s–70s art books rather than manga.
     reading_pass: 2
@@ -32790,10 +31252,6 @@ names:
     reading: ノシロ リョウ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ノシロ リョウ
     reading_note: record is the example work
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -32813,10 +31271,6 @@ names:
     reading: クラウチ ニガツ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クラウチ ニガツ
     reading_note: Guess confirmed, which is a surprise given 臓内.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -32836,10 +31290,6 @@ names:
     reading: ウスイ トモミ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ウスイ トモミ
     reading_note: Guess was right.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -32924,10 +31374,6 @@ names:
     reading: ハンニャ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハンニャ
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''キャッチャー・イン・ザ・ライム''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -32972,10 +31418,6 @@ names:
     reading: シバウラ ハルミ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シバウラ ハルミ
     reading_note: KADOKAWA, サバイブとマリーミー, 36 aligned records. Only 芝浦晴海 in NDL and a manga artist.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -32995,10 +31437,6 @@ names:
     reading: アクタ フミエ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アクタ フミエ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '妹ができました。' (新書館).
     reading_pass: 4
@@ -33038,10 +31476,6 @@ names:
     reading: ハナガタ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハナ ガ タ
     reading_note: Artist's own pixiv account is hanagata. One unit, no family/given boundary. NDL's 創成魔法の再現者
       record agrees (https://ndlsearch.ndl.go.jp/books/R100000137-I9784824017659); NDL's 私の推しは悪役令嬢。連載版
       records say ハナケダ and are wrong.
@@ -33063,10 +31497,6 @@ names:
     reading: ハナミヤ ミィ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハナミヤミ ィ
     reading_note: heading is from 芳文社 titles, matched on the pen name only
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -33087,10 +31517,6 @@ names:
     reading: ハナカゲ アルト
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハナカゲ アル ト
     reading_family: ハナカゲ
     reading_note: Guess confirmed apart from spacing. 15 KADOKAWA records of the example work オンニって呼んでもいいですか？.
     reading_pass: 4
@@ -33131,10 +31557,6 @@ names:
     reading: ハナタバ ソウシキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ハナタバ ソウシキ
     reading_note: 芳文社; also マダム表裏の恋愛サロン.
     reading_pass: 2
     reading_reviewed: '2026-08-04'
@@ -33182,10 +31604,6 @@ names:
     reading: メルモ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: メルモ
     reading_note: Guess confirmed. 12 KADOKAWA records of the example work らぶぶいっ！. One name, no boundary.
     reading_pass: 2
     reading_reviewed: '2026-08-04'
@@ -33200,10 +31618,6 @@ names:
     reading: ナエカワサイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナエカワ 　 サイ
     reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       '私を喰べたい、ひとでなし' (KADOKAWA). It replaces 'ナエカワ \u3000 サイ', which no source had stated.
     reading_pass: 4
@@ -33229,10 +31643,6 @@ names:
     reading: ナエカワ サイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナエカワ サイ
     reading_note: Guess confirmed. 142 records, the example work 私を喰べたい、ひとでなし and 後宮一番の悪女 (both KADOKAWA).
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -33294,10 +31704,6 @@ names:
     reading: ワカドリ ニコミ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ワカドリ ニ コミ
     reading_note: Guess wrong in its boundaries. Six 芳文社 records (かみねぐしまい, ぎんしお少々) plus KADOKAWA 残光再撮,
       the example work.
     reading_pass: 4
@@ -33314,10 +31720,6 @@ names:
     reading: ワカ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ワカ
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''生徒指導のセンパイ''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -33402,10 +31804,6 @@ names:
     reading: モギ サヤカ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: モギ サヤカ
     reading_family: モギ
     reading_given: サヤカ
     reading_note: 双葉社 青の母, plus ITAN issues and ガールミートガール, the example work. Note this is モギ, not モテギ.
@@ -33434,10 +31832,6 @@ names:
     reading: アカネリウ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アカネ 　 リウ
     reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       'はなまるゲーセン飯!!' (芳文社). It replaces 'アカネ \u3000 リウ', which no source had stated.
     reading_pass: 4
@@ -33532,10 +31926,6 @@ names:
     reading: アラキ ミサキ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: アラキ ミサキ
     reading_family: アラキ
     reading_given: ミサキ
     reading_note: クラスのアイドルは今日も推せない, KADOKAWA, the database's own work. The only other record under the
@@ -33580,10 +31970,6 @@ names:
     reading: スガワラ コユビ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: スガワラ コユビ
     reading_note: record is the example work
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -33603,10 +31989,6 @@ names:
     reading: スガワラ キク
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: スガワラ キク
     reading_note: openBD carries this reading as the publisher's own collationkey on 13 volume(s), e.g.
       'マザーグール 1' (徳間書店).
     reading_pass: 4
@@ -33690,10 +32072,6 @@ names:
     reading: ハギノマコト
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハギノ   マコト
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       '窓辺のリノア' (KADOKAWA). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -33723,10 +32101,6 @@ names:
     reading: カツラギ カナデ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カツラギ カ ナデ
     reading_note: 26 records. The example work 君となら、明日を歌えるの (KADOKAWA) gives 葛城, かなで → カツラギ, カナデ, and
       あなたのキスで書きかえて (講談社) agrees. Only the guess's word split was wrong.
     reading_pass: 4
@@ -33839,10 +32213,6 @@ names:
     reading: アオイ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アオイ
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''初恋の人との晴れの日に令嬢は裏切りを知る''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -33924,10 +32294,6 @@ names:
     reading: ヨモギモチ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ヨモギモチ
     reading_note: openBD carries this reading as the publisher's own collationkey on 6 volume(s), e.g.
       '百合にはさまる男は死ねばいい!? 1' (幻冬舎).
     reading_pass: 4
@@ -33984,10 +32350,6 @@ names:
     reading: ハスオ トウト
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハスオ トウト
     reading_note: Confirms the guess. 20 exact matches.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -34007,10 +32369,6 @@ names:
     reading: ザオウ タイシ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ザオウ タイシ
     reading_note: Guess was right.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -34028,10 +32386,6 @@ names:
     reading: フキ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フキ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'スターライトメロディ' (一迅社).
     reading_pass: 4
@@ -34047,10 +32401,6 @@ names:
     reading: フキヤモジ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フキヤ モジ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '保健室の鍵閉めてっ\u3000１' (芳文社).
     reading_pass: 4
@@ -34154,10 +32504,6 @@ names:
     reading: フジ タマキ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フジ タマキ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'この世にただひとり = only my girl in the world' (新書館).
     reading_pass: 4
@@ -34232,10 +32578,6 @@ names:
     reading: フジイ ニコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フジイ ニコ
     reading_note: Guess was right. 夜のクラゲは泳げない, the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -34250,10 +32592,6 @@ names:
     reading: フジサキ ロト
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フジサキ ロ ト
     reading_note: 双葉社; also VTuberなんだが配信切り忘れたら伝説になってた. Same kana, one word not two.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -34287,10 +32625,6 @@ names:
     reading: フジモトレモチ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フジモト 　レモチ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '真先輩の前ではかっこつけられない!' (KADOKAWA). It replaces 'フジモト \u3000レモチ', which no source had stated.
     reading_pass: 4
@@ -34306,10 +32640,6 @@ names:
     reading: フジモト レモチ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フジモトレモチ
     reading_note: Guess confirmed, and NDL supplies the boundary. KADOKAWA, 真先輩の前ではかっこつけられない!, the example
       work.
     reading_pass: 4
@@ -34330,10 +32660,6 @@ names:
     reading: フジモト セツナ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フジモト セツナ
     reading_note: Guess confirmed. 12 KADOKAWA records of the example work 堕天使そぷらのちゃんの復讐.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -34365,10 +32691,6 @@ names:
     reading: フジマツ メイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フジマツ   メイ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ネイルちゃんと深爪さん。 ナイショのパフェを半分こ編' (宙出版).
     reading_pass: 4
@@ -34394,10 +32716,6 @@ names:
     reading: フジマツ メイ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フジマツ メイ
     reading_note: Guess confirmed. 71 records, the example work 姉の親友、私の恋人。and おにふたつ (both KADOKAWA).
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -34454,10 +32772,6 @@ names:
     reading: フジタ ナオキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: フジタ ナオキ
     reading_family: フジタ
     reading_given: ナオキ
     reading_note: The creator index is dominated by academic namesakes. Identity fixed by BEAT & MOTION,
@@ -34561,10 +32875,6 @@ names:
     reading: ムシバ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ムシバ
     reading_note: Guess confirmed. 30 records, including ホーム社 and several BL and yuri anthologies where
       this artist appears alongside others. One name, no boundary.
     reading_pass: 4
@@ -34585,10 +32895,6 @@ names:
     reading: カヤ リク
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カヤ リク
     reading_note: From the 別冊少年マガジン 2025年8月号 contributor index, which gives カヤリク. Split follows the kanji
       boundary.
     reading_pass: 4
@@ -34704,10 +33010,6 @@ names:
     reading: ハカマダダルマ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ハカマダ ダルマ
     reading_note: ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
       and the work is published on it. It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -34812,10 +33114,6 @@ names:
     reading: ニシ UKO
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ニシ UKO
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'となりのロボット = Tonari no Robot.' (秋田書店).
     reading_pass: 4
@@ -34836,10 +33134,6 @@ names:
     reading: ニシ アスカ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ニシ アスカ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'いつかみのれば 1' (講談社).
     reading_pass: 4
@@ -34871,10 +33165,6 @@ names:
     reading: ニシノセ イトマ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ニシノ セ イトマ
     reading_note: Guess right on the kana, wrong on the boundary. Three 講談社 なかよし issues, the magazine
       the example work ran in.
     reading_pass: 4
@@ -34954,10 +33244,6 @@ names:
     reading: ニシオ ユウタ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ニシオ ユウタ
     reading_note: openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
       'アフターアワーズ = AFTER HOURS. 1' (小学館).
     reading_pass: 4
@@ -35075,10 +33361,6 @@ names:
     reading: ニシウリ ツカサ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ニシウリ ツカサ
     reading_family: ニシウリ
     reading_given: ツカサ
     reading_note: Guess confirmed. 講談社, 地雷忍者るるの失恋, plus a モーニング issue credit.
@@ -35100,10 +33382,6 @@ names:
     reading: ニシハタ ケイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ニシハタ ケイ
     reading_note: openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
       'きもちわるいから君がすき 1' (芳文社).
     reading_pass: 4
@@ -35377,10 +33655,6 @@ names:
     reading: タニガワ ニコ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タニガワ ニコ
     reading_note: 小学館, 48 aligned records including クズとメガネと文学少女〈偽〉.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -35395,10 +33669,6 @@ names:
     reading: タニムラ マリカ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タニムラ マリ カ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'Love cubic' (一迅社).
     reading_pass: 4
@@ -35482,10 +33752,6 @@ names:
     reading: アカイ ユウキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アカイ ユウキ
     reading_note: Guess confirmed. スクウェア・エニックス, 前世からの恋事情, plus スピリッツ issue credits.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -35510,10 +33776,6 @@ names:
     reading: アカギ ナツイチ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: アカギ ナツイチ
     reading_family: アカギ
     reading_given: ナツイチ
     reading_note: Guess confirmed. 芳文社, きみとボドゲが作りたい!, and a 月刊!スピリッツ issue.
@@ -35575,10 +33837,6 @@ names:
     reading: アカガシ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: アカガシ
     reading_note: 薬売りの聖女【分冊版】, KADOKAWA, paired positionally against 榛名丼 and ＣＯＭＴＡ. Same カドコミ author id
       018d6a5a-cdcf-7750-bc38-10d022c1204c as the database's たびみまん. Urology papers by 赤樫圭吾 rejected.
     reading_pass: 2
@@ -35692,10 +33950,6 @@ names:
     reading: ツジシマ モト
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ツジシマ モト
     reading_family: ツジシマ
     reading_given: モト
     reading_note: Guess confirmed. 8 records including the example work やきゅうみようよ! and 天才魔女の魔力枯れ (both
@@ -35824,6 +34078,20 @@ names:
     reading_source_kind: national-library
     reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1032871
     verified: true
+  達磨:
+    basis: romaji
+    furigana_spans:
+    - - 達磨
+      - だるま
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ダルマ
+    reading_at: '2026-08-08'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   遠井音:
     basis: romaji
     furigana_spans:
@@ -35886,10 +34154,6 @@ names:
     reading: トオノ メザ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: トオノメザ
     reading_note: バカ女26時, the example work. Kana were right, the boundary was missing.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -35907,10 +34171,6 @@ names:
     reading: シャニムニ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: シャニムニ
     reading_note: Guess confirmed. ぶんか社, もうマドレーヌはいらない. One record only; the name is a set phrase with
       no boundary.
     reading_pass: 4
@@ -35962,10 +34222,6 @@ names:
     reading: ゴウモト
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ゴウモト
     reading_note: 'Guess confirmed. The example work itself: 夜と海 (芳文社), 郷本 → ゴウモト. Also ねこだまり (芳文社) and
       破滅の恋人 (白泉社). One-element pen name, no space.'
     reading_pass: 4
@@ -36070,10 +34326,6 @@ names:
     reading: カネハラ ミズヒト
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カネハラ ミズヒト
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'Roaming. Volume1' (トゥーヴァージンズ).
     reading_pass: 4
@@ -36110,10 +34362,6 @@ names:
     reading: カネコ アル
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カネコ アル
     reading_note: Guess confirmed. Five 一迅社 records of 平良深姉妹はどっちもヤんでる, plus 集英社 ユリトラジャンプ vol.3.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -36237,10 +34485,6 @@ names:
     reading: スズキ ケンヤ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: スズキ   ケンヤ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       '蝋燭姫 1' (角川グループパブリッシング).
     reading_pass: 4
@@ -36270,10 +34514,6 @@ names:
     reading: スズキリツ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: スズキ リツ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       '考幻学入門' (KADOKAWA). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -36312,10 +34552,6 @@ names:
     reading: スズキ フミエ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: スズキ フミエ
     reading_note: Confirms the stored reading. 30 exact matches, all スズキ フミエ.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -36330,10 +34566,6 @@ names:
     reading: スズキカイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: スズキ カイ
     reading_note: MADB records this reading beside the credit on 52 record(s) of the pinned release, e.g.
       '生き物好きの安仁馬さんにはほんのちょっぴり毒がある' (KADOKAWA). It agrees with the reading already held, which no source
       had stated.
@@ -36377,10 +34609,6 @@ names:
     reading: スズノ スケ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: スズノ スケ
     reading_note: Guess confirmed. 5 records for 冥天レストラン (小学館), supplied unsplit as スズノスケ.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -36416,10 +34644,6 @@ names:
     reading: テツカズ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: テツカズ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'MAMBA' (KADOKAWA). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -36498,10 +34722,6 @@ names:
     reading: カギアナ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: カギアナ
     reading_note: Confirms the guess. MADB agrees. The book is titled ギャルメイドと悪役令嬢, the web serial 悪役令嬢とギャルメイド.
     reading_pass: 2
     reading_reviewed: '2026-08-04'
@@ -36576,10 +34796,6 @@ names:
     reading: ナガシロ ルージュ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナガシロ ルージュ
     reading_note: Guess confirmed. The example work イヴとイヴたち (ジーオーティー) and イヴとイヴ (一迅社).
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -36659,10 +34875,6 @@ names:
     reading: ナガヨリ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ナガヨリ
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''【3巻無料】異世界でスローライフを（願望）''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -36699,10 +34911,6 @@ names:
     reading: アオタヤ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アオ タヤ
     reading_note: ヤンマガWeb prints this reading under the name on its own author page. The platform is 講談社's,
       and the work is published on it. It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -36718,10 +34926,6 @@ names:
     reading: アトウ リエ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アトウ   リエ
     reading_note: openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g.
       'ナメられたくないナメカワさん 1' (講談社).
     reading_pass: 4
@@ -36742,10 +34946,6 @@ names:
     reading: アトウ リエ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アトウ リエ
     reading_note: うそつきアンドロイド, 秋田書店, recorded as 阿東, 里枝, 1991- / アトウ, リエ, 1991-. Confirms the guess.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -36806,10 +35006,6 @@ names:
     reading: アベカワキネコ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アベカワ キネコ
     reading_note: MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       '辣韮の皮' (ワニブックス). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -36834,10 +35030,6 @@ names:
     reading: ジンノウチ コウキ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ジンノウチ コウキ
     reading_note: record is the example work
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -36883,10 +35075,6 @@ names:
     reading: クマイ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クマイ
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''うさぎのふらふら''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -36952,10 +35140,6 @@ names:
     reading: アマノケイ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アマノ ケイ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '氷高先輩はかわいい' (リブレ). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -36990,10 +35174,6 @@ names:
     reading: アマミヤ メム
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アマミヤ メム
     reading_note: Guess confirmed. KADOKAWA, ド根暗少女が再生回数1億級のアイドル幽霊に憑依されました, plus 16 集英社 records of 正しい不良のはじめかた.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -37306,10 +35486,6 @@ names:
     reading: キリシマ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: キリシマ
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''白昼夢のお姉さん''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -37415,10 +35591,6 @@ names:
     reading: アオイ ハナ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アオイ ハナ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ツインケイク' (一迅社).
     reading_pass: 4
@@ -37450,10 +35622,6 @@ names:
     reading: アオキトシナオ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アオキ トシナオ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'なすのちゃわんやき' (雑草社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -37474,10 +35642,6 @@ names:
     reading: アオキ ミツエ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アオキ ミツエ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'プリンセス♥プリンセス' (一迅社).
     reading_pass: 4
@@ -37605,10 +35769,6 @@ names:
     reading: フロカワツカサ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: フロカワ ツカサ
     reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       '幼馴染をえらべない!' (スクウェア・エニックス). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -37662,10 +35822,6 @@ names:
     reading: アメノ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アメノ
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''高嶺の花はウソツキです。''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -37700,10 +35856,6 @@ names:
     reading: アンコタク
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アンコタク
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ステラ・ステップ1' (キルタイムコミュニケーション).
     reading_pass: 4
@@ -37761,10 +35913,6 @@ names:
     reading: タテヤマ ケータ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タテヤマ ケータ
     reading_note: Confirms the guess. 24 exact matches.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -37806,10 +35954,6 @@ names:
     reading: カガワ ユウサク
     reading_at: '2026-08-08'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カガワ ユウサク
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'ネイルちゃんと深爪さん。 ナイショのパフェを半分こ編' (宙出版).
     reading_pass: 4
@@ -37865,10 +36009,6 @@ names:
     reading: コマゴメピピ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: コマゴメ ピピ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'ラララボ☆' (小学館). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -37974,10 +36114,6 @@ names:
     reading: タカオジング
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タカオ ジン グ
     reading_note: MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       'くーねるまるた ぬーぼ' (小学館). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -38014,10 +36150,6 @@ names:
     reading: タカサキ ユウキ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タカサキ ユウキ
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'むげんのみなもに 1' (一迅社).
     reading_pass: 4
@@ -38038,10 +36170,6 @@ names:
     reading: タカシマ ヒロミ
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タカシマ ヒロミ
     reading_note: openBD carries this reading as the publisher's own collationkey on 7 volume(s), e.g.
       'あさがおと加瀬さん。' (新書館).
     reading_pass: 4
@@ -38062,10 +36190,6 @@ names:
     reading: タカハシ イツミ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タカハシ イツミ
     reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
       'ラブフラッグ★girls!!' (一迅社).
     reading_pass: 4
@@ -38091,10 +36215,6 @@ names:
     reading: タカハシ テツヤ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: タカハシ テツヤ
     reading_family: タカハシ
     reading_given: テツヤ
     reading_note: はつ恋、ときめきうすいほん, KADOKAWA, the database's own work, catalogued under the artist's other
@@ -38149,9 +36269,6 @@ names:
     - basis: analyser
       source: sudachi
       value: タカエス   ワタル
-    - basis: stated
-      source: MADB
-      value: タカエスヤヤ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '先生、今月どうですか' (KADOKAWA). It replaces 'タカエス   ワタル', which no source had stated.
     reading_pass: 4
@@ -38177,10 +36294,6 @@ names:
     reading: タカセ ワカ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: タカセ ワカ
     reading_note: 姉のともだち, 集英社, 55 aligned records including イブニング issues.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -38348,10 +36461,6 @@ names:
     reading: キナシ サケル
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: キナシ サケル
     reading_note: Guess confirmed. Both records are the example work 香原さんのふぇちのーと (竹書房).
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -38376,10 +36485,6 @@ names:
     reading: キリュウ スルガ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: キリュウ スルガ
     reading_note: KADOKAWA, and the record is 甘やかせ魔族ども, the example work.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -38397,10 +36502,6 @@ names:
     reading: アユ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: アユ
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''シーちゃんDEちゅ！''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -38490,10 +36591,6 @@ names:
     reading: ブリオ ミチル
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: ブリオ ミチル
     reading_family: ブリオ
     reading_given: ミチル
     reading_note: Guess confirmed. 27 records, the example work バクガタリzzZ and 篠崎くんのメンテ事情 (both KADOKAWA),
@@ -38516,10 +36613,6 @@ names:
     reading: イワシヅクシ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: イワシヅクシ
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''「愛することはない」と言われましても、そもそもその必要はございません。''. The shop is a retailer and does not say where its
       kana came from, so this is weighed and not attributed: what is being recorded is that the shop files
@@ -38538,10 +36631,6 @@ names:
     reading: トリトマト
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: トリ トマト
     reading_note: MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       '東京最低最悪最高!' (小学館). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -38673,10 +36762,6 @@ names:
     reading: カラス ピエロ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カラス ピエロ
     reading_note: Guess was already right. 87 other records give the same kana unsegmented as カラスピエロ.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -38691,10 +36776,6 @@ names:
     reading: レイ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: レイ
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''君めく夜に焦がれて''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -38720,10 +36801,6 @@ names:
     reading: コウノス サトリ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: back-converted
-      source: mangaupdates
-      value: コウノス サトリ
     reading_family: コウノス
     reading_given: サトリ
     reading_note: Guess confirmed. 13 records including うさぎはかく語りき, the example work, and 芳文社 きららファンタジア.
@@ -38805,10 +36882,6 @@ names:
     reading: ツルマル
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: ツルマル
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''夏美の身代わり日記 男子寮潜入48時間''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -38846,10 +36919,6 @@ names:
     reading: カシマコタル
     reading_at: '2026-08-06'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カシマ コタル
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       '人魚心中' (心交社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
@@ -38887,10 +36956,6 @@ names:
     reading: カユウ
     reading_at: '2026-08-08'
     reading_basis: researched
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: カユウ
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''かわいい先パイ。''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -38944,10 +37009,6 @@ names:
     reading: クロイ モリ
     reading_at: '2026-08-04'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クロ イ モリ
     reading_note: record is the example work; NDL's own spacing
     reading_pass: 4
     reading_reviewed: '2026-08-04'
@@ -39208,10 +37269,6 @@ names:
     reading: クロキリ ミサオ
     reading_at: '2026-08-05'
     reading_basis: stated
-    reading_conflicts:
-    - basis: analyser
-      source: sudachi
-      value: クロ キリ ミサオ
     reading_note: openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g.
       '水色エーテル' (一迅社).
     reading_pass: 4

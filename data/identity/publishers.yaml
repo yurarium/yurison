@@ -1,0 +1,670 @@
+# Publisher identifiers. Append-only: an id is never reassigned and never withdrawn.
+#
+# ONE NAMESPACE FOR PUBLISHERS AND DISTRIBUTORS, ruled by the project owner 2026-08-08.
+# 講談社 handling 発売 for 一迅社 is the same company in a different seat, so the seat is
+# recorded on the edge to the book and never as a second company.
+#
+# An anchor is the name with its cataloguing removed and then folded the way
+# feed/names.json folds it, NFKC with spaces removed. A merged entry keeps `merged_into`,
+# stays resolvable, and lends its anchors to the survivor, because an address published
+# once has to keep working.
+#
+# See adapters/publisher_identity.py.
+generated: 2026-08-08
+publishers:
+  - id: h00001
+    publisher: "芳文社"
+    anchors:
+      - "publisher:芳文社"
+  - id: h00002
+    publisher: "KADOKAWA"
+    anchors:
+      - "publisher:KADOKAWA"
+  - id: h00003
+    publisher: "小学館"
+    anchors:
+      - "publisher:小学館"
+  - id: h00004
+    publisher: "講談社"
+    anchors:
+      - "publisher:講談社"
+  - id: h00005
+    publisher: "キルタイムコミュニケーション"
+    anchors:
+      - "publisher:キルタイムコミュニケーション"
+  - id: h00006
+    publisher: "スクウェア・エニックス"
+    anchors:
+      - "publisher:スクウェア・エニックス"
+  - id: h00007
+    publisher: "マイクロマガジン社"
+    anchors:
+      - "publisher:マイクロマガジン社"
+  - id: h00008
+    publisher: "双葉社"
+    anchors:
+      - "publisher:双葉社"
+  - id: h00009
+    publisher: "集英社"
+    anchors:
+      - "publisher:集英社"
+  - id: h00010
+    publisher: "竹書房"
+    anchors:
+      - "publisher:竹書房"
+  - id: h00011
+    publisher: "アース・スターエンターテイメント"
+    anchors:
+      - "publisher:アース・スターエンターテイメント"
+  - id: h00012
+    publisher: "一迅社"
+    anchors:
+      - "publisher:一迅社"
+  - id: h00013
+    publisher: "秋田書店"
+    anchors:
+      - "publisher:秋田書店"
+  - id: h00014
+    publisher: "文藝春秋"
+    anchors:
+      - "publisher:文藝春秋"
+  - id: h00015
+    publisher: "ヒーローズ"
+    anchors:
+      - "publisher:ヒーローズ"
+  - id: h00016
+    publisher: "幻冬舎コミックス"
+    anchors:
+      - "publisher:幻冬舎コミックス"
+  - id: h00017
+    publisher: "マッグガーデン"
+    anchors:
+      - "publisher:マッグガーデン"
+  - id: h00018
+    publisher: "ブシロードワークス"
+    anchors:
+      - "publisher:ブシロードワークス"
+  - id: h00019
+    publisher: "ホーム社"
+    anchors:
+      - "publisher:ホーム社"
+  - id: h00020
+    publisher: "forcs"
+    anchors:
+      - "publisher:forcs"
+  - id: h00021
+    publisher: "主婦と生活社"
+    anchors:
+      - "publisher:主婦と生活社"
+  - id: h00022
+    publisher: "少年画報社"
+    anchors:
+      - "publisher:少年画報社"
+  - id: h00023
+    publisher: "朝日新聞出版"
+    anchors:
+      - "publisher:朝日新聞出版"
+  - id: h00024
+    publisher: "ブシロードメディア"
+    anchors:
+      - "publisher:ブシロードメディア"
+  - id: h00025
+    publisher: "白泉社"
+    anchors:
+      - "publisher:白泉社"
+  - id: h00026
+    publisher: "ジーオーティー"
+    anchors:
+      - "publisher:ジーオーティー"
+  - id: h00027
+    publisher: "フロンティアワークス"
+    anchors:
+      - "publisher:フロンティアワークス"
+  - id: h00028
+    publisher: "コアミックス"
+    anchors:
+      - "publisher:コアミックス"
+  - id: h00029
+    publisher: "角川書店"
+    anchors:
+      - "publisher:角川書店"
+  - id: h00030
+    publisher: "実業之日本社"
+    anchors:
+      - "publisher:実業之日本社"
+  - id: h00031
+    publisher: "ワニブックス"
+    anchors:
+      - "publisher:ワニブックス"
+  - id: h00032
+    publisher: "一二三書房"
+    anchors:
+      - "publisher:一二三書房"
+  - id: h00033
+    publisher: "ぶんか社"
+    anchors:
+      - "publisher:ぶんか社"
+  - id: h00034
+    publisher: "トゥーヴァージンズ"
+    anchors:
+      - "publisher:トゥーヴァージンズ"
+  - id: h00035
+    publisher: "リイド社"
+    anchors:
+      - "publisher:リイド社"
+  - id: h00036
+    publisher: "ホビージャパン"
+    anchors:
+      - "publisher:ホビージャパン"
+  - id: h00037
+    publisher: "祥伝社"
+    anchors:
+      - "publisher:祥伝社"
+  - id: h00038
+    publisher: "GANMA!"
+    anchors:
+      - "publisher:GANMA!"
+  - id: h00039
+    publisher: "とりからの巣"
+    anchors:
+      - "publisher:とりからの巣"
+  - id: h00040
+    publisher: "ナンバーナイン"
+    anchors:
+      - "publisher:ナンバーナイン"
+  - id: h00041
+    publisher: "徳間書店"
+    anchors:
+      - "publisher:徳間書店"
+  - id: h00042
+    publisher: "ひみつせらぴー"
+    anchors:
+      - "publisher:ひみつせらぴー"
+  - id: h00043
+    publisher: "ポルリン"
+    anchors:
+      - "publisher:ポルリン"
+  - id: h00044
+    publisher: "クロスフォリオ出版"
+    anchors:
+      - "publisher:クロスフォリオ出版"
+  - id: h00045
+    publisher: "シマテイエン"
+    anchors:
+      - "publisher:シマテイエン"
+  - id: h00046
+    publisher: "コンパス"
+    anchors:
+      - "publisher:コンパス"
+  - id: h00047
+    publisher: "宙出版"
+    anchors:
+      - "publisher:宙出版"
+  - id: h00048
+    publisher: "マンガボックス"
+    anchors:
+      - "publisher:マンガボックス"
+  - id: h00049
+    publisher: "雪尾ゆき"
+    anchors:
+      - "publisher:雪尾ゆき"
+  - id: h00050
+    publisher: "ぐるめ"
+    anchors:
+      - "publisher:ぐるめ"
+  - id: h00051
+    publisher: "光文社"
+    anchors:
+      - "publisher:光文社"
+  - id: h00052
+    publisher: "道玄坂書房"
+    anchors:
+      - "publisher:道玄坂書房"
+  - id: h00053
+    publisher: "赤月めう"
+    anchors:
+      - "publisher:赤月めう"
+  - id: h00054
+    publisher: "ライトリーズン"
+    anchors:
+      - "publisher:ライトリーズン"
+  - id: h00055
+    publisher: "イースト・プレス"
+    anchors:
+      - "publisher:イースト・プレス"
+  - id: h00056
+    publisher: "Amazia"
+    anchors:
+      - "publisher:Amazia"
+  - id: h00057
+    publisher: "コルク"
+    anchors:
+      - "publisher:コルク"
+  - id: h00058
+    publisher: "OrangeVox"
+    anchors:
+      - "publisher:OrangeVox"
+  - id: h00059
+    publisher: "スイートピー&COCOA BREAK"
+    anchors:
+      - "publisher:スイートピー&COCOABREAK"
+  - id: h00060
+    publisher: "東京漫画社"
+    anchors:
+      - "publisher:東京漫画社"
+  - id: h00061
+    publisher: "太田出版"
+    anchors:
+      - "publisher:太田出版"
+  - id: h00062
+    publisher: "メディアファクトリー"
+    anchors:
+      - "publisher:メディアファクトリー"
+  - id: h00063
+    publisher: "詳伝社"
+    anchors:
+      - "publisher:詳伝社"
+  - id: h00064
+    publisher: "エンターブレイン"
+    anchors:
+      - "publisher:エンターブレイン"
+  - id: h00065
+    publisher: "新書館"
+    anchors:
+      - "publisher:新書館"
+  - id: h00066
+    publisher: "学研パブリッシング"
+    anchors:
+      - "publisher:学研パブリッシング"
+  - id: h00067
+    publisher: "新潮社"
+    anchors:
+      - "publisher:新潮社"
+  - id: h00068
+    publisher: "ふゅーじょんぷろだくと"
+    anchors:
+      - "publisher:ふゅーじょんぷろだくと"
+  - id: h00069
+    publisher: "G-NOVELS"
+    anchors:
+      - "publisher:G-NOVELS"
+  - id: h00070
+    publisher: "星海社"
+    anchors:
+      - "publisher:星海社"
+  - id: h00071
+    publisher: "らいおん小屋"
+    anchors:
+      - "publisher:らいおん小屋"
+  - id: h00072
+    publisher: "赤紅"
+    anchors:
+      - "publisher:赤紅"
+  - id: h00073
+    publisher: "でんでんむしむし"
+    anchors:
+      - "publisher:でんでんむしむし"
+  - id: h00074
+    publisher: "あーねすとROOM"
+    anchors:
+      - "publisher:あーねすとROOM"
+  - id: h00075
+    publisher: "Drop Dead!"
+    anchors:
+      - "publisher:DropDead!"
+  - id: h00076
+    publisher: "アトキンソン"
+    anchors:
+      - "publisher:アトキンソン"
+  - id: h00077
+    publisher: "ハイカラ数寄屋"
+    anchors:
+      - "publisher:ハイカラ数寄屋"
+  - id: h00078
+    publisher: "空色の音"
+    anchors:
+      - "publisher:空色の音"
+  - id: h00079
+    publisher: "復刊ドットコム"
+    anchors:
+      - "publisher:復刊ドットコム"
+  - id: h00080
+    publisher: "わんこ院"
+    anchors:
+      - "publisher:わんこ院"
+  - id: h00081
+    publisher: "ユーリカ"
+    anchors:
+      - "publisher:ユーリカ"
+  - id: h00082
+    publisher: "ギロチン銀座"
+    anchors:
+      - "publisher:ギロチン銀座"
+  - id: h00083
+    publisher: "Vampire*Berry"
+    anchors:
+      - "publisher:Vampire*Berry"
+  - id: h00084
+    publisher: "eBookJapan Plus"
+    anchors:
+      - "publisher:eBookJapanPlus"
+  - id: h00085
+    publisher: "電書バト"
+    anchors:
+      - "publisher:電書バト"
+  - id: h00086
+    publisher: "井庭人"
+    anchors:
+      - "publisher:井庭人"
+  - id: h00087
+    publisher: "新居さとし"
+    anchors:
+      - "publisher:新居さとし"
+  - id: h00088
+    publisher: "あんこストロベリー"
+    anchors:
+      - "publisher:あんこストロベリー"
+  - id: h00089
+    publisher: "口達者同盟"
+    anchors:
+      - "publisher:口達者同盟"
+  - id: h00090
+    publisher: "宇宙りんご"
+    anchors:
+      - "publisher:宇宙りんご"
+  - id: h00091
+    publisher: "バナナブックス"
+    anchors:
+      - "publisher:バナナブックス"
+  - id: h00092
+    publisher: "パルソラ"
+    anchors:
+      - "publisher:パルソラ"
+  - id: h00093
+    publisher: "リレバ"
+    anchors:
+      - "publisher:リレバ"
+  - id: h00094
+    publisher: "poprication"
+    anchors:
+      - "publisher:poprication"
+  - id: h00095
+    publisher: "嵩乃朔"
+    anchors:
+      - "publisher:嵩乃朔"
+  - id: h00096
+    publisher: "無責任会社サタデー"
+    anchors:
+      - "publisher:無責任会社サタデー"
+  - id: h00097
+    publisher: "いんどの宮殿！"
+    anchors:
+      - "publisher:いんどの宮殿!"
+  - id: h00098
+    publisher: "高橋真弥"
+    anchors:
+      - "publisher:高橋真弥"
+  - id: h00099
+    publisher: "BCCKS Distribution"
+    anchors:
+      - "publisher:BCCKSDistribution"
+  - id: h00100
+    publisher: "Caramel Crunch"
+    anchors:
+      - "publisher:CaramelCrunch"
+  - id: h00101
+    publisher: "めでぃかるカンパニー"
+    anchors:
+      - "publisher:めでぃかるカンパニー"
+  - id: h00102
+    publisher: "PERSONAL COLOR"
+    anchors:
+      - "publisher:PERSONALCOLOR"
+  - id: h00103
+    publisher: "踏月"
+    anchors:
+      - "publisher:踏月"
+  - id: h00104
+    publisher: "スタジオぷち屋 桜那えいか、"
+    anchors:
+      - "publisher:スタジオぷち屋桜那えいか、"
+  - id: h00105
+    publisher: "ななつぼし"
+    anchors:
+      - "publisher:ななつぼし"
+  - id: h00106
+    publisher: "RIMLAND"
+    anchors:
+      - "publisher:RIMLAND"
+  - id: h00107
+    publisher: "ブラクラ堂"
+    anchors:
+      - "publisher:ブラクラ堂"
+  - id: h00108
+    publisher: "ぐつとま"
+    anchors:
+      - "publisher:ぐつとま"
+  - id: h00109
+    publisher: "ぴのこ堂出版"
+    anchors:
+      - "publisher:ぴのこ堂出版"
+  - id: h00110
+    publisher: "GP-KIDS/高菜しんの"
+    anchors:
+      - "publisher:GP-KIDS/高菜しんの"
+  - id: h00111
+    publisher: "スキマ"
+    anchors:
+      - "publisher:スキマ"
+  - id: h00112
+    publisher: "夢乃むえ"
+    anchors:
+      - "publisher:夢乃むえ"
+  - id: h00113
+    publisher: "サイコパシー幾何学"
+    anchors:
+      - "publisher:サイコパシー幾何学"
+  - id: h00114
+    publisher: "フェアベル"
+    anchors:
+      - "publisher:フェアベル"
+  - id: h00115
+    publisher: "すたひろ"
+    anchors:
+      - "publisher:すたひろ"
+  - id: h00116
+    publisher: "Ｈ．Ｈ．Ｒ"
+    anchors:
+      - "publisher:H.H.R"
+  - id: h00117
+    publisher: "山名沢湖"
+    anchors:
+      - "publisher:山名沢湖"
+  - id: h00118
+    publisher: "ごきげん工房"
+    anchors:
+      - "publisher:ごきげん工房"
+  - id: h00119
+    publisher: "biscolon"
+    anchors:
+      - "publisher:biscolon"
+  - id: h00120
+    publisher: "やまこ屋"
+    anchors:
+      - "publisher:やまこ屋"
+  - id: h00121
+    publisher: "ナイーブタ"
+    anchors:
+      - "publisher:ナイーブタ"
+  - id: h00122
+    publisher: "studio Kiro"
+    anchors:
+      - "publisher:studioKiro"
+  - id: h00123
+    publisher: "そんだけ。"
+    anchors:
+      - "publisher:そんだけ。"
+  - id: h00124
+    publisher: "よぬりめ"
+    anchors:
+      - "publisher:よぬりめ"
+  - id: h00125
+    publisher: "ツタブロス"
+    anchors:
+      - "publisher:ツタブロス"
+  - id: h00126
+    publisher: "サークルコネクト"
+    anchors:
+      - "publisher:サークルコネクト"
+  - id: h00127
+    publisher: "河津ケント"
+    anchors:
+      - "publisher:河津ケント"
+  - id: h00128
+    publisher: "NOAH編集部"
+    anchors:
+      - "publisher:NOAH編集部"
+  - id: h00129
+    publisher: "DPNブックス"
+    anchors:
+      - "publisher:DPNブックス"
+  - id: h00130
+    publisher: "CottonClub"
+    anchors:
+      - "publisher:CottonClub"
+  - id: h00131
+    publisher: "PICK UP PRESS"
+    anchors:
+      - "publisher:PICKUPPRESS"
+  - id: h00132
+    publisher: "あおい華葉"
+    anchors:
+      - "publisher:あおい華葉"
+  - id: h00133
+    publisher: "viviON"
+    anchors:
+      - "publisher:viviON"
+  - id: h00134
+    publisher: "ライブコミックス"
+    anchors:
+      - "publisher:ライブコミックス"
+  - id: h00135
+    publisher: "星屑ドルチェ"
+    anchors:
+      - "publisher:星屑ドルチェ"
+  - id: h00136
+    publisher: "ヒイラギ"
+    anchors:
+      - "publisher:ヒイラギ"
+  - id: h00137
+    publisher: "SNP"
+    anchors:
+      - "publisher:SNP"
+  - id: h00138
+    publisher: "SBクリエイティブ"
+    anchors:
+      - "publisher:SBクリエイティブ"
+  - id: h00139
+    publisher: "ちどりあし"
+    anchors:
+      - "publisher:ちどりあし"
+  - id: h00140
+    publisher: "とばり湊"
+    anchors:
+      - "publisher:とばり湊"
+  - id: h00141
+    publisher: "漫画帝国"
+    anchors:
+      - "publisher:漫画帝国"
+  - id: h00142
+    publisher: "グループ・ゼロ"
+    anchors:
+      - "publisher:グループ・ゼロ"
+  - id: h00143
+    publisher: "ジッパリスト"
+    anchors:
+      - "publisher:ジッパリスト"
+  - id: h00144
+    publisher: "Fifiruu.FIF"
+    anchors:
+      - "publisher:Fifiruu.FIF"
+  - id: h00145
+    publisher: "Big Fields Publishing"
+    anchors:
+      - "publisher:BigFieldsPublishing"
+  - id: h00146
+    publisher: "川村マユ見"
+    anchors:
+      - "publisher:川村マユ見"
+  - id: h00147
+    publisher: "ミュージック・コミックス"
+    anchors:
+      - "publisher:ミュージック・コミックス"
+  - id: h00148
+    publisher: "さとうメメ子"
+    anchors:
+      - "publisher:さとうメメ子"
+  - id: h00149
+    publisher: "ブックマン社"
+    anchors:
+      - "publisher:ブックマン社"
+  - id: h00150
+    publisher: "AM:TIGER"
+    anchors:
+      - "publisher:AM:TIGER"
+  - id: h00151
+    publisher: "れれBOX"
+    anchors:
+      - "publisher:れれBOX"
+  - id: h00152
+    publisher: "黒戌舎"
+    anchors:
+      - "publisher:黒戌舎"
+  - id: h00153
+    publisher: "Qualism"
+    anchors:
+      - "publisher:Qualism"
+  - id: h00154
+    publisher: "UMIN'S CLUB"
+    anchors:
+      - "publisher:UMIN'SCLUB"
+  - id: h00155
+    publisher: "いつかものがたり"
+    anchors:
+      - "publisher:いつかものがたり"
+  - id: h00156
+    publisher: "狗古堂"
+    anchors:
+      - "publisher:狗古堂"
+  - id: h00157
+    publisher: "たまごやき"
+    anchors:
+      - "publisher:たまごやき"
+  - id: h00158
+    publisher: "ネジ式１３番地"
+    anchors:
+      - "publisher:ネジ式13番地"
+  - id: h00159
+    publisher: "金曜日の魔女"
+    anchors:
+      - "publisher:金曜日の魔女"
+  - id: h00160
+    publisher: "朱村咲"
+    anchors:
+      - "publisher:朱村咲"
+  - id: h00161
+    publisher: "空想舩"
+    anchors:
+      - "publisher:空想舩"
+  - id: h00162
+    publisher: "アートファクトリー"
+    anchors:
+      - "publisher:アートファクトリー"
+  - id: h00163
+    publisher: "珠虫さとり"
+    anchors:
+      - "publisher:珠虫さとり"
+  - id: h00164
+    publisher: "viviON viviON THOTH"
+    anchors:
+      - "publisher:viviONviviONTHOTH"

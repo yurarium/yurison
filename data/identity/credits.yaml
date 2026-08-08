@@ -9344,6 +9344,38 @@ credits:
       - anchor: "credit:タグチケンジ"
         basis: "タグチケンジ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `田口ケンジ / タグチケンジ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 田口ケンジ credits 1 work(s), among them 会って食べると書きまして。. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
         retrieved: 2026-08-08
+  - id: c02239
+    credit: "ひあるろん"
+    anchors:
+      - "credit:ひあるろん"
+  - id: c02240
+    credit: "達磨"
+    anchors:
+      - "credit:達磨"
+  - id: c02241
+    credit: "iimAn"
+    anchors:
+      - "credit:iimAn"
+  - id: c02242
+    credit: "惟丞"
+    anchors:
+      - "credit:惟丞"
+  - id: c02243
+    credit: "こんぱる"
+    anchors:
+      - "credit:こんぱる"
+  - id: c02244
+    credit: "ふじしまペポ"
+    anchors:
+      - "credit:ふじしまペポ"
+  - id: c02245
+    credit: "水谷悠珠"
+    anchors:
+      - "credit:水谷悠珠"
+  - id: c02246
+    credit: "かえで透"
+    anchors:
+      - "credit:かえで透"
 
 # Credits sharing one reading that were examined and KEPT APART. Recorded so the
 # question is not re-derived at every capture and so the reasoning is not lost each

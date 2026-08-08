@@ -159,6 +159,57 @@ def main(s):
         s.eq(st3.open_for("titles", ["ある作品"], "ndl-books", "reading", 180), ["ある作品"],
              "and re-opens it once the absence has expired")
 
+    # A WORD BOUNDARY IS NOT A DISAGREEMENT, in the third place that had to be told.
+    # `_merge_group` gates two of its three pushes on `same_reading` and left the one that fires
+    # when a claim is OUTRANKED ungated, so a better source arriving filed the reading it confirms
+    # as a conflict with itself. 508 author readings and 57 titles were in that state, 4kaエンピツ
+    # among them: sudachi writes `4 ka エンピツ` and openBD states `4ka エンピツ`.
+    with tempfile.TemporaryDirectory() as d:
+        st4 = store.NameStore(d)
+        st4.record("authors", "4kaエンピツ", reading="4 ka エンピツ", reading_basis="analyser",
+                   reading_source="sudachi")
+        st4.record("authors", "4kaエンピツ", reading="4ka エンピツ", reading_basis="stated",
+                   reading_source="openBD")
+        rec = st4.records["authors"]["4kaエンピツ"]
+        s.eq(rec["reading"], "4ka エンピツ", "the sourced reading wins on rank")
+        s.eq(rec.get("reading_conflicts"), None,
+             "and the analyser's spelling of the same reading is not filed as a contradiction")
+        # THE COUNTER-CASE, which is why this is not simply "never push when outranked". A source
+        # that genuinely disagrees still has to be kept: picking quietly is how a person is
+        # misnamed, and the displaced claim may be the one that was right.
+        st4.record("authors", "宮原都", reading="ミヤハラ ミヤコ", reading_basis="analyser",
+                   reading_source="sudachi")
+        st4.record("authors", "宮原都", reading="ミヤハラ ミヤビ", reading_basis="stated",
+                   reading_source="national-library")
+        s.eq([c["value"] for c in st4.records["authors"]["宮原都"]["reading_conflicts"]],
+             ["ミヤハラ ミヤコ"], "a reading that really differs is still kept")
+
+        # And the sweep heals a file already holding them, the way the span and doubt sweeps do.
+        st4.records["authors"]["4kaエンピツ"]["reading_conflicts"] = [
+            {"value": "4 ka エンピツ", "basis": "analyser", "source": "sudachi"},
+            {"value": "ヨンカエンピツ", "basis": "analyser", "source": "sudachi"}]
+        s.eq(st4.drop_spacing_conflicts(), 1, "the sweep drops the one that agrees")
+        s.eq([c["value"] for c in st4.records["authors"]["4kaエンピツ"]["reading_conflicts"]],
+             ["ヨンカエンピツ"], "and leaves the one that does not")
+
+    # A REVISED BASIS IS A REVISED DECISION. The curated file is the decision of record, and a
+    # reviewer correcting `licensed` to `translated` on unchanged wording reached the store as
+    # agreement: 新・魔法科高校の劣等生 キグナスの乙女たち went on being filed as a licensor's name
+    # while its own note said the rendering is ours. The rank rule cannot correct that by itself,
+    # because `translated` ranks below `licensed` and the file's answer could only ever lose.
+    with tempfile.TemporaryDirectory() as d:
+        st5 = store.NameStore(d)
+        name = "The New Irregular at Magic High School: Maidens of Cygnus"
+        st5.record("titles", "新・魔法科高校の劣等生 キグナスの乙女たち", en=name, basis="licensed",
+                   source="Yen Press", source_kind="licensor", supersede=True)
+        st5.record("titles", "新・魔法科高校の劣等生 キグナスの乙女たち", en=name,
+                   basis="translated", source="yurarium", source_kind="derived", supersede=True)
+        rec = st5.records["titles"]["新・魔法科高校の劣等生 キグナスの乙女たち"]
+        s.eq(rec["basis"], "translated", "the file's basis reaches the store on unchanged wording")
+        s.eq(rec["en"], name, "the name itself is untouched")
+        s.eq(rec.get("en_conflicts"), None,
+             "and nothing is filed as a conflict: one claim was rebased, not replaced")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "store"))

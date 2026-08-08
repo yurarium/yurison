@@ -1312,6 +1312,42 @@ def inv_nicovideo_channel_agrees(ctx):
     return bad
 
 
+
+def inv_a_shipped_identifier_resolves(ctx):
+    """A name the interface can link must link to a record that exists.
+
+    THE FOLD IS THE FAILURE MODE AND IT IS SILENT. `feed/names.json` is keyed by a name folded NFKC
+    with spaces removed, and the anchors the identifiers were minted under are folded the same way
+    on purpose: `credit_identity.credit_key` and `publisher_identity.house_key` each say so in a
+    docstring, which is three copies of one rule. §3 is what happens next. A drift does not raise
+    anything: it puts an id on a name whose record the page data no longer holds, and a reader
+    clicking a credit lands on a page that renders nothing.
+
+    IT ASSERTS BOTH DIRECTIONS OF THE JOIN. An id on a name that no record answers for is a dead
+    link; a record whose page the deploy will write is fine on its own, because the registry is
+    append-only and legitimately holds credits nothing currently names.
+
+    WHAT IT SHARES AND THEREFORE CANNOT SEE (§14b). Both sides come out of one build, so it cannot
+    tell whether the id is the RIGHT record: a fold that mapped every credit to c00001 consistently
+    would pass here. `credit pages listing a work that does not name them` is the measure for that,
+    and it reads the credit field as a string and consults no fold at all.
+
+    fallback: the name renders as it always did and is not a link.
+    """
+    bad = []
+    shipped = ctx["names_shipped"] or {}
+    for kind, doc, key in (("authors", ctx["credit_pages"], "credits"),
+                           ("publishers", ctx["publisher_pages"], "publishers")):
+        have = set((doc or {}).get(key) or {})
+        if not have:
+            continue
+        for name, rec in sorted((shipped.get(kind) or {}).items()):
+            got = (rec or {}).get("id")
+            if got and str(got) not in have:
+                bad.append(f"{kind}:{name[:24]} links {got}, which no record answers for")
+    return bad
+
+
 INVARIANTS = [
     ("ruby covers its surface", inv_ruby_covers_its_surface),
     ("a kana name's reading spells it", inv_kana_reading_spells_its_name),
@@ -1321,6 +1357,7 @@ INVARIANTS = [
     ("ruby spells the reading", inv_ruby_spells_reading),
     ("one row per identifier", inv_one_row_per_identifier),
     ("every credit identifier resolves", inv_credit_identifiers_resolve),
+    ("a shipped identifier resolves", inv_a_shipped_identifier_resolves),
     ("first date precedes its editions", inv_first_date_precedes_its_editions),
     ("no ruby over bare Latin", inv_no_ruby_over_latin),
     ("feed holds only attested rows", inv_feed_is_attested),
@@ -2804,6 +2841,112 @@ def budget_one_page_cited_for_two_claims(ctx):
                for k in ("titles", "authors"))
 
 
+
+def _shipped_credit_field(ctx):
+    """`{work id: the credit field a reader is shown}`, folded once for comparison."""
+    return {str(r.get("id")): unicodedata.normalize("NFKC", str(r.get("author") or "")).replace(
+        " ", "") for r in ctx["series"] if r.get("id")}
+
+
+def budget_credit_pages_listing_a_work_that_does_not_name_them(ctx):
+    """Pairings a credit page would show whose work does not carry that credit's spelling.
+
+    THE MEASURE THAT DOES NOT SHARE THE PAGE GENERATOR'S BLIND SPOT (§14b), and the fault it is
+    aimed at is the one a credit page makes newly possible: a person's page listing somebody else's
+    book. Nothing before this could be wrong in that direction, because nothing joined a credit to
+    a work; now 4,351 edges do, and every one of them is a public claim that a named person worked
+    on a named book.
+
+    EVERYTHING THAT BUILDS THE EDGE ASKS THE SAME THREE THINGS. `credit_identity.credits_on` splits
+    the field with `inputs.split_credits_detail`, folds each part with `credit_key`, and resolves
+    the fold through `identity.index`. A check that asked any of those could only ever report what
+    they already handle, which is exactly how w01478 reached a live page credited
+    `田口ケンジ / タグチケンジ` while the budget counting that class read 0.
+
+    SO THIS ASKS THE STRING. It takes the spelling the registry recorded for the credit and looks
+    for it inside the credit field of each work the page would list, as shipped. That is substring
+    arithmetic over two published fields: it owes nothing to the splitter, nothing to the fold
+    beyond NFKC and spaces, which is what the field itself is normalised under, and nothing to the
+    registry lookup. A splitter that divided a name in half, a fold that collapsed two people, or a
+    merge applied to the wrong pair all land here, and none of them can be hidden by the producer
+    agreeing with itself.
+
+    IT COUNTS CANDIDATES AND NOT FAULTS, and the eight it reports are the honest floor rather than
+    a queue. Six are MERGES doing exactly what a merge is for: おこさまランチ absorbed お子様ランチ,
+    獅尾 absorbed ししお, and the surviving spelling is by construction not the one on every work
+    the retired spelling credited. Two are the release rows, which carry edges the works list does
+    not, 矢立肇 and 富野由悠季 on w00032 among them.
+
+    That is also what makes a RISE informative. A number that moves without a merge or a new
+    release-row edge behind it is a page claiming somebody worked on a book that does not name
+    them, and that is the one thing these pages make newly possible.
+
+    WHAT IT CANNOT SEE: an edge whose credit really is in the field and is the wrong person of that
+    name. Only a reader following it will know, which is why the seven credits held apart under
+    `homophones` were ruled on by hand.
+    """
+    fields = _shipped_credit_field(ctx)
+    n = 0
+    for cid, fact in ((ctx["credit_pages"] or {}).get("credits") or {}).items():
+        spelling = unicodedata.normalize("NFKC", str(fact.get("credit") or "")).replace(" ", "")
+        if not spelling:
+            continue
+        for w in fact.get("works") or []:
+            field = fields.get(str(w.get("id")))
+            if field is not None and spelling not in field:
+                n += 1
+    return n
+
+
+def budget_publisher_pages_listing_a_work_from_another_house(ctx):
+    """Pairings a house page would show whose work names no such publisher on any print row.
+
+    The publisher half of the measure above and independent in the same way. `publisher_identity`
+    finds a house by running `publishers.publisher_of` over the field and folding the result; this
+    looks for the house's recorded name inside the raw `publisher` and `distributor` strings of the
+    work's own print rows, which is arithmetic on two shipped fields and consults neither function.
+
+    A house catalogued under two names it was renamed through would land here, which is the case
+    worth finding: 角川書店 became KADOKAWA and the older records were not rewritten, so a merge is
+    what settles it and an unmerged pair is a house showing half its shelf.
+    """
+    by_work = {}
+    for r in ctx["series"]:
+        raw = " ".join(str(pr.get(f) or "") for pr in (r.get("print") or ())
+                       for f in ("publisher", "distributor"))
+        by_work[str(r.get("id"))] = unicodedata.normalize("NFKC", raw).replace(" ", "")
+    n = 0
+    for _hid, fact in ((ctx["publisher_pages"] or {}).get("publishers") or {}).items():
+        name = unicodedata.normalize("NFKC", str(fact.get("name") or "")).replace(" ", "")
+        if not name:
+            continue
+        for wid in fact.get("works") or []:
+            field = by_work.get(str(wid))
+            if field is not None and name not in field:
+                n += 1
+    return n
+
+
+def budget_credit_identifiers_naming_nobody(ctx):
+    """Live credit identifiers that no work in the corpus is credited to.
+
+    THE RESIDUE OF A FIX, COUNTED SO IT STAYS VISIBLE. All five are one shape: `iimAn&惟丞`,
+    `大島永遠&大島智` and three more were single credits because no splitter divided on an
+    ampersand, so one address held two artists. Each half holds its own identifier now and the
+    joined spelling holds none of their works. The registry is append-only, so the joined entry
+    stays and keeps resolving in the data; `pages.py` serves it no page, because heading one with a
+    name no source uses and listing nothing under it would assert a credit the corpus has stopped
+    making.
+
+    A RISE IS THE THING TO LOOK AT. It means either a credit has left the corpus, which is a page
+    withdrawn, or a splitter change has orphaned another joined spelling, which is this fix
+    happening again and wants the same read.
+    """
+    edges = {str(r.get("id")) for r in (ctx["credit_works"] or {}).get("credits") or []}
+    return sum(1 for e in (ctx["credits"] or {}).get("credits") or []
+               if e.get("id") and not e.get("merged_into") and str(e["id"]) not in edges)
+
+
 BUDGETS_DEF = [
     ("citations withheld from readers", budget_citations_withheld_from_readers,
      "readings whose recorded address is on a route the site may not link to, so the citation is "
@@ -2893,6 +3036,23 @@ BUDGETS_DEF = [
      "deleting the registered spellings out of the field and reading what is left. A rise means a "
      "credit stopped reaching an identifier, and the count owes nothing to the splitter that assigns "
      "them, so it can say so."),
+    ("credit pages listing a work that does not name them",
+     budget_credit_pages_listing_a_work_that_does_not_name_them,
+     "pairings a credit page would show whose work does not carry that credit's spelling in its "
+     "own credit field. Substring arithmetic on two shipped fields, so it owes the splitter, the "
+     "fold and the registry lookup nothing and cannot be satisfied by them agreeing. It will not "
+     "reach zero: six of the eight are merges, where the surviving spelling is by construction not "
+     "the one on the retired spelling's works, and two are release-row edges. A rise with neither "
+     "behind it is a page claiming somebody worked on a book that does not name them."),
+    ("publisher pages listing a work from another house",
+     budget_publisher_pages_listing_a_work_from_another_house,
+     "pairings a house page would show whose work names no such publisher on any print row. The "
+     "publisher half of the measure above and independent the same way. A rise means one house is "
+     "showing another's shelf, which is what an unmerged renaming looks like."),
+    ("credit identifiers naming nobody", budget_credit_identifiers_naming_nobody,
+     "live credit identifiers no work is credited to, so they get no page. All five are joined "
+     "spellings the ampersand split left behind, each half now holding its own address. A rise "
+     "means a credit left the corpus or another splitter change orphaned a spelling."),
     ("credits sharing a reading nobody has ruled on", budget_credits_sharing_a_reading_nobody_ruled_on,
      "readings the shipped name map gives to several credits with no ruling on the pair. Should be "
      "0: a rise means a newly sourced reading has put two credits together and nobody has said "
@@ -3058,6 +3218,11 @@ def context():
         # which pairs are settled and the edge file which identifiers a work points at. Loaded here so
         # a canary can be planted in front of them.
         "credits": _yaml(ROOT / "data" / "identity" / "credits.yaml", {}) or {},
+        # THE TWO FILES THE NEW PAGES ARE BUILT FROM. Loaded here with everything else so a canary
+        # can be planted in front of the checks that read them; a check that opens its own file
+        # cannot be shown one, and self_test then reports it healthy having exercised nothing.
+        "credit_pages": _load(BUILD / "credits.json", {}) or {},
+        "publisher_pages": _load(BUILD / "publishers.json", {}) or {},
         "credit_rulings": _yaml(ROOT / "data" / "identity" / "credit-rulings.yaml", {}) or {},
         "credit_works": _yaml(ROOT / "data" / "identity" / "credit-works.yaml", {}) or {},
         # THE SOURCE LAYER, not the build. Two checks below ask what the RECORD states, because
@@ -3346,6 +3511,15 @@ def self_test():
         # side and is what put 13 print pairs into one row under one id.
         ("every credit identifier resolves", inv_credit_identifiers_resolve,
          _plant_edge_on_a_retired_credit),
+        # A NAME CARRYING AN ADDRESS NOTHING ANSWERS FOR, which is what a fold drifting apart
+        # produces and produces silently: the link renders, the page it opens is blank. The canary
+        # is the shape the pipeline makes, an `id` on a shipped author record, not an invented key.
+        ("a shipped identifier resolves", inv_a_shipped_identifier_resolves,
+         lambda c: c["names_shipped"].setdefault("authors", {}).update(
+             {"カナリア": {"reading": "カナリア", "id": "c99999"}})),
+        ("a shipped identifier resolves", inv_a_shipped_identifier_resolves,
+         lambda c: c["names_shipped"].setdefault("publishers", {}).update(
+             {"カナリア社": {"en": "Canary", "id": "h99999"}})),
     ]
     ok = True
     for name, fn, plant in probes:

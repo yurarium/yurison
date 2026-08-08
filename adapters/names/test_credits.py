@@ -25,13 +25,38 @@ def main(s):
     # credit, and an ampersand hidden behind an escape split one credit into what looked like junk.
     s.eq(credits.split_credits("&nbsp;フォローする")[0], [],
          "a control's own label is not a credit")
-    s.eq(credits.split_credits("大島永遠&amp;大島智")[0], ["大島永遠&大島智"],
-         "an escaped ampersand is unescaped and the credit survives whole")
+    # THE AMPERSAND JOINS TWO PEOPLE, and this assertion used to say it did not. It was written when
+    # the escape was the whole of the problem, and `大島永遠&amp;大島智` was read as one credit
+    # holding a stray character, with the module's own comment beside it saying "which is two people
+    # joined by an ampersand". So one identifier was minted for two artists, here and on
+    # `iimAn&惟丞`. Unescaping still has to happen FIRST, or the split leaves a person called
+    # `amp;大島智`, and that ordering is the reason the entity handling belongs in this function
+    # rather than in the splitter.
+    s.eq(credits.split_credits("大島永遠&amp;大島智")[0], ["大島永遠", "大島智"],
+         "an escaped ampersand is unescaped and then separates the two people it joined")
     s.eq(credits.split_credits("フォローする / 山田太郎")[0], ["山田太郎"],
          "furniture beside a real credit drops and the person stays")
     # AND A NAME CONTAINING THE WORD IS A NAME. The reject list is exact matches only.
     s.eq(credits.split_credits("フォロワーの話")[0], ["フォロワーの話"],
          "a name containing a control's word is still a name")
+
+    # THE ROLE COMES OUT OF THE SAME TRAVERSAL. The rebuild that produces a row's credit field is
+    # what threw it away: the works list said nobody's job on 3,076 of 3,077 rows, so the registry
+    # had a role for 14 of 4,350 edges and a page could not say who drew and who wrote.
+    s.eq(credits.split_credits_roled("原作／宮澤伊織　作画／水野英多")[0],
+         [("宮澤伊織", "原作"), ("水野英多", "作画")],
+         "a role label belongs to the name beside it and comes back with it")
+    s.eq(credits.split_credits_roled("[漫画]東雲水生 / [脚本]駒尾真子")[0],
+         [("東雲水生", "漫画"), ("駒尾真子", "脚本")], "in either notation")
+    s.eq(credits.split_credits_roled("大島永遠&大島智")[0], [("大島永遠", None), ("大島智", None)],
+         "and a field that states no job says so, rather than guessing one")
+    # The two calls cannot come to disagree about how many credits a field holds, because one is
+    # the other with the job dropped.
+    for field in ("原作／宮澤伊織　作画／水野英多", "大島永遠&amp;大島智", "&nbsp;フォローする",
+                  "倫理きよ, Syousa., jimao"):
+        s.eq([n for n, _r in credits.split_credits_roled(field)[0]],
+             credits.split_credits(field)[0],
+             f"one traversal answers both questions about {field[:12]}")
 
     # THE CASE THIS WAS WRITTEN FOR. One string in two scripts, with the reading spaced.
     s.eq(credits.dedupe("おにぎりパクパク / オニギリ パクパク"), "おにぎりパクパク",

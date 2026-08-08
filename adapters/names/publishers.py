@@ -222,6 +222,25 @@ def english(raw, shown, store, people):
     for flag in ("unverified", "uncertain"):
         if rec.get(flag):
             fact[flag] = True
+    # WHERE THE COMPANY'S OWN NAME WAS READ. 講談社 signs itself KODANSHA LTD. on its own site and
+    # 57 publisher records carry that page; the basis said `official-jp`, which the interface shows
+    # unmarked because it is the company's claim and not ours, and then said nothing about whose
+    # page. Same producer as the reading's and the title's, for the same reason: three functions
+    # assembling one citation is the shape §3 counts seven shipped bugs from.
+    #
+    # TWO SHAPES OF RECORD REACH THIS FUNCTION, and the citation has to survive both. `build.py`
+    # hands over records its own `render` has already turned into what the interface gets, and one
+    # of the things that pass assembles is the citation; `main` below hands over the raw store, for
+    # the report. So an already-assembled citation is carried across and a raw record is asked, and
+    # `provenance.cite` is the only thing that ever builds one either way.
+    try:
+        from names import provenance as _prov
+    except ImportError:                                                     # noqa: BLE001
+        import provenance as _prov
+    for claim, key in (("en", "en_cite"), ("reading", "reading_cite")):
+        got = rec.get(key) or _prov.cite(rec, claim)
+        if got:
+            fact[key] = got
     return fact
 
 

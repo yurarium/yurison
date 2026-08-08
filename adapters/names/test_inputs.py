@@ -25,6 +25,19 @@ def names(credit):
 def main(s):
     s.eq(names("宮澤伊織"), ["宮澤伊織"], "a bare name is one person")
 
+    # AN AMPERSAND JOINS TWO PEOPLE. All four credits in the corpus that carry one are a pair, and
+    # no name anywhere spells itself with an &, which is what admitted it where the interpunct is
+    # still argued about. Until this, two of these were one identifier holding two artists.
+    s.eq(names("大島永遠&大島智"), ["大島永遠", "大島智"], "a half-width ampersand separates")
+    s.eq(names("ひあるろん＆達磨"), ["ひあるろん", "達磨"], "and the full-width one does too")
+    s.eq(names("iimAn&惟丞 / 年中麦茶太郎"), ["iimAn", "惟丞", "年中麦茶太郎"],
+         "beside the separator the field already used")
+    # THE SHAPE THAT MUST NOT REACH HERE. An unescaped entity splits into a person called
+    # `amp;大島智`, which is why `credits.split_credits` unescapes before calling this and why the
+    # unescaping is not done inside the splitter, where every caller would pay for it twice.
+    s.eq(names("大島永遠&amp;大島智"), ["大島永遠", "amp;大島智"],
+         "raw HTML is not this function's input, and it says so by producing nonsense")
+
     # Roles are labels, not people. 原作／宮澤伊織 was once romanised whole, giving a "person"
     # called Gensaku Kigō Miyazawa Iori.
     s.eq(names("原作／宮澤伊織"), ["宮澤伊織"], "a role marker is stripped")

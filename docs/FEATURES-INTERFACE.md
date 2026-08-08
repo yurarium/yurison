@@ -385,6 +385,59 @@ three works implies that is the person's body of work, when they may have thirty
 three that are yuri. A person does not read as bigger than our coverage of them, so the page has to
 say what it is.
 
+### What was built, 2026-08-08
+
+**Both pages exist and both are addresses.** `credit/<id>/` and `publisher/<id>/`, one per record,
+pre-rendered as real HTML for a reader without JavaScript and handing over to the interface for one
+with it, exactly as a work's page does. 2,241 credit pages and 164 publisher pages, plus a forwarder
+for every retired identifier of either kind, built by `adapters/pages.py` from `credits.json` and
+`publishers.json`.
+
+**A credit page shows the credit, the reading, and the works.** The name as filed, its reading with
+the source it was read from and the day somebody last looked, the romanisation in the reader's own
+style and order, the houses behind the works, and every work in this corpus the credit is named on
+with the job on each pairing where a source states one. Where no reading is known the page says so
+in one sentence: 2,171 names carry a recorded failed search and a reader does not need to know which
+shop was asked on which day, only that the reading is unknown rather than unexamined.
+
+**What is deliberately not on it.** The notes. The store holds 1,247 author reading notes and 3,044
+title notes, and they are our reasoning for our own decisions, which §1 keeps off a reader's page;
+the citation says which document, where and when, which is what a reader can act on. And the
+conflicting readings: 565 of the 1,142 the store held were one reading written with a different word
+division, which is a code fault before it is a display question and is fixed in `store._merge_group`
+rather than shown.
+
+**A publisher page shows which of its imprints are yuri lines**, which is the thing no other page in
+this interface can show. 一迅社's 百合姫コミックス carries 354 books over 2006 to 2026, its
+ZERO-SUMコミックス 10 and its DNAメディアコミックス one. Each line carries the years its catalogued
+spellings cover, measured off the rows, so a reader looking at a 2008 volume can see that
+`Yuri-hime comics` is what that volume says.
+
+**A page says what its list is, above the list**, in both languages, and the wording differs by what
+the record is. A person's page says the works are the yuri ones this database holds and not their
+body of work; a house's says the same about its shelf; a venue's says where rather than who.
+
+**A credit nobody is named on gets no page.** Five identifiers are in that state and all five are one
+shape: `iimAn&惟丞`, `大島永遠&大島智` and three more were single credits because no splitter divided
+on an ampersand, and each half holds its own identifier now. The registry is append-only so the
+joined entry stays and keeps resolving; a page for it would head a record with a name no source uses.
+`credit identifiers naming nobody` counts them.
+
+### What the work page gained
+
+**Where the attribution came from.** The page cited who catalogued a volume count and not who says
+the book is by this person, which is the fact at the top of it. 2,662 of 3,079 works now carry an
+`attribution` row in their sources table naming the source and the day it was read.
+
+**Where an English title came from.** `official-jp` and `licensed` are shown unmarked because
+neither is our claim, so the one form a reader has no reason to doubt was the one carrying no
+evidence. 234 titles now cite the licensor's or the publisher's own page, which
+`data/names/curated.yaml` had held all along and the build simply never emitted.
+
+**Every credit and every publisher on the page is a link.** Each name still reaches output through
+`authorLabel` or `pubBoth`, so the reader's language, romanisation style, name order and furigana all
+apply as before; what is added is the address.
+
 ### The framing this must not get wrong
 
 We hold KADOKAWA's 378 **yuri** works. KADOKAWA publishes tens of thousands of books. A page headed

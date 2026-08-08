@@ -1837,6 +1837,48 @@ somebody else's pass.
 through an attached anchor, so nothing is lost, and a later pass that wants the name store to hold
 one record per credit can read the rulings file to do it.
 
+### The credit and publisher pages, and what closing them left open (2026-08-08)
+
+Everything under "What the credit pages still need" above is done except where this section says
+otherwise. `adapters/pages.py` serves 2,241 credit pages and 164 publisher pages with a forwarder
+for every retired identifier of either kind, `feed/names.json` carries the identifier on each name
+so the interface can link one, and `data/identity/publishers.yaml` holds 164 house identifiers
+minted under the one-namespace ruling. What follows is what is still owed.
+
+**275 of the 320 imprint lines a publisher page shows are a string no registry entry answers for.**
+The registry covers the four houses carrying most of the corpus, at 44 lines. Everywhere else a
+publisher page lists the catalogued spelling as though it were a line, which is the honest fallback
+and reads oddly where the string is the company's own name: 一迅社's page carries a line called
+一迅社 with one book on it. `imprint strings that reach no line` is the count and it falls as houses
+are curated.
+
+**A credit page cannot yet say which of two people with one reading is which.** Seven pairs are
+held apart under `homophones` and each page links the other, which is what the ruling asks for.
+須藤佑実 against 須藤祐美 is still the one a source check should settle: both are girls×garden
+comics books from ジーオーティー in the Avalon anthology line, which is one artist mis-keyed at one
+source rather than two artists.
+
+**`credit fields an identifier does not cover` is unchanged at 19** and the two credits separated
+by nothing but a space are still in it. `狗之餌 廃狼` and `織日ちひろ 虫原` reach the corpus only
+from release rows, a space is deliberately not a separator, and neither mints an identifier.
+
+**196 author readings and 31 title readings cite a page a reader cannot open.** They point at
+`api.openbd.jp/v1/get?isbn=`, which states the reading in its JSON and is not a document. Treated
+like the 36 National Diet Library `/api` citations, withheld and counted, which took `citations
+withheld from readers` from 36 to 244. openBD publishes no per-book reader page, so this falls only
+when a reading is re-sourced somewhere a person can read it.
+
+**577 reading conflicts are left and every one of them is a real disagreement.** The store held
+1,142 and 565 were one reading written with a different word division, which `store.same_reading`
+exists to prevent being called a conflict and which `_merge_group` was asking `==` about in the one
+branch that fires when a claim is outranked. Fixed and swept. Of the 447 author conflicts left, 87
+come from MangaUpdates, which is the source behind both alias bugs of 2026-08-08, so that subset
+wants suspicion before it wants a display. Nothing renders the list.
+
+**The role is on 601 of 4,351 edges, up from 14.** The works list keeps the job beside each name
+now, out of the same traversal that rebuilds the field, and the print rows keep what MADB's bracket
+said. What is left is the corpus rather than the pipeline: most platforms state a byline and no job.
+
 ### A date the shop states in its own blurb is a printing (2026-08-08)
 
 **The owner's ruling.** A date コミックシーモア states inside its own description of a work attests

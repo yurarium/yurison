@@ -10,7 +10,7 @@
 source: nicovideo
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-08-07
+retrieved: 2026-08-08
 record_type: web_work_chapters
 identification_mode: known-works
 works_resolved: 337
@@ -741,7 +741,7 @@ works:
         access_modes: ["free"]
       - title: "おいわいへん"
         access_modes: ["free"]
-      - title: "【募集終了】人気エピソード再公開！&amp;人気投票【5～6巻発売＆アニメ開始記念】"
+      - title: "【募集終了】人気エピソード再公開！&人気投票【5～6巻発売＆アニメ開始記念】"
         access_modes: ["free"]
       - title: "第82話　おわび【人気エピソード投票　結果発表！】"
         access_modes: ["free"]
@@ -772,6 +772,7 @@ works:
     started: "2015-12-18"
     updated: "2015-12-19"
     episode_count_stated: 2
+    rights: ["火野遥人", "Shogakukan."]
     chapter_count: 2
     chapters:
       - title: "第1話"
@@ -894,6 +895,7 @@ works:
     started: "2016-04-09"
     updated: "2016-04-23"
     episode_count_stated: 3
+    rights: ["琴慈", "芳文社"]
     chapter_count: 3
     chapters:
       - title: "Lucky.1"
@@ -909,6 +911,7 @@ works:
     started: "2016-04-09"
     updated: "2016-04-23"
     episode_count_stated: 3
+    rights: ["カヅホ", "芳文社"]
     chapter_count: 3
     chapters:
       - title: "第1話"
@@ -925,6 +928,7 @@ works:
     updated: "2016-07-19"
     episode_count_stated: 3
     partial: true
+    rights: ["浜弓場 双", "芳文社"]
     chapter_count: 3
     chapters:
       - title: "１組目 シャル・ウィ・ダンス？"
@@ -940,6 +944,7 @@ works:
     started: "2016-04-09"
     updated: "2016-04-09"
     episode_count_stated: 1
+    rights: ["タチ", "芳文社"]
     chapter_count: 1
     chapters:
       - title: "第1話"
@@ -951,6 +956,7 @@ works:
     started: "2016-04-09"
     updated: "2016-04-09"
     episode_count_stated: 1
+    rights: ["春日歩", "芳文社"]
     chapter_count: 1
     chapters:
       - title: "vol.12：王女のスカート"
@@ -962,6 +968,7 @@ works:
     started: "2016-04-09"
     updated: "2016-04-09"
     episode_count_stated: 1
+    rights: ["原悠衣", "芳文社"]
     chapter_count: 1
     chapters:
       - title: "コミックス第1巻収録：第1話"
@@ -974,6 +981,7 @@ works:
     updated: "2016-07-16"
     episode_count_stated: 3
     partial: true
+    rights: ["三上小又", "芳文社"]
     chapter_count: 3
     chapters:
       - title: "第1話"
@@ -990,6 +998,7 @@ works:
     updated: "2017-05-20"
     episode_count_stated: 7
     partial: true
+    rights: ["フクハラマサヤ", "芳文社"]
     chapter_count: 7
     chapters:
       - title: "Episode 01"
@@ -1205,6 +1214,7 @@ works:
     platform_code: "22191"
     started: "2016-06-30"
     updated: "2026-07-26"
+    rights: ["Eri Ejima", "Shogakukan."]
     chapter_count: 0
     chapters: []
   - work_title: "ステラのまほう"
@@ -1214,6 +1224,7 @@ works:
     started: "2016-10-04"
     updated: "2016-10-18"
     episode_count_stated: 3
+    rights: ["くろば", "U", "芳文社"]
     chapter_count: 3
     chapters:
       - title: "第1話"
@@ -1404,6 +1415,7 @@ works:
     started: "2017-01-03"
     updated: "2017-01-10"
     episode_count_stated: 3
+    rights: ["はりかも", "芳文社"]
     chapter_count: 3
     chapters:
       - title: "第一占"
@@ -1419,6 +1431,7 @@ works:
     started: "2017-01-07"
     updated: "2017-01-07"
     episode_count_stated: 1
+    rights: ["みやびあきの", "芳文社"]
     chapter_count: 1
     chapters:
       - title: "第1話 さがしもの"
@@ -1430,6 +1443,7 @@ works:
     started: "2017-01-24"
     updated: "2017-01-27"
     episode_count_stated: 4
+    rights: ["石見翔子", "芳文社"]
     chapter_count: 4
     chapters:
       - title: "第1話"
@@ -1448,6 +1462,7 @@ works:
     updated: "2021-05-07"
     episode_count_stated: 2
     partial: true
+    rights: ["渡邉嘘海", "実業之日本社"]
     chapter_count: 33
     chapters:
       - title: "第1話 楽園は小鳥たちを誘う"
@@ -1524,6 +1539,7 @@ works:
     updated: "2026-07-28"
     episode_count_stated: 77
     partial: true
+    rights: ["クール教信者", "芳文社"]
     chapter_count: 77
     chapters:
       - title: "第1話"
@@ -1687,6 +1703,7 @@ works:
     started: "2017-03-21"
     updated: "2017-03-25"
     episode_count_stated: 6
+    rights: ["相崎うたう", "芳文社"]
     chapter_count: 6
     chapters:
       - title: "第1話"
@@ -1723,6 +1740,7 @@ works:
     updated: "2022-04-04"
     episode_count_stated: 2
     partial: true
+    rights: ["2014 Amatou"]
     chapter_count: 86
     chapters:
       - title: "第1話"
@@ -2066,6 +2084,7 @@ works:
     started: "2017-04-27"
     updated: "2017-04-27"
     episode_count_stated: 1
+    rights: ["鳳まひろ", "少年画報社"]
     chapter_count: 1
     chapters:
       - title: "第1話"
@@ -2077,6 +2096,7 @@ works:
     started: "2017-05-20"
     updated: "2017-05-27"
     episode_count_stated: 8
+    rights: ["春雨", "芳文社"]
     chapter_count: 8
     chapters:
       - title: "第1話"
@@ -2103,6 +2123,7 @@ works:
     updated: "2019-07-20"
     episode_count_stated: 83
     partial: true
+    rights: ["鴻巣覚", "芳文社"]
     chapter_count: 83
     chapters:
       - title: "第0話"
@@ -2173,7 +2194,7 @@ works:
         access_modes: ["free"]
       - title: "【２巻絶賛発売中】138本目 ヨドミレコード"
         access_modes: ["free"]
-      - title: "【X&#039;mas特別更新】メリークリスマス！"
+      - title: "【X'mas特別更新】メリークリスマス！"
         access_modes: ["free"]
       - title: "【２巻絶賛発売中】139本目 最初の質問"
         access_modes: ["free"]
@@ -2605,6 +2626,7 @@ works:
     started: "2017-09-16"
     updated: "2019-04-11"
     episode_count_stated: 3
+    rights: ["Canno"]
     chapter_count: 51
     chapters:
       - title: "第1話 天才さんと秀才さん"
@@ -2716,6 +2738,7 @@ works:
     started: "2017-09-30"
     updated: "2017-10-02"
     episode_count_stated: 3
+    rights: ["桜井瑞希", "芳文社"]
     chapter_count: 3
     chapters:
       - title: "第一楔 自問自答ー初恋自答1"
@@ -2755,6 +2778,7 @@ works:
     updated: "2026-01-15"
     episode_count_stated: 3
     partial: true
+    rights: ["2013 Takuto Kashiki"]
     chapter_count: 122
     chapters:
       - title: "第1話"
@@ -3588,6 +3612,7 @@ works:
     started: "2017-10-24"
     updated: "2017-10-27"
     episode_count_stated: 4
+    rights: ["ぬっく", "芳文社"]
     chapter_count: 4
     chapters:
       - title: "第1話"
@@ -3606,6 +3631,7 @@ works:
     updated: "2019-01-15"
     episode_count_stated: 56
     partial: true
+    rights: ["吉北ぽぷり", "芳文社"]
     chapter_count: 56
     chapters:
       - title: "episode1 「また教室で」"
@@ -3624,7 +3650,7 @@ works:
         access_modes: ["free"]
       - title: "special 1：きさらのCM"
         access_modes: ["free"]
-      - title: "special 2：きさら&amp;あすか特別イラスト！"
+      - title: "special 2：きさら&あすか特別イラスト！"
         access_modes: ["free"]
       - title: "extra episode13:あすかもいた"
         access_modes: ["free"]
@@ -3728,6 +3754,7 @@ works:
     updated: "2025-05-09"
     episode_count_stated: 4
     partial: true
+    rights: ["COMISMA INC."]
     chapter_count: 134
     chapters:
       - title: "第1話"
@@ -4155,6 +4182,7 @@ works:
     started: "2018-01-20"
     updated: "2019-07-31"
     episode_count_stated: 2
+    rights: ["Kawanami Izumi 2018"]
     chapter_count: 18
     chapters:
       - title: "第1話 少女たちの箱庭"
@@ -4484,6 +4512,7 @@ works:
     started: "2018-02-27"
     updated: "2020-09-05"
     episode_count_stated: 3
+    rights: ["atchiai 2018"]
     chapter_count: 7
     chapters:
       - title: "このかけがえのない地獄 1話"
@@ -4798,6 +4827,7 @@ works:
     platform_code: "34558"
     started: "2018-05-10"
     updated: "2026-08-06"
+    rights: ["Rokuro Shinofusa", "Shogakukan."]
     chapter_count: 0
     chapters: []
   - work_title: "ゆりぐらし"
@@ -5110,6 +5140,7 @@ works:
     started: "2018-06-22"
     updated: "2019-03-30"
     episode_count_stated: 6
+    rights: ["伊藤いづも", "芳文社"]
     chapter_count: 6
     chapters:
       - title: "第1話"
@@ -5173,6 +5204,7 @@ works:
     updated: "2018-09-01"
     episode_count_stated: 5
     partial: true
+    rights: ["如意自在", "芳文社"]
     chapter_count: 5
     chapters:
       - title: "第1話　エースなんて必要ないの"
@@ -5415,6 +5447,7 @@ works:
     started: "2018-08-13"
     updated: "2019-05-27"
     episode_count_stated: 21
+    rights: ["Akamaru　2018"]
     chapter_count: 21
     chapters:
       - title: "第1話"
@@ -5974,6 +6007,7 @@ works:
     updated: "2018-12-29"
     episode_count_stated: 5
     partial: true
+    rights: ["卯花つかさ", "芳文社"]
     chapter_count: 5
     chapters:
       - title: "第1話"
@@ -6101,6 +6135,7 @@ works:
     updated: "2018-11-27"
     episode_count_stated: 18
     partial: true
+    rights: ["おにぎり", "芳文社"]
     chapter_count: 18
     chapters:
       - title: "第1話：はじめまして①"
@@ -6146,6 +6181,7 @@ works:
     started: "2018-11-20"
     updated: "2021-04-06"
     episode_count_stated: 3
+    rights: ["Chicole 2020"]
     chapter_count: 15
     chapters:
       - title: "第1話　華と雪"
@@ -6401,6 +6437,7 @@ works:
     started: "2019-02-05"
     updated: "2019-03-07"
     episode_count_stated: 3
+    rights: ["宮部サチ", "徳間書店"]
     chapter_count: 7
     chapters:
       - title: "第1話"
@@ -6557,6 +6594,7 @@ works:
     started: "2019-03-07"
     updated: "2019-05-23"
     episode_count_stated: 3
+    rights: ["菅原キク", "徳間書店"]
     chapter_count: 12
     chapters:
       - title: "Story01 乙女×島"
@@ -6753,12 +6791,13 @@ works:
       - title: "第6巻発売！"
         access_modes: ["free"]
   - work_title: "放課後"
-    author: "大島永遠&amp;大島智"
+    author: "大島永遠&大島智"
     url: "https://manga.nicovideo.jp/comic/40541"
     platform_code: "40541"
     started: "2019-04-25"
     updated: "2019-05-02"
     episode_count_stated: 2
+    rights: ["2018大島永遠 大島智"]
     chapter_count: 2
     chapters:
       - title: "第1話 秘密の時間"
@@ -6772,6 +6811,7 @@ works:
     started: "2019-05-30"
     updated: "2024-04-04"
     episode_count_stated: 3
+    rights: ["菅原キク", "徳間書店"]
     chapter_count: 70
     chapters:
       - title: "第1話 母さま 私ちっとも――…"
@@ -6922,6 +6962,7 @@ works:
     updated: "2023-05-16"
     episode_count_stated: 15
     partial: true
+    rights: ["森尾正博", "芳文社"]
     chapter_count: 15
     chapters:
       - title: "第1話"
@@ -6961,6 +7002,7 @@ works:
     started: "2019-04-24"
     updated: "2019-04-24"
     episode_count_stated: 3
+    rights: ["︎火曜", "芳文社"]
     chapter_count: 3
     chapters:
       - title: "注文１：知らなかった帰り道"
@@ -7416,6 +7458,7 @@ works:
     started: "2019-06-21"
     updated: "2019-06-21"
     episode_count_stated: 3
+    rights: ["近藤笑真", "小学館　裏サンデー", "マンガワン"]
     chapter_count: 3
     chapters:
       - title: "第1話「あー」"
@@ -7431,6 +7474,7 @@ works:
     started: "2019-06-21"
     updated: "2019-06-21"
     episode_count_stated: 1
+    rights: ["たみふる", "小学館　裏サンデー", "マンガワン"]
     chapter_count: 1
     chapters:
       - title: "第1話"
@@ -7557,6 +7601,7 @@ works:
     updated: "2020-08-14"
     episode_count_stated: 6
     partial: true
+    rights: ["佐倉おりこ", "実業之日本社"]
     chapter_count: 6
     chapters:
       - title: "第1打　出会いとはじまり"
@@ -7711,6 +7756,7 @@ works:
     started: "2019-10-18"
     updated: "2019-10-18"
     episode_count_stated: 1
+    rights: ["COMISMA INC."]
     chapter_count: 1
     chapters:
       - title: "第1話"
@@ -7858,10 +7904,10 @@ works:
     url: "https://manga.nicovideo.jp/comic/44519"
     platform_code: "44519"
     started: "2019-10-20"
-    updated: "2026-08-07"
-    episode_count_stated: 102
+    updated: "2026-08-08"
+    episode_count_stated: 103
     partial: true
-    chapter_count: 102
+    chapter_count: 103
     chapters:
       - title: "ロボ1-1"
         access_modes: ["free"]
@@ -8067,6 +8113,8 @@ works:
         access_modes: ["free"]
       - title: "ロボ17-6"
         access_modes: ["free"]
+      - title: "ロボ18-1"
+        access_modes: ["free"]
   - work_title: "あなたのためなら女にでも"
     author: "つごもり(著者)"
     url: "https://manga.nicovideo.jp/comic/44852"
@@ -8102,6 +8150,7 @@ works:
     started: "2019-12-11"
     updated: "2019-12-11"
     episode_count_stated: 1
+    rights: ["TANJIU 2015"]
     chapter_count: 1
     chapters:
       - title: "Chapter.01"
@@ -8113,6 +8162,7 @@ works:
     started: "2020-01-09"
     updated: "2022-01-20"
     episode_count_stated: 3
+    rights: ["平尾アウリ", "徳間書店"]
     chapter_count: 48
     chapters:
       - title: "第1話"
@@ -8441,6 +8491,7 @@ works:
     started: "2020-01-14"
     updated: "2020-01-28"
     episode_count_stated: 5
+    rights: ["海老川ケイ", "芳文社"]
     chapter_count: 5
     chapters:
       - title: "episodio 1  リーチャ未来へ!"
@@ -8750,6 +8801,7 @@ works:
     updated: "2022-07-04"
     episode_count_stated: 4
     partial: true
+    rights: ["Kitsunegasaki　2020"]
     chapter_count: 31
     chapters:
       - title: "＃01"
@@ -8925,6 +8977,7 @@ works:
     started: "2020-04-16"
     updated: "2022-03-04"
     episode_count_stated: 2
+    rights: ["ハルミチヒロ", "芳文社"]
     chapter_count: 2
     chapters:
       - title: "第1話"
@@ -8938,6 +8991,7 @@ works:
     started: "2020-04-03"
     updated: "2021-10-08"
     episode_count_stated: 4
+    rights: ["矢坂しゅう", "竹書房"]
     chapter_count: 36
     chapters:
       - title: "第1話（前編）"
@@ -9230,6 +9284,7 @@ works:
     started: "2020-06-06"
     updated: "2020-06-20"
     episode_count_stated: 3
+    rights: ["うちのまいこ", "芳文社"]
     chapter_count: 3
     chapters:
       - title: "第1話「とても変わった女の子」"
@@ -9267,9 +9322,9 @@ works:
         access_modes: ["free"]
       - title: "第6話おまけ：天使、JKとデートにいく～番外編②～"
         access_modes: ["free"]
-      - title: "第6.5話：上級天使現る！&lt;前編&gt;"
+      - title: "第6.5話：上級天使現る！<前編>"
         access_modes: ["free"]
-      - title: "第7話：上級天使現る！&lt;後編&gt;"
+      - title: "第7話：上級天使現る！<後編>"
         access_modes: ["free"]
       - title: "第8話：天使、JKを知りたい！"
         access_modes: ["free"]
@@ -9281,7 +9336,7 @@ works:
         access_modes: ["free"]
       - title: "第11話：後輩天使、大活躍!?"
         access_modes: ["free"]
-      - title: "第12話：ライバルはエリート天使！&lt;前編&gt;"
+      - title: "第12話：ライバルはエリート天使！<前編>"
         access_modes: ["free"]
       - title: "おまけ：天使、壁にはまる"
         access_modes: ["free"]
@@ -9289,9 +9344,9 @@ works:
         access_modes: ["free"]
       - title: "おまけ：天使、応援したい！"
         access_modes: ["free"]
-      - title: "第13話①：ライバルはエリート天使！&lt;後編&gt;"
+      - title: "第13話①：ライバルはエリート天使！<後編>"
         access_modes: ["free"]
-      - title: "第13話②：ライバルはエリート天使！&lt;後編&gt;"
+      - title: "第13話②：ライバルはエリート天使！<後編>"
         access_modes: ["free"]
       - title: "おまけ：天使、恐怖体験!?"
         access_modes: ["free"]
@@ -9299,9 +9354,9 @@ works:
         access_modes: ["free"]
       - title: "おまけ：天使、下着事情を語る"
         access_modes: ["free"]
-      - title: "おまけ：天使、小さくなる&lt;前編&gt;"
+      - title: "おまけ：天使、小さくなる<前編>"
         access_modes: ["free"]
-      - title: "おまけ：天使、小さくなる&lt;後編&gt;"
+      - title: "おまけ：天使、小さくなる<後編>"
         access_modes: ["free"]
       - title: "おまけ：JK、尽きない悩み事？"
         access_modes: ["free"]
@@ -9399,6 +9454,7 @@ works:
     started: "2020-07-08"
     updated: "2020-09-04"
     episode_count_stated: 6
+    rights: ["︎くずしろ", "小学館"]
     chapter_count: 6
     chapters:
       - title: "第1話"
@@ -9421,6 +9477,7 @@ works:
     updated: "2022-05-16"
     episode_count_stated: 9
     partial: true
+    rights: ["午子", "ふかみん", "芳文社"]
     chapter_count: 9
     chapters:
       - title: "第1話"
@@ -9448,6 +9505,7 @@ works:
     started: "2020-08-21"
     updated: "2020-08-28"
     episode_count_stated: 2
+    rights: ["綾幡フイヱ", "実業之日本社"]
     chapter_count: 2
     chapters:
       - title: "第1話　不蘂体聖化院（1）"
@@ -9461,6 +9519,7 @@ works:
     started: "2020-09-04"
     updated: "2022-01-14"
     episode_count_stated: 2
+    rights: ["ちさこ", "竹書房"]
     chapter_count: 28
     chapters:
       - title: "第1話"
@@ -9743,6 +9802,7 @@ works:
     started: "2020-11-14"
     updated: "2022-05-13"
     episode_count_stated: 8
+    rights: ["Keyyang 2021"]
     chapter_count: 32
     chapters:
       - title: "第1話"
@@ -10179,6 +10239,7 @@ works:
     updated: "2021-05-03"
     episode_count_stated: 3
     partial: true
+    rights: ["Kaido Minoda 2021"]
     chapter_count: 3
     chapters:
       - title: "Route1 すすきのの女"
@@ -10195,6 +10256,7 @@ works:
     updated: "2024-09-18"
     episode_count_stated: 8
     partial: true
+    rights: ["Itoman 2021"]
     chapter_count: 8
     chapters:
       - title: "1-1話"
@@ -10399,6 +10461,7 @@ works:
     updated: "2025-02-24"
     episode_count_stated: 14
     partial: true
+    rights: ["︎水鳥なや", "なもり", "一迅社"]
     chapter_count: 14
     chapters:
       - title: "第1話 転生はあるらしいよ･･･ならば奇跡は!?"
@@ -10479,6 +10542,7 @@ works:
     updated: "2022-07-26"
     episode_count_stated: 3
     partial: true
+    rights: ["Misaki Tenmu 2022 (c)Rokubanmenokacho 2022"]
     chapter_count: 15
     chapters:
       - title: "第1話"
@@ -10705,6 +10769,7 @@ works:
     started: "2021-07-26"
     updated: "2022-05-09"
     episode_count_stated: 3
+    rights: ["大庭直仁", "徳間書店"]
     chapter_count: 22
     chapters:
       - title: "第1話 ポッキーゲーム"
@@ -11085,6 +11150,7 @@ works:
     started: "2021-09-03"
     updated: "2022-01-14"
     episode_count_stated: 9
+    rights: ["井上とさず", "芳文社"]
     chapter_count: 9
     chapters:
       - title: "第１話"
@@ -11163,6 +11229,7 @@ works:
     started: "2021-09-24"
     updated: "2021-10-15"
     episode_count_stated: 3
+    rights: ["木村まつり", "BUSHIROAD MEDIA"]
     chapter_count: 3
     chapters:
       - title: "第1話"
@@ -11179,6 +11246,7 @@ works:
     updated: "2024-09-16"
     episode_count_stated: 6
     partial: true
+    rights: ["Guu 2022 (c)Minase 2022 (c)riritto 2022"]
     chapter_count: 30
     chapters:
       - title: "第1話"
@@ -11313,6 +11381,7 @@ works:
     updated: "2022-09-27"
     episode_count_stated: 4
     partial: true
+    rights: ["こめつぶ", "芳文社"]
     chapter_count: 4
     chapters:
       - title: "第1話"
@@ -11331,6 +11400,7 @@ works:
     updated: "2026-07-21"
     episode_count_stated: 3
     partial: true
+    rights: ["竹嶋えく", "一迅社"]
     chapter_count: 3
     chapters:
       - title: "第1話　屋上と、ギターと、先輩と。"
@@ -11346,6 +11416,7 @@ works:
     started: "2021-11-18"
     updated: "2021-12-16"
     episode_count_stated: 2
+    rights: ["未幡", "一迅社"]
     chapter_count: 2
     chapters:
       - title: "シフト01　ようこそリーベ女学園へ！"
@@ -11360,6 +11431,7 @@ works:
     updated: "2026-07-28"
     episode_count_stated: 3
     partial: true
+    rights: ["あおのなち", "一迅社"]
     chapter_count: 3
     chapters:
       - title: "第1話　はじめまして"
@@ -11375,6 +11447,7 @@ works:
     started: "2021-12-02"
     updated: "2022-01-06"
     episode_count_stated: 2
+    rights: ["雨水汐", "一迅社"]
     chapter_count: 2
     chapters:
       - title: "1話　月は夜空に空いた穴"
@@ -11388,6 +11461,7 @@ works:
     started: "2021-12-21"
     updated: "2021-12-21"
     episode_count_stated: 1
+    rights: ["ぎんもく", "芳文社"]
     chapter_count: 1
     chapters:
       - title: "第1話"
@@ -11425,7 +11499,7 @@ works:
         access_modes: ["free"]
       - title: "第１１話　焦鬼"
         access_modes: ["free"]
-      - title: "最終話　All&#039;s well that ends well"
+      - title: "最終話　All's well that ends well"
         access_modes: ["free"]
   - work_title: "赤ずきんに食べられた狼2"
     author: "椎名晴美"
@@ -11798,6 +11872,7 @@ works:
     started: "2022-04-05"
     updated: "2022-05-03"
     episode_count_stated: 3
+    rights: ["kiki", "多㐂", "一迅社"]
     chapter_count: 3
     chapters:
       - title: "第1話"
@@ -11814,6 +11889,7 @@ works:
     updated: "2023-12-19"
     episode_count_stated: 11
     partial: true
+    rights: ["森井暁正", "芳文社"]
     chapter_count: 11
     chapters:
       - title: "第１話"
@@ -11889,6 +11965,7 @@ works:
     started: "2022-05-06"
     updated: "2025-01-24"
     episode_count_stated: 3
+    rights: ["矢坂しゅう", "竹書房"]
     chapter_count: 59
     chapters:
       - title: "第1話"
@@ -12032,6 +12109,7 @@ works:
     started: "2022-07-08"
     updated: "2022-07-22"
     episode_count_stated: 3
+    rights: ["studio HEADLINE", "なおたけ", "光文社"]
     chapter_count: 3
     chapters:
       - title: "第1話"
@@ -12067,6 +12145,7 @@ works:
     updated: "2023-08-21"
     episode_count_stated: 11
     partial: true
+    rights: ["トフ子", "芳文社"]
     chapter_count: 11
     chapters:
       - title: "第１話"
@@ -12480,6 +12559,7 @@ works:
     updated: "2026-07-16"
     episode_count_stated: 4
     partial: true
+    rights: ["Sumeragihiyoko", "Mika Pikazo", "mocha", "Koyuki"]
     chapter_count: 24
     chapters:
       - title: "第1話"
@@ -12538,6 +12618,7 @@ works:
     updated: "2023-12-10"
     episode_count_stated: 3
     partial: true
+    rights: ["Miso Ameiro 2023 (C)Kaeru Ryouseirui 2023"]
     chapter_count: 23
     chapters:
       - title: "第1話"
@@ -12969,6 +13050,7 @@ works:
     started: "2023-01-06"
     updated: "2023-02-10"
     episode_count_stated: 5
+    rights: ["puruchome 2023"]
     chapter_count: 5
     chapters:
       - title: "episode.01"
@@ -12988,6 +13070,7 @@ works:
     started: "2023-01-14"
     updated: "2023-01-14"
     episode_count_stated: 1
+    rights: ["Lunlun Yamamoto 2023"]
     chapter_count: 1
     chapters:
       - title: "第1話"
@@ -12999,6 +13082,7 @@ works:
     started: "2023-01-13"
     updated: "2025-05-23"
     episode_count_stated: 2
+    rights: ["パデラポッロのりお", "竹書房"]
     chapter_count: 42
     chapters:
       - title: "第1話"
@@ -13092,6 +13176,7 @@ works:
     started: "2023-01-27"
     updated: "2025-03-14"
     episode_count_stated: 3
+    rights: ["ショウマケイト", "竹書房"]
     chapter_count: 35
     chapters:
       - title: "第1話"
@@ -13171,6 +13256,7 @@ works:
     started: "2023-02-02"
     updated: "2026-08-06"
     episode_count_stated: 13
+    rights: ["Sui Kohno"]
     chapter_count: 23
     chapters:
       - title: "第1話　ララのお仕事"
@@ -13246,6 +13332,7 @@ works:
     started: "2023-04-15"
     updated: "2023-04-15"
     episode_count_stated: 3
+    rights: ["はちべもつ", "芳文社"]
     chapter_count: 3
     chapters:
       - title: "第1話"
@@ -13261,6 +13348,7 @@ works:
     started: "2023-03-28"
     updated: "2023-03-28"
     episode_count_stated: 3
+    rights: ["双葉陽", "芳文社"]
     chapter_count: 3
     chapters:
       - title: "第1話"
@@ -13277,6 +13365,7 @@ works:
     updated: "2024-08-05"
     episode_count_stated: 2
     partial: true
+    rights: ["Kisugae 2023 (c)Kaori Fujino", "Kodansha Ltd."]
     chapter_count: 18
     chapters:
       - title: "第1話①"
@@ -13342,6 +13431,7 @@ works:
     updated: "2023-09-16"
     episode_count_stated: 2
     partial: true
+    rights: ["Sumiko Arai 2023"]
     chapter_count: 39
     chapters:
       - title: "RHYTHM A"
@@ -13430,6 +13520,7 @@ works:
     updated: "2024-10-22"
     episode_count_stated: 5
     partial: true
+    rights: ["Mizuhira"]
     chapter_count: 5
     chapters:
       - title: "第1話①"
@@ -13449,6 +13540,7 @@ works:
     started: "2023-05-25"
     updated: "2025-11-22"
     episode_count_stated: 9
+    rights: ["Sai Naekawa 2023 (c)Tail Yuzuhara", "Mitsuya 2023"]
     chapter_count: 70
     chapters:
       - title: "第1話①"
@@ -13598,6 +13690,7 @@ works:
     started: "2023-08-24"
     updated: "2023-08-24"
     episode_count_stated: 3
+    rights: ["若鶏にこみ", "芳文社"]
     chapter_count: 3
     chapters:
       - title: "第1話"
@@ -13613,6 +13706,7 @@ works:
     started: "2023-07-25"
     updated: "2023-07-25"
     episode_count_stated: 3
+    rights: ["北斗すい", "芳文社"]
     chapter_count: 3
     chapters:
       - title: "第1話"
@@ -13691,6 +13785,7 @@ works:
     updated: "2026-07-24"
     episode_count_stated: 4
     partial: true
+    rights: ["Banzai Kotobuki Daienkai ©Yushi Ukai"]
     chapter_count: 50
     chapters:
       - title: "第1話"
@@ -13954,6 +14049,7 @@ works:
     started: "2023-09-08"
     updated: "2023-12-08"
     episode_count_stated: 7
+    rights: ["珠奈ににこ", "光文社"]
     chapter_count: 7
     chapters:
       - title: "第1話"
@@ -13977,6 +14073,7 @@ works:
     started: "2023-09-15"
     updated: "2023-09-15"
     episode_count_stated: 1
+    rights: ["Michika Tomizawa 2023"]
     chapter_count: 1
     chapters:
       - title: "第1話"
@@ -14197,6 +14294,7 @@ works:
     started: "2023-12-19"
     updated: "2023-12-19"
     episode_count_stated: 1
+    rights: ["凡竜", "芳文社"]
     chapter_count: 1
     chapters:
       - title: "CP1"
@@ -14208,6 +14306,7 @@ works:
     started: "2024-01-04"
     updated: "2024-01-04"
     episode_count_stated: 1
+    rights: ["ジェイ", "加藤", "KADOKAWA"]
     chapter_count: 1
     chapters:
       - title: "第1話"
@@ -14219,6 +14318,7 @@ works:
     started: "2024-02-26"
     updated: "2025-03-21"
     episode_count_stated: 2
+    rights: ["Chizuna nakajima"]
     chapter_count: 24
     chapters:
       - title: "第1話"
@@ -14276,6 +14376,7 @@ works:
     started: "2024-03-25"
     updated: "2024-04-20"
     episode_count_stated: 2
+    rights: ["Kawauchi"]
     chapter_count: 2
     chapters:
       - title: "上巻第1話　嘉神さんはいい子"
@@ -14440,10 +14541,11 @@ works:
     url: "https://manga.nicovideo.jp/comic/67976"
     platform_code: "67976"
     started: "2024-03-23"
-    updated: "2026-07-18"
-    episode_count_stated: 11
+    updated: "2026-08-08"
+    episode_count_stated: 12
     partial: true
-    chapter_count: 56
+    rights: ["Marii Taiyou"]
+    chapter_count: 57
     chapters:
       - title: "第1話"
         access_modes: ["free"]
@@ -14557,6 +14659,8 @@ works:
         access_modes: ["free"]
       - title: "第28話前編"
         access_modes: ["free"]
+      - title: "第28話後編"
+        access_modes: ["free"]
   - work_title: "スイーツ・パニック"
     author: "ブミィ"
     url: "https://manga.nicovideo.jp/comic/68104"
@@ -14664,6 +14768,7 @@ works:
     updated: "2025-10-03"
     episode_count_stated: 8
     partial: true
+    rights: ["Haruki Sakata ©Bagu Kawaya"]
     chapter_count: 8
     chapters:
       - title: "第1話"
@@ -14708,6 +14813,7 @@ works:
     started: "2024-06-15"
     updated: "2025-03-18"
     episode_count_stated: 9
+    rights: ["笹 塔五郎", "黒布直導", "Amazia", "inc."]
     chapter_count: 9
     chapters:
       - title: "第1話\t契りと始まり (1)"
@@ -14800,6 +14906,7 @@ works:
     updated: "2025-06-18"
     episode_count_stated: 1
     partial: true
+    rights: ["吉富昭仁", "ヒーローズ"]
     chapter_count: 42
     chapters:
       - title: "#1 未来の告白"
@@ -14893,6 +15000,7 @@ works:
     started: "2024-09-04"
     updated: "2025-03-26"
     episode_count_stated: 1
+    rights: ["さと", "ヒーローズ"]
     chapter_count: 30
     chapters:
       - title: "第1話 私の目の前には一人の神様がいた"
@@ -14962,6 +15070,7 @@ works:
     started: "2024-09-22"
     updated: "2025-01-19"
     episode_count_stated: 1
+    rights: ["2022 有郷　葉　©tadima yoshikadu　©HIFUMI SHOBO"]
     chapter_count: 18
     chapters:
       - title: "第1話"
@@ -15008,6 +15117,7 @@ works:
     updated: "2026-08-04"
     episode_count_stated: 5
     partial: true
+    rights: ["狐ヶ崎", "KADOKAWA"]
     chapter_count: 5
     chapters:
       - title: "第1話"
@@ -15048,6 +15158,7 @@ works:
     started: "2024-10-01"
     updated: "2024-10-01"
     episode_count_stated: 1
+    rights: ["九重すわ", "芳文社"]
     chapter_count: 1
     chapters:
       - title: "第1話　本当にやりたかったこと"
@@ -15057,9 +15168,9 @@ works:
     url: "https://manga.nicovideo.jp/comic/70296"
     platform_code: "70296"
     started: "2024-10-05"
-    updated: "2026-07-28"
-    episode_count_stated: 66
-    chapter_count: 66
+    updated: "2026-08-07"
+    episode_count_stated: 67
+    chapter_count: 67
     chapters:
       - title: "第201話"
         access_modes: ["free"]
@@ -15193,6 +15304,8 @@ works:
         access_modes: ["free"]
       - title: "第266話"
         access_modes: ["free"]
+      - title: "第267話"
+        access_modes: ["free"]
   - work_title: "サレ妻お江戸リコカツ録"
     author: "梶井スパナ"
     url: "https://manga.nicovideo.jp/comic/70505"
@@ -15200,6 +15313,7 @@ works:
     started: "2024-11-29"
     updated: "2025-02-28"
     episode_count_stated: 9
+    rights: ["梶井スパナ", "芳文社"]
     chapter_count: 9
     chapters:
       - title: "第１話"
@@ -15326,6 +15440,7 @@ works:
     started: "2024-12-18"
     updated: "2025-10-18"
     episode_count_stated: 13
+    rights: ["星崎レオ", "Amazia", "inc."]
     chapter_count: 13
     chapters:
       - title: "第1話"
@@ -15361,6 +15476,7 @@ works:
     started: "2024-12-28"
     updated: "2026-08-01"
     episode_count_stated: 28
+    rights: ["Yuu Toumin ⓒdsidaisan"]
     chapter_count: 55
     chapters:
       - title: "第１話"
@@ -15549,6 +15665,7 @@ works:
     updated: "2026-07-27"
     episode_count_stated: 4
     partial: true
+    rights: ["🄫せらみっく"]
     chapter_count: 18
     chapters:
       - title: "第1話"
@@ -15594,6 +15711,7 @@ works:
     started: "2025-02-05"
     updated: "2026-07-28"
     episode_count_stated: 3
+    rights: ["Ueji Yuho 2025"]
     chapter_count: 18
     chapters:
       - title: "第1話"
@@ -15659,6 +15777,7 @@ works:
     updated: "2025-04-24"
     episode_count_stated: 6
     partial: true
+    rights: ["ラリアット", "イースト", "プレス"]
     chapter_count: 6
     chapters:
       - title: "EP1「吸血親子」"
@@ -15680,6 +15799,7 @@ works:
     started: "2025-04-09"
     updated: "2026-04-01"
     episode_count_stated: 7
+    rights: ["Natsuwo Ichikawa"]
     chapter_count: 34
     chapters:
       - title: "episode.1"
@@ -15845,6 +15965,7 @@ works:
     started: "2025-05-07"
     updated: "2026-01-28"
     episode_count_stated: 1
+    rights: ["ISAKA"]
     chapter_count: 19
     chapters:
       - title: "第1話"
@@ -15893,6 +16014,7 @@ works:
     updated: "2026-07-30"
     episode_count_stated: 4
     partial: true
+    rights: ["yosshaa! ©QZO ©Nao Watanuki"]
     chapter_count: 4
     chapters:
       - title: "第1話"
@@ -15967,6 +16089,7 @@ works:
     started: "2025-08-06"
     updated: "2025-08-06"
     episode_count_stated: 1
+    rights: ["Nanako Inushima"]
     chapter_count: 1
     chapters:
       - title: "第1話"
@@ -16078,6 +16201,7 @@ works:
     started: "2025-10-24"
     updated: "2026-05-24"
     episode_count_stated: 3
+    rights: ["Masayuki Shizaki ⒸYu Aifuji"]
     chapter_count: 8
     chapters:
       - title: "第1話"
@@ -16120,6 +16244,7 @@ works:
     updated: "2026-07-26"
     episode_count_stated: 3
     partial: true
+    rights: ["Nakatani Nio"]
     chapter_count: 3
     chapters:
       - title: "第1話 終末の恋人"
@@ -16135,6 +16260,7 @@ works:
     started: "2025-12-09"
     updated: "2025-12-09"
     episode_count_stated: 1
+    rights: ["AKUTSU Minako 2025"]
     chapter_count: 1
     chapters:
       - title: "あきらの場合"
@@ -16147,6 +16273,7 @@ works:
     updated: "2026-07-17"
     episode_count_stated: 3
     partial: true
+    rights: ["Nekonyan", "BUSHIROAD WORKS"]
     chapter_count: 3
     chapters:
       - title: "第1話-1"
@@ -16191,6 +16318,7 @@ works:
     updated: "2026-07-27"
     episode_count_stated: 2
     partial: true
+    rights: ["Kazune Yamamoto"]
     chapter_count: 2
     chapters:
       - title: "第一話"
@@ -16265,6 +16393,7 @@ works:
     platform_code: "78188"
     started: "2026-05-12"
     updated: "2026-05-12"
+    rights: ["矢坂しゅう", "竹書房"]
     chapter_count: 28
     chapters:
       - title: "どうしたら幼馴染の彼女になれますか！？ 【連載版】１"
@@ -16301,6 +16430,7 @@ works:
     platform_code: "78268"
     started: "2026-05-12"
     updated: "2026-05-12"
+    rights: ["ショウマケイト", "竹書房"]
     chapter_count: 18
     chapters:
       - title: "友達が私を理解らせにくるので勝利の女神の力を借りてこっちも理解らせにいきます。 【連載版】１"
@@ -16327,6 +16457,7 @@ works:
     platform_code: "78269"
     started: "2026-05-12"
     updated: "2026-05-12"
+    rights: ["パデラポッロのりお", "竹書房"]
     chapter_count: 21
     chapters:
       - title: "ご主人様には吸わせません！ 【連載版】１"
@@ -16357,6 +16488,7 @@ works:
     started: "2026-05-23"
     updated: "2026-05-23"
     episode_count_stated: 1
+    rights: ["Ana C. Sanchez First published by Editorial Planeta S.A. All rights reserved"]
     chapter_count: 1
     chapters:
       - title: "StageⅠ　否定"
@@ -16380,6 +16512,7 @@ works:
     started: "2026-06-15"
     updated: "2026-08-03"
     episode_count_stated: 2
+    rights: ["三倉ゆめ", "ヒーローズ"]
     chapter_count: 46
     chapters:
       - title: "第１話　もし35歳独身女性が魔法少女になったら（その１）"
@@ -16621,6 +16754,7 @@ works:
     platform_code: "83386"
     started: "2026-07-06"
     updated: "2026-07-06"
+    rights: ["BUSHIROAD WORKS"]
     chapter_count: 8
     chapters:
       - title: "犬と仕事は煙に巻けない"
@@ -16651,6 +16785,7 @@ works:
     updated: "2015-09-23"
     episode_count_stated: 4
     partial: true
+    rights: ["ガオシ", "Shogakukan 2012-2015."]
     chapter_count: 4
     chapters:
       - title: "第1話"

@@ -17,7 +17,7 @@ it measures nothing about the data.
 | 1 | renderings still Japanese in English mode | 334 | in progress |
 | 2 | citations withheld from readers | 244 | **done, 36** (an ISBN cites where a query cannot) |
 | 2b | the 36 that remain | 36 | queued: 21 reachable via NDL /books/ from a work they are credited on; the other 15 want a platform byline, a shop page or the artist's own account, per §14c |
-| 3 | nicovideo works with no rights | 189 | queued |
+| 3 | nicovideo works with no rights | 189 | **done, 60** (capture re-run with the fixed pattern; 3 of the residue state only the platform's own ©DWANGO, 57 have no cached page and belong to the capture measure) |
 | 4 | imprint strings that reach no line | 139 | queued |
 | 5 | one work under two names in a list | 71 | queued |
 | 6 | labels with nothing to quote | 49 | queued |

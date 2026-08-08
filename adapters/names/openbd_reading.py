@@ -96,16 +96,36 @@ BRACKET = re.compile(r"\[([^\]]*)\]")
 TRAILING_ROLE = re.compile(r"[（(]\s*([^）)]{1,10})\s*[）)]\s*$")
 
 
-def credit_name(part):
-    """One credit with its cataloguing notation removed, or '' where it was all notation.
+def credit_parts(part):
+    """One credit as `(name, role or None)`: the notation removed, and what it said.
+
+    THE ROLE IS THE THING THIS FUNCTION ALREADY WORKED OUT AND THREW AWAY. Deciding which bracket
+    is cataloguing is the whole of the job below; returning only the name meant the works list
+    carried 470 print rows whose credit was `[著]秋山はる` in the source and `秋山はる` on the row,
+    with nothing anywhere recording that 秋山はる is the 著者 of that book. A second reader of the
+    same brackets somewhere else is what STANDING-INSTRUCTIONS §3 counts seven shipped bugs from.
 
     A doubled delimiter is still one delimiter: MADB writes `[[著]]椿木とりか` as well as `[著]`,
     and a reader that took the brackets literally found a person called `[著]椿木とりか`.
+
+    THE FIRST ROLE WINS where a credit somehow carries two. `[上田香子][訳]` is the shape that makes
+    this possible at all, a name in one bracket and a job in the next, and a credit stating two
+    different jobs for one person is not something the corpus holds; taking the first keeps the
+    answer deterministic instead of depending on which bracket the cataloguer typed first.
     """
     part = re.sub(r"\[+", "[", re.sub(r"\]+", "]", part))
+    roles = [m.group(1).strip() for m in BRACKET.finditer(part) if ROLE_ONLY.match(m.group(1))]
     kept = BRACKET.sub(lambda m: "" if ROLE_ONLY.match(m.group(1)) else m.group(1), part)
-    kept = TRAILING_ROLE.sub(lambda m: "" if ROLE_ONLY.match(m.group(1)) else m.group(0), kept)
-    return kept.strip()
+    tail = TRAILING_ROLE.search(kept)
+    if tail and ROLE_ONLY.match(tail.group(1)):
+        roles.append(tail.group(1).strip())
+        kept = kept[:tail.start()]
+    return kept.strip(), (roles[0] if roles else None)
+
+
+def credit_name(part):
+    """One credit with its cataloguing notation removed, or '' where it was all notation."""
+    return credit_parts(part)[0]
 
 
 def contributors(record):

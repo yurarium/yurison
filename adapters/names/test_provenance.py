@@ -18,12 +18,37 @@ from names.store import NameStore  # noqa: E402
 
 COVERS = ["adapters/names/provenance.py"]
 
-# openBD, which is the ordinary healthy case: the publisher's own collationkey, read off a URL
-# built from the ISBN the corpus already held.
-SOURCED = {"reading": "シノノメ ミズオ", "reading_basis": "stated", "reading_source": "openBD",
-           "reading_source_kind": "publisher-jp",
-           "reading_url": "https://api.openbd.jp/v1/get?isbn=9784758027335",
+# The National Diet Library's record page, which is the ordinary healthy case: a cataloguing
+# authority states the reading and the address is the record, readable by anyone who opens it.
+SOURCED = {"reading": "シノノメ ミズオ", "reading_basis": "stated",
+           "reading_source": "ndlsearch.ndl.go.jp", "reading_source_kind": "national-library",
+           "reading_url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034312467",
            "reading_reviewed": "2026-08-05"}
+
+# THE SAME READING FROM openBD, WHICH IS NOT A PAGE. `v1/get?isbn=` returns the JSON the
+# collationkey was read out of, so it is the record and not a search, which is what separates it
+# from the NDL case below. It is still not something to put in front of a reader, and 208 author
+# readings and 31 titles cite one. This fixture is the shape the pipeline really produced.
+OPENBD = dict(SOURCED, reading_source="openBD", reading_source_kind="publisher-jp",
+              reading_url="https://api.openbd.jp/v1/get?isbn=9784758027335")
+
+# 転生王女と天才令嬢の魔法革命 as curated.yaml holds it: Yen Press publishes the English title and
+# the entry carries the licensor's own page for it.
+LICENSED = {"en": "The Magical Revolution of the Reincarnated Princess and the Genius Young Lady",
+            "basis": "licensed", "en_source": "Yen Press", "en_source_kind": "licensor",
+            "en_reviewed": "2026-08-03",
+            "en_url": "https://yenpress.com/series/the-magical-revolution-of-the-reincarnated-"
+                      "princess-and-the-genius-young-lady-manga"}
+
+# CONTINUE?, and 20 more like it. The title is already Latin, so the work's own name IS the
+# English name: `official-jp` with `surface` for a source, and no page anywhere to cite.
+LATIN_ALREADY = {"en": "CONTINUE?", "basis": "official-jp", "en_source": "surface"}
+
+# The normal shape for an author: §8.1 generates the romanisation per reader from the kana, so the
+# claim is a basis with no string, and a source is recorded beside it. 196 records are like this.
+BARE_BASIS = {"reading": "アキヤマ ハル", "reading_basis": "stated", "basis": "romaji",
+              "en_source": "openBD", "reading_source": "openBD",
+              "reading_url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000001"}
 
 # あいかわももこ. Kana throughout, so the reading is the name and there is no page anywhere.
 SURFACE = {"reading": "アイカワモモコ", "reading_basis": "surface", "reading_source": "surface"}
@@ -36,9 +61,11 @@ ANALYSER = {"reading": "2 C =ガロ ア", "reading_basis": "analyser", "reading_
 def main(s):
     # ---- what a reader is offered -------------------------------------------------------------
     c = provenance.cite(SOURCED)
-    s.eq(c["url"], "https://api.openbd.jp/v1/get?isbn=9784758027335",
+    s.eq(c["url"], "https://ndlsearch.ndl.go.jp/books/R100000002-I034312467",
          "a sourced reading shows the page it was read from")
     s.eq(c["reviewed"], "2026-08-05", "and the day a person last looked at it")
+    s.check("note" not in provenance.cite(dict(SOURCED, reading_note="weighed two spellings")),
+            "and never our own reasoning: a note is why WE decided, which is not a reader's to act on")
     s.eq(provenance.cite(SURFACE), None,
          "a kana name cites nothing: it is its own reading and no lookup happened")
     s.eq(provenance.cite(ANALYSER), None,
@@ -89,6 +116,50 @@ def main(s):
     s.check(provenance.citable("https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A21870300000"),
             "the /books record page is not on the closed route")
     s.eq(provenance.uncitable({"x": SOURCED}), [], "an ordinary citation is not withheld")
+
+    # ---- a data endpoint is not a document -------------------------------------------------------
+    # Same treatment as the closed route, for a different reason, which is why the two tables are
+    # kept apart. openBD's get?isbn= IS the record that states the reading and is not a search, so
+    # the NDL reasoning does not reach it; what it is not is a page a reader can read.
+    s.check(provenance.is_address(OPENBD["reading_url"]), "the openBD endpoint is a well-formed address")
+    s.check(not provenance.citable(OPENBD["reading_url"]), "and it is not a document to show a reader")
+    s.eq(provenance.cite(OPENBD), None, "so no citation is rendered for it")
+    s.eq(len(provenance.uncitable({"東雲水生": OPENBD})), 1, "and the withheld citation is counted")
+    s.eq(provenance.faults({"東雲水生": OPENBD}), [],
+         "the invariant is silent: an address WAS recorded, which is the question it asks")
+
+    # ---- the English claim cites its source too ---------------------------------------------------
+    # The gap this closed: `cite` took a claim argument from the day it was written, nothing ever
+    # passed one, and 286 official and licensed titles reached a reader with the evidence withheld.
+    e = provenance.cite(LICENSED, "en")
+    s.eq(e["source"], "Yen Press", "a licensed title names the licensor")
+    s.check(e["url"].startswith("https://yenpress.com/"), "and shows the catalogue page")
+    s.eq(provenance.cite(dict(LICENSED, basis="translated"), "en"), None,
+         "our own translation cites nobody: there is no document, and the interface marks it ours")
+    s.eq(provenance.cite(dict(LICENSED, basis="romaji"), "en"), None, "nor does a romanisation")
+    # The basis field is not spelt `en_basis` and never has been. A record carrying one is a record
+    # nothing produced, and reading it would make every real claim invisible.
+    s.eq(provenance.cite({"en": "X", "en_basis": "licensed", "en_url": "https://example.org/"},
+                         "en"), None,
+         "an en_basis is not the field the store writes, so it establishes nothing")
+
+    # A title already in Latin is its own English name. `official-jp` from `surface` owes no page,
+    # and treating the absence as a fault made 21 of these look broken.
+    s.eq(provenance.faults({"CONTINUE?": LATIN_ALREADY}, "en"), [],
+         "a Latin title is its own source and owes no address")
+    s.eq(provenance.cite(LATIN_ALREADY, "en"), None, "and offers no citation to open")
+    # The counter-case: a claim that really does name somebody else's document and holds no page.
+    s.eq([f for _n, f, _d in provenance.faults(
+        {"x": dict(LICENSED, en_source="yurarium", en_url=None)}, "en")],
+         ["cannot-show-its-source"],
+         "a licensed name sourced to us with no page is the fault, and it was live on one title")
+
+    # A bare basis with no string is the healthy author shape, not a citation left behind.
+    s.eq(provenance.faults({"秋山はる": BARE_BASIS}, "en"), [],
+         "`romaji` with no en is a claim about how to render, not debris from a withdrawn one")
+    s.eq([f for _n, f, _d in provenance.faults({"x": {"en_source": "openBD"}}, "en")],
+         ["citation-without-a-claim"],
+         "a source with neither a name nor a basis behind it is debris")
 
     # ---- a page that belongs to the other claim -------------------------------------------------
     # 100日後に咲く百合 as the store held it: Yen Press publishes the English title and states no

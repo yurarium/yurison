@@ -1363,6 +1363,18 @@ def load_names():
     except Exception:
         _prov = None
 
+    # WHICH RECORD A NAME IS, so the interface can link one. `feed/names.json` is keyed by the
+    # folded string and carried the reading, the romanisations and the ruby; it carried no
+    # identifier, so app.js could render a credit and could not point at it. That is the whole of
+    # what stood between a registry of 2,238 minted addresses and a page a reader can open.
+    #
+    # ONE FOLD, SHARED, WHICH IS WHY THE LOOKUP CANNOT MISS. `credit_identity.credit_key` and
+    # `publisher_identity.house_key` both normalise NFKC and drop spaces, which is `names.key.fold`,
+    # which is what this file keys the map on. Written down in three docstrings and asserted by
+    # `every shipped credit has an identifier`, because a map holding an id the anchors do not
+    # answer for is a link to nowhere.
+    _cred_ids = registry_index("credits")
+
     def render(k_ja, rec, is_person=False):
         out = {}
         rd = rec.get("reading")
@@ -1478,6 +1490,21 @@ def load_names():
         _cited = _prov.cite(rec) if _prov else None
         if _cited:
             out["reading_cite"] = _cited
+        # AND WHERE AN ENGLISH NAME CAME FROM, which nothing shipped at all. `basis` said a title's
+        # English is the work's own or a licensor's, both of which are shown UNMARKED because they
+        # are not our claim, and then declined to say whose. That is the §1 failure in the place it
+        # matters most: an unmarked name reads as authoritative, so the one form a reader has no
+        # reason to doubt was the one carrying no evidence. 286 of them, with the licensor's page
+        # sitting in `data/names/curated.yaml` since the day each was curated.
+        #
+        # SAME PRODUCER AS THE READING'S. `provenance.cite` took a claim argument from the day it
+        # was written and nothing ever passed one; a second function assembling the same five
+        # fields for the other claim is the shape §3 counts seven shipped bugs from. It answers
+        # None for `translated` and `romaji`, because those are ours and the interface already
+        # marks them ours, and None for a title already in Latin, whose own name is the English one.
+        _en_cited = _prov.cite(rec, "en") if _prov else None
+        if _en_cited:
+            out["en_cite"] = _en_cited
         # False is meaningful and must survive; missing is not the same as verified.
         # A researched reading is exempt: somebody looked the word up and said why, which is
         # exactly what the mark is asking for, so marking it would ask for work already done.
@@ -1511,12 +1538,39 @@ def load_names():
             got[kind] = {}
             continue
         d = (yaml.safe_load(f.read_text()) or {}).get("names") or {}
+        # Only the author map is keyed on a string an identifier was minted for. The publisher
+        # map ships under the CORPUS's spellings rather than the store's, so its identifiers are
+        # joined in `publisher_map`, where those keys exist.
+        ids = _cred_ids if kind == "authors" else {}
+        prefix = "credit:"
         got[kind] = {k: v for k, v in
-                     ((k, _rendered(kind, k, v, render)) for k, v in d.items()) if v}
+                     ((k, _rendered(kind, k, v, render, ids, prefix)) for k, v in d.items()) if v}
     return got.get("authors", {}), got.get("titles", {}), got.get("publishers", {})
 
 
-def _rendered(kind, k, rec, render):
+def registry_index(which):
+    """`{anchor: id}` for a minted registry, or `{}` where there is none yet.
+
+    ONE READER OF A REGISTRY FILE, asked by name. `identity.index` is what resolves an anchor,
+    including through a merge, so a retired spelling reaches the identifier that survived it and a
+    published address keeps working. Everything here goes through that function rather than reading
+    `anchors` itself, which is what would let a page and a forwarder disagree about where a merged
+    record went.
+    """
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters"))
+        import identity as _ident
+        if which == "credits":
+            import credit_identity as _mod
+        else:
+            import publisher_identity as _mod
+        return _ident.index(_mod.load(f"data/identity/{which}.yaml")[0])
+    except Exception as _e:                                                     # noqa: BLE001
+        print(f"names           : no {which} registry to link ({_e})")
+        return {}
+
+
+def _rendered(kind, k, rec, render, ids=None, prefix=""):
     """One store record as the interface gets it, or None where it should not answer a lookup.
 
     A CREDIT THAT IS NOT A PERSON IS STILL A CREDIT. 円谷プロダクション is the whole byline on the
@@ -1537,7 +1591,122 @@ def _rendered(kind, k, rec, render):
     entity = (rec or {}).get("entity") if kind == "authors" else None
     if entity == "notation":
         return None
-    return render(k, rec, is_person=(kind == "authors" and not entity))
+    out = render(k, rec, is_person=(kind == "authors" and not entity))
+    # THE ADDRESS OF THE RECORD THIS NAME IS. Attached here rather than in `render`, because it is
+    # not a rendering: it does not depend on the reader's language, style or name order, and it is
+    # the same string in every mode. A title gets none, because a work's identifier is already on
+    # its own row and the page it opens is built from that row.
+    #
+    # A NAME WITH NO IDENTIFIER IS A STATE AND NOT A GAP. The registry is minted from the works
+    # list, so the store legitimately holds records nothing credits: a second spelling a ruling
+    # attached, a publisher name in the store that no print row carries. Those render as before and
+    # are simply not links.
+    if out and ids:
+        got = ids.get(prefix + _namekey.fold(k))
+        if got:
+            out["id"] = got
+    return out
+
+
+def credit_page_data(rows):
+    """Everything a credit's page shows that no other shipped file holds.
+
+    WHAT IT ANSWERS, and why the interface cannot. "What else is this person named on" needs the
+    credit field SPLIT, which is `inputs.split_credits_detail`'s job and exists only in Python;
+    doing it in the browser would be a second splitter, and the two would disagree about who a
+    work is by. So the edges ship, derived by the registry module that already owns them.
+
+    WHAT SHAPE OF PAGE EACH RECORD MAY HAVE. 20 of these credits are not people. 円谷プロダクション
+    is a company, 「真夜中ぱんチ」製作委員会 a committee, and 電撃G'sマガジン is a magazine, which
+    DEFINITIONS treats as a place where yuri is published rather than as a party to a work. `shape`
+    carries that, so the renderer can head a page with what the credit is instead of assuming a
+    person and printing a reading, a name order and a romanisation for a limited company.
+
+    `homophones` IS THE INFORMATION HUNG BESIDE A CREDIT, which is what the owner's ruling means by
+    ancillary: seven pairs share a reading and were examined and kept apart, and a page for either
+    should be able to say the other exists. It is never a merge and never replaces one with the
+    other.
+
+    A RETIRED IDENTIFIER SHIPS TOO, in `merged`, for the reason the works list ships one: a page
+    asked for a retired id has to land on the record that survived it rather than on nothing.
+    """
+    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters"))
+    import credit_identity as _cid
+
+    entries, doc = _cid.load("data/identity/credits.yaml")
+    edges = {}
+    for f in ["data/identity/credit-works.yaml"]:
+        if pathlib.Path(f).exists():
+            for row in (yaml.safe_load(pathlib.Path(f).read_text()) or {}).get("credits") or []:
+                edges[str(row.get("id"))] = row.get("works") or []
+    # WHICH WORKS THE READER MAY BE SHOWN, taken from the rows that ship rather than from the edge
+    # file. A work withheld on content grounds leaves the works list and its identifier stops being
+    # served, so an edge naming it would put a withdrawn title on a person's page. That is
+    # STANDING-INSTRUCTIONS §13's rule about checking every surface, and this is a new surface.
+    known = {str(r.get("id")) for r in rows if r.get("id")}
+    homophones = {}
+    for pair in (doc or {}).get("homophones") or []:
+        for c in pair.get("credits") or []:
+            if not c.get("id"):
+                continue
+            homophones.setdefault(str(c["id"]), []).extend(
+                {"id": str(o.get("id")), "credit": o.get("credit"), "reading": pair.get("reading"),
+                 "basis": pair.get("basis")}
+                for o in pair.get("credits") or []
+                if o.get("id") and str(o["id"]) != str(c["id"]))
+    out = {}
+    for e in entries:
+        cid = str(e.get("id") or "")
+        if not cid or e.get("merged_into"):
+            continue
+        works = [{"id": str(w.get("id")), **({"roles": list(w["roles"])} if w.get("roles") else {})}
+                 for w in edges.get(cid) or [] if str(w.get("id")) in known]
+        fact = {"credit": e.get("title"), "shape": _cid.shape_of(e.get("kind")),
+                "works": works}
+        if e.get("kind"):
+            fact["kind"] = e["kind"]
+        if homophones.get(cid):
+            fact["homophones"] = homophones[cid]
+        out[cid] = fact
+    return {"generated": str(datetime.date.today()),
+            "note": "One record per credit, with the works it is named on and the role on each "
+                    "edge. Addresses are opaque and minted: a credit read three ways in a day "
+                    "would have broken a name-shaped one twice. Fetched only when a credit page "
+                    "is opened.",
+            "count": len(out), "credits": out,
+            # A CHAIN IS NOT FOLLOWED HERE. `identity.index` already resolves an anchor
+            # through however many merges, and the interface follows this map the way it follows
+            # the works one, so A into B into C lands on C in the browser exactly as it does in
+            # the forwarder. Shipping the raw pairs keeps the two agreeing.
+            "merged": _cid.retired(entries)}
+
+
+def publisher_page_data(rows):
+    """Everything a house's page shows: its lines, the years each spelling covers, and its works.
+
+    WHAT A PUBLISHER PAGE SHOWS THAT NOTHING ELSE CAN, which is the reason it exists at all: which
+    of a house's imprints are yuri lines. 百合姫コミックス carries 354 rows and a house with one
+    book somebody shelved as yuri carries one, and that difference is visible only when the lines
+    are counted side by side under the company that runs them.
+
+    ONE PRODUCER. `publisher_identity.houses` assembles it from `imprints.census`, which is the
+    only thing that decides which line a catalogued string names. The interface renders what comes
+    out and derives no span of its own, so the page and the registry report cannot disagree about
+    when a spelling was in use.
+    """
+    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters"))
+    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
+    import imprints as _imp
+    import publisher_identity as _phid
+
+    entries, _doc = _phid.load("data/identity/publishers.yaml")
+    facts = _phid.houses(rows, _imp.load(pathlib.Path("data/names/imprints.yaml")), entries)
+    return {"generated": str(datetime.date.today()),
+            "note": "One record per publishing house, holding the imprint lines it runs with the "
+                    "spellings each line is catalogued under and the years those cover. Publishers "
+                    "and distributors share one namespace: the seat is on the edge to the book.",
+            "count": len(facts), "publishers": facts,
+            "merged": _phid.retired(entries)}
 
 
 def publisher_map(names, people, rows):
@@ -1557,7 +1726,44 @@ def publisher_map(names, people, rows):
     """
     sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
     import publishers as _pub
-    return _pub.render(names, people, _pub.corpus_names_from_rows(rows))
+    out = _pub.render(names, people, _pub.corpus_names_from_rows(rows))
+    # WHICH HOUSE A KEY IS, so a publisher on a work page can be a link to the house's own record.
+    # Joined here because this map is keyed on the CORPUS's spellings, which is where the anchors
+    # were minted from, and the store's keys are a different set.
+    #
+    # AN IMPRINT KEY GETS NONE, and it gets none by construction rather than by a test: identifiers
+    # are minted from the publisher and distributor fields only, so a line's name answers nothing
+    # here. That is the shape DEFINITIONS gives the two, a line belonging to the house that runs
+    # it, and a page for 百合姫コミックス would be a second address competing with 一迅社's own.
+    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters"))
+    import publisher_identity as _phid
+    houses = registry_index("publishers")
+    if houses:
+        for k, fact in list(out.items()):
+            got = houses.get(_phid.anchor(k) or "")
+            if got and not fact.get("id"):
+                # The fact is shared between the raw key and the shown one, so it is copied before
+                # it is written to: two keys legitimately answer for one house, and one of them
+                # naming a different one would be a link pointing away from the name beside it.
+                out[k] = dict(fact, id=got)
+        # A HOUSE WITH NO ENGLISH NAME IS STILL A HOUSE WITH AN ADDRESS. This map holds only names
+        # something could render, which is the right rule for a rendering and the wrong one for a
+        # link: 27 of the 164 houses have no English at all, so keying the identifier off a
+        # rendering would have made exactly the smaller publishers unreachable, which is the half
+        # of the corpus a publisher page is most informative about. An entry carrying an id and no
+        # `en` renders as the Japanese it always did and is now something a reader can open.
+        for _pr in rows:
+            for _blk in (_pr.get("print") or ()):
+                for _seat in ("publisher", "distributor"):
+                    _nm = str(_blk.get(_seat) or "").strip()
+                    _hid = houses.get(_phid.anchor(_nm) or "")
+                    if not _hid:
+                        continue
+                    for _key in (_nm, _pub.publisher_of(_nm),
+                                 _namekey.fold(_pub.publisher_of(_nm))):
+                        if _key and _key not in out:
+                            out[_key] = {"id": _hid}
+    return out
 
 
 def imprint_map(rows):
@@ -3338,6 +3544,19 @@ def main():
         return None
 
     author_of, access_of = {}, {}
+    # WHERE THE ATTRIBUTION CAME FROM, recorded beside the attribution itself.
+    #
+    # THE WORK PAGE CITES THIS WORK'S FACTS AND DID NOT CITE THIS ONE. `sourced_from` carried
+    # volume counts and delivery dates, so a reader could check who catalogued a book's page count
+    # and not who says the book is by this person, which is the fact at the top of the page. The
+    # project owner's ruling of 2026-08-08 puts it here: the work page says where the ATTRIBUTION
+    # came from, and the name's own provenance, the reading and the preferred spelling, belongs to
+    # the person and lives on their page.
+    #
+    # `setdefault` ON BOTH, IN ONE STATEMENT, so the source recorded is the source of the credit
+    # that was kept. Written as a second dictionary filled in a second pass, the first file to
+    # mention a title would have supplied the citation for a credit a different file supplied.
+    author_src = {}
     # Identity confirmations carry an author that no release record does — 阿佐ヶ谷サキュバス同人物語's
     # 縁山 was established by search and then never reached a row, because those files hold identity
     # rather than releases and nothing read them here.
@@ -3370,6 +3589,12 @@ def main():
         except Exception:                                                       # noqa: BLE001
             continue
 
+        # The document says who read it and when. A work object inside it usually carries its own
+        # address, which is the page the byline was on and is better than the file's.
+        _doc_src = (_d or {}).get("source") if isinstance(_d, dict) else None
+        _doc_src = _doc_src or (_d or {}).get("platform") if isinstance(_d, dict) else _doc_src
+        _doc_read = (_d or {}).get("retrieved") if isinstance(_d, dict) else None
+
         def _seen(o):
             if isinstance(o, dict):
                 t = next((o[k] for k in ("work_title", "title", "name")
@@ -3378,7 +3603,17 @@ def main():
                           ("author", "authors", "author_on_page", "author_name")
                           if _author_str(o.get(k))), None)
                 if t and a:
-                    author_of.setdefault(norm_work(t), a)
+                    k = norm_work(t)
+                    if k not in author_of:
+                        author_of[k] = a
+                        # A SOURCE WITH NO NAME IS NOT CITED. Some captures state no `source` at
+                        # all, and inventing one out of the file path would put our own directory
+                        # layout in front of a reader as though it were a publisher.
+                        if _doc_src:
+                            author_src[k] = {"source": str(_doc_src),
+                                             **({"read": str(_doc_read)} if _doc_read else {}),
+                                             **({"url": o["url"]} if isinstance(o.get("url"), str)
+                                                and o["url"].startswith("http") else {})}
                 for v in o.values():
                     _seen(v)
             elif isinstance(o, list):
@@ -3389,7 +3624,12 @@ def main():
                 # of this fact: the platform's own <author><name> beside its own <title>.
                 for m in re.finditer(r"<title>([^<]+)</title>.{0,900}?<author><name>([^<]+)</name>",
                                      o, re.S):
-                    author_of.setdefault(norm_work(m.group(1)), m.group(2).strip())
+                    k = norm_work(m.group(1))
+                    if k not in author_of:
+                        author_of[k] = m.group(2).strip()
+                        if _doc_src:
+                            author_src[k] = {"source": str(_doc_src),
+                                             **({"read": str(_doc_read)} if _doc_read else {})}
         _seen(_d)
     for r in releases:
         k = norm_work(r.get("work") or "")
@@ -4900,16 +5140,22 @@ def main():
                 _row_by_id[_pid].setdefault("print", []).append(_print_block(_pw2))
                 _folded += 1
                 continue
+            # MADB writes a credit as cataloguing notation: `[著]秋山はる`, `[作画]A / [原作]B`,
+            # and `[[著]]椿木とりか` with the delimiter doubled. The work page was showing the
+            # bracket to readers on all 470 print rows. One reader of that notation, in
+            # openbd_reading, because a second copy here would drift from it.
+            #
+            # WHAT THE BRACKET SAID IS KEPT BESIDE THE NAME IT BELONGED TO. The notation is the
+            # only place a print row states a job, and taking it off was the end of it, so a page
+            # built over these rows could say who is on a book and never what they did.
+            _cparts = [openbd_reading.credit_parts(part)
+                       for part in re.split(r"\s*/\s*", _pw2.get("creator") or "")]
+            _cparts = [(x, r) for x, r in _cparts if x]
             series_rows.append({
                 "work": (_pw2.get("title") or {}).get("ja") or "",
-                # MADB writes a credit as cataloguing notation: `[著]秋山はる`, `[作画]A / [原作]B`,
-                # and `[[著]]椿木とりか` with the delimiter doubled. The work page was showing the
-                # bracket to readers on all 470 print rows. One reader of that notation, in
-                # openbd_reading, because a second copy here would drift from it.
-                "author": " / ".join(
-                    x for x in (openbd_reading.credit_name(part)
-                                for part in re.split(r"\s*/\s*", _pw2.get("creator") or ""))
-                    if x),
+                "author": " / ".join(x for x, _job in _cparts),
+                **({"credits": [{"name": x, **({"role": j} if j else {})} for x, j in _cparts]}
+                   if any(j for _x, j in _cparts) else {}),
                 "chapters": 0, "partial": False, "oneshot": False,
                 "latest": None, "latest_ep": "", "first": _fp2.get("date"),
                 # WHICH EVENT THE DATE IS OF, carried because `first` is not one fact across the
@@ -4969,18 +5215,38 @@ def main():
         # A FIELD THAT WAS ALL FURNITURE BECOMES EMPTY, not left as it was. `works crediting nobody`
         # counts an empty credit and counts nothing at all for a button, so leaving the button in
         # hides the gap it should be reporting.
-        _cleaned = 0
+        # AND THE JOB EACH PART WAS DOING SURVIVES THE REBUILD, which it did not. The role notation
+        # is what the rebuild takes off, so `原作／宮澤伊織　作画／水野英多` reached the works list
+        # as `宮澤伊織 / 水野英多` and nothing downstream could say who wrote and who drew: 3,076 of
+        # 3,077 rows named nobody's job, and the credit registry, which reads this field, could
+        # hang a role on 14 of its 4,350 edges.
+        #
+        # THE STRING A READER SEES IS UNCHANGED. The roles travel beside it as `credits`, one entry
+        # per part in the order they were written, because the display string has three consumers
+        # that all expect the parts to add up to it: the ruby splicer, the composed romanisation
+        # and the phrase map. Putting the notation back into the field would have been a fourth
+        # opinion about what that string is, and the bracket it arrives in was shown to readers on
+        # 470 print rows once already.
+        _cleaned = _roled = 0
         for _crow in series_rows:
             _raw = _crow.get("author") or ""
             if not _raw:
                 continue
-            _parts, _join = _credits.split_credits(_raw)
-            _rebuilt = _join.join(_parts)
+            _parts_roled, _join = _credits.split_credits_roled(_raw)
+            _rebuilt = _join.join(n for n, _job in _parts_roled)
             if _rebuilt != _raw:
                 _crow["author"] = _rebuilt
                 _cleaned += 1
+            if any(_job for _n, _job in _parts_roled):
+                _crow["credits"] = [{"name": _n, **({"role": _job} if _job else {})}
+                                    for _n, _job in _parts_roled]
         if _cleaned:
             print(f"credit fields rebuilt from their parts: {_cleaned}")
+        # Counted after the loop rather than inside it, because the print rows carry theirs from
+        # the bracket notation MADB writes and never pass through the branch above.
+        _roled = sum(1 for _crow in series_rows
+                     if any(c.get("role") for c in (_crow.get("credits") or [])))
+        print(f"works whose credit field states a job: {_roled} of {len(series_rows)}")
 
         _redated = 0
         for _drow in series_rows:
@@ -5087,6 +5353,25 @@ def main():
                               "holds": "delivery-date",
                               "read": _drec.get("retrieved") or None,
                               **({"url": _bp["shop_url"]} if _bp.get("shop_url") else {})})
+            # WHO SAYS THE BOOK IS BY THIS PERSON. A print row's credit is transcribed off the
+            # bibliographic record, in the same `creator` field the roles came out of, so the
+            # record that supplied the book supplied the byline and the row naming it is exact.
+            if _basisrow.get("author") and (_brec.get("creator") or _brec.get("authors")):
+                _crec = (_brec.get("records") or [{}])[0]
+                if _crec.get("source"):
+                    _held.append({"source": credence.named(_crec["source"]),
+                                  "holds": "attribution",
+                                  "read": _crec.get("retrieved") or None,
+                                  **({"url": _crec["url"]} if _crec.get("url") else {})})
+        # AND FOR A WEB WORK, THE PAGE THE BYLINE WAS ON. `author_src` recorded it beside the
+        # credit as the sources were read, so the row cites the source that supplied the credit
+        # this work actually carries rather than the first file to mention the title.
+        _asrc = author_src.get(norm_work(_basisrow.get("work") or ""))
+        if _basisrow.get("author") and _asrc and not any(
+                _h.get("holds") == "attribution" for _h in _held):
+            _held.append({"source": credence.named(_asrc["source"]), "holds": "attribution",
+                          "read": _asrc.get("read") or None,
+                          **({"url": _asrc["url"]} if _asrc.get("url") else {})})
         _basisrow["evidence"] = credence.order(_got)
         if _held:
             _basisrow["sourced_from"] = _held
@@ -5427,6 +5712,34 @@ def main():
               ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}
          ).items() if norm_work(k) not in _wh_names}},
         ensure_ascii=False, indent=1, default=jsonable))
+
+    # ── the two records that are not works ────────────────────────────────────────────────────
+    #
+    # A CREDIT PAGE AND A PUBLISHER PAGE NEED WHAT NO OTHER FILE CARRIES. `series.json` holds a
+    # credit as a STRING and a publisher as a field on a print row, so an interface asking "what
+    # else did this person make" or "which of this house's lines are yuri" would have to split
+    # every credit field and resolve every imprint spelling in the browser. Both of those rules
+    # already exist in Python and §3 says the second implementation will disagree with the first.
+    #
+    # SO THE ANSWER SHIPS, and the registry modules are the only things that compute it. These are
+    # fetched when a reader opens one of these pages and never for an ordinary visit, which is why
+    # they are separate files rather than more keys on `names.json`: that one loads on every visit.
+    _credits_shipped = credit_page_data(series_rows)
+    (out / "credits.json").write_text(json.dumps(_credits_shipped, ensure_ascii=False, indent=1,
+                                                 default=jsonable))
+    _cp_n = len(_credits_shipped.get("credits") or {})
+    _cp_e = sum(len(v.get("works") or []) for v in (_credits_shipped.get("credits") or {}).values())
+    _cp_r = sum(1 for v in (_credits_shipped.get("credits") or {}).values()
+                for w in (v.get("works") or []) if w.get("roles"))
+    print(f"credit pages    : {_cp_n} record(s), {_cp_e} edge(s) to works, {_cp_r} of them "
+          f"naming a role")
+
+    _houses_shipped = publisher_page_data(series_rows)
+    (out / "publishers.json").write_text(json.dumps(_houses_shipped, ensure_ascii=False, indent=1,
+                                                    default=jsonable))
+    _hp = _houses_shipped.get("publishers") or {}
+    print(f"publisher pages : {len(_hp)} house(s), "
+          f"{sum(len(v.get('lines') or []) for v in _hp.values())} line(s) across them")
 
     # WHERE A RETIRED IDENTIFIER WENT, shipped so the interface can follow it. An address published
     # once has to keep resolving, which is why an id here is opaque and minted; the registry has

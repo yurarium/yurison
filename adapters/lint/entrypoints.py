@@ -386,6 +386,20 @@ SAFE = {
     # afterwards. `String` is the innermost call, so this cannot be answered by NOT_SHOWN above.
     ("renderReleases", "creator", "through:String"): (
         1, "the credit field on its way into the row's search key"),
+
+    # THE TITLE AS A LOOKUP KEY, not as a title. The work page shows where an official or licensed
+    # English title came from, and the citation is a source name, an address and a date; the title
+    # itself is drawn by `workLabel` in the heading above it. `nameFor` is the lookup every
+    # renderer performs, and here it is the whole of what is wanted.
+    ("renderWorkPage", "work", "through:nameFor"): (
+        1, "the title as a key, to reach the citation for its own English name"),
+
+    # The credit field split into the people in it, each of whom `authorLabel` then renders, and
+    # each of whom is then wrapped in the address of their record. Same shape as `creditLine`
+    # above, and for the same reason: the split is the caller's and the rendering is not.
+    ("linkedCredits", "author", "through:String"): (
+        1, "the credit field, split on the parts the build shipped so each person is rendered by "
+           "authorLabel and linked to their own record"),
 }
 
 

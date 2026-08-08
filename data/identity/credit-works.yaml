@@ -9,7 +9,7 @@
 # 3,076 of its 3,077 rows name nobody's job. The labels come from the release rows, which
 # keep the field as the platform wrote it. See docs/GAPS.md.
 generated: 2026-08-08
-count: 2235
+count: 2236
 credits:
   - id: c00001
     works:
@@ -35,9 +35,11 @@ credits:
     works:
       - id: w00206
       - id: w01975
+        roles: ["キャラクターデザイン"]
   - id: c00007
     works:
       - id: w01975
+        roles: ["構成協力"]
   - id: c00008
     works:
       - id: w00367
@@ -82,6 +84,7 @@ credits:
       - id: w00069
       - id: w00988
       - id: w01303
+        roles: ["著"]
       - id: w01323
       - id: w01615
       - id: w01700
@@ -113,6 +116,7 @@ credits:
       - id: w01225
         roles: ["漫画"]
       - id: w01404
+        roles: ["著"]
   - id: c00025
     works:
       - id: w01226
@@ -171,6 +175,7 @@ credits:
   - id: c00040
     works:
       - id: w01865
+        roles: ["著者"]
       - id: w03049
   - id: c00041
     works:
@@ -179,6 +184,7 @@ credits:
       - id: w00818
       - id: w01207
       - id: w01208
+        roles: ["著"]
       - id: w01324
       - id: w01378
       - id: w01389
@@ -231,6 +237,7 @@ credits:
     works:
       - id: w00005
       - id: w01542
+        roles: ["キャラクターデザイン"]
   - id: c00054
     works:
       - id: w00007
@@ -300,9 +307,11 @@ credits:
   - id: c00069
     works:
       - id: w02337
+        roles: ["漫画"]
   - id: c00070
     works:
       - id: w02337
+        roles: ["原作"]
   - id: c00071
     works:
       - id: w00018
@@ -444,6 +453,7 @@ credits:
     works:
       - id: w00048
       - id: w00997
+        roles: ["著"]
       - id: w01207
       - id: w01375
       - id: w01814
@@ -451,6 +461,7 @@ credits:
     works:
       - id: w00048
       - id: w01466
+        roles: ["原作"]
       - id: w01814
   - id: c00112
     works:
@@ -468,6 +479,7 @@ credits:
     works:
       - id: w00054
       - id: w03161
+        roles: ["著"]
   - id: c00116
     works:
       - id: w02518
@@ -491,7 +503,9 @@ credits:
       - id: w00055
       - id: w00147
       - id: w00731
+        roles: ["漫画"]
       - id: w01397
+        roles: ["著"]
       - id: w01399
       - id: w01473
       - id: w02212
@@ -504,6 +518,7 @@ credits:
   - id: c00122
     works:
       - id: w02002
+        roles: ["キャラクターデザイン"]
   - id: c00123
     works:
       - id: w00058
@@ -557,8 +572,11 @@ credits:
     works:
       - id: w00059
       - id: w01246
+        roles: ["著"]
       - id: w01322
+        roles: ["著"]
       - id: w01847
+        roles: ["著"]
   - id: c00136
     works:
       - id: w00059
@@ -585,6 +603,7 @@ credits:
       - id: w00751
       - id: w00832
       - id: w01443
+        roles: ["著"]
       - id: w01956
       - id: w02726
   - id: c00141
@@ -592,12 +611,14 @@ credits:
       - id: w00070
       - id: w00749
       - id: w01162
+        roles: ["著"]
       - id: w01198
       - id: w01205
       - id: w01207
       - id: w01211
       - id: w01368
       - id: w01384
+        roles: ["漫画"]
       - id: w01424
       - id: w02278
   - id: c00142
@@ -605,6 +626,7 @@ credits:
       - id: w00071
       - id: w02480
       - id: w03061
+        roles: ["構成"]
   - id: c00143
     works:
       - id: w00071
@@ -613,6 +635,7 @@ credits:
     works:
       - id: w00072
       - id: w01433
+        roles: ["著"]
       - id: w02202
   - id: c00145
     works:
@@ -660,6 +683,7 @@ credits:
   - id: c00158
     works:
       - id: w00081
+        roles: ["漫画"]
       - id: www:第10話 1,211
         roles: ["漫画"]
   - id: c00159
@@ -671,15 +695,20 @@ credits:
       - id: w00294
       - id: w00996
       - id: w01091
+        roles: ["著"]
       - id: w01098
+        roles: ["著"]
       - id: w01180
+        roles: ["著"]
       - id: w01190
+        roles: ["著"]
       - id: w01196
       - id: w01212
       - id: w01356
       - id: w01469
       - id: w01476
       - id: w01763
+        roles: ["絵"]
       - id: w01964
       - id: w01999
       - id: w02706
@@ -736,10 +765,12 @@ credits:
   - id: c00173
     works:
       - id: w01312
+        roles: ["著"]
       - id: w01668
       - id: w01718
       - id: w01851
       - id: w02392
+        roles: ["著者"]
       - id: w02969
   - id: c00174
     works:
@@ -756,16 +787,20 @@ credits:
       - id: w00996
       - id: w01001
       - id: w01057
+        roles: ["著"]
       - id: w01070
       - id: w01075
+        roles: ["著"]
       - id: w01129
       - id: w01298
       - id: w01309
+        roles: ["著"]
       - id: w01325
       - id: w01664
       - id: w01683
       - id: w01843
       - id: w01853
+        roles: ["絵"]
       - id: w02116
       - id: w02132
       - id: w02527
@@ -786,15 +821,19 @@ credits:
   - id: c00180
     works:
       - id: w00097
+        roles: ["原作"]
   - id: c00181
     works:
       - id: w00097
+        roles: ["作画"]
   - id: c00182
     works:
       - id: w00097
+        roles: ["キャラクター原案"]
   - id: c00183
     works:
       - id: w00097
+        roles: ["ネーム・構成"]
   - id: c00184
     works:
       - id: w02180
@@ -812,11 +851,14 @@ credits:
     works:
       - id: w00101
       - id: w01174
+        roles: ["著"]
       - id: w01339
+        roles: ["著"]
       - id: w01909
       - id: w02053
       - id: w02258
       - id: w03162
+        roles: ["著"]
   - id: c00189
     works:
       - id: w00101
@@ -837,6 +879,7 @@ credits:
   - id: c00194
     works:
       - id: w01246
+        roles: ["著"]
       - id: w01490
       - id: w01683
   - id: c00195
@@ -876,7 +919,9 @@ credits:
       - id: w00782
       - id: w00986
       - id: w01419
+        roles: ["著"]
       - id: w01453
+        roles: ["著"]
       - id: w02940
   - id: c00202
     works:
@@ -917,9 +962,11 @@ credits:
   - id: c00212
     works:
       - id: w00117
+        roles: ["原作"]
   - id: c00213
     works:
       - id: w00117
+        roles: ["キャラクター原案・漫画"]
       - id: w01497
   - id: c00214
     works:
@@ -956,6 +1003,7 @@ credits:
       - id: w00581
       - id: w01211
       - id: w01390
+        roles: ["他著"]
       - id: w01410
       - id: w01660
       - id: w01736
@@ -980,9 +1028,13 @@ credits:
     works:
       - id: w00002
       - id: w01024
+        roles: ["著"]
       - id: w01251
+        roles: ["著"]
       - id: w01350
+        roles: ["著"]
       - id: w01374
+        roles: ["著"]
       - id: w01395
       - id: w02425
       - id: www-yomonga-com:07 Chapter.12 第6話-2
@@ -1003,9 +1055,13 @@ credits:
       - id: w00996
       - id: w01001
       - id: w01010
+        roles: ["著"]
       - id: w01011
+        roles: ["著"]
       - id: w01058
+        roles: ["著"]
       - id: w01078
+        roles: ["著"]
       - id: w01541
       - id: w01802
       - id: w02094
@@ -1038,6 +1094,7 @@ credits:
       - id: w00150
       - id: w00174
       - id: w01028
+        roles: ["著"]
       - id: w01130
       - id: w01368
       - id: w01676
@@ -1051,15 +1108,19 @@ credits:
       - id: w00145
       - id: w01130
       - id: w01143
+        roles: ["著"]
       - id: w01195
       - id: w01198
       - id: w01205
       - id: w01213
+        roles: ["著"]
       - id: w01356
       - id: w01384
+        roles: ["イラスト・漫画"]
       - id: w01676
       - id: w02205
       - id: w02278
+        roles: ["イラスト・漫画"]
       - id: w02706
   - id: c00240
     works:
@@ -1088,8 +1149,11 @@ credits:
       - id: w00719
       - id: w00957
       - id: w01587
+        roles: ["著者"]
       - id: w01733
+        roles: ["著者"]
       - id: w02669
+        roles: ["著者"]
   - id: c00247
     works:
       - id: w00152
@@ -1144,9 +1208,13 @@ credits:
     works:
       - id: w00164
       - id: w01034
+        roles: ["著"]
       - id: w01093
+        roles: ["著"]
       - id: w01139
+        roles: ["著"]
       - id: w01173
+        roles: ["著"]
       - id: w01182
       - id: w01195
       - id: w01205
@@ -1172,9 +1240,6 @@ credits:
       - id: w00165
       - id: w00462
       - id: w02744
-  - id: c00266
-    works:
-      - id: w00166
   - id: c00267
     works:
       - id: w00167
@@ -1249,6 +1314,7 @@ credits:
       - id: w00178
       - id: w00597
       - id: w01887
+        roles: ["原作"]
       - id: w02207
       - id: w02663
   - id: c00286
@@ -1275,6 +1341,7 @@ credits:
     works:
       - id: w00184
       - id: w01319
+        roles: ["著者"]
       - id: w01332
       - id: w01660
       - id: w02021
@@ -1294,6 +1361,7 @@ credits:
       - id: w00187
       - id: w00299
       - id: w01644
+        roles: ["著者"]
       - id: w02328
       - id: w02419
   - id: c00296
@@ -1313,6 +1381,7 @@ credits:
       - id: w00674
       - id: w00772
       - id: w01219
+        roles: ["著"]
       - id: w01327
   - id: c00300
     works:
@@ -1463,6 +1532,7 @@ credits:
     works:
       - id: w00228
       - id: w01164
+        roles: ["著"]
       - id: w01217
       - id: w01356
       - id: w01460
@@ -1480,18 +1550,22 @@ credits:
       - id: w01326
       - id: w01601
       - id: w01633
+        roles: ["著者"]
       - id: w01640
       - id: w01736
       - id: w01741
       - id: w01815
+        roles: ["原作"]
   - id: c00343
     works:
       - id: w00232
       - id: w00996
       - id: w01042
+        roles: ["著"]
       - id: w01430
       - id: w01498
       - id: w01645
+        roles: ["著者"]
       - id: w02396
       - id: w02693
       - id: w02950
@@ -1507,6 +1581,7 @@ credits:
       - id: w00264
       - id: w00983
       - id: w02238
+        roles: ["絵"]
       - id: w02840
   - id: c00347
     works:
@@ -1551,6 +1626,7 @@ credits:
       - id: w00245
       - id: w00967
       - id: w01372
+        roles: ["著"]
       - id: w01477
   - id: c00358
     works:
@@ -1629,14 +1705,18 @@ credits:
       - id: w00339
       - id: w01130
       - id: w01133
+        roles: ["著"]
       - id: w01134
+        roles: ["著"]
       - id: w01195
       - id: w01198
       - id: w01207
       - id: w01211
       - id: w01221
       - id: w01296
+        roles: ["著"]
       - id: w01302
+        roles: ["著"]
       - id: w01425
       - id: w01676
       - id: w01736
@@ -1644,6 +1724,7 @@ credits:
       - id: w02450
       - id: w02706
       - id: w02746
+        roles: ["著者"]
       - id: w03150
   - id: c00370
     works:
@@ -1659,17 +1740,26 @@ credits:
       - id: w00258
       - id: w00788
       - id: w01008
+        roles: ["著"]
       - id: w01059
+        roles: ["著"]
       - id: w01097
+        roles: ["著"]
       - id: w01114
+        roles: ["著"]
       - id: w01116
+        roles: ["著"]
       - id: w01122
+        roles: ["著"]
       - id: w01129
       - id: w01130
       - id: w01170
+        roles: ["著"]
       - id: w01171
+        roles: ["著"]
       - id: w01195
       - id: w01355
+        roles: ["著"]
       - id: w01622
       - id: w01676
       - id: w01683
@@ -1681,21 +1771,29 @@ credits:
     works:
       - id: w00259
       - id: w01017
+        roles: ["著"]
       - id: w01086
+        roles: ["著"]
       - id: w01195
       - id: w01356
   - id: c00374
     works:
       - id: w00260
       - id: w00994
+        roles: ["作画"]
       - id: w01064
+        roles: ["作画"]
       - id: w01200
+        roles: ["作画"]
   - id: c00375
     works:
       - id: w00260
       - id: w00994
+        roles: ["原作"]
       - id: w01064
+        roles: ["原作"]
       - id: w01200
+        roles: ["原作"]
   - id: c00376
     works:
       - id: w00261
@@ -1703,9 +1801,13 @@ credits:
       - id: w00269
       - id: w00526
       - id: w01104
+        roles: ["著"]
       - id: w01255
+        roles: ["著"]
       - id: w01291
+        roles: ["著"]
       - id: w01365
+        roles: ["著"]
       - id: w01654
       - id: w01689
       - id: w01800
@@ -1722,6 +1824,7 @@ credits:
     works:
       - id: w00266
       - id: w01189
+        roles: ["著"]
   - id: c00378
     works:
       - id: w00270
@@ -1821,16 +1924,19 @@ credits:
     works:
       - id: w00289
       - id: w01362
+        roles: ["著"]
   - id: c00404
     works:
       - id: w00290
   - id: c00405
     works:
       - id: w00291
+        roles: ["漫画"]
   - id: c00406
     works:
       - id: w00292
       - id: w02076
+        roles: ["表紙 ・ 漫画"]
   - id: c00407
     works:
       - id: w00293
@@ -1853,6 +1959,7 @@ credits:
   - id: c00413
     works:
       - id: w00303
+        roles: ["漫画"]
       - id: w02124
   - id: c00414
     works:
@@ -1866,6 +1973,7 @@ credits:
       - id: w01129
       - id: w01221
       - id: w01386
+        roles: ["著"]
       - id: w01424
   - id: c00416
     works:
@@ -1951,6 +2059,7 @@ credits:
   - id: c00440
     works:
       - id: w01408
+        roles: ["著"]
       - id: w02364
   - id: c00441
     works:
@@ -1993,6 +2102,7 @@ credits:
       - id: w00330
       - id: w01426
       - id: w01428
+        roles: ["著"]
       - id: w01473
       - id: w01876
   - id: c00450
@@ -2017,8 +2127,10 @@ credits:
     works:
       - id: w00745
       - id: w01150
+        roles: ["著"]
       - id: w01325
       - id: w01428
+        roles: ["著"]
       - id: w01492
       - id: w01555
       - id: w01747
@@ -2071,9 +2183,11 @@ credits:
     works:
       - id: w00344
       - id: w00922
+        roles: ["漫画"]
       - id: w01447
       - id: w01476
       - id: w01816
+        roles: ["著者"]
   - id: c00465
     works:
       - id: w00345
@@ -2139,6 +2253,7 @@ credits:
     works:
       - id: w00360
       - id: w01242
+        roles: ["著"]
       - id: w02026
   - id: c00484
     works:
@@ -2195,6 +2310,7 @@ credits:
       - id: w00377
       - id: w01297
       - id: w01334
+        roles: ["著"]
   - id: c00501
     works:
       - id: w00372
@@ -2281,6 +2397,7 @@ credits:
       - id: w01129
       - id: w01195
       - id: w03163
+        roles: ["著"]
   - id: c00523
     works:
       - id: w00394
@@ -2291,18 +2408,21 @@ credits:
       - id: w00808
       - id: w00862
       - id: w01902
+        roles: ["著者"]
   - id: c00525
     works:
       - id: w02156
   - id: c00526
     works:
       - id: w02156
+        roles: ["キャラクターデザイン"]
   - id: c00527
     works:
       - id: w00909
       - id: w01096
       - id: w01375
       - id: w01400
+        roles: ["著"]
       - id: w01512
       - id: w01619
       - id: w02706
@@ -2326,7 +2446,9 @@ credits:
       - id: w00403
       - id: w00693
       - id: w01815
+        roles: ["作画"]
       - id: w02872
+        roles: ["著者"]
   - id: c00533
     works:
       - id: w00404
@@ -2467,6 +2589,7 @@ credits:
       - id: w00436
       - id: w01599
       - id: w02176
+        roles: ["著者"]
       - id: w02604
       - id: w02834
       - id: w02906
@@ -2484,6 +2607,7 @@ credits:
       - id: w00439
       - id: w01476
       - id: w01887
+        roles: ["漫画"]
       - id: w02200
   - id: c00576
     works:
@@ -2528,8 +2652,10 @@ credits:
       - id: w00996
       - id: w01001
       - id: w01055
+        roles: ["著"]
       - id: w01089
       - id: w01095
+        roles: ["著"]
       - id: w01129
       - id: w01169
       - id: w01186
@@ -2538,6 +2664,7 @@ credits:
       - id: w01215
       - id: w01220
       - id: w01222
+        roles: ["著"]
       - id: w01325
       - id: w01327
       - id: w01356
@@ -2561,7 +2688,9 @@ credits:
       - id: w00461
       - id: w01440
       - id: w02480
+        roles: ["企画"]
       - id: w03061
+        roles: ["企画"]
   - id: c00592
     works:
       - id: w00462
@@ -2586,6 +2715,7 @@ credits:
       - id: w01130
       - id: w01131
       - id: w01148
+        roles: ["著"]
       - id: w01149
       - id: w01676
       - id: w02706
@@ -2673,6 +2803,7 @@ credits:
   - id: c00614
     works:
       - id: w01168
+        roles: ["著"]
       - id: w01495
   - id: c00615
     works:
@@ -2724,6 +2855,7 @@ credits:
       - id: w00869
       - id: w00900
       - id: w02058
+        roles: ["著"]
       - id: w02207
       - id: w02473
       - id: w02512
@@ -2782,6 +2914,7 @@ credits:
     works:
       - id: w00523
       - id: w00569
+        roles: ["原作"]
       - id: w01500
   - id: c00642
     works:
@@ -2898,6 +3031,7 @@ credits:
     works:
       - id: w00559
       - id: w01154
+        roles: ["著"]
       - id: w01399
   - id: c00676
     works:
@@ -2927,6 +3061,7 @@ credits:
   - id: c00684
     works:
       - id: w00569
+        roles: ["漫画"]
   - id: c00685
     works:
       - id: w00570
@@ -2936,6 +3071,7 @@ credits:
   - id: c00687
     works:
       - id: w02236
+        roles: ["著者"]
   - id: c00688
     works:
       - id: w00573
@@ -2953,6 +3089,7 @@ credits:
     works:
       - id: w00578
       - id: w01359
+        roles: ["ほか著"]
       - id: w01660
       - id: w02413
   - id: c00693
@@ -2961,10 +3098,15 @@ credits:
       - id: w00955
       - id: w00996
       - id: w01040
+        roles: ["著"]
       - id: w01049
+        roles: ["著"]
       - id: w01060
+        roles: ["著"]
       - id: w01067
+        roles: ["著"]
       - id: w01412
+        roles: ["著"]
       - id: w01876
   - id: c00694
     works:
@@ -3001,9 +3143,12 @@ credits:
     works:
       - id: w00590
       - id: w01344
+        roles: ["著"]
       - id: w01423
       - id: w01797
+        roles: ["絵"]
       - id: w01885
+        roles: ["絵"]
       - id: w01910
       - id: w02379
   - id: c00705
@@ -3079,6 +3224,7 @@ credits:
   - id: c00725
     works:
       - id: w00610
+        roles: ["漫画"]
   - id: c00726
     works:
       - id: w00611
@@ -3093,9 +3239,11 @@ credits:
   - id: c00729
     works:
       - id: w00616
+        roles: ["原案"]
   - id: c00730
     works:
       - id: w00616
+        roles: ["漫画"]
   - id: c00731
     works:
       - id: w00617
@@ -3110,9 +3258,6 @@ credits:
       - id: w00622
       - id: w01446
       - id: w03028
-  - id: c00735
-    works:
-      - id: w01497
   - id: c00736
     works:
       - id: w01497
@@ -3164,14 +3309,17 @@ credits:
     works:
       - id: w00636
       - id: w01346
+        roles: ["著"]
       - id: w01760
       - id: w01823
+        roles: ["著者"]
       - id: w02397
       - id: w02700
   - id: c00751
     works:
       - id: w00637
       - id: w01396
+        roles: ["著"]
   - id: c00752
     works:
       - id: w00638
@@ -3232,7 +3380,9 @@ credits:
     works:
       - id: w00442
       - id: w01588
+        roles: ["著者"]
       - id: w01592
+        roles: ["著者"]
   - id: c00770
     works:
       - id: w00665
@@ -3252,6 +3402,7 @@ credits:
       - id: w00856
       - id: w00974
       - id: w01347
+        roles: ["著"]
       - id: w01697
       - id: w02021
       - id: w02091
@@ -3299,19 +3450,24 @@ credits:
   - id: c00784
     works:
       - id: w00681
+        roles: ["原作"]
       - id: w00731
+        roles: ["原作"]
   - id: c00785
     works:
       - id: w00681
+        roles: ["漫画"]
   - id: c00786
     works:
       - id: w00682
   - id: c00787
     works:
       - id: w00648
+        roles: ["原作"]
   - id: c00788
     works:
       - id: w00648
+        roles: ["漫画"]
       - id: w01706
       - id: w02809
   - id: c00789
@@ -3322,8 +3478,10 @@ credits:
       - id: w00685
       - id: w01128
       - id: w01147
+        roles: ["著"]
       - id: w01182
       - id: w01342
+        roles: ["著"]
       - id: w01356
       - id: w01682
       - id: w03031
@@ -3371,6 +3529,7 @@ credits:
     works:
       - id: w00697
       - id: w01454
+        roles: ["著"]
   - id: c00804
     works:
       - id: w02177
@@ -3468,6 +3627,7 @@ credits:
   - id: c00835
     works:
       - id: w00725
+        roles: ["漫画"]
   - id: c00836
     works:
       - id: w00726
@@ -3487,6 +3647,7 @@ credits:
   - id: c00841
     works:
       - id: w00731
+        roles: ["原作"]
   - id: c00842
     works:
       - id: w00732
@@ -3597,6 +3758,7 @@ credits:
       - id: w00032
       - id: w00773
       - id: w01829
+        roles: ["原案"]
   - id: c00876
     works:
       - id: w00773
@@ -3679,9 +3841,12 @@ credits:
     works:
       - id: w00797
       - id: w01428
+        roles: ["著"]
       - id: w01616
+        roles: ["著者"]
       - id: w01876
       - id: w03148
+        roles: ["著者"]
   - id: c00900
     works:
       - id: w00798
@@ -3692,12 +3857,15 @@ credits:
     works:
       - id: w00799
       - id: w01036
+        roles: ["著"]
       - id: w01182
       - id: w01271
+        roles: ["漫画"]
       - id: w01422
       - id: w01425
       - id: w01718
       - id: w01863
+        roles: ["著"]
       - id: w02653
   - id: c00903
     works:
@@ -3713,10 +3881,12 @@ credits:
     works:
       - id: w00807
       - id: w01452
+        roles: ["原作"]
   - id: c00907
     works:
       - id: w00807
       - id: w01452
+        roles: ["漫画"]
   - id: c00908
     works:
       - id: w00809
@@ -3741,6 +3911,7 @@ credits:
   - id: c00915
     works:
       - id: w01033
+        roles: ["著"]
       - id: w02062
   - id: c00916
     works:
@@ -3758,6 +3929,7 @@ credits:
     works:
       - id: w00820
       - id: w01187
+        roles: ["著"]
       - id: w01356
       - id: w02295
       - id: w03025
@@ -3810,6 +3982,7 @@ credits:
     works:
       - id: w01264
       - id: w01739
+        roles: ["著者"]
       - id: w01768
       - id: w02024
       - id: w02139
@@ -3817,6 +3990,7 @@ credits:
       - id: w02548
       - id: w02552
       - id: w02667
+        roles: ["著者"]
       - id: w03057
   - id: c00936
     works:
@@ -3841,6 +4015,7 @@ credits:
     works:
       - id: w00837
       - id: w03160
+        roles: ["著"]
   - id: c00943
     works:
       - id: w00839
@@ -3956,8 +4131,10 @@ credits:
       - id: w00874
       - id: w01131
       - id: w01183
+        roles: ["著"]
       - id: w01375
       - id: w01947
+        roles: ["著者"]
       - id: w03084
   - id: c00978
     works:
@@ -4014,6 +4191,7 @@ credits:
     works:
       - id: w00894
       - id: w01415
+        roles: ["著"]
   - id: c00996
     works:
       - id: w00897
@@ -4076,7 +4254,9 @@ credits:
       - id: w00916
       - id: w01129
       - id: w01146
+        roles: ["著"]
       - id: w01369
+        roles: ["著"]
   - id: c01015
     works:
       - id: w00918
@@ -4092,6 +4272,7 @@ credits:
   - id: c01019
     works:
       - id: w00922
+        roles: ["原作"]
   - id: c01020
     works:
       - id: w00923
@@ -4114,6 +4295,7 @@ credits:
     works:
       - id: w00930
       - id: w01439
+        roles: ["著"]
   - id: c01027
     works:
       - id: w00931
@@ -4179,6 +4361,7 @@ credits:
     works:
       - id: w00956
       - id: w01192
+        roles: ["著"]
       - id: w01325
   - id: c01048
     works:
@@ -4193,10 +4376,12 @@ credits:
     works:
       - id: w00960
       - id: w01277
+        roles: ["著"]
       - id: w01843
   - id: c01052
     works:
       - id: w00961
+        roles: ["著者"]
       - id: w02195
   - id: c01053
     works:
@@ -4217,15 +4402,24 @@ credits:
       - id: w00966
       - id: w00996
       - id: w01039
+        roles: ["著"]
       - id: w01041
+        roles: ["著"]
       - id: w01062
+        roles: ["著"]
       - id: w01119
+        roles: ["著"]
       - id: w01129
       - id: w01136
+        roles: ["著"]
       - id: w01137
+        roles: ["著"]
       - id: w01184
+        roles: ["著"]
       - id: w01185
+        roles: ["著"]
       - id: w01201
+        roles: ["著"]
       - id: w01207
       - id: w01327
       - id: w01356
@@ -4239,6 +4433,7 @@ credits:
     works:
       - id: w00968
       - id: w02269
+        roles: ["著者"]
   - id: c01059
     works:
       - id: w00969
@@ -4266,9 +4461,7 @@ credits:
     works:
       - id: w00976
       - id: w01385
-  - id: c01066
-    works:
-      - id: w00977
+        roles: ["著"]
   - id: c01067
     works:
       - id: w00977
@@ -4278,6 +4471,7 @@ credits:
   - id: c01069
     works:
       - id: w01022
+        roles: ["著"]
       - id: w01905
       - id: w02508
   - id: c01070
@@ -4302,7 +4496,9 @@ credits:
     works:
       - id: w00987
       - id: w01247
+        roles: ["著"]
       - id: w01380
+        roles: ["著"]
       - id: w02265
   - id: c01078
     works:
@@ -4324,19 +4520,24 @@ credits:
   - id: c01083
     works:
       - id: w01597
+        roles: ["著者"]
   - id: c01084
     works:
       - id: w01779
+        roles: ["著者"]
   - id: c01085
     works:
       - id: w01629
+        roles: ["著者"]
   - id: c01086
     works:
       - id: w02517
+        roles: ["著者"]
   - id: c01087
     works:
       - id: w01556
       - id: w02367
+        roles: ["著者"]
   - id: c01088
     works:
       - id: w01353
@@ -4344,12 +4545,16 @@ credits:
   - id: c01089
     works:
       - id: w01871
+        roles: ["著者"]
   - id: c01090
     works:
       - id: w01085
+        roles: ["著"]
       - id: w01089
       - id: w01100
+        roles: ["著"]
       - id: w01647
+        roles: ["著者"]
       - id: w01813
       - id: w02021
       - id: w02101
@@ -4365,12 +4570,14 @@ credits:
   - id: c01094
     works:
       - id: w01631
+        roles: ["漫画"]
   - id: c01095
     works:
       - id: w01731
   - id: c01096
     works:
       - id: w01177
+        roles: ["著"]
       - id: w01634
       - id: w02846
   - id: c01097
@@ -4388,12 +4595,14 @@ credits:
     works:
       - id: w01131
       - id: w01289
+        roles: ["著"]
       - id: w01357
       - id: w02021
       - id: w02645
   - id: c01101
     works:
       - id: w01690
+        roles: ["著者"]
   - id: c01102
     works:
       - id: w02457
@@ -4401,13 +4610,16 @@ credits:
   - id: c01103
     works:
       - id: w01819
+        roles: ["著者"]
   - id: c01104
     works:
       - id: w01421
       - id: w01890
+        roles: ["著者"]
   - id: c01105
     works:
       - id: w01617
+        roles: ["著者"]
   - id: c01106
     works:
       - id: w01442
@@ -4422,6 +4634,7 @@ credits:
     works:
       - id: w01473
       - id: w02126
+        roles: ["著者"]
   - id: c01109
     works:
       - id: w01409
@@ -4434,15 +4647,18 @@ credits:
   - id: c01112
     works:
       - id: w01156
+        roles: ["著"]
       - id: w01182
       - id: w01195
       - id: w01368
       - id: w01377
       - id: w01412
+        roles: ["著"]
       - id: w01876
   - id: c01113
     works:
       - id: w01412
+        roles: ["著"]
       - id: w01876
       - id: w01943
       - id: w01980
@@ -4454,37 +4670,45 @@ credits:
   - id: c01114
     works:
       - id: w01412
+        roles: ["著"]
       - id: w01876
   - id: c01115
     works:
       - id: w01412
+        roles: ["著"]
       - id: w01876
   - id: c01116
     works:
       - id: w01412
+        roles: ["著"]
       - id: w01876
   - id: c01117
     works:
       - id: w01207
       - id: w01428
+        roles: ["著"]
       - id: w01676
       - id: w01876
   - id: c01118
     works:
       - id: w01428
+        roles: ["著"]
       - id: w01876
   - id: c01119
     works:
       - id: w01428
+        roles: ["著"]
       - id: w01876
       - id: w02877
   - id: c01120
     works:
       - id: w01428
+        roles: ["著"]
       - id: w01876
   - id: c01121
     works:
       - id: w01428
+        roles: ["著"]
       - id: w01876
   - id: c01122
     works:
@@ -4495,21 +4719,27 @@ credits:
   - id: c01124
     works:
       - id: w01773
+        roles: ["著者"]
   - id: c01125
     works:
       - id: w01762
+        roles: ["著者"]
   - id: c01126
     works:
       - id: w01732
+        roles: ["著者"]
   - id: c01127
     works:
       - id: w02018
+        roles: ["作画"]
   - id: c01128
     works:
       - id: w02018
+        roles: ["原作"]
   - id: c01129
     works:
       - id: w02018
+        roles: ["キャラクター原案"]
   - id: c01130
     works:
       - id: w01423
@@ -4523,6 +4753,7 @@ credits:
   - id: c01132
     works:
       - id: w01021
+        roles: ["著"]
       - id: w01423
       - id: w01910
   - id: c01133
@@ -4532,6 +4763,7 @@ credits:
   - id: c01134
     works:
       - id: w01384
+        roles: ["漫画"]
       - id: w01423
       - id: w01749
       - id: w01910
@@ -4578,6 +4810,7 @@ credits:
   - id: c01143
     works:
       - id: w01989
+        roles: ["著者"]
   - id: c01144
     works:
       - id: w02263
@@ -4588,23 +4821,29 @@ credits:
   - id: c01146
     works:
       - id: w01791
+        roles: ["著者"]
       - id: w02049
   - id: c01147
     works:
       - id: w01805
+        roles: ["著者"]
   - id: c01148
     works:
       - id: w01596
+        roles: ["著者"]
   - id: c01149
     works:
       - id: w01907
+        roles: ["著者"]
   - id: c01150
     works:
       - id: w01368
       - id: w01781
+        roles: ["漫画"]
   - id: c01151
     works:
       - id: w01781
+        roles: ["原作"]
   - id: c01152
     works:
       - id: w02703
@@ -4616,12 +4855,15 @@ credits:
   - id: c01154
     works:
       - id: w01896
+        roles: ["著者"]
   - id: c01155
     works:
       - id: w01641
+        roles: ["著者"]
   - id: c01156
     works:
       - id: w01295
+        roles: ["著者"]
   - id: c01157
     works:
       - id: w01418
@@ -4631,12 +4873,14 @@ credits:
   - id: c01159
     works:
       - id: w01680
+        roles: ["著者"]
       - id: w01712
   - id: c01160
     works:
       - id: w01196
       - id: w01473
       - id: w01921
+        roles: ["著者"]
   - id: c01161
     works:
       - id: w01637
@@ -4651,62 +4895,81 @@ credits:
   - id: c01163
     works:
       - id: w02720
+        roles: ["著者"]
   - id: c01164
     works:
       - id: w01089
       - id: w01127
+        roles: ["著"]
       - id: w01782
+        roles: ["著者"]
       - id: w02706
   - id: c01165
     works:
       - id: w01611
+        roles: ["著者"]
       - id: w02672
   - id: c01166
     works:
       - id: w02709
+        roles: ["著者"]
   - id: c01167
     works:
       - id: w01477
       - id: w01632
+        roles: ["著者"]
   - id: c01168
     works:
       - id: w01836
+        roles: ["著者"]
   - id: c01169
     works:
       - id: w02004
+        roles: ["著者"]
   - id: c01170
     works:
       - id: w01784
       - id: w02118
+        roles: ["漫画"]
   - id: c01171
     works:
       - id: w02118
+        roles: ["原作"]
   - id: c01172
     works:
       - id: w02000
+        roles: ["著者"]
   - id: c01173
     works:
       - id: w02167
+        roles: ["原作"]
   - id: c01174
     works:
       - id: w02167
+        roles: ["漫画"]
   - id: c01175
     works:
       - id: w01194
       - id: w02167
+        roles: ["キャラクター原案"]
   - id: c01176
     works:
       - id: w01974
+        roles: ["著者"]
   - id: c01177
     works:
       - id: w01699
+        roles: ["著者"]
   - id: c01178
     works:
       - id: w01709
+        roles: ["著者"]
   - id: c01179
     works:
       - id: w01152
+        roles: ["著"]
       - id: w01153
+        roles: ["著"]
       - id: w01325
       - id: w01326
       - id: w01356
@@ -4730,14 +4993,17 @@ credits:
       - id: w01326
       - id: w01741
       - id: w02316
+        roles: ["著者"]
   - id: c01182
     works:
       - id: w02021
       - id: w02771
+        roles: ["作画"]
   - id: c01183
     works:
       - id: w02283
       - id: w02771
+        roles: ["原作"]
   - id: c01184
     works:
       - id: w01735
@@ -4754,18 +5020,23 @@ credits:
   - id: c01188
     works:
       - id: w01868
+        roles: ["著者"]
   - id: c01189
     works:
       - id: w02017
+        roles: ["著者"]
   - id: c01190
     works:
       - id: w01719
+        roles: ["著者"]
   - id: c01191
     works:
       - id: w01742
+        roles: ["著者"]
   - id: c01192
     works:
       - id: w01795
+        roles: ["著者"]
   - id: c01193
     works:
       - id: w01461
@@ -4778,18 +5049,22 @@ credits:
   - id: c01196
     works:
       - id: w01392
+        roles: ["著"]
   - id: c01197
     works:
       - id: w01392
+        roles: ["著"]
   - id: c01198
     works:
       - id: w02649
+        roles: ["著者"]
   - id: c01199
     works:
       - id: w02159
   - id: c01200
     works:
       - id: w02294
+        roles: ["著者"]
   - id: c01201
     works:
       - id: w01594
@@ -4797,21 +5072,26 @@ credits:
   - id: c01202
     works:
       - id: w01810
+        roles: ["著者"]
   - id: c01203
     works:
       - id: w01903
+        roles: ["漫画・原作"]
   - id: c01204
     works:
       - id: w01903
+        roles: ["原案"]
   - id: c01205
     works:
       - id: w02125
+        roles: ["著者"]
   - id: c01206
     works:
       - id: w02708
   - id: c01207
     works:
       - id: w01625
+        roles: ["著者"]
   - id: c01208
     works:
       - id: w01438
@@ -4821,12 +5101,15 @@ credits:
   - id: c01210
     works:
       - id: w02269
+        roles: ["原作"]
   - id: c01211
     works:
       - id: w02269
+        roles: ["キャラクター原案"]
   - id: c01212
     works:
       - id: w01994
+        roles: ["著者"]
       - id: w03067
   - id: c01213
     works:
@@ -4878,30 +5161,37 @@ credits:
   - id: c01228
     works:
       - id: w02662
+        roles: ["著者"]
   - id: c01229
     works:
       - id: w01384
+        roles: ["漫画"]
       - id: w02278
   - id: c01230
     works:
       - id: w01128
       - id: w01157
+        roles: ["著"]
       - id: w01182
       - id: w01356
       - id: w01384
+        roles: ["漫画"]
       - id: w02278
   - id: c01231
     works:
       - id: w01195
       - id: w01384
+        roles: ["漫画"]
       - id: w02278
   - id: c01232
     works:
       - id: w01384
+        roles: ["漫画"]
       - id: w02278
   - id: c01233
     works:
       - id: w01384
+        roles: ["漫画"]
       - id: w02278
   - id: c01234
     works:
@@ -4910,7 +5200,9 @@ credits:
       - id: w01323
       - id: w01379
       - id: w01382
+        roles: ["著"]
       - id: w01384
+        roles: ["漫画"]
       - id: w01389
       - id: w01424
       - id: w01615
@@ -4919,9 +5211,11 @@ credits:
   - id: c01235
     works:
       - id: w01889
+        roles: ["著者"]
   - id: c01236
     works:
       - id: w01007
+        roles: ["著"]
       - id: w01316
       - id: w01581
       - id: w02764
@@ -4955,6 +5249,7 @@ credits:
   - id: c01246
     works:
       - id: w01341
+        roles: ["著者"]
       - id: w01660
   - id: c01247
     works:
@@ -4962,6 +5257,7 @@ credits:
   - id: c01248
     works:
       - id: w01908
+        roles: ["著者"]
   - id: c01249
     works:
       - id: w01723
@@ -4977,6 +5273,7 @@ credits:
   - id: c01253
     works:
       - id: w01466
+        roles: ["漫画"]
   - id: c01254
     works:
       - id: w02130
@@ -5003,38 +5300,51 @@ credits:
   - id: c01261
     works:
       - id: w02689
+        roles: ["原作"]
   - id: c01262
     works:
       - id: w02689
+        roles: ["漫画"]
   - id: c01263
     works:
       - id: w03137
+        roles: ["漫画"]
   - id: c01264
     works:
       - id: w02829
+        roles: ["著者"]
   - id: c01265
     works:
       - id: w02842
+        roles: ["著者"]
   - id: c01266
     works:
       - id: w01129
       - id: w01383
+        roles: ["著"]
       - id: w01432
+        roles: ["著者"]
   - id: c01267
     works:
       - id: w01900
+        roles: ["著者"]
   - id: c01268
     works:
       - id: w02695
+        roles: ["著者"]
   - id: c01269
     works:
       - id: w02598
+        roles: ["著者"]
   - id: c01270
     works:
       - id: w01144
+        roles: ["著"]
       - id: w01178
+        roles: ["著"]
       - id: w01375
       - id: w01867
+        roles: ["著者"]
       - id: w02173
       - id: w02314
       - id: w02706
@@ -5042,13 +5352,17 @@ credits:
   - id: c01271
     works:
       - id: w02203
+        roles: ["著者"]
       - id: w02660
+        roles: ["著"]
   - id: c01272
     works:
       - id: w01804
+        roles: ["著者"]
   - id: c01273
     works:
       - id: w01850
+        roles: ["著者"]
   - id: c01274
     works:
       - id: w01311
@@ -5058,9 +5372,7 @@ credits:
       - id: w01371
       - id: w01736
       - id: w02389
-  - id: c01276
-    works:
-      - id: w01701
+        roles: ["著者"]
   - id: c01277
     works:
       - id: w01874
@@ -5074,49 +5386,64 @@ credits:
   - id: c01280
     works:
       - id: w02617
+        roles: ["著者"]
   - id: c01281
     works:
       - id: w01609
+        roles: ["著者"]
   - id: c01282
     works:
       - id: w01829
+        roles: ["漫画"]
   - id: c01283
     works:
       - id: w00032
       - id: w01829
+        roles: ["原案"]
   - id: c01284
     works:
       - id: w01708
+        roles: ["著者"]
   - id: c01285
     works:
       - id: w02430
+        roles: ["著者"]
   - id: c01286
     works:
       - id: w02377
+        roles: ["著者"]
   - id: c01287
     works:
       - id: w02084
+        roles: ["著者"]
   - id: c01288
     works:
       - id: w02084
+        roles: ["著者"]
   - id: c01289
     works:
       - id: w02084
+        roles: ["著者"]
   - id: c01290
     works:
       - id: w02009
+        roles: ["著者"]
   - id: c01291
     works:
       - id: w02009
+        roles: ["原作"]
   - id: c01292
     works:
       - id: w02009
+        roles: ["キャラクター原案"]
   - id: c01293
     works:
       - id: w02069
+        roles: ["著者"]
   - id: c01294
     works:
       - id: w02190
+        roles: ["著者"]
   - id: c01295
     works:
       - id: w01589
@@ -5128,27 +5455,33 @@ credits:
   - id: c01297
     works:
       - id: w01995
+        roles: ["編"]
   - id: c01298
     works:
       - id: w02235
   - id: c01299
     works:
       - id: w02424
+        roles: ["著者"]
   - id: c01300
     works:
       - id: w02414
   - id: c01301
     works:
       - id: w02660
+        roles: ["編集"]
   - id: c01302
     works:
       - id: w01517
+        roles: ["漫画"]
   - id: c01303
     works:
       - id: w01517
+        roles: ["ストーリー"]
   - id: c01304
     works:
       - id: w01517
+        roles: ["キャラクター原案"]
   - id: c01305
     works:
       - id: w01502
@@ -5158,49 +5491,63 @@ credits:
   - id: c01307
     works:
       - id: w01241
+        roles: ["著"]
   - id: c01308
     works:
       - id: w02593
       - id: w03156
+        roles: ["著"]
   - id: c01309
     works:
       - id: w01243
+        roles: ["著"]
       - id: w03157
+        roles: ["著"]
   - id: c01310
     works:
       - id: w02497
       - id: w02863
       - id: w03158
+        roles: ["著"]
   - id: c01311
     works:
       - id: w01245
+        roles: ["著"]
       - id: w01603
   - id: c01312
     works:
       - id: w01246
+        roles: ["著"]
   - id: c01313
     works:
       - id: w01246
+        roles: ["著"]
   - id: c01314
     works:
       - id: w01246
+        roles: ["著"]
   - id: c01315
     works:
       - id: w01246
+        roles: ["著"]
   - id: c01316
     works:
       - id: w01129
       - id: w01246
+        roles: ["著"]
       - id: w01377
       - id: w01683
   - id: c01317
     works:
       - id: w01246
+        roles: ["著"]
       - id: w02970
   - id: c01318
     works:
       - id: w01246
+        roles: ["著"]
       - id: w01307
+        roles: ["著"]
       - id: w01843
       - id: w02427
       - id: w02722
@@ -5208,6 +5555,7 @@ credits:
   - id: c01319
     works:
       - id: w01246
+        roles: ["著"]
       - id: w01323
       - id: w01615
       - id: w01722
@@ -5216,80 +5564,109 @@ credits:
   - id: c01320
     works:
       - id: w01246
+        roles: ["著"]
   - id: c01321
     works:
       - id: w01246
+        roles: ["著"]
       - id: w02425
   - id: c01322
     works:
       - id: w01246
+        roles: ["著"]
   - id: c01323
     works:
       - id: w01248
+        roles: ["著"]
       - id: w01252
+        roles: ["著"]
       - id: w01313
+        roles: ["著"]
       - id: w02580
   - id: c01324
     works:
       - id: w01249
+        roles: ["著"]
   - id: c01325
     works:
       - id: w01250
+        roles: ["著"]
       - id: w01266
+        roles: ["著"]
   - id: c01326
     works:
       - id: w01253
+        roles: ["著"]
   - id: c01327
     works:
       - id: w01254
+        roles: ["著"]
   - id: c01328
     works:
       - id: w01256
+        roles: ["著"]
   - id: c01329
     works:
       - id: w01256
+        roles: ["著"]
   - id: c01330
     works:
       - id: w01257
+        roles: ["著"]
   - id: c01331
     works:
       - id: w01258
+        roles: ["著"]
   - id: c01332
     works:
       - id: w01259
+        roles: ["著"]
   - id: c01333
     works:
       - id: w01260
+        roles: ["著"]
   - id: c01334
     works:
       - id: w01261
+        roles: ["著"]
   - id: c01335
     works:
       - id: w01262
+        roles: ["著"]
   - id: c01336
     works:
       - id: w01263
+        roles: ["著"]
       - id: w01591
   - id: c01337
     works:
       - id: w01265
+        roles: ["著"]
   - id: c01338
     works:
       - id: w01267
+        roles: ["著"]
   - id: c01339
     works:
       - id: w01207
       - id: w01268
+        roles: ["著"]
       - id: w01358
+        roles: ["原作"]
       - id: w01643
       - id: w02021
   - id: c01340
     works:
       - id: w01103
+        roles: ["著"]
       - id: w01269
+        roles: ["著"]
       - id: w01294
+        roles: ["著"]
       - id: w01299
+        roles: ["著"]
       - id: w01351
+        roles: ["漫画"]
       - id: w01655
       - id: w01659
       - id: w01843
@@ -5300,77 +5677,101 @@ credits:
   - id: c01341
     works:
       - id: w01270
+        roles: ["著"]
   - id: c01342
     works:
       - id: w01272
+        roles: ["著"]
   - id: c01343
     works:
       - id: w01273
+        roles: ["著"]
   - id: c01344
     works:
       - id: w01274
+        roles: ["著"]
       - id: w01275
+        roles: ["著"]
       - id: w01304
+        roles: ["著"]
       - id: w01320
+        roles: ["著"]
       - id: w01360
+        roles: ["著"]
       - id: w01373
+        roles: ["著"]
       - id: w01843
       - id: w02408
   - id: c01345
     works:
       - id: w01276
+        roles: ["著"]
       - id: w01843
       - id: w02994
       - id: w03008
   - id: c01346
     works:
       - id: w01278
+        roles: ["著"]
       - id: w01843
   - id: c01347
     works:
       - id: w01113
+        roles: ["著"]
       - id: w01279
+        roles: ["著"]
       - id: w01843
   - id: c01348
     works:
       - id: w01280
+        roles: ["著"]
       - id: w01523
       - id: w01843
   - id: c01349
     works:
       - id: w01281
+        roles: ["著"]
       - id: w01843
   - id: c01350
     works:
       - id: w01282
+        roles: ["著"]
       - id: w01843
   - id: c01351
     works:
       - id: w01283
+        roles: ["著"]
       - id: w01843
   - id: c01352
     works:
       - id: w01129
       - id: w01284
+        roles: ["著"]
       - id: w01843
   - id: c01353
     works:
       - id: w01285
+        roles: ["著"]
       - id: w01843
   - id: c01354
     works:
       - id: w01043
+        roles: ["著"]
       - id: w01286
+        roles: ["著"]
   - id: c01355
     works:
       - id: w01287
+        roles: ["著"]
   - id: c01356
     works:
       - id: w01290
+        roles: ["著"]
       - id: w01843
   - id: c01357
     works:
       - id: w01292
+        roles: ["著"]
   - id: c01358
     works:
       - id: w00996
@@ -5383,14 +5784,18 @@ credits:
       - id: w00996
       - id: w01001
       - id: w01068
+        roles: ["著"]
       - id: w01069
+        roles: ["著"]
       - id: w01325
   - id: c01361
     works:
       - id: w00996
       - id: w01001
       - id: w01016
+        roles: ["著"]
       - id: w01087
+        roles: ["著"]
   - id: c01362
     works:
       - id: w00996
@@ -5401,9 +5806,12 @@ credits:
     works:
       - id: w00996
       - id: w01044
+        roles: ["著"]
       - id: w01054
+        roles: ["著"]
       - id: w01129
       - id: w01132
+        roles: ["著"]
       - id: w01657
       - id: w01689
       - id: w01746
@@ -5418,18 +5826,23 @@ credits:
     works:
       - id: w00996
       - id: w01333
+        roles: ["著"]
   - id: c01367
     works:
       - id: w00996
       - id: w01004
+        roles: ["著"]
       - id: w01089
       - id: w01325
   - id: c01368
     works:
       - id: w00996
       - id: w01065
+        roles: ["著"]
       - id: w01099
+        roles: ["著"]
       - id: w01179
+        roles: ["著"]
       - id: w01327
       - id: w01356
       - id: w01367
@@ -5439,16 +5852,21 @@ credits:
   - id: c01369
     works:
       - id: w01293
+        roles: ["著"]
   - id: c01370
     works:
       - id: w00998
+        roles: ["著"]
   - id: c01371
     works:
       - id: w00999
+        roles: ["著"]
       - id: w01023
+        roles: ["著"]
   - id: c01372
     works:
       - id: w01000
+        roles: ["著"]
   - id: c01373
     works:
       - id: w01001
@@ -5459,26 +5877,34 @@ credits:
   - id: c01375
     works:
       - id: w01002
+        roles: ["著"]
   - id: c01376
     works:
       - id: w01003
+        roles: ["著"]
   - id: c01377
     works:
       - id: w01005
+        roles: ["著"]
   - id: c01378
     works:
       - id: w01009
+        roles: ["著"]
   - id: c01379
     works:
       - id: w01012
+        roles: ["著"]
   - id: c01380
     works:
       - id: w01013
+        roles: ["著"]
   - id: c01381
     works:
       - id: w01014
+        roles: ["著"]
       - id: w01089
       - id: w01135
+        roles: ["著"]
       - id: w01182
       - id: w01195
       - id: w01198
@@ -5487,35 +5913,49 @@ credits:
   - id: c01382
     works:
       - id: w01015
+        roles: ["著"]
       - id: w01298
       - id: w02366
   - id: c01383
     works:
       - id: w01018
+        roles: ["著"]
       - id: w01088
+        roles: ["著"]
       - id: w01298
   - id: c01384
     works:
       - id: w01019
+        roles: ["著"]
       - id: w01077
+        roles: ["著"]
       - id: w01101
+        roles: ["著"]
       - id: w01109
+        roles: ["著"]
       - id: w01138
+        roles: ["著"]
       - id: w01298
   - id: c01385
     works:
       - id: w01020
+        roles: ["著"]
   - id: c01386
     works:
       - id: w01025
+        roles: ["著"]
       - id: w01027
+        roles: ["著"]
       - id: w01029
+        roles: ["著"]
       - id: w01298
       - id: w01336
+        roles: ["著"]
       - id: w02706
   - id: c01387
     works:
       - id: w01026
+        roles: ["著"]
   - id: c01388
     works:
       - id: w01298
@@ -5532,6 +5972,7 @@ credits:
     works:
       - id: w01089
       - id: w01090
+        roles: ["著"]
       - id: w01298
       - id: w01377
   - id: c01393
@@ -5558,104 +5999,143 @@ credits:
   - id: c01399
     works:
       - id: w01030
+        roles: ["著"]
       - id: w01121
+        roles: ["著"]
   - id: c01400
     works:
       - id: w01031
+        roles: ["著"]
       - id: w01051
+        roles: ["著"]
       - id: w01072
+        roles: ["著"]
       - id: w01083
+        roles: ["著"]
   - id: c01401
     works:
       - id: w01032
+        roles: ["著"]
   - id: c01402
     works:
       - id: w01035
+        roles: ["著"]
       - id: w01073
+        roles: ["著"]
       - id: w01102
+        roles: ["著"]
       - id: w01112
+        roles: ["著"]
       - id: w01655
       - id: w02643
   - id: c01403
     works:
       - id: w01037
+        roles: ["著"]
       - id: w01129
   - id: c01404
     works:
       - id: w01038
+        roles: ["著"]
   - id: c01405
     works:
       - id: w01045
+        roles: ["著"]
   - id: c01406
     works:
       - id: w01046
+        roles: ["著"]
       - id: w01130
       - id: w01167
+        roles: ["著"]
       - id: w01176
+        roles: ["著"]
       - id: w01194
       - id: w01375
       - id: w01676
   - id: c01407
     works:
       - id: w01047
+        roles: ["著"]
   - id: c01408
     works:
       - id: w01048
+        roles: ["著"]
   - id: c01409
     works:
       - id: w01050
+        roles: ["著"]
   - id: c01410
     works:
       - id: w01052
+        roles: ["著"]
   - id: c01411
     works:
       - id: w01053
+        roles: ["著"]
   - id: c01412
     works:
       - id: w01056
+        roles: ["著"]
       - id: w01120
+        roles: ["著"]
   - id: c01413
     works:
       - id: w01061
+        roles: ["著"]
   - id: c01414
     works:
       - id: w01063
+        roles: ["著"]
       - id: w01082
+        roles: ["著"]
       - id: w01105
+        roles: ["著"]
       - id: w01110
+        roles: ["漫画"]
       - id: w01115
+        roles: ["著"]
       - id: w02456
   - id: c01415
     works:
       - id: w01066
+        roles: ["著"]
   - id: c01416
     works:
       - id: w01071
+        roles: ["著"]
       - id: w01316
       - id: w02764
   - id: c01417
     works:
       - id: w01076
+        roles: ["著"]
   - id: c01418
     works:
       - id: w01079
+        roles: ["著"]
       - id: w01698
   - id: c01419
     works:
       - id: w01080
+        roles: ["著"]
   - id: c01420
     works:
       - id: w01081
+        roles: ["著"]
   - id: c01421
     works:
       - id: w01084
+        roles: ["著"]
   - id: c01422
     works:
       - id: w01300
+        roles: ["著"]
       - id: w01843
   - id: c01423
     works:
       - id: w01301
+        roles: ["著"]
       - id: w01843
   - id: c01424
     works:
@@ -5663,21 +6143,26 @@ credits:
   - id: c01425
     works:
       - id: w01305
+        roles: ["著"]
       - id: w01843
   - id: c01426
     works:
       - id: w01306
+        roles: ["著"]
   - id: c01427
     works:
       - id: w01308
+        roles: ["著"]
       - id: w01843
   - id: c01428
     works:
       - id: w01310
+        roles: ["著"]
   - id: c01429
     works:
       - id: w01089
       - id: w01161
+        roles: ["著"]
       - id: w02706
   - id: c01430
     works:
@@ -5700,31 +6185,41 @@ credits:
   - id: c01435
     works:
       - id: w01092
+        roles: ["著"]
   - id: c01436
     works:
       - id: w01094
+        roles: ["著"]
   - id: c01437
     works:
       - id: w01106
+        roles: ["著"]
       - id: w01111
+        roles: ["著"]
       - id: w01124
+        roles: ["著"]
       - id: w02997
   - id: c01438
     works:
       - id: w01107
+        roles: ["著"]
       - id: w01550
   - id: c01439
     works:
       - id: w01110
+        roles: ["脚本"]
   - id: c01440
     works:
       - id: w01314
+        roles: ["著"]
   - id: c01441
     works:
       - id: w01117
+        roles: ["著"]
   - id: c01442
     works:
       - id: w01315
+        roles: ["編"]
   - id: c01443
     works:
       - id: w01316
@@ -5752,24 +6247,30 @@ credits:
   - id: c01449
     works:
       - id: w01118
+        roles: ["著"]
       - id: w01123
+        roles: ["著"]
   - id: c01450
     works:
       - id: w01129
       - id: w01318
+        roles: ["著"]
       - id: w01683
       - id: w01700
   - id: c01451
     works:
       - id: w01125
+        roles: ["著"]
   - id: c01452
     works:
       - id: w01126
+        roles: ["著"]
       - id: w02706
   - id: c01453
     works:
       - id: w01129
       - id: w01321
+        roles: ["著"]
   - id: c01454
     works:
       - id: w01323
@@ -5787,6 +6288,7 @@ credits:
     works:
       - id: w01131
       - id: w01142
+        roles: ["著"]
       - id: w01182
       - id: w01198
       - id: w01323
@@ -5808,6 +6310,7 @@ credits:
       - id: w01378
       - id: w01379
       - id: w01381
+        roles: ["著"]
       - id: w01873
   - id: c01460
     works:
@@ -5879,6 +6382,7 @@ credits:
     works:
       - id: w01128
       - id: w01191
+        roles: ["著"]
       - id: w01736
   - id: c01473
     works:
@@ -5890,6 +6394,7 @@ credits:
   - id: c01475
     works:
       - id: w01181
+        roles: ["著"]
       - id: w01325
       - id: w01326
       - id: w01356
@@ -5899,6 +6404,7 @@ credits:
   - id: c01476
     works:
       - id: w01166
+        roles: ["著"]
       - id: w01217
       - id: w01325
       - id: w01367
@@ -5916,6 +6422,7 @@ credits:
     works:
       - id: w01129
       - id: w01188
+        roles: ["著"]
       - id: w01326
       - id: w01356
       - id: w01389
@@ -5948,6 +6455,7 @@ credits:
       - id: w01130
       - id: w01195
       - id: w01337
+        roles: ["著"]
       - id: w01675
       - id: w01676
       - id: w02016
@@ -5987,6 +6495,7 @@ credits:
     works:
       - id: w01131
       - id: w01163
+        roles: ["著"]
       - id: w01195
   - id: c01492
     works:
@@ -6019,74 +6528,93 @@ credits:
   - id: c01498
     works:
       - id: w01335
+        roles: ["著"]
       - id: w03054
   - id: c01499
     works:
       - id: w01140
+        roles: ["著"]
       - id: w01736
   - id: c01500
     works:
       - id: w01141
+        roles: ["著"]
       - id: w01356
       - id: w01368
   - id: c01501
     works:
       - id: w01338
+        roles: ["訳"]
   - id: c01502
     works:
       - id: w01338
+        roles: ["作・画"]
   - id: c01503
     works:
       - id: w01338
+        roles: ["作・画"]
   - id: c01504
     works:
       - id: w01340
+        roles: ["監修"]
   - id: c01505
     works:
       - id: w01340
+        roles: ["著"]
   - id: c01506
     works:
       - id: w01340
   - id: c01507
     works:
       - id: w01145
+        roles: ["著"]
       - id: w01371
       - id: w01424
       - id: w01458
+        roles: ["著"]
       - id: w01854
   - id: c01508
     works:
       - id: w01151
+        roles: ["著"]
   - id: c01509
     works:
       - id: w01155
+        roles: ["著"]
   - id: c01510
     works:
       - id: w01158
+        roles: ["著"]
       - id: w01195
       - id: w01356
       - id: w02638
   - id: c01511
     works:
       - id: w01343
+        roles: ["著"]
   - id: c01512
     works:
       - id: w01159
+        roles: ["著"]
       - id: w01421
   - id: c01513
     works:
       - id: w01345
+        roles: ["著"]
   - id: c01514
     works:
       - id: w01160
+        roles: ["著"]
   - id: c01515
     works:
       - id: w01165
+        roles: ["著"]
       - id: w01182
       - id: w02021
   - id: c01516
     works:
       - id: w01348
+        roles: ["著"]
       - id: w02501
       - id: w02685
   - id: c01517
@@ -6100,25 +6628,32 @@ credits:
   - id: c01519
     works:
       - id: w01358
+        roles: ["作画"]
   - id: c01520
     works:
       - id: w01172
+        roles: ["著"]
   - id: c01521
     works:
       - id: w01175
+        roles: ["著"]
       - id: w01700
   - id: c01522
     works:
       - id: w01361
+        roles: ["原作"]
   - id: c01523
     works:
       - id: w01361
+        roles: ["漫画"]
   - id: c01524
     works:
       - id: w01363
+        roles: ["著"]
   - id: c01525
     works:
       - id: w01364
+        roles: ["著"]
       - id: w02197
       - id: w02279
       - id: w02397
@@ -6127,8 +6662,10 @@ credits:
   - id: c01526
     works:
       - id: w01366
+        roles: ["著"]
       - id: w01435
       - id: w01457
+        roles: ["著"]
       - id: w02033
       - id: w02053
       - id: w02434
@@ -6165,6 +6702,7 @@ credits:
     works:
       - id: w01182
       - id: w01394
+        roles: ["著"]
   - id: c01537
     works:
       - id: w00244
@@ -6177,6 +6715,7 @@ credits:
   - id: c01539
     works:
       - id: w01376
+        roles: ["著"]
   - id: c01540
     works:
       - id: w01377
@@ -6207,11 +6746,14 @@ credits:
   - id: c01548
     works:
       - id: w01387
+        roles: ["著"]
       - id: w01437
   - id: c01549
     works:
       - id: w01388
+        roles: ["著"]
       - id: w01420
+        roles: ["著"]
   - id: c01550
     works:
       - id: w01389
@@ -6230,15 +6772,19 @@ credits:
   - id: c01555
     works:
       - id: w01391
+        roles: ["著"]
   - id: c01556
     works:
       - id: w01393
+        roles: ["著"]
   - id: c01557
     works:
       - id: w01193
+        roles: ["著"]
   - id: c01558
     works:
       - id: w01398
+        roles: ["著"]
   - id: c01559
     works:
       - id: w01399
@@ -6340,6 +6886,7 @@ credits:
     works:
       - id: w01195
       - id: w01223
+        roles: ["著"]
       - id: w02706
   - id: c01588
     works:
@@ -6347,12 +6894,14 @@ credits:
   - id: c01589
     works:
       - id: w01402
+        roles: ["著"]
   - id: c01590
     works:
       - id: w01405
   - id: c01591
     works:
       - id: w01405
+        roles: ["原作"]
       - id: w01649
   - id: c01592
     works:
@@ -6360,9 +6909,11 @@ credits:
   - id: c01593
     works:
       - id: w01411
+        roles: ["著"]
   - id: c01594
     works:
       - id: w01413
+        roles: ["著"]
       - id: w02053
       - id: w02371
       - id: w02542
@@ -6404,9 +6955,11 @@ credits:
   - id: c01604
     works:
       - id: w01414
+        roles: ["著"]
   - id: c01605
     works:
       - id: w01417
+        roles: ["著"]
       - id: w01521
       - id: w01939
       - id: w02488
@@ -6452,9 +7005,11 @@ credits:
   - id: c01618
     works:
       - id: w01427
+        roles: ["著"]
   - id: c01619
     works:
       - id: w01429
+        roles: ["原案協力"]
   - id: c01620
     works:
       - id: w01504
@@ -6678,6 +7233,7 @@ credits:
     works:
       - id: w01538
       - id: w01775
+        roles: ["校正"]
       - id: w01958
       - id: w02611
       - id: w02772
@@ -6686,6 +7242,7 @@ credits:
     works:
       - id: w01538
       - id: w01775
+        roles: ["校正"]
       - id: w01958
       - id: w02087
       - id: w02611
@@ -6869,6 +7426,7 @@ credits:
   - id: c01682
     works:
       - id: w01612
+        roles: ["協力"]
   - id: c01683
     works:
       - id: w01614
@@ -6901,6 +7459,7 @@ credits:
   - id: c01691
     works:
       - id: w01627
+        roles: ["著"]
       - id: w01883
   - id: c01692
     works:
@@ -6954,6 +7513,7 @@ credits:
     works:
       - id: w01667
       - id: w01809
+        roles: ["絵"]
   - id: c01707
     works:
       - id: w01670
@@ -7066,6 +7626,7 @@ credits:
       - id: w02767
   - id: c01732
     works:
+      - id: w01701
       - id: w01717
       - id: w01833
       - id: w02041
@@ -7073,6 +7634,7 @@ credits:
       - id: w03122
   - id: c01733
     works:
+      - id: w01701
       - id: w01717
       - id: w02041
       - id: w02568
@@ -7086,9 +7648,6 @@ credits:
     works:
       - id: w01736
   - id: c01737
-    works:
-      - id: w01736
-  - id: c01738
     works:
       - id: w01736
   - id: c01739
@@ -7313,6 +7872,7 @@ credits:
   - id: c01795
     works:
       - id: w01910
+        roles: ["カバーイラスト"]
   - id: c01796
     works:
       - id: w01912
@@ -7483,6 +8043,7 @@ credits:
   - id: c01834
     works:
       - id: w01441
+        roles: ["著"]
       - id: w01997
   - id: c01835
     works:
@@ -7517,6 +8078,7 @@ credits:
   - id: c01842
     works:
       - id: w02014
+        roles: ["作"]
   - id: c01843
     works:
       - id: w02019
@@ -7612,6 +8174,7 @@ credits:
   - id: c01868
     works:
       - id: w01471
+        roles: ["著"]
       - id: w02074
       - id: w02092
       - id: w02416
@@ -7709,9 +8272,13 @@ credits:
   - id: c01893
     works:
       - id: w02134
+        roles: ["編"]
       - id: w02395
+        roles: ["編"]
       - id: w02760
+        roles: ["編"]
       - id: w02812
+        roles: ["編"]
   - id: c01894
     works:
       - id: w02137
@@ -7924,6 +8491,7 @@ credits:
   - id: c01956
     works:
       - id: w02333
+        roles: ["構成"]
   - id: c01957
     works:
       - id: w02333
@@ -7966,6 +8534,7 @@ credits:
   - id: c01968
     works:
       - id: w02351
+        roles: ["カバーイラスト"]
   - id: c01969
     works:
       - id: w02351
@@ -8017,6 +8586,7 @@ credits:
   - id: c01985
     works:
       - id: w02379
+        roles: ["カバーイラスト"]
   - id: c01986
     works:
       - id: w02381
@@ -8141,6 +8711,7 @@ credits:
   - id: c02025
     works:
       - id: w02453
+        roles: ["構成"]
   - id: c02026
     works:
       - id: w02454
@@ -8386,6 +8957,7 @@ credits:
   - id: c02094
     works:
       - id: w02678
+        roles: ["原作監修・文"]
   - id: c02095
     works:
       - id: w02680
@@ -8524,6 +9096,7 @@ credits:
   - id: c02134
     works:
       - id: w02813
+        roles: ["脚本"]
   - id: c02135
     works:
       - id: w02813
@@ -8639,6 +9212,7 @@ credits:
   - id: c02171
     works:
       - id: w02942
+        roles: ["編纂"]
   - id: c02172
     works:
       - id: w02944
@@ -8681,6 +9255,7 @@ credits:
   - id: c02184
     works:
       - id: w01465
+        roles: ["著"]
       - id: w02987
       - id: w03083
   - id: c02185
@@ -8776,9 +9351,11 @@ credits:
   - id: c02215
     works:
       - id: w01434
+        roles: ["原作"]
   - id: c02216
     works:
       - id: w01434
+        roles: ["漫画"]
   - id: c02217
     works:
       - id: w01445
@@ -8822,6 +9399,7 @@ credits:
   - id: c02230
     works:
       - id: w01462
+        roles: ["著"]
   - id: c02231
     works:
       - id: w01469
@@ -8848,7 +9426,27 @@ credits:
       - id: w01478
   - id: c02239
     works:
+      - id: w00166
       - id: w03167
   - id: c02240
     works:
+      - id: w00166
       - id: w03167
+  - id: c02241
+    works:
+      - id: w01497
+  - id: c02242
+    works:
+      - id: w01497
+  - id: c02243
+    works:
+      - id: w00977
+  - id: c02244
+    works:
+      - id: w00977
+  - id: c02245
+    works:
+      - id: w01736
+  - id: c02246
+    works:
+      - id: w01736

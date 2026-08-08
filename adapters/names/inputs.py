@@ -37,7 +37,20 @@ from . import kana
 # Splitting only ever happens on these. A space is NOT among them: 森島 明子 and 月夜 涙 are single
 # people whose family and given names are spaced, and splitting there would double the author count
 # with halves of names.
-SEPARATORS = re.compile(r"[/／、,，・･]")
+#
+# THE AMPERSAND JOINS TWO PEOPLE AND NEVER SITS INSIDE ONE, measured across the whole corpus before
+# it was admitted. Four credit fields carry one and every one of them is two people: `iimAn&惟丞`,
+# `大島永遠&大島智`, `ひあるろん＆達磨` and `こんぱる＆ふじしまペポ`. That is the counter-case the
+# interpunct argument below turns on, and here it does not exist: no pen name in the store, in the
+# works list or in any release row spells itself with an &. So it goes in BOTH lists. Two of these
+# were one identifier for two people until this line, which is an address holding two artists.
+#
+# `&nbsp;` IS THE SHAPE TO WATCH AND IT IS ALREADY HANDLED ELSEWHERE. A rendered-page capture
+# handed us `&nbsp;フォローする`, a Follow button; `credits.split_credits` unescapes before it calls
+# this, so the entity is a space by the time it arrives and there is no & left to split on. A
+# caller that passes raw HTML would get a person called `amp;大島智`, which is why the unescaping
+# belongs in front of the splitter and not inside it.
+SEPARATORS = re.compile(r"[/／、,，・･&＆]")
 
 # THE SAME LIST WITHOUT THE INTERPUNCT, for a caller that is going to PRINT the parts.
 #
@@ -46,7 +59,7 @@ SEPARATORS = re.compile(r"[/／、,，・･]")
 # name store, a wrong split costs one entry nobody looks up, so splitting is right; rendering a
 # credit line, it prints half of somebody's name, so it is not. One splitter, one role vocabulary,
 # and the single place the two callers genuinely disagree stated as an argument.
-SEPARATORS_WHOLE_NAMES = re.compile(r"[/／、,，]")
+SEPARATORS_WHOLE_NAMES = re.compile(r"[/／、,，&＆]")
 
 # Credit roles, stripped from the front of a part. `作画：彩乃浦助` is one person, not a person
 # called 作画：彩乃浦助, and `原作` on its own is not a person at all.

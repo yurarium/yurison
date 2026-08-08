@@ -222,10 +222,44 @@ class NameStore:
                     cleared += 1
         return cleared
 
+    def drop_spacing_conflicts(self):
+        """Remove conflict entries that agree with the reading they are filed against.
+
+        THE THIRD PLACE THAT ASKED `==` WHERE IT SHOULD ASK `same_reading`. That function exists
+        so a word boundary is not read as a disagreement, and its own docstring records what
+        ignoring it costs: a list nobody trusts is a list nobody reads. `_merge_group` gates two of
+        its three pushes on it and left the third ungated, so every reading an analyser wrote
+        first and a source then improved filed the analyser's spelling as a disagreement with the
+        answer. sudachi tokenises 4kaエンピツ as `4 ka エンピツ` where openBD states `4ka エンピツ`,
+        and the store called that a conflict 1,022 times.
+
+        565 of the 1,142 entries on disk were this. Swept at write time rather than by a migration,
+        for the reason the two sweeps above are: the file heals, and a pass that reintroduces the
+        state cannot leave it behind.
+
+        THE SPACING ITSELF IS NOT LOST. Where a source divides a name the halves are stored in
+        `reading_family` and `reading_given`, which is where §8.2 wants them.
+        """
+        dropped = 0
+        for kind in KINDS:
+            for rec in self.records[kind].values():
+                held = rec.get("reading")
+                lst = rec.get("reading_conflicts")
+                if not held or not lst:
+                    continue
+                kept = [c for c in lst if not same_reading(str(c.get("value") or ""), held)]
+                dropped += len(lst) - len(kept)
+                if kept:
+                    rec["reading_conflicts"] = kept
+                else:
+                    rec.pop("reading_conflicts", None)
+        return dropped
+
     def compact(self):
         """Write the YAML from memory, then drop the journal it superseded."""
         self.drop_stale_spans()
         self.drop_settled_doubt()
+        self.drop_spacing_conflicts()
         self.root.mkdir(parents=True, exist_ok=True)
         for kind in KINDS:
             self._write_yaml(self.root / f"{kind}.yaml", {
@@ -373,9 +407,22 @@ class NameStore:
                     if shared in ("at", "pass") or dst in fact or shared in fact:
                         continue
                     cur.pop(dst, None)
-            if new is None or old is None or new == old:
+            # A REVISED BASIS IS A REVISED DECISION EVEN WHERE THE STRING IS UNCHANGED, which this
+            # did not see: it compared values, so a reviewer correcting `licensed` to `translated`
+            # on the same wording reached the store as agreement and the store went on saying
+            # licensed. `新・魔法科高校の劣等生 キグナスの乙女たち` was in that state, filed as a
+            # licensor's name while its own note says the rendering is ours, and the rank rule
+            # cannot correct it: `translated` ranks below `licensed`, so the file's answer could
+            # only ever lose. The curated file is the decision of record and that includes what
+            # kind of claim it is.
+            rebasing = (fact.get(basis_key) is not None and cur.get(basis_key) is not None
+                        and fact[basis_key] != cur.get(basis_key))
+            if new is None or old is None or (new == old and not rebasing):
                 continue
-            if not (agrees and agrees(new, old)):
+            # Nothing goes to the conflict list when the two agree about the string. A rebase
+            # revises how one claim is justified; it does not produce a second claim to disagree
+            # with, and filing one would be the conflict list disagreeing with itself.
+            if new != old and not (agrees and agrees(new, old)):
                 self._push(cur, conflict_key, old, cur.get(basis_key),
                            cur.get(f"{value_key}_source"))
             cur.pop(value_key, None)
@@ -448,7 +495,14 @@ class NameStore:
         if new_rank > old_rank:
             # The displaced claim is kept: a source we have now outranked may still be the one that
             # was right, and throwing it away makes that unrecoverable.
-            if old_val is not None:
+            #
+            # UNLESS THE TWO AGREE, and this branch was the one place that did not ask. The other
+            # two pushes below both consult `agrees`, which for a reading is `same_reading` and
+            # exists so a word boundary is not read as a disagreement. Here a better source
+            # arriving filed the reading it CONFIRMED as a conflict with itself: sudachi writes
+            # `4 ka エンピツ` and openBD states `4ka エンピツ`, and 508 author readings and 57
+            # titles were recorded as contradictions of the answer they agree with.
+            if old_val is not None and not (new_val is not None and agrees(new_val, old_val)):
                 self._push(cur, conflict_key, old_val, old_basis, cur.get(f"{value_key}_source"))
             if new_val is not None:
                 cur[value_key] = new_val

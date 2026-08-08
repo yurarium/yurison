@@ -535,7 +535,17 @@ def series_addresses(s):
     # the interface print an empty publisher instead.
     s.check("百合コレ" not in _map, "a store record with no English name ships no key")
     s.check("" not in _map, "an empty publisher field contributes no key")
-    s.eq(b.publisher_map({}, {}, _rows), {}, "an empty store maps nothing rather than raising")
+    # A HOUSE WITH NO ENGLISH NAME IS STILL A HOUSE WITH AN ADDRESS, and this used to assert the
+    # opposite. The map holds what could be RENDERED, which is the right rule for a rendering and
+    # the wrong one for a link: 27 of the 164 houses have no English at all, so keying the
+    # identifier off a rendering would have made exactly the smaller publishers unreachable, and
+    # those are the ones a publisher page says most about. An entry carrying an id and no `en`
+    # renders as the Japanese it always did.
+    _bare = b.publisher_map({}, {}, _rows)
+    s.check(all(not v.get("en") for v in _bare.values()),
+            "an empty store renders no English for anybody")
+    s.check(all(v.get("id") for v in _bare.values()),
+            "and every key it does hold is there to carry an address")
     s.eq(b.publisher_map(_pub_store, {}, []), {}, "no rows map nothing")
     s.eq(_map.get("講談社", {}).get("basis"), "official-jp",
          "the basis travels with the name, so the interface can say whose name it is")

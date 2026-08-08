@@ -124,8 +124,13 @@ SURFACES = [
     Surface("works[].creator", "creditNames", "value", "person",
             "the 発売 tab's byline, the credit field split into the people in it",
             holds_at_zero=False),
-    Surface("works[]", ("publisherParts", "publisherPartsHtml", "pubBoth"), "record",
-            "publisher",
+    # `publisherChip` IS THE ENTRY POINT FOR ONE HOUSE'S NAME, added when the houses got addresses
+    # of their own. It renders through `pubBoth` and `pubMark` exactly as this row always did and
+    # wraps the result in the record's link, so a caller handing it a publisher field has handed
+    # the field to the renderer. `publisherPartsHtml` calls it, which is why the work page has no
+    # copy of these three names any more.
+    Surface("works[]", ("publisherParts", "publisherPartsHtml", "pubBoth", "publisherChip"),
+            "record", "publisher",
             "who made the book, on a volume row: the house, the distributor and the line",
             holds_at_zero=False,
             fields=("publisher", "distributor", "imprint")),
@@ -137,9 +142,11 @@ SURFACES = [
             "the newest chapter's name, shown beside the row"),
     Surface("series[].collection", ("workTextOf", "workLabel"), "value", "title",
             "the collection a work belongs to, named on its own page"),
-    Surface("series[].print[]", ("publisherParts", "publisherPartsHtml", "pubBoth"), "record",
+    Surface("series[].print[]",
+            ("publisherParts", "publisherPartsHtml", "pubBoth", "publisherChip"), "record",
             "publisher",
-            "the same three names on a work page's volume list", holds_at_zero=False,
+            "the same three names on a work page's volume list, and on a credit's page, where the "
+            "houses behind that person's works are listed", holds_at_zero=False,
             fields=("publisher", "distributor", "imprint")),
     Surface("releases[].work", ("workLabel", "workTextOf"), "row:work", "title",
             "the updates tab's title"),
@@ -172,6 +179,16 @@ NOT_A_NAME = {
     "series[].stated_next.platform": "a platform's own name",
     "series[].stated_next.cadence": "the cadence a platform states, quoted",
     "series[].skipped[][]": "chapter identifiers a capture could not read; nothing renders them",
+    # THE JOB EACH CREDIT DID, AND THE NAME IT BELONGS TO, carried on the row so the credit
+    # registry can hang a role on the edge from a work to a person. The interface never reads
+    # either: it renders the credit field itself through `authorLabel`, and a credit page reads its
+    # works and their roles out of `credits.json`, which the registry produces from this. A field
+    # the build writes for a pass rather than for a page is a legitimate state, and saying so here
+    # is what stops it being a silence.
+    "series[].credits[].name": "the same person the credit field names, split out for the "
+                               "registry; the field itself is what a page draws",
+    "series[].credits[].role": "the job that credit did, for the edge from the work to the "
+                               "person; a page reads it back from credits.json",
     "works[].title.yomi": "the reading, a Japanese-side aid",
     "works[].first_publication.venue": "the magazine a work first ran in",
     "works[].first_publication.note": "where the date came from, quoted from the record",

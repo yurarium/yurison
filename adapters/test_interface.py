@@ -48,9 +48,23 @@ NAMES = {
                  "romaji": {"macron": "Amayo no Tsuki", "double": "Amayo no Tsuki",
                             "plain": "Amayo no Tsuki"}},
     },
-    "authors": {},
+    "authors": {
+        # A credit with an identifier, which is what makes it a link. Keyed folded, as the build
+        # keys it, and carrying the id the registry minted rather than a shape invented here.
+        "仲谷鳰": {"reading": "ナカタニ ニオ", "basis": "romaji", "id": "c00173",
+                "romaji": {"macron": "Nakatani Nio", "double": "Nakatani Nio",
+                           "plain": "Nakatani Nio"}},
+        "水野英多": {"reading": "ミズノ ヒデタ", "basis": "romaji", "id": "c00500",
+                 "romaji": {"macron": "Mizuno Hideta", "double": "Mizuno Hideta",
+                            "plain": "Mizuno Hideta"}},
+        # A credit the registry does not answer for, which is a state and not a gap: the store
+        # holds records nothing in the works list credits.
+        "宮澤伊織": {"reading": "ミヤザワ イオリ", "basis": "romaji",
+                 "romaji": {"macron": "Miyazawa Iori", "double": "Miyazawa Iori",
+                            "plain": "Miyazawa Iori"}},
+    },
     "phrases": {"第1話": "Ch. 1"},
-    "credit_parts": {},
+    "credit_parts": {"宮澤伊織/水野英多": ["宮澤伊織", "水野英多"]},
     "publishers": {"一迅社": {"en": "Ichijinsha", "basis": "official-jp"}},
     "imprints": {"Yurihime comics": {"id": "yurihime", "name": "コミック百合姫"}},
 }
@@ -124,6 +138,34 @@ def main(s):
     s.eq(iface.values([("foldKey", "4話②＜完＞")])[0], "4話2<完>",
          "the browser's own fold, returned whole. `labels` strips tags and read <完> as an "
          "element, which reported a disagreement with the Python fold that only the harness had")
+
+    # ── a credit is a link, and every name in it still goes through authorLabel ──────────────
+    #
+    # RUN AGAINST THE REAL FILE rather than described. A credit page is the first thing on this
+    # site whose whole content is a list of other records, so a link that renders and opens
+    # nothing is the failure it makes newly possible, and the address is built from the `id` the
+    # build now ships on each name.
+    linked = iface.labels([("linkedCredits", {"author": "仲谷鳰"}),
+                           ("linkedCredits", {"author": "宮澤伊織 / 水野英多"}),
+                           ("linkedCredits", {"author": "宮澤伊織"})])
+    html = iface.values([("linkedCredits", {"author": "仲谷鳰"}),
+                         ("linkedCredits", {"author": "宮澤伊織 / 水野英多"}),
+                         ("linkedCredits", {"author": "宮澤伊織"})])
+    s.eq(linked[0], "Nakatani Nio",
+         "a single credit is still rendered by authorLabel, so the reader's language reaches it")
+    s.check('href="/kari/credit/c00173/"' in html[0],
+            "and it is a link to the record the registry minted for it")
+    s.eq(linked[1], "Miyazawa Iori / Mizuno Hideta",
+         "a credit line naming two people renders both, separated as the field separated them")
+    s.check('href="/kari/credit/c00500/"' in html[1],
+            "and the one the registry answers for is a link")
+    s.check("credit/" not in html[2],
+            "a credit with no identifier renders as before and is not a link, which is a state "
+            "rather than a gap: the registry is minted from the works list and the store holds "
+            "records nothing credits")
+    ja_linked = iface.with_prefs(LANG="ja").values([("linkedCredits", {"author": "仲谷鳰"})])
+    s.check("仲谷鳰" in ja_linked[0] and 'href="/kari/credit/c00173/"' in ja_linked[0],
+            "and in Japanese it is the same address under the name as written")
 
     s.raises(interface.Unavailable,
              lambda: interface.render([["noSuchFunction", 1]], names=NAMES),

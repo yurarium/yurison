@@ -165,10 +165,10 @@ def readable_ruby(spans):
     return list(spans)
 
 
-def split_credits(raw):
-    """The people a credit field names, and the separator to put back between them.
+def split_credits_roled(raw):
+    """`([(name, role_or_None)], separator)`: the people a credit field names, with each one's job.
 
-    THE SPLITTING IS `inputs.split_authors`, NOT A SECOND COPY OF IT. This file grew its own
+    THE SPLITTING IS `inputs.split_credits_detail`, NOT A SECOND COPY OF IT. This file grew its own
     separator list and its own notation stripping, and the two drifted exactly the way §3 says
     they will. Three shapes were live on the site because of it, and every one of them was already
     handled by the splitter that feeds the name store:
@@ -183,18 +183,38 @@ def split_credits(raw):
     The separator is returned rather than fixed because a composed rendering has to read the way
     the field it replaces read. A releases row that arrived comma-separated must not come back
     slash-separated: the reader would see one row punctuated unlike every row around it.
+
+    WHY THE ROLE COMES OUT OF THIS CALL AND NOT A SECOND ONE. The works list is rebuilt from these
+    parts, and that rebuild is where the role was lost: `原作／宮澤伊織　作画／水野英多` went in and
+    `宮澤伊織 / 水野英多` came out, so 3,076 of 3,077 rows in the shipped works list named nobody's
+    job and the credit registry could hang a role on 14 of its 4,350 edges. `split_credits_detail`
+    has known the answer all along, reading the label off the same walk that finds the name;
+    nothing was asking it for both. Parsing the field again afterwards would be parsing the wrong
+    string, since the notation the role lives in has come off by then.
     """
     # HTML ENTITIES AND PAGE FURNITURE ARE NOT NAMES. A rendered-page capture handed us
     # `&nbsp;フォローする`, which is a Follow button, and `大島永遠&amp;大島智`, which is two people
-    # joined by an ampersand the escape hid. Unescaping first makes the second a credit and leaves
-    # the first as furniture, and the reject list holds only strings that are a control's own label.
+    # joined by an ampersand the escape hid. Unescaping first makes the second two credits and
+    # leaves the first as furniture, and the reject list holds only strings that are a control's
+    # own label. It happens before the splitter sees the string, or `&amp;` divides into a person
+    # called `amp;大島智`.
     import html as _html
     s = _html.unescape(str(raw or "")).replace("\u00a0", " ")
-    from names.inputs import split_authors
-    parts = [n for n, _reading in split_authors(s, interpunct=False) if n]
-    parts = [n for n in parts if n not in FURNITURE]
+    from names.inputs import split_credits_detail
+    parts = [(n, role) for n, _reading, role in split_credits_detail(s, interpunct=False)
+             if n and n not in FURNITURE]
     joiner = " / " if re.search(r"[/／]", s) else ("、" if "、" in s else ", ")
     return parts, joiner
+
+
+def split_credits(raw):
+    """The people a credit field names, and the separator to put back between them.
+
+    `split_credits_roled` with the job dropped, so the list of people and the list of jobs come out
+    of one traversal and cannot come to disagree about how many credits a field holds.
+    """
+    parts, joiner = split_credits_roled(raw)
+    return [n for n, _role in parts], joiner
 
 
 def spliced_ruby(raw, parts, got):

@@ -49,10 +49,61 @@ which is where the reading really came from, and prose is not something a check 
 # why curate.py demands a note from it instead of a URL.
 SOURCED = ("stated", "back-converted")
 
+# THE ENGLISH CLAIM IS THE SAME QUESTION WITH A DIFFERENT VOCABULARY, and it was reachable here all
+# along: `cite` took a `claim` argument from the day it was written and nothing ever passed one, so
+# 286 official and licensed titles reached a reader with no way to say where the English came from
+# while `data/names/curated.yaml` held the licensor's address for each. 転生王女と天才令嬢の魔法革命
+# carries a Yen Press page and ぬるめた a COMIC FUZ one.
+#
+# WHICH BASES OWE AN ADDRESS, AND WHY IT IS NOT ALL FOUR. NAMES-PLAN §5 splits the English forms
+# into somebody else's name for the work and ours. `official-jp` is the name the author, magazine
+# or Japanese publisher uses and `licensed` is what an English-language licensor publishes it as,
+# so both assert a document and both are shown unmarked, which is exactly the state §1 warns about:
+# an assertion with the evidence withheld. `translated` and `romaji` are ours, they are already
+# marked in the interface as ours, and there is no page anywhere to point at.
+#
+# THE BASIS FIELD IS NOT SPELT THE SAME WAY EITHER. A reading's basis is `reading_basis` and the
+# English claim's is bare `basis`, because it came first and was the only one. Named here rather
+# than assumed, since assuming it gave `en_basis`, which no record has ever held, so a citation for
+# the English name could never have been produced whatever was passed in.
+BASIS_FIELD = {"reading": "reading_basis", "en": "basis"}
+SOURCED_BASES = {"reading": SOURCED, "en": ("official-jp", "licensed")}
+
+# A SOURCE THAT IS THE NAME ITSELF OWES NO DOCUMENT. `surface` on the reading side means the name
+# is already kana and nothing was looked up, and it is a basis there. On the English side it
+# arrives as a SOURCE under an `official-jp` basis, which is the same statement about a different
+# claim: CONTINUE?, DOUBLE HELIX BLOSSOM and 19 others are titles the work publishes in Latin
+# already, so the work's own name is the English name and there is no page anywhere that could be
+# cited for it. Naming it here rather than treating an absent address as the fault is what keeps
+# the fault population real: the one record left is 新・魔法科高校の劣等生 キグナスの乙女たち,
+# whose own note says the rendering is ours and whose basis says a licensor's.
+SELF_SOURCED = ("surface",)
+
 # The parts of a citation a reader is offered, and the store field each is read from. `{v}` is the
 # claim: `reading` or `en`. Kept in step with `store._stamped`, which writes them.
+#
+# `note` IS NOT ONE OF THEM, decided by the project owner 2026-08-08. The store holds 1,247 author
+# reading notes and 3,044 title notes, and they are our reasoning for our own decisions: why a
+# reviewer settled one reading over another, what was weighed. That is a fact about us and
+# STANDING-INSTRUCTIONS §6 keeps those off a reader's page. The citation says which document, where
+# and when, which is what a reader can act on; 704 notes shipped in feed/names.json before this and
+# nothing rendered one.
 PARTS = (("source", "{v}_source"), ("url", "{v}_url"), ("kind", "{v}_source_kind"),
-         ("reviewed", "{v}_reviewed"), ("note", "{v}_note"))
+         ("reviewed", "{v}_reviewed"))
+
+# The same list plus the note, for `faults`, which asks whether a citation was left behind by a
+# claim that went away. A note is part of the debris in that case even though it is not shown.
+PARTS_HELD = PARTS + (("note", "{v}_note"),)
+
+
+def basis_of(record, claim="reading"):
+    return (record or {}).get(BASIS_FIELD.get(claim, f"{claim}_basis"))
+
+
+def owes_a_document(record, claim="reading"):
+    """Whether this claim asserts somebody else's document and therefore owes an address."""
+    return (basis_of(record, claim) in SOURCED_BASES.get(claim, ())
+            and (record or {}).get(f"{claim}_source") not in SELF_SOURCED)
 
 
 def cite(record, claim="reading"):
@@ -71,7 +122,7 @@ def cite(record, claim="reading"):
     """
     if not record.get(claim):
         return None
-    if record.get(f"{claim}_basis") not in SOURCED:
+    if not owes_a_document(record, claim):
         return None
     # AN ADDRESS IS WHAT MAKES IT A CITATION, and it has to be one we may send a reader to. A
     # source named with no page behind it is the state the invariant exists to drive to zero, and
@@ -108,6 +159,18 @@ def is_address(value):
 # not the record that states the reading.
 CLOSED_ROUTES = (("ndlsearch.ndl.go.jp", "/api"),)
 
+# Addresses that resolve to DATA rather than to a document, as (host, path prefix). A different
+# reason from the one above and the same treatment, so they are held in a separate table and the
+# reason is not lost.
+#
+# `api.openbd.jp/v1/get?isbn=…` states the reading: the collationkey in that JSON is where 196
+# author readings came from, and it is the record and not a search, which is what separates it from
+# the NDL case. What it is not is a page. A reader following the citation gets a wall of JSON,
+# which is our filing shown to somebody who asked about a name, so the citation is withheld and
+# counted like any other. openBD publishes no per-book reader page to point at instead, so this one
+# falls only if the reading is re-sourced somewhere a person can read it.
+DATA_ENDPOINTS = (("api.openbd.jp", "/"),)
+
 
 def citable(value):
     """Whether an address may be shown to a reader, which is a stricter question than `is_address`.
@@ -121,7 +184,8 @@ def citable(value):
         return False
     rest = value.split("//", 1)[1]
     host, _, path = rest.partition("/")
-    return not any(host == h and ("/" + path).startswith(p) for h, p in CLOSED_ROUTES)
+    return not any(host == h and ("/" + path).startswith(p)
+                   for h, p in CLOSED_ROUTES + DATA_ENDPOINTS)
 
 
 def uncitable(names, claim="reading"):
@@ -133,7 +197,7 @@ def uncitable(names, claim="reading"):
     """
     return [(ja, (r or {}).get(f"{claim}_url"))
             for ja, r in sorted((names or {}).items())
-            if (r or {}).get(claim) and (r or {}).get(f"{claim}_basis") in SOURCED
+            if (r or {}).get(claim) and owes_a_document(r, claim)
             and is_address((r or {}).get(f"{claim}_url"))
             and not citable((r or {}).get(f"{claim}_url"))]
 
@@ -188,21 +252,28 @@ def faults(names, claim="reading"):
     `citation-without-a-claim` is the reverse: an address, a source or a date left behind by a
     reading that was withdrawn. Arithmetic on the record and nothing else, so it owes nothing to
     any pass and cannot be satisfied by one.
+
+    A BASIS WITH NO STRING IS A CLAIM AND NOT DEBRIS, which is what the second test guards.
+    `_merge_group` says so outright: an author marked `romaji` carries a basis and no `en`, because
+    §8.1 generates the romanisation per reader from the kana rather than storing one. 196 author
+    records are in that state with a source recorded beside them, and reading the missing string as
+    a withdrawn claim would have made a fault of the commonest healthy shape on the English side.
+    A withdrawn claim has no basis either: `clear_claim` takes the basis with the value.
     """
     out = []
     for ja, record in sorted((names or {}).items()):
         record = record or {}
         held = record.get(claim)
         cited = {field.format(v=claim): record.get(field.format(v=claim))
-                 for _key, field in PARTS}
+                 for _key, field in PARTS_HELD}
         cited = {k: v for k, v in cited.items() if v}
         if held:
-            if record.get(f"{claim}_basis") in SOURCED and not is_address(
+            if owes_a_document(record, claim) and not is_address(
                     record.get(f"{claim}_url")):
                 out.append((ja, "cannot-show-its-source",
-                            f"basis {record.get(f'{claim}_basis')!r} from "
+                            f"basis {basis_of(record, claim)!r} from "
                             f"{record.get(f'{claim}_source')!r} with no address"))
-        elif cited:
+        elif cited and not basis_of(record, claim):
             out.append((ja, "citation-without-a-claim",
                         ", ".join(f"{k}={v!r}" for k, v in sorted(cited.items()))[:160]))
     return out

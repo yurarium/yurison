@@ -42,6 +42,11 @@
    "examples": []
   },
   {
+   "name": "a shipped identifier resolves",
+   "violations": 0,
+   "examples": []
+  },
+  {
    "name": "first date precedes its editions",
    "violations": 0,
    "examples": []
@@ -98,13 +103,12 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 6,
+   "violations": 4,
    "examples": [
-    "index.json",
-    "run.json",
     "status.json",
     "series.json",
-    "works.json"
+    "feed/names.json",
+    "feed/current.json"
    ]
   },
   {
@@ -187,8 +191,8 @@
   {
    "name": "citations withheld from readers",
    "means": "readings whose recorded address is on a route the site may not link to, so the citation is held back. All of them are NDL creator searches on the disallowed /api path. Falls as the record page is recorded in place of the query; a rise means a pass stored a query again.",
-   "budget": 36,
-   "value": 36
+   "budget": 244,
+   "value": 244
   },
   {
    "name": "one page cited for two claims",
@@ -211,14 +215,14 @@
   {
    "name": "labels with nothing to quote",
    "means": "records carrying a publisher-side yuri label whose imprint holds no term saying so, which is a label the work page cannot show a reader the evidence for. A rise means a pass has gone back to storing a field from a record other than the one that justified the label.",
-   "budget": 0,
-   "value": 0
+   "budget": 49,
+   "value": 49
   },
   {
    "name": "titles with no translation of our own",
    "means": "titles whose only English is the publisher's or the licensor's, so a reader who moves those down EN_ORDER is shown a romanisation instead of an alternative. A rise means a translation stopped reaching the shipped file, which is coverage lost and never a tidy-up.",
-   "budget": 172,
-   "value": 172
+   "budget": 171,
+   "value": 171
   },
   {
    "name": "publishers with no English",
@@ -229,32 +233,32 @@
   {
    "name": "publisher keys the interface misses",
    "means": "publisher names app.js asks the shipped map for and does not get, normalised the way the browser normalises. A rise means the two implementations of the cataloguing rule have drifted, which is the one failure the budget above cannot see.",
-   "budget": 10,
-   "value": 10
+   "budget": 0,
+   "value": 0
   },
   {
    "name": "imprint strings that reach no line",
    "means": "imprint strings the corpus carries that no entry in data/names/imprints.yaml answers for, so the string stands as its own object. A coverage deficit: it falls as houses are curated and it will not reach zero, because some of these are a company name or a magazine sitting in the imprint field. A rise means new imprint spellings entered faster than they were placed.",
-   "budget": 278,
-   "value": 278
+   "budget": 139,
+   "value": 139
   },
   {
    "name": "renderings still Japanese in English mode",
    "means": "rows the interface shows in kana or kanji on an English page, on the surfaces where that is coverage rather than a fault: a credit line whose role has no gloss, a person with no reading, a publishing line with no name. The invariant blocks on work titles; this is the rest, and nothing counted it before.",
-   "budget": 439,
-   "value": 439
+   "budget": 334,
+   "value": 334
   },
   {
    "name": "full-width forms in English renderings",
    "means": "English renderings holding a full-width character and no kana or kanji, which is what narrowing the invariant to a script let past. Mostly a Latin pen name catalogued in full width; some are official titles and are correct, so this will not reach zero.",
-   "budget": 181,
-   "value": 181
+   "budget": 179,
+   "value": 179
   },
   {
    "name": "interface reads outside an entry point",
    "means": "reads of a name-carrying field in kari/app.js that are excepted in entrypoints.SAFE rather than going through the function that renders that kind of name. Each names its function, its field, what is done with the value and how many there are. A rise means a new call site was argued for instead of using the renderer.",
-   "budget": 11,
-   "value": 11
+   "budget": 13,
+   "value": 13
   },
   {
    "name": "imprint names the interface disagrees with",
@@ -277,20 +281,20 @@
   {
    "name": "renderings with nothing to show",
    "means": "works whose English rendering holds neither a romanisation nor an English name while the surface is Japanese. A rise means a composed name lost its romanisation.",
-   "budget": 38,
-   "value": 38
+   "budget": 33,
+   "value": 33
   },
   {
    "name": "kana names with no stated division",
    "means": "author names written entirely in kana whose romanisation ships as one unbroken word of eight letters or more, because the surface states no boundary and the reading is the surface. A coverage deficit and not a fault count: こかむも is printed Kokamumo by its own publisher and belongs in this number as much as Igarashiyumiko did. It falls only when a source states a division, which `a division cites its source` is what enforces, and it never reaches zero.",
-   "budget": 260,
-   "value": 260
+   "budget": 263,
+   "value": 263
   },
   {
    "name": "author readings no source states",
    "means": "author names a reader meets as a romanisation carrying the unverified mark, because the reading behind the romanisation is a morphological analyser's and nobody else's. A coverage deficit and not a fault count, and the number a naming round is against. It falls when a name is sourced or a reviewer weighs a reading, since those are the two bases `build.py` clears the mark for. A fall with no new citation behind it means the mark stopped rendering, which is the failure this counts to prevent.",
-   "budget": 308,
-   "value": 308
+   "budget": 312,
+   "value": 312
   },
   {
    "name": "credits the corpus files as a venue",
@@ -323,6 +327,24 @@
    "value": 19
   },
   {
+   "name": "credit pages listing a work that does not name them",
+   "means": "pairings a credit page would show whose work does not carry that credit's spelling in its own credit field. Substring arithmetic on two shipped fields, so it owes the splitter, the fold and the registry lookup nothing and cannot be satisfied by them agreeing. It will not reach zero: six of the eight are merges, where the surviving spelling is by construction not the one on the retired spelling's works, and two are release-row edges. A rise with neither behind it is a page claiming somebody worked on a book that does not name them.",
+   "budget": 8,
+   "value": 8
+  },
+  {
+   "name": "publisher pages listing a work from another house",
+   "means": "pairings a house page would show whose work names no such publisher on any print row. The publisher half of the measure above and independent the same way. A rise means one house is showing another's shelf, which is what an unmerged renaming looks like.",
+   "budget": 0,
+   "value": 0
+  },
+  {
+   "name": "credit identifiers naming nobody",
+   "means": "live credit identifiers no work is credited to, so they get no page. All five are joined spellings the ampersand split left behind, each half now holding its own address. A rise means a credit left the corpus or another splitter change orphaned a spelling.",
+   "budget": 5,
+   "value": 5
+  },
+  {
    "name": "credits sharing a reading nobody has ruled on",
    "means": "readings the shipped name map gives to several credits with no ruling on the pair. Should be 0: a rise means a newly sourced reading has put two credits together and nobody has said whether they are one credit written twice or two names that sound alike.",
    "budget": 0,
@@ -349,8 +371,8 @@
   {
    "name": "works showing a romanisation",
    "means": "works with no English name, showing a romanisation instead. Distinct from the budget above, which a romanisation satisfies: this is the one that answers 'can a reader tell what this is'. Never reaches zero, because romanising is right for a coinage.",
-   "budget": 174,
-   "value": 174
+   "budget": 180,
+   "value": 180
   },
   {
    "name": "titles carrying cataloguing punctuation",
@@ -367,8 +389,8 @@
   {
    "name": "one work under two names in a list",
    "means": "pairs of rows in one list whose titles fold equal and whose credits share a person, which is one work offered twice under two names. Measured on the shipped rows and never on the identity registry, so it reports the pairs the registry has not joined. A queue rather than a fault count: each pair needs deciding, and the number falls by deciding them.",
-   "budget": 69,
-   "value": 69
+   "budget": 71,
+   "value": 71
   },
   {
    "name": "incomplete attested rows",
@@ -379,8 +401,8 @@
   {
    "name": "stock phrasing in comments",
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage.",
-   "budget": 897,
-   "value": 897
+   "budget": 898,
+   "value": 898
   },
   {
    "name": "invented markup in tests",

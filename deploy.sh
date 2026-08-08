@@ -15,7 +15,10 @@ SITE="${1:-${YURARIUM_SITE:-$(dirname "$REPO")/yurarium.github.io}}"
 # reasoning that the join reads the finished series rows. build.py holds those rows in memory when
 # it writes them, so the step belonged there all along and now runs inside it: the map ships under
 # a `publishers` key in feed/names.json and the interface fetches one names file instead of two.
-cp data/build/index.json data/build/works.json data/build/series.json data/build/run.json data/build/checks.json "$SITE/kari/data/"
+# credits.json and publishers.json are what the credit and publisher pages are rendered from.
+# They are fetched only when one of those pages is opened, never for an ordinary visit, which is
+# why they are files of their own rather than more keys on the names map every visitor loads.
+cp data/build/index.json data/build/works.json data/build/series.json data/build/run.json data/build/checks.json data/build/credits.json data/build/publishers.json "$SITE/kari/data/"
 mkdir -p "$SITE/kari/data/feed"
 cp data/build/feed/*.json "$SITE/kari/data/feed/"
 # Copy, then reconcile. `cp` adds and overwrites but never removes, so a file the build has stopped
@@ -35,6 +38,12 @@ python3 adapters/ledger.py
 python3 adapters/status.py
 cp data/build/status.json "$SITE/kari/data/"
 python3 adapters/stubs.py --site "$SITE/kari"
+# One entry page per credit and per publishing house, on the same terms and for the same reason: a
+# citation that resolves only when JavaScript runs is a weaker promise than a reference work should
+# make, and a credit page is a citation target by design. This also writes the forwarder for every
+# retired credit and publisher id, which is why it runs HERE and did not run before: a forwarder
+# pointing at `credit/c00554/` would have sent a reader to a page that did not exist.
+python3 adapters/pages.py --site "$SITE/kari"
 
 # Re-run the checks AFTER copying, and ship the report last.
 #

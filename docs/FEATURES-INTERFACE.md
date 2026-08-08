@@ -290,6 +290,48 @@ three page kinds make a small graph rather than a hierarchy, since a work names 
 publisher, a publisher lists its imprints and their works, and an author lists works and the houses
 behind them.
 
+### What the owner settled, 2026-08-08, and how it reorders the above
+
+**They are URL-holding objects, and identifiers are minted for ALL of them.** Not a search, and not
+only for the publishers carrying ten works or more. So the sequence above is wrong in one respect:
+it put the English naming before the pages, and naming is a DISPLAY concern that can improve freely
+for ever. An identifier cannot. 華葉 was read ハナハ, then カヨウ, then カバ, inside one day, and a
+romanised slug would have broken twice. Identity comes first and everything else follows it.
+
+**A URL is a promise, and the works model already paid for this lesson.** Works carry opaque
+`w{n:05d}`, never a name, with anchors and `merged_into` so a retired identifier lends its anchors to
+its successor. 49 work identifiers are retired today and each serves a stub with rel=canonical,
+robots noindex, a refresh, a redirect and a sentence naming the successor. Authors and publishers get
+the same, because minting about 2,700 addresses guarantees some will merge.
+
+**The credit is the name; anything linking credits is ancillary.** The identity is the credit as
+filed, so a pen name is the object. Information that two credits are one person hangs beside them and
+never replaces one with the other. Asked whether the corpus even holds such a case, the answer was
+no: the only two records mentioning an alias are the two BUGS, where 古川楊也 published as HOSHINO
+Katsura and 彦田ジュン as YAMAMOTO Urara because a query could not tell an alias match from a label
+match. What the corpus does hold is 82 readings shared by two surfaces, and those are one pen name
+written in two scripts, which is duplication to merge rather than a pen-name question.
+
+**The credited publisher is a publisher, and publishers and distributors are not separate
+namespaces.** 講談社 handling 発売 for 一迅社 is the same company in a different seat, so the role
+belongs on the edge. `NAME_FIELDS` already normalises `distributor` the same way, which is the shape
+this ruling confirms.
+
+**An imprint is one object with recorded spellings, and the spellings carry dates.** 一迅社 stores
+about twenty strings for one line and they sort by first publication year almost without overlap:
+the hyphen drops in 2015, the ／ becomes ISBD's . in 2022, a Japanese form appears in 2023. Only four
+works carry two spellings and all four straddle the 2015 change, which is what drift predicts and
+which is impossible if these were separate lines. So it is one category and ". " naming a series
+within a series does not make a second level. The variants are kept with their date ranges rather
+than a winner being chosen, because a reader looking at a 2008 volume should see what that volume
+says.
+
+**The coverage framing binds authors harder than publishers.** A KADOKAWA page listing 387 works
+plainly describes our slice, since nobody thinks that is all KADOKAWA prints. An author page listing
+three works implies that is the person's body of work, when they may have thirty and we hold the
+three that are yuri. A person does not read as bigger than our coverage of them, so the page has to
+say what it is.
+
 ### The framing this must not get wrong
 
 We hold KADOKAWA's 378 **yuri** works. KADOKAWA publishes tens of thousands of books. A page headed

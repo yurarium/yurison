@@ -25,6 +25,7 @@ import pathlib
 
 import captures  # noqa: E402
 import yaml
+import yamlfast  # noqa: F401,E402   for its effect: yaml.safe_load reads through libyaml
 
 # How much a re-fetched source may shrink before it is worth reporting. A capture legitimately
 # loses a few rows when a platform withdraws chapters, and 冷たくて柔らか alone lost a stretch of 64

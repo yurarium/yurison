@@ -23,6 +23,7 @@ import pathlib
 
 import captures  # noqa: E402
 import yaml
+import yamlfast  # noqa: F401,E402   for its effect: yaml.safe_load reads through libyaml
 
 
 # What the run DID, in the active voice, because the section asks what it did. A key like

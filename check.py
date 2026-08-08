@@ -30,6 +30,14 @@ docs/budgets.json by hand, which puts the reason in a commit message where it ca
 import argparse, json, os, pathlib, re, subprocess, sys, unicodedata
 
 ROOT = pathlib.Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+# Imported for its effect and not for a name: it points yaml.safe_load at libyaml for this process
+# and everything loaded into it, adapters/captures.py included. Worth 6 seconds of a 47-second gate
+# and no more, because captures.py's JSON sidecars had already spared the gate most of its parsing;
+# the gate's own time is in self_test's deepcopy and the lint subprocesses. It is here so that the
+# invariants which do read YAML get the fast parser, and so a machine cannot end up with build.py
+# and check.py reading the same file two different ways. See adapters/yamlfast.py.
+from adapters import yamlfast  # noqa: F401,E402
 BUILD = ROOT / "data" / "build"
 NAMES = ROOT / "data" / "names"
 BUDGETS = ROOT / "docs" / "budgets.json"

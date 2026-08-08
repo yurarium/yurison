@@ -290,7 +290,19 @@ def romanise(reading, style="macron"):
                 r = r[:-1] + ("ī" if (v == "i" and long == PROLONG) else MACRON[v])
             elif style == "double":
                 r = r + (v if long == PROLONG else BASE[long])
-            # 'plain' drops it entirely, which is the point of the style.
+            elif v == "i" and long != PROLONG:
+                # THE PLAIN STYLE REMOVES A DIACRITIC, and いい does not have one. Hepburn spells a
+                # long i written いい as `ii`, which is why MACRON["i"] is two letters and not a
+                # macron, so there was nothing here for this style to strip. Dropping it anyway ate
+                # a letter the word is made of: 怪異部 rendered as `Kai Bu` where its reading is
+                # カイイ ブ, かわいい came out `Kawai`, and 世界一 came out `Sekaichi`. Those are
+                # different words and not plainer spellings of the same one.
+                #
+                # ビール keeps the old behaviour and is why the test is on the SOURCE of the length.
+                # Its ー is a prolongation mark, the macron style writes ī, and stripping that to
+                # `biru` is exactly what a reader choosing this style asked for.
+                r = r + "i"
+            # 'plain' drops any other length entirely, which is the point of the style.
         parts.append(r)
     if pending_sokuon:
         parts.append("")

@@ -206,6 +206,17 @@ def main(s):
     s.eq(kana.align("アラサー美女", "アラサイビジョ"), None,
          "and ー stands for the vowel it lengthens, not for any vowel")
 
+    # THE PLAIN STYLE REMOVES A DIACRITIC, AND いい HAS NONE. Hepburn spells a long i written いい
+    # as `ii`, so there was nothing for this style to strip and it ate a letter of the word:
+    # 怪異部, whose reading is カイイ ブ, rendered as `Kai Bu`. The counter-case is the point of the
+    # rule: ビール is lengthened by ー, which the macron style writes as ī, and a reader choosing
+    # this style is asking for exactly that to go.
+    s.eq(kana.romanise("カイイ", "plain"), "kaii", "いい keeps both letters with no macron to drop")
+    s.eq(kana.romanise("カワイイ", "plain"), "kawaii", "and so does かわいい")
+    s.eq(kana.romanise("セカイイチ", "plain"), "sekaiichi", "including across a morpheme join")
+    s.eq(kana.romanise("ビール", "plain"), "biru", "while a prolongation mark is still dropped")
+    s.eq(kana.romanise("カイイ", "macron"), "kaii", "the macron style already spelled it this way")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "kana"))

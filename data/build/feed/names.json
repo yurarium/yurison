@@ -110327,14 +110327,30 @@
   },
   "たわわ潤": {
    "reading": "タワワ ジュン",
+   "ruby": [
+    [
+     "たわわ",
+     null
+    ],
+    [
+     "潤",
+     "じゅん"
+    ]
+   ],
    "romaji": {
     "macron": "Tawawa Jun",
     "double": "Tawawa Jun",
     "plain": "Tawawa Jun"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784776752639",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー' (宙出版)."
+   }
   },
   "たんれ~": {
    "reading": "タンレ～",
@@ -111970,15 +111986,35 @@
    "reading_basis": "surface"
   },
   "ぺそ太郎": {
-   "reading": "ペ ソ タロウ",
+   "reading": "ペソタロウ",
+   "ruby": [
+    [
+     "ぺそ",
+     null
+    ],
+    [
+     "太",
+     "た"
+    ],
+    [
+     "郎",
+     "ろう"
+    ]
+   ],
    "romaji": {
-    "macron": "Pe So Tarō",
-    "double": "Pe So Tarou",
-    "plain": "Pe So Taro"
+    "macron": "Pesotarō",
+    "double": "Pesotarou",
+    "plain": "Pesotaro"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1111857",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g. 'ご褒美とお仕置きどっちにします?' (竹書房). It agrees with the reading already held, which no source had stated."
+   }
   },
   "ぺんたごん": {
    "reading": "ペンタゴン",
@@ -112054,14 +112090,30 @@
   },
   "ほなみ彩": {
    "reading": "ホナミ アヤ",
+   "ruby": [
+    [
+     "ほなみ",
+     null
+    ],
+    [
+     "彩",
+     "あや"
+    ]
+   ],
    "romaji": {
     "macron": "Honami Aya",
     "double": "Honami Aya",
     "plain": "Honami Aya"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784776752295",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. 'ネイルちゃんと深爪さん。 : アンソロジーコミック マジでリアコな私たち編' (宙出版)."
+   }
   },
   "ほりとも": {
    "reading": "ホリトモ",
@@ -114017,6 +114069,10 @@
      null
     ],
     [
+     "　",
+     null
+    ],
+    [
      "悠",
      "はるか"
     ]
@@ -114029,11 +114085,11 @@
    "basis": "romaji",
    "reading_basis": "stated",
    "reading_cite": {
-    "source": "national-library",
-    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033378875",
-    "kind": "national-library",
-    "reviewed": "2026-08-04",
-    "note": "Record is for the example work 下僕さんと主ちゃんの日常. 悠 is はるか here, not ゆう. 10 records agree."
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784046833679",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '下僕さんと主ちゃんの日常 : 主のためなら何でもします' (KADOKAWA). It replaces 'イマイ \\u3000 ユウ', which no source had stated."
    }
   },
   "イマイヒヅル": {
@@ -114099,11 +114155,11 @@
    "reading_basis": "surface"
   },
   "ウミノアロイ": {
-   "reading": "ウミノアロイ",
+   "reading": "ウミノ アロイ",
    "romaji": {
-    "macron": "Uminoaroi",
-    "double": "Uminoaroi",
-    "plain": "Uminoaroi"
+    "macron": "Umino Aroi",
+    "double": "Umino Aroi",
+    "plain": "Umino Aroi"
    },
    "basis": "romaji",
    "reading_basis": "surface"
@@ -114337,11 +114393,11 @@
    "reading_basis": "surface"
   },
   "カネハラミズヒト": {
-   "reading": "カネハラミズヒト",
+   "reading": "カネハラ ミズヒト",
    "romaji": {
-    "macron": "Kaneharamizuhito",
-    "double": "Kaneharamizuhito",
-    "plain": "Kaneharamizuhito"
+    "macron": "Kanehara Mizuhito",
+    "double": "Kanehara Mizuhito",
+    "plain": "Kanehara Mizuhito"
    },
    "basis": "romaji",
    "reading_basis": "surface"
@@ -115936,15 +115992,31 @@
    "reading_basis": "surface"
   },
   "ポン貴花田": {
-   "reading": "ポン タカハナダ",
+   "reading": "ポンタカハナダ",
+   "ruby": [
+    [
+     "ポン",
+     null
+    ],
+    [
+     "貴花田",
+     "たかはなだ"
+    ]
+   ],
    "romaji": {
-    "macron": "Pon Takahanada",
-    "double": "Pon Takahanada",
-    "plain": "Pon Takahanada"
+    "macron": "Pontakahanada",
+    "double": "Pontakahanada",
+    "plain": "Pontakahanada"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M453536",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g. '家政婦と暮らす100の方法' (双葉社). It agrees with the reading already held, which no source had stated."
+   }
   },
   "マウンテンプクイチ": {
    "reading": "マウンテン プクイチ",
@@ -116015,11 +116087,11 @@
    "reading_basis": "surface"
   },
   "マツモトトモキ": {
-   "reading": "マツモトトモキ",
+   "reading": "マツモト トモキ",
    "romaji": {
-    "macron": "Matsumototomoki",
-    "double": "Matsumototomoki",
-    "plain": "Matsumototomoki"
+    "macron": "Matsumoto Tomoki",
+    "double": "Matsumoto Tomoki",
+    "plain": "Matsumoto Tomoki"
    },
    "basis": "romaji",
    "reading_basis": "surface"
@@ -116799,16 +116871,35 @@
    "unverified": true
   },
   "七橋楽": {
-   "reading": "シチ ハシ 　 ラク",
+   "reading": "ナナハシ ラク",
+   "ruby": [
+    [
+     "七橋",
+     "ななはし"
+    ],
+    [
+     "　",
+     null
+    ],
+    [
+     "楽",
+     "らく"
+    ]
+   ],
    "romaji": {
-    "macron": "Shichi Hashi Raku",
-    "double": "Shichi Hashi Raku",
-    "plain": "Shichi Hashi Raku"
+    "macron": "Nanahashi Raku",
+    "double": "Nanahashi Raku",
+    "plain": "Nanahashi Raku"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true,
-   "uncertain": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784049165265",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g. '幼馴染は、にゃあと鳴いてスカートのなか. 1' (KADOKAWA). It replaces 'シチ ハシ \\u3000 ラク', which no source had stated."
+   }
   },
   "七瀬八": {
    "reading": "ナナセハチ",
@@ -117132,15 +117223,35 @@
    }
   },
   "三田織": {
-   "reading": "ミタ  オリ",
+   "reading": "ミタオリ",
+   "ruby": [
+    [
+     "三田",
+     "み"
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "織",
+     "たおり"
+    ]
+   ],
    "romaji": {
-    "macron": "Mita Ori",
-    "double": "Mita Ori",
-    "plain": "Mita Ori"
+    "macron": "Mitaori",
+    "double": "Mitaori",
+    "plain": "Mitaori"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1064709",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g. '僕らの食卓' ([頒布]幻冬舎). It agrees with the reading already held, which no source had stated."
+   }
   },
   "三芳イト": {
    "reading": "ミヨシ イト",
@@ -117518,14 +117629,34 @@
   },
   "中村キヨ": {
    "reading": "ナカムラ キヨ",
+   "ruby": [
+    [
+     "中",
+     "なか"
+    ],
+    [
+     "村",
+     "むら"
+    ],
+    [
+     "キヨ",
+     null
+    ]
+   ],
    "romaji": {
     "macron": "Nakamura Kiyo",
     "double": "Nakamura Kiyo",
     "plain": "Nakamura Kiyo"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784584136799",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'お母さん二人いてもいいかな!? : レズビアンのママ生活' (ベストセラーズ)."
+   }
   },
   "中村ユキチ": {
    "reading": "ナカムラユキチ",
@@ -117629,15 +117760,39 @@
    "unverified": true
   },
   "中野まや花": {
-   "reading": "ナカノ マヤ ハナ",
+   "reading": "ナカノマヤカ",
+   "ruby": [
+    [
+     "中",
+     "なか"
+    ],
+    [
+     "野",
+     "の"
+    ],
+    [
+     "まや",
+     null
+    ],
+    [
+     "花",
+     "か"
+    ]
+   ],
    "romaji": {
-    "macron": "Nakano Maya Hana",
-    "double": "Nakano Maya Hana",
-    "plain": "Nakano Maya Hana"
+    "macron": "Nakanomayaka",
+    "double": "Nakanomayaka",
+    "plain": "Nakanomayaka"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1034099",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g. '世界の果ては深愛' (講談社). It replaces 'ナカノ マヤ ハナ', which no source had stated."
+   }
   },
   "丸山ゴンザレス": {
    "reading": "マルヤマ ゴンザレス",
@@ -118363,14 +118518,26 @@
   },
   "介錯": {
    "reading": "カイシャク",
+   "ruby": [
+    [
+     "介錯",
+     "かいしゃく"
+    ]
+   ],
    "romaji": {
     "macron": "Kaishaku",
     "double": "Kaishaku",
     "plain": "Kaishaku"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1087680",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 8 record(s) of the pinned release, e.g. '鍵姫物語永久アリス輪舞曲' ([頒布]角川書店). It agrees with the reading already held, which no source had stated."
+   }
   },
   "他": {
    "reading": "ホカ",
@@ -118543,15 +118710,39 @@
    }
   },
   "伊予嶺つく": {
-   "reading": "イヨ ミネ ツク",
+   "reading": "イヨミネツク",
+   "ruby": [
+    [
+     "伊",
+     "い"
+    ],
+    [
+     "予",
+     "よ"
+    ],
+    [
+     "嶺",
+     "みね"
+    ],
+    [
+     "つく",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Iyo Mine Tsuku",
-    "double": "Iyo Mine Tsuku",
-    "plain": "Iyo Mine Tsuku"
+    "macron": "Iyominetsuku",
+    "double": "Iyominetsuku",
+    "plain": "Iyominetsuku"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784846210014",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. 'アイドル総選挙4位だった私が魔王を倒すんですか？ 1' (れんが書房新社)."
+   }
   },
   "伊勢海老ボイル": {
    "reading": "イセエビボイル",
@@ -118928,14 +119119,26 @@
   },
   "依子": {
    "reading": "ヨリコ",
+   "ruby": [
+    [
+     "依子",
+     "よりこ"
+    ]
+   ],
    "romaji": {
     "macron": "Yoriko",
     "double": "Yoriko",
     "plain": "Yoriko"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1062057",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g. '寺野くんと熊崎くん' (竹書房). It agrees with the reading already held, which no source had stated."
+   }
   },
   "保スカ": {
    "reading": "ホ スカ",
@@ -119024,6 +119227,10 @@
      "た"
     ],
     [
+     " ",
+     null
+    ],
+    [
      "嘘",
      "うそ"
     ]
@@ -119039,7 +119246,7 @@
     "source": "openBD",
     "url": "https://api.openbd.jp/v1/get?isbn=9784758070522",
     "kind": "publisher-jp",
-    "reviewed": "2026-08-05",
+    "reviewed": "2026-08-08",
     "note": "openBD carries this reading as the publisher's own collationkey on 7 volume(s), e.g. 'リンケージ' (一迅社)."
    }
   },
@@ -119253,15 +119460,27 @@
    "unverified": true
   },
   "八十八騎": {
-   "reading": "ハチジュウハチ キ",
+   "reading": "トドロキ",
+   "ruby": [
+    [
+     "八十八騎",
+     "とどろき"
+    ]
+   ],
    "romaji": {
-    "macron": "Hachijūhachi Ki",
-    "double": "Hachijuuhachi Ki",
-    "plain": "Hachijuhachi Ki"
+    "macron": "Todoroki",
+    "double": "Todoroki",
+    "plain": "Todoroki"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784776752639",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー' (宙出版). It replaces 'ハチジュウハチ キ', which no source had stated."
+   }
   },
   "八汐ごよう": {
    "reading": "ヤシオ ゴヨウ",
@@ -119456,15 +119675,35 @@
    "unverified": true
   },
   "再田ニカ": {
-   "reading": "サイタ ニカ",
+   "reading": "サイダニカ",
+   "ruby": [
+    [
+     "再",
+     "さい"
+    ],
+    [
+     "田",
+     "だ"
+    ],
+    [
+     "ニカ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Saita Nika",
-    "double": "Saita Nika",
-    "plain": "Saita Nika"
+    "macron": "Saidanika",
+    "double": "Saidanika",
+    "plain": "Saidanika"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1095478",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g. '東京ブルーキャンディ' ([頒布]幻冬舎). It replaces 'サイタ ニカ', which no source had stated."
+   }
   },
   "冬佳千秋": {
    "reading": "フユカ チアキ",
@@ -119512,26 +119751,50 @@
    }
   },
   "冬眠結": {
-   "reading": "トウミン ケツ",
+   "reading": "トウミンユウ",
+   "ruby": [
+    [
+     "冬眠結",
+     "とうみんゆう"
+    ]
+   ],
    "romaji": {
-    "macron": "Tōmin Ketsu",
-    "double": "Toumin Ketsu",
-    "plain": "Tomin Ketsu"
+    "macron": "Tōmin'yū",
+    "double": "Toumin'yuu",
+    "plain": "Tomin'yu"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1087873",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g. 'アクアリウムは踊らない' (KADOKAWA). It replaces 'トウミン ケツ', which no source had stated."
+   }
   },
   "冬空": {
-   "reading": "フユゾラ",
+   "reading": "フユソラ",
+   "ruby": [
+    [
+     "冬空",
+     "ふゆそら"
+    ]
+   ],
    "romaji": {
-    "macron": "Fuyuzora",
-    "double": "Fuyuzora",
-    "plain": "Fuyuzora"
+    "macron": "Fuyusora",
+    "double": "Fuyusora",
+    "plain": "Fuyusora"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784776752530",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'ネイルちゃんと深爪さん。 ナイショのパフェを半分こ編' (宙出版). It replaces 'フユゾラ', which no source had stated."
+   }
   },
   "冬芽沙也": {
    "reading": "トウガ サヤ",
@@ -119612,14 +119875,34 @@
   },
   "剛田ナギ": {
    "reading": "ゴウダ ナギ",
+   "ruby": [
+    [
+     "剛",
+     "ごう"
+    ],
+    [
+     "田",
+     "だ"
+    ],
+    [
+     "ナギ",
+     null
+    ]
+   ],
    "romaji": {
     "macron": "Gōda Nagi",
     "double": "Gouda Nagi",
     "plain": "Goda Nagi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784776752639",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー' (宙出版)."
+   }
   },
   "加納るり": {
    "reading": "カノウ ルリ",
@@ -119972,15 +120255,31 @@
    }
   },
   "午子": {
-   "reading": "ウマ コ",
+   "reading": "ウマシ",
+   "ruby": [
+    [
+     "午",
+     "うま"
+    ],
+    [
+     "子",
+     "し"
+    ]
+   ],
    "romaji": {
-    "macron": "Uma Ko",
-    "double": "Uma Ko",
-    "plain": "Uma Ko"
+    "macron": "Umashi",
+    "double": "Umashi",
+    "plain": "Umashi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784832237841",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '男だけど死神姫の嫁になりました (仮) 1' (芳文社). It replaces 'ウマ コ', which no source had stated."
+   }
   },
   "半田畔": {
    "reading": "ハンダ ホトリ",
@@ -120563,15 +120862,27 @@
    }
   },
   "双見酔": {
-   "reading": "フタミ ヨイ",
+   "reading": "フタミスイ",
+   "ruby": [
+    [
+     "双見酔",
+     "ふたみすい"
+    ]
+   ],
    "romaji": {
-    "macron": "Futami Yoi",
-    "double": "Futami Yoi",
-    "plain": "Futami Yoi"
+    "macron": "Futamisui",
+    "double": "Futamisui",
+    "plain": "Futamisui"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1062415",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 7 record(s) of the pinned release, e.g. 'ダンジョンの中のひと' (双葉社). It replaces 'フタミ ヨイ', which no source had stated."
+   }
   },
   "古居すぐり": {
    "reading": "フルイ スグリ",
@@ -121358,15 +121669,27 @@
    }
   },
   "四位広猫": {
-   "reading": "シイ ヒロネ",
+   "reading": "シイヒロネ",
+   "ruby": [
+    [
+     "四位広猫",
+     "しいひろね"
+    ]
+   ],
    "romaji": {
-    "macron": "Shii Hirone",
-    "double": "Shii Hirone",
-    "plain": "Shi Hirone"
+    "macron": "Shiihirone",
+    "double": "Shiihirone",
+    "plain": "Shihirone"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M224040",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 10 record(s) of the pinned release, e.g. '晴れ、ときどき天使' (角川書店). It agrees with the reading already held, which no source had stated."
+   }
   },
   "四葉夕卜": {
    "reading": "ヨツバ ユウト",
@@ -121533,8 +121856,16 @@
    "reading": "アクツミナコ",
    "ruby": [
     [
-     "圷見南子",
-     "あくつみなこ"
+     "圷",
+     "あ"
+    ],
+    [
+     "　",
+     null
+    ],
+    [
+     "見南子",
+     "くつみなこ"
     ]
    ],
    "romaji": {
@@ -121548,8 +121879,8 @@
     "source": "MADB",
     "url": "https://mediaarts-db.artmuseums.go.jp/id/M1034204",
     "kind": "national-library",
-    "reviewed": "2026-08-06",
-    "note": "MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g. 'バー・パンタ・レイ' ([頒布]幻冬舎). It agrees with the reading already held, which no source had stated."
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g. 'バー・パンタ・レイ' ([頒布]幻冬舎). It replaces 'アクツ \\u3000 ミ ナコ', which no source had stated."
    }
   },
   "坂南加": {
@@ -121750,15 +122081,27 @@
    "unverified": true
   },
   "壇九": {
-   "reading": "ダン キュウ",
+   "reading": "タンジウ",
+   "ruby": [
+    [
+     "壇九",
+     "たんじう"
+    ]
+   ],
    "romaji": {
-    "macron": "Dan Kyū",
-    "double": "Dan Kyuu",
-    "plain": "Dan Kyu"
+    "macron": "Tanjiu",
+    "double": "Tanjiu",
+    "plain": "Tanjiu"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M963242",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g. 'SQ' (KADOKAWA). It replaces 'ダン キュウ', which no source had stated."
+   }
   },
   "士崎雅雪": {
    "reading": "シ サキ マサユキ",
@@ -121874,15 +122217,35 @@
    }
   },
   "夏河もか": {
-   "reading": "ナツカワ モ カ",
+   "reading": "ナツカワ モカ",
+   "ruby": [
+    [
+     "夏",
+     "なつ"
+    ],
+    [
+     "河",
+     "かわ"
+    ],
+    [
+     "もか",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Natsukawa Mo Ka",
-    "double": "Natsukawa Mo Ka",
-    "plain": "Natsukawa Mo Ka"
+    "macron": "Natsukawa Moka",
+    "double": "Natsukawa Moka",
+    "plain": "Natsukawa Moka"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784798624112",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. '研究棟の真夜中ごはん 1' (ホビージャパン)."
+   }
   },
   "夏目": {
    "reading": "ナツメ",
@@ -122392,15 +122755,31 @@
    }
   },
   "大槻ミゥ": {
-   "reading": "オオツキ ミゥ",
+   "reading": "オオツキミゥ",
+   "ruby": [
+    [
+     "大槻",
+     "おおつき"
+    ],
+    [
+     "ミゥ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Ōtsuki Miu",
-    "double": "Ootsuki Miu",
-    "plain": "Otsuki Miu"
+    "macron": "Ōtsukimiu",
+    "double": "Ootsukimiu",
+    "plain": "Otsukimiu"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1035737",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g. 'じいさんの猫' ([頒布]幻冬舎). It agrees with the reading already held, which no source had stated."
+   }
   },
   "大沢あまね": {
    "reading": "オオサワ アマネ",
@@ -122801,15 +123180,31 @@
    }
   },
   "奈友": {
-   "reading": "ナユ",
+   "reading": "ナトモ",
+   "ruby": [
+    [
+     "奈",
+     "な"
+    ],
+    [
+     "友",
+     "とも"
+    ]
+   ],
    "romaji": {
-    "macron": "Nayu",
-    "double": "Nayu",
-    "plain": "Nayu"
+    "macron": "Natomo",
+    "double": "Natomo",
+    "plain": "Natomo"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784776752295",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'ネイルちゃんと深爪さん。 : アンソロジーコミック マジでリアコな私たち編' (宙出版). It replaces 'ナユ', which no source had stated."
+   }
   },
   "奈春": {
    "reading": "ナ シュン",
@@ -123039,15 +123434,39 @@
    "unverified": true
   },
   "宇佐楢春": {
-   "reading": "ウサ ナラ ハル",
+   "reading": "ウサ ナラハル",
+   "ruby": [
+    [
+     "宇",
+     "う"
+    ],
+    [
+     "佐",
+     "さ"
+    ],
+    [
+     "楢",
+     "なら"
+    ],
+    [
+     "春",
+     "はる"
+    ]
+   ],
    "romaji": {
-    "macron": "Usa Nara Haru",
-    "double": "Usa Nara Haru",
-    "plain": "Usa Nara Haru"
+    "macron": "Usa Naraharu",
+    "double": "Usa Naraharu",
+    "plain": "Usa Naraharu"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784757579156",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g. '忘れえぬ魔女の物語 1' (スクウェア・エニックス)."
+   }
   },
   "宇宙鍋": {
    "reading": "ウチュウ ナベ",
@@ -123663,14 +124082,30 @@
   },
   "寝路": {
    "reading": "ネジ",
+   "ruby": [
+    [
+     "寝",
+     "ね"
+    ],
+    [
+     "路",
+     "じ"
+    ]
+   ],
    "romaji": {
     "macron": "Neji",
     "double": "Neji",
     "plain": "Neji"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784344853263",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'ごはんのおトモに、死神と！\\u3000 1' (幻冬舎コミックス)."
+   }
   },
   "寺山電": {
    "reading": "テラ サンデン",
@@ -123685,14 +124120,34 @@
   },
   "寺本薫": {
    "reading": "テラモト カオル",
+   "ruby": [
+    [
+     "寺",
+     "てら"
+    ],
+    [
+     "本",
+     "もと"
+    ],
+    [
+     "薫",
+     "かおる"
+    ]
+   ],
    "romaji": {
     "macron": "Teramoto Kaoru",
     "double": "Teramoto Kaoru",
     "plain": "Teramoto Kaoru"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784776752295",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'ネイルちゃんと深爪さん。 : アンソロジーコミック マジでリアコな私たち編' (宙出版)."
+   }
   },
   "小宮ゆと": {
    "reading": "コミヤ ユ ト",
@@ -124161,15 +124616,39 @@
    "unverified": true
   },
   "山口悟": {
-   "reading": "ヤマグチ   サトル",
+   "reading": "ヤマグチ サトル",
+   "ruby": [
+    [
+     "山",
+     "やま"
+    ],
+    [
+     "口",
+     "ぐち"
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "悟",
+     "さとる"
+    ]
+   ],
    "romaji": {
     "macron": "Yamaguchi Satoru",
     "double": "Yamaguchi Satoru",
     "plain": "Yamaguchi Satoru"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784758035156",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g. '乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった… : 絶体絶命! 破滅寸前編 1' (講談社)."
+   }
   },
   "山口えいと": {
    "reading": "ヤマグチ エイト",
@@ -124399,15 +124878,35 @@
    }
   },
   "山東ユカ": {
-   "reading": "サントウ ユカ",
+   "reading": "サントウユカ",
+   "ruby": [
+    [
+     "山",
+     "さん"
+    ],
+    [
+     "東",
+     "とう"
+    ],
+    [
+     "ユカ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Santō Yuka",
-    "double": "Santou Yuka",
-    "plain": "Santo Yuka"
+    "macron": "Santōyuka",
+    "double": "Santouyuka",
+    "plain": "Santoyuka"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1036049",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g. 'スパロウズホテル' (竹書房). It agrees with the reading already held, which no source had stated."
+   }
   },
   "山田hamekon": {
    "reading": "ヤマダ ハメコン",
@@ -124988,15 +125487,35 @@
    "unverified": true
   },
   "嶋水えけ": {
-   "reading": "シマ ミズ エ ケ",
+   "reading": "シマミズエケ",
+   "ruby": [
+    [
+     "嶋",
+     "しま"
+    ],
+    [
+     "水",
+     "みず"
+    ],
+    [
+     "えけ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Shima Mizu E Ke",
-    "double": "Shima Mizu E Ke",
-    "plain": "Shima Mizu E Ke"
+    "macron": "Shimamizueke",
+    "double": "Shimamizueke",
+    "plain": "Shimamizueke"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1035900",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g. '憧れのメイドさんはタバコが似合う' (スクウェア・エニックス). It agrees with the reading already held, which no source had stated."
+   }
   },
   "嶋鳥ひとり": {
    "reading": "シマ トリ ヒトリ",
@@ -125153,15 +125672,31 @@
    }
   },
   "工藤マコト": {
-   "reading": "クドウ マコト",
+   "reading": "クドウマコト",
+   "ruby": [
+    [
+     "工藤",
+     "くどう"
+    ],
+    [
+     "マコト",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Kudō Makoto",
-    "double": "Kudou Makoto",
-    "plain": "Kudo Makoto"
+    "macron": "Kudōmakoto",
+    "double": "Kudoumakoto",
+    "plain": "Kudomakoto"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1032963",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g. '不器用な先輩。' (スクウェア・エニックス). It agrees with the reading already held, which no source had stated."
+   }
   },
   "巻舌ひっち": {
    "reading": "マキジタ ヒッ チ",
@@ -125407,15 +125942,31 @@
    "unverified": true
   },
   "庭トリ": {
-   "reading": "ニワ トリ",
+   "reading": "ニワトリ",
+   "ruby": [
+    [
+     "庭",
+     "にわ"
+    ],
+    [
+     "トリ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Niwa Tori",
-    "double": "Niwa Tori",
-    "plain": "Niwa Tori"
+    "macron": "Niwatori",
+    "double": "Niwatori",
+    "plain": "Niwatori"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1061976",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g. '禁欲いんぽっしぶる女学園' ([頒布]星雲社). It agrees with the reading already held, which no source had stated."
+   }
   },
   "廃狼": {
    "reading": "ハイロウ",
@@ -125962,6 +126513,10 @@
      "みず"
     ],
     [
+     " ",
+     null
+    ],
+    [
      "はつみ",
      null
     ]
@@ -125977,7 +126532,7 @@
     "source": "openBD",
     "url": "https://api.openbd.jp/v1/get?isbn=9784758022217",
     "kind": "publisher-jp",
-    "reviewed": "2026-08-05",
+    "reviewed": "2026-08-08",
     "note": "openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. 'クダンノフォークロア = FOLKLORE OF KUDAN' (講談社 (発売))."
    }
   },
@@ -127196,6 +127751,10 @@
      "はな"
     ],
     [
+     " ",
+     null
+    ],
+    [
      "あや",
      null
     ]
@@ -127208,11 +127767,11 @@
    "basis": "romaji",
    "reading_basis": "stated",
    "reading_cite": {
-    "source": "national-library",
-    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032170398",
-    "kind": "national-library",
-    "reviewed": "2026-08-04",
-    "note": "NDL record for 少女たちの痕にくちづけを gives 春花, あや / ハルハナ, アヤ. Not the work we hold, but the pen name is distinctive and the genre matches. Overturns the guess ハルカ."
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784041132494",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g. '少女たちの痕(きずあと)にくちづけを. 2' (KADOKAWA). It replaces 'ハルカ   アヤ', which no source had stated."
    }
   },
   "春都": {
@@ -128459,14 +129018,34 @@
   },
   "松本トモキ": {
    "reading": "マツモト トモキ",
+   "ruby": [
+    [
+     "松",
+     "まつ"
+    ],
+    [
+     "本",
+     "もと"
+    ],
+    [
+     "トモキ",
+     null
+    ]
+   ],
    "romaji": {
     "macron": "Matsumoto Tomoki",
     "double": "Matsumoto Tomoki",
     "plain": "Matsumoto Tomoki"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784757581883",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g. '囿者は懼れず 1' (スクウェア・エニックス)."
+   }
   },
   "松本ナミル": {
    "reading": "マツモト ナミル",
@@ -128582,15 +129161,35 @@
    }
   },
   "林雄一": {
-   "reading": "ハヤシ ユウイチ",
+   "reading": "ハヤシユウイチ",
+   "ruby": [
+    [
+     "林",
+     "はやし"
+    ],
+    [
+     "雄",
+     "ゆう"
+    ],
+    [
+     "一",
+     "いち"
+    ]
+   ],
    "romaji": {
-    "macron": "Hayashi Yūichi",
-    "double": "Hayashi Yuuichi",
-    "plain": "Hayashi Yuichi"
+    "macron": "Hayashiyūichi",
+    "double": "Hayashiyuuichi",
+    "plain": "Hayashiyuichi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1080771",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 9 record(s) of the pinned release, e.g. '聖交天使ヤリニクル' (KADOKAWA). It agrees with the reading already held, which no source had stated."
+   }
   },
   "枝吉": {
    "reading": "エダヨシ",
@@ -128646,15 +129245,35 @@
    "unverified": true
   },
   "柊裕一": {
-   "reading": "ヒイラギ ユウイチ",
+   "reading": "ヒイラギユウイチ",
+   "ruby": [
+    [
+     "柊",
+     "ひいらぎ"
+    ],
+    [
+     "裕",
+     "ゆう"
+    ],
+    [
+     "一",
+     "いち"
+    ]
+   ],
    "romaji": {
-    "macron": "Hiiragi Yūichi",
-    "double": "Hiiragi Yuuichi",
-    "plain": "Hiragi Yuichi"
+    "macron": "Hiiragiyūichi",
+    "double": "Hiiragiyuuichi",
+    "plain": "Hiragiyuichi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1032952",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g. '履いてください、鷹峰さん' (スクウェア・エニックス). It agrees with the reading already held, which no source had stated."
+   }
   },
   "柏": {
    "reading": "カシワ",
@@ -129586,15 +130205,27 @@
    "unverified": true
   },
   "梧桐柾木": {
-   "reading": "ゴドウ マサキ",
+   "reading": "ゴトウマサキ",
+   "ruby": [
+    [
+     "梧桐柾木",
+     "ごとうまさき"
+    ]
+   ],
    "romaji": {
-    "macron": "Godō Masaki",
-    "double": "Godou Masaki",
-    "plain": "Godo Masaki"
+    "macron": "Gotōmasaki",
+    "double": "Gotoumasaki",
+    "plain": "Gotomasaki"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/C92059",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 23 record(s) of the pinned release, e.g. 'AKB48殺人事件'. It replaces 'ゴドウ マサキ', which no source had stated."
+   }
   },
   "梨尾": {
    "reading": "ナシオ",
@@ -129940,15 +130571,31 @@
    }
   },
   "森永ミキ": {
-   "reading": "モリナガ 　 ミキ",
+   "reading": "モリナガミキ",
+   "ruby": [
+    [
+     "森永",
+     "もりなが"
+    ],
+    [
+     "　ミキ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Morinaga Miki",
-    "double": "Morinaga Miki",
-    "plain": "Morinaga Miki"
+    "macron": "Morinagamiki",
+    "double": "Morinagamiki",
+    "plain": "Morinagamiki"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1064359",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g. 'ルビー・オンザ・ケーキ' (スクウェア・エニックス). It replaces 'モリナガ \\u3000 ミキ', which no source had stated."
+   }
   },
   "森永みるく": {
    "reading": "モリナガ ミルク",
@@ -130486,14 +131133,34 @@
   },
   "橘田いずみ": {
    "reading": "キッタ イズミ",
+   "ruby": [
+    [
+     "橘",
+     "きっ"
+    ],
+    [
+     "田",
+     "た"
+    ],
+    [
+     "いずみ",
+     null
+    ]
+   ],
    "romaji": {
     "macron": "Kitta Izumi",
     "double": "Kitta Izumi",
     "plain": "Kitta Izumi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784040657110",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'リバティ = LIBERTY' (KADOKAWA)."
+   }
   },
   "橙々": {
    "reading": "ダイダイキゴウ",
@@ -130821,7 +131488,7 @@
    "unverified": true
   },
   "水山めろ": {
-   "reading": "ミズヤマ メロ",
+   "reading": "ミズヤマメロ",
    "ruby": [
     [
      "水",
@@ -130832,23 +131499,23 @@
      "やま"
     ],
     [
-     "めろ",
+     "　めろ",
      null
     ]
    ],
    "romaji": {
-    "macron": "Mizuyama Mero",
-    "double": "Mizuyama Mero",
-    "plain": "Mizuyama Mero"
+    "macron": "Mizuyamamero",
+    "double": "Mizuyamamero",
+    "plain": "Mizuyamamero"
    },
    "basis": "romaji",
    "reading_basis": "stated",
    "reading_cite": {
-    "source": "national-library",
-    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034044854",
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1087993",
     "kind": "national-library",
-    "reviewed": "2026-08-04",
-    "note": "KADOKAWA, the example work 恋色の境界 itself."
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g. '恋色の境界' (KADOKAWA). It replaces 'ミズヤマ \\u3000 メロ', which no source had stated."
    }
   },
   "水戸つばき": {
@@ -131258,14 +131925,34 @@
   },
   "江川広実": {
    "reading": "エガワ ヒロミ",
+   "ruby": [
+    [
+     "江",
+     "え"
+    ],
+    [
+     "川",
+     "がわ"
+    ],
+    [
+     "広実",
+     "ひろみ"
+    ]
+   ],
    "romaji": {
     "macron": "Egawa Hiromi",
     "double": "Egawa Hiromi",
     "plain": "Egawa Hiromi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784821144105",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'ゆりにんレズビアンカップル妊活奮闘記' (ぶんか社)."
+   }
   },
   "江成いちこ": {
    "reading": "エナリ イチコ",
@@ -131749,14 +132436,30 @@
   },
   "浅見百合子": {
    "reading": "アサミ ユリコ",
+   "ruby": [
+    [
+     "浅見",
+     "あさみ"
+    ],
+    [
+     "百合子",
+     "ゆりこ"
+    ]
+   ],
    "romaji": {
     "macron": "Asami Yuriko",
     "double": "Asami Yuriko",
     "plain": "Asami Yuriko"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784049127492",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '奏 : 青春バンド百合アンソロジー' (KADOKAWA)."
+   }
   },
   "浅野龍哉": {
    "reading": "アサノ タツヤ",
@@ -131837,15 +132540,31 @@
    "unverified": true
   },
   "浦あられ": {
-   "reading": "ウラ アラレ",
+   "reading": "ウラアラレ",
+   "ruby": [
+    [
+     "浦",
+     "うら"
+    ],
+    [
+     "あられ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Ura Arare",
-    "double": "Ura Arare",
-    "plain": "Ura Arare"
+    "macron": "Urārare",
+    "double": "Uraarare",
+    "plain": "Urarare"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784301004998",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'TS転生した私が所属するVTuber事務所のライバーを全員堕としにいく話（1）' (スクウェア・エニックス)."
+   }
   },
   "浮足": {
    "reading": "ウキアシ",
@@ -131864,15 +132583,39 @@
    "reading_basis": "stated"
   },
   "海島千本": {
-   "reading": "ウミシマ センボン",
+   "reading": "ウミシマセンボン",
+   "ruby": [
+    [
+     "海",
+     "うみ"
+    ],
+    [
+     "島",
+     "しま"
+    ],
+    [
+     "千",
+     "せん"
+    ],
+    [
+     "本",
+     "ぼん"
+    ]
+   ],
    "romaji": {
-    "macron": "Umishima Senbon",
-    "double": "Umishima Senbon",
-    "plain": "Umishima Senbon"
+    "macron": "Umishimasenbon",
+    "double": "Umishimasenbon",
+    "plain": "Umishimasenbon"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/C115567",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g. '雨の日'. It agrees with the reading already held, which no source had stated."
+   }
   },
   "海月:モトキ": {
    "reading": "カイゲツ : モトキ",
@@ -131955,15 +132698,35 @@
    }
   },
   "海野アロイ": {
-   "reading": "ウンノ アロイ",
+   "reading": "ウミノ アロイ",
+   "ruby": [
+    [
+     "海",
+     "うみ"
+    ],
+    [
+     "野",
+     "の"
+    ],
+    [
+     "アロイ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Unno Aroi",
-    "double": "Unno Aroi",
-    "plain": "Unno Aroi"
+    "macron": "Umino Aroi",
+    "double": "Umino Aroi",
+    "plain": "Umino Aroi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784824204981",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '猫魔法が世界に革命を起こすそうですよ? : 劣等種なんて言われるのならケモノ魔法でリベンジします! 2' (一二三書房). It replaces 'ウンノ アロイ', which no source had stated."
+   }
   },
   "海鮮丼": {
    "reading": "カイセンドン",
@@ -132302,8 +133065,16 @@
    "reading": "ミナモト ヒサナリ",
    "ruby": [
     [
-     "源久也",
-     "みなもとひさなり"
+     "源",
+     "みなもと"
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "久也",
+     "ひさなり"
     ]
    ],
    "romaji": {
@@ -132317,8 +133088,8 @@
     "source": "openBD",
     "url": "https://api.openbd.jp/v1/get?isbn=9784758071642",
     "kind": "publisher-jp",
-    "reviewed": "2026-08-05",
-    "note": "openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g. 'ふーふ 1' (一迅社). It replaces 'ミナモトノ ヒサヤ', which an analyser assembled."
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g. 'ふーふ 1' (一迅社). It replaces 'ミナモトノ   ヒサヤ', which no source had stated."
    }
   },
   "滝島朝香": {
@@ -132512,14 +133283,34 @@
   },
   "火事屋": {
    "reading": "カジヤ",
+   "ruby": [
+    [
+     "火",
+     "か"
+    ],
+    [
+     "事",
+     "じ"
+    ],
+    [
+     "屋",
+     "や"
+    ]
+   ],
    "romaji": {
     "macron": "Kajiya",
     "double": "Kajiya",
     "plain": "Kajiya"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1034179",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g. '盆百千栽' (講談社). It agrees with the reading already held, which no source had stated."
+   }
   },
   "火加減": {
    "reading": "ヒカゲン",
@@ -132839,15 +133630,35 @@
    }
   },
   "牛乳リンダ": {
-   "reading": "ギュウニュウ リンダ",
+   "reading": "ギュウニュウリンダ",
+   "ruby": [
+    [
+     "牛",
+     "ぎゅう"
+    ],
+    [
+     "乳",
+     "にゅう"
+    ],
+    [
+     "リンダ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Gyūnyū Rinda",
-    "double": "Gyuunyuu Rinda",
-    "plain": "Gyunyu Rinda"
+    "macron": "Gyūnyūrinda",
+    "double": "Gyuunyuurinda",
+    "plain": "Gyunyurinda"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1033629",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g. '恋敵♡スキンシップ' (松文館). It agrees with the reading already held, which no source had stated."
+   }
   },
   "犬は魚": {
    "reading": "イヌ ワ サカナ",
@@ -133103,15 +133914,35 @@
    }
   },
   "狐豆△": {
-   "reading": "キツネ マメ △",
+   "reading": "コマメ",
+   "ruby": [
+    [
+     "狐",
+     "こ"
+    ],
+    [
+     "豆",
+     "まめ"
+    ],
+    [
+     "△",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Kitsune Mame △",
-    "double": "Kitsune Mame △",
-    "plain": "Kitsune Mame △"
+    "macron": "Komame",
+    "double": "Komame",
+    "plain": "Komame"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784815630294",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '収納魔法が切実に欲しいと願っていたら、転生してしまった （コミック）\\u30001' (ＳＢクリエイティブ). It replaces 'キツネ マメ △', which no source had stated."
+   }
   },
   "狗之餌": {
    "reading": "イヌノエサ",
@@ -133646,15 +134477,31 @@
    }
   },
   "環望": {
-   "reading": "タマキ ノゾム",
+   "reading": "タマキノゾム",
+   "ruby": [
+    [
+     "環",
+     "たまき"
+    ],
+    [
+     "望",
+     "のぞむ"
+    ]
+   ],
    "romaji": {
-    "macron": "Tamaki Nozomu",
-    "double": "Tamaki Nozomu",
-    "plain": "Tamaki Nozomu"
+    "macron": "Tamakinozomu",
+    "double": "Tamakinozomu",
+    "plain": "Tamakinozomu"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1034873",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g. 'ダンスインザヴァンパイアバンドエイジオブスカーレットオーダー' (TOブックス). It agrees with the reading already held, which no source had stated."
+   }
   },
   "甘党": {
    "reading": "アマトウ",
@@ -133894,15 +134741,35 @@
    }
   },
   "田口ケンジ": {
-   "reading": "タグチ ケンジ",
+   "reading": "タグチケンジ",
+   "ruby": [
+    [
+     "田",
+     "た"
+    ],
+    [
+     "口",
+     "ぐち"
+    ],
+    [
+     "ケンジ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Taguchi Kenji",
-    "double": "Taguchi Kenji",
-    "plain": "Taguchi Kenji"
+    "macron": "Taguchikenji",
+    "double": "Taguchikenji",
+    "plain": "Taguchikenji"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1036420",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 295 record(s) of the pinned release, e.g. '会って食べると書きまして。' (小学館). It agrees with the reading already held, which no source had stated."
+   }
   },
   "田口囁一": {
    "reading": "タグチ ショウイチ",
@@ -134215,15 +135082,31 @@
    }
   },
   "白梅ナズナ": {
-   "reading": "ハクバイ ナズナ",
+   "reading": "シラウメ ナズナ",
+   "ruby": [
+    [
+     "白梅",
+     "しらうめ"
+    ],
+    [
+     "ナズナ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Hakubai Nazuna",
-    "double": "Hakubai Nazuna",
-    "plain": "Hakubai Nazuna"
+    "macron": "Shiraume Nazuna",
+    "double": "Shiraume Nazuna",
+    "plain": "Shiraume Nazuna"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784758023863",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 5 volume(s), e.g. '悪役令嬢の中の人 = The person in a villainess : 断罪された転生者のため嘘つきヒロインに復讐いたします 1' (講談社 (発売)). It replaces 'ハクバイ ナズナ', which no source had stated."
+   }
   },
   "白水然": {
    "reading": "ハクスイゼン",
@@ -134979,15 +135862,27 @@
    }
   },
   "神岡鳥乃": {
-   "reading": "カミオカ トリ ノ",
+   "reading": "カミオカ トリノ",
+   "ruby": [
+    [
+     "神岡鳥乃",
+     "かみおかとりの"
+    ]
+   ],
    "romaji": {
-    "macron": "Kamioka Tori No",
-    "double": "Kamioka Tori No",
-    "plain": "Kamioka Tori No"
+    "macron": "Kamioka Torino",
+    "double": "Kamioka Torino",
+    "plain": "Kamioka Torino"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784798624112",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. '研究棟の真夜中ごはん 1' (ホビージャパン)."
+   }
   },
   "神崎タタミ": {
    "reading": "カンザキ タタミ",
@@ -135252,15 +136147,31 @@
    }
   },
   "秋月かづ": {
-   "reading": "アキヅキ カ ヅ",
+   "reading": "アキズキカズ",
+   "ruby": [
+    [
+     "秋月",
+     "あきずき"
+    ],
+    [
+     "かづ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Akizuki Ka Zu",
-    "double": "Akizuki Ka Zu",
-    "plain": "Akizuki Ka Zu"
+    "macron": "Akizukikazu",
+    "double": "Akizukikazu",
+    "plain": "Akizukikazu"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1109247",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g. 'お金も愛も貢がせて?' ([頒布]日販アイ・ピー・エス). It replaces 'アキヅキ カ ヅ', which no source had stated."
+   }
   },
   "秋月ルコ": {
    "reading": "アキヅキ ルコ",
@@ -135317,15 +136228,35 @@
    "unverified": true
   },
   "科戸コウ": {
-   "reading": "シナト コウ",
+   "reading": "シナトコウ",
+   "ruby": [
+    [
+     "科",
+     "しな"
+    ],
+    [
+     "戸",
+     "と"
+    ],
+    [
+     "コウ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Shinato Kō",
-    "double": "Shinato Kou",
-    "plain": "Shinato Ko"
+    "macron": "Shinatokō",
+    "double": "Shinatokou",
+    "plain": "Shinatoko"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1079613",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g. 'フルボイス!' (芳文社). It agrees with the reading already held, which no source had stated."
+   }
   },
   "稲本いねこ": {
    "reading": "イナモト イネコ",
@@ -135807,8 +136738,20 @@
    "reading": "ミノダ カイドウ",
    "ruby": [
     [
-     "箕田海道",
-     "みのだかいどう"
+     "箕田",
+     "みのだ"
+    ],
+    [
+     "　",
+     null
+    ],
+    [
+     "海",
+     "かい"
+    ],
+    [
+     "道",
+     "どう"
     ]
    ],
    "romaji": {
@@ -135819,11 +136762,11 @@
    "basis": "romaji",
    "reading_basis": "stated",
    "reading_cite": {
-    "source": "national-library",
-    "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I031337031",
-    "kind": "national-library",
-    "reviewed": "2026-08-04",
-    "note": "Family name is ミノダ, not ミタ."
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784046824936",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '蝶と帝国 = BUTTERFLY AND EMPIRE. 1' (KADOKAWA). It replaces 'ミタ \\u3000 カイドウ', which no source had stated."
    }
   },
   "箭坪幹": {
@@ -135869,15 +136812,31 @@
    "unverified": true
   },
   "篠ヒロフミ": {
-   "reading": "シノ   ヒロフミ",
+   "reading": "シノヒロフミ",
+   "ruby": [
+    [
+     "篠",
+     "しの"
+    ],
+    [
+     " ヒロフミ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Shino Hirofumi",
-    "double": "Shino Hirofumi",
-    "plain": "Shino Hirofumi"
+    "macron": "Shinohirofumi",
+    "double": "Shinohirofumi",
+    "plain": "Shinohirofumi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1110692",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g. 'きんぴか症候群' (リブレ). It agrees with the reading already held, which no source had stated."
+   }
   },
   "篠房六郎": {
    "reading": "シノフサ ロクロウ",
@@ -135915,15 +136874,35 @@
    }
   },
   "篠月しのぶ": {
-   "reading": "シノ ツキ シノブ",
+   "reading": "シノツキ シノブ",
+   "ruby": [
+    [
+     "篠",
+     "しの"
+    ],
+    [
+     "月",
+     "つき"
+    ],
+    [
+     "しのぶ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Shino Tsuki Shinobu",
-    "double": "Shino Tsuki Shinobu",
-    "plain": "Shino Tsuki Shinobu"
+    "macron": "Shinotsuki Shinobu",
+    "double": "Shinotsuki Shinobu",
+    "plain": "Shinotsuki Shinobu"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784047376601",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g. 'フツーと化け物. 1' (KADOKAWA)."
+   }
   },
   "篤見唯子": {
    "reading": "トクミユイコ",
@@ -136151,15 +137130,35 @@
    "unverified": true
   },
   "紫真依": {
-   "reading": "ムラサキ   マイ",
+   "reading": "ムラサキマイ",
+   "ruby": [
+    [
+     "紫",
+     "む"
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "真依",
+     "らさきまい"
+    ]
+   ],
    "romaji": {
-    "macron": "Murasaki Mai",
-    "double": "Murasaki Mai",
-    "plain": "Murasaki Mai"
+    "macron": "Murasakimai",
+    "double": "Murasakimai",
+    "plain": "Murasakimai"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784758029247",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '悪役令嬢の中の人～断罪された転生者のため嘘つきヒロインに復讐いたします～(6)' (一迅社)."
+   }
   },
   "紫のあ": {
    "reading": "シノア",
@@ -136544,15 +137543,31 @@
    "uncertain": true
   },
   "緋月アキラ": {
-   "reading": "ヒゲツ アキラ",
+   "reading": "ヒズキアキラ",
+   "ruby": [
+    [
+     "緋月",
+     "ひずき"
+    ],
+    [
+     "アキラ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Higetsu Akira",
-    "double": "Higetsu Akira",
-    "plain": "Higetsu Akira"
+    "macron": "Hizukiakira",
+    "double": "Hizukiakira",
+    "plain": "Hizukiakira"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1032668",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g. 'ノイパちゃんはアブナイ!' (ジーオーティー). It replaces 'ヒゲツ アキラ', which no source had stated."
+   }
   },
   "緋色の雨": {
    "reading": "ヒイロ ノ アメ",
@@ -137010,26 +138025,66 @@
    "unverified": true
   },
   "背川昇": {
-   "reading": "セガワ ノボル",
+   "reading": "セガワノボル",
+   "ruby": [
+    [
+     "背",
+     "せ"
+    ],
+    [
+     "川",
+     "がわ"
+    ],
+    [
+     "昇",
+     "のぼる"
+    ]
+   ],
    "romaji": {
-    "macron": "Segawa Noboru",
-    "double": "Segawa Noboru",
-    "plain": "Segawa Noboru"
+    "macron": "Segawanoboru",
+    "double": "Segawanoboru",
+    "plain": "Segawanoboru"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1061568",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g. 'どく・どく・もり・もり' ([頒布]小学館クリエイティブ). It agrees with the reading already held, which no source had stated."
+   }
   },
   "胡原おみ": {
-   "reading": "コ ゲン オ ミ",
+   "reading": "コハラオミ",
+   "ruby": [
+    [
+     "胡",
+     "こ"
+    ],
+    [
+     "原",
+     "はら"
+    ],
+    [
+     "おみ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Ko Gen O Mi",
-    "double": "Ko Gen O Mi",
-    "plain": "Ko Gen O Mi"
+    "macron": "Koharaomi",
+    "double": "Koharaomi",
+    "plain": "Koharaomi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1062759",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g. '逢沢小春は死に急ぐ' (集英社). It replaces 'コ ゲン オ ミ', which no source had stated."
+   }
   },
   "能代リョウ": {
    "reading": "ノシロ リョウ",
@@ -138045,15 +139100,31 @@
    }
   },
   "蓮冥": {
-   "reading": "レン メイ",
+   "reading": "レンメイ",
+   "ruby": [
+    [
+     "蓮",
+     "れん"
+    ],
+    [
+     "冥",
+     "めい"
+    ]
+   ],
    "romaji": {
-    "macron": "Ren Mei",
-    "double": "Ren Mei",
-    "plain": "Ren Mei"
+    "macron": "Renmei",
+    "double": "Renmei",
+    "plain": "Renmei"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784866252230",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '百合と声と風纏い = lilies,voice,wear wind 1' (サイゾー)."
+   }
   },
   "蓮城はに": {
    "reading": "レンジョウ ワ ニ",
@@ -139961,8 +141032,16 @@
    "reading": "ヨコシマ タケマル",
    "ruby": [
     [
-     "邪武丸",
-     "よこしまたけまる"
+     "邪",
+     "よこしま"
+    ],
+    [
+     " ",
+     null
+    ],
+    [
+     "武丸",
+     "たけまる"
     ]
    ],
    "romaji": {
@@ -139976,8 +141055,8 @@
     "source": "openBD",
     "url": "https://api.openbd.jp/v1/get?isbn=9784847038891",
     "kind": "publisher-jp",
-    "reviewed": "2026-08-06",
-    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '化け猫システム 1' (ワニブックス). It replaces 'ジャ タケマル', which no source had stated."
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. '化け猫システム 1' (ワニブックス)."
    }
   },
   "郷本": {
@@ -140091,26 +141170,66 @@
    }
   },
   "野田のんだ": {
-   "reading": "ノダ ノンダ",
+   "reading": "ノダノンダ",
+   "ruby": [
+    [
+     "野",
+     "の"
+    ],
+    [
+     "田",
+     "だ"
+    ],
+    [
+     "のんだ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Noda Nonda",
-    "double": "Noda Nonda",
-    "plain": "Noda Nonda"
+    "macron": "Nodanonda",
+    "double": "Nodanonda",
+    "plain": "Nodanonda"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1108301",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g. '時雨さんは成仏しない' (大洋図書). It agrees with the reading already held, which no source had stated."
+   }
   },
   "金原瑞人": {
    "reading": "カネハラ ミズヒト",
+   "ruby": [
+    [
+     "金",
+     "かね"
+    ],
+    [
+     "原",
+     "はら"
+    ],
+    [
+     "瑞人",
+     "みずひと"
+    ]
+   ],
    "romaji": {
     "macron": "Kanehara Mizuhito",
     "double": "Kanehara Mizuhito",
     "plain": "Kanehara Mizuhito"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784867910207",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. 'Roaming. Volume1' (トゥーヴァージンズ)."
+   }
   },
   "金城まち": {
    "reading": "キンジョウ マチ",
@@ -140196,15 +141315,27 @@
    }
   },
   "金田陽介": {
-   "reading": "カネダ ヨウスケ",
+   "reading": "カネダヨウスケ",
+   "ruby": [
+    [
+     "金田陽介",
+     "かねだようすけ"
+    ]
+   ],
    "romaji": {
-    "macron": "Kaneda Yōsuke",
-    "double": "Kaneda Yousuke",
-    "plain": "Kaneda Yosuke"
+    "macron": "Kanedayōsuke",
+    "double": "Kanedayousuke",
+    "plain": "Kanedayosuke"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M1036457",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 10 record(s) of the pinned release, e.g. '黒猫と魔女の教室' (講談社). It agrees with the reading already held, which no source had stated."
+   }
   },
   "金魚鉢でめ": {
    "reading": "キンギョバチ デ メ",
@@ -140301,7 +141432,7 @@
      "き"
     ],
     [
-     "りつ",
+     "　りつ",
      null
     ]
    ],
@@ -140316,8 +141447,8 @@
     "source": "MADB",
     "url": "https://mediaarts-db.artmuseums.go.jp/id/M1079133",
     "kind": "national-library",
-    "reviewed": "2026-08-06",
-    "note": "MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g. '考幻学入門' (KADOKAWA). It agrees with the reading already held, which no source had stated."
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g. '考幻学入門' (KADOKAWA). It replaces 'スズキ \\u3000 リツ', which no source had stated."
    }
   },
   "鈴木マ球": {
@@ -140932,15 +142063,35 @@
    "unverified": true
   },
   "陽気婢": {
-   "reading": "ヨウキ ヒ",
+   "reading": "ヨウキヒ",
+   "ruby": [
+    [
+     "陽",
+     "よう"
+    ],
+    [
+     "気",
+     "き"
+    ],
+    [
+     "婢",
+     "ひ"
+    ]
+   ],
    "romaji": {
-    "macron": "Yōki Hi",
-    "double": "Youki Hi",
-    "plain": "Yoki Hi"
+    "macron": "Yōkihi",
+    "double": "Youkihi",
+    "plain": "Yokihi"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/M416876",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 7 record(s) of the pinned release, e.g. 'Magic Mushroom' (富士美出版). It agrees with the reading already held, which no source had stated."
+   }
   },
   "隈井": {
    "reading": "クマイ",
@@ -141626,15 +142777,35 @@
    }
   },
   "風都ノリ": {
-   "reading": "フウト ノリ",
+   "reading": "カゼトノリ",
+   "ruby": [
+    [
+     "風",
+     "かぜ"
+    ],
+    [
+     "都",
+     "と"
+    ],
+    [
+     "ノリ",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Fūto Nori",
-    "double": "Fuuto Nori",
-    "plain": "Futo Nori"
+    "macron": "Kazetonori",
+    "double": "Kazetonori",
+    "plain": "Kazetonori"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "MADB",
+    "url": "https://mediaarts-db.artmuseums.go.jp/id/C116405",
+    "kind": "national-library",
+    "reviewed": "2026-08-08",
+    "note": "MADB records this reading beside the credit on 35 record(s) of the pinned release, e.g. '漫画☆防災研究室'. It replaces 'フウト ノリ', which no source had stated."
+   }
   },
   "飴色みそ": {
    "reading": "アメイロ ミソ",
@@ -141672,14 +142843,30 @@
   },
   "餡こたく": {
    "reading": "アンコタク",
+   "ruby": [
+    [
+     "餡",
+     "あん"
+    ],
+    [
+     "こたく",
+     null
+    ]
+   ],
    "romaji": {
     "macron": "Ankotaku",
     "double": "Ankotaku",
     "plain": "Ankotaku"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784799221105",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g. 'ステラ・ステップ1' (キルタイムコミュニケーション)."
+   }
   },
   "餡実ツキ": {
    "reading": "アンミツキ",
@@ -141752,14 +142939,34 @@
   },
   "香川悠作": {
    "reading": "カガワ ユウサク",
+   "ruby": [
+    [
+     "香川",
+     "かがわ"
+    ],
+    [
+     "悠",
+     "ゆう"
+    ],
+    [
+     "作",
+     "さく"
+    ]
+   ],
    "romaji": {
     "macron": "Kagawa Yūsaku",
     "double": "Kagawa Yuusaku",
     "plain": "Kagawa Yusaku"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784776752530",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. 'ネイルちゃんと深爪さん。 ナイショのパフェを半分こ編' (宙出版)."
+   }
   },
   "香月稜": {
    "reading": "カツキ   リョウ",
@@ -141868,15 +143075,35 @@
    }
   },
   "高坂はしやん": {
-   "reading": "コウサカ   ワ シヤン",
+   "reading": "コウサカハシヤン",
+   "ruby": [
+    [
+     "高",
+     "こう"
+    ],
+    [
+     "坂",
+     "さか"
+    ],
+    [
+     " はしやん",
+     null
+    ]
+   ],
    "romaji": {
-    "macron": "Kōsaka Wa Shiyan",
-    "double": "Kousaka Wa Shiyan",
-    "plain": "Kosaka Wa Shiyan"
+    "macron": "Kōsakahashiyan",
+    "double": "Kousakahashiyan",
+    "plain": "Kosakahashiyan"
    },
    "basis": "romaji",
-   "reading_basis": "analyser",
-   "unverified": true
+   "reading_basis": "stated",
+   "reading_cite": {
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784846210014",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g. 'アイドル総選挙4位だった私が魔王を倒すんですか？ 1' (れんが書房新社). It replaces 'コウサカ   ワ シヤン', which no source had stated."
+   }
   },
   "高尾まこと": {
    "reading": "タカオ 　 マコト",
@@ -142464,6 +143691,10 @@
      "からす"
     ],
     [
+     "　",
+     null
+    ],
+    [
      "ぴえろ",
      null
     ]
@@ -142476,11 +143707,11 @@
    "basis": "romaji",
    "reading_basis": "stated",
    "reading_cite": {
-    "source": "national-library",
-    "url": "https://ndlsearch.ndl.go.jp/books/R100000137-I9784040764863",
-    "kind": "national-library",
-    "reviewed": "2026-08-04",
-    "note": "Guess was already right. 87 other records give the same kana unsegmented as カラスピエロ."
+    "source": "openBD",
+    "url": "https://api.openbd.jp/v1/get?isbn=9784049136555",
+    "kind": "publisher-jp",
+    "reviewed": "2026-08-08",
+    "note": "openBD carries this reading as the publisher's own collationkey on 11 volume(s), e.g. '転生王女と天才令嬢の魔法革命 = The Magical Revolution of Reincarnation Princess and Genius Young Lady. 1' (KADOKAWA). It replaces 'カラス \\u3000 ピエロ', which no source had stated."
    }
   },
   "鴒": {
@@ -151092,7 +152323,7 @@
   "27.第26話ひみつのまちあわせ・前編": "Ch. 26 Himitsu no Machiawase Zenpen",
   "28.第27話ひみつのまちあわせ・後編": "Ch. 27 Himitsu no Machiawase Kōhen",
   "29.第28話ふたりのひかげん": "Ch. 28 Futari no Hikage N",
-  "2C=がろあ/安田剛助・文尾文/たいぼく/未来電機/郷本/紀ノ上晟一/胡原おみ/びよら/佐喜ハジメ/とこみち/秋月伊槻/おたき/林家志弦": "2 C =Garo A, Yasuda Kōsuke, Fumio Aya, Taiboku, Mirai Denki, Gōmoto, Kinōe Seiichi, Ko Gen O Mi, Biyora, Saki Hajime, Tokomichi, Akizuki Itsuki, Otaki, Hayashiya Shizuru",
+  "2C=がろあ/安田剛助・文尾文/たいぼく/未来電機/郷本/紀ノ上晟一/胡原おみ/びよら/佐喜ハジメ/とこみち/秋月伊槻/おたき/林家志弦": "2 C =Garo A, Yasuda Kōsuke, Fumio Aya, Taiboku, Mirai Denki, Gōmoto, Kinōe Seiichi, Koharaomi, Biyora, Saki Hajime, Tokomichi, Akizuki Itsuki, Otaki, Hayashiya Shizuru",
   "2DK、Gペン、アフタータイム。:大沢やよい短編集": "2DK, G Pen, Afutā Taimu., :, Ōsawa Yayoi Tanpenshū",
   "2DK、Gペン、アフタータイム。大沢やよい短編集(百合姫コミックス)": "2DK, G Pen, Afutā Taimu., Ōsawa Yayoi Tanpenshū (Yuri Hime Komikkusu)",
   "2DK、Gペン、目覚まし時計。": "2DK, G Pen, Mezamashidokei.",
@@ -151438,7 +152669,7 @@
   "QueentopiaProject【タテスク】": "Queentopia Project [Tatesuku]",
   "QyootieQ!:麒麟娘と婚約事情": "Qyootie Q ! : Kirin Musume to Kon'yaku Jijō",
   "QyootieQ!―麒麟娘と婚約事情―": "Qyootie Q ! — Kirin Musume to Kon'yaku Jijō —",
-  "R-指定/背川昇/般若": "R - Shitei, Segawa Noboru, Hannya",
+  "R-指定/背川昇/般若": "R - Shitei, Segawanoboru, Hannya",
   "ReAER/時任せつな/トキトウセツナ": "ReAER, Tokitō Setsuna, Tokitōsetsuna",
   "RestinPeace-総集編-": "Rest In Peace - Sōshūhen -",
   "Roaming(TWOVIRGINS)": "Roaming(TWO VIRGINS)",
@@ -151585,7 +152816,7 @@
   "[原作]なもり/[漫画]水鳥なや": "Namori, Minadori Naya",
   "[原作]コキリン/[漫画]ナナセミオリ": "Kokirin, Nanasemiori",
   "[原作]原田重光/[漫画]蘇募ロウ": "Harada Shigemitsu, Soborō",
-  "[原作]宇佐楢春/[漫画]やまだしゅら": "Usa Nara Haru, Yamada Shura",
+  "[原作]宇佐楢春/[漫画]やまだしゅら": "Usa Naraharu, Yamada Shura",
   "[原作]王月よう/[漫画]アジイチ": "Ōzuki Yō, Ajiichi",
   "[原作]高坂はしやん/[漫画]伊予嶺つく": "[ Gensaku ] Kōsaka wa Shiyan, [ Manga ] Iyo Mine Tsuku",
   "[原案協力]舞方パーク/[著]井上和郎": "Mai Hō Pāku, Inōe Kazurō",
@@ -151616,7 +152847,7 @@
   "[特別読切]福音のメリテール": "[ Tokubetsu Yomikiri ] Fukuin no Meritēru",
   "[特別読切]私の宝箱": "[ Tokubetsu Yomikiri ] Watashi no Takarabako",
   "[番外編4]きみと観たいレースがある": "Extra 4 ] Kimi to Mitai Rēsu ga Aru",
-  "[監修]R-指定/[著]背川昇/般若": "R - Shitei, Segawa Noboru, Hannya",
+  "[監修]R-指定/[著]背川昇/般若": "R - Shitei, Segawanoboru, Hannya",
   "[第17打]春雷卓球": "Ch. 17 Da Shunrai Takkyū",
   "[第18打]春雷卓球": "Ch. 18 Da Shunrai Takkyū",
   "[第19打]春雷卓球": "Ch. 19 Da Shunrai Takkyū",
@@ -151742,7 +152973,7 @@
   "[著]ロクロイチ": "[ Cho ] Rokuroichi",
   "[著]一花ハナ": "[ Cho ] Hitohana Hana",
   "[著]七坂なな": "[ Cho ] Hichisaka Nana",
-  "[著]七坂なな,桜木晶,河合朗,ほなみ彩,寺本薫,奈友": "Nanasaka Nana, Sakuragi Akira, Kawai Akira, Honami Aya, Teramoto Kaoru, Nayu",
+  "[著]七坂なな,桜木晶,河合朗,ほなみ彩,寺本薫,奈友": "Nanasaka Nana, Sakuragi Akira, Kawai Akira, Honami Aya, Teramoto Kaoru, Natomo",
   "[著]三国ハヂメ": "[ Cho ] Sankoku Hajime",
   "[著]中村ユキチ": "[ Cho ] Nakamura Yukichi",
   "[著]中村明日美子": "[ Cho ] Nakamura Asumishi",
@@ -151889,7 +153120,7 @@
   "[著]須河篤志": "[ Cho ] Sukawa Atsushi",
   "[著]須藤佑実": "[ Cho ] Sudō Yūmi",
   "[著]飴野": "[ Cho ] Ameno",
-  "[著]香川悠作,冬空,藤松盟,安蔵くんこ,梅原うめ,まりまりも,つみきつき,春名ヒスイ": "Kagawa Yūsaku, Fuyuzora, Fujimatsu Mei, Azōkunko, Umeharaume, Marimarimo, Tsumikitsuki, Haruna Hisui",
+  "[著]香川悠作,冬空,藤松盟,安蔵くんこ,梅原うめ,まりまりも,つみきつき,春名ヒスイ": "Kagawa Yūsaku, Fuyusora, Fujimatsu Mei, Azōkunko, Umeharaume, Marimarimo, Tsumikitsuki, Haruna Hisui",
   "[著]高上優里子": "[ Cho ] Takaue Yuriko",
   "[著]高崎ゆうき": "[ Cho ] Takasaki Yūki",
   "[著]高嶋ひろみ": "[ Cho ] Takashima Hiromi",
@@ -152195,7 +153426,7 @@
   "あおちゅ": "Aochu",
   "あおと響": "Ao to Hibiki",
   "あおのなち": "Ao Nona Chi",
-  "あおのなち/金田陽介/未幡/青椿トト/青乃下/伊藤ハチ/ゐぬゐ/うたたね游/シクシク/とりいしづく/ネコ太郎/春花あや/椋木ななつ/ゆあま/雪子": "Aono Nachi, Kaneda Yōsuke, Miman, Ao Tsubaki Toto, Aono Shimo, Itō Hachi, Inui, Utatane Yū, Shikushiku, Torii Shizuku, Nekotarō, Haruhana Aya, Mukunoki Nanatsu, Yuama, Yukiko",
+  "あおのなち/金田陽介/未幡/青椿トト/青乃下/伊藤ハチ/ゐぬゐ/うたたね游/シクシク/とりいしづく/ネコ太郎/春花あや/椋木ななつ/ゆあま/雪子": "Aono Nachi, Kanedayōsuke, Miman, Ao Tsubaki Toto, Aono Shimo, Itō Hachi, Inui, Utatane Yū, Shikushiku, Torii Shizuku, Nekotarō, Haruhana Aya, Mukunoki Nanatsu, Yuama, Yukiko",
   "あかいかさ、しろいかさ": "Akai Ka Sa, Shiroi Ka Sa",
   "あかねとすみれ": "Akane to Sumire",
   "あかねとすみれ(百合コレ)": "Akane to Sumire (Yuri Kore)",
@@ -152385,7 +153616,7 @@
   "いつも彼女の掌の上/タイザン5漫画賞": "Itsumo Kanojo no Tenohira no Ue, Taizan 5 Manga Shō",
   "いづみみなみ": "Izumi Minami",
   "いづみやおとは": "Izumi Ya Otoha",
-  "いづみやおとは/卯崎ひとみ/夏目/四位広猫/千歳あさひ/江成いちこ/香月稜/石見翔子": "Izumiya Otoha, Usaki Hitomi, Natsume, Shii Hirone, Chitose Asahi, Enari Ichiko, Katsuki Ryō, Iwami Shōko",
+  "いづみやおとは/卯崎ひとみ/夏目/四位広猫/千歳あさひ/江成いちこ/香月稜/石見翔子": "Izumiya Otoha, Usaki Hitomi, Natsume, Shiihirone, Chitose Asahi, Enari Ichiko, Katsuki Ryō, Iwami Shōko",
   "いとしこいし": "Itoshi Koishi",
   "いとしこいし(百合姫コミックス)": "Itoshi Koishi (Yuri Hime Komikkusu)",
   "いととうとし": "Ito Tōto Shi",
@@ -152603,7 +153834,7 @@
   "かめじろ": "Ka Mejiro",
   "かもたま": "Ka mo Tama",
   "かやこ": "Kayako",
-  "かやこ/海野アロイ/ウミノアロイ/カヤコ": "Kayako, Unno Aroi, Uminoaroi, Kayako",
+  "かやこ/海野アロイ/ウミノアロイ/カヤコ": "Kayako, Umino Aroi, Umino Aroi, Kayako",
   "からあげたろう": "Karāgetarō",
   "からあげたろう(著者)": "Karāgetarō ( Chosha )",
   "からふるキューシート!": "Karafuru Kyū Shīto!",
@@ -153272,7 +154503,7 @@
   "はなれないよ": "Wa Narenai Yo",
   "はな羽芽": "Hana Ume",
   "はにみ": "Wa ni Mi",
-  "はねこと/ゆあま/竹嶋えく/さかなや/めの/篠ヒロフミ/くもすずめ/和泉キリフ/いちごイチエ/寺山電/さかさな/伊藤ハチ": "Hanekoto, Yuama, Takeshima Eku, Sakanaya, Meno, Shino Hirofumi, Kumosuzume, Izumi Kirifu, Ichigo Ichie, Tera Sanden, Sakasana, Itō Hachi",
+  "はねこと/ゆあま/竹嶋えく/さかなや/めの/篠ヒロフミ/くもすずめ/和泉キリフ/いちごイチエ/寺山電/さかさな/伊藤ハチ": "Hanekoto, Yuama, Takeshima Eku, Sakanaya, Meno, Shinohirofumi, Kumosuzume, Izumi Kirifu, Ichigo Ichie, Tera Sanden, Sakasana, Itō Hachi",
   "はみ": "Hami",
   "はも": "Hamo",
   "はやしこ": "Hayashiko",
@@ -153515,8 +154746,8 @@
   "まんがタイムきららMAX": "Manga Taimu Kirara MAX",
   "まんがタイムきららMAX編集部": "Manga Taimu Kirara Makkusu Henshūbu",
   "まんがタイムきららMAX(まんがタイムきらら)": "Manga Taimu Kirara Makkusu (Manga Taimu Kirara)",
-  "まんの/うまくち醤油/眞銅七号/ナスムスビム/庭トリ/春待うろ/みな藻/ゆうみ/よちリョウタ": "Manno, Uma Kuchi Shōyu, Shindō Nana Gō, Nasumusubimu, Niwa Tori, Haru Machi Uro, Mina Mo, Yūmi, Yochiryōta",
-  "まんの(カバーイラスト)/うまくち醤油/眞銅七号/ナスムスビム/庭トリ/春待うろ/みな藻/ゆうみ/よちリョウタ": "Manno, Uma Kuchi Shōyu, Shindō Nana Gō, Nasumusubimu, Niwa Tori, Haru Machi Uro, Mina Mo, Yūmi, Yochiryōta",
+  "まんの/うまくち醤油/眞銅七号/ナスムスビム/庭トリ/春待うろ/みな藻/ゆうみ/よちリョウタ": "Manno, Uma Kuchi Shōyu, Shindō Nana Gō, Nasumusubimu, Niwatori, Haru Machi Uro, Mina Mo, Yūmi, Yochiryōta",
+  "まんの(カバーイラスト)/うまくち醤油/眞銅七号/ナスムスビム/庭トリ/春待うろ/みな藻/ゆうみ/よちリョウタ": "Manno, Uma Kuchi Shōyu, Shindō Nana Gō, Nasumusubimu, Niwatori, Haru Machi Uro, Mina Mo, Yūmi, Yochiryōta",
   "みぃぬ": "Mi Inu",
   "みぃはららより少し不幸": "Mi I Harara yori Sukoshi Fukō",
   "みぃはららより少し不幸(百合姫コミックス)": "Mi I Harara yori Sukoshi Fukō (Yuri Hime Komikkusu)",
@@ -153564,7 +154795,7 @@
   "みわくの魔かぞく": "Mi Waku no Ma Kazoku",
   "みわくの魔かぞく(まんがタイムKRコミックス)": "Mi Waku no Ma Kazoku (Manga Taimu KR Komikkusu)",
   "みんたろう": "Mintarō",
-  "みんたろう/飴野/稲葉春/折子ポトス/樫風/樺山/寝路/ぺそ太郎/ましまる/依子/ヨルモ": "Mintarō, Ameno, Inaba Haru, Ori Ko Potosu, Kashikaze, Kabayama, Neji, Pe So Tarō, Mashimaru, Yoriko, Yorumo",
+  "みんたろう/飴野/稲葉春/折子ポトス/樫風/樺山/寝路/ぺそ太郎/ましまる/依子/ヨルモ": "Mintarō, Ameno, Inaba Haru, Ori Ko Potosu, Kashikaze, Kabayama, Neji, Pesotarō, Mashimaru, Yoriko, Yorumo",
   "みんなでえっちな百合活アプリ~ええ!?この中にかかってない娘がいる!?~": "Minna de Etchina Yuri Katsu Apuri, ~ Ē ! ? Kono Naka ni Kakattenai Musume ga Iru ! ? ~",
   "みんなでえっちな百合活アプリ~ええ!?この中にかかってない娘がいる!?~(BLIC-GL)": "Minna de Etchina Yuri Katsu Apuri, ~ Ē ! ? Kono Naka ni Kakattenai Musume ga Iru ! ? ~ (BLIC - GL)",
   "みんな私のはらのなか": "Minna Watashi no Hara no Naka",
@@ -154626,7 +155857,7 @@
   "ネコハリコ22/ゆ/はるの/くちこ/名護/tica85bookstores/ガレットワークス": "Nekohariko 22, Yu, Haru no, Kuchiko, Nago, tica85, bookstores, Garetto Wākusu",
   "ネコ太郎": "Neko Tarō",
   "ネコ太郎/ネコタロウ": "Neko Tarō, Nekotarō",
-  "ネコ太郎/樫風/深海紺/毒田ペパ子/甘崎水菓/とこのま/結川カズノ/宮原都": "Nekotarō, Kashikaze, Shinkai Kon, Dokuta Pepako, Amazaki Suika, Tokonoma, Yukawa Kazuno, Miyahara Miyako",
+  "ネコ太郎/樫風/深海紺/毒田ペパ子/甘崎水菓/とこのま/結川カズノ/宮原都": "Nekotarō, Kashikaze, Fukaumikon, Dokuta Pepako, Amazaki Suika, Tokonoma, Yukawa Kazuno, Miyahara Miyako",
   "ネコ様の言うとおり": "Nekosama no Iu Tōri",
   "ネジクギ劇場番外編": "Nejikugi Gekijō Bangaihen",
   "ネジクギ劇場番外編(BLIC)": "Nejikugi Gekijō Bangaihen (BLIC)",
@@ -155133,7 +156364,7 @@
   "ロイヤルテーラー―王宮の裁縫師―": "Roiyaru Tērā — Ōkyū no Saihōshi —",
   "ロク+イチ暮らし": "Roku, Ichi Kurashi",
   "ロクロイチ": "Rokuroichi",
-  "ロクロイチ/森島明子/三国ハヂメ/ピエール山本/コダマナオコ/再田ニカ/天野しゅにんた/朝槻忍": "Rokuroichi, Morishima Akiko, Mikuni Hajime, Piēru Yamamoto, Kodama Naoko, Saita Nika, Amano Shuninta, Asatsuki Shinobu",
+  "ロクロイチ/森島明子/三国ハヂメ/ピエール山本/コダマナオコ/再田ニカ/天野しゅにんた/朝槻忍": "Rokuroichi, Morishima Akiko, Mikuni Hajime, Piēru Yamamoto, Kodama Naoko, Saidanika, Amano Shuninta, Asatsuki Shinobu",
   "ロケット☆ガールRockIt,GiRL!!": "Roketto ☆ Gāru, Rock, It, GiRL!!",
   "ロックは淑女(レディ)の嗜みでして": "Rokku wa Shukujo no Tashinamideshite",
   "ロックは淑女の嗜みでして": "Rokku wa Shukujo no Tashinamideshite",
@@ -155191,9 +156422,9 @@
   "一花ハナ": "Hitohana Hana",
   "一迅社/田口囁一/イチジンシャ/タグチショウイチ": "Ichijinsha, Taguchi Shōichi, Ichijinsha, Taguchi Shōichi",
   "七坂なな": "Hichisaka Nana",
-  "七坂なな/桜木晶/河合朗/ほなみ彩/寺本薫/奈友/香川悠作/冬空/藤松盟/安蔵くんこ/梅原うめ/まりまりも/つみきつき/春名ヒスイ": "Nanasaka Nana, Sakuragi Akira, Kawai Akira, Honami Aya, Teramoto Kaoru, Nayu, Kagawa Yūsaku, Fuyuzora, Fujimatsu Mei, Azōkunko, Umeharaume, Marimarimo, Tsumikitsuki, Haruna Hisui",
-  "七坂なな/桜木晶/河合朗/ほなみ彩/寺本薫/奈友/香川悠作(カバーイラスト)": "Nanasaka Nana, Sakuragi Akira, Kawai Akira, Honami Aya, Teramoto Kaoru, Nayu, Kagawa Yūsaku",
-  "七坂なな,桜木晶,河合朗,ほなみ彩,寺本薫,奈友": "Nanasaka Nana, Sakuragi Akira, Kawai Akira, Honami Aya, Teramoto Kaoru, Nayu",
+  "七坂なな/桜木晶/河合朗/ほなみ彩/寺本薫/奈友/香川悠作/冬空/藤松盟/安蔵くんこ/梅原うめ/まりまりも/つみきつき/春名ヒスイ": "Nanasaka Nana, Sakuragi Akira, Kawai Akira, Honami Aya, Teramoto Kaoru, Natomo, Kagawa Yūsaku, Fuyusora, Fujimatsu Mei, Azōkunko, Umeharaume, Marimarimo, Tsumikitsuki, Haruna Hisui",
+  "七坂なな/桜木晶/河合朗/ほなみ彩/寺本薫/奈友/香川悠作(カバーイラスト)": "Nanasaka Nana, Sakuragi Akira, Kawai Akira, Honami Aya, Teramoto Kaoru, Natomo, Kagawa Yūsaku",
+  "七坂なな,桜木晶,河合朗,ほなみ彩,寺本薫,奈友": "Nanasaka Nana, Sakuragi Akira, Kawai Akira, Honami Aya, Teramoto Kaoru, Natomo",
   "七月冬至": "Nana Gatsu Tōji",
   "七橋楽": "Shichi Hashi Raku",
   "七橋楽/半田畔/にゅむ(キャラクターデザイン)": "Shichi Hashi, Raku, Handa, Aze, Ni Yu Mu ( Kyarakutā Dezain )",
@@ -155629,7 +156860,7 @@
   "共鳴するエコー": "Kyōmei Suru Ekō",
   "共鳴するエコー(まんがタイムKRコミックス)": "Kyōmei Suru Ekō (Manga Taimu KR Komikkusu)",
   "其れの手も借りるほど": "Sore no Te mo Kariru Hodo",
-  "内村かなめ/切口からし/倉田嘘/栗原あおい/すこやか/奈春/ねこ太/古居すぐり/間狩修/真西まり/水鳥なや/源久也/森島明子/八色/邪武丸/吉辺あくろ": "Uchimura Kaname, Kirikuchi Kara Shi, Kurata Uso, Kurihara Aoi, Sukoyaka, Na Shun, Nekota, Furui Suguri, Makari Osamu, Manishi Mari, Minadori Naya, Minamotono Hisaya, Morishima Akiko, Yakusa, Yokoshima Takemaru, Yoshibe Akuro",
+  "内村かなめ/切口からし/倉田嘘/栗原あおい/すこやか/奈春/ねこ太/古居すぐり/間狩修/真西まり/水鳥なや/源久也/森島明子/八色/邪武丸/吉辺あくろ": "Uchimura Kaname, Kirikuchi Kara Shi, Kurata Uso, Kurihara Aoi, Sukoyaka, Na Shun, Nekota, Furui Suguri, Makari Osamu, Manishi Mari, Minadori Naya, Minamoto Hisanari, Morishima Akiko, Yakusa, Yokoshima Takemaru, Yoshibe Akuro",
   "内猫さかな": "Uchi Neko Sakana",
   "内緒の初恋ハニーディズ": "Naisho no Hatsukoi Hanīdizu",
   "内藤隆": "Uchi Fujitaka",
@@ -155648,8 +156879,8 @@
   "冬木先輩と夏井(ナンバーナイン)": "Fuyuki Senpai to Natsui (Nanbā Nain)",
   "冬眠結/橙々": "Tōmin, Ketsu, Daidaikigō",
   "冬眠少女": "Tōmin Shōjo",
-  "冬眠結(漫画)橙々(原作)": "Tōmin Ketsu, Daidaikigō",
-  "冬眠結,橙々": "Tōmin Ketsu, Daidaikigō",
+  "冬眠結(漫画)橙々(原作)": "Tōmin'yū, Daidaikigō",
+  "冬眠結,橙々": "Tōmin'yū, Daidaikigō",
   "冬芽沙也/中村朱里": "Tōga Saya, Nakamura Juri",
   "冬馬くん": "Tōmakun",
   "冬馬くん【単話版】": "Tōmakun [Tan Hanashi Ban]",
@@ -155673,7 +156904,7 @@
   "切符/くもすずめ/粉山カタ/しぐれうい/須藤佑実/滝島朝香/吉田ばな/ヨドカワ/ヨルモ": "Kippu, Kumosuzume, Koyama Kata, Shigureui, Sudō Yūmi, Takishima Asaka, Yoshida Bana, Yodokawa, Yorumo",
   "切符/文尾文/tonito/玄鉄絢/ヨルモ/くもすずめ/ヨドカワ/鳩春/あさみ/須藤佑実/桜庭友紀": "Kippu, Bunbi Bun, tonito, Gentetsu Aya, Yorumo, Kumo Suzume, Yodokawa, Hato Haru, Asami, Sudō Yūmi, Sakuraba Yuki",
   "切符/文尾文/tonito/玄鉄絢/ヨルモ/くもすずめ/ヨドカワ/鳩春/あさみ/須藤祐美/桜庭友紀": "Kippu, Bunbi Bun, tonito, Gentetsu Aya, Yorumo, Kumo Suzume, Yodokawa, Hato Haru, Asami, Sudō Yumi, Sakuraba Yuki",
-  "切符/海島千本/さかもとびん/桐山はるか/目玉焼き/もし/金魚鉢でめ/空倉シキジ/みかん氏/ヨルモ": "Kippu, Umishima Senbon, Sakamotobin, Kiriyama Haruka, Medamayaki, Moshi, Kingyobachi De Me, Kūsō Shikiji, Mikan Uji, Yorumo",
+  "切符/海島千本/さかもとびん/桐山はるか/目玉焼き/もし/金魚鉢でめ/空倉シキジ/みかん氏/ヨルモ": "Kippu, Umishimasenbon, Sakamotobin, Kiriyama Haruka, Medamayaki, Moshi, Kingyobachi De Me, Kūsō Shikiji, Mikan Uji, Yorumo",
   "切符/金魚鉢でめ/空倉シキジ/みかん氏/目玉焼き/ヨルモ": "Kippu, Kingyobachi de Me, Kūsō, Shikiji, Mikanshi, Medamayaki, Yorumo",
   "初恋の不一致": "Hatsukoi no Fuitchi",
   "初恋の不一致総集編": "Hatsukoi no Fuitchi Sōshūhen",
@@ -155752,7 +156983,7 @@
   "千才姉妹(ナンバーナイン)": "Chitose Shimai (Nanbā Nain)",
   "千田大輔": "Senda Daisuke",
   "千種みのり": "Chigusa Minori",
-  "千種みのり/あいそえる/石ト悠良/おぎしろ/再田ニカ/時永保名/水瀬はづき/みもと": "Chigusa Minori, Aisoeru, Ishito Yura, Ogishiro, Saita Nika, Tokinaga Yasuna, Minase Wa Zuki, Mimoto",
+  "千種みのり/あいそえる/石ト悠良/おぎしろ/再田ニカ/時永保名/水瀬はづき/みもと": "Chigusa Minori, Aisoeru, Ishito Yura, Ogishiro, Saidanika, Tokinaga Yasuna, Minase Wa Zuki, Mimoto",
   "千種みのり/みかみてれん": "Chigusa Minori, Mikami Teren",
   "千種みのり/チグサミノリ": "Chigusa Minori, Chigusaminori",
   "千葉らき": "Chibaraki",
@@ -155760,7 +156991,7 @@
   "千野なこ": "Chinona Ko",
   "午前二時は食卓で": "Gozen ni Ji wa Shokutakude",
   "午前二時は食卓で(HARTACOMIX)": "Gozen ni Ji wa Shokutaku de (HARTA COMIX)",
-  "午子/ふかみん": "Uma Ko, Fukamin",
+  "午子/ふかみん": "Umashi, Fukamin",
   "半熟女子": "Hanjuku Joshi",
   "南国ばなな": "Nangoku Banana",
   "南山除妖録": "Nanzan Jo Ayakashiroku",
@@ -155846,7 +157077,7 @@
   "双子百合えっちアンソロジー(百合姫コミックス)": "Futago Yuri Etchi Ansorojī (Yuri Hime Komikkusu)",
   "双葉ヤヒコ": "Futaba Yahiko",
   "双葉陽": "Futaba Akira",
-  "双見酔/中曽ねこ": "Futami Yoi, Nakaso Neko",
+  "双見酔/中曽ねこ": "Futamisui, Nakaso Neko",
   "双角カンケイ。": "Sō Kaku Kankei.",
   "双角カンケイ。(まんがタイムKRコミックス)": "Sō Kaku Kankei. (Manga Taimu KR Komikkusu)",
   "収納魔法が切実に欲しいと願っていたら、転生してしまった(コミック)": "Shūnō Mahō ga Setsujitsuni Hoshii to Negatte Itara, Tenshō Shite Shimatta (Komikku)",
@@ -155888,7 +157119,7 @@
   "吉村佳": "Yoshimura Kei",
   "吉沢タクマ": "Yoshizawa Takuma",
   "吉田真百合": "Yoshida Mayuri",
-  "吉田ばな/ヨドカワ/秋月かづ/梅咲しゃきこ/瀬尾みいのすけ/ゆり山/もえきち。/缶乃": "Yoshida Bana, Yodokawa, Akizuki Ka Zu, Umesaki Shaki Ko, Seo Mii No Suke, Yurisan, Moekichi., Kanno",
+  "吉田ばな/ヨドカワ/秋月かづ/梅咲しゃきこ/瀬尾みいのすけ/ゆり山/もえきち。/缶乃": "Yoshida Bana, Yodokawa, Akizukikazu, Umesaki Shaki Ko, Seo Mii No Suke, Yurisan, Moekichi., Kanno",
   "吉田丸悠": "Yoshidamaru Yū",
   "吉良いと": "Kichi Yoi to",
   "吉野條二": "Yoshino Jō ni",
@@ -156065,7 +157296,7 @@
   "夏日晴空": "Natsubi Hare Sora",
   "夏村東和": "Natsu Mura Tōwa",
   "夏村東和/ナツムラトワ": "Natsu Mura Tōwa, Natsumuratowa",
-  "夏河もか/神岡鳥乃": "Natsukawa Mo Ka, Kamioka Tori No",
+  "夏河もか/神岡鳥乃": "Natsukawa Moka, Kamioka Torino",
   "夏目じん": "Natsume Jin",
   "夏美のマル秘身代わり日記男子寮潜入48時間": "Natsumi no Maruhi Migawari Nikki Danshiryō Sennyū 48 Jikan",
   "夏草": "Natsukusa",
@@ -156134,7 +157365,7 @@
   "大人になるってこと": "Otona ni Naru Tte Koto",
   "大刃堂寿": "Ō Ha Dō Ju",
   "大北真潤": "Ōkita Mahiro",
-  "大北真潤/コダマナオコ/後藤悠希/せきはら/タカハシマコ/三国ハヂメ/南崎いく/森島明子/雪尾ゆき/蓮城はに/焼肉定食/野田のんだ/梅原うめ/荻野純/日野アラシ": "Ōkita Mahiro, Kodama Naoko, Gotō Yūki, Sekihara, Takahashi Mako, Mikuni Hajime, Nanzaki Iku, Morishima Akiko, Yukio Yuki, Renjō Wa Ni, Yakiniku Teishoku, Noda Nonda, Umeharaume, Ogino Jun, Hino Arashi",
+  "大北真潤/コダマナオコ/後藤悠希/せきはら/タカハシマコ/三国ハヂメ/南崎いく/森島明子/雪尾ゆき/蓮城はに/焼肉定食/野田のんだ/梅原うめ/荻野純/日野アラシ": "Ōkita Mahiro, Kodama Naoko, Gotō Yūki, Sekihara, Takahashi Mako, Mikuni Hajime, Nanzaki Iku, Morishima Akiko, Yukio Yuki, Renjō Wa Ni, Yakiniku Teishoku, Nodanonda, Umeharaume, Ogino Jun, Hino Arashi",
   "大北真潤/コダマナオコ/後藤悠希/せきはら/タカハシマコ/南崎いく/三国ハヂメ/森島明子/雪尾ゆき/蓮城はに": "Ōkita Mahiro, Kodama Naoko, Gotō Yuki, Sekihara, Takahashimako, Minamizaki Iku, Sankoku Hajime, Morishima Akiko, Yukio Yuki, Renjō, Wa ni",
   "大北紘子": "Ōkita Hiroko",
   "大塚英志/浅野龍哉": "Ōtsuka Eiji, Asano Tatsuya",
@@ -156158,7 +157389,7 @@
   "大川ぶくぶ(漫画)": "Ōkawa Buku Bu ( Manga )",
   "大庭直仁": "Ōba Naotoyo",
   "大朋めがね": "Ōtomo Megane",
-  "大槻ミゥ/ピエール山本/三国ハヂメ/森島明子/ロクロイチ/牛乳リンダ/あくた琳子/天野しゅにんた/百乃モト/山田酉子/田中琳/くずしろ/大沢やよい/コダマナオコ/あおと響/ちさこ/河合朗/南崎いく/片倉アコ": "Ōtsuki Miu, Piēru Yamamoto, Mikuni Hajime, Morishima Akiko, Rokuroichi, Gyūnyū Rinda, Akuta Rinko, Amano Shuninta, Momono Moto, Yamada Yūko, Tanaka Rin, Kuzushiro, Ōsawa Yayoi, Kodama Naoko, Aoto Hibiki, Chisako, Kawai Akira, Nanzaki Iku, Katakura Ako",
+  "大槻ミゥ/ピエール山本/三国ハヂメ/森島明子/ロクロイチ/牛乳リンダ/あくた琳子/天野しゅにんた/百乃モト/山田酉子/田中琳/くずしろ/大沢やよい/コダマナオコ/あおと響/ちさこ/河合朗/南崎いく/片倉アコ": "Ōtsukimiu, Piēru Yamamoto, Mikuni Hajime, Morishima Akiko, Rokuroichi, Gyūnyūrinda, Akuta Rinko, Amano Shuninta, Momono Moto, Yamada Yūko, Tanaka Rin, Kuzushiro, Ōsawa Yayoi, Kodama Naoko, Aoto Hibiki, Chisako, Kawai Akira, Nanzaki Iku, Katakura Ako",
   "大正忌憚魔女": "Taishō Kitan Majo",
   "大正忌憚魔女(MFCキューンシリーズ)": "Taishō Kitan Majo (MFC Kyūn Shirīzu)",
   "大沢あまね": "Ōsawa Amane",
@@ -156320,8 +157551,8 @@
   "学校が違うふたり": "Gakkō ga Chigau Futari",
   "学校が違うふたり(ナンバーナイン)": "Gakkō ga Chigau Futari (Nanbā Nain)",
   "学校のしおり": "Gakkō no Shiori",
-  "宇佐楢春/やまだしゅら": "Usa Nara Haru, Yamada Shura",
-  "宇佐楢春/漫画やまだしゅら": "Usa Nara Haru, Yamada Shura",
+  "宇佐楢春/やまだしゅら": "Usa Naraharu, Yamada Shura",
+  "宇佐楢春/漫画やまだしゅら": "Usa Naraharu, Yamada Shura",
   "宇宙人だった君へ": "Uchūnindatta Kimi e",
   "宇宙鍋": "Uchū Nabe",
   "宇島葉": "Unoshima Ha",
@@ -156514,7 +157745,7 @@
   "嵩乃朔": "Kasa no Tsuitachi",
   "嵩乃朔ほか": "Kasa no Tsuitachi Hoka",
   "嶋原翌": "Shimabara Yoku",
-  "嶋水えけ/純玲/tsuke/さかなや/のちむゆ/もくはち/つつい/辻柚那/柏木ツキコ/さかさな/篠ヒロフミ/日野アラシ": "Shima Mizu E Ke, Sumire, tsuke, Sakanaya, Nochimuyu, Mokuhachi, Tsutsui, Tsuji Yuzu Da, Kashiwagi Tsukiko, Sakasana, Shino Hirofumi, Hino Arashi",
+  "嶋水えけ/純玲/tsuke/さかなや/のちむゆ/もくはち/つつい/辻柚那/柏木ツキコ/さかさな/篠ヒロフミ/日野アラシ": "Shimamizueke, Sumire, tsuke, Sakanaya, Nochimuyu, Mokuhachi, Tsutsui, Tsuji Yuzu Da, Kashiwagi Tsukiko, Sakasana, Shinohirofumi, Hino Arashi",
   "嶋鳥ひとり": "Shima Tori Hitori",
   "川上しをん/入間人間/猫屋敷ぷしお(キャラクターデザイン)": "Kawakami Shion, Iruma Ningen, Nekoyashiki, Pu Shio ( Kyarakutā Dezain )",
   "川上しをん/入間人間/猫屋敷ぷしお": "Kawakami Shion, Iruma Hitoma, Nekoyashiki Pushio",
@@ -156532,9 +157763,9 @@
   "川邑司": "Kawamura Tsukasa",
   "工藤える": "Kudō Eru",
   "工藤える/クドウエル": "Kudō Eru, Kudōeru",
-  "工藤マコト/矢立肇・富野由悠季": "Kudō Makoto, Yadate Hajime, Tomino Yoshiyuki",
-  "工藤マコト(漫画)矢立肇・富野由悠季(原案)": "Kudō Makoto, Yadate Hajime, Tomino Yoshiyuki",
-  "工藤マコト,矢立肇・富野由悠季": "Kudō Makoto, Yadate Hajime, Tomino Yoshiyuki",
+  "工藤マコト/矢立肇・富野由悠季": "Kudōmakoto, Yadate Hajime, Tomino Yoshiyuki",
+  "工藤マコト(漫画)矢立肇・富野由悠季(原案)": "Kudōmakoto, Yadate Hajime, Tomino Yoshiyuki",
+  "工藤マコト,矢立肇・富野由悠季": "Kudōmakoto, Yadate Hajime, Tomino Yoshiyuki",
   "巻本梅実/二月公/さばみぞれ(キャラクターデザイン)": "Makimoto, Umemi, Ni Gatsu, Kō, Saba Mizore ( Kyarakutā Dezain )",
   "巻舌ひっち": "Makijita Hi Chi",
   "市川ヒロ": "Ichikawa Hiro",
@@ -156783,7 +158014,7 @@
   "恋煩いとピュア(ナンバーナイン)": "Koiwazurai to Pyua (Nanbā Nain)",
   "恋煩いのシューゲイザー": "Koiwazurai no Shūgeizā",
   "恋煩いのシューゲイザー(ナンバーナイン)": "Koiwazurai no Shūgeizā (Nanbā Nain)",
-  "恋狸/浦あられ/ウラアラレ/コイダヌキ": "Koi Tanuki, Ura Arare, Urārare, Koidanuki",
+  "恋狸/浦あられ/ウラアラレ/コイダヌキ": "Koi Tanuki, Urārare, Urārare, Koidanuki",
   "恋色の境界": "Koiro no Kyōkai",
   "悠夜アキハル": "Yūya Akiharu",
   "悠理なゆた": "Yūrina Yuta",
@@ -157252,7 +158483,7 @@
   "松本ナミル(著者)": "Matsumoto Namiru ( Chosha )",
   "松本陽介": "Matsumoto Yōsuke",
   "松本陽介(著者)": "Matsumoto Yōsuke ( Chosha )",
-  "松藤かるり/風都ノリ/秋鹿ユギリ": "Matsufuji Ka Ruri, Fūto Nori, Aika Yugiri",
+  "松藤かるり/風都ノリ/秋鹿ユギリ": "Matsufuji Ka Ruri, Kazetonori, Aika Yugiri",
   "松藤かるり(原作)風都ノリ(漫画)秋鹿ユギリ(キャラクター原案)": "Matsufuji Ka Ruri ( Gensaku ), Fūto Nori ( Manga ), Aika Yugiri ( Kyarakutā Gen'an )",
   "枕辺しょーま": "Makurabe Shō Ma",
   "林家志弦": "Hayashiya Shizuru",
@@ -157313,7 +158544,7 @@
   "桐原のん/daro/ContentsLab.BlueTOKYO": "Kirihara Non, daro, Contents Lab. Blue TOKYO",
   "桐原小鳥": "Kirihara Kotori",
   "桐山はるか": "Kiriyama Haruka",
-  "桐山はるか/今井/樫風/後藤悠希/ちこれ/2C=がろあ/三田織/もちオーレ/雪尾ゆき/よしのかや/よぬりめ": "Kiriyama Haruka, Imai, Kashikaze, Gotō Yūki, Chikore, 2 C =Garo A, Mita Ori, Mochi Ōre, Yukio Yuki, Yoshinokaya, Yonurime",
+  "桐山はるか/今井/樫風/後藤悠希/ちこれ/2C=がろあ/三田織/もちオーレ/雪尾ゆき/よしのかや/よぬりめ": "Kiriyama Haruka, Imai, Kashikaze, Gotō Yūki, Chikore, 2 C =Garo A, Mitaori, Mochi Ōre, Yukio Yuki, Yoshinokaya, Yonurime",
   "桐島豊": "Kirishima Yutaka",
   "桐灰きねそ": "Kiribai Kine So",
   "桐灰きねそ(著者)": "Kiribai Kine So ( Chosha )",
@@ -157583,7 +158814,7 @@
   "海猫荘days(百合姫コミックス)": "Uminekosō Days (Yuri Hime Komikkusu)",
   "海産物/とよだたつき": "Kaisanbutsu, Toyodatatsuki",
   "海老川ケイ": "Ebigawa Kei",
-  "海野アロイ/かやこ/ぷらこ": "Unno Aroi, Kayako, Purako",
+  "海野アロイ/かやこ/ぷらこ": "Umino Aroi, Kayako, Purako",
   "海風が薫る": "Umikaze ga Kaoru",
   "海鮮丼": "Kaisendon",
   "海鳥東月の『でたらめ』な事情": "Umidori Higashi Gatsu no “Detarame”na Jijō",
@@ -157839,7 +159070,7 @@
   "田中火蛾": "Tanaka Ka ga",
   "田中琳": "Tanaka Rin",
   "田仲みのる": "Tanaka Minoru",
-  "田口ケンジ/タグチケンジ": "Taguchi Kenji, Taguchikenji",
+  "田口ケンジ/タグチケンジ": "Taguchikenji, Taguchikenji",
   "田口囁一": "Taguchi Shōichi",
   "田口囁一/羽流木はない": "Taguchi Shōichi, Warugi Hanai",
   "田崎ぎん": "Tasaki Gin",
@@ -157917,7 +159148,7 @@
   "白昼夢のお姉さん": "Hakuchūmu no Onēsan",
   "白昼夢のお姉さん(百合コレ)": "Hakuchūmu no Onēsan (Yuri Kore)",
   "白月光プロジェクト~あの時の彼女を取り戻す~【タテスク】": "Shiro Gekkō Purojekuto ~ Ano Toki no Kanojo o Torimodosu ~ [Tatesuku]",
-  "白梅ナズナ/まきぶろ/紫真依": "Hakubai Nazuna, Makiburo, Murasaki Mai",
+  "白梅ナズナ/まきぶろ/紫真依": "Shiraume Nazuna, Makiburo, Murasakimai",
   "白水然": "Hakusuizen",
   "白沢まりも": "Shirasawa Mari mo",
   "白玉もち": "Shiratamamochi",
@@ -158109,7 +159340,7 @@
   "神ゲーってそういうことですか(電撃コミックスNEXT)": "Kamigē Tte Sō Iu Kotodesu Ka (Dengeki Komikkusu NEXT)",
   "神仙桃娘宮廷の贄": "Shinsen Momo Musume Kyūtei no Nie",
   "神仙桃娘宮廷の贄(あすかコミックスDX)": "Shinsen Momo Musume Kyūtei no Nie (Asuka Komikkusu DX)",
-  "神岡鳥乃/夏河もか": "Kamioka Tori No, Natsukawa Mo Ka",
+  "神岡鳥乃/夏河もか": "Kamioka Torino, Natsukawa Moka",
   "神崎タタミ": "Kanzaki Tatami",
   "神戸いちご": "Kōbe Ichigo",
   "神様、あの子を私にください": "Kamisama, Ano Ko o Watashi ni Kudasai",
@@ -158904,7 +160135,7 @@
   "箱根有": "Hakone U",
   "篠崎志乃は甘くない!": "Shinozaki Shino wa Amaku Nai!",
   "篠房六郎": "Shino Bō Rokurō",
-  "篠月しのぶ/羽流木はない": "Shino Tsuki Shinobu, Warugi Hanai",
+  "篠月しのぶ/羽流木はない": "Shinotsuki Shinobu, Warugi Hanai",
   "篠月しのぶ/羽流木はない/シノツキシノブ/ワルギワナイ": "Shino Tsuki Shinobu, Haru Ki wa Nai, Shinotsukishinobu, Warugiwanai",
   "篤見唯子": "Atsu Mi Tadako",
   "籠の少女は恋をする": "Kago no Shōjo wa Koi o Suru",
@@ -159001,14 +160232,14 @@
   "綾里けいし/はっとりまさき/rurudo": "Ayasato Keishi, Hattori Masaki, Rurudo",
   "綾里けいし(原作・脚本)/はっとりまさき/rurudo(イラスト・企画)": "Ayasato Keishi, Hattori Masaki, Rurudo",
   "綿桐さや": "Men Kiri Saya",
-  "緋月アキラ/橘みんみ": "Higetsu Akira, Tachibana Min Mi",
-  "緋月アキラ/橘みんみ(プラス81)": "Higetsu Akira, Tachibana Min Mi",
+  "緋月アキラ/橘みんみ": "Hizukiakira, Tachibana Min Mi",
+  "緋月アキラ/橘みんみ(プラス81)": "Hizukiakira, Tachibana Min Mi",
   "緋色のナナ": "Hiiro no Nana",
   "総合タワーリシチ": "Sōgō Tawārishichi",
   "総集編": "Sōshūhen",
   "線の上で前を向く": "Sen no Ue de Mae o Muku",
   "線の上で前を向く(百合コレ)": "Sen no Ue de Mae o Muku (Yuri Kore)",
-  "緜/デス山ハナ子/獅尾/薬師寺うつつ/森永ミキ/西塚em/出水/葵山わさび": "Ben, Desuyama Hanako, Shishio, Yakushiji Utsutsu, Morinaga Miki, Nishizuka Em, Shussui, Kizan Wasabi",
+  "緜/デス山ハナ子/獅尾/薬師寺うつつ/森永ミキ/西塚em/出水/葵山わさび": "Ben, Desuyama Hanako, Shishio, Yakushiji Utsutsu, Morinagamiki, Nishizuka Em, Shussui, Kizan Wasabi",
   "緜/春花あや/ゆでぱん/新井すみこ/つみきつき/cocoa/くわばらたもつ/白玉もち": "Ben, Haruka, Aya, Yude Pan, Arai, Sumiko, Tsu Mikitsuki, cocoa, Kuwabara, Tamotsu, Shiratamamochi",
   "緜/春花あや/ゆでぱん/新井すみこ/つみきつき/Cocoa/くわばらたもつ/白玉もち": "Ben, Haruka Aya, Yude Pan, Arai Sumiko, Tsu Mikitsuki, Cocoa, Kuwabara Tamotsu, Shiratamamochi",
   "練りこみ藤吉郎": "Nerikomi Tōkichirō",
@@ -159047,13 +160278,13 @@
   "羽津っちはハスキー犬": "Hazu Chi wa Hasukīken",
   "羽津っちはハスキー犬(ライトリーズン)": "Hazu Chi wa Hasukīken (Raito Rīzun)",
   "羽流木はない/田口囁一": "Warugi Hanai, Taguchi Shōichi",
-  "羽流木はない/篠月しのぶ": "Warugi Hanai, Shino Tsuki Shinobu",
-  "羽流木はない,篠月しのぶ": "Warugi Hanai, Shino Tsuki Shinobu",
-  "羽流木はない(原作)篠月しのぶ(漫画)": "Warugi Hanai, Shino Tsuki Shinobu",
+  "羽流木はない/篠月しのぶ": "Warugi Hanai, Shinotsuki Shinobu",
+  "羽流木はない,篠月しのぶ": "Warugi Hanai, Shinotsuki Shinobu",
+  "羽流木はない(原作)篠月しのぶ(漫画)": "Warugi Hanai, Shinotsuki Shinobu",
   "羽田遼亮/中島零/潮一葉/赤衣丸歩郎": "Hata Ryōsuke, Nakajima Rei, Ushio Hitoha, Akai Maruborō",
   "羽田遼亮中島零潮一葉赤衣丸歩郎": "Hata Ryō Ryō Nakajima Rei Ushio Ichiyō Akaginumaru Fu Rō",
   "翠星ちょこ": "Suisei Choko",
-  "翠星ちょこ/遮二無二/友藤みる/西沢5ミリ/蓬餅/みもと/岩下継/コダマナオコ/雪尾ゆき/さかさな/夏村東和/はるしおん/おきぬ/ユニ/茜りう/仁科": "Suisei Choko, Shanimuni, Tomofuji Miru, Nishisawa 5 ミリ, Yomogimochi, Mimoto, Iwashita Kei, Kodama Naoko, Yukio Yuki, Sakasana, Natsumura Towa, Harushion, Okinu, Yuni, Akaneriu, Nishina",
+  "翠星ちょこ/遮二無二/友藤みる/西沢5ミリ/蓬餅/みもと/岩下継/コダマナオコ/雪尾ゆき/さかさな/夏村東和/はるしおん/おきぬ/ユニ/茜りう/仁科": "Suisei Choko, Shanimuni, Tomofuji Miru, Nishizawa 5Miri, Yomogimochi, Mimoto, Iwashita Kei, Kodama Naoko, Yukio Yuki, Sakasana, Natsumura Towa, Harushion, Okinu, Yuni, Akaneriu, Nishina",
   "翻訳協力BPS株式会社/企画・監修角川青羽/伊実/ZCloud": "Hon'yaku Kyōryoku BPS Kabushikigaisha, Kanshū Kadokawa Aoba (concept), Korezane, ZCloud",
   "翻訳協力BPS株式会社/時一二": "Hon'yaku Kyōryoku BPS Kabushikigaisha, Toki Ichini",
   "老田ヒビキ": "Oita Hibiki",
@@ -159248,7 +160479,7 @@
   "行進子犬に恋文を(百合姫コミックス)": "Kōshin Koinu ni Koibumi o (Yuri Hime Komikkusu)",
   "袴田だるま": "Hakamada Daruma",
   "袴田めら": "Hakamada Mera",
-  "袴田めら/やとさきはる/小川ますみ/桜家ゆきの/寄田みゆき/百乃モト/中野まや花/露木彩/ガレットワークス": "Hakamada Mera, Yatosaki Haru, Ogawa Masumi, Sakuraya Yuki No, Yoritamiyuki, Momono Moto, Nakano Maya Hana, Tsuyuki Aya, Garettowākusu",
+  "袴田めら/やとさきはる/小川ますみ/桜家ゆきの/寄田みゆき/百乃モト/中野まや花/露木彩/ガレットワークス": "Hakamada Mera, Yatosaki Haru, Ogawa Masumi, Sakuraya Yuki No, Yoritamiyuki, Momono Moto, Nakanomayaka, Tsuyuki Aya, Garettowākusu",
   "袴田めら/新島あん": "Hakamada Mera, Niijima An",
   "袴田めら/森永みるく/ミャオギレ刑事": "Hakamada Mera, Morinaga Miruku, Myaogire Keiji",
   "袴田めら,新島あん": "Hakamada Mera, Niijima An",
@@ -159426,7 +160657,7 @@
   "道雪葵": "Michi Yuki",
   "遠井音/若瀬紺": "Tōi Oto, Wakase Kon",
   "遠山えま": "Tōyama Ema",
-  "遠山えま/ねこ太/小鳩ねねこ/後藤悠希/澤村鞠子/千岡ななえ/七坂なな/野田のんだ/ヒラツカしの/雪尾ゆき/よしのかや": "Tōyama Ema, Nekota, Kobato Neneko, Gotō Yūki, Sawamura Mariko, Sen Oka Nanae, Nanasaka Nana, Noda Nonda, Hiratsukashino, Yukio Yuki, Yoshinokaya",
+  "遠山えま/ねこ太/小鳩ねねこ/後藤悠希/澤村鞠子/千岡ななえ/七坂なな/野田のんだ/ヒラツカしの/雪尾ゆき/よしのかや": "Tōyama Ema, Nekota, Kobato Neneko, Gotō Yūki, Sawamura Mariko, Sen Oka Nanae, Nanasaka Nana, Nodanonda, Hiratsukashino, Yukio Yuki, Yoshinokaya",
   "遠山えま百合集:センセイとの時間。": "Enzan e Ma Hyaku Gōshū : Sensei to no Jikan.",
   "遠山えま百合集センセイとの時間。": "Enzan e Ma Hyaku Gōshū Sensei to no Jikan.",
   "遠山えま百合集センセイとの時間。(百合姫コミックス)": "Enzan e Ma Hyaku Gōshū, Sensei to no Jikan. (Yuri Hime Komikkusu)",
@@ -159535,7 +160766,7 @@
   "陰キャギャルでもイキがりたい!(百合姫コミックス)": "Kage Kyagyaru de mo Ikigaritai! (Yuri Hime Komikkusu)",
   "陽に恋い慕う": "Yōni Koishitau",
   "陽に恋い慕う(ナンバーナイン)": "Hi ni Koishitau (Nanbā Nain)",
-  "陽気婢/御坊/丸山ゴンザレス": "Yōki Hi, Obō, Maruyama Gonzaresu",
+  "陽気婢/御坊/丸山ゴンザレス": "Yōkihi, Obō, Maruyama Gonzaresu",
   "隈井": "Kumai",
   "隈井(著者)": "Kumai ( Chosha )",
   "隣の仮定事情": "Tonari no Katei Jijō",
@@ -159641,13 +160872,13 @@
   "飴色みそ(著者)両生類かえる(原作)甘城なつき(キャラクター原案)": "Ameiro Miso ( Chosha ), Ryōseirui Kaeru ( Gensaku ), Amaki Natsuki ( Kyarakutā Gen'an )",
   "飴色紅茶館歓談": "Ameiro Kōchakan Kandan",
   "飴野": "Ameno",
-  "飴野/稲葉春/折子ポトス/樫風/樺山/寝路/ぺそ太郎/ましまる/みんたろう/依子/ヨルモ": "Ameno, Inaba Haru, Ori Ko Potosu, Kashikaze, Kabayama, Neji, Pe So Tarō, Mashimaru, Mintarō, Yoriko, Yorumo",
+  "飴野/稲葉春/折子ポトス/樫風/樺山/寝路/ぺそ太郎/ましまる/みんたろう/依子/ヨルモ": "Ameno, Inaba Haru, Ori Ko Potosu, Kashikaze, Kabayama, Neji, Pesotarō, Mashimaru, Mintarō, Yoriko, Yorumo",
   "餅寄なな子": "Mochi Ki Nanako",
   "餡実ツキ": "An Jitsu Tsuki",
   "館山けーた": "Tateyama Kēta",
   "館山けーた/タテヤマケータ": "Tateyama Kēta, Tateyama Kēta",
   "香原さんのふぇちのーと": "Kaharasan no Fe Chi Nō to",
-  "香川悠作,冬空,藤松盟,安蔵くんこ,梅原うめ,まりまりも,つみきつき,春名ヒスイ": "Kagawa Yūsaku, Fuyuzora, Fujimatsu Mei, Azōkunko, Umeharaume, Marimarimo, Tsumikitsuki, Haruna Hisui",
+  "香川悠作,冬空,藤松盟,安蔵くんこ,梅原うめ,まりまりも,つみきつき,春名ヒスイ": "Kagawa Yūsaku, Fuyusora, Fujimatsu Mei, Azōkunko, Umeharaume, Marimarimo, Tsumikitsuki, Haruna Hisui",
   "馴染まずじまい": "Najimazujimai",
   "駒込ぴぴ": "Komagome Pipi",
   "騎士系彼女": "Kishikei Kanojo",
@@ -159656,9 +160887,9 @@
   "骨に願いを、星に呪いを(百合姫コミックス)": "Hone ni Negai o, Hoshi ni Noroi o (Yuri Hime Komikkusu)",
   "骨抜きチキン": "Honenuki Chikin",
   "高上優里子": "Takaue Yuriko",
-  "高坂はしやん/伊予嶺つく": "Kōsaka Wa Shiyan, Iyo Mine Tsuku",
-  "高坂はしやん(著)伊予嶺つく(著)": "Kōsaka Wa Shiyan, Iyo Mine Tsuku",
-  "高坂はしやん,伊予嶺つく": "Kōsaka Wa Shiyan, Iyo Mine Tsuku",
+  "高坂はしやん/伊予嶺つく": "Kōsakahashiyan, Iyominetsuku",
+  "高坂はしやん(著)伊予嶺つく(著)": "Kōsakahashiyan, Iyominetsuku",
+  "高坂はしやん,伊予嶺つく": "Kōsakahashiyan, Iyominetsuku",
   "高坂はしやん/漫画伊予嶺つく": "Kōsaka wa Shiyan, Iyo Mine Tsuku (manga)",
   "高尾まこと": "Takao Makoto",
   "高尾じんぐ": "Takao Jin Gu",
@@ -159762,7 +160993,7 @@
   "鳥瞰答": "Chōkantō",
   "鳩豆": "Hatomame",
   "鳳まひろ": "Ōtori Mahiro",
-  "鴉ぴえろ/ミズユ/池中織奈/パデラポッロのりお/緋色の雨/山東ユカ/岡崎マサムネ/東385/まえばる蒔乃/ぽぽ田んぽぽ": "Karasu Piero, Mizuyu, Chichū Orina, Paderaporro Norio, Hiiro No Ame, Santō Yuka, Okazaki Masamune, Higashi 385, Ma Ebaru Makino, Popoden N Popo",
+  "鴉ぴえろ/ミズユ/池中織奈/パデラポッロのりお/緋色の雨/山東ユカ/岡崎マサムネ/東385/まえばる蒔乃/ぽぽ田んぽぽ": "Karasu Piero, Mizuyu, Chichū Orina, Paderaporro Norio, Hiiro No Ame, Santōyuka, Okazaki Masamune, Higashi 385, Ma Ebaru Makino, Popoden N Popo",
   "鴒/アンブル編集部": "Rei, Anburu Henshūbu",
   "鴻巣覚": "Kōnosu Satoshi",
   "鴻巣覚/コウノスサトリ": "Kōnosu Satori, Kōnosu Satori",
@@ -159800,7 +161031,7 @@
   "龍と虎": "Ryū to Tora",
   "龍と虎(コルクスタジオ)": "Ryū to Tora (Koruku Sutajio)",
   "龍崎さんと虎生さん~百合姫短編集~": "Ryūzakisan to Toraosan, ~ Yuri Hime Tanpenshū ~",
-  "龍炎狼牙/岸里さとし/松本ミトヒ/長月みそか/吉富昭仁/ポン貴花田/お子様ランチ": "Ryūen Rōga, Kishinosato Satoshi, Matsumoto Mitohi, Nagatsuki Misoka, Yoshitomi Akihito, Pon Takahanada, Okosama Ranchi",
+  "龍炎狼牙/岸里さとし/松本ミトヒ/長月みそか/吉富昭仁/ポン貴花田/お子様ランチ": "Ryūen Rōga, Kishinosato Satoshi, Matsumoto Mitohi, Nagatsuki Misoka, Yoshitomi Akihito, Pontakahanada, Okosama Ranchi",
   "#000": "Ch. 000",
   "#121": "Ch. 12-1",
   "#122": "Ch. 12-2",

@@ -3605,12 +3605,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: タワワ ジュン
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: タワワ ジュン
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー' (宙出版).
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784776752639
+    verified: true
   たんれ～:
     basis: romaji
     reading: タンレ～
@@ -5376,20 +5384,18 @@ names:
     verified: true
   ぺそ太郎:
     basis: romaji
-    furigana_spans:
-    - - ぺそ
-      - null
-    - - 太郎
-      - たろう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ペ ソ タロウ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ペソタロウ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      'ご褒美とお仕置きどっちにします?' (竹書房). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1111857
+    verified: true
   ぺんたごん:
     basis: romaji
     reading: ペンタゴン
@@ -5478,12 +5484,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ホナミ アヤ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ホナミ アヤ
+    reading_note: 'openBD carries this reading as the publisher''s own collationkey on 2 volume(s), e.g.
+      ''ネイルちゃんと深爪さん。 : アンソロジーコミック マジでリアコな私たち編'' (宙出版).'
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784776752295
+    verified: true
   ほりとも:
     basis: romaji
     en: Horitomo
@@ -7570,20 +7584,22 @@ names:
     verified: true
   イマイ　悠:
     basis: romaji
-    furigana_spans:
-    - - イマイ　
-      - null
-    - - 悠
-      - ゆう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イマイ 　 ユウ
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: イマイ ハルカ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: イマイ 　 ユウ
+    reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
+      ''下僕さんと主ちゃんの日常 : 主のためなら何でもします'' (KADOKAWA). It replaces ''イマイ \u3000 ユウ'', which no source had stated.'
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784046833679
+    verified: true
   イマイヒヅル:
     basis: romaji
     en: Hizuru Imai
@@ -7697,9 +7713,10 @@ names:
     verified: true
   ウミノアロイ:
     basis: romaji
-    reading: ウミノアロイ
+    reading: ウミノ アロイ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 海野アロイ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -7920,9 +7937,10 @@ names:
     verified: true
   カネハラミズヒト:
     basis: romaji
-    reading: カネハラミズヒト
+    reading: カネハラ ミズヒト
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 金原瑞人
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -9581,20 +9599,18 @@ names:
     verified: true
   ポン貴花田:
     basis: romaji
-    furigana_spans:
-    - - ポン
-      - null
-    - - 貴花田
-      - たかはなだ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ポン タカハナダ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ポンタカハナダ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
+      '家政婦と暮らす100の方法' (双葉社). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M453536
+    verified: true
   マウンテンプクイチ:
     basis: romaji
     en_at: '2026-08-02'
@@ -9673,9 +9689,10 @@ names:
     verified: true
   マツモトトモキ:
     basis: romaji
-    reading: マツモトトモキ
+    reading: マツモト トモキ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: 松本トモキ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -10446,25 +10463,22 @@ names:
     verified: false
   七橋　楽:
     basis: romaji
-    furigana_spans:
-    - - 七
-      - しち
-    - - 橋
-      - はし
-    - - 　
-      - null
-    - - 楽
-      - らく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シチ ハシ 　 ラク
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    reading_uncertain: true
-    verified: false
+    reading: ナナハシ ラク
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シチ ハシ 　 ラク
+    reading_note: openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
+      '幼馴染は、にゃあと鳴いてスカートのなか. 1' (KADOKAWA). It replaces 'シチ ハシ \u3000 ラク', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784049165265
+    verified: true
   七橋楽:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -10792,38 +10806,36 @@ names:
     verified: true
   三田 織:
     basis: romaji
-    furigana_spans:
-    - - 三田
-      - みた
-    - - ' '
-      - null
-    - - 織
-      - おり
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミタ  オリ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ミタオリ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      '僕らの食卓' ([頒布]幻冬舎). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1064709
+    verified: true
   三田織:
     basis: romaji
-    furigana_spans:
-    - - 三田
-      - みた
-    - - 織
-      - しき
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミタシキ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ミタオリ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ミタシキ
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      '僕らの食卓' ([頒布]幻冬舎). It replaces 'ミタシキ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1064709
+    verified: true
   三芳イト:
     basis: romaji
     furigana_spans:
@@ -11228,12 +11240,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ナカムラ キヨ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ナカムラ キヨ
+    reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
+      ''お母さん二人いてもいいかな!? : レズビアンのママ生活'' (ベストセラーズ).'
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784584136799
+    verified: true
   中村ユキチ:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -11333,22 +11353,22 @@ names:
     verified: false
   中野まや花:
     basis: romaji
-    furigana_spans:
-    - - 中野
-      - なかの
-    - - まや
-      - null
-    - - 花
-      - はな
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナカノ マヤ ハナ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ナカノマヤカ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ナカノ マヤ ハナ
+    reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
+      '世界の果ては深愛' (講談社). It replaces 'ナカノ マヤ ハナ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1034099
+    verified: true
   丸山ゴンザレス:
     basis: romaji
     furigana_spans:
@@ -12086,12 +12106,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: カイシャク
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カイシャク
+    reading_note: MADB records this reading beside the credit on 8 record(s) of the pinned release, e.g.
+      '鍵姫物語永久アリス輪舞曲' ([頒布]角川書店). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1087680
+    verified: true
   他:
     basis: romaji
     furigana_spans:
@@ -12277,22 +12305,18 @@ names:
     verified: true
   伊予嶺つく:
     basis: romaji
-    furigana_spans:
-    - - 伊予
-      - いよ
-    - - 嶺
-      - みね
-    - - つく
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イヨ ミネ ツク
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: イヨミネツク
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      'アイドル総選挙4位だった私が魔王を倒すんですか？ 1' (れんが書房新社).
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784846210014
+    verified: true
   伊勢海老ボイル:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -12549,20 +12573,18 @@ names:
     verified: true
   佐倉おりこ:
     basis: romaji
-    furigana_spans:
-    - - 佐倉
-      - さくら
-    - - おりこ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サクラ オリコ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: サクラオリコ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      'ふしぎな猫のまちメルティア' (小学館). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1064155
+    verified: true
   佐倉ノゾム:
     basis: romaji
     furigana_spans:
@@ -12659,12 +12681,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ヨリコ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ヨリコ
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      '寺野くんと熊崎くん' (竹書房). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1062057
+    verified: true
   保スカ:
     basis: romaji
     furigana_spans:
@@ -12756,22 +12786,18 @@ names:
     verified: true
   倉田 嘘:
     basis: romaji
-    furigana_spans:
-    - - 倉田
-      - くらた
-    - - ' '
-      - null
-    - - 嘘
-      - うそ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クラタ   ウソ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: クラタ ウソ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: openBD carries this reading as the publisher's own collationkey on 7 volume(s), e.g.
+      'リンケージ' (一迅社).
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758070522
+    verified: true
   倉田嘘:
     basis: romaji
     furigana_spans:
@@ -13014,20 +13040,22 @@ names:
     verified: false
   八十八騎:
     basis: romaji
-    furigana_spans:
-    - - 八十八
-      - はちじゅうはち
-    - - 騎
-      - き
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハチジュウハチ キ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: トドロキ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ハチジュウハチ キ
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー' (宙出版). It replaces 'ハチジュウハチ キ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784776752639
+    verified: true
   八汐ごよう:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -13212,20 +13240,22 @@ names:
     verified: false
   再田ニカ:
     basis: romaji
-    furigana_spans:
-    - - 再田
-      - さいた
-    - - ニカ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サイタ ニカ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: サイダニカ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: サイタ ニカ
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      '東京ブルーキャンディ' ([頒布]幻冬舎). It replaces 'サイタ ニカ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1095478
+    verified: true
   冬佳千秋:
     basis: romaji
     furigana_spans:
@@ -13279,34 +13309,40 @@ names:
     verified: true
   冬眠結:
     basis: romaji
-    furigana_spans:
-    - - 冬眠
-      - とうみん
-    - - 結
-      - けつ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トウミン ケツ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: トウミンユウ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: トウミン ケツ
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      'アクアリウムは踊らない' (KADOKAWA). It replaces 'トウミン ケツ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1087873
+    verified: true
   冬空:
     basis: romaji
-    furigana_spans:
-    - - 冬空
-      - ふゆぞら
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フユゾラ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: フユソラ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: フユゾラ
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'ネイルちゃんと深爪さん。 ナイショのパフェを半分こ編' (宙出版). It replaces 'フユゾラ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784776752530
+    verified: true
   冬芽沙也:
     basis: romaji
     furigana_spans:
@@ -13441,12 +13477,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ゴウダ ナギ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ゴウダ ナギ
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー' (宙出版).
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784776752639
+    verified: true
   加納るり:
     basis: romaji
     furigana_spans:
@@ -13813,20 +13857,22 @@ names:
     verified: true
   午子:
     basis: romaji
-    furigana_spans:
-    - - 午
-      - うま
-    - - 子
-      - こ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウマ コ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ウマシ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ウマ コ
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '男だけど死神姫の嫁になりました (仮) 1' (芳文社). It replaces 'ウマ コ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784832237841
+    verified: true
   半田畔:
     basis: romaji
     en: Hotori Handa
@@ -14413,20 +14459,22 @@ names:
     verified: true
   双見酔:
     basis: romaji
-    furigana_spans:
-    - - 双見
-      - ふたみ
-    - - 酔
-      - よい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フタミ ヨイ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: フタミスイ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: フタミ ヨイ
+    reading_note: MADB records this reading beside the credit on 7 record(s) of the pinned release, e.g.
+      'ダンジョンの中のひと' (双葉社). It replaces 'フタミ ヨイ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1062415
+    verified: true
   古居すぐり:
     basis: romaji
     furigana_spans:
@@ -15265,20 +15313,18 @@ names:
     verified: true
   四位広猫:
     basis: romaji
-    furigana_spans:
-    - - 四位
-      - しい
-    - - 広猫
-      - ひろね
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シイ ヒロネ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: シイヒロネ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 10 record(s) of the pinned release, e.g.
+      '晴れ、ときどき天使' (角川書店). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M224040
+    verified: true
   四葉夕卜:
     basis: romaji
     furigana_spans:
@@ -15475,13 +15521,16 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アクツ 　 ミ ナコ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: アクツミナコ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      'バー・パンタ・レイ' ([頒布]幻冬舎). It replaces 'アクツ \u3000 ミ ナコ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1034204
+    verified: true
   圷見南子:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -15732,20 +15781,22 @@ names:
     verified: false
   壇九:
     basis: romaji
-    furigana_spans:
-    - - 壇
-      - だん
-    - - 九
-      - きゅう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ダン キュウ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: タンジウ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ダン キュウ
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      'SQ' (KADOKAWA). It replaces 'ダン キュウ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M963242
+    verified: true
   壇九（TANJIU):
     basis: romaji
     entity: notation
@@ -15900,20 +15951,18 @@ names:
     verified: true
   夏河もか:
     basis: romaji
-    furigana_spans:
-    - - 夏河
-      - なつかわ
-    - - もか
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナツカワ モ カ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ナツカワ モカ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      '研究棟の真夜中ごはん 1' (ホビージャパン).
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784798624112
+    verified: true
   夏目:
     basis: romaji
     furigana_spans:
@@ -16440,20 +16489,18 @@ names:
     verified: true
   大槻ミゥ:
     basis: romaji
-    furigana_spans:
-    - - 大槻
-      - おおつき
-    - - ミゥ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オオツキ ミゥ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: オオツキミゥ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
+      'じいさんの猫' ([頒布]幻冬舎). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1035737
+    verified: true
   大沢あまね:
     basis: romaji
     furigana_spans:
@@ -16838,18 +16885,22 @@ names:
     verified: true
   奈友:
     basis: romaji
-    furigana_spans:
-    - - 奈友
-      - なゆ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナユ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ナトモ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ナユ
+    reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
+      ''ネイルちゃんと深爪さん。 : アンソロジーコミック マジでリアコな私たち編'' (宙出版). It replaces ''ナユ'', which no source had stated.'
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784776752295
+    verified: true
   奈春:
     basis: romaji
     furigana_spans:
@@ -17114,22 +17165,18 @@ names:
     verified: false
   宇佐楢春:
     basis: romaji
-    furigana_spans:
-    - - 宇佐
-      - うさ
-    - - 楢
-      - なら
-    - - 春
-      - はる
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウサ ナラ ハル
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ウサ ナラハル
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
+      '忘れえぬ魔女の物語 1' (スクウェア・エニックス).
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784757579156
+    verified: true
   宇宙鍋:
     basis: romaji
     furigana_spans:
@@ -17399,12 +17446,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: アンドウ ユウ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: アンドウ ユウ
+    reading_note: openBD carries this reading as the publisher's own collationkey on 6 volume(s), e.g.
+      'ストライク・オア・ガター = strike or gutter 1' (集英社).
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784088912455
+    verified: true
   宙:
     basis: romaji
     en: Sora (i)
@@ -17762,12 +17817,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ネジ
-    reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ネジ
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'ごはんのおトモに、死神と！\u3000 1' (幻冬舎コミックス).
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784344853263
+    verified: true
   寺山電:
     basis: romaji
     furigana_spans:
@@ -17794,12 +17857,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: テラモト カオル
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: テラモト カオル
+    reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
+      ''ネイルちゃんと深爪さん。 : アンソロジーコミック マジでリアコな私たち編'' (宙出版).'
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784776752295
+    verified: true
   小宮ゆと:
     basis: romaji
     furigana_spans:
@@ -18352,22 +18423,18 @@ names:
     verified: false
   山口 悟:
     basis: romaji
-    furigana_spans:
-    - - 山口
-      - やまぐち
-    - - ' '
-      - null
-    - - 悟
-      - さとる
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヤマグチ   サトル
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ヤマグチ サトル
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: 'openBD carries this reading as the publisher''s own collationkey on 3 volume(s), e.g.
+      ''乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった… : 絶体絶命! 破滅寸前編 1'' (講談社).'
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758035156
+    verified: true
   山口えいと:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -18397,12 +18464,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ヤマグチ サトル
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ヤマグチ サトル
+    reading_note: 'openBD carries this reading as the publisher''s own collationkey on 3 volume(s), e.g.
+      ''乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった… : 絶体絶命! 破滅寸前編 1'' (講談社).'
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758035156
+    verified: true
   山名沢湖:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -18529,36 +18604,32 @@ names:
     verified: true
   山本和音:
     basis: romaji
-    furigana_spans:
-    - - 山本
-      - やまもと
-    - - 和音
-      - かずね
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヤマモト カズネ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ヤマモトカズネ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      '生き残った6人によると' (KADOKAWA). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1034899
+    verified: true
   山東ユカ:
     basis: romaji
-    furigana_spans:
-    - - 山東
-      - さんとう
-    - - ユカ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サントウ ユカ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: サントウユカ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      'スパロウズホテル' (竹書房). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1036049
+    verified: true
   山田hamekon:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -19143,22 +19214,18 @@ names:
     verified: false
   嶋水えけ:
     basis: romaji
-    furigana_spans:
-    - - 嶋
-      - しま
-    - - 水
-      - みず
-    - - えけ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シマ ミズ エ ケ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: シマミズエケ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
+      '憧れのメイドさんはタバコが似合う' (スクウェア・エニックス). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1035900
+    verified: true
   嶋鳥ひとり:
     basis: romaji
     furigana_spans:
@@ -19335,20 +19402,18 @@ names:
     verified: true
   工藤マコト:
     basis: romaji
-    furigana_spans:
-    - - 工藤
-      - くどう
-    - - マコト
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クドウ マコト
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: クドウマコト
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
+      '不器用な先輩。' (スクウェア・エニックス). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1032963
+    verified: true
   巻舌ひっち:
     basis: romaji
     furigana_spans:
@@ -19461,22 +19526,22 @@ names:
     verified: true
   幌山あき:
     basis: romaji
-    furigana_spans:
-    - - 幌
-      - ほろ
-    - - 山
-      - やま
-    - - あき
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ホロ ヤマ アキ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ポロヤマアキ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ホロ ヤマ アキ
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      '正しいナイフの使い方' (KADOKAWA). It replaces 'ホロ ヤマ アキ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1109048
+    verified: true
   平尾アウリ:
     basis: romaji
     furigana_spans:
@@ -19641,20 +19706,18 @@ names:
     verified: false
   庭トリ:
     basis: romaji
-    furigana_spans:
-    - - 庭
-      - にわ
-    - - トリ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ニワ トリ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ニワトリ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
+      '禁欲いんぽっしぶる女学園' ([頒布]星雲社). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1061976
+    verified: true
   廃狼:
     reading: ハイロウ
     reading_at: '2026-08-07'
@@ -20132,20 +20195,18 @@ names:
     verified: true
   志水 はつみ:
     basis: romaji
-    furigana_spans:
-    - - 志水
-      - しみず
-    - - ' はつみ'
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シミズ   ハツミ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: シミズ ハツミ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      'クダンノフォークロア = FOLKLORE OF KUDAN' (講談社 (発売)).
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758022217
+    verified: true
   志水はつみ:
     basis: romaji
     furigana_spans:
@@ -21449,20 +21510,22 @@ names:
     verified: false
   春花 あや:
     basis: romaji
-    furigana_spans:
-    - - 春花
-      - はるか
-    - - ' あや'
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハルカ   アヤ
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ハルハナ アヤ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ハルカ   アヤ
+    reading_note: openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
+      '少女たちの痕(きずあと)にくちづけを. 2' (KADOKAWA). It replaces 'ハルカ   アヤ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784041132494
+    verified: true
   春花あや:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -22738,12 +22801,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: マツモト トモキ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: マツモト トモキ
+    reading_note: openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
+      '囿者は懼れず 1' (スクウェア・エニックス).
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784757581883
+    verified: true
   松本ナミル:
     basis: romaji
     furigana_spans:
@@ -22866,20 +22937,18 @@ names:
     verified: true
   林雄一:
     basis: romaji
-    furigana_spans:
-    - - 林
-      - はやし
-    - - 雄一
-      - ゆういち
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハヤシ ユウイチ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ハヤシユウイチ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 9 record(s) of the pinned release, e.g.
+      '聖交天使ヤリニクル' (KADOKAWA). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1080771
+    verified: true
   枝吉:
     basis: romaji
     furigana_spans:
@@ -22952,20 +23021,18 @@ names:
     verified: false
   柊裕一:
     basis: romaji
-    furigana_spans:
-    - - 柊
-      - ひいらぎ
-    - - 裕一
-      - ゆういち
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒイラギ ユウイチ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ヒイラギユウイチ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
+      '履いてください、鷹峰さん' (スクウェア・エニックス). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1032952
+    verified: true
   柏:
     basis: romaji
     furigana_spans:
@@ -23928,20 +23995,22 @@ names:
     verified: false
   梧桐柾木:
     basis: romaji
-    furigana_spans:
-    - - 梧桐
-      - ごどう
-    - - 柾木
-      - まさき
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゴドウ マサキ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ゴトウマサキ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ゴドウ マサキ
+    reading_note: MADB records this reading beside the credit on 23 record(s) of the pinned release, e.g.
+      'AKB48殺人事件'. It replaces 'ゴドウ マサキ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/C92059
+    verified: true
   梨尾:
     basis: romaji
     en: Nashio
@@ -24340,20 +24409,18 @@ names:
     verified: false
   森永　ミキ:
     basis: romaji
-    furigana_spans:
-    - - 森永
-      - もりなが
-    - - 　ミキ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: モリナガ 　 ミキ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: モリナガミキ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      'ルビー・オンザ・ケーキ' (スクウェア・エニックス). It replaces 'モリナガ \u3000 ミキ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1064359
+    verified: true
   森永みるく:
     basis: romaji
     furigana_spans:
@@ -24930,12 +24997,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: キッタ イズミ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: キッタ イズミ
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'リバティ = LIBERTY' (KADOKAWA).
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784040657110
+    verified: true
   橙々:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -25273,20 +25348,18 @@ names:
     verified: false
   水山　めろ:
     basis: romaji
-    furigana_spans:
-    - - 水山
-      - みずやま
-    - - 　めろ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミズヤマ 　 メロ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ミズヤマメロ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      '恋色の境界' (KADOKAWA). It replaces 'ミズヤマ \u3000 メロ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1087993
+    verified: true
   水山めろ:
     basis: romaji
     furigana_spans:
@@ -25755,12 +25828,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: エガワ ヒロミ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: エガワ ヒロミ
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'ゆりにんレズビアンカップル妊活奮闘記' (ぶんか社).
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784821144105
+    verified: true
   江成いちこ:
     basis: romaji
     furigana_spans:
@@ -26242,12 +26323,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: アサミ ユリコ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: アサミ ユリコ
+    reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
+      ''奏 : 青春バンド百合アンソロジー'' (KADOKAWA).'
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784049127492
+    verified: true
   浅見百合子 ほか:
     basis: romaji
     entity: notation
@@ -26359,20 +26448,18 @@ names:
     verified: false
   浦あられ:
     basis: romaji
-    furigana_spans:
-    - - 浦
-      - うら
-    - - あられ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウラ アラレ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ウラアラレ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'TS転生した私が所属するVTuber事務所のライバーを全員堕としにいく話（1）' (スクウェア・エニックス).
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784301004998
+    verified: true
   浮足:
     basis: romaji
     furigana_spans:
@@ -26396,20 +26483,18 @@ names:
     verified: true
   海島千本:
     basis: romaji
-    furigana_spans:
-    - - 海島
-      - うみしま
-    - - 千本
-      - せんぼん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウミシマ センボン
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ウミシマセンボン
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      '雨の日'. It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/C115567
+    verified: true
   海月:モトキ:
     basis: romaji
     furigana_spans:
@@ -26496,20 +26581,23 @@ names:
     verified: true
   海野アロイ:
     basis: romaji
-    furigana_spans:
-    - - 海野
-      - うんの
-    - - アロイ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウンノ アロイ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ウミノ アロイ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ウンノ アロイ
+    reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
+      ''猫魔法が世界に革命を起こすそうですよ? : 劣等種なんて言われるのならケモノ魔法でリベンジします! 2'' (一二三書房). It replaces ''ウンノ アロイ'', which
+      no source had stated.'
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784824204981
+    verified: true
   海鮮丼:
     basis: romaji
     furigana_spans:
@@ -26715,20 +26803,22 @@ names:
     verified: true
   深海紺:
     basis: romaji
-    furigana_spans:
-    - - 深海
-      - しんかい
-    - - 紺
-      - こん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シンカイ コン
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: フカウミコン
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: シンカイ コン
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      '恋より青く' ([頒布]集英社). It replaces 'シンカイ コン', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1034341
+    verified: true
   深見真:
     basis: romaji
     furigana_spans:
@@ -26849,22 +26939,22 @@ names:
     verified: false
   源 久也:
     basis: romaji
-    furigana_spans:
-    - - 源
-      - みなもとの
-    - - ' '
-      - null
-    - - 久也
-      - ひさや
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミナモトノ   ヒサヤ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ミナモト ヒサナリ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ミナモトノ   ヒサヤ
+    reading_note: openBD carries this reading as the publisher's own collationkey on 4 volume(s), e.g.
+      'ふーふ 1' (一迅社). It replaces 'ミナモトノ   ヒサヤ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758071642
+    verified: true
   源久也:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -27098,12 +27188,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: カジヤ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カジヤ
+    reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
+      '盆百千栽' (講談社). It agrees with the reading already held, which no source had stated.
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1034179
+    verified: true
   火加減:
     basis: romaji
     furigana_spans:
@@ -27412,20 +27510,18 @@ names:
     verified: true
   牛乳リンダ:
     basis: romaji
-    furigana_spans:
-    - - 牛乳
-      - ぎゅうにゅう
-    - - リンダ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ギュウニュウ リンダ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ギュウニュウリンダ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      '恋敵♡スキンシップ' (松文館). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1033629
+    verified: true
   犬は魚:
     basis: romaji
     furigana_spans:
@@ -27596,20 +27692,22 @@ names:
     verified: true
   犬島ななこ:
     basis: romaji
-    furigana_spans:
-    - - 犬島
-      - いぬじま
-    - - ななこ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イヌジマ ナナコ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: イヌシマナナコ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: イヌジマ ナナコ
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      'ファンシー革命' (KADOKAWA). It replaces 'イヌジマ ナナコ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1076431
+    verified: true
   犬甘あんず:
     basis: romaji
     furigana_spans:
@@ -27680,22 +27778,23 @@ names:
     verified: true
   狐豆△:
     basis: romaji
-    furigana_spans:
-    - - 狐
-      - きつね
-    - - 豆
-      - まめ
-    - - △
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キツネ マメ △
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: コマメ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: キツネ マメ △
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '収納魔法が切実に欲しいと願っていたら、転生してしまった （コミック）\u30001' (ＳＢクリエイティブ). It replaces 'キツネ マメ △', which no source
+      had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784815630294
+    verified: true
   狗之餌:
     reading: イヌノエサ
     reading_at: '2026-08-07'
@@ -28203,20 +28302,19 @@ names:
     verified: true
   環望:
     basis: romaji
-    furigana_spans:
-    - - 環
-      - たまき
-    - - 望
-      - のぞむ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タマキ ノゾム
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: タマキノゾム
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      'ダンスインザヴァンパイアバンドエイジオブスカーレットオーダー' (TOブックス). It agrees with the reading already held, which no source
+      had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1034873
+    verified: true
   甘党:
     basis: romaji
     en: Amato
@@ -28265,24 +28363,22 @@ names:
     verified: false
   甘崎 水菓:
     basis: romaji
-    furigana_spans:
-    - - 甘崎
-      - あまさき
-    - - ' '
-      - null
-    - - 水
-      - みず
-    - - 菓
-      - このみ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アマサキ   ミズ コノミ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: アマザキスイカ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: アマサキ   ミズ コノミ
+    reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
+      '7日間限定彼女' (KADOKAWA). It replaces 'アマサキ   ミズ コノミ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1060361
+    verified: true
   甘崎水菓:
     basis: romaji
     en: AMAZAKI Suika
@@ -28465,20 +28561,18 @@ names:
     verified: true
   田口ケンジ:
     basis: romaji
-    furigana_spans:
-    - - 田口
-      - たぐち
-    - - ケンジ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タグチ ケンジ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: タグチケンジ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 295 record(s) of the pinned release,
+      e.g. '会って食べると書きまして。' (小学館). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1036420
+    verified: true
   田口囁一:
     basis: romaji
     en: Shōichi Taguchi
@@ -28766,20 +28860,23 @@ names:
     verified: true
   白梅ナズナ:
     basis: romaji
-    furigana_spans:
-    - - 白梅
-      - はくばい
-    - - ナズナ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハクバイ ナズナ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: シラウメ ナズナ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ハクバイ ナズナ
+    reading_note: 'openBD carries this reading as the publisher''s own collationkey on 5 volume(s), e.g.
+      ''悪役令嬢の中の人 = The person in a villainess : 断罪された転生者のため嘘つきヒロインに復讐いたします 1'' (講談社 (発売)). It replaces
+      ''ハクバイ ナズナ'', which no source had stated.'
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758023863
+    verified: true
   白水然:
     basis: romaji
     furigana_spans:
@@ -29549,22 +29646,18 @@ names:
     verified: true
   神岡鳥乃:
     basis: romaji
-    furigana_spans:
-    - - 神岡
-      - かみおか
-    - - 鳥
-      - とり
-    - - 乃
-      - の
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カミオカ トリ ノ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: カミオカ トリノ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      '研究棟の真夜中ごはん 1' (ホビージャパン).
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784798624112
+    verified: true
   神崎タタミ:
     basis: romaji
     furigana_spans:
@@ -29810,20 +29903,22 @@ names:
     verified: true
   秋月かづ:
     basis: romaji
-    furigana_spans:
-    - - 秋月
-      - あきづき
-    - - かづ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アキヅキ カ ヅ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: アキズキカズ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: アキヅキ カ ヅ
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      'お金も愛も貢がせて?' ([頒布]日販アイ・ピー・エス). It replaces 'アキヅキ カ ヅ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1109247
+    verified: true
   秋月ルコ:
     basis: stated
     en: AKIDZUKI Luco
@@ -29889,20 +29984,18 @@ names:
     verified: false
   科戸コウ:
     basis: romaji
-    furigana_spans:
-    - - 科戸
-      - しなと
-    - - コウ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シナト コウ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: シナトコウ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      'フルボイス!' (芳文社). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1079613
+    verified: true
   稲本いねこ:
     basis: romaji
     furigana_spans:
@@ -30346,22 +30439,22 @@ names:
     verified: false
   箕田　海道:
     basis: romaji
-    furigana_spans:
-    - - 箕田
-      - みた
-    - - 　
-      - null
-    - - 海道
-      - かいどう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミタ 　 カイドウ
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ミノダ カイドウ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ミタ 　 カイドウ
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '蝶と帝国 = BUTTERFLY AND EMPIRE. 1' (KADOKAWA). It replaces 'ミタ \u3000 カイドウ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784046824936
+    verified: true
   箕田海道:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -30422,36 +30515,32 @@ names:
     verified: false
   篠 ヒロフミ:
     basis: romaji
-    furigana_spans:
-    - - 篠
-      - しの
-    - - ' ヒロフミ'
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シノ   ヒロフミ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: シノヒロフミ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      'きんぴか症候群' (リブレ). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1110692
+    verified: true
   篠ヒロフミ:
     basis: romaji
-    furigana_spans:
-    - - 篠
-      - しの
-    - - ヒロフミ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シノ ヒロフミ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: シノヒロフミ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
+      'きんぴか症候群' (リブレ). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1110692
+    verified: true
   篠房六郎:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -30474,22 +30563,18 @@ names:
     verified: true
   篠月しのぶ:
     basis: romaji
-    furigana_spans:
-    - - 篠
-      - しの
-    - - 月
-      - つき
-    - - しのぶ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シノ ツキ シノブ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: シノツキ シノブ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: openBD carries this reading as the publisher's own collationkey on 3 volume(s), e.g.
+      'フツーと化け物. 1' (KADOKAWA).
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784047376601
+    verified: true
   篤見唯子:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -30753,22 +30838,18 @@ names:
     verified: false
   紫 真依:
     basis: romaji
-    furigana_spans:
-    - - 紫
-      - むらさき
-    - - ' '
-      - null
-    - - 真依
-      - まい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ムラサキ   マイ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ムラサキマイ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '悪役令嬢の中の人～断罪された転生者のため嘘つきヒロインに復讐いたします～(6)' (一迅社).
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784758029247
+    verified: true
   紫のあ:
     basis: romaji
     en: Shinoa
@@ -31206,20 +31287,22 @@ names:
     verified: false
   緋月アキラ:
     basis: romaji
-    furigana_spans:
-    - - 緋月
-      - ひげつ
-    - - アキラ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒゲツ アキラ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ヒズキアキラ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ヒゲツ アキラ
+    reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
+      'ノイパちゃんはアブナイ!' (ジーオーティー). It replaces 'ヒゲツ アキラ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1032668
+    verified: true
   緋色の雨:
     basis: romaji
     furigana_spans:
@@ -31659,38 +31742,36 @@ names:
     verified: false
   背川昇:
     basis: romaji
-    furigana_spans:
-    - - 背川
-      - せがわ
-    - - 昇
-      - のぼる
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: セガワ ノボル
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: セガワノボル
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      'どく・どく・もり・もり' ([頒布]小学館クリエイティブ). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1061568
+    verified: true
   胡原おみ:
     basis: romaji
-    furigana_spans:
-    - - 胡
-      - こ
-    - - 原
-      - げん
-    - - おみ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コ ゲン オ ミ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: コハラオミ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: コ ゲン オ ミ
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      '逢沢小春は死に急ぐ' (集英社). It replaces 'コ ゲン オ ミ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1062759
+    verified: true
   能代リョウ:
     basis: romaji
     furigana_spans:
@@ -32326,20 +32407,18 @@ names:
     verified: true
   茜りう:
     basis: romaji
-    furigana_spans:
-    - - 茜
-      - あかね
-    - - りう
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アカネ リウ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: アカネリウ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
+      'はなまるゲーセン飯!!' (芳文社). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1033931
+    verified: true
   草下シンヤ:
     basis: romaji
     furigana_spans:
@@ -32572,20 +32651,18 @@ names:
     verified: true
   萩埜まこと:
     basis: romaji
-    furigana_spans:
-    - - 萩埜
-      - はぎの
-    - - まこと
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハギノ マコト
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ハギノマコト
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      '窓辺のリノア' (KADOKAWA). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1032900
+    verified: true
   葛城かなで:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -32782,20 +32859,18 @@ names:
     verified: true
   蓮冥:
     basis: romaji
-    furigana_spans:
-    - - 蓮
-      - れん
-    - - 冥
-      - めい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: レン メイ
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: レンメイ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '百合と声と風纏い = lilies,voice,wear wind 1' (サイゾー).
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784866252230
+    verified: true
   蓮城はに:
     basis: romaji
     furigana_spans:
@@ -33860,20 +33935,22 @@ names:
     verified: true
   西沢5㍉:
     basis: romaji
-    furigana_spans:
-    - - 西沢
-      - にしさわ
-    - - 5㍉
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ニシサワ 5 ㍉
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ニシザワ 5ミリ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ニシサワ 5 ㍉
+    reading_note: 'openBD carries this reading as the publisher''s own collationkey on 1 volume(s), e.g.
+      ''元カノに幻想を抱くなバーカ : 西沢5ミリ短編集'' (KADOKAWA). It replaces ''ニシサワ 5 ㍉'', which no source had stated.'
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784041113738
+    verified: true
   西瓜士:
     basis: romaji
     en: NISHIURI Tsukasa
@@ -34710,22 +34787,18 @@ names:
     verified: true
   邪 武丸:
     basis: romaji
-    furigana_spans:
-    - - 邪
-      - よこしま
-    - - ' '
-      - null
-    - - 武丸
-      - たけまる
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヨコシマ   タケマル
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ヨコシマ タケマル
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      '化け猫システム 1' (ワニブックス).
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784847038891
+    verified: true
   邪武丸:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -34839,20 +34912,18 @@ names:
     verified: true
   野田のんだ:
     basis: romaji
-    furigana_spans:
-    - - 野田
-      - のだ
-    - - のんだ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ノダ ノンダ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ノダノンダ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      '時雨さんは成仏しない' (大洋図書). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1108301
+    verified: true
   金原瑞人:
     basis: romaji
     furigana_spans:
@@ -34863,12 +34934,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: カネハラ ミズヒト
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カネハラ ミズヒト
+    reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      'Roaming. Volume1' (トゥーヴァージンズ).
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784867910207
+    verified: true
   金城まち:
     basis: romaji
     furigana_spans:
@@ -34934,20 +35013,18 @@ names:
     verified: true
   金田陽介:
     basis: romaji
-    furigana_spans:
-    - - 金田
-      - かねだ
-    - - 陽介
-      - ようすけ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カネダ ヨウスケ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: カネダヨウスケ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 10 record(s) of the pinned release, e.g.
+      '黒猫と魔女の教室' (講談社). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1036457
+    verified: true
   金魚鉢でめ:
     basis: romaji
     furigana_spans:
@@ -35033,20 +35110,18 @@ names:
     verified: true
   鈴木　りつ:
     basis: romaji
-    furigana_spans:
-    - - 鈴木
-      - すずき
-    - - 　りつ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: スズキ 　 リツ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: スズキリツ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
+      '考幻学入門' (KADOKAWA). It replaces 'スズキ \u3000 リツ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1079133
+    verified: true
   鈴木りつ:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -35623,20 +35698,18 @@ names:
     verified: false
   陽気婢:
     basis: romaji
-    furigana_spans:
-    - - 陽気
-      - ようき
-    - - 婢
-      - ひ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヨウキ ヒ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: ヨウキヒ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: MADB records this reading beside the credit on 7 record(s) of the pinned release, e.g.
+      'Magic Mushroom' (富士美出版). It agrees with the reading already held, which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M416876
+    verified: true
   隈井:
     basis: romaji
     furigana_spans:
@@ -36341,20 +36414,22 @@ names:
     verified: true
   風都ノリ:
     basis: romaji
-    furigana_spans:
-    - - 風都
-      - ふうと
-    - - ノリ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フウト ノリ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: カゼトノリ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: フウト ノリ
+    reading_note: MADB records this reading beside the credit on 35 record(s) of the pinned release, e.g.
+      '漫画☆防災研究室'. It replaces 'フウト ノリ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: MADB
+    reading_source_kind: national-library
+    reading_url: https://mediaarts-db.artmuseums.go.jp/id/C116405
+    verified: true
   飴色みそ:
     basis: romaji
     furigana_spans:
@@ -36407,12 +36482,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: アンコタク
-    reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: アンコタク
+    reading_note: openBD carries this reading as the publisher's own collationkey on 1 volume(s), e.g.
+      'ステラ・ステップ1' (キルタイムコミュニケーション).
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784799221105
+    verified: true
   餡実　ツキ:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -36499,12 +36582,20 @@ names:
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: カガワ ユウサク
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カガワ ユウサク
+    reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      'ネイルちゃんと深爪さん。 ナイショのパフェを半分こ編' (宙出版).
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784776752530
+    verified: true
   香月 稜:
     basis: romaji
     furigana_spans:
@@ -36616,20 +36707,22 @@ names:
     verified: true
   高坂 はしやん:
     basis: romaji
-    furigana_spans:
-    - - 高坂
-      - こうさか
-    - - ' はしやん'
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コウサカ   ワ シヤン
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: コウサカハシヤン
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: コウサカ   ワ シヤン
+    reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
+      'アイドル総選挙4位だった私が魔王を倒すんですか？ 1' (れんが書房新社). It replaces 'コウサカ   ワ シヤン', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784846210014
+    verified: true
   高尾　まこと:
     basis: romaji
     furigana_spans:
@@ -37290,20 +37383,19 @@ names:
     verified: false
   鴉　ぴえろ:
     basis: romaji
-    furigana_spans:
-    - - 鴉
-      - からす
-    - - 　ぴえろ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カラス 　 ピエロ
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    reading: カラス ピエロ
+    reading_at: '2026-08-08'
+    reading_basis: stated
+    reading_note: openBD carries this reading as the publisher's own collationkey on 11 volume(s), e.g.
+      '転生王女と天才令嬢の魔法革命 = The Magical Revolution of Reincarnation Princess and Genius Young Lady. 1' (KADOKAWA).
+      It replaces 'カラス \u3000 ピエロ', which no source had stated.
+    reading_reviewed: '2026-08-08'
+    reading_source: openBD
+    reading_source_kind: publisher-jp
+    reading_url: https://api.openbd.jp/v1/get?isbn=9784049136555
+    verified: true
   鴉ぴえろ:
     basis: romaji
     furigana_spans:

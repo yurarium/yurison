@@ -251,6 +251,7 @@ def inv_english_mode_has_no_japanese(ctx):
     string — rather than against the store, because the store legitimately holds the Japanese.
     fallback: show the Japanese (§6), which is a finished state rather than a failure.
     """
+    import re as _re_isbd
     n = ctx["names_shipped"]
     if not n:
         return []
@@ -273,6 +274,39 @@ def inv_english_mode_has_no_japanese(ctx):
                           ("p", r.get("ep")), ("p", r.get("collection"))):
             if val and JAPANESE.search(render(kind, val)):
                 bad.append(f"{kind}:{val[:24]}")
+
+    # EVERY SURFACE A TITLE IS DRAWN ON, and this one walked the feed alone. The 発売 tab labels a
+    # volume row from works.json's record title, which is the RAW CATALOGUED FORM, while the name
+    # store is keyed on the work title. The two diverge exactly where ISBD punctuation does, so
+    # `シャドウ・アサシンズ・ワールド : 影は薄いけど、最強忍者やってます` reached a reader in English
+    # mode with this invariant green. 怪異部 : M県Y市の怪現象について has a curated English under
+    # 怪異部～M県Y市の怪現象について～ and the fold, which normalises width and spaces, cannot join
+    # a colon to a tilde.
+    #
+    # Read from the built file rather than from the interface's own list, so a row the tab draws
+    # cannot escape by not being in whatever the renderer happened to collect.
+    # THE CHECK MUST MODEL WHAT THE RENDERER DOES, or it fails rows a reader sees perfectly well.
+    # app.js falls back twice before showing Japanese: an ISBD or platform separator is not part of
+    # the name it follows, so 怪異部 : M県Y市の怪現象について meets its work title spelt with ～; and
+    # a closed set of edition markers is glossed beside a base title that has English, which is how
+    # 恋愛遺伝子XX : 完全版 renders as The Romance Gene XX (Complete Edition).
+    sep = _re_isbd.compile(r"\s*[:：]\s*|\s*[~～〜]\s*|\s*[【\[]\s*|\s*[】\]]\s*")
+
+    def joins(raw):
+        """Everything the interface would try before giving up and printing the Japanese."""
+        yield raw
+        parts = [x for x in sep.split(raw) if x.strip()]
+        if parts:
+            yield parts[0]                       # the base, for an edition marker or a subtitle
+        yield sep.sub(" ", raw)
+
+    works = (_load(BUILD / "works.json", {}) or {}).get("works") or []
+    for w in works:
+        ja = ((w.get("title") or {}).get("ja") or "").strip()
+        if not ja or not JAPANESE.search(ja):
+            continue
+        if all(JAPANESE.search(render("work", a)) for a in joins(ja)):
+            bad.append(f"volume-row:{ja[:24]}")
     return sorted(set(bad))
 
 

@@ -9,6 +9,22 @@
 # than only with the result.
 
 titles:
+  ゆりでなるｖえすぽわーる:
+    reading: "ユリ デ ナル ♡ エスポワール"
+    reading_basis: researched
+    reading_source_kind: derived
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-08'
+    reading_note: >-
+      THE SHOPS' SPELLING OF THE SAME WORK. BOOK☆WALKER and コミックシーモア both write ｖ where the
+      bibliography writes ♡, so their charset is losing the mark. w01376 anchors both records and
+      the page shows the heart, but works.json keeps each record's own catalogued title, so the ｖ
+      form is what the volume rows are labelled from and it had no rendering at all. The reading is
+      the heart form's, because it is the same title: エスポワール is espoir and the mark is not
+      spoken. Recorded rather than corrected in the capture, because REQUIREMENTS §5 keeps a source
+      record as it arrived.
+
   可愛原先輩はかわいいがすき！:
     en: 'Kawaihara-senpai Likes Cute!'
     basis: translated

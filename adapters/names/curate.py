@@ -149,9 +149,19 @@ OURS = "yurarium"
 # A reading keeps the title's own bracketed labels and censoring marks verbatim, because they are
 # part of the string rather than something to pronounce: 【タテスク】 and the 〇 of 〇〇する話 both
 # appear in readings the store already holds.
+# WIDER THAN IT WAS, BECAUSE THE PASSES WERE ALREADY WRITING THESE. This validator refused
+# characters the store holds in readings the build ships, so a reviewer could not record by hand a
+# reading a machine had written: 『死神』 in 鮮血王女 and the U+2010 hyphen in 天華百剣 ‐瞬‐ were both
+# rejected while sitting in the store. Two definitions of a valid reading is the §3 fault, and the
+# passes' one is the one the data obeys.
+#
+# HANGUL IS DELIBERATELY STILL REFUSED. It appears in stored readings too, and unlike a bracket it
+# is not title punctuation: a reading in Korean is a fact about a record nobody has looked at, and
+# admitting it here would stop anybody noticing.
 KATAKANA = re.compile(r"^[ァ-ヺー・\s0-9０-９A-Za-zＡ-Ｚａ-ｚ"
                       r"!-/:-@\[-`{-~！-／：-＠［-｀｛-～、。〜…【】〇○◯"
-                      r"─━♪♭♯★☆♡♥◎△▽※＆]+$")
+                      r"─━♪♭♯★☆♡♥◎△▽※＆"
+                      r"「」『』〈〉《》‐―†→⇔●♀➝×､･àáâäèéêëìíîïñòóôöùúûü]+$")
 
 
 def problems(kind, ja, e):

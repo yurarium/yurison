@@ -42376,24 +42376,28 @@ names:
     reading_source_kind: analyser
     verified: false
   可愛原先輩はかわいいがすき！:
-    basis: romaji
-    furigana_spans:
-    - - 可愛
-      - かわい
-    - - 原
-      - げん
-    - - 先輩
-      - せんぱい
-    - - はかわいいがすき！
-      - null
+    basis: translated
+    en: Kawaihara-senpai Likes Cute!
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カワイ ゲン センパイ ワ カワイイ ガ スキ！
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading: カワイハラ センパイ ワ カワイイ ガ スキ！
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: カワイ ゲン センパイ ワ カワイイ ガ スキ！
+    reading_note: '可愛原 is カワイハラ. THE CORPUS ALREADY HELD THE ANSWER: the same work is also catalogued
+      as 可愛原先輩はかわいい（早乙女くん）がすき!, whose curated English reads Kawaihara-senpai. The analyser had taken 可愛
+      as カワイ and 原 as ゲン, which is a surname pulled apart. Nothing needed searching for, and nothing compared
+      the two spellings.'
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   可愛原先輩はかわいい（早乙女くん）がすき！:
     basis: translated
@@ -45979,27 +45983,21 @@ names:
     verified: false
   天華百剣 ‐瞬‐:
     basis: romaji
-    furigana_spans:
-    - - 天華
-      - てんか
-    - - 百
-      - ひゃく
-    - - 剣
-      - けん
-    - - ' ‐'
-      - null
-    - - 瞬
-      - まどか
-    - - ‐
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: テンカ ヒャク ケン   ‐ マドカ ‐
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading: テンカ ヒャッケン ‐ シュン ‐
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: テンカ ヒャク ケン   ‐ マドカ ‐
+    reading_note: 瞬 is シュン, and マドカ was wrong rather than unsettled. 天華百剣 is a franchise whose other entry
+      is 天華百剣‐斬‐, read ザン, so the bracketed character is one on-reading naming the line. マドカ is a given-name
+      reading that 瞬 takes only as a personal name, which this is not. 百剣 is ヒャッケン with the ordinary gemination.
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   天蓋の中はふたりの:
     basis: translated
@@ -46146,27 +46144,21 @@ names:
     verified: false
   奏 青春バンド百合アンソロジー:
     basis: romaji
-    furigana_spans:
-    - - 奏
-      - そう
-    - - ' '
-      - null
-    - - 青春
-      - せいしゅん
-    - - バンド
-      - null
-    - - 百合
-      - ゆり
-    - - アンソロジー
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ソウ   セイシュン バンド ユリ アンソロジー
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading: カナデ セイシュン バンド ユリ アンソロジー
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ソウ   セイシュン バンド ユリ アンソロジー
+    reading_note: 奏 is カナデ. It heads a 青春バンド anthology, so the character is the verb かなでる standing as
+      a title, which is how it is read alone. ソウ is the on-reading and appears in compounds such as 演奏,
+      not standing by itself in front of a subtitle.
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   奪い愛:
     basis: translated
@@ -77132,56 +77124,24 @@ names:
     reading_source_kind: analyser
     verified: false
   鮮血王女、皆殺す ～家族に裏切られ、処刑された少女は蘇り、『死神』となって復讐する～:
-    basis: romaji
-    furigana_spans:
-    - - 鮮血
-      - せんけつ
-    - - 王女
-      - おうじょ
-    - - 、
-      - null
-    - - 皆
-      - みな
-    - - 殺
-      - ころ
-    - - す ～
-      - null
-    - - 家族
-      - かぞく
-    - - に
-      - null
-    - - 裏切
-      - うらぎ
-    - - られ、
-      - null
-    - - 処刑
-      - しょけい
-    - - された
-      - null
-    - - 少女
-      - しょうじょ
-    - - は
-      - null
-    - - 蘇
-      - よみがえ
-    - - り、『
-      - null
-    - - 死神
-      - しにがみ
-    - - 』となって
-      - null
-    - - 復讐
-      - ふくしゅう
-    - - する～
-      - null
+    basis: translated
+    en: 'Blood Princess, Kill Them All: Betrayed by Her Family and Executed, the Girl Rises Again as a
+      Reaper to Take Revenge'
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: センケツ オウジョ、 ミナ コロス   ～ カゾク ニ ウラギラレ、 ショケイ サレタ ショウジョ ワ ヨミガエリ、 『シニガミ』 ト ナッテ フクシュウ スル ～
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading: センケツ オウジョ、 ミナ コロス ～ カゾク ニ ウラギラレ、 ショケイ サレタ ショウジョ ワ ヨミガエリ、 『シニガミ』 ト ナッテ フクシュウ スル ～
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_note: 'The same work is catalogued with an ISBD colon where this one has ～, and curated in
+      full with the identical reading. The division I recorded as ambiguous is not: the sibling settles
+      it.'
+    reading_reviewed: '2026-08-08'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   鳥瞰答:
     basis: translated

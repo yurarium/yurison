@@ -1780,7 +1780,7 @@ that date. The previous round found these and left them, because nothing said wh
 writing a date in prose is the shop stating a fact. It is, and what it states is a PRINTING, so it
 outranks the delivery date on the same row under the rule that a print date always wins.
 
-**What the cache holds.** 279 of the 1,833 captured work pages mention a doujin word in the shop's
+**What the cache holds.** 277 of the 1,833 captured work pages mention a doujin word in the shop's
 blurb, and 58 of those put a date or a numbered sales event beside it. 33 yielded a date: 24 at
 month precision, six at year precision and three at day precision. All 33 were dated by delivery
 before this round and are now dated by a publication, so `shop-delivery-date` falls from 1,209 to
@@ -1805,7 +1805,7 @@ the whole `title_intro_box`, which carries the shop's own metadata table under t
 its lines is `配信開始日 ： 2015年8月18日`. A date rule reading that span finds the line on all 1,971
 cached pages and hands the delivery date back as though the shop had stated a printing.
 `cmoa_volumes.synopsis` stops at the table. Reading the narrower span changes none of
-`edition_statement`'s 174 and 79 answers and does move the loose doujin-word count from 284 to 279,
+`edition_statement`'s 174 and 79 answers and does move the loose doujin-word count from 284 to 277,
 because seven pages carry the word in the shop's own tags rather than in its prose.
 
 **An event number is recorded and is not turned into a date.** 36 rows name a sales event and 21 of

@@ -2059,6 +2059,7 @@ works:
       - "web:https://ichicomi.com/episode/12207421983774045329"
       - "madb:C363643"
       - "web:https://ichicomi.com/atom/series/2550912965923184583"
+      - "madb:C433110"
     attached:
       - anchor: "web:https://ichicomi.com/atom/series/2550912965923184583"
         basis: "the chapter page at https://ichicomi.com/episode/12207421983774045329 links its own series feed at https://ichicomi.com/atom/series/2550912965923184583, so the platform places this chapter in series 2550912965923184583, and the og:title there names the work: マーメイドライン - 金田一蓮十郎 / めぐみとあおい2 | 一迅プラス"
@@ -8933,6 +8934,7 @@ works:
     title: "春夏秋冬"
     anchors:
       - "madb:C270392"
+      - "madb:C451119"
   - id: w00995
     title: "百合姫selection"
     anchors:
@@ -9115,6 +9117,7 @@ works:
     title: "ストレンジベイビーズ"
     anchors:
       - "madb:C357218"
+      - "madb:C432567"
   - id: w01040
     title: "センチメンタルダスト"
     anchors:
@@ -9123,6 +9126,7 @@ works:
     title: "スパイスガールズ"
     anchors:
       - "madb:C357225"
+      - "madb:C417718"
   - id: w01042
     title: "ダークチェリーと少女A"
     anchors:
@@ -9207,6 +9211,7 @@ works:
     title: "屋上ぴかぴかロマンス"
     anchors:
       - "madb:C357356"
+      - "madb:C432566"
   - id: w01063
     title: "恋愛彼岸"
     anchors:
@@ -9345,6 +9350,7 @@ works:
     title: "少女²"
     anchors:
       - "madb:C360658"
+      - "madb:C417732"
   - id: w01094
     title: "愛羅武勇より愛してる"
     anchors:
@@ -9416,6 +9422,7 @@ works:
     title: "リンケージ"
     anchors:
       - "madb:C366401"
+      - "madb:C417728"
   - id: w01110
     title: "初恋姉妹"
     anchors:
@@ -9456,6 +9463,7 @@ works:
     title: "ブラックヤギーと劇薬まどれーぬ"
     anchors:
       - "madb:C366424"
+      - "madb:C417719"
   - id: w01120
     title: "メッてされてキャッ"
     anchors:
@@ -9522,18 +9530,26 @@ works:
       - "madb:C417413"
   - id: w01136
     title: "スパイスガールズ : 完全版"
+    merged_into: w01041
+    merge_basis: "完全版 is a reissue of the same story and DEFINITIONS records that the test binds the work and not the edition; the base title is held separately and both name one work"
     anchors:
       - "madb:C417718"
   - id: w01137
     title: "ブラックヤギーと劇薬まどれーぬ : 完全版"
+    merged_into: w01119
+    merge_basis: "完全版 is a reissue of the same story and DEFINITIONS records that the test binds the work and not the edition; the base title is held separately and both name one work"
     anchors:
       - "madb:C417719"
   - id: w01138
     title: "リンケージ : 完全版"
+    merged_into: w01109
+    merge_basis: "完全版 is a reissue of the same story and DEFINITIONS records that the test binds the work and not the edition; the base title is held separately and both name one work"
     anchors:
       - "madb:C417728"
   - id: w01139
     title: "少女² (shoujo no jijou) : 完全版"
+    merged_into: w01093
+    merge_basis: "完全版 is a reissue of the same story and DEFINITIONS records that the test binds the work and not the edition; the base title is held separately and both name one work"
     anchors:
       - "madb:C417732"
   - id: w01140
@@ -9731,10 +9747,14 @@ works:
       - "madb:C432259"
   - id: w01184
     title: "屋上ぴかぴかロマンス : 完全版"
+    merged_into: w01062
+    merge_basis: "完全版 is a reissue of the same story and DEFINITIONS records that the test binds the work and not the edition; the base title is held separately and both name one work"
     anchors:
       - "madb:C432566"
   - id: w01185
     title: "ストレンジベイビーズ : 完全版"
+    merged_into: w01039
+    merge_basis: "完全版 is a reissue of the same story and DEFINITIONS records that the test binds the work and not the edition; the base title is held separately and both name one work"
     anchors:
       - "madb:C432567"
   - id: w01186
@@ -9757,6 +9777,8 @@ works:
       - "madb:C432686"
   - id: w01189
     title: "マーメイドライン : 完全版"
+    merged_into: w00266
+    merge_basis: "完全版 is a reissue of the same story and DEFINITIONS records that the test binds the work and not the edition; the base title is held separately and both name one work"
     anchors:
       - "madb:C433110"
   - id: w01190
@@ -9811,6 +9833,8 @@ works:
         retrieved: 2026-08-07
   - id: w01200
     title: "春夏秋冬 : 完全版"
+    merged_into: w00994
+    merge_basis: "完全版 is a reissue of the same story and DEFINITIONS records that the test binds the work and not the edition; the base title is held separately and both name one work"
     anchors:
       - "madb:C451119"
   - id: w01201

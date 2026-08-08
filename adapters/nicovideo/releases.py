@@ -71,7 +71,20 @@ def iso(y, m, d):
     return f"{int(y):04d}-{int(m):02d}-{int(d):02d}"
 
 
-COPYRIGHT = re.compile(r'<small class="copyright">\(C\)([^<]*)</small>')
+# THE ELEMENT CARRIES MARKUP, so this reads to `</small>` and strips tags rather than stopping at
+# the first `<`. Three of the 157 cached pages end the line with `<br />`, which made an
+# `[^<]*</small>` pattern fail to match at all and report no rights on a page that states them.
+COPYRIGHT = re.compile(r'<small class="copyright">(.*?)</small>', re.S)
+# THE MARK IS NOT WRITTEN ONE WAY, and this pattern used to accept only `(C)`. Of the 154 cached
+# work pages carrying a copyright line, 98 open with something else: © on its own, © followed by
+# the emoji variation selector, Ⓒ in a circle, （C）and (ｃ) in fullwidth, &copy with no semicolon,
+# and one page using @. The old pattern read nothing on all 98 and returned [] , which looks
+# exactly like a page that states no rights (§5). It is the only field on this platform that names
+# a PUBLISHER, so 98 publishers went unread.
+#
+# Found by capturing four real pages as fixtures. The invented markup the test had been written
+# against said `(C)おにぎりパクパク/芳文社`, which is a real spelling and the minority one.
+COPYRIGHT_MARK = re.compile(r'^\s*(?:[(（]\s*[cCｃＣ]\s*[)）]|[©Ⓒⓒ]️?|&copy;?|@)\s*')
 EPISODE = re.compile(r'<li class="episode_item">(.*?)</li>', re.S)
 EP_LINK = re.compile(r'<div class="title"><a href="(/watch/mg\d+)">([^<]*)</a>')
 EP_NUMBER = re.compile(r'data-number="(\d+)"')
@@ -91,9 +104,17 @@ def rights(html):
     which is what lets a serialisation found here be joined to a printed book on the publisher when
     the two sides write the author differently. RUNBOOK §11 asks for the creator, the publisher or
     the imprint, and this is the only field on this platform that answers the second.
+
+    THE ELEMENT IS THE EVIDENCE, NOT THE MARK. Eight of the 154 cached pages open the line with no
+    copyright mark at all, `Mori/MAG Garden` and `Kawakami Shiwon/Hitoma Iruma/Nekoyashiki Pushio`
+    among them. The element says `class="copyright"`, so its contents are the rights line whether
+    or not it is punctuated as one, and refusing those would repeat in miniature the fault above.
     """
     m = COPYRIGHT.search(html or "")
-    return [x.strip() for x in re.split(r"[/／・,、]", m.group(1)) if x.strip()] if m else []
+    if not m:
+        return []
+    line = COPYRIGHT_MARK.sub("", _text(re.sub(r"<[^>]+>", " ", m.group(1))))
+    return [x.strip() for x in re.split(r"[/／・,、]", line) if x.strip()]
 
 
 def episodes(html):

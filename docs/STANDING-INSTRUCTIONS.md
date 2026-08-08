@@ -235,6 +235,17 @@ a test it must assert something; if it cannot, it belongs somewhere the runner d
 **Fixtures live in the repository** and are small enough to read. A fixture nobody can read is a
 fixture nobody can tell is wrong.
 
+**A fixture is a real page, captured once.** `adapters/fixtures.py capture` cuts one out of a cache
+entry or a live URL, keeps the elements the parser reads, and records the address, the day, and the
+digest of the whole page in the file. It refuses to write a cut the parser reads differently from
+the page it came from. Markup somebody typed out contains what they imagined, and this project has
+paid for that three times in one round: the ニコニコ pattern that read a sidebar banner instead of
+the breadcrumb had been checked against an invented page with no sidebar in it.
+
+A short literal is a different thing and is welcome. `<div class="meta_info">2026年8月3日更新</div>`
+states one parsing rule and belongs where a reader sees the rule and its input together. The budget
+`invented markup in tests` counts the ones long enough to be impersonating a page.
+
 ## 13. A register nothing reads is worse than no register
 
 `adapters/kadokomi/confirm.py` wrote a list of works flagged on content grounds from the project's

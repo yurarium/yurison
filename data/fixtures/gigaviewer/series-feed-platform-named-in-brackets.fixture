@@ -1,0 +1,42 @@
+agrees_with: adapters/gigaviewer/series_feeds.py:episodes
+body_sha256: 2a6f45e281880ad8d28287b3f808ccc7ee4759765d7a9df3455ff74adf256e5f
+cached_as: giga-series-cache/https___comic_ogyaaa_com_atom_series_2550912964477002101
+captured: '2026-08-08'
+format: xml
+keep:
+- <title>
+- <entry>*
+redact: []
+redact_over: 0
+retrieved: '2026-08-03'
+sample: []
+source_bytes: 1963
+source_sha256: 42bbe2470c32b8f897cc7e7971b0a7bdc67d68144ffc08de77ce9c388d7f1a88
+trim: []
+url: https://comic-ogyaaa.com/atom/series/2550912964477002101
+why: "あの子は優しすぎる。 on COMIC OGYAAA!!, whose own feed title is\n  COMIC OGYAAA!! (コミックオギャー)｜おもしろい、がうまれるところ（あの子は優しすぎる。）\n\
+  THE PLATFORM NAME CONTAINS BRACKETS, which is the counter-case. A greedy match ran\
+  \ from the first\nopener to the last closer, so 23 series here were named after\
+  \ the platform and its tagline with the\nreal title trapped on the end, and four\
+  \ of them reached the published database. No feed on any other\nGigaViewer platform\
+  \ shows this, because no other platform brackets its own name.\nThe subtitle is\
+  \ cut BECAUSE IT IS THE PUBLISHER SYNOPSIS, which REQUIREMENTS §2 forbids storing.\n\
+  Nothing reads it and a fixture is committed."
+---
+<title>COMIC OGYAAA!! (コミックオギャー)｜おもしろい、がうまれるところ（あの子は優しすぎる。）</title>
+<entry>
+            <title>後編</title>
+            <link href="https://comic-ogyaaa.com/episode/2550912964509398509"/>
+            <id>comic_ogyaaa:episode:2550912964509398509</id>
+            <updated>2024-08-23T03:00:00Z</updated>            <content type="html">あの子は優しすぎる。</content>
+            <link rel="enclosure" href="https://cdn-img.comic-ogyaaa.com/public/episode-thumbnail/2550912964509398509-30532bdd4ea4dad4582b1fd2d72ab9b0?1724141098" length="0" type="image/jpeg" />
+            <author><name>当麻</name></author>
+        </entry>
+<entry>
+            <title>前編</title>
+            <link href="https://comic-ogyaaa.com/episode/2550912964477004522"/>
+            <id>comic_ogyaaa:episode:2550912964477004522</id>
+            <updated>2024-08-16T03:00:00Z</updated>                <giga:freeTermStartDate>2024-08-16T03:00:00Z</giga:freeTermStartDate>            <content type="html">あの子は優しすぎる。</content>
+            <link rel="enclosure" href="https://cdn-img.comic-ogyaaa.com/public/episode-thumbnail/2550912964477004522-c665bc22c0d5c10beb114e575c04c1c0?1723546357" length="0" type="image/jpeg" />
+            <author><name>当麻</name></author>
+        </entry>

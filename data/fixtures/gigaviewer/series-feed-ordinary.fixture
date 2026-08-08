@@ -1,0 +1,52 @@
+agrees_with: adapters/gigaviewer/series_feeds.py:feed_series_name
+body_sha256: 253910e0cb89e65c417d0bdf2f15d49240d9ea747af7403edaab9d0f235f492a
+cached_as: giga-series-cache/https___ichicomi_com_atom_series_2550912965923183988
+captured: '2026-08-08'
+format: xml
+keep:
+- <title>
+- <entry>
+- <entry>
+redact: []
+redact_over: 0
+retrieved: '2026-08-03'
+sample: []
+source_bytes: 75890
+source_sha256: a8966d9387e4d9b63c79d937e73540aa455d303492020e07f5c19a1ef762ddc3
+trim: []
+url: https://ichicomi.com/atom/series/2550912965923183988
+why: '大室家 on 一迅プラス, the ordinary shape: platform outside the brackets, series inside.
+
+  Its stamps are why jst_date exists and are not an invented boundary. This platform
+  publishes at
+
+  15:00:00Z, which is midnight in Tokyo on the NEXT day, so every chapter of this
+  series would be
+
+  filed a day early for ever by a reader that took the UTC date.
+
+  THE TWO NEWEST ENTRIES OF 136. episodes() therefore reads the fixture and not the
+  whole feed, which
+
+  is why the header agrees with feed_series_name instead. The subtitle is cut as the
+  publisher
+
+  synopsis (REQUIREMENTS §2).'
+---
+<title>一迅プラス（大室家）</title>
+<entry>
+            <title>第136話</title>
+            <link href="https://ichicomi.com/episode/12207421983947227424"/>
+            <id>ichijinsha:episode:12207421983947227424</id>
+            <updated>2026-07-15T15:00:00Z</updated>            <content type="html">大室家</content>
+            <link rel="enclosure" href="https://cdn-img.ichicomi.com/public/episode-thumbnail/12207421983947227424-7a926dccc31d3db7eb98fd3322e9db83?1784013805" length="0" type="image/jpeg" />
+            <author><name>なもり</name></author>
+        </entry>
+<entry>
+            <title>第135話</title>
+            <link href="https://ichicomi.com/episode/12207421983829237123"/>
+            <id>ichijinsha:episode:12207421983829237123</id>
+            <updated>2026-06-16T15:00:00Z</updated>            <content type="html">大室家</content>
+            <link rel="enclosure" href="https://cdn-img.ichicomi.com/public/episode-thumbnail/12207421983829237123-e0a8eb2ce57edf7b438c2847f95d15cb?1781509020" length="0" type="image/jpeg" />
+            <author><name>なもり</name></author>
+        </entry>

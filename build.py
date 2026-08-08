@@ -33,6 +33,7 @@ from names import openbd_reading  # noqa: E402
 import bylines as _bylines  # noqa: E402
 from classify import credence  # noqa: E402
 from recon import bookwalker_volumes  # noqa: E402
+import delivery  # noqa: E402
 
 # REQUIREMENTS §1. A field whose provenance is not here fails the build.
 # Tier A/B attesting sources only. Discovery-only sources (Tier C/D) never appear here — they feed
@@ -302,9 +303,20 @@ def undated_publication(base):
 
     The vocabulary and the sentence explaining each term are `recon/bookwalker_volumes`', because
     that is where a capture decides which silence a row is in. Nothing is restated here.
+
+    THE DELIVERY DATE IS TAKEN WHERE NO PAPER RECORD IS REACHABLE, ruled by the project owner on
+    2026-08-08 and recorded in DEFINITIONS §6 and docs/GAPS.md. `delivery.promote` decides, so the
+    refusal that protects a printing lives in one place: where the shop states a print date the
+    delivery date is refused, and this branch is only ever reached by a work no source could date at
+    all. The date names the delivery and `date_event` says so, because `date` alone cannot tell a
+    reader which event was dated.
+
+    A ROW DATED THIS WAY IS FLAGGED, since this is the weakest date the database carries.
+    `date_followup` is how these are found again, and `delivery.FOLLOWUP_NOTE` says why the count is
+    not a queue length.
     """
     basis = base.get("date_basis") or "no-date-attested"
-    return {
+    undated = {
         "venue": base.get("venue") or base.get("publisher") or None,
         "date": None,
         "country": base.get("first_publication_country") or "JP",
@@ -312,6 +324,31 @@ def undated_publication(base):
         "venue_type": bookwalker_volumes.VENUE_TYPE.get(basis),
         "note": bookwalker_volumes.BASIS_NOTE.get(
             basis, bookwalker_volumes.BASIS_NOTE["no-date-attested"]),
+    }
+    items = (base.get("volumes") or []) + (base.get("chapters") or [])
+    date, refused = delivery.promote(items)
+    if not date:
+        # A refusal here would mean a printed volume reached a branch for works with no date, so it
+        # is recorded on the row instead of being dropped. Nothing has produced one yet.
+        if refused:
+            undated["date_refused"] = refused
+        return undated
+    followup = delivery.followup(
+        base.get("edition_statement"),
+        self_published=delivery.self_published(base.get("creator"), base.get("publisher"),
+                                              base.get("imprint")))
+    return {
+        **undated,
+        "date": date,
+        "date_source": base.get("source") or None,
+        "date_basis": delivery.BASIS,
+        "date_event": delivery.EVENT,
+        "date_followup": followup,
+        # THE SILENCE THAT WAS THERE BEFORE THE DATE. `no-print-edition` and its siblings say why
+        # the shop states no printing, and that reasoning is the ground for accepting a delivery
+        # date at all, so it travels with the row instead of being overwritten by it.
+        "date_silence": basis,
+        "note": delivery.BASIS_NOTE[delivery.BASIS] + " " + delivery.FOLLOWUP_NOTE[followup],
     }
 
 
@@ -879,7 +916,15 @@ def _print_block(rec):
     reads the role out of the bracket, and both fields travel from there. `publisher_basis` says
     why the publisher is missing where it is, because an empty name and an unanswered question look
     identical on a page.
+
+    `first` IS A PRINTING AND A DELIVERY DATE DOES NOT GO IN IT. The interface labels this field
+    初刊, "first printed", and 1,297 works dated from a shop's 配信開始日 would have read as printed
+    editions with a date the printer never set. The delivery date travels as `delivered_from` and
+    carries its own label, which is the same separation 発売日 and 奥付 got: two facts about one
+    book and not one fact at two precisions.
     """
+    _fp = rec.get("first_publication") or {}
+    _delivered = _fp.get("date_event") == delivery.EVENT
     return {
         "work_id": rec["work_id"],
         # WHERE TO BUY IT, which the record has carried all along. A retailer is Tier C and its
@@ -892,7 +937,8 @@ def _print_block(rec):
         **({"publisher_basis": rec["publisher_basis"]} if rec.get("publisher_basis") else {}),
         **({"distributor": rec["distributor"]} if rec.get("distributor") else {}),
         "imprint": rec.get("imprint"),
-        "first": (rec.get("first_publication") or {}).get("date"),
+        "first": None if _delivered else _fp.get("date"),
+        **({"delivered_from": _fp.get("date")} if _delivered else {}),
         "last": rec.get("last_published"),
         "label": rec.get("marketing_label"),
     }
@@ -1710,6 +1756,15 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
                            "withheld": sum(1 for r in content_flag_rows if r["withheld"]),
                            "published": sum(1 for r in content_flag_rows if r["published"]),
                            "rows": content_flag_rows},
+         # THE WEAKEST DATE THE DATABASE CARRIES, counted where the coverage facts live so that it
+         # can be found again when a better source appears. `followup` is NOT a queue length:
+         # `no-earlier-record-expected` is finished work under DEFINITIONS §6, since for a doujinshi
+         # a platform sells the delivery day may be the only datable event in its history;
+         # `unclassified` means the shop said nothing about the edition; and only
+         # `earlier-edition-unsourced` names a row another source could answer.
+         "delivery_dated": {**delivery.tally(series_rows),
+                            "means": delivery.BASIS_NOTE[delivery.BASIS],
+                            "followup_means": delivery.FOLLOWUP_NOTE},
          "bulk_dated": bulk,
          # Cases the reader-facing interface used to render as doubt, now decided and moved here.
          # A work with no chapters at all is a lead; a volume grouped by title match rather than an
@@ -1997,13 +2052,24 @@ def main():
                 "note": "First known 単行本. Magazine serialisation not attested by current sources.",
             }
         else:
-            # The absence is STATED rather than left empty, and never filled with a delivery date
-            # or an import stamp standing in for one. `undated_publication` carries the reasoning
-            # and the shape; the count here ratchets down as dates are found.
+            # No catalogue and no publisher page answered. The shop's own delivery date is taken
+            # where the shop states no printing anywhere (DEFINITIONS §6, ruled 2026-08-08), and
+            # where there is no date of any kind the absence is STATED rather than left empty and
+            # never filled with a platform import stamp. `undated_publication` decides which of the
+            # two this is and carries the reasoning for both.
             w["first_publication"] = undated_publication(base)
-            undated_works += 1
-            _undated_basis = w["first_publication"]["date_basis"]
-            undated_by_basis[_undated_basis] = undated_by_basis.get(_undated_basis, 0) + 1
+            _fp_undated = w["first_publication"]
+            if _fp_undated.get("date_event") == delivery.EVENT:
+                # COUNTED APART FROM THE UNDATED, because it is neither. A row here has a date a
+                # reader can act on and the weakest one the database carries, so folding it into
+                # either total would lose the distinction the whole ruling turns on. The counting is
+                # `delivery.tally`'s, over the finished works-list rows, so the line printed at the
+                # end of a build, `run.json` and `status.html` cannot disagree.
+                pass
+            else:
+                undated_works += 1
+                _undated_basis = _fp_undated["date_basis"]
+                undated_by_basis[_undated_basis] = undated_by_basis.get(_undated_basis, 0) + 1
 
         # Classification. marketing_label is mechanical; content_tier is never automated (§6).
         for axis in ("marketing_label", "content_tier"):
@@ -4628,6 +4694,12 @@ def main():
                     if x),
                 "chapters": 0, "partial": False, "oneshot": False,
                 "latest": None, "latest_ep": "", "first": _fp2.get("date"),
+                # WHICH EVENT THE DATE IS OF, carried because `first` is not one fact across the
+                # corpus: a chapter on a serialisation, a printing on a book, and on 1,297 rows the
+                # day a shop began delivering a file. The works list labels the date and cannot
+                # label it correctly without being told which it has.
+                **({"first_event": _fp2["date_event"]} if _fp2.get("date_event") else {}),
+                **({"first_followup": _fp2["date_followup"]} if _fp2.get("date_followup") else {}),
                 "state": "print", "state_basis": None, "completed_basis": None,
                 "free": 0, "free_timed": 0, "priced": 0,
                 # A work that exists only in print serialises nowhere, so it has no address of
@@ -4787,6 +4859,16 @@ def main():
                        "read": _bh["retrieved"] or None,
                        **({"url": _bh["url"]} if _bh.get("url") else {})}
                       for _bh in (_brec.get("records") or [])]
+            # A DELIVERY DATE IS ITS OWN FACT AND GETS ITS OWN ROW, naming the shop that stated it
+            # and the day we read it. Without this the date reaches a reader through the 刊行 line
+            # with nothing on the page saying whose date it is, and this is the table where every
+            # other source of a date already says so.
+            if _bp.get("delivered_from"):
+                _drec = (_brec.get("records") or [{}])[0]
+                _held.append({"source": credence.named(_drec.get("source") or ""),
+                              "holds": "delivery-date",
+                              "read": _drec.get("retrieved") or None,
+                              **({"url": _bp["shop_url"]} if _bp.get("shop_url") else {})})
         _basisrow["evidence"] = credence.order(_got)
         if _held:
             _basisrow["sourced_from"] = _held
@@ -5075,6 +5157,15 @@ def main():
         # the one nobody has an answer for and is what a later pass should be aimed at.
         for _basis_name, _basis_n in sorted(undated_by_basis.items(), key=lambda kv: -kv[1]):
             print(f"    {_basis_n:5}  {_basis_name}")
+    _dtally = delivery.tally(series_rows)
+    if _dtally["rows"]:
+        print(f"delivery dates  : {_dtally['rows']} works dated by the day a shop began delivering "
+              f"the file, because no paper record is reachable")
+        # NOT A BACKLOG, AND THE SPLIT IS WHY. `no-earlier-record-expected` is finished work under
+        # DEFINITIONS §6, `unclassified` means the shop said nothing about the edition, and only
+        # `earlier-edition-unsourced` is a row a better source could answer.
+        for _dk_name, _dk_n in sorted(_dtally["followup"].items(), key=lambda kv: -kv[1]):
+            print(f"    {_dk_n:5}  {_dk_name}")
     print(f"series index    : {len(series_rows)} (work, platform) rows across "
           f"{len({k[0] for k in series})} works — {dict(_st)}"
           f"{f'  [{_out_of_scope} out-of-scope rows dropped]' if _out_of_scope else ''}")

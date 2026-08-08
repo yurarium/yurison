@@ -775,6 +775,13 @@ def inv_first_date_precedes_its_editions(ctx):
 
     A volume with no date says nothing here and is skipped, which is silence about the sources
     rather than about the work.
+
+    A DELIVERY DATE IS NOT AN EDITION AND CANNOT TRIP THIS, deliberately. `print[].first` is a
+    printing, `print[].delivered_from` is the day a shop began delivering a file, and 154 of the 353
+    volumes stating both were delivered BEFORE the printing. Reading the delivery date here would
+    have reported the commonest case in the shop's catalogue as a contradiction and invited someone
+    to reorder dates that are not in conflict. `a delivery date never stands beside a printing` is
+    the invariant that covers those rows.
     """
     bad = []
     for r in ctx["series"]:
@@ -784,6 +791,58 @@ def inv_first_date_precedes_its_editions(ctx):
         dates = [p.get("first") for p in (r.get("print") or []) if p.get("first")]
         if dates and min(dates)[:7] < str(first)[:7]:
             bad.append(f"{r.get('work')}: first {first} beside a volume from {min(dates)}")
+    return bad
+
+
+def inv_a_delivery_date_never_stands_beside_a_printing(ctx):
+    """A work dated from a shop's 配信開始日 holds no publication date from anywhere else.
+
+    THE HALF OF THE EARLIER REFUSAL THAT WAS NOT OVERRIDDEN. `adapters/cmoa_volumes.py` measured
+    配信開始日 against a stated print date across 353 volumes: 154 delivered before the printing, 51
+    in the same month, 45 more than three years after, the extreme 128 months. So it is not a
+    publication date, not an upper bound on one and not a lower bound either. The owner's ruling of
+    2026-08-08 accepts it only where NO paper record is reachable, and this is what holds that line
+    once the rows are built.
+
+    §14b, WHAT IT CAN SEE THAT THE PRODUCER CANNOT. `delivery.promote` refuses on the volumes of ONE
+    source record, so a check asking the same question of the same volumes would be true by
+    construction. Both halves here read further than the producer did:
+
+    The row half reads a works-list row, where `build.py` folds print blocks from several records
+    onto one identity. A retailer record dated by delivery and a bibliography record for the same
+    work land on one row, and only the row can see both.
+
+    The volume half reads the MERGED volumes, after the openBD join has had its turn. A date arriving
+    through the enrichment layer never passed through `promote`. BOOK☆WALKER states no ISBN so
+    nothing keys openBD from that side today, which is why this reads 0 and not why it always will.
+
+    It is an invariant and not a budget: a printing existing beside a delivery date means one of them
+    should not be in the field, which is a fault and not a quantity.
+
+    fallback: none. Both dates are already in hand, so a violation is the merge having preferred the
+    wrong one and not a source withholding anything.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        import delivery as _d
+    except Exception:                                                       # noqa: BLE001
+        return []
+    bad = []
+    for r in ctx["series"]:
+        if not any(p.get("delivered_from") for p in (r.get("print") or [])):
+            continue
+        printed = [p.get("first") for p in (r.get("print") or []) if p.get("first")]
+        if printed:
+            bad.append(f"{r.get('work')}: delivery-dated beside a printing from {min(printed)}")
+    for w in ctx["works"]:
+        fp = w.get("first_publication") or {}
+        if fp.get("date_basis") != _d.BASIS:
+            continue
+        dated = [v.get("published") for v in (w.get("volumes") or []) if v.get("published")]
+        if dated:
+            bad.append(f"{w.get('work_id')}: delivery-dated and volume {min(dated)} is printed")
+        if fp.get("date_event") != _d.EVENT:
+            bad.append(f"{w.get('work_id')}: delivery-dated and does not say which event")
     return bad
 
 
@@ -1047,6 +1106,8 @@ INVARIANTS = [
     ("no refutation of print serials", inv_no_refutation_of_print_serials),
     ("state agrees with its own date", inv_state_agrees_with_its_own_date),
     ("undated works say where and why", inv_undated_works_say_where_and_why),
+    ("a delivery date never stands beside a printing",
+     inv_a_delivery_date_never_stands_beside_a_printing),
     ("per-book dates cite their page", inv_per_book_dates_cite_their_page),
     ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role),
     ("a record without a publisher says why", inv_a_record_without_a_publisher_says_why),
@@ -1310,6 +1371,16 @@ def budget_undated_cmoa_candidates(ctx):
     cmoa's silences differ from BOOK☆WALKER's and the file distinguishes them: an ISBN openBD does
     not hold is reachable through another catalogue, while a title with no print edition has no
     ISBN to reach it with. Neither shows up here, which is why the basis is in the file.
+
+    IT FELL FROM 1,220 TO 11 ON 2026-08-08, AND WHAT IT MEASURES CHANGED WITH IT. The owner's ruling
+    of that day dates a digital-only row from the shop's own 配信開始日, so the 1,209 rows this
+    counted are answered. What is left is rows nothing has captured, which really does reach zero
+    when the capture finishes.
+
+    THE RISK IN A NUMBER THIS SMALL. This counts ADMITTED rows against captured ones, so a fresh
+    shelf capture admitting a dozen titles blows a budget of 11 before anyone has fetched a page,
+    for a rise nobody caused. That is a budget doing its job badly and it is worth raising with a
+    recorded reason instead of being worked around.
     """
     return _undated_retailer_rows("data/queue/cmoa-volumes.yaml", "cmoa.jp")
 
@@ -2633,6 +2704,12 @@ def self_test():
          lambda c: c["releases"].append({"work": "カナリア", "provenance": "attested"})),
         ("undated works say where and why", inv_undated_works_say_where_and_why,
          lambda c: c["works"].append({"work_id": "CANARY", "first_publication": {"date": None}})),
+        # A row holding both dates, which is what the fold in build.py can produce.
+        ("a delivery date never stands beside a printing",
+         inv_a_delivery_date_never_stands_beside_a_printing,
+         lambda c: c["series"].append({"work": "CANARY", "id": "CANARY",
+                                       "print": [{"delivered_from": "2018-07-18",
+                                                  "first": "2007-11"}]})),
         ("per-book dates cite their page", inv_per_book_dates_cite_their_page,
          lambda c: c["cmoa_capture"].append({"shop_id": "CANARY",
                                              "first_publication_basis": "publisher-own-page"})),

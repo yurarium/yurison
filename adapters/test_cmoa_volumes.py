@@ -64,14 +64,31 @@ def main(s):
          "the print date stands however long after it the shop began selling the file")
     s.eq(far["volumes"][0]["delivered"], "2018-07-18", "and the delivery date is kept beside it")
 
+    # ── THE DIGITAL-ONLY ROW, WHOSE ANSWER THE OWNER REVERSED ON 2026-08-08 ───────────────────
+    # This block asserted the opposite until that ruling: no date, and a basis saying so. What has
+    # not changed is everything above, which is about a volume stating both dates.
     bare = cv.record(parsed(published=None, isbn=None), None)[0]
-    s.eq(bare["first_publication_date"], None,
-         "a page stating only 配信開始日 yields no publication date at all")
-    s.eq(bare["first_publication_basis"], "shop-delivery-date-only",
-         "and the basis says which silence this is, because the four have different remedies")
-    s.eq(bare["first_publication_country"], None, "no date, no country asserted")
+    s.eq(bare["first_publication_date"], "2019-01-11",
+         "a page stating only 配信開始日 is dated by the day the shop began delivering the file")
+    s.eq(bare["first_publication_basis"], "shop-delivery-date",
+         "and the basis names the delivery, which is exactly what the date is true of")
+    s.eq(bare["first_publication_event"], "shop-delivery",
+         "the event travels with it, so nothing downstream reads it as a printing")
+    s.eq(bare["first_publication_followup"], "unclassified",
+         "and a row whose page has not been read for its edition sorts to neither pile")
+    s.eq(bare["first_publication_country"], "JP", "a dated row answers where, which §6 asks")
+    s.eq(bare["first_publication_source"], bare["volumes"][0]["url"],
+         "cited to the volume page stating the date, which a catalogue route has none of")
     s.eq(bare["volumes"][0]["delivered"], "2019-01-11",
-         "though the distribution date is still recorded, because absence is a state")
+         "and the volume keeps the shop's own field under the shop's own name")
+
+    # ONE PRINTED VOLUME ANSWERS FOR THE WORK, and volume 1 is not where this is decided. The
+    # branch above reads volume 1 and `delivery.promote` reads all of them, so a work whose second
+    # volume states a printing is refused rather than dated from its file.
+    mixed = {"volumes": [{"volume": 1, "delivered": "2019-01-11"},
+                         {"volume": 2, "printed": "2007-11"}]}
+    s.eq(cv.first_publication(mixed), (None, "shop-delivery-date-refused"),
+         "a printing anywhere on the work refuses the delivery date and says it did")
 
     # THE SILENCE THAT ANOTHER CATALOGUE COULD STILL ANSWER, kept apart from the one that nothing
     # can: an ISBN exists and openBD has no record of it, which is 13 of the 23 ISBNs sampled.
@@ -190,6 +207,27 @@ def main(s):
          "so the better answer survives whichever order the passes ran in")
     s.eq(doc["works"]["167439"]["first_publication_basis"], "madb-tankobon",
          "and the basis says which catalogue is in the field")
+
+    # ── THE DESCRIPTION IS READ FROM ONE BOX, WHICH IS THE WHOLE OF THE RULE ─────────────────
+    # A doujin word appears somewhere on 321 of the 1,971 cached pages and inside the description
+    # box on 285. The other 36 are in reader reviews and in the covers of other people's books in
+    # the sidebar, so a count over the whole page would have read as the shop stating something
+    # about 36 works it says nothing about. This literal states that one rule and holds no あらすじ,
+    # which REQUIREMENTS §2 forbids storing.
+    page = ('<div class="title_intro_box"><p>※本作は個人誌作品の電子書籍版となります。</p>'
+            '<div id="comic_description_hide"></div>'
+            '<div class="review_txt">同人誌の再録だそうです</div>')
+    s.eq(cv.description(page), "※本作は個人誌作品の電子書籍版となります。",
+         "the shop's own box, with its markup stripped and the review outside it left alone")
+    s.eq(cv.description('<div class="review_txt">同人誌の再録です</div>'), "",
+         "a page with no description box yields nothing, and not the nearest other text")
+    s.eq(cv.description(None), "", "and no page at all yields nothing rather than raising")
+    # A TEMPLATE THAT MOVED ITS OWN MARKER IS READ IMPERFECTLY AND NOT REPORTED AS SILENT. The box
+    # opens, so the shop did say something, and returning "" here would file the row `unclassified`
+    # on the strength of one renamed element.
+    s.check("個人誌" in cv.description(
+        '<div class="title_intro_box"><p>※本作は個人誌作品の電子書籍版となります。</p></div>'),
+        "an unterminated box still yields the text it opened on")
 
     # ── A PER-BOOK ROUTE CITES THE PAGE, AND THE CITATION IS WRITTEN OUT ─────────────────────
     # `adapters/publisher_dates.py` reads one page per book, so unlike a bulk catalogue it has a

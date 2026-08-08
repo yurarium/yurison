@@ -93,8 +93,14 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 0,
-   "examples": []
+   "violations": 5,
+   "examples": [
+    "index.json",
+    "run.json",
+    "status.json",
+    "series.json",
+    "works.json"
+   ]
   },
   {
    "name": "no refutation of print serials",
@@ -108,6 +114,11 @@
   },
   {
    "name": "undated works say where and why",
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "name": "a delivery date never stands beside a printing",
    "violations": 0,
    "examples": []
   },
@@ -284,8 +295,8 @@
   {
    "name": "stock phrasing in comments",
    "means": "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which are a budget here and zero in public text. Public prose is an invariant instead; this is the backlog and it ratchets down. See adapters/lint/tics.py for what is deliberately not flagged, and why legibility beats camouflage.",
-   "budget": 903,
-   "value": 903
+   "budget": 898,
+   "value": 898
   },
   {
    "name": "invented markup in tests",
@@ -344,8 +355,8 @@
   {
    "name": "undated cmoa candidates",
    "means": "the same count for the コミックシーモア half of the queue, falling as adapters/cmoa_volumes.py works through it. Its floor is high and known: cmoa states an ISBN or an 出版年月 only where a volume was printed, and 754 of the 1,844 rows come from two digital distributors whose pages carry neither.",
-   "budget": 1220,
-   "value": 1220
+   "budget": 11,
+   "value": 11
   },
   {
    "name": "three as an organising shape",

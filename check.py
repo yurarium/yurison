@@ -27,7 +27,7 @@ BUDGETS RATCHET ONE WAY. Tier-2 numbers are counts with no correct value, only a
 `--gate` tightens the recorded budget to what was actually measured; loosening one requires editing
 docs/budgets.json by hand, which puts the reason in a commit message where it can be argued with.
 """
-import argparse, ast, json, os, pathlib, re, subprocess, sys, unicodedata
+import argparse, ast, collections, json, os, pathlib, re, subprocess, sys, unicodedata
 
 ROOT = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
@@ -1089,6 +1089,100 @@ def budget_works_without_an_english_name(ctx):
     return sum(1 for r in ctx["series"]
                if (r.get("work_en") or {}).get("basis") not in ("official-jp", "licensed",
                                                                 "translated"))
+
+
+def _shipped_lists(ctx):
+    """The lists a build publishes, as (name, [(title, credit)]).
+
+    EVERY SURFACE SEPARATELY, which is STANDING-INSTRUCTIONS §13's rule and the reason these are
+    kept apart instead of pooled. Five titles reached the public site through six paths and each was
+    found only after the previous fix appeared to have worked. A list is a surface; a work offered
+    twice on two of them is two faults and is counted twice here on purpose.
+    """
+    return [
+        ("index", [(str(r.get("t") or ""), str(r.get("c") or "")) for r in ctx["index"]]),
+        ("series", [(str(r.get("work") or ""), str(r.get("author") or "")) for r in ctx["series"]]),
+    ]
+
+
+def budget_works_offered_twice(ctx):
+    """Rows beyond the first that a shipped list gives to one identity work.
+
+    THE CLASS. `index.json` emitted one row per SOURCE RECORD, and the national bibliography holds
+    several records for one book run, so 41 works were offered twice or three times: ゆるゆり and
+    citrus split by two spellings of one imprint, 紅殻のパンドラ split where the run continues under
+    a subtitle, and `School zone = スクールゾーン` beside `スクールゾーン` because one record carried
+    the whole ISBD line as its name. `build.one_row_per_work` collapses them through the identity
+    registry, keeping every record's identifier on the row so no published address stops resolving.
+
+    WHAT THIS CAN AND CANNOT SEE (§14b). It asks the identity registry, and both producers now ask
+    the identity registry, so it is close to true by construction: `one_row_per_work` groups on the
+    answer this verifies with, and the works list folds print records on the same lookup. What it
+    therefore catches is a collapse that stops running, and a NEW list that ships without asking
+    identity at all, which is how this arrived. What it cannot catch is two records of one work the
+    registry never joined, because both then look like separate works to it and to the producer
+    alike. `one work under two names in a list` is the measure for that, and it owes the registry
+    nothing.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import identity
+
+    reg = ctx["identity"]
+    byanchor = identity.index(reg)
+    extra = 0
+    for _name, rows in [("index", ctx["index"]), ("series", ctx["series"])]:
+        seen = collections.Counter()
+        for r in rows:
+            # Every record the row stands for. An index row carries `ids` since the collapse; a
+            # works-list row carries its print records, and either can be several.
+            ids = (r.get("ids") or ([r["id"]] if r.get("id") and _name == "index" else [])
+                   or [p.get("work_id") for p in (r.get("print") or [])])
+            for wid in {byanchor.get(identity.print_anchor(i)) for i in ids if i}:
+                if wid:
+                    seen[wid] += 1
+        extra += sum(n - 1 for n in seen.values() if n > 1)
+    return extra
+
+
+def budget_one_work_under_two_names(ctx):
+    """Pairs of rows in one shipped list that name one work twice, on the rows' own evidence.
+
+    WHAT IT MEASURES. Two rows whose titles fold equal and whose credits share a person. Folding
+    removes width, spacing, decorative punctuation and bracketed matter, so 【合本版】, 【電子単行本】
+    and （英語版） fold away and a work sold in a collected edition beside its volumes lands here:
+    DEFINITIONS §7 says the test binds the work and not the edition, so that is one work with two
+    rows. Sharing a person is what keeps 人魚姫 apart from the seven other 人魚姫, and it is the same
+    evidence the identity registry requires before joining anything.
+
+    WHY IT DOES NOT SHARE THE PRODUCER'S BLIND SPOT (§14b). It never opens the identity registry. It
+    compares the rows a reader is served against each other, so the pairs it reports are exactly the
+    ones the registry has NOT joined, which is the population `works offered twice in a list` is
+    structurally unable to see. The reverse is also true and both are kept: a collapse that stops
+    running produces rows this cannot tell apart from two works, because their titles then agree and
+    it would count them as a pair, which is right, and it says nothing about why.
+
+    IT IS A QUEUE AND NOT A FAULT COUNT. Every pair needs somebody to decide whether it is one work,
+    a reissue under another name, or two works an author gave one title. リリウム・テラリウム and
+    くちびるためいきさくらいろ appear twice each and look like the first; 少女² 完全版 beside 少女²
+    is the second. Nothing here decides, and a fall in the number has to come from deciding rather
+    than from tightening the fold.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import identity
+
+    pairs = 0
+    for _name, rows in _shipped_lists(ctx):
+        by = collections.defaultdict(list)
+        for title, credit in rows:
+            if title:
+                by[identity.fold(title)].append(credit)
+        for key, credits in by.items():
+            if not key or len(credits) < 2:
+                continue
+            who = [identity.people(c) for c in credits]
+            pairs += sum(1 for i in range(len(who)) for j in range(i + 1, len(who))
+                         if who[i] & who[j])
+    return pairs
 
 
 def budget_incomplete_attested_rows(ctx):
@@ -2362,6 +2456,16 @@ BUDGETS_DEF = [
      "in any spelling, or a reissue marker from the closed set adapters/isbd.py holds. A subtitle "
      "after the same colon is content and is not counted. A rise means a capture route wrote a "
      "catalogue string through as a name."),
+    ("works offered twice in a list", budget_works_offered_twice,
+     "rows beyond the first that a shipped list gives to one identity work. 41 works were listed "
+     "twice or three times in index.json, which emitted one row per source record and asked "
+     "identity nothing. A rise means a collapse stopped running, or a new list shipped without "
+     "asking which work a record belongs to."),
+    ("one work under two names in a list", budget_one_work_under_two_names,
+     "pairs of rows in one list whose titles fold equal and whose credits share a person, which is "
+     "one work offered twice under two names. Measured on the shipped rows and never on the "
+     "identity registry, so it reports the pairs the registry has not joined. A queue rather than "
+     "a fault count: each pair needs deciding, and the number falls by deciding them."),
     ("incomplete attested rows", budget_incomplete_attested_rows,
      "attested releases missing a chapter name, author or access state. The classic sign of a "
      "moved CSS selector — the adapter still returns rows, just emptier ones."),
@@ -2474,6 +2578,11 @@ def context():
     return {
         "releases": releases,
         "works": works.get("works") if isinstance(works, dict) else works,
+        # THE BIBLIOGRAPHIC LIST AS SHIPPED. Nothing here read it until 41 works were found listed
+        # twice in it, which is the state a file can reach when it is deployed and measured by
+        # nothing. Loaded with the rest so a canary can be planted in front of the checks that use
+        # it, for the reason the comment above gives.
+        "index": _load(BUILD / "index.json", []) or [],
         "series": (_load(BUILD / "series.json", {}) or {}).get("series", []),
         "names": {k: ((_yaml(NAMES / f"{k}.yaml", {}) or {}).get("names") or {})
                   for k in ("titles", "authors")},
@@ -2727,6 +2836,57 @@ def self_test():
     if budget_titles_carrying_cataloguing_punctuation(c) != was + 2:
         print("  self-test FAILED — 'titles carrying cataloguing punctuation' did not count "
               "its canaries")
+        ok = False
+
+    # THE CANARY IS THE STATE THE BUILD WAS IN THIS MORNING (§14b), not a shape invented for the
+    # probe. `index.json` really did carry two rows for w00901, one titled スクールゾーン and one
+    # titled School zone = スクールゾーン, each naming its own record, and that is what an uncollapsed
+    # list looks like. Both new budgets are probed on it and they must answer differently: the
+    # registry-based one sees the two records land on one work, and the pairs one cannot, because
+    # the two titles do not fold equal. That difference is the reason both exist.
+    c = copy.deepcopy(ctx)
+    _reg = next((e for e in c["identity"] if len(
+        [a for a in (e.get("anchors") or []) if a.startswith("madb:")]) >= 2), None)
+    if _reg:
+        # The two lists are replaced rather than appended to, so the probe answers a number and not
+        # a delta. Two records of one work already collapsed into one row would make an appended
+        # canary raise the count by two, and a probe whose expected value depends on data it did
+        # not plant is the kind that goes quiet without anyone noticing.
+        _mad = [a[len("madb:"):] for a in _reg["anchors"] if a.startswith("madb:")]
+        c["series"] = []
+        c["index"] = [{"id": _mad[0], "ids": [_mad[0]], "t": "カナリア", "c": "犬"},
+                      {"id": _mad[1], "ids": [_mad[1]], "t": "Canary = カナリア", "c": "犬"}]
+        if budget_works_offered_twice(c) != 1:
+            print("  self-test FAILED — 'works offered twice in a list' did not count a work "
+                  "given two rows")
+            ok = False
+        # AND THE PAIRS BUDGET MUST MISS IT, which is why both exist. The two titles do not fold
+        # equal, so nothing about the rows themselves says they are one work; only the registry does.
+        if budget_one_work_under_two_names(c) != 0:
+            print("  self-test FAILED — 'one work under two names in a list' claimed to see a pair "
+                  "only the registry can join")
+            ok = False
+    else:
+        print("  self-test FAILED — no joined work in the registry to plant a canary on")
+        ok = False
+
+    # A PAIR THE REGISTRY HAS NOT JOINED, which is the only kind this one can see. Two rows folding
+    # to one title with a person in common: the shape くちびるためいきさくらいろ has in the shipped
+    # list today. The bracketed edition marker is there because `fold` removes it, so a collected
+    # edition beside its volumes is one work with two rows and has to be counted.
+    c = copy.deepcopy(ctx)
+    c["index"] = []
+    c["series"] = [{"work": "カナリア", "author": "犬井カナ"},
+                   {"work": "カナリア【合本版】", "author": "犬井カナ"}]
+    if budget_one_work_under_two_names(c) != 1:
+        print("  self-test FAILED — 'one work under two names in a list' did not count its pair")
+        ok = False
+    # AND IT MUST NOT COUNT A SHARED TITLE ALONE. Seven works are called 人魚姫 by seven authors, and
+    # a rule keying on the title would report every pair of them.
+    c["series"][-1] = {"work": "カナリア【合本版】", "author": "別人"}
+    if budget_one_work_under_two_names(c) != 0:
+        print("  self-test FAILED — 'one work under two names in a list' counted two authors' "
+              "works as one")
         ok = False
 
     # THE CANARY IS THE FAILURE ITSELF, NOT AN INVENTED ONE (§14b). A capture written without a row

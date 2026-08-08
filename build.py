@@ -127,6 +127,66 @@ EXTRA_RE = re.compile(r"おまけ|番外編|外伝|特別編|幕間")
 # through editorial coverage; this catches the rest, which were arriving as 新話.
 ONESHOT_RE = re.compile(r"読切|読み切り|よみきり")
 
+# WHY A ROW IS CALLED A ONE-SHOT: the routes, strongest first, each with the sentence a reader is
+# shown for it in both languages.
+#
+# WHY THE SENTENCE IS REQUIRED. A one-shot's length is published without a hedge, as "1 chapter",
+# where a serialisation reads "at least 1 chapter", because the count is a floor for one and the
+# whole work for the other. So the page is asserting that a story is complete, which is the claim
+# that misleads if it is wrong, and until this table existed all 399 one-shot rows carried no basis
+# at all. An inference has to be recorded AS an inference with its reasoning, and never written as
+# though a source said it.
+#
+# `inferred` is the whole point of the ranking. The first five are a platform or a reviewer stating
+# what the work is. The last three are us reading a shape, and each is defensible and none is a
+# statement: a single instalment named after its work is how platforms name a 読切 and is also how
+# a serialisation's first chapter can be named.
+ONESHOT_WHY = {
+    "review": (None, None, False),                        # the register supplies its own sentence
+    "platform-status": ("{plat} states the serialisation status 読み切り",
+                        "{plat}が連載状況を読み切りと表示している", False),
+    "platform-confirmed": ("{plat} states that this work is a one-shot",
+                           "{plat}自身がこの作品を読み切りとしている", False),
+    "every-chapter-marked": ("every instalment here is marked 読切",
+                             "掲載されている話すべてに読切の表示がある", False),
+    "work-title-marked": ("{plat} writes 読切 into the work's own title",
+                          "{plat}が作品名自体に読切と書いている", False),
+    "collection-instalment": ("one story out of a collection, filed as the work it is",
+                              "作品集の一編で、それ自体を作品として扱っている", False),
+    "feed": ("the release this work published was typed a one-shot where it appeared",
+             "公開時の話が読み切りとして扱われている", False),
+    "self-named": ("the single instalment is named after the work, which is how a one-shot is "
+                   "named and is our reading rather than a statement",
+                   "唯一の話の題名が作品名と同じで、読み切りの付け方だが、我々の読みであって"
+                   "表示ではない", True),
+}
+# A ROUTE THAT IS NOT HERE, AND WHY. A prize citation standing where a chapter name goes is already
+# read as one instalment by `is_prize_entry`, in the feed, and every one of the 13 prize-shaped
+# single-instalment rows in the corpus reaches a stronger route than a rule here could offer: five
+# by the release the feed typed, seven by a platform stating 読み切り, one by its own name. A second
+# rule for them would have changed nothing and reported clean forever (§4). What the series path
+# genuinely lacked from that shape was the NUMBER: `stated_chapter_number` was reading 第28回 out of
+# a contest citation and publishing it as a length.
+# Strongest first. A row reached by two routes says the better one, so a work whose platform states
+# 読み切り does not publish our guess about its title instead.
+ONESHOT_RANK = {k: i for i, k in enumerate(ONESHOT_WHY)}
+
+
+def oneshot_basis(why, plat=None):
+    """(English, Japanese, inferred) for one route, or (None, None, False) where it says nothing."""
+    en, ja, inferred = ONESHOT_WHY.get(why) or (None, None, False)
+    fmt = lambda s: s.format(plat=plat or "the platform") if s else None   # noqa: E731
+    return fmt(en), fmt(ja), inferred
+
+
+def stronger(a, b):
+    """Whichever of two route names ranks higher, ignoring an absent one."""
+    if not a:
+        return b
+    if not b:
+        return a
+    return a if ONESHOT_RANK.get(a, 99) <= ONESHOT_RANK.get(b, 99) else b
+
 # A COMPETITION ENTRY. 【第28回角川漫画新人大賞】佳作 is a prize citation standing where a chapter
 # name goes. It is not a chapter name and, crucially, the 28 is the twenty-eighth CONTEST rather
 # than the twenty-eighth chapter, so ep_number read it as one and four works were filed as later
@@ -745,10 +805,87 @@ COUNTER_NUMBER = re.compile(r"(\d{1,4})\s*(?:話|回|章|日目)")
 
 
 def stated_chapter_number(ep):
-    """The chapter number a work prints on its own newest instalment, or 0."""
+    """The chapter number a work prints on its own newest instalment, or 0.
+
+    A PRIZE CITATION IS NOT A CHAPTER NUMBER, and `is_prize_entry` is asked here for exactly the
+    reason its own comment gives: the 28 in 【第28回角川漫画新人大賞】佳作 is the twenty-eighth
+    CONTEST. The feed path has consulted that function since the day the citation shape was found,
+    and this path did not, so one fact was read two ways (STANDING-INSTRUCTIONS §3) and the second
+    reading reached a reader: 胡蝶の夢 published "28話" and ライオンと不時着(第17回NC佳作) "17話",
+    both of them one-shots, both beside a 読切 badge saying so. Five rows, every one a work whose
+    only instalment is its prize entry.
+    """
     s = unicodedata.normalize("NFKC", str(ep or ""))
+    if is_prize_entry(s):
+        return 0
     m = STATED_NUMBER.search(s) or COUNTER_NUMBER.search(s)
     return int(m.group(1)) if m else 0
+
+
+def one_row_per_work(idx, works):
+    """Bibliographic rows collapsed so that one work is offered once, keeping every address.
+
+    WHAT WAS WRONG. This list was one row per SOURCE RECORD, and the national bibliography holds
+    several records for one book run: two spellings of an imprint split ゆるゆり and citrus in half,
+    a run continued under a subtitle split 紅殻のパンドラ at volume 21, a shop's per-chapter edition
+    sits beside the volumes, and one record carried the whole ISBD line as its name, so
+    `School zone = スクールゾーン` stood next to `スクールゾーン`. 41 works were listed twice or
+    three times, out of 2,558 rows.
+
+    IDENTITY ALREADY ANSWERED THIS and nothing here asked it. `data/identity/works.yaml` joins
+    records into works by anchor, the works tab has folded print records by it since the volumes
+    tab was retired, and this list did not (STANDING-INSTRUCTIONS §3: one fact, two paths). So the
+    registry is read here rather than a second grouping rule invented.
+
+    NO ADDRESS IS LOST. `ids` carries every record the row stands for, because a collapse that kept
+    one C-number would make the others unresolvable, and the published address is the `w`
+    identifier, which resolves to all of them. The date is the earliest any record states.
+
+    HOW LONG THE WORK IS, when two records both describe it. Not their sum: MADB holds ゆるゆり as
+    21 volumes and as 11, overlapping, so adding them reports a work as twice its length, which is
+    the fault `best_known_length` was written for. Not the larger either: スクールゾーン is volumes
+    1 to 3 in one record and 4 and 5 in the other, so the larger is 3 and the run is 5, and
+    紅殻のパンドラ continues from 21 into 22 to 25 under a subtitle. Both cases are answered by
+    counting the DISTINCT volume numbers the records state, which is arithmetic on the numbering
+    the publisher printed and owes nothing to either record's own count. Where a record numbers
+    nothing there is no union to take, and the largest stated count is the floor.
+
+    WHICH NAME THE ROW SHOWS. The first record by identifier, which is the same rule the works tab
+    uses and prefers a C-number's bare title over a `madb-t-` record's ISBD line. That is why
+    `School zone = スクールゾーン` disappears from the list without anything having to parse it.
+
+    A ROW WITH NO IDENTITY STAYS ITS OWN. A record registered since the last identity run has no
+    anchor here, and guessing which work it belongs to is exactly the merge this must not make.
+    """
+    reg = pathlib.Path("data/identity/works.yaml")
+    if not reg.exists():
+        return idx
+    byanchor = identity.index((yaml.safe_load(reg.read_text()) or {}).get("works") or [])
+    numbers = {w["work_id"]: [str(v.get("number") or "") for v in (w.get("volumes") or [])]
+               for w in works if w.get("work_id")}
+    out, at, held = [], {}, {}
+    for row in idx:
+        wid = byanchor.get(identity.print_anchor(row["id"]))
+        if wid is None or wid not in at:
+            row = dict(row, ids=[row["id"]])
+            if wid is not None:
+                at[wid] = row
+                held[wid] = list(numbers.get(row["id"]) or [])
+            out.append(row)
+            continue
+        kept = at[wid]
+        kept["ids"].append(row["id"])
+        held[wid] += list(numbers.get(row["id"]) or [])
+        kept["n"] = max(kept.get("n") or 0, row.get("n") or 0)
+        if row.get("d") and (not kept.get("d") or row["d"] < kept["d"]):
+            kept["d"] = row["d"]
+    for wid, row in at.items():
+        # Every volume of every record has to state a number, or the union is counting a subset and
+        # would report a work as SHORTER than one of its own records already says it is.
+        vols = held.get(wid) or []
+        if len(row["ids"]) > 1 and vols and all(vols):
+            row["n"] = max(row["n"] or 0, len(set(vols)))
+    return out
 
 
 def demonstrable_length(rows, stated, latest_ep):
@@ -2113,6 +2250,7 @@ def main():
             "d": w.get("first_publication", {}).get("date", ""),
             "l": w.get("marketing_label"), "ct": w.get("content_tier"),
             "g": w.get("grouping")} for w in works]
+    idx = one_row_per_work(idx, works)
     (out / "index.json").write_text(json.dumps(idx, ensure_ascii=False, separators=(",", ":"), default=jsonable))
 
     if len(works) != len(src):
@@ -3877,9 +4015,22 @@ def main():
             # Bootstrapping from a 読切 to a serialisation is a real path, so the test has to be one
             # that reclassifies on its own as the work grows.
             _chs = w.get("chapters") or []
-            oneshot_src = bool(w.get("is_oneshot")) or (
-                bool(_chs) and all(ONESHOT_RE.search(c.get("title") or "") for c in _chs))
-            key = (norm_work(title), plat)
+            oneshot_why = None
+            if w.get("is_oneshot"):
+                oneshot_why = "platform-confirmed"
+            elif _chs and all(ONESHOT_RE.search(c.get("title") or "") for c in _chs):
+                oneshot_why = "every-chapter-marked"
+            elif ONESHOT_RE.search(title or "") and len(_chs) == 1 and not partial:
+                # THE MARKER IN THE WORK TITLE, which the feed path has always read and this one
+                # never did (§3). チャンピオンクロス and ヤンチャンWeb write it there: the work is
+                # `ガラスノキック/読み切り` and its only instalment is `ガラスノキック`, so the
+                # chapter test above cannot see it and seven works were filed as serialisations we
+                # hold one chapter of. Gated on holding exactly one full instalment, because a
+                # pilot that gets serialised keeps the title it was published under, and the
+                # marker must stop deciding the moment a second chapter lands.
+                oneshot_why = "work-title-marked"
+            oneshot_src = bool(oneshot_why)
+            bucket_key = (norm_work(title), plat)
             # The link a reader follows must be a page, and for GigaViewer platforms the work-level
             # url is the Atom feed we harvested — /atom/series/<id>, which serves XML. That was 532
             # of 1145 rows pointing at a document no reader wants. Every chapter carries its own
@@ -3896,10 +4047,11 @@ def main():
             # neither. Picking the record with more chapters made that a tie, and a tie fell to
             # whichever file sorted first — so the interface showed no access for a chapter whose
             # access we had already fetched. The feed got this right; this did not.
-            bucket = series.setdefault(key, {
+            bucket = series.setdefault(bucket_key, {
                 "work": title, "platform": plat, "url": None, "feed_url": None,
                 "author": "", "chapters": {}, "upcoming": 0,
-                "partial": True, "oneshot_src": False, "completed_src": None,
+                "partial": True, "oneshot_src": False, "oneshot_why": None,
+                "completed_src": None,
                 "running_src": None, "_srcs": set(),
                 "retrieved": None, "label_rec": None,
             })
@@ -3919,6 +4071,11 @@ def main():
                                        "marketing_label_basis": w["marketing_label_basis"],
                                        "tags": w.get("tags")}
             bucket["oneshot_src"] = bucket["oneshot_src"] or oneshot_src
+            # WHICH ROUTE SAID SO, kept beside the boolean so the row can publish the reason.
+            # The strongest of the routes any source for this row reached, because a work whose
+            # platform states 読み切り should not show a reader our guess about its title.
+            bucket["oneshot_why"] = stronger(bucket.get("oneshot_why"), oneshot_why)
+            bucket["oneshot_plat"] = bucket.get("oneshot_plat") or (plat if oneshot_why else None)
             # The platform's own statement that the serialisation is over, where it makes one.
             # カドコミ's serializationStatus takes three values across the works we hold — unknown
             # 217, ongoing 92, finished 91 — so `finished` is a real assertion and not a default.
@@ -3949,6 +4106,8 @@ def main():
                     bucket["state_claim"] = {"says": _says, "term": platform_status}
             elif platform_status == "読み切り":
                 bucket["oneshot_src"] = True
+                bucket["oneshot_why"] = stronger(bucket.get("oneshot_why"), "platform-status")
+                bucket["oneshot_plat"] = plat
             # Partial only if EVERY source for this row is partial. One full history is enough to
             # make the count real, whatever else also saw a slice of it.
             bucket["partial"] = bucket["partial"] and bool(partial)
@@ -3979,7 +4138,9 @@ def main():
                     _b2 = series.setdefault(_k2, {
                         "work": _ti, "platform": plat, "url": None, "feed_url": None,
                         "author": _au, "chapters": {}, "upcoming": 0,
-                        "partial": False, "oneshot_src": True, "_srcs": {"collection"},
+                        "partial": False, "oneshot_src": True,
+                        "oneshot_why": "collection-instalment", "oneshot_plat": plat,
+                        "_srcs": {"collection"},
                         "collection": title,
                     })
                     # The instalment's own episode URL where the container gives one, and the
@@ -4095,16 +4256,37 @@ def main():
         # State from the one thing every platform actually tells us: when it last published. Named
         # for what is observed, not inferred — nothing here says 完結, because almost no platform
         # says it and guessing it from silence would be wrong for every series on hiatus.
-        _k = (norm_work(row["work"]), row["platform"])
+        _rowkey = (norm_work(row["work"]), row["platform"])
         # A work with ONE chapter whose chapter title is the work's own title is a 読切. Platforms
         # name a one-shot's only episode after the work — 神様やめらんない / 神様やめらんない — and the
         # marker-based test misses every one that does not also print 読切. Those were being filed
         # `dormant`, which reads as abandoned when the thing is simply finished.
         _self_named = (row["chapters"] == 1 and not row["partial"]
                        and norm_work(row.get("latest_ep") or "") == norm_work(row["work"]))
-        row["oneshot"] = (row.pop("oneshot_src", False) or _k in _oneshot or _self_named
-                          or (row["chapters"] == 1 and not row["partial"]
-                              and norm_work(row["work"]) in _oneshot_any))
+        _rev_one = reviewed.get(norm_work(row.get("work") or ""))
+        _rev_one = _rev_one if (_rev_one or {}).get("verdict") == "oneshot" else None
+        _feed_said = (_rowkey in _oneshot
+                      or (row["chapters"] == 1 and not row["partial"]
+                          and norm_work(row["work"]) in _oneshot_any))
+        _os_route = stronger(row.pop("oneshot_why", None),
+                             "review" if _rev_one else "feed" if _feed_said
+                             else "self-named" if _self_named else None)
+        row["oneshot"] = bool(row.pop("oneshot_src", False) or _os_route)
+        # WHY, IN BOTH LANGUAGES, on the row that publishes an unhedged length. A reviewed verdict
+        # brings its own sentences and outranks every rule, because somebody read a page and wrote
+        # down which one; the rules describe themselves from ONESHOT_WHY.
+        if row["oneshot"]:
+            if _rev_one and _os_route == "review":
+                row["oneshot_basis"] = _rev_one.get("basis_en") or _rev_one.get("basis")
+                row["oneshot_basis_ja"] = _rev_one.get("basis")
+                row["oneshot_inferred"] = False
+                row["oneshot_source_url"] = _rev_one.get("source_url")
+            else:
+                _os_en, _os_ja, _os_inferred = oneshot_basis(
+                    _os_route, row.pop("oneshot_plat", None))
+                row["oneshot_basis"], row["oneshot_basis_ja"] = _os_en, _os_ja
+                row["oneshot_inferred"] = _os_inferred
+        row.pop("oneshot_plat", None)
         # ENDED, on the platform's own words rather than on silence.
         #
         # Two firm signals, and only these two. A chapter titled 最終話 is the publisher saying so in
@@ -4142,7 +4324,7 @@ def main():
         _behind_rev = reviewed.get(norm_work(row.get("work") or "")) if row.get("_capture_behind") \
             else None
         if row.pop("_capture_behind", False) and not (_final or _completed) \
-                and not (_behind_rev and _behind_rev.get("verdict") == "completed"):
+                and not (_behind_rev and _behind_rev.get("verdict") in _comp.ENDED):
             # The platform lists chapters past the newest we hold, so our newest is not the
             # series' newest and its age measures our capture rather than the work.
             #
@@ -4161,6 +4343,11 @@ def main():
             row["state"] = "unknown"
         elif row["oneshot"]:
             row["state"] = "oneshot"
+            # THE REASON TRAVELS WITH THE STATE, like every other state on this row. The interface
+            # already reads `state_basis` for its Basis line, so putting the sentence here needs
+            # nothing of the interface and gives 読切 the same accountability 完結 has had.
+            row["state_basis"] = row.get("oneshot_basis")
+            row["state_basis_ja"] = row.get("oneshot_basis_ja")
         elif _final or _completed:
             row["state"] = "completed"
             # Quoting what was actually found. The pattern accepts 最終話 and a bracketed 完
@@ -4256,11 +4443,19 @@ def main():
                 # 90 tagged works there is not one, so nothing in our own data argues against any
                 # of them. Where there is one, the tag is stale and the work speaks for itself.
                 _rev = reviewed.get(norm_work(row.get("work") or ""))
-                if _rev and _rev.get("verdict") == "completed":
+                if _rev and _rev.get("verdict") in _comp.ENDED:
                     row["state"] = "completed"
+                    # THE READER'S LANGUAGE FIRST WHERE THE REVIEW WROTE ONE. Every sentence in
+                    # this register is Japanese, so this field has been handing Japanese to an
+                    # English page since it was written. `basis_en` is required of a oneshot
+                    # verdict and welcome on any, so it is preferred here and the Japanese stays
+                    # available beside it.
+                    _rb = _rev.get("basis_en") or _rev["basis"]
                     row["completed_basis"] = (
-                        f"{_rev['basis']} ({_rev.get('source') or _rev.get('source_kind')}"
+                        f"{_rb} ({_rev.get('source') or _rev.get('source_kind')}"
                         + (f", {_rev['source_url']}" if _rev.get("source_url") else "") + ")")
+                    if _rev.get("basis_en"):
+                        row["completed_basis_ja"] = _rev["basis"]
                     if _rev.get("ended_on"):
                         row["ended_on"] = str(_rev["ended_on"])
                     continue
@@ -4455,6 +4650,10 @@ def main():
             "latest_ep": best["latest_ep"],
             "first": min((r["first"] for r in _dr if r["first"]), default=None),
             "state": _state, "oneshot": best["oneshot"],
+            # WHETHER THE ONE-SHOT CALL IS OURS. The sentence itself travels as `state_basis` below,
+            # which is the field the interface already reads; this is the flag beside it, so a
+            # reading of a shape can be marked as one wherever a source's statement is not.
+            **({"oneshot_inferred": True} if best.get("oneshot_inferred") else {}),
             # Why we say it ended, carried up with the state. A state without its basis is the
             # thing this project keeps having to unpick.
             # THE BASIS HAS TO DESCRIBE THE STATE BEING PUBLISHED. `state` comes from `best`, and

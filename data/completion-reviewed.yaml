@@ -1,6 +1,6 @@
 source: hand review
 role: completion-verdicts
-retrieved: '2026-08-04'
+retrieved: '2026-08-08'
 works:
   好きな女の子が私にだけなぜか厳しい:
     verdict: completed
@@ -9,77 +9,89 @@ works:
     reviewed: '2026-08-04'
     source_url: https://championcross.jp/series/c114fa5271ac7
   結ばれる日/読み切り:
-    verdict: completed
-    basis: チャンピオンクロスの作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。最初から一本で終わる読み切りとして公開されたもので、続きは予定されていない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://championcross.jp/series/5a9c775449635
+    verdict: 'oneshot'
+    basis: 'チャンピオンクロスの作品ページ自身のデータに "status":"読み切り" とある。2026-08-08に再取得して確認した。タイトルにも／読み切りと付いている。'
+    basis_en: 'チャンピオンクロス states the serialisation status 読み切り in the work''s own page data, re-read on 2026-08-08. The platform writes 読み切り into the work title as well.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://championcross.jp/series/5a9c775449635'
   オートクチュールの果たし状/読み切り:
-    verdict: completed
-    basis: チャンピオンクロスの作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。最初から一本で終わる読み切りとして公開されたもので、続きは予定されていない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://championcross.jp/series/957d9214c3166
+    verdict: 'oneshot'
+    basis: 'チャンピオンクロスの作品ページ自身のデータに "status":"読み切り" とある。2026-08-08に再取得して確認した。タイトルにも／読み切りと付いている。'
+    basis_en: 'チャンピオンクロス states the serialisation status 読み切り in the work''s own page data, re-read on 2026-08-08. The platform writes 読み切り into the work title as well.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://championcross.jp/series/957d9214c3166'
   ダブルピース/読み切り:
-    verdict: completed
-    basis: チャンピオンクロスの作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。最初から一本で終わる読み切りとして公開されたもので、続きは予定されていない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://championcross.jp/series/b66656c873d76
+    verdict: 'oneshot'
+    basis: 'チャンピオンクロスの作品ページ自身のデータに "status":"読み切り" とある。2026-08-08に再取得して確認した。タイトルにも／読み切りと付いている。'
+    basis_en: 'チャンピオンクロス states the serialisation status 読み切り in the work''s own page data, re-read on 2026-08-08. The platform writes 読み切り into the work title as well.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://championcross.jp/series/b66656c873d76'
   海は荒れども、風は吹く/読み切り:
-    verdict: completed
-    basis: チャンピオンクロスの作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。最初から一本で終わる読み切りとして公開されたもので、続きは予定されていない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://championcross.jp/series/701179c397505
+    verdict: 'oneshot'
+    basis: 'チャンピオンクロスの作品ページ自身のデータに "status":"読み切り" とある。2026-08-08に再取得して確認した。タイトルにも／読み切りと付いている。'
+    basis_en: 'チャンピオンクロス states the serialisation status 読み切り in the work''s own page data, re-read on 2026-08-08. The platform writes 読み切り into the work title as well.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://championcross.jp/series/701179c397505'
   吸えない吸血鬼の蔵書票/読み切り:
-    verdict: completed
-    basis: チャンピオンクロスの作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。最初から一本で終わる読み切りとして公開されたもので、続きは予定されていない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://championcross.jp/series/b0028823615fa
+    verdict: 'oneshot'
+    basis: 'チャンピオンクロスの作品ページ自身のデータに "status":"読み切り" とある。2026-08-08に再取得して確認した。タイトルにも／読み切りと付いている。'
+    basis_en: 'チャンピオンクロス states the serialisation status 読み切り in the work''s own page data, re-read on 2026-08-08. The platform writes 読み切り into the work title as well.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://championcross.jp/series/b0028823615fa'
   ガラスノキック/読み切り:
-    verdict: completed
-    basis: チャンピオンクロスの作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。最初から一本で終わる読み切りとして公開されたもので、続きは予定されていない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://championcross.jp/series/e7725cd6cc1a4
+    verdict: 'oneshot'
+    basis: 'チャンピオンクロスの作品ページ自身のデータに "status":"読み切り" とある。2026-08-08に再取得して確認した。タイトルにも／読み切りと付いている。'
+    basis_en: 'チャンピオンクロス states the serialisation status 読み切り in the work''s own page data, re-read on 2026-08-08. The platform writes 読み切り into the work title as well.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://championcross.jp/series/e7725cd6cc1a4'
   隣人/読み切り:
-    verdict: completed
-    basis: ヤンチャンWeb（ヤングチャンピオン）の作品ページ自身のJSONに "status":"読み切り" とあり、タイトルにも／読み切りと付く。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://youngchampion.jp/series/f82a97494ac07
+    verdict: 'oneshot'
+    basis: 'ヤンチャンWebの作品ページ自身のデータに "status":"読み切り" とある。2026-08-08に再取得して確認した。タイトルにも／読み切りと付いている。'
+    basis_en: 'ヤンチャンWeb states the serialisation status 読み切り in the work''s own page data, re-read on 2026-08-08. The platform writes 読み切り into the work title as well.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://youngchampion.jp/series/f82a97494ac07'
   ランチメイト症候群(スピリッツ賞・奨励賞):
-    verdict: completed
-    basis: ビッコミの作品ページ自身のJSONに "status":"読み切り" とある。新人賞の入選作として一回きり掲載されたもので、続きは予定されていない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://bigcomics.jp/series/a40dfbeee9e5b
+    verdict: 'oneshot'
+    basis: 'ビッコミの作品ページ自身のデータに "status":"読み切り" とある。2026-08-08に再取得して確認した。新人賞の入選作として一度掲載されたもの。'
+    basis_en: 'ビッコミ states the serialisation status 読み切り in the work''s own page data, re-read on 2026-08-08. It was published once, as a newcomer-prize entry.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://bigcomics.jp/series/a40dfbeee9e5b'
   恋は族車に乗って(ヤングスペリオール新人賞・佳作):
-    verdict: completed
-    basis: ビッコミの作品ページ自身のJSONに "status":"読み切り" とある。新人賞の入選作として一回きり掲載されたもので、続きは予定されていない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://bigcomics.jp/series/70aa2bf74a1ec
+    verdict: 'oneshot'
+    basis: 'ビッコミの作品ページ自身のデータに "status":"読み切り" とある。2026-08-08に再取得して確認した。新人賞の入選作として一度掲載されたもの。'
+    basis_en: 'ビッコミ states the serialisation status 読み切り in the work''s own page data, re-read on 2026-08-08. It was published once, as a newcomer-prize entry.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://bigcomics.jp/series/70aa2bf74a1ec'
   白けた夜(ヤングスペリオール新人賞・佳作):
-    verdict: completed
-    basis: ビッコミの作品ページ自身のJSONに "status":"読み切り" とある。新人賞の入選作として一回きり掲載されたもので、続きは予定されていない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://bigcomics.jp/series/c0dcac7a0fd15
+    verdict: 'oneshot'
+    basis: 'ビッコミの作品ページ自身のデータに "status":"読み切り" とある。2026-08-08に再取得して確認した。新人賞の入選作として一度掲載されたもの。'
+    basis_en: 'ビッコミ states the serialisation status 読み切り in the work''s own page data, re-read on 2026-08-08. It was published once, as a newcomer-prize entry.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://bigcomics.jp/series/c0dcac7a0fd15'
   おカネしか勝たん(第94回新人コミック大賞・佳作):
-    verdict: completed
-    basis: ビッコミの作品ページ自身のJSONに "status":"読み切り" とある。新人賞の入選作として一回きり掲載されたもので、続きは予定されていない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://bigcomics.jp/series/b202bac863b25
+    verdict: 'oneshot'
+    basis: 'ビッコミの作品ページ自身のデータに "status":"読み切り" とある。2026-08-08に再取得して確認した。新人賞の入選作として一度掲載されたもの。'
+    basis_en: 'ビッコミ states the serialisation status 読み切り in the work''s own page data, re-read on 2026-08-08. It was published once, as a newcomer-prize entry.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://bigcomics.jp/series/b202bac863b25'
   Where I Belong(第96回新人コミック大賞・佳作):
-    verdict: completed
-    basis: ビッコミの作品ページ自身のJSONに "status":"読み切り" とある。新人賞の入選作として一回きり掲載されたもので、続きは予定されていない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://bigcomics.jp/series/31b64c99f600f
+    verdict: 'oneshot'
+    basis: 'ビッコミの作品ページ自身のデータに "status":"読み切り" とある。2026-08-08に再取得して確認した。新人賞の入選作として一度掲載されたもの。'
+    basis_en: 'ビッコミ states the serialisation status 読み切り in the work''s own page data, re-read on 2026-08-08. It was published once, as a newcomer-prize entry.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://bigcomics.jp/series/31b64c99f600f'
   殺し屋メイドは茨姫の夢を見る:
     verdict: completed
     basis: ライコミの作品ページ自身のJSONに "status":"読み切り" とある。
@@ -179,77 +191,89 @@ works:
     basis: ダ・ヴィンチニュースの紹介記事を読んだが、連載の完結に触れる記述はない。カドコミ側のページはこの作品では確認できていない。
     reviewed: '2026-08-04'
   相席いいですか?:
-    verdict: completed
-    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://tonarinoyj.jp/episode/14079602755399113146
+    verdict: 'completed'
+    basis: '掲載誌のフィードにこの作品の話は1件しかない。それは我々が持っている量であって、プラットフォーム自身が読み切りだと述べたものではない。しかもその1件は第1話と番号が付いており、番号を振るのは連載のやり方である。以前の記述はこの数え上げをプラットフォームの表示として引いていたので、引用を直した。終了したかどうかは別途確かめる必要がある。'
+    source_kind: 'derived'
+    reviewed: '2026-08-08'
+    source_url: 'https://tonarinoyj.jp/episode/14079602755399113146'
+    note: '話数名が第1話なので、読み切りとは読めない。完結の判断は要再検討。'
   ラブライブ!flowers*ー蓮ノ空女学院スクールアイドルクラブー:
-    verdict: completed
-    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://tonarinoyj.jp/episode/14079602755582006280
+    verdict: 'completed'
+    basis: '掲載誌のフィードにこの作品の話は1件しかない。それは我々が持っている量であって、プラットフォーム自身が読み切りだと述べたものではない。しかもその1件は第1話と番号が付いており、番号を振るのは連載のやり方である。以前の記述はこの数え上げをプラットフォームの表示として引いていたので、引用を直した。終了したかどうかは別途確かめる必要がある。'
+    source_kind: 'derived'
+    reviewed: '2026-08-08'
+    source_url: 'https://tonarinoyj.jp/episode/14079602755582006280'
+    note: '話数名が第1話なので、読み切りとは読めない。完結の判断は要再検討。'
   【今日の10ページ】世界の終わりにエロ本と先生と。:
-    verdict: completed
-    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://magcomi.com/episode/2550689798372256224
+    verdict: 'oneshot'
+    basis: 'MAGCOMIはこの話をコンテンツID 10p_ で始まる番号のもとに置き、作品ページ自身が「今日の10ページ」を10ページの短編を載せるコーナーだと説明している。MAGCOMIで2話以上ある作品のコンテンツIDは作品ごとのスラッグで、10p_ では始まらない。したがってこの接頭辞は話数の数え上げではなく、プラットフォームがこの作品をその枠に置いたという事実である。'
+    basis_en: 'MAGCOMI files this episode under a content id beginning 10p_, and the work''s own page describes 今日の10ページ as a slot for ten-page short manga. MAGCOMI works holding two or more chapters carry a per-work slug instead and never that prefix, so the prefix is the platform placing the piece in the slot and not a count of what we hold.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://magcomi.com/episode/2550689798372256224'
   【今日の10ページ】お前なんか拾わなければよかった:
-    verdict: completed
-    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://magcomi.com/episode/2550689798450194685
+    verdict: 'oneshot'
+    basis: 'MAGCOMIはこの話をコンテンツID 10p_ で始まる番号のもとに置き、作品ページ自身が「今日の10ページ」を10ページの短編を載せるコーナーだと説明している。MAGCOMIで2話以上ある作品のコンテンツIDは作品ごとのスラッグで、10p_ では始まらない。したがってこの接頭辞は話数の数え上げではなく、プラットフォームがこの作品をその枠に置いたという事実である。'
+    basis_en: 'MAGCOMI files this episode under a content id beginning 10p_, and the work''s own page describes 今日の10ページ as a slot for ten-page short manga. MAGCOMI works holding two or more chapters carry a per-work slug instead and never that prefix, so the prefix is the platform placing the piece in the slot and not a count of what we hold.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://magcomi.com/episode/2550689798450194685'
   【今日の10ページ】Mock Love:
-    verdict: completed
-    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://magcomi.com/episode/2550689798539255616
+    verdict: 'oneshot'
+    basis: 'MAGCOMIはこの話をコンテンツID 10p_ で始まる番号のもとに置き、作品ページ自身が「今日の10ページ」を10ページの短編を載せるコーナーだと説明している。MAGCOMIで2話以上ある作品のコンテンツIDは作品ごとのスラッグで、10p_ では始まらない。したがってこの接頭辞は話数の数え上げではなく、プラットフォームがこの作品をその枠に置いたという事実である。'
+    basis_en: 'MAGCOMI files this episode under a content id beginning 10p_, and the work''s own page describes 今日の10ページ as a slot for ten-page short manga. MAGCOMI works holding two or more chapters carry a per-work slug instead and never that prefix, so the prefix is the platform placing the piece in the slot and not a count of what we hold.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://magcomi.com/episode/2550689798539255616'
   【今日の10ページ】田内梢と着付けについて:
-    verdict: completed
-    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://magcomi.com/episode/2550689798875666937
+    verdict: 'oneshot'
+    basis: 'MAGCOMIはこの話をコンテンツID 10p_ で始まる番号のもとに置き、作品ページ自身が「今日の10ページ」を10ページの短編を載せるコーナーだと説明している。MAGCOMIで2話以上ある作品のコンテンツIDは作品ごとのスラッグで、10p_ では始まらない。したがってこの接頭辞は話数の数え上げではなく、プラットフォームがこの作品をその枠に置いたという事実である。'
+    basis_en: 'MAGCOMI files this episode under a content id beginning 10p_, and the work''s own page describes 今日の10ページ as a slot for ten-page short manga. MAGCOMI works holding two or more chapters carry a per-work slug instead and never that prefix, so the prefix is the platform placing the piece in the slot and not a count of what we hold.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://magcomi.com/episode/2550689798875666937'
   【今日の10ページ】BREAD NEW DAY:
-    verdict: completed
-    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://magcomi.com/episode/2550912964518979930
+    verdict: 'oneshot'
+    basis: 'MAGCOMIはこの話をコンテンツID 10p_ で始まる番号のもとに置き、作品ページ自身が「今日の10ページ」を10ページの短編を載せるコーナーだと説明している。MAGCOMIで2話以上ある作品のコンテンツIDは作品ごとのスラッグで、10p_ では始まらない。したがってこの接頭辞は話数の数え上げではなく、プラットフォームがこの作品をその枠に置いたという事実である。'
+    basis_en: 'MAGCOMI files this episode under a content id beginning 10p_, and the work''s own page describes 今日の10ページ as a slot for ten-page short manga. MAGCOMI works holding two or more chapters carry a per-work slug instead and never that prefix, so the prefix is the platform placing the piece in the slot and not a count of what we hold.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://magcomi.com/episode/2550912964518979930'
   【今日の10ページ】サウナに閉じ込められた二人:
-    verdict: completed
-    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://magcomi.com/episode/2550912965753560009
+    verdict: 'oneshot'
+    basis: 'MAGCOMIはこの話をコンテンツID 10p_ で始まる番号のもとに置き、作品ページ自身が「今日の10ページ」を10ページの短編を載せるコーナーだと説明している。MAGCOMIで2話以上ある作品のコンテンツIDは作品ごとのスラッグで、10p_ では始まらない。したがってこの接頭辞は話数の数え上げではなく、プラットフォームがこの作品をその枠に置いたという事実である。'
+    basis_en: 'MAGCOMI files this episode under a content id beginning 10p_, and the work''s own page describes 今日の10ページ as a slot for ten-page short manga. MAGCOMI works holding two or more chapters carry a per-work slug instead and never that prefix, so the prefix is the platform placing the piece in the slot and not a count of what we hold.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://magcomi.com/episode/2550912965753560009'
   【今日の10ページ】ちゅーしたらどんなお願いも叶えてくれるお稲荷様のハレちゃん:
-    verdict: completed
-    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://magcomi.com/episode/2550912965753560014
+    verdict: 'oneshot'
+    basis: 'MAGCOMIはこの話をコンテンツID 10p_ で始まる番号のもとに置き、作品ページ自身が「今日の10ページ」を10ページの短編を載せるコーナーだと説明している。MAGCOMIで2話以上ある作品のコンテンツIDは作品ごとのスラッグで、10p_ では始まらない。したがってこの接頭辞は話数の数え上げではなく、プラットフォームがこの作品をその枠に置いたという事実である。'
+    basis_en: 'MAGCOMI files this episode under a content id beginning 10p_, and the work''s own page describes 今日の10ページ as a slot for ten-page short manga. MAGCOMI works holding two or more chapters carry a per-work slug instead and never that prefix, so the prefix is the platform placing the piece in the slot and not a count of what we hold.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://magcomi.com/episode/2550912965753560014'
   ヒトゴトですから!:
-    verdict: completed
-    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://feelweb.jp/episode/3269754496401056068
+    verdict: 'completed'
+    basis: '掲載誌のフィードにこの作品の話は1件しかない。それは我々が持っている量であって、プラットフォーム自身が読み切りだと述べたものではない。しかもその1件は第1話と番号が付いており、番号を振るのは連載のやり方である。以前の記述はこの数え上げをプラットフォームの表示として引いていたので、引用を直した。終了したかどうかは別途確かめる必要がある。'
+    source_kind: 'derived'
+    reviewed: '2026-08-08'
+    source_url: 'https://feelweb.jp/episode/3269754496401056068'
+    note: '話数名が第1話なので、読み切りとは読めない。完結の判断は要再検討。'
   月とすっぴん:
-    verdict: completed
-    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://feelweb.jp/episode/3269754496401056101
+    verdict: 'completed'
+    basis: '掲載誌のフィードにこの作品の話は1件しかない。それは我々が持っている量であって、プラットフォーム自身が読み切りだと述べたものではない。しかもその1件は第1話と番号が付いており、番号を振るのは連載のやり方である。以前の記述はこの数え上げをプラットフォームの表示として引いていたので、引用を直した。終了したかどうかは別途確かめる必要がある。'
+    source_kind: 'derived'
+    reviewed: '2026-08-08'
+    source_url: 'https://feelweb.jp/episode/3269754496401056101'
+    note: '話数名が第1話なので、読み切りとは読めない。完結の判断は要再検討。'
   まとう君、ほころぶ私:
-    verdict: completed
-    basis: 掲載誌の /atom/series/<id> フィードを読むと、この作品はこれまで1話しか配信されていない。gigaviewer/confirm.pyがすでに使っている基準どおり、1話だけのフィードは読み切りであることを示す。「前編」のような続きを予告する語もタイトルにない。
-    source_kind: platform
-    reviewed: '2026-08-04'
-    source_url: https://feelweb.jp/episode/2550689798763776115
+    verdict: 'completed'
+    basis: '掲載誌のフィードにこの作品の話は1件しかない。それは我々が持っている量であって、プラットフォーム自身が読み切りだと述べたものではない。しかもその1件は第1話と番号が付いており、番号を振るのは連載のやり方である。以前の記述はこの数え上げをプラットフォームの表示として引いていたので、引用を直した。終了したかどうかは別途確かめる必要がある。'
+    source_kind: 'derived'
+    reviewed: '2026-08-08'
+    source_url: 'https://feelweb.jp/episode/2550689798763776115'
+    note: '話数名が第1話なので、読み切りとは読めない。完結の判断は要再検討。'
   100日後に×××する女社長と新入社員:
     verdict: completed
     basis: 少年ジャンプ+の最新話ページ自体が「[連載終了のお知らせ]」という表題で、説明文にも「＜完結済み＞」とある。
@@ -426,15 +450,12 @@ works:
     basis: ファイアCROSSのページを見たが、完結や連載終了を示す語はない。
     reviewed: '2026-08-04'
   プリンセ「ス」:
-    verdict: completed
-    basis: 一二三書房の公募「第１回 一二三書房マンガ大賞」の告知ページに、銀賞の副賞は賞金5万円と「WEB掲載確約」と明記されている。大賞のみが「WEB連載確約」で、銀賞が約束されているのは一回の掲載である。作品ページに載る回も「特別掲載」一件（2022年04月01日）だけで、あらすじの脇に第一回同賞銀賞作品を特別掲載中と書かれている。続きが予定された連載ではなく、受賞作を一本掲載したもの。
-    source: コミックノヴァ（一二三書房）
-    source_kind: publisher-jp
-    source_url: https://www.123hon.com/nova/news_release/hifumi_manga_award1/
-    reviewed: '2026-08-04'
-    ended_on: '2022-04-01'
-    note: >-
-      応募規定はページ数不問で「読切や連載の1話目」のいずれでもよいとしているので、原稿そのものが読切だったか連載の第1話だったかは、この二つのページからは決まらない。決まるのは、この賞がこのプラットフォームで約束したのが一回の掲載だという点で、連載はここでは始まっていない。
+    verdict: 'oneshot'
+    basis: '一二三書房の公募「第１回 一二三書房マンガ大賞」の告知ページに、銀賞の副賞は賞金5万円と「WEB掲載確約」と明記されている。大賞のみが「WEB連載確約」で、銀賞が約束されているのは一回の掲載である。作品ページに載る回も「特別掲載」一件（2022年04月01日）だけで、あらすじの脇に第一回同賞銀賞作品を特別掲載中と書かれている。続きが予定された連載ではなく、受賞作を一本掲載したもの。'
+    basis_en: '一二三書房''s announcement of its first マンガ大賞 states that the 銀賞 carries a guaranteed single web posting, while only the 大賞 carries a guaranteed serialisation. The work''s page holds one item, dated 2022-04-01 and labelled 特別掲載, and says beside the synopsis that the 銀賞 winner is being posted specially. The prize terms promise one posting.'
+    source_kind: 'publisher-jp'
+    reviewed: '2026-08-08'
+    source_url: 'https://www.123hon.com/nova/news_release/hifumi_manga_award1/'
   惑星クローゼット:
     verdict: completed
     basis: BOOK☆WALKERのシリーズページで、全4巻すべてに完結タグ（tag 55）が付いており、シリーズのタグ一覧も「コミックバーズ (4)／完結 (4)」と数える。国立国会図書館サーチには幻冬舎コミックスの単行本が第1巻2017年7月から第4巻2020年4月まで4冊あり、それ以降の巻はない。単行本が止まったことだけでは連載の終了を意味しないが、ここでは正規の配信元が完結と表示しており、その二つが一致する。
@@ -592,3 +613,52 @@ works:
     verdict: unsettled
     basis: pixivコミックの話数一覧で、最新の投稿が「読者の皆様にお知らせ」という告知回になっている。本文は画像のビューアでしか読めず内容を確認できていないが、通常の話数とは違う告知回で終わっている点は記録しておく。
     reviewed: '2026-08-04'
+  【今日の10ページ】ラントメーア:
+    verdict: 'oneshot'
+    basis: 'MAGCOMIはこの話をコンテンツID 10p_ で始まる番号のもとに置き、作品ページ自身が「今日の10ページ」を10ページの短編を載せるコーナーだと説明している。MAGCOMIで2話以上ある作品のコンテンツIDは作品ごとのスラッグで、10p_ では始まらない。したがってこの接頭辞は話数の数え上げではなく、プラットフォームがこの作品をその枠に置いたという事実である。'
+    basis_en: 'MAGCOMI files this episode under a content id beginning 10p_, and the work''s own page describes 今日の10ページ as a slot for ten-page short manga. MAGCOMI works holding two or more chapters carry a per-work slug instead and never that prefix, so the prefix is the platform placing the piece in the slot and not a count of what we hold.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://magcomi.com/episode/2551460909964711489'
+  【今日の10ページ】せばまたな:
+    verdict: 'oneshot'
+    basis: 'MAGCOMIはこの話をコンテンツID 10p_ で始まる番号のもとに置き、作品ページ自身が「今日の10ページ」を10ページの短編を載せるコーナーだと説明している。MAGCOMIで2話以上ある作品のコンテンツIDは作品ごとのスラッグで、10p_ では始まらない。したがってこの接頭辞は話数の数え上げではなく、プラットフォームがこの作品をその枠に置いたという事実である。'
+    basis_en: 'MAGCOMI files this episode under a content id beginning 10p_, and the work''s own page describes 今日の10ページ as a slot for ten-page short manga. MAGCOMI works holding two or more chapters carry a per-work slug instead and never that prefix, so the prefix is the platform placing the piece in the slot and not a count of what we hold.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://magcomi.com/episode/2551460909881789317'
+  【今日の10ページ】知らない海を教えて:
+    verdict: 'oneshot'
+    basis: 'MAGCOMIはこの話をコンテンツID 10p_ で始まる番号のもとに置き、作品ページ自身が「今日の10ページ」を10ページの短編を載せるコーナーだと説明している。MAGCOMIで2話以上ある作品のコンテンツIDは作品ごとのスラッグで、10p_ では始まらない。したがってこの接頭辞は話数の数え上げではなく、プラットフォームがこの作品をその枠に置いたという事実である。'
+    basis_en: 'MAGCOMI files this episode under a content id beginning 10p_, and the work''s own page describes 今日の10ページ as a slot for ten-page short manga. MAGCOMI works holding two or more chapters carry a per-work slug instead and never that prefix, so the prefix is the platform placing the piece in the slot and not a count of what we hold.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://magcomi.com/episode/2551460909751834866'
+  【今日の10ページ】カラオケなんて嫌いだよ:
+    verdict: 'oneshot'
+    basis: 'MAGCOMIはこの話をコンテンツID 10p_ で始まる番号のもとに置き、作品ページ自身が「今日の10ページ」を10ページの短編を載せるコーナーだと説明している。MAGCOMIで2話以上ある作品のコンテンツIDは作品ごとのスラッグで、10p_ では始まらない。したがってこの接頭辞は話数の数え上げではなく、プラットフォームがこの作品をその枠に置いたという事実である。'
+    basis_en: 'MAGCOMI files this episode under a content id beginning 10p_, and the work''s own page describes 今日の10ページ as a slot for ten-page short manga. MAGCOMI works holding two or more chapters carry a per-work slug instead and never that prefix, so the prefix is the platform placing the piece in the slot and not a count of what we hold.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://magcomi.com/episode/2551460909751834862'
+  【今日の10ページ】きみは青いこもれび:
+    verdict: 'oneshot'
+    basis: 'MAGCOMIはこの話をコンテンツID 10p_ で始まる番号のもとに置き、作品ページ自身が「今日の10ページ」を10ページの短編を載せるコーナーだと説明している。MAGCOMIで2話以上ある作品のコンテンツIDは作品ごとのスラッグで、10p_ では始まらない。したがってこの接頭辞は話数の数え上げではなく、プラットフォームがこの作品をその枠に置いたという事実である。'
+    basis_en: 'MAGCOMI files this episode under a content id beginning 10p_, and the work''s own page describes 今日の10ページ as a slot for ten-page short manga. MAGCOMI works holding two or more chapters carry a per-work slug instead and never that prefix, so the prefix is the platform placing the piece in the slot and not a count of what we hold.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://magcomi.com/episode/2551460909657145122'
+  【今日の10ページ】怪異調査室:
+    verdict: 'oneshot'
+    basis: 'MAGCOMIはこの話をコンテンツID 10p_ で始まる番号のもとに置き、作品ページ自身が「今日の10ページ」を10ページの短編を載せるコーナーだと説明している。MAGCOMIで2話以上ある作品のコンテンツIDは作品ごとのスラッグで、10p_ では始まらない。したがってこの接頭辞は話数の数え上げではなく、プラットフォームがこの作品をその枠に置いたという事実である。'
+    basis_en: 'MAGCOMI files this episode under a content id beginning 10p_, and the work''s own page describes 今日の10ページ as a slot for ten-page short manga. MAGCOMI works holding two or more chapters carry a per-work slug instead and never that prefix, so the prefix is the platform placing the piece in the slot and not a count of what we hold.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://magcomi.com/episode/2551460909530630827'
+  ベリアル:
+    verdict: 'oneshot'
+    basis: 'カドコミの作品ページに「読切」バッジが付いている（2026-08-08取得）。このバッジは話数の数え上げではない。1話しか配信されていないカドコミ作品のうち、瑠璃の宝石・ハクメイとミコチ・ぷれいめ～との3件は同じ場所に「連載」と表示され、残りに「読切」が出る。話数名も「カドマンGP受賞作」で、受賞作を一本掲載したものである。'
+    basis_en: 'カドコミ prints a 読切 badge on the work''s own page, read 2026-08-08. The badge is not arithmetic on the episode count: of the カドコミ works holding a single episode, three carry 連載 in the same place (瑠璃の宝石, ハクメイとミコチ, ぷれいめ～と), so the platform is stating what the work is. Its only episode is named カドマンGP受賞作, a prize entry.'
+    source_kind: 'platform'
+    reviewed: '2026-08-08'
+    source_url: 'https://comic-walker.com/detail/KC_008577_S'

@@ -251,6 +251,38 @@ def main(s):
          "and the identity holds both addresses")
     s.eq(conflicts, [], "with nothing contested")
 
+    # A WRONG JOIN COMES BACK UNLESS THE REFUSAL IS STORED. This is the whole value of `detach`:
+    # the joins file is re-applied on every run, so the three shop-query joins removed on
+    # 2026-08-08 would have returned the next morning. けいおん! onto けいおん！Ｓｈｕｆｆｌｅ is the
+    # shape: an author query answered with the author's other book, agreeing on the person alone.
+    joined, err = ident.attach(
+        [{"id": "w00837", "title": "けいおん！Ｓｈｕｆｆｌｅ", "anchors": ["web:fuz1897"]}],
+        "madb:C335320", "w00837", "the shop's author query listed it")
+    s.eq(err, None, "the wrong join was taken in the first place")
+    gone = ident.detach(joined, "madb:C335320", "けいおん! is a different work, numbered 1 to 4")
+    s.eq(ident.index(gone).get("madb:C335320"), None, "detaching removes the address")
+    s.eq(gone[0]["anchors"], ["web:fuz1897"], "and leaves the work's own")
+    s.check("attached" not in gone[0], "the evidence for the wrong join goes with it")
+    s.eq([d["anchor"] for d in gone[0]["detached"]], ["madb:C335320"],
+         "and the refusal is recorded where the next run will read it")
+    back, err2 = ident.attach(gone, "madb:C335320", "w00837", "the shop's author query, again")
+    s.check(err2, "so the joins file cannot re-apply it")
+    s.eq(ident.index(back).get("madb:C335320"), None, "and the address stays off")
+    s.eq(ident.refused(gone), {"madb:C335320": ["w00837"]}, "the refusals are readable as a whole")
+
+    # `assign` is the other door into the same registry, and `propose` re-derives its joins from the
+    # two populations every run, so it has to honour the decision as well. Without this the anchor
+    # is refused by --attachments and re-attached ten lines later by the assignment.
+    kept, _ = ident.assign(gone, [("web:fuz1897", ["madb:C335320"], "けいおん！Ｓｈｕｆｆｌｅ"),
+                                  ("madb:C335320", [], "けいおん!")])
+    s.eq(ident.index(kept)["madb:C335320"], "w00838",
+         "the detached record gets an identifier of its own")
+    s.eq(next(e for e in kept if e["id"] == "w00837")["anchors"], ["web:fuz1897"],
+         "and the work it was wrongly joined to keeps only its own address")
+
+    # Detaching an anchor nobody holds changes nothing, so a re-run is not an error.
+    s.eq(ident.detach(gone, "madb:C999999", "basis"), gone, "detaching what is not held is a no-op")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

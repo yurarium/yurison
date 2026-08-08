@@ -22,6 +22,20 @@ wins and says why.
 WHAT `continuing` IS FOR. Looking sometimes shows the opposite: a work we call dormant is on
 hiatus, or moved, or is still running somewhere we do not watch. That is worth recording for the
 same reason a refuted claim is: it stops the next pass paying to discover it again.
+
+WHY `oneshot` LIVES HERE AND NOT IN A FILE OF ITS OWN. A one-shot has ended, so a register of
+endings that could not say so would be answering half a question, and a second register answering
+the other half is the shape STANDING-INSTRUCTIONS §3 is written about: two files, one fact, nothing
+forcing them to agree about a work that appears in both. `oneshot` is `completed` plus the reason,
+and the reason is what the interface needs: a one-shot's length is stated without a hedge, so a
+reader is owed the sentence saying why the work is one instalment rather than one instalment of a
+serialisation we hold a slice of.
+
+IT IS THE STRONGER CLAIM, so it is the harder one to record. `completed` says a work stopped;
+`oneshot` says it was never going to continue, which asserts something about how it was published
+and is wrong in the direction that misleads: it tells a reader a story is whole. So it requires a
+basis in both languages, and `basis_en` exists for that. Every other verdict reaches the interface
+in Japanese alone today, which is its own defect and a wider one than this register.
 """
 import argparse
 import datetime
@@ -32,14 +46,20 @@ import yaml
 
 FILE = pathlib.Path(__file__).resolve().parents[1] / "data" / "completion-reviewed.yaml"
 
-VERDICTS = ("completed", "continuing", "unsettled")
+VERDICTS = ("completed", "oneshot", "continuing", "unsettled")
+
+# Verdicts that say the work has stopped publishing. `oneshot` is one of them by construction: a
+# work complete in one instalment has nothing further coming. Named as a set so a caller asking
+# "has this ended" does not have to know which of the two it is looking at.
+ENDED = ("completed", "oneshot")
 
 # Which evidence may support a verdict. `community-db` is admissible here, unlike for a name,
 # because how a work ended is a matter of record that a wiki can report correctly, and because the
 # alternative is no answer at all. It is ranked below the rest by being named in the basis.
 SOURCE_KINDS = ("platform", "publisher-jp", "licensor", "community-db", "author", "derived")
 
-KEYS = {"verdict", "basis", "source", "source_kind", "source_url", "reviewed", "note", "ended_on"}
+KEYS = {"verdict", "basis", "basis_en", "source", "source_kind", "source_url", "reviewed", "note",
+        "ended_on"}
 
 
 def problems(work, e):
@@ -67,6 +87,12 @@ def problems(work, e):
         out.append(f"{work}: source_kind {e.get('source_kind')!r} is not one of {SOURCE_KINDS}")
     if e.get("source_kind") != "derived" and not e.get("source_url"):
         out.append(f"{work}: {e.get('source_kind')} evidence needs the page it was read from")
+    # A ONE-SHOT'S REASON REACHES THE READER, so it has to exist in the reader's language. The
+    # work page states the length of a one-shot without a hedge and prints this sentence beside
+    # it, and a Japanese-only sentence there is the interface explaining itself to half its
+    # audience. See the header.
+    if v == "oneshot" and not (e.get("basis_en") or "").strip():
+        out.append(f"{work}: a oneshot verdict is shown to a reader, so it needs basis_en too")
     if e.get("ended_on"):
         try:
             datetime.date.fromisoformat(str(e["ended_on"]))
@@ -93,7 +119,7 @@ def verdicts(path=FILE):
     """{work: entry} for entries that decide something. `unsettled` decides nothing and is
     deliberately absent, so a caller cannot accidentally treat looking as a finding."""
     return {w: e for w, e in (load(path).get("works") or {}).items()
-            if isinstance(e, dict) and e.get("verdict") in ("completed", "continuing")}
+            if isinstance(e, dict) and e.get("verdict") in ENDED + ("continuing",)}
 
 
 def main(argv=None):

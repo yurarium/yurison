@@ -24,7 +24,19 @@ def main(s):
     s.check(not comp.problems("W", dict(OK, source_kind="derived", source_url=None)),
             "a reviewer's own reasoning owes no page, because it cites none")
     s.check(comp.problems("W", dict(OK, verdict="finished")),
-            "a verdict outside the three is refused")
+            "a verdict outside the set is refused")
+
+    # A ONE-SHOT IS SHOWN TO A READER IN TWO LANGUAGES, so a Japanese-only basis is not enough.
+    # This is the verdict that states a story is whole, which is the wrong thing to be vague about.
+    ONE = dict(OK, verdict="oneshot")
+    s.check(comp.problems("W", ONE),
+            "a oneshot verdict with no English basis is refused")
+    s.eq(comp.problems("W", dict(ONE, basis_en="the platform states 読み切り")), [],
+         "and accepted once the reader's other language has a sentence too")
+    s.check(comp.problems("W", dict(ONE, basis_en="   ")),
+            "whitespace is not a sentence")
+    s.eq(comp.problems("W", dict(OK, basis_en="whatever")), [],
+         "an English basis is welcome on any verdict, and only oneshot requires it")
     s.check(comp.problems("W", dict(OK, ended_on="not-a-date")), "and a date that is not one")
     s.check(comp.problems("W", dict(OK, wat=1)), "an unknown key is an error, not ignored")
 
@@ -39,9 +51,10 @@ def main(s):
     with tempfile.TemporaryDirectory() as d:
         f = pathlib.Path(d) / "c.yaml"
         f.write_text("works:\n  A:\n    verdict: completed\n  B:\n    verdict: unsettled\n"
-                     "  C:\n    verdict: continuing\n")
+                     "  C:\n    verdict: continuing\n  D:\n    verdict: oneshot\n")
         got = comp.verdicts(f)
-        s.eq(sorted(got), ["A", "C"], "unsettled decides nothing and is not returned")
+        s.eq(sorted(got), ["A", "C", "D"], "unsettled decides nothing and is not returned")
+        s.check("D" in got, "a oneshot verdict decides something and is")
         s.eq(comp.verdicts(pathlib.Path(d) / "absent.yaml"), {},
              "no file is no verdicts, not a crash")
 

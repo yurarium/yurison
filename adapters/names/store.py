@@ -596,8 +596,15 @@ class NameStore:
 
         Only call this on a real negative answer. See the module docstring: recording an attempt
         against a source that never replied is how a name gets permanently written off.
+
+        `pass_` MAY BE None, AND IS FOR A ROUTE THAT IS NOT ONE OF THE FOUR. The field exists to
+        say which of NAMES-PLAN §4's numbered passes did the asking. `ndl-books` is not one of
+        them, and writing its own name into both fields would state the same fact twice, which is
+        the shape §3 is about. The key is left out entirely so the file does not fill with nulls.
         """
-        entry = {"pass": pass_, "source": source, "at": today()}
+        entry = {"source": source, "at": today()}
+        if pass_ is not None:
+            entry["pass"] = pass_
         self._append("attempts", {"ja": ja, "attempt": entry})
         self._dirty += 1
         self._note_attempt(ja, entry)

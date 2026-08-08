@@ -44,10 +44,12 @@ import unicodedata
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 import net  # noqa: E402
+import paths  # noqa: E402
 
-# Beside the repository, where every other cache directory in this project lives, and
-# derived from this file so it names no particular machine.
-DEFAULT_CACHE = pathlib.Path(__file__).resolve().parents[2].parent / "ndl-cache"
+# Beside the repository, where every other cache directory in this project lives. Through
+# `paths.cache` and not derived again here: that module states the rule and honours YURI_CACHE,
+# and a second derivation would ignore the override on the day somebody set it.
+DEFAULT_CACHE = paths.cache("ndl-cache")
 STORE = pathlib.Path(__file__).resolve().parents[2] / "data" / "names"
 PAUSE = 1.6
 
@@ -358,7 +360,7 @@ def main(argv=None):
         # ASKED AND TOLD NO. Only reached when every request in the loop above was answered, so a
         # sweep that met a wall of 503s writes nothing down and asks again next time.
         if st is not None and not answer:
-            st.attempt(t, SOURCE, SOURCE)
+            st.attempt(t, None, SOURCE)
             recorded += 1
         print(json.dumps({**row, "reading": answer, **ev, "searched": len(seen),
                           "records": [rid for _, rid in got]}, ensure_ascii=False))

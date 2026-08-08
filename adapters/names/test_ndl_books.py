@@ -206,7 +206,7 @@ def sweep(s):
     def with_prior(answers, titles, at):
         with tempfile.TemporaryDirectory() as d:
             st = store_mod.NameStore(d)
-            st.attempt(titles[0], nb.SOURCE, nb.SOURCE)
+            st.attempt(titles[0], None, nb.SOURCE)
             st.attempts[titles[0]][0]["at"] = at
             st.compact()
             sent = []

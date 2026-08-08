@@ -191,30 +191,59 @@ def cache_key(url):
 
 
 def _legacy_key(url):
-    """The key shape used before the hash, kept so the caches on disk are not thrown away.
-
-    Sixty thousand pages sit under the old name in capture-cache alone, and re-fetching them to
-    gain an injectivity nothing on disk needs would cost more than the bug it prevents: the
-    collisions the hash fixes all involve long query strings, and every directory written under
-    this scheme holds ordinary paths. `_adopt` renames what it finds, so the directories heal as
-    they are read and this function can be deleted once they have.
-    """
+    """This module's own key before the hash. `host__` then the sanitised tail."""
     host = re.sub(r"[^A-Za-z0-9]", "_", urllib.parse.urlparse(url).netloc)
     return f"{host}__{re.sub(r'[^A-Za-z0-9]', '_', url)[-120:]}"
 
 
+def _adapter_key(url):
+    """The key four adapters wrote before net.py owned the question.
+
+    `re.sub(r"[^A-Za-z0-9]", "_", url)[-140:] + ".html"`, copied by hand into shop_reading,
+    platform_reading, bylines and kmanga_reading. It has no host in it and no hash, and a Japanese
+    URL is almost all underscores under that substitution, so the collision space is far smaller
+    than 140 characters looks. Measured over 2,336 author names it collides nowhere today, and the
+    longest name lands on exactly 140 characters with the truncation already eating the constant
+    prefix, so the margin is gone rather than comfortable.
+    """
+    return re.sub(r"[^A-Za-z0-9]", "_", url)[-140:] + ".html"
+
+
+# Every filename a page might already be sitting under. Read the old name, write the new.
+#
+# THE KEY IS ONE PRODUCER'S JOB (STANDING-INSTRUCTIONS §3), and it was four before this. A module
+# that decides for itself how a URL becomes a filename decides for itself how it collides, and the
+# two shapes below cover about 62,000 pages on this machine: capture-cache, kmanga-cache,
+# byline-cache, shop-reading-cache and the rest. Re-fetching them to gain the hash would cost far
+# more than the collisions it prevents, so `_adopt` renames what it finds and the directories heal
+# as they are read. This list and `_adopt` can be deleted once they have.
+LEGACY_KEYS = (_legacy_key, _adapter_key)
+
+
 def _adopt(cache, url, f):
-    """Move a page cached under the old key to the new one, and say whether there is now a file."""
+    """Move a page cached under an older key to the current one; say whether there is now a file.
+
+    A LEGACY FILE BEGINNING `__ERROR__` IS DROPPED AND NOT ADOPTED. shop_reading, platform_reading
+    and bylines wrote their failures into the cache as a page with that marker, so a host that was
+    briefly down left an answer on disk that every later run read back and counted as the page not
+    existing. Adopting one would carry that under a name this layer promises never holds a refusal.
+    Deleting it is the heal: the next run asks again.
+    """
     if f.exists():
         return True
-    old = cache / _legacy_key(url)
-    if not old.exists():
-        return False
-    try:
-        os.replace(old, f)
-    except OSError:                 # another worker got there first, or the name is unusable
-        return f.exists()
-    return True
+    for key in LEGACY_KEYS:
+        old = cache / key(url)
+        if not old.exists():
+            continue
+        try:
+            if old.read_bytes()[:9] == b"__ERROR__":
+                old.unlink()
+                continue
+            os.replace(old, f)
+        except OSError:             # another worker got there first, or the name is unusable
+            return f.exists()
+        return True
+    return False
 
 
 def outcome(result):

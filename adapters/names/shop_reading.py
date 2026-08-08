@@ -159,10 +159,15 @@ def main(argv=None):
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
     import net                                                         # noqa: PLC0415
+    import paths                                                       # noqa: PLC0415
     from build import norm_work                                        # noqa: PLC0415
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--cache", required=True, help="where fetched pages live; outside the repo")
+    # Defaulted, not required: see adapters/paths.py for the rule and why the alternative left a
+    # two hour sweep with nothing on disk. This directory already holds bookwalker.jp pages that
+    # thin/sources.py fetched, and net.py keys them by host, so sharing it is a saving.
+    ap.add_argument("--cache", default=str(paths.cache("shop-reading-cache")),
+                    help="where fetched pages live; outside the repo")
     ap.add_argument("--source", default="data/source/bookwalker")
     ap.add_argument("--names", default="data/names/titles.yaml")
     ap.add_argument("--limit", type=int, default=0, help="stop after this many pages")

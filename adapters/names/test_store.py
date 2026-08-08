@@ -140,7 +140,7 @@ def main(s):
     # schedule.
     with tempfile.TemporaryDirectory() as d:
         st3 = store.NameStore(d)
-        st3.attempt("ある作品", "ndl-books", "ndl-books")
+        st3.attempt("ある作品", None, "ndl-books")
         s.check(st3.tried("ある作品", "ndl-books"), "an attempt is recorded")
         s.check(st3.tried("ある作品", "ndl-books", 180), "and is fresh on the day it was made")
         st3.attempts["ある作品"][0]["at"] = "2020-01-01"

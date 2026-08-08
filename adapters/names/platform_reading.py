@@ -103,11 +103,14 @@ def main(argv=None):
     import yaml
 
     import net                                                         # noqa: PLC0415
+    import paths                                                       # noqa: PLC0415
     from names.openbd_reading import unsettled_readings                # noqa: PLC0415
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--build", default="data/build")
-    ap.add_argument("--cache", required=True, help="where fetched pages live; outside the repo")
+    # Defaulted, not required: see adapters/paths.py for the rule.
+    ap.add_argument("--cache", default=str(paths.cache("platform-reading-cache")),
+                    help="where fetched pages live; outside the repo")
     ap.add_argument("--platform", default="ヤンマガWeb")
     ap.add_argument("--reviewed", default=datetime.date.today().isoformat())
     a = ap.parse_args(argv)

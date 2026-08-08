@@ -121,10 +121,22 @@ def main(s):
     s.check(len(net.cache_key("https://a.jp/" + "x" * 4000)) < 200,
             "a key stays short enough to be a filename")
 
-    # THE OLD KEY IS STILL DERIVABLE, because 60,000 pages sit under it in capture-cache and fetch
-    # renames what it finds rather than re-fetching it.
-    s.ne(net._legacy_key("https://a.jp/x"), net.cache_key("https://a.jp/x"),
-         "the two schemes differ, so adoption is doing something")
+    # THE OLD KEYS ARE STILL DERIVABLE, because 62,000 pages sit under them and fetch renames what
+    # it finds rather than re-fetching it.
+    for legacy in net.LEGACY_KEYS:
+        s.ne(legacy("https://a.jp/x"), net.cache_key("https://a.jp/x"),
+             f"{legacy.__name__} differs from the current key, so adoption is doing something")
+
+    # THE COPY FOUR ADAPTERS MADE. No host and no hash, and a Japanese URL is almost all
+    # underscores under it, so what is left to tell two names apart is a handful of characters at
+    # the end. The longest author name already lands on exactly 140 with the truncation eating the
+    # constant prefix, which is the margin being gone.
+    long_a = "https://comic.example/search?word=" + "%E7%99%BE%E5%90%88" * 20 + "A"
+    long_b = "https://comic.example/search?word=" + "%E7%99%BE%E5%90%88" * 20 + "B"
+    s.ne(net.cache_key(long_a), net.cache_key(long_b),
+         "two long Japanese queries differing at the end get different keys")
+    s.check(net._adapter_key(long_a) != net._adapter_key(long_b),
+            "the old key survives this pair, which is why nothing is broken today")
 
     # PACING is per host. This is the safety argument for running hosts concurrently, so it is
     # asserted rather than assumed: two requests to one host are separated by at least PAUSE.
@@ -156,6 +168,27 @@ def main(s):
         s.check((d / net.cache_key(url)).exists(),
                 "adoption renames it, so the directory heals as it is read")
         s.check(not (d / net._legacy_key(url)).exists(), "and the old name is gone")
+
+    # THE SHAPE THE ADAPTERS COPIED, which is where kmanga-cache's 1,700 pages live.
+    with tempfile.TemporaryDirectory() as tmp:
+        d = pathlib.Path(tmp)
+        url = "https://comic.example/search?word=%E7%99%BE%E5%90%88"
+        (d / net._adapter_key(url)).write_text("the adapter's page")
+        s.eq(net.cached(url, d).text, "the adapter's page",
+             "a page an adapter cached under its own key is still served")
+        s.check((d / net.cache_key(url)).exists(), "and moves to the shared name")
+
+    # A RECORDED FAILURE IS NOT A PAGE. Those adapters wrote `__ERROR__ ...` into the cache when a
+    # host would not answer, so a brief outage left a file that every later run read back and
+    # counted as the page not existing. Adopting one would carry it under a name this layer
+    # promises never holds a refusal.
+    with tempfile.TemporaryDirectory() as tmp:
+        d = pathlib.Path(tmp)
+        url = "https://shop.example/de0e8cf604"
+        (d / net._adapter_key(url)).write_text("__ERROR__ HTTPError HTTP Error 503")
+        s.eq(net.cached(url, d), None, "a cached failure is not served as a page")
+        s.check(not (d / net._adapter_key(url)).exists(),
+                "it is dropped, so the next run asks again instead of inheriting the outage")
 
     # Cache ages differ by kind. A chapter feed is the reason the run exists; a listing is not.
     s.check(net.AGE_FEED < net.AGE_LISTING,

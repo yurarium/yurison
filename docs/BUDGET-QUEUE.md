@@ -48,3 +48,23 @@ shape 27, interface reads outside an entry point 13) measures the codebase and n
 **What closing a gap may not mean.** Suppressing a mark, hiding a row, narrowing the measure, or
 falling back to a romanisation where a real name is obtainable. A number that falls because the
 question got smaller has told nobody anything.
+
+## Reconsider together: is Wikidata canonical enough to state a reading
+
+**Raised by the project owner, 2026-08-09.** Wikidata is to be counted as analogous to Wikipedia,
+which is to say not canonical. A pass on 2026-08-09 assigned it `reading_source_kind: community-db`
+and admitted that kind for a `stated` reading, on the argument that a reading is a transcription and
+a user-edited base can print kana correctly without having standing over a person's name.
+
+That argument is the owner's to answer, and this records it as an open question.
+The question is whether `community-db` belongs in `READING_ATTRIBUTION["stated"]` at all, or whether
+a Wikidata reading is `researched` at best, which would put it below anything a publisher or the
+national library prints and above nothing.
+
+**What we rely on it for today:** 67 readings in `data/names/authors.yaml` (`reading_source` naming Wikidata, `reading_source_kind: community-db`), of which 62 also carry `reading_family` and
+`reading_given` from P734/P735 and so contribute a DIVISION as well as a reading. Demoting the kind
+would move those out of `stated` and raise `author readings no source states` by up to 67.
+
+Note that `boundary.py` already refuses a subset of Wikidata rows for a different reason: some are
+MangaUpdates romanisations converted back into kana, which is `back-converted` and never a donor.
+That refusal stands whatever is decided here.

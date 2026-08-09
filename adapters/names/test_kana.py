@@ -40,6 +40,21 @@ def main(s):
          "a word after an opening bracket is still the start of a word")
     s.eq(kana.title_case("yuri", particles=False), "Yuri", "particles=False still capitalises")
 
+    # PUNCTUATION INSIDE A PERSONAL NAME STARTS A NEW ELEMENT. R-指定 was rendered `R - Shitei` off
+    # a reading an analyser had divided at the hyphen, and once that division was retired the same
+    # name read `R-shitei`. A name has no sentence structure, so each segment takes a capital.
+    s.eq(kana.title_case("r-shitei", particles=False), "R-Shitei", "a hyphen begins an element")
+    s.eq(kana.title_case("anjinneko@sōsaku", particles=False), "Anjinneko@Sōsaku",
+         "and so does an @ between a handle and the tag after it")
+    s.eq(kana.title_case("2c=garoa", particles=False), "2C=Garoa",
+         "a digit is not a letter and does not take the capital away from what follows")
+    s.eq(kana.title_case("shin'ichi", particles=False), "Shin'ichi",
+         "an apostrophe is a syllable break inside one element, which Shin'Ichi is not")
+    s.eq(kana.title_case("RDーsounds", particles=False), "RDーsounds",
+         "a prolongation mark carries no sound and opens nothing")
+    s.eq(kana.title_case("kimi no na-wa"), "Kimi no Na-wa",
+         "a title keeps the old rule, where a hyphen is punctuation and not a new element")
+
     # A PERSON'S NAME IS ROMANISED FROM THEIR READING, SO THE DIVISION LIVES IN THE READING. Both
     # of these were reported by the project owner, months apart, as the same complaint: the name is
     # rendered as one English word and is not one. Nothing here can divide them. What these pin is

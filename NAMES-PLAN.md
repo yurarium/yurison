@@ -489,6 +489,50 @@ Specifically, never do any of these: romanise kanji by guessing a reading (東�
 title into an English name and present it as the work's name; or leave a row empty. A new work
 appearing tomorrow renders in Japanese, looks deliberate, and joins the queue.
 
+### 5f. The other half: a division nobody stated, which an analyser had already made
+
+Recorded 2026-08-09, after のぴやか梢 was reported reading `No Pi Ya Ka Kozue`.
+
+§5e is about a name with no division in it. This is about a name with the wrong one. 279 author
+records carried a division a morphological analyser produced and no source anywhere had stated, and
+the analyser is at its very worst here: SudachiPy met のぴやか梢, a pen name it has never seen, and
+handed back one token per kana. The invariant `a division cites its source` had existed since the
+kana work and tested kana surfaces only, so not one of these was covered by it.
+
+**A wrong division is worse than no division.** `Nopiyakakozue` with the §5d note beside it says
+nothing about where the name breaks and says so. `No Pi Ya Ka Kozue` says the name breaks in four
+places, under the artist's own work, on the authority of nobody.
+
+**What the surface can settle, and what it cannot.** A kana run in the surface reads as itself, so
+its length in the reading is arithmetic: のぴやか is four morae and ノピヤカコズエ opens with exactly
+those four. That fixes WHERE a division falls. It does not say THAT one falls, and the difference is
+the whole safety argument, because 九羊ボン is filed クラムボン by the media-arts catalogue and the
+same arithmetic would cut it in half before ボン. So the rule only ever removes spaces:
+`adapters/names/analyser_division.py` takes out every space the surface does not account for and
+proposes none, and 九羊ボン's reading arrives from the catalogue with no space in it and leaves with
+none. 194 records were corrected, 134 of them to a name with no division at all, and 67 divide
+exactly where their own surface says and now record the surface as the source.
+
+**A symbol reads as itself too, and that is where the arithmetic goes wrong.** R-指定 read
+`R - Shitei`, 2C=がろあ read `2 C =Garo A` and あんじんねこ@創作 read `Anjin Neko @ Sōsaku`, each
+because punctuation passes through a reading untouched and the offsets beside it are therefore just
+as computable. A symbol is not an element of a name, so a surviving offset needs a word character on
+each side of it.
+
+**Titles and publishers share the analyser and not the fault.** A title is a sentence and a
+publisher is a company, both made of ordinary words, which is what a morphological analyser is
+built for and good at: `100万円貰った女子高生の話` reads `Ichireireiman En Moratta Joshikōsei no
+Hanashi` and 空色の音 reads `Sorairo no Oto`. Their spacing is also load-bearing in a way a person's
+is not, since `kana.align` reads it to place ruby (§5c). §1 already keeps the two standards apart
+and this is the same line: an analyser dividing a phrase is doing its job, and an analyser dividing
+a person is guessing at the thing §5c names as its weak point. 2,532 title readings and 9 publisher
+readings hold an analyser's division and all of them stay.
+
+**A rule tried and rejected**, so it is not re-derived. Collapsing the whole reading whenever any
+one of its spaces was unsupported. It is simpler to state and it throws away answers that cost
+nothing: むつをむつ 蒼井ゆん would lose ムツヲムツ アオイ ユン, where the surface establishes both
+offsets, and 4ka エンピツ would lose the space its own byline writes.
+
 ## 7. Not getting ourselves blocked
 
 - Documented APIs only, with our existing User-Agent and contact URL.

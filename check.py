@@ -1411,6 +1411,14 @@ def _divisions(reading):
 # say where its division came from has not got one from anywhere.
 STATES_A_READING = ("publisher-jp", "platform", "national-library", "author", "licensor", "derived")
 
+# The bases under which a division arrived WITH the reading, from whatever the basis names. An
+# openBD collation key writes a comma between the halves, an NDL heading divides the reading beside
+# the name, a Wikidata item states the family and given kana separately, and a kana surface is its
+# own reading and divides where it is written. `analyser` is absent because an analyser divides
+# every name it is handed, and `back-converted` because a romanisation read backwards has already
+# lost the length of every vowel and is in no position to be believed about a word break.
+DIVIDED_BY_ITS_SOURCE = ("stated", "researched", "surface")
+
 
 def inv_kana_reading_spells_its_name(ctx):
     """A name written in kana IS its reading, so the reading may not hold different kana.
@@ -1470,6 +1478,28 @@ def inv_a_division_cites_its_source(ctx):
     くわばら たもつ writes its own division and needs no citation, which is why the surface is
     counted rather than assumed to have none.
 
+    A NAME HOLDING A KANJI IS ASKED THE SAME QUESTION, and for two years it was not. The clause
+    above tests kana surfaces only, on the reasoning that a name with a kanji in it takes its
+    division from the reading a source stated for it, and 1,016 records showed that is the ordinary
+    path and not the only one: のぴやか梢 was divided ノ ピ ヤ カ コズエ by an analyser and read
+    `No Pi Ya Ka Kozue` on the site. So the second clause covers every other surface, and it admits
+    one thing the first does not, because the population it meets is different. Where a reading came
+    from a source at all, the division came with it: an openBD collation key writes a comma between
+    the halves, an NDL heading divides both the name and its reading, and a Wikidata item states
+    P734 and P735 separately. That is what `reading_basis` records, so `stated`, `researched` and
+    `surface` carry their own citation and `analyser` carries none.
+
+    THE ONE THING IT LETS PAST, deliberately and counted. `back-converted` is a reading recovered
+    from somebody's romanisation, so its spacing is that romaniser's and belongs to a community
+    database rather than to an analyser. It is a weak claim and it IS a claim, and the budget
+    `divisions read back from a romanisation` is what says how many there are. An `entity` is not a
+    person: 「真夜中ぱんチ」製作委員会 is made of ordinary words and dividing it misnames nobody.
+
+    §14b, what it cannot see: whether a division is in the right PLACE. It reads the store's own
+    account of where each one came from, so a record that cites a source no human checked passes.
+    `adapters/names/analyser_division.py` is what made the analyser's records able to answer, and
+    the answers it writes are the surface's arithmetic and not a person's judgement.
+
     fallback: none. A guessed division reads as a fact about a real person's name.
     """
     sys.path.insert(0, str(ROOT / "adapters" / "names"))
@@ -1480,11 +1510,16 @@ def inv_a_division_cites_its_source(ctx):
     bad = []
     for k, v in (ctx["names"].get("authors") or {}).items():
         rd = v.get("reading")
-        if not rd or not kana.kana_only(k):
+        if not rd or _divisions(rd) <= _divisions(k):
             continue
-        if _divisions(rd) <= _divisions(k):
+        cited = bool(v.get("reading_boundary")) or v.get("reading_source_kind") in STATES_A_READING
+        if kana.kana_only(k):
+            if not cited:
+                bad.append(f"{k}: divided as {rd!r} with nothing saying who divided it")
             continue
-        if v.get("reading_boundary") or v.get("reading_source_kind") in STATES_A_READING:
+        if cited or v.get("entity") or v.get("reading_basis") in DIVIDED_BY_ITS_SOURCE:
+            continue
+        if v.get("reading_basis") == "back-converted":
             continue
         bad.append(f"{k}: divided as {rd!r} with nothing saying who divided it")
     return bad
@@ -3065,6 +3100,15 @@ def budget_author_names_romanised_as_one_word(ctx):
     show up as a fall nobody can cite. `a division cites its source` is the invariant that makes
     that impossible for a kana name; this is the count for the rest.
 
+    IT ROSE 984 -> 1118 ON 2026-08-09, ACCEPTED, and the rise is the number the guessing had been
+    hiding. `adapters/names/analyser_division.py` took the spaces out of 194 readings a
+    morphological analyser had divided and nothing had stated, and 134 of those names hold no
+    division at all now: 上田香子 read `Ueda Kyōko` and reads `Uedakyōko`. Nothing was learned about
+    those 134 people and nothing was lost, since what was there was an analyser's tokenisation of a
+    pen name. This budget went up because it started counting them honestly, which is the direction
+    that matters here and the reason a rise gets argued in a commit message instead of being
+    absorbed.
+
     ARITHMETIC ON THE RENDERED RESULT, per §14b. It looks for a space in the string the file
     offers a reader and consults no store, no basis and nothing in `boundary.py`, so it can fail
     on anything the build is able to emit. A one-element pen name is in it and legitimately so:
@@ -3075,6 +3119,26 @@ def budget_author_names_romanised_as_one_word(ctx):
     people = (ctx["names_shipped"] or {}).get("authors") or {}
     return sum(1 for rec in people.values()
                if " " not in ((rec.get("romaji") or {}).get("macron") or " "))
+
+
+def budget_divisions_read_back_from_a_romanisation(ctx):
+    """People divided on the strength of a space in somebody's romanisation of them.
+
+    THE RESIDUE `a division cites its source` LETS PAST, and the only one. MangaUpdates gives
+    `KASHI Michiyo` for 一世蕨 and `pass2_bulk` recovers カシ ミチヨ from it, so both the reading and
+    the place it breaks come from a community editor writing the name in Latin. That is a claim
+    somebody made, which is why it is not corrected the way an analyser's division is
+    (`adapters/names/analyser_division.py`), and it is the weakest form the claim takes: a
+    back-conversion has already lost the length of every vowel, and `boundary.py` refuses to take a
+    division from one as a donor for any other name.
+
+    A count on the store, because the fault is in what the record claims and not in how it renders.
+    It falls when a source states one of these, and the three it holds today are all one shape:
+    MangaUpdates was the only place these three names were found at all.
+    """
+    return sum(1 for k, v in (ctx["names"].get("authors") or {}).items()
+               if v.get("reading_basis") == "back-converted"
+               and _divisions(v.get("reading")) > _divisions(k))
 
 
 def budget_publisher_readings_nobody_has_settled(ctx):
@@ -3550,6 +3614,12 @@ BUDGETS_DEF = [
      "まりい. It falls when a source states a division and cannot fall any other way, since the "
      "only alternative is guessing where somebody's name divides. Some of the residue is names "
      "that genuinely have one element."),
+    ("divisions read back from a romanisation",
+     budget_divisions_read_back_from_a_romanisation,
+     "people whose name is divided on the strength of a space in a community editor's "
+     "romanisation, recovered by reading that romanisation backwards. The one class "
+     "`a division cites its source` admits without a source that states readings, counted here so "
+     "that admitting it is visible. It falls when a source states one of them."),
     ("publisher readings nobody has settled", budget_publisher_readings_nobody_has_settled,
      "publisher and imprint keys shipped as a romanisation of ours over a reading no source "
      "states, which is what the mark beside them says. A coverage deficit and the other half of "
@@ -4072,6 +4142,14 @@ def self_test():
         ("a division cites its source", inv_a_division_cites_its_source,
          lambda c: c["names"]["authors"].update({"あいかわももこ": {
              "reading": "アイ カワ モモコ", "reading_basis": "analyser",
+             "reading_source": "sudachi", "reading_source_kind": "analyser"}})),
+        # THE SECOND CLAUSE NEEDS ITS OWN CANARY, because the first plants a kana surface and the
+        # clause covering every other surface would go on reporting clean for the rest of its life
+        # if it broke (§14b). This record is what the store held on 2026-08-09, verbatim: SudachiPy
+        # handed back one token per kana and the site read `No Pi Ya Ka Kozue`.
+        ("a division cites its source", inv_a_division_cites_its_source,
+         lambda c: c["names"]["authors"].update({"のぴやか梢": {
+             "reading": "ノ ピ ヤ カ コズエ", "reading_basis": "analyser",
              "reading_source": "sudachi", "reading_source_kind": "analyser"}})),
         # THE SAME FAULT WITH THE NOTATION TIDIED OFF, which is what the pipeline can actually
         # produce and what the canary above cannot prove is caught (§14b). A bracket planted into

@@ -5598,6 +5598,18 @@ def main():
                            for x in (r.get("ep"), r.get("latest_ep"), r.get("collection"),
                                      (r.get("author") or "").strip(),
                                      r.get("work")) if x})
+        # WHERE A PERSON'S NAME DOES NOT DIVIDE, and this runs FIRST because the answer it produces
+        # is what the pass below is then allowed to ask a real source about. An analyser divides
+        # every name it is handed, so のぴやか梢 was read ノ ピ ヤ カ コズエ and shown to an English
+        # reader as `No Pi Ya Ka Kozue`, a claim about where a real person's name breaks that no
+        # source makes. adapters/names/analyser_division.py takes out every space the surface does
+        # not account for and keeps the ones it does.
+        import analyser_division as _adiv
+        _fixed, _own = _adiv.retire_store()
+        if _fixed:
+            print(f"names           : {len(_fixed)} name(s) had a division an analyser invented "
+                  f"and nothing states; {len(_own)} divide where their own surface says")
+
         # WHERE A KANA NAME DIVIDES. A reading is what the romanisation is built from, so a name
         # written in one unbroken run comes out as one word: いがらしゆみこ was Igarashiyumiko.
         # This carries a division some OTHER record for the same person states, which is offline,

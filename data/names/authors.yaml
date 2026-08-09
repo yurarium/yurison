@@ -17,7 +17,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 2 C =ガロ ア
+    reading: 2C=ガロア
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -31,7 +31,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 2 C ＝ガロ ア
+    reading: 2C＝ガロア
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -51,9 +51,10 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 4 ka   エンピツ
+    reading: 4ka エンピツ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -182,7 +183,7 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: EMODELAS ： エモ
+    reading: EMODELAS：エモ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -312,7 +313,7 @@ names:
       - してい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: R - シテイ
+    reading: R-シテイ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -328,7 +329,7 @@ names:
       - たけ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: Re タケ
+    reading: Reタケ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -818,7 +819,7 @@ names:
       - こうへい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ○ ヤマ コウヘイ
+    reading: ○ヤマコウヘイ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -1155,6 +1156,7 @@ names:
     reading: アノ トミタ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -1355,7 +1357,7 @@ names:
       - そうさく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アンジン ネコ @ ソウサク
+    reading: アンジンネコ@ソウサク
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -1527,6 +1529,7 @@ names:
     reading: イトウ カイ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -1942,7 +1945,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オ ヒサシブリ
+    reading: オヒサシブリ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -2007,6 +2010,7 @@ names:
     reading: カエデ トオル
     reading_at: '2026-08-08'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
@@ -2921,6 +2925,7 @@ names:
     reading: ササタ シオ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -2998,7 +3003,7 @@ names:
       - こ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サトウ メメ コ
+    reading: サトウメメコ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -3262,6 +3267,7 @@ names:
     reading: シュンセ シュンセ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -4685,9 +4691,10 @@ names:
       - こずえ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ノ ピ ヤ カ コズエ
+    reading: ノピヤカ コズエ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -4884,6 +4891,7 @@ names:
     reading: ハナ ウメ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -5446,6 +5454,7 @@ names:
     reading: ブリ ダイコン
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -5717,9 +5726,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ポポデン ン ポポ
+    reading: ポポデン ンポポ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -5946,7 +5956,7 @@ names:
       - ごろう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マ ャ ～ ゴロウ
+    reading: マャ～ゴロウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -6393,9 +6403,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ムツ ヲ ムツ   アオイ ユン
+    reading: ムツヲムツ アオイ ユン
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -6651,9 +6662,10 @@ names:
       - みらん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヤマ   ユズ モ ト   ワガ ミラン
+    reading: ヤマ ユズモト ワガミラン
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -7354,9 +7366,10 @@ names:
       - よしお
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ン モン モ ヨシオ
+    reading: ンモンモ ヨシオ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -7487,9 +7500,10 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アサウラ 1984 -
+    reading: アサウラ 1984-
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -7964,7 +7978,7 @@ names:
       - きごう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: エストレーヤ ★ キゴウ
+    reading: エストレーヤ★キゴウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -8414,6 +8428,7 @@ names:
     reading: コミック nishi
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -8596,7 +8611,7 @@ names:
       - y
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ザコザコ y
+    reading: ザコザコy
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -9257,6 +9272,7 @@ names:
     reading: ナムラ ビンチュウ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -9407,9 +9423,10 @@ names:
       - のざわ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ノーザン ライツ ノザワ
+    reading: ノーザンライツ ノザワ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -10125,6 +10142,7 @@ names:
     reading: ミャオギレ ケイジ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -10736,7 +10754,7 @@ names:
       - とうじ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナナ ガツ トウジ
+    reading: ナナガツトウジ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -10934,6 +10952,7 @@ names:
     reading: ミヨシ ミオ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -11039,9 +11058,10 @@ names:
       - まゆみ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミマツ 　 マユミ
+    reading: ミマツ マユミ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -11147,6 +11167,7 @@ names:
     reading: ミヨシ イト
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -11299,7 +11320,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウエダサ カ ヒラ
+    reading: ウエダサカヒラ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -11315,7 +11336,7 @@ names:
       - きょうこ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウエダ キョウコ
+    reading: ウエダキョウコ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -11355,7 +11376,7 @@ names:
       - あ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フワ ニ ア
+    reading: フワニア
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -11374,6 +11395,7 @@ names:
     reading: リョウビ イエリ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -11406,7 +11428,7 @@ names:
       - つきみ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナカハラ ツキミ
+    reading: ナカハラツキミ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -11422,7 +11444,7 @@ names:
       - かえで
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナカジマ カエデ
+    reading: ナカジマカエデ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -11513,9 +11535,10 @@ names:
       - じゅり
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナカムラ   ジュリ
+    reading: ナカムラ ジュリ
     reading_at: '2026-08-08'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
@@ -11753,9 +11776,10 @@ names:
       - やすひと
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ノギ   ヤスヒト
+    reading: ノギ ヤスヒト
     reading_at: '2026-08-08'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
@@ -11818,7 +11842,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ノ キ アイ   nokia
+    reading: ノキアイnokia
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -11837,6 +11861,7 @@ names:
     reading: ノダ ユウキ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -11977,7 +12002,7 @@ names:
       - ぞく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オトメ ☆ モウソウゾク
+    reading: オトメ☆モウソウゾク
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -12029,7 +12054,7 @@ names:
       - かずま
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キュウ フチ カズマ
+    reading: キュウフチカズマ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -12272,6 +12297,7 @@ names:
     reading: イハラ リオ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -12326,7 +12352,7 @@ names:
       - あき
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キョウソン アキ
+    reading: キョウソンアキ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -12342,7 +12368,7 @@ names:
       - なつ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒト ナツ
+    reading: ヒトナツ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -12570,7 +12596,7 @@ names:
       - はる
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナカムラ ハル
+    reading: ナカムラハル
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -12754,7 +12780,7 @@ names:
       - しろう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イダ シロウ
+    reading: イダシロウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -12816,7 +12842,7 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イトウ ゲン サイ
+    reading: イトウゲンサイ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -13006,6 +13032,7 @@ names:
     reading: サキ ハジメ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -13112,7 +13139,7 @@ names:
       - しちじゅうろう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タワラ ノ シチジュウロウ
+    reading: タワラノシチジュウロウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -13293,7 +13320,7 @@ names:
       - ふそん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゴウガン フソン
+    reading: ゴウガンフソン
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -13374,9 +13401,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: メン ジョウ ユウ
+    reading: メンジョウ ユウ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -13577,9 +13605,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウチ ネコ サカナ
+    reading: ウチネコ サカナ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -13882,9 +13911,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キリクチ カラ シ
+    reading: キリクチ カラシ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -13981,6 +14011,7 @@ names:
     reading: イサナ トリ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -14083,6 +14114,7 @@ names:
     reading: キタノ ササクレ
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -14376,9 +14408,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミナミ カワ メグル
+    reading: ミナミカワ メグル
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -14461,7 +14494,7 @@ names:
       - ひょうし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カボチャ カプ チー ( ヒョウシ
+    reading: カボチャカプチー(ヒョウシ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -14619,7 +14652,7 @@ names:
       - はるか
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウサキ ハルカ
+    reading: ウサキハルカ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -14719,6 +14752,7 @@ names:
     reading: ハラカワ ユキ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -14823,7 +14857,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フタバ ワ ヅキ
+    reading: フタバワヅキ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -14842,6 +14876,7 @@ names:
     reading: フタバ ヤヒコ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -14855,7 +14890,7 @@ names:
       - くさ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フタバ クサ
+    reading: フタバクサ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -14911,6 +14946,7 @@ names:
     reading: フルイ スグリ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -14924,7 +14960,7 @@ names:
       - たく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フルカワ タク
+    reading: フルカワタク
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -14990,7 +15026,7 @@ names:
       - ばこ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: フル メジルシ バコ
+    reading: フルメジルシバコ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -15159,7 +15195,7 @@ names:
       - たかし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ツカサ タカシ
+    reading: ツカサタカシ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -15421,7 +15457,7 @@ names:
       - に
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヨシノ ジョウ ニ
+    reading: ヨシノジョウニ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -15475,9 +15511,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハキ ウサギ モロノブ
+    reading: ハキウサギ モロノブ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -15550,6 +15587,7 @@ names:
     reading: イズミ キリフ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -15565,9 +15603,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワ タヌキ 　 ナオ
+    reading: ワタヌキ ナオ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -15584,9 +15623,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワ タヌキ ナオ
+    reading: ワタヌキ ナオ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -15623,7 +15663,7 @@ names:
       - し
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カズサト シ
+    reading: カズサトシ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -15800,7 +15840,7 @@ names:
       - そのこ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コケイ セッケン ソノコ
+    reading: コケイセッケンソノコ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -15821,6 +15861,7 @@ names:
     reading: エンガ ソノ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -15988,7 +16029,7 @@ names:
       - か
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サカミナミ カ
+    reading: サカミナミカ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -16018,7 +16059,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サカモトシ グマ
+    reading: サカモトシグマ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -16055,7 +16096,7 @@ names:
       - とおる
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サカガイ トオル
+    reading: サカガイトオル
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -16159,7 +16200,7 @@ names:
       - ひょう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シオシ ヒョウ
+    reading: シオシヒョウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -16318,9 +16359,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イチ カワ ロク
+    reading: イチカワ ロク
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -16330,9 +16372,10 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イチ サン ハルヒト
+    reading: イチサン ハルヒト
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -16385,7 +16428,7 @@ names:
       - そら
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナツビ ハレ ソラ
+    reading: ナツビハレソラ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -16540,7 +16583,7 @@ names:
       - あきら
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ホカゾノ アキラ
+    reading: ホカゾノアキラ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -16662,7 +16705,7 @@ names:
       - こ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヨル コ
+    reading: ヨルコ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -17239,7 +17282,7 @@ names:
       - のぼる
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: テンピ ノボル
+    reading: テンピノボル
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -17623,7 +17666,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒメガミ ノ ミコ ～ セン ノ ハナ マンゲキョウ ～
+    reading: ヒメガミノミコ～センノハナマンゲキョウ～
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -17689,7 +17732,7 @@ names:
       - なべ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウチュウ ナベ
+    reading: ウチュウナベ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -17855,6 +17898,7 @@ names:
     reading: アンザイ ウト
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -17982,9 +18026,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タカラ ポテ ト
+    reading: タカラ ポテト
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -18133,7 +18178,7 @@ names:
       - まゆこ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミヤ マユコ
+    reading: ミヤマユコ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -18170,7 +18215,7 @@ names:
       - みち
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヨリ ミチ
+    reading: ヨリミチ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -18181,7 +18226,7 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キキタ ヒカリ
+    reading: キキタヒカリ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -18211,20 +18256,12 @@ names:
     verified: true
   富沢　未知果:
     basis: romaji
-    furigana_spans:
-    - - 富沢
-      - とみざわ
-    - - 　
-      - null
-    - - 未知
-      - みち
-    - - 果
-      - か
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トミザワ 　 ミチ カ
+    reading: トミザワ ミチカ
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -18389,6 +18426,7 @@ names:
     reading: コジマ リョウ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -18536,7 +18574,7 @@ names:
       - ぶんこ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コバヤシ コテイ ( GA ブンコ
+    reading: コバヤシコテイ(GAブンコ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -18555,6 +18593,7 @@ names:
     reading: コモリ モコ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -18590,7 +18629,7 @@ names:
       - ゆう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コミナト ユウ
+    reading: コミナトユウ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -18609,6 +18648,7 @@ names:
     reading: オダ マサシ
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -18700,7 +18740,7 @@ names:
       - りょうた
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オノ リョウタ
+    reading: オノリョウタ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -18716,7 +18756,7 @@ names:
       - しょうたろう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オノ ショウタロウ
+    reading: オノショウタロウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -18918,7 +18958,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オクソウダ シマキ
+    reading: オクソウダシマキ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -19218,7 +19258,7 @@ names:
       - きょうへい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヤマダ キョウヘイ
+    reading: ヤマダキョウヘイ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -19287,7 +19327,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ワサビル オ
+    reading: ワサビルオ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -19303,9 +19343,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オカ パ ヤ
+    reading: オカ パヤ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -19405,6 +19446,7 @@ names:
     reading: オカノ トニー
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -19712,7 +19754,7 @@ names:
       - よく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シマバラ ヨク
+    reading: シマバラヨク
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -19751,9 +19793,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シマ トリ ヒトリ
+    reading: シマトリ ヒトリ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -19878,7 +19921,7 @@ names:
       - けい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カワスミ ケイ
+    reading: カワスミケイ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -19973,9 +20016,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マキジタ ヒッ チ
+    reading: マキジタ ヒッチ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -20259,6 +20303,7 @@ names:
     reading: ショウジ ヒロノリ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -20486,7 +20531,7 @@ names:
       - しゃちょう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アヤ シャチョウ
+    reading: アヤシャチョウ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -20701,9 +20746,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ゴ ユカワ サラリ
+    reading: ゴユカワ サラリ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -20871,7 +20917,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シマ   - sima -
+    reading: シマ-sima-
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -21038,7 +21084,7 @@ names:
       - すすむ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オモンミ ススム
+    reading: オモンミススム
     reading_at: '2026-08-08'
     reading_basis: analyser
     reading_pass: 4
@@ -21185,6 +21231,7 @@ names:
     reading: オウギジョウ ヒナ
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -21229,9 +21276,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オリ コ ポトス
+    reading: オリコ ポトス
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -21291,7 +21339,7 @@ names:
       - よてい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カイメイ ヨテイ
+    reading: カイメイヨテイ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -21335,7 +21383,7 @@ names:
       - しまこ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サンタ シマコ
+    reading: サンタシマコ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -21671,7 +21719,7 @@ names:
       - すえひろ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハヤ スエヒロ
+    reading: ハヤスエヒロ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -21986,6 +22034,7 @@ names:
     reading: ハルナ ヒスイ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -22081,9 +22130,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハルキ ヤチ カ
+    reading: ハルキ ヤチカ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -22101,7 +22151,7 @@ names:
       - ちあき
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハル ケツ 　 チアキ
+    reading: ハルケツチアキ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -22191,7 +22241,7 @@ names:
       - たかつぐ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハルマ タカツグ
+    reading: ハルマタカツグ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -22305,7 +22355,7 @@ names:
       - やすな
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トキナガ ヤスナ
+    reading: トキナガヤスナ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -22568,9 +22618,10 @@ names:
       - は
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アリゴウ 　 ハ
+    reading: アリゴウ ハ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -22648,9 +22699,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アサイ イシ ウ
+    reading: アサイ イシウ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -22726,7 +22778,7 @@ names:
       - しのぶ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アサツキ シノブ
+    reading: アサツキシノブ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -23167,7 +23219,7 @@ names:
       - せん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒガシヤマ セン
+    reading: ヒガシヤマセン
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -23298,6 +23350,7 @@ names:
     reading: トウノ トシ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -23392,9 +23445,10 @@ names:
       - よう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マツヤマ   ヨウ
+    reading: マツヤマ ヨウ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -23502,6 +23556,7 @@ names:
     reading: マツモト ミトヒ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -23747,9 +23802,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カシワギ   ツキコ
+    reading: カシワギ ツキコ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -23766,6 +23822,7 @@ names:
     reading: カシワギ ツキコ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -23990,7 +24047,7 @@ names:
       - はし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シバタ ハシ
+    reading: シバタハシ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -24027,7 +24084,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マサキ ツカチイ
+    reading: マサキツカチイ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -24282,6 +24339,7 @@ names:
     reading: キリシマ アオ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -24481,6 +24539,7 @@ names:
     reading: サクラギ サヤカ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -24579,9 +24638,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サクラ ト アルス
+    reading: サクラト アルス
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -24864,9 +24924,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: モリ ア モリ
+    reading: モリ アモリ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -24880,9 +24941,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: モリ ミナ モ
+    reading: モリ ミナモ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -25130,7 +25192,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: モリ シャ ワ ルキ
+    reading: モリシャワルキ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -25254,6 +25316,7 @@ names:
     reading: シイノ ツバメ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -25310,7 +25373,7 @@ names:
       - はくしゃ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ツバキ ハクシャ
+    reading: ツバキハクシャ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -25321,7 +25384,7 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ラク イツ シボ
+    reading: ラクイツシボ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -25375,7 +25438,7 @@ names:
       - ようか
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヨコヤマ ヨウカ
+    reading: ヨコヤマヨウカ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -25468,7 +25531,7 @@ names:
       - なつき
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハシモト ナツキ
+    reading: ハシモトナツキ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -25507,6 +25570,7 @@ names:
     reading: ハシモト コメヒコ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -25586,9 +25650,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タチバナ ミン ミ
+    reading: タチバナ ミンミ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -25720,7 +25785,7 @@ names:
       - そそう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒバル ソソウ
+    reading: ヒバルソソウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -25756,9 +25821,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: レモン マル ネ
+    reading: レモン マルネ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -25879,6 +25945,7 @@ names:
     reading: タケダ エミリ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -25999,7 +26066,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キ ハラス ゥ
+    reading: キハラスゥ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -26018,6 +26085,7 @@ names:
     reading: ミズノエ メガネ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -26068,6 +26136,7 @@ names:
     reading: ミト ツバキ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -26103,7 +26172,7 @@ names:
       - し
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミズタマリ アイマイシ
+    reading: ミズタマリアイマイシ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -26183,7 +26252,7 @@ names:
       - ゆず
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミズタニ ユズ
+    reading: ミズタニユズ
     reading_at: '2026-08-08'
     reading_basis: analyser
     reading_pass: 4
@@ -26268,9 +26337,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ミズトリナ ヤ  ナ モリ
+    reading: ミズトリナヤ ナモリ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -26357,7 +26427,7 @@ names:
       - まさとも
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: エイモト マサトモ
+    reading: エイモトマサトモ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -26376,6 +26446,7 @@ names:
     reading: ナガセ チサト
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -26424,7 +26495,7 @@ names:
       - ねずみ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シオノ ネズミ
+    reading: シオノネズミ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -26654,7 +26725,7 @@ names:
       - ふゆ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オキダ フユ
+    reading: オキダフユ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -26670,7 +26741,7 @@ names:
       - ねつ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: スナ ネツ
+    reading: スナネツ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -26727,6 +26798,7 @@ names:
     reading: カワイ タコス
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -26765,6 +26837,7 @@ names:
     reading: カワヅ ケント
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -26894,7 +26967,7 @@ names:
       - せいふう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ナミグモ セイフウ
+    reading: ナミグモセイフウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -27037,7 +27110,7 @@ names:
       - くらく
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アサイシ クラク
+    reading: アサイシクラク
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -27227,7 +27300,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: 'カイゲツ : モトキ'
+    reading: カイゲツ:モトキ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -27262,7 +27335,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カイゲツ ： モトキ
+    reading: カイゲツ：モトキ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -27679,7 +27752,7 @@ names:
       - ちげつ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コザン チゲツ
+    reading: コザンチゲツ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -27732,7 +27805,7 @@ names:
       - あさか
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タキシマ アサカ
+    reading: タキシマアサカ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -27751,6 +27824,7 @@ names:
     reading: ウミ ソラ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -27929,6 +28003,7 @@ names:
     reading: ナダ シオメ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -28212,7 +28287,7 @@ names:
       - ゆう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アカリ ガ ユウ
+    reading: アカリガユウ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -28223,7 +28298,7 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アキオ シ サン ク
+    reading: アキオシサンク
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -28366,9 +28441,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イヌ ウサギ ネコ
+    reading: イヌウサギ ネコ
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -28671,6 +28747,7 @@ names:
     reading: ネコヤナギ ユウタ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -28684,7 +28761,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ネコタレ クラ。
+    reading: ネコタレクラ。
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -28778,7 +28855,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タマ オコ サメ
+    reading: タマオコサメ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -28943,9 +29020,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タマ ムシ サトリ
+    reading: タマムシ サトリ
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -28980,7 +29058,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コトブキ ワ ルキ
+    reading: コトブキワルキ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -29076,9 +29154,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アマキ 　 ナツキ
+    reading: アマキ ナツキ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -29569,9 +29648,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シラミネ 　 カ ナ
+    reading: シラミネ カナ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -29797,6 +29877,7 @@ names:
     reading: ユリ エモン
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -29829,7 +29910,7 @@ names:
       - ちゃ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヒャク チャ
+    reading: ヒャクチャ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -30078,7 +30159,7 @@ names:
       - いち
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ムツキ イチ
+    reading: ムツキイチ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -30123,6 +30204,7 @@ names:
     reading: ヤタ ネドコ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -30183,7 +30265,7 @@ names:
       - しん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イシカワ ケンシン
+    reading: イシカワケンシン
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -30194,7 +30276,7 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イシダ   ヒロシ キ
+    reading: イシダヒロシキ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -30465,7 +30547,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カミヤ マワル
+    reading: カミヤマワル
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -30708,6 +30790,7 @@ names:
     reading: アイカ ユギリ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -30907,7 +30990,7 @@ names:
       - ゆう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ソラタ ユウ
+    reading: ソラタユウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -30967,7 +31050,7 @@ names:
       - かずなり
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タケウチ カズナリ
+    reading: タケウチカズナリ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -31079,7 +31162,7 @@ names:
       - たろう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キンニク ☆ タロウ
+    reading: キンニク☆タロウ
     reading_at: '2026-08-08'
     reading_basis: analyser
     reading_pass: 4
@@ -31218,7 +31301,7 @@ names:
       - う
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハコネ ウ
+    reading: ハコネウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -31349,7 +31432,7 @@ names:
       - ゆう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コメシマ ユウ
+    reading: コメシマユウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -31415,6 +31498,7 @@ names:
     reading: コメコウジ ポッポ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -31536,9 +31620,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クレバヤシ ノ エ
+    reading: クレバヤシ ノエ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -31593,6 +31678,7 @@ names:
     reading: シミ イリコ
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -32134,7 +32220,7 @@ names:
       - とうきちろう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ネリコミ トウキチロウ
+    reading: ネリコミトウキチロウ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -32224,7 +32310,7 @@ names:
       - はら
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: オリ ヒ チヒロ   ムシ ハラ
+    reading: オリヒチヒロムシハラ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -32465,6 +32551,7 @@ names:
     reading: オイタ ヒビキ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -32520,7 +32607,7 @@ names:
       - きょうだい
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ロッコツ キョウダイ
+    reading: ロッコツキョウダイ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -32655,9 +32742,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マイ ソン ソウジ
+    reading: マイソン ソウジ
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -32862,6 +32950,7 @@ names:
     reading: ハナグモリ パスタ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -33356,7 +33445,7 @@ names:
       - ゆま
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キクチ ユマ
+    reading: キクチユマ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -33515,9 +33604,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: キザン 　 ワサビ
+    reading: キザン ワサビ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -33777,7 +33867,7 @@ names:
       - みずき
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アザミ ミズキ
+    reading: アザミミズキ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -33815,9 +33905,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ヤクシジ 　 ウツツ
+    reading: ヤクシジ ウツツ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -33849,7 +33940,7 @@ names:
       - ただ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ラン フジ   タダ
+    reading: ランフジタダ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -33933,6 +34024,7 @@ names:
     reading: フジツカ マル
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -34545,6 +34637,7 @@ names:
     reading: ニシ ヒルメ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -34627,9 +34720,10 @@ names:
       - あお
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ニシオ   アオ
+    reading: ニシオ アオ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -34663,7 +34757,7 @@ names:
       - かよこ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ニシヤマ カヨコ
+    reading: ニシヤマカヨコ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -34946,7 +35040,7 @@ names:
       - てんしん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハナシトイ テンシン
+    reading: ハナシトイテンシン
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -34962,7 +35056,7 @@ names:
       - いつ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コダイ イツ
+    reading: コダイイツ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -35008,7 +35102,7 @@ names:
       - としゆき
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: モロクマ トシユキ
+    reading: モロクマトシユキ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -35024,9 +35118,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サンカ カ ノン
+    reading: サンカ カノン
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -35043,6 +35138,7 @@ names:
     reading: タニノ シブキ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -35059,6 +35155,7 @@ names:
     reading: タニガキ ユキ
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -35207,16 +35304,12 @@ names:
     verified: true
   赤川左岸:
     basis: romaji
-    furigana_spans:
-    - - 赤川
-      - あかがわ
-    - - 左岸
-      - さがん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: アカガワ サガン
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: 赤河左岸
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -35350,7 +35443,7 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ツジ   ユズ ダ
+    reading: ツジユズダ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -35389,7 +35482,7 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ツジ ユズ ダ
+    reading: ツジユズダ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -35408,9 +35501,10 @@ names:
       - ゆう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ツジモリ 　 ユウ
+    reading: ツジモリ ユウ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -35461,7 +35555,7 @@ names:
       - そん
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トオル ソン
+    reading: トオルソン
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -35531,7 +35625,7 @@ names:
       - おと
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: トウイ オト
+    reading: トウイオト
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -35781,6 +35875,7 @@ names:
     reading: キンジョウ マチ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -35896,7 +35991,7 @@ names:
       - はる
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハリオ ハル
+    reading: ハリオハル
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -36377,9 +36472,10 @@ names:
       - おさむ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: マカリ   オサム
+    reading: マカリ オサム
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -36471,7 +36567,7 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アベ レイ
+    reading: アベレイ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -36574,7 +36670,7 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カリヤ ユキ デイ
+    reading: カリヤユキデイ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -36877,7 +36973,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: シズク シダ イチ 〜
+    reading: シズクシダイチ〜
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -36918,7 +37014,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クモ ノメ オ
+    reading: クモノメオ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -36957,6 +37053,7 @@ names:
     reading: カスミ ヨスガ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -37102,6 +37199,7 @@ names:
     reading: アオキ ミズ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -37152,9 +37250,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: アオ ツバキ トト
+    reading: アオツバキ トト
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -37228,7 +37327,7 @@ names:
       - ゆみ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: スドウ ユミ
+    reading: スドウユミ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -37338,7 +37437,7 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: モチ キ ナナコ
+    reading: モチキナナコ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -37476,9 +37575,10 @@ names:
       - りょう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: カツキ   リョウ
+    reading: カツキ リョウ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -37655,6 +37755,7 @@ names:
     reading: コウザン チビコ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -37778,7 +37879,7 @@ names:
       - まや
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タカハシ マヤ
+    reading: タカハシマヤ
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
@@ -37846,9 +37947,10 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タカナ シン ノ
+    reading: タカナ シンノ
     reading_at: '2026-08-06'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -37908,7 +38010,7 @@ names:
       - のぶたか
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: タカギ ノブタカ
+    reading: タカギノブタカ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -37922,6 +38024,7 @@ names:
     reading: コウハシ キノ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -37931,9 +38034,10 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: コウ 𫞏 イイ ヨ
+    reading: コウ𫞏 イイヨ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -38063,6 +38167,7 @@ names:
     reading: アイカワ アオ
     reading_at: '2026-08-05'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -38207,6 +38312,7 @@ names:
     reading: トリイ スミ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -38220,7 +38326,7 @@ names:
       - はる
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ハト ハル
+    reading: ハトハル
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -38276,6 +38382,7 @@ names:
     reading: ナルコ ハナハル
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -38366,9 +38473,10 @@ names:
       - ゆうし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウカイ 　 ユウシ
+    reading: ウカイ ユウシ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -38625,6 +38733,7 @@ names:
     reading: クロウサギ ユウ
     reading_at: '2026-08-07'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
@@ -38650,7 +38759,7 @@ names:
       - ごろう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クロヌノ チョク シルベ   ササ   トウ ゴロウ
+    reading: クロヌノチョクシルベササトウゴロウ
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4
@@ -38666,7 +38775,7 @@ names:
       - しょう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クロキ ショウ
+    reading: クロキショウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -38701,7 +38810,7 @@ names:
       - はじめ
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クロセ ハジメ
+    reading: クロセハジメ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -38717,7 +38826,7 @@ names:
       - ゆう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: クロセ ユウ
+    reading: クロセユウ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -38882,7 +38991,7 @@ names:
       - えし
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イチサツメ ： オバサン ワ カミエシ
+    reading: イチサツメ：オバサンワカミエシ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
@@ -38909,7 +39018,7 @@ names:
       - ひび
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イチ． ツキ ト タイヨウ ノ ヒビ
+    reading: イチ．ツキトタイヨウノヒビ
     reading_at: '2026-08-04'
     reading_basis: analyser
     reading_pass: 4
@@ -38999,7 +39108,7 @@ names:
       - sounds
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: RDー Sounds
+    reading: RDーSounds
     reading_at: '2026-08-07'
     reading_basis: analyser
     reading_pass: 4

@@ -460,11 +460,27 @@ def title_case(s, particles=True):
     # while "ni)" failed to match the particle list because of the one it carried. Both come from
     # the same assumption. Capitalise the first LETTER wherever it sits, and test the particle on
     # the word with its punctuation stripped.
+    #
+    # A PERSONAL NAME TAKES A CAPITAL AFTER PUNCTUATION INSIDE IT AS WELL, and this is what made
+    # the difference visible: R-指定 was rendered `R - Shitei` off a reading a morphological
+    # analyser had divided at every symbol, and once those divisions were retired
+    # (adapters/names/analyser_division.py) the same name read `R-shitei`. A name has no sentence
+    # structure, so every segment of it is an element and every element takes a capital. A TITLE
+    # does not work that way, which is why this is asked only of a personal name.
+    #
+    # The apostrophe is excluded, and it is the case this function was originally written around:
+    # Shin'ichi is one element with a syllable break in it, and Shin'Ichi is two people.
     def cap(w):
-        for i, c in enumerate(w):
-            if c.isalpha():
-                return w[:i] + w[i].upper() + w[i + 1:]
-        return w
+        out, start = [], True
+        for c in w:
+            if start and c.isalpha():
+                out.append(c.upper())
+                start = False
+                continue
+            out.append(c)
+            if not particles and not (c.isalnum() or c in "'’ー"):
+                start = True
+        return "".join(out)
 
     out = []
     for i, w in enumerate(s.split(" ")):

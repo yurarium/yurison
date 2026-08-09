@@ -533,6 +533,42 @@ one of its spaces was unsupported. It is simpler to state and it throws away ans
 nothing: むつをむつ 蒼井ゆん would lose ムツヲムツ アオイ ユン, where the surface establishes both
 offsets, and 4ka エンピツ would lose the space its own byline writes.
 
+### 5g. What kind of evidence Wikidata is, and where a division is written down
+
+Two rulings taken 2026-08-09, both about what a record is entitled to claim and whether anything
+can read the claim.
+
+**Wikidata states a reading and states no name.** 67 author readings were sourced to it carrying
+`reading_basis: stated` and no `reading_source_kind` at all, so the source sat outside
+`curate.READING_ATTRIBUTION` and the table that says what may be believed had nothing to say about
+it. The kind is `community-db`, which is what the same module already writes for every other fact it
+takes from Wikidata. What the table now records is the line that makes it admissible: **P1814 prints
+kana.** A reading is a transcription anybody Japanese-literate can weigh against the characters,
+which §5d already builds the interface around, and a user-edited knowledge base has no standing over
+a person's name while being perfectly able to print their kana. Its English label is a different
+claim and is refused exactly as before.
+
+That admits one community database and not three, and the line is between kana and Latin. AniList
+and MangaUpdates return romanised strings, so a reading from either is recovered by reading a
+romanisation backwards, which has already lost the length of every vowel. Those are
+`back-converted`, the attribution table carries no row for them, and `boundary.SETTLED_BASES`
+refuses them as the donor of a division on the same reasoning.
+
+**Where a name divides is a field, and it was half in prose.** §5e made the division a second fact
+and `boundary.fill` records it in `reading_boundary`. `ndl_heading.entry` and
+`openbd_reading.boundary_entries` recorded the identical fact in `reading_note`, so 293 author
+records stated their division in a sentence and left the field empty. A sentence cannot be queried,
+counted or checked, so every measure reading the field read those records as having no source at
+all, and no number anywhere could tell 293 from 0. This is STANDING-INSTRUCTIONS §3 with the two
+producers one round apart.
+
+The field is the only slot now. A record has two honest ways to account for the spaces in its
+reading and `reading_source_kind` decides which: where a source supplied the kana it supplied the
+spaces in them, so an NDL transcription or an openBD collationkey cites itself; where the kana are
+ours, nothing came with them and the donor is named in `reading_boundary`. The invariant
+`a division names its donor in a field` holds it, and the note keeps the argument, which is what a
+note is for and what no field was going to hold.
+
 ## 7. Not getting ourselves blocked
 
 - Documented APIs only, with our existing User-Agent and contact URL.

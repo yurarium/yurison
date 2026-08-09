@@ -672,6 +672,7 @@ names:
     reading_basis: stated
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q90885203
     script: latin
     verified: true
@@ -850,6 +851,7 @@ names:
     reading: アイカワ モモコ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034558058
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034558058 divides
       this person as ''アイカワ モモコ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -874,6 +876,7 @@ names:
     reading: アオイ カバ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: a reviewer's own reading of the whole name, argued in reading_note
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -903,6 +906,7 @@ names:
     reading: アオタ ユキコ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034650868
     reading_corroborated:
     - mangaupdates
     reading_family: アオタ
@@ -991,6 +995,7 @@ names:
     reading: アオノ ナチ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_corroborated:
     - mangaupdates
     reading_family: アオノ
@@ -1025,6 +1030,7 @@ names:
     reading: アキヤマ エンマ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034822433
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034822433 divides
       this person as ''アキヤマ エンマ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -1049,6 +1055,7 @@ names:
     reading: アクタ リンコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I031868330
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''天才小説家と恋するウェイトレス 【単話売】''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -1304,6 +1311,7 @@ names:
     reading_given: イリ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q17191922
     verified: true
   あらふじぺす:
@@ -1322,6 +1330,7 @@ names:
     reading: アラヤ カワイ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''スーサイドエイジ = Suicide Age'' (KADOKAWA),
       divides this name as ''アラヤ カワイ''. The kana here are the name''s own surface and only the division
       is taken, since a collationkey is a filing key first: it folds the kana that sort together. It divides
@@ -1388,6 +1397,7 @@ names:
     reading: イガラシ ユミコ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I030604186
     reading_note: 'The National Diet Library''s author heading on record R100000002-I030604186 divides
       this person as ''イガラシ ユミコ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -1432,6 +1442,7 @@ names:
     reading: イシ ト ユウラ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I030274191
     reading_note: 'The National Diet Library''s author heading on record R100000002-I030274191 divides
       this person as ''イシ ト ユウラ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -1466,6 +1477,7 @@ names:
     reading: イツキ ミズホ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034623847
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034623847 divides
       this person as ''イツキ ミズホ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''イツキミズホ'',
@@ -1483,6 +1495,7 @@ names:
     reading: イヅミ ミナミ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033543704
     reading_note: 'The National Diet Library''s author heading on record R100000002-I033543704 divides
       this person as ''イズミ ミナミ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''イヅミミナミ'',
@@ -1500,6 +1513,7 @@ names:
     reading: イヅミヤ オトハ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''死神アリス 第2巻'' (一迅社), divides this name
       as ''イズミヤ オトハ''. The kana here are the name''s own surface and only the division is taken, since
       a collationkey is a filing key first: it folds the kana that sort together. It divides ''イヅミヤオトハ''.'
@@ -1615,6 +1629,7 @@ names:
     reading: ウガツ マツキ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032035537
     reading_note: 'The National Diet Library''s author heading on record R100000002-I032035537 divides
       this person as ''ウガツ マツキ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''ウガツマツキ'',
@@ -1643,6 +1658,7 @@ names:
     reading: ウサミ ミキ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 4 volume(s), e.g. ''大正忌憚魔女. 1'' (KADOKAWA), divides this
       name as ''ウサミ ミキ''. The kana here are the name''s own surface and only the division is taken, since
       a collationkey is a filing key first: it folds the kana that sort together. It divides ''ウサミミキ''.'
@@ -1679,6 +1695,7 @@ names:
     reading: ウチノ マイコ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034807010
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034807010 divides
       this person as ''ウチノ マイコ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''ウチノマイコ'',
@@ -1807,6 +1824,7 @@ names:
     reading: オコサマ ランチ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''終電逃したOLさんたちのちょっとアブナイ夜な百合アンソロジー'' (宙出版),
       divides this name as ''オコサマ ランチ''. The kana here are the name''s own surface and only the division
       is taken, since a collationkey is a filing key first: it folds the kana that sort together. It divides
@@ -1879,6 +1897,7 @@ names:
     reading: オニギリ パクパク
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034576451
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034576451 divides
       this person as ''オニギリ パクパク''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -1959,6 +1978,7 @@ names:
     reading: オコサマ ランチ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I025468221
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''転生少女図鑑''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -2084,6 +2104,7 @@ names:
     reading: カシイ アオイ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034658538
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''愛する婚約者に殺された公爵令嬢、死に戻りして光の公爵様（お父様）の溺愛に気づく ～今度こそ、生きて幸せになります！～''. The shop is a retailer and
       does not say where its kana came from, so this is weighed and not attributed: what is being recorded
@@ -2108,6 +2129,7 @@ names:
     reading: カシワギ ツキコ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 2 volume(s), e.g. ''陰キャギャルでもイキがりたい! 2'' (講談社), divides this
       name as ''カシワギ ツキコ''. The kana here are the name''s own surface and only the division is taken,
       since a collationkey is a filing key first: it folds the kana that sort together. It divides ''カシワギツキコ''.'
@@ -2140,6 +2162,7 @@ names:
     reading: カズマ コヲ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 3 volume(s), e.g. ''純水アドレッセンス'' (一迅社), divides this name
       as ''カズマ コオ''. The kana here are the name''s own surface and only the division is taken, since a
       collationkey is a filing key first: it folds the kana that sort together. It divides ''カズマコヲ''.'
@@ -2173,6 +2196,7 @@ names:
     reading: カミシマ アキラ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I029280942
     reading_note: 'The National Diet Library''s author heading on record R100000002-I029280942 divides
       this person as ''カミシマ アキラ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -2236,6 +2260,7 @@ names:
     reading: カラアゲ タロウ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034689158
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034689158 divides
       this person as ''カラアゲ タロウ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -2284,6 +2309,7 @@ names:
     reading: カワノ アキコ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 2 volume(s), e.g. "悪役令嬢のお嫁さま = THE VILLAINESS'' BRIDE. 1"
       (文藝春秋), divides this name as ''カワノ アキコ''. The kana here are the name''s own surface and only the
       division is taken, since a collationkey is a filing key first: it folds the kana that sort together.
@@ -2357,6 +2383,7 @@ names:
     reading: キサラギ ユリ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_corroborated:
     - wikidata
     reading_family: キサラギ
@@ -2376,6 +2403,7 @@ names:
     reading: キヅキ アキラ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''エビスさんとホテイさん'' (芳文社), divides this name
       as ''キズキ アキラ''. The kana here are the name''s own surface and only the division is taken, since
       a collationkey is a filing key first: it folds the kana that sort together. It divides ''キヅキアキラ''.'
@@ -2441,6 +2469,7 @@ names:
     reading: クズモチ マツリ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034179222
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034179222 divides
       this person as ''クズモチ マツリ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -2609,6 +2638,7 @@ names:
     reading: クワバラ タモツ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_corroborated:
     - mangaupdates
     reading_family: クワバラ
@@ -2732,6 +2762,7 @@ names:
     reading: コジカ アンヨ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032970139
     reading_note: 'The National Diet Library''s author heading on record R100000002-I032970139 divides
       this person as ''コジカ アンヨ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''コジカアンヨ'',
@@ -2891,6 +2922,7 @@ names:
     reading: サカモト ビン
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034486947
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034486947 divides
       this person as ''サカモト ビン''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''サカモトビン'',
@@ -3246,6 +3278,7 @@ names:
     reading: シボリ カスコ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''現実世界でも幸せにしてくださいね? 2'' (講談社), divides
       this name as ''シボリ カスコ''. The kana here are the name''s own surface and only the division is taken,
       since a collationkey is a filing key first: it folds the kana that sort together. It divides ''シボリカスコ''.'
@@ -3327,6 +3360,7 @@ names:
     reading: シンイシ チホ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033034287
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''【1巻無料】悪役にされた冷徹令嬢は王太子を守りたい～やり直し人生で我慢をやめたら溺愛され始めた様子～（コミック）【分冊版】''. The shop is a retailer and
       does not say where its kana came from, so this is weighed and not attributed: what is being recorded
@@ -3445,6 +3479,7 @@ names:
     reading: スドオ カオル
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''オトメキカングレーテル 1'' (一迅社), divides this name
       as ''スドオ カオル''. The kana here are the name''s own surface and only the division is taken, since
       a collationkey is a filing key first: it folds the kana that sort together. It divides ''スドオカオル''.'
@@ -3487,6 +3522,7 @@ names:
     reading: ズンダ コロッケ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034536633
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034536633 divides
       this person as ''ズンダ コロッケ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -3643,6 +3679,7 @@ names:
     reading: タヂマ ヨシカヅ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034641818
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034641818 divides
       this person as ''タジマ ヨシカズ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -3660,6 +3697,7 @@ names:
     reading: タナカ アヒル
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 2 volume(s), e.g. ''ツインスター・サイクロン・ランナウェイ 1'' (ＫＡＤＯＫＡＷＡ), divides
       this name as ''タナカ アヒル''. The kana here are the name''s own surface and only the division is taken,
       since a collationkey is a filing key first: it folds the kana that sort together. It divides ''タナカアヒル''.'
@@ -4106,6 +4144,7 @@ names:
     reading: トヨダ タツキ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I029577220
     reading_note: 'The National Diet Library''s author heading on record R100000002-I029577220 divides
       this person as ''トヨダ タツキ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''トヨダタツキ'',
@@ -4177,6 +4216,7 @@ names:
     reading: トリイ シヅク
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''夢と恋ではつり合わない'' (講談社), divides this name
       as ''トリイ シズク''. The kana here are the name''s own surface and only the division is taken, since
       a collationkey is a filing key first: it folds the kana that sort together. It divides ''トリイシヅク''.'
@@ -4318,6 +4358,7 @@ names:
     reading: ナナセ ハルカ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034437560
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -4380,6 +4421,7 @@ names:
     reading: ナハリ フミオ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034306548
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034306548 divides
       this person as ''ナハリ フミオ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''ナハリフミオ'',
@@ -4626,6 +4668,7 @@ names:
     reading: ネジガ ナメタ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033336237
     reading_note: 'The National Diet Library''s author heading on record R100000002-I033336237 divides
       this person as ''ネジガ ナメタ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''ネジガナメタ'',
@@ -4819,6 +4862,7 @@ names:
     reading: ハットリ マサキ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''カルネアデス 2'' (ＫＡＤＯＫＡＷＡ), divides this name
       as ''ハットリ マサキ''. The kana here are the name''s own surface and only the division is taken, since
       a collationkey is a filing key first: it folds the kana that sort together. It divides ''ハットリマサキ''.'
@@ -4843,6 +4887,7 @@ names:
     reading: ハットリ ミツル
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_corroborated:
     - wikidata
     - mangaupdates
@@ -5118,6 +5163,7 @@ names:
     reading: ヒサマ クマコ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 5 volume(s), e.g. ''一畳間まんきつ暮らし! 1'' (芳文社), divides this name
       as ''ヒサマ クマコ''. The kana here are the name''s own surface and only the division is taken, since
       a collationkey is a filing key first: it folds the kana that sort together. It divides ''ヒサマクマコ''.'
@@ -5154,6 +5200,7 @@ names:
     reading: ヒツジ タカコ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034771830
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034771830 divides
       this person as ''ヒツジ タカコ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''ヒツジタカコ'',
@@ -5361,6 +5408,7 @@ names:
     reading: フジシマ ペポ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034771793
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034771793 divides
       this person as ''フジシマ ペポ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''フジシマペポ'',
@@ -5775,6 +5823,7 @@ names:
     reading: マエバル マキノ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034574173
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''転生令嬢はもっと幸せになりたい！アンソロジーコミック''. The shop is a retailer and does not say where its kana came
       from, so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -6064,6 +6113,7 @@ names:
     reading: ミカミ テレン
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 3 volume(s), e.g. ''ブラック・ブラック・ロータス = Black Black Lotus. #1''
       (KADOKAWA), divides this name as ''ミカミ テレン''. The kana here are the name''s own surface and only
       the division is taken, since a collationkey is a filing key first: it folds the kana that sort together.
@@ -6123,6 +6173,7 @@ names:
     reading: ミサキ テンム
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034473126
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''婚約破棄された悪役令嬢ですがリスクを回避できて幸せです【単話売】''. The shop is a retailer and does not say where its kana
       came from, so this is weighed and not attributed: what is being recorded is that the shop files
@@ -6193,6 +6244,7 @@ names:
     reading: ミツキ カズミ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033025358
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''女ってバレたらクビなんです！～崖っぷち男装マネージャーと女嫌い俳優の交錯愛～''. The shop is a retailer and does not say where its
       kana came from, so this is weighed and not attributed: what is being recorded is that the shop files
@@ -6280,6 +6332,7 @@ names:
     reading: ミヤビ アキノ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034676190
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034676190 divides
       this person as ''ミヤビ アキノ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''ミヤビアキノ'',
@@ -6411,6 +6464,7 @@ names:
     reading: ムッチリ ムウニイ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 3 volume(s), e.g. ''絶対×浪漫'' (一迅社), divides this name as ''ムッチリ
       ムウニイ''. The kana here are the name''s own surface and only the division is taken, since a collationkey
       is a filing key first: it folds the kana that sort together. It divides ''ムッチリムウニイ''.'
@@ -6596,6 +6650,7 @@ names:
     reading: モチ オーレ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 9 volume(s), e.g. ''悪いが私は百合じゃない. 01'' (KADOKAWA), divides
       this name as ''モチ オーレ''. The kana here are the name''s own surface and only the division is taken,
       since a collationkey is a filing key first: it folds the kana that sort together. It divides ''モチオーレ''.'
@@ -6644,6 +6699,7 @@ names:
     reading: ヤトサキ ハル
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_corroborated:
     - mangaupdates
     reading_family: ヤトサキ
@@ -6677,6 +6733,7 @@ names:
     reading_given: ユウ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q3276552
     verified: true
   やま ゆずもと 我美蘭:
@@ -6722,6 +6779,7 @@ names:
     reading: ヤマジ エビネ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032172668
     reading_note: 'The National Diet Library''s author heading on record R100000002-I032172668 divides
       this person as ''ヤマジ エビネ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''ヤマジエビネ'',
@@ -6736,6 +6794,7 @@ names:
     reading: ヤマダ シュラ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 3 volume(s), e.g. ''忘れえぬ魔女の物語 1'' (スクウェア・エニックス), divides
       this name as ''ヤマダ シュラ''. The kana here are the name''s own surface and only the division is taken,
       since a collationkey is a filing key first: it folds the kana that sort together. It divides ''ヤマダシュラ''.'
@@ -6750,6 +6809,7 @@ names:
     reading: ヤマノ セリカ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034697009
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034697009 divides
       this person as ''ヤマノ セリカ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''ヤマノセリカ'',
@@ -6764,6 +6824,7 @@ names:
     reading: ヤマモト マモ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I026812874
     reading_note: 'The National Diet Library''s author heading on record R100000002-I026812874 divides
       this person as ''ヤマモト マモ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''ヤマモトマモ'',
@@ -6870,6 +6931,7 @@ names:
     reading: ユザキ サカオミ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 5 volume(s), e.g. ''作りたい女と食べたい女. 1'' (KADOKAWA), divides
       this name as ''ユザキ サカオミ''. The kana here are the name''s own surface and only the division is taken,
       since a collationkey is a filing key first: it folds the kana that sort together. It divides ''ユザキサカオミ''.'
@@ -7072,6 +7134,7 @@ names:
     reading: ヨパン ダンシャク
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032949114
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''にーにといっしょ！''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -7092,6 +7155,7 @@ names:
     reading: ラグホ ノ エリカ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I031401677
     reading_note: 'The National Diet Library''s author heading on record R100000002-I031401677 divides
       this person as ''ラグホ ノ エリカ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -7360,6 +7424,7 @@ names:
     reading: ワラビモチ キナコ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_corroborated:
     - mangaupdates
     reading_family: ワラビモチ
@@ -7513,6 +7578,7 @@ names:
     reading: アケガタ ユウ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 2 volume(s), e.g. ''月とすっぴん 1'' (祥伝社), divides this name as
       ''アケガタ ユウ''. The kana here are the name''s own surface and only the division is taken, since a collationkey
       is a filing key first: it folds the kana that sort together. It divides ''アケガタユウ''.'
@@ -7573,6 +7639,7 @@ names:
     reading: アサクラ ネル
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''彼なんかより、私のほうがいいでしょ? 1'' (KADOKAWA), divides
       this name as ''アサクラ ネル''. The kana here are the name''s own surface and only the division is taken,
       since a collationkey is a filing key first: it folds the kana that sort together. It divides ''アサクラネル''.'
@@ -7611,6 +7678,7 @@ names:
     reading: アシダカ ヲズ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_family: アシダカ
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''超深宇宙より愛をこめて. 1'' (講談社), divides this
       name as ''アシダカ オズ''. The kana here are the name''s own surface and only the division is taken, since
@@ -7683,6 +7751,7 @@ names:
     reading: アラカワ シン
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034673714
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034673714 divides
       this person as ''アラカワ シン''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''アラカワシン'',
@@ -7727,6 +7796,7 @@ names:
     reading: イケダ ケイスケ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I029583071
     reading_note: 'The National Diet Library''s author heading on record R100000002-I029583071 divides
       this person as ''イケダ ケイスケ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -7805,6 +7875,7 @@ names:
     reading: イトウ モロコ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I031673917
     reading_note: 'The National Diet Library''s author heading on record R100000002-I031673917 divides
       this person as ''イトウ モロコ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''イトウモロコ'',
@@ -7878,6 +7949,7 @@ names:
     reading: イマイ ヒヅル
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_conflicts:
     - basis: back-converted
       source: mangaupdates
@@ -7945,6 +8017,7 @@ names:
     reading: ウオズミ アミ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 7 volume(s), e.g. ''冷たくて 柔らか 分冊版 11'' (), divides this name
       as ''ウオズミ アミ''. The kana here are the name''s own surface and only the division is taken, since
       a collationkey is a filing key first: it folds the kana that sort together. It divides ''ウオズミアミ''.'
@@ -7989,6 +8062,7 @@ names:
     reading: ウミ ノ モクズ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I031537022
     reading_note: 'The National Diet Library''s author heading on record R100000002-I031537022 divides
       this person as ''ウミ ノ モクズ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -8434,6 +8508,7 @@ names:
     reading: コダマ ナオコ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_given: ナオコ
     reading_note: 'openBD''s collationkey on 9 volume(s), e.g. ''海猫荘days 2'' (講談社), divides this name
       as ''コダマ ナオコ''. The kana here are the name''s own surface and only the division is taken, since
@@ -8460,6 +8535,7 @@ names:
     reading: コナタ エル
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 2 volume(s), e.g. ''性悪天才幼馴染との勝負に負けて初体験を全部奪われる話. 2'' (KADOKAWA),
       divides this name as ''コナタ エル''. The kana here are the name''s own surface and only the division
       is taken, since a collationkey is a filing key first: it folds the kana that sort together. It divides
@@ -8567,6 +8643,7 @@ names:
     reading: サトウ ナンキ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034574400
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034574400 divides
       this person as ''サトウ ナンキ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''サトウナンキ'',
@@ -8615,6 +8692,7 @@ names:
     reading: サマミヤ アカザ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034461300
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034461300 divides
       this person as ''サマミヤ アカザ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -8702,6 +8780,7 @@ names:
     reading: シギサワ カヤ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034414276
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034414276 divides
       this person as ''シギサワ カヤ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''シギサワカヤ'',
@@ -8844,6 +8923,7 @@ names:
     reading: スタジオ クロマト
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''超かぐや姫! = COSMIC PRINCESS KAGUYA! 1''
       (KADOKAWA), divides this name as ''スタジオ クロマト''. The kana here are the name''s own surface and only
       the division is taken, since a collationkey is a filing key first: it folds the kana that sort together.
@@ -8863,6 +8943,7 @@ names:
     reading: スタジオ コロリド
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''超かぐや姫! = COSMIC PRINCESS KAGUYA! 1''
       (KADOKAWA), divides this name as ''スタジオ コロリド''. The kana here are the name''s own surface and only
       the division is taken, since a collationkey is a filing key first: it folds the kana that sort together.
@@ -9022,6 +9103,7 @@ names:
     reading: タカハシ マコ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_corroborated:
     - mangaupdates
     reading_family: タカハシ
@@ -9326,6 +9408,7 @@ names:
     reading: ナナセ ミオリ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I028221814
     reading_note: 'The National Diet Library''s author heading on record R100000002-I028221814 divides
       this person as ''ナナセ ミオリ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''ナナセミオリ'',
@@ -9559,6 +9642,7 @@ names:
     reading: ハッピー ゼリー ポンチ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''君にかわいいと叫びたい. 2'' (KADOKAWA), divides
       this name as ''ハッピー ゼリー ポンチ''. The kana here are the name''s own surface and only the division is
       taken, since a collationkey is a filing key first: it folds the kana that sort together. It divides
@@ -9593,6 +9677,7 @@ names:
     reading: ハルミ チヒロ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034601418
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034601418 divides
       this person as ''ハルミ チヒロ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''ハルミチヒロ'',
@@ -9731,6 +9816,7 @@ names:
     reading: ヒラツカ シノ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033080550
     reading_note: 'The National Diet Library''s author heading on record R100000002-I033080550 divides
       this person as ''ヒラツカ シノ''. The kana here are the name''s own surface and only the division is taken,
       since a heading is a filing form first: it folds the kana that sort together. It divides ''ヒラツカシノ'',
@@ -9756,6 +9842,7 @@ names:
     reading: ヒロタ シンタロウ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I029389618
     reading_note: 'The National Diet Library''s author heading on record R100000002-I029389618 divides
       this person as ''ヒロタ シンタロウ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -9796,6 +9883,7 @@ names:
     reading: ピエール ヤマモト
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I024435678
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''ぼくのシュガー''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -9854,6 +9942,7 @@ names:
     reading: フクハラ マサヤ
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I028210804
     reading_note: 'The National Diet Library''s author heading on record R100000002-I028210804 divides
       this person as ''フクハラ マサヤ''. The kana here are the name''s own surface and only the division is
       taken, since a heading is a filing form first: it folds the kana that sort together. It divides
@@ -9954,6 +10043,7 @@ names:
     reading: プレジ オショウ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034771649
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''佐々木とピーちゃん''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -10030,6 +10120,7 @@ names:
     reading: マウンテン プクイチ
     reading_at: '2026-08-07'
     reading_basis: surface
+    reading_boundary: openBD's collationkey
     reading_note: 'openBD''s collationkey on 18 volume(s), e.g. ''球詠 1 volume'' (芳文社), divides this name
       as ''マウンテン プクイチ''. The kana here are the name''s own surface and only the division is taken, since
       a collationkey is a filing key first: it folds the kana that sort together. It divides ''マウンテンプクイチ''.'
@@ -10273,6 +10364,7 @@ names:
     reading: ミユキ ルリア
     reading_at: '2026-08-09'
     reading_basis: surface
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034802534
     reading_family: ミユキ
     reading_note: 'The National Diet Library''s author heading on record R100000002-I034802534 divides
       this person as ''ミユキ ルリア''. The kana here are the name''s own surface and only the division is taken,
@@ -10719,6 +10811,7 @@ names:
     reading: イチノセ ケイ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034650821
     reading_note: 'MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       ''花唄メモワール'' (芳文社). It agrees with the reading already held, which no source had stated.
 
@@ -10842,6 +10935,7 @@ names:
     reading: ナナミヤ ツグミ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I029229842
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''青春ブタ野郎はバニーガール先輩の夢を見ない''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -10972,6 +11066,7 @@ names:
     reading: バンザイ コトブキ ダイエンカイ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034498053
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -11000,6 +11095,7 @@ names:
     reading: ミカミ コマタ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034320623
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -11206,6 +11302,7 @@ names:
     reading: ミウラ コズミ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I030741424
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''【2巻無料】結婚相手の条件にピッタリだったのは職場の後輩女子でした。''. The shop is a retailer and does not say where its kana
       came from, so this is weighed and not attributed: what is being recorded is that the shop files
@@ -11315,6 +11412,7 @@ names:
     reading: ウエジ ユウホ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034606599
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -11361,6 +11459,7 @@ names:
     reading: ウエシマ ハルキ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034439671
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -11385,6 +11484,7 @@ names:
     reading: ウエムラ ナビア
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034392846
     reading_note: 'MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       ''ゆりさき*とらいあんぐる'' (ぶんか社). It agrees with the reading already held, which no source had stated.
 
@@ -11405,6 +11505,7 @@ names:
     reading: カンバヤシ マコト
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034468316
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -11586,6 +11687,7 @@ names:
     reading_given: レイ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11364641
     verified: true
   中嶋ちずな:
@@ -11595,6 +11697,7 @@ names:
     reading: ナカジマ チズナ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033942378
     reading_note: 'MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       ''エルフ先生のトイレはどこですか?'' (KADOKAWA). It agrees with the reading already held, which no source had stated.
 
@@ -11700,6 +11803,7 @@ names:
     reading_given: カンコ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11365213
     verified: true
   中村キヨ:
@@ -11729,6 +11833,7 @@ names:
     reading: ナカムラ ユキチ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034475284
     reading_note: 'MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       ''オオカミくんと恋の晩餐'' (講談社). It agrees with the reading already held, which no source had stated.
 
@@ -11768,6 +11873,7 @@ names:
     reading: ナカムラ シュリ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034627106
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -11819,6 +11925,7 @@ names:
     reading: ナカムラ チン
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I025197723
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''レズと七人の彼女たち''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -11841,6 +11948,7 @@ names:
     reading: ナカノ マヤカ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034491791
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -11865,6 +11973,7 @@ names:
     reading: マルヤマ ゴンザレス
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034599155
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''こんな人生は絶対嫌だ''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -11906,6 +12015,7 @@ names:
     reading: ノギ ヤスヒト
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034560181
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''とある科学の超電磁砲外伝 アストラル・バディ''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -12207,6 +12317,7 @@ names:
     reading: ココノエ スワ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034382988
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -12231,6 +12342,7 @@ names:
     reading: カメゴヤ サト
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034145583
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -12443,6 +12555,7 @@ names:
     reading: イトウ ナナミ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I027263583
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''【特別割引】ルイは友を呼ぶ''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -12565,6 +12678,7 @@ names:
     reading_given: テツヤ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11376586
     verified: true
   今安:
@@ -12593,6 +12707,7 @@ names:
     reading: イマムラ ヨウコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I000009257660
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''乙女×乱舞''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -12667,6 +12782,7 @@ names:
     reading: ヨヨギ アニメーション ガクイン
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033366137
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''専門学校JK Ctrl+Z''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -12784,6 +12900,7 @@ names:
     reading_given: ニオ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q60627554
     verified: true
   仲谷鳰 ほか:
@@ -12827,6 +12944,7 @@ names:
     reading: イヨミネ ツク
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034632827
     reading_note: 'openBD carries this reading as the publisher''s own collationkey on 2 volume(s), e.g.
       ''アイドル総選挙4位だった私が魔王を倒すんですか？ 1'' (れんが書房新社).
 
@@ -12847,6 +12965,7 @@ names:
     reading: イセエビ ボイル
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034785852
     reading_note: 'ヤンマガWeb prints this reading under the name on its own author page. The platform is
       講談社''s, and the work is published on it. It agrees with the reading already held, which no source
       had stated.
@@ -12884,6 +13003,7 @@ names:
     reading_given: クロ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q114298643
     verified: true
   伊田史郎:
@@ -12909,6 +13029,7 @@ names:
     reading: イトウ イヅモ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032157560
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''伊藤いづもイラスト集 ‐宵加減‐''. The shop is a retailer and does not say where its kana came from, so
       this is weighed and not attributed: what is being recorded is that the shop files the person under
@@ -12951,6 +13072,7 @@ names:
     reading_given: ハチ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q88724271
     verified: true
   伊藤玄採:
@@ -13104,6 +13226,7 @@ names:
     reading: サクラ オリコ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034153744
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''ふしぎな猫のまちメルティア'' (小学館). It agrees with the reading already held, which no source had stated.
 
@@ -13282,6 +13405,7 @@ names:
     reading: クラサキ モロコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034564957
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話''. The shop is a retailer and does not say where its kana
       came from, so this is weighed and not attributed: what is being recorded is that the shop files
@@ -13537,6 +13661,7 @@ names:
     reading_given: ヒトマ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q616917
     verified: true
   八代涼:
@@ -13623,6 +13748,7 @@ names:
     reading_given: サクラコ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q7403217
     verified: true
   六番目の課長:
@@ -13632,6 +13758,7 @@ names:
     reading: ロクバンメ ノ カチョウ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032237886
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''寂しすぎる女社長がレズ風俗嬢に秒で落ちる話''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -13663,6 +13790,7 @@ names:
     reading_given: コウシ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q374823
     verified: true
   六野瀬えんじ:
@@ -13691,6 +13819,7 @@ names:
     reading: ウチムラ カナメ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I031951085
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''私が悪役令嬢で弟がヒロインな今【単話売】''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -13733,6 +13862,7 @@ names:
     reading: ナイトウ リュウ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033856691
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -13762,6 +13892,7 @@ names:
     reading: ツブラヤ プロダクション
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034668638
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''ウルトラマンSTORY 0''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -13840,6 +13971,7 @@ names:
     reading: フユジマ クレ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034742773
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -13864,6 +13996,7 @@ names:
     reading: トウミン ユウ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034357999
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -13963,6 +14096,7 @@ names:
     reading: イデウチ テツオ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034794399
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''【1巻無料】ふつうの軽音部''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -13999,6 +14133,7 @@ names:
     reading: イズモ アユカ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032074730
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''関西女子にイジられるボクの恋愛事情''. The shop is a retailer and does not say where its kana came from, so
       this is weighed and not attributed: what is being recorded is that the shop files the person under
@@ -14290,6 +14425,7 @@ names:
     reading: チオカ ナナエ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I031615485
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -14366,6 +14502,7 @@ names:
     reading_given: ダイスケ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q96715038
     verified: true
   千種みのり:
@@ -14481,6 +14618,7 @@ names:
     reading_given: ホトリ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q55524444
     verified: true
   南国ばなな:
@@ -14548,6 +14686,7 @@ names:
     reading: ミナミ フミカ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034564990
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -14753,6 +14892,7 @@ names:
     reading: ウサキ ヒトミ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033553351
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''Sis［秘密の恋心］''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -14917,6 +15057,7 @@ names:
     reading_given: シゲミツ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11409959
     verified: true
   原百合子:
@@ -15119,6 +15260,7 @@ names:
     reading_given: イロハ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11411268
     verified: true
   古田朋大:
@@ -15203,6 +15345,7 @@ names:
     reading_given: リョウイチ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11411640
     verified: true
   古賀由人:
@@ -15368,6 +15511,7 @@ names:
     reading: ヨシモト マスメ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034557488
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''【特別割引】ほのぼの異世界転生デイズ ～レベルカンスト、アイテム持ち越し！ 私は最強幼女です～''. The shop is a retailer and does not say
       where its kana came from, so this is weighed and not attributed: what is being recorded is that
@@ -15391,6 +15535,7 @@ names:
     reading: ヨシキタ ポプリ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034560187
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''【1巻無料】母をたずねて、異世界に。''. The shop is a retailer and does not say where its kana came from, so
       this is weighed and not attributed: what is being recorded is that the shop files the person under
@@ -15556,6 +15701,7 @@ names:
     reading: ヨシベ アクロ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032266506
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''絶対☆霊域''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -15651,6 +15797,7 @@ names:
     reading: キミ ト シイン
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I027683422
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''【特別割引】廃校ドールズ''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -15673,6 +15820,7 @@ names:
     reading: アズマ リュウコウ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033816553
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''ダッフルコートアーミー'' (KADOKAWA). It agrees with the reading already held, which no source had stated.
 
@@ -15917,6 +16065,7 @@ names:
     reading: ヨツバ ユウト
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034320420
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''【3巻無料】パリピ孔明''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -16132,6 +16281,7 @@ names:
     reading: アクツ ミナコ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034442321
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''バー・パンタ・レイ'' ([頒布]幻冬舎). It agrees with the reading already held, which no source had stated.
 
@@ -16236,6 +16386,7 @@ names:
     reading: ジョウノウチ ネネ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034214419
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''異世界の聖女様になりました～イケメン大神官とトロきゅん幸せ溺愛生活～【電子単行本版/限定特典付き】''. The shop is a retailer and does not
       say where its kana came from, so this is weighed and not attributed: what is being recorded is that
@@ -16259,6 +16410,7 @@ names:
     reading: ホリイズミ インコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032736812
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''スイーツコンチェルト-甘味男子の非日常-''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -16435,6 +16587,7 @@ names:
     reading: シザキ マサユキ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034603990
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -16471,6 +16624,7 @@ names:
     reading_given: マサムネ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q442602
     verified: true
   壱川ロク:
@@ -16527,6 +16681,7 @@ names:
     reading: ナツソラ ワカ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033627928
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''ふつうの子''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -16762,6 +16917,7 @@ names:
     reading: タモン ケツユキ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034566691
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -16900,6 +17056,7 @@ names:
     reading: オオキタ マヒロ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034578722
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''楽園の神娘''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -16955,6 +17112,7 @@ names:
     reading_given: エイジ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q3049381
     verified: true
   大宮宮美:
@@ -16964,6 +17122,7 @@ names:
     reading: オオミヤ ミヤミ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I030619979
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -17036,6 +17195,7 @@ names:
     reading: オオシマ トワ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034660928
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -17060,6 +17220,7 @@ names:
     reading: オオサキ ペコマル
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033809595
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''【3巻無料】異世界帰りの勇者は、ダンジョンが出現した現実世界で、インフルエンサーになって金を稼ぎます！''. The shop is a retailer and does not
       say where its kana came from, so this is weighed and not attributed: what is being recorded is that
@@ -17083,6 +17244,7 @@ names:
     reading: オオカワ ブクブ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I031898603
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''やっぱりチンチランド'' (KADOKAWA). It agrees with the reading already held, which no source had stated.
 
@@ -17217,6 +17379,7 @@ names:
     reading_given: ヤヨイ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q83680917
     verified: true
   大熊らすこ:
@@ -17308,6 +17471,7 @@ names:
     reading: オオノ ヤスユキ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I024522384
     reading_note: 'MADB records this reading beside the credit on 6 record(s) of the pinned release, e.g.
       "That''sイズミコ" (スタジオ・シップ). It agrees with the reading already held, which no source had stated.
 
@@ -17328,6 +17492,7 @@ names:
     reading: オオノ ショウマ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034072310
     reading_note: 'MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       ''鬼龍伝'' (小学館). It agrees with the reading already held, which no source had stated.
 
@@ -17435,6 +17600,7 @@ names:
     reading_given: アンナ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q135811608
     verified: true
   天華百剣プロジェクト:
@@ -17536,6 +17702,7 @@ names:
     reading: タイヨウ マリイ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034377994
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''男子高校生だけどギャルにTSしました'' (KADOKAWA). It agrees with the reading already held, which no source had
       stated.
@@ -17666,6 +17833,7 @@ names:
     reading: オクニシ チエ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I030125516
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''あっぱれ!鍋奉行''. It agrees with the reading already held, which no source had stated.
 
@@ -18272,6 +18440,7 @@ names:
     reading_given: イオリ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11455070
     verified: true
   宮田ワルツ:
@@ -18366,6 +18535,7 @@ names:
     reading: ヨリタ ミユキ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I025495457
     reading_note: 'MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       ''キレイになりたい!'' (講談社). It agrees with the reading already held, which no source had stated.
 
@@ -18413,6 +18583,7 @@ names:
     reading: トミサワ ヨシヒコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034296471
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -18453,6 +18624,7 @@ names:
     reading_family: トミノ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q1325374
     verified: true
   寝路:
@@ -18482,6 +18654,7 @@ names:
     reading: テラヤマ デン
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I028643418
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -18563,6 +18736,7 @@ names:
     reading: オガワ マスミ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033713620
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''小川ますみ 短編集''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -18598,6 +18772,7 @@ names:
     reading_given: イッスイ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q6088445
     verified: true
   小川麻衣子:
@@ -18651,6 +18826,7 @@ names:
     reading: コスギ コウタロウ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032096745
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''普通の女子校生が【ろこどる】やってみた。 特装版''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -18853,6 +19029,7 @@ names:
     reading_given: アキヒロ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q114736248
     verified: true
   小野亮汰:
@@ -18965,6 +19142,7 @@ names:
     reading: コバト ネネコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034753191
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''婚約者に嫌われているようなので離れてみたら、なぜか抗議されました''. The shop is a retailer and does not say where its kana
       came from, so this is weighed and not attributed: what is being recorded is that the shop files
@@ -19144,6 +19322,7 @@ names:
     reading: ヤマナ サワコ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I027738487
     reading_note: 'MADB records this reading beside the credit on 6 record(s) of the pinned release, e.g.
       ''ラブラブ❤シャーリー''. It agrees with the reading already held, which no source had stated.
 
@@ -19215,6 +19394,7 @@ names:
     reading_given: サホ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q18818297
     verified: true
   山本まと:
@@ -19239,6 +19419,7 @@ names:
     reading: ヤマモト ルンルン
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033971255
     reading_note: 'MADB records this reading beside the credit on 5 record(s) of the pinned release, e.g.
       ''涙子さまの言う通り'' (KADOKAWA). It agrees with the reading already held, which no source had stated.
 
@@ -19259,6 +19440,7 @@ names:
     reading: ヤマモト カズネ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033825727
     reading_note: 'MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       ''生き残った6人によると'' (KADOKAWA). It agrees with the reading already held, which no source had stated.
 
@@ -19279,6 +19461,7 @@ names:
     reading: サントウ ユカ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034604496
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''スパロウズホテル'' (竹書房). It agrees with the reading already held, which no source had stated.
 
@@ -19334,6 +19517,7 @@ names:
     reading: ヤマダ コタロ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034769866
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''超人高校生たちは異世界でも余裕で生き抜くようです!''. The shop is a retailer and does not say where its kana came
       from, so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -19411,6 +19595,7 @@ names:
     reading_given: ヨシノブ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11470371
     verified: true
   山田酉子:
@@ -19420,6 +19605,7 @@ names:
     reading: ヤマダ トリコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I027519714
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -19481,6 +19667,7 @@ names:
     reading: オカザキ マサムネ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034691901
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''【1巻無料】モブ同然の悪役令嬢は男装して攻略対象の座を狙う@COMIC''. The shop is a retailer and does not say where its
       kana came from, so this is weighed and not attributed: what is being recorded is that the shop files
@@ -19621,6 +19808,7 @@ names:
     reading: イワサキ ツバサ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I031627445
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''骨まで愛して''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -19746,6 +19934,7 @@ names:
     reading: キシノサト サトシ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I030692721
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''ファミリーフェティッシュ！''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -19891,6 +20080,7 @@ names:
     reading: シマミズ エケ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034774051
     reading_note: 'MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       ''憧れのメイドさんはタバコが似合う'' (スクウェア・エニックス). It agrees with the reading already held, which no source had
       stated.
@@ -19950,6 +20140,7 @@ names:
     reading: カワイ マコト
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I029679952
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''甘えたい日はそばにいて。''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -20019,6 +20210,7 @@ names:
     reading: カワナミ イズミ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I029634892
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''【7巻無料】ひかりちゃんはクズだから 【分冊版】''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -20076,6 +20268,7 @@ names:
     reading: カワムラ ツカサ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I024137729
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''きのうのわたし、あしたのわたし''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -20117,6 +20310,7 @@ names:
     reading: クドウ マコト
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034569947
     reading_note: 'MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       ''不器用な先輩。'' (スクウェア・エニックス). It agrees with the reading already held, which no source had stated.
 
@@ -20192,6 +20386,7 @@ names:
     reading: イチカワ ヒロ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034475279
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''スポチャン！''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -20253,6 +20448,7 @@ names:
     reading: ポロヤマ アキ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034477465
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -20310,6 +20506,7 @@ names:
     reading_given: マサヒロ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11483013
     verified: true
   年中麦茶太郎:
@@ -20319,6 +20516,7 @@ names:
     reading: ネンジュウ ムギチャタロウ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034745637
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -20461,6 +20659,7 @@ names:
     reading: ヒロシマ ガウォ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034463562
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''【1巻無料】私のかわいい犬だから''. The shop is a retailer and does not say where its kana came from, so
       this is weighed and not attributed: what is being recorded is that the shop files the person under
@@ -20556,6 +20755,7 @@ names:
     reading: ヒコダ ジュン
     reading_at: '2026-08-07'
     reading_basis: researched
+    reading_boundary: a reviewer's own reading of the whole name, argued in reading_note
     reading_note: 'ヤマモト ウララ is a different person''s name, the same failure as 古川楊也: an item bound to
       this name as an alias handed over the label of the name it is filed under. The National Diet Library
       holds nothing for this artist on any route, so nothing states the reading. Refuting it in place
@@ -20607,6 +20807,7 @@ names:
     reading: サツキ ツカサ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034678215
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -20680,6 +20881,7 @@ names:
     reading_given: エイキ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q445234
     verified: true
   後藤うどん:
@@ -20689,6 +20891,7 @@ names:
     reading: ゴトウ ウドン
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034105114
     reading_note: 'MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       ''煙色のまほろば'' (小学館). It agrees with the reading already held, which no source had stated.
 
@@ -20785,6 +20988,7 @@ names:
     reading_given: ショウタロウ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q18458173
     verified: true
   御坊:
@@ -20820,6 +21024,7 @@ names:
     reading: オウチ カエル
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034838923
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -20938,6 +21143,7 @@ names:
     reading_given: タカコ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q1134575
     verified: true
   志水 はつみ:
@@ -21159,6 +21365,7 @@ names:
     reading: ユウリ ナユタ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I028450575
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''サクランボッチ''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -21283,6 +21490,7 @@ names:
     reading_given: シンイチロウ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11495584
     verified: true
   我孫子楽人:
@@ -21326,6 +21534,7 @@ names:
     reading: トコロ ケメコ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034392397
     reading_note: 'MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       ''薫風マイファーム'' (KADOKAWA). It agrees with the reading already held, which no source had stated.
 
@@ -21366,6 +21575,7 @@ names:
     reading: タハラ カズノリ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033361565
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -21435,6 +21645,7 @@ names:
     reading: アゲタテ シノ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034569799
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -21665,6 +21876,7 @@ names:
     reading: アライ サトシ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034375664
     reading_note: 'MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       ''秘蜜の金髪ツインテール'' (日本文芸社). It agrees with the reading already held, which no source had stated.
 
@@ -21967,6 +22179,7 @@ names:
     reading: ホシイ ナナオク
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I026297271
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''シーツの下に銃ふたつ''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -22056,6 +22269,7 @@ names:
     reading: ホシザキ レオ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034528195
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''夜の鍛冶屋はひみつの玩具屋さん''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -22127,6 +22341,7 @@ names:
     reading: ホシノ ソウイチロウ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033944542
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''魔王を倒した元勇者、元の世界には戻れないと今さら言われたので、王国を捨てて好き勝手にスローライフします！''. The shop is a retailer and does not
       say where its kana came from, so this is weighed and not attributed: what is being recorded is that
@@ -22206,6 +22421,7 @@ names:
     reading: カスガ アユム
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034096342
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -22533,6 +22749,7 @@ names:
     reading: ハルセ ヒロキ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033988059
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''無限成長のカード使い～無限にスキルをゲットしてダンジョン攻略で成り上がる～''. The shop is a retailer and does not say where its
       kana came from, so this is weighed and not attributed: what is being recorded is that the shop files
@@ -22589,6 +22806,7 @@ names:
     reading_given: シュウジ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11515289
     verified: true
   曽我部修司（FiFS):
@@ -22767,6 +22985,7 @@ names:
     reading_basis: stated
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q98755182
     verified: true
   服部雀:
@@ -22776,6 +22995,7 @@ names:
     reading: ハットリ スズメ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000137-I9784043300327
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''好きモノ同士''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -22975,6 +23195,7 @@ names:
     reading: キムラ マツリ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032479817
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''おしごとですよ！赤根さん''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -23211,6 +23432,7 @@ names:
     reading: スギタニ エコ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034621359
     reading_note: 'MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       ''愛焦がれキャラメリゼ'' (芳文社). It agrees with the reading already held, which no source had stated.
 
@@ -23265,6 +23487,7 @@ names:
     reading_given: ユウ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11523175
     verified: true
   村田真哉:
@@ -23287,6 +23510,7 @@ names:
     reading_given: シンヤ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11523489
     verified: true
   杜若彩:
@@ -23362,6 +23586,7 @@ names:
     reading_given: ユイコ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q134739831
     verified: true
   東方Project:
@@ -23601,6 +23826,7 @@ names:
     reading: マツシマ ユキタロウ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034525477
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -23649,6 +23875,7 @@ names:
     reading: マツモト ナミル
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I031948194
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''僕の彼女がマジメ過ぎる処女ビッチな件''. The shop is a retailer and does not say where its kana came from, so
       this is weighed and not attributed: what is being recorded is that the shop files the person under
@@ -23723,6 +23950,7 @@ names:
     reading: マクラベ ショーマ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I026854793
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''アリノス☆ワンダーランド''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -23782,6 +24010,7 @@ names:
     reading: ハヤシ ユウイチ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034306687
     reading_note: 'MADB records this reading beside the credit on 9 record(s) of the pinned release, e.g.
       ''聖交天使ヤリニクル'' (KADOKAWA). It agrees with the reading already held, which no source had stated.
 
@@ -23868,6 +24097,7 @@ names:
     reading: ヒイラギ ユウイチ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034566926
     reading_note: 'MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       ''履いてください、鷹峰さん'' (スクウェア・エニックス). It agrees with the reading already held, which no source had stated.
 
@@ -23990,6 +24220,7 @@ names:
     reading: ユズハラ テイル
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034360530
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -24051,6 +24282,7 @@ names:
     reading_given: リョウタ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11534004
     verified: true
   柳井伸彦:
@@ -24085,6 +24317,7 @@ names:
     reading: ヤナガワ マイ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I031903653
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''オフィスに百合は咲きません''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -24218,6 +24451,7 @@ names:
     reading: クリハラ アオイ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I026717974
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''ハートの国のアリス～恋する茨の迷宮～''. The shop is a retailer and does not say where its kana came from, so
       this is weighed and not attributed: what is being recorded is that the shop files the person under
@@ -24289,6 +24523,7 @@ names:
     reading: クリモト カオル
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000136-I1970304959893985027
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''【1巻無料】パロスの剣''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -24425,6 +24660,7 @@ names:
     reading_given: コトリ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11537173
     verified: true
   桐山はるか:
@@ -24509,6 +24745,7 @@ names:
     reading: キリバイ キネソ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033800035
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''恥ずかしがり屋の妻と新婚生活はじめました''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -24572,6 +24809,7 @@ names:
     reading: サクライ ミズキ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I028920358
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -24813,6 +25051,7 @@ names:
     reading: ウメハラ ウメ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034632831
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''はっぴー・どーる・でいず'' (KADOKAWA). It agrees with the reading already held, which no source had stated.
 
@@ -24833,6 +25072,7 @@ names:
     reading: ウメサキ シャキコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033923704
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''妖しきご縁がありますように''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -24855,6 +25095,7 @@ names:
     reading: ゴトウ マサキ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I029917156
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -24966,6 +25207,7 @@ names:
     reading_given: ガク
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q24870788
     verified: true
   棘尾どろしー:
@@ -24994,6 +25236,7 @@ names:
     reading: タナギ ボウエイ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034609058
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -25150,6 +25393,7 @@ names:
     reading: モリオ マサヒロ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034703761
     reading_note: 'MADB records this reading beside the credit on 9 record(s) of the pinned release, e.g.
       ''異世界召喚おじさんの銃無双ライフ'' (芳文社). It agrees with the reading already held, which no source had stated.
 
@@ -25223,6 +25467,7 @@ names:
     reading_family: モリシマ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11539561
     verified: true
   森島明子(絵):
@@ -25337,6 +25582,7 @@ names:
     reading_family: ムクノキ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q62085502
     verified: true
   植下:
@@ -25366,6 +25612,7 @@ names:
     reading: シイナ ハルミ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I026598804
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''日本の漫画家が台湾に行ってみた件について''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -25585,6 +25832,7 @@ names:
     reading: カシキ タクト
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034484444
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -25727,6 +25975,7 @@ names:
     reading: タチバナ アユン
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I026741900
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''疾風可憐迅雷狐娘！''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -25808,6 +26057,7 @@ names:
     reading_family: タチバナ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11544204
     verified: true
   橘沙羅:
@@ -25973,6 +26223,7 @@ names:
     reading: サクライ マコト
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033246646
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''異世界帰りのパラディンは、最強の除霊師となる''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -25996,6 +26247,7 @@ names:
     reading: サクライ アヤコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034461364
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''西園寺薫子と使用人椿の一生''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -26267,6 +26519,7 @@ names:
     reading: ミズモリ タカシ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032375560
     reading_note: 'MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       ''ファインプレー!''. It agrees with the reading already held, which no source had stated.
 
@@ -26305,6 +26558,7 @@ names:
     reading: ミズセ ハヅキ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034601183
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -26398,6 +26652,7 @@ names:
     reading_given: エイタ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q5349996
     verified: true
   水鏡ひより:
@@ -26407,6 +26662,7 @@ names:
     reading: ミカガミ ヒヨリ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I027630764
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -26521,6 +26777,7 @@ names:
     reading: ナガヤマ ユウノン
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034411674
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''Summer Pockets むぎゅでいず～紬の島さんぽ～''. The shop is a retailer and does not say where its kana came
       from, so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -26646,6 +26903,7 @@ names:
     reading: エノウチ アイ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033978672
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -26750,6 +27008,7 @@ names:
     reading: エナリ イチコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I028637996
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''砂漠に星の降るように／誘惑の演技 【新装版】''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -26773,6 +27032,7 @@ names:
     reading: イケナカ オリナ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034465921
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -26901,6 +27161,7 @@ names:
     reading_family: カワカミ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q69634939
     verified: true
   河井タコス:
@@ -27010,6 +27271,7 @@ names:
     reading: ヌマチ ドロマル
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034734556
     reading_note: 'MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       ''生きてるだけでえらい!ってハイネさんが言うから'' (KADOKAWA). It agrees with the reading already held, which no source
       had stated.
@@ -27184,6 +27446,7 @@ names:
     reading: アサズキ ノリト
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034714677
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -27327,6 +27590,7 @@ names:
     reading: ハマユミバ ソウ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034543914
     reading_note: 'MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       ''魔女の花屋さん'' (講談社). It agrees with the reading already held, which no source had stated.
 
@@ -27395,6 +27659,7 @@ names:
     reading: ウミシマ センボン
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033251284
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''雨の日''. It agrees with the reading already held, which no source had stated.
 
@@ -27486,6 +27751,7 @@ names:
     reading: エビガワ ケイ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034367905
     reading_note: 'MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       ''魔女まじょs-witch'' (芳文社). It agrees with the reading already held, which no source had stated.
 
@@ -27574,6 +27840,7 @@ names:
     reading_given: リン
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q27917710
     verified: true
   涼海来夏:
@@ -27672,6 +27939,7 @@ names:
     reading: フカミ コウチャ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034541477
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''転生少女の三ツ星レシピ''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -27731,6 +27999,7 @@ names:
     reading: フカウミ コン
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034822447
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -27755,6 +28024,7 @@ names:
     reading: フカミ マコト
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I022999096
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''【1巻無料】魔法少女特殊戦あすか''. The shop is a retailer and does not say where its kana came from, so
       this is weighed and not attributed: what is being recorded is that the shop files the person under
@@ -27778,6 +28048,7 @@ names:
     reading: シブヤ ケイイチロウ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034174826
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''瑠璃の宝石'' (KADOKAWA). It agrees with the reading already held, which no source had stated.
 
@@ -27839,6 +28110,7 @@ names:
     reading: ワタナベ ウソウミ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I031370365
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -28009,6 +28281,7 @@ names:
     reading: サワムラ マリコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032695741
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''ぬるキュン初恋マッサージ ～お客様にイかされるなんて…いけませんっ！～''. The shop is a retailer and does not say where its
       kana came from, so this is weighed and not attributed: what is being recorded is that the shop files
@@ -28061,6 +28334,7 @@ names:
     reading: セオ ミイノスケ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032648330
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''推しが公認ストーカーになりました 【連載版】''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -28450,6 +28724,7 @@ names:
     reading: ギュウニュウ リンダ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I025840401
     reading_note: 'MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       ''恋敵♡スキンシップ'' (松文館). It agrees with the reading already held, which no source had stated.
 
@@ -28627,6 +28902,7 @@ names:
     reading: イヌシマ ナナコ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034745679
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -29032,6 +29308,7 @@ names:
     reading_given: ベンキョウ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q4889571
     verified: true
   王月よう:
@@ -29221,6 +29498,7 @@ names:
     reading: タマキ ノゾム
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034425349
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''ダンスインザヴァンパイアバンドエイジオブスカーレットオーダー'' (TOブックス). It agrees with the reading already held, which no source
       had stated.
@@ -29479,6 +29757,7 @@ names:
     reading: タグチ ケンジ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034761183
     reading_note: 'MADB records this reading beside the credit on 295 record(s) of the pinned release,
       e.g. ''会って食べると書きまして。'' (小学館). It agrees with the reading already held, which no source had stated.
 
@@ -29539,6 +29818,7 @@ names:
     reading: タタキ キキキ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032269018
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''セックスの誘い方～社会人編''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -29833,6 +30113,7 @@ names:
     reading: シラサワ マリモ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I027187275
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''キズナ 本当にあった泣けちゃう感動ストーリー''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -30057,6 +30338,7 @@ names:
     reading: マスダ サトアキ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033947050
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -30136,6 +30418,7 @@ names:
     reading: シンドウ ナナゴウ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034089492
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''救世の終末時計（ドゥームズ・デイ）(話売り)''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -30210,6 +30493,7 @@ names:
     reading_family: サナダ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11583352
     verified: true
   真西まり:
@@ -30419,6 +30703,7 @@ names:
     reading_given: カナ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11586941
     verified: true
   石田可奈(キャラクターデザイン):
@@ -30588,6 +30873,7 @@ names:
     reading: カンザキ タタミ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032494774
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''モノノケソウルフード''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -30632,6 +30918,7 @@ names:
     reading_given: アツシ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11590389
     verified: true
   神無月羽兎:
@@ -30696,6 +30983,7 @@ names:
     reading_given: セイ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q69635628
     verified: true
   福井遥香:
@@ -30732,6 +31020,7 @@ names:
     reading: フクハラ ヒロコ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I023811902
     reading_note: 'MADB records this reading beside the credit on 27 record(s) of the pinned release,
       e.g. ''従姉ヴァレリア'' ([発売]集英社). It agrees with the reading already held, which no source had stated.
 
@@ -30768,6 +31057,7 @@ names:
     reading: フクダ ヒロシ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034267618
     reading_note: 'MADB records this reading beside the credit on 324 record(s) of the pinned release,
       e.g. ''ロックは淑女の嗜みでして'' (白泉社). It agrees with the reading already held, which no source had stated.
 
@@ -30828,6 +31118,7 @@ names:
     reading: アキズキ カズ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034174819
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -30932,6 +31223,7 @@ names:
     reading: イナモト イネコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032829551
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''【特別割引】私たちがセックスするまであと99日''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -30974,6 +31266,7 @@ names:
     reading_given: ミノリ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11596894
     verified: true
   稲葉春:
@@ -31018,6 +31311,7 @@ names:
     reading: ソラクラ シキジ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033355112
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -31144,6 +31438,7 @@ names:
     reading: タケウチ サチコ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034417099
     reading_note: 'MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       ''歌舞伎町カラオケ店員としくにさん'' (講談社). It agrees with the reading already held, which no source had stated.
 
@@ -31222,6 +31517,7 @@ names:
     reading_given: ハヅキ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q9047327
     verified: true
   竹嶋えく:
@@ -31446,6 +31742,7 @@ names:
     reading: シノ ヒロフミ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034564994
     reading_note: 'MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       ''きんぴか症候群'' (リブレ). It agrees with the reading already held, which no source had stated.
 
@@ -31500,6 +31797,7 @@ names:
     reading: トクミ ユイコ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034425366
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -31581,6 +31879,7 @@ names:
     reading: コメシロ カス
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032222026
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -31626,6 +31925,7 @@ names:
     reading: コナヤマ カタ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I031450494
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -31689,6 +31989,7 @@ names:
     reading: キノウエ セイイチ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033764899
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''となりの布里さんがとにかくコワい。''. The shop is a retailer and does not say where its kana came from, so
       this is weighed and not attributed: what is being recorded is that the shop files the person under
@@ -31988,6 +32289,7 @@ names:
     reading: ユイカワ カズノ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I030309962
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -32124,6 +32426,7 @@ names:
     reading: アヤバタ フイエ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034566896
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -32202,6 +32505,7 @@ names:
     reading_given: ケイシ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11607399
     verified: true
   綿桐 さや:
@@ -32234,6 +32538,7 @@ names:
     reading: ワタギリ サヤ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I029431346
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -32262,6 +32567,7 @@ names:
     reading: ヒズキ アキラ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034193813
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -32286,6 +32592,7 @@ names:
     reading: ヒイロ ノ アメ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034753238
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''【1巻無料】侯爵令嬢の破滅実況 破滅を予言された悪役令嬢だけど、リスナーがいるので幸せです''. The shop is a retailer and does not say
       where its kana came from, so this is weighed and not attributed: what is being recorded is that
@@ -32472,6 +32779,7 @@ names:
     reading_basis: stated
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q98309416
     verified: true
   美澄零:
@@ -32736,6 +33044,7 @@ names:
     reading: セガワ ノボル
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034635216
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''どく・どく・もり・もり'' ([頒布]小学館クリエイティブ). It agrees with the reading already held, which no source had stated.
 
@@ -33391,6 +33700,7 @@ names:
     reading: クサカ シンヤ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034516697
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''半グレ―六本木 摩天楼のレクイエム―''. The shop is a retailer and does not say where its kana came from, so
       this is weighed and not attributed: what is being recorded is that the shop files the person under
@@ -33492,6 +33802,7 @@ names:
     reading_given: ジュン
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11619059
     verified: true
   菅原こゆび:
@@ -33547,6 +33858,7 @@ names:
     reading_family: スガノ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11619414
     verified: true
   菊智祐麻:
@@ -33586,6 +33898,7 @@ names:
     reading: ハナバナ ツボミ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I030274029
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -33629,6 +33942,7 @@ names:
     reading: ハギノ マコト
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034030045
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''窓辺のリノア'' (KADOKAWA). It agrees with the reading already held, which no source had stated.
 
@@ -33686,6 +34000,7 @@ names:
     reading: アオキ ムツミ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032706212
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -33878,6 +34193,7 @@ names:
     reading: レンジョウ ハニ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033968957
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -33993,6 +34309,7 @@ names:
     reading: ソノダ カンキツ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034783230
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''ざこのみなさんお大事に''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -34109,6 +34426,7 @@ names:
     reading: フジシロ ヒャク
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I028399432
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''45分間の魔法使い''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -34249,6 +34567,7 @@ names:
     reading: フジモト トオル
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032380772
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''断る勇気がありません～強面彼氏と交際はじめます【合冊版】''. The shop is a retailer and does not say where its kana came
       from, so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -34318,6 +34637,7 @@ names:
     reading_family: フジエダ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11624396
     verified: true
   藤沢誠:
@@ -34386,6 +34706,7 @@ names:
     reading: フジノ カオリ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034439489
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''ピエタとトランジ''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -34450,6 +34771,7 @@ names:
     reading_basis: stated
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q64821637
     verified: true
   虫歯:
@@ -34549,6 +34871,7 @@ names:
     reading: アルキマチ ヒノデ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033604988
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -34637,6 +34960,7 @@ names:
     reading_given: メラ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q9341136
     verified: true
   裏海マユ:
@@ -34775,6 +35099,7 @@ names:
     reading: ニシクラ シンク
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033696984
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -34799,6 +35124,7 @@ names:
     reading: ニシヅカ エム
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I032204512
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -34882,6 +35208,7 @@ names:
     reading: ニシムラ リュウ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034797341
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -34910,6 +35237,7 @@ names:
     reading: ニシ ジョウヨウ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034678246
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -35016,6 +35344,7 @@ names:
     reading: ニシ ヨシユキ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034309540
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -35327,6 +35656,7 @@ names:
     reading_given: リュウイチ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q64025276
     verified: true
   貴山アスカ:
@@ -35476,6 +35806,7 @@ names:
     reading: アカガワ サガン
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034461302
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -35508,6 +35839,7 @@ names:
     reading_given: マルボロウ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q11635974
     verified: true
   軍艦あまえび:
@@ -35696,6 +36028,7 @@ names:
     reading: ミチユキ アオイ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034642057
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -35758,6 +36091,7 @@ names:
     reading_given: アサギ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q105259127
     verified: true
   遠山えま:
@@ -35780,6 +36114,7 @@ names:
     reading_given: エマ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q912386
     verified: true
   遠野めざ:
@@ -35891,6 +36226,7 @@ names:
     reading: ノワキ ナカサネ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034008529
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -36032,6 +36368,7 @@ names:
     reading_given: レンジュウロウ
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q8978628
     verified: true
   金田陽介:
@@ -36041,6 +36378,7 @@ names:
     reading: カネダ ヨウスケ
     reading_at: '2026-08-08'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034804787
     reading_note: 'MADB records this reading beside the credit on 10 record(s) of the pinned release,
       e.g. ''黒猫と魔女の教室'' (講談社). It agrees with the reading already held, which no source had stated.
 
@@ -36061,6 +36399,7 @@ names:
     reading: キンギョバチ デメ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034802395
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''Qualia -Jealousy-''. The shop is a retailer and does not say where its kana came from, so
       this is weighed and not attributed: what is being recorded is that the shop files the person under
@@ -36116,6 +36455,7 @@ names:
     reading: スズミヤ キリハ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I000008554815
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -36242,6 +36582,7 @@ names:
     reading: スズキ ユフコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033522171
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -36402,6 +36743,7 @@ names:
     reading: カマチ カズマ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034678242
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -36482,6 +36824,7 @@ names:
     reading: ナガクラ ケイコ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I030194439
     reading_note: 'まんが王国 prints this reading in the byline of the 2 book(s) it sells under this name,
       e.g. ''とろとろ・姫あわせ''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -36504,6 +36847,7 @@ names:
     reading: ナガツキ ミソカ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034435131
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''限界超えの天賦は、転生者にしか扱えない''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -36691,6 +37035,7 @@ names:
     reading: アベカワ キネコ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034722422
     reading_note: 'MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       ''辣韮の皮'' (ワニブックス). It agrees with the reading already held, which no source had stated.
 
@@ -36997,6 +37342,7 @@ names:
     - mangaupdates
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q98399901
     verified: true
   雪宮ありさ:
@@ -37194,6 +37540,7 @@ names:
     reading: アラレヤ コン
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034257972
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''【8巻無料】婚約破棄を免れた公爵令嬢は、夫の愛を信じられない''. The shop is a retailer and does not say where its kana
       came from, so this is weighed and not attributed: what is being recorded is that the shop files
@@ -37468,6 +37815,7 @@ names:
     reading: フロカワ ツカサ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034673897
     reading_note: 'MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       ''幼馴染をえらべない!'' (スクウェア・エニックス). It agrees with the reading already held, which no source had stated.
 
@@ -37506,6 +37854,7 @@ names:
     reading: アメイロ ミソ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034569473
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''双子まとめて『カノジョ』にしない？''. The shop is a retailer and does not say where its kana came from, so
       this is weighed and not attributed: what is being recorded is that the shop files the person under
@@ -37720,6 +38069,7 @@ names:
     reading: コマゴメ ピピ
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I033979008
     reading_note: 'MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       ''ラララボ☆'' (小学館). It agrees with the reading already held, which no source had stated.
 
@@ -37759,6 +38109,7 @@ names:
     reading: ホネヌキ チキン
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I031544918
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''あいらいく俳句''. The shop is a retailer and does not say where its kana came from, so this is weighed
       and not attributed: what is being recorded is that the shop files the person under these kana, on
@@ -37838,6 +38189,7 @@ names:
     reading: タカオ ジング
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034686812
     reading_note: 'MADB records this reading beside the credit on 4 record(s) of the pinned release, e.g.
       ''くーねるまるた ぬーぼ'' (小学館). It agrees with the reading already held, which no source had stated.
 
@@ -37963,6 +38315,7 @@ names:
     reading: タカハシ キョウヘイ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I023350282
     reading_note: 'まんが王国 prints this reading in the byline of the 1 book(s) it sells under this name,
       e.g. ''真剣恋愛極道ーガチコイヤクザー''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -38094,6 +38447,7 @@ names:
     reading: タカノ ユウヤ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034551759
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''騎竜免許とった女子高生''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -38157,6 +38511,7 @@ names:
     reading: キノジョウ ミヤ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034603807
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -38462,6 +38817,7 @@ names:
     reading: オオトリ マヒロ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I029189820
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''【1巻無料】ブラックリリィと白百合ちゃん''. The shop is a retailer and does not say where its kana came from,
       so this is weighed and not attributed: what is being recorded is that the shop files the person
@@ -38596,6 +38952,7 @@ names:
     reading: ウカイ ユウシ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034493914
     reading_conflicts:
     - basis: analyser
       source: sudachi
@@ -38686,6 +39043,7 @@ names:
     reading: カシマ コタル
     reading_at: '2026-08-06'
     reading_basis: stated
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034401977
     reading_note: 'MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       ''人魚心中'' (心交社). It agrees with the reading already held, which no source had stated.
 
@@ -38753,6 +39111,7 @@ names:
     reading_given: ハヤト
     reading_pass: 2
     reading_source: wikidata
+    reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q20038437
     verified: true
   黄井ぴかち:
@@ -38795,6 +39154,7 @@ names:
     reading: クロマル キョウスケ
     reading_at: '2026-08-08'
     reading_basis: researched
+    reading_boundary: the National Diet Library's author heading on record R100000002-I034380923
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''ゆりっとファンタジー''. The shop is a retailer and does not say where its kana came from, so this is
       weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -39077,61 +39437,6 @@ names:
     reading_source: まんが王国
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/8709
-    verified: false
-  １冊目：叔母さんは神絵師:
-    basis: romaji
-    furigana_spans:
-    - - １
-      - いち
-    - - 冊
-      - さつ
-    - - 目
-      - め
-    - - ：
-      - null
-    - - 叔母
-      - おば
-    - - さんは
-      - null
-    - - 神
-      - かみ
-    - - 絵師
-      - えし
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: イチサツメ：オバサンワカミエシ
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    reading_uncertain: true
-    verified: false
-  １．月と太陽の日々:
-    basis: romaji
-    furigana_spans:
-    - - １
-      - いち
-    - - ．
-      - null
-    - - 月
-      - つき
-    - - と
-      - null
-    - - 太陽
-      - たいよう
-    - - の
-      - null
-    - - 日々
-      - ひび
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: イチ．ツキトタイヨウノヒビ
-    reading_at: '2026-08-04'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
     verified: false
   Ｂ:
     basis: stated

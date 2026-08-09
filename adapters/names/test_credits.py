@@ -100,10 +100,22 @@ def main(s):
 
     # A CAPTURED CREDIT THAT CANNOT BE A NAME. Each of these reached an author field from a page
     # title whose middle field was not the author.
-    for junk in ("#1(1)", "７", "第3話", "12", "(2)", "--"):
+    for junk in ("#1(1)", "７", "第3話", "12", "(2)", "--", "第18.5話"):
         s.check(not credits.is_a_person(junk), f"not a person: {junk}")
+    # A CHAPTER THAT BROUGHT ITS TITLE ALONG. `１冊目：叔母さんは神絵師` is chapter 1 of
+    # 新刊100億冊ください and c00268 was minted for it, so a credit page was published with a
+    # person's shape around a chapter heading. The digits-only clause above cannot see these.
+    for heading in ("１冊目：叔母さんは神絵師", "1冊目:叔母さんは神絵師", "１．月と太陽の日々",
+                    "３１冊目：己の中のケモノ", "第3話・はじまりの日", "12、ひとりの夜"):
+        s.check(not credits.is_a_person(heading), f"not a person: {heading}")
     # And the counter-case, because a rule keyed on "contains a digit" deletes real people.
     for real in ("タイザン5", "梵辛", "おにぎりパクパク", "Ｍａｇｐｉｅ", "帯屋ミドリ2"):
+        s.check(credits.is_a_person(real), f"a person: {real}")
+    # THE COUNTER-CASE THE HEADING RULE TURNS ON, and it is why the tail may not open with a digit.
+    # 8.6秒バズーカー has a number, a stop and a sentence after it, exactly like a chapter heading,
+    # and it is somebody's whole name. A heading numbers itself and then says something; a decimal
+    # is still a number. The other three carry a digit and no separator behind it at all.
+    for real in ("8.6秒バズーカー", "2C=がろあ", "4kaえんぴつ", "2no.", "3.11ノート"):
         s.check(credits.is_a_person(real), f"a person: {real}")
 
     # ── the pair the store could not see ─────────────────────────────────────────────────────

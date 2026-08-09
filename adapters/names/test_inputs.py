@@ -38,6 +38,18 @@ def main(s):
     s.eq(names("大島永遠&amp;大島智"), ["大島永遠", "amp;大島智"],
          "raw HTML is not this function's input, and it says so by producing nonsense")
 
+    # A CHAPTER IS NOT A PERSON, ASKED IN THE SPLITTER SO EVERY CONSUMER DROPS IT. コミックDAYS
+    # prints the newest chapter where a page title puts the author, so `破賀ミチル /
+    # １冊目：叔母さんは神絵師` arrived as two credits and c00268 was published for the second.
+    s.eq(names("破賀ミチル / １冊目：叔母さんは神絵師"), ["破賀ミチル"],
+         "a numbered heading with a sentence after it is a chapter, not a byline")
+    s.eq(names("陣ノ内康暉 / １．月と太陽の日々"), ["陣ノ内康暉"],
+         "and the same where the heading numbers itself with a stop")
+    # THE COUNTER-CASE, in the splitter as well as in the rule: a pen name that opens with a
+    # number and a stop survives, because what follows the stop is another number.
+    s.eq(names("8.6秒バズーカー / 2C=がろあ"), ["8.6秒バズーカー", "2C=がろあ"],
+         "a name that opens with a decimal is a name")
+
     # Roles are labels, not people. 原作／宮澤伊織 was once romanised whole, giving a "person"
     # called Gensaku Kigō Miyazawa Iori.
     s.eq(names("原作／宮澤伊織"), ["宮澤伊織"], "a role marker is stripped")

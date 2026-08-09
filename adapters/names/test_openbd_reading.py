@@ -228,6 +228,8 @@ def main(s):
     s.check("collationkey" in cut["とりいしづく"]["reading_note"]
             or "collationkey" in cut["とりいしづく"]["reading_note"].lower(),
             "and the note says where the division came from")
+    s.eq(cut["とりいしづく"]["reading_boundary"], "openBD's collationkey",
+         "and the field says it too, since a note is prose and nothing can read it")
 
     # A KEY THAT DIVIDES NOTHING DIVIDES NOTHING. MADB and openBD both write some readings closed
     # up, and a pass that treated silence as an answer would have to invent the offset.

@@ -177,8 +177,19 @@ def main(s):
             "a hiragana reading is caught here rather than by a build invariant")
     s.check(curate.problems("titles", "球詠", dict(R, reading_basis="guessed")),
             "guessed is what curation replaces, so it cannot be curated")
-    s.check(curate.problems("titles", "球詠", dict(R, source_kind="community-db")),
-            "and a community database cannot state a reading either")
+    # A COMMUNITY DATABASE MAY STATE A READING, RULED 2026-08-09, AND MAY STILL NOT STATE A NAME.
+    # Wikidata's P1814 prints the kana of a name, which is what `stated` means; its English label is
+    # an editor's romanisation and is refused by the table above, exactly as before. 67 author
+    # readings were sourced to it with no kind at all, so the source was outside the table entirely.
+    s.eq(curate.problems("titles", "球詠", dict(R, source_kind="community-db")), [],
+         "a community database that prints the kana states a reading")
+    s.check(curate.problems("titles", "球詠", dict(R, source_kind="community-db",
+                                                  en="Tamayomi", basis="official-jp")),
+            "and the same source still cannot supply the work's own English name")
+    # THE LINE THE ROW TURNS ON. A romanisation read backwards has lost the length of every vowel,
+    # so it is not a stated reading whoever holds it, and this table carries no row for it at all.
+    s.check(curate.problems("titles", "球詠", dict(R, reading_basis="back-converted")),
+            "a reading recovered from a romanisation cannot be curated as stated")
     s.check(curate.problems("titles", "球詠", {"source": "x", "source_kind": "derived",
                                               "reviewed": "2026-08-03"}),
             "an entry that says nothing at all")
@@ -193,6 +204,42 @@ def main(s):
          "and the HYPHEN a subtitle is bracketed in")
     s.check(curate.problems("titles", "球詠", dict(R, reading="『球詠』")),
             "which does not let a kanji through, since that is what the rule is for")
+
+    # ── Where a name divides, in a field rather than in a sentence ────────────────────────────
+    # `ndl_heading.entry` stated the division in `reading_note` and `boundary.fill` states it in
+    # `reading_boundary`. 293 author records filled only the prose, so no count could tell them
+    # from records with no source at all. A reading whose kind is `derived` carries nobody's
+    # spacing, so a division in one has to name its donor.
+    D = {"reading": "ワラビモチ キナコ", "reading_basis": "surface", "reading_source_kind": "derived",
+         "source": "ndlsearch.ndl.go.jp", "source_kind": "national-library",
+         "source_url": "https://ndlsearch.ndl.go.jp/books/R1", "reviewed": "2026-08-09"}
+    s.check(curate.problems("authors", "わらびもちきなこ", D),
+            "a division out of our own kana with no field naming its donor")
+    s.eq(curate.problems("authors", "わらびもちきなこ",
+                         dict(D, reading_boundary="the NDL author heading")), [],
+         "and the same entry once it says where the division came from")
+    # THE PROSE IS NOT THE ANSWER, which is the whole of this round. An entry explaining the
+    # division at length and leaving the field empty is exactly the state 293 records were in.
+    s.check(curate.problems("authors", "わらびもちきなこ",
+                            dict(D, reading_note="NDL's heading divides this person as "
+                                                 "'ワラビモチ キナコ'.")),
+            "a division explained in a note and nowhere else is still unaccounted for")
+    # WHERE THE SOURCE SUPPLIED THE KANA IT SUPPLIED THE SPACES IN THEM, so `reading_source` is
+    # already the citation and nothing more is owed.
+    s.eq(curate.problems("authors", "わらびもちきなこ",
+                         dict(D, reading_basis="stated", reading_source_kind="national-library",
+                              reading_url="https://ndlsearch.ndl.go.jp/books/R1")), [],
+         "a reading that arrived divided from a cataloguing authority cites itself")
+    s.check(curate.problems("authors", "缶乃", dict(D, reading="カンノ",
+                                                   reading_boundary="the NDL author heading")),
+            "and a boundary on a reading with no division in it names spaces that do not exist")
+    # A TITLE IS A SENTENCE AND A PUBLISHER IS A COMPANY (NAMES-PLAN §5f). 2,532 title readings
+    # hold an analyser's division and all of them stay, because their spacing is what places ruby.
+    s.eq(curate.problems("titles", "空色の音", {"reading": "ソライロ ノ オト",
+                                                "reading_basis": "surface", "source": "yurarium",
+                                                "source_kind": "derived",
+                                                "reviewed": "2026-08-09"}), [],
+         "a divided title reading is the analyser doing the job it is good at")
 
     # A READING SETTLED BY A REVIEWER, where nothing states one. Ranked below a printed kana and
     # above what an analyser aligned, and it has to say what it rests on: a reading with no

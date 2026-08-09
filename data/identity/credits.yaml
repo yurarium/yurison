@@ -10,7 +10,7 @@
 # the survivor, because an address published once has to keep working.
 #
 # See adapters/credit_identity.py and data/identity/credit-rulings.yaml.
-generated: 2026-08-08
+generated: 2026-08-09
 credits:
   - id: c00001
     credit: "クール教信者"
@@ -1205,8 +1205,13 @@ credits:
         retrieved: 2026-08-08
   - id: c00268
     credit: "１冊目：叔母さんは神絵師"
-    anchors:
-      - "credit:1冊目:叔母さんは神絵師"
+    merged_into: c00267
+    merge_basis: "This is the first chapter of 新刊100億冊ください and not a person. コミックDAYS prints the newest chapter where a page title puts the author, so the capture read `破賀ミチル / １冊目：叔母さんは神絵師` off one field and the store kept each half as a credit; c00268 was minted for the chapter and published at credit/c00268/ with a person's page around it. The same feed lists the string as chapter 1 of that work. `credits.is_a_person` now refuses a numbered heading followed by a sentence, so the splitter drops it before anything is minted, and this withdraws the address that was already published. It forwards to 破賀ミチル because that is the credit the same field really named, which is where a reader who followed the link was trying to get. The two are not one credit and nothing here says they are: the anchor is detached rather than lent, so the chapter title resolves to nobody."
+    anchors: []
+    detached:
+      - anchor: "credit:1冊目:叔母さんは神絵師"
+        basis: "This is the first chapter of 新刊100億冊ください and not a person. コミックDAYS prints the newest chapter where a page title puts the author, so the capture read `破賀ミチル / １冊目：叔母さんは神絵師` off one field and the store kept each half as a credit; c00268 was minted for the chapter and published at credit/c00268/ with a person's page around it. The same feed lists the string as chapter 1 of that work. `credits.is_a_person` now refuses a numbered heading followed by a sentence, so the splitter drops it before anything is minted, and this withdraws the address that was already published. It forwards to 破賀ミチル because that is the credit the same field really named, which is where a reader who followed the link was trying to get. The two are not one credit and nothing here says they are: the anchor is detached rather than lent, so the chapter title resolves to nobody."
+        retrieved: 2026-08-09
   - id: c00269
     credit: "MAX POCHIPERO"
     anchors:
@@ -4714,6 +4719,7 @@ credits:
       - "credit:ひみつ"
   - id: c01096
     credit: "ポルリン"
+    kind: "company"
     anchors:
       - "credit:ポルリン"
   - id: c01097
@@ -7147,6 +7153,7 @@ credits:
       - "credit:モル"
   - id: c01701
     credit: "ガレットワークス"
+    kind: "company"
     anchors:
       - "credit:ガレットワークス"
   - id: c01702
@@ -9099,6 +9106,7 @@ credits:
       - "credit:kiwami"
   - id: c02186
     credit: "ネジ式１３番地"
+    kind: "company"
     anchors:
       - "credit:ネジ式13番地"
   - id: c02187
@@ -9211,6 +9219,7 @@ credits:
       - "credit:内藤隆"
   - id: c02214
     credit: "一迅社"
+    kind: "company"
     anchors:
       - "credit:一迅社"
       - "credit:イチジンシャ"
@@ -9386,6 +9395,26 @@ credits:
     credit: "かえで透"
     anchors:
       - "credit:かえで透"
+  - id: c02247
+    credit: "싱글벙글환상향"
+    anchors:
+      - "credit:싱글벙글환상향"
+  - id: c02248
+    credit: "어쟤예쁘네"
+    anchors:
+      - "credit:어쟤예쁘네"
+  - id: c02249
+    credit: "그냥계정"
+    anchors:
+      - "credit:그냥계정"
+  - id: c02250
+    credit: "시여"
+    anchors:
+      - "credit:시여"
+  - id: c02251
+    credit: "연색"
+    anchors:
+      - "credit:연색"
 
 # Credits sharing one reading that were examined and KEPT APART. Recorded so the
 # question is not re-derived at every capture and so the reasoning is not lost each

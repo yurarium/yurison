@@ -315,6 +315,37 @@ def merge(entries, loser, winner, basis):
     return entries
 
 
+def withdraw(entries, wid, target, basis, retrieved=None):
+    """Retire an identifier minted for something that was never the object, sending it to `target`.
+
+    NOT A MERGE, AND THE ANCHOR IS THE DIFFERENCE. `merge` says two spellings are one thing, so the
+    retired spelling lends its anchor to the survivor and goes on resolving to it. That is exactly
+    what must not happen here. `１冊目：叔母さんは神絵師` is the first chapter of 新刊100億冊ください,
+    put where the byline goes by a page capture and minted as c00268; lending its anchor to
+    破賀ミチル would file a chapter under a person permanently, and any later run meeting the string
+    would resolve it to them without anybody noticing.
+
+    So the anchor is DETACHED rather than lent. `refused` then holds it, which is the same
+    machinery that makes a wrong join stay undone, and the basis travels with it.
+
+    THE ADDRESS STILL RESOLVES, because it was published. `merged_into` is where a reader who
+    followed the dead link should land, and for a chapter mistaken for a byline that is the credit
+    the same field really named.
+    """
+    entries = [dict(e) for e in entries]
+    by_id = {e["id"]: e for e in entries}
+    if wid not in by_id or target not in by_id or wid == target:
+        return entries
+    e = by_id[wid]
+    for a in list(e.get("anchors") or []):
+        e.setdefault("detached", []).append(
+            {"anchor": a, "basis": basis, "retrieved": retrieved or _today()})
+    e["anchors"] = []
+    e["merged_into"] = target
+    e["merge_basis"] = basis
+    return entries
+
+
 def detach(entries, anchor, basis, retrieved=None):
     """Take an anchor off the work holding it, and record that it must not come back.
 

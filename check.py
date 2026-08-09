@@ -1402,14 +1402,43 @@ def inv_dates_within_a_row_are_ordered(ctx):
 
 
 def _divisions(reading):
-    """How many pieces a reading is written in. One means it states no division."""
-    return len([p for p in re.split(r"[\s　]+", str(reading or "").strip()) if p])
+    """How many pieces a reading is written in. One means it states no division.
+
+    `boundary.divisions` IS THE ANSWER AND THIS IS THE FALLBACK. The count decides whether a record
+    owes a citation for its division, and `adapters/names/curate.py` refuses a curated entry on the
+    same count, so two copies of it would be §3 with the check holding one of them.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        from names import boundary
+    except Exception:                                                       # noqa: BLE001
+        return len([p for p in re.split(r"[\s　]+", str(reading or "").strip()) if p])
+    return boundary.divisions(reading)
 
 
-# The source kinds that STATE a reading, as `curate.READING_ATTRIBUTION` admits them, plus the
-# artist's own surface. `analyser` is deliberately absent and `None` with it: a record that cannot
-# say where its division came from has not got one from anywhere.
-STATES_A_READING = ("publisher-jp", "platform", "national-library", "author", "licensor", "derived")
+def _states_a_reading():
+    """The source kinds that may stand behind a reading, ASKED OF THE TABLE THAT DECIDES IT.
+
+    This was a copy of `curate.READING_ATTRIBUTION`'s values written out by hand, and the two had
+    already drifted: the table admitted `community-db` for a researched reading and the copy here
+    did not, so a record citing one was read as citing nothing. That is §3 with the second producer
+    inside the check, which is the worst place for it, because the check is what is supposed to
+    notice. Wikidata joining the `stated` row would have opened the gap a second time.
+
+    `analyser` is absent because the table does not carry it, and `None` with it: a record that
+    cannot say where its division came from has not got one from anywhere.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        from names import curate
+    except Exception:                                                       # noqa: BLE001
+        # A check that cannot read the table must not silently accept everything. Falling back to
+        # the empty set would do the opposite of what this list is for.
+        return ()
+    return tuple(sorted({k for kinds in curate.READING_ATTRIBUTION.values() for k in kinds}))
+
+
+STATES_A_READING = _states_a_reading()
 
 # The bases under which a division arrived WITH the reading, from whatever the basis names. An
 # openBD collation key writes a comma between the halves, an NDL heading divides the reading beside
@@ -1522,6 +1551,53 @@ def inv_a_division_cites_its_source(ctx):
         if v.get("reading_basis") == "back-converted":
             continue
         bad.append(f"{k}: divided as {rd!r} with nothing saying who divided it")
+    return bad
+
+
+def inv_a_division_names_its_donor_in_a_field(ctx):
+    """Where a person's name divides has to be recorded in a field, never only in prose.
+
+    THE FAULT THIS IS FOR. Two producers wrote one fact into two slots. `boundary.fill` and
+    `analyser_division` record where a division came from in `reading_boundary`, which is a FIELD;
+    `ndl_heading.entry` and `openbd_reading.boundary_entries` wrote the same fact into
+    `reading_note`, which is PROSE. 293 author records cited their division in a sentence and
+    nowhere else, so every count that reads the field read them as having no source at all, and no
+    number anywhere could tell 293 from 0. STANDING-INSTRUCTIONS §3 is one producer of a fact, and
+    a fact held in prose cannot be queried, checked or counted.
+
+    THE TWO HONEST ANSWERS, AND WHY THERE ARE EXACTLY TWO. A reading whose kana came from a source
+    arrived with that source's spaces already in it: NDL writes a heading word-divided, an openBD
+    collationkey puts a comma between the halves, a Wikidata item states the family and given kana
+    separately. There the citation is `reading_source` and `reading_source_kind`, which are fields.
+    A reading whose kind is `derived` is OURS, so nothing came with it, and a division in one was
+    carried from a donor that has to be named in `reading_boundary`.
+
+    NOT THE SAME QUESTION AS `a division cites its source`, which asks whether anything at all
+    stands behind a division and admits a basis as the answer. This asks whether the answer is
+    somewhere a machine can read, which is what was false while every gate was green.
+
+    §14b, and it is why this does not simply ask `boundary.fill` whether it would have found a
+    donor. That would be the fix's own question, so it could only ever report what the fix already
+    handles. What it asks instead is arithmetic on two strings the store holds, the reading and the
+    surface, against one provenance field that the boundary passes do not write. A record can only
+    satisfy it by saying something, and `--self-test` plants a divided reading with our own kana and
+    no donor, which is the state 293 records were in.
+
+    What it cannot see: whether a donor named here is the right one, or whether the division landed
+    in the right place. `reading_boundary` is a label and no check can read a catalogue for it.
+
+    fallback: none. A division nobody can trace is a claim about a real person's name with nothing
+    behind it, which is the case NAMES-PLAN §5f says is worse than no division.
+    """
+    bad = []
+    for k, v in (ctx["names"].get("authors") or {}).items():
+        rd = v.get("reading")
+        if not rd or _divisions(rd) <= _divisions(k):
+            continue
+        if v.get("reading_boundary") or v.get("reading_source_kind") != "derived":
+            continue
+        bad.append(f"{k}: divided as {rd!r} out of kana of our own, and no field says by whom. "
+                   f"A `reading_note` explaining it is prose and nothing can read it.")
     return bad
 
 
@@ -1810,6 +1886,7 @@ INVARIANTS = [
     ("ruby covers its surface", inv_ruby_covers_its_surface),
     ("a kana name's reading spells it", inv_kana_reading_spells_its_name),
     ("a division cites its source", inv_a_division_cites_its_source),
+    ("a division names its donor in a field", inv_a_division_names_its_donor_in_a_field),
     ("dates within a row are ordered", inv_dates_within_a_row_are_ordered),
     ("curated values reach the store", inv_curated_values_reach_the_store),
     ("ruby spells the reading", inv_ruby_spells_reading),
@@ -3497,7 +3574,7 @@ def budget_publisher_pages_listing_a_work_from_another_house(ctx):
 def budget_credit_identifiers_naming_nobody(ctx):
     """Live credit identifiers that no work in the corpus is credited to.
 
-    THE RESIDUE OF A FIX, COUNTED SO IT STAYS VISIBLE. All five are one shape: `iimAn&惟丞`,
+    FIVE OF THE SEVEN ARE THE RESIDUE OF A FIX, COUNTED SO IT STAYS VISIBLE. `iimAn&惟丞`,
     `大島永遠&大島智` and three more were single credits because no splitter divided on an
     ampersand, so one address held two artists. Each half holds its own identifier now and the
     joined spelling holds none of their works. The registry is append-only, so the joined entry
@@ -3505,9 +3582,15 @@ def budget_credit_identifiers_naming_nobody(ctx):
     name no source uses and listing nothing under it would assert a credit the corpus has stopped
     making.
 
-    A RISE IS THE THING TO LOOK AT. It means either a credit has left the corpus, which is a page
-    withdrawn, or a splitter change has orphaned another joined spelling, which is this fix
-    happening again and wants the same read.
+    THE OTHER TWO ARE A WORK THAT LEFT, and they arrived when the edge file was re-derived on
+    2026-08-09 after standing since the 8th. マルイノ and もけ were credited on w01195 and nothing
+    holds that identifier now, so the edges the file carried for them were describing a corpus that
+    had moved on. Re-deriving is what surfaced it; the credits had been orphaned for a day with the
+    number reading 5.
+
+    A RISE IS THE THING TO LOOK AT, and it has two readings. A credit has left the corpus, which is
+    a page withdrawn, or a splitter change has orphaned another joined spelling, which is the
+    ampersand fix happening again.
     """
     edges = {str(r.get("id")) for r in (ctx["credit_works"] or {}).get("credits") or []}
     return sum(1 for e in (ctx["credits"] or {}).get("credits") or []
@@ -4151,6 +4234,17 @@ def self_test():
          lambda c: c["names"]["authors"].update({"のぴやか梢": {
              "reading": "ノ ピ ヤ カ コズエ", "reading_basis": "analyser",
              "reading_source": "sudachi", "reading_source_kind": "analyser"}})),
+        # THE STATE 293 RECORDS WERE IN ON 2026-08-09, VERBATIM (§14b). This is not a canary
+        # invented for the check: `ndl_heading.entry` produced exactly this record, with the
+        # division stated in the note and the field left empty, and the store held it for a day.
+        # The note is kept in the canary on purpose, because prose beside the empty field is what
+        # made the fault look like a record that had said where its division came from.
+        ("a division names its donor in a field", inv_a_division_names_its_donor_in_a_field,
+         lambda c: c["names"]["authors"].update({"わらびもちきなこ": {
+             "reading": "ワラビモチ キナコ", "reading_basis": "surface",
+             "reading_source": "ndlsearch.ndl.go.jp", "reading_source_kind": "derived",
+             "reading_note": "The National Diet Library's author heading divides this person as "
+                             "'ワラビモチ キナコ'."}})),
         # THE SAME FAULT WITH THE NOTATION TIDIED OFF, which is what the pipeline can actually
         # produce and what the canary above cannot prove is caught (§14b). A bracket planted into
         # the context is downstream of the adapter that removes brackets, so it exercises a shape

@@ -41,13 +41,20 @@ RULES TRIED AND REJECTED, so they are not re-derived.
   attestation of each half. Loosening it to the surname alone is worse in the same direction. The
   evidence is one attestation deep and the failure is silent.
 
-  `reading_family` AND `reading_given`, which 152 author records already carry and which nothing
+  `reading_family` AND `reading_given`, which 154 author records already carry and which nothing
   reads. Thirteen of them would settle a name here, and every one of those thirteen came from
-  MangaUpdates by back-converting a romanisation: `WARABIMOCHI Kinako` to ワラビモチ + キナコ.
-  `curate.py` refuses a community database as evidence for a name, and a lossy back-conversion of an
-  editor's romanisation is the weakest form that evidence takes. The register being unread is a real
-  finding (STANDING-INSTRUCTIONS §13) and reading it here would have been reading it as something it
-  is not.
+  MangaUpdates by back-converting a romanisation: `WARABIMOCHI Kinako` to ワラビモチ + キナコ. A
+  back-conversion has already lost the length of every vowel and is in no position to be believed
+  about a word break, which is why `SETTLED_BASES` below refuses that basis outright. The register
+  being unread is a real finding (STANDING-INSTRUCTIONS §13) and reading it here would have been
+  reading it as something it is not.
+
+  62 OF THAT REGISTER ARE WIKIDATA'S AND ARE A DIFFERENT CASE, ruled 2026-08-09. P734 and P735 give
+  the family and given kana as kana, so nothing was read backwards, and
+  `curate.READING_ATTRIBUTION` admits them under `stated` for exactly that reason. They stay unread
+  here all the same, because the reading Wikidata supplies already carries the space between the
+  two halves and arrives divided: there is nothing in the register this module would learn. The
+  refusal above is about the back-conversion and not about the source.
 """
 import pathlib
 import re
@@ -78,6 +85,18 @@ def flat(s):
 def filing(s):
     """`flat`, folded the way a collation key folds. The form two spellings must agree in."""
     return flat(s).translate(FILING_FOLD)
+
+
+def divisions(s):
+    """How many pieces a string is written in. One means it states no division.
+
+    THE COUNT THE CHECK AND THE VALIDATOR SHARE, and it is deliberately not `cuts`. `cuts` answers
+    where a DONOR divides and so treats an interpunct as a separator, because a source writing
+    トリイ・シヅク is stating the same division as one writing トリイ シヅク. This answers whether
+    OUR OWN string is divided, where an interpunct is a character somebody's name contains:
+    さりい・Ｂ is one credit. Two questions, two functions, and each named after the one it answers.
+    """
+    return len([p for p in SPACE.split(str(s or "").strip()) if p])
 
 
 def cuts(reading):
@@ -318,6 +337,84 @@ def fill(names):
     return added, refusals
 
 
+# THE SENTENCES THAT HELD THIS FACT BEFORE THE FIELD DID. Two producers wrote where a name divides
+# into `reading_note`, which is prose: `ndl_heading.entry` and `openbd_reading.boundary_entries`.
+# 212 records cited their division there and nowhere else, so a check reading `reading_boundary`
+# believed every one of them had no source, and no count could tell 212 from 0.
+#
+# READ ONCE, BY THE MIGRATION BELOW. Both producers write the field now, so nothing after this
+# round needs to parse a sentence; this exists to move what was already said rather than to lose
+# it. A note whose wording does not match is left alone and is reported by the migration as
+# unrecognised, because silently transcribing nothing is how a migration reports success on work it
+# did not do.
+#
+# The apostrophes are doubled in some entries, which is a YAML round trip and not a second wording.
+#
+# BOUNDED TO ONE LINE AND NOT TO ONE SENTENCE. `[^.]*?` was the first attempt and it matched 37
+# fewer records than it should have, because openBD's own sentence writes `e.g.` in the middle of
+# itself. A full stop is not the end of a sentence in this note and a newline is the end of a
+# paragraph, so the paragraph is what the pattern may not cross.
+DIVISION_SENTENCES = (
+    (re.compile(r"The National Diet Library'+s author heading(?:\s+on record\s+([\w.-]+?))?"
+                r"\s+divides this person as"),
+     "the National Diet Library's author heading"),
+    (re.compile(r"openBD'+s collationkey[^\n]*?divides this name as"),
+     "openBD's collationkey"),
+)
+
+
+def donors_named_in(note):
+    """The division donors a producer's prose named, as the labels `reading_boundary` holds.
+
+    Ordered as they appear, deduplicated, so a note naming one donor twice yields one label. `[]`
+    where the note says nothing about a division, which includes every note that only argues about
+    the SOUNDS: those records have no division to account for.
+    """
+    text = str(note or "")
+    out = []
+    for pattern, label in DIVISION_SENTENCES:
+        m = pattern.search(text)
+        if not m:
+            continue
+        got = f"{label} on record {m.group(1)}" if m.lastindex and m.group(1) else label
+        if got not in out:
+            out.append(got)
+    return out
+
+
+def from_notes(entries):
+    """Move a division from the prose that stated it into the field. `(moved, unrecognised)`.
+
+    ONE PRODUCER OF A FACT (STANDING-INSTRUCTIONS §3). A record whose reading divides more than its
+    surface has a second fact attached to it, and it had two slots: `reading_boundary`, which
+    `fill` writes and a check can read, and a sentence inside `reading_note`, which nothing can.
+    This fills the field from the sentence, once, and leaves the sentence where it is, because what
+    the prose adds is the argument and the field was never going to hold that.
+
+    ADDITIVE AND IDEMPOTENT. A record already naming its donor is not touched, so a second run
+    costs nothing and cannot overwrite a donor `fill` established.
+
+    `unrecognised` is every record that still cannot say where its division came from once this has
+    run. It is returned rather than logged because a migration that transcribes nothing must not
+    look the same as one with nothing to transcribe.
+    """
+    moved, unrecognised = {}, {}
+    for key, rec in (entries or {}).items():
+        reading = rec.get("reading")
+        if not reading or divisions(reading) <= divisions(key) or rec.get("reading_boundary"):
+            continue
+        got = donors_named_in(rec.get("reading_note"))
+        if got:
+            rec["reading_boundary"] = ", ".join(got)
+            moved[key] = rec["reading_boundary"]
+        elif rec.get("reading_source_kind") == "derived":
+            # THE ONES THAT MATTER. A reading whose kana are ours carries nobody's spacing, so a
+            # division in one is unaccounted for unless something names its donor. Where the kana
+            # came from a source, the spaces came with them and `reading_source` is the citation.
+            unrecognised[key] = reading
+    return moved, unrecognised
+
+
 STORE = pathlib.Path(__file__).resolve().parents[2] / "data" / "names" / "authors.yaml"
 
 
@@ -351,10 +448,31 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--store", default="data/names/authors.yaml")
     ap.add_argument("--apply", action="store_true", help="write the boundaries back to the store")
+    ap.add_argument("--from-notes", action="store_true",
+                    help="move a division stated in `reading_note` into `reading_boundary`, and "
+                         "report every record that still cannot say where its division came from")
+    ap.add_argument("--section", default="names",
+                    help="the top-level key the records sit under. `names` for a store, `authors` "
+                         "for data/names/curated.yaml")
     a = ap.parse_args(argv)
 
     path = pathlib.Path(a.store)
     doc = yaml.safe_load(path.read_text()) or {}
+    names = doc.get(a.section) or {}
+
+    if a.from_notes:
+        moved, left = from_notes(names)
+        for k, v in sorted(moved.items()):
+            print(f"  {k:24} {v}")
+        for k, v in sorted(left.items()):
+            print(f"  UNRECOGNISED {k:20} {v!r}: divided, kana ours, no donor named anywhere")
+        print(f"{len(moved)} division(s) moved out of prose into the field; "
+              f"{len(left)} still unaccounted for")
+        if a.apply and moved:
+            path.write_text(yaml.safe_dump(doc, allow_unicode=True, sort_keys=True, width=100))
+            print(f"written to {path}")
+        return 1 if left else 0
+
     names = doc.get("names") or {}
     wanted = [k for k, r in names.items() if wants_boundary(k, r)]
     added, refusals = fill(names)

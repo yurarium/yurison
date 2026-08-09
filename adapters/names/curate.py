@@ -102,7 +102,30 @@ READING_ATTRIBUTION = {
     # how a name is read, and it is the only route that reaches most pen names at all: 79 of 82
     # author readings settled this way came from it. `author` is the artist's own page, which is
     # better still and is rarer, because most of them never write their name in kana.
-    "stated": ("platform", "publisher-jp", "national-library", "author", "licensor"),
+    # `community-db` IS ADMITTED HERE AND FOR ONE REASON: WIKIDATA PRINTS KANA. Ruled 2026-08-09,
+    # after 67 author readings sourced to Wikidata turned out to carry `stated` with no kind at all,
+    # so the one source behind them was outside this table and the invariant passed them on their
+    # basis alone.
+    #
+    # WHAT THE ROW IS NOT SAYING. Wikidata is user-edited and has no standing over anybody's name,
+    # so it does not join `ATTRIBUTION` and cannot supply an English NAME: the project owner's rule
+    # is unchanged and `community-db` still appears in no row up there. A reading is a different
+    # claim. P1814 states the kana of a name, which is a transcription anyone Japanese-literate can
+    # check against the characters, and NAMES-PLAN §5d already publishes readings a reader is
+    # invited to judge.
+    #
+    # THE LINE IS BETWEEN KANA AND LATIN, AND IT IS WHY THIS ADMITS ONE COMMUNITY DATABASE AND NOT
+    # THREE. AniList and MangaUpdates return romanised strings, so a reading from either is
+    # recovered by reading a romanisation backwards, which has already lost the length of every
+    # vowel: those take `back-converted`, which this table does not carry and which
+    # `boundary.SETTLED_BASES` refuses as a donor for the same reason. A source that prints the
+    # kana itself has lost nothing, and Wikidata is the only one of the three that does.
+    #
+    # IT IS STILL THE WEAKEST THING IN THE ROW, and the row is ordered so a reader sees that: a
+    # national library states a heading under a cataloguing authority's name and an anonymous edit
+    # states P1814 under nobody's.
+    "stated": ("platform", "publisher-jp", "national-library", "author", "licensor",
+               "community-db"),
     # SETTLED BY A REVIEWER where nothing states it. A community wiki, a bookshop listing or the
     # way readers write about a work are all evidence about how a title is said, and none of them
     # is an attribution. This basis says a person weighed that evidence, so it demands a note
@@ -137,7 +160,7 @@ READING_ATTRIBUTION = {
 # it is the machine translation §5a rules out.
 KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "reviewed", "note",
         "candidate_note", "reading", "reading_basis", "reading_note", "reading_source_kind",
-        "reading_source", "reading_url", "reading_refuted", "en_refuted",
+        "reading_source", "reading_url", "reading_boundary", "reading_refuted", "en_refuted",
         "translation", "translation_note"}
 
 # What we call ourselves in the store when a claim is our own judgement rather than a finding.
@@ -163,6 +186,43 @@ KATAKANA = re.compile(r"^[ァ-ヺー・\s0-9０-９A-Za-zＡ-Ｚａ-ｚ"
                       r"!-/:-@\[-`{-~！-／：-＠［-｀｛-～、。〜…【】〇○◯"
                       r"─━♪♭♯★☆♡♥◎△▽※＆"
                       r"「」『』〈〉《》‐―†→⇔●♀➝×､･àáâäèéêëìíîïñòóôöùúûü]+$")
+
+
+def _boundary_problems(kind, where, ja, e, rsk):
+    """Whether this entry can say where the spaces in its reading came from.
+
+    WHERE A NAME DIVIDES IS A SECOND FACT ABOUT IT (NAMES-PLAN §5e), AND IT NEEDS ITS OWN SLOT.
+    `boundary.fill` writes `reading_boundary` and `ndl_heading.entry` wrote the identical fact into
+    `reading_note` instead, so 212 records stated their division in a sentence. A sentence cannot be
+    queried, counted, or checked, and every check that reads the field therefore believed those
+    records had no source for the division at all.
+
+    TWO WAYS TO ANSWER, AND `reading_source_kind` DECIDES WHICH. Where a source supplied the kana it
+    supplied the spaces in them, so an NDL transcription or an openBD collationkey cites itself. A
+    reading whose kind is `derived` is OURS: nothing came with it, so a division in one was carried
+    from a donor and the donor has to be named here.
+
+    THE PROSE MAY STILL SAY MORE. This asks for a field beside the sentence, never instead of it:
+    what the note explains is why the division is believable, which no field holds.
+    """
+    from names import boundary
+    # A PERSON ONLY, AND NAMES-PLAN §5f IS THE REASON. A title is a sentence and a publisher is a
+    # company, both made of ordinary words, which is what a morphological analyser is built for:
+    # 2,532 title readings and 9 publisher readings hold an analyser's division and all of them
+    # stay, because their spacing is also what `kana.align` reads to place ruby. A person's name is
+    # the case the analyser is worst at and the case where being wrong misnames somebody.
+    if kind != "authors":
+        return []
+    out = []
+    divided = boundary.divisions(e.get("reading")) > boundary.divisions(ja)
+    if e.get("reading_boundary") and not divided:
+        out.append(f"{where}: a reading_boundary on a reading that states no division. The field "
+                   f"names where the spaces came from and there are none.")
+    if divided and rsk == "derived" and not e.get("reading_boundary"):
+        out.append(f"{where}: the kana are ours and the reading divides, so nothing that came with "
+                   f"it states where. Name the donor in `reading_boundary`; a division explained "
+                   f"only in `reading_note` is a fact no check can read.")
+    return out
 
 
 def problems(kind, ja, e):
@@ -259,6 +319,7 @@ def problems(kind, ja, e):
         if rb == "stated" and rsk != "derived" and not (e.get("reading_url")
                                                         or e.get("source_url")):
             out.append(f"{where}: a stated reading needs the page that states it")
+        out += _boundary_problems(kind, where, ja, e, rsk)
     elif e.get("reading_basis"):
         out.append(f"{where}: reading_basis with no reading")
     return out
@@ -427,7 +488,8 @@ def apply(store, doc):
             fact = {k: e.get(k) for k in
                     ("en", "candidate", "basis", "source", "source_kind", "source_url", "note",
                      "candidate_note", "reading", "reading_basis", "reading_note",
-                     "reading_source_kind", "reading_source", "reading_url", "reviewed")}
+                     "reading_source_kind", "reading_source", "reading_url", "reading_boundary",
+                     "reviewed")}
             # `at` is the day the decision was reviewed, not the day this ran. Re-applying the file
             # after a rebuild must not restamp a name as freshly decided.
             fact["at"] = str(e.get("reviewed"))

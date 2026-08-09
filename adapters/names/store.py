@@ -580,7 +580,14 @@ class NameStore:
                 # every hand-settled reading, and the thing `researched` is required to supply.
                 # Each was built into the fact and then matched by nothing, so they reached no store,
                 # no build and no reader.
-                (None, f"{value_key}_note"))
+                (None, f"{value_key}_note"),
+                # WHERE THE DIVISION CAME FROM, WHICH IS A SECOND FACT ABOUT A READING AND HAS TO
+                # BE A FIELD. `boundary.fill` writes `reading_boundary` and `ndl_heading.entry`
+                # wrote the same fact into `reading_note`, so 212 records cited their division in
+                # prose and any check reading the field believed they had no source. No entry-wide
+                # fallback, for the same reason the note has none: an entry-level citation is about
+                # whatever the entry is mainly for, and this belongs to the reading alone.
+                (None, f"{value_key}_boundary"))
 
     # The rest of what belongs to one claim: its value, how it is justified, and the working that
     # was kept beside it. Everything here dies with the claim.

@@ -337,8 +337,14 @@ def boundary_entries(payload, wanted, reviewed):
                 f"({first[1]}), divides this name as {reading!r}. The kana here are the name's own "
                 f"surface and only the division is taken, since a collationkey is a filing key "
                 f"first: it folds the kana that sort together. It divides {current!r}.")
+        # `reading_boundary` CARRIES THE DONOR AND THE NOTE CARRIES THE ARGUMENT. The kana here are
+        # ours, so nothing arrived with spaces in it and the division has to name where it came
+        # from in a field: a check cannot read a sentence, and for 212 records the sentence was the
+        # only place this was written down.
         out[name] = {"reading": got, "reading_basis": "surface",
-                     "reading_source_kind": "derived", "reading_note": note,
+                     "reading_source_kind": "derived",
+                     "reading_boundary": "openBD's collationkey",
+                     "reading_note": note,
                      "source": "openBD", "source_url": query([records(payload, name)[0]["isbn"]]),
                      "source_kind": "publisher-jp", "reviewed": reviewed}
     return out, unresolved

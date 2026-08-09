@@ -281,6 +281,49 @@ def assign(entries, wanted):
     return identity.assign(entries, wanted, PREFIX, relabel=False)
 
 
+def _withdraw(entries, r, retrieved):
+    """One `withdraw` ruling applied. `(entries, error)`.
+
+    WHAT A WITHDRAWAL IS FOR. A page title reading `作品 - 作者 | プラットフォーム` is read for its
+    middle field, and where a platform puts the newest chapter there instead the chapter arrives as
+    a byline. `credits.is_a_person` stops that at the splitter now, which stops the next one; it
+    cannot stop the one already minted, because c00268 was published at `credit/c00268/` with a
+    person's page around a chapter of 新刊100億冊ください.
+
+    `to` IS REQUIRED AND IS NOT THE SAME CLAIM A MERGE MAKES. It says where a reader who followed
+    the dead address should end up, and for a chapter mistaken for a byline that is the credit the
+    same field really named. Saying the two are one credit would be false, so nothing here lends
+    the withdrawn spelling to anybody: `identity.withdraw` detaches the anchor instead.
+    """
+    surfaces = [s for s in (r.get("surfaces") or []) if s]
+    if len(surfaces) != 1:
+        return entries, (f"a withdrawal naming {len(surfaces)} spelling(s): {surfaces}. It settles "
+                         "one string that is not a credit, so there is no second spelling.")
+    if not r.get("basis"):
+        return entries, (f"a withdrawal with no basis: {surfaces}. Retiring a published identifier "
+                         "is not reversible for anyone holding a link.")
+    a = anchor(surfaces[0])
+    idx = identity.index(entries)
+    wid = idx.get(a)
+    if not wid:
+        # ALREADY WITHDRAWN, WHICH IS THE ORDINARY CASE AFTER THE FIRST RUN. The anchor is out of
+        # the index on purpose, so a re-runnable pass has to look where it went instead of
+        # reporting its own last run as a failure.
+        if any(e.get("merged_into") and any(d.get("anchor") == a for d in e.get("detached") or [])
+               for e in entries):
+            return entries, None
+        return entries, (f"{surfaces[0]} holds no identifier, so nothing was published for it and "
+                         "there is nothing to withdraw. A string the corpus never minted for is "
+                         "settled by the splitter alone.")
+    target = idx.get(anchor(r.get("to") or "")) if r.get("to") else None
+    if not target:
+        return entries, (f"a withdrawal of {surfaces[0]} with no live credit to send its readers "
+                         f"to; `to` names {r.get('to')!r}")
+    if target == wid:
+        return entries, f"a withdrawal of {surfaces[0]} into itself"
+    return identity.withdraw(entries, wid, target, r["basis"], retrieved), None
+
+
 def apply_rulings(entries, doc, retrieved=None):
     """(entries, retired, attached, kept, refused) for every pair a ruling document has settled.
 
@@ -307,6 +350,18 @@ def apply_rulings(entries, doc, retrieved=None):
     retired_n, attached_n, kept, refused = 0, 0, [], []
     for r in (doc or {}).get("rulings") or []:
         surfaces = [s for s in (r.get("surfaces") or []) if s]
+        # A WITHDRAWAL NAMES ONE SPELLING, WHICH IS WHY IT IS TESTED BEFORE THE PAIR RULE. Every
+        # other decision here settles two spellings that share a reading. This one settles a string
+        # that is not a credit at all and that holds a published identifier, so there is no second
+        # spelling to name and `keep` would be a lie: the reader is being sent to a different
+        # credit, not to another way of writing the same one.
+        if r.get("decision") == "withdraw":
+            entries, err = _withdraw(entries, r, retrieved)
+            if err:
+                refused.append(err)
+            else:
+                retired_n += 1
+            continue
         if len(surfaces) < 2:
             refused.append(f"a ruling naming fewer than two spellings: {r}")
             continue
@@ -452,7 +507,10 @@ def save(path, entries, kept, generated):
         if e.get("merged_into"):
             L.append(f"    merged_into: {e['merged_into']}")
             L.append(f"    merge_basis: {js(e.get('merge_basis'))}")
-        L.append("    anchors:")
+        # `[]` RATHER THAN A BARE KEY, because a withdrawal leaves an entry with no anchors at all
+        # and `anchors:` on its own parses as null. Two spellings of empty in one file is how a
+        # reader stops being able to tell an absence from a hole.
+        L.append("    anchors:" if e.get("anchors") else "    anchors: []")
         for x in e.get("anchors") or []:
             L.append(f"      - {js(x)}")
         # An anchor the pass derived is re-derived from the corpus on every run and is checkable
@@ -464,6 +522,16 @@ def save(path, entries, kept, generated):
             L.append(f"      - anchor: {js(at.get('anchor'))}")
             L.append(f"        basis: {js(at.get('basis'))}")
             L.append(f"        retrieved: {at.get('retrieved')}")
+        # THE SPELLING AN IDENTIFIER WAS MINTED FOR, WHERE IT TURNED OUT NOT TO BE A CREDIT. A
+        # withdrawal takes the anchor out of the index rather than lending it to the survivor, so
+        # this is the only remaining record of what the address was published as, and losing it
+        # would make the withdrawal unreadable and let the string be minted for a second time.
+        if e.get("detached"):
+            L.append("    detached:")
+        for dt in e.get("detached") or []:
+            L.append(f"      - anchor: {js(dt.get('anchor'))}")
+            L.append(f"        basis: {js(dt.get('basis'))}")
+            L.append(f"        retrieved: {dt.get('retrieved')}")
     L.append("")
     L.append("# Credits sharing one reading that were examined and KEPT APART. Recorded so the")
     L.append("# question is not re-derived at every capture and so the reasoning is not lost each")

@@ -103,6 +103,21 @@ def main(s):
                                "Ayaka Wants to Win Over Hiroko")]),
             "a row from before the label was selected is still usable")
 
+    # WHAT KIND OF SOURCE WIKIDATA IS, SAID ON THE READING. 67 author readings reached the store
+    # claiming `stated` with no `reading_source_kind` at all, so `curate.READING_ATTRIBUTION` did
+    # not cover the source and no table said what might be believed of it. Every other fact this
+    # class builds already carried the kind; the reading was the one that did not.
+    def author_row(ja, kana_, item="Q1"):
+        return {"ja": {"value": ja}, "jalabel": {"value": ja}, "item": {"value": item},
+                "kana": {"value": kana_},
+                "occ": {"value": "http://www.wikidata.org/entity/Q1114448"}}
+
+    fact = W._author_fact("宮澤伊織", [author_row("宮澤伊織", "みやざわ いおり")])
+    s.eq(fact["reading"], "ミヤザワ イオリ", "P1814 states the kana of a name")
+    s.eq(fact["reading_basis"], "stated", "and a source printing kana is stating a reading")
+    s.eq(fact["reading_source_kind"], "community-db",
+         "which the record says Wikidata is, because it is not a publisher or a library")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "names.pass2_bulk"))

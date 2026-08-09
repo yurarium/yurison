@@ -125,6 +125,50 @@ def main(s):
     s.eq(b.fill_store(pathlib.Path(tmp) / "gone.yaml"), ({}, {}),
          "no store is the documented fallback, not an error")
 
+    # ── The division that was written into prose, and the migration that moved it ─────────────
+    # `ndl_heading.entry` and `openbd_reading.boundary_entries` stated where a name divides in
+    # `reading_note`. 293 records cited it there and nowhere else, so every count reading
+    # `reading_boundary` read them as sourceless and could not tell 293 from 0.
+    s.eq(b.divisions("ワラビモチ キナコ"), 2, "a reading in two pieces states one division")
+    s.eq(b.divisions("わらびもちきなこ"), 1, "and an unbroken surface states none")
+    s.eq(b.divisions("さりい・Ｂ"), 1,
+         "an interpunct is a character in a name here, which is why this is not `cuts`")
+    s.eq(len(b.cuts("トリイ・シヅク")), 1, "while a donor writing one is dividing the name")
+
+    NDL = ("The National Diet Library's author heading on record R100000002-I031868330 divides "
+           "this person as 'アクタ リンコ'. The kana here are the name's own surface.")
+    s.eq(b.donors_named_in(NDL),
+         ["the National Diet Library's author heading on record R100000002-I031868330"],
+         "the heading names the record it was read off")
+    # THE SENTENCE THAT WRITES A FULL STOP INSIDE ITSELF, and the first pattern stopped at it: 37
+    # records kept their division in prose because openBD's own note says `e.g.` in the middle.
+    OPENBD = ("openBD's collationkey on 8 volume(s), e.g. 'きみが死ぬまで恋をしたい 3' (講談社), "
+              "divides this name as 'アオノ ナチ'. It divides 'アオノナチ'.")
+    s.eq(b.donors_named_in(OPENBD), ["openBD's collationkey"],
+         "a full stop inside the sentence does not end it")
+    s.eq(b.donors_named_in("まんが王国 prints this reading in the byline of the 2 book(s) it sells "
+                           "under this name."), [],
+         "a note that argues only about the sounds names no donor")
+    s.eq(b.donors_named_in(None), [], "and a record with no note names none either")
+
+    moved, left = b.from_notes({
+        "わらびもちきなこ": {"reading": "ワラビモチ キナコ", "reading_source_kind": "derived",
+                             "reading_note": NDL},
+        "あおのなち": {"reading": "アオノ ナチ", "reading_source_kind": "derived",
+                       "reading_note": OPENBD},
+        "こかむも": {"reading": "コカムモ", "reading_source_kind": "derived"},
+        "山本和音": {"reading": "ヤマモト カズネ", "reading_source_kind": "national-library"},
+        "生肉": {"reading": "ナマ ニク", "reading_source_kind": "derived",
+                 "reading_note": "the shop files them under these kana"}})
+    s.eq(sorted(moved), ["あおのなち", "わらびもちきなこ"],
+         "a division stated in prose moves into the field")
+    s.eq(sorted(left), ["生肉"],
+         "and a record whose kana are ours and whose prose names nobody is reported, not skipped")
+    s.eq(b.from_notes({"わらびもちきなこ": {"reading": "ワラビモチ キナコ",
+                                            "reading_boundary": "already said",
+                                            "reading_note": NDL}}), ({}, {}),
+         "a record that already names its donor is left alone, so a second run costs nothing")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

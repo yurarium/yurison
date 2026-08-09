@@ -191,6 +191,13 @@ def split_credits_roled(raw):
     has known the answer all along, reading the label off the same walk that finds the name;
     nothing was asking it for both. Parsing the field again afterwards would be parsing the wrong
     string, since the notation the role lives in has come off by then.
+
+    AND A CHAPTER IS NOT A CREDIT, WHICH `inputs.split_credits_detail` NOW ANSWERS. `is_a_person`
+    below states the rule and two routes called it, neither of them the splitter, so
+    `破賀ミチル / １冊目：叔母さんは神絵師` reached the works list, the name store and the credit
+    registry, and a chapter title was published at `credit/c00268/` with a person's page around it.
+    Asking it inside the splitter is what makes the field a reader sees, the parts the naming pass
+    is fed and the spellings an identifier is minted for drop the same thing.
     """
     # HTML ENTITIES AND PAGE FURNITURE ARE NOT NAMES. A rendered-page capture handed us
     # `&nbsp;フォローする`, which is a Follow button, and `大島永遠&amp;大島智`, which is two people
@@ -358,8 +365,25 @@ def compose(raw, lookup):
     return out
 
 
-# A credit made only of digits, markup and punctuation. `#1(1)`, `７`, `第3話`.
-NOT_A_PERSON = re.compile(r"^(?:[#＃]?\d+[(（]?\d*[)）]?|第?\s*[\d０-９]+\s*[話回章巻]?|[\d\W_]+)$")
+# A credit made only of digits, markup and punctuation. `#1(1)`, `７`, `第3話`, `第18.5話`.
+# The decimal is here because a platform numbers an interlude that way and the whole string is
+# still a chapter number.
+NOT_A_PERSON = re.compile(
+    r"^(?:[#＃]?\d+(?:\.\d+)?[(（]?\d*[)）]?|第?\s*\d+(?:\.\d+)?\s*[話回章巻]?|[\d\W_]+)$")
+
+# A CHAPTER OR VOLUME HEADING, WHICH IS A SENTENCE WITH A NUMBER IN FRONT OF IT. The clause above
+# tests whether a credit is made only of digits, so it catches `#1(1)` and walks past
+# `１冊目：叔母さんは神絵師`, which is the same fault with a title attached: a page capture put the
+# newest chapter where the byline goes and the store minted an identifier for it.
+#
+# THE TAIL MAY NOT OPEN WITH A DIGIT, and that is the counter-case rather than a detail. 8.6秒バズーカー
+# is somebody's whole name and matches every other part of this shape; a heading numbers itself and
+# then says something, so 1. followed by 月 is a heading and 8. followed by 6 is a name. 2C=がろあ,
+# 4kaえんぴつ and 2no. survive because no separator follows their digits at all.
+#
+# Matched against the NFKC form, so １．月と太陽の日々 and 1.月と太陽の日々 are one rule.
+CHAPTER_HEADING = re.compile(
+    r"^(?:第\s*)?\d+\s*(?:冊目|巻|話|回|章|夜|幕|限目|時間目|日目)?\s*[.:、,。・]\s*(?!\d)\S")
 
 
 def is_a_person(name):
@@ -372,7 +396,8 @@ def is_a_person(name):
     publisher is ななつぼし.
 
     A WHOLE credit of digits and punctuation is the test, so a person whose name merely contains
-    one survives: タイザン5 and 帯屋ミドリ2 are pen names.
+    one survives: タイザン5 and 帯屋ミドリ2 are pen names. `CHAPTER_HEADING` covers the other half of
+    the same fault, where the chapter carried its title along with its number.
     """
-    s = str(name or "").strip()
-    return bool(s) and not NOT_A_PERSON.match(s)
+    s = unicodedata.normalize("NFKC", str(name or "")).strip()
+    return bool(s) and not NOT_A_PERSON.match(s) and not CHAPTER_HEADING.match(s)

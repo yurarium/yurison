@@ -170,6 +170,43 @@ def main(s):
         "shape": "partial-script-flip", "basis": "the flip could be the artist's own styling"}]})
     s.eq(len(kept6), 1, "a keep is carried to the registry's homophones list")
 
+    # ── Withdrawing an identifier minted for something that was never a credit ────────────────
+    # c00268 was published at credit/c00268/ for `１冊目：叔母さんは神絵師`, which is chapter 1 of
+    # 新刊100億冊ください: コミックDAYS puts the newest chapter where the page title puts the author.
+    chap, _e = ci.population([{"id": "w00167",
+                               "author": "破賀ミチル / １冊目：叔母さんは神絵師"}])
+    s.eq([w[2] for w in chap], ["破賀ミチル"],
+         "the splitter no longer hands a numbered heading over as a credit, so none is minted")
+    # The address was published before it did, so the registry still has to answer for it.
+    reg7, _c = ci.assign([], [(ci.anchor("破賀ミチル"), [], "破賀ミチル"),
+                              (ci.anchor("１冊目：叔母さんは神絵師"), [],
+                               "１冊目：叔母さんは神絵師")])
+    reg7, ret7, att7, _k7, ref7 = ci.apply_rulings(reg7, {"rulings": [{
+        "surfaces": ["１冊目：叔母さんは神絵師"], "decision": "withdraw", "to": "破賀ミチル",
+        "basis": "chapter 1 of the work, read out of a page title's byline field"}]}, "2026-08-09")
+    s.eq((ret7, att7, ref7), (1, 0, []), "a withdrawal retires the identifier it names")
+    s.eq(ci.retired(reg7), {"c00002": "c00001"},
+         "so the published address forwards to the credit the same field really named")
+    s.eq(ci.identity.index(reg7).get(ci.anchor("１冊目：叔母さんは神絵師")), None,
+         "and the chapter title resolves to nobody, because a withdrawal detaches instead of lending")
+    s.eq(reg7[1]["detached"][0]["anchor"], ci.anchor("１冊目：叔母さんは神絵師"),
+         "the spelling the address was minted for is kept beside the entry as the evidence")
+    # RE-RUNNABLE, and the anchor being out of the index is exactly what makes that awkward.
+    reg8, ret8, _a8, _k8, ref8 = ci.apply_rulings(reg7, {"rulings": [{
+        "surfaces": ["１冊目：叔母さんは神絵師"], "decision": "withdraw", "to": "破賀ミチル",
+        "basis": "chapter 1 of the work, read out of a page title's byline field"}]}, "2026-08-09")
+    s.eq((ret8, ref8), (1, []), "a second run finds it already withdrawn rather than reporting a fault")
+    s.eq(len(reg8[1]["detached"]), 1, "and records the evidence once")
+    # A WITHDRAWAL WITH NOWHERE TO SEND ITS READERS IS REFUSED. The address was published, so
+    # retiring it into nothing turns a working link into a blank page.
+    _r9, _n9, _a9, _k9, refused9 = ci.apply_rulings(reg, {"rulings": [{
+        "surfaces": ["おこさまランチ"], "decision": "withdraw", "basis": "not a credit"}]})
+    s.eq(len(refused9), 1, "a withdrawal naming no successor is refused")
+    _r10, _n10, _a10, _k10, refused10 = ci.apply_rulings(reg, {"rulings": [{
+        "surfaces": ["おこさまランチ", "お子様ランチ"], "decision": "withdraw",
+        "to": "お子様ランチ", "basis": "x"}]})
+    s.eq(len(refused10), 1, "and one naming two spellings is refused, since it settles a string")
+
     # ── The unruled measure, which is what makes a new pair arrive as a number ────────────────
     shipped = {"かぼちゃ": {"reading": "カボチャ"}, "カボちゃ": {"reading": "カボチャ"},
                "多㐂": {"reading": "タキ"}, "瀧": {"reading": "タキ"},

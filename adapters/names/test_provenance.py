@@ -207,11 +207,29 @@ def main(s):
         s.eq(rec["reading_reviewed"], "2026-08-06", "the review date reaches the claim")
         s.eq(provenance.faults(st.records["titles"]), [], "so the record can show its source")
 
+        # WHERE A NAME DIVIDES IS PART OF ITS READING'S CITATION, and the store is what carries it.
+        # `ndl_heading.entry` wrote that fact into `reading_note` instead, so 293 records held it
+        # in prose while `reading_boundary` sat empty and every count read them as sourceless.
+        st.record("authors", "わらびもちきなこ", reading="ワラビモチ キナコ",
+                  reading_basis="surface", source="ndlsearch.ndl.go.jp",
+                  source_kind="national-library",
+                  reading_source_kind="derived",
+                  reading_boundary="the National Diet Library's author heading",
+                  reviewed="2026-08-09")
+        s.eq(st.records["authors"]["わらびもちきなこ"]["reading_boundary"],
+             "the National Diet Library's author heading",
+             "a curated entry can say where the division came from, in a field")
+
         # A refutation must take the citation with it, which is what left two records pointing at
         # the wrong person's page.
         dropped = st.clear_claim("titles", "#ふれない", "reading")
         s.check("reading_url" in dropped and "reading_source" in dropped,
                 "clearing a reading drops the address and the source it was stamped with")
+        # AND THE DIVISION GOES WITH IT. A reading that has been withdrawn cannot leave behind a
+        # field saying where its spaces came from, which is the shape `reading_family` was in when
+        # 古川楊也 kept the halves of a reading nobody stood behind any more.
+        s.check("reading_boundary" in st.clear_claim("authors", "わらびもちきなこ", "reading"),
+                "and clearing one drops where it divided as well")
         s.eq(provenance.faults(st.records["titles"]), [],
              "and leaves no citation behind for a reading that is gone")
         s.eq(st.records["titles"]["#ふれない"]["en"], "#Not Touching",

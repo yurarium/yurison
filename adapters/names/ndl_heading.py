@@ -204,6 +204,12 @@ def entry(page, name, reading, reviewed, record=None):
     return {"reading": got,
             "reading_basis": "surface",
             "reading_source_kind": "derived",
+            # WHERE THE DIVISION CAME FROM, IN THE FIELD THAT HOLDS THAT FACT. This entry once said
+            # it in `reading_note` alone, which is prose: `boundary.fill` writes `reading_boundary`
+            # for the same fact, so the store had two slots for one thing and 212 records filled
+            # only the unqueryable one. The note below still carries the argument, which is what a
+            # note is for and what no field can hold.
+            "reading_boundary": f"the National Diet Library's author heading{where}",
             "reading_note": (f"The National Diet Library's author heading{where} divides this "
                              f"person as {donor!r}. The kana here are the name's own surface and "
                              f"only the division is taken, since a heading is a filing form first: "

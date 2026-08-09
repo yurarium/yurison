@@ -32,6 +32,7 @@ import json
 import pathlib
 import re
 
+from . import credits
 from . import kana
 
 # Splitting only ever happens on these. A space is NOT among them: 森島 明子 and 月夜 涙 are single
@@ -271,6 +272,16 @@ def split_credits_detail(credit, interpunct=True):
         # question about the script somebody's name is written in rather than about whether it is a
         # name. `isalpha` answers the question the comment was already asking.
         if not any(ch.isalpha() for ch in name):
+            continue
+        # A CHAPTER IS NOT A PERSON, AND IT HAS LETTERS IN IT. The clause above catches a bare
+        # `#1(1)`; it walks past `１冊目：叔母さんは神絵師`, which is chapter 1 of
+        # 新刊100億冊ください and reached us because コミックDAYS prints the newest chapter where a
+        # page title puts the author. `credits.is_a_person` states the rule, and it is asked HERE
+        # because this is the splitter every consumer goes through: the works list, the naming
+        # passes and the credit registry each had their own opinion about it, two of the three
+        # never asked, and c00268 was published at credit/c00268/ with a person's page around a
+        # chapter title.
+        if not credits.is_a_person(name):
             continue
         if name in seen:
             continue

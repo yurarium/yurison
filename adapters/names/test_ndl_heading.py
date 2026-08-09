@@ -74,6 +74,12 @@ def main(s):
             "the note names the record the heading was read from")
     s.check("タイヨウマリイ" in e["reading_note"],
             "and says what it replaced, so a reviewer can disagree with the change")
+    # THE FACT IN A FIELD, BESIDE THE ARGUMENT IN THE PROSE. This entry stated where the name
+    # divides in `reading_note` alone, and `boundary.fill` states the same fact in
+    # `reading_boundary`, so 293 records held it in a sentence nothing could read.
+    s.eq(e["reading_boundary"],
+         "the National Diet Library's author heading on record R100000002-I034377994",
+         "and the field a check reads names the donor")
     s.eq(nh.entry(other, "いがらしゆみこ", "イガラシユミコ", "2026-08-09"), None,
          "no division, no entry")
 

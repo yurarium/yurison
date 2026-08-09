@@ -25,6 +25,7 @@ and never written down, is invisible. And it cannot tell whether the named test 
 only that one was named. Both are better than the nothing that was there.
 """
 import argparse
+import os
 import pathlib
 import re
 import subprocess
@@ -126,6 +127,14 @@ def main():
         if not caught_real:
             print("  self-test FAILED — the enFallback comment that prompted this was not caught")
             return 1
+        # THE HARNESS'S WORD FOR IT. This self-test plants a case it must catch and one it must
+        # leave alone, so it has already proved it can fail; `CANARY-PROVEN` is how ./test.py
+        # --canary hears that, and without it the module counts as unproven forever.
+        # THE HARNESS'S WORD FOR IT. This self-test plants a case it must catch and one it
+        # must leave alone, so it has already proved it can fail. `CANARY-PROVEN` is how
+        # ./test.py --canary hears that; without it the module counts unproven forever.
+        if os.environ.get("YURA_CANARY"):
+            print("CANARY-PROVEN")
         print("  self-test passed (2 claims caught including the one that shipped a fault, "
               "1 evidenced claim left alone)")
         return 0

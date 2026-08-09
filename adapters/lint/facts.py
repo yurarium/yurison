@@ -17,6 +17,7 @@ the fault the rule is about. `facts/romanisation` was extracted out of four such
 only one of them imported anything it should not have.
 """
 import argparse
+import os
 import pathlib
 import re
 import sys
@@ -122,6 +123,11 @@ def main():
             if not quiet:
                 print("  self-test FAILED — the fact lint flagged the entry point's own name")
             return 1
+        # THE HARNESS'S WORD FOR IT. This self-test plants a case it must catch and one it
+        # must leave alone, so it has already proved it can fail. `CANARY-PROVEN` is how
+        # ./test.py --canary hears that; without it the module counts unproven forever.
+        if os.environ.get("YURA_CANARY"):
+            print("CANARY-PROVEN")
         print(f"  self-test passed ({len(caught)} forms caught, entry point left alone)")
         return 0
 

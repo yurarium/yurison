@@ -215,6 +215,22 @@ The tracker carries this and keeps it current. Initial reading:
 - **`deploy.sh` uses `cp`**, which adds and overwrites and never removes, so a file the build stops
   producing lingers in the deployed tree. It also copies `checks.json` twice.
 
+## What was done, 2026-08-09 to 10
+
+Every decision is answered and every stage is complete. What changed against the plan as written:
+
+- **Test parallelism was already done.** Written in as work without checking. `test.py` has used a
+  thread pool all along.
+- **Node was never the bottleneck**, so that item was dropped on measurement. A harness round-trip
+  is 0.2 s fixed and 0.04 s for two thousand calls.
+- **Decision 2 drew the line in the wrong place.** See the audit above.
+- **esbuild was unavailable offline**, so the interface is concatenated rather than bundled, which
+  turns out to preserve the property a bundle would have cost. `kari/src/BUILD.md` says why.
+
+What it found that no check had: eight `researched` readings carrying no reasoning, refused by the
+schema; `READING_ATTRIBUTION` not ruling on `analyser`, the commonest kind in the store; and eight
+comments asserting an impossibility with nothing named to prove it.
+
 ## What done looks like
 
 The inner loop runs in single-digit seconds. Every fact has one owner and an import lint proving it.

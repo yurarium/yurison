@@ -21,6 +21,7 @@ agrees with itself here and is exactly the case section 14a's prose is also bad 
 """
 import argparse
 import json
+import os
 import pathlib
 import subprocess
 import sys
@@ -91,6 +92,14 @@ def main():
         if disagreements({"a": 1}, {"a": 1, "new": 9}):
             print("  self-test FAILED — a new budget was reported as a disagreement")
             return 1
+        # THE HARNESS'S WORD FOR IT. This self-test plants a case it must catch and one it must
+        # leave alone, so it has already proved it can fail; `CANARY-PROVEN` is how ./test.py
+        # --canary hears that, and without it the module counts as unproven forever.
+        # THE HARNESS'S WORD FOR IT. This self-test plants a case it must catch and one it
+        # must leave alone, so it has already proved it can fail. `CANARY-PROVEN` is how
+        # ./test.py --canary hears that; without it the module counts unproven forever.
+        if os.environ.get("YURA_CANARY"):
+            print("CANARY-PROVEN")
         print("  self-test passed (2 disagreements caught, a new key left alone)")
         return 0
 

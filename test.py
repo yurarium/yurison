@@ -98,7 +98,12 @@ def has_self_test(p):
         t = p.read_text(encoding="utf-8", errors="replace")
     except Exception:
         return False
-    return "--self-test" in t or "def _self_test" in t
+    # A MENTION IS NOT A DECLARATION. `adapters/facts/division/checks.py` carries the words
+    # `--self-test` inside a docstring explaining another module, and was discovered as a suite that
+    # then could not be inverted, so it counted as unproven forever. A module HAS a self-test when
+    # it accepts the flag.
+    return ('add_argument("--self-test"' in t or "add_argument('--self-test'" in t
+            or '"--self-test" in sys.argv' in t or "def _self_test" in t)
 
 
 def subjects(p):

@@ -177,15 +177,24 @@ def main(s):
             "a hiragana reading is caught here rather than by a build invariant")
     s.check(curate.problems("titles", "球詠", dict(R, reading_basis="guessed")),
             "guessed is what curation replaces, so it cannot be curated")
-    # A COMMUNITY DATABASE MAY STATE A READING, RULED 2026-08-09, AND MAY STILL NOT STATE A NAME.
-    # Wikidata's P1814 prints the kana of a name, which is what `stated` means; its English label is
-    # an editor's romanisation and is refused by the table above, exactly as before. 67 author
-    # readings were sourced to it with no kind at all, so the source was outside the table entirely.
-    s.eq(curate.problems("titles", "球詠", dict(R, source_kind="community-db")), [],
-         "a community database that prints the kana states a reading")
+    # A COMMUNITY DATABASE RAISES THE FLOOR AND STATES NOTHING, RULED BY THE PROJECT OWNER
+    # 2026-08-09: "treat wikidata as noncanonical. use it to raise the floor on romaji". A pass on
+    # the same day had put `community-db` in the `stated` row on the argument that P1814 prints kana,
+    # and the ruling overturned it. The kana are still worth having, which is what `community-printed`
+    # is, and they satisfy no test asking whether a source stated the reading.
+    s.check(curate.problems("titles", "球詠", dict(R, source_kind="community-db")),
+            "a community database does not state a reading")
+    s.eq(curate.problems("titles", "球詠", dict(R, source_kind="community-db",
+                                               reading_basis="community-printed")), [],
+         "and the kana it prints are admissible as a floor under their own basis")
+    s.check("community-printed" not in curate.STATED_BASES,
+            "which no check asking whether a source stated a reading may accept")
     s.check(curate.problems("titles", "球詠", dict(R, source_kind="community-db",
                                                   en="Tamayomi", basis="official-jp")),
             "and the same source still cannot supply the work's own English name")
+    s.check(curate.problems("titles", "球詠", dict(R, source_kind="platform",
+                                                  reading_basis="community-printed")),
+            "nor may a platform's own page be filed as something a community database printed")
     # THE LINE THE ROW TURNS ON. A romanisation read backwards has lost the length of every vowel,
     # so it is not a stated reading whoever holds it, and this table carries no row for it at all.
     s.check(curate.problems("titles", "球詠", dict(R, reading_basis="back-converted")),
@@ -344,6 +353,45 @@ def main(s):
 
         f.write_text("titles:\n  ある話:\n    en: One\n")
         s.eq(curate.duplicate_keys(f), [], "a clean file reports nothing")
+
+    dividing_bases_and_donors(s)
+
+
+def dividing_bases_and_donors(s):
+    """The three lists that used to be one list copied out by hand, and what separates them.
+
+    STANDING-INSTRUCTIONS §3. `curate.STATED_BASES` says which bases mean a source stated the
+    reading, `curate.DIVIDING_BASES` says which arrive with their source's own division in them, and
+    `boundary.SETTLED_BASES` says which may lend a division to a DIFFERENT record. `check.py` held
+    hand-written copies of the first two and one of them had already drifted. Where a second producer
+    genuinely cannot consume the first, §3 asks for an assertion that they agree, and this is it.
+    """
+    from names import boundary
+    s.eq(set(curate.STATED_BASES), {"stated"},
+         "one basis means a source stated the reading, and it is the one named after it")
+    s.check(set(curate.STATED_BASES) <= set(curate.DIVIDING_BASES),
+            "a stated reading arrives divided the way its source divided it")
+    s.check(set(curate.STATED_BASES) <= set(curate.READING_ATTRIBUTION),
+            "and every basis named there is a row of the table it selects from")
+    # THE ONE ENTRY THAT COULD HAVE GONE EITHER WAY, and the reason it went this way is that the
+    # mark travels. A lent division leaves its doubt behind on the donor's record, so
+    # `boundary.donor_basis` carries the basis across and build.py ships it. Admitting the basis as a
+    # donor without that would put an anonymous edit's word about where somebody's name breaks in
+    # front of a reader with no mark on it at all: 8 records were in that state on 2026-08-09.
+    s.check("community-printed" in curate.DIVIDING_BASES,
+            "a community database's division stands where its own reading landed")
+    s.check("community-printed" in boundary.SETTLED_BASES,
+            "and may be lent, because donor_basis is what carries the mark with it")
+    s.check("community-printed" in boundary.MARKED_DONOR_BASES,
+            "which is the list that says a borrower owes the reader an explanation")
+    s.check("analyser" not in curate.DIVIDING_BASES
+            and "analyser" not in boundary.SETTLED_BASES,
+            "an analyser divides every name it is handed, so its answer cites nothing")
+    s.check("back-converted" not in curate.DIVIDING_BASES
+            and "back-converted" not in boundary.SETTLED_BASES,
+            "and a romanisation read backwards has lost the length of every vowel")
+    s.eq(sorted(set(boundary.SETTLED_BASES) - set(curate.DIVIDING_BASES)), [],
+         "nothing may lend a division that does not carry one of its own")
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

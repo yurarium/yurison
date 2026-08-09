@@ -77,12 +77,17 @@ SOURCE_KINDS = ("platform", "publisher-jp", "licensor", "community-db", "derived
 
 READING_RANK = {
     "surface": 50,        # the name is written in kana; the reading is not inferred, it is the name
-    "stated": 40,         # a source gives kana explicitly (Wikidata P1814, MADB yomi, a furigana gloss)
+    "stated": 40,         # a source gives kana explicitly (MADB yomi, an NDL heading, a byline gloss)
     # A reading a REVIEWER settled from the best evidence available, where no source states it
     # outright. Below `stated` because nobody printed it, above `aligned` because a person weighed
     # what a machine could only align: the compound, the register, how the work is spoken about.
     # It carries a note saying what it rests on, which is the difference between this and a guess.
     "researched": 30,
+    # A COMMUNITY DATABASE PRINTS THE KANA and nobody with standing over the name has spoken.
+    # Wikidata's P1814, ruled noncanonical by the project owner on 2026-08-09 and admitted as a
+    # floor: above the machine work below it because an editor typed the kana, below `researched`
+    # because nobody weighed anything. `curate.READING_ATTRIBUTION` carries the argument.
+    "community-printed": 25,
     "aligned": 20,        # derived by aligning a whole-string reading against the surface (§5c)
     "back-converted": 10,  # recovered from a romanised string, lossy in the long vowels (§8.1)
     "guessed": 0,         # pass 4's business; never produced by passes 0-2

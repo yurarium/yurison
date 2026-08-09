@@ -14,6 +14,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import testkit
+from adapters.names import curate
 from adapters.names import pass2_bulk as p2
 
 
@@ -107,6 +108,11 @@ def main(s):
     # claiming `stated` with no `reading_source_kind` at all, so `curate.READING_ATTRIBUTION` did
     # not cover the source and no table said what might be believed of it. Every other fact this
     # class builds already carried the kind; the reading was the one that did not.
+    #
+    # AND WHAT IT IS NOT. The project owner ruled on 2026-08-09 that Wikidata is noncanonical and
+    # is used to raise the floor on romaji, which is `community-printed`. This test asserted
+    # `stated` for one day and is the reason the ruling could not be applied by editing a table
+    # alone: three modules and this line all had to move together.
     def author_row(ja, kana_, item="Q1"):
         return {"ja": {"value": ja}, "jalabel": {"value": ja}, "item": {"value": item},
                 "kana": {"value": kana_},
@@ -114,9 +120,15 @@ def main(s):
 
     fact = W._author_fact("宮澤伊織", [author_row("宮澤伊織", "みやざわ いおり")])
     s.eq(fact["reading"], "ミヤザワ イオリ", "P1814 states the kana of a name")
-    s.eq(fact["reading_basis"], "stated", "and a source printing kana is stating a reading")
+    s.eq(fact["reading_basis"], "community-printed",
+         "a community database printing kana raises the floor and states nothing")
     s.eq(fact["reading_source_kind"], "community-db",
          "which the record says Wikidata is, because it is not a publisher or a library")
+    s.check(fact["reading_basis"] not in curate.STATED_BASES,
+            "so no check asking whether a source stated the reading may be satisfied by it")
+    s.check(fact["reading_basis"] in curate.READING_ATTRIBUTION
+            and fact["reading_source_kind"] in curate.READING_ATTRIBUTION[fact["reading_basis"]],
+            "and the table still covers the pair, which is what was missing before the kind existed")
 
 
 if __name__ == "__main__":

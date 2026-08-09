@@ -169,6 +169,54 @@ def main(s):
                                             "reading_note": NDL}}), ({}, {}),
          "a record that already names its donor is left alone, so a second run costs nothing")
 
+    marked_donors(s)
+
+
+def marked_donors(s):
+    """A division lent by an anonymous edit has to say so on the record that received it.
+
+    THE STATE 8 RECORDS WERE IN ON 2026-08-09, and it is not invented. ヤブウチユウ is a kana credit
+    whose sounds are its own surface, so nothing about its reading is in doubt; the space in
+    `Yabuuchi Yuu` came from やぶうち優, whose reading is Wikidata's. The interface sees the record it
+    is drawing and never the donor, so the doubt stayed on a page nobody was looking at.
+    """
+    WD = {"reading": "ヤブウチ ユウ", "reading_basis": "community-printed",
+          "reading_source": "wikidata", "reading_source_kind": "community-db"}
+    NDL = {"reading": "アクタ リンコ", "reading_basis": "stated",
+           "reading_source_kind": "national-library"}
+    names = {"やぶうち優": dict(WD), "圷倫子": dict(NDL)}
+    s.eq(b.donor_basis(names, ["やぶうち優"]), "community-printed",
+         "a donor whose own reading is a community database's owes the borrower a mark")
+    s.eq(b.donor_basis(names, ["圷倫子"]), None,
+         "and a national library's heading owes nothing")
+    # THE WEAKEST DONOR DOES NOT DECIDE. Two records dividing a name the same way are two statements
+    # of one division, and where either is a library's the space is the library's.
+    s.eq(b.donor_basis(names, ["やぶうち優", "圷倫子"]), None,
+         "a division something better also states is that better thing's")
+    s.eq(b.donor_basis(names, ["its own byline"]), None,
+         "and a label naming no record is the artist's own division, which is the best there is")
+    s.eq(b.donor_basis(names, []), None, "nothing lent, nothing owed")
+
+    # `fill` writes the field as it divides, and `restate_donor_bases` answers for the divisions
+    # settled on earlier runs, which is every one of the 8: a divided reading is never revisited.
+    store = {"やぶうち優": dict(WD), "圷倫子": dict(NDL),
+             "ヤブウチユウ": {"reading": "ヤブウチ ユウ", "reading_basis": "surface",
+                              "reading_boundary": "やぶうち優"},
+             "アクタリンコ": {"reading": "アクタ リンコ", "reading_basis": "surface",
+                              "reading_boundary": "圷倫子"}}
+    s.eq(b.restate_donor_bases(store), {"ヤブウチユウ": "community-printed"},
+         "the borrower is marked and the one who borrowed from a library is not")
+    s.eq(store["ヤブウチユウ"]["reading_boundary_basis"], "community-printed",
+         "written into a field, because a fact held in prose cannot be counted")
+    s.check("reading_boundary_basis" not in store["アクタリンコ"],
+            "and no mark is invented for a division a cataloguing authority states")
+    # A STALE MARK IS REMOVED RATHER THAN LEFT STANDING. A record whose donor got a better reading
+    # keeps saying the space is an anonymous edit's for as long as nothing takes the field away.
+    store["やぶうち優"].update(NDL, reading="ヤブウチ ユウ")
+    s.eq(b.restate_donor_bases(store), {}, "a donor that improves clears the borrower's mark")
+    s.check("reading_boundary_basis" not in store["ヤブウチユウ"],
+            "so the record stops claiming a doubt that is no longer there")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

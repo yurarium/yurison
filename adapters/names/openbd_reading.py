@@ -277,6 +277,11 @@ def unsettled_readings(path="data/names/authors.yaml"):
 
 # What counts as settled: a source stated it, or the name is kana and is its own reading. Anything
 # else is a machine's answer or no answer, and both are worth asking a publisher about.
+#
+# `community-printed` IS NOT ON THIS LIST AND THAT IS THE POINT OF THE BASIS. The project owner
+# ruled Wikidata noncanonical on 2026-08-09, so the 67 readings it supplies are a floor and not an
+# answer, and every one of them rejoins this queue. A publisher registering the book is exactly the
+# source that would settle them.
 SETTLED = ("stated", "surface", "researched")
 
 

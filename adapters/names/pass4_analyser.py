@@ -435,6 +435,36 @@ def _roles():
     return tuple(r for r in ROLES if len(r) > 1)
 
 
+def _bracketed_role(s):
+    """Whether a bracket in this string holds nothing but a credit role.
+
+    THE ONE CONTEXT WHERE A SINGLE CHARACTER IS UNAMBIGUOUS, and `inputs.BRACKET_ROLES` already
+    states the argument: 著, 作, 画 and 編 are ordinary characters pen names are built from, so
+    `_roles` leaves them out and 作田ハジメ keeps its first character. Inside a bracket the word is
+    the whole content and cannot be the start of anything.
+
+    WHAT WENT WRONG WITHOUT IT. `index[].c` reached this pass for the first time on 2026-08-09, and
+    the bibliography writes a print credit as `[著]KENTO OKAYAMA`. `is_credit_line` saw a short
+    string with no separator and no multi-character role, so the field entered the store as a
+    person, the analyser read 著 as チョ, and `[チョ]KENTOOKAYAMA` was recorded as somebody's
+    reading. Three records, caught by `readings are stored as kana`.
+
+    A DOUBLED DELIMITER IS STILL ONE DELIMITER, and this is the third place that has had to learn
+    it. MADB writes `[[著]]椿木とりか`, where the outer bracket pair encloses `[著`, which is not a
+    role, so the first version of this walked past it and the field went into the store as a person
+    called `[[Cho]]Tsubaki Torika`. `a person is spelled one way` caught it, against the phrase map's
+    `[ [ Cho ] ] Tsubaki Tori Ka`. `inputs.split_credits_detail` and `inputs._peel_bracket` both
+    normalise this at the top and neither could be asked from here, so the normalisation is repeated
+    and named after the fault it prevents.
+
+    `inputs.ROLE_ONLY` and `inputs.BRACKETED` are asked rather than copied. A second role vocabulary
+    in this file is what put twelve records in the store with a role label inside the name.
+    """
+    from names.inputs import BRACKETED, ROLE_ONLY
+    s = re.sub(r"\[+", "[", re.sub(r"\]+", "]", str(s)))
+    return any(ROLE_ONLY.match(m.group(1).strip()) for m in BRACKETED.finditer(s))
+
+
 def has_japanese(s):
     return any("\u3040" <= c <= "\u30ff" or "\u4e00" <= c <= "\u9fff" for c in s)
 
@@ -444,7 +474,7 @@ def is_credit_line(s):
         return True                       # a name that long is a sentence about several people
     if any(c in s for c in SEP):
         return True
-    return any(r in s for r in _roles())
+    return any(r in s for r in _roles()) or _bracketed_role(s)
 
 
 def _split_authors():
@@ -761,7 +791,12 @@ def wants_reading(s, rec, kind="authors", refresh=False):
         return False
     if not rec.get("reading"):
         return True
-    if rec.get("reading_basis") not in ("analyser", "back-converted"):
+    # OUR KANA, NOT THEIRS, WHERE THE NAME IS ALREADY KANA. `community-printed` is here for the
+    # reason `openbd_reading.normalised` refuses a collation key outright: a source transcribing a
+    # kana name can spell it differently from the way the artist writes it, and とりいしづく filed
+    # トリイシズク is that person's name with a different kana in it. A kana surface is its own
+    # reading and outranks anything typed by somebody else, so pass 1 takes it back.
+    if rec.get("reading_basis") not in ("analyser", "back-converted", "community-printed"):
         return False
     return bool(refresh) or (kind in ("authors", "publishers") and _k.kana_only(s))
 
@@ -876,7 +911,10 @@ def fill_missing(strings, kind, quiet=False, refresh=False):
             rec = names.setdefault(s, {})
             # Additive only, like the rest of this function: a source that stated the reading, or
             # a reviewer who settled it, is never overwritten by the surface.
-            if (rec.get("reading_basis") or "analyser") in ("analyser", "back-converted"):
+            # THE SAME LIST `wants_reading` SELECTS ON, and it has to stay the same list: a name
+            # queued there and refused here is a name the pass reports as filled and leaves alone.
+            if (rec.get("reading_basis") or "analyser") in ("analyser", "back-converted",
+                                                            "community-printed"):
                 # Named rather than reusing `f`, which is the store path this function writes back
                 # to and is still live: shadowing it made the whole pass raise on save.
                 for _stale in ("reading_uncertain", "note", "furigana_spans",

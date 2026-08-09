@@ -50,11 +50,20 @@ RULES TRIED AND REJECTED, so they are not re-derived.
   reading it as something it is not.
 
   62 OF THAT REGISTER ARE WIKIDATA'S AND ARE A DIFFERENT CASE, ruled 2026-08-09. P734 and P735 give
-  the family and given kana as kana, so nothing was read backwards, and
-  `curate.READING_ATTRIBUTION` admits them under `stated` for exactly that reason. They stay unread
-  here all the same, because the reading Wikidata supplies already carries the space between the
-  two halves and arrives divided: there is nothing in the register this module would learn. The
-  refusal above is about the back-conversion and not about the source.
+  the family and given kana as kana, so nothing was read backwards. They stay unread here all the
+  same, because the reading Wikidata supplies already carries the space between the two halves and
+  arrives divided: there is nothing in the register this module would learn. The refusal above is
+  about the back-conversion and not about the source.
+
+WIKIDATA IS A DONOR AND ITS DIVISIONS CARRY A MARK WITH THEM. The project owner ruled on
+2026-08-09 that Wikidata is noncanonical and is used to raise the floor, so its readings hold
+`reading_basis: community-printed` and the interface draws the `[?]` on them. A division LENT to
+another record is the case that ruling does not cover by itself: アカイマルボロウ is a kana surface
+whose sounds are certain, and it took its space from 赤衣丸歩郎, whose reading is an anonymous edit.
+The receiving record renders with no doubt on it at all, so the mark that justified the division
+stayed behind on the donor. `fill` therefore writes `reading_boundary_basis` beside
+`reading_boundary`, build.py ships it, and the interface says where the space came from. 8 records
+were in that state when this was written.
 """
 import pathlib
 import re
@@ -173,7 +182,40 @@ def settle(surface, donors):
 # `madb_reading.py` refuses at length to publish under a catalogue's name, so it is refused here
 # too, and `back-converted` is a romanisation read backwards, which has already lost the length of
 # every vowel and is in no position to be believed about a word break.
-SETTLED_BASES = ("stated", "surface", "researched")
+#
+# NOT THE SAME LIST AS `curate.DIVIDING_BASES`, AND THE DIFFERENCE IS THE QUESTION. That one asks
+# whether a record's own division arrived with its own reading; this asks whether a record may lend
+# its division to a DIFFERENT record. `community-printed` is in both, and it is the one entry where
+# the two questions could have been answered differently: a lent division leaves the mark behind on
+# the donor. `donor_basis` is what carries the mark across, which is what makes admitting it here
+# honest rather than convenient. `test_boundary` asserts the relationship so the two cannot drift.
+SETTLED_BASES = ("stated", "surface", "researched", "community-printed")
+
+# A basis whose division is a claim somebody typed under nobody's name, so a record receiving one
+# has to say so. Everything else here is a publisher, a cataloguing authority, a reviewer with a
+# note, or the name's own kana, and none of those owes a reader an explanation of the space.
+MARKED_DONOR_BASES = ("community-printed",)
+
+
+def donor_basis(names, labels):
+    """The basis a set of division donors rests on, where every one of them wants a mark.
+
+    None where any donor is stronger, which includes the artist's own byline: a label that names no
+    record in the store is the surface's own division, and that is the best donor there is.
+
+    THE WEAKEST DONOR DOES NOT DECIDE. Two records dividing a name the same way are two statements
+    of one division, and where one of them is a publisher's the space is the publisher's whatever
+    else agrees with it. So this answers only when there is nothing better behind the division.
+    """
+    got = set()
+    for label in labels or ():
+        rec = (names or {}).get(label)
+        if rec is None:
+            return None
+        got.add(rec.get("reading_basis"))
+    if got and got <= set(MARKED_DONOR_BASES):
+        return sorted(got)[0]
+    return None
 
 
 def store_donors(names, key):
@@ -330,6 +372,16 @@ def fill(names):
             continue
         rec["reading"] = got
         rec["reading_boundary"] = ", ".join(sorted(why))
+        # WHERE THE SPACE CAME FROM, AS A BASIS AND NOT ONLY AS A RECORD KEY. `reading_boundary`
+        # names the donor and says nothing about what the donor is worth, so a division lent by an
+        # anonymous edit and one lent by the national library were the same field. Written only
+        # where the mark is owed, so a record that acquires a better donor later loses the field
+        # rather than keeping a stale one.
+        _basis = donor_basis(names, why)
+        if _basis:
+            rec["reading_boundary_basis"] = _basis
+        else:
+            rec.pop("reading_boundary_basis", None)
         # The spans were cut from the undivided reading. `store._apply` drops them for the same
         # reason whenever a reading changes, and this writes the file directly.
         rec.pop("furigana_spans", None)
@@ -415,6 +467,37 @@ def from_notes(entries):
     return moved, unrecognised
 
 
+def restate_donor_bases(names):
+    """Say what every division ALREADY in the store rests on. `{name: basis}` for the marked ones.
+
+    `fill` writes `reading_boundary_basis` as it divides, and it only ever looks at a record whose
+    reading is still whole, so the divisions it settled on earlier runs would never acquire the
+    field. Eight records were in that state on 2026-08-09, each a kana surface holding a space lent
+    by a Wikidata reading, and each rendering with no doubt on it anywhere.
+
+    ADDITIVE, IDEMPOTENT AND OFFLINE, so `fill_store` runs it on every build. A record whose donor
+    is no longer marked has the field REMOVED rather than left standing, which is the same rule
+    `fill` applies: a stale mark says something about a record that stopped being true.
+
+    The donor is read back out of `reading_boundary`, which `fill` writes as its labels joined with
+    a comma and a space. A label naming no record in the store is a donor from outside it, and
+    `donor_basis` answers None for those, which is the right answer: the artist's own byline and a
+    catalogue's heading are both better than anything this marks.
+    """
+    marked = {}
+    for key, rec in (names or {}).items():
+        label = rec.get("reading_boundary")
+        if not label:
+            continue
+        basis = donor_basis(names, [p for p in str(label).split(", ") if p])
+        if basis:
+            rec["reading_boundary_basis"] = basis
+            marked[key] = basis
+        else:
+            rec.pop("reading_boundary_basis", None)
+    return marked
+
+
 STORE = pathlib.Path(__file__).resolve().parents[2] / "data" / "names" / "authors.yaml"
 
 
@@ -434,8 +517,14 @@ def fill_store(path=None):
         return {}, {}
     doc = yaml.safe_load(path.read_text()) or {}
     names = doc.get("names") or {}
+    before = {k: (v or {}).get("reading_boundary_basis") for k, v in names.items()}
     added, refusals = fill(names)
-    if added:
+    # EVERY DIVISION IN THE STORE, not only the ones this run settled. `fill` walks the whole store
+    # anyway and the divisions it wrote on earlier days are the ones missing the field.
+    restate_donor_bases(names)
+    changed = any((v or {}).get("reading_boundary_basis") != before.get(k)
+                  for k, v in names.items())
+    if added or changed:
         path.write_text(yaml.safe_dump(doc, allow_unicode=True, sort_keys=True, width=100))
     return added, refusals
 

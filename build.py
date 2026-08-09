@@ -642,7 +642,11 @@ _EN_BASIS = {"official-jp": 4, "licensed": 3, "translated": 2, "stated": 2, "rom
 
 # And how much a claim about a READING is worth, same order, same reason. `analyser` and
 # `back-converted` are a machine's answer and sit below every one that came from somewhere.
-_READING_BASIS = {"stated": 4, "researched": 3, "surface": 2, "back-converted": 1, "analyser": 1}
+# `community-printed` is Wikidata, ruled noncanonical on 2026-08-09 and kept as a floor: an editor
+# typed the kana, so it beats a machine reading the characters, and nobody answers for it, so it
+# loses to a kana surface and to everything a source states.
+_READING_BASIS = {"stated": 5, "researched": 4, "surface": 3, "community-printed": 2,
+                  "back-converted": 1, "analyser": 1}
 
 
 def _fullness(rec):
@@ -1611,6 +1615,18 @@ def load_names():
             # romanisation of one says nothing about anybody.
             if is_person and _boundary and not _boundary.cuts(rd):
                 out["undivided"] = True
+            # AND A DIVISION THAT RESTS ON AN ANONYMOUS EDIT SAYS SO. アカイマルボロウ is a kana
+            # credit whose sounds are its own surface, so nothing about the reading is in doubt and
+            # the `[?]` would be false; what it took from a Wikidata record is the SPACE. Eight
+            # people were divided that way and rendered with no mark of any kind, because the doubt
+            # sat on the donor's record and the interface only ever sees this one.
+            #
+            # THE 62 WHOSE OWN READING IS WIKIDATA'S ARE NOT HERE, and that is not an oversight.
+            # Their basis is `community-printed`, they already carry `unverified`, and a second mark
+            # on the same claim is the flood NAMES-PLAN §5d narrows every mark to avoid.
+            # `boundary.fill` writes the field for a division it LENT and for nothing else.
+            elif is_person and rec.get("reading_boundary_basis"):
+                out["division_basis"] = rec["reading_boundary_basis"]
         if rec.get("en"):
             # An "already Latin" title is detected by looking for kana and kanji, which means
             # IDOL×IDOL STORY！ passed as English with its full-width punctuation intact and then
@@ -5617,12 +5633,23 @@ def main():
         # whole credit fields, which `is_credit_line` then declines to read, so nobody named only
         # alongside somebody else ever entered it. That is why 49 of 191 release rows rendered
         # their authors in Japanese on an English page: the composer had nothing to compose from.
-        # The parts are added beside the fields, and releases are asked as well as series rows,
-        # because a release row is rendered by the same store and was never consulted at all.
-        _p4.fill_missing({p for r in series_rows + releases
-                          for p in ([(r.get("author") or "").strip()]
-                                    + _credits.split_credits(r.get("author"))[0])
-                          if p}, "authors")
+        # The parts are added beside the fields, so a person credited only alongside somebody else
+        # still gets a record of their own.
+        #
+        # AND FROM EVERY COLLECTION THAT CARRIES A CREDIT, WHICH IS WHAT `credit_fields` IS FOR.
+        # This read `series_rows + releases`, which is the 更新 and 作品 tabs and nothing else, so
+        # `index[].c` on the catalogue tab and `works[].creator` on the 発売 tab were never fed to
+        # the pass at all: 579 people the interface renders had no record in the store, and the
+        # number nowhere said so, because every measure of the naming work is taken over the store.
+        # `credit_fields` already assembles the right set for the splitter, and it was sitting 280
+        # lines below this call answering the same question for the division pass. Two producers of
+        # one set, and the older one was the smaller (STANDING-INSTRUCTIONS §3).
+        #
+        # WITHOUT THE REGISTRY, WHICH IS NOT AVAILABLE YET. `credit_page_data` runs after this, and
+        # the strings only the registry holds are joined fields like `iimAn&惟丞` that
+        # `is_credit_line` refuses anyway, so nothing reaches the store through that argument.
+        _p4.fill_missing({p for f in credit_fields(idx, works, series_rows, releases)
+                          for p in [f] + _credits.split_credits(f)[0] if p}, "authors")
         # Chapter names and credit lines — 202 of the former against 6 titles, so this is most of
         # what stays Japanese on an English page.
         # Titles as phrases too, so one whose only Japanese is punctuation (IDOL×IDOL STORY！) is

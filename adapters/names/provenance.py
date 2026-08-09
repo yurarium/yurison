@@ -39,15 +39,22 @@ which is where the reading really came from, and prose is not something a check 
 # Bases that assert somebody else's document. Only these owe an address, and the debt is what
 # `faults` collects.
 #
-#   stated          a source prints the kana: a yomi field, a collationkey, furigana in a byline
-#   back-converted  a romanised string recovered from a database entry, which is that entry's page
+#   stated             a source prints the kana: a yomi field, a collationkey, furigana in a byline
+#   back-converted     a romanised string recovered from a database entry, which is that entry's page
+#   community-printed  a community database prints the kana, which is an item page anybody can read
+#
+# `community-printed` OWES ONE FOR THE SAME REASON THE OTHERS DO, and rather more urgently. The
+# project owner ruled Wikidata noncanonical on 2026-08-09, so the reading carries a mark saying the
+# pronunciation is unconfirmed, and the citation is what lets a Japanese-literate reader go and
+# settle it. Withholding the address while marking the reading would tell a reader there is a doubt
+# and then decline to say where the doubt came from. All 67 hold a `wikidata.org/entity/` URI.
 #
 # Everything else is the record accounting for itself and owes nothing. `surface` means the name is
 # already kana, so there was no lookup and there is no page to cite. `analyser`, `aligned` and
 # `guessed` are machine work, labelled `verified: false` and marked in the interface under
 # NAMES-PLAN §5d. `researched` is a reviewer weighing evidence that no single page states, which is
 # why curate.py demands a note from it instead of a URL.
-SOURCED = ("stated", "back-converted")
+SOURCED = ("stated", "back-converted", "community-printed")
 
 # THE ENGLISH CLAIM IS THE SAME QUESTION WITH A DIFFERENT VOCABULARY, and it was reachable here all
 # along: `cite` took a `claim` argument from the day it was written and nothing ever passed one, so

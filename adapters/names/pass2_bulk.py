@@ -8,8 +8,11 @@ both name orders stay available (§8.2). AniList and MangaUpdates return ROMANIS
 Miyazawa", "MIYAZAWA Iori" — and a romanised string is the one form §8.1 refuses to treat as the
 stored answer, because Yuri cannot tell you whether it was ゆり or ゆうり.
 
-So Wikidata's hits are `stated` readings and the other two produce `back-converted` ones that a
-later kana source is allowed to overwrite. Running the source that gives real readings first means
+So Wikidata's hits are `community-printed` readings and the other two produce `back-converted` ones
+that a later kana source is allowed to overwrite. None of the three STATES a reading: the project
+owner ruled on 2026-08-09 that Wikidata is noncanonical and is used to raise the floor on romaji,
+which is a rank above the analyser and below everything a publisher or the national library prints.
+Running the source that gives real readings first means
 the ranks resolve the right way round without depending on the order at all — but it also means the
 best data arrives first, which matters for a job that may be stopped at any point.
 
@@ -340,15 +343,19 @@ class Wikidata(Resolver):
 
         fact = Fact(source_url=item, **{"pass": 2})
         if reading:
-            # `community-db` IS WHAT WIKIDATA IS, AND THE READING SAYS SO. Every other fact this
-            # class builds already carries that kind; the reading was the one that did not, so 67
-            # author readings reached the store claiming `stated` with no kind beside them and
-            # `curate.READING_ATTRIBUTION` could not cover them at all. Wikidata is not a publisher,
-            # a platform or a cataloguing authority, and a record saying nothing about which it was
-            # is a reading nobody can weigh. What makes the kind admissible for `stated` is that
-            # P1814 prints KANA: see READING_ATTRIBUTION for the ruling and for the line it draws
-            # against a romanisation read backwards.
-            fact.update(reading=kana.to_katakana(reading), reading_basis="stated",
+            # `community-printed` IS WHAT WIKIDATA IS, AND THE READING SAYS SO. Ruled by the project
+            # owner on 2026-08-09: "treat wikidata as noncanonical. use it to raise the floor on
+            # romaji". P1814 prints KANA, so an editor typed the reading and nothing was recovered
+            # from a romanisation, which is what puts it above the analyser; nobody with standing
+            # over the person's name typed it, which is what keeps it below everything a publisher
+            # or the national library prints. `curate.READING_ATTRIBUTION` carries the argument and
+            # the two rows this one is NOT.
+            #
+            # THE MARK FOLLOWS THE BASIS AND IS NOT SET HERE. `store._verify` derives `verified`
+            # from `reading_basis`, so moving off `stated` is the whole of what turns the `[?]` on
+            # for these 67 records. Writing the flag beside the basis would be a second producer of
+            # one fact, which is how the two came to disagree in the first place.
+            fact.update(reading=kana.to_katakana(reading), reading_basis="community-printed",
                         reading_source_kind="community-db")
             # Wikidata writes a full reading as "family given". Where P734/P735 did not supply the
             # halves, that space carries the same information (§8.2), and both name orders stay

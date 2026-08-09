@@ -49,22 +49,53 @@ shape 27, interface reads outside an entry point 13) measures the codebase and n
 falling back to a romanisation where a real name is obtainable. A number that falls because the
 question got smaller has told nobody anything.
 
-## Reconsider together: is Wikidata canonical enough to state a reading
+## Wikidata is noncanonical and raises the floor. Ruled 2026-08-09, closed
 
-**Raised by the project owner, 2026-08-09.** Wikidata is to be counted as analogous to Wikipedia,
-which is to say not canonical. A pass on 2026-08-09 assigned it `reading_source_kind: community-db`
-and admitted that kind for a `stated` reading, on the argument that a reading is a transcription and
-a user-edited base can print kana correctly without having standing over a person's name.
+**The project owner's ruling, verbatim:** "treat wikidata as noncanonical. use it to raise the floor
+on romaji, including additional required searches". Setting the question up, earlier the same day:
+"I would accept wikidata as an improved basis for any fallback romanisations (with overcoming their
+fallback basis)".
 
-That argument is the owner's to answer, and this records it as an open question.
-The question is whether `community-db` belongs in `READING_ATTRIBUTION["stated"]` at all, or whether
-a Wikidata reading is `researched` at best, which would put it below anything a publisher or the
-national library prints and above nothing.
+So Wikidata is analogous to Wikipedia. It never STATES a name. It is better than a machine guess and
+worse than anything a publisher or the national library prints, and its job is to lift a name off
+the mechanical floor. A pass earlier that day had put `community-db` in
+`curate.READING_ATTRIBUTION["stated"]`, arguing that a reading is a transcription and a user-edited
+base can print kana correctly without having standing over a person's name. The ruling overturns it.
 
-**What we rely on it for today:** 67 readings in `data/names/authors.yaml` (`reading_source` naming Wikidata, `reading_source_kind: community-db`), of which 62 also carry `reading_family` and
-`reading_given` from P734/P735 and so contribute a DIVISION as well as a reading. Demoting the kind
-would move those out of `stated` and raise `author readings no source states` by up to 67.
+**The basis is `community-printed`**, which says what it is: a community database printed the kana
+and nobody with standing over the name has spoken. It outranks `analyser` and `back-converted`, it
+sits below `researched`, `surface` and `stated`, and it satisfies no check asking whether a source
+stated the reading. `curate.STATED_BASES` is the one list that answers that question and it carries
+`stated` alone.
 
-Note that `boundary.py` already refuses a subset of Wikidata rows for a different reason: some are
+**The division stands and is counted.** 68 of the 73 readings carry P734 and P735, so the kana
+arrive divided, and 20 more records took a space from one of them through `boundary.fill`. Refusing
+the space alone would take the harder half of a single editor's claim and return 62 people to a
+glued romanisation. `divisions resting on a community database` is the budget that says how many,
+and `reading_boundary_basis` is what carries the mark onto a record that borrowed a division rather
+than leaving the doubt behind on the donor.
+
+**The mark.** A `community-printed` reading is `verified: false`, so it draws the `[?]` superscript,
+whose tooltip says the reading comes from a community-edited database and that no publisher or
+library confirms it. The superscript is the honest mark because the doubt is about the SOUNDS. The
+dotted underline says a claim is ours or that a name's division is unknown, and neither is true here.
+
+**The search that followed.** Every author name the project holds or renders has now been offered to
+Wikidata: 1,887 names were asked for the first time, in 19 batched requests. It answered with a
+reading for 132, of which 126 landed on names openBD, MADB, the National Diet Library or a reviewer
+had already settled. Five of those contradicted the stronger source and lost. Six raised the floor.
+221 names gained an English label. Four names were never offered, because a publisher, a platform
+and the artist's own page had already settled both their reading and their English name.
+
+Wikidata holds almost nothing for the names this project cannot read, and that is the finding. It is
+worth having and it is not the route that closes the reading gap.
+
+Note that `boundary.py` still refuses a subset of Wikidata rows for a different reason: some are
 MangaUpdates romanisations converted back into kana, which is `back-converted` and never a donor.
-That refusal stands whatever is decided here.
+That refusal is untouched by the ruling.
+
+**Left open by this round.** `pass4_analyser.is_credit_line` refuses any string holding an
+interpunct, so `くろば・Ｕ` cannot enter the name store even though `credits.split_credits` hands it
+over whole. ・ separates two people in 矢立肇・富野由悠季 and sits inside one name in さりい・Ｂ, and
+`inputs.SEPARATORS_WHOLE_NAMES` already records that the right answer differs by caller. Deciding it
+for the store is its own round.

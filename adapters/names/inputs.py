@@ -365,6 +365,31 @@ def _peel_bracket(part, depth=4):
     return head, reading
 
 
+# WHERE A CREDIT FIELD LIVES, as (file, the key the rows hold it under). Four collections, and the
+# two at the end were missing for as long as this function existed: `index[].c` is the byline the
+# catalogue tab draws and `works[].creator` is the one the 発売 tab draws, so the passes that
+# research names were never shown two of the four places a reader meets one. 579 people the
+# interface renders had no record in the store on 2026-08-09, and every measure of the naming work
+# is taken over the store, so the number that should have said so was blind in the same place.
+#
+# TITLES ARE STILL SERIES AND THE FEEDS, WHICH IS THE OTHER HALF OF THE DECISION. NAMES-PLAN §2 is
+# emphatic that the print half's TITLES are a re-parse of madb-cache and openbd-cache rather than
+# research, and no external request may be spent on them. That argument is about a title's `yomi`,
+# which those caches hold for every book; it does not reach a person credited on a book whose
+# `collationkey` openBD never registered, and the residue of those is exactly what the project
+# owner's 2026-08-09 ruling sends to Wikidata.
+CREDIT_ROWS = (("index.json", None, "c"), ("works.json", "works", "creator"))
+
+
+def _rows(build, file, section):
+    p = build / file
+    if not p.exists():
+        return []
+    doc = json.loads(p.read_text(encoding="utf-8"))
+    got = doc if section is None else doc.get(section)
+    return got if isinstance(got, list) else []
+
+
 def load(build_dir, feeds=None):
     """Return (authors, titles, credits, by_title).
 
@@ -373,6 +398,10 @@ def load(build_dir, feeds=None):
     nothing would have said so: the passes would simply have stopped seeing new works, gradually,
     with the count of names to fix looking healthy the whole way down. A default that goes stale by
     the calendar is the same failure as reading a rolling window and calling it the corpus.
+
+    AND THE COLLECTIONS ARE FOUND THE SAME WAY, for the same reason one level up. See `CREDIT_ROWS`:
+    a credit field the interface draws and this function never reads is a person nothing will ever
+    look up, and the shape of that failure is identical to naming one month by hand.
 
     `credits` is kept because pass 0 needs to know which page a name was read from, and the credit
     string is the only link back to the work that carried it. `by_title` maps a Japanese title to
@@ -394,8 +423,14 @@ def load(build_dir, feeds=None):
         if p.exists():
             rows.extend(json.loads(p.read_text(encoding="utf-8")).get("releases") or [])
 
-    for r in rows:
-        work, credit, url = r.get("work"), r.get("author"), r.get("url")
+    # PEOPLE ONLY FROM THESE TWO, and the row's title is deliberately not taken. A catalogue row is
+    # a print work, and `titles` is what pass 2 spends requests on.
+    people_only = [(r, key) for file, section, key in CREDIT_ROWS
+                   for r in _rows(build, file, section)]
+
+    for r, credit_key in [(r, "author") for r in rows] + people_only:
+        work = r.get("work") if credit_key == "author" else None
+        credit, url = r.get(credit_key), r.get("url")
         if work:
             titles.setdefault(work, url)
         if not credit:

@@ -102,36 +102,67 @@ READING_ATTRIBUTION = {
     # how a name is read, and it is the only route that reaches most pen names at all: 79 of 82
     # author readings settled this way came from it. `author` is the artist's own page, which is
     # better still and is rarer, because most of them never write their name in kana.
-    # `community-db` IS ADMITTED HERE AND FOR ONE REASON: WIKIDATA PRINTS KANA. Ruled 2026-08-09,
-    # after 67 author readings sourced to Wikidata turned out to carry `stated` with no kind at all,
-    # so the one source behind them was outside this table and the invariant passed them on their
-    # basis alone.
     #
-    # WHAT THE ROW IS NOT SAYING. Wikidata is user-edited and has no standing over anybody's name,
-    # so it does not join `ATTRIBUTION` and cannot supply an English NAME: the project owner's rule
-    # is unchanged and `community-db` still appears in no row up there. A reading is a different
-    # claim. P1814 states the kana of a name, which is a transcription anyone Japanese-literate can
-    # check against the characters, and NAMES-PLAN §5d already publishes readings a reader is
-    # invited to judge.
-    #
-    # THE LINE IS BETWEEN KANA AND LATIN, AND IT IS WHY THIS ADMITS ONE COMMUNITY DATABASE AND NOT
-    # THREE. AniList and MangaUpdates return romanised strings, so a reading from either is
-    # recovered by reading a romanisation backwards, which has already lost the length of every
-    # vowel: those take `back-converted`, which this table does not carry and which
-    # `boundary.SETTLED_BASES` refuses as a donor for the same reason. A source that prints the
-    # kana itself has lost nothing, and Wikidata is the only one of the three that does.
-    #
-    # IT IS STILL THE WEAKEST THING IN THE ROW, and the row is ordered so a reader sees that: a
-    # national library states a heading under a cataloguing authority's name and an anonymous edit
-    # states P1814 under nobody's.
-    "stated": ("platform", "publisher-jp", "national-library", "author", "licensor",
-               "community-db"),
+    # `community-db` WAS ADMITTED HERE FOR ONE DAY AND THE PROJECT OWNER OVERRULED IT, 2026-08-09.
+    # The pass that put it here argued that a reading is a transcription and that a user-edited base
+    # can print kana correctly without having standing over a person's name. The ruling is that
+    # Wikidata is treated as noncanonical and used to raise the floor on romaji, which is the row
+    # below rather than this one. See `community-printed`.
+    "stated": ("platform", "publisher-jp", "national-library", "author", "licensor"),
     # SETTLED BY A REVIEWER where nothing states it. A community wiki, a bookshop listing or the
     # way readers write about a work are all evidence about how a title is said, and none of them
     # is an attribution. This basis says a person weighed that evidence, so it demands a note
     # saying what was weighed: a reading with no reasoning behind it is a guess wearing a label.
     "researched": ("community-db", "derived"),
+    # A COMMUNITY DATABASE PRINTS THE KANA AND NOBODY WITH STANDING OVER THE NAME HAS SPOKEN.
+    # Ruled by the project owner 2026-08-09: "treat wikidata as noncanonical. use it to raise the
+    # floor on romaji, including additional required searches".
+    #
+    # WHAT THE BASIS IS. Wikidata's P1814 gives the kana of a name, typed by an editor who signed
+    # nothing. That is better than a morphological analyser, which is at its worst on pen names and
+    # never declines to answer, and it is worse than anything a publisher or the national library
+    # prints. So it sits between them, and it satisfies no test asking whether a source STATED a
+    # reading: `STATED_BASES` below carries `stated` alone.
+    #
+    # WHY IT IS NOT `researched`. That basis means a reviewer weighed evidence and wrote down what
+    # they weighed, and `problems` demands the note. Nobody here weighed anything; a query returned
+    # a field. Filing this as `researched` would put a machine's harvest under a person's judgement,
+    # which is the shape NAMES-PLAN §1 names as the failure to design against.
+    #
+    # THE LINE IS BETWEEN KANA AND LATIN, AND IT IS WHY THIS ADMITS ONE COMMUNITY DATABASE AND NOT
+    # THREE. AniList and MangaUpdates return romanised strings, so a reading from either is
+    # recovered by reading a romanisation backwards, which has already lost the length of every
+    # vowel: those take `back-converted`, which this table does not carry. A source that prints the
+    # kana itself has lost nothing, and Wikidata is the only one of the three that does.
+    #
+    # IT IS MARKED WHEREVER IT REACHES A READER. `build.py` ships `unverified` for it and the
+    # interface draws the `[?]` that says the pronunciation is unconfirmed, because that is what is
+    # in question: the sounds, stated by nobody who answers for them.
+    "community-printed": ("community-db",),
 }
+
+# WHICH BASES MEAN A SOURCE STATED THE READING, and it is one. Held here rather than in `check.py`
+# because the table above is what decides it and a check that keeps its own copy has already
+# drifted from this one once: it admitted `community-db` for a researched reading and the copy did
+# not, so a record citing one read as citing nothing. `check.STATES_A_READING` asks this.
+STATED_BASES = ("stated",)
+
+# WHICH BASES ARRIVE WITH THEIR SOURCE'S OWN DIVISION ALREADY IN THE READING. An openBD collation
+# key writes a comma between the halves, an NDL heading divides the reading beside the name, a
+# Wikidata item states P734 and P735 separately, and a kana surface is its own reading and divides
+# where it is written. `analyser` is absent because an analyser divides every name it is handed,
+# and `back-converted` because a romanisation read backwards has already lost the length of every
+# vowel and is in no position to be believed about a word break.
+#
+# `community-printed` IS HERE, WHICH IS THE OWNER'S RULING APPLIED TO THE SPACE AS WELL AS TO THE
+# KANA. `Yabuuchi Yuu` is a better floor than `Yabuuchiyuu`, the division and the reading are one
+# string from one editor, and one mark covers both. Taking the kana and refusing the space would
+# take the harder half of a single statement and refuse the easier one.
+#
+# `check.DIVIDED_BY_ITS_SOURCE` asks this, and `boundary.SETTLED_BASES` deliberately answers a
+# DIFFERENT question: whether a record may lend its division to some other record. The two lists
+# and the reason they differ are asserted by `test_curate.test_dividing_bases_and_donors`.
+DIVIDING_BASES = ("stated", "researched", "surface", "community-printed")
 
 # `reading_note` is separate from `note` because one entry can carry two decisions. A work whose
 # English was chosen for one reason and whose reading was corrected for another had to put both

@@ -1444,37 +1444,61 @@ def _divisions(reading):
     return boundary.divisions(reading)
 
 
+def _curate():
+    """`adapters/names/curate.py`, or None where it cannot be imported."""
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        from names import curate
+    except Exception:                                                       # noqa: BLE001
+        return None
+    return curate
+
+
 def _states_a_reading():
-    """The source kinds that may stand behind a reading, ASKED OF THE TABLE THAT DECIDES IT.
+    """The source kinds a source may be when it STATED a reading, ASKED OF THE TABLE.
 
     This was a copy of `curate.READING_ATTRIBUTION`'s values written out by hand, and the two had
     already drifted: the table admitted `community-db` for a researched reading and the copy here
     did not, so a record citing one was read as citing nothing. That is §3 with the second producer
     inside the check, which is the worst place for it, because the check is what is supposed to
-    notice. Wikidata joining the `stated` row would have opened the gap a second time.
+    notice.
+
+    IT ASKS FOR ONE ROW AND NOT FOR ALL OF THEM, which is the second half of the same fault. Reading
+    every value out of the table answers "a kind that appears anywhere in it", and that is not the
+    question any caller asks: `researched` and `community-printed` both admit `community-db`, so a
+    union would have kept Wikidata in this list through the demotion the project owner ordered on
+    2026-08-09 and the check would have reported the ruling as having no effect. `curate.STATED_BASES`
+    names the rows that mean a source stated the reading, beside the table it selects from.
 
     `analyser` is absent because the table does not carry it, and `None` with it: a record that
     cannot say where its division came from has not got one from anywhere.
     """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    try:
-        from names import curate
-    except Exception:                                                       # noqa: BLE001
+    curate = _curate()
+    if curate is None:
         # A check that cannot read the table must not silently accept everything. Falling back to
         # the empty set would do the opposite of what this list is for.
         return ()
-    return tuple(sorted({k for kinds in curate.READING_ATTRIBUTION.values() for k in kinds}))
+    return tuple(sorted({k for b in curate.STATED_BASES
+                         for k in curate.READING_ATTRIBUTION.get(b, ())}))
+
+
+def _divided_by_its_source():
+    """The bases under which a division arrived WITH the reading, ASKED OF THE TABLE.
+
+    A hand-written copy of `curate.DIVIDING_BASES` sat here reading `("stated", "researched",
+    "surface")`, which is §3 in the same place and for the same reason as `_states_a_reading` above:
+    the check that is supposed to notice a drift held one of the two copies. It went stale the day
+    Wikidata's readings moved off `stated`, because a `community-printed` division is admitted by
+    the table and was refused here.
+
+    An empty tuple where the table cannot be read, so a check that lost its subject fails loudly.
+    """
+    curate = _curate()
+    return tuple(curate.DIVIDING_BASES) if curate is not None else ()
 
 
 STATES_A_READING = _states_a_reading()
-
-# The bases under which a division arrived WITH the reading, from whatever the basis names. An
-# openBD collation key writes a comma between the halves, an NDL heading divides the reading beside
-# the name, a Wikidata item states the family and given kana separately, and a kana surface is its
-# own reading and divides where it is written. `analyser` is absent because an analyser divides
-# every name it is handed, and `back-converted` because a romanisation read backwards has already
-# lost the length of every vowel and is in no position to be believed about a word break.
-DIVIDED_BY_ITS_SOURCE = ("stated", "researched", "surface")
+DIVIDED_BY_ITS_SOURCE = _divided_by_its_source()
 
 
 def inv_kana_reading_spells_its_name(ctx):
@@ -1543,8 +1567,16 @@ def inv_a_division_cites_its_source(ctx):
     one thing the first does not, because the population it meets is different. Where a reading came
     from a source at all, the division came with it: an openBD collation key writes a comma between
     the halves, an NDL heading divides both the name and its reading, and a Wikidata item states
-    P734 and P735 separately. That is what `reading_basis` records, so `stated`, `researched` and
-    `surface` carry their own citation and `analyser` carries none.
+    P734 and P735 separately. That is what `reading_basis` records, and `curate.DIVIDING_BASES` is
+    the list of the bases that carry their own citation. `analyser` carries none.
+
+    A COMMUNITY DATABASE IS ON THAT LIST AND IS NOT A SOURCE THAT STATES A READING. The project
+    owner ruled on 2026-08-09 that Wikidata is noncanonical, so its readings hold
+    `community-printed` and fail every test asking whether somebody stated them. The division still
+    stands, because the kana and the space are one string from one editor and the interface marks
+    the whole of it: refusing the space alone would take the harder half of a single claim and
+    return 62 people to a glued romanisation. `divisions resting on a community database` counts
+    them, so somebody can watch the number instead of taking a docstring's word for it.
 
     THE ONE THING IT LETS PAST, deliberately and counted. `back-converted` is a reading recovered
     from somebody's romanisation, so its spacing is that romaniser's and belongs to a community
@@ -3272,6 +3304,36 @@ def budget_divisions_read_back_from_a_romanisation(ctx):
                and _divisions(v.get("reading")) > _divisions(k))
 
 
+def budget_divisions_resting_on_a_community_database(ctx):
+    """People whose name divides where an anonymous edit says it divides, and nowhere else.
+
+    THE COST OF THE RULING, WRITTEN AS A NUMBER. The project owner ruled on 2026-08-09 that
+    Wikidata is noncanonical and is used to raise the floor, so its readings hold
+    `community-printed` and its divisions stand. A division is a claim about where a real person's
+    name breaks, and NAMES-PLAN is emphatic that a wrong one is published under the artist's own
+    work and reads as a fact. Keeping them and saying nothing would be the register nobody reads
+    (§13), so this is what a person watches.
+
+    TWO POPULATIONS AND ONE QUESTION. A record can hold such a division because its own reading is
+    Wikidata's and arrived divided, or because `boundary.fill` carried the space onto a reading that
+    came from somewhere else. The second is the one that surprised: アカイマルボロウ is a kana
+    surface whose sounds are certain, and it took its space from 赤衣丸歩郎.
+
+    IT FALLS WHEN A SOURCE STATES A DIVISION, and it cannot fall any other way. Dropping the space
+    would not move it either, since a record with no division is not counted here and 62 people
+    would go back to a glued romanisation to buy it.
+
+    §14b, what it cannot see: whether a division is in the right PLACE. Nothing mechanical can. What
+    it does not share with its subject is the producer: `boundary.fill` decides using `cuts` and
+    `SETTLED_BASES`, and this counts spaces in the stored string against the surface's own, which is
+    arithmetic on two strings and consults neither.
+    """
+    return sum(1 for k, v in (ctx["names"].get("authors") or {}).items()
+               if _divisions(v.get("reading")) > _divisions(k)
+               and (v.get("reading_basis") == "community-printed"
+                    or v.get("reading_boundary_basis") == "community-printed"))
+
+
 def budget_publisher_readings_nobody_has_settled(ctx):
     """Publisher keys shipped as OUR romanisation whose reading no source states.
 
@@ -3756,6 +3818,13 @@ BUDGETS_DEF = [
      "romanisation, recovered by reading that romanisation backwards. The one class "
      "`a division cites its source` admits without a source that states readings, counted here so "
      "that admitting it is visible. It falls when a source states one of them."),
+    ("divisions resting on a community database",
+     budget_divisions_resting_on_a_community_database,
+     "people whose name divides where Wikidata says it divides and where nothing else does, either "
+     "because their reading came from there or because the space was carried onto a reading of "
+     "their own. The project owner ruled the source noncanonical and admitted it as a floor, so "
+     "this is what that admission costs, counted where somebody can watch it. It falls when a "
+     "publisher or the national library states a division."),
     ("publisher readings nobody has settled", budget_publisher_readings_nobody_has_settled,
      "publisher and imprint keys shipped as a romanisation of ours over a reading no source "
      "states, which is what the mark beside them says. A coverage deficit and the other half of "
@@ -4498,6 +4567,28 @@ def self_test():
             print("  self-test FAILED — 'targets a capture wrote no row for' still counted works "
                   "after every target was given a captured row")
             ok = False
+
+    # A DIVISION LENT BY AN ANONYMOUS EDIT, IN BOTH SHAPES THE STORE HOLDS IT IN, and both canaries
+    # are records data/names/authors.yaml really carried on 2026-08-09. やぶうち優 is Wikidata's own
+    # reading, divided where P734 and P735 divide it; ヤブウチユウ is that person's kana credit, whose
+    # sounds are its own surface and whose space was carried across by `boundary.fill`. The second is
+    # the one a count on `reading_basis` alone would never see, which is why it is planted separately.
+    c = copy.deepcopy(ctx)
+    was = budget_divisions_resting_on_a_community_database(c)
+    c["names"]["authors"].update({"カナリアユウ": {
+        "reading": "カナリア ユウ", "reading_basis": "community-printed",
+        "reading_source": "wikidata", "reading_source_kind": "community-db"}})
+    if budget_divisions_resting_on_a_community_database(c) != was + 1:
+        print("  self-test FAILED — 'divisions resting on a community database' did not count a "
+              "reading a community database printed already divided")
+        ok = False
+    c["names"]["authors"].update({"カナリアレイ": {
+        "reading": "カナリア レイ", "reading_basis": "surface", "reading_source": "surface",
+        "reading_boundary": "カナリアユウ", "reading_boundary_basis": "community-printed"}})
+    if budget_divisions_resting_on_a_community_database(c) != was + 2:
+        print("  self-test FAILED — 'divisions resting on a community database' did not count a "
+              "division carried onto a reading of the name's own")
+        ok = False
 
     # The tics invariant reads files rather than ctx, so there is nothing to plant. It carries its
     # own canaries — and its own counter-cases, which matter more: three of the first four things

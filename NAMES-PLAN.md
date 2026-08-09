@@ -562,21 +562,39 @@ offsets, and 4ka エンピツ would lose the space its own byline writes.
 Two rulings taken 2026-08-09, both about what a record is entitled to claim and whether anything
 can read the claim.
 
-**Wikidata states a reading and states no name.** 67 author readings were sourced to it carrying
+**Wikidata raises the floor and states nothing.** 67 author readings were sourced to it carrying
 `reading_basis: stated` and no `reading_source_kind` at all, so the source sat outside
 `curate.READING_ATTRIBUTION` and the table that says what may be believed had nothing to say about
-it. The kind is `community-db`, which is what the same module already writes for every other fact it
-takes from Wikidata. What the table now records is the line that makes it admissible: **P1814 prints
-kana.** A reading is a transcription anybody Japanese-literate can weigh against the characters,
-which §5d already builds the interface around, and a user-edited knowledge base has no standing over
-a person's name while being perfectly able to print their kana. Its English label is a different
-claim and is refused exactly as before.
+it. A pass filed them as `stated` under a `community-db` kind, arguing that P1814 prints kana and
+that a transcription is something anybody Japanese-literate can weigh against the characters. The
+project owner overruled it the same day: "treat wikidata as noncanonical. use it to raise the floor
+on romaji, including additional required searches".
+
+So the basis is `community-printed`, which says what it is. A community database printed the kana
+and nobody with standing over the name has spoken. It beats a morphological analyser, which is at
+its worst on pen names and never declines to answer, and it loses to a kana surface and to anything
+a publisher, the national library or a reviewer with a note puts behind a reading.
+`curate.STATED_BASES` carries `stated` alone, so no check asking whether a source stated a reading
+can be satisfied by this one, and the interface draws the `[?]` on every string it produces. Its
+English label is a different claim and is refused as an attribution exactly as before, while
+remaining usable as a romanisation.
 
 That admits one community database and not three, and the line is between kana and Latin. AniList
 and MangaUpdates return romanised strings, so a reading from either is recovered by reading a
 romanisation backwards, which has already lost the length of every vowel. Those are
 `back-converted`, the attribution table carries no row for them, and `boundary.SETTLED_BASES`
 refuses them as the donor of a division on the same reasoning.
+
+**A floor-raising DIVISION is admissible, and it carries its mark to wherever it lands.** 68 of the
+readings arrive divided, because P734 and P735 give the family and given kana separately. Taking the
+kana and refusing the space would take the harder half of one editor's claim and return those people
+to a glued romanisation, so `curate.DIVIDING_BASES` admits the basis and `divisions resting on a
+community database` counts the result. The case that needed more than a table entry is a division
+LENT to another record: アカイマルボロウ is a kana credit whose sounds are its own surface, and the
+space in it came from 赤衣丸歩郎, whose reading is an anonymous edit. The doubt sat on the donor's
+record and the interface only ever draws the borrower, so 8 people were divided by Wikidata with no
+mark of any kind. `boundary.donor_basis` writes `reading_boundary_basis` on the borrower, build.py
+ships it, and the interface says where the space came from.
 
 **Where a name divides is a field, and it was half in prose.** §5e made the division a second fact
 and `boundary.fill` records it in `reading_boundary`. `ndl_heading.entry` and

@@ -69,6 +69,25 @@ def main(s):
     # names are built from, so a substring test on them would take a person with it.
     for who in ("作田ハジメ", "はいむらきよたか", "絵日はな", "文月ナオ", "阿部潤"):
         s.check(not p4.is_credit_line(who), f"and a pen name is not one: {who}")
+    # A SINGLE CHARACTER IN A BRACKET IS THE ROLE AND NOTHING ELSE. `index[].c` reached this pass
+    # for the first time on 2026-08-09, and the bibliography writes a print credit as `[著]名前`.
+    # None of the tests above catches it: the string is short, holds no separator and holds no
+    # multi-character role, so three fields entered the store as people and the analyser read 著 as
+    # チョ. `[チョ]KENTOOKAYAMA` was recorded as somebody's reading and `readings are stored as
+    # kana` caught it. 378 records were in that shape once the collection was fed in.
+    for line in ("[著]KENTO OKAYAMA", "[著]ねこうめ", "[作]いくたはな", "[編]乙女☆妄想族",
+                 "コミックニュータイプ(編)",
+                 # A DOUBLED DELIMITER IS STILL ONE DELIMITER, and the outer pair of `[[著]]` holds
+                 # `[著`, which is not a role. `a person is spelled one way` caught this one: the
+                 # phrase map said `[ [ Cho ] ] Tsubaki Tori Ka` and the store said
+                 # `[[Cho]]Tsubaki Torika`, one credit spelled two ways on the same page.
+                 "[[著]]椿木とりか"):
+        s.check(p4.is_credit_line(line), f"a bracketed role is a credit line: {line}")
+    # AND THE COUNTER-CASE THE BRACKET RULE COULD BREAK, which is the whole reason a bracket holding
+    # kana is read as a furigana gloss elsewhere. 博（ひろ） is a name with its own reading printed
+    # beside it and 壇九（TANJIU) is a name beside the Latin the artist also goes by.
+    for who in ("博（ひろ）", "壇九（TANJIU)", "太陽まりい"):
+        s.check(not p4.is_credit_line(who), f"and a bracket holding no role is not: {who}")
 
     s.check(p4.has_japanese("第1話"), "japanese detected")
     s.check(not p4.has_japanese("Chapter 1"), "plain english is not japanese")

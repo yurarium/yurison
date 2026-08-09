@@ -186,6 +186,47 @@ def main(s):
                                                           ("六道神士", None)],
          "and the caller that wants names still gets pairs, from the one traversal")
 
+    every_collection_that_carries_a_credit(s)
+
+
+def every_collection_that_carries_a_credit(s):
+    """`load` reads all four, and takes titles from only two.
+
+    THE GAP THIS CLOSES. `index[].c` is the byline the catalogue tab draws and `works[].creator` is
+    the one the 発売 tab draws, and neither was read here, so the naming passes were never shown two
+    of the four places a reader meets a credit. 312 people were invisible to every lookup on
+    2026-08-09, and the measures could not say so because they are all taken over the store.
+
+    AND THE HALF THAT DOES NOT MOVE. NAMES-PLAN §2 forbids spending a request on the print half's
+    TITLES, which madb-cache and openbd-cache already answer. So a catalogue row contributes its
+    people and not its name, and this asserts the second half as hard as the first: a fix that
+    quietly enlarged the title queue would spend requests the plan rules out.
+    """
+    import json
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        build = pathlib.Path(d)
+        (build / "feed").mkdir(parents=True)
+        (build / "series.json").write_text(json.dumps(
+            {"series": [{"work": "やがて君になる", "author": "仲谷鳰", "url": "https://x.invalid/1"}]}),
+            encoding="utf-8")
+        (build / "feed" / "current.json").write_text(json.dumps({"releases": []}), encoding="utf-8")
+        (build / "index.json").write_text(json.dumps(
+            [{"id": "w1", "t": "citrus", "c": "[著]サブロウタ"}]), encoding="utf-8")
+        (build / "works.json").write_text(json.dumps(
+            {"works": [{"id": "w2", "work": "妻'sマネージャー", "creator": "浅見百合子"}]}),
+            encoding="utf-8")
+        authors, titles, credits, by_title = inputs.load(build)
+        s.check("サブロウタ" in authors, "a person credited on a catalogue row is looked up")
+        s.check("浅見百合子" in authors, "and one credited on a 発売 row")
+        s.check("仲谷鳰" in authors, "beside the two collections that were already read")
+        s.eq(sorted(titles), ["やがて君になる"],
+             "and no catalogue title joins the queue, because §2 spends no request on those")
+        s.check("[著]サブロウタ" in credits,
+                "the field itself is kept, since pass 0 needs the page a name was read from")
+        s.eq(by_title.get("妻'sマネージャー"), None,
+             "a work-to-people map is built from the rows that carry a work and a byline together")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "names.inputs"))

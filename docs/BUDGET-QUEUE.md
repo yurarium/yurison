@@ -233,3 +233,24 @@ The tolerance the budget exists for is a work published with a full-width sign i
 `2×2＝SHINOBUDEN+` being the case its docstring cites. A desk name is not that: nobody prints
 `ＭＡＸ` as a claim about typography, so NFKC folding it costs nothing a reader wants. The spacing
 is the other half, since a romanised run and an English common noun run together today.
+
+## Eight researched readings carry no reasoning
+
+Found by the relational schema on 2026-08-09, not by a check. `researched` means a reviewer weighed
+evidence, and the argument for admitting that basis at all is that it carries a note saying what was
+weighed. These eight say `researched` from `yurarium` and hold no note:
+
+志乃と恋, 明日ちゃんのセーラー服, 梓月は天に咲う, 獄門撫子此処ニ在リ, 由花緒リニューアル,
+聖さまの思うままに, 角野兎はかわいい夢を見続ける?, 陰キャギャルでもイキがりたい！
+
+`curate.problems` demands the note and these escaped it, so the enforcement has a hole as well as
+the data. Each one is a reading somebody concluded and did not write down why, and the honest
+options are to reconstruct the reasoning or to demote the basis.
+
+The schema refuses the row outright, so they are the eight the loader reports as refused. That
+number is the fault and not a tolerance.
+
+## Two modules are called store
+
+`adapters/names/store.py` and `adapters/store/`. Whichever is on the path first wins, which made a
+test import the wrong one. One of them should be renamed.

@@ -1,0 +1,122 @@
+#!/usr/bin/env python3
+"""adapters/store: the schema, and the constraints that replace invariants.
+
+COVERS = ['adapters/store/__init__.py', 'adapters/store/schema.sql']
+
+EVERY ASSERTION HERE PLANTS A ROW THE SCHEMA MUST REFUSE. A constraint nobody has watched reject
+something is indistinguishable from a column comment, which is the same argument `--self-test` makes
+about a check.
+"""
+import pathlib
+import sqlite3
+import sys
+import tempfile
+
+# ORDER MATTERS HERE. `adapters/names/store.py` is a different module with the same name, and
+# putting `names` on the path first makes it win. Two modules called store is a collision worth
+# knowing about; until one is renamed, this is the order that resolves the package.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "names"))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+import testkit                                                          # noqa: E402
+import store                                                            # noqa: E402
+
+
+def _fresh():
+    d = tempfile.mkdtemp()
+    db = store.load_rulings(store.create(pathlib.Path(d) / "t.db"))
+    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00001','T','test')")
+    db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c00001','X','person')")
+    db.execute("INSERT INTO publisher (id, name) VALUES ('h00001','P')")
+    return db
+
+
+def _refuses(s, db, sql, args, why):
+    try:
+        db.execute(sql, args)
+        s.check(False, why)
+    except sqlite3.IntegrityError:
+        s.check(True, why)
+
+
+def main(s):
+    db = _fresh()
+
+    # AN EDGE NAMING NOBODY IS REFUSED. `every credit identifier resolves` and `a shipped identifier
+    # resolves` are Python that runs after the damage; here the row cannot be written.
+    _refuses(s, db, "INSERT INTO work_credit VALUES ('w00001','c99999',NULL,0)", (),
+             "an edge to a credit that does not exist is refused")
+    _refuses(s, db, "INSERT INTO work_credit VALUES ('w99999','c00001',NULL,0)", (),
+             "an edge to a work that does not exist is refused")
+
+    # ONE ROW PER IDENTIFIER, and one identifier per name.
+    _refuses(s, db, "INSERT INTO work (id, title, admitted_by) VALUES ('w00001','other','t')", (),
+             "a second work under one id is refused")
+    _refuses(s, db, "INSERT INTO credit (id, surface, kind) VALUES ('c00002','X','person')", (),
+             "a second credit under one surface is refused")
+
+    # AN IDENTIFIER HAS A SHAPE. `w`, `c`, `h` are the project's and a typo is not an id.
+    _refuses(s, db, "INSERT INTO work (id, title, admitted_by) VALUES ('nope','T','t')", (),
+             "an identifier of the wrong shape is refused")
+
+    # AN IMPRINT BELONGS TO A HOUSE THAT EXISTS.
+    _refuses(s, db, "INSERT INTO imprint (publisher, name) VALUES ('h99999','L')", (),
+             "an imprint under a house that does not exist is refused")
+
+    # A RESEARCHED CLAIM CARRIES ITS REASONING. This one is not hypothetical: the loader refuses
+    # eight rows the corpus holds today, all `researched` from `yurarium` with no note.
+    _refuses(s, db,
+             "INSERT INTO claim (subject_kind,subject,predicate,value,basis,note)"
+             " VALUES ('work','w00001','reading','ヨミ','researched',NULL)", (),
+             "a researched claim with no note is refused")
+    db.execute("INSERT INTO claim (subject_kind,subject,predicate,value,basis,note)"
+               " VALUES ('work','w00001','reading','ヨミ','researched','weighed X')")
+    s.check(True, "and one with a note is accepted")
+
+    # A STATED CLAIM NAMES WHERE IT CAME FROM. The stage-three invariant, as a constraint.
+    _refuses(s, db,
+             "INSERT INTO claim (subject_kind,subject,predicate,value,basis,source_kind,url)"
+             " VALUES ('work','w00001','reading','ヨミ','stated','national-library',NULL)", (),
+             "a stated claim with no address is refused")
+    db.execute("INSERT INTO claim (subject_kind,subject,predicate,value,basis,source_kind,url)"
+               " VALUES ('work','w00001','reading','ヨミ','stated','national-library','https://x')")
+    s.check(True, "and one with an address is accepted")
+    # SELF-SOURCED NEEDS NO ADDRESS, because a kana surface reads as itself and there is nothing to
+    # point at. Two title-furigana claims were refused until the loader said `derived`.
+    db.execute("INSERT INTO claim (subject_kind,subject,predicate,value,basis,source_kind)"
+               " VALUES ('work','w00001','reading','ヨミ','stated','derived')")
+    s.check(True, "a self-sourced stated claim needs no address")
+
+    # A BASIS OR A KIND NOBODY HAS RULED ON IS REFUSED, which is the drift this replaces: the
+    # vocabulary has one home and a foreign key has no second copy to disagree with.
+    _refuses(s, db,
+             "INSERT INTO claim (subject_kind,subject,predicate,value,basis) "
+             "VALUES ('work','w00001','reading','ヨミ','invented')", (),
+             "a basis nobody ruled on is refused")
+    _refuses(s, db,
+             "INSERT INTO claim (subject_kind,subject,predicate,value,basis,source_kind,url)"
+             " VALUES ('work','w00001','reading','ヨミ','stated','wikipedia','https://x')", (),
+             "a source kind nobody ruled on is refused")
+
+    # THE RULINGS ARE ASKED FOR AND NOT RESTATED, which is the whole reason the schema may hold
+    # them. If these tables ever disagree with the facts, the loader copied instead of asking.
+    from facts import division as _div
+    from facts import reading as _rd
+    got = {b: (c, d_, m, n) for b, c, d_, m, n
+           in db.execute("SELECT name, cited, donates, marked, counted FROM basis")}
+    for b in _div.BASES:
+        s.eq(got[b], (int(_div.cites_its_source(b)), int(_div.may_donate(b)),
+                      int(_div.is_marked(b)), int(_div.counted_uncited(b))),
+             f"the basis table agrees with facts/division about {b}")
+    pairs = {(b, k) for b, k in db.execute("SELECT basis, source_kind FROM basis_admits_kind")}
+    for b in _rd.bases():
+        for k in _rd.kinds_for(b):
+            s.check((b, k) in pairs, f"the attribution table carries {b}/{k}")
+
+    # THE QUESTIONS RUN. Each was a script or was unaskable; a broken one would answer nothing.
+    for q, sql in store.QUESTIONS.items():
+        db.execute(sql).fetchone()
+    s.check(True, "every standing question is valid SQL against this schema")
+
+
+if __name__ == "__main__":
+    raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

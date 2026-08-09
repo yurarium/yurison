@@ -20,3 +20,4 @@ data/names/.journal/
 # consequence worth knowing: titles.json is read by ADAPTERS, so a fresh clone must build once
 # before it can fetch. The committed copy used to hide that ordering.
 data/build/
+data/store.db

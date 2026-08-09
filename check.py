@@ -4503,10 +4503,102 @@ def _plant_imprint_under_another_house(c):
                                        "imprint": spelling}]})
 
 
+class _Scratch(dict):
+    """A context a canary can be planted in, copying only the part the plant actually touches.
+
+    DEEPCOPYING THE WHOLE CONTEXT WAS 23 OF THE SELF-TEST'S 53 SECONDS, 34 probes at 0.67 s each,
+    and every one of them threw the copy away after mutating one key. This copies a top-level value
+    the first time it is fetched, so `c["series"].append(...)` gets a private list and everything
+    else stays shared.
+
+    `freeze()` is the half that makes it fast: a plant touches one key, and the CHECK that follows
+    reads a dozen. Copying for the check's reads would give back everything the lazy copy saved, so
+    the plant runs unfrozen and the check runs frozen. That rests on checks being readers, which
+    `self_test` verifies at the end by comparing the context against a fingerprint taken before any
+    probe ran. A check that mutates its context would corrupt every probe after it, and this says so
+    instead of leaving it to be discovered.
+    """
+
+    def __init__(self, base):
+        super().__init__(base)
+        self._base, self._copied, self._frozen = base, set(), False
+
+    def __getitem__(self, k):
+        # A KEY THE BASE NEVER HELD is one a probe added, so it is already private and copying it
+        # would fail. `_iface` is planted by the interface probes and is exactly this case.
+        if not self._frozen and k not in self._copied and k in self._base:
+            import copy as _c
+            super().__setitem__(k, _c.deepcopy(self._base[k]))
+            self._copied.add(k)
+        return super().__getitem__(k)
+
+    def __setitem__(self, k, v):
+        # ASSIGNING A KEY MAKES IT PRIVATE. Without this the next read saw a key it had not copied
+        # yet, fetched a fresh copy from the base, and threw the plant away, which is how three
+        # probes for `one work under two names in a list` stopped catching their canaries.
+        self._copied.add(k)
+        super().__setitem__(k, v)
+
+    def get(self, k, default=None):
+        # `dict.get` DOES NOT GO THROUGH `__getitem__` on a subclass, so without this a plant
+        # reaching for `c.get("names")` would be handed the shared object and would write straight
+        # into the context every later probe reads.
+        return self[k] if k in self else default
+
+    def freeze(self):
+        self._frozen = True
+        return self
+
+
+def _fingerprint(ctx):
+    """A cheap statement about a context's shape, for detecting a check that writes to it."""
+    return {k: len(v) for k, v in ctx.items() if hasattr(v, "__len__")}
+
+
+def _scratch_self_test():
+    """`_Scratch` stands between every canary and the context, so it is checked before they are."""
+    base = {"rows": [1, 2], "names": {"a": {"r": "X"}}}
+    ok = True
+
+    def bad(why):
+        nonlocal ok
+        print(f"  self-test FAILED — _Scratch {why}")
+        ok = False
+
+    c = _Scratch(base)
+    c["rows"].append(3)
+    if base["rows"] != [1, 2]:
+        bad("let an append reach the base")
+    if c["rows"] != [1, 2, 3]:
+        bad("lost an append")
+
+    c = _Scratch(base)
+    c.get("names")["a"]["r"] = "Y"
+    if base["names"]["a"]["r"] != "X":
+        bad("let `get` hand out the shared object")
+
+    c = _Scratch(base)
+    c["rows"] = ["planted"]
+    if c["rows"] != ["planted"]:
+        bad("overwrote an assignment with a copy of the base")
+
+    c = _Scratch(base)
+    c["absent"] = 1
+    if c["absent"] != 1:
+        bad("could not hold a key the base never had")
+
+    c = _Scratch(base).freeze()
+    if c["rows"] is not base["rows"]:
+        bad("kept copying after freeze")
+    return ok
+
+
 def self_test():
     """Prove the invariants can fail. A check that cannot demonstrate a catch is not a check."""
     import copy
     ctx = context()
+    _before = _fingerprint(ctx)
+    ok_scratch = _scratch_self_test()
     if not ctx["releases"]:
         print("  self-test SKIPPED — no build output to plant a canary in")
         return True
@@ -4730,8 +4822,9 @@ def self_test():
     ]
     ok = True
     for name, fn, plant in probes:
-        c = copy.deepcopy(ctx)
+        c = _Scratch(ctx)
         plant(c)
+        c.freeze()
         if not fn(c):
             print(f"  self-test FAILED — '{name}' did not catch its canary")
             ok = False
@@ -4741,7 +4834,7 @@ def self_test():
     # measures a class its subject deliberately refuses to act on, and a count that reads 3 and a
     # count that cannot rise above 3 look identical from outside (§14b). The canary is a fullwidth
     # equals sign, which `isbd.areas` would never split and this must still see.
-    c = copy.deepcopy(ctx)
+    c = _Scratch(ctx)
     was = budget_titles_carrying_cataloguing_punctuation(c)
     # BOTH ARE PLANTED AS WORKS, because that is what this counts now. It used to walk works.json
     # too, where a record faithfully transcribes an edition it is filed under, so one canary sat in
@@ -4757,7 +4850,7 @@ def self_test():
     # a real credit and the analyser's real answer for it: `[著]安田剛助` was shipped as
     # `[ Cho ] Yasuda Takesuke` while the store held Yasuda Kōsuke from openBD, and a count that
     # reads 70 is indistinguishable from a count that cannot rise (§14b).
-    c = copy.deepcopy(ctx)
+    c = _Scratch(ctx)
     was = budget_credit_phrases_spelling_a_person_otherwise(c)
     shipped = c["names_shipped"] = dict(c.get("names_shipped") or {})
     shipped["credit_parts"] = dict(shipped.get("credit_parts") or {})
@@ -4777,7 +4870,7 @@ def self_test():
     # carry that space, so a row reaching the walk without a rendering of its own is drawn with a
     # space the catalogue never wrote. That row is what this appends. A count that reads 23 and a
     # count that cannot rise look the same from outside (§14b).
-    c = copy.deepcopy(ctx)
+    c = _Scratch(ctx)
     was = budget_bylines_drawn_in_a_spelling_the_field_does_not_write(c)
     c["series"] = list(c["series"]) + [{"id": "wCANARY", "author": "永田さんずい"}]
     if budget_bylines_drawn_in_a_spelling_the_field_does_not_write(c) != was + 1:
@@ -4788,7 +4881,7 @@ def self_test():
     # THE INTERFACE'S OWN COPY OF THE FOLD, changed to what it looked like before the two were held
     # together: NFKC and no space stripping, which is `curate._fold` and is what made "the same key"
     # mean two things. The canary is a real state of this repository and not an invented one.
-    c = copy.deepcopy(ctx)
+    c = _Scratch(ctx)
     c["interface_js"] = (c.get("interface_js") or "").replace(
         "return (t || '').normalize('NFKC').replace(/ /g, '');",
         "return (t || '').normalize('NFKC');")
@@ -4803,7 +4896,7 @@ def self_test():
     # list looks like. Both new budgets are probed on it and they must answer differently: the
     # registry-based one sees the two records land on one work, and the pairs one cannot, because
     # the two titles do not fold equal. That difference is the reason both exist.
-    c = copy.deepcopy(ctx)
+    c = _Scratch(ctx)
     _reg = next((e for e in c["identity"] if len(
         [a for a in (e.get("anchors") or []) if a.startswith("madb:")]) >= 2), None)
     if _reg:
@@ -4833,7 +4926,7 @@ def self_test():
     # to one title with a person in common: the shape くちびるためいきさくらいろ has in the shipped
     # list today. The bracketed edition marker is there because `fold` removes it, so a collected
     # edition beside its volumes is one work with two rows and has to be counted.
-    c = copy.deepcopy(ctx)
+    c = _Scratch(ctx)
     c["index"] = []
     c["series"] = [{"work": "カナリア", "author": "犬井カナ"},
                    {"work": "カナリア【合本版】", "author": "犬井カナ"}]
@@ -4851,7 +4944,7 @@ def self_test():
     # the one a measure built on the assigner's own splitter could never see. Taking a spelling out
     # of the registry reproduces exactly what a pass that stopped minting for it would leave behind,
     # and the residue has to name the credit rather than fall silent.
-    c = copy.deepcopy(ctx)
+    c = _Scratch(ctx)
     was = budget_credit_fields_no_identifier_covers(c)
     entries = (c["credits"] or {}).get("credits") or []
     dropped = next((e for e in entries
@@ -4868,7 +4961,7 @@ def self_test():
     # data/names/authors.yaml was in for all 82 pairs on the morning of 2026-08-08. Taking a ruling
     # away puts one pair back into it, and a count that cannot rise here is a count that would let an
     # artist quietly hold two addresses.
-    c = copy.deepcopy(ctx)
+    c = _Scratch(ctx)
     was = budget_credits_sharing_a_reading_nobody_ruled_on(c)
     rulings = (c["credit_rulings"] or {}).get("rulings") or []
     if rulings:
@@ -4882,7 +4975,7 @@ def self_test():
     # for a work it was told to read is a document this pipeline really produced: it is what
     # data/source/comicfuz/works.yaml was on 2026-08-07, holding 46 of resolved.yaml's 47 works.
     # Taking a captured row away reproduces that state exactly, and the count must rise for it.
-    c = copy.deepcopy(ctx)
+    c = _Scratch(ctx)
     fuz = next((p for p in c["capture_passes"] if p["captured"]), None)
     if fuz:
         was = budget_targets_a_capture_wrote_no_row_for(c)
@@ -4909,7 +5002,7 @@ def self_test():
     # reading, divided where P734 and P735 divide it; ヤブウチユウ is that person's kana credit, whose
     # sounds are its own surface and whose space was carried across by `boundary.fill`. The second is
     # the one a count on `reading_basis` alone would never see, which is why it is planted separately.
-    c = copy.deepcopy(ctx)
+    c = _Scratch(ctx)
     was = budget_divisions_resting_on_a_community_database(c)
     c["names"]["authors"].update({"カナリアユウ": {
         "reading": "カナリア ユウ", "reading_basis": "community-printed",
@@ -4931,7 +5024,7 @@ def self_test():
     # the right half, so the evidence points both ways and nobody may decide it from a keyboard.
     # Planted on `index[].c`, which is a real credit surface and the one that reaches the catalogue
     # tab, rather than on a shape invented for the check.
-    c = copy.deepcopy(ctx)
+    c = _Scratch(ctx)
     was = budget_interpunct_credits_nobody_has_ruled_on(c)
     c["index"] = list(c["index"]) + [{"t": "カナリアの魔法", "c": "矢立肇・カナリアユウ"}]
     if budget_interpunct_credits_nobody_has_ruled_on(c) != was + 1:
@@ -4955,6 +5048,14 @@ def self_test():
     if sub.returncode != 0:
         print("  self-test FAILED — 'no machine tells in reader text':")
         print("   ", sub.stdout.strip().replace("\n", "\n    "))
+        ok = False
+
+    # THE ASSUMPTION `freeze` RESTS ON, checked instead of trusted. If a check wrote to the context
+    # it was handed, every probe after it ran against corrupted data and the run means nothing.
+    if not ok_scratch:
+        ok = False
+    if _fingerprint(ctx) != _before:
+        print("  self-test FAILED — a check mutated the context it was given")
         ok = False
 
     if ok:

@@ -3,12 +3,13 @@
 import pathlib
 import sys
 
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / "names"))
 
 import testkit  # noqa: E402
-from names import analyser_division as d  # noqa: E402
+from facts.division import analyser_division as d  # noqa: E402
 
-COVERS = ["adapters/names/analyser_division.py"]
+COVERS = ["adapters/facts/division/analyser_division.py"]
 
 
 def main(s):

@@ -1685,7 +1685,7 @@ def load_names():
     except Exception:
         _prov = None
     try:
-        import boundary as _boundary
+        from facts import division as _boundary
     except Exception:
         _boundary = None
 
@@ -5844,7 +5844,7 @@ def main():
         # reader as `No Pi Ya Ka Kozue`, a claim about where a real person's name breaks that no
         # source makes. adapters/names/analyser_division.py takes out every space the surface does
         # not account for and keeps the ones it does.
-        import analyser_division as _adiv
+        from facts import division as _adiv
         _fixed, _own = _adiv.retire_store()
         if _fixed:
             print(f"names           : {len(_fixed)} name(s) had a division an analyser invented "
@@ -5855,7 +5855,7 @@ def main():
         # This carries a division some OTHER record for the same person states, which is offline,
         # additive and settles nothing it cannot cite. adapters/names/boundary.py holds the
         # argument, including the two rules that were tried and rejected.
-        import boundary as _boundary
+        from facts import division as _boundary
         _cut, _left = _boundary.fill_store()
         if _cut:
             print(f"names           : {len(_cut)} kana name(s) divided from a record we already "

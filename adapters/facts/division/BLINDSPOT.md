@@ -1,14 +1,14 @@
 # What `facts/division` cannot see
 
-## It owns what a division means, not where one is
+## The source adapters stayed outside, on purpose
 
-The table says what standing a basis has once a division exists. It does not find divisions. The
-arithmetic off a surface, the parsing of an NDL heading, the reading of an openBD collation key and
-the interpunct rule all live with the sources that supply them, and each hands this module a basis
-name. A source that starts producing a wrong division will keep passing every assertion here.
+`boundary.py` and `analyser_division.py` moved in, because deriving a division and retiring a
+guessed one is this fact. `ndl_heading.py` and `openbd_reading.py` did not, because parsing a
+library catalogue and reading a publisher's collation key are about those sources. They import this
+module and hand it what they found.
 
-This is the largest gap and it is deliberate for now. The extraction took the vocabulary first
-because that is what drifted twice; the producers are the rest of the fact and are not yet moved.
+So a source that starts producing a wrong division still passes every assertion here. This module
+can say the basis is `stated` and cannot say the catalogue was read correctly.
 
 ## A basis nobody has ruled on answers no to everything
 

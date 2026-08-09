@@ -309,7 +309,7 @@ def boundary_queue(path="data/names/authors.yaml"):
     """
     import yaml
 
-    from names import boundary
+    from facts import division as boundary
     names = (yaml.safe_load(pathlib.Path(path).read_text()) or {}).get("names") or {}
     return {n: r.get("reading") for n, r in names.items() if boundary.wants_boundary(n, r)}
 
@@ -327,7 +327,7 @@ def boundary_entries(payload, wanted, reviewed):
     note says so; the sounds are the artist's own spelling and no source is being credited with
     them. Claiming `stated` here would put a publisher's name on kana it did not supply.
     """
-    from names import boundary
+    from facts import division as boundary
     out, unresolved = {}, {}
     for name, current in sorted(wanted.items()):
         reading, ev = resolve(payload, name)

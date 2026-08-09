@@ -366,7 +366,7 @@ def dividing_bases_and_donors(s):
     hand-written copies of the first two and one of them had already drifted. Where a second producer
     genuinely cannot consume the first, §3 asks for an assertion that they agree, and this is it.
     """
-    from names import boundary
+    from facts import division as boundary
     s.eq(set(curate.STATED_BASES), {"stated"},
          "one basis means a source stated the reading, and it is the one named after it")
     s.check(set(curate.STATED_BASES) <= set(curate.DIVIDING_BASES),

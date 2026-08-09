@@ -59,7 +59,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
-from names import boundary                                                    # noqa: E402
+from facts.division import boundary                                           # noqa: E402
 
 # A run of kana, which is the only kind of run whose length in the reading is known. ー and the
 # iteration marks belong to it: they are morae in the reading exactly as they are characters in the

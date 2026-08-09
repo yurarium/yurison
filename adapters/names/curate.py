@@ -257,7 +257,7 @@ def _boundary_problems(kind, where, ja, e, rsk):
     THE PROSE MAY STILL SAY MORE. This asks for a field beside the sentence, never instead of it:
     what the note explains is why the division is believable, which no field holds.
     """
-    from names import boundary
+    from facts import division as boundary
     # A PERSON ONLY, AND NAMES-PLAN §5f IS THE REASON. A title is a sentence and a publisher is a
     # company, both made of ordinary words, which is what a morphological analyser is built for:
     # 2,532 title readings and 9 publisher readings hold an analyser's division and all of them

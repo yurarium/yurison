@@ -48,7 +48,7 @@ import urllib.parse
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
-from names import boundary                                                    # noqa: E402
+from facts import division as boundary                                                    # noqa: E402
 
 # The heading field, and the one this module reads. `著者標目` is the person; `タイトル` and
 # `著者` are `ndl_books.py`'s business.

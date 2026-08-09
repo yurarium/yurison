@@ -3,12 +3,13 @@
 import pathlib
 import sys
 
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / "names"))
 
 import testkit  # noqa: E402
-from names import boundary as b  # noqa: E402
+from facts.division import boundary as b  # noqa: E402
 
-COVERS = ["adapters/names/boundary.py"]
+COVERS = ["adapters/facts/division/boundary.py"]
 
 
 def main(s):

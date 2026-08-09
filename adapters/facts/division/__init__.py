@@ -89,9 +89,17 @@ def bases_where(column):
     return frozenset(b for b in _TABLE if _ask(b, column))
 
 
+_SUBMODULES = ("boundary", "analyser_division", "checks")
+
+
+def _boundary():
+    import importlib
+    return importlib.import_module(".boundary", __name__)
+
+
 def _checks():
-    from . import checks as _c
-    return _c
+    import importlib
+    return importlib.import_module(".checks", __name__)
 
 
 #: WHAT THIS FACT CAN BE CHECKED ON, keyed by the name check.py registers. Exposed here because a
@@ -106,3 +114,41 @@ CHECKS = {
         lambda ctx: _checks().divisions_resting_on_a_community_database(ctx),
     "divisions": lambda reading: _checks().divisions(reading),
 }
+
+
+# ── the producers, re-exported ────────────────────────────────────────────────────────────────
+# THE SURFACE ITS CALLERS ACTUALLY USE, measured rather than guessed. `boundary.py` and
+# `analyser_division.py` moved in here because deciding where a name divides is this fact; the
+# source adapters that HAPPEN to yield divisions (`ndl_heading`, `openbd_reading`) stayed with
+# their sources, because parsing a library catalogue is not this fact.
+def __getattr__(name):
+    """Anything the boundary module publishes, reached through the entry point.
+
+    Written as a module `__getattr__` so the re-export list cannot drift from what the submodule
+    offers, which is the same failure this whole module was extracted to end. A name neither this
+    module nor `boundary` defines still raises AttributeError.
+    """
+    # A SUBMODULE NAME IS NOT FORWARDED. `from . import boundary` reaches this hook before the
+    # submodule is bound on the package, so forwarding it called the import that called the hook.
+    # Importing the submodule is the import machinery's job and never this function's.
+    if name in _SUBMODULES or name.startswith("__"):
+        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+    b = _boundary()
+    if hasattr(b, name):
+        return getattr(b, name)
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+
+def _ad():
+    import importlib
+    return importlib.import_module(".analyser_division", __name__)
+
+
+def retire(*a, **k):
+    """`analyser_division.retire`: strip a division no source states."""
+    return _ad().retire(*a, **k)
+
+
+def asks(*a, **k):
+    """`analyser_division.asks`: whether a record's division is the analyser's to remove."""
+    return _ad().asks(*a, **k)

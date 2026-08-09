@@ -2106,6 +2106,26 @@ def budget_incomplete_attested_rows(ctx):
                     or not r.get("access_modes")))
 
 
+def budget_impossibilities_asserted_without_evidence(ctx):
+    """Comments claiming something can never happen, naming nothing that proves it.
+
+    DECISION 8 OF THE REFACTOR PLAN, and it has a body count. `enFallback` said a branch "should be
+    unreachable" and readers were shown `???? · Bun?Bun`. A confident wrong comment calcifies harder
+    than a test: a test says this happens, a comment says and that is correct, which stops the next
+    reader looking.
+
+    COUNTED SO IT FALLS AS EACH IS ANSWERED. The eight standing today are prose somebody wrote in
+    good faith and most will turn out to be true, so the useful move is adding the citation. A gate
+    that blocked would reward deleting the sentence, which loses the reasoning with the claim.
+    """
+    try:
+        out = subprocess.run([sys.executable, str(ROOT / "adapters" / "lint" / "claims.py"),
+                              "--quiet"], capture_output=True, text=True, timeout=120)
+        return int(out.stdout.strip() or 0)
+    except Exception:                                                   # noqa: BLE001
+        return 0
+
+
 def budget_stock_phrasing_in_comments(ctx):
     # THE REPOSITORY IS THE SUBJECT, so the scan asks git what is in it. Walking the directory
     # counted CLAUDE.md, which is ignored and exists only in the main working tree, so the same
@@ -2608,6 +2628,7 @@ def budget_titles_with_no_translation_of_our_own(ctx):
 
 
 SOURCE_BUDGETS = {"stock phrasing in comments", "three as an organising shape",
+                  "impossibilities asserted without evidence",
                   "modules without a test", "shadowed names in build.py",
                   "scraped counters in chapter names", "invented markup in tests"}
 
@@ -3736,6 +3757,9 @@ BUDGETS_DEF = [
     ("incomplete attested rows", budget_incomplete_attested_rows,
      "attested releases missing a chapter name, author or access state. The classic sign of a "
      "moved CSS selector — the adapter still returns rows, just emptier ones."),
+    ("impossibilities asserted without evidence",
+     budget_impossibilities_asserted_without_evidence,
+     "a comment saying something cannot happen, naming nothing that proves it"),
     ("stock phrasing in comments", budget_stock_phrasing_in_comments,
      "stock phrasing and filler in comments, docstrings and documentation, plus em dashes, which "
      "are a budget here and zero in public text. Public prose is an invariant instead; this is the "

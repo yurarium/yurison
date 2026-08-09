@@ -219,3 +219,17 @@ transliteration of a transliteration.
 The population is small enough to work through one at a time. Note that a name in katakana is not
 by itself evidence of a foreign name, since katakana pen names are ordinary, so this needs the same
 care as the interpunct rule about what the corpus can actually settle.
+
+## Fold the Latin inside an editorial desk name
+
+`まんがタイムきららＭＡＸ編集部` renders `MangataimukiraraＭＡＸEditorial Department`: the floor
+romanises the Japanese and hands the full-width Latin through untouched, with no space where the
+desk word begins. `ＮＯＡＨ編集部` is the same shape.
+
+These joined `full-width forms in English renderings` when `creditLine` became a measured surface,
+so they are newly counted and not newly wrong. The budget stands at 38 for that reason.
+
+The tolerance the budget exists for is a work published with a full-width sign in its own name,
+`2×2＝SHINOBUDEN+` being the case its docstring cites. A desk name is not that: nobody prints
+`ＭＡＸ` as a claim about typography, so NFKC folding it costs nothing a reader wants. The spacing
+is the other half, since a romanised run and an English common noun run together today.

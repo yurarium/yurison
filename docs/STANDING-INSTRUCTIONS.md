@@ -341,6 +341,16 @@ Two things follow. A budget whose name disappeared with the function behind it i
 than merged, or the file grows entries nothing computes. And a branch that renames a budget should
 say so in its report, because the integrator is the only one who can see both names at once.
 
+**A budget re-measured, not remembered.** `./adapters/lint/mergecheck.py` compares what
+`docs/budgets.json` records against what this tree measures, and it exists because remembering
+failed. `stock phrasing in comments` was ratcheted honestly to 898 in a worktree and measured 903
+on main: the walk counted `CLAUDE.md`, which is ignored and exists only in the main tree, so the
+branch was right about its own tree and wrong about the repository. Run it after a merge, before a
+commit that claims a branch's numbers.
+
+It compares NUMBERS, so a branch that changed what a budget MEANS agrees with itself and passes.
+That case still needs a reader.
+
 ## 14b. A check must not share its subject's blind spot
 
 `--self-test` proves a check CAN fail. It does not prove the check can fail on anything the pipeline

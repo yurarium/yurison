@@ -4645,10 +4645,19 @@ def main():
                 tightened[name] = n
             print(f"  ok    {name}: {n}" + (f"  (was {was}, tightening)" if n < was else ""))
 
-    if tightened and not a.no_tighten:
+    # RATCHETING IS AN ACT SOMEBODY TAKES, and it used to happen whenever the build ran. Twice in
+    # one week that banked a number measured over a half-migrated store: the count was real for the
+    # tree it was taken in and false for the tree that followed, and nothing said so. `--runtime` is
+    # what build.py calls, and a build is exactly the moment nobody is watching.
+    #
+    # The gate still tightens, because a person is present there and the number goes into a commit
+    # they write. `--runtime` reports the fall and leaves the file alone.
+    if tightened and not a.no_tighten and not a.runtime:
         recorded.update(tightened)
         BUDGETS.parent.mkdir(parents=True, exist_ok=True)
         BUDGETS.write_text(json.dumps(dict(sorted(recorded.items())), indent=1) + "\n")
+    elif tightened and a.runtime:
+        print(f"  {len(tightened)} budget(s) fell; run ./check.py --gate to record them")
 
 
     # A report only a build log ever sees is a report nobody reads. The technical view exists to

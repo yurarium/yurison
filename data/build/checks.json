@@ -123,13 +123,8 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 4,
-   "examples": [
-    "credits.json",
-    "series.json",
-    "feed/names.json",
-    "feed/current.json"
-   ]
+   "violations": 0,
+   "examples": []
   },
   {
    "name": "no refutation of print serials",

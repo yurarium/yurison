@@ -619,6 +619,40 @@ def series_addresses(s):
     s.eq(b._floored("[著]", _floor), "[Cho]", "the floor spells the notation around a name")
     s.eq(b._floored("[監修]", _floor), None, "and answers nothing for a run it does not hold")
 
+    # ── THE BAR THE FLOOR RAISED, AND THE COUNTER-CASE THAT DECIDES WHERE IT APPLIES ───────────
+    #
+    # A line used to be left alone where any one person in it had no store record, and 60 of the
+    # 70 fields in that state were held back by somebody ALREADY IN LATIN. `Magpie` has no record
+    # because a Latin pen name is not a transliteration of anything, so no reading was ever going
+    # to arrive and the residue was not going to fall. `divided` says the build has already ruled
+    # this string a credit field, and there each person is spelt by the store, by their own Latin,
+    # or by the floor, which is the order kari/app.js reads them in.
+    _div = {"あとき": {"romaji": {"macron": "Atoki"}}}
+    _dfloor = {"あとき": "Atoki", "水之江めがね": "Mizunoe Megane"}
+    s.eq(b._recompose_credit("あとき / Magpie", "A Toki, Magpie", _div, {}, _dfloor, True),
+         "Atoki, Magpie",
+         "a person already in Latin no longer holds back the store's spelling of the rest")
+    s.eq(b._recompose_credit("あとき / Ｍａｇｐｉｅ", "A Toki, Magpie", _div, {}, _dfloor, True),
+         "Atoki, Magpie", "and a cataloguer's full-width typing of that name is folded, not read")
+    s.eq(b._recompose_credit("あとき / 水之江めがね", "A Toki, Mizunoe Megane", _div, {}, _dfloor,
+                             True),
+         "Atoki, Mizunoe Megane", "a person the store has nothing for is spelt from the floor")
+    # THE COUNTER-CASE, AND IT IS WHY `divided` EXISTS. This map holds chapter names and collection
+    # titles beside credit lines, and the splitter finds name-shaped runs in plenty of them. With
+    # the floor answering for anything, `月はタピオカみたいに` came back `Tsuki Wa Tapioka Mitaini`
+    # with the particle capitalised and `特別編4` lost its translation. 1,573 of them changed.
+    s.eq(b._recompose_credit("あとき / 水之江めがね", "A Toki, Mizunoe Megane", _div, {}, _dfloor),
+         "A Toki, Mizunoe Megane",
+         "and a string the build did not rule a credit field keeps the analyser's phrase")
+    # AND A NAME NOTHING CAN SPELL STILL STOPS THE LINE, so a hole never reaches the map.
+    s.eq(b._recompose_credit("あとき / 未知の人", "A Toki, Michi no Hito", _div, {}, _dfloor, True),
+         "A Toki, Michi no Hito", "a name the floor has never spelled leaves the phrase alone")
+    # THE KEY IS THE FOLD, WHICH IS HOW `credit_parts` IS RESOLVED. This function was handed the
+    # raw-keyed store while the division beside it was resolved against the folded one, so a person
+    # the splitter names 王月 よう and the store files 王月よう missed here and hit there.
+    s.eq(b._person_shown("王月 よう", {"王月よう": {"romaji": {"macron": "Ōzuki Yō"}}}, {}),
+         "Ōzuki Yō", "the store is asked with the key credit_parts is keyed on")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

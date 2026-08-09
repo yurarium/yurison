@@ -630,6 +630,47 @@ ours, nothing came with them and the donor is named in `reading_boundary`. The i
 `a division names its donor in a field` holds it, and the note keeps the argument, which is what a
 note is for and what no field was going to hold.
 
+### 5h. What the floor changed about composing a credit line, and what it did not
+
+Decided 2026-08-09, after `credit phrases spelling a person otherwise` stood at 70 and its docstring
+claimed the 70 were readings nobody had researched yet.
+
+**They were not.** 60 of the 70 were held back by somebody whose name is ALREADY IN LATIN. `Magpie`,
+`IceFairy`, `Kastel` and `sheepD` have no record in the author store because §1 says a Latin pen name
+is not a transliteration of anything, so "it falls as those readings arrive" was false of six lines
+in seven. Two were an editorial desk the floor spells. Eight were a lookup asking the raw-keyed store
+for a key `credit_parts` resolves against the folded one, which is the §3 shape one round later.
+
+**The rule those 70 rested on was all-or-nothing: rebuild the line only where every person in it has
+a store record.** The argument for it was that half a line composed and half romanised whole reads as
+neither, and that argument was about the fallback of the day, which was the analyser's one phrase for
+the whole string. §6a's floor is a different fallback. It renders each name in its own state, so the
+bar can be "every person can be rendered somehow" and the line is composed from the store, from a
+name's own Latin, and from the floor, in the order `personShown` reads them in. The budget goes to 4.
+
+**A reader had already left this map, and that is the larger finding.** `creditFromParts` composes a
+multi-person byline name by name and `personShown` cannot answer null in English, so asking the
+interface what it draws for each of the 70 gives the phrase back four times. The map was holding a
+spelling of `あとき` that no page has shown since the composition moved into the browser.
+
+**A rule tried and rejected**, recorded so it is not derived again. Letting the floor answer for any
+missing part, with no test of what kind of string this is. `phrases.yaml` holds chapter names and
+collection titles beside credit lines, the splitter finds a name-shaped run in most of them, and the
+old bar had been keeping the recomposition off them by accident: no store holds のけもののまち.
+1,573 titles and chapter names came back rewritten. `月はタピオカみたいに` read
+`Tsuki Wa Tapioka Mitaini` with the particle capitalised, `特別編4` lost the translation `Special 4`
+in favour of `Tokubetsuhen4`, and `コーヒーカンタータ` closed up to `Kōhīkantāta`. This is
+STANDING-INSTRUCTIONS §2 exactly: the corpus number improved and a whole class broke.
+
+So the two later answers are offered only where `credit_parts` has already divided the string, which
+is the build stating that this is a credit field and these parts are people. A string outside that
+map keeps the store-only bar and its analyser phrase.
+
+**What the four are.** `壇九(TANJIU)`, `にわかあめ(よよはち×ナツノアメ)`, `ウオズミアミ/ウオズミアミ`
+and `桜那えいか、`. Each names one person inside notation that states no job, which is the one shape
+`_credit_of_one` refuses on purpose, because that guard is what keeps it from rewriting a title. Four
+shapes, four judgements, and none of them is the composition rule.
+
 ## 7. Not getting ourselves blocked
 
 - Documented APIs only, with our existing User-Agent and contact URL.

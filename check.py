@@ -28,6 +28,9 @@ BUDGETS RATCHET ONE WAY. Tier-2 numbers are counts with no correct value, only a
 docs/budgets.json by hand, which puts the reason in a commit message where it can be argued with.
 """
 import argparse, ast, collections, json, os, pathlib, re, subprocess, sys, unicodedata
+# Named apart from the plain module name because several measures below bind `html` to one
+# rendering they are walking, and a global with the same name reads as that variable.
+import html as html_module
 
 ROOT = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
@@ -3371,9 +3374,23 @@ def budget_credit_phrases_spelling_a_person_otherwise(ctx):
     ARITHMETIC ON TWO SHIPPED MAPS. `credit_parts`, `phrases` and `authors` all come out of
     feed/names.json and this reads nothing else, so it fails on anything the build can emit.
 
-    A budget, because the residue is the documented all-or-nothing trade: a line is left as the
-    analyser wrote it where any one person in it has no rendering, and 70 lines are in that state
-    because somebody on them is unresearched. It falls as those readings arrive.
+    WHAT THE 70 WERE, WHICH IS NOT WHAT THIS SAID. It read "a line is left alone where any one
+    person on it has no rendering yet, and it falls as those readings arrive". Counted: 60 of the
+    70 were held back by somebody ALREADY IN LATIN. `Magpie`, `IceFairy`, `Kastel` and `sheepD`
+    have no store record because a Latin pen name is not a transliteration of anything
+    (NAMES-PLAN §1), so no reading was going to arrive and that sentence was false of six lines in
+    seven. Two were an editorial desk the floor spells, and eight were a lookup asking the raw
+    store for a key `credit_parts` resolves against the folded one.
+
+    AND THE READER REACHED FOUR OF THEM. `creditFromParts` composes a multi-person line name by
+    name and `personShown` cannot answer null in English, so the phrase is drawn only where the
+    field names ONE person inside notation. Asking kari/app.js what it would show for each of the
+    70 gives this string back four times.
+
+    So the bar moved from the store to the floor, for strings the build has ruled credit fields,
+    and the residue is those four: `壇九(TANJIU)` and three like it, where the notation around one
+    name is a bracket that states no job, so `_credit_of_one` declines to touch it. Each of the
+    four is its own shape and none of them is the composition rule.
     """
     n = ctx["names_shipped"] or {}
     parts, phrases, people = (n.get("credit_parts") or {}, n.get("phrases") or {},
@@ -3399,6 +3416,55 @@ def budget_credit_phrases_spelling_a_person_otherwise(ctx):
                 bad.add(key)
                 break
     return len(bad)
+
+
+def budget_bylines_drawn_in_a_spelling_the_field_does_not_write(ctx):
+    """Work rows whose byline reaches a reader spelt differently from the credit field itself.
+
+    THE FAULT, AND IT HAS BEEN SHIPPED TWICE. `credit_parts` spells each person the way the name
+    store is keyed on them and a credit field spells them the way its cataloguer typed them, so
+    `山本 和音` is 山本和音 in the division and `sono.N` is ｓｏｎｏ．Ｎ. `linkedCredits` located
+    names with `indexOf` on the field, missed all 38 of those, and drew their work pages with no
+    address on any name. The patch that fixed the address by searching the FOLD then handed the
+    division's spelling to `creditChip`, so 35 Japanese bylines came back with the artist's name
+    rewritten underneath their work. Both are one fault: the string that addresses a record and the
+    string a reader sees are not the same string.
+
+    MEASURED WITH FURIGANA ON, because that is where the last of them live. `ruby` draws the spans
+    a record carries, and a record carries the store's spelling of the name, so the space in
+    永田　さんずい reached a field that says 永田さんずい. A chip covering the whole field takes the
+    row's own `author_en`, whose spans are aligned to what that row writes, which is what carried
+    this from 70 to 23.
+
+    §14b, WHAT IT SHARES WITH ITS SUBJECT: the shape of a ruby element, because the reading has to
+    come off before the surface can be compared. Nothing else. The comparison is against
+    `series[].author` as the data holds it, which no part of the renderer consults, so a walk that
+    starts rewriting names shows up here as a rise rather than as agreement. Run against the patch
+    that was reverted it reads 92.
+
+    A budget. The residue is the parts of a MULTI-person field, which have no `author_en` of their
+    own and take the store's record, spelling and all. It reaches zero when a part carries the
+    alignment the whole field already has.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import interface
+    rows = [r for r in ctx["series"] if str(r.get("author") or "").strip()]
+    if not rows:
+        return 0
+    try:
+        drawn = _interface(ctx).with_prefs(LANG="ja", FURIGANA=True).values(
+            [("linkedCredits", r) for r in rows])
+    except interface.Unavailable:
+        return 0
+    bad = 0
+    for row, markup in zip(rows, drawn):
+        # The reading comes off and the surface stays: `<ruby>永田<rt>ながた</rt></ruby>` is the
+        # name 永田 annotated, and the annotation is not part of the spelling.
+        surface = re.sub(r"<rt[^>]*>.*?</rt>", "", markup)
+        surface = html_module.unescape(re.sub(r"<[^>]*>", "", surface))
+        if surface != str(row.get("author") or "").strip():
+            bad += 1
+    return bad
 
 
 def budget_names_rendered_two_ways(ctx):
@@ -4009,9 +4075,19 @@ BUDGETS_DEF = [
      "credit fields whose composed phrase spells one of the people in it differently from the name "
      "store, counted by asking the shipped division who the field names. It was 207 while a line "
      "of one person plus a role bracket was left exactly as the analyser first wrote it, so a "
-     "reading sourced afterwards could not reach it. The residue is the all-or-nothing rule: a "
-     "line is left alone where any one person on it has no rendering yet, and it falls as those "
-     "readings arrive."),
+     "reading sourced afterwards could not reach it. It was then 70 while a line was recomposed "
+     "only where every person on it had a store record, which held back 60 lines on the strength "
+     "of a name already in Latin that no store will ever hold. The residue is a field naming one "
+     "person inside notation that states no job, which is the one shape the recomposition still "
+     "refuses to touch."),
+    ("bylines drawn in a spelling the field does not write",
+     budget_bylines_drawn_in_a_spelling_the_field_does_not_write,
+     "work rows whose byline reaches a reader spelt differently from the credit field the row "
+     "holds, measured with furigana on. The division spells a name the way the store is keyed on "
+     "it and a field spells it the way a cataloguer typed it, and a walk that confuses the two "
+     "either loses the address on 38 pages or rewrites a name under its own artist. The residue "
+     "is the parts of a field naming several people, which have no rendering of their own to take "
+     "the alignment from. A rise means a name is being respelt."),
     ("names rendered two ways", budget_names_rendered_two_ways,
      "strings the shipped maps spell one way as a publisher and another way as a person, which "
      "happens because a self-published work names its own author as its publisher. A rise means a "
@@ -4693,6 +4769,20 @@ def self_test():
     if budget_credit_phrases_spelling_a_person_otherwise(c) != was + 1:
         print("  self-test FAILED — 'credit phrases spelling a person otherwise' did not count "
               "its canary")
+        ok = False
+
+    # A BYLINE RESPELT UNDER ITS OWN ARTIST, and the canary is a state this repository was in
+    # yesterday rather than a shape invented for the probe. 永田さんずい is the field w00094
+    # carries; the store's record of the same person spells it 永田　さんずい and its ruby spans
+    # carry that space, so a row reaching the walk without a rendering of its own is drawn with a
+    # space the catalogue never wrote. That row is what this appends. A count that reads 23 and a
+    # count that cannot rise look the same from outside (§14b).
+    c = copy.deepcopy(ctx)
+    was = budget_bylines_drawn_in_a_spelling_the_field_does_not_write(c)
+    c["series"] = list(c["series"]) + [{"id": "wCANARY", "author": "永田さんずい"}]
+    if budget_bylines_drawn_in_a_spelling_the_field_does_not_write(c) != was + 1:
+        print("  self-test FAILED — 'bylines drawn in a spelling the field does not write' did "
+              "not count its canary")
         ok = False
 
     # THE INTERFACE'S OWN COPY OF THE FOLD, changed to what it looked like before the two were held

@@ -429,7 +429,41 @@ def _floored(text, floor):
     return "".join(out)
 
 
-def _credit_of_one(ja, detail, authors, floor, ruled):
+def _person_shown(name, authors, floor, spell=False):
+    """The English a credit line shows for one person, or None where nothing can spell them.
+
+    THE SAME ANSWERS `kari/app.js` GIVES, asked in the same order, so that the phrase this file
+    ships and the line the browser composes cannot disagree about a name (§3). `personShown` reads
+    the store, then takes a name already in Latin as its own English form, then reaches the floor.
+    Nothing here spells anything: the store holds the romanisations and `romfloor` holds the rest.
+
+    A LATIN PEN NAME IS NOT A TRANSLITERATION OF ANYTHING (NAMES-PLAN §1), which is why the store
+    is empty for `Magpie`, `IceFairy` and `sheepD` and always will be. NFKC and no more, which is
+    the fold `plainLatin` applies for the same reason: `ＦＬＯＷＥＲＣＨＩＬＤ` is a cataloguer's
+    typing of a name and not a different name.
+
+    `spell` IS THE CALLER SAYING THIS RUN IS A PERSON, and without it only the store answers. The
+    map these phrases live in holds chapter names and collection titles beside credit lines, the
+    splitter finds a name-shaped run in plenty of them, and a floor that answers for anything would
+    turn `のけもののまち` into `Nokemononomachi` and take the translation off `特別編4`. So the two
+    later answers are offered only where the build has already divided the string as a credit
+    field. Measured on the corpus this file was written against, letting them answer everywhere
+    rewrote 1,573 titles and chapter names.
+
+    None WHERE THE FLOOR HAS NO RUN EITHER, so a caller can decline rather than print a hole.
+    """
+    rec = authors.get(_namekey.fold(name)) or authors.get(name) or {}
+    shown = ((rec.get("romaji") or {}).get("macron")) or rec.get("en")
+    if shown or not spell:
+        return shown or None
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+    from names import romfloor as _rf
+    if not _rf.JAPANESE_RUN.search(name or ""):
+        return unicodedata.normalize("NFKC", name)
+    return _floored(name, floor)
+
+
+def _credit_of_one(ja, detail, authors, floor, ruled, spell=False):
     """A field naming ONE person plus the job they did, with the job kept and the name current.
 
     WHAT THIS REPLACES, AND WHY THE THING IT REPLACES WAS WRONG IN A WAY NOTHING SAID. `[著]安田剛助`
@@ -462,8 +496,7 @@ def _credit_of_one(ja, detail, authors, floor, ruled):
     # name or a name beside a note, and the leftover is not a bracket this may romanise away.
     if not role or creditline.coverage(raw, None, ruled):
         return None
-    rec = authors.get(name) or {}
-    shown = ((rec.get("romaji") or {}).get("macron")) or rec.get("en")
+    shown = _person_shown(name, authors, floor, spell)
     at = raw.find(name)
     if not shown or at < 0:
         return None
@@ -473,12 +506,30 @@ def _credit_of_one(ja, detail, authors, floor, ruled):
     return (head + shown + tail).strip()
 
 
-def _recompose_credit(ja, phrase, authors, ruled=None, floor=None):
+def _recompose_credit(ja, phrase, authors, ruled=None, floor=None, divided=False):
     """A credit line rendered from its people, or the phrase we already had.
 
-    The line is only rebuilt when EVERY person in it has a rendering of their own. A line that is
-    half recomposed and half romanised whole reads as neither, and the reader cannot tell which
-    part to trust.
+    THE BAR WAS THE STORE AND IS NOW THE FLOOR, decided 2026-08-09. The line used to be rebuilt
+    only where EVERY person in it had a rendering in the AUTHOR STORE, on the argument that half a
+    line composed and half romanised whole reads as neither. That argument was about the fallback
+    of the day, which was the analyser's one phrase for the whole string: two producers' spellings
+    inside one line, and a reader unable to tell which half to trust.
+
+    The floor is a different fallback. It renders each name in its own state, and `_person_shown`
+    asks it in the same order `kari/app.js` asks it, so a composed line and a floored name are no
+    longer two producers. What that leaves the rule protecting is a case that had stopped existing:
+    of the 70 fields the budget counted, 60 were held back by somebody ALREADY IN LATIN. `Magpie`,
+    `IceFairy`, `Kastel` and `sheepD` have no store record because a Latin pen name is not a
+    transliteration of anything, so `it falls as those readings arrive` was false of them and no
+    reading was ever going to arrive.
+
+    AND THE READER HAD ALREADY LEFT. `creditFromParts` composes a multi-person line name by name
+    and `personShown` cannot answer null in English, so of those same 70 fields the interface drew
+    this phrase for four. The rule was defending a fallback nothing reaches, while the map went on
+    shipping a spelling that disagreed with the page.
+
+    So the bar is now that every person can be rendered SOMEHOW, and the phrase stands only where
+    a name defeats the store, is not already Latin and holds a run the floor has never spelled.
 
     ONE PERSON IS A LINE OF ONE, and requiring two was the second producer §3 is about. The phrase
     map is written once per string by an analyser that divides by machine segmentation, so it holds
@@ -513,18 +564,18 @@ def _recompose_credit(ja, phrase, authors, ruled=None, floor=None):
     # naming several people still loses its roles to the join, and that trade was made when this
     # was written.
     if len(parts) == 1 and parts[0] != (ja or "").strip():
-        return _credit_of_one(ja, detail[0], authors, floor, ruled) or phrase
+        return _credit_of_one(ja, detail[0], authors, floor, ruled, divided) or phrase
     out = []
     for n in parts:
-        rec = authors.get(n) or {}
         # The ROMANISATION, not `en`. For a person `en` is written given-then-family, and the
         # interface shows a single author as the romanisation, family first: composing a line from
-        # `en` put "Hitoma Iruma" beside "Kawakami Shion" in the same string.
+        # `en` put "Hitoma Iruma" beside "Kawakami Shion" in the same string. `_person_shown` reads
+        # them in that order.
         #
         # Macron style, because a phrase is rendered once at build time and cannot follow the
         # reader's choice of macron, doubled or plain the way a single name does. That is a real
         # limitation of pre-rendering a line rather than its parts.
-        shown = ((rec.get("romaji") or {}).get("macron")) or rec.get("en")
+        shown = _person_shown(n, authors, floor, divided)
         if not shown:
             return phrase
         out.append(shown)
@@ -6134,13 +6185,13 @@ def main():
          # too when it names a collection. Filtered on the same register.
          # phrases carries collection and chapter names, and a withheld work's title lands here
          # too when it names a collection. Same register, or the title ships anyway.
-         # A CREDIT LINE IS COMPOSED FROM THE PEOPLE IN IT, where we know them. The phrase map is
-         # written once per string by the analyser and never revisited, so it romanises the whole
-         # line as one run and no later correction reaches it: 入間人間 has a sourced reading of
-         # イルマ ヒトマ and its credit line still read "Iruma Ningen"; 柚原もけ came out
-         # "Yuhara mo Ke" because the analyser broke a name it had never seen. Recomposed from the
-         # author store, and left alone where any of the people are unknown, because half a line
-         # composed and half romanised whole would be worse than either.
+         # A CREDIT LINE IS COMPOSED FROM THE PEOPLE IN IT. The phrase map is written once per
+         # string by the analyser and never revisited, so it romanises the whole line as one run
+         # and no later correction reaches it: 入間人間 has a sourced reading of イルマ ヒトマ and
+         # its credit line still read "Iruma Ningen"; 柚原もけ came out "Yuhara mo Ke" because the
+         # analyser broke a name it had never seen. Recomposed from the store, from a name already
+         # in Latin, and from the floor, in that order, and left alone only where a name defeats
+         # all three.
          # The people in each credit line, keyed like the phrases, so the interface can render a
          # line from its parts and follow the reader's romanisation style and name order. The
          # composed phrase stays as the fallback for a line whose people we do not all know.
@@ -6152,7 +6203,28 @@ def main():
          "floor": _floor,
          # THE FLOOR TRAVELS WITH IT, because a field naming one person also carries the job that
          # person did, and the job has to be spelled by the map the rest of the site spells from.
-         "phrases": {_fold(k): _recompose_credit(k, v, _auth_names, _credit_ruled, _floor)
+         #
+         # THE FOLDED STORE, WHICH IS THE MAP `credit_parts` IS BUILT AGAINST. This was handed the
+         # raw-keyed store while the division beside it was resolved against `_auth_folded`, so a
+         # person the splitter names as 王月 よう and the store files as 王月よう was a lookup miss
+         # here and a hit there. Eight credit fields kept the analyser's spelling on the strength
+         # of a space, and the budget counting them read that as a residue of the composition rule.
+         # One key, one map (§3).
+         #
+         # `divided` SAYS THE PARTS ARE PEOPLE, and it is the counter-case that nearly shipped.
+         # This map holds chapter names and collection titles beside credit lines, and the old bar
+         # kept the recomposition off them by accident: it declined whenever a part was missing
+         # from the author store, and no store holds のけもののまち. Spelling a missing part from
+         # the floor removes that accident, and letting it answer everywhere rewrote 1,573 titles
+         # and chapter names, `月はタピオカみたいに` as `Tsuki Wa Tapioka Mitaini` with the particle
+         # capitalised and `特別編4` as `Tokubetsuhen4` with a translation thrown away.
+         #
+         # `_credit_div` is the build's own statement that this string is a credit field and here
+         # is how it divides, which is the fact this needs and one nothing else has to derive. A
+         # string outside it keeps the old bar, so the 201 fields the store already recomposes are
+         # untouched.
+         "phrases": {_fold(k): _recompose_credit(k, v, _auth_folded, _credit_ruled, _floor,
+                                                 _fold(k) in _credit_div)
                      for k, v in (
              (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
               ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}

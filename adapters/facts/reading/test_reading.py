@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """facts/reading: what may be believed about how a name is read, and on whose word.
 
-COVERS = ['adapters/facts/reading/__init__.py']
+COVERS = ['adapters/facts/reading/__init__.py',
+          'adapters/facts/reading/checks.py']
 
 Every assertion here pins a ruling somebody made. A row changed without a ruling behind it fails.
 """
@@ -54,6 +55,25 @@ def main(s):
     # THE STATED BASES ARE A SUBSET OF THE RULED ONES, which is what made the hand-written copy
     # possible to write and possible to get wrong.
     s.check(set(r.STATED_BASES) <= set(r.bases()), "every stated basis is a ruled basis")
+
+
+    # THE CHECKS THAT MOVED IN WITH THE RULINGS, on contexts built here.
+    from facts.reading import checks as rc
+
+    empty = {"names": {}, "names_shipped": {}, "series": [], "index": [], "releases": [],
+             "publishers": {}, "works": []}
+    s.eq(rc.readings_are_kana(dict(empty)), [], "an empty store holds no non-kana reading")
+    s.eq(rc.uncertain_readings(dict(empty)), 0, "and no uncertain one")
+
+    # A READING WRITTEN IN LATIN IS THE FAULT THIS ONE EXISTS FOR. カナリア was shipped with
+    # `Kanaria Romaji` in the reading field, and a reading is stored as kana (NAMES-PLAN 8.1).
+    planted = dict(empty, names={"titles": {"カナリア": {"reading": "Kanaria Romaji"}}})
+    s.check(rc.readings_are_kana(planted), "a Latin reading is caught")
+
+    # AND EVERY ONE IS REACHED THROUGH THE ENTRY POINT, which is how check.py registers them.
+    for name in ("readings_are_kana", "reading_can_show_its_source", "uncertain_readings",
+                 "author_readings_no_source_states", "publisher_readings_nobody_has_settled"):
+        s.check(name in r.CHECKS, f"{name} is published from the entry point")
 
 
 if __name__ == "__main__":

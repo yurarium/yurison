@@ -144,3 +144,18 @@ def states_a_reading():
     for b in STATED_BASES:
         out |= set(READING_ATTRIBUTION.get(b, ()))
     return tuple(sorted(out))
+
+
+def _checks():
+    import importlib
+    return importlib.import_module(".checks", __name__)
+
+
+#: WHAT THIS FACT CAN BE CHECKED ON, keyed by the name check.py registers.
+CHECKS = {
+    "readings_are_kana": lambda ctx, _n="readings_are_kana": getattr(_checks(), _n)(ctx),
+    "reading_can_show_its_source": lambda ctx, _n="reading_can_show_its_source": getattr(_checks(), _n)(ctx),
+    "uncertain_readings": lambda ctx, _n="uncertain_readings": getattr(_checks(), _n)(ctx),
+    "author_readings_no_source_states": lambda ctx, _n="author_readings_no_source_states": getattr(_checks(), _n)(ctx),
+    "publisher_readings_nobody_has_settled": lambda ctx, _n="publisher_readings_nobody_has_settled": getattr(_checks(), _n)(ctx),
+}

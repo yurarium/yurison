@@ -174,3 +174,48 @@ fits four examples and states nothing.
 The residue a person is owed is zero, and `interpunct credits nobody has ruled on` is what says so.
 `data/identity/interpunct-rulings.yaml` is where an answer goes, and it is a different file from
 `credit-rulings.yaml`, which settles pairs of credits sharing one reading and was here first.
+
+## Make a glued fallback look like a name pair
+
+**Raised by the project owner, 2026-08-09.** `上田香子` renders `Uedakyōko`, which reads as one
+token and no reader would take for a Japanese name. The budget `author names romanised as one word`
+counts 1,191 of these.
+
+The record says why: `reading_basis: analyser`, `reading_source: sudachi`, and both
+`reading_boundary` and `reading_boundary_basis` null. The analyser returned the whole reading as one
+opaque guess, so the store cannot say that 上田 is ウエダ with near-certainty while the given name is
+open. It holds one claim about the whole string, and the romaniser receives one unspaced run.
+
+The owner asks that these at least take the shape of a plausible family and given pair. Two routes
+worth weighing, and the choice belongs to the owner:
+
+1. Record a reading per morpheme, so a surname the analyser is confident about can be spaced off
+   while the rest stays glued. This makes the store able to hold a partly known reading, which is
+   the thing it currently cannot do, and it serves the other 1,190 as well.
+2. Space by the surface's own kanji boundary where the reading aligns, which is arithmetic on
+   `上田`+`香子` and states nothing new. `九羊ボン` is filed `クラムボン` and shows why this is unsafe
+   in general, so it would need the alignment to be checked rather than assumed.
+
+Neither invents a division from nothing, which the standing ruling forbids. Both need the mark to
+stay, since the sounds are still the analyser's.
+
+## A kana name that spells a name from another language
+
+**Raised by the project owner, 2026-08-09.** `ステファン・セジク` renders `Sutefan Sejiku`. The kana are
+attested and the romanisation is faithful to them, and the person is Stephen Sedjik or a spelling
+near it. Transliterating kana that are themselves a transliteration takes a reader further from the
+name than the Japanese did.
+
+Others in the same shape are `アナ・C・サンチェス` (`Ana C Sanchesu`), `ブリリアント・ブラウン`
+(`Buririanto Buraun`), `マリコ・タマキ` and `ジリアンタマキ`, who are Canadian, and
+`るいす・まくられん` (`Ruisu Makuraren`), which is hiragana and reads as a Scottish surname.
+
+Two pieces of work. Research the underlying Latin spelling, for which a translated edition's
+copyright page, the original publisher and the artist's own site are the routes. Then, where the
+Latin cannot be settled, mark the rendering and say in the tooltip that the kana spell a name from
+another language whose own spelling we have not found, so a reader knows the romanisation is a
+transliteration of a transliteration.
+
+The population is small enough to work through one at a time. Note that a name in katakana is not
+by itself evidence of a foreign name, since katakana pen names are ordinary, so this needs the same
+care as the interpunct rule about what the corpus can actually settle.

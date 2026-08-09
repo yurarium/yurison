@@ -373,15 +373,21 @@ def dividing_bases_and_donors(s):
             "a stated reading arrives divided the way its source divided it")
     s.check(set(curate.STATED_BASES) <= set(curate.READING_ATTRIBUTION),
             "and every basis named there is a row of the table it selects from")
-    # THE ONE ENTRY THAT COULD HAVE GONE EITHER WAY, and the reason it went this way is that the
-    # mark travels. A lent division leaves its doubt behind on the donor's record, so
-    # `boundary.donor_basis` carries the basis across and build.py ships it. Admitting the basis as a
-    # donor without that would put an anonymous edit's word about where somebody's name breaks in
-    # front of a reader with no mark on it at all: 8 records were in that state on 2026-08-09.
-    s.check("community-printed" in curate.DIVIDING_BASES,
-            "a community database's division stands where its own reading landed")
+    # THE ENTRY THAT WENT INTO THE FIRST LIST AND CAME BACK OUT, ruled and then corrected on
+    # 2026-08-09. The ruling was implemented on a mistyped word, "with overcoming their fallback
+    # basis" for "without", so `community-printed` sat in `DIVIDING_BASES` for a day and an anonymous
+    # edit counted as a citation. The corrected ruling is that Wikidata raises the floor on the
+    # string a reader sees and leaves the record resting where it was, so this list refuses it and
+    # `check.UNCITED_DIVISIONS_COUNTED` admits it beside `divisions resting on a community database`.
+    s.check("community-printed" not in curate.DIVIDING_BASES,
+            "a division typed by an anonymous editor did not arrive cited")
+    s.check("community-printed" in curate.READING_ATTRIBUTION,
+            "though the basis itself stands, because the kana are still worth having")
+    # AND THE SPACE STILL TRAVELS, which is the half the correction does not touch. 88 people would
+    # go back to a glued romanisation to buy a number, and `boundary.donor_basis` is what tells a
+    # borrower's reader where the space came from.
     s.check("community-printed" in boundary.SETTLED_BASES,
-            "and may be lent, because donor_basis is what carries the mark with it")
+            "so it may still be lent, because donor_basis is what carries the origin with it")
     s.check("community-printed" in boundary.MARKED_DONOR_BASES,
             "which is the list that says a borrower owes the reader an explanation")
     s.check("analyser" not in curate.DIVIDING_BASES
@@ -390,8 +396,12 @@ def dividing_bases_and_donors(s):
     s.check("back-converted" not in curate.DIVIDING_BASES
             and "back-converted" not in boundary.SETTLED_BASES,
             "and a romanisation read backwards has lost the length of every vowel")
-    s.eq(sorted(set(boundary.SETTLED_BASES) - set(curate.DIVIDING_BASES)), [],
-         "nothing may lend a division that does not carry one of its own")
+    # THE TWO LISTS NO LONGER NEST, AND THAT IS THE CORRECTION RATHER THAN A DRIFT. `SETTLED_BASES`
+    # minus `DIVIDING_BASES` was asserted empty while both carried the basis; the difference is now
+    # exactly the one entry, and pinning it as an equality is what stops a third basis slipping into
+    # the donor list without an argument.
+    s.eq(sorted(set(boundary.SETTLED_BASES) - set(curate.DIVIDING_BASES)), ["community-printed"],
+         "one basis may lend a division it did not arrive cited with, and it is the ruled one")
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

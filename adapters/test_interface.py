@@ -41,6 +41,11 @@ FLOOR = {
     "やまじえびね": {"macron": "Yamajiebine", "double": "Yamajiebine", "plain": "Yamajiebine"},
 }
 
+# The opening of the floor's own tooltip. Asserted present on a name the store holds nothing for and
+# absent on one whose reading a community database printed, so it is written here once: the two
+# assertions are a pair and a typo in either would look like the other case passing.
+FLOOR_SENTENCE = "No source states how this name is read"
+
 NAMES = {
     "floor": FLOOR,
     "titles": {
@@ -84,6 +89,15 @@ NAMES = {
         "太陽まりい": {"reading": "タイヨウマリイ", "basis": "romaji", "undivided": True,
                   "romaji": {"macron": "Taiyōmarii", "double": "Taiyoumarii",
                              "plain": "Taiyomarii"}},
+        # A NAME WHOSE READING A COMMUNITY DATABASE PRINTED, verbatim from data/names/authors.yaml.
+        # Wikidata's P1814 gives ヤブウチ ユウ and P734/P735 divide it, so the spelling beats
+        # anything derived from the characters and nobody who answers for the name has spoken. The
+        # project owner's correction of 2026-08-09 is about exactly this record: the string a reader
+        # sees improves and the record goes on resting on a fallback.
+        "やぶうち優": {"reading": "ヤブウチ ユウ", "basis": "romaji", "unverified": True,
+                  "reading_basis": "community-printed",
+                  "romaji": {"macron": "Yabūchi Yū", "double": "Yabuuchi Yuu",
+                             "plain": "Yabuchi Yu"}},
     },
     "phrases": {"第1話": "Ch. 1"},
     # THE DIVISION AS `adapters/names/creditline.py` SHIPS IT. `p` is the people in order with the
@@ -209,12 +223,37 @@ def main(s):
             "a name the store has no record for is spelled from the floor")
     s.check("class=\"unc floor\"" in floored[0],
             "and it is marked, so a reader can see the spelling is ours")
-    s.check("No source states how this name is read" in floored[0],
+    s.check(FLOOR_SENTENCE in floored[0],
             "with a tooltip saying why, which is what the ruling asks for")
     s.check("class=\"unc floor\"" in floored[1],
             "and a credit line composed in place marks the name inside it the same way")
     s.check("やまじえびね" not in iface.labels([("credit", "[著]やまじえびね")])[0],
             "no part of a compound line stays Japanese while its neighbours romanise")
+
+    # ── A READING NOBODY WITH STANDING TYPED IS ON THE FLOOR AS WELL ─────────────────────────
+    #
+    # THE OWNER'S CORRECTION OF 2026-08-09, WHICH IS WHAT THIS PINS. The Wikidata ruling was
+    # implemented on a mistyped word and read as lifting these names out of the fallback population,
+    # so 73 people stopped being counted as names nobody had settled while still being romanised off
+    # kana an anonymous editor typed. The corrected ruling gives them the better string and leaves
+    # them where they were, and `renderings resting on a mechanical romanisation` is what counts
+    # them: 44 before, 628 after.
+    wd = iface.values([("authorLabel", {"author": "やぶうち優"})])
+    s.check("Yabūchi Yū" in wd[0],
+            "the community database's kana are what the name is spelled from, which is the whole "
+            "of what the ruling buys: without them this is Yabuuchiyuu or an analyser's guess")
+    s.check('class="unc floor"' in wd[0],
+            "and the rendering carries the floor's own class, because a Wikidata string does not "
+            "close the gap and the count of the gap is taken off this markup")
+    s.check("community-edited database" in wd[0],
+            "with the tooltip naming the database, which is where a reader goes to settle it")
+    s.check(FLOOR_SENTENCE not in wd[0],
+            "and not the generic floor sentence, which would drop the one thing a reader can act "
+            "on to buy a wording the class already carries")
+    s.check('class="unc floor"' not in iface.values(
+                [("authorLabel", {"author": "仲谷鳰"})])[0],
+            "while a reading no community database is behind takes no floor mark at all, so the "
+            "class still separates the two populations it is counted on")
 
     # NOTHING IN THE MAP AT ALL, which is the state the build makes unreachable and this file has
     # to pin anyway: a hole in the floor comes out as something a reader can see, never as kana.

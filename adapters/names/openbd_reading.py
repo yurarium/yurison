@@ -279,9 +279,11 @@ def unsettled_readings(path="data/names/authors.yaml"):
 # else is a machine's answer or no answer, and both are worth asking a publisher about.
 #
 # `community-printed` IS NOT ON THIS LIST AND THAT IS THE POINT OF THE BASIS. The project owner
-# ruled Wikidata noncanonical on 2026-08-09, so the 67 readings it supplies are a floor and not an
+# ruled Wikidata noncanonical on 2026-08-09, so the 73 readings it supplies are a floor and not an
 # answer, and every one of them rejoins this queue. A publisher registering the book is exactly the
-# source that would settle them.
+# source that would settle them. The owner's correction later that day says the same thing in
+# stronger terms: a Wikidata reading does not overcome the record's fallback basis, so these are
+# not names anybody has finished with and this list was already right about them.
 SETTLED = ("stated", "surface", "researched")
 
 

@@ -2777,6 +2777,23 @@ names:
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
+  くろば・Ｕ:
+    basis: romaji
+    furigana_spans:
+    - - くろば・
+      - null
+    - - Ｕ
+      - u
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: クロバ U
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   くわばら たもつ:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -3330,6 +3347,23 @@ names:
     reading: サリイB
     reading_at: '2026-08-09'
     reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
+  さりい・Ｂ:
+    basis: romaji
+    furigana_spans:
+    - - さりい・
+      - null
+    - - Ｂ
+      - b
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: サリイ B
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
@@ -7714,6 +7748,14 @@ names:
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
+  るいす・まくられん:
+    basis: romaji
+    reading: ルイス・マクラレン
+    reading_at: '2026-08-09'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   るぅ１mm:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -8215,6 +8257,37 @@ names:
     reading: アナ
     reading_at: '2026-08-09'
     reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
+  アナ・C・サンチェス:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アナ C サンチェス
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
+  アナ・Ｃ・サンチェス:
+    basis: romaji
+    furigana_spans:
+    - - アナ・
+      - null
+    - - Ｃ
+      - c
+    - - ・サンチェス
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アナ C サンチェス
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_pass: 4
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
@@ -9900,6 +9973,23 @@ names:
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
+  ジェイ・加藤:
+    basis: romaji
+    furigana_spans:
+    - - ジェイ・
+      - null
+    - - 加藤
+      - かとう
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ジェイ カトウ
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   ジョーさん。:
     basis: romaji
     en_at: '2026-08-02'
@@ -10033,6 +10123,14 @@ names:
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
+  ステファン・セジク:
+    basis: romaji
+    reading: ステファン・セジク
+    reading_at: '2026-08-09'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   ストロマ:
     basis: romaji
     en: Stroma
@@ -11668,6 +11766,14 @@ names:
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
+  ブリリアント・ブラウン:
+    basis: romaji
+    reading: ブリリアント・ブラウン
+    reading_at: '2026-08-09'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   プラパ:
     basis: romaji
     reading: プラパ

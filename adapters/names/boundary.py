@@ -184,11 +184,16 @@ def settle(surface, donors):
 # every vowel and is in no position to be believed about a word break.
 #
 # NOT THE SAME LIST AS `curate.DIVIDING_BASES`, AND THE DIFFERENCE IS THE QUESTION. That one asks
-# whether a record's own division arrived with its own reading; this asks whether a record may lend
-# its division to a DIFFERENT record. `community-printed` is in both, and it is the one entry where
-# the two questions could have been answered differently: a lent division leaves the mark behind on
-# the donor. `donor_basis` is what carries the mark across, which is what makes admitting it here
-# honest rather than convenient. `test_boundary` asserts the relationship so the two cannot drift.
+# whether a record's own division ARRIVED CITED; this asks whether a record may lend its division to
+# a DIFFERENT record. `community-printed` is the one entry the two answer differently, and the
+# owner's correction of 2026-08-09 is what separated them: Wikidata does not overcome a record's
+# fallback basis, so the division is not cited, and it is still a division somebody typed rather
+# than one a machine invented. A borrower gets it along with the mark saying where it came from,
+# which `donor_basis` carries and build.py ships. The alternative is 20 people back on a glued
+# romanisation, bought with a space nobody had a better answer for.
+#
+# `test_curate.dividing_bases_and_donors` pins the difference as an equality, so a third basis
+# cannot join this list without somebody arguing for it.
 SETTLED_BASES = ("stated", "surface", "researched", "community-printed")
 
 # A basis whose division is a claim somebody typed under nobody's name, so a record receiving one

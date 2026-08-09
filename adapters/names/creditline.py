@@ -50,23 +50,6 @@ OTHERS = re.compile(r"ほか|他")
 KATAKANA_ONLY = re.compile(r"^[゠-ヿ・ー\s　]+$")
 
 
-def _is_a_name_of_its_own(piece, store):
-    """Whether the store states a reading for this piece, which is what licenses a split.
-
-    THE TEST IS A SOURCED READING AND NOT "COULD THIS BE SHOWN". The looser test asks for a
-    record, or for no Japanese in the piece at all, and it divides `さりい・Ｂ`: Ｂ has a record of
-    its own and is Latin, so both halves passed and one artist became two. It is the counter-case `inputs` records beside
-    SEPARATORS_WHOLE_NAMES and the reason ・ is not a separator for a caller that prints.
-
-    A romanisation the store holds is a positive statement that somebody looked this name up. Two
-    of them either side of an interpunct is 矢立肇・富野由悠季 and 渡辺零・駿馬京; one of them is a
-    name with a character in it. `るいす・まくられん` and `ブリリアント・ブラウン` have neither and
-    stay whole, which is the answer a reader needs.
-    """
-    rec = (store or {}).get(inputs_fold(piece)) or {}
-    return bool(rec.get("romaji"))
-
-
 def inputs_fold(name):
     """The key the shipped name map is under: NFKC with the spaces taken out.
 
@@ -76,16 +59,6 @@ def inputs_fold(name):
     """
     import unicodedata
     return unicodedata.normalize("NFKC", str(name or "")).replace(" ", "")
-
-
-def _by_interpunct(name, store):
-    """`name` split on ・ where every piece is a name the store can render, else `[name]`."""
-    if "・" not in name and "･" not in name:
-        return [name]
-    pieces = [p.strip() for p in re.split(r"[・･]", name) if p.strip()]
-    if len(pieces) < 2 or not all(_is_a_name_of_its_own(p, store) for p in pieces):
-        return [name]
-    return pieces
 
 
 # A filing key folds the kana that sort together, so a stated reading and a printed one differ by
@@ -168,17 +141,19 @@ def _readings_among(parts, store):
     return out if len(out) < len([p for p in parts if p.get("n")]) else []
 
 
-def divide(credit, store=None):
+def divide(credit, store=None, ruled=None):
     """The people a credit field names, in order, each with the job the field gave them.
 
     `[{"n": name, "r": role or absent}, …]`, with a final `{"etc": 1}` where the field said the
-    people it names are some of them. `store` is `feed/names.json`'s `authors` map; without one the
-    interpunct stays inside a name, which is `inputs`' printing answer and the safe direction.
+    people it names are some of them. `store` is `feed/names.json`'s `authors` map, which is what
+    tells a printed reading from a second artist. `ruled` comes from `interpunct.settled`; without
+    one the interpunct stays inside a name, which is `inputs`' printing answer and the safe
+    direction.
     """
-    return _divide(credit, store)[0]
+    return _divide(credit, store, ruled)[0]
 
 
-def _divide(credit, store):
+def _divide(credit, store, ruled=None):
     """`(parts, set aside)`. The second is what the division dropped ON PURPOSE.
 
     RETURNED RATHER THAN RECOMPUTED, because `coverage` below has to tell a reading the division
@@ -190,10 +165,15 @@ def _divide(credit, store):
     if not raw:
         return [], []
     out, aside = [], []
-    for name, reading, role in inputs.split_credits_detail(raw, interpunct=False):
+    # THE INTERPUNCT IS THE SPLITTER'S NOW, AND IT IS NOT AN ANSWER THIS MODULE MAY GIVE.
+    # `_by_interpunct` used to live here and divided where the STORE held a romanisation for both
+    # pieces, which is the §14b failure in its purest form: the store holds records for くろば and
+    # for Ｕ because the name-store splitter cut that person in half, so the test agreed with the
+    # split that made it and the site drew `Kuro Ba, U`. `interpunct.py` reads the evidence off
+    # credit fields holding no ・ at all and hands the answer down as `whole`.
+    for name, reading, role in inputs.split_credits_detail(raw, interpunct=False, ruled=ruled):
         said = _as_written(raw, role) if role else None
-        for piece in _by_interpunct(name, store):
-            out.append({"n": piece, **({"r": said} if said else {})})
+        out.append({"n": name, **({"r": said} if said else {})})
         # THE READING PRINTED IN A BRACKET BESIDE THE NAME. `若（わか）` is one person and the
         # bracket is how the platform states how the kanji is said. `inputs` returns that reading
         # rather than dropping it, which is what tells us the bracket is one; the literal is
@@ -264,7 +244,7 @@ def _says_others(raw, parts):
     return bool(OTHERS.search(rest))
 
 
-def coverage(credit, store=None):
+def coverage(credit, store=None, ruled=None):
     """What the division does not account for: `''` when it accounts for the whole field.
 
     THE MEASURE THAT STOPS A TIDY ANSWER FROM BEING A LOSSY ONE. `[[翻訳協力]][BPS株式会社]` came
@@ -273,7 +253,10 @@ def coverage(credit, store=None):
     language, with no number saying so. A field this cannot account for is rendered as written by
     the interface, and `credit fields the division does not account for` counts them.
     """
-    parts, aside = _divide(credit, store)
+    # THE SAME DIVISION THIS IS MEASURING, asked with the same arguments. A coverage run that split
+    # a ・ the shipped division kept would report the whole name as unaccounted for and set `part`
+    # on a field the interface can draw perfectly well.
+    parts, aside = _divide(credit, store, ruled)
     rest = str(credit or "")
     # EVERY OCCURRENCE, LONGEST FIRST. A field writes one credit twice
     # (`ホマレ / 大鷹シン / オオタカシン / ホマレ`) and the splitter records it once, so removing one

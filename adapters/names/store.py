@@ -87,6 +87,13 @@ READING_RANK = {
     # Wikidata's P1814, ruled noncanonical by the project owner on 2026-08-09 and admitted as a
     # floor: above the machine work below it because an editor typed the kana, below `researched`
     # because nobody weighed anything. `curate.READING_ATTRIBUTION` carries the argument.
+    #
+    # THE RANK SURVIVED THE OWNER'S CORRECTION OF THE SAME DAY, reviewed rather than left alone.
+    # This number decides which STRING a reader is shown when two claims land on one record, which
+    # is the one thing the corrected ruling does license Wikidata to do: raise the floor on the
+    # romanisation. What it does not license is the record claiming to rest on anything better, and
+    # no measure of that reads this table. 25 puts the string above an analyser's and below a
+    # reviewer's, and both of those comparisons are still right.
     "community-printed": 25,
     "aligned": 20,        # derived by aligning a whole-string reading against the surface (§5c)
     "back-converted": 10,  # recovered from a romanised string, lossy in the long vowels (§8.1)

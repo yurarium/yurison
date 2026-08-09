@@ -579,6 +579,19 @@ can be satisfied by this one, and the interface draws the `[?]` on every string 
 English label is a different claim and is refused as an attribution exactly as before, while
 remaining usable as a romanisation.
 
+**And it raises the floor without leaving it**, which is the owner's correction to the ruling, made
+after the first implementation had shipped: "important correction to wikidata instructions: I
+mistyped 'without overcoming their fallback basis'". The reading a reader sees improves; the record
+goes on resting on a fallback. So the `[?]` these names carry is the floor's own mark, with the
+tooltip that names the database, and `renderings resting on a mechanical romanisation` counts them
+along with every other name an English page spells for itself. 44 renderings before the correction,
+628 after.
+
+The lesson worth keeping is smaller than the ruling. One word decided whether 73 people were in the
+count of names nobody has settled, and the first implementation argued the case for the reading it
+had at length and correctly. Nothing in the code could have caught it, because both readings are
+coherent and only one of them is what was meant.
+
 That admits one community database and not three, and the line is between kana and Latin. AniList
 and MangaUpdates return romanised strings, so a reading from either is recovered by reading a
 romanisation backwards, which has already lost the length of every vowel. Those are
@@ -588,8 +601,14 @@ refuses them as the donor of a division on the same reasoning.
 **A floor-raising DIVISION is admissible, and it carries its mark to wherever it lands.** 68 of the
 readings arrive divided, because P734 and P735 give the family and given kana separately. Taking the
 kana and refusing the space would take the harder half of one editor's claim and return those people
-to a glued romanisation, so `curate.DIVIDING_BASES` admits the basis and `divisions resting on a
-community database` counts the result. The case that needed more than a table entry is a division
+to a glued romanisation, so the space stands and `divisions resting on a community database` counts
+the result. What the correction changed is the standing rather than the space:
+`curate.DIVIDING_BASES` is the list of bases whose division arrived CITED and no longer carries
+this one, `check.UNCITED_DIVISIONS_COUNTED` admits it by name beside `back-converted`, and the
+budget is the whole of what stands between 88 divisions and nobody knowing they are there. A
+borrowed division is in the same position: filling `reading_boundary` says where a space was carried
+from and says nothing about what stood behind it, so a loan from a Wikidata record is counted rather
+than treated as a citation. The case that needed more than a table entry is a division
 LENT to another record: アカイマルボロウ is a kana credit whose sounds are its own surface, and the
 space in it came from 赤衣丸歩郎, whose reading is an anonymous edit. The doubt sat on the donor's
 record and the interface only ever draws the borrower, so 8 people were divided by Wikidata with no

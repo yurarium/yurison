@@ -138,6 +138,14 @@ READING_ATTRIBUTION = {
     # IT IS MARKED WHEREVER IT REACHES A READER. `build.py` ships `unverified` for it and the
     # interface draws the `[?]` that says the pronunciation is unconfirmed, because that is what is
     # in question: the sounds, stated by nobody who answers for them.
+    #
+    # AND THE RECORD STILL RESTS ON A FALLBACK, corrected by the project owner 2026-08-09: "I
+    # mistyped 'without overcoming their fallback basis'". The first reading of the ruling had this
+    # basis lifting a name OUT of the fallback population, so 73 people stopped being counted as
+    # names nobody had settled. The correction says Wikidata gives a better STRING and not a better
+    # CLAIM: the romanisation a reader sees improves, the gap in the data does not close, and
+    # `renderings resting on a mechanical romanisation` counts these along with everything else the
+    # interface spelled for itself.
     "community-printed": ("community-db",),
 }
 
@@ -154,15 +162,24 @@ STATED_BASES = ("stated",)
 # and `back-converted` because a romanisation read backwards has already lost the length of every
 # vowel and is in no position to be believed about a word break.
 #
-# `community-printed` IS HERE, WHICH IS THE OWNER'S RULING APPLIED TO THE SPACE AS WELL AS TO THE
-# KANA. `Yabuuchi Yuu` is a better floor than `Yabuuchiyuu`, the division and the reading are one
-# string from one editor, and one mark covers both. Taking the kana and refusing the space would
-# take the harder half of a single statement and refuse the easier one.
+# `community-printed` WAS HERE FOR ONE DAY AND THE OWNER'S CORRECTION TOOK IT OUT, 2026-08-09.
+# The ruling was implemented on a mistyped word: "with overcoming their fallback basis" should have
+# read "without". This list is the answer to "did the division arrive cited", and a division typed
+# by an anonymous editor is not cited whatever else is true of it, so the basis fails the question
+# the list asks.
+#
+# THE SPACE ITSELF STAYS IN THE STORE AND ON THE PAGE. Nothing about the correction sends 88 people
+# back to `Yabuuchiyuu`; what changes is what the record is entitled to claim about the space.
+# `check.inv_a_division_cites_its_source` lets the basis past by name, the way it already let
+# `back-converted` past, and `divisions resting on a community database` is the number that makes
+# the admission visible.
 #
 # `check.DIVIDED_BY_ITS_SOURCE` asks this, and `boundary.SETTLED_BASES` deliberately answers a
-# DIFFERENT question: whether a record may lend its division to some other record. The two lists
+# DIFFERENT question: whether a record may lend its division to some other record. It still carries
+# `community-printed`, because a division a reader can be told the origin of is worth more than a
+# glued romanisation, and `boundary.donor_basis` is what carries the origin across. The two lists
 # and the reason they differ are asserted by `test_curate.test_dividing_bases_and_donors`.
-DIVIDING_BASES = ("stated", "researched", "surface", "community-printed")
+DIVIDING_BASES = ("stated", "researched", "surface")
 
 # `reading_note` is separate from `note` because one entry can carry two decisions. A work whose
 # English was chosen for one reason and whose reading was corrected for another had to put both

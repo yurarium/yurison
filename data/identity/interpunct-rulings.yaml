@@ -1,0 +1,36 @@
+# What a ・ means inside one credit, where a person has decided it.
+#
+# NOT `credit-rulings.yaml`, WHICH IS A DIFFERENT REGISTER AND WAS HERE FIRST. That file settles
+# pairs of credits that share one READING, 85 of them, and `adapters/credit_identity.py` reads it.
+# This one settles a single credit string that holds an interpunct. Two questions about credits,
+# two files, and the names are close enough that this paragraph is worth its space.
+#
+# WHY THIS FILE IS HAND-WRITTEN. `adapters/names/interpunct.py` settles the question from the
+# corpus: a ・ separates people where every piece it separates is credited somewhere else on its
+# own. That answers every string the corpus holds today. It will not answer a string whose pieces
+# are half attested, and it is a measure rather than a judgement, so anything written here wins
+# over it.
+#
+# HOW TO WRITE AN ENTRY. The key is the credit string as the corpus spells it. `people` is `one`
+# where the ・ sits inside one person's name and `several` where it separates people. `why` says
+# what was weighed, because a ruling with no reasoning behind it is a guess wearing a label.
+#
+#   rulings:
+#     さりい・Ｂ:
+#       people: one
+#       why: the artist signs the whole string; nothing credits さりい or Ｂ alone.
+#
+# LEAVING `people` OUT IS ALSO AN ANSWER. It says somebody has been asked and has not decided, and
+# it stops the rule deciding in the meantime: the string is left exactly as the pipeline treated it
+# before, and `interpunct credits nobody has ruled on` counts it until the answer arrives. A wrong
+# split invents a person and a wrong join erases one, so neither is worth guessing to empty a
+# number.
+#
+# WHY THE FILE IS EMPTY. Twelve credit strings in this corpus hold a ・. The rule settles all
+# twelve, and the four it reads as several people are each settled by a source that writes the
+# pieces apart: the bibliography lists 超かぐや姫! as
+# `スタジオクロマト / スタジオコロリド / 米田タロウ` and きみと観たいレースがある as
+# `[原作]渡辺零, 駿馬京 / [漫画]くわばらたもつ`. Recording a ruling here for a case a source has
+# already answered would put our judgement over the source's statement, which is the one thing a
+# ruling file must not become.
+rulings: {}

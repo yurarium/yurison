@@ -279,9 +279,9 @@
   },
   {
    "name": "renderings resting on a mechanical romanisation",
-   "means": "names an English page spells itself, because no source states how they are read. Each one carries a mark and a tooltip saying so. It falls as readings are researched and nothing about the renderer can move it, which makes it the data gap written as a number.",
-   "budget": 44,
-   "value": 44
+   "means": "names an English page spells itself, because no source states how they are read. That covers a name the store holds nothing for and a name read off a community-edited database, which improves the spelling without settling the pronunciation. Each carries a mark and a tooltip saying so. It falls as readings are researched and nothing about the renderer can move it, which makes it the data gap written as a number.",
+   "budget": 628,
+   "value": 628
   },
   {
    "name": "credit fields the division does not account for",
@@ -321,7 +321,7 @@
   },
   {
    "name": "divisions read back from a romanisation",
-   "means": "people whose name is divided on the strength of a space in a community editor's romanisation, recovered by reading that romanisation backwards. The one class `a division cites its source` admits without a source that states readings, counted here so that admitting it is visible. It falls when a source states one of them.",
+   "means": "people whose name is divided on the strength of a space in a community editor's romanisation, recovered by reading that romanisation backwards. One of the two classes `a division cites its source` admits without a source that states readings, counted here so that admitting it is visible. It falls when a source states one of them.",
    "budget": 3,
    "value": 3
   },
@@ -362,10 +362,16 @@
    "value": 16
   },
   {
+   "name": "interpunct credits nobody has ruled on",
+   "means": "credit fields holding a ・ where the corpus points both ways: one of the names either side is credited elsewhere on its own and the other is not, so it cannot be said whether the mark separates two people or sits inside one name. It falls when somebody writes the answer into data/identity/interpunct-rulings.yaml, and a wrong guess either invents a person or erases one.",
+   "budget": 0,
+   "value": 0
+  },
+  {
    "name": "credits carrying their own cataloguing",
    "means": "author records the build publishes no rendering for, which today is a name with a role welded on to it and the person held separately beside it. A rise means a capture started writing cataloguing into the author position again.",
-   "budget": 38,
-   "value": 38
+   "budget": 46,
+   "value": 46
   },
   {
    "name": "credits that restate a name",

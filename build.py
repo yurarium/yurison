@@ -281,7 +281,33 @@ def _stated_for(work, platform):
 
 
 
-def credit_parts(ja, store=None):
+def _interpunct_rulings(fields):
+    """`{folded credit: 'one' | 'several'}` for every ・ the corpus can settle. `{}` on any failure.
+
+    ONE PRODUCER, ASKED ONCE (§3). The naming pass and the credit division both need this answer,
+    and computing it twice off two slightly different field sets is how the store and the page came
+    to disagree about how many people `くろば・Ｕ` names in the first place.
+
+    It prints what it could not settle, because a string waiting on a person is the thing somebody
+    has to act on and a count alone would not say which one.
+    """
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+        from names import interpunct as _ip, inputs as _in
+        whole = lambda f: [n for n, _r in _in.split_authors(f, interpunct=False)]   # noqa: E731
+        rulings = _ip.load_rulings()
+        got = _ip.settled(fields, whole, rulings)
+        held = _ip.unruled(fields, whole, rulings)
+        print(f"credits         : {len(got)} interpunct credit(s) settled from the corpus, "
+              f"{len(held)} waiting on a person"
+              + (": " + ", ".join(held) if held else ""))
+        return got
+    except Exception as _e:                                                     # noqa: BLE001
+        print(f"credits         : no interpunct ruling ({_e})")
+        return {}
+
+
+def credit_parts(ja, store=None, ruled=None):
     """How one credit field divides, in the shape kari/app.js renders it from, or None.
 
     `{"p": [{"n": name, "r": role}, …], "etc": 1, "part": 1}`. `etc` says the field names some of
@@ -303,7 +329,7 @@ def credit_parts(ja, store=None):
         from names import creditline
     except Exception:                                                       # noqa: BLE001
         return None
-    parts, drop = creditline._divide(ja or "", store)
+    parts, drop = creditline._divide(ja or "", store, ruled)
     if not parts:
         return None
     out = {"p": parts}
@@ -312,7 +338,7 @@ def credit_parts(ja, store=None):
         # the name it reads. Taken off an English page, where kana beside a romanisation is a
         # second copy of a name in a script the page is not written in.
         out["drop"] = drop
-    if creditline.coverage(ja or "", store):
+    if creditline.coverage(ja or "", store, ruled):
         out["part"] = 1
     return out
 
@@ -644,7 +670,10 @@ _EN_BASIS = {"official-jp": 4, "licensed": 3, "translated": 2, "stated": 2, "rom
 # `back-converted` are a machine's answer and sit below every one that came from somewhere.
 # `community-printed` is Wikidata, ruled noncanonical on 2026-08-09 and kept as a floor: an editor
 # typed the kana, so it beats a machine reading the characters, and nobody answers for it, so it
-# loses to a kana surface and to everything a source states.
+# loses to a kana surface and to everything a source states. The owner's correction later that day
+# left the rank alone, because this decides which of two records holds the better STRING and the
+# corrected ruling is that a better string is exactly what Wikidata may give. Nothing measures a
+# record's standing off this table.
 _READING_BASIS = {"stated": 5, "researched": 4, "surface": 3, "community-printed": 2,
                   "back-converted": 1, "analyser": 1}
 
@@ -1621,9 +1650,11 @@ def load_names():
             # people were divided that way and rendered with no mark of any kind, because the doubt
             # sat on the donor's record and the interface only ever sees this one.
             #
-            # THE 62 WHOSE OWN READING IS WIKIDATA'S ARE NOT HERE, and that is not an oversight.
+            # THE 68 WHOSE OWN READING IS WIKIDATA'S ARE NOT HERE, and that is not an oversight.
             # Their basis is `community-printed`, they already carry `unverified`, and a second mark
-            # on the same claim is the flood NAMES-PLAN §5d narrows every mark to avoid.
+            # on the same claim is the flood NAMES-PLAN §5d narrows every mark to avoid. Since the
+            # owner's correction of 2026-08-09 that one mark is the floor's own, which says the
+            # Latin a reader is looking at is ours and covers the space along with the sounds.
             # `boundary.fill` writes the field for a division it LENT and for nothing else.
             elif is_person and rec.get("reading_boundary_basis"):
                 out["division_basis"] = rec["reading_boundary_basis"]
@@ -5610,6 +5641,10 @@ def main():
     # Offline, idempotent, and additive only: a name with a reading from a real source is never
     # overwritten by a guess. If SudachiPy is not installed it does nothing and the interface falls
     # back to Japanese (§6), which is a documented state rather than a failure.
+    # Bound before the block, because the naming helpers run inside a `try` that swallows anything
+    # and the credit division below reads this whether or not they got that far. An empty map is
+    # the honest degraded state: nothing is settled, so every ・ is treated exactly as it was.
+    _credit_ruled = {}
     try:
         sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
         import pass4_analyser as _p4
@@ -5648,8 +5683,16 @@ def main():
         # WITHOUT THE REGISTRY, WHICH IS NOT AVAILABLE YET. `credit_page_data` runs after this, and
         # the strings only the registry holds are joined fields like `iimAn&惟丞` that
         # `is_credit_line` refuses anyway, so nothing reaches the store through that argument.
+        # WHERE AN INTERPUNCT SEPARATES PEOPLE AND WHERE IT IS A CHARACTER IN SOMEBODY'S NAME,
+        # settled here because this is the first thing that needs it and everything below reuses
+        # the answer (§3). `adapters/names/interpunct.py` reads the evidence only off credit fields
+        # holding no ・ at all: `くろば・Ｕ` is one artist, nothing credits くろば or Ｕ alone, and
+        # the store held both halves with a registry identifier each because the splitter that
+        # filled it had already decided. A rule asking the store would agree with that split.
+        _credit_ruled = _interpunct_rulings(credit_fields(idx, works, series_rows, releases))
         _p4.fill_missing({p for f in credit_fields(idx, works, series_rows, releases)
-                          for p in [f] + _credits.split_credits(f)[0] if p}, "authors")
+                          for p in [f] + _credits.split_credits(f)[0] if p}, "authors",
+                         ruled=_credit_ruled)
         # Chapter names and credit lines — 202 of the former against 6 titles, so this is most of
         # what stays Japanese on an English page.
         # Titles as phrases too, so one whose only Japanese is punctuation (IDOL×IDOL STORY！) is
@@ -5657,7 +5700,7 @@ def main():
         _p4.fill_chapters({x for r in releases + series_rows
                            for x in (r.get("ep"), r.get("latest_ep"), r.get("collection"),
                                      (r.get("author") or "").strip(),
-                                     r.get("work")) if x})
+                                     r.get("work")) if x}, ruled=_credit_ruled)
         # WHERE A PERSON'S NAME DOES NOT DIVIDE, and this runs FIRST because the answer it produces
         # is what the pass below is then allowed to ask a real source about. An analyser divides
         # every name it is handed, so のぴやか梢 was read ノ ピ ヤ カ コズエ and shown to an English
@@ -5929,13 +5972,19 @@ def main():
     _credits_shipped = credit_page_data(series_rows)
 
     # THE DIVISION OF EVERY CREDIT FIELD A READER CAN MEET. Computed here because it needs the
-    # author store, which is what settles an interpunct: 矢立肇・富野由悠季 divides where both halves
-    # are names this map can render, and るいす・まくられん does not.
+    # author store, which is what tells a reading printed beside a name from a second artist.
+    #
+    # AND THE INTERPUNCT IS SETTLED OFF THE FIELDS THEMSELVES, not off the store. The rule was
+    # "divide where both halves are names the map can render", and the map holds くろば and Ｕ
+    # because the name-store splitter cut that person in half, so the test agreed with the split
+    # that produced it and `Kuro Ba, U` went to a reader (STANDING-INSTRUCTIONS §14b).
+    # `interpunct.settled` reads the evidence off credit fields holding no ・ at all, which is 8,812
+    # of the 8,865 here and none of the ones under question.
     _credit_fields = credit_fields(idx, works, series_rows, releases, _credits_shipped)
     _credit_div = {}
     _credit_unaccounted = 0
     for _cf in _credit_fields:
-        _cd = credit_parts(_cf, _auth_folded)
+        _cd = credit_parts(_cf, _auth_folded, _credit_ruled)
         if not _cd:
             continue
         _credit_div[_fold(_cf)] = _cd

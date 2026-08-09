@@ -34,6 +34,12 @@ import re
 
 from . import credits
 from . import kana
+from . import key
+# THE ONE INTERPUNCT CLASS AND THE ONE FOLD, borrowed rather than spelled again. `interpunct.py`
+# imports nothing from here, so there is no cycle, and a second copy of either is the shape §3
+# counts seven shipped bugs from: this file already carries the interpunct in two regexes and they
+# have to keep agreeing with the module that rules on it.
+from .interpunct import INTERPUNCT, SEVERAL
 
 # Splitting only ever happens on these. A space is NOT among them: 森島 明子 and 月夜 涙 are single
 # people whose family and given names are spaced, and splitting there would double the author count
@@ -218,7 +224,7 @@ def _roles_on(part):
     return None, (_label(tail.group(0)) if tail else None)
 
 
-def split_credits_detail(credit, interpunct=True):
+def split_credits_detail(credit, interpunct=True, ruled=None):
     """A credit line to a list of (name, stated_reading_or_None, role_or_None).
 
     WHY THE ROLE IS RETURNED AT ALL. A credit becomes a reference when a work links to the person it
@@ -233,6 +239,20 @@ def split_credits_detail(credit, interpunct=True):
 
     `interpunct=False` keeps ・ inside a name instead of treating it as a separator. See
     SEPARATORS_WHOLE_NAMES for which caller wants which, and why the answer differs.
+
+    `ruled` IS THE THIRD ANSWER AND THE ONLY ONE MADE OF EVIDENCE. It is `interpunct.settled`'s map
+    from a folded name to `one` or `several`, and it overrides the flag for the names in it, in both
+    directions. The two-answer version cut seven people in half for the store: くろば and Ｕ each
+    had a record and a registry identifier, and `Kuro Ba, U` was on the site under that artist's own
+    work. See `adapters/names/interpunct.py` for what decides it and, more to the point, for the
+    evidence that may not decide it.
+
+    A name the map says nothing about falls back to the flag, so a caller passing no map behaves
+    exactly as it did and a string nobody has settled is treated no worse than before.
+
+    THE INTERPUNCT IS TAKEN OUT AFTER THE ROLE COMES OFF, not before. `[作・画]ステファン・セジク`
+    holds one ・ inside a role bracket and one inside a name, and a `whole` lookup done on the raw
+    part would be looking up a string with `[作・画]` still stuck to the front of it.
     """
     if not credit:
         return []
@@ -244,7 +264,9 @@ def split_credits_detail(credit, interpunct=True):
     # with two readers (STANDING-INSTRUCTIONS §3).
     credit = re.sub(r"\[+", "[", re.sub(r"\]+", "]", str(credit)))
     masked = _break_after_role_brackets(_mask_brackets(credit))
-    seps = SEPARATORS if interpunct else SEPARATORS_WHOLE_NAMES
+    # ALWAYS THE LIST WITHOUT THE INTERPUNCT. The ・ is dealt with below, on the name and not on the
+    # part, so that `whole` can be asked about the string it holds.
+    seps = SEPARATORS_WHOLE_NAMES
     parts = []
     for chunk in re.split(r"%s|%s" % (seps.pattern, BREAK), masked):
         parts.extend(ROLE_BREAK.split(chunk))
@@ -283,19 +305,37 @@ def split_credits_detail(credit, interpunct=True):
         # chapter title.
         if not credits.is_a_person(name):
             continue
-        if name in seen:
-            continue
-        seen.add(name)
-        out.append((name, reading, role))
+        for one in _interpunct_parts(name, interpunct, ruled):
+            if one in seen:
+                continue
+            seen.add(one)
+            out.append((one, reading, role))
     return out
 
 
-def split_authors(credit, interpunct=True):
+def _interpunct_parts(name, interpunct, ruled):
+    """`name` as one name or as the people its ・ separates.
+
+    A NAME THE EVIDENCE SETTLED IS TREATED THE SAME WAY WHOEVER IS ASKING, which is the point of
+    `ruled`: it is a finding about that string and not a preference about this call. Where nothing
+    settled it the old two-answer behaviour stands, so a caller that prints keeps the ・ and a
+    caller feeding the store splits on it, and both are as wrong as they were before and no worse.
+    """
+    if not INTERPUNCT.search(name):
+        return [name]
+    said = (ruled or {}).get(key.fold(name))
+    apart = interpunct if said is None else (said == SEVERAL)
+    if not apart:
+        return [name]
+    return [p for p in (x.strip() for x in INTERPUNCT.split(name)) if p]
+
+
+def split_authors(credit, interpunct=True, ruled=None):
     """A credit line to a list of (name, stated_reading_or_None).
 
     The role the splitter took off is available from `split_credits_detail`, which this wraps.
     """
-    return [(n, r) for n, r, _role in split_credits_detail(credit, interpunct)]
+    return [(n, r) for n, r, _role in split_credits_detail(credit, interpunct, ruled)]
 
 
 def _is_notation(inner):

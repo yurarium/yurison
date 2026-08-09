@@ -47,7 +47,15 @@ which is where the reading really came from, and prose is not something a check 
 # project owner ruled Wikidata noncanonical on 2026-08-09, so the reading carries a mark saying the
 # pronunciation is unconfirmed, and the citation is what lets a Japanese-literate reader go and
 # settle it. Withholding the address while marking the reading would tell a reader there is a doubt
-# and then decline to say where the doubt came from. All 67 hold a `wikidata.org/entity/` URI.
+# and then decline to say where the doubt came from. All 73 hold a `wikidata.org/entity/` URI.
+#
+# THE OWNER'S CORRECTION LATER THAT DAY LEAVES IT HERE, and reviewing it is how that was settled
+# rather than assumed. The corrected ruling is that Wikidata does not overcome the record's fallback
+# basis, so the basis lost its place in `curate.DIVIDING_BASES`, where membership means a claim
+# arrived cited. This list asks something else: whether there is a document behind the string, and
+# an item page anybody can open is a document whatever standing its editor had. The address is not
+# an argument that the reading is right. It is the route to the page that would show a reader it is
+# wrong (§14c), and a marked fallback needs that more than a stated reading does.
 #
 # Everything else is the record accounting for itself and owes nothing. `surface` means the name is
 # already kana, so there was no lookup and there is no page to cite. `analyser`, `aligned` and

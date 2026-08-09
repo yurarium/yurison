@@ -425,11 +425,26 @@ def budget_renderings_resting_on_a_mechanical_romanisation(ctx):
     no reading at all reaches it every time. That makes this the data gap stated as a number, and
     the one measure a later naming pass should be aimed at.
 
+    A COMMUNITY DATABASE'S READING IS COUNTED HERE, from the project owner's correction of
+    2026-08-09: "I mistyped 'without overcoming their fallback basis'". Wikidata raises the floor on
+    the string and leaves the record resting on a fallback, so a name spelled off its kana is a name
+    an English page spelled for itself and belongs in this number. 44 before, 628 after, and the
+    rise is the correction working rather than anything getting worse. `uncertainMark` in
+    kari/app.js is what emits the class for them, beside `floorHtml`, and the tooltip stays the one
+    naming the database.
+
+    WHAT IT STILL DOES NOT COUNT, said here because a measure that catches the stronger case and
+    misses the weaker one is worth nobody's trust (§14b). 1,914 renderings carry `unc` without
+    `floor`: a reading a morphological analyser produced, or one assembled character by character.
+    Those rest on less than a Wikidata edit does, and whether the class should widen to take them is
+    a ruling nobody has made. `author readings no source states` counts the RECORDS behind them,
+    which is why the population is not invisible in the meantime.
+
     MEASURED FROM THE MARKUP THE INTERFACE PRODUCES, so it counts what a reader is actually shown.
-    §14b, WHAT IT SHARES: one CSS class name, `unc floor`, which `floorHtml` in kari/app.js emits.
-    That is the whole of the coupling. Nothing here holds a copy of the rule deciding when the mark
-    is warranted, so a renderer that stopped marking a guess would show up as this falling to zero
-    rather than as this agreeing with it.
+    §14b, WHAT IT SHARES: one CSS class name, `unc floor`, which kari/app.js emits from a single
+    constant. That is the whole of the coupling. Nothing here holds a copy of the rule deciding when
+    the mark is warranted, so a renderer that stopped marking a guess would show up as this falling
+    to zero rather than as this agreeing with it.
     """
     sys.path.insert(0, str(ROOT / "adapters"))
     import interface
@@ -1485,11 +1500,11 @@ def _states_a_reading():
 def _divided_by_its_source():
     """The bases under which a division arrived WITH the reading, ASKED OF THE TABLE.
 
-    A hand-written copy of `curate.DIVIDING_BASES` sat here reading `("stated", "researched",
-    "surface")`, which is §3 in the same place and for the same reason as `_states_a_reading` above:
-    the check that is supposed to notice a drift held one of the two copies. It went stale the day
-    Wikidata's readings moved off `stated`, because a `community-printed` division is admitted by
-    the table and was refused here.
+    A hand-written copy of `curate.DIVIDING_BASES` sat here, which is §3 in the same place and for
+    the same reason as `_states_a_reading` above: the check that is supposed to notice a drift held
+    one of the two copies. It has been wrong in both directions inside one day, first refusing a
+    basis the table admitted and then admitting one the owner's correction took out, and asking the
+    table is what makes a third drift impossible rather than unlikely.
 
     An empty tuple where the table cannot be read, so a check that lost its subject fails loudly.
     """
@@ -1499,6 +1514,27 @@ def _divided_by_its_source():
 
 STATES_A_READING = _states_a_reading()
 DIVIDED_BY_ITS_SOURCE = _divided_by_its_source()
+
+# BASES WHOSE DIVISION IS SOMEBODY'S CLAIM AND CITES NOBODY WHO STATES A READING. Each is let past
+# `a division cites its source` by name and counted by a budget instead, because the alternative is
+# returning people to a glued romanisation to buy a number, which is what STANDING-INSTRUCTIONS §6
+# and the owner's ruling both refuse.
+#
+#   back-converted     a romanisation read backwards, so the space is a community editor's. The
+#                      budget is `divisions read back from a romanisation`, 3 today.
+#   community-printed  Wikidata's P734 and P735, typed by an editor who signed nothing. The budget
+#                      is `divisions resting on a community database`, 88 today.
+#
+# `community-printed` JOINED ON THE OWNER'S CORRECTION OF 2026-08-09, which restored the word
+# "without" to the ruling: Wikidata raises the floor on the string a reader sees and does not
+# overcome the record's fallback basis. So it left `curate.DIVIDING_BASES`, where membership means
+# the division arrived cited, and arrived here, where membership means the division is a known weak
+# class with a number on it. 66 records would have failed the invariant in the gap between the two.
+#
+# HELD HERE AND NOT IN `curate.py`, because it is not a statement about what a basis IS. It is this
+# check's own decision about which weak classes it reports as a count instead of blocking on, and
+# the budget names beside each entry are the half that only check.py can keep true.
+UNCITED_DIVISIONS_COUNTED = ("back-converted", "community-printed")
 
 
 def inv_kana_reading_spells_its_name(ctx):
@@ -1570,19 +1606,27 @@ def inv_a_division_cites_its_source(ctx):
     P734 and P735 separately. That is what `reading_basis` records, and `curate.DIVIDING_BASES` is
     the list of the bases that carry their own citation. `analyser` carries none.
 
-    A COMMUNITY DATABASE IS ON THAT LIST AND IS NOT A SOURCE THAT STATES A READING. The project
-    owner ruled on 2026-08-09 that Wikidata is noncanonical, so its readings hold
-    `community-printed` and fail every test asking whether somebody stated them. The division still
-    stands, because the kana and the space are one string from one editor and the interface marks
-    the whole of it: refusing the space alone would take the harder half of a single claim and
-    return 62 people to a glued romanisation. `divisions resting on a community database` counts
-    them, so somebody can watch the number instead of taking a docstring's word for it.
+    WHAT IT LETS PAST, DELIBERATELY AND COUNTED, and it is two classes rather than one.
+    `UNCITED_DIVISIONS_COUNTED` names them beside the budget each is counted by. `back-converted` is
+    a reading recovered from somebody's romanisation, so its spacing is that romaniser's;
+    `community-printed` is Wikidata's P734 and P735, typed by an editor who signed nothing. Both are
+    weak claims and both ARE claims, which is the whole of the difference between them and an
+    analyser's answer. An `entity` is not a person: 「真夜中ぱんチ」製作委員会 is made of ordinary
+    words and dividing it misnames nobody.
 
-    THE ONE THING IT LETS PAST, deliberately and counted. `back-converted` is a reading recovered
-    from somebody's romanisation, so its spacing is that romaniser's and belongs to a community
-    database rather than to an analyser. It is a weak claim and it IS a claim, and the budget
-    `divisions read back from a romanisation` is what says how many there are. An `entity` is not a
-    person: 「真夜中ぱんチ」製作委員会 is made of ordinary words and dividing it misnames nobody.
+    `community-printed` REACHED THAT LIST BY THE OWNER'S CORRECTION OF 2026-08-09. The ruling had
+    been implemented on a mistyped word and read as lifting these records out of the fallback
+    population, which put the basis in `curate.DIVIDING_BASES` and had this invariant treating an
+    anonymous edit as a citation. The restored word is "without": Wikidata does not overcome the
+    fallback basis. So the division stands, because refusing the space alone would take the harder
+    half of a single editor's claim and return 88 people to a glued romanisation, and it stands as
+    something counted instead of as something cited.
+
+    A BORROWED DIVISION IS CITED BY WHATEVER THE DONOR CITED, which is the same correction one
+    record further on. `reading_boundary` names the record a space was carried from and says nothing
+    about what stood behind it, so 20 kana credits whose space came from Wikidata were passing on
+    the strength of the field being filled. `reading_boundary_basis` is the field that says, `boundary.donor_basis`
+    writes it, and the same budget counts those 20.
 
     §14b, what it cannot see: whether a division is in the right PLACE. It reads the store's own
     account of where each one came from, so a record that cites a source no human checked passes.
@@ -1601,14 +1645,17 @@ def inv_a_division_cites_its_source(ctx):
         rd = v.get("reading")
         if not rd or _divisions(rd) <= _divisions(k):
             continue
+        # Ahead of everything else, because both of these are answers about the whole record and
+        # the clauses below would otherwise reach them through a citation that is not one.
+        if (v.get("reading_basis") in UNCITED_DIVISIONS_COUNTED
+                or v.get("reading_boundary_basis") in UNCITED_DIVISIONS_COUNTED):
+            continue
         cited = bool(v.get("reading_boundary")) or v.get("reading_source_kind") in STATES_A_READING
         if kana.kana_only(k):
             if not cited:
                 bad.append(f"{k}: divided as {rd!r} with nothing saying who divided it")
             continue
         if cited or v.get("entity") or v.get("reading_basis") in DIVIDED_BY_ITS_SOURCE:
-            continue
-        if v.get("reading_basis") == "back-converted":
             continue
         bad.append(f"{k}: divided as {rd!r} with nothing saying who divided it")
     return bad
@@ -2931,6 +2978,48 @@ def budget_credits_the_corpus_files_as_a_venue(ctx):
                if k in filed and not v.get("entity"))
 
 
+def budget_interpunct_credits_nobody_has_ruled_on(ctx):
+    """Credits holding a ・ that the corpus points both ways about, so a person is owed the answer.
+
+    THE ・ IS TWO CHARACTERS WEARING ONE SHAPE. It separates people in 矢立肇・富野由悠季 and sits
+    inside one name in くろば・Ｕ, and nothing in either string says which. `interpunct.py` settles
+    it on evidence: a piece credited somewhere else on its own is a person, and a piece that appears
+    nowhere except inside this string is part of a name. Where some pieces are attested and some are
+    not, the evidence points both ways and this is what says so. A wrong split invents a person and
+    a wrong join erases one, so neither is worth a guess to keep this at zero.
+
+    IT FALLS BY SOMEBODY WRITING A RULING in `data/identity/interpunct-rulings.yaml`, and it can fall no
+    other way: the rule already used every piece of evidence in the corpus before reporting here.
+    It also rises when somebody puts a key in that file and leaves the answer out, which is how a
+    person marks a case as theirs.
+
+    §14b, WHAT IT DOES NOT SHARE WITH ITS SUBJECT. The evidence is read off credit fields holding no
+    ・ at all, so nothing under question contributes to the answer about itself. That is the whole
+    reason the module exists: `creditline._is_a_name_of_its_own` asked the name store, the store
+    holds くろば and Ｕ because the splitter put them there, and every one of the twelve strings read
+    as two people while five of them were being published cut in half.
+
+    WHAT IT CANNOT SEE is a string the corpus settles WRONGLY, because two people share a pen name
+    or because a source split somebody by mistake. Only a reader who knows the artist can, and the
+    ruling file is where that reader's answer goes.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        from names import interpunct, inputs
+    except Exception:                                                       # noqa: BLE001
+        return 0
+    fields = []
+    for rows, field in ((ctx["index"], "c"), (ctx["series"], "author"),
+                        (ctx["releases"], "author"), (ctx["works"], "creator")):
+        for row in rows or []:
+            value = (row or {}).get(field)
+            if isinstance(value, str) and value.strip():
+                fields.append(value)
+    return len(interpunct.unruled(
+        fields, lambda f: [n for n, _r in inputs.split_authors(f, interpunct=False)],
+        interpunct.load_rulings(ROOT / interpunct.RULINGS)))
+
+
 def budget_credits_carrying_their_own_cataloguing(ctx):
     """Store records the build declines to publish a rendering for.
 
@@ -3313,6 +3402,13 @@ def budget_divisions_resting_on_a_community_database(ctx):
     name breaks, and NAMES-PLAN is emphatic that a wrong one is published under the artist's own
     work and reads as a fact. Keeping them and saying nothing would be the register nobody reads
     (§13), so this is what a person watches.
+
+    AND THE CORRECTION LATER THAT DAY IS WHAT MAKES IT THE ONLY THING WATCHING THEM. The ruling had
+    been read as lifting these records out of the fallback population; the owner restored the word
+    "without", so Wikidata raises the floor on the string and leaves the record resting where it
+    was. `a division cites its source` therefore stops treating the basis as a citation and admits
+    it by name instead, and this count is the whole of what stands between 88 divisions and nobody
+    knowing they are there.
 
     TWO POPULATIONS AND ONE QUESTION. A record can hold such a division because its own reading is
     Wikidata's and arrived divided, or because `boundary.fill` carried the space onto a reading that
@@ -3777,9 +3873,11 @@ BUDGETS_DEF = [
      "imprint field. A rise means new imprint spellings entered faster than they were placed."),
     ("renderings resting on a mechanical romanisation",
      budget_renderings_resting_on_a_mechanical_romanisation,
-     "names an English page spells itself, because no source states how they are read. Each one "
-     "carries a mark and a tooltip saying so. It falls as readings are researched and nothing "
-     "about the renderer can move it, which makes it the data gap written as a number."),
+     "names an English page spells itself, because no source states how they are read. That covers "
+     "a name the store holds nothing for and a name read off a community-edited database, which "
+     "improves the spelling without settling the pronunciation. Each carries a mark and a tooltip "
+     "saying so. It falls as readings are researched and nothing about the renderer can move it, "
+     "which makes it the data gap written as a number."),
     ("credit fields the division does not account for",
      budget_credit_fields_the_division_does_not_account_for,
      "credit fields whose shipped division leaves part of the field unexplained, so the interface "
@@ -3815,7 +3913,7 @@ BUDGETS_DEF = [
     ("divisions read back from a romanisation",
      budget_divisions_read_back_from_a_romanisation,
      "people whose name is divided on the strength of a space in a community editor's "
-     "romanisation, recovered by reading that romanisation backwards. The one class "
+     "romanisation, recovered by reading that romanisation backwards. One of the two classes "
      "`a division cites its source` admits without a source that states readings, counted here so "
      "that admitting it is visible. It falls when a source states one of them."),
     ("divisions resting on a community database",
@@ -3851,6 +3949,11 @@ BUDGETS_DEF = [
      "credits in the author store that this corpus also records as a publisher or an imprint, and "
      "that carry no mark saying what they are. Candidates rather than faults, because a doujin "
      "artist is their own imprint. A rise means a route put a company where a byline goes."),
+    ("interpunct credits nobody has ruled on", budget_interpunct_credits_nobody_has_ruled_on,
+     "credit fields holding a ・ where the corpus points both ways: one of the names either side "
+     "is credited elsewhere on its own and the other is not, so it cannot be said whether the mark "
+     "separates two people or sits inside one name. It falls when somebody writes the answer into "
+     "data/identity/interpunct-rulings.yaml, and a wrong guess either invents a person or erases one."),
     ("credits carrying their own cataloguing", budget_credits_carrying_their_own_cataloguing,
      "author records the build publishes no rendering for, which today is a name with a role "
      "welded on to it and the person held separately beside it. A rise means a capture started "
@@ -4588,6 +4691,27 @@ def self_test():
     if budget_divisions_resting_on_a_community_database(c) != was + 2:
         print("  self-test FAILED — 'divisions resting on a community database' did not count a "
               "division carried onto a reading of the name's own")
+        ok = False
+
+    # A CREDIT WHOSE ・ THE CORPUS CANNOT SETTLE, planted as the corpus really states these two.
+    # 矢立肇 is credited alone on ラブライブ!, so the left half is a person; nothing anywhere credits
+    # the right half, so the evidence points both ways and nobody may decide it from a keyboard.
+    # Planted on `index[].c`, which is a real credit surface and the one that reaches the catalogue
+    # tab, rather than on a shape invented for the check.
+    c = copy.deepcopy(ctx)
+    was = budget_interpunct_credits_nobody_has_ruled_on(c)
+    c["index"] = list(c["index"]) + [{"t": "カナリアの魔法", "c": "矢立肇・カナリアユウ"}]
+    if budget_interpunct_credits_nobody_has_ruled_on(c) != was + 1:
+        print("  self-test FAILED — 'interpunct credits nobody has ruled on' did not count a "
+              "credit with one half attested and one half appearing nowhere else")
+        ok = False
+    # AND THE OTHER DIRECTION, because a number that only rises never records the remedy. Two halves
+    # neither of which is credited anywhere else is one person's name, which is `くろば・Ｕ`, and it
+    # is settled rather than held.
+    c["index"] = list(ctx["index"]) + [{"t": "カナリアの魔法", "c": "カナリアユウ・カナリアレイ"}]
+    if budget_interpunct_credits_nobody_has_ruled_on(c) != was:
+        print("  self-test FAILED — 'interpunct credits nobody has ruled on' counted a credit "
+              "whose halves the corpus credits nowhere else, which the rule settles as one person")
         ok = False
 
     # The tics invariant reads files rather than ctx, so there is nothing to plant. It carries its

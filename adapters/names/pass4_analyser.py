@@ -435,6 +435,23 @@ def _roles():
     return tuple(r for r in ROLES if len(r) > 1)
 
 
+def _interpunct():
+    """`(interpunct module, fold)`, imported the way `_split_authors` imports the splitter.
+
+    THE SAME IMPORT DANCE AND FOR THE SAME REASON. This file runs as a script from the repository
+    root, where `adapters` is not on the path, and as an import from the suite, where the package is
+    already loaded. `_roles`' plain `from names.inputs import ROLES` works only in the second case
+    and this call site is reached in both. The fold comes back beside the module because it has to
+    be the one `interpunct.settled` keyed its map with.
+    """
+    import importlib, pathlib as _pl, sys as _sys                           # noqa: PLC0415,E401
+    root = str(_pl.Path(__file__).resolve().parents[1])
+    if root not in _sys.path:
+        _sys.path.insert(0, root)
+    mod = importlib.import_module("names.interpunct")
+    return mod, mod.key.fold
+
+
 def _bracketed_role(s):
     """Whether a bracket in this string holds nothing but a credit role.
 
@@ -469,12 +486,64 @@ def has_japanese(s):
     return any("\u3040" <= c <= "\u30ff" or "\u4e00" <= c <= "\u9fff" for c in s)
 
 
-def is_credit_line(s):
+def is_credit_line(s, ruled=None):
+    """Whether this string is a list of people rather than one person's name.
+
+    THE INTERPUNCT WAS THE WHOLE OF `SEP` THAT COULD BE WRONG, and it was wrong for 13 credit
+    fields. `くろば・Ｕ` is one artist, this said the field named several, and pass 4 skips a credit
+    line, so that person could never enter the store and was romanised on the mechanical floor for
+    as long as the corpus has held them. `ruled` is `interpunct.settled`'s map, and a string it
+    calls one person is a name here whatever the ・ in it looks like.
+
+    NOTHING ELSE IN `SEP` IS IN QUESTION. `inputs.py` measured the ampersand across the whole corpus
+    before admitting it and found four fields, all of them two people; a slash, a comma and a
+    Japanese comma are punctuation nobody's pen name contains. The ・ is the one character that is
+    both, which is why it is the one with a module behind it.
+    """
     if len(s) > 24:
         return True                       # a name that long is a sentence about several people
-    if any(c in s for c in SEP):
+    if any(r in s for r in _roles()) or _bracketed_role(s):
         return True
-    return any(r in s for r in _roles()) or _bracketed_role(s)
+    if any(c in s for c in SEP if c not in "・･"):
+        return True
+    if "・" not in s and "･" not in s:
+        return False
+    ipunct, fold = _interpunct()
+    # An unsettled ・ still means a credit line, so a string nobody has ruled on is treated exactly
+    # as it was and the change reaches only the names the evidence settled.
+    return (ruled or {}).get(fold(s)) != ipunct.ONE
+
+
+def credit_fields_built(root="data/build"):
+    """Every credit field the built collections carry, for the evidence an interpunct is settled on.
+
+    THE WIDEST SET REACHABLE FROM HERE, AND ASKING FOR IT MATTERS (STANDING-INSTRUCTIONS §14c).
+    This pass reads `series.json` for its own queue, and against that file alone 渡辺零・駿馬京 and
+    矢立肇・富野由悠季 have no evidence either way: the source that writes each pair apart is the
+    bibliography's `creator` field, on the same two works, in `works.json`. Two people would have
+    been held for a human on the strength of the first file anybody opened.
+
+    An absent file is an absent file and not an error. A pass that runs before the build has written
+    one gets a smaller evidence set, so it settles less and holds more, which is the safe direction.
+    """
+    import json, pathlib as _pl                                             # noqa: PLC0415,E401
+    out, base = [], _pl.Path(root)
+    for name, rows_at, field in (("index.json", "works", "c"), ("works.json", "works", "creator"),
+                                 ("series.json", "series", "author"),
+                                 ("feed/current.json", "releases", "author")):
+        f = base / name
+        if not f.exists():
+            continue
+        try:
+            doc = json.loads(f.read_text())
+        except ValueError:
+            continue
+        rows = doc.get(rows_at) if isinstance(doc, dict) else doc
+        for row in rows or []:
+            value = (row or {}).get(field) if isinstance(row, dict) else None
+            if isinstance(value, str) and value.strip():
+                out.append(value.strip())
+    return out
 
 
 def _split_authors():
@@ -522,6 +591,18 @@ def main():
         import json
         seen = set()
         series = json.load(open("data/build/series.json"))["series"]
+        # WHERE AN INTERPUNCT SEPARATES PEOPLE AND WHERE IT DOES NOT, settled once off the fields
+        # themselves before any of them is split. `adapters/names/interpunct.py` reads the evidence
+        # only from credit fields holding no ・, which is what stops the answer being read out of a
+        # store this pass filled by splitting on ・ in the first place.
+        _ip, _ = _interpunct()
+        _whole = lambda f: [n for n, _rd in _split_authors()(f, interpunct=False)]   # noqa: E731
+        _fields = credit_fields_built()
+        ruled = _ip.settled(_fields, _whole, _ip.load_rulings())
+        held = _ip.unruled(_fields, _whole, _ip.load_rulings())
+        if kind == "authors":
+            print(f"authors: {len(ruled)} interpunct credit(s) settled, "
+                  f"{len(held)} waiting on a person{': ' + ', '.join(held) if held else ''}")
         for r in series:
             if kind == "titles":
                 seen.add(r["work"])
@@ -534,7 +615,7 @@ def main():
                 # romanised whole and never consulted it.
                 raw = r["author"].strip()
                 seen.add(raw)
-                for _nm, _role in _split_authors()(raw):
+                for _nm, _role in _split_authors()(raw, ruled=ruled):
                     if _nm and _nm.strip():
                         seen.add(_nm.strip())
 
@@ -547,7 +628,7 @@ def main():
                 # "サル キゴウ jiang". Asking a Japanese analyser to read English is our error, not
                 # its failure.
                 and has_japanese(s)
-                and not (kind == "authors" and is_credit_line(s))]
+                and not (kind == "authors" and is_credit_line(s, ruled))]
         if a.limit:
             todo = todo[: a.limit]
 
@@ -795,7 +876,9 @@ def wants_reading(s, rec, kind="authors", refresh=False):
     # reason `openbd_reading.normalised` refuses a collation key outright: a source transcribing a
     # kana name can spell it differently from the way the artist writes it, and とりいしづく filed
     # トリイシズク is that person's name with a different kana in it. A kana surface is its own
-    # reading and outranks anything typed by somebody else, so pass 1 takes it back.
+    # reading and outranks anything typed by somebody else, so pass 1 takes it back. The owner's
+    # correction of 2026-08-09 leaves that standing: a reading that does not overcome a fallback
+    # basis certainly does not overcome the artist's own spelling of their own name.
     if rec.get("reading_basis") not in ("analyser", "back-converted", "community-printed"):
         return False
     return bool(refresh) or (kind in ("authors", "publishers") and _k.kana_only(s))
@@ -867,7 +950,7 @@ def segment_reader():
     return read
 
 
-def fill_missing(strings, kind, quiet=False, refresh=False):
+def fill_missing(strings, kind, quiet=False, refresh=False, ruled=None):
     """Give every string a reading if one can be found. Idempotent, offline, safe to call always.
 
     THIS IS THE AUTOPILOT. Everything else in this directory is a pass someone runs; this is the one
@@ -890,7 +973,7 @@ def fill_missing(strings, kind, quiet=False, refresh=False):
     names = doc.setdefault("names", {})
     todo = [s for s in strings
             if s and wants_reading(s, names.get(s) or {}, kind, refresh)
-            and has_japanese(s) and not (kind == "authors" and is_credit_line(s))]
+            and has_japanese(s) and not (kind == "authors" and is_credit_line(s, ruled))]
     if not todo:
         return 0
     tok = Dictionary().create()
@@ -1010,7 +1093,11 @@ def renderer_fingerprint():
     import hashlib
     import inspect
     parts = []
-    for fn in (chapter_en, part_marks, credit_en, romanise_ja, latinise):
+    # `is_credit_line` IS IN HERE BECAUSE IT PICKS THE RENDERER, and leaving it out was the gap that
+    # let `Jei, Katō` stand after the interpunct rule said ジェイ・加藤 is one person. It decides
+    # between `credit_en` and `romanise_ja` for every string in the map, so a change to it makes
+    # every entry stale exactly as a change to either of those does.
+    for fn in (chapter_en, part_marks, credit_en, romanise_ja, latinise, is_credit_line):
         try:
             parts.append(inspect.getsource(fn))
         except (OSError, TypeError):
@@ -1021,13 +1108,19 @@ def renderer_fingerprint():
     return hashlib.sha256("".join(parts).encode("utf-8")).hexdigest()[:16]
 
 
-def fill_chapters(names_seen, quiet=False):
+def fill_chapters(names_seen, quiet=False, ruled=None):
     """English for chapter names and credit lines, stored beside titles and authors.
 
     These are the bulk of what remains Japanese on an English page — 202 chapter names against 6
     titles — and they are two different problems. A chapter name is mostly STRUCTURE (第12話) which
     translates; a credit line is a list of ROLES and NAMES, where the roles translate and the names
     are romanised. Neither is served by romanising the whole string.
+
+    `ruled` REACHES HERE TOO, AND FORGETTING IT UNDID THE WHOLE OF THE INTERPUNCT FIX. The phrase map
+    answers before anything else in `kari/app.js`, so `ジェイ・加藤` went on rendering `Jei, Katō` off
+    a phrase written the last time `is_credit_line` said the field named two people, with the store
+    record and the shipped division both saying one. Two producers of one fact and the older one
+    wins the lookup (STANDING-INSTRUCTIONS §3).
     """
     try:
         from sudachipy import Dictionary, SplitMode
@@ -1066,7 +1159,7 @@ def fill_chapters(names_seen, quiet=False):
     for x in todo:
         en = chapter_en(x, lambda t: romanise_ja(tok, modes, t))
         if en is None:
-            if is_credit_line(x):
+            if is_credit_line(x, ruled):
                 en = credit_en(tok, modes, x)
             else:
                 # A CIRCLED DIGIT IS A PART MARKER, and NFKC flattens it into the number beside it:

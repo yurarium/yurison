@@ -41,20 +41,34 @@ STORE = {
 }
 
 
-def names(field):
-    return [p["n"] for p in creditline.divide(field, STORE) if p.get("n")]
+# WHAT THE CORPUS SETTLED, as `interpunct.settled` hands it over. Written out here because this
+# suite is about the division and not about the evidence; `test_interpunct.py` is where the map is
+# derived and where the reason 矢立肇・富野由悠季 is two people is pinned.
+RULED = {"矢立肇・富野由悠季": "several", "さりい・B": "one"}
+
+
+def names(field, ruled=None):
+    return [p["n"] for p in creditline.divide(field, STORE, ruled) if p.get("n")]
 
 
 def main(s):
-    # ── the interpunct, which nothing in the string resolves ──────────────────────────────────
-    s.eq(names("矢立肇・富野由悠季"), ["矢立肇", "富野由悠季"],
-         "an interpunct divides where the store states a reading for both halves")
-    s.eq(names("さりい・Ｂ"), ["さりい・Ｂ"],
-         "AND NOT WHERE IT DOES NOT. Ｂ has a record and is already Latin, so a looser test passed "
-         "it and one artist became two. A sourced romanisation on both sides is the test")
-    s.eq(names("るいす・まくられん"), ["るいす・まくられん"],
-         "a name the store has never met keeps its interpunct, which is the answer inputs.py "
-         "records for a caller that prints")
+    # ── the interpunct, which nothing in the string resolves and this module no longer guesses ──
+    #
+    # THE RULE THAT USED TO LIVE HERE ASKED THE STORE, and the store holds a record for every half
+    # of every one of these because the name-store splitter cut them apart. So it answered "two
+    # people" about `ジェイ・加藤` and the site drew `Jei, Katō` under that artist's own work: the
+    # test shared the blind spot of the thing that made the data (STANDING-INSTRUCTIONS §14b). The
+    # answer arrives as `ruled` now, off evidence neither the store nor this module produced.
+    s.eq(names("矢立肇・富野由悠季", RULED), ["矢立肇", "富野由悠季"],
+         "an interpunct divides where the corpus credits both halves apart somewhere else")
+    s.eq(names("さりい・Ｂ", RULED), ["さりい・Ｂ"],
+         "AND NOT WHERE IT DOES NOT. Ｂ has a store record and is already Latin, which is exactly "
+         "what the old store-based test passed on, and one artist became two")
+    s.eq(names("矢立肇・富野由悠季"), ["矢立肇・富野由悠季"],
+         "with no map the interpunct stays inside the name, which is the printing answer and the "
+         "direction that loses nothing a reader can see")
+    s.eq(names("るいす・まくられん", RULED), ["るいす・まくられん"],
+         "and a name the map says nothing about keeps its interpunct for the same reason")
 
     # ── the reading printed beside the name ───────────────────────────────────────────────────
     s.eq(names("紬めめ / ツムギメメ"), ["紬めめ"],

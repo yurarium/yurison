@@ -156,10 +156,19 @@ def _kanji_adjacent(whole, token):
 
 
 def per_char(tokenizer, modes, ch, prefer_kun=False):
-    """A reading for one character in isolation, or None. Analyser first, Unihan after."""
+    """A reading for one character in isolation, or None. Analyser first, Unihan after.
+
+    THE ANALYSER SOMETIMES NAMES A CHARACTER INSTEAD OF READING IT. Asked for 々 or 彡 it answers
+    `キゴウ`, which is its word for the category 補助記号 and not a sound anybody makes. That reached
+    readers as `Esutorēya★Kigō` for エストレーヤ★彡 and `Ikigō Renren` for 依々恋々, a name and a
+    title carrying the analyser's own vocabulary. A symbol that reads as itself is different and
+    stays: ー is 補助記号 too and answers `ー`, which is the character, so it passes.
+    """
     for m in modes:
-        r = [t.reading_form() for t in tokenizer.tokenize(ch, m)]
-        if r and r[0] and r[0] != "*" and not has_kanji(r[0]):
+        toks = list(tokenizer.tokenize(ch, m))
+        r = [t.reading_form() for t in toks]
+        named = r and kata(r[0]) == CATEGORY_WORD
+        if r and r[0] and r[0] != "*" and not has_kanji(r[0]) and not named:
             return kata(r[0])
     return unihan_on(ch, prefer_kun)
 
@@ -225,6 +234,12 @@ def attaches_left(pos):
 # other spelling came out right. 々 is deliberately absent: it repeats the character before it and
 # is read, not passed through.
 SELF_STANDING = "〇"
+
+# THE ANALYSER'S NAME FOR A CATEGORY, WHICH IS NOT A SOUND. Sudachi answers `キゴウ` when asked to
+# read 々 or 彡 alone, because its dictionary carries the category 補助記号 in the reading field.
+# Matched exactly, so a name that genuinely contains these mora is untouched: 記号 as a word reads
+# the same and is a real reading of real characters.
+CATEGORY_WORD = "\u30ad\u30b4\u30a6"
 
 
 def _stands_for_itself(c):
@@ -365,6 +380,17 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
         # "ー" in the middle of the romaji: 抱き寝ーター came out "Daki Ne ー Tā".
         _pos = m.part_of_speech()
         _sound = PARTICLE_SOUND.get(surf) if _pos and _pos[0] == "助詞" else None
+        # THE SAME REFUSAL per_char MAKES, in the loop that reaches these two first. 々 and 彡 arrive
+        # here as whole tokens carrying `キゴウ`, the analyser's word for 補助記号, so the fallback
+        # below was never consulted and エストレーヤ★彡 shipped as `Esutorēya★Kigō`. A symbol whose
+        # reading IS the character passes untouched, which is how ー keeps working.
+        if _pos and _pos[0] == "\u88dc\u52a9\u8a18\u53f7" and kata(r) == CATEGORY_WORD:
+            sub = per_char(tokenizer, [mode], surf, prefer_kun) or ""
+            if not sub:
+                return (None, False) if want_flag else None
+            fell_back = True
+            out.append("\x01" + sub)
+            continue
         out.append(("\x00" if (glue or surf == "\u30fc") else "")
                    + (_sound or READING_OVERRIDE.get(surf) or kata(r))
                    + ("\x02" if surf in PREFIX_GLUE else ""))

@@ -34,6 +34,21 @@ def main(s):
     s.eq(p4.PARTICLE_SOUND.get("は"), "ワ", "は as a particle sounds ワ")
     s.eq(p4.PARTICLE_SOUND.get("へ"), "エ", "へ as a particle sounds エ")
 
+    # THE ANALYSER'S OWN VOCABULARY IS NOT A READING. Asked for 々 or 彡 alone it answers キゴウ,
+    # its name for the category 補助記号. エストレーヤ★彡 shipped as `Esutorēya★Kigō` and 依々恋々
+    # as `Ikigō Renren`, a person and a title wearing the word "symbol" as a sound. A symbol that
+    # answers with ITSELF is a different thing and still passes, which is what keeps ー working.
+    try:
+        from sudachipy import Dictionary, SplitMode
+        _tk, _md = Dictionary().create(), [SplitMode.C, SplitMode.A]
+        s.check(p4.per_char(_tk, _md, "々") != "キゴウ", "々 is not read as the word for symbol")
+        s.check(p4.per_char(_tk, _md, "彡") != "キゴウ", "彡 is not read as the word for symbol")
+        s.eq(p4.per_char(_tk, _md, "ー"), "ー", "a symbol that reads as itself keeps its reading")
+        s.eq(p4.per_char(_tk, _md, "〇"), "レイ", "〇 is a numeral and reads レイ")
+        s.eq(p4.per_char(_tk, _md, "激"), "ゲキ", "an ordinary kanji is untouched")
+    except ImportError:
+        s.skip("sudachipy absent")
+
     # An override table exists because some readings are simply known: 私 in a title is watashi,
     # and the analyser preferred ワタクシ until told otherwise.
     s.check(isinstance(p4.READING_OVERRIDE, dict), "an override table exists")

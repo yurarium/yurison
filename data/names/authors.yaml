@@ -2568,6 +2568,20 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  くろば:
+    basis: romaji
+    furigana_spans:
+    - - くろば
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: クロバ
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   くわばら たもつ:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -5793,6 +5807,20 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  まくられん:
+    basis: romaji
+    furigana_spans:
+    - - まくられん
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: マクラレン
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   まこしー:
     basis: romaji
     reading: マコシー
@@ -7179,6 +7207,20 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  るいす:
+    basis: romaji
+    furigana_spans:
+    - - るいす
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ルイス
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   るぅ１mm:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -7616,6 +7658,17 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  アナ:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アナ
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   アヤサトケイシ:
     basis: romaji
     reading: アヤサト ケイシ
@@ -7971,19 +8024,15 @@ names:
     verified: true
   エストレーヤ★彡:
     basis: romaji
-    furigana_spans:
-    - - エストレーヤ★
-      - null
-    - - 彡
-      - きごう
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: エストレーヤ★キゴウ
-    reading_at: '2026-08-05'
+    reading: エストレーヤ★サン
+    reading_at: '2026-08-09'
     reading_basis: analyser
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
+    reading_uncertain: true
     verified: false
   エリーゼ:
     basis: romaji
@@ -8602,6 +8651,17 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032987553
     verified: true
+  サンチェス:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: サンチェス
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   ザコザコＹ:
     basis: romaji
     furigana_spans:
@@ -8728,6 +8788,17 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ジェイ:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ジェイ
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   ジョーさん。:
     basis: romaji
     en_at: '2026-08-02'
@@ -8802,6 +8873,17 @@ names:
     reading_source_kind: derived
     reading_url: https://api.openbd.jp/v1/get?isbn=9784048117579
     verified: true
+  ステファン:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ステファン
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   ストロマ:
     basis: romaji
     reading: ストロマ
@@ -8821,6 +8903,17 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  セジク:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: セジク
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   セッテりゃ:
     basis: romaji
     reading: セッテリャ
@@ -9824,6 +9917,28 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ブラウン:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ブラウン
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
+  ブリリアント:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ブリリアント
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   プルちょめ:
     basis: romaji
     reading: プルチョメ
@@ -12977,7 +13092,6 @@ names:
     reading_boundary: its own byline, 佐倉おりこ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'ふしぎな猫のまちメルティア' (小学館). It agrees with the reading already held, which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -13088,7 +13202,6 @@ names:
       value: サトウ 　 ワ ツキ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'オレが私になるまで' (KADOKAWA). It replaces 'サトウ \u3000 ワ ツキ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -13978,6 +14091,20 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I026717129
     verified: true
+  加藤:
+    basis: romaji
+    furigana_spans:
+    - - 加藤
+      - かとう
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: カトウ
+    reading_at: '2026-08-09'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   加速:
     basis: romaji
     furigana_spans:
@@ -14070,7 +14197,6 @@ names:
     reading_boundary: its own byline, 北斗すい
     reading_note: openBD carries this reading as the publisher's own collationkey on 2 volume(s), e.g.
       'ちみどろアイスクリーム\u3000１' (芳文社). It replaces 'ホクト \u3000 スイ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: openBD
     reading_source_kind: publisher-jp
@@ -14277,7 +14403,6 @@ names:
     reading_boundary: its own byline, チバラキ, 千葉らき
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'シャイなあの子に懐かれたい' (KADOKAWA). It replaces 'チバ \u3000ラキ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -18667,7 +18792,6 @@ names:
       value: オバタ 　 ナミダ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'いっそ、恋だったらよかったのに' (KADOKAWA). It replaces 'オバタ \u3000 ナミダ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -18900,7 +19024,6 @@ names:
     reading_boundary: 尾野凛
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'レッツ・エンドルフィン・ハイ' (海王社). It agrees with the reading already held, which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -20118,7 +20241,6 @@ names:
       value: ホロ ヤマ 　 アキ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '正しいナイフの使い方' (KADOKAWA). It replaces 'ホロ ヤマ \u3000 アキ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -21475,7 +21597,6 @@ names:
     reading_boundary: its own byline, 新井すみこ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       '気になってる人が男じゃなかった' (KADOKAWA). It agrees with the reading already held, which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -24012,7 +24133,6 @@ names:
     reading_boundary: シバタコウヘイ, 柴田康平
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '魔女とくゅらす' ([頒布]小学館クリエイティブ). It replaces 'シバタ \u3000 コウヘイ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -24801,7 +24921,6 @@ names:
     reading_boundary: its own byline, 梶井スパナ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'サレ妻お江戸リコカツ録' (芳文社). It replaces 'カジイ \u3000 スパナ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -26461,7 +26580,6 @@ names:
     reading_boundary: its own byline, 永田さんずい
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'ライバルアライバル' (KADOKAWA). It replaces 'ナガタ \u3000 サンズイ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -26516,7 +26634,6 @@ names:
       value: コウ ノ ウチ 　 アイ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'ギミーアグリー' (KADOKAWA). It replaces 'コウ ノ ウチ \u3000 アイ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -28498,7 +28615,6 @@ names:
       value: イヌジマ 　 ナナコ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       'ファンシー革命' (KADOKAWA). It replaces 'イヌジマ \u3000 ナナコ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -29812,7 +29928,6 @@ names:
     reading_boundary: its own byline, シラノアキヒロ, 白野アキヒロ
     reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       'しゅがー・みーつ・がーる!' (芳文社). It agrees with the reading already held, which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -30492,6 +30607,7 @@ names:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
+    reading_boundary: the kana in its own surface
     reading_refuted: The artist's own handle is @ichigokanato15, so 神戸 is カナト rather than the stored コウベ.
       That is enough to disbelieve the guess and not enough to state a reading, since the handle does
       not settle how the whole name is written in kana.
@@ -31726,7 +31842,6 @@ names:
     reading_boundary: its own byline, 紬めめ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       'ひなちゃんが生きてるなら' ([頒布]講談社). It agrees with the reading already held, which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -33035,7 +33150,6 @@ names:
     reading_boundary: 苗川采
     reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       '私を喰べたい、ひとでなし' (KADOKAWA). It replaces 'ナエカワ \u3000 サイ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -33250,7 +33364,6 @@ names:
     reading_boundary: its own byline
     reading_note: MADB records this reading beside the credit on 3 record(s) of the pinned release, e.g.
       'はなまるゲーセン飯!!' (芳文社). It replaces 'アカネ \u3000 リウ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -33504,7 +33617,6 @@ names:
     reading_boundary: its own byline, 萩埜まこと
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       '窓辺のリノア' (KADOKAWA). It agrees with the reading already held, which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -34091,7 +34203,6 @@ names:
     reading_boundary: its own byline, 藤本れもち
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '真先輩の前ではかっこつけられない!' (KADOKAWA). It replaces 'フジモト \u3000レモチ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -36066,7 +36177,6 @@ names:
     reading_boundary: 鈴木　りつ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       '考幻学入門' (KADOKAWA). It agrees with the reading already held, which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -36341,7 +36451,6 @@ names:
       value: チョウ ノ 　 アキラ
     reading_note: MADB records this reading beside the credit on 1 record(s) of the pinned release, e.g.
       '星と海のメルヒェン' (KADOKAWA). It replaces 'チョウ ノ \u3000 アキラ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library
@@ -37479,7 +37588,6 @@ names:
       value: アン ジツ 　 ツキ
     reading_note: MADB records this reading beside the credit on 2 record(s) of the pinned release, e.g.
       '桃草さんがものぐさすぎる!!' (KADOKAWA). It replaces 'アン ジツ \u3000 ツキ', which no source had stated.
-    reading_pass: 4
     reading_reviewed: '2026-08-06'
     reading_source: MADB
     reading_source_kind: national-library

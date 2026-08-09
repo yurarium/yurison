@@ -403,7 +403,7 @@ def credit_fields(idx, works, series_rows, releases, registry=None):
     return sorted(seen)
 
 
-def _recompose_credit(ja, phrase, authors):
+def _recompose_credit(ja, phrase, authors, ruled=None):
     """A credit line rendered from its people, or the phrase we already had.
 
     The line is only rebuilt when EVERY person in it has a rendering of their own. A line that is
@@ -425,7 +425,12 @@ def _recompose_credit(ja, phrase, authors):
         from names.inputs import split_authors
     except Exception:                                                       # noqa: BLE001
         return phrase
-    parts = [(n or "").strip() for n, _role in split_authors(ja or "")]
+    # THE RULING ON A ・ TRAVELS WITH THE CALL. `split_authors` has taken a `ruled` map since the
+    # interpunct work, and this caller was the one that never passed it, so a string the corpus had
+    # settled as ONE person was still cut here: さりい・B came back as `Sarii, B` while the store
+    # held `Sarii B`, and `a person is spelled one way` caught the pair. The splitter is one
+    # producer only where every consumer asks it the same question.
+    parts = [(n or "").strip() for n, _role in split_authors(ja or "", ruled=ruled)]
     if not parts or not all(parts):
         return phrase
     # A ROLE IS PART OF WHAT THE LINE SAYS, and a line of one is the only place it survives.
@@ -6071,7 +6076,7 @@ def main():
          # each Japanese run inside it. A key here does NOT mean the interface will use it: a name
          # with a reading is spelled from the reading, and this answers only where nothing else can.
          "floor": _floor,
-         "phrases": {_fold(k): _recompose_credit(k, v, _auth_names) for k, v in (
+         "phrases": {_fold(k): _recompose_credit(k, v, _auth_names, _credit_ruled) for k, v in (
              (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
               ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}
          ).items() if norm_work(k) not in _wh_names}},

@@ -123,12 +123,8 @@
   },
   {
    "name": "deployed data matches built",
-   "violations": 3,
-   "examples": [
-    "series.json",
-    "feed/names.json",
-    "feed/current.json"
-   ]
+   "violations": 0,
+   "examples": []
   },
   {
    "name": "no refutation of print serials",
@@ -280,8 +276,8 @@
   {
    "name": "renderings resting on a mechanical romanisation",
    "means": "names an English page spells itself, because no source states how they are read. That covers a name the store holds nothing for and a name read off a community-edited database, which improves the spelling without settling the pronunciation. Each carries a mark and a tooltip saying so. It falls as readings are researched and nothing about the renderer can move it, which makes it the data gap written as a number.",
-   "budget": 628,
-   "value": 628
+   "budget": 626,
+   "value": 626
   },
   {
    "name": "credit fields the division does not account for",
@@ -340,8 +336,8 @@
   {
    "name": "renderings with nothing to show",
    "means": "works whose English rendering holds neither a romanisation nor an English name while the surface is Japanese. A rise means a composed name lost its romanisation.",
-   "budget": 33,
-   "value": 33
+   "budget": 24,
+   "value": 24
   },
   {
    "name": "kana names with no stated division",
@@ -352,8 +348,8 @@
   {
    "name": "author readings no source states",
    "means": "author names a reader meets as a romanisation carrying the unverified mark, because the reading behind the romanisation is a morphological analyser's and nobody else's. A coverage deficit and not a fault count, and the number a naming round is against. It falls when a name is sourced or a reviewer weighs a reading, since those are the two bases `build.py` clears the mark for. A fall with no new citation behind it means the mark stopped rendering, which is the failure this counts to prevent.",
-   "budget": 393,
-   "value": 393
+   "budget": 397,
+   "value": 397
   },
   {
    "name": "credits the corpus files as a venue",
@@ -370,8 +366,8 @@
   {
    "name": "credits carrying their own cataloguing",
    "means": "author records the build publishes no rendering for, which today is a name with a role welded on to it and the person held separately beside it. A rise means a capture started writing cataloguing into the author position again.",
-   "budget": 46,
-   "value": 46
+   "budget": 38,
+   "value": 38
   },
   {
    "name": "credits that restate a name",
@@ -412,8 +408,8 @@
   {
    "name": "credits sharing a reading nobody has ruled on",
    "means": "readings the shipped name map gives to several credits with no ruling on the pair. Should be 0: a rise means a newly sourced reading has put two credits together and nobody has said whether they are one credit written twice or two names that sound alike.",
-   "budget": 156,
-   "value": 156
+   "budget": 157,
+   "value": 157
   },
   {
    "name": "implausible ruby spans",

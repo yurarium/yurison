@@ -33,7 +33,16 @@ import testkit
 # KEYED AS THE BUILD KEYS IT, folded: NFKC and every space removed. Written folded here rather
 # than folded by a helper, because a helper would be this file's copy of `foldKey` and the point of
 # the suite is that there is no copy.
+# THE FLOOR, which is where a name with no rendering lands. Keyed folded like everything else, and
+# holding a string where the three styles agree and an object where they differ, which is the shape
+# `adapters/names/romfloor.py` ships.
+FLOOR = {
+    "怪異部:M県Y市の怪現象について": "Kaiibu : M Ken Y Shi no Kaigenshou ni Tsuite",
+    "やまじえびね": {"macron": "Yamajiebine", "double": "Yamajiebine", "plain": "Yamajiebine"},
+}
+
 NAMES = {
+    "floor": FLOOR,
     "titles": {
         # A curated translation, under the platform's spelling with the subtitle in 〜 〜.
         "怪異部~M県Y市の怪現象について~": {
@@ -173,11 +182,13 @@ def main(s):
     ])
     s.eq(got[0], "The Uncanny Club",
          "a title the store holds under its own spelling renders in English")
-    s.eq(got[1], "怪異部 : M県Y市の怪現象について",
-         "THE CATALOGUED SPELLING DOES NOT. app.js does not strip a subtitle to find the base "
-         "title, and check.py's transcription claimed it did, which is why eight works reached a "
-         "reader in Japanese with the invariant green. The fix is a key in the shipped map, and "
-         "this is the assertion that the interface has not silently grown the fallback instead")
+    s.eq(got[1], "Kaiibu : M Ken Y Shi no Kaigenshou ni Tsuite[?]",
+         "THE CATALOGUED SPELLING DOES NOT REACH THE CURATED TITLE. app.js does not strip a "
+         "subtitle to find the base title, and check.py's transcription claimed it did, which is "
+         "why eight works reached a reader in Japanese with the invariant green. The fix is a key "
+         "in the shipped map, and this is the assertion that the interface has not silently grown "
+         "the fallback instead. What it falls to now is the floor, marked")
+    s.check("怪異部" not in got[1], "and what it must never fall to is the Japanese")
     s.eq(got[2], "The Romance Gene XX (Complete Edition)",
          "an edition marker from the closed set IS glossed beside its base title, so a rule "
          "generalised from the line above would be wrong in the other direction")
@@ -185,6 +196,32 @@ def main(s):
     s.eq(got[4], "Ch. 1", "a chapter name comes from the phrase map")
     s.eq(got[5], "コミック百合姫", "an imprint string resolves to the line the registry names")
     s.eq(got[6], "Ichijinsha", "a publisher renders through the shipped map")
+
+    # ── THE FLOOR, WHICH IS THE THING AN ENGLISH PAGE MAY NOT FALL BELOW ─────────────────────
+    #
+    # The owner's ruling: an unclear romanisation with an explanatory tooltip is REQUIRED wherever
+    # the alternative is Japanese under an English heading. So these ask the real renderer for the
+    # cases that used to fall through, and the last of them asks what happens when even the floor
+    # has nothing, because that answer must also not be Japanese.
+    floored = iface.values([("authorLabel", {"author": "やまじえびね"}),
+                            ("credit", "[著]やまじえびね")])
+    s.check("Yamajiebine" in floored[0],
+            "a name the store has no record for is spelled from the floor")
+    s.check("class=\"unc floor\"" in floored[0],
+            "and it is marked, so a reader can see the spelling is ours")
+    s.check("No source states how this name is read" in floored[0],
+            "with a tooltip saying why, which is what the ruling asks for")
+    s.check("class=\"unc floor\"" in floored[1],
+            "and a credit line composed in place marks the name inside it the same way")
+    s.check("やまじえびね" not in iface.labels([("credit", "[著]やまじえびね")])[0],
+            "no part of a compound line stays Japanese while its neighbours romanise")
+
+    # NOTHING IN THE MAP AT ALL, which is the state the build makes unreachable and this file has
+    # to pin anyway: a hole in the floor comes out as something a reader can see, never as kana.
+    bare = interface.Interface(names={"titles": {}, "authors": {}, "phrases": {}},
+                               prefs={"LANG": "en"})
+    s.check(not interface.KANA_KANJI.search(bare.labels([("authorLabel", {"author": "雨夜"})])[0]),
+            "a renderer handed no floor at all still returns no kana and no kanji")
 
     japanese = iface.with_prefs(LANG="ja").labels([("workLabel", {"work": "雨夜の月"})])
     s.eq(japanese[0], "雨夜の月",

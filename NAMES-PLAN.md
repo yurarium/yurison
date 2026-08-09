@@ -197,9 +197,9 @@ are on the order of a single adapter run — not a bot-block risk at one request
 **The hard core.** Some fraction — a guess, not a measurement — will not be resolvable at all: a web
 one-shot by an artist with no tankōbon, no database entry and no English-language presence has no
 official English name and no published reading anywhere. These are not a backlog. They get a
-best-guess reading **labelled unverified** (§5d), or where not even a guess is defensible they stay
-Japanese (§6). Both are finished states. The one thing they must not become is a list of hundreds of
-names waiting for a person.
+best-guess reading **labelled unverified** (§5d), and where not even a guess is defensible they get
+the mechanical romanisation §6a describes, also labelled. Both are finished states. The one thing
+they must not become is a list of hundreds of names waiting for a person.
 
 **Deliberately out of v1: OCR of title-page art.** §1 notes an official English title may exist only
 in the logo artwork. Reaching it means fetching images and running OCR over them, which is a
@@ -290,8 +290,9 @@ The cost is worth capping, because most rows do not need it:
 - **suppress the second line when there is nothing to add** — the title is already Latin, or our
   rendering is identical to the Japanese. `platName()` established this shape: absent from the map
   means it passes through untouched, and no row should carry a duplicate of itself.
-- **suppress it when we have no rendering yet.** Under §6 the row is Japanese-only anyway, and in 両
-  mode that should look like a normal row, not a row with a gap where English should be.
+- **suppress it when the two lines would say the same thing.** A row whose only English is the
+  mechanical romanisation of its own Japanese is one name written twice, so 両 mode should show it
+  the way it shows a title already in Latin.
 - **authors need no second line at all.** A romanisation and its Japanese are the same name twice;
   one is enough, chosen by the toggle.
 
@@ -321,7 +322,30 @@ mechanically:
 Concretely: readings carry `verified: true|false`, and the interface distinguishes them — the exact
 treatment can be quiet (an unobtrusive marker or styling) since the common case should be verified.
 Unverified is a **temporary state that a later confirmation clears**, so it must never be conflated
-with the fallback in §6, which is the different statement "we have nothing at all".
+with the floor in §6a, which is the different statement "no source states how this is read".
+
+## 6a. An English page has a floor, and the floor is not Japanese
+
+**Ruled by the project owner, 2026-08-09, overruling what §5 and §6 said before it.** Showing
+incorrect kana in Japanese is the least acceptable thing this project can do. Showing an unclear
+romanisation in English, with a tooltip explaining that it is unclear, is **required** as an
+alternative to Japanese text appearing under an English heading.
+
+So there is no surface where Japanese is a finished state in English mode. Where the store holds a
+reading, the name is spelled from the reading. Where it holds nothing, `adapters/names/romfloor.py`
+spells the characters: a run of kana romanises mechanically, a run of kanji is read by the analyser
+or, failing that, character by character, and a credit ending in 編集部 has its magazine read and
+its department translated. Every string this produces carries a mark and a tooltip saying the
+reading is not attested, and `check.py` refuses to let that mark be quietly removed.
+
+**The asymmetry is deliberate and is the same one §5d turns on.** None of this touches the Japanese
+side. Furigana and kana are unchanged, because a reader in Japanese has the name itself and can
+judge our reading against it, and a reader in English has the romanisation and nothing else.
+
+**What is measured.** `English mode has no Japanese` is an invariant over every rendering surface
+and blocks at zero. `renderings resting on a mechanical romanisation` counts the names carrying our
+guess instead of somebody's reading, which is the data gap written as a number: it falls only as
+readings are researched and nothing about the renderer can move it.
 
 ## 5c. Furigana on series names — the same research, a second use
 

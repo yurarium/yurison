@@ -89,10 +89,11 @@ class Surface:
     over the whole record, which is what the publisher parts take, and `fields` then says which of
     its fields this surface accounts for.
 
-    `holds_at_zero` says whether a Japanese rendering here is a fault or a deficit. A work title
-    that stays Japanese in English mode is a fault and blocks. An imprint whose line has no English
-    name yet is a coverage deficit with a budget already counting it, and blocking on it would
-    stop every commit until somebody had romanised 44 publishing lines.
+    `holds_at_zero` IS GONE, AND ITS REMOVAL IS THE RULING. It said whether Japanese here was a
+    fault or a deficit: a work title blocked, an unromanised publishing line was counted and
+    tolerated. The owner overruled that. An unclear romanisation with an explanatory tooltip is
+    required wherever the alternative is Japanese under an English heading, so there is no surface
+    left where Japanese is a finished state and nothing for the flag to distinguish.
 
     `reads` names what the JAVASCRIPT reads, where that is not the tail of the data path. The two
     agree for `works[].title.ja`, which app.js reads as `title.ja`, and they cannot agree for
@@ -101,15 +102,14 @@ class Surface:
     lint then guards a field nothing reads, which is the silence §4 is about.
     """
 
-    def __init__(self, path, entry, arg, category, why, holds_at_zero=True, fields=(),
-                 reads=()):
+    def __init__(self, path, entry, arg, category, why, fields=(), reads=()):
         # `entry` may name more than one function where the interface legitimately has more than
         # one: the publisher parts exist as a plain-string form and an escaped form carrying each
         # name's mark, and both are entry points for the same three fields. The first is the one
         # this renders through; the lint accepts any of them.
         self.path, self.entry = path, (entry,) if isinstance(entry, str) else tuple(entry)
         self.arg = arg
-        self.category, self.why, self.holds_at_zero = category, why, holds_at_zero
+        self.category, self.why = category, why
         self.fields = tuple(fields)
         self.reads = (reads,) if isinstance(reads, str) else tuple(reads)
 
@@ -143,13 +143,11 @@ SURFACES = [
     Surface("index[].t", ("workLabel", "workTextOf"), "row:work", "title",
             "the catalogue tab's title, drawn from the compact index"),
     Surface("index[].c", "credit", "value", "person",
-            "the catalogue tab's credit line, roles and people in one string",
-            holds_at_zero=False),
+            "the catalogue tab's credit line, roles and people in one string"),
     Surface("works[].title.ja", ("workLabel", "workTextOf"), "row:work", "title",
             "the 発売 tab labels a volume row from the bibliographic record's title"),
     Surface("works[].creator", "creditNames", "value", "person",
-            "the 発売 tab's byline, the credit field split into the people in it",
-            holds_at_zero=False),
+            "the 発売 tab's byline, the credit field split into the people in it"),
     # `publisherChip` IS THE ENTRY POINT FOR ONE HOUSE'S NAME, added when the houses got addresses
     # of their own. It renders through `pubBoth` and `pubMark` exactly as this row always did and
     # wraps the result in the record's link, so a caller handing it a publisher field has handed
@@ -158,20 +156,18 @@ SURFACES = [
     Surface("works[]", ("publisherParts", "publisherPartsHtml", "pubBoth", "publisherChip"),
             "record", "publisher",
             "who made the book, on a volume row: the house, the distributor and the line",
-            holds_at_zero=False,
             fields=("publisher", "distributor", "imprint")),
     Surface("series[].work", ("workLabel", "workTextOf"), "row:work", "title",
             "the works tab's title, from the row that joined the platforms"),
     Surface("series[].author", "authorLabel", "row:author", "person",
-            "the works tab's byline", holds_at_zero=False),
+            "the works tab's byline"),
     # THE SAME FIELD, THROUGH THE OTHER FUNCTION THAT RENDERS IT. The list rows call `authorLabel`
     # and the work page calls `creditLine`, which calls `linkedCredits`, which composes the field
     # out of the shipped division and wraps each person in their address. Measuring only the first
     # left the second unmeasured, and they answer differently: `linkedCredits` places the names
     # inside the field as written and `authorLabel` composes a new line from them.
     Surface("series[].author", "linkedCredits", "row:author", "person",
-            "the same byline on a work page, where each person is a link to their record",
-            holds_at_zero=False),
+            "the same byline on a work page, where each person is a link to their record"),
     Surface("series[].latest_ep", "phraseOf", "value", "phrase",
             "the newest chapter's name, shown beside the row"),
     Surface("series[].collection", ("workTextOf", "workLabel"), "value", "title",
@@ -180,12 +176,12 @@ SURFACES = [
             ("publisherParts", "publisherPartsHtml", "pubBoth", "publisherChip"), "record",
             "publisher",
             "the same three names on a work page's volume list, and on a credit's page, where the "
-            "houses behind that person's works are listed", holds_at_zero=False,
+            "houses behind that person's works are listed",
             fields=("publisher", "distributor", "imprint")),
     Surface("releases[].work", ("workLabel", "workTextOf"), "row:work", "title",
             "the updates tab's title"),
     Surface("releases[].author", "authorLabel", "row:author", "person",
-            "the updates tab's byline", holds_at_zero=False),
+            "the updates tab's byline"),
     Surface("releases[].ep", ("phraseOf", "epText", "epLine"), "value", "phrase",
             "the chapter name on an update row"),
     Surface("releases[].collection", ("workTextOf", "workLabel"), "value", "title",
@@ -199,11 +195,10 @@ SURFACES = [
     # load. A page nobody walks is a page nobody measures, and adding these found a credit's
     # homophone list writing `esc(o.credit)` straight into the markup.
     Surface("credits[].credit", ("authorLabel", "creditChip"), "row:author", "person",
-            "the name a credit page is headed with, and the same name in a work list",
-            holds_at_zero=False),
+            "the name a credit page is headed with, and the same name in a work list"),
     Surface("credits[].homophones[].credit", ("authorLabel", "creditChip"), "row:author", "person",
             "a credit held apart from this one because they share a reading; the pair is "
-            "information hung beside a record and never a merge", holds_at_zero=False),
+            "information hung beside a record and never a merge"),
     # THE JOB ON THE EDGE FROM A WORK TO A PERSON. `roleWord` glosses it, and unlike a name a role
     # is a closed vocabulary somebody wrote down, so this holds at zero: a role with no gloss is a
     # missing table entry rather than a name nobody has researched.
@@ -211,7 +206,7 @@ SURFACES = [
             "the job a credit did on one work, shown under the work's title on a credit page",
             reads="roles"),
     Surface("publishers[].name", ("pubBoth", "publisherChip", "pubEn"), "value", "publisher",
-            "the house a publisher page is headed with", holds_at_zero=False),
+            "the house a publisher page is headed with"),
     # `imprintOf` IS AN ENTRY POINT AND NOT AN EXCEPTION. It maps a catalogued spelling onto the
     # line's own name and hands that to `pubBoth`; the read of `name` inside it is the registry
     # answering, which is the same act as `pubEn` reading a record. Listing it here says so, rather
@@ -219,10 +214,10 @@ SURFACES = [
     # for it.
     Surface("publishers[].lines[].name", ("pubBoth", "publisherChip", "imprintOf"), "value",
             "publisher", "a yuri line on the house that runs it, which is the one thing a "
-            "publisher page shows that no other page can", holds_at_zero=False, reads="name"),
+            "publisher page shows that no other page can", reads="name"),
     Surface("publishers[].lines[].parent", ("pubBoth", "publisherChip", "imprintOf"), "value",
             "publisher", "the umbrella a sub-line sits under, named beside it because both are "
-            "real", holds_at_zero=False, reads="parent"),
+            "real", reads="parent"),
 ]
 
 # Fields whose values hold Japanese and are NOT a name. Each is ruled here so that a field arriving

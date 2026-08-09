@@ -2524,6 +2524,8 @@ def main():
     ap.add_argument("--regenerate-archive", metavar="YYYY-MM", action="append", default=[],
                     help="rewrite an already-published month. Overrides the write-once rule; "
                          "use when a classification fix must reach an archived month.")
+    ap.add_argument("--no-checks", action="store_true",
+                    help="skip check.py --runtime, which is 34 s of the build's 94 s")
     a = ap.parse_args()
     # Held under a name nothing else uses. `a` is rebound further down main() as a loop variable,
     # so reading a.regenerate_archive at the end of a 2,900-line function got whatever `a` last
@@ -6394,15 +6396,27 @@ def main():
     # invariant names the fallback the build has already applied, so what is published is degraded
     # rather than broken, and the count is the tripwire. The same checks BLOCK at check-in, where
     # someone is present to fix them — see docs/STANDING-INSTRUCTIONS.md §7.
-    try:
-        import subprocess as _sp
-        sys.stdout.flush()          # the child writes straight to the fd; without this its output
+    # THE CHECKS ARE A THIRD OF THE BUILD: 34 s of 94 s, measured. Most builds during an edit are
+    # run for the data alone, and the checks that matter at that moment get run separately a moment
+    # later. `--no-checks` skips them and says so, and it leaves `checks.json` and `status.json` as
+    # the last full build left them, which is why the invariant reading them is not weakened: it
+    # compares the DEPLOYED copy against the BUILT one, and `deploy.sh` is downstream of a full run.
+    #
+    # NOTHING THAT BLOCKS IS SKIPPED. The pre-commit and pre-push hooks run `check.py --gate`, which
+    # ignores this flag entirely, so the fast path exists only between a person and their next
+    # keystroke.
+    if "--no-checks" in sys.argv:
+        print("checks          : skipped (--no-checks); checks.json and status.json are stale")
+    else:
+        try:
+            import subprocess as _sp
+            sys.stdout.flush()      # the child writes straight to the fd; without this its output
                                     # lands ahead of the build's own buffered lines and reads as
                                     # though the checks ran before the thing they check.
-        _sp.run([sys.executable, str(pathlib.Path(__file__).parent / "check.py"), "--runtime"],
-                timeout=180)
-    except Exception as _e:
-        print(f"checks          : could not run ({_e})")
+            _sp.run([sys.executable, str(pathlib.Path(__file__).parent / "check.py"), "--runtime"],
+                    timeout=180)
+        except Exception as _e:
+            print(f"checks          : could not run ({_e})")
 
 
 if __name__ == "__main__":

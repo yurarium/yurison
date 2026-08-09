@@ -25,7 +25,7 @@ Licence: SudachiPy and SudachiDict-core are Apache-2.0 (§5c). KANJIDIC2 is deli
 
 Usage:  pass4_analyser.py [--limit N] [--dry-run]
 """
-import argparse, datetime, pathlib, re, sys, unicodedata
+import argparse, datetime, functools, pathlib, re, sys, unicodedata
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import yaml  # noqa: E402
@@ -429,14 +429,24 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
 SEP = "／/・、,＆&+"
 
 
+@functools.lru_cache(maxsize=1)
 def _roles():
-    """The multi-character roles, from the one list that holds them (adapters/names/inputs.py)."""
+    """The multi-character roles, from the one list that holds them (adapters/names/inputs.py).
+
+    CACHED BECAUSE `is_credit_line` ASKS FOR EVERY CREDIT FIELD. The list cannot change inside a
+    run, and resolving the import each time put 366,000 `find_spec` calls into a single
+    `check.py --runtime`. The one list is still the only producer; this remembers its answer.
+    """
     from names.inputs import ROLES
     return tuple(r for r in ROLES if len(r) > 1)
 
 
+@functools.lru_cache(maxsize=1)
 def _interpunct():
     """`(interpunct module, fold)`, imported the way `_split_authors` imports the splitter.
+
+    CACHED FOR THE REASON `_roles` IS. `Path(__file__).resolve()` on every call was most of 699,000
+    stat calls in one runtime check, and the module it returns is the same module every time.
 
     THE SAME IMPORT DANCE AND FOR THE SAME REASON. This file runs as a script from the repository
     root, where `adapters` is not on the path, and as an import from the suite, where the package is
@@ -445,7 +455,7 @@ def _interpunct():
     be the one `interpunct.settled` keyed its map with.
     """
     import importlib, pathlib as _pl, sys as _sys                           # noqa: PLC0415,E401
-    root = str(_pl.Path(__file__).resolve().parents[1])
+    root = str(_pl.Path(__file__).resolve().parents[1])   # noqa: E501  (cached by the decorator)
     if root not in _sys.path:
         _sys.path.insert(0, root)
     mod = importlib.import_module("names.interpunct")

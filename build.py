@@ -317,6 +317,39 @@ def credit_parts(ja, store=None):
     return out
 
 
+def floor_reader():
+    """A katakana reading for a Japanese string or for one character, or None.
+
+    THE SAME TWO ANSWERS THE STORE IS FILLED FROM. `analyse_best` reads a string the analyser
+    recognises and `per_char` reads a character alone, falling through to Unihan, so the floor and
+    the readings in `data/names/` come from one place. A third opinion about how a character is
+    read is what §3 says will disagree with the other two.
+
+    MISSING SudachiPy IS NOT AN ERROR here any more than it is for the autopilot: the floor is
+    empty, the count printed beside it says so, and `English mode has no Japanese` is what makes
+    that visible rather than quiet.
+
+    Cached, because a run appears in dozens of credit fields and the analyser is the slow half.
+    """
+    try:
+        from sudachipy import Dictionary, SplitMode
+    except ImportError:
+        return lambda _s: None
+    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
+    import pass4_analyser as _p4
+    tok = Dictionary().create()
+    modes = [SplitMode.C, SplitMode.A]
+    seen = {}
+
+    def read(s):
+        if s not in seen:
+            seen[s] = (_p4.per_char(tok, modes, s) if len(s) == 1
+                       else _p4.analyse_best(tok, s, modes)[0])
+        return seen[s]
+
+    return read
+
+
 def credit_fields(idx, works, series_rows, releases, registry=None):
     """Every credit field a reader can meet, from the five collections that carry one.
 
@@ -5883,6 +5916,48 @@ def main():
     print(f"credits         : {len(_credit_div)} field(s) divided for the interface, "
           f"{_credit_unaccounted} not fully accounted for")
 
+    # BUILT HERE RATHER THAN BESIDE ITS OWN FILE, because the floor below is asked what a publisher
+    # page shows and that answer exists only in this document. The write is further down with the
+    # other record page.
+    _houses_shipped = publisher_page_data(series_rows)
+
+    # ── THE FLOOR UNDER AN ENGLISH PAGE ───────────────────────────────────────────────────────
+    #
+    # THE OWNER'S RULING. A name the store cannot render used to show as the Japanese, and 77 rows
+    # were doing so. That is now the one thing an English page may not do: where nothing states how
+    # a name is read, the page shows a mechanical romanisation and marks it. `adapters/names/
+    # romfloor.py` spells them and this ships the answer.
+    #
+    # SPELLED HERE AND LOOKED UP THERE. `kana.romanise` is the project's one romanisation, and a
+    # second copy of it in JavaScript is the shape §3 counts seven shipped bugs from. The browser
+    # decides nothing about spelling; it reads this map.
+    #
+    # WHAT IT COVERS, ASKED OF THE ONE TABLE THAT KNOWS. `adapters/interface.py` says which field is
+    # rendered by which function, and `calls_for` walks every value of every one of them. Reading
+    # that table here is what keeps the floor total without a second list going stale: a surface
+    # added there is floored without anybody remembering to.
+    #
+    # AND THE RUNS INSIDE EACH STRING, because a credit field is rendered IN PLACE. `BPS株式会社`
+    # sits between two rendered names in a field nothing divided, so the map has to answer for the
+    # run as well as for the field.
+    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters"))
+    import interface as _ifacemod
+    import romfloor as _romfloor
+    _floor_cols = {"index": idx, "series": series_rows, "works": works, "releases": releases,
+                   "credits": list((_credits_shipped.get("credits") or {}).values()),
+                   "publishers": list((_houses_shipped.get("publishers") or {}).values()),
+                   "status": []}
+    _floor_want = {v for _s, v in _ifacemod.calls_for(_floor_cols)[1]}
+    _floor_want |= {p["n"] for _d in _credit_div.values()
+                    for p in (_d.get("p") or []) if p.get("n")}
+    # The store's own keys, because `nameFor` is asked with the string a row carries and a record
+    # can hold a reading the interface still declines to show.
+    for _m in (_auth_folded, _title_folded, _pub_shipped, _imp_shipped):
+        _floor_want |= set(_m)
+    _floor, _floor_unread = _romfloor.build(_floor_want, floor_reader(), runs_of=_credit_fields)
+    print(f"floor           : {len(_floor)} string(s) spelled for the English fallback, "
+          f"{len(_floor_unread)} nothing could read")
+
     (out / "feed" / "names.json").write_text(json.dumps(
         {"generated": str(_today),
          "note": "English renderings and readings, keyed by NFKC-folded title/author. Joined onto "
@@ -5915,6 +5990,11 @@ def main():
          # line from its parts and follow the reader's romanisation style and name order. The
          # composed phrase stays as the fallback for a line whose people we do not all know.
          "credit_parts": _credit_div,
+         # THE LAST THING AN ENGLISH RENDERING FALLS BACK TO, in the reader's three styles like
+         # every other romanisation. Keyed by the same fold as the rest, on the whole string and on
+         # each Japanese run inside it. A key here does NOT mean the interface will use it: a name
+         # with a reading is spelled from the reading, and this answers only where nothing else can.
+         "floor": _floor,
          "phrases": {_fold(k): _recompose_credit(k, v, _auth_names) for k, v in (
              (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
               ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}
@@ -5941,7 +6021,6 @@ def main():
     print(f"credit pages    : {_cp_n} record(s), {_cp_e} edge(s) to works, {_cp_r} of them "
           f"naming a role")
 
-    _houses_shipped = publisher_page_data(series_rows)
     (out / "publishers.json").write_text(json.dumps(_houses_shipped, ensure_ascii=False, indent=1,
                                                     default=jsonable))
     _hp = _houses_shipped.get("publishers") or {}

@@ -311,6 +311,20 @@ def _collections(ctx):
             "status": [ctx["status"]] if ctx.get("status") else []}
 
 
+# WHAT kari/app.js PUTS ON A NAME IT SPELLED ITSELF, in its two forms. `enFallback` appends the
+# TOKEN, which travels as text so that a credit line can be composed by index and a chapter name
+# can have a work name stripped off its front; `floorHtml` turns the token into the MARKUP that
+# carries the tooltip, at the point the text becomes part of a page.
+#
+# Written once here because two checks below read one and a budget counts the other. §14b: these
+# are a string and a class name, not a rule, and nothing in this file holds a copy of the decision
+# about when the mark is warranted. A renderer that stopped marking its guesses would make these
+# checks report clean, which is why `English mode has no Japanese` blocks on the Japanese itself
+# and does not ask about a mark at all.
+FLOOR_TOKEN = '[?]'
+FLOOR_MARKUP = 'class="unc floor"'
+
+
 def inv_english_mode_has_no_japanese(ctx):
     """English-only mode shows no kana and no kanji, asked of the interface rather than modelled.
 
@@ -333,12 +347,27 @@ def inv_english_mode_has_no_japanese(ctx):
     not meet is a script they cannot read. `full-width forms in English renderings` counts the rest
     so the narrowing is a number rather than a silence.
 
+    EVERY SURFACE, WHICH IT DID NOT USED TO BE, AND THIS IS WHY IT PASSED WHILE A BUDGET COUNTED
+    77. `Surface.holds_at_zero` split the table in two and this check read one half: the titles and
+    the chapter names, where Japanese was called a fault. The other half was the credit lines, the
+    people and the publishing lines, where Japanese was called a coverage deficit, and
+    `renderings still Japanese in English mode` counted those and ratcheted. So the two checks
+    partitioned the surfaces between them and neither could ever see what the other measured. This
+    one was not passing over a fault it could see. It was reading eleven surfaces of twenty-one.
+
+    THE OWNER OVERRULED THE SPLIT. An unclear romanisation with an explanatory tooltip is required
+    wherever the alternative is Japanese under an English heading, so there is no surface left
+    where Japanese is a finished state. The flag is gone from `adapters/interface.py`, the budget
+    is gone from the list below, and this reads the whole table.
+
     §14b, WHAT THIS CANNOT SEE. A call site that never calls the renderer. Running the interface
     proves that what reaches it comes out right, and says nothing about `esc(w.t)` written beside
     it, which is how 2,430 rows shipped Japanese once already. `adapters/lint/entrypoints.py` is
     the other half and `names reach a page only through their renderer` is where it blocks.
 
-    fallback: show the Japanese (§6), which is a finished state rather than a failure.
+    fallback: `enFallback` in kari/app.js, which spells the name from `feed/names.json`'s floor and
+    marks it. A violation here means that fallback did not run, which is a fault in the renderer
+    and not a name nobody has looked up.
     """
     sys.path.insert(0, str(ROOT / "adapters"))
     import interface
@@ -355,8 +384,6 @@ def inv_english_mode_has_no_japanese(ctx):
         return [f"the interface could not be run, so nothing here was checked: {e}"]
     bad = []
     for (surface, value), shown in zip(about, out):
-        if not surface.holds_at_zero:
-            continue
         if interface.KANA_KANJI.search(value) and interface.KANA_KANJI.search(shown):
             bad.append(f"{surface.path}:{value[:32]}")
     return sorted(set(bad))
@@ -383,36 +410,37 @@ def budget_interface_reads_outside_an_entry_point(ctx):
     return sum(n for n, _why in entrypoints.SAFE.values())
 
 
-def budget_renderings_still_japanese_in_english_mode(ctx):
-    """Rows the interface still shows in kana or kanji on an English page, where it is a deficit.
+def budget_renderings_resting_on_a_mechanical_romanisation(ctx):
+    """Renderings the interface spelled itself because no source states how the name is read.
 
-    WHAT IS LEFT ONCE THE NOTATION IS AN INVARIANT. This counted two different things and reported
-    one number: a role nobody had glossed and a pen name nobody has researched. They are not the
-    same event. `no cataloguing notation in an English rendering` and `every credit role has an
-    English gloss` block on the first at zero, because the catalogue's notation has a right answer
-    and losing it is a fault. What stays here is §6: a name the store cannot render shows as the
-    Japanese, and that is a finished state rather than a failure.
+    WHAT THIS REPLACES. `renderings still Japanese in English mode` counted 77 rows that reached an
+    English page as kana or kanji, and its docstring said a name the store cannot render shows as
+    the Japanese and that this is a finished state. The owner overruled that: a marked romanisation
+    with a tooltip is REQUIRED where the alternative is Japanese. So the count of Japanese rows is
+    an invariant at zero and this is what is left, which is the number of names carrying our guess
+    instead of somebody's reading.
 
-    SO IT FALLS ONLY WHEN A NAME IS RESEARCHED, and it cannot go to zero this week. 94 of the
-    surviving runs are credits with no record in the store at all, 25 are a magazine's editorial
-    desk, 15 are records the store holds no reading for, and the rest are names inside a
-    compound the store has met only in part.
+    IT FALLS ONLY WHEN A NAME IS RESEARCHED and nothing about the renderer can move it. A record
+    with a sourced reading is spelled from the reading and never reaches the floor; a record with
+    no reading at all reaches it every time. That makes this the data gap stated as a number, and
+    the one measure a later naming pass should be aimed at.
 
-    MEASURED BY RUNNING THE INTERFACE, so it owes nothing to any producer and cannot be reduced by
-    changing what the build stores.
+    MEASURED FROM THE MARKUP THE INTERFACE PRODUCES, so it counts what a reader is actually shown.
+    §14b, WHAT IT SHARES: one CSS class name, `unc floor`, which `floorHtml` in kari/app.js emits.
+    That is the whole of the coupling. Nothing here holds a copy of the rule deciding when the mark
+    is warranted, so a renderer that stopped marking a guess would show up as this falling to zero
+    rather than as this agreeing with it.
     """
     sys.path.insert(0, str(ROOT / "adapters"))
     import interface
     try:
-        calls, about = interface.calls_for(_collections(ctx))
+        calls, _about = interface.calls_for(_collections(ctx))
         if not calls:
             return 0
-        out = _interface(ctx).labels(calls)
+        out = _interface(ctx).values(calls)
     except interface.Unavailable:
         return 0
-    return sum(1 for (s, value), shown in zip(about, out)
-               if not s.holds_at_zero
-               and interface.KANA_KANJI.search(value) and interface.KANA_KANJI.search(shown))
+    return sum(html.count(FLOOR_MARKUP) for html in out)
 
 
 def budget_full_width_forms_in_english_renderings(ctx):
@@ -1755,8 +1783,8 @@ def inv_every_credit_role_has_an_english_gloss(ctx):
 
     WHY THIS IS AN INVARIANT AND NOT A COUNT. A role is a closed vocabulary somebody wrote down, so
     a role with no gloss is a missing table entry and not a name nobody has researched. That is the
-    difference between this and `renderings still Japanese in English mode`, which counts names
-    §6 leaves standing and cannot go to zero until somebody has looked names up.
+    difference between this and `renderings resting on a mechanical romanisation`, which counts
+    the names an English page spells for itself and falls only as readings are researched.
 
     236 catalogue credit lines were in Japanese under an English heading and the largest single
     cause was this: `ROLE_EN` in kari/app.js held six words and a second table further down the
@@ -1769,7 +1797,15 @@ def inv_every_credit_role_has_an_english_gloss(ctx):
     fails to recognise at all, which is not a gloss problem: that role never becomes a role, and it
     shows up as notation surviving into a rendering, which the check below is for.
 
-    fallback: the role shows as the source wrote it, which is the fallback every name takes.
+    §14b, AND THIS CHECK ALMOST LOST ITS SIGHT. It used to look for kana or kanji in what
+    `roleWord` returned, and `roleWord` now floors a role it cannot gloss, so a table that had lost
+    an entry came back `Cho` and this reported clean. The subject had grown a fallback the measure
+    was blind to, which is the shape §14b is about. It reads the MARK instead: the floor puts
+    `unc floor` on anything it spelled, and a role carrying that mark is a role with no gloss
+    whatever it looks like. Japanese is still a violation too, because a renderer that stopped
+    flooring should not read as a pass.
+
+    fallback: the role is spelled from the floor and marked, which is Latin and visibly a guess.
     """
     sys.path.insert(0, str(ROOT / "adapters"))
     import interface
@@ -1777,11 +1813,12 @@ def inv_every_credit_role_has_an_english_gloss(ctx):
     if not roles:
         return ["no role vocabulary was collected, so nothing here was checked"]
     try:
-        shown = _interface(ctx).labels([("roleWord", r) for r in roles])
+        shown = _interface(ctx).values([("roleWord", r) for r in roles])
     except interface.Unavailable as e:
         return [f"the interface could not be run, so nothing here was checked: {e}"]
     return [f"{r} has no English gloss in kari/app.js"
-            for r, out in zip(roles, shown) if interface.KANA_KANJI.search(out)]
+            for r, out in zip(roles, shown)
+            if FLOOR_TOKEN in out or interface.KANA_KANJI.search(out)]
 
 
 def _notation_left(ctx):
@@ -1793,13 +1830,29 @@ def _notation_left(ctx):
     glosses cannot appear in the output, so anything that does is a role the DIVISION did not find
     or a gloss that did not reach the page, and those are exactly the two ways this class comes
     back.
+
+    AND NOW A ROLE WITH NO GLOSS IS NOT JAPANESE ON THE PAGE, IT IS A ROMANISATION OF IT. Dropping
+    `著` from the table used to leave `[著]` standing in an English credit line, which is what this
+    scanned for. It now leaves `[Cho]`, which is the same fault wearing Latin letters, and a scan
+    for the Japanese word would report clean. So each role is put through `roleWord` first and the
+    ones the renderer FLOORED are added to the vocabulary under the spelling it gave them. The
+    vocabulary still comes from the splitter; what the interface supplies is how each word looks
+    once it has failed to be glossed.
     """
     sys.path.insert(0, str(ROOT / "adapters"))
     import interface
     roles = [r for r in _role_vocabulary(ctx) if interface.KANA_KANJI.search(r)]
     # `ほか` closes a credit that names some of its contributors; the interface says "and others".
     # Neither is a name, and a reader in English has no way to read either as one.
-    words = sorted(set(roles) | {"ほか"}, key=len, reverse=True)
+    words = set(roles) | {"ほか"}
+    if roles:
+        # `roleWord` ANSWERS WITH TEXT AND NOT WITH MARKUP, which is why the token is what is
+        # read here. The gloss goes into a credit line that is escaped and marked later, so at this
+        # point a floored role is the spelling followed by the token and nothing else.
+        for out in _interface(ctx).labels([("roleWord", r) for r in roles]):
+            if FLOOR_TOKEN in out and out.strip():
+                words.add(out.strip())
+    words = sorted(words, key=len, reverse=True)
     calls, about = interface.calls_for(_collections(ctx))
     if not calls:
         return []
@@ -1823,15 +1876,16 @@ def _notation_left(ctx):
 def inv_no_cataloguing_notation_in_an_english_rendering(ctx):
     """A credit line in English holds names and nothing else the catalogue wrote around them.
 
-    WHAT THIS BLOCKS THAT A BUDGET TOLERATED. `renderings still Japanese in English mode` counts a
-    row as one number whatever is Japanese about it, so a role nobody glossed and a pen name nobody
-    has researched were the same event. They are not: §6 says a name with no rendering shows as the
-    Japanese and calls that finished, and it says nothing of the kind about `[キャラクター
-    デザイン]`, `(校正)`, `ほか` or a reading printed beside the name it reads. Those are the
-    catalogue's notation, they have a right answer, and once the answer exists nothing should be
-    able to lose it quietly.
+    WHAT THIS BLOCKS THAT A BUDGET TOLERATED. `renderings still Japanese in English mode` counted
+    a row as one number whatever was Japanese about it, so a role nobody glossed and a pen name
+    nobody has researched were the same event. They are not: a pen name nobody has researched now
+    gets a mechanical romanisation, which is a guess about a sound, and `[キャラクターデザイン]`,
+    `(校正)`, `ほか` and a reading printed beside the name it reads are none of them names at all.
+    Those are the catalogue's notation, they have a right answer, and once the answer exists
+    nothing should be able to lose it quietly.
 
-    So the guarantee splits. This holds at zero and blocks; the budget keeps the names.
+    So the guarantee splits. This holds at zero on the notation;
+    `renderings resting on a mechanical romanisation` counts the guesses at the names.
 
     fallback: the notation shows as the catalogue wrote it, which is what it did before.
     """
@@ -3659,12 +3713,11 @@ BUDGETS_DEF = [
      "the string stands as its own object. A coverage deficit: it falls as houses are curated and "
      "it will not reach zero, because some of these are a company name or a magazine sitting in the "
      "imprint field. A rise means new imprint spellings entered faster than they were placed."),
-    ("renderings still Japanese in English mode",
-     budget_renderings_still_japanese_in_english_mode,
-     "rows the interface shows in kana or kanji on an English page, on the surfaces where that is "
-     "coverage rather than a fault: a credit line whose role has no gloss, a person with no "
-     "reading, a publishing line with no name. The invariant blocks on work titles; this is the "
-     "rest, and nothing counted it before."),
+    ("renderings resting on a mechanical romanisation",
+     budget_renderings_resting_on_a_mechanical_romanisation,
+     "names an English page spells itself, because no source states how they are read. Each one "
+     "carries a mark and a tooltip saying so. It falls as readings are researched and nothing "
+     "about the renderer can move it, which makes it the data gap written as a number."),
     ("credit fields the division does not account for",
      budget_credit_fields_the_division_does_not_account_for,
      "credit fields whose shipped division leaves part of the field unexplained, so the interface "
@@ -4117,8 +4170,15 @@ def self_test():
              "reading_source": "sudachi", "reading_at": "2026-08-06",
              "reading_url": "https://www.mangaupdates.com/author/0fnry5y/hoshino-katsura",
              "reading_refuted": "the reading of a different person's name"}})),
+        # THE CANARY IS THE FALLBACK REMOVED, planted in the SOURCE the context holds. A row of
+        # Japanese data no longer proves anything: the renderer floors whatever it is handed, so a
+        # planted row comes back romanised and the check correctly reports nothing. What this now
+        # asserts is a property of the RENDERER, so the canary has to break the renderer, and
+        # taking `enFallback` back to a pass-through is exactly the state the 77 were in.
         ("English mode has no Japanese", inv_english_mode_has_no_japanese,
-         lambda c: c["releases"].append({"work": "カナリア", "provenance": "attested"})),
+         lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
+             "  if (!s || !JA_ANY.test(s)) return s;\n  const whole = floorText(s);",
+             "  if (s) return s;\n  const whole = floorText(s);")})),
         # THE CANARY IS THE FAULT THAT SHIPPED (§14b). The catalogue tab really did print
         # index.json's title with `esc` instead of asking workLabel for it, and 2,430 rows stayed
         # Japanese in English mode. Planted in the SOURCE the context holds, so the probe reaches

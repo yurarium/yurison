@@ -49,8 +49,37 @@ behind it.
    split so the human decision and its reasoning stay reviewable while the applied result becomes
    derived. The rulings stay YAML in git. They are what a reviewer reads and what the history is for.
 
-3. **SQLite is a derived cache and never a source of truth.** It is rebuilt from committed inputs,
-   and deleting it costs nothing but time.
+3. **SQLite is derived and never a source of truth. Derived describes its AUTHORITY and says nothing
+   about its SHAPE.** It is rebuilt from committed inputs and deleting it costs time alone. The
+   schema is designed on relational merits: normalised, keyed and constrained. YAML is its source
+   format, and the derivation is a compiler, so it targets the best representation for the questions
+   we ask instead of transliterating the file layout it came from. One table per YAML file, blobs in
+   columns and no keys would earn nothing and is the thing to refuse.
+
+   What the relational model is expected to take over:
+
+   - **Invariants that are constraints.** `one row per identifier` is a primary key. `every credit
+     identifier resolves`, `a shipped identifier resolves`, `credit pages listing a work that does
+     not name them` and `publisher pages listing a work from another house` are foreign keys. They
+     currently run after the damage; a constraint fails at write time.
+   - **The claim model, which is flattened today.** A reading carries a value, a basis, a source, a
+     source kind, a date, a note and candidates, held as `reading_*` keys on a name record. That
+     flattening is what let 293 divisions live in `reading_note` prose while `reading_boundary` was
+     empty. A claim table with evidence rows makes a second slot impossible.
+   - **The attribution table.** `READING_ATTRIBUTION` maps a basis to the source kinds that may
+     support it. Hand-written copies of it drifted twice in one week. As a table with a foreign key,
+     nothing can hold a copy.
+   - **Budgets that are counts.** Many are "count rows where", written as scans over parsed JSON in a
+     5,072-line file that takes about 50 s to self-test.
+   - **Questions currently unaskable.** What we would lose if NDL were withdrawn, which claims rest
+     on a community database, which facts carry no evidence row.
+
+   What stays procedural, so the schema is not oversold: anything evaluating the renderer, anything
+   about prose and comments, anything about the filesystem and the deploy, and the judgement-laden
+   checks such as weighing a completion claim.
+
+   A working measure for stage three: the schema is justified when a reader of it can tell what the
+   database believes and why, without reading `build.py`.
 
 4. **Reproducibility is bought by archiving matched constructions.** A reading's evidence is its URL,
    its retrieval date and the field as printed, which for NDL is the heading string. The whole page

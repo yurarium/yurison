@@ -39,7 +39,7 @@ from . import key
 # imports nothing from here, so there is no cycle, and a second copy of either is the shape §3
 # counts seven shipped bugs from: this file already carries the interpunct in two regexes and they
 # have to keep agreeing with the module that rules on it.
-from .interpunct import INTERPUNCT, SEVERAL
+from facts.credit import INTERPUNCT, SEVERAL                             # noqa: E402
 
 # Splitting only ever happens on these. A space is NOT among them: 森島 明子 and 月夜 涙 are single
 # people whose family and given names are spaced, and splitting there would double the author count

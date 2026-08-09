@@ -23,6 +23,7 @@ import yaml
 # away; adapters/yamlfast.py says what it does and what was proved before it was turned on.
 import yamlfast  # noqa: F401,E402
 from facts import romanisation as _romanisation  # noqa: E402
+from facts import credit as _credit_fact  # noqa: E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402
@@ -294,7 +295,8 @@ def _interpunct_rulings(fields):
     """
     try:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
-        from names import interpunct as _ip, inputs as _in
+        from facts import credit as _ip
+        from names import inputs as _in
         whole = lambda f: [n for n, _r in _in.split_authors(f, interpunct=False)]   # noqa: E731
         rulings = _ip.load_rulings()
         got = _ip.settled(fields, whole, rulings)
@@ -5827,6 +5829,10 @@ def main():
         # the store held both halves with a registry identifier each because the splitter that
         # filled it had already decided. A rule asking the store would agree with that split.
         _credit_ruled = _interpunct_rulings(credit_fields(idx, works, series_rows, releases))
+        # INSTALLED ONCE, so nothing downstream has to remember to pass it. Of 31 splitter calls in
+        # the project, 5 passed the ruling and 26 did not, which is how くろば・Ｕ came to be in the
+        # store cut in half with an identifier on each piece.
+        _credit_fact.use_rulings(_credit_ruled)
         _p4.fill_missing({p for f in credit_fields(idx, works, series_rows, releases)
                           for p in [f] + _credits.split_credits(f)[0] if p}, "authors",
                          ruled=_credit_ruled)

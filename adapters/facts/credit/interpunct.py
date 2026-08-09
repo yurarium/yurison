@@ -49,7 +49,7 @@ invents a person and a wrong join erases one, so neither is worth guessing to em
 import pathlib
 import re
 
-from . import key
+import key                                                              # noqa: E402
 
 # The answers. `ONE` means the whole string is one person and the ・ is a character in their name;
 # `SEVERAL` means it is a separator; `UNDECIDED` means the corpus points both ways and a person is

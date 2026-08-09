@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """interpunct.py: whether a ・ separates two people or sits inside one person's name.
 
-COVERS = ['adapters/names/interpunct.py']
+COVERS = ['adapters/facts/credit/interpunct.py',
+          'adapters/facts/credit/__init__.py']
 
 WHAT THIS HAS TO PIN, and every case in it is a credit field this corpus really carries.
 
@@ -25,12 +26,14 @@ import pathlib
 import re
 import sys
 
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / "names"))
 
 import testkit  # noqa: E402
-from names import interpunct  # noqa: E402
+from facts.credit import interpunct  # noqa: E402
 
-COVERS = ["adapters/names/interpunct.py"]
+COVERS = ["adapters/facts/credit/interpunct.py",
+          "adapters/facts/credit/__init__.py"]
 
 # Credit fields as the corpus spells them. The four holding an interpunct are every shape the
 # question comes in; the rest are what the evidence is read from, and each is a field that really
@@ -142,6 +145,32 @@ def main(s):
          "the file ships with no rulings in it, because the corpus settles every string it holds")
     s.eq(interpunct.load_rulings(here.parent / "no-such-file.yaml"), {},
          "and an absent file is an empty set of rulings rather than an error at build time")
+
+
+    # THE FACT'S OWN SURFACE: the ruling is held, and holding it is what makes the default safe.
+    from facts import credit as cf
+
+    before = cf.rulings()
+    try:
+        cf.use_rulings({})
+        s.eq([n for n, _ in cf.split("くろば・Ｕ")], ["くろば", "Ｕ"],
+             "with no ruling installed, a ・ separates")
+        cf.use_rulings({cf.key.fold("くろば・Ｕ"): cf.ONE})
+        s.eq([n for n, _ in cf.split("くろば・Ｕ")], ["くろば・Ｕ"],
+             "with the ruling installed, one person stays whole")
+        # AND THE OTHER DIRECTION, because a rule that only ever joins would pass the case above
+        # and quietly glue two people together.
+        cf.use_rulings({cf.key.fold("矢立肇・富野由悠季"): cf.SEVERAL})
+        s.eq(len(cf.split("矢立肇・富野由悠季")), 2, "two people ruled apart stay apart")
+        # IGNORING THE RULING IS AN ACT, which is the whole point of inverting the default.
+        cf.use_rulings({cf.key.fold("くろば・Ｕ"): cf.ONE})
+        s.eq([n for n, _ in cf.split_unruled("くろば・Ｕ")], ["くろば", "Ｕ"],
+             "split_unruled ignores it deliberately")
+        s.eq(cf.rulings(), cf.rulings(), "rulings() answers a copy, never the live map")
+        cf.rulings()["planted"] = "one"
+        s.check("planted" not in cf.rulings(), "and mutating that copy changes nothing")
+    finally:
+        cf.use_rulings(before)
 
 
 if __name__ == "__main__":

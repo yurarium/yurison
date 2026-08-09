@@ -2965,7 +2965,8 @@ def budget_interpunct_credits_nobody_has_ruled_on(ctx):
     """
     sys.path.insert(0, str(ROOT / "adapters"))
     try:
-        from names import interpunct, inputs
+        from facts import credit as interpunct
+        from names import inputs
     except Exception:                                                       # noqa: BLE001
         return 0
     fields = []

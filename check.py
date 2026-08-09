@@ -457,6 +457,30 @@ def inv_a_stated_reading_names_where_it_came_from(ctx):
     return [f"{n} stated reading(s) hold no url or cite"] if n else []
 
 
+def inv_the_interface_is_the_derivation_of_its_source(ctx):
+    """`kari/app.js` is what `kari/src` concatenates to.
+
+    THE PROPERTY A BUNDLE WOULD HAVE COST US. The checks run the real `app.js` in a Node vm, so
+    what is verified is what ships. Splitting the file into modules keeps that only if the shipped
+    file is exactly the modules, and this is what says so.
+
+    IT IS THE SHAPE `deployed data matches built` ALREADY HAS. A derived artefact and its inputs,
+    compared by content, with the answer being that one is stale.
+
+    Section 14b: it re-derives from the source files and compares bytes. It shares nothing with the
+    builder except the concatenation order, which is filename order and stated in kari/src/BUILD.md.
+    """
+    site = ROOT.parent / "yurarium.github.io"
+    src = site / "kari" / "src"
+    out = site / "kari" / "app.js"
+    if not src.is_dir() or not out.exists():
+        return []
+    want = "".join(p.read_text(encoding="utf-8") for p in sorted(src.glob("*.js")))
+    if want == out.read_text(encoding="utf-8"):
+        return []
+    return ["kari/app.js is not the derivation of kari/src; run ./build-app.py"]
+
+
 def inv_a_fact_is_reached_through_its_entry_point(ctx):
     """Nothing outside an extracted fact names its internals.
 
@@ -748,8 +772,20 @@ def inv_state_agrees_with_its_own_date(ctx):
         except ValueError:
             continue
         want = "active" if age <= 45 else ("slow" if age <= 365 else "dormant")
-        if want != st:
-            bad.append(f"{r.get('work')}: {st} beside a chapter {age} days old")
+        if want == st:
+            continue
+        # A STATE THAT SAYS WHY IS NOT A CONTRADICTION. `state_basis` carries the reason the
+        # arithmetic was overridden, and お菊さんはいちゃ憑きたい carries "no chapter for 45 days in
+        # what we hold, but カドコミ still marks the serialisation as running". A platform saying a
+        # serialisation is live is evidence this database does not have, and refusing it would ask
+        # the build to ignore the publisher in favour of our own coverage gap.
+        #
+        # THE BASIS HAS TO MENTION THE DISAGREEMENT, so an unrelated sentence does not excuse one.
+        basis = str(r.get("state_basis") or "")
+        if basis and any(w in basis for w in ("still", "running", "hiatus", "skipped", "announced")):
+            continue
+        bad.append(f"{r.get('work')}: {st} beside a chapter {age} days old"
+                   + (f" (basis: {basis})" if basis else " with no basis"))
     return bad
 
 
@@ -1917,6 +1953,8 @@ INVARIANTS = [
      inv_names_reach_a_page_only_through_their_renderer),
     ("a name reaches both lines of a bilingual row", inv_a_name_in_both_mode_is_rendered_in_both),
     ("a fact is reached through its entry point", inv_a_fact_is_reached_through_its_entry_point),
+    ("the interface is the derivation of its source",
+     inv_the_interface_is_the_derivation_of_its_source),
     ("a stated reading names where it came from",
      inv_a_stated_reading_names_where_it_came_from),
     ("every Japanese field the data carries has a ruling",

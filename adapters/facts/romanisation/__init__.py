@@ -82,3 +82,16 @@ def styles(reading, kind=TITLE):
     derivable from the others: Yūri, Yuuri and Yuri all come from the kana and none from each other.
     """
     return {s: romanise(reading, s, kind) for s in STYLES}
+
+
+def _checks():
+    from . import checks as _c
+    return _c
+
+
+#: WHAT THIS FACT CAN BE CHECKED ON, named as `check.py` registers it. Exposed from the entry point
+#: because a check is part of a fact's public surface: `adapters/lint/facts.py` refused check.py
+#: reaching for the submodule directly, which was correct and is how this got written.
+CHECKS = {
+    "kana left in a romanisation": lambda ctx: _checks().kana_left_in_a_romanisation(ctx),
+}

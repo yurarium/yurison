@@ -28,6 +28,13 @@ satisfy this module completely.
 caller that writes `("stated", "researched", "surface")` down again from scratch, which is precisely
 how the four sets came to exist. The lint's own blind spot and this one are the same blind spot.
 
+## Two of its checks stayed behind, and they are the producer-facing ones
+
+`kana names with no stated division` asks about kana surfaces and `author names romanised as one
+word` asks about a rendering. Both are about what a producer did, and the producers have not moved,
+so the checks would have arrived before their subjects. They move when `boundary`, `ndl_heading`,
+`openbd_reading` and `analyser_division` do.
+
 ## Its consistency assertions are now cheap, and that is worth remembering
 
 `bases_where("cited") <= bases_where("donates")` was once a real claim about two hand-kept lists.

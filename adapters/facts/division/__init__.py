@@ -87,3 +87,22 @@ def bases_where(column):
     down beside it, which is the fault this module was extracted to end.
     """
     return frozenset(b for b in _TABLE if _ask(b, column))
+
+
+def _checks():
+    from . import checks as _c
+    return _c
+
+
+#: WHAT THIS FACT CAN BE CHECKED ON, keyed by the name check.py registers. Exposed here because a
+#: check is part of a fact's public surface, and because `adapters/lint/facts.py` refuses a caller
+#: reaching for the submodule directly.
+CHECKS = {
+    "cites_its_source": lambda ctx: _checks().cites_its_source(ctx),
+    "names_its_donor_in_a_field": lambda ctx: _checks().names_its_donor_in_a_field(ctx),
+    "divisions_read_back_from_a_romanisation":
+        lambda ctx: _checks().divisions_read_back_from_a_romanisation(ctx),
+    "divisions_resting_on_a_community_database":
+        lambda ctx: _checks().divisions_resting_on_a_community_database(ctx),
+    "divisions": lambda reading: _checks().divisions(reading),
+}

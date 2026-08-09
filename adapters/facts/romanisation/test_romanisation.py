@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """facts/romanisation: kana to Latin, one entry point.
 
-COVERS = ['adapters/facts/romanisation/__init__.py']
+COVERS = ['adapters/facts/romanisation/__init__.py',
+          'adapters/facts/romanisation/checks.py']
 
 Most cases here are a wrong spelling this project shipped, kept because a romaniser fails silently:
 it returns something that looks like a word whether or not it is the right one.
@@ -63,6 +64,27 @@ def main(s):
     # ones with no reading, and a crash there would be a fault in this module and not in the data.
     for empty in ("", None):
         s.eq(r.romanise(empty), empty, f"{empty!r} passes through")
+
+
+    # THE CHECK THAT BELONGS TO THIS FACT, exercised on a context built here rather than on the
+    # real one, so the assertion is about the check and not about today's data.
+    from facts.romanisation import checks as c
+    clean = {"names_shipped": {"authors": {"x": {"romaji": {"macron": "Yasuda Kosuke"}}}}}
+    s.eq(c.kana_left_in_a_romanisation(clean), 0, "a clean romanisation counts nothing")
+    for bad in ("Nishisawa 5 ミリ", "RDー Sounds", "takeヶhara"):
+        ctx = {"names_shipped": {"authors": {"x": {"romaji": {"macron": bad}}}}}
+        s.eq(c.kana_left_in_a_romanisation(ctx), 1, f"{bad!r} is counted")
+    # IT READS THE FINISHED STRING and shares no table with the romaniser, which is the whole
+    # reason it can catch the romaniser being wrong.
+    s.check(c.KANA_ANY.search("ミ") and not c.KANA_ANY.search("Mi"),
+            "the pattern asks about the character and not about a mora table")
+    s.eq(c.kana_left_in_a_romanisation({"names_shipped": {}}), 0, "an empty context counts nothing")
+
+    # IT LOOKS AT EVERY KIND THE FILE SHIPS. Scoping it to authors alone would have missed the
+    # composed credit lines, which is where the one live case is.
+    for kind in ("titles", "authors", "publishers", "credit_parts", "phrases"):
+        ctx = {"names_shipped": {kind: {"x": {"romaji": {"macron": "ミ"}}}}}
+        s.eq(c.kana_left_in_a_romanisation(ctx), 1, f"{kind} is looked at")
 
 
 if __name__ == "__main__":

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """facts/division: what standing a division has.
 
-COVERS = ['adapters/facts/division/__init__.py']
+COVERS = ['adapters/facts/division/__init__.py',
+          'adapters/facts/division/checks.py']
 
 The four sets this replaces were consistent when it was written, and the point is that they stay so
 by construction. These assertions pin the rulings the table encodes, so a column changed without a
@@ -58,6 +59,26 @@ def main(s):
     for q in (d.cites_its_source, d.may_donate, d.is_marked, d.counted_uncited):
         s.check(not q("stated "), "a basis nobody ruled on is believed for nothing")
         s.check(not q(None), "and neither is a missing one")
+
+
+    # THE CHECKS THAT MOVED IN WITH THE VOCABULARY. Exercised on contexts built here, so the
+    # assertions are about the checks and not about today's data.
+    from facts.division import checks as c
+
+    s.eq(c.divisions("ヤスダ コウスケ"), 2, "a spaced reading is written in two pieces")
+    s.eq(c.divisions("ウエダキョウコ"), 1, "an unspaced one states no division")
+    s.eq(c.divisions("  "), 0, "and an empty reading states nothing at all")
+
+    # THE CONSTANTS COME FROM THE TABLE, which is the whole reason this file exists beside it.
+    s.eq(set(c.DIVIDED_BY_ITS_SOURCE), d.bases_where("cited"),
+         "what counts as cited is the table's column")
+    s.eq(set(c.UNCITED_DIVISIONS_COUNTED), d.bases_where("counted"),
+         "and so is what is counted rather than blocked")
+
+    # A DIVISION ON A COUNTED BASIS IS COUNTED, and one on a cited basis is not. This is the pair
+    # the four hand-kept lists existed to keep straight.
+    for basis in d.bases_where("counted"):
+        s.check(not d.cites_its_source(basis), f"{basis} is counted because it cites nothing")
 
 
 if __name__ == "__main__":

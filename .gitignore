@@ -14,3 +14,9 @@ data/names/.journal/
 
 # Scratch directories an agent or a run leaves behind. Never part of the project.
 .tmp-*/
+
+# DERIVED, AND THE SITE REPOSITORY IS THE PUBLISHED SNAPSHOT. `deploy.sh` copies everything here
+# except feed.json, titles.json and ledger.json, and all three are recomputed by build.py. One
+# consequence worth knowing: titles.json is read by ADAPTERS, so a fresh clone must build once
+# before it can fetch. The committed copy used to hide that ordering.
+data/build/

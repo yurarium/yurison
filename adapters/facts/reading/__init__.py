@@ -160,4 +160,6 @@ CHECKS = {
     "publisher_readings_nobody_has_settled": lambda ctx, _n="publisher_readings_nobody_has_settled": getattr(_checks(), _n)(ctx),
     "kana_reading_spells_its_name": lambda ctx, _n="kana_reading_spells_its_name": getattr(_checks(), _n)(ctx),
     "ruby_spells_reading": lambda ctx, _n="ruby_spells_reading": getattr(_checks(), _n)(ctx),
+    "facts_fetched_with_no_citation":
+        lambda ctx: _checks().facts_fetched_with_no_citation(ctx),
 }

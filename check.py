@@ -450,6 +450,13 @@ def inv_names_reach_a_page_only_through_their_renderer(ctx):
     return entrypoints.findings(src)
 
 
+def inv_a_stated_reading_names_where_it_came_from(ctx):
+    """Defined in `adapters/facts/reading/checks.py`, beside the rulings it applies."""
+    from facts import reading as _rd
+    n = _rd.CHECKS["facts_fetched_with_no_citation"](ctx)
+    return [f"{n} stated reading(s) hold no url or cite"] if n else []
+
+
 def inv_a_fact_is_reached_through_its_entry_point(ctx):
     """Nothing outside an extracted fact names its internals.
 
@@ -1910,6 +1917,8 @@ INVARIANTS = [
      inv_names_reach_a_page_only_through_their_renderer),
     ("a name reaches both lines of a bilingual row", inv_a_name_in_both_mode_is_rendered_in_both),
     ("a fact is reached through its entry point", inv_a_fact_is_reached_through_its_entry_point),
+    ("a stated reading names where it came from",
+     inv_a_stated_reading_names_where_it_came_from),
     ("every Japanese field the data carries has a ruling",
      inv_every_japanese_field_has_a_ruling),
 ]
@@ -2668,6 +2677,8 @@ def budget_kana_names_with_no_stated_division(ctx):
     """Defined in `adapters/facts/division/checks.py`, beside the thing it checks."""
     from facts import division as _f
     return _f.CHECKS["kana_names_with_no_stated_division"](ctx)
+
+
 
 
 def budget_author_readings_no_source_states(ctx):

@@ -235,3 +235,45 @@ def ruby_spells_reading(ctx):
             bad.append(r["work"])
     return bad
 
+
+def facts_fetched_with_no_citation(ctx):
+    """Readings a source STATED that record no address for it.
+
+    THE INPUT SIDE OF THE STORE, MEASURED. `data/names` is not purely derived: 1,530 readings came
+    from a network answer and cannot be recomputed from `data/source`, so they are INPUTS and the
+    repository is their only copy. A stated reading that holds the answer without the address
+    cannot be checked, refreshed or argued with.
+
+    SELF-SOURCED IS NOT REMOTE. `surface` and `title-furigana` are read off the name and the title
+    the corpus already holds, so there is nothing to cite and `provenance.SELF_SOURCED` says so.
+
+    AND `researched` IS NOT A FETCH. A first version counted 17 NDL-sourced readings that were a
+    reviewer's conclusion citing NDL as EVIDENCE. The reviewer is here, the conclusion is
+    reproducible from the note they wrote, and `curate.problems` already refuses a researched
+    reading with no note. Only `stated` claims a source printed the thing, and only a stated
+    reading owes an address.
+
+    Section 14b: it reads the STORE and not the fetchers, so an adapter that stopped recording URLs
+    shows up here as a rise and not as this check agreeing with it.
+    """
+    import yaml
+    from names import provenance as _prov
+    local = set(getattr(_prov, "SELF_SOURCED", ())) | {"sudachi", "derived", "yurarium",
+                                                       "read off the name itself"}
+    bad = 0
+    for f in ("authors", "titles", "publishers"):
+        path = ROOT / "data" / "names" / f"{f}.yaml"
+        if not path.exists():
+            continue
+        rows = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("names", {})
+        for _k, r in rows.items():
+            if not isinstance(r, dict) or not r.get("reading"):
+                continue
+            if r.get("reading_basis") != "stated":
+                continue
+            src = str(r.get("reading_source") or "")
+            if not src or any(src.lower().startswith(x) for x in local):
+                continue
+            if not (r.get("reading_url") or r.get("reading_cite")):
+                bad += 1
+    return bad

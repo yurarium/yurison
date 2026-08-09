@@ -85,5 +85,17 @@ def main(s):
         s.check(name in r.CHECKS, f"{name} is published from the entry point")
 
 
+    # THE INPUT SIDE OF THE STORE IS CITABLE, and this is the guarantee that keeps it so. It reads
+    # data/names directly, so an empty ctx is the right argument and the number is about the store.
+    s.eq(rc.facts_fetched_with_no_citation({}), 0,
+         "every stated reading holds an address for the source that stated it")
+
+    # AND IT ASKS ONLY OF `stated`. My first version counted 17 NDL-sourced readings that were a
+    # reviewer's conclusion citing NDL as evidence; the reviewer is here and curate.problems already
+    # refuses a researched reading with no note.
+    s.check(not r.may_state("researched", "national-library"),
+            "a researched reading is the reviewer's, which is why it owes a note and not a url")
+
+
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

@@ -148,6 +148,23 @@ facts still have several producers would mean modelling the disagreement instead
 4. **Store technology and schema.** Designed with the parse fraction known and every modelled fact
    already single-owner.
 
+## What the audit corrected
+
+**THE AUDIT CORRECTED THIS AND DECISION 2 WITH IT, 2026-08-09.** `data/names` is not machine state
+that happens to sit in a readable format. Of 5,793 readings, 4,263 are recomputable from the
+corpus plus the code, and **1,530 came from a network answer and are INPUTS**: delete them and no
+rebuild brings them back, because the page that said so is not ours to keep. So the line does not
+run between `data/source` and `data/names`. It runs THROUGH `data/names`, between a reading a
+source stated and a reading we worked out.
+
+What that means for decision 2: the fetched half is committed and never derived, and the
+computed half may become a rebuildable cache. Splitting the store by FILE would have put both
+halves on the same side.
+
+And the archiving job is smaller than it looked. For a reading, the matched construction IS the
+reading, and it is already stored. What a fetched reading owes is its ADDRESS, and the invariant
+`a stated reading names where it came from` now holds that at zero.
+
 ## The extraction protocol
 
 Seven steps, applied to one library at a time. A library is done when the import lint passes and

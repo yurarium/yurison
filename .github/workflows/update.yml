@@ -187,7 +187,11 @@ jobs:
 
       - name: Commit the sources and the build
         run: |
-          git add data/source data/build data/coverage data/ledger
+          # data/build IS NOT COMMITTED. It is derived from the three directories beside it, and
+          # the site repository's kari/data history already holds the exact bytes readers were
+          # served, which is the published snapshot. Committing it stored the same information
+          # twice and gave the two somewhere to disagree.
+          git add data/source data/coverage data/ledger
           git diff --cached --quiet || git commit -m "update: run ${{ github.run_id }}"
 
       - name: Push

@@ -168,6 +168,16 @@ SURFACES = [
     # inside the field as written and `authorLabel` composes a new line from them.
     Surface("series[].author", "linkedCredits", "row:author", "person",
             "the same byline on a work page, where each person is a link to their record"),
+    # THE FUNCTION THE WORK PAGE ACTUALLY CALLS, and the one this table was missing. The 作者 fact
+    # calls `creditLine`, which shortens a long byline and calls `linkedCredits` for the rest, so
+    # every check here was measuring the callee and not the caller. `creditLine` cut the field on
+    # the slash and passed the pieces on as a field of their own, which threw the shipped division
+    # away; the byline `安田剛助・文尾文` reached a reader as `???? · Bun?Bun` while `linkedCredits`
+    # rendered the same field correctly, and a probe over this table reported zero
+    # (STANDING-INSTRUCTIONS §14b).
+    Surface("series[].author", "creditLine", "row:author", "person",
+            "the byline as the work page draws it, shortened where it names more people than a "
+            "line holds"),
     Surface("series[].latest_ep", "phraseOf", "value", "phrase",
             "the newest chapter's name, shown beside the row"),
     Surface("series[].collection", ("workTextOf", "workLabel"), "value", "title",

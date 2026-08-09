@@ -2226,3 +2226,72 @@ prints. Nothing here is a gap; it is the rule working.
 reading printed beside its own name, and a Latin pen name a cataloguer typed in full width. Each of
 those has a right answer, and each is now an invariant that blocks rather than a number that
 tolerates.
+
+## 31. The work page's byline was measured by nothing (2026-08-09)
+
+A reader was shown `???? · Bun?Bun` on w01700 for the credit `安田剛助・文尾文`, two artists whose
+readings openBD and the publisher both state. Every gate was green and a probe over the interface
+table reported zero.
+
+**What the fault was.** `creditLine` shortens a byline naming more people than a line holds. It
+shortened by cutting the FIELD on the slash and handing the first four pieces to `linkedCredits` as
+a field of their own. That string is not a field the build ever divided, so `credit_parts` answered
+nothing for it and the whole line fell to the floor, which spells a run it cannot look up one
+character at a time. `安田剛助・文尾文` is in no map on purpose: the corpus settled it as two people,
+so the build floored the two of them apart. 79 rows were shortened that way and 46 more were counted
+wrong, because a field writes two people with a comma or a ・ as readily as with a slash.
+
+**Why nothing saw it.** `adapters/interface.py` ruled `series[].author` through `authorLabel` and
+through `linkedCredits`, and the work page calls neither directly: it calls `creditLine`, which
+calls `linkedCredits` for what is left after the cut. Every check was measuring the callee. That is
+STANDING-INSTRUCTIONS §14b in the form the section does not spell out: not a check sharing its
+subject's assumption, but a check pointed at the function next to the one a reader meets.
+
+`creditLine` is a surface now, and `no name is spelled with question marks` is the invariant. It
+counts question marks in the answer against question marks in the question, so it consults no store
+and no division; it holds on names, houses and roles, and titles are excluded because a translation
+may honestly gain one. Its canary is the two statements the file held, restored.
+
+### Two budgets moved for this, in opposite directions
+
+`renderings resting on a mechanical romanisation` rose 626 to 798, and neither half of that is
+anything getting worse.
+
+163 of it is the work page byline being counted at all. 3,037 renderings joined the population when
+`creditLine` became a surface, and the marks on them were already on the page.
+
+9 of it is the mark landing where it belongs. A byline that fell to the floor whole carried ONE mark
+for the whole line, and the line now renders each person from the store and marks the ones that rest
+on our own romanisation. Two honest marks in place of one wrong one is a rise, and the rule against
+suppressing a mark to make a number fall says to take it.
+
+`interface reads outside an entry point` fell 13 to 12. `creditLine` had an exception in
+`entrypoints.SAFE` for reading the byline in order to split it on the slash. It is a ruled entry
+point now, so the read is inside a renderer and the exception went with the split.
+
+### One person, two romanisations, decided by a role bracket
+
+`[著]安田剛助` shipped as `[ Cho ] Yasuda Takesuke` while 安田剛助 alone shipped as `Yasuda Kōsuke`.
+`build._recompose_credit` rebuilds a credit line out of the people in it and declined to rebuild a
+line naming one person plus a role, because the splitter peels the `[著]` off and composing from the
+parts alone would have published the name with the job gone. Declining kept the job and froze the
+name: a phrase is written once by the analyser and never revisited, so openBD's ヤスダ コウスケ could
+not reach it. 207 credit fields were in that state.
+
+The role is put back now, spelled from the floor, which is the build's one romaniser and the map the
+interface already falls back to. It reads `[Cho]Yasuda Kōsuke`, and it will read `[author]Yasuda
+Kōsuke` wherever `credit_parts` reaches the page, because glossing a role is `roleWord`'s job in
+kari/app.js and a second table here would be a second producer of it.
+
+`a person is spelled one way` could not see this: it compares a phrase with the store record under
+the same key, and `[著]安田剛助` is not a key the store holds, so there was nothing to compare.
+`credit phrases spelling a person otherwise` asks the shipped division who the field names and looks
+those people up. It reads 207 on the store as this branch found it and falls to 70 on the next
+build. The 70 are the all-or-nothing rule working: a line is left as the analyser wrote it where any
+one person on it has no rendering yet.
+
+**It is not one of `names rendered two ways`.** That budget reads 3 and counts a different class
+entirely: strings the shipped maps spell one way as a publisher and another way as a person, which
+is what a self-published work produces. The three are `すたひろ`, filed Sutahiro as a publisher and
+Stu-Hiro as a person; `ガレットワークス`, Galette Works against Garettowākusu; and `ネジ式13番地`,
+Nejishiki 13-banchi against Nejishikijūsanbanchi. None of them moves for this work.

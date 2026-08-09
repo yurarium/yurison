@@ -98,6 +98,27 @@ NAMES = {
                   "reading_basis": "community-printed",
                   "romaji": {"macron": "Yabūchi Yū", "double": "Yabuuchi Yuu",
                              "plain": "Yabuchi Yu"}},
+        # THE FOUR PEOPLE A LONG BYLINE SHOWS BEFORE IT COUNTS THE REST, two of them either side
+        # of a ・ the corpus settled as a separator. `安田剛助・文尾文` is in no map, on purpose:
+        # the build floors the two of them apart because it divided them apart, so a renderer that
+        # loses the division has nothing to look the joined string up under and spells it a
+        # character at a time.
+        "安田剛助": {"reading": "ヤスダ コウスケ", "basis": "romaji", "reading_basis": "stated",
+                 "id": "c01450",
+                 "romaji": {"macron": "Yasuda Kōsuke", "double": "Yasuda Kousuke",
+                            "plain": "Yasuda Kosuke"}},
+        "文尾文": {"reading": "フミオ アヤ", "basis": "romaji", "reading_basis": "stated",
+                "romaji": {"macron": "Fumio Aya", "double": "Fumio Aya", "plain": "Fumio Aya"}},
+        "たいぼく": {"reading": "タイボク", "basis": "romaji",
+                 "romaji": {"macron": "Taiboku", "double": "Taiboku", "plain": "Taiboku"}},
+        "未来電機": {"reading": "ミライデンキ", "basis": "romaji",
+                 "romaji": {"macron": "Miraidenki", "double": "Miraidenki",
+                            "plain": "Miraidenki"}},
+        # A ・ INSIDE ONE PERSON'S NAME, which is the counter-case. Nothing in the corpus credits
+        # くろば or Ｕ on their own, so `interpunct.py` settles this string as one person and the
+        # store is keyed on the whole of it.
+        "くろば・U": {"reading": "クロバユー", "basis": "romaji", "id": "c00909",
+                  "romaji": {"macron": "Kuroba U", "double": "Kuroba U", "plain": "Kuroba U"}},
     },
     "phrases": {"第1話": "Ch. 1"},
     # THE DIVISION AS `adapters/names/creditline.py` SHIPS IT. `p` is the people in order with the
@@ -107,6 +128,13 @@ NAMES = {
         "宮澤伊織/水野英多": {"p": [{"n": "宮澤伊織"}, {"n": "水野英多"}]},
         "[著]仲谷鳰ほか": {"p": [{"n": "仲谷鳰", "r": "著"}, {"etc": 1}]},
         "紬めめ/ツムギメメ": {"p": [{"n": "紬めめ"}], "drop": [" / ツムギメメ"]},
+        # A BYLINE LONGER THAN A LINE HOLDS, with a ・ the corpus settled as a separator inside it.
+        # Six people, and the work page draws four and counts the rest.
+        "安田剛助・文尾文/たいぼく/未来電機/郷本/紀ノ上晟一": {
+            "p": [{"n": "安田剛助"}, {"n": "文尾文"}, {"n": "たいぼく"}, {"n": "未来電機"},
+                  {"n": "郷本"}, {"n": "紀ノ上晟一"}]},
+        # And the same character inside ONE person's name, which the division keeps whole.
+        "くろば・U/仲谷鳰": {"p": [{"n": "くろば・Ｕ"}, {"n": "仲谷鳰"}]},
     },
     "publishers": {"一迅社": {"en": "Ichijinsha", "basis": "official-jp"}},
     "imprints": {"Yurihime comics": {"id": "yurihime", "name": "コミック百合姫"}},
@@ -344,6 +372,32 @@ def main(s):
     ja_credit = iface.with_prefs(LANG="ja").labels([("credit", "[著]仲谷鳰 ほか")])
     s.eq(ja_credit[0], "[著]仲谷鳰 ほか",
          "in Japanese the field is the field, notation and all")
+
+    # ── the work page's byline, which is the route the `????` fault reached a reader by ────────
+    #
+    # `creditLine` shortens a byline naming more people than a line holds. It used to shorten by
+    # cutting the FIELD on the slash and passing the pieces on as a field of their own, and that
+    # string is in no map: the shipped division went missing, the whole line dropped to the floor,
+    # and `安田剛助・文尾文` came out `???? · Bun?Bun` on w01700 for two artists whose readings
+    # openBD and the publisher both state. It counts off the division now.
+    long_field = "安田剛助・文尾文 / たいぼく / 未来電機 / 郷本 / 紀ノ上晟一"
+    line = iface.labels([("creditLine", {"author": long_field}),
+                         ("creditLine", {"author": "くろば・Ｕ / 仲谷鳰"}),
+                         ("creditLine", {"author": "宮澤伊織 / 水野英多"})])
+    s.check(line[0].startswith("Yasuda Kōsuke / Fumio Aya / Taiboku / Miraidenki"),
+            "the work page draws the first four people the BUILD divided out, so a ・ the corpus "
+            "settled as a separator puts two of them either side of it")
+    s.check("?" not in line[0].replace("[?]", ""),
+            "and nothing in the line is spelled a character at a time, which is what a lost "
+            "division looks like on the page")
+    s.check(line[0].endswith("and 2 others"),
+            "the rest are counted, and counted off the division rather than off the separators: "
+            "this field writes six people and holds only five slashes")
+    s.eq(line[1], "Kuroba U / Nakatani Nio",
+         "A ・ INSIDE A NAME IS NOT A SEPARATOR. Nothing credits くろば or Ｕ alone, so the corpus "
+         "settles that string as one person and the line keeps it whole")
+    s.eq(line[2], "Miyazawa Iori / Mizuno Hideta",
+         "a byline shorter than the limit is drawn whole, by the same walk")
 
     s.raises(interface.Unavailable,
              lambda: interface.render([["noSuchFunction", 1]], names=NAMES),

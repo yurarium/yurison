@@ -1976,6 +1976,59 @@ def inv_no_cataloguing_notation_in_an_english_rendering(ctx):
         return [f"the interface could not be run, so nothing here was checked: {e}"]
 
 
+def inv_no_name_is_spelled_with_question_marks(ctx):
+    """No name a reader meets in English holds a question mark the field it came from did not.
+
+    THE FAULT, WHICH REACHED A READER. `enFallback` spells a Japanese run it cannot look up one
+    character at a time, and a character nothing can read becomes `?`. The work page's byline for
+    w01700 came out `???? · Bun?Bun` where the field says 安田剛助・文尾文, two artists whose
+    readings openBD and the publisher both state. Neither name was missing from anything: the
+    corpus had settled that field as two people, the build had shipped the division and floored the
+    two of them separately, and `creditLine` threw the division away by cutting the field on the
+    slash and passing the pieces on as a field of their own.
+
+    ARITHMETIC ON THE RENDERED RESULT, per §14b. It counts question marks in the answer against
+    question marks in the question, so it consults no store, no division and nothing in
+    `enFallback`, and it fails on anything the interface is able to draw. The floor's own `[?]`,
+    which says a spelling is ours, is taken off before counting: it is a mark on a name rather than
+    a character nothing could read, and this must not read one as the other.
+
+    NAMES AND ROLES, WHICH IS WHERE A QUESTION MARK IS NEVER PUNCTUATION. A TITLE may gain one
+    honestly, because a translation is not a transliteration and 月が綺麗ですね is published as
+    `The Moon Is Beautiful, Isn't It?`; 21 titles are in that state and every one of them is a
+    translator's sentence. Nobody is called `?`, so the surfaces this walks are the ones whose
+    values are people, houses and the jobs they did.
+
+    WHY IT IS AN INVARIANT AND NOT A BUDGET. A `?` in place of a name is not a deficit that shrinks
+    as readings are sourced. It says the renderer was handed a string the build never floored,
+    which is a fault in the renderer every time.
+
+    §14b, what it cannot see: a name spelled wrongly but spellably. `Yasuda Takesuke` for
+    ヤスダ コウスケ holds no question mark, and `a person is spelled one way` is the check for that.
+
+    fallback: none in the build. `enFallback` already IS the fallback, and a violation says it ran
+    out of map rather than that a name is unresearched.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import interface
+    try:
+        calls, about = interface.calls_for(_collections(ctx))
+        if not calls:
+            return []
+        out = _interface(ctx).labels(calls)
+    except interface.Unavailable as e:
+        return [f"the interface could not be run, so nothing here was checked: {e}"]
+
+    def marks(text):
+        return str(text).replace(FLOOR_TOKEN, "").count("?") + str(text).count("？")
+
+    bad = []
+    for (surface, value), shown in zip(about, out):
+        if surface.category in ("person", "publisher", "role") and marks(shown) > marks(value):
+            bad.append(f"{surface.path}:{value[:32]} renders as {shown[:48]}")
+    return sorted(set(bad))
+
+
 def inv_status_page_shows_no_japanese_of_its_own(ctx):
     """status.html in English says nothing in Japanese except the rows it is reporting on.
 
@@ -2036,6 +2089,7 @@ INVARIANTS = [
     ("every credit role has an English gloss", inv_every_credit_role_has_an_english_gloss),
     ("no cataloguing notation in an English rendering",
      inv_no_cataloguing_notation_in_an_english_rendering),
+    ("no name is spelled with question marks", inv_no_name_is_spelled_with_question_marks),
     ("status.html shows no Japanese of its own",
      inv_status_page_shows_no_japanese_of_its_own),
     ("no build-machine paths in published files", inv_no_absolute_paths_in_published_files),
@@ -3297,6 +3351,56 @@ def budget_publisher_keys_the_interface_misses(ctx):
     return len({v for v in second if interface.KANA_KANJI.search(v)})
 
 
+def budget_credit_phrases_spelling_a_person_otherwise(ctx):
+    """Credit fields whose composed phrase spells somebody the name store spells another way.
+
+    THE FAULT, AND THE BRACKET THAT HID IT. `_recompose_credit` rebuilds a credit line out of the
+    people in it, and it declined to rebuild a line naming ONE person plus a role: the splitter
+    peels `[著]` off, so composing from the parts would have published the name with the job gone.
+    Declining kept the job and froze the name, because a phrase is written once by the analyser and
+    never revisited. `[著]安田剛助` read `[ Cho ] Yasuda Takesuke` after openBD stated ヤスダ コウスケ,
+    while 安田剛助 alone read `Yasuda Kōsuke`. One man, two romanisations, decided by whether the
+    credit carried its role bracket.
+
+    WHY `a person is spelled one way` COULD NOT SEE IT (§14b). That invariant compares a phrase
+    with the store record under THE SAME KEY, and `[著]安田剛助` is not a key the store holds: the
+    bracket changes the string, so there was nothing to compare and it passed. This asks the
+    DIVISION who the field names and looks each of those people up, which is a key the phrase map
+    never has and the store always does.
+
+    ARITHMETIC ON TWO SHIPPED MAPS. `credit_parts`, `phrases` and `authors` all come out of
+    feed/names.json and this reads nothing else, so it fails on anything the build can emit.
+
+    A budget, because the residue is the documented all-or-nothing trade: a line is left as the
+    analyser wrote it where any one person in it has no rendering, and 70 lines are in that state
+    because somebody on them is unresearched. It falls as those readings arrive.
+    """
+    n = ctx["names_shipped"] or {}
+    parts, phrases, people = (n.get("credit_parts") or {}, n.get("phrases") or {},
+                              n.get("authors") or {})
+    if not (parts and phrases and people):
+        return 0
+
+    def fold(t):
+        return unicodedata.normalize("NFKC", t or "").replace(" ", "")
+
+    bad = set()
+    for key, div in parts.items():
+        text = str(phrases.get(key) or "")
+        if not text:
+            continue
+        for part in div.get("p") or ():
+            rec = people.get(fold(part.get("n") or "")) if part.get("n") else None
+            # THE STRING `_recompose_credit` WOULD HAVE USED, in the order it prefers them, so a
+            # disagreement here is a phrase that did not consume the store and never a difference
+            # of taste between two renderings the store holds.
+            ours = ((rec or {}).get("romaji") or {}).get("macron") or (rec or {}).get("en")
+            if ours and ours not in text:
+                bad.add(key)
+                break
+    return len(bad)
+
+
 def budget_names_rendered_two_ways(ctx):
     """Strings the shipped maps spell one way as a publisher and another way as a person.
 
@@ -3900,6 +4004,14 @@ BUDGETS_DEF = [
      "distinct pairs. It is the second producer of one fact, live and visible to a reader: 一迅社's "
      "yuri line shows as its magazine's name on 346 rows. It goes to zero when the interface reads "
      "feed/names.json's imprints map, and nothing else can move it down."),
+    ("credit phrases spelling a person otherwise",
+     budget_credit_phrases_spelling_a_person_otherwise,
+     "credit fields whose composed phrase spells one of the people in it differently from the name "
+     "store, counted by asking the shipped division who the field names. It was 207 while a line "
+     "of one person plus a role bracket was left exactly as the analyser first wrote it, so a "
+     "reading sourced afterwards could not reach it. The residue is the all-or-nothing rule: a "
+     "line is left alone where any one person on it has no rendering yet, and it falls as those "
+     "readings arrive."),
     ("names rendered two ways", budget_names_rendered_two_ways,
      "strings the shipped maps spell one way as a publisher and another way as a person, which "
      "happens because a self-published work names its own author as its publisher. A rise means a "
@@ -4381,6 +4493,19 @@ def self_test():
          inv_no_cataloguing_notation_in_an_english_rendering,
          lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
              "'著': 'author', '著者': 'author',", "'著者': 'author',")})),
+        # THE CANARY IS THE LINE THAT SHIPPED (§14b), planted in the SOURCE the context holds.
+        # `creditLine` shortened a long byline by cutting the field on the slash and calling
+        # `linkedCredits` with the pieces joined back up, which is a field the build never divided,
+        # so the division went missing and the line dropped to the floor. That is how
+        # `安田剛助・文尾文` reached a reader as `???? · Bun?Bun`. Nothing invented: this is the two
+        # statements the file held, restored.
+        ("no name is spelled with question marks", inv_no_name_is_spelled_with_question_marks,
+         lambda c: c.update({"interface_js": (c.get("interface_js") or "")
+                             .replace("const people = creditPeople(raw) || (raw ? [raw] : []);",
+                                      "const people = raw.split(/\\s*\\/\\s*/).filter(Boolean);")
+                             .replace("const head = linkedCredits(r, CREDITS_SHOWN);",
+                                      "const head = linkedCredits({ ...r, author: "
+                                      "people.slice(0, CREDITS_SHOWN).join(' / ') });")})),
         # THE STATUS PAGE WRITING A SENTENCE OF ITS OWN IN JAPANESE. Planted in the SOURCE the
         # context holds, the same way the entry-point probe is, so it reaches the file the check
         # evaluates. `T('統計', 'Statistics')` is a pair; dropping the English half is what a
@@ -4550,6 +4675,24 @@ def self_test():
     if budget_titles_carrying_cataloguing_punctuation(c) != was + 2:
         print("  self-test FAILED — 'titles carrying cataloguing punctuation' did not count "
               "its canaries")
+        ok = False
+
+    # A PHRASE THAT DID NOT CONSUME THE STORE, counted rather than passed or failed. The canary is
+    # a real credit and the analyser's real answer for it: `[著]安田剛助` was shipped as
+    # `[ Cho ] Yasuda Takesuke` while the store held Yasuda Kōsuke from openBD, and a count that
+    # reads 70 is indistinguishable from a count that cannot rise (§14b).
+    c = copy.deepcopy(ctx)
+    was = budget_credit_phrases_spelling_a_person_otherwise(c)
+    shipped = c["names_shipped"] = dict(c.get("names_shipped") or {})
+    shipped["credit_parts"] = dict(shipped.get("credit_parts") or {})
+    shipped["phrases"] = dict(shipped.get("phrases") or {})
+    shipped["authors"] = dict(shipped.get("authors") or {})
+    shipped["credit_parts"]["[著]カナリア"] = {"p": [{"n": "カナリア", "r": "著"}]}
+    shipped["phrases"]["[著]カナリア"] = "[ Cho ] Ka Naria"
+    shipped["authors"]["カナリア"] = {"romaji": {"macron": "Kanaria"}}
+    if budget_credit_phrases_spelling_a_person_otherwise(c) != was + 1:
+        print("  self-test FAILED — 'credit phrases spelling a person otherwise' did not count "
+              "its canary")
         ok = False
 
     # THE INTERFACE'S OWN COPY OF THE FOLD, changed to what it looked like before the two were held

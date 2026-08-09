@@ -399,10 +399,10 @@ SAFE = {
     ("predictedRows", "work", "through:String"): (
         1, "the same row, ordered against the others before it is handed back"),
 
-    # The credit field split into the people in it, each of whom `authorLabel` then renders. The
-    # split is the caller's, and it is the shape `creditNames` was extracted for on the other tab.
-    ("creditLine", "author", "through:String"): (
-        1, "the credit field, split on the slash so each person is rendered by the store"),
+    # `creditLine` HAD AN EXCEPTION HERE AND DOES NOT NEED ONE. It read the byline to split it on
+    # the slash, which is a second answer to how a credit divides and the reason `安田剛助・文尾文`
+    # reached a reader as `???? · Bun?Bun`. It is a ruled entry point in `adapters/interface.py`
+    # now, so the read is inside a renderer and the exception went with the split.
 
     # The credit field folded into a row's search key, where the row is built once and filtered
     # afterwards. `String` is the innermost call, so this cannot be answered by NOT_SHOWN above.
@@ -482,7 +482,8 @@ PASSES_ON = {
     ("linkedCredits", "creditChip"): (
         1, "the same byline, one linked name at a time"),
     ("creditLine", "linkedCredits"): (
-        2, "the 作者 fact on the work page wraps creditLine"),
+        3, "the 作者 fact on the work page wraps creditLine: the short byline, the shortened one, "
+           "and the whole byline again where the shortening could not place its names"),
     ("epText", "workTextOf"): (
         1, "the 更新 row wraps epText, and epText only runs at all in English"),
 }

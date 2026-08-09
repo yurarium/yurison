@@ -403,7 +403,77 @@ def credit_fields(idx, works, series_rows, releases, registry=None):
     return sorted(seen)
 
 
-def _recompose_credit(ja, phrase, authors, ruled=None):
+def _floored(text, floor):
+    """`text` with every Japanese run replaced by the floor's spelling of it, or None.
+
+    THE BUILD'S ONE ROMANISER, ASKED RATHER THAN COPIED. `adapters/names/romfloor.py` spells every
+    Japanese run any surface can carry and `build` ships the answers, so the notation around a name
+    is spelled here by looking the run up. A second speller in this function is the shape §3 counts
+    seven shipped bugs from, and it would disagree with the map the browser reads.
+
+    None WHERE A RUN IS NOT IN THE MAP, so a caller falls back rather than printing a hole. The
+    styles are collapsed to the macron one for the reason `_recompose_credit` gives: a phrase is
+    rendered once at build time and cannot follow the reader's choice.
+    """
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+    from names import romfloor as _rf
+    out, at = [], 0
+    for m in _rf.JAPANESE_RUN.finditer(str(text or "")):
+        got = (floor or {}).get(_rf.fold(m.group(0)))
+        if not got:
+            return None
+        out.append(text[at:m.start()])
+        out.append(got if isinstance(got, str) else got.get("macron"))
+        at = m.end()
+    out.append(text[at:])
+    return "".join(out)
+
+
+def _credit_of_one(ja, detail, authors, floor, ruled):
+    """A field naming ONE person plus the job they did, with the job kept and the name current.
+
+    WHAT THIS REPLACES, AND WHY THE THING IT REPLACES WAS WRONG IN A WAY NOTHING SAID. `[著]安田剛助`
+    was left as the analyser wrote it, because `split_authors` peels the 著 off and a line rebuilt
+    from its people alone would publish the name with the job gone. That protected the job and
+    froze the name: a phrase is written once and never revisited, so the field still read
+    `[ Cho ] Yasuda Takesuke` after openBD stated ヤスダ コウスケ, while the same man's name on its
+    own read `Yasuda Kōsuke`. One person, two spellings, and a role bracket decided which. 207
+    credit fields were in that state.
+
+    NOTHING IS DROPPED. The person's own span is replaced by the store's rendering and the rest of
+    the field keeps its place, spelled from the floor, so the 著 survives as `Cho`.
+
+    THE ROLE IS ROMANISED AND NOT GLOSSED, and that is deliberate. kari/app.js holds `ROLE_EN` and
+    `roleWord` is the one thing that turns 著 into `author`; a table of glosses here would be a
+    second one, and `every credit role has an English gloss` asks the interface precisely so that
+    there is only ever the one. Where the interface can draw this field it does, through
+    `credit_parts`, and it says `author`. This is the string underneath that.
+
+    THE DIVISION HAS TO ACCOUNT FOR THE WHOLE FIELD. `phrases.yaml` holds chapter names and
+    collection titles as well as credits, and the splitter finds one name-shaped run in plenty of
+    them: `100日後に咲く百合（MFC）` divides into one "name" and a bracket. `coverage` says what the
+    division did not account for, and anything left is a string this has no business rewriting.
+    """
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+    from names import creditline
+    name, _reading, role = detail
+    raw = str(ja or "").strip()
+    # A FIELD THAT STATES NO JOB IS NOT A CREDIT WITH ITS ROLE TAKEN OFF. It is a title, a chapter
+    # name or a name beside a note, and the leftover is not a bracket this may romanise away.
+    if not role or creditline.coverage(raw, None, ruled):
+        return None
+    rec = authors.get(name) or {}
+    shown = ((rec.get("romaji") or {}).get("macron")) or rec.get("en")
+    at = raw.find(name)
+    if not shown or at < 0:
+        return None
+    head, tail = _floored(raw[:at], floor), _floored(raw[at + len(name):], floor)
+    if head is None or tail is None:
+        return None
+    return (head + shown + tail).strip()
+
+
+def _recompose_credit(ja, phrase, authors, ruled=None, floor=None):
     """A credit line rendered from its people, or the phrase we already had.
 
     The line is only rebuilt when EVERY person in it has a rendering of their own. A line that is
@@ -422,24 +492,28 @@ def _recompose_credit(ja, phrase, authors, ruled=None):
     """
     try:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
-        from names.inputs import split_authors
+        from names.inputs import split_credits_detail
     except Exception:                                                       # noqa: BLE001
         return phrase
-    # THE RULING ON A ・ TRAVELS WITH THE CALL. `split_authors` has taken a `ruled` map since the
+    # THE RULING ON A ・ TRAVELS WITH THE CALL. The splitter has taken a `ruled` map since the
     # interpunct work, and this caller was the one that never passed it, so a string the corpus had
     # settled as ONE person was still cut here: さりい・B came back as `Sarii, B` while the store
     # held `Sarii B`, and `a person is spelled one way` caught the pair. The splitter is one
     # producer only where every consumer asks it the same question.
-    parts = [(n or "").strip() for n, _role in split_authors(ja or "", ruled=ruled)]
+    #
+    # THE DETAIL AND NOT `split_authors`, because the role is what a line of one needs back.
+    detail = split_credits_detail(ja or "", ruled=ruled)
+    parts = [(n or "").strip() for n, _r, _role in detail]
     if not parts or not all(parts):
         return phrase
-    # A ROLE IS PART OF WHAT THE LINE SAYS, and a line of one is the only place it survives.
-    # `split_authors` peels `[著]` off before returning the name, so recomposing `[著]太陽まりい`
-    # from its people would publish `Taiyō Marii` and drop the 著. A line naming several people
-    # already loses its roles to the join, and that trade was made when it was written; here the
-    # string is left alone unless it is nothing but the name.
+    # A ROLE IS PART OF WHAT THE LINE SAYS, and a line of one is the only place it survives. The
+    # splitter peels `[著]` off before returning the name, so recomposing `[著]太陽まりい` from its
+    # people would publish `Taiyō Marii` and drop the 著. `_credit_of_one` puts it back rather than
+    # leaving the whole string as the analyser wrote it, which is what froze 207 spellings. A line
+    # naming several people still loses its roles to the join, and that trade was made when this
+    # was written.
     if len(parts) == 1 and parts[0] != (ja or "").strip():
-        return phrase
+        return _credit_of_one(ja, detail[0], authors, floor, ruled) or phrase
     out = []
     for n in parts:
         rec = authors.get(n) or {}
@@ -6076,7 +6150,10 @@ def main():
          # each Japanese run inside it. A key here does NOT mean the interface will use it: a name
          # with a reading is spelled from the reading, and this answers only where nothing else can.
          "floor": _floor,
-         "phrases": {_fold(k): _recompose_credit(k, v, _auth_names, _credit_ruled) for k, v in (
+         # THE FLOOR TRAVELS WITH IT, because a field naming one person also carries the job that
+         # person did, and the job has to be spelled by the map the rest of the site spells from.
+         "phrases": {_fold(k): _recompose_credit(k, v, _auth_names, _credit_ruled, _floor)
+                     for k, v in (
              (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
               ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}
          ).items() if norm_work(k) not in _wh_names}},

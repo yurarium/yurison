@@ -582,6 +582,43 @@ def series_addresses(s):
     s.eq(_gap["publisher_basis"], "not-stated", "an unnamed publisher says which kind of unnamed")
     s.eq(_gap["distributor"], "講談社", "beside the party MADB did name")
 
+    # ── A CREDIT LINE COMPOSED FROM THE STORE, AND THE ROLE BRACKET THAT USED TO FREEZE ONE ────
+    #
+    # `[著]安田剛助` was left as the analyser first wrote it, because the splitter peels the 著 off
+    # and rebuilding from the parts alone would have dropped it. So the job survived and the name
+    # did not: openBD stated ヤスダ コウスケ and the field went on reading `Cho Yasuda Takesuke`
+    # while 安田剛助 on its own read `Yasuda Kōsuke`.
+    _store = {"安田剛助": {"romaji": {"macron": "Yasuda Kōsuke"}, "en": "Kōsuke Yasuda"},
+              "文尾文": {"romaji": {"macron": "Fumio Aya"}}}
+    # The floor as feed/names.json ships it: keyed by the fold, spelling the runs the store does
+    # not answer for. 著 is one of those. It names the job somebody did, so no name store holds it.
+    _floor = {"著": "Cho", "編": "Hen", "安田剛助": "Yasuda Takesuke", "文尾文": "Bunbi Bun"}
+    s.eq(b._recompose_credit("安田剛助", "Yasuda Takesuke", _store, {}, _floor), "Yasuda Kōsuke",
+         "a bare name is composed from the store and not from the analyser's phrase")
+    s.eq(b._recompose_credit("[著]安田剛助", "[ Cho ] Yasuda Takesuke", _store, {}, _floor),
+         "[Cho]Yasuda Kōsuke",
+         "and the same name inside a role bracket keeps the job and gets the current spelling")
+    s.eq(b._recompose_credit("安田剛助 / 文尾文", "Yasuda Takesuke, Bunbi Bun", _store, {}, _floor),
+         "Yasuda Kōsuke, Fumio Aya", "a line of two is composed from both records")
+    # THE PHRASE MAP HOLDS TITLES AND CHAPTER NAMES TOO, and the splitter finds a name-shaped run
+    # in plenty of them. Rewriting one would put a romanisation of part of a title in a map the
+    # interface reads as a rendering of the whole of it, so the division has to account for the
+    # whole field before anything is recomposed.
+    s.eq(b._recompose_credit("100日後に咲く安田剛助（MFC）", "100 Nichigo ni Saku (MFC)",
+                             _store, {}, _floor),
+         "100 Nichigo ni Saku (MFC)",
+         "a title the division cannot account for is left as the analyser wrote it")
+    # AND WHERE THE STORE HAS NOTHING, THE PHRASE STANDS. Half a line composed and half romanised
+    # whole reads as neither.
+    s.eq(b._recompose_credit("[著]未知の人", "[ Cho ] Michi no Hito", _store, {}, _floor),
+         "[ Cho ] Michi no Hito", "a person with no rendering leaves the phrase alone")
+    # A ROLE THE FLOOR CANNOT SPELL IS NOT GUESSED AT EITHER. `_floored` answers None and the
+    # phrase stands, rather than a hole appearing where the bracket was.
+    s.eq(b._recompose_credit("[監修]安田剛助", "[ Kanshū ] Yasuda Takesuke", _store, {}, _floor),
+         "[ Kanshū ] Yasuda Takesuke", "a job the floor does not spell leaves the phrase alone")
+    s.eq(b._floored("[著]", _floor), "[Cho]", "the floor spells the notation around a name")
+    s.eq(b._floored("[監修]", _floor), None, "and answers nothing for a run it does not hold")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

@@ -433,7 +433,52 @@ at all, and for those the division was never known, so no rule inside this modul
 The fix, if it is worth making, is to keep the analyser's division beside the reading rather than
 to guess it back.
 
-## 6. Fallback for names not yet researched
+### 5e. Where a person's name divides is a second fact, and it has its own sources
+
+Recorded 2026-08-09, after 太陽まりい was reported reading `Taiyōmarii` as one word.
+
+**The reading can be right and the division still missing.** The media-arts catalogue files that
+artist タイヨウマリイ, which is correct, and files it closed up. A romanisation is spelled out of
+the reading, so a reading with no space in it produces a Latin name with no space in it, and the
+person is 太陽 まりい. `いがらしゆみこ` had been in the same state since the first hour of this
+project, when the owner said "surely on general principles, Igarashi Yumiko".
+
+So a record can be settled about how a name is SAID and say nothing about where it BREAKS, and
+until now only one of those two questions was being asked. §5c's rejected rule and the one above it
+are both attempts to answer the second from the characters, and neither can: a kana name has no
+kanji boundary to lean on and an undivided reading has no boundary at all.
+
+**Which sources hold it, measured rather than assumed.** Every route below was tried against the
+459 author records whose reading is one unbroken run.
+
+| route | on disk | what it gave |
+|---|---|---|
+| openBD `collationkey` | yes | already mined; a comma per person, 372 people, 8 still glued for other reasons |
+| MADB `schema:creator` | yes | 436,431 creator readings, 8,824 with a space, 2 of ours |
+| Wikidata P734/P735 | yes | 154 records hold `reading_family`, 1 of them settles a name |
+| our own store, another spelling | yes | 4, each the same artist filed twice |
+| platform and shop bylines | yes | まんが王国 and ヤンマガWeb print the kana closed up |
+| **NDL 著者標目** | one request | the answer, and it also divides the SURFACE |
+
+**The heading is the route, and it was open the whole time.** A record page under `/books/` prints
+`美術制作者 ： 美鈴, ちょこ ミレイ, チョコ ( 034528963 )典拠`: the surname, the given name, and the
+same division of the reading, from a cataloguing authority, with the authority record's own number
+beside it. `ndl_books.py` had been parsing those pages for a title's reading since the day before
+and reading past this field. STANDING-INSTRUCTIONS §14c is about exactly this shape, where one use
+of a route has been mistaken for all of them.
+
+**What is taken is the offsets and nothing else.** A heading is a filing form before it is a
+pronunciation and it folds the kana that sort together, so `boundary.carry` puts the division onto
+the kana we already hold and refuses unless the two correspond character for character.
+`adapters/names/ndl_heading.py` holds the parse and `data/fixtures/ndl/` holds four real headings,
+including the one that must be refused: searching by author for いがらしゆみこ returns 五十嵐 由美子
+as well, a different spelling read the same way.
+
+**Where nothing states a division the run-on form stands, and is marked.** In Japanese the reader
+has the name itself; in English the Latin string is all there is, so it carries a note saying no
+source states where the name divides. That is the §5d asymmetry applied to a second fact, and the
+budget `author names romanised as one word` counts what is left. It will never reach zero, because
+こかむも is one word and the publisher's own cover says so.
 
 **Show the Japanese.** This is the same rule `platName()` already follows for platforms — absent
 from the map means it passes through untouched — and it extends the project's standing principle

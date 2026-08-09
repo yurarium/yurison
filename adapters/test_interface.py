@@ -67,6 +67,14 @@ NAMES = {
         "紬めめ": {"reading": "ツムギ メメ", "basis": "romaji",
                 "romaji": {"macron": "Tsumugi Meme", "double": "Tsumugi Meme",
                            "plain": "Tsumugi Meme"}},
+        # A NAME WHOSE READING IS SOURCED AND STATES NO DIVISION. The media-arts catalogue files
+        # this artist タイヨウマリイ, correctly and closed up, so the romanisation runs together
+        # where the person is 太陽 まりい. Nothing in the characters says where a Japanese name
+        # divides, so the run-on form is the honest fallback and the note is what stops it reading
+        # as settled.
+        "太陽まりい": {"reading": "タイヨウマリイ", "basis": "romaji", "undivided": True,
+                  "romaji": {"macron": "Taiyōmarii", "double": "Taiyoumarii",
+                             "plain": "Taiyomarii"}},
     },
     "phrases": {"第1話": "Ch. 1"},
     # THE DIVISION AS `adapters/names/creditline.py` SHIPS IT. `p` is the people in order with the
@@ -186,6 +194,25 @@ def main(s):
     s.eq(iface.values([("foldKey", "4話②＜完＞")])[0], "4話2<完>",
          "the browser's own fold, returned whole. `labels` strips tags and read <完> as an "
          "element, which reported a disagreement with the Python fold that only the harness had")
+
+    # ── a name romanised as one word says so, and only to the reader who needs telling ───────
+    #
+    # THE ASYMMETRY IS THE RULE, not an oversight. A reader in Japanese has the name itself and can
+    # see 太陽まりい; a reader in English has `Taiyōmarii` and nothing to fall back on. So the note
+    # is attached in English and the Japanese line is left alone, which is the same reasoning §5d
+    # gives for the unverified-reading mark and the same reasoning `uncertainMark` gives for
+    # narrowing its own trigger in Japanese.
+    undiv = iface.values([("authorLabel", {"author": "太陽まりい"}),
+                          ("authorLabel", {"author": "仲谷鳰"})])
+    s.eq(iface.labels([("authorLabel", {"author": "太陽まりい"})])[0], "Taiyōmarii",
+         "the run-on romanisation is what is shown, because a division nobody states is a guess")
+    s.check("No source states where this name divides" in undiv[0],
+            "and it carries a note saying why it runs together")
+    s.check("title=" not in undiv[1],
+            "a name whose reading divides carries no note, so the note stays worth reading")
+    s.check("title=" not in iface.with_prefs(LANG="ja").values(
+                [("authorLabel", {"author": "太陽まりい"})])[0],
+            "and in Japanese nothing is said, because the reader has the name")
 
     # ── a credit is a link, and every name in it still goes through authorLabel ──────────────
     #

@@ -182,24 +182,102 @@ def store_donors(names, key):
     return out
 
 
-def wants_boundary(name, record):
-    """Whether this record's reading leaves the name's division unanswered.
+def wants_division(name, record):
+    """Whether this record's READING leaves the name's division unanswered.
 
-    A name whose SURFACE is already divided has its answer from the person who wrote it, so it is
-    not asked about: くわばら たもつ states its own boundary and the reading keeps it.
+    ANY SURFACE, WHICH IS WHERE THIS WAS WRONG. `wants_boundary` below asks only about kana names,
+    on the reasoning that a name holding a kanji gets its division from the reading a source stated
+    for it. That is the ordinary path and it is not the only one: 太陽まりい has a reading a national
+    catalogue states, タイヨウマリイ, and the catalogue states it closed up, so the ordinary path
+    delivered a correct reading and no division at all. 459 records were in that state and the
+    module that exists to divide names was not looking at any of them.
 
-    Only a kana surface. A name holding a kanji gets its boundary from the reading a source stated
-    for it, which is the ordinary path and is not this module's business.
+    A DIVIDED SURFACE IS A QUESTION AND NOT AN ANSWER, which is the other half of the same mistake.
+    佐倉 おりこ writes its own division and the reading サクラオリコ does not carry it, so the name
+    romanises `Sakuraoriko` under a byline with a space in it. The surface is the best donor there
+    is and `from_surface` is what reads it; excluding those records meant the one name whose
+    division nobody had to look up was the one nothing looked at.
     """
     reading = (record or {}).get("reading")
-    if not reading or cuts(reading) or cuts(name):
+    if not reading or cuts(reading):
         return False
-    ours = flat(name)
-    if len(ours) < 4 or flat(reading) != ours:
-        return False
-    # Kana and nothing else. A digit or a Latin letter has to be READ before it can be divided, and
-    # タイザン5 is somebody's whole name.
-    return bool(re.fullmatch(r"[ァ-ヺーゝゞ]+", ours))
+    # Kana and nothing else, IN THE READING. A digit or a Latin letter has to be read before it can
+    # be divided, and タイザン5 is somebody's whole name. The surface may hold anything, since the
+    # division is carried onto the reading rather than onto the characters.
+    return len(flat(reading)) >= 4 and bool(re.fullmatch(r"[ァ-ヺーゝゞ]+", flat(reading)))
+
+
+KANA_RUN = re.compile(r"^[ぁ-ゖァ-ヺーゝゞ]+$")
+
+
+def from_surface(name, reading):
+    """`reading` divided where the SURFACE divides it, or None where the offset is not established.
+
+    THE SPACE IN A BYLINE IS A STATED DIVISION, and it is stated by whoever wrote the name. 佐倉
+    おりこ, 圷　見南子 and 出内　テツオ are how those artists are credited, and the readings
+    サクラオリコ, アクツミナコ and イデウチテツオ threw the space away, so 20 people were romanised
+    as one word under a byline that divides them.
+
+    WHERE THE OFFSET COMES FROM, AND WHY THIS IS NOT SEGMENTATION. A surface part written entirely
+    in kana IS its own reading, so its length in the reading is known by arithmetic and not by
+    guessing: かしい in `かしい 葵` is カシイ, three morae, and the reading カシイアオイ begins with
+    exactly those three. NAMES-PLAN records two rejected attempts at deriving a division, and both
+    were rejected for proposing where a KANJI run ends. Nothing here proposes anything: the division
+    is the author's, the anchor is exact, and a part whose length is not established yields nothing.
+
+    So 圷　見南子 divides and 冬木先輩 does not, because the second has no space in it to read.
+
+    AND IT CHECKS ITSELF. The anchored kana must actually be there. 三本 ひより gives ヒヨリ at the
+    end of ミツモトヒヨリ and the offset stands; a reading that transcribes the kana differently, as
+    a filing key folding づ to ず does, does not match and nothing is carried.
+    """
+    parts = [p for p in re.split(r"[\s　・･]+", str(name or "")) if p]
+    ours = flat(reading)
+    if len(parts) < 2 or not ours:
+        return None
+    at, seen = [], 0
+    for p in parts[:-1]:                       # from the left, while each part reads itself
+        if not KANA_RUN.fullmatch(p):
+            break
+        seen += len(flat(p))
+        if seen >= len(ours) or flat(name).find(flat(p), 0) < 0:
+            return None
+        at.append(seen)
+    if not at:                                 # nothing on the left, so try the right
+        tail = 0
+        for p in reversed(parts[1:]):
+            if not KANA_RUN.fullmatch(p):
+                break
+            tail += len(flat(p))
+            if tail >= len(ours):
+                return None
+            at.append(len(ours) - tail)
+        at.sort()
+    if not at:
+        return None
+    # THE ANCHOR HAS TO BE WHERE IT SAYS IT IS. Every kana part read off the surface must appear in
+    # the reading at the offset the arithmetic put it, or the two strings are not each other's.
+    if respace(ours, tuple(at)).replace(" ", "") != ours:
+        return None
+    pieces = respace(ours, tuple(at)).split(" ")
+    for p, piece in zip(parts, pieces):
+        if KANA_RUN.fullmatch(p) and flat(p) != piece:
+            return None
+    return respace(ours, tuple(at)) if len(pieces) == len(parts) else None
+
+
+def wants_boundary(name, record):
+    """Whether a KANA name's own kana can take a division from a donor that supplies no kana.
+
+    THE NARROWER QUESTION, AND IT IS A DIFFERENT ONE. `openbd_reading.boundary_queue` asks this,
+    because a collation key folds づ to ず and may not be published as anybody's reading: what it
+    can supply is offsets, and an offset only names a place in OUR kana when the surface and the
+    reading are the same string. That holds for a kana name and for nothing else.
+
+    `wants_division` is the general question and `fill` asks that one, carrying onto the reading.
+    """
+    return (wants_division(name, record) and flat(record["reading"]) == flat(name)
+            and bool(re.fullmatch(r"[ァ-ヺーゝゞ]+", flat(name))))
 
 
 def fill(names):
@@ -215,9 +293,19 @@ def fill(names):
     import collections
     added, refusals = {}, collections.Counter()
     for key, rec in names.items():
-        if not wants_boundary(key, rec):
+        if not wants_division(key, rec):
             continue
-        got, why = settle(key, store_donors(names, key))
+        # ONTO THE READING, NOT ONTO THE SURFACE. For a kana name the two are the same string and
+        # this changes nothing; for 山本和音 the surface has no offsets to put a space at and the
+        # reading ヤマモトカズネ does. The donor is another record of the same name spelt with a
+        # space in it, which is this person's own record and not a guess about them.
+        #
+        # THE BYLINE IS THE FIRST DONOR ASKED, because it is the artist's own. Where it and a
+        # second record disagree `settle` refuses, which is the right answer: two spellings of one
+        # name dividing it in two places is a question nothing here can close.
+        own = from_surface(key, rec["reading"])
+        donors = store_donors(names, key) + ([(own, "its own byline")] if own else [])
+        got, why = settle(rec["reading"], donors)
         if not got:
             refusals[why] += 1
             continue

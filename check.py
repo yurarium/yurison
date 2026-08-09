@@ -1490,6 +1490,44 @@ def inv_a_division_cites_its_source(ctx):
     return bad
 
 
+def inv_a_person_is_spelled_one_way(ctx):
+    """A string the shipped file answers for as a person and as a phrase gets one answer.
+
+    THE TWO PRODUCERS. `phrases` is written once per string by the morphological analyser and never
+    revisited, and an analyser divides by finding words in running text, which a pen name is not:
+    it held `Ai Kawa Momoko` for あいかわももこ, `Ikedata Kashi` for いけだたかし and
+    `Ara Fujipesu` for あらふじぺす, while the author store held the same three people romanised
+    from their own readings. 290 strings had two answers and the analyser's was the worse one every
+    time the two differed.
+
+    Worse than wrong, it was FROZEN. A phrase is written the first time a string is seen, so a
+    division sourced afterwards could never reach it, and 大熊らすこ stayed `Ōkumara Suko` after its
+    reading was settled as オオクマ ラスコ.
+
+    SO THE PHRASE CONSUMES THE STORE, which is §3's first question rather than its second, and this
+    is the invariant that says it kept doing so. It compares two shipped strings and reads neither
+    producer, so it fails on anything the build can emit: `_recompose_credit` returning the phrase
+    unchanged because its import failed looks exactly like a green run otherwise.
+
+    §14b, what it cannot see: whether the store's own answer is right. That is what the division
+    work and the mark beside a run-on name are for.
+
+    fallback: none at check-in. A build that cannot compose leaves the analyser's string, which is
+    still a name and still renders, so nothing degrades for a reader.
+    """
+    shipped = ctx["names_shipped"] or {}
+    people, phrases = shipped.get("authors") or {}, shipped.get("phrases") or {}
+    bad = []
+    for key, phrase in phrases.items():
+        rec = people.get(key)
+        if not rec:
+            continue
+        ours = (rec.get("romaji") or {}).get("macron") or rec.get("en")
+        if ours and str(phrase) != str(ours):
+            bad.append(f"{key}: the phrase map says {phrase!r} and the name store says {ours!r}")
+    return bad
+
+
 def inv_nicovideo_channel_agrees(ctx):
     """The channel a ニコニコ work is filed under, against the channel we recorded ourselves.
 
@@ -1772,6 +1810,7 @@ INVARIANTS = [
     ("an imprint spelling belongs to its own publisher",
      inv_imprint_spelling_belongs_to_its_own_publisher),
     ("no HTML entity in a stored name", inv_no_html_entity_in_a_stored_name),
+    ("a person is spelled one way", inv_a_person_is_spelled_one_way),
     ("nicovideo channels agree with our own records", inv_nicovideo_channel_agrees),
     ("a fixture states where it came from", inv_fixture_states_where_it_came_from),
     ("the interface folds a name key as the build does",
@@ -3010,6 +3049,34 @@ def budget_names_rendered_two_ways(ctx):
     return len(bad)
 
 
+def budget_author_names_romanised_as_one_word(ctx):
+    """People whose Latin name a reader is shown with no space in it.
+
+    THE FAULT. 太陽まりい is filed タイヨウマリイ by the national media-arts catalogue, which is
+    correct and closed up, so the romanisation reads `Taiyōmarii` and the person is 太陽 まりい. A
+    Japanese name carries no boundary in its characters and none in an undivided reading, so this
+    cannot be fixed by looking harder at what we hold: NAMES-PLAN records two attempts at deriving
+    a division and why both were refused, and `adapters/names/ndl_heading.py` is the route that
+    replaced them, which asks a cataloguing authority.
+
+    IT FALLS ONLY WHEN A SOURCE STATES A DIVISION, and that is the point of measuring it here
+    rather than counting the queue. Every glued name carries the mark NAMES-PLAN §5d puts on it, so
+    the way to empty this number without sourcing anything is to start guessing, and a guess would
+    show up as a fall nobody can cite. `a division cites its source` is the invariant that makes
+    that impossible for a kana name; this is the count for the rest.
+
+    ARITHMETIC ON THE RENDERED RESULT, per §14b. It looks for a space in the string the file
+    offers a reader and consults no store, no basis and nothing in `boundary.py`, so it can fail
+    on anything the build is able to emit. A one-element pen name is in it and legitimately so:
+    なもり has no division to find, and nothing in the data distinguishes a name that is whole from
+    one whose division nobody has stated. So this does not reach zero, and the number that matters
+    is the direction.
+    """
+    people = (ctx["names_shipped"] or {}).get("authors") or {}
+    return sum(1 for rec in people.values()
+               if " " not in ((rec.get("romaji") or {}).get("macron") or " "))
+
+
 def budget_publisher_readings_nobody_has_settled(ctx):
     """Publisher keys shipped as OUR romanisation whose reading no source states.
 
@@ -3477,6 +3544,12 @@ BUDGETS_DEF = [
      "strings the shipped maps spell one way as a publisher and another way as a person, which "
      "happens because a self-published work names its own author as its publisher. A rise means a "
      "publisher name was written by hand where the name store already spelt it."),
+    ("author names romanised as one word", budget_author_names_romanised_as_one_word,
+     "people whose Latin name a reader is shown closed up, because the reading behind it states no "
+     "word break: 太陽まりい is filed タイヨウマリイ and reads Taiyōmarii where the person is 太陽 "
+     "まりい. It falls when a source states a division and cannot fall any other way, since the "
+     "only alternative is guessing where somebody's name divides. Some of the residue is names "
+     "that genuinely have one element."),
     ("publisher readings nobody has settled", budget_publisher_readings_nobody_has_settled,
      "publisher and imprint keys shipped as a romanisation of ours over a reading no source "
      "states, which is what the mark beside them says. A coverage deficit and the other half of "

@@ -110,6 +110,17 @@ def sample(budget=600_000):
     Half the budget goes to the largest files that fit, where the long records and the odd dates
     are, and half to a stride across the rest, so a fault confined to the small per-source files
     is still reachable.
+
+    THE STRIDE WALKS THE PATHS AND NOT THE SIZES, and its budget is its own. Both halves used to
+    read one size-ordered list out of one running total, so a single store growing by twelve
+    kilobytes reordered the list, knocked one file out of the tail and changed 29 of the 44 files
+    sampled. The count of dates in the sample fell from 101 to 97 and the assertion below, which is
+    about whether the SAMPLE is worth running, went red on a commit that had touched nothing this
+    file reads. A sample that reshuffles whenever any data file grows cannot carry a threshold.
+
+    The big half still moves with the sizes, which is what it is for, so the same twelve kilobytes
+    now change two files of the 44 instead of 29, and the sample holds 143 dates where the
+    assertion wants a hundred. Some margin is the rest of the answer.
     """
     files = sorted((p for p in (ROOT / "data").rglob("*.yaml") if p.is_file()),
                    key=lambda p: p.stat().st_size)
@@ -119,9 +130,11 @@ def sample(budget=600_000):
         if p not in picked and spent + n <= budget // 2:
             picked.append(p)
             spent += n
-    for p in files[::max(1, len(files) // 40)]:
+    spent = 0
+    by_path = sorted(files)
+    for p in by_path[::max(1, len(by_path) // 40)]:
         n = p.stat().st_size
-        if p not in picked and spent + n <= budget:
+        if p not in picked and spent + n <= budget // 2:
             picked.append(p)
             spent += n
     return picked

@@ -350,6 +350,16 @@ def _recompose_credit(ja, phrase, authors):
     The line is only rebuilt when EVERY person in it has a rendering of their own. A line that is
     half recomposed and half romanised whole reads as neither, and the reader cannot tell which
     part to trust.
+
+    ONE PERSON IS A LINE OF ONE, and requiring two was the second producer §3 is about. The phrase
+    map is written once per string by an analyser that divides by machine segmentation, so it holds
+    `Ai Kawa Momoko` for あいかわももこ, `Ikedata Kashi` for いけだたかし and `Ara Fujipesu` for
+    あらふじぺす, while the author store holds the same three people romanised from their readings.
+    290 strings were answered twice, and the analyser's answer was the worse one every time it
+    differed: it cuts where a tokeniser finds a word, and a pen name is not running text.
+
+    The store wins because it is the thing corrections reach. A phrase is written once and never
+    revisited, so a division sourced tomorrow would never have got into it.
     """
     try:
         sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
@@ -357,7 +367,14 @@ def _recompose_credit(ja, phrase, authors):
     except Exception:                                                       # noqa: BLE001
         return phrase
     parts = [(n or "").strip() for n, _role in split_authors(ja or "")]
-    if len(parts) < 2 or not all(parts):
+    if not parts or not all(parts):
+        return phrase
+    # A ROLE IS PART OF WHAT THE LINE SAYS, and a line of one is the only place it survives.
+    # `split_authors` peels `[著]` off before returning the name, so recomposing `[著]太陽まりい`
+    # from its people would publish `Taiyō Marii` and drop the 著. A line naming several people
+    # already loses its roles to the join, and that trade was made when it was written; here the
+    # string is left alone unless it is nothing but the name.
+    if len(parts) == 1 and parts[0] != (ja or "").strip():
         return phrase
     out = []
     for n in parts:
@@ -590,6 +607,10 @@ def fold_map(records, fold):
 # store's own rank, restated here because build.py must not import from the resolver.
 _EN_BASIS = {"official-jp": 4, "licensed": 3, "translated": 2, "stated": 2, "romaji": 1}
 
+# And how much a claim about a READING is worth, same order, same reason. `analyser` and
+# `back-converted` are a machine's answer and sit below every one that came from somewhere.
+_READING_BASIS = {"stated": 4, "researched": 3, "surface": 2, "back-converted": 1, "analyser": 1}
+
 
 def _fullness(rec):
     """How much a name record actually says, for choosing between two that fold together.
@@ -599,13 +620,25 @@ def _fullness(rec):
     database's string, because the loser also happened to hold a reading, a ruby split and a set
     of furigana spans. Counting fields measured the wrong thing: what matters first is WHICH
     English name, and only then how much else is attached.
+
+    AND THE SAME FAULT AGAIN ON THE READING, found by `a person is spelled one way`. 春結千晶 is
+    held twice, once as itself and once with an ideographic space in it, and the spaced copy holds
+    an analyser's `ハル ケツ 　 チアキ` while the plain one holds ハルユウチアキ off the shop that
+    sells the artist's books. Neither has an `en`, so both scored zero twice over and the tie went
+    to field count, which the analyser's copy wins by carrying the ruby, the spans and the two
+    marks saying not to trust it. A reader was shown `Haru Ketsu Chiaki` with a [?] beside it while
+    a researched reading of the same person sat in the file.
+
+    So a reading a source states outranks a machine's, on the same order the name store ranks them
+    by, and only then does field count decide.
     """
     if not isinstance(rec, dict):
-        return (0, 0, 0)
+        return (0, 0, 0, 0)
     has_en = 1 if rec.get("en") else 0
     rank = _EN_BASIS.get(rec.get("basis"), 0) if has_en else 0
+    reading = _READING_BASIS.get(rec.get("reading_basis"), 0) if rec.get("reading") else 0
     rest = sum(1 for v in rec.values() if v not in (None, "", [], {}))
-    return (has_en, rank, rest)
+    return (has_en, rank, reading, rest)
 
 
 def set_aside(works_out, kadokomi="data/source/kadokomi/chapters.yaml", sources="data/source"):
@@ -1449,6 +1482,10 @@ def load_names():
         import provenance as _prov
     except Exception:
         _prov = None
+    try:
+        import boundary as _boundary
+    except Exception:
+        _boundary = None
 
     # WHICH RECORD A NAME IS, so the interface can link one. `feed/names.json` is keyed by the
     # folded string and carried the reading, the romanisations and the ruby; it carried no
@@ -1525,6 +1562,22 @@ def load_names():
             out["romaji"] = {st: (_p4.latinise if _p4 else (lambda x: x))(
                                  _kana.title_case(_kana.romanise(rd, st), particles=not is_person))
                              for st in ("macron", "double", "plain")}
+            # A NAME ROMANISED AS ONE WORD BECAUSE NOTHING SAYS WHERE IT DIVIDES. 太陽まりい is
+            # filed タイヨウマリイ by the media-arts catalogue, which is correct and closed up, so
+            # the romanisation came out `Taiyōmarii` and the person is 太陽 まりい.
+            #
+            # THE GLUED FORM IS THE RIGHT FALLBACK AND THE WRONG THING TO SAY NOTHING ABOUT.
+            # NAMES-PLAN records two attempts at deriving a division from the characters and why
+            # both were refused: the surface of a Japanese name carries no boundary, and guessing
+            # one publishes a wrong claim about a real person under their own work. So the glued
+            # form stands, and the flag is what stops it standing as though it were settled. The
+            # asymmetry is the same one §5d turns on: a Japanese reader has the name itself, and an
+            # English reader has this string and nothing else.
+            #
+            # PEOPLE ONLY. A title is not divided into a family name and a given name and a run-on
+            # romanisation of one says nothing about anybody.
+            if is_person and _boundary and not _boundary.cuts(rd):
+                out["undivided"] = True
         if rec.get("en"):
             # An "already Latin" title is detected by looking for kana and kanji, which means
             # IDOL×IDOL STORY！ passed as English with its full-width punctuation intact and then

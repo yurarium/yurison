@@ -68,6 +68,19 @@ def main(s):
     s.check(not b.wants_boundary("なもり", {"reading": "ナモリ"}),
             "and a name too short to divide is not a question")
 
+    # AND THE GENERAL QUESTION, which is the one `fill` asks. A name holding a kanji was excluded
+    # on the reasoning that a stated reading brings its own division, and 太陽まりい is the
+    # counter-case: the media-arts catalogue states タイヨウマリイ, correctly, with no division in
+    # it at all, so the ordinary path answered and left the person romanised as one word.
+    s.check(b.wants_division("太陽まりい", {"reading": "タイヨウマリイ"}),
+            "a kanji name whose stated reading states no division is asked about")
+    s.check(not b.wants_boundary("太陽まりい", {"reading": "タイヨウマリイ"}),
+            "and a donor that supplies no kana still cannot answer for it")
+    s.check(not b.wants_division("冬木先輩", {"reading": "フユキ センパイ"}),
+            "a reading that already divides is settled, whoever divided it")
+    s.check(not b.wants_division("タイザン5", {"reading": "タイザン5"}),
+            "a digit in the reading has to be read before the name can be divided")
+
     # THE STORE'S OWN JOIN, and the basis rule that keeps a guess out of it.
     names = {
         "タグチケンジ": {"reading": "タグチケンジ", "reading_basis": "surface"},
@@ -85,6 +98,15 @@ def main(s):
     s.eq(names["タグチケンジ"]["reading_boundary"], "田口ケンジ", "and says where it came from")
     s.eq(refusals[b.NO_DONOR], 1, "the unsettled one is counted, not mangled")
     s.eq(b.fill(names)[0], {}, "a second run finds nothing left to do")
+
+    # THE SAME PERSON UNDER TWO SPELLINGS OF THEIR OWN NAME, which is where a kanji surface gets
+    # divided without anybody guessing. 山本和音 and 山本 和音 are one artist and the corpus holds
+    # both; the spaced one states the division and the closed one had none.
+    two = {"山本和音": {"reading": "ヤマモトカズネ", "reading_basis": "stated"},
+           "山本 和音": {"reading": "ヤマモト カズネ", "reading_basis": "stated"}}
+    got, _left = b.fill(two)
+    s.eq(got, {"山本和音": "ヤマモト カズネ"}, "the division carries onto the reading of a kanji name")
+    s.eq(two["山本和音"]["reading_boundary"], "山本 和音", "and names the record it came from")
 
     # THE STORE ON DISK, which is what build.py's autopilot calls.
     import tempfile

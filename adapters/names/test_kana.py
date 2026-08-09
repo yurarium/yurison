@@ -40,6 +40,31 @@ def main(s):
          "a word after an opening bracket is still the start of a word")
     s.eq(kana.title_case("yuri", particles=False), "Yuri", "particles=False still capitalises")
 
+    # A PERSON'S NAME IS ROMANISED FROM THEIR READING, SO THE DIVISION LIVES IN THE READING. Both
+    # of these were reported by the project owner, months apart, as the same complaint: the name is
+    # rendered as one English word and is not one. Nothing here can divide them. What these pin is
+    # that once a source states the division the romanisation follows for free, so the whole job is
+    # sourcing the space and never spelling it.
+    def person(reading):
+        return kana.title_case(kana.romanise(reading, "macron"), particles=False)
+
+    s.eq(person("タイヨウマリイ"), "Taiyōmarii",
+         "the media-arts catalogue files this artist closed up, and this is what that produces")
+    s.eq(person("タイヨウ マリイ"), "Taiyō Marii",
+         "and the National Diet Library's heading divides them, which is 太陽 まりい")
+    s.eq(person("イガラシユミコ"), "Igarashiyumiko",
+         "a kana surface folded to katakana states no division either")
+    s.eq(person("イガラシ ユミコ"), "Igarashi Yumiko",
+         "the same heading answers the first thing anybody asked of this project")
+
+    # THE COUNTER-CASE, kept from the round that tried to derive a division instead of sourcing it.
+    # 冬木先輩 is one unbroken kanji run and `フユキ センパイ` divides it correctly; a rule that put
+    # the division back by counting morae cut it 冬木先 | 輩. The alignment below is pinned again
+    # further down; what is pinned here is that a divided reading of a name still romanises as two
+    # words and nothing in this round changed that.
+    s.eq(person("フユキ センパイ"), "Fuyuki Senpai",
+         "a division a source states romanises as two words, whatever the surface looks like")
+
     # ALIGNMENT. Furigana are placed per token with backtracking; a whole-string fallback used to
     # destroy good parses when one character could not be read.
     spans = kana.align("君の名は", "きみのなは")

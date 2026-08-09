@@ -131,6 +131,23 @@ behind it.
     key is invisible to static analysis, which is the same class as `creditLine` missing from the
     surface table. Two harnesses that can disagree is a new fact with two producers, so there is one.
 
+## Stage order
+
+Reordered on 2026-08-09 so the facts are single-owner before they are modelled. Designing a schema
+on its own merits is design work, and it will surface disagreements between the three basis
+vocabularies and the several date models that nothing presently compares. Meeting those while the
+facts still have several producers would mean modelling the disagreement instead of the fact.
+
+1. **Latency, and two measurements.** Storage-independent, so none of it is wasted whatever follows.
+   The parse fraction and the dependency graph are inputs to stage four.
+2. **Library extraction.** `romanisation` as the rehearsal, then `division`, then `credit`, then
+   `reading`. Each leaves one owner and an import lint behind it.
+3. **Reproducibility from committed inputs.** Archiving the matched construction is the evidence side
+   of the `reading` fact, so it lands in a module that already exists by then. Also the audit of what
+   else cannot be re-derived, and dropping `data/build` from the commit.
+4. **Store technology and schema.** Designed with the parse fraction known and every modelled fact
+   already single-owner.
+
 ## The extraction protocol
 
 Seven steps, applied to one library at a time. A library is done when the import lint passes and

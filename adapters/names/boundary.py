@@ -66,6 +66,7 @@ stayed behind on the donor. `fill` therefore writes `reading_boundary_basis` bes
 were in that state when this was written.
 """
 import pathlib
+from facts import division as _division  # noqa: E402
 import re
 import unicodedata
 
@@ -194,12 +195,12 @@ def settle(surface, donors):
 #
 # `test_curate.dividing_bases_and_donors` pins the difference as an equality, so a third basis
 # cannot join this list without somebody arguing for it.
-SETTLED_BASES = ("stated", "surface", "researched", "community-printed")
+SETTLED_BASES = tuple(sorted(_division.bases_where("donates")))
 
 # A basis whose division is a claim somebody typed under nobody's name, so a record receiving one
 # has to say so. Everything else here is a publisher, a cataloguing authority, a reviewer with a
 # note, or the name's own kana, and none of those owes a reader an explanation of the space.
-MARKED_DONOR_BASES = ("community-printed",)
+MARKED_DONOR_BASES = tuple(sorted(_division.bases_where("marked") & _division.bases_where("donates")))
 
 
 def donor_basis(names, labels):

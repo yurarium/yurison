@@ -1564,7 +1564,10 @@ DIVIDED_BY_ITS_SOURCE = _divided_by_its_source()
 # HELD HERE AND NOT IN `curate.py`, because it is not a statement about what a basis IS. It is this
 # check's own decision about which weak classes it reports as a count instead of blocking on, and
 # the budget names beside each entry are the half that only check.py can keep true.
-UNCITED_DIVISIONS_COUNTED = ("back-converted", "community-printed")
+sys.path.insert(0, str(ROOT / "adapters"))
+from facts import division as _division                                 # noqa: E402
+
+UNCITED_DIVISIONS_COUNTED = tuple(sorted(_division.bases_where("counted")))
 
 
 def inv_kana_reading_spells_its_name(ctx):

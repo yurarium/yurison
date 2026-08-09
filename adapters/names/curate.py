@@ -34,6 +34,7 @@ Usage:  curate.py --check              validate the file and stop
 """
 import argparse
 import pathlib
+from facts import division as _division  # noqa: E402
 import re
 import unicodedata
 import sys
@@ -179,7 +180,10 @@ STATED_BASES = ("stated",)
 # `community-printed`, because a division a reader can be told the origin of is worth more than a
 # glued romanisation, and `boundary.donor_basis` is what carries the origin across. The two lists
 # and the reason they differ are asserted by `test_curate.test_dividing_bases_and_donors`.
-DIVIDING_BASES = ("stated", "researched", "surface")
+# ASKED OF THE TABLE, not written down beside it. The comment above describes four lists that
+# had to be kept consistent by an assertion; `facts/division` states each basis once and every
+# question is a column, so there is nothing left to keep consistent.
+DIVIDING_BASES = tuple(sorted(_division.bases_where("cited")))
 
 # `reading_note` is separate from `note` because one entry can carry two decisions. A work whose
 # English was chosen for one reason and whose reading was corrected for another had to put both

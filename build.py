@@ -22,6 +22,7 @@ import yaml
 # about 40 seconds per pass over data/ in the pure-Python parser. Do not "tidy" the unused import
 # away; adapters/yamlfast.py says what it does and what was proved before it was turned on.
 import yamlfast  # noqa: F401,E402
+from facts import romanisation as _romanisation  # noqa: E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402
@@ -426,7 +427,12 @@ def _floored(text, floor):
         out.append(got if isinstance(got, str) else got.get("macron"))
         at = m.end()
     out.append(text[at:])
-    return "".join(out)
+    # THE FOLD THE RUNS ALREADY HAD, applied to what sits between them. `ＭＡＸ` is not a Japanese
+    # run, so it went through raw and `まんがタイムきららＭＡＸ編集部` shipped as
+    # `MangataimukiraraＭＡＸEditorial Department`, width intact and no space. The docstring above
+    # claimed this function asked the one romaniser; it assembled a fourth pipeline and stopped one
+    # step short of it.
+    return _romanisation.normalise("".join(out))
 
 
 def _person_shown(name, authors, floor, spell=False):
@@ -1755,9 +1761,8 @@ def load_names():
             # latinise here too. It was applied to `en` and not to the romanisations, so a title
             # whose reading romanised cleanly could still ship its Japanese punctuation — ｜ in
             # コミックオギャー)｜… survived every pass because this one output skipped the step.
-            out["romaji"] = {st: (_p4.latinise if _p4 else (lambda x: x))(
-                                 _kana.title_case(_kana.romanise(rd, st), particles=not is_person))
-                             for st in ("macron", "double", "plain")}
+            out["romaji"] = _romanisation.styles(
+                rd, _romanisation.PERSON if is_person else _romanisation.TITLE)
             # A NAME ROMANISED AS ONE WORD BECAUSE NOTHING SAYS WHERE IT DIVIDES. 太陽まりい is
             # filed タイヨウマリイ by the media-arts catalogue, which is correct and closed up, so
             # the romanisation came out `Taiyōmarii` and the person is 太陽 まりい.

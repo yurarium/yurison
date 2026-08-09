@@ -212,6 +212,11 @@
    "examples": []
   },
   {
+   "name": "a fact is reached through its entry point",
+   "violations": 0,
+   "examples": []
+  },
+  {
    "name": "every Japanese field the data carries has a ruling",
    "violations": 0,
    "examples": []
@@ -293,8 +298,8 @@
   {
    "name": "full-width forms in English renderings",
    "means": "English renderings holding a full-width character and no kana or kanji, which is what narrowing the invariant to a script let past. Mostly a Latin pen name catalogued in full width; some are official titles and are correct, so this will not reach zero.",
-   "budget": 38,
-   "value": 38
+   "budget": 28,
+   "value": 28
   },
   {
    "name": "interface reads outside an entry point",

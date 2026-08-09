@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-09T17:20:30+00:00",
+ "generated": "2026-08-09T19:57:52+00:00",
  "since_last": {
-  "at": "2026-08-09T13:56:41+00:00",
+  "at": "2026-08-09T19:40:09+00:00",
   "statistics": {}
  },
  "means": {
@@ -39,7 +39,7 @@
   }
  },
  "gate": {
-  "invariants_passing": 40,
+  "invariants_passing": 41,
   "invariants": [
    {
     "name": "ruby covers its surface",
@@ -237,6 +237,11 @@
     "examples": []
    },
    {
+    "name": "a fact is reached through its entry point",
+    "violations": 0,
+    "examples": []
+   },
+   {
     "name": "every Japanese field the data carries has a ruling",
     "violations": 0,
     "examples": []
@@ -319,7 +324,7 @@
     "name": "full-width forms in English renderings",
     "means": "English renderings holding a full-width character and no kana or kanji, which is what narrowing the invariant to a script let past. Mostly a Latin pen name catalogued in full width; some are official titles and are correct, so this will not reach zero.",
     "budget": 28,
-    "value": 38
+    "value": 28
    },
    {
     "name": "interface reads outside an entry point",
@@ -755,7 +760,7 @@
  ],
  "ledger": {
   "runs_held": 40,
-  "previous_at": "2026-08-09T13:56:39+00:00",
+  "previous_at": "2026-08-09T19:40:08+00:00",
   "drops": []
  },
  "outstanding": [

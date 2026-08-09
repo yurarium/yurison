@@ -41,6 +41,7 @@ import unicodedata
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import kana as _kana                                                            # noqa: E402
+from facts import romanisation as _romanisation  # noqa: E402
 
 STYLES = ("macron", "double", "plain")
 
@@ -82,11 +83,12 @@ _LATINISE = None
 
 
 def _latinise(text):
-    global _LATINISE
-    if _LATINISE is None:
-        import pass4_analyser as _p4
-        _LATINISE = _p4.latinise
-    return _LATINISE(text)
+    """The width and punctuation fold, asked of the one module that owns it.
+
+    It used to reach `pass4_analyser.latinise` directly, which was correct and left the step as
+    something each caller had to remember. Three of the four callers remembered.
+    """
+    return _romanisation.normalise(text)
 
 
 def desk_parts(text):
@@ -189,10 +191,15 @@ def floor(text, read):
             reading = _run_reading(m.group(0), read)
             if reading is None:
                 return None
-            # particles=False: a personal name holds no grammatical particle, and 都 in a name is
-            # a character read `to` rather than the particle と. Every string this module floors is
-            # a name or a fragment of one.
-            spelled.append(_kana.title_case(_kana.romanise(reading, style), particles=False))
+            # PERSON, because a personal name holds no grammatical particle: 都 in a name is a
+            # character read `to` and not the particle と. Every string this module floors is a name
+            # or a fragment of one.
+            #
+            # THROUGH facts/romanisation SO THE FLOOR SPELLS WHAT THE STORE SPELLS. This assembled
+            # its own pipeline and stopped one step short of the build's, so `ＮＯＡＨ編集部` came out
+            # `ＮＯＡＨEditorial Department` here and `NOAH Editorial Department` from a stored
+            # reading. One entry point, and the width fold is no longer a thing a caller can forget.
+            spelled.append(_romanisation.romanise(reading, style, _romanisation.PERSON))
             at = m.end()
         spelled.append(s[at:])
         got = _latinise("".join(spelled))

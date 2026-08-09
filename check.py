@@ -529,6 +529,33 @@ def inv_names_reach_a_page_only_through_their_renderer(ctx):
     return entrypoints.findings(src)
 
 
+def inv_a_fact_is_reached_through_its_entry_point(ctx):
+    """Nothing outside an extracted fact names its internals.
+
+    STANDING-INSTRUCTIONS section 3 has said one producer of a fact since the project began, and
+    twelve shipped faults in one week were breaches of it. The rule was right and unenforced; this
+    is the enforcement, and it arrives with the first fact rather than after the last.
+
+    §14b, WHAT IT SHARES WITH ITS SUBJECT: nothing but the directory layout. It reads import
+    statements out of source files and asks no module what it thinks it exports. Its own blind spot
+    is stated in adapters/lint/facts.py and is worth repeating here, because it is the interesting
+    one: a SECOND IMPLEMENTATION, written from scratch and importing nothing, passes this. Three of
+    the four assemblers that produced `facts/romanisation` were exactly that shape.
+    """
+    try:
+        sys.path.insert(0, str(ROOT / "adapters" / "lint"))
+        import facts as _facts
+        import importlib
+        importlib.reload(_facts)
+        got = _facts.findings()
+    except Exception:                                                   # noqa: BLE001
+        # THE LINT BEING UNAVAILABLE IS NOT A VIOLATION. It reads source files and cannot be shown
+        # a canary through `ctx`, so its own proof is `adapters/lint/facts.py --self-test`, which
+        # ./test.py discovers.
+        return []
+    return [f"{path}:{line} reaches facts.{fact}.{sub}" for path, line, fact, sub in got]
+
+
 def inv_every_japanese_field_has_a_ruling(ctx):
     """Every field the built data carries in Japanese is either a name with a renderer or is not.
 
@@ -2120,6 +2147,7 @@ INVARIANTS = [
     ("names reach a page only through their renderer",
      inv_names_reach_a_page_only_through_their_renderer),
     ("a name reaches both lines of a bilingual row", inv_a_name_in_both_mode_is_rendered_in_both),
+    ("a fact is reached through its entry point", inv_a_fact_is_reached_through_its_entry_point),
     ("every Japanese field the data carries has a ruling",
      inv_every_japanese_field_has_a_ruling),
 ]

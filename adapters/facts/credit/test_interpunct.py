@@ -2,7 +2,9 @@
 """interpunct.py: whether a ・ separates two people or sits inside one person's name.
 
 COVERS = ['adapters/facts/credit/interpunct.py',
-          'adapters/facts/credit/__init__.py']
+          'adapters/facts/credit/__init__.py',
+          'adapters/facts/credit/splitter.py',
+          'adapters/facts/credit/checks.py']
 
 WHAT THIS HAS TO PIN, and every case in it is a credit field this corpus really carries.
 
@@ -171,6 +173,27 @@ def main(s):
         s.check("planted" not in cf.rulings(), "and mutating that copy changes nothing")
     finally:
         cf.use_rulings(before)
+
+
+    # THE CHECKS THAT MOVED IN, exercised on contexts built here so the assertions are about the
+    # checks and not about today's data.
+    from facts.credit import checks as cc
+
+    # AN EMPTY CORPUS FINDS NOTHING. The context keys each one reads are supplied empty, which is
+    # also a statement about which keys each one reads.
+    empty = {"series": [], "index": [], "releases": [], "works": [], "credits": {},
+             "names": {}, "names_shipped": {}}
+    s.eq(cc.credits_matching_a_chapter(dict(empty)), 0, "an empty corpus matches no chapter")
+    s.eq(cc.credits_that_restate_a_name(dict(empty)), 0, "and restates no name")
+    s.check(callable(cc.interpunct_credits_nobody_has_ruled_on),
+            "the interpunct residue is measured beside the rule that settles it")
+    s.check(callable(cc.credit_fields_the_division_does_not_account_for),
+            "and so is what the split does not account for")
+
+    # THE CHECKS ARE REACHED THROUGH THE ENTRY POINT, which is how check.py registers them and how
+    # the import lint stays satisfied.
+    for name in ("interpunct_credits_nobody_has_ruled_on", "credits_matching_a_chapter"):
+        s.check(name in cf.CHECKS, f"{name} is published from the entry point")
 
 
 if __name__ == "__main__":

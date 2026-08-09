@@ -15,12 +15,14 @@ The honest guard is that `build.py` installs it beside the computation, three li
 deliberate, because `interpunct.settled` has to evaluate candidate rulings. It also means a caller
 can still pass the wrong one, and nothing here would know.
 
-## It cannot see a second splitter
+## The splitter moved in, and `names.inputs` still re-exports it
 
-Twenty-six of thirty-one splitter calls bypassed the ruling before this. The import lint stops a
-caller reaching past the entry point; it does not stop one calling `names.inputs.split_authors`
-directly, which is a module this fact wraps rather than owns. Moving the splitter itself is the
-next slice and it is not done.
+`splitter.py` is here now. `names/inputs.py` keeps twenty-one names pointing at it, so an old caller
+still finds `split_authors` where it used to be, and that caller gets the RULED default because the
+entry point is what it reaches. The re-export is a compatibility shim and every one of those names
+is a place the lint cannot see a caller using.
+
+Counting them, and retiring them, is the honest next slice.
 
 ## It says nothing about whether a name is a person
 

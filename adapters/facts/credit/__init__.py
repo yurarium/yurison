@@ -27,7 +27,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / "names"))
 
-_SUBMODULES = ("interpunct",)
+_SUBMODULES = ("interpunct", "splitter", "checks")
 
 #: The corpus's answers about a ・, held here so every splitter sees the same ones. `None` means
 #: nobody has computed them yet, which is different from "computed and empty".
@@ -50,19 +50,19 @@ def rulings():
     return dict(_RULED or {})
 
 
-def _inputs():
-    return importlib.import_module("names.inputs")
+def _sp():
+    return importlib.import_module(".splitter", __name__)
 
 
 def split(credit, ruled=None, interpunct=True):
     """A credit field to `[(name, stated_reading)]`, using the installed ruling by default."""
-    return _inputs().split_authors(credit, interpunct=interpunct,
+    return _sp().split_authors(credit, interpunct=interpunct,
                                    ruled=_RULED if ruled is None else ruled)
 
 
 def split_detail(credit, ruled=None, interpunct=True):
     """As `split`, and with the role the field wrote beside each name."""
-    return _inputs().split_credits_detail(credit, interpunct=interpunct,
+    return _sp().split_credits_detail(credit, interpunct=interpunct,
                                           ruled=_RULED if ruled is None else ruled)
 
 
@@ -71,7 +71,7 @@ def split_unruled(credit):
 
     EXISTS SO IGNORING IT IS AN ACT. Anything asking for this should be able to say why.
     """
-    return _inputs().split_authors(credit, interpunct=True, ruled={})
+    return _sp().split_authors(credit, interpunct=True, ruled={})
 
 
 def split_whole(credit):
@@ -83,14 +83,29 @@ def split_whole(credit):
     that produced it. That is the reasoning `interpunct` already records, and this is the call it
     needs.
     """
-    return _inputs().split_authors(credit, interpunct=False)
+    return _sp().split_authors(credit, interpunct=False)
 
 
 def __getattr__(name):
     """Anything `interpunct` publishes, reached through the entry point."""
     if name in _SUBMODULES or name.startswith("__"):
         raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
-    ip = importlib.import_module(".interpunct", __name__)
-    if hasattr(ip, name):
-        return getattr(ip, name)
+    for mod in (importlib.import_module(".interpunct", __name__), _sp()):
+        if hasattr(mod, name):
+            return getattr(mod, name)
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+
+
+def _checks():
+    return importlib.import_module(".checks", __name__)
+
+
+#: WHAT THIS FACT CAN BE CHECKED ON, keyed by the name check.py registers.
+CHECKS = {
+    "interpunct_credits_nobody_has_ruled_on": lambda ctx, _n="interpunct_credits_nobody_has_ruled_on": getattr(_checks(), _n)(ctx),
+    "credit_fields_the_division_does_not_account_for": lambda ctx, _n="credit_fields_the_division_does_not_account_for": getattr(_checks(), _n)(ctx),
+    "credits_carrying_their_own_cataloguing": lambda ctx, _n="credits_carrying_their_own_cataloguing": getattr(_checks(), _n)(ctx),
+    "credits_matching_a_chapter": lambda ctx, _n="credits_matching_a_chapter": getattr(_checks(), _n)(ctx),
+    "credits_that_restate_a_name": lambda ctx, _n="credits_that_restate_a_name": getattr(_checks(), _n)(ctx),
+}

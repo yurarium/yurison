@@ -113,6 +113,8 @@ CHECKS = {
     "divisions_resting_on_a_community_database":
         lambda ctx: _checks().divisions_resting_on_a_community_database(ctx),
     "divisions": lambda reading: _checks().divisions(reading),
+    "kana_names_with_no_stated_division": lambda ctx, _n="kana_names_with_no_stated_division": getattr(_checks(), _n)(ctx),
+    "author_names_romanised_as_one_word": lambda ctx, _n="author_names_romanised_as_one_word": getattr(_checks(), _n)(ctx),
 }
 
 

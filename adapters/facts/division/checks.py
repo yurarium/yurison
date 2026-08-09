@@ -22,6 +22,12 @@ from facts import division as _division                                 # noqa: 
 
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 
+from names import curate                                                # noqa: E402
+from facts.division import boundary                                     # noqa: E402
+
+# CARRIED WITH THE CHECK THAT READS IT, and still defined in check.py for its other reader.
+KANA_SURFACE = re.compile(r"^[ぁ-ゖァ-ヺーゝゞヽヾ・･\s　]+$")
+
 # ASKED OF THE TABLE, so these cannot drift from the module they live in.
 DIVIDED_BY_ITS_SOURCE = tuple(sorted(_division.bases_where("cited")))
 UNCITED_DIVISIONS_COUNTED = tuple(sorted(_division.bases_where("counted")))
@@ -240,4 +246,82 @@ def divisions_resting_on_a_community_database(ctx):
                if divisions(v.get("reading")) > divisions(k)
                and (v.get("reading_basis") == "community-printed"
                     or v.get("reading_boundary_basis") == "community-printed"))
+
+
+def kana_names_with_no_stated_division(ctx):
+    """Kana author names whose romanisation ships as one unbroken word of eight letters or more.
+
+    THIS IS A COVERAGE DEFICIT AND NOT A FAULT COUNT, and the difference is the whole reason the
+    name says `no stated division` instead of what the first version said. Two populations are in
+    here and nothing in the data separates them:
+
+      A DIVISION NOBODY HAS STATED YET. いがらしゆみこ is Igarashi Yumiko and shipped as
+      Igarashiyumiko. Finding a source moves it out of the count.
+
+      A NAME THAT IS ONE WORD. こかむも is printed Kokamumo in Latin on ぬるめた's own tankōbon
+      cover, by the publisher, and Kokamumo is the right answer. It is four kana with no boundary
+      and it sits in this count looking exactly like the first kind.
+
+    So the number falling is not by itself an improvement, and a rule that pushed it down by
+    inferring boundaries would break こかむも against a Latin form the publisher set. What makes it
+    safe to reduce is `a division cites its source`, which refuses any division nothing states, and
+    the reduction has to come from finding sources. Every division this branch made was checked
+    against the Latin forms the store holds: 171 agree and none contradicts.
+
+    WHAT WOULD SEPARATE THE TWO. A Latin form the publisher or the artist set, which is evidence
+    that the name is one word in the same way a collationkey is evidence that it is two. The store
+    holds no such form for any name in this count; the 26 Latin forms it does hold for them all come
+    from Wikidata or MangaUpdates, which `curate.py` refuses as evidence for a name.
+
+    MEASURED ON WHAT SHIPS, AND IT OWES THE FIX NOTHING (§14b). `boundary.py` decides by asking
+    whether another record states a division; this counts letters in the romanisation that reaches
+    the browser and asks nothing at all.
+
+    THE SURFACE HAS TO BE KANA, which is what keeps a name out of it. Ｔｏｍｏｒｒｏｗｓ is Latin and
+    is somebody's whole rendering. Eight letters is where a Japanese personal name written in one
+    piece stops being plausible, and it is the threshold the fault was reported at.
+    """
+    n = 0
+    for k, v in ((ctx["names_shipped"] or {}).get("authors") or {}).items():
+        p = (v.get("romaji") or {}).get("plain") or ""
+        if len(p) >= 8 and " " not in p and KANA_SURFACE.match(k or ""):
+            n += 1
+    return n
+
+
+def author_names_romanised_as_one_word(ctx):
+    """People whose Latin name a reader is shown with no space in it.
+
+    THE FAULT. 太陽まりい is filed タイヨウマリイ by the national media-arts catalogue, which is
+    correct and closed up, so the romanisation reads `Taiyōmarii` and the person is 太陽 まりい. A
+    Japanese name carries no boundary in its characters and none in an undivided reading, so this
+    cannot be fixed by looking harder at what we hold: NAMES-PLAN records two attempts at deriving
+    a division and why both were refused, and `adapters/names/ndl_heading.py` is the route that
+    replaced them, which asks a cataloguing authority.
+
+    IT FALLS ONLY WHEN A SOURCE STATES A DIVISION, and that is the point of measuring it here
+    rather than counting the queue. Every glued name carries the mark NAMES-PLAN §5d puts on it, so
+    the way to empty this number without sourcing anything is to start guessing, and a guess would
+    show up as a fall nobody can cite. `a division cites its source` is the invariant that makes
+    that impossible for a kana name; this is the count for the rest.
+
+    IT ROSE 984 -> 1118 ON 2026-08-09, ACCEPTED, and the rise is the number the guessing had been
+    hiding. `adapters/names/analyser_division.py` took the spaces out of 194 readings a
+    morphological analyser had divided and nothing had stated, and 134 of those names hold no
+    division at all now: 上田香子 read `Ueda Kyōko` and reads `Uedakyōko`. Nothing was learned about
+    those 134 people and nothing was lost, since what was there was an analyser's tokenisation of a
+    pen name. This budget went up because it started counting them honestly, which is the direction
+    that matters here and the reason a rise gets argued in a commit message instead of being
+    absorbed.
+
+    ARITHMETIC ON THE RENDERED RESULT, per §14b. It looks for a space in the string the file
+    offers a reader and consults no store, no basis and nothing in `boundary.py`, so it can fail
+    on anything the build is able to emit. A one-element pen name is in it and legitimately so:
+    なもり has no division to find, and nothing in the data distinguishes a name that is whole from
+    one whose division nobody has stated. So this does not reach zero, and the number that matters
+    is the direction.
+    """
+    people = (ctx["names_shipped"] or {}).get("authors") or {}
+    return sum(1 for rec in people.values()
+               if " " not in ((rec.get("romaji") or {}).get("macron") or " "))
 

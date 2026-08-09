@@ -158,4 +158,6 @@ CHECKS = {
     "uncertain_readings": lambda ctx, _n="uncertain_readings": getattr(_checks(), _n)(ctx),
     "author_readings_no_source_states": lambda ctx, _n="author_readings_no_source_states": getattr(_checks(), _n)(ctx),
     "publisher_readings_nobody_has_settled": lambda ctx, _n="publisher_readings_nobody_has_settled": getattr(_checks(), _n)(ctx),
+    "kana_reading_spells_its_name": lambda ctx, _n="kana_reading_spells_its_name": getattr(_checks(), _n)(ctx),
+    "ruby_spells_reading": lambda ctx, _n="ruby_spells_reading": getattr(_checks(), _n)(ctx),
 }

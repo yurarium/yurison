@@ -81,5 +81,14 @@ def main(s):
         s.check(not d.cites_its_source(basis), f"{basis} is counted because it cites nothing")
 
 
+    # THE TWO THAT WERE HELD BACK, now here with the producers they ask about.
+    s.eq(c.kana_names_with_no_stated_division({"names": {}, "names_shipped": {}}), 0,
+         "an empty store has no undivided kana name")
+    s.check("kana_names_with_no_stated_division" in d.CHECKS,
+            "and it is published from the entry point")
+    s.check("author_names_romanised_as_one_word" in d.CHECKS,
+            "as is the glued-romanisation count, which is a missing division seen from the page")
+
+
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

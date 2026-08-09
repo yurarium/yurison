@@ -16,6 +16,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[3]
 
 import unicodedata                                                      # noqa: E402
 from names import provenance                                            # noqa: E402
+from names import kana                                                  # noqa: E402
 
 
 def _pub(ctx):
@@ -169,4 +170,68 @@ def publisher_readings_nobody_has_settled(ctx):
     # decides whether to mark it. Asking the store would count records rather than renderings and
     # would answer 0 while a reader was being shown 134 marks, which is what the first draft did.
     return len(_pub.unsettled_readings((ctx["names_shipped"] or {}).get("publishers") or {}))
+
+
+def kana_reading_spells_its_name(ctx):
+    """A name written in kana IS its reading, so the reading may not hold different kana.
+
+    WHAT IT GUARDS, AND WHY IT IS NOT TRUE BY CONSTRUCTION. `pass1_kana` folds a kana surface to
+    katakana and that half cannot fail. The half that can is a STATED reading landing on a kana
+    name: a JPRO collationkey is a filing key before it is a reading and folds the kana that sort
+    together, so openBD files とりいしづく under トリイ シズク and いづみやおとは under
+    イズミヤ オトハ. Taking either whole republishes the artist's name with a different kana in it,
+    which is one person under two spellings with nothing in the record saying they are the same.
+    23 kana author names carry a reading from a source rather than from their own surface.
+
+    Boundaries come out first, because a boundary IS admitted here and is what
+    `adapters/names/boundary.py` carries onto our kana. What must not change is the spelling.
+
+    WHAT IT THEREFORE CANNOT SEE, since §14b asks: a boundary in the wrong PLACE. Nothing mechanical
+    can, which is why only a stated one is ever taken.
+
+    Authors only. A title's reading legitimately differs from its surface, because は is written as
+    the topic particle and read ワ: 7 kana titles are in that state and every one of them is right.
+
+    fallback: none. A misspelt name is served under the artist's own work.
+    """
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    try:
+        import kana
+    except Exception:
+        return []
+    strip = str.maketrans("", "", " 　")
+    bad = []
+    for k, v in (ctx["names"].get("authors") or {}).items():
+        rd = v.get("reading")
+        if not rd or not kana.kana_only(k):
+            continue
+        want = unicodedata.normalize("NFC", kana.to_katakana(k)).translate(strip)
+        got = unicodedata.normalize("NFC", kana.to_katakana(rd)).translate(strip)
+        if want != got:
+            bad.append(f"{k}: reading {rd!r} spells {got[:24]!r}")
+    return bad
+
+
+def ruby_spells_reading(ctx):
+    """Ruby that does not spell its own reading is one record contradicting itself on one line.
+
+    fallback: drop the ruby, keep the reading.
+    """
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    try:
+        import kana
+    except Exception:
+        return []
+    bad = []
+    for r in ctx["series"]:
+        we = r.get("work_en") or {}
+        rd, rb = we.get("reading"), we.get("ruby")
+        if not rd or not rb:
+            continue
+        # kana.ruby_spells is the definition of the question: a particle is written as it is
+        # spelled and read as it sounds, so a literal comparison calls correct ruby a
+        # contradiction. Putting わ over は would be the actual error.
+        if not kana.ruby_spells(rb, rd):
+            bad.append(r["work"])
+    return bad
 

@@ -28,12 +28,12 @@ satisfy this module completely.
 caller that writes `("stated", "researched", "surface")` down again from scratch, which is precisely
 how the four sets came to exist. The lint's own blind spot and this one are the same blind spot.
 
-## Two of its checks stayed behind, and they are the producer-facing ones
+## Its checks are all here now, and the reason two were held is worth remembering
 
-`kana names with no stated division` asks about kana surfaces and `author names romanised as one
-word` asks about a rendering. Both are about what a producer did, and the producers have not moved,
-so the checks would have arrived before their subjects. They move when `boundary`, `ndl_heading`,
-`openbd_reading` and `analyser_division` do.
+`kana names with no stated division` and `author names romanised as one word` were left in check.py
+on the argument that they ask about producers and the producers had not moved. `boundary.py` moved
+in, which retired that argument, and the checks followed. The argument was sound when made and
+became a reason not to finish about ten minutes later, which is the shape to watch for.
 
 ## Its consistency assertions are now cheap, and that is worth remembering
 

@@ -12,11 +12,12 @@ An adapter writes its own `reading_source_kind`. Nothing here checks that a thin
 `national-library` is one. `curate.py` refuses a pair the table disallows, which catches a kind
 that is wrong in an interesting way and not one that is wrong in a plausible way.
 
-## Two of its checks stayed behind, and the boundary is alignment
+## The alignment boundary was a rationalisation, and the checks are here
 
-`ruby spells the reading` and `a kana name's reading spells it` compare a reading against a SURFACE.
-That is a question about whether two strings line up, which is neither a ruling about belief nor a
-question about a source, so they stayed in check.py with the other alignment checks.
+`ruby spells the reading` and `a kana name's reading spells it` were held back as questions about
+alignment. They compare a record's `ruby` against its `reading`, and a kana surface against the
+reading it must spell, and every field in both is this fact's own. Calling that a different subject
+was a way of leaving a step part-done and describing it as a boundary.
 
 ## The readings themselves are elsewhere
 

@@ -76,5 +76,14 @@ def main(s):
         s.check(name in r.CHECKS, f"{name} is published from the entry point")
 
 
+    # A KANA SURFACE READS AS ITSELF, which is the `surface` row of the table stated as a check.
+    s.eq(rc.kana_reading_spells_its_name(dict(empty)), [], "an empty store spells everything right")
+    planted = dict(empty, names={"authors": {"くろば": {"reading": "チガウ"}}})
+    s.check(rc.kana_reading_spells_its_name(planted),
+            "a kana name whose reading is not its own kana is caught")
+    for name in ("kana_reading_spells_its_name", "ruby_spells_reading"):
+        s.check(name in r.CHECKS, f"{name} is published from the entry point")
+
+
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

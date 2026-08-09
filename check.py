@@ -96,27 +96,9 @@ def _yaml(p, default=None):
 # silent fallback from being mistaken for a passing check.
 
 def inv_ruby_spells_reading(ctx):
-    """Ruby that does not spell its own reading is one record contradicting itself on one line.
-
-    fallback: drop the ruby, keep the reading.
-    """
-    sys.path.insert(0, str(ROOT / "adapters" / "names"))
-    try:
-        import kana
-    except Exception:
-        return []
-    bad = []
-    for r in ctx["series"]:
-        we = r.get("work_en") or {}
-        rd, rb = we.get("reading"), we.get("ruby")
-        if not rd or not rb:
-            continue
-        # kana.ruby_spells is the definition of the question: a particle is written as it is
-        # spelled and read as it sounds, so a literal comparison calls correct ruby a
-        # contradiction. Putting わ over は would be the actual error.
-        if not kana.ruby_spells(rb, rd):
-            bad.append(r["work"])
-    return bad
+    """Defined in `adapters/facts/reading/checks.py`, beside the thing it checks."""
+    from facts import reading as _f
+    return _f.CHECKS["ruby_spells_reading"](ctx)
 
 
 def inv_no_ruby_over_latin(ctx):
@@ -1501,43 +1483,9 @@ UNCITED_DIVISIONS_COUNTED = tuple(sorted(_division.bases_where("counted")))
 
 
 def inv_kana_reading_spells_its_name(ctx):
-    """A name written in kana IS its reading, so the reading may not hold different kana.
-
-    WHAT IT GUARDS, AND WHY IT IS NOT TRUE BY CONSTRUCTION. `pass1_kana` folds a kana surface to
-    katakana and that half cannot fail. The half that can is a STATED reading landing on a kana
-    name: a JPRO collationkey is a filing key before it is a reading and folds the kana that sort
-    together, so openBD files とりいしづく under トリイ シズク and いづみやおとは under
-    イズミヤ オトハ. Taking either whole republishes the artist's name with a different kana in it,
-    which is one person under two spellings with nothing in the record saying they are the same.
-    23 kana author names carry a reading from a source rather than from their own surface.
-
-    Boundaries come out first, because a boundary IS admitted here and is what
-    `adapters/names/boundary.py` carries onto our kana. What must not change is the spelling.
-
-    WHAT IT THEREFORE CANNOT SEE, since §14b asks: a boundary in the wrong PLACE. Nothing mechanical
-    can, which is why only a stated one is ever taken.
-
-    Authors only. A title's reading legitimately differs from its surface, because は is written as
-    the topic particle and read ワ: 7 kana titles are in that state and every one of them is right.
-
-    fallback: none. A misspelt name is served under the artist's own work.
-    """
-    sys.path.insert(0, str(ROOT / "adapters" / "names"))
-    try:
-        import kana
-    except Exception:
-        return []
-    strip = str.maketrans("", "", " 　")
-    bad = []
-    for k, v in (ctx["names"].get("authors") or {}).items():
-        rd = v.get("reading")
-        if not rd or not kana.kana_only(k):
-            continue
-        want = unicodedata.normalize("NFC", kana.to_katakana(k)).translate(strip)
-        got = unicodedata.normalize("NFC", kana.to_katakana(rd)).translate(strip)
-        if want != got:
-            bad.append(f"{k}: reading {rd!r} spells {got[:24]!r}")
-    return bad
+    """Defined in `adapters/facts/reading/checks.py`, beside the thing it checks."""
+    from facts import reading as _f
+    return _f.CHECKS["kana_reading_spells_its_name"](ctx)
 
 
 def inv_a_division_cites_its_source(ctx):
@@ -2717,44 +2665,9 @@ KANA_SURFACE = re.compile(r"^[ぁ-ゖァ-ヺーゝゞヽヾ・･\s　]+$")
 
 
 def budget_kana_names_with_no_stated_division(ctx):
-    """Kana author names whose romanisation ships as one unbroken word of eight letters or more.
-
-    THIS IS A COVERAGE DEFICIT AND NOT A FAULT COUNT, and the difference is the whole reason the
-    name says `no stated division` instead of what the first version said. Two populations are in
-    here and nothing in the data separates them:
-
-      A DIVISION NOBODY HAS STATED YET. いがらしゆみこ is Igarashi Yumiko and shipped as
-      Igarashiyumiko. Finding a source moves it out of the count.
-
-      A NAME THAT IS ONE WORD. こかむも is printed Kokamumo in Latin on ぬるめた's own tankōbon
-      cover, by the publisher, and Kokamumo is the right answer. It is four kana with no boundary
-      and it sits in this count looking exactly like the first kind.
-
-    So the number falling is not by itself an improvement, and a rule that pushed it down by
-    inferring boundaries would break こかむも against a Latin form the publisher set. What makes it
-    safe to reduce is `a division cites its source`, which refuses any division nothing states, and
-    the reduction has to come from finding sources. Every division this branch made was checked
-    against the Latin forms the store holds: 171 agree and none contradicts.
-
-    WHAT WOULD SEPARATE THE TWO. A Latin form the publisher or the artist set, which is evidence
-    that the name is one word in the same way a collationkey is evidence that it is two. The store
-    holds no such form for any name in this count; the 26 Latin forms it does hold for them all come
-    from Wikidata or MangaUpdates, which `curate.py` refuses as evidence for a name.
-
-    MEASURED ON WHAT SHIPS, AND IT OWES THE FIX NOTHING (§14b). `boundary.py` decides by asking
-    whether another record states a division; this counts letters in the romanisation that reaches
-    the browser and asks nothing at all.
-
-    THE SURFACE HAS TO BE KANA, which is what keeps a name out of it. Ｔｏｍｏｒｒｏｗｓ is Latin and
-    is somebody's whole rendering. Eight letters is where a Japanese personal name written in one
-    piece stops being plausible, and it is the threshold the fault was reported at.
-    """
-    n = 0
-    for k, v in ((ctx["names_shipped"] or {}).get("authors") or {}).items():
-        p = (v.get("romaji") or {}).get("plain") or ""
-        if len(p) >= 8 and " " not in p and KANA_SURFACE.match(k or ""):
-            n += 1
-    return n
+    """Defined in `adapters/facts/division/checks.py`, beside the thing it checks."""
+    from facts import division as _f
+    return _f.CHECKS["kana_names_with_no_stated_division"](ctx)
 
 
 def budget_author_readings_no_source_states(ctx):
@@ -3210,40 +3123,9 @@ def budget_names_rendered_two_ways(ctx):
 
 
 def budget_author_names_romanised_as_one_word(ctx):
-    """People whose Latin name a reader is shown with no space in it.
-
-    THE FAULT. 太陽まりい is filed タイヨウマリイ by the national media-arts catalogue, which is
-    correct and closed up, so the romanisation reads `Taiyōmarii` and the person is 太陽 まりい. A
-    Japanese name carries no boundary in its characters and none in an undivided reading, so this
-    cannot be fixed by looking harder at what we hold: NAMES-PLAN records two attempts at deriving
-    a division and why both were refused, and `adapters/names/ndl_heading.py` is the route that
-    replaced them, which asks a cataloguing authority.
-
-    IT FALLS ONLY WHEN A SOURCE STATES A DIVISION, and that is the point of measuring it here
-    rather than counting the queue. Every glued name carries the mark NAMES-PLAN §5d puts on it, so
-    the way to empty this number without sourcing anything is to start guessing, and a guess would
-    show up as a fall nobody can cite. `a division cites its source` is the invariant that makes
-    that impossible for a kana name; this is the count for the rest.
-
-    IT ROSE 984 -> 1118 ON 2026-08-09, ACCEPTED, and the rise is the number the guessing had been
-    hiding. `adapters/names/analyser_division.py` took the spaces out of 194 readings a
-    morphological analyser had divided and nothing had stated, and 134 of those names hold no
-    division at all now: 上田香子 read `Ueda Kyōko` and reads `Uedakyōko`. Nothing was learned about
-    those 134 people and nothing was lost, since what was there was an analyser's tokenisation of a
-    pen name. This budget went up because it started counting them honestly, which is the direction
-    that matters here and the reason a rise gets argued in a commit message instead of being
-    absorbed.
-
-    ARITHMETIC ON THE RENDERED RESULT, per §14b. It looks for a space in the string the file
-    offers a reader and consults no store, no basis and nothing in `boundary.py`, so it can fail
-    on anything the build is able to emit. A one-element pen name is in it and legitimately so:
-    なもり has no division to find, and nothing in the data distinguishes a name that is whole from
-    one whose division nobody has stated. So this does not reach zero, and the number that matters
-    is the direction.
-    """
-    people = (ctx["names_shipped"] or {}).get("authors") or {}
-    return sum(1 for rec in people.values()
-               if " " not in ((rec.get("romaji") or {}).get("macron") or " "))
+    """Defined in `adapters/facts/division/checks.py`, beside the thing it checks."""
+    from facts import division as _f
+    return _f.CHECKS["author_names_romanised_as_one_word"](ctx)
 
 
 def budget_divisions_read_back_from_a_romanisation(ctx):

@@ -375,13 +375,14 @@ should read what the entry already knows before looking anywhere else.
 `セッ○スしないと出られない部屋` was corrected. Surveying every title carrying one of these marks
 turns up seven spellings for what are really three different things.
 
-**Three functions wearing one mark.**
+**One mark, several jobs.**
 
-1. **A BLANK.** `○○`, `〇〇`, `××`, `×××` standing in for a word the reader supplies. The joke is
-   that the title refuses to say it.
-2. **A CENSORED WORD.** `セッ○ス`, `おマ◯コ`. The reader knows the word; a character is withheld.
-3. **A PAIRING SIGN.** `彼女×彼女`, `ゆり×こちょ!`, `教師×生徒`. Not a blank at all. Rendered `x`
-   throughout, which is right and is the one part of this that is already consistent.
+**A BLANK** is `○○`, `〇〇`, `××` or `×××` standing in for a word the reader supplies, and the joke
+is that the title refuses to say it. **A CENSORED WORD** is `セッ○ス` or `おマ◯コ`, where the reader
+knows the word and a character is withheld.
+
+**A PAIRING SIGN** is neither. `彼女×彼女`, `ゆり×こちょ!` and `教師×生徒` are rendered `x` throughout,
+which is right, and it is the one part of this already consistent.
 
 **What the corpus does with a blank today**, one row per spelling in use:
 
@@ -400,12 +401,13 @@ rendering, which is the fault a reader reported the same day about work pages.
 
 **The proposal, which needs a ruling because it is a house style and not a fact.**
 
-- A BLANK becomes `___`, three underscores, whatever the source uses to mark it and however many
-  characters it hides. The reader's job is to fill it, and an underscore is the English shape for
-  that.
+- A BLANK becomes `___`, whatever the source uses to mark it and however many characters it hides.
+  The reader's job is to fill it, and an underscore is the English shape for that.
 - A CENSORED WORD keeps its letters and loses one to `*`: `s*x`. The mark has to cover something
   or it is decoration, which is what `Se*x` was.
-- A PAIRING `×` stays `x`. Already consistent; recorded so it is not swept up.
+- A PAIRING `×` stays `x`, recorded so it is not swept up with the rest.
+- A LICENSED NAME overrides all of the above, since a published English name is not a house style
+  question.
 
 `ひとりぼっちの○○生活` is the one to check before applying anything, since a licensor may have
 published it with the circles intact, in which case it is a licensed name and outranks any
@@ -418,7 +420,7 @@ convention is not a manga licence.
 matters: a measurement taken from the data said 26 rows and the interface says 57, and neither list
 is a subset of the other. The reader's view is the subject, so the reader's view is what was swept.
 
-**57 of 3,046 rows show a bare romanisation**, and they are three different problems.
+57 of 3,046 rows show a bare romanisation, and they are not one problem.
 
 **Eight would gain a real English name from a sibling record.** These are the same work under
 edition or status apparatus. The apparatus makes a different key, so the English attached to the
@@ -469,6 +471,6 @@ that one is a fact.
 embraced` are lowercase and ungrammatical, which is what a machine translation looks like when
 nothing caught it.
 
-**One is settled by rank and not by argument.** `私の女神が今日も推せる~これからも、いつまでも~` carries a
-licensor's name, so it outranks ours; the base record's `Worth Championing` is ours and stands
-where no licensor has spoken.
+One pair on the list is settled by rank rather than by argument:
+`私の女神が今日も推せる~これからも、いつまでも~` carries a licensor's name, so it outranks ours, while the
+base record's `Worth Championing` is ours and stands where no licensor has spoken.

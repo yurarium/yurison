@@ -90,11 +90,18 @@ def main():
     entries, seen = [], set()
     for n in range(1, a.pages + 1):
         rows = parse(fetch(n, cache, a.force))
+        # THE HEALTH CHECK GOES FIRST, because the case it exists for is the one `if not rows`
+        # was swallowing. Zero entries on page 1 is the strongest evidence the markup moved or
+        # the host answered with something else, and it was the only quantity that left here
+        # quietly: 1 to 9 entries exited loudly, 0 broke out of the loop and reported success.
+        # Every CI run of this pass has printed `listings: 0 over 8 page(s)` and exited 0.
+        if n == 1 and len(rows) < MIN_PER_PAGE:
+            sys.exit(f"HEALTH: page 1 yielded {len(rows)} entries (< {MIN_PER_PAGE}). "
+                     "Markup has probably changed, or the host served something else; "
+                     "refusing to write.")
+        # An empty page after the first is the end of the listing, which is ordinary.
         if not rows:
             break
-        if len(rows) < MIN_PER_PAGE and n == 1:
-            sys.exit(f"HEALTH: page 1 yielded {len(rows)} entries (< {MIN_PER_PAGE}). "
-                     "Markup has probably changed; refusing to write.")
         for r in rows:
             k = r["antenna_id"] or norm(r["title"])
             if k not in seen:

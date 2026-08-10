@@ -107,7 +107,17 @@ jobs:
       # nicovideo, webpages and generic. This is a dependency, not a report, and it runs first.
       # Web漫画アンテナ stays Tier C throughout: it says a work exists and where, and nothing here
       # becomes a record.
+      # DISCOVERY IS NOT THE BUILD. This pass reads Web漫画アンテナ, a Tier C source that tells us a
+      # work exists and attests nothing (REQUIREMENTS §1). Its health check refuses to write when
+      # page 1 yields almost nothing, which protects the committed coverage files, and those files
+      # are what the rest of the run uses. So a refusal costs this run its new candidates and
+      # nothing else, and failing the whole update over it would throw away a good build.
+      #
+      # IT IS RED WHEN IT REFUSES, which is the point. Every run so far has read 0 listings over 8
+      # pages and reported success, because the health check sat below an early break. Now it says
+      # so, in the same way Stage C and the fixture recheck say so.
       - name: Stage 0 — discovery queue
+        continue-on-error: true
         run: |
           python3 adapters/webcomics/coverage.py --out data/coverage \
             --cache "$CACHE/webcomics-cache" --pages 8 --retrieved "$R"

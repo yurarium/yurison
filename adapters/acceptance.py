@@ -152,9 +152,19 @@ def main():
         for r in real[:12]:
             print(f"    - {r['title'][:38]:40} {r['platform']}")
     adj_w = len(a_w) - len(excl) - len(contra)
-    measured["webcomics adjusted"] = 100 * len(a_w_hit) / max(adj_w, 1)
-    print(f"  ADJUSTED (excluding deliberate exclusions and contradictions) : "
-          f"{len(a_w_hit)}/{adj_w} = {measured['webcomics adjusted']:.1f}%")
+    # A RATE OVER AN EMPTY DENOMINATOR IS NOT 0%, IT IS NO MEASUREMENT. `max(adj_w, 1)` turned
+    # 0/0 into 0.0%, which is below every floor, so a run that read no listing at all failed in
+    # the same words as a run whose coverage had collapsed. CI has never read this listing: the
+    # cache holds pages the runner could not fetch, and the pass that fills it reported a clean
+    # zero because its health check sat below an `if not rows: break`.
+    if not rows:
+        measured["webcomics adjusted"] = None
+        print(f"  ADJUSTED : not measured. {cache} holds no page this pass could read, so there "
+              f"is no listing to compare the feed against. This is not 0% coverage.")
+    else:
+        measured["webcomics adjusted"] = 100 * len(a_w_hit) / max(adj_w, 1)
+        print(f"  ADJUSTED (excluding deliberate exclusions and contradictions) : "
+              f"{len(a_w_hit)}/{adj_w} = {measured['webcomics adjusted']:.1f}%")
 
     # ── 百合ナビ WEB連載 ──────────────────────────────────────────────
     yf = pathlib.Path("data/coverage/yurinavi-webyuri.yaml")
@@ -228,9 +238,17 @@ def _assert_floors(measured):
     """Compare each measured percentage against its floor. Returns the failures."""
     bad = []
     for name, floor in FLOORS.items():
-        got = measured.get(name)
-        if got is None:
-            bad.append(f"{name}: not measured at all, so the floor could not be checked")
+        got = measured.get(name, KeyError)
+        # NOT MEASURED IS NOT A FAILURE, AND NOT SILENT EITHER. A floor compares a measurement;
+        # where none was taken there is nothing to compare, and reporting the worst possible value
+        # would say coverage collapsed when the truth is that the listing was never read. It is
+        # printed loudly by the pass above. A measure the pass forgot to record entirely is still
+        # a failure, which is what tells the two apart.
+        if got is KeyError:
+            bad.append(f"{name}: the pass recorded no value at all, so the floor could not be "
+                       f"checked and nothing said why")
+        elif got is None:
+            continue
         elif got < floor:
             bad.append(f"{name}: {got:.1f}% is below the floor of {floor:.1f}%")
     return bad

@@ -174,6 +174,9 @@ class NameStore:
                 self._apply(kind, entry["ja"], entry["fact"])
         for entry in self._replay("attempts"):
             self._note_attempt(entry["ja"], entry["attempt"])
+        # WHAT THE FILES LOOKED LIKE WHEN WE READ THEM, so `compact` can tell whether
+        # another pass has written since.
+        self._seen = self._disk_digest()
 
     def _replay(self, name):
         path = self.jdir / f"{name}.jsonl"
@@ -282,8 +285,30 @@ class NameStore:
         store, so a long naming pass does not block a short one from starting.
         """
         with self._locked():
-            self._merge_from_disk()
-            return self._compact_unlocked()
+            # ONLY WHERE SOMEBODY ELSE WROTE. Re-reading unconditionally changed what `compact`
+            # means: it used to write MEMORY, and several callers edit `records` or `attempts`
+            # directly and rely on that, including this class's own three sweeps and the ndl_books
+            # suite, which sets an attempt's date by hand to age it. Merging on every compaction
+            # replayed the journal over those edits and undid them. So the single-writer path is
+            # exactly what it always was, and the merge happens only when the files have moved
+            # under us, which is the case that was losing work.
+            if self._disk_moved():
+                self._merge_from_disk()
+            got = self._compact_unlocked()
+            self._seen = self._disk_digest()
+            return got
+
+    def _disk_digest(self):
+        """One hash over the files this store owns, so a second writer is detectable."""
+        import hashlib
+        h = hashlib.sha256()
+        for name in KINDS + ("attempts",):
+            p = self.root / f"{name}.yaml"
+            h.update(p.read_bytes() if p.exists() else b"")
+        return h.hexdigest()
+
+    def _disk_moved(self):
+        return getattr(self, "_seen", None) not in (None, self._disk_digest())
 
     def _locked(self):
         """An exclusive lock over the store's directory, for the length of one compaction."""
@@ -305,11 +330,23 @@ class NameStore:
         return held()
 
     def _merge_from_disk(self):
-        """Take whatever is on disk now and replay our journal onto it.
+        """Take whatever is on disk now and put back the records THIS store touched.
 
-        Called under the lock. Where nothing else wrote, this is the state we already had and the
-        replay is idempotent; where something did, its work survives and ours is applied on top.
+        Called under the lock, and only where the files have moved since we read them.
+
+        IT CANNOT USE THE JOURNAL, which was the first attempt. The journal is one set of files per
+        DIRECTORY, not per process, so the pass that compacts first deletes the pending entries of
+        every other pass in the same checkout: recovering from it lost exactly the writes it was
+        supposed to save. What this store knows for certain is which names it touched, so that is
+        what it tracks and that is what it restores.
+
+        Anything it did not touch comes back from disk, so a pass that landed while we worked is
+        kept whole.
         """
+        mine = {(kind, ja): dict(rec) for kind, ja in getattr(self, "_touched", set())
+                if (rec := self.records.get(kind, {}).get(ja)) is not None}
+        my_attempts = {ja: self.attempts.get(ja) for ja in getattr(self, "_touched_attempts", set())
+                       if ja in self.attempts}
         for kind in KINDS:
             path = self.root / f"{kind}.yaml"
             if path.exists():
@@ -319,13 +356,10 @@ class NameStore:
         if apath.exists():
             doc = yaml.safe_load(apath.read_text(encoding="utf-8")) or {}
             self.attempts = doc.get("attempts") or {}
-        for name in list(self._journals):
-            self._journals[name].flush()
-        for kind in KINDS:
-            for entry in self._replay(kind):
-                self._apply(kind, entry["ja"], entry["fact"])
-        for entry in self._replay("attempts"):
-            self._note_attempt(entry["ja"], entry["attempt"])
+        for (kind, ja), rec in mine.items():
+            self.records.setdefault(kind, {})[ja] = rec
+        for ja, entry in my_attempts.items():
+            self.attempts[ja] = entry
 
     def _compact_unlocked(self):
         self.drop_stale_spans()
@@ -390,6 +424,11 @@ class NameStore:
         return self._apply(kind, ja, fact)
 
     def _apply(self, kind, ja, fact):
+        # WHICH NAMES THIS STORE HAS TOUCHED, so a compaction that finds the files moved can put
+        # them back over whatever another pass wrote. See `_merge_from_disk`.
+        if not hasattr(self, "_touched"):
+            self._touched = set()
+        self._touched.add((kind, ja))
         cur = self.records[kind].setdefault(ja, {})
         superseding = fact.pop("supersede", None)
         if superseding:
@@ -764,6 +803,9 @@ class NameStore:
         self._note_attempt(ja, entry)
 
     def _note_attempt(self, ja, entry):
+        if not hasattr(self, "_touched_attempts"):
+            self._touched_attempts = set()
+        self._touched_attempts.add(ja)
         lst = self.attempts.setdefault(ja, [])
         for e in lst:
             if e.get("pass") == entry.get("pass") and e.get("source") == entry.get("source"):

@@ -8263,8 +8263,12 @@ names:
     verified: false
   アナ・C・サンチェス:
     basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A LOOKED-AT NAME THAT IS NOT SETTLED, which is what this field records. The kana carry a middle
+      initial and a Spanish surname shape, so they are almost certainly spelling a name written in Latin
+      letters somewhere. The routes the write-up names, a translated edition's copyright page, the original
+      publisher and the artist's own site, did not settle it from オルターエゴ alone. Until they do, a reader
+      is told the rendering is a transliteration of a transliteration rather than being shown `Ana C Sanchesu`
+      as though it were the name.
     reading: アナ C サンチェス
     reading_at: '2026-08-09'
     reading_basis: analyser
@@ -8272,6 +8276,7 @@ names:
     reading_pass: 4
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
+    transliterates: unknown
     verified: false
   アナ・Ｃ・サンチェス:
     basis: romaji
@@ -11781,11 +11786,16 @@ names:
     verified: false
   ブリリアント・ブラウン:
     basis: romaji
+    note: Same state and less certain. `Buririanto Buraun` reads as Brilliant Brown, and a katakana pen
+      name that plays on English words is entirely ordinary in this corpus, so this may be a Japanese
+      artist whose name has no Latin original at all. Marked rather than guessed, because the mark says
+      what is known and a spelling would say what is not.
     reading: ブリリアント・ブラウン
     reading_at: '2026-08-09'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    transliterates: unknown
     verified: true
   プラパ:
     basis: romaji

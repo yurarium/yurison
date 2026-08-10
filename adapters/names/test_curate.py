@@ -313,6 +313,25 @@ def main(s):
                 "one a reviewer settled as romaji is finished, and drops out")
         s.check("translated" not in works, "as does a translated title, as before")
 
+    # ── a ruling that proposes no name ──────────────────────────────────────────────────────────
+    #
+    # `transliterates` says the kana are themselves a transliteration and that a search did not find
+    # the Latin spelling. That is a finding about the SURFACE, it cites nothing, and demanding a
+    # source would be asking for a citation for a search that came back empty.
+    ruling = {"transliterates": "unknown", "reviewed": "2026-08-10",
+              "note": "the licensor page and the artist's own site were tried and settled nothing"}
+    s.eq(curate.problems("authors", "アナ・C・サンチェス", ruling), [],
+         "a ruling that proposes no name needs no source")
+    s.check(curate.problems("authors", "X", {k: v for k, v in ruling.items() if k != "note"}),
+            "and it still owes a note saying which routes were tried")
+    s.check(curate.problems("authors", "X", {k: v for k, v in ruling.items() if k != "reviewed"}),
+            "and a date, because stopping looking is a decision somebody made")
+
+    # AN ENTRY THAT SAYS NOTHING AT ALL IS STILL REFUSED, or the branch above would be a way to
+    # write an empty record into the file.
+    s.check(curate.problems("authors", "X", {"reviewed": "2026-08-10", "note": "n"}),
+            "an entry with neither a claim nor a ruling is refused as before")
+
     # The shipped file must itself pass, or the check is a thing that only tests fixtures.
     s.eq(curate.check(curate.load()), [], "the file in the repository validates")
     s.eq(curate.unmatched(curate.load(), curate.known_titles()), [],

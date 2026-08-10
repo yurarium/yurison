@@ -1805,6 +1805,13 @@ def load_names():
             # `boundary.fill` writes the field for a division it LENT and for nothing else.
             elif is_person and rec.get("reading_boundary_basis"):
                 out["division_basis"] = rec["reading_boundary_basis"]
+        # A FIFTH CLAIM, AND THE ONLY ONE NO RULE CAN FIND. Where the kana are themselves a
+        # transliteration, romanising them takes a reader FURTHER from the name than the Japanese
+        # did: ステファン・セジク comes out `Sutefan Sejiku` and the person is Stjepan Šejić. Nothing
+        # about a string says this, since katakana pen names are ordinary, so it is recorded per
+        # name in curated.yaml and shipped here for the interface to say so.
+        if rec.get("transliterates"):
+            out["transliterates"] = rec["transliterates"]
         if rec.get("en"):
             # An "already Latin" title is detected by looking for kana and kanji, which means
             # IDOL×IDOL STORY！ passed as English with its full-width punctuation intact and then

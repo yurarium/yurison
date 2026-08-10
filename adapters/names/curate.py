@@ -129,7 +129,13 @@ DIVIDING_BASES = tuple(sorted(_division.bases_where("cited")))
 KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "reviewed", "note",
         "candidate_note", "reading", "reading_basis", "reading_note", "reading_source_kind",
         "reading_source", "reading_url", "reading_boundary", "reading_refuted", "en_refuted",
-        "translation", "translation_note"}
+        "translation", "translation_note",
+        # THE KANA ARE THEMSELVES A TRANSLITERATION, which no rule can detect. ステファン・セジク
+        # romanises to `Sutefan Sejiku`, a transliteration of a transliteration, and the person is
+        # Stjepan Šejić; but るいす・まくられん is credited beside 楽時たらひ on Japanese anthologies
+        # and is a pen name playing with a foreign sound. Katakana is not evidence of a foreign
+        # name, so this is a ruling somebody records per name and never a detector.
+        "transliterates"}
 
 # What we call ourselves in the store when a claim is our own judgement rather than a finding.
 OURS = "yurarium"
@@ -213,6 +219,25 @@ def problems(kind, ja, e):
             out.append(f"{where}: a refutation cannot also propose a value")
         if not (e.get("reading_note") or e.get("note") or "").strip():
             out.append(f"{where}: a refutation has to say what disproved the reading")
+        if not e.get("reviewed"):
+            out.append(f"{where}: no reviewed date; this is a decision somebody made")
+        return out
+
+    # A RULING THAT PROPOSES NO NAME, checked here for the same reason the refutation above is:
+    # every rule below assumes the entry is claiming something. `transliterates` records that the
+    # kana are themselves a transliteration and that a search did not find the Latin spelling. That
+    # is a finding about the SURFACE and cites nothing, so `no source` and `source_kind` would both
+    # be demanding a citation for a search that came back empty.
+    #
+    # IT STILL OWES A NOTE AND A DATE. An unsettled name is a decision somebody made to stop
+    # looking, and a reader of the file has to be able to see which routes were tried.
+    if (isinstance(e, dict) and e.get("transliterates")
+            and not (e.get("en") or e.get("candidate") or e.get("reading"))):
+        bad = list(set(e) - KEYS)
+        if bad:
+            out.append(f"{where}: unknown key(s) {sorted(bad)}")
+        if not (e.get("note") or "").strip():
+            out.append(f"{where}: a transliteration ruling has to say which routes were tried")
         if not e.get("reviewed"):
             out.append(f"{where}: no reviewed date; this is a decision somebody made")
         return out
@@ -464,7 +489,7 @@ def apply(store, doc):
                     ("en", "candidate", "basis", "source", "source_kind", "source_url", "note",
                      "candidate_note", "reading", "reading_basis", "reading_note",
                      "reading_source_kind", "reading_source", "reading_url", "reading_boundary",
-                     "reviewed")}
+                     "transliterates", "reviewed")}
             # `at` is the day the decision was reviewed, not the day this ran. Re-applying the file
             # after a rebuild must not restamp a name as freshly decided.
             fact["at"] = str(e.get("reviewed"))

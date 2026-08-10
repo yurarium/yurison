@@ -351,8 +351,12 @@ class NameStore:
         # claim itself, and a translation with no argument behind it is the machine translation
         # NAMES-PLAN §5a rules out. It cannot collide with `note`, which belongs to the attributed
         # name and says which page that was read from.
+        # `transliterates` IS AN OBSERVATION ABOUT THE SURFACE and not a claim about a name, which
+        # is why it belongs here rather than in a merge group: it says the kana are themselves a
+        # transliteration of a name written in Latin letters somewhere. It can sit beside a found
+        # spelling or alone, and it competes with nothing.
         for k in ("ja_family", "ja_given", "reading_family", "reading_given",
-                  "script", "note", "translation_note", "suspect_logo_title"):
+                  "script", "note", "translation_note", "suspect_logo_title", "transliterates"):
             if fact.get(k) is not None:
                 cur[k] = fact[k]
         for k in ("handles",):

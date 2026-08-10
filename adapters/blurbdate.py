@@ -67,6 +67,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 import delivery                                                                # noqa: E402
+from facts import dating as _dating                                            # noqa: E402
 
 # The basis a row promoted here carries. `shop-delivery-date` says the shop stated when it began
 # selling a file; this says the shop stated when the book was printed, in the same box, in a
@@ -78,14 +79,9 @@ BASIS = "shop-blurb-print-date"
 EV_ISSUE = "issue"
 EV_FIRST_APPEARANCE = "first-appearance"
 
-BASIS_NOTE = {
-    BASIS:
-        "The shop's own description of this work states when the doujin edition it was made from "
-        "was published. That is a printing, so it answers the work's first publication and the "
-        "day the shop began delivering the file does not. The sentence is not recorded, because a "
-        "shop's description is copyrighted; the date, the claim it was made under and the sales "
-        "event named beside it are.",
-}
+# The sentence lives in `facts/dating` with every other term of this field; this module owns
+# which term it emits and nothing else about the vocabulary.
+BASIS_NOTE = {BASIS: _dating.note(BASIS)}
 
 EVENT_NOTE = {
     EV_ISSUE:

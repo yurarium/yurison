@@ -39,7 +39,12 @@ one, `コミティアの人気作家` describes the author and not the edition, 
 scene in the story. `adapters/test_delivery.py` pins all three as refusals, since the rule was wrong
 in that direction before it was written.
 """
+import pathlib
 import re
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from facts import dating as _dating                                            # noqa: E402
 
 # The basis value a promoted row carries, and the event the date is of. Two names for one decision,
 # because `date_basis` says where a value came from everywhere else in the schema and `date_event`
@@ -51,14 +56,9 @@ EVENT = "shop-delivery"
 # ONE SENTENCE PER TERM, IN ONE PLACE, following recon/bookwalker_volumes.BASIS_NOTE. A term whose
 # meaning is written out wherever it is displayed drifts, and a reader meeting it in `data/queue/`
 # and again in `data/build/` is entitled to the same words.
-BASIS_NOTE = {
-    BASIS:
-        "The day the shop began delivering this file, which is the earliest 配信開始日 across the "
-        "volumes it holds. The shop states no print edition and no ISBN for this work, so no paper "
-        "record is reachable and no catalogue can be asked. This dates the delivery and claims "
-        "nothing about an earlier edition, which for a self-published work may never have had a "
-        "recorded date at all.",
-}
+# The sentence lives in `facts/dating` with every other term of this field; this module owns
+# which term it emits and nothing else about the vocabulary.
+BASIS_NOTE = {BASIS: _dating.note(BASIS)}
 
 # WHY A PRINT DATE ENDS THE QUESTION. Not a preference between two dates: across the 353 volumes
 # stating both, the delivery date fell on either side of the printing by up to 128 months, so it is

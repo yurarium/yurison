@@ -258,7 +258,14 @@ stages:
           Recorded with it: a merge is undoable and a split is not, which is why the file holds the join it can reverse and not the one it cannot, and eight anthology stories anchor on a folded title inside an anchor chosen because titles are unreliable.
       - id: D13
         title: dates
-        state: todo
+        state: done
+        note: >-
+          adapters/facts/dating owns the nine terms `date_basis` can hold, their sentences and their venue types; each capture keeps the BASIS naming which term it emits.
+          THREE MODULES HELD ONE FIELD'S VOCABULARY: six terms in recon/bookwalker_volumes, one in blurbdate, one in delivery, and build.py had to know which of the three carries the fallback sentence.
+          VENUE_TYPE ANSWERED FOR SIX OF EIGHT and the rest got None from a `.get` on a table that did not hold them, which reads exactly like an answer. Stating it makes the two silences that know nothing about the venue, and the two shop bases that arrive by a path which never asked, say so.
+          Four of the nine date the row and five explain why nothing does, and nothing said which was which; `dates_the_row` is that, and the test requires both populations non-empty so it cannot be a constant.
+          The fold made one assertion vacuous and it was rewritten rather than deleted: the capture's suite compared VENUE_TYPE against BASIS_NOTE, which are keyed from one table now, so it asserts instead that every term that capture emits is in the vocabulary and carries a sentence.
+          The blind spot is that a term is only as good as the capture assigning it: `no-print-edition` is a fact about what one shop published and is read as a fact about the book.
       - id: D14
         title: inclusion
         state: todo

@@ -30,6 +30,7 @@ from facts import division as _division  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402
 from facts import identity  # noqa: E402
+from facts import dating as _dating  # noqa: E402
 import importdates  # noqa: E402
 import isbndate  # noqa: E402
 from names import credits as _credits  # noqa: E402
@@ -647,9 +648,12 @@ def undated_publication(base):
         "date": None,
         "country": base.get("first_publication_country") or "JP",
         "date_basis": basis,
-        "venue_type": bookwalker_volumes.VENUE_TYPE.get(basis),
-        "note": bookwalker_volumes.BASIS_NOTE.get(
-            basis, bookwalker_volumes.BASIS_NOTE["no-date-attested"]),
+        # ASKED OF THE VOCABULARY, not of whichever capture happens to hold it. This named
+        # `bookwalker_volumes` for both, which meant a reader of this line had to know that one
+        # capture module carried the terms for a field three of them write to, and that the same
+        # module holds the fallback sentence. `facts/dating` owns the space now.
+        "venue_type": _dating.venue_type(basis),
+        "note": _dating.note(basis),
     }
     items = (base.get("volumes") or []) + (base.get("chapters") or [])
     date, refused = delivery.promote(items)
@@ -2777,7 +2781,7 @@ def main():
                 "date_source": via,
                 "date_basis": basis,
                 "venue": base.get("venue") or base.get("imprint", "") or base.get("publisher", ""),
-                "venue_type": bookwalker_volumes.VENUE_TYPE.get(base.get("date_basis"))
+                "venue_type": _dating.venue_type(base.get("date_basis"))
                               or "tankobon-imprint",
                 "country": "JP",
                 "note": "First known 単行本. Magazine serialisation not attested by current sources.",

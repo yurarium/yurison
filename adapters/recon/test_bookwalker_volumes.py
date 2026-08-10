@@ -276,8 +276,14 @@ def main(s):
          "the note a capture writes opens with the term's own definition")
     s.eq(bv.date_basis(corpus[0], stats)[1].startswith(bv.BASIS_NOTE["no-print-edition"]), True,
          "and so does the one that then adds which imprint decided it")
-    s.eq(sorted(bv.VENUE_TYPE) == sorted(k for k in bv.BASIS_NOTE if k != "no-date-attested"), True,
-         "every basis a capture can return has both a venue type and a definition")
+    # THE VOCABULARY IS ONE TABLE NOW and both maps are keyed from it, so comparing them to each
+    # other says nothing. What this capture can still usefully assert is that every term IT emits
+    # is in that vocabulary and carries a sentence; whether the vocabulary is internally consistent
+    # is `adapters/facts/dating/test_dating.py`, beside the table.
+    for basis in ("print-base-edition", "chapter-serial", "no-print-edition",
+                  "no-print-date-stated", "print-edition-unknown", "no-volumes-found"):
+        s.check(basis in bv.BASIS_NOTE and bv.BASIS_NOTE[basis],
+                f"the term this capture emits is defined: {basis}")
     s.eq("no-date-attested" in bv.BASIS_NOTE, True,
          "including the one no capture returns, which build.py needs for a source that said nothing")
 

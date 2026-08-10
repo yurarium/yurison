@@ -50,16 +50,14 @@ import re
 import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
 _sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
 import htmlbits as _htmlbits                                            # noqa: E402
+from facts import dating as _dating                                     # noqa: E402
 
 # What kind of venue the date came from, per basis, in build.py's vocabulary.
-VENUE_TYPE = {
-    "print-base-edition": "tankobon-imprint",
-    "no-print-edition": "digital-imprint",
-    "chapter-serial": "chapter-serial-imprint",
-    "no-print-date-stated": "imprint",
-    "print-edition-unknown": "imprint",
-    "no-volumes-found": None,
-}
+# ONE VOCABULARY FOR ONE FIELD (§3). The terms and their sentences were here, in `blurbdate` and
+# in `delivery`, three modules holding one field's vocabulary between them, and `build.py` held
+# the knowledge of which of the three carries the fallback. `facts/dating` owns the space; this
+# module still owns which term it emits.
+VENUE_TYPE = {b: _dating.venue_type(b) for b in _dating.bases()}
 
 # WHAT EACH TERM MEANS, WITHOUT THE CAPTURE'S OWN NUMBERS IN IT. `date_basis` below states the
 # same sentence and then adds which imprint and how many volumes decided it, and build.py states
@@ -68,34 +66,7 @@ VENUE_TYPE = {
 # ONE DEFINITION, TWO RESOLUTIONS, and that is the reason this is a constant rather than prose in
 # two files. A term whose meaning is written out wherever it is displayed drifts, and the reader
 # who meets it in `data/source/` and again in `data/queue/` is entitled to the same sentence.
-BASIS_NOTE = {
-    "print-base-edition":
-        "The earliest 底本発行日 across the work's volumes, which is the publication date of the "
-        "print edition the file was made from. A serialised work appeared in a magazine before "
-        "its tankōbon and this shop never mentions the magazine, so this is the earliest "
-        "publication the shop attests rather than the work's first.",
-    "chapter-serial":
-        "Sold by the chapter on the shop's 話・連載 store. There are no volumes and no print "
-        "edition, and the only date the shop states is 更新, the day the latest chapter went up, "
-        "which is the most recent publication rather than the first.",
-    "no-print-edition":
-        "Digital-only. The shop states 底本発行日 on none of the volumes it holds under this "
-        "imprint, so there is no print edition for it to carry a publication date. The absence is "
-        "the format rather than a gap in the shop's record.",
-    "no-print-date-stated":
-        "The shop states no 底本発行日 for this work, and the imprint does state one elsewhere, "
-        "so the imprint being digital-only does not account for it. Whether a print edition "
-        "exists is unresolved.",
-    "print-edition-unknown":
-        "The shop states no 底本発行日 for this work, and the shop holds too few volumes under "
-        "the imprint to tell a digital-only label from a silence. Undecided rather than negative.",
-    "no-volumes-found":
-        "The series page listed nothing this capture could read. Nobody has an answer about this "
-        "work yet, which is not the same as the shop having none.",
-    "no-date-attested":
-        "No source consulted states a publication date, and none of them says why. Recorded "
-        "undated rather than dated by inference.",
-}
+BASIS_NOTE = {b: _dating.note(b) for b in _dating.bases()}
 
 # WHY JP IS ASSERTED, AND THE CASE IT WOULD GET WRONG. Every row here is a Japanese-language book
 # from a Japanese publisher on a Japanese store, which is evidence about where it was published

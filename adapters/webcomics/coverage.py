@@ -96,9 +96,19 @@ def main():
         # quietly: 1 to 9 entries exited loudly, 0 broke out of the loop and reported success.
         # Every CI run of this pass has printed `listings: 0 over 8 page(s)` and exited 0.
         if n == 1 and len(rows) < MIN_PER_PAGE:
+            # SAY WHAT WAS READ, because the refusal on its own does not distinguish a markup
+            # change from a host answering something else, and the page is on a machine nobody
+            # can look at. The size and the title are enough to tell an interstitial from a
+            # listing whose classes were renamed, and neither reproduces the page.
+            page = fetch(n, cache, a.force)
+            m = re.search(r"<title[^>]*>([^<]{0,120})", page)
+            title = m.group(1).strip() if m else "(none)"
             sys.exit(f"HEALTH: page 1 yielded {len(rows)} entries (< {MIN_PER_PAGE}). "
-                     "Markup has probably changed, or the host served something else; "
-                     "refusing to write.")
+                     f"Refusing to write. What was read: {len(page)} characters, "
+                     f"title {title!r}, "
+                     f"{'has' if 'class=\"entry\"' in page else 'has no'} entry block. "
+                     f"Cached at {cache}/page{n}.html; pass --force to re-fetch, since a cache "
+                     f"that once held a refusal is read for ever otherwise.")
         # An empty page after the first is the end of the listing, which is ordinary.
         if not rows:
             break

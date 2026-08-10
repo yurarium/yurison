@@ -2447,3 +2447,45 @@ one. A row with no access is measured against the asymmetry above.
 route for a work both cover. Neither is done here: the first needs the feed to state something it
 does not appear to, and the second is a change to how routes are ranked, which reaches further than
 one platform.
+
+## Discovery does not work in CI. Ruled 2026-08-10
+
+`adapters/webcomics/coverage.py` reads Web漫画アンテナ's 百合 tag, which REQUIREMENTS §1 names as a
+first-class discovery mechanism. Every run of the update workflow has read 0 listings over 8 pages,
+on a cold cache and a warm one alike.
+
+**What is established, and it is less than it first looked.** `fetch` has no `except`, so a transport
+error or a non-2xx would propagate and end the pass with a traceback. It never did. So the runner
+received a successful response whose body holds no `<div class="entry">`, which is the only string
+`parse` splits on. That is the whole of it. From a developer machine the same address with the same
+user agent returns about 108 KB that parses into entries, and its response carries a Cloudflare
+server header, but nobody has seen what the runner received and the cause is not recorded here as
+known. The refusal now prints the size, the title and whether an entry block is present, so the next
+run of it anywhere says what it read instead of leaving somebody to guess.
+
+**Nobody noticed because the pass could not report it.** Its health check refuses to write when page
+1 yields almost nothing, and it sat below an `if not rows: break`, so 1 to 9 entries exited loudly
+and 0 entries left quietly with a success code.
+
+One thing is certain whatever the cause: `fetch` returns the cached file whenever one exists and
+the workflow passed no `--force`, so a cache that once held a bad page is read for ever. The pass
+could not recover on its own even if the host began answering.
+
+Whatever is refusing the runner, getting past it is not something this project does, so the pass is
+out of the workflow rather than retried or worked around. A step that cannot succeed is what
+ganganonline had already cost us: it trains a reader to skim the failure list, and the run beside it
+that mattered went unread for a week.
+
+**What this costs.** New candidates are not discovered by the automated run. The corpus keeps the
+1,200 candidates already in `data/coverage/webcomics-works.yaml`, which is committed and is what the
+rest of the pipeline reads, so a run is complete in every other respect. Discovery is a local pass
+now, run by a person on a machine the site answers:
+
+```
+python3 adapters/webcomics/coverage.py --out data/coverage \
+  --cache ../webcomics-cache --pages 8 --retrieved $(date +%F) --force
+```
+
+百合ナビ is unaffected and remains the other discovery route. `data/coverage/yurinavi-webyuri.yaml`
+is committed and `acceptance.py` still measures against it, which is why that half of the acceptance
+report keeps working while the Web漫画アンテナ half reports that it was not measured.

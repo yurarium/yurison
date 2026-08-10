@@ -194,6 +194,17 @@ SURFACES = [
             "the updates tab's title"),
     Surface("releases[].author", "authorLabel", "row:author", "person",
             "the updates tab's byline"),
+    # THE SAME FIELD, THROUGH THE RENDERER THE DETAILED VIEW USES, and the reason it uses a second
+    # one is §14b in the layout rather than in a check. The detailed row was a single anchor to the
+    # chapter, so nothing inside it could be a link, so the byline had to be drawn by the one
+    # renderer that returns no anchors. The row is not an anchor any more (owner's ruling,
+    # 2026-08-10) and the byline goes through `creditLine` like the work page's, which places each
+    # name inside the field as written instead of composing a new line from the parts. The two
+    # answer differently on 24 of the fields in the current window, so measuring only the first
+    # would leave what a reader now reads unmeasured, which is what `creditLine` missing from this
+    # table already cost once.
+    Surface("releases[].author", "creditLine", "row:author", "person",
+            "the same byline on the detailed updates row, where each person is a link"),
     Surface("releases[].ep", ("phraseOf", "epText", "epLine"), "value", "phrase",
             "the chapter name on an update row"),
     Surface("releases[].collection", ("workTextOf", "workLabel"), "value", "title",

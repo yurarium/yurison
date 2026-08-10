@@ -1820,20 +1820,24 @@ def load_names():
                 got = _kana.align(k_ja, rd)
                 if got:
                     sp = [[t, _kana.to_hiragana(x) if x else None] for t, x in got]
-            # JUKUGO-RUBY, where the split can be established. The layout rules distinguish a
-            # reading placed over a whole compound (group-ruby) from one where each character
-            # carries its own (jukugo-ruby), and prefer the latter: it puts じょう over 情 rather
-            # than over 純情, and it gives the line somewhere to break. Where the split cannot be
-            # worked out the run stays a group, which is the fallback the rules themselves name.
-            if sp:
-                _exp = []
-                for _t, _x in sp:
-                    _parts = _kana.jukugo_split(_t, _x) if _x and len(_t) > 1 else None
-                    if _parts:
-                        _exp.extend([[_c, _kana.to_hiragana(_r)] for _c, _r in _parts])
-                    else:
-                        _exp.append([_t, _x])
-                sp = _exp
+            # THE UNIT OF RUBY IS THE WORD, AND THE ANALYSER IS WHAT KNOWS WHERE WORDS ARE.
+            # 927e141 cut every run it could into one span per character, citing JIS X 4051's
+            # preference for jukugo-ruby over group-ruby, and what it emitted was neither: app.js
+            # wraps each span in its own <ruby>, so 総選挙 arrived as three independent ruby units
+            # that break and space apart. Jukugo-ruby keeps the compound as ONE unit and
+            # distributes the reading inside it; splitting it into separate elements is mono-ruby,
+            # which those rules distinguish and do not prefer for a compound.
+            #
+            # AND THE SPLIT WAS A CLAIM NOBODY MADE. The analyser said 総選挙 is one word read
+            # ソウセンキョ. そう over 総 and きょ over 挙 came from a table of per-character
+            # readings the analyser never consulted, accepted whenever it found exactly one way to
+            # cut the reading, which is uniqueness and not evidence. Reported by the project owner
+            # on 2026-08-10 against 鮮血王女 and 私の女神が今日も推せる【単話版】 as well.
+            #
+            # 1,622 of 3,212 records with spans held at least one atomised run, 2,402 runs in all.
+            # A sibling record escaped only by accident: 総選挙4位 held a digit, so no partition
+            # existed and the run stayed whole, which is why one row read correctly and the next
+            # did not.
             if sp and any(x[1] for x in sp) and not _guessed_person:
                 out["ruby"] = sp
             # Personal names take particles=False — と in a name is 都 or 斗, never the particle.

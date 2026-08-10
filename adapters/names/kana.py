@@ -912,59 +912,14 @@ def _unihan():
     return _UNIHAN
 
 
-def char_readings(c):
-    """Every katakana reading one character might take here, including regular sound changes.
-
-    促音便 (the final mora becoming ッ before a voiceless consonant, 学校 ガク+コウ -> ガッコウ) and
-    連濁 are both included, because a compound that undergoes either is still the same two
-    characters and refusing it would just push a correct split into the fallback.
-    """
-    out = set()
-    for r in _unihan().get(c) or []:
-        r = to_katakana((r or "").strip())
-        if not r or not kana_only(r):
-            continue
-        out.add(r)
-        if len(r) > 1:
-            out.add(r[:-1] + "ッ")                      # 促音便
-        head = RENDAKU.get(r[0])
-        for v in ([head] if isinstance(head, str) else head or []):
-            out.add(v + r[1:])                          # 連濁
-    return out
-
-
-def jukugo_split(surface, reading):
-    """[(character, reading)] splitting one kanji run across its characters, or None.
-
-    None wherever the split is not certain: no partition found, or more than one. A wrong split is
-    worse than no split, because it puts a reading over a character it does not belong to and the
-    reader has no way to tell. Falling back leaves the run annotated as a group, which is what the
-    layout rules call for when the parts cannot be worked out.
-    """
-    surface, reading = surface or "", to_katakana(reading or "")
-    if len(surface) < 2 or not reading:
-        return None
-    cand = [char_readings(c) for c in surface]
-    if not all(cand):
-        return None
-
-    found = []
-
-    def walk(i, pos, acc):
-        if len(found) > 1:
-            return
-        if i == len(surface):
-            if pos == len(reading):
-                found.append(list(acc))
-            return
-        for r in cand[i]:
-            if reading.startswith(r, pos):
-                acc.append((surface[i], r))
-                walk(i + 1, pos + len(r), acc)
-                acc.pop()
-
-    walk(0, 0, [])
-    return found[0] if len(found) == 1 else None
+# `char_readings` AND `jukugo_split` STOOD HERE AND WERE REMOVED, 2026-08-10. They cut a kanji run
+# into one span per character wherever the table admitted exactly one partition of the reading, and
+# build.py applied that to every run it shipped. The project owner reported the result: 総選挙 came
+# out 総/そう 選/せん 挙/きょ, three independent <ruby> elements where the analyser had said one word.
+# Uniqueness of a partition is not evidence for it, and the unit of ruby is the word.
+#
+# `RENDAKU` and `_unihan` above stay: `pass4_analyser._reading_kind` reads both to tell an on reading
+# from a kun one, which is how it spots a compound the analyser read a character at a time.
 
 
 def ruby_spells(spans, reading):

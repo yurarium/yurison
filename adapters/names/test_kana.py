@@ -184,23 +184,14 @@ def main(s):
          "and a single letter keeps the reading that is its own name")
     s.eq(kana.LETTER_NAME["V"], "ブイ", "which is the closed set of 26 that decides it")
 
-    # JUKUGO-RUBY. Splitting a compound's reading across its characters, so じょう sits over 情
-    # rather than over 純情. Accepted only when it is certain, because a reading placed over the
-    # wrong character is worse than one placed over the whole word: the reader cannot tell.
-    s.eq(kana.jukugo_split("純情", "ジュンジョウ"), [("純", "ジュン"), ("情", "ジョウ")],
-         "a compound splits where each part is a reading of its character")
-    s.eq(kana.jukugo_split("学校", "ガッコウ"), [("学", "ガッ"), ("校", "コウ")],
-         "and 促音便 is a sound change, not a different word")
-    s.eq(kana.jukugo_split("雨夜", "アマヨ"), None,
-         "a split the table cannot support is declined rather than guessed")
-    s.eq(kana.jukugo_split("純", "ジュン"), None, "one character is already its own ruby")
-    s.eq(kana.jukugo_split("純情", ""), None, "and no reading splits into nothing")
-    # THE PROPERTY THAT MATTERS. Whatever comes back must still spell the reading, or the ruby
-    # contradicts the romanisation built from the same string.
-    for word, rd in (("純情", "ジュンジョウ"), ("悪役", "アクヤク"), ("令嬢", "レイジョウ")):
-        got = kana.jukugo_split(word, rd)
-        s.eq("".join(x[1] for x in got), rd, f"the split of {word} still spells its reading")
-        s.eq("".join(x[0] for x in got), word, f"and still spells {word}")
+    # JUKUGO-RUBY WAS HERE AND IS GONE, 2026-08-10. `jukugo_split` cut a compound's reading across
+    # its characters wherever exactly one partition of the reading existed, and build.py applied it
+    # to every run it shipped, so 総選挙 reached the page as 総/そう 選/せん 挙/きょ: three separate
+    # <ruby> elements for one word the analyser had segmented whole. Uniqueness of a partition is
+    # not evidence for it, and app.js emitting one element per span makes the result mono-ruby
+    # rather than the jukugo-ruby the layout rules prefer. The build commentary carries the rest.
+    s.check(not hasattr(kana, "jukugo_split"), "nothing here cuts a word into characters")
+    s.check(not hasattr(kana, "char_readings"), "and the per-character table went with it")
 
     # A TITLE THAT FAILS TO ALIGN GETS NO FURIGANA AT ALL, so one unmatched character costs the
     # whole line. 169 of 842 kanji titles were in that state, and between them two causes account

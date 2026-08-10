@@ -3106,6 +3106,40 @@ def budget_ruby_asserting_a_reading_per_character(ctx):
     return n
 
 
+def budget_ruby_asserting_a_reading_per_character(ctx):
+    """Ruby that cuts a word into one annotated character after another.
+
+    THE SHAPE THE PROJECT OWNER REPORTED on 2026-08-10: 総選挙 arrived as 総/そう 選/せん 挙/きょ,
+    and 鮮血王女 as four. app.js wraps each span in its own <ruby>, so a compound annotated that way
+    is several ruby units that break and space apart, and each one asserts a reading of one
+    character that nobody stated. 927e141 produced most of them from a per-character table, applied
+    wherever exactly one partition of the reading existed; that is removed, and 2,402 atomised runs
+    across 1,622 span sets went with it.
+
+    WHAT IS LEFT IS THE ANALYSER'S OWN, and it is a different fault worth watching. Where
+    SudachiDict has no entry for a compound it reads each character alone, so 超深, 焔炎, 退鬼師 and
+    樫風 reach a reader with a reading over each character and no compound behind any of them.
+    NAMES-PLAN names 樫風 as the case a reader can adjudicate on sight.
+
+    ARITHMETIC ON THE RENDERED ROW (§14b), in the shape `implausible ruby spans` established: it
+    counts adjacent annotated single-character spans and owes the aligner, the analyser and the
+    per-character table nothing. It cannot see a wrong reading over a run of two characters, which
+    is `implausible ruby spans` and `ruby spells the reading` between them, and neither can see a
+    plausible reading that is not the one anybody says.
+    """
+    n = 0
+    for r in ctx["series"]:
+        for key in ("work_en", "author_en"):
+            run = 0
+            for span in ((r.get(key) or {}).get("ruby") or []):
+                base, rt = (span + [None, None])[:2] if isinstance(span, list) else (None, None)
+                alone = bool(rt) and len(str(base or "")) == 1 and bool(RUBY_KANJI.fullmatch(str(base)))
+                run = run + 1 if alone else 0
+                if run == 2:
+                    n += 1
+    return n
+
+
 def budget_implausible_ruby_spans(ctx):
     """Ruby spans holding fewer kana than the run has kanji, which nobody could read aloud.
 
@@ -4249,6 +4283,10 @@ BUDGETS_DEF = [
      "readings the shipped name map gives to several credits with no ruling on the pair. Should be "
      "0: a rise means a newly sourced reading has put two credits together and nobody has said "
      "whether they are one credit written twice or two names that sound alike."),
+    ("ruby asserting a reading per character", budget_ruby_asserting_a_reading_per_character,
+     "runs where the ruby annotates one character after another, so a compound reaches a reader as "
+     "several ruby units each claiming a reading nobody stated. A rise means a producer started "
+     "cutting words again, or new works whose compounds the analyser has no entry for."),
     ("ruby asserting a reading per character", budget_ruby_asserting_a_reading_per_character,
      "runs where the ruby annotates one character after another, so a compound reaches a reader as "
      "several ruby units each claiming a reading nobody stated. A rise means a producer started "

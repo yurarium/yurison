@@ -1,0 +1,96 @@
+# The only hand-written input to the tracker.
+#
+# ONE LINE PER ITEM, because a status somebody decided is the one thing a machine cannot derive.
+# Everything else on the page (timings, the fact inventory, budget movements, the open residue) is
+# measured by adapters/tracker.py from the tree, so it cannot be claimed better than it is.
+#
+# state: todo | doing | done | dropped
+# note:  what changed, or why it was dropped. Required for `done` and `dropped`.
+#
+# A `done` with no note fails `./adapters/tracker.py --check`, which the gate runs. That is the
+# smallest guard against the fault this file exists to prevent: the first round's tracker showed a
+# step complete that had never been started.
+
+generated_by: adapters/tracker.py
+plan: docs/REFACTOR-PLAN-2.md
+
+stages:
+  A:
+    title: The cycle stops re-answering itself
+    items:
+      - id: A1
+        title: A green-tree token, hashing what the checks read
+        state: todo
+      - id: A2
+        title: deploy.sh stops running the checks
+        state: todo
+      - id: A3
+        title: A build skips the checks by default
+        state: todo
+
+  B:
+    title: The expensive checks stop rescanning what has not changed
+    items:
+      - id: B1
+        title: stock phrasing in comments caches per file
+        state: todo
+      - id: B2
+        title: deploy.sh regenerates only pages whose content changed
+        state: todo
+      - id: B3
+        title: Per-check timings, so the next slow one is visible
+        state: todo
+
+  C:
+    title: The schema earns its place or is retired
+    items:
+      - id: C1
+        title: Something in the pipeline consumes the store
+        state: todo
+      - id: C2
+        title: The eight researched readings carrying no reasoning
+        state: todo
+      - id: C3
+        title: analyser gets a ruling or a recorded reason
+        state: todo
+
+  D:
+    title: The facts the first round did not reach
+    items:
+      - id: D1
+        title: title cataloguing, which already has one reader
+        state: todo
+      - id: D2
+        title: imprint, which already has one reader
+        state: todo
+      - id: D3
+        title: work identity
+        state: todo
+      - id: D4
+        title: dates
+        state: todo
+      - id: D5
+        title: inclusion
+        state: todo
+      - id: D6
+        title: Rendering surfaces derived from the renderer, not listed
+        state: todo
+
+  E:
+    title: The residue the first round recorded and did not clear
+    items:
+      - id: E1
+        title: Eight comments asserting an impossibility with nothing to prove it
+        state: todo
+      - id: E2
+        title: Two modules called store
+        state: todo
+      - id: E3
+        title: The glued-romanisation shape, Uedakyōko
+        state: todo
+      - id: E4
+        title: Kana spelling a name from another language, Sutefan Sejiku
+        state: todo
+      - id: E5
+        title: Fifteen leftover worktrees
+        state: todo

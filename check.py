@@ -481,6 +481,31 @@ def inv_the_interface_is_the_derivation_of_its_source(ctx):
     return ["kari/app.js is not the derivation of kari/src; run ./build-app.py"]
 
 
+def inv_the_tracker_states_what_it_claims(ctx):
+    """No item in the plan's state file claims `done` without saying what changed.
+
+    THE FAULT THIS EXISTS FOR is on the record. The first round's tracker showed romanisation's
+    step 5 complete when the check had never moved, and showed a stage in progress after its steps
+    were finished. Both were caught by the project owner reading the page, which is the wrong
+    reader for that fault.
+
+    A STATUS IS THE ONE THING A MACHINE CANNOT DERIVE, so it is typed, and this is the smallest
+    guard on the typing: a claim of done carries a sentence saying what changed. It does not verify
+    the sentence, only that somebody had to write one.
+
+    Section 14b: it reads the state file and knows nothing about the work. A note that is false
+    passes, and no check can do better than making the claim visible next to the change.
+    """
+    try:
+        sys.path.insert(0, str(ROOT / "adapters"))
+        import tracker
+        import importlib
+        importlib.reload(tracker)
+        return tracker.problems()
+    except Exception:                                                   # noqa: BLE001
+        return []
+
+
 def inv_a_fact_is_reached_through_its_entry_point(ctx):
     """Nothing outside an extracted fact names its internals.
 
@@ -1953,6 +1978,7 @@ INVARIANTS = [
      inv_names_reach_a_page_only_through_their_renderer),
     ("a name reaches both lines of a bilingual row", inv_a_name_in_both_mode_is_rendered_in_both),
     ("a fact is reached through its entry point", inv_a_fact_is_reached_through_its_entry_point),
+    ("the tracker states what it claims", inv_the_tracker_states_what_it_claims),
     ("the interface is the derivation of its source",
      inv_the_interface_is_the_derivation_of_its_source),
     ("a stated reading names where it came from",

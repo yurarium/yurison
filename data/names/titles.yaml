@@ -5683,9 +5683,9 @@ names:
       source: mangaupdates
       value: Anata ga Watashi wo Kaetakara
     en_pass: 2
+    en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    en_url: https://www.mangaupdates.com/series/eimgju3/anata-ga-watashi-wo-kaetakara
     reading: アナタ ガ ワタシ ヲ カエタカラ
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -5887,19 +5887,21 @@ names:
     reading_source_kind: analyser
     verified: false
   あなたの未来を許さない:
-    basis: translated
-    en: I Won't Forgive Your Future
-    en_at: '2026-08-04'
+    basis: official-jp
+    en: I will not forgive Your Future.
+    en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Anata no Mirai wo Yurusanai
-    en_pass: 2
-    en_source: yurarium
-    en_source_kind: derived
-    en_url: https://www.mangaupdates.com/series/rnfnn7n/anata-no-mirai-wo-yurusanai
-    note: Comicalizes a Shōsetsuka ni Narō web novel by Syousa.; Japanese source material on a Japanese
-      platform, not a translated work.
+    - basis: translated
+      source: yurarium
+      value: I Won't Forgive Your Future
+    en_reviewed: '2026-08-05'
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-public.comici.jp/series/473271/2024120412334196151477270C3D5FA4CD35529AB8DB238E1.webp
+    note: 'The work''s own Latin title, set on its series art. art only:'
     reading: アナタ ノ ミライ ヲ ユルサナイ
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -8226,9 +8228,9 @@ names:
     reading_source_kind: analyser
     verified: false
   おとなになっても:
-    basis: licensed
-    en: Even Though We’re Adults
-    en_at: '2026-08-05'
+    basis: official-jp
+    en: Even if we become adults
+    en_at: '2026-08-07'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
@@ -8236,13 +8238,15 @@ names:
     - basis: translated
       source: yurarium
       value: Even After Becoming an Adult
-    en_pass: 2
-    en_reviewed: '2026-08-05'
-    en_source: sevenseasentertainment.com
-    en_source_kind: licensor
-    en_url: https://sevenseasentertainment.com/series/even-though-were-adults/
-    note: The licensor's own catalogue entry, which states the Japanese title as おとなになっても. An English
-      reader meets the work under this name.
+    - basis: licensed
+      source: sevenseasentertainment.com
+      value: Even Though We’re Adults
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C434160
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: オトナニナッテモ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -8877,9 +8881,9 @@ names:
       source: yurarium
       value: Oneesama and the Giant ~The Young Lady's Isekai Reincarnation~
     en_pass: 2
+    en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    en_url: https://www.mangaupdates.com/series/otyofae/onee-sama-to-kyojin
     note: お姉さま, oneesama, is the bond-term the two leads use for each other directly in the synopsis,
       not a family relation; kept as the address term rather than translated to "big sister."
     reading: オネエサマ ト キョジン ～ オジョウサマ ガ イセカイ テンセイ ～
@@ -10341,17 +10345,20 @@ names:
     reading_source_kind: analyser
     verified: false
   きみと観たいレースがある:
-    basis: translated
-    en: There's a Race I Want to Watch with You
-    en_at: '2026-08-04'
+    basis: official-jp
+    en: No hour of life is wasted that is spent watching the races with you
+    en_at: '2026-08-07'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Kimi to Mitai Race ga aru
-    en_pass: 2
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    - basis: translated
+      source: yurarium
+      value: There's a Race I Want to Watch with You
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-e3d7235448ef
     furigana_spans:
     - - きみと
       - null
@@ -10359,8 +10366,8 @@ names:
       - み
     - - たいレースがある
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: キミ ト ミタイ レース ガ アル
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -10368,6 +10375,10 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   きみと観たいレースがある = No hour of life is wasted that is spent watching the races with you:
     basis: official-jp
@@ -11683,6 +11694,10 @@ names:
     reading_source: mediaarts-db
     reading_source_kind: derived
     reading_url: https://mediaarts-db.artmuseums.go.jp/id/M930161
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   この恋を星には願わない = There is no love wishing upon a star:
     basis: official-jp
@@ -15736,17 +15751,20 @@ names:
     reading_source: surface
     verified: true
   どれが恋かがわからない:
-    basis: translated
-    en: I Can't Tell Which One Is Love
-    en_at: '2026-08-04'
+    basis: official-jp
+    en: I don't know which is love
+    en_at: '2026-08-07'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Dore ga Koi Ka ga Wakaranai
-    en_pass: 2
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    - basis: translated
+      source: yurarium
+      value: I Can't Tell Which One Is Love
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-7b2d8fe1fda0
     furigana_spans:
     - - どれが
       - null
@@ -15754,12 +15772,18 @@ names:
       - こい
     - - かがわからない
       - null
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: ドレ ガ コイ カ ガ ワカラナイ
     reading_at: '2026-08-02'
     reading_basis: back-converted
     reading_pass: 2
     reading_source: mangaupdates
     reading_url: https://www.mangaupdates.com/series/mc8fvf7/dore-ga-koi-ka-ga-wakaranai
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   どれが恋かがわからない = I don't know which is love:
     basis: official-jp
@@ -17350,14 +17374,22 @@ names:
     reading_source_kind: analyser
     verified: false
   ふたりはだいたいこんなかんじ:
-    basis: translated
-    en: The Two of Us, More or Less
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: derived
-    en_source_kind: derived
-    note: だいたいこんなかんじ is the shrug of describing something roughly. The page calls the author a 名手 of 「百合と女子の日常」,
-      and the title is that shrug about a couple.
+    basis: licensed
+    en: The Two of Them Are Pretty Much Like This
+    en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: derived
+      value: The Two of Us, More or Less
+    - basis: translated
+      source: yurarium
+      value: The Two of Us, More or Less
+    en_reviewed: '2026-08-05'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/the-two-of-them-are-pretty-much-like-this/
+    note: The licensor's own catalogue entry, which states the Japanese title as ふたりはだいたいこんなかんじ. An English
+      reader meets the work under this name.
     reading: フタリハダイタイコンナカンジ
     reading_at: '2026-08-05'
     reading_basis: surface
@@ -17368,6 +17400,10 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: true
   ふたりべや:
     basis: translated
@@ -19375,13 +19411,19 @@ names:
     reading_source_kind: analyser
     verified: false
   やきゅうみようよ!:
-    basis: translated
-    en: Let's Watch Baseball!
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
-    note: 野球 見ようよ. The trailing ヨ is the sentence-final particle and stands apart.
+    basis: official-jp
+    en: Let's watch a Baseball game!
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Let's Watch Baseball!
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C449013
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: ヤキュウ ミヨウ ヨ!
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -19390,6 +19432,10 @@ names:
     reading_reviewed: '2026-08-04'
     reading_source: yurarium
     reading_source_kind: derived
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   やきゅうみようよ! = Let's watch a Baseball game!:
     basis: official-jp
@@ -20964,6 +21010,7 @@ names:
     basis: licensed
     en: There's No Freaking Way I'll be Your Lover! Unless…
     en_at: '2026-08-03'
+    en_reviewed: '2026-08-03'
     en_source: Seven Seas Entertainment
     en_source_kind: licensor
     en_url: https://www.penguinrandomhouse.com/series/IL4/theres-no-freaking-way-ill-be-your-lover-unless-manga/
@@ -23190,9 +23237,9 @@ names:
       source: mangaupdates
       value: Otaku ni wa Jinsei wo Tsumu Koto Shika Dekinai
     en_pass: 2
+    en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    en_url: https://www.mangaupdates.com/series/nxhr795/otaku-ni-wa-jinsei-wo-tsumu-koto-shika-dekinai
     note: 積む, to stack or pile up, is not the ordinary verb for living a life; the synopsis uses the same
       word directly for repeatedly rewinding to save an idol who's fallen on hard times, so the title's
       phrasing is doing the same odd, deliberate thing.
@@ -23580,9 +23627,9 @@ names:
       source: mangaupdates
       value: Kanaria wa Kiraboshi no Yume wo Miru
     en_pass: 2
+    en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
-    en_url: https://www.mangaupdates.com/series/3to8wh6/kanaria-wa-kiraboshi-no-yume-wo-miru
     note: 綺羅星 is stars as a figure for brilliance. The children are raised as weapons, so the canary is
       the bird taken down the mine as much as the one that sings.
     reading: カナリア ワ キラボシ ノ ユメ ヲ ミル
@@ -23897,6 +23944,7 @@ names:
     en: 'I Punched Out My Guide Angel and Became a Necromancer: My Adorable Gothic Lolita Demon Lord Is
       the Best!'
     en_at: '2026-08-03'
+    en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
     reading: ガイドヤク ノ テンシ ヲ ナグリタオシタラ、 シリョウジュツシ ニ ナリマシタ ～ ゲキカワ ゴスロリ マジンサマ、 サイコー !～
@@ -24101,20 +24149,28 @@ names:
     reading_source_kind: analyser
     verified: false
   ガンバレッド×シスターズ:
-    basis: translated
-    en: Gun Red × Sisters
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
-    note: ガンバレッド reads as a coined codename, gun plus red, paired with the synopsis's own title for the
-      vampire-hunting priestess, Red Sister; not confirmed directly, but nothing else in reach fits as
-      well.
+    basis: official-jp
+    en: GUNBURED × SISTERS
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Gun Red × Sisters
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C436431
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: ガンバレッド×シスターズ
     reading_at: '2026-08-02'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: true
   ガンバレッド×シスターズ = GUNBURED × SISTERS:
     basis: official-jp
@@ -25376,17 +25432,28 @@ names:
     reading_source_kind: analyser
     verified: false
   ギャングスタガールズ:
-    basis: translated
-    en: Gangsta Girls
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: GANGSTA Girls
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Gangsta Girls
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-c65f90bddebc
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: ギャングスタガールズ
     reading_at: '2026-08-02'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: true
   ギャングスタガールズ = GANGSTA Girls:
     basis: official-jp
@@ -25691,12 +25758,15 @@ names:
     reading_source: surface
     verified: true
   ケイヤクシマイ:
-    basis: translated
+    basis: official-jp
     en: Contract Sisters
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    en_at: '2026-08-07'
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-49c666e778b6
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: ケイヤクシマイ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -26251,19 +26321,28 @@ names:
     reading_source_kind: analyser
     verified: false
   サタノファニ:
-    basis: translated
-    en: Satanophany
-    en_at: '2026-08-03'
-    en_reviewed: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
-    note: A coined word rather than a Japanese one, and Satanophany is the spelling the work itself is
-      known by in English.
+    basis: official-jp
+    en: SATANOPHANY
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Satanophany
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-f2ab6d5672fb
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: サタノファニ
     reading_at: '2026-08-02'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: true
   'サタノファニ : 妖艶彩色本・極':
     basis: translated
@@ -27116,12 +27195,17 @@ names:
       run of them reads as a list of the things she is met over. The order is restored here.'
     verified: false
   シルフの花姫:
-    basis: translated
-    en: The Sylph's Flower Princess
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: The princess of sylph
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Sylph's Flower Princess
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-5c13d93e0830
     furigana_spans:
     - - シルフの
       - null
@@ -27129,14 +27213,18 @@ names:
       - はな
     - - 姫
       - ひめ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: シルフ ノ ハナ ヒメ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   シルフの花姫 = The princess of sylph:
     basis: official-jp
@@ -27278,20 +27366,28 @@ names:
     reading_source: surface
     verified: true
   シンデレラコスプレイション:
-    basis: translated
-    en: Cinderella Cosplayation
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
-    note: Coined from シンデレラ, Cinderella, and コスプレ, cosplay, matching the synopsis's own phrase for the
-      arc, レイヤー界の「シンデレラストーリー」, a Cinderella story in the cosplay world; kept as the blended coinage rather
-      than split into two words.
+    basis: official-jp
+    en: Cinderella Cosplaytion
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Cinderella Cosplayation
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-9ad0a72cad0a
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: シンデレラコスプレイション
     reading_at: '2026-08-02'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: true
   シンデレラコスプレイション = Cinderella Cosplaytion:
     basis: official-jp
@@ -27513,17 +27609,28 @@ names:
     reading_source: surface
     verified: true
   スカベンジャーズアナザースカイ:
-    basis: translated
-    en: Scavengers Another Sky
-    en_at: '2026-08-03'
-    en_reviewed: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: SCAVENGERS ANOTHER SKY
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Scavengers Another Sky
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-0b0ad8cae7a4
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: スカベンジャーズアナザースカイ
     reading_at: '2026-08-02'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: true
   スカベンジャーズアナザースカイ = SCAVENGERS ANOTHER SKY:
     basis: official-jp
@@ -27777,17 +27884,28 @@ names:
     reading_source: surface
     verified: true
   ストライク・オア・ガター:
-    basis: translated
-    en: Strike or Gutter
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: strike or gutter
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Strike or Gutter
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C420047
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: ストライク・オア・ガター
     reading_at: '2026-08-02'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: true
   ストライク・オア・ガター = strike or gutter:
     basis: official-jp
@@ -28648,6 +28766,7 @@ names:
     basis: translated
     en: 'Time Travel Girl: Saki from the Future'
     en_at: '2026-08-03'
+    en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
     note: サキ is the character's name and also 先, further ahead, which the Japanese sets against ミライ.
@@ -28661,12 +28780,17 @@ names:
     reading_source_kind: derived
     verified: false
   タコと天使たち:
-    basis: translated
-    en: The Octopus and the Angels
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Octopus and Angels
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Octopus and the Angels
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-935fe5e12633
     furigana_spans:
     - - タコと
       - null
@@ -28674,8 +28798,8 @@ names:
       - てんし
     - - たち
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: タコ ト テンシタチ
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -28683,6 +28807,10 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   タコと天使たち = Octopus and Angels:
     basis: official-jp
@@ -30185,9 +30313,9 @@ names:
       source: mangaupdates
       value: 'Howling Blaze: Souen no Kenshi to Fushi no Majo'
     en_pass: 2
+    en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    en_url: https://www.mangaupdates.com/series/8t0hfc9/howling-blaze-souen-no-kenshi-to-fushi-no-majo
     note: 葬焔 is a coined compound, funeral plus flame, read as cremation fire; the synopsis's protagonist
       hunts demon-spawned monsters, which fits a fire built for burning the dead rather than an ordinary
       blaze.
@@ -31260,17 +31388,28 @@ names:
     reading_source_kind: analyser
     verified: false
   パパのセクシードール:
-    basis: translated
-    en: Papa's Sexy Doll
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Daddy's sexy doll
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Papa's Sexy Doll
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-9b1a763c66ff
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: パパノセクシードール
     reading_at: '2026-08-02'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: true
   パパのセクシードール = Daddy's sexy doll:
     basis: official-jp
@@ -32732,17 +32871,28 @@ names:
     reading_source_kind: analyser
     verified: false
   ペンションライフ・ヴァンパイア:
-    basis: translated
-    en: Pension Life Vampire
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: PENSION LIFE VAMPIRE
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Pension Life Vampire
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-2afa474a2e35
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: ペンションライフ・ヴァンパイア
     reading_at: '2026-08-02'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: true
   ペンションライフ・ヴァンパイア = PENSION LIFE VAMPIRE:
     basis: official-jp
@@ -33396,10 +33546,12 @@ names:
     basis: translated
     en: The Mama-Katsu Girl
     en_at: '2026-08-04'
+    en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: ママ活, paid companionship with older women who play the mama role, parallel to the better-known
+      papa-katsu; kept as mama-katsu rather than translated, since the synopsis's whole hook is the specific
+      arrangement, not generic dating.
     reading: ママカツ オンナ
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -35241,20 +35393,28 @@ names:
     reading_source_kind: analyser
     verified: false
   リリィ・リリィ・ラ・ラ・ランド:
-    basis: translated
-    en: Lily, Lily, La La Land
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
-    note: Echoes La La Land rather than translating anything; kept the echo since a boarding-school romance
-      about a key-exchange "pairing system" and five idolized young ladies reads as aiming for that swoony,
-      musical register on purpose.
+    basis: official-jp
+    en: Lily Lily la la Land
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Lily, Lily, La La Land
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-cf926b2ede65
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: リリィ・リリィ・ラ・ラ・ランド
     reading_at: '2026-08-02'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: true
   リリィ・リリィ・ラ・ラ・ランド = Lily Lily la la Land:
     basis: official-jp
@@ -37412,10 +37572,11 @@ names:
     basis: translated
     en: Undying Sacrifice Connect
     en_at: '2026-08-04'
+    en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 不死犠 is a coined compound, not a standard word; read from its parts, undying (不死) plus sacrifice/victim
+      (犠), against a synopsis set at a night school for the undead.
     reading: フシギ コネクト
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -40601,26 +40762,34 @@ names:
     reading_source_kind: analyser
     verified: false
   偽りのマリィゴールド:
-    basis: translated
-    en: The False Marigold
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: false marigold
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The False Marigold
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-ca2cca444270
     furigana_spans:
     - - 偽
       - いつわ
     - - りのマリィゴールド
       - null
-    note: The synopsis is a grief story, a living woman standing in for a dead brother so a blind girl
-      who loved him is not told he is gone. Marigold's hanakotoba is grief and jealousy, which fits closely
-      enough that the title reads as a chosen flower rather than a decorative one.
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: イツワリ ノ マリィゴールド
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   偽りのマリィゴールド = false marigold:
     basis: official-jp
@@ -46755,10 +46924,12 @@ names:
     basis: translated
     en: Grey After the Dream
     en_at: '2026-08-04'
+    en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: グレイ, Grey, is not identified in the surviving synopsis as either a name or a colour; kept literal
+      rather than assigned to either. The synopsis is postwar volunteer soldiers who cannot return to
+      ordinary life, a feared wartime assassin among them, and the missionary who reaches out to her.
     reading: ボウゴ ノ グレイ
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -46774,12 +46945,17 @@ names:
     reading_source_kind: derived
     verified: false
   夢見るメイドのティータイム:
-    basis: translated
-    en: The Dreaming Maid's Tea Time
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Tea Time for Dreaming Maids
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Dreaming Maid's Tea Time
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-0de65adfc3d8
     furigana_spans:
     - - 夢
       - ゆめ
@@ -46787,14 +46963,18 @@ names:
       - み
     - - るメイドのティータイム
       - null
-    note: The synopsis is a second-year high schooler starting a maid-cafe job, hoping to make people
-      smile the way her admired manager does, and getting swept along by her eccentric coworkers instead.
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: ユメ ミル メイド ノ ティータイム
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   夢見るメイドのティータイム = Tea Time for Dreaming Maids:
     basis: official-jp
@@ -47609,12 +47789,17 @@ names:
     reading_source_kind: analyser
     verified: false
   女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました:
-    basis: translated
-    en: Kicked Out of My Party for Being a Woman, So I Teamed Up with a Legendary Witch Instead
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Exiled woman,form the strongest tag team with legendary witch
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Kicked Out of My Party for Being a Woman, So I Teamed Up with a Legendary Witch Instead
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C449694
     furigana_spans:
     - - 女
       - おんな
@@ -47640,9 +47825,8 @@ names:
       - く
     - - みました
       - null
-    note: The synopsis is a mage expelled from her adventuring party for the stated reason of being a
-      woman, who accidentally frees a legendary witch from her seal and takes revenge on her old party
-      alongside her.
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: オンナダカラ、 ト パーティ ヲ ツイホウ サレタ ノデ デンセツ ノ マジョ ト サイキョウ タッグ ヲ クミマシタ
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -47650,6 +47834,10 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました = Exiled woman,form the strongest tag team with legendary witch:
     basis: official-jp
@@ -51992,6 +52180,7 @@ names:
     basis: translated
     en: My Boyfriend's Girl Friend Keeps Coming On Strong (At Me)
     en_at: '2026-08-03'
+    en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
     note: The bracket is the punchline and stays bracketed. 女友達 is spaced as girl friend because girlfriend
@@ -52543,6 +52732,7 @@ names:
     basis: translated
     en: I Finally Got the Body of the Villainess Final Boss!
     en_at: '2026-08-03'
+    en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
     note: ラスボス is glossed over 悪役令嬢, so the two are one thing rather than two.
@@ -53108,12 +53298,17 @@ names:
     reading_source_kind: analyser
     verified: false
   恋と呼ぶには青すぎる:
-    basis: translated
-    en: Too Green to Call It Love
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Too blue to call love
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Too Green to Call It Love
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-557a43b0cf01
     furigana_spans:
     - - 恋
       - こい
@@ -53127,9 +53322,8 @@ names:
       - あお
     - - すぎる
       - null
-    note: 青い again carries "unripe" alongside literally blue, rendered here as green to keep the immaturity
-      sense English "green" already has; the synopsis pairs the same fruit-ripening image, "実りきらない", this
-      feeling that will not fully ripen, describing a shy bar worker and a bar regular.
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: コイ ト ヨブ ニ ワ アオ スギル
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -53137,6 +53331,10 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   恋と呼ぶには青すぎる = Too blue to call love:
     basis: official-jp
@@ -53541,17 +53739,17 @@ names:
     reading_source_kind: analyser
     verified: false
   恋より青く:
-    basis: licensed
-    en: A Love Yet to Bloom
-    en_at: '2026-08-05'
+    basis: official-jp
+    en: Bluer Than Love
+    en_at: '2026-08-07'
     en_conflicts:
-    - basis: translated
-      source: yurarium
-      value: Bluer Than Love
-    en_reviewed: '2026-08-05'
-    en_source: sevenseasentertainment.com
-    en_source_kind: licensor
-    en_url: https://sevenseasentertainment.com/series/a-love-yet-to-bloom/
+    - basis: licensed
+      source: sevenseasentertainment.com
+      value: A Love Yet to Bloom
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-465c2a8f5bba
     furigana_spans:
     - - 恋
       - こい
@@ -53561,8 +53759,8 @@ names:
       - あお
     - - く
       - null
-    note: The licensor's own catalogue entry, which states the Japanese title as 恋より青く. An English reader
-      meets the work under this name.
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: コイ ヨリ アオク
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -54762,20 +54960,24 @@ names:
     reading_source_kind: analyser
     verified: false
   愛されてもいいんだよ:
-    basis: translated
-    en: It's Okay to Be Loved
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: It's ok to be loved
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: It's Okay to Be Loved
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C451817
     furigana_spans:
     - - 愛
       - あい
     - - されてもいいんだよ
       - null
-    note: 'The synopsis names the genre outright, a れズ風俗, lesbian sex-work, story: a 23-year-old silently
-      enduring harassment at a new job is offered a stranger''s company for money, and the offer changes
-      her life.'
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: アイサレテ モ イイ ンダ ヨ
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -54783,6 +54985,10 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   愛されてもいいんだよ = It's ok to be loved:
     basis: official-jp
@@ -55664,6 +55870,7 @@ names:
     basis: translated
     en: An Uninvited Wife, Child Included!
     en_at: '2026-08-03'
+    en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
     note: 押しかけ女房 is a woman who moves in and declares herself your wife, which is a set phrase rather
@@ -56121,12 +56328,17 @@ names:
     reading_source_kind: analyser
     verified: false
   推しが隣で授業に集中できない!:
-    basis: translated
-    en: I Can't Focus in Class With My Oshi Right Next to Me!
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: GIRL,PLZ MAKE ME CONCENTRATE ON THE CLASS!?
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: I Can't Focus in Class With My Oshi Right Next to Me!
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C449723
     furigana_spans:
     - - 推
       - お
@@ -56144,8 +56356,8 @@ names:
       - しゅうちゅう
     - - できない!
       - null
-    note: The synopsis is a new high schooler who ends up in the same class, and the next seat, as her
-      favourite idol, an ensemble drama the platform itself calls too precious for words.
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: オシ ガ トナリ デ ジュギョウ ニ シュウチュウ デキナイ !
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -56153,6 +56365,10 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   推しが隣で授業に集中できない! = GIRL,PLZ MAKE ME CONCENTRATE ON THE CLASS!?:
     basis: official-jp
@@ -59772,6 +59988,7 @@ names:
     basis: translated
     en: Pink Campanella
     en_at: '2026-08-03'
+    en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
     note: カンパネラ is the little bell, and the school is a mission school.
@@ -60986,12 +61203,17 @@ names:
     reading_source_kind: analyser
     verified: false
   毎月庭つき大家つき:
-    basis: translated
-    en: With a Garden Included, and a Landlady Too
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: monthly/with garden/with ooya
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: With a Garden Included, and a Landlady Too
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-a3e0310c1105
     furigana_spans:
     - - 毎月
       - まいつき
@@ -61003,15 +61225,18 @@ names:
       - おおや
     - - つき
       - null
-    note: Reads like a rental listing extending its own bullet points past reason; the synopsis confirms
-      it, Asako moving into a nearly-new house with a garden to shake off a breakup, only to find a former
-      idol living in the attic as her landlady.
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: マイツキ ニワツキ オオヤツキ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   毎月庭つき大家つき = monthly/with garden/with ooya:
     basis: official-jp
@@ -62521,12 +62746,13 @@ names:
     basis: translated
     en: Jade Sinking in the Dying Tide, Obsidian of the Northern Town
     en_at: '2026-08-04'
+    en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
     note: Two gem epithets in parallel, likely naming two characters the way 頂のリヴィーツァ and others have.
       翡翠 is both jade and, separately, the kingfisher; kept as jade, the more common reading in isolation,
       with no synopsis beyond the magazine credit to settle it either way.
-    reading: チョウメツ ニ シズム ヒスイ、 キタ ノ マチ ノ コクヨウ
+    reading: シオ メツ ニ シズム ヒスイ、 キタ ノ マチ ノ コクヨウ
     reading_at: '2026-08-04'
     reading_basis: researched
     reading_conflicts:
@@ -62534,19 +62760,18 @@ names:
       source: sudachi
       value: シオ メツ ニ シズム カワセミ、 キタ ノ マチ ノ コクヨウ
     - basis: researched
-      source: yurarium
-      value: シオ メツ ニ シズム ヒスイ、 キタ ノ マチ ノ コクヨウ
-    reading_note: 潮滅 is ちょうめつ. シオ メツ is the kun reading of 潮 beside the on reading of 滅, the two read
-      as separate characters rather than as the coinage they form.
-    reading_pass: 4
+      source: derived
+      value: チョウメツ ニ シズム ヒスイ、 キタ ノ マチ ノ コクヨウ
+    reading_note: Paired with 黒曜 (obsidian), 翡翠 is the gemstone ひすい, not the bird かわせみ.
     reading_reviewed: '2026-08-04'
-    reading_source: derived
+    reading_source: yurarium
     reading_source_kind: derived
     verified: false
   濡鴉の魔女:
     basis: translated
     en: The Witch of the Wet Raven
     en_at: '2026-08-04'
+    en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
     note: 濡鴉 likely echoes 濡れ羽色, "wet-feather colour", the classical description for glossy jet-black
@@ -62561,11 +62786,11 @@ names:
       value: ジュカラス ノ マジョ
     reading_corroborated:
     - derived
-    reading_note: 濡鴉 is ぬれがらす, the wet-raven black. The reading was right and was flagged because it was
-      assembled character by character, which is a reason to check rather than a fault in itself.
+    - yurarium
+    reading_note: 濡鴉 is ぬれがらす; ジュカラス mixes an on reading with a kun reading.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
-    reading_source: derived
+    reading_source: yurarium
     reading_source_kind: derived
     verified: false
   濾過する私【同人版】:
@@ -65270,10 +65495,12 @@ names:
     basis: translated
     en: The White-Clad Devil
     en_at: '2026-08-04'
+    en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The award label in the catalogue key, /2025年2月期ブロンズルーキー賞, is not part of the title and is dropped,
+      the same as /読み切り elsewhere. The synopsis is a devil who toys with people through whispers, targeting
+      a woman who turns out unmoved by them.
     reading: ハクショウ ノ アクマ / 2025 ネン 2 ガツ キ ブロンズ ルーキー ショウ
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -71368,24 +71595,25 @@ names:
     basis: romaji
     en: Shama Fallin' Jail
     en_at: '2026-08-04'
+    en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
     note: 紗痲 is a Vocaloid song by 煮ル果実, adapted here into manga by the producer's own script; 紗痲 is a
       name and stays one, the same call as 球詠. Fallin' Jail is already English in the source title. The
       stored reading was flagged uncertain from the analyser alone; commentary discussing the song's own
       lyrics confirms シャマ (Shama), which this entry now states outright rather than leaving marked uncertain.
-    reading: シャマ Fallin' Jail
+    reading: シャマ
     reading_at: '2026-08-04'
     reading_basis: researched
     reading_conflicts:
     - basis: researched
-      source: yurarium
-      value: シャマ
-    reading_note: 紗痲 is しゃま. The reading was right and dropped the Latin half of the title, which is kept
-      in a reading everywhere else in this file.
-    reading_pass: 4
+      source: derived
+      value: シャマ Fallin' Jail
+    reading_note: 紗痲 is read シャマ, which the producer's own release of the song states, and neither character
+      carries that reading alone so nothing mechanical reaches it. This line sat on the duplicate entry
+      that superseded this one until the two were merged on 2026-08-10.
     reading_reviewed: '2026-08-04'
-    reading_source: derived
+    reading_source: yurarium
     reading_source_kind: derived
     verified: false
   紡ぐ乙女と大正の月:
@@ -74337,15 +74565,15 @@ names:
     reading_source_kind: analyser
     verified: false
   見えてますよ! 愛沢さん:
-    basis: romaji
+    basis: licensed
     en: I See You, Aizawa-san!
-    en_at: '2026-08-02'
-    en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
-    en_url: http://www.wikidata.org/entity/Q140734119
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    en_at: '2026-08-05'
+    en_reviewed: '2026-08-05'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/i-see-you-aizawa-san/
+    note: The licensor's own catalogue entry, which states the Japanese title as 見えてますよ！ 愛沢さん. An English
+      reader meets the work under this name.
     reading: ミエテマス ヨ ! アイザワサン
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -74406,6 +74634,7 @@ names:
     basis: translated
     en: I Can See Them, Aizawa!
     en_at: '2026-08-03'
+    en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
     note: '見えてます looks like the joke about something showing, and the synopsis settles it: the protagonist
@@ -75556,15 +75785,19 @@ names:
     reading_source_kind: analyser
     verified: false
   転生王女と天才令嬢の魔法革命:
-    basis: licensed
-    en: The Magical Revolution of the Reincarnated Princess and the Genius Young Lady
-    en_at: '2026-08-03'
-    en_reviewed: '2026-08-03'
-    en_source: Yen Press
-    en_source_kind: licensor
-    en_url: https://yenpress.com/series/the-magical-revolution-of-the-reincarnated-princess-and-the-genius-young-lady-manga
-    note: Yen Press's own series page credits Piero Karasu, Yuri Kisaragi and Harutsugu Nadaka, matching
-      鴉ぴえろ, きさらぎゆり and 南高春告 in the platform's byline.
+    basis: official-jp
+    en: The Magical Revolution of Reincarnation Princess and Genius Young Lady
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: licensed
+      source: Yen Press
+      value: The Magical Revolution of the Reincarnated Princess and the Genius Young Lady
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C447301
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: テンセイ オウジョ ト テンサイ レイジョウ ノ マホウ カクメイ
     reading_at: '2026-08-03'
     reading_basis: researched
@@ -76527,10 +76760,13 @@ names:
     basis: translated
     en: Silver-Blue Proust
     en_at: '2026-08-03'
+    en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: A completed three-volume series about two opposite schoolgirls, one a proper hilltop-school
+      daughter and one from a rough school, meeting in a seaside town. プルースト is already the French surname
+      Proust in katakana and needs no interpreting, only recovering; the synopsis does not say what the
+      allusion is doing beyond the loanword itself.
     reading: ギンセイ ノ プルースト
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -77355,13 +77591,17 @@ names:
     reading_source_kind: analyser
     verified: false
   雨夜の月:
-    basis: licensed
-    en: The Moon on a Rainy Night
-    en_at: '2026-08-03'
-    en_reviewed: '2026-08-03'
-    en_source: Kodansha
-    en_source_kind: licensor
-    en_url: https://kodansha.us/series/the-moon-on-a-rainy-night/
+    basis: official-jp
+    en: the moon on a rainy night
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: licensed
+      source: Kodansha
+      value: The Moon on a Rainy Night
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C451264
     furigana_spans:
     - - 雨夜
       - あまよ
@@ -77369,8 +77609,8 @@ names:
       - null
     - - 月
       - つき
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: アマヨ ノ ツキ
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -77503,19 +77743,24 @@ names:
     reading_source_kind: analyser
     verified: false
   雪解けとアガパンサス:
-    basis: translated
-    en: Snowmelt and Agapanthus
-    en_at: '2026-08-03'
-    en_reviewed: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: SNOW THAW & LOVE LETTER
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Snowmelt and Agapanthus
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-8262e510d282
     furigana_spans:
     - - 雪解
       - ゆきど
     - - けとアガパンサス
       - null
-    note: Two plain nouns joined by と. The leads' names, 夏月 (summer moon) and 春 (spring), are both seasonal,
-      and agapanthus is an early-summer flower, which the title's imagery sits inside rather than explains.
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: ユキドケ ト アガパンサス
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -77523,6 +77768,10 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   雪解けとアガパンサス = SNOW THAW & LOVE LETTER:
     basis: official-jp
@@ -78579,6 +78828,7 @@ names:
     basis: translated
     en: Witch, Witch, S-WITCH
     en_at: '2026-08-03'
+    en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
     note: 魔女 and まじょ are the same word twice, and S-WITCH turns witch into switch, which English does
@@ -78616,12 +78866,17 @@ names:
     reading_source_kind: analyser
     verified: false
   魔女ノ結婚:
-    basis: translated
-    en: The Witches' Marriage
-    en_at: '2026-08-03'
-    en_reviewed: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: The Witch's Marriage
+    en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Witches' Marriage
+    en_reviewed: '2026-08-07'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/madb-t-4cd7c671f401
     furigana_spans:
     - - 魔女
       - まじょ
@@ -78629,7 +78884,8 @@ names:
       - null
     - - 結婚
       - けっこん
-    note: A cool witch and a pure, guileless witch try marriage; plural because both are witches.
+    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
+      page. The publisher printed this English name; the bibliography copied it.
     reading: マジョ ノ ケッコン
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -78637,6 +78893,10 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
+      to set and a reader who moves the work's own English down is asking for exactly this form. It was
+      a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
+      came last and the other never reached the store.
     verified: false
   魔女ノ結婚 = The Witch's Marriage:
     basis: official-jp

@@ -1749,6 +1749,51 @@ def load_dir(p):
 # 要確認, because it is a fact about the name that a Japanese-literate reader can adjudicate, and it
 # exists so a real person is not authoritatively misnamed. Anything with no rendering emits nothing
 # at all and the interface shows the Japanese (§6).
+def _inherit_edition_name(work, rec, by_key, by_fold, fold):
+    """`rec` with the plain title's English grafted on, where `work` is that title under a marker.
+
+    Returns `rec` unchanged where it already has an English name, where the title carries no edition
+    marker, or where the plain title has no name either. §3: the English has one producer, which is
+    whatever named the plain title; this copies it onto an edition of the same work and says so.
+    """
+    if not work or (rec or {}).get("en"):
+        return rec
+    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters"))
+    from facts import cataloguing as _cat
+    bare = _cat.without_edition_apparatus(work)
+    base = by_key.get(bare) or by_fold.get(fold(bare)) if fold(bare) != fold(work) else None
+    if not base or not base.get("en"):
+        # AND THE OTHER DIRECTION, because a name belongs to the WORK and not to whichever record
+        # happens to hold it. Three rows were plain titles whose only named record was an edition:
+        # `心の声が漏れやすいメイドさん` showed a romanisation while its 【単話版】 said The Maid
+        # Whose Thoughts Slip Out. An edition's own marker is stripped on the way across, since it
+        # describes that edition and not this row.
+        here = fold(work)
+        base = next((v for k, v in by_key.items()
+                     if v.get("en") and fold(_cat.without_edition_apparatus(k)) == here
+                     and fold(k) != here), None)
+        if not base:
+            return rec
+        got = dict(rec or {})
+        en = base["en"]
+        for _ja, _en in _cat.EDITION_EN.items():
+            en = en.replace(f" ({_en})", "")
+        got["en"] = en
+        got["basis"] = base.get("basis")
+        got["en_forms"] = base.get("en_forms")
+        got["en_of_edition_from"] = "an edition of this work"
+        return got
+    got = dict(rec or {})
+    marker = _cat.edition_marker(work)
+    got["en"] = f"{base['en']} ({marker})" if marker else base["en"]
+    got["basis"] = base.get("basis")
+    got["en_forms"] = base.get("en_forms")
+    # SAID OUT LOUD, so a count over the shipped file can tell a name somebody wrote for this
+    # edition from one carried across, and so a reader of the data is not misled about provenance.
+    got["en_of_edition_from"] = bare
+    return got
+
+
 def load_names():
     try:
         sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
@@ -6217,6 +6262,16 @@ def main():
         _name_cands = [x for x in (_title_names.get(r.get("work")),
                                    _title_folded.get(_fold(r.get("work")))) if x]
         t = max(_name_cands, key=_fullness) if _name_cands else None
+        # AN EDITION IS THE SAME WORK AND TAKES THE SAME NAME. `やがて君になる` is Bloom Into You and
+        # `やがて君になる【タテスク】` was showing a full romanisation, because the marker makes a
+        # different key and the English attached to the plain title never reached the row. Nine rows
+        # were in that state.
+        #
+        # ONLY THE ENGLISH IS TAKEN, never the reading or the ruby: those belong to the string they
+        # were read from, and the marker is part of this row's string. The marker is then said in
+        # English where `facts/cataloguing` knows the word for it, so two editions of one work do
+        # not reach a reader under one name with nothing to tell them apart.
+        t = _inherit_edition_name(r.get("work"), t, _title_names, _title_folded, _fold)
         if t:
             r["work_en"] = t
             _named_w += 1

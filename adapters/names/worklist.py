@@ -91,8 +91,14 @@ def rows(build="data/build"):
     out = []
     for r in series:
         ja = str(r.get("work") or "")
+        # THE ROW'S OWN ANSWER FIRST, because that is what a reader sees. An edition takes its
+        # work's English name in the build rather than in the store, so a queue reading only the
+        # store keeps sending somebody to eleven rows that are already named.
+        row_en = (r.get("work_en") or {})
+        if row_en.get("en"):
+            continue
         rec = titles.get(ja) or {}
-        if (rec.get("basis") or (r.get("work_en") or {}).get("basis")) not in (None, "romaji"):
+        if (rec.get("basis") or row_en.get("basis")) not in (None, "romaji"):
             continue
         sib = answered.get(_bare(ja))
         shown = ((rec.get("romaji") or {}).get("macron") or "")

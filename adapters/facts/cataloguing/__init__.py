@@ -188,6 +188,36 @@ def without_edition_apparatus(title):
     return s or str(title or "")
 
 
+#: WHAT AN EDITION MARKER IS CALLED IN ENGLISH. A closed table, because these are the publisher's
+#: own words for a format and not prose to be translated freshly each time. The corpus already
+#: renders several this way, `Yankee x Jerky (single chapters)` and `Tōma-kun (single chapters)`
+#: among them, so this is the convention written down rather than a new one.
+#:
+#: A MARKER NOT IN HERE IS LEFT IN JAPANESE AND THE ROW KEEPS ITS OWN NAME, which is the safe
+#: direction: two editions sharing one English name with nothing to tell them apart is worse than a
+#: row that still reads as it did.
+EDITION_EN = {
+    "単話版": "single chapters", "単話": "single chapters", "単話売": "single chapters",
+    "話売り": "single chapters", "分冊版": "single chapters",
+    "合本版": "omnibus", "完全版": "complete edition", "新装版": "new edition",
+    "電子版": "digital edition", "電子限定": "digital only", "フルカラー": "full colour",
+    "カラー版": "colour edition", "タテスク": "vertical scroll", "タテヨミ": "vertical scroll",
+    "読切版": "one-shot", "読切": "one-shot", "試し読み": "preview", "完結": "completed",
+}
+
+
+def edition_marker(title):
+    """The English for the edition marker `title` carries, or None where it carries none this knows.
+
+    Returns the words alone, so a caller decides how to attach them. `EDITION_EN` is the table and
+    a marker absent from it yields nothing, which leaves the row showing what it showed before.
+    """
+    for ja, en in EDITION_EN.items():
+        if f"【{ja}" in title or f"[{ja}" in title or f"（{ja}" in title or f"({ja}" in title:
+            return en
+    return None
+
+
 def title_proper(title):
     """The work's name, with the parallel title taken off and the subtitle left on."""
     return areas(title).name

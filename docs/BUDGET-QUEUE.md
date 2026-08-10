@@ -474,3 +474,18 @@ nothing caught it.
 One pair on the list is settled by rank rather than by argument:
 `私の女神が今日も推せる~これからも、いつまでも~` carries a licensor's name, so it outranks ours, while the
 base record's `Worth Championing` is ours and stands where no licensor has spoken.
+
+## `titles with no translation of our own` accepted at 172. 2026-08-10
+
+**Raised by one**, and the one is `うらら迷路帖`. It carried no English name at all until its own
+Latin form was read off the work, so it moved from having nothing into having an `official-jp` name
+and no translation beside it. The budget counts exactly that state, and it counted it correctly.
+
+**A translation is not owed here and the entry says why.** うらら is the rank an apprentice diviner
+holds in this setting rather than an ordinary word, and 迷路帖 puns 帖, a register, against 迷路町,
+the town the girls train in, so an English line has to choose which half of the pun to keep. The
+work having published a Latin form of its own makes the question moot: a name a work gives itself
+outranks anything composed here.
+
+So the rise is what an improvement looks like from inside this measure. Accepted rather than
+answered, which is the only honest way to move a ratchet upward.

@@ -49,7 +49,30 @@ _TABLE = {
     "analyser":          {"cited": False, "donates": False, "marked": True,  "counted": False},
 }
 
+#: WHICH BASIS WINS when two records of one person hold different readings. A column and not a
+#: second table, because it is another question about a basis and `build.py` held it as a dict
+#: keyed on the same vocabulary, which the duplicates lint found.
+#:
+#: `analyser` and `back-converted` are a machine's answer and sit below everything that came from
+#: somewhere. `community-printed` is Wikidata, ruled noncanonical on 2026-08-09 and kept as a floor:
+#: an editor typed the kana, so it beats a machine reading the characters, and nobody answers for
+#: it, so it loses to a kana surface and to anything a source states. The owner's correction later
+#: that day left this alone, because it decides which of two records holds the better STRING and a
+#: better string is exactly what Wikidata may give.
+_RANK = {"stated": 5, "researched": 4, "surface": 3, "community-printed": 2,
+         "back-converted": 1, "analyser": 1}
+
 BASES = tuple(_TABLE)
+
+
+def rank(basis):
+    """How much a reading on this basis is worth against another. Unknown ranks below everything."""
+    return _RANK.get(basis, 0)
+
+
+def ranks():
+    """The whole table, for a caller that wants the mapping."""
+    return dict(_RANK)
 
 
 def _ask(basis, column):
@@ -135,9 +158,9 @@ def __getattr__(name):
     # Importing the submodule is the import machinery's job and never this function's.
     if name in _SUBMODULES or name.startswith("__"):
         raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
-    b = _boundary()
-    if hasattr(b, name):
-        return getattr(b, name)
+    for mod in (_boundary(), _checks()):
+        if hasattr(mod, name):
+            return getattr(mod, name)
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
 
 

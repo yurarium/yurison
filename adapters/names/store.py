@@ -45,6 +45,7 @@ import pathlib
 import tempfile
 
 import yaml
+from facts import reading as _reading                                   # noqa: E402
 
 # `publishers` is a third kind and not a third store. A publisher name is a name: it is rendered in
 # English on the same page, from the same file, with the same basis and the same source travelling
@@ -54,20 +55,8 @@ KINDS = ("authors", "titles", "publishers")
 
 # How much a claim outranks another claim about the same field. Higher wins; equal-and-different is
 # a conflict, never a silent overwrite.
-EN_RANK = {
-    # authors (§5): the person's own rendering beats anything we compute from a reading.
-    "stated": 30,
-    # TITLES. Three levels, not two, per the project owner's correction to §5:
-    #   official-jp  the English title the AUTHOR, MAGAZINE or JAPANESE PUBLISHER uses. It is the
-    #                work's own name in English and outranks everything.
-    #   licensed     what an English-language licensor publishes it as. Authoritative, but a second
-    #                party's choice, so it loses to the work's own.
-    #   translated / romaji  ours, and marked as ours.
-    "official-jp": 50,
-    "licensed": 40,
-    "translated": 20,
-    "romaji": 10,
-}
+# ASKED OF `facts/reading`, which owns which English name wins.
+EN_RANK = _reading.en_ranks()
 
 # Where a claim came from, kept beside every claim so that "who says so" survives into the data.
 # The distinction that matters is the last two: a community-editable database is a lead, not an

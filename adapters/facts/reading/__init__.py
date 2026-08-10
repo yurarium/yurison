@@ -163,3 +163,29 @@ CHECKS = {
     "facts_fetched_with_no_citation":
         lambda ctx: _checks().facts_fetched_with_no_citation(ctx),
 }
+
+
+#: HOW AN ENGLISH NAME WAS ARRIVED AT, and which answer wins. A different vocabulary from the
+#: reading bases above and a fact in its own right: `build.py` and `names/store.py` each held it as
+#: a dict keyed the same way, which the duplicates lint found.
+#:
+#: Three levels, per the owner's correction to section 5. `official-jp` is the English title the
+#: AUTHOR, MAGAZINE or JAPANESE PUBLISHER uses: the work's own name in English, and it outranks
+#: everything. `licensed` is what an English-language licensor publishes it as, authoritative but a
+#: second party's choice. `translated` and `romaji` are ours and are marked as ours.
+_EN_RANK = {"official-jp": 50, "licensed": 40, "translated": 20, "stated": 20, "romaji": 10}
+
+
+def en_bases():
+    """Every basis an English name can have."""
+    return tuple(_EN_RANK)
+
+
+def en_rank(basis):
+    """Which English name wins. Unknown ranks below everything."""
+    return _EN_RANK.get(basis, 0)
+
+
+def en_ranks():
+    """The whole table, for a caller that wants the mapping."""
+    return dict(_EN_RANK)

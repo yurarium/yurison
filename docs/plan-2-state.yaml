@@ -110,16 +110,29 @@ stages:
           Two were never name keys at all and are now `width`; one folded rows into a document and is `fold_in`.
       - id: D2
         title: Six distinct implementations of kata, kana to katakana
-        state: todo
+        state: done
+        note: >-
+          adapters/lint/duplicates.py, registered as the budget `facts with more than one home` at 35.
+          It looks for a string vocabulary, a dict shape, a regex or a function body in two files.
+          Its own docstring says what it cannot see, which is most of the problem: a rule written as different code twice is invisible, and the thirteen folds were found by this while their DISAGREEMENT was found by running them.
       - id: D3
         title: Twelve regexes answering "is this Japanese", three of them disagreeing on kana
         state: todo
       - id: D4
         title: Three owned facts have copies elsewhere, plus a KANA_SURFACE I duplicated myself
-        state: todo
+        state: done
+        note: >-
+          Four copies of an owned fact removed.
+          build.py held the reading-basis precedence and build.py and names/store.py both held the English-basis precedence, each keyed on a vocabulary its fact already owned; the ranks are columns of those tables now, with the reasoning beside the bases they rank.
+          KANA_SURFACE was mine, left in check.py when I moved a check into facts/division this week, and the lint found it the same week.
       - id: D5
         title: YURI_TAGS, three homes, and it decides inclusion
-        state: todo
+        state: done
+        note: >-
+          facts/marketing owns {百合, GL, ガールズラブ}.
+          It had three homes across pixivcomic and two kadokomi adapters, so three could have drifted about what admits a work.
+          Deliberately narrow: 百合姫 is a magazine and admitting on a magazine name is a different argument.
+          BLINDSPOT.md records that a platform using another word is invisible and will be reported as absence.
       - id: D6
         title: Six smaller vocabularies with two homes each
         state: todo

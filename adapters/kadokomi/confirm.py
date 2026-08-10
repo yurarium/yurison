@@ -20,11 +20,14 @@ Usage:  confirm.py --queue data/queue/yurinavi.yaml --out data/source/kadokomi \
 import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
 
 import yaml
+from facts import marketing as _marketing                               # noqa: E402
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
 DETAIL = "https://comic-walker.com/detail/{code}"
 PAUSE = 1.5
-YURI_TAGS = {"百合", "GL", "ガールズラブ"}
+# ASKED OF `facts/marketing`, which owns it. This vocabulary decides what the database
+# admits and it had three homes until 2026-08-10.
+YURI_TAGS = _marketing.TAGS
 
 # `ratingLevel` is NOT the §7 signal, and must not be used as one. Kadokomi returns 'adult' for
 # works that are plainly not pornography — a bathhouse romance drama, a VTuber romcom — so it is

@@ -21,6 +21,7 @@ from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Iterator
+from facts import marketing as _marketing                               # noqa: E402
 
 SITE = "https://comic.pixiv.net"
 API_ROOT = f"{SITE}/api/app"
@@ -37,7 +38,9 @@ DEFAULT_USER_AGENT = (
 PLATFORM_TZ = timezone(timedelta(hours=9))
 
 MIN_WORKS = 5
-YURI_TAGS = {"百合", "GL", "ガールズラブ"}
+# ASKED OF `facts/marketing`, which owns it. This vocabulary decides what the database
+# admits and it had three homes until 2026-08-10.
+YURI_TAGS = _marketing.TAGS
 REQUEST_TIMEOUT = 30
 WORK_URL_RE = re.compile(r"comic\.pixiv\.net/works/(\d+)")
 

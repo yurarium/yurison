@@ -2132,6 +2132,25 @@ def budget_incomplete_attested_rows(ctx):
                     or not r.get("access_modes")))
 
 
+def budget_facts_with_more_than_one_home(ctx):
+    """A vocabulary, a dict shape, a regex or a function body typed into a second file.
+
+    SECTION 3 IS BROKEN BY TYPING, not by importing. `adapters/lint/facts.py` proves nothing reaches
+    past a fact's entry point and cannot see a tuple written down again, which is how thirteen
+    functions called `fold` came to give three incompatible answers to one question.
+
+    COUNTED, so it falls as each is argued. Some are two files that genuinely need the same shape,
+    and `docs/duplicates-allowed.yaml` is where a case somebody has argued goes, which keeps the
+    number a list of the open ones.
+    """
+    try:
+        out = subprocess.run([sys.executable, str(ROOT / "adapters" / "lint" / "duplicates.py"),
+                              "--quiet"], capture_output=True, text=True, timeout=180)
+        return int(out.stdout.strip() or 0)
+    except Exception:                                                   # noqa: BLE001
+        return 0
+
+
 def budget_impossibilities_asserted_without_evidence(ctx):
     """Comments claiming something can never happen, naming nothing that proves it.
 
@@ -2654,6 +2673,7 @@ def budget_titles_with_no_translation_of_our_own(ctx):
 
 
 SOURCE_BUDGETS = {"stock phrasing in comments", "three as an organising shape",
+                  "facts with more than one home",
                   "impossibilities asserted without evidence",
                   "modules without a test", "shadowed names in build.py",
                   "scraped counters in chapter names", "invented markup in tests"}
@@ -2755,7 +2775,9 @@ def budget_titles_carrying_cataloguing_punctuation(ctx):
             bad += 1
     return bad
 
-KANA_SURFACE = re.compile(r"^[ぁ-ゖァ-ヺーゝゞヽヾ・･\s　]+$")
+# ASKED OF `facts/division`, which owns it. I made this copy myself, moving a check into the fact
+# and leaving the pattern here; the duplicates lint found it the same week.
+KANA_SURFACE = _division.KANA_SURFACE
 
 
 def budget_kana_names_with_no_stated_division(ctx):
@@ -3789,6 +3811,8 @@ BUDGETS_DEF = [
     ("incomplete attested rows", budget_incomplete_attested_rows,
      "attested releases missing a chapter name, author or access state. The classic sign of a "
      "moved CSS selector — the adapter still returns rows, just emptier ones."),
+    ("facts with more than one home", budget_facts_with_more_than_one_home,
+     "a vocabulary, a shape or a rule typed into a second file"),
     ("impossibilities asserted without evidence",
      budget_impossibilities_asserted_without_evidence,
      "a comment saying something cannot happen, naming nothing that proves it"),

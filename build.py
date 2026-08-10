@@ -24,6 +24,8 @@ import yaml
 import yamlfast  # noqa: F401,E402
 from facts import romanisation as _romanisation  # noqa: E402
 from facts import credit as _credit_fact  # noqa: E402
+from facts import reading as _reading  # noqa: E402
+from facts import division as _division  # noqa: E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402
@@ -802,7 +804,8 @@ def fold_map(records, fold):
 
 # How much a claim about an English name is worth, highest first. The same order as the name
 # store's own rank, restated here because build.py must not import from the resolver.
-_EN_BASIS = {"official-jp": 4, "licensed": 3, "translated": 2, "stated": 2, "romaji": 1}
+# ASKED OF `facts/reading`, which owns which English name wins.
+_EN_BASIS = _reading.en_ranks()
 
 # And how much a claim about a READING is worth, same order, same reason. `analyser` and
 # `back-converted` are a machine's answer and sit below every one that came from somewhere.
@@ -812,8 +815,9 @@ _EN_BASIS = {"official-jp": 4, "licensed": 3, "translated": 2, "stated": 2, "rom
 # left the rank alone, because this decides which of two records holds the better STRING and the
 # corrected ruling is that a better string is exactly what Wikidata may give. Nothing measures a
 # record's standing off this table.
-_READING_BASIS = {"stated": 5, "researched": 4, "surface": 3, "community-printed": 2,
-                  "back-converted": 1, "analyser": 1}
+# ASKED OF `facts/division`, which owns which reading wins. The reasoning that used to sit
+# here is on the table, beside the bases it ranks.
+_READING_BASIS = _division.ranks()
 
 
 def _fullness(rec):

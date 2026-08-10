@@ -22,11 +22,14 @@ import datetime, json, pathlib, re, sys, time, urllib.error, urllib.request
 from collections import Counter
 
 import yaml
+from facts import marketing as _marketing                               # noqa: E402
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
 DETAIL = "https://comic-walker.com/detail/{code}"
 PAUSE = 1.5
-YURI_TAGS = {"百合", "GL", "ガールズラブ"}
+# ASKED OF `facts/marketing`, which owns it. This vocabulary decides what the database
+# admits and it had three homes until 2026-08-10.
+YURI_TAGS = _marketing.TAGS
 MIN_WORKS = 5
 
 

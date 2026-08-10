@@ -49,12 +49,40 @@ def summary(work):
     return ", ".join(bits)
 
 
-def render(work, depth=2):
+def both(ja, en):
+    """`ja / en`, which is how the heading has always shown a name, or the Japanese alone.
+
+    ONE SHAPE FOR EVERY NAME ON THE PAGE. The heading did this and nothing else did, so a stub
+    carried its title in two languages and its byline, its publisher and its line in Japanese only.
+    A stub is what a reader without JavaScript gets and what a reader with it sees first, so those
+    fields reached an English reader untranslated on every work in the corpus.
+    """
+    ja, en = str(ja or ""), str(en or "")
+    return f"{ja} / {en}" if ja and en and en != ja else ja
+
+
+def _english_for(work, names):
+    """The English the BUILD already derived for this work's byline and houses.
+
+    NOT A SECOND RENDERER (§3). Every string here is a field build.py wrote and the interface reads;
+    this looks them up and does not decide anything. A stub that composed its own English would be
+    a second producer of a name, which is the fault this project has spent two rounds removing.
+    """
+    out = {}
+    a = work.get("author_en") or {}
+    out["author"] = a.get("en") or ((a.get("romaji") or {}).get("macron") or "")
+    pubs = (names or {}).get("publishers") or {}
+    out["publishers"] = {k: (v or {}).get("en") for k, v in pubs.items()}
+    return out
+
+
+def render(work, depth=2, names=None):
     """The stub for one work. `depth` is how far the file sits below the app's own directory."""
     up = "../" * depth
     title = work.get("work") or ""
     en = (work.get("work_en") or {}).get("en") or ""
-    heading = f"{title} / {en}" if en and en != title else title
+    heading = both(title, en)
+    english = _english_for(work, names)
     lines = [
         "<!doctype html>",
         '<html lang="ja">',
@@ -69,11 +97,12 @@ def render(work, depth=2):
         f"<h1>{esc(heading)}</h1>",
     ]
     if work.get("author"):
-        lines.append(f"<p>{esc(work['author'])}</p>")
+        lines.append(f"<p>{esc(both(work['author'], english['author']))}</p>")
     if summary(work):
         lines.append(f"<p>{esc(summary(work))}</p>")
     for p in work.get("print") or []:
-        who = " · ".join(x for x in (re.sub(r"^\s*\[[^\]]*\]\s*", "", str(p.get("publisher") or "")),
+        _pub = re.sub(r"^\s*\[[^\]]*\]\s*", "", str(p.get("publisher") or ""))
+        who = " · ".join(x for x in (both(_pub, english["publishers"].get(_pub)),
                                      re.sub(r"^\s*\[[^\]]*\]\s*", "", str(p.get("imprint") or "")),
                                      p.get("first") or "") if x)
         if who:
@@ -159,7 +188,7 @@ def forwarders(root, live, merged):
     return out
 
 
-def written(root, works, merged=None):
+def written(root, works, merged=None, names=None):
     """{relative path: html} for every work with an identifier, and every id retired into one."""
     out = {}
     for w in works:
@@ -168,7 +197,7 @@ def written(root, works, merged=None):
         # rather than trusted: a stray slash would write outside the tree.
         if not SAFE_ID.match(wid):
             continue
-        out[f"{root}/{wid}/index.html"] = render(w)
+        out[f"{root}/{wid}/index.html"] = render(w, names=names)
     out.update(forwarders(root, {str(w.get("id") or "") for w in works}, merged))
     return out
 
@@ -181,12 +210,17 @@ def main(argv=None):
     ap.add_argument("--series", default="data/build/series.json")
     ap.add_argument("--site", required=True, help="the kari/ directory in the site repo")
     ap.add_argument("--root", default="work")
+    # THE ENGLISH THE BUILD ALREADY DERIVED, read rather than composed. Without it a stub carries
+    # its byline and its publisher in Japanese only, on every work in the corpus.
+    ap.add_argument("--names", default="data/build/feed/names.json")
     a = ap.parse_args(argv)
 
     doc = json.loads(pathlib.Path(a.series).read_text())
     works = doc["series"]
     site = pathlib.Path(a.site)
-    files = written(a.root, works, doc.get("merged") or {})
+    names_at = pathlib.Path(a.names)
+    names = json.loads(names_at.read_text()) if names_at.exists() else {}
+    files = written(a.root, works, doc.get("merged") or {}, names)
     for rel, body in files.items():
         p = site / rel
         p.parent.mkdir(parents=True, exist_ok=True)

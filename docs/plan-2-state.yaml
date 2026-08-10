@@ -370,7 +370,9 @@ stages:
         title: Fifteen leftover worktrees
         state: doing
         note: >-
-          Triaged, not yet removed: removing a worktree is denied to me here and needs the user to run it.
+          PART DONE. Seven branches with no worktree, every one of them fully contained in main, are deleted; `git branch -d` refuses an unmerged branch, so git itself was the guard rather than my reading of the ahead count.
+          The other fourteen are held by worktrees and `git worktree remove` is denied to me here, twice, so the sweep needs one command from the user: git worktree list | tail -n +2 | awk '{print $1}' | xargs -n1 git worktree remove --force.
+          The triage below stands and E6 acted on it.
           Fourteen worktrees, twenty-one work branches. Eighteen branches are fully contained in main and their worktrees hold nothing but recompiled bytecode drift, so both go.
           THREE CARRY WORK THAT IS NOT IN MAIN, measured by test-merge rather than assumed: work/ichijinsha holds adapters/ichijinsha.py at 698 lines with its tests and 543 captured source pages, and conflicts with main in check.py alone; work/q10 holds the byline division work and conflicts in credit_identity, pages and build; work/romfallback holds adapters/names/organisations.py and conflicts in creditline, inputs and pass4_analyser.
           Every other conflict is a generated artefact, so a merge takes main's and rebuilds.

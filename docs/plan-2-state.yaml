@@ -61,7 +61,12 @@ stages:
         state: todo
       - id: C6
         title: Differential site build, keyed on the digest of the rows an artefact renders
-        state: todo
+        state: dropped
+        note: >-
+          Measured before starting it. Writing every page costs 0.8 s: stubs.py writes 3,048 work
+          pages and pages.py writes 2,402 credit and publisher pages, unconditionally, in under a
+          second. The 39 s I attributed to page generation was check.py --runtime, the fourth run
+          of the checks in one cycle. Dropped as effort against eight tenths of a second.
       - id: C7
         title: A weekly CI rebuild compared against the incremental store, reporting differences
         state: todo

@@ -25,8 +25,10 @@ it were never timed.
 `check.py --runtime`; `deploy.sh` runs it again at the end; a person runs `--gate`; the pre-push
 hook runs `--gate --no-tighten` and `test.py`. Roughly 170 of the 372 seconds are re-answering.
 
-`deploy.sh` is not a copy either. It regenerates 5,378 pre-rendered pages through `pages.py`,
-`stubs.py` and `status.py` every time, almost all of them unchanged.
+`deploy.sh` is 39 seconds and **37 of them are `check.py --runtime`**, the fourth run. Writing all
+5,450 pre-rendered pages takes 0.8 s between `stubs.py` and `pages.py`, measured. An earlier draft
+of this plan inferred that the 39 seconds were the pages, and proposed a differential site build to
+recover them. That item targeted 0.8 s and has been dropped.
 
 **And the meta-fault, which matters more than the seconds.** Decision 1 of the first plan said to
 measure the parse fraction and the dependency graph, and that is exactly what was measured. Nobody
@@ -113,8 +115,13 @@ for and the reason it stays slow.
     whose input disappeared has nothing left to notice it, and a digest that is never recomputed
     never moves.
 
-12. **A differential site build.** Each artefact declares the store rows it renders; an artefact is
-    rewritten when the digest of those rows changes. 5,542 pages, nearly all identical between runs.
+12. **A differential site build is NOT in this plan, and the measurement is why.** Writing every
+    page costs 0.8 s. `stubs.py` writes 3,048 work pages and `pages.py` writes 2,402 credit and
+    publisher pages, unconditionally, in under a second between them. Nothing here needs making
+    incremental, and building it would have been effort spent against eight tenths of a second.
+
+    Partial ingestion still earns its place, because it is about not recompiling the STORE and
+    about what a future corpus costs. This item is recorded as dropped so the reasoning survives.
 
 13. **A weekly full rebuild on the GitHub side, compared against the incremental store.** The
     owner's suggestion of 2026-08-10, and it puts the expensive proof where the time does not

@@ -398,7 +398,13 @@ stages:
           Separately, the copy a canary is planted into was 18.3 of the self-test's 18.4 seconds: twelve million deepcopy calls over data that came out of JSON, where only the containers need copying and a string cannot be mutated. Anything unrecognised still goes to deepcopy, and the fingerprint taken before any probe ran is the net under it. 18.4 s to 16.1 s.
       - id: F6
         title: Nothing in the cycle runs a build, so a build-only fault ships
-        state: todo
+        state: done
+        note: >-
+          The answer is not a build in the cycle, which is 28 s against a 2 s cycle. It is a static check for the class: adapters/lint/undefined.py and the invariant `every name is defined where it is used`, 4.8 s.
+          IT FOUND A WORSE ONE THAN THE FAULT THAT PROMPTED IT. adapters/relational read `_rd.DEFAULT_BASIS` in a function importing no _rd, on the right of an `or` whose left side is truthy for every record the corpus holds, so the branch has never been evaluated and would raise on the first record arriving without a reading basis. Working code with a NameError inside it.
+          pyflakes does the scope analysis: writing a fourth scope resolver here to avoid a dependency is the worse trade on a solved problem whose failure mode is a check that quietly passes. Added to all three CI installs.
+          FAIL-CLOSED: pyflakes being absent is the finding and not an empty list, which is UNMEASURED's argument carried into the invariants.
+          Its self-test plants both real cases, the crashed build and the unevaluated `or`, and requires a module global and a local left alone.
       - id: F5
         title: A cache-free --full path, which the scheduled CI run exercises end to end
         state: done

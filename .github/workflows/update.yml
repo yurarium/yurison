@@ -45,7 +45,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - run: pip install pyyaml sudachipy sudachidict-core
+      - run: pip install pyyaml pyflakes sudachipy sudachidict-core
 
       - name: Confirm a browser is present
         id: browser

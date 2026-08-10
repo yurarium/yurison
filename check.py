@@ -570,6 +570,33 @@ def inv_every_renderer_is_ruled(ctx):
             for n in got]
 
 
+def inv_every_name_is_defined_where_it_is_used(ctx):
+    """A name used where nothing in scope defines it, which is a crash waiting for its branch.
+
+    THE TWO THIS FOUND. `build.py` reached for a `ROOT` that function did not have and crashed 34
+    seconds into a build, which neither the gate nor the tests run. And `adapters/relational` read
+    `_rd.DEFAULT_BASIS` in a function importing no `_rd`, on the right of an `or` whose left side is
+    truthy for every record the corpus holds today: working code with a NameError inside it, waiting
+    for the first record that arrives without a reading basis.
+
+    §14b, WHAT IT SHARES WITH ITS SUBJECT: nothing. `pyflakes` does the scope analysis, and writing
+    a fourth scope resolver in this repository to avoid the dependency would be the worse trade on a
+    solved problem whose failure mode is a check that quietly passes.
+
+    FAIL-CLOSED: pyflakes being absent is reported as the finding and not as an empty list, which is
+    `UNMEASURED`'s argument in the invariants' half of the file.
+    """
+    try:
+        sys.path.insert(0, str(ROOT / "adapters" / "lint"))
+        import undefined as _und
+        import importlib
+        importlib.reload(_und)
+        got = _und.findings()
+    except Exception as e:                                              # noqa: BLE001
+        return [f"the check could not run: {e}"]
+    return [f"{path}:{line}: {name}" if path else name for path, line, name in got]
+
+
 def inv_the_store_has_one_writer(ctx):
     """Nothing writes to the relational store except the module that compiles it.
 
@@ -2070,6 +2097,7 @@ INVARIANTS = [
     ("a fact is reached through its entry point", inv_a_fact_is_reached_through_its_entry_point),
     ("a name is answered by one module", inv_a_name_is_answered_by_one_module),
     ("the store has one writer", inv_the_store_has_one_writer),
+    ("every name is defined where it is used", inv_every_name_is_defined_where_it_is_used),
     ("every renderer is ruled", inv_every_renderer_is_ruled),
     ("the tracker states what it claims", inv_the_tracker_states_what_it_claims),
     ("the interface is the derivation of its source",

@@ -42,7 +42,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install what the pipeline needs
-        run: pip install pyyaml
+        run: pip install pyyaml pyflakes
 
       - name: Compile the store from source
         run: python3 adapters/relational/__init__.py --build

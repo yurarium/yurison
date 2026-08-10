@@ -25,6 +25,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "names"))
 from facts import namekey as _namekey                                   # noqa: E402
 from relational import delta as _delta                                  # noqa: E402
 from relational import delta                                            # noqa: E402
+from facts import reading as _reading                                   # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SCHEMA = pathlib.Path(__file__).resolve().parent / "schema.sql"
@@ -214,7 +215,7 @@ def build(path=None):
             put("INSERT INTO claim (subject_kind, subject, predicate, value, basis, source,"
                 " source_kind, retrieved, url, note) VALUES (?,?,?,?,?,?,?,?,?,?)",
                 (kind, sid, "reading", r["reading"],
-                 r.get("reading_basis") or _rd.DEFAULT_BASIS,
+                 r.get("reading_basis") or _reading.DEFAULT_BASIS,
                  r.get("reading_source"), _kind_of(r), r.get("reading_at"),
                  r.get("reading_url"), r.get("reading_note")),
                 f"claim {kind} {sid}")

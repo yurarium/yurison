@@ -22,6 +22,12 @@ import datetime, json, pathlib, re, sys, time, urllib.error, urllib.request
 from collections import Counter
 
 import yaml
+# `adapters/` ON THE PATH BEFORE THE FACT IS IMPORTED. `run_stage.py` runs each adapter as a
+# bare subprocess with no PYTHONPATH, and the usage line above says to run it by hand the same
+# way, so a module that imports a package living under adapters/ has to say where it is. This
+# one did not, and every CI run of it died on `No module named 'facts'` before it read a page.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+
 from facts import marketing as _marketing                               # noqa: E402
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"

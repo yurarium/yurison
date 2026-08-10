@@ -22,6 +22,12 @@ which is a fact about the shop's stock.
 """
 import pathlib
 import re
+import sys
+# `adapters/` ON THE PATH BEFORE THE FACT IS IMPORTED, at module level and not inside main().
+# This file already inserted it, 190 lines down in a function, while the imports it is for run
+# at import time. It worked in every shell here because PYTHONPATH is set in all of them.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[0]))
+
 from names import credits as _credits  # noqa: E402
 from facts import inclusion as _inclusion  # noqa: E402
 

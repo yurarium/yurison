@@ -59,10 +59,12 @@ commands:
            --extract, data/coverage/extract.yaml,
            --out, data/source/webpages, --cache, "{CACHE}/generic", --retrieved, "{R}"]
 
-  - id: ganganonline
-    optional: true
-    argv: [adapters/ganganonline/releases.py, --targets, data/coverage/render-targets.yaml,
-           --out, data/source/webpages, --retrieved, "{R}"]
+  # ganganonline IS NOT RUN, because nothing targets it. The adapter selects its own section out
+  # of render-targets.yaml by id and that file has never carried one, so every run of it has exited
+  # "no ganganonline section" before reading a page. A step that cannot succeed teaches a reader to
+  # skim the failure list, which is what it did here: it sat beside a real failure for a week.
+  # Restore this entry in the same commit that adds ganganonline works to render-targets.yaml.
+  # Recorded in docs/GAPS.md.
 
   - id: yomonga
     optional: true

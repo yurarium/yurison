@@ -2302,6 +2302,12 @@ def imprint_map(rows):
 
 
 
+#: Every directory under the build output that some writer expects to exist. Named here because
+#: main() writes into `feed/` before the function that made it is ever called, and `data/build/` is
+#: gitignored, so the omission is invisible on any disk that has built once.
+BUILD_SUBDIRS = ("feed",)
+
+
 def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
                      contradicted_works, print_candidates, web_works, samples, regenerate=()):
     # ── The published feed, split ────────────────────────────────────────────────────────────────
@@ -3131,6 +3137,13 @@ def main():
         sys.exit(2)
 
     out.mkdir(parents=True, exist_ok=True)
+    # EVERY DIRECTORY THIS RUN WRITES INTO, MADE WHERE `out` IS. `feed/` was made by
+    # `write_feed_split`, which main() calls 190 lines AFTER it writes feed/names.json, so the build
+    # only worked where the directory already existed. data/build/ is gitignored, so it exists on
+    # every disk here and on no fresh checkout: every CI compile since names.json was added died on
+    # this line, and nothing local could see it. `./build.py --out <an empty dir>` is the whole test.
+    for _sub in BUILD_SUBDIRS:
+        (out / _sub).mkdir(parents=True, exist_ok=True)
     (out / "works.json").write_text(json.dumps(
         {"count": len(works), "works": works}, ensure_ascii=False, indent=1, default=jsonable))
 

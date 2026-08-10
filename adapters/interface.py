@@ -40,6 +40,10 @@ import re
 import shutil
 import subprocess
 import sys
+# `adapters/` ON THE PATH BEFORE THE FACT IS IMPORTED. Nothing here set it, so this module could
+# only be imported from a shell that already had PYTHONPATH, which every shell in this project does.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+
 from facts import script as _script                                     # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]

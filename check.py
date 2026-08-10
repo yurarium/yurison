@@ -2169,6 +2169,73 @@ def inv_status_page_shows_no_japanese_of_its_own(ctx):
     return sorted(set(bad))
 
 
+def inv_the_pipeline_runs_from_a_clean_checkout(ctx):
+    """Where this repository works on a developer's disk and on no fresh checkout.
+
+    ALL THREE KILLED THE 2026-08-10 UPDATE RUN and none of them could fail locally, which is what
+    makes them one check rather than three. `data/build/` is gitignored, `PYTHONPATH` is set in
+    every shell here, and a stage entry that has never once succeeded reads as normal.
+
+      A DIRECTORY WRITTEN INTO BEFORE ANYTHING MAKES IT. main() wrote `feed/names.json` 190 lines
+      before the function that mkdirs `feed/` was called. Every CI compile since names.json was
+      added died there; every local build passed, because the directory was already on disk.
+
+      AN ADAPTER THAT CANNOT FIND ITS OWN IMPORTS. `run_stage.py` runs each one as a bare
+      subprocess with no PYTHONPATH, so a module importing a package under `adapters/` has to say
+      where it is. Three did not, and `kadokomi` died on `No module named 'facts'` in 0 seconds.
+
+      A STAGE ENTRY NOTHING TARGETS. `ganganonline` selects its section out of render-targets.yaml
+      by id and no such section has ever existed, so it failed every run. A permanent failure is
+      what made a new one beside it look ordinary.
+
+    §14b, WHAT IT REUSES: nothing any of the producers uses. It reads build.py's own text for the
+    directories it writes into, imports each adapter in a subprocess with the environment stripped,
+    and asks the targets file whether the id a stage entry names is in it.
+
+    NOT PROBED BY `--self-test`, because it reads the repository and a canary planted in `ctx` never
+    reaches it (§4: a canary that lands somewhere the check does not look proves nothing). Each arm
+    was verified by breaking the thing it watches and confirming the count moved: emptying
+    BUILD_SUBDIRS, removing one adapter's path insert, and adding a stage entry naming a section
+    that does not exist. On the day it was written it found five faults nobody was looking for.
+    """
+    bad = []
+    src = (ROOT / "build.py").read_text()
+    declared = set(re.findall(r'BUILD_SUBDIRS\s*=\s*\(([^)]*)\)', src))
+    declared = set(re.findall(r'"([^"]+)"', " ".join(declared)))
+    for sub in sorted(set(re.findall(r'out\s*/\s*"([a-z][a-z0-9_-]*)"\s*/', src))):
+        if sub not in declared:
+            bad.append(f"build.py writes into {sub}/ and BUILD_SUBDIRS does not hold it, so a "
+                       f"build into an empty directory fails on the first write")
+
+    # EACH ADAPTER IMPORTED WITH THE ENVIRONMENT STRIPPED, which is how run_stage runs it.
+    env = {k: v for k, v in os.environ.items() if k != "PYTHONPATH"}
+    for f in sorted((ROOT / "adapters").rglob("*.py")):
+        text = f.read_text()
+        if not re.search(r"^\s*from\s+(facts|names|testkit|lint|relational)\b", text, re.M):
+            continue
+        if f.parts[len(ROOT.parts) + 1] in ("facts", "names", "lint", "relational"):
+            continue
+        r = subprocess.run([sys.executable, "-c", f"import runpy,sys; sys.argv=['x','--help']; "
+                            f"runpy.run_path({str(f)!r}, run_name='not_main')"],
+                           capture_output=True, text=True, cwd=str(ROOT), env=env, timeout=60)
+        if "ModuleNotFoundError" in r.stderr:
+            bad.append(f"{f.relative_to(ROOT)} cannot import its own dependencies without "
+                       f"PYTHONPATH, and run_stage.py sets none")
+
+    # AND EVERY STAGE ENTRY SELECTING A SECTION BY ID HAS ONE.
+    stage = _yaml(ROOT / "adapters" / "stage-a.yaml", {}) or {}
+    for c in (stage.get("commands") or stage.get("adapters") or []):
+        argv = [str(x) for x in (c.get("argv") or [])]
+        tf = next((argv[i + 1] for i, x in enumerate(argv[:-1]) if x == "--targets"), None)
+        if not tf or "{" in tf:
+            continue
+        doc = _yaml(ROOT / tf, {}) or {}
+        if not any(s.get("id") == c.get("id") for s in (doc.get("platforms") or [])):
+            bad.append(f"stage-a entry {c.get('id')!r} reads {tf} for a section of its own name "
+                       f"and that file holds none, so the step cannot succeed")
+    return bad
+
+
 INVARIANTS = [
     ("ruby covers its surface", inv_ruby_covers_its_surface),
     ("a kana name's reading spells it", inv_kana_reading_spells_its_name),
@@ -2233,6 +2300,8 @@ INVARIANTS = [
      inv_a_stated_reading_names_where_it_came_from),
     ("every Japanese field the data carries has a ruling",
      inv_every_japanese_field_has_a_ruling),
+    ("the pipeline runs from a clean checkout",
+     inv_the_pipeline_runs_from_a_clean_checkout),
 ]
 
 

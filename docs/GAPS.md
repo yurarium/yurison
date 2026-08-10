@@ -2350,3 +2350,21 @@ therefore holds 2,562 works whose inclusion test has not run, which was equally 
 is now visible. Whether that stands, and for how long, is the owner's call and not a gate's: the
 alternative is refusing every work no publisher page has been read for, which would empty the
 catalogue to spare us a number.
+
+## ガンガンONLINE is targeted by nothing. Found 2026-08-10
+
+The adapter exists, `adapters/ganganonline/releases.py`, and it selects its works out of
+`data/coverage/render-targets.yaml` by id. That file has never held a `ganganonline` section, so
+every run has exited `no ganganonline section in data/coverage/render-targets.yaml` before reading
+a page. It was listed in `adapters/stage-a.yaml` as `optional`, which meant the run recorded a
+failure and carried on, every time.
+
+**Why it stayed hidden for so long is the part worth keeping.** The failure line was real and it was
+permanent, so it stopped carrying information: the 2026-08-10 run reported `failed (2): ganganonline,
+kadokomi`, and `kadokomi` was a genuine new break that had been dying the same way. One unfixable
+failure beside it is what made the pair readable as normal.
+
+The entry is out of `stage-a.yaml` until the file carries targets. ガンガンONLINE is a Tier B
+platform under REQUIREMENTS §1 and the works on it are not in this database by any other route, so
+this is a coverage gap and not a decision. Restoring the entry and adding the section belong in one
+commit.

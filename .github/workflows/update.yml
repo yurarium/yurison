@@ -35,6 +35,13 @@ permissions:
 
 env:
   CACHE: .cache
+  # WHERE `adapters/paths.py` LOOKS, which is `$YURI_CACHE` or the directory beside the checkout.
+  # `acceptance.py` reads `paths.cache("webcomics-cache")` unconditionally, with no flag to point
+  # it elsewhere, so with this unset it read a directory nothing writes and measured Web漫画アンテナ
+  # coverage as 0 works out of 0. That prints as 0.0%, which is below the 90% floor, and the step
+  # that runs it blocks the job. Stage 0 fetches exactly those pages; they now land where the
+  # measure reads them, inside .cache so the restore carries them between runs.
+  YURI_CACHE: .cache
 
 jobs:
   update:
@@ -46,6 +53,20 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pyyaml pyflakes sudachipy sudachidict-core
+
+      # THE SITE REPOSITORY, WHICH SEVERAL CHECKS READ. `kari/app.js` and `kari/status.html` are the
+      # interface's own source, and `check.py` asks questions of them that have nothing to do with a
+      # deployment: which renderer a name reaches a page through, whether both lines of a bilingual
+      # row get one, whether status.html carries Japanese of its own. `adapters/lint/entrypoints.py`
+      # reads app.js too. With no site beside the checkout those checks read nothing, three canaries
+      # in `--self-test` went uncaught and entrypoints raised FileNotFoundError, so the two steps
+      # that run them blocked the job. Cloned over HTTPS because the repository is public and this
+      # needs no key; the deploy step still clones its own writable copy with the SSH key.
+      - name: The site repository, which several checks read
+        run: |
+          git clone --depth 1 https://github.com/yurarium/yurarium.github.io.git \
+            "$(dirname "$GITHUB_WORKSPACE")/yurarium.github.io"
+          ls "$(dirname "$GITHUB_WORKSPACE")/yurarium.github.io/kari/app.js"
 
       - name: Confirm a browser is present
         id: browser
@@ -89,7 +110,7 @@ jobs:
       - name: Stage 0 — discovery queue
         run: |
           python3 adapters/webcomics/coverage.py --out data/coverage \
-            --cache "$CACHE/webcomics" --pages 8 --retrieved "$R"
+            --cache "$CACHE/webcomics-cache" --pages 8 --retrieved "$R"
 
       # ── Stage A — feeds, APIs and server-rendered markup. No browser. ────────────────────
       # The commands live in adapters/stage-a.yaml so they can be run by hand exactly as CI runs
@@ -126,7 +147,15 @@ jobs:
 
       # ── Stage D — compile. This one is allowed to fail the run. ───────────────────────────────
       - name: Compile
-        run: python3 build.py
+        run: |
+          python3 build.py
+          # THE LEDGER AND THE STATUS FILE, which deploy.sh also runs and which the checks need
+          # before it gets a chance to. `data/build/status.json` is written by adapters/status.py,
+          # and `inv_status_page_shows_no_japanese_of_its_own` reads it: with the file absent the
+          # check returns no violations, so `--self-test` planted its canary and caught nothing and
+          # the step that runs it blocked the job. The ledger goes first because status reads it.
+          python3 adapters/ledger.py
+          python3 adapters/status.py
 
       # The hooks in .githooks are per-clone local config — a fresh checkout has none, which is
       # exactly why the leak guard documents CI as its backstop. The same argument applies to the

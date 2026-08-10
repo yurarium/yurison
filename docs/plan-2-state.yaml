@@ -331,7 +331,13 @@ stages:
         state: todo
       - id: C10
         title: curate --apply drops a reading's division
-        state: todo
+        state: done
+        note: >-
+          Re-applying the curated overlay glued 20-odd author readings back together, カシイ アオイ to カシイアオイ, and took reading_boundary with them. 161 lines of loss to 3, and the 3 that remain are one orphaned boundary on a reading that was refuted, which is the refutation clearing what belongs to a claim that no longer exists.
+          THE FOLD QUESTION WAS WHICH FORM WINS WHERE THE TWO AGREE. `same_reading` already rules that カシイアオイ and カシイ アオイ are one reading with the division supplied, so an entry restating the undivided form is not revising anything; it is saying the same thing less precisely, and superseding on it is the joining direction, which erases.
+          THE RULE IS DIRECTIONAL AND NOT "THE STORE WINS": a pass SUPPLYING a division is still adopted, which is what `the division is adopted` in test_store pins and what my first attempt broke.
+          `facts/division.divisions` answers whether a reading is divided, asked through the entry point, since a fourth copy of "does it have a space in it" is how this project got thirteen folds.
+          RECORDED AND NOT CHANGED: the curated file's source is still stamped on a claim whose string came from openBD. That is how an agreeing claim of equal or higher rank has always been handled and the division rule did not introduce it.
       - id: E5
         title: Fifteen leftover worktrees
         state: doing

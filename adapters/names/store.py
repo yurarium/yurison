@@ -107,6 +107,14 @@ def days_since(stamp):
         return 0
 
 
+def _divisions(s):
+    """How many pieces a reading is written in, asked of the fact that owns the question."""
+    import sys as _s, pathlib as _p
+    _s.path.insert(0, str(_p.Path(__file__).resolve().parents[1]))
+    from facts import division as _d
+    return _d.divisions(s)
+
+
 def same_reading(a, b):
     """Are these the same reading, ignoring where the word boundary was drawn?
 
@@ -403,6 +411,24 @@ class NameStore:
             #
             # Only for a claim the file actually makes. An entry that says nothing about a reading
             # is not asking for the reading's citation to be thrown away.
+            # THE DIVIDED FORM WINS WHERE THE TWO AGREE, IN WHICHEVER DIRECTION IT ARRIVES.
+            # `same_reading` says カシイアオイ and カシイ アオイ are one reading with the division
+            # supplied, so a curated entry restating the undivided form is not revising anything: it
+            # is saying the same thing less precisely. Superseding on it glued 20-odd author names
+            # back together and took `reading_boundary` with them, because a division a pass
+            # established is not something an entry silent about it asked to have removed. The other
+            # direction still applies: a pass that SUPPLIES a division is adopted, which is what
+            # `the division is adopted` in test_store pins.
+            # ONE PRODUCER OF "IS THIS DIVIDED" (§3): `facts/division.boundary.divisions`, which is
+            # the count the validator and the checks already share. A fourth copy of "does it have
+            # a space in it" is how this project got thirteen folds.
+            restating = (agrees is not None and new is not None and old is not None
+                         and new != old and agrees(new, old)
+                         and _divisions(old) > _divisions(new))
+            if restating:
+                fact = dict(fact)
+                fact.pop(value_key, None)
+                new = None
             if new is not None:
                 for shared, dst in self._stamped(value_key):
                     if shared in ("at", "pass") or dst in fact or shared in fact:

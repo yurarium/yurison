@@ -61,12 +61,43 @@ def main(s):
               source="openBD", supersede=True)
     a = st.records["authors"]["あおのなち"]
     s.eq(a["reading"], "アオノ ナチ", "the division is adopted")
+
     s.eq(a.get("reading_conflicts"), None,
          "and the undivided form is not filed as a source disagreeing with itself")
     st.record("authors", "あおのなち", reading="アオノ ミチコ", reading_basis="surface",
               source="elsewhere", supersede=True)
     s.check(any(c["value"] == "アオノ ナチ" for c in a.get("reading_conflicts") or []),
             "a real disagreement is still kept, which is what the list is for")
+
+    # AND IT IS NOT GIVEN BACK BY A LESS SPECIFIC RESTATEMENT. The curated file is the decision of
+    # record about what a reading IS, and `same_reading` says these two are one reading with the
+    # division supplied, so an entry restating the undivided form is saying the same thing less
+    # precisely. Superseding on it glued 20-odd author names back together and took
+    # `reading_boundary` with them: カシイ アオイ became カシイアオイ on a re-apply of a file
+    # nobody had edited.
+    # THE BOUNDARY TRAVELS WITH THE READING IT DESCRIBES, so it is recorded with it: a bare
+    # `reading_boundary` on its own belongs to no claim and the store keeps nothing.
+    st.record("authors", "かしいあおい", reading="カシイ アオイ", reading_basis="surface",
+              source="openBD", reading_boundary="openBD's collationkey")
+    st.record("authors", "かしいあおい", reading="カシイアオイ", reading_basis="surface",
+              source="curated", supersede=True)
+    a = st.records["authors"]["かしいあおい"]
+    s.eq(a["reading"], "カシイ アオイ", "the divided form survives a restatement without the division")
+    s.eq(a.get("reading_boundary"), "openBD's collationkey",
+         "and so does the record of where the division came from")
+    # WHAT THE RESTATEMENT DOES CHANGE, recorded rather than left to be discovered: the curated
+    # file is asserting the reading, so its source is stamped on the claim even though the string
+    # kept is openBD's. That is how an agreeing claim of equal or higher rank has always been
+    # handled and is not something the division rule above introduced.
+    s.eq(a.get("reading_source"), "curated",
+         "the file asserting the reading is stamped as its source")
+
+    # THE OTHER DIRECTION IS STILL A REAL REVISION. A reading that disagrees replaces, whichever
+    # side is divided, or the rule would be "the store always wins" wearing a better name.
+    st.record("authors", "かしいあおい", reading="カシイ ヨウコ", reading_basis="stated",
+              source="a-publisher", supersede=True)
+    s.eq(st.records["authors"]["かしいあおい"]["reading"], "カシイ ヨウコ",
+         "a different reading still supersedes")
     st.close()
     tmp.cleanup()
 

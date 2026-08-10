@@ -156,6 +156,38 @@ def areas(title):
     return Areas(ja, s[e.end():], other)
 
 
+#: THE APPARATUS A PUBLISHER BOLTS ONTO A TITLE, as distinct from the cataloguing apparatus above.
+#: `【完結】`, `【単話版】`, `（コスモブルー）` and their kin say something about the EDITION or the
+#: state of the run, not about the work, and a shop writes them into the title field because that is
+#: the only field it has. They make a different key, so an English name attached to the plain title
+#: never reaches the row carrying one: `やがて君になる` is Bloom Into You and
+#: `やがて君になる【タテスク】` was showing a full romanisation.
+_EDITION_TAG = (r"百合|GL|ガールズラブ|完結|新装版|完全版|合本版|分冊版|単話版?|単話売|話売り|電子版|"
+                r"電子限定|タテスク|タテヨミ|フルカラー|カラー版|読切版?|試し読み|無料|コミック|同人版")
+_APPARATUS = re.compile(
+    rf"[【\[]\s*(?:{_EDITION_TAG})[^】\]]*[】\]]|[（(]\s*(?:{_EDITION_TAG}|[A-Za-z][A-Za-z0-9 .!+-]{{1,22}})\s*[)）]")
+
+
+def without_edition_apparatus(title):
+    """`title` with edition and status markers taken off, or unchanged where it carries none.
+
+    IT TAKES NOTHING OFF THE NAME. Everything this removes is bracketed and matches a closed list of
+    edition and status words, so `ギャルメイドと悪役令嬢 : おじょーさま…` keeps its subtitle and
+    `百合色ミュージアム（OrangeVox）` loses only the label. A bracket holding anything else stays,
+    because a bracketed gloss is often the publisher stating a reading and that is a different fact.
+
+    WHAT IT IS FOR is joining a row to the record that already names it, and not for display: the
+    apparatus is real and a reader of that edition should see it.
+    """
+    s = str(title or "")
+    for _ in range(6):
+        s2 = _APPARATUS.sub("", s).strip(" 　-–—・:：")
+        if s2 == s:
+            break
+        s = s2
+    return s or str(title or "")
+
+
 def title_proper(title):
     """The work's name, with the parallel title taken off and the subtitle left on."""
     return areas(title).name

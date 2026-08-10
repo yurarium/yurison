@@ -1,6 +1,18 @@
 #!/usr/bin/env python3
 """Which imprint line a catalogued imprint string names. One producer, read by build.py and check.py.
 
+WHY THIS FACT HAS NO `checks.py`, stated because every other one does. The counts that measure it
+are `imprint strings that reach no line` and `an imprint spelling belongs to its own publisher`,
+and both are deliberately independent of this module (§14b): they ask the corpus for its strings
+and the SHIPPED map whether it holds each one, importing nothing here, folding nothing and
+splitting nothing. A matcher that gave every unrecognised string a line of its own would satisfy
+a check written against itself by construction. Moving them beside the fact would be the one
+place that is wrong.
+
+What stands in for a check on the fold ITSELF is the counter-cases in `test_imprint.py`, run
+against the shipped registry rather than a fixture: 一迅社 runs ten lines under one umbrella, a
+substring rule for the yuri line eats four of them, and each is asserted to land somewhere else.
+
 WHY THIS EXISTS. An imprint is one object with many recorded spellings, and until this module it was
 many objects. 一迅社 runs a single yuri line and the corpus held 27 strings for it, so a publisher
 page built over the field would have given that line twenty entries. The strings differ because
@@ -86,6 +98,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 # there are two of them they disagree. What follows from consuming it: a separator it does not know
 # is not a separator here either, so `Action comics : comic high's brand` stays one segment, matches
 # nothing, and shows up in the unresolved count. That is the observable path and not a silent one.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / "names"))
 from publishers import publisher_of, segments                                   # noqa: E402
 
 REGISTRY = pathlib.Path("data/names/imprints.yaml")

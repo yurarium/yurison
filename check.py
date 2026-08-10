@@ -44,6 +44,17 @@ from adapters import yamlfast  # noqa: F401,E402
 BUILD = ROOT / "data" / "build"
 NAMES = ROOT / "data" / "names"
 BUDGETS = ROOT / "docs" / "budgets.json"
+
+#: WHAT A CHECK RETURNS WHEN IT COULD NOT RUN, and the reason this exists rather than a zero.
+#: Twenty-one budgets caught every exception and returned 0. A check that cannot run then reports
+#: the best possible number, and `--gate` ratchets the recorded budget down to it: a number nobody
+#: measured, banked, blocking the next honest run. It happened twice in one hour on 2026-08-10, once
+#: when a mangled import left `build.py` unparseable so `shadowed names in build.py` banked 0 against
+#: a real 40, and once when the same fault took `stock phrasing in comments` from 895 to 890.
+#:
+#: A budget that answers this is PRINTED, NEVER TIGHTENED, and fails the gate: not being able to
+#: measure something is a state to fix and not a state to pass.
+UNMEASURED = None
 # Derived, not written out: the site repo sits beside this one. See adapters/paths.py.
 SITE_ROOT = pathlib.Path(os.environ.get("YURARIUM_SITE") or ROOT.parent / "yurarium.github.io")
 SITE = SITE_ROOT / "kari" / "data"
@@ -330,7 +341,7 @@ def budget_interface_reads_outside_an_entry_point(ctx):
     try:
         import entrypoints
     except Exception:                                                           # noqa: BLE001
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     return sum(n for n, _why in entrypoints.SAFE.values())
 
 
@@ -378,7 +389,7 @@ def budget_renderings_resting_on_a_mechanical_romanisation(ctx):
             return 0
         out = _interface(ctx).values(calls)
     except interface.Unavailable:
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     return sum(html.count(FLOOR_MARKUP) for html in out)
 
 
@@ -410,7 +421,7 @@ def budget_full_width_forms_in_english_renderings(ctx):
             return 0
         out = _interface(ctx).labels(calls)
     except interface.Unavailable:
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     return sum(1 for (_s, _v), shown in zip(about, out)
                if fw.search(shown) and not interface.KANA_KANJI.search(shown))
 
@@ -1325,7 +1336,7 @@ def budget_imprint_names_the_interface_disagrees_with(ctx):
     try:
         shown = _interface(ctx).labels([("imprintOf", s) for s in raw])
     except interface.Unavailable:
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     return len({(got, shipped[s]["name"]) for s, got in zip(raw, shown)
                 if got != shipped[s]["name"]})
 
@@ -2228,9 +2239,12 @@ def budget_facts_with_more_than_one_home(ctx):
     try:
         out = subprocess.run([sys.executable, str(ROOT / "adapters" / "lint" / "duplicates.py"),
                               "--quiet"], capture_output=True, text=True, timeout=180)
-        return int(out.stdout.strip() or 0)
+        # AN EMPTY ANSWER IS NOT A ZERO. A child that failed prints nothing on stdout, and reading
+        # that as zero reports the best possible number for a measurement that did not happen. See
+        # UNMEASURED.
+        return int(out.stdout.strip()) if out.stdout.strip().isdigit() else UNMEASURED
     except Exception:                                                   # noqa: BLE001
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
 
 
 def budget_impossibilities_asserted_without_evidence(ctx):
@@ -2248,9 +2262,12 @@ def budget_impossibilities_asserted_without_evidence(ctx):
     try:
         out = subprocess.run([sys.executable, str(ROOT / "adapters" / "lint" / "claims.py"),
                               "--quiet"], capture_output=True, text=True, timeout=120)
-        return int(out.stdout.strip() or 0)
+        # AN EMPTY ANSWER IS NOT A ZERO. A child that failed prints nothing on stdout, and reading
+        # that as zero reports the best possible number for a measurement that did not happen. See
+        # UNMEASURED.
+        return int(out.stdout.strip()) if out.stdout.strip().isdigit() else UNMEASURED
     except Exception:                                                   # noqa: BLE001
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
 
 
 def budget_stock_phrasing_in_comments(ctx):
@@ -2283,6 +2300,12 @@ def budget_stock_phrasing_in_comments(ctx):
                 path, _, n = line.rpartition("\t")
                 if path and n.strip().isdigit():
                     got[pathlib.Path(path)] = int(n)
+            # EVERY FILE ASKED ABOUT HAS TO COME BACK. A file the scanner could not read produces
+            # no line, and counting the rest gives a number that is lower for a reason nobody sees:
+            # that is how this fell from 895 to 890 while build.py was unparseable.
+            missing = [p for p in paths if pathlib.Path(p) not in got]
+            if missing:
+                raise RuntimeError(f"{len(missing)} file(s) produced no count, first {missing[0]}")
             return got
 
         sys.path.insert(0, str(ROOT / "adapters"))
@@ -2290,7 +2313,7 @@ def budget_stock_phrasing_in_comments(ctx):
         total, _scanned = filecache.counted(files, [lint], scan, ROOT / "data" / "cache" / "tics.json")
         return total
     except Exception:                                                   # noqa: BLE001
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
 
 
 def budget_untested_modules(ctx):
@@ -2303,9 +2326,12 @@ def budget_untested_modules(ctx):
     try:
         out = subprocess.run([sys.executable, str(ROOT / "test.py"), "--quiet"],
                              capture_output=True, text=True, timeout=120)
-        return int(out.stdout.strip() or 0)
+        # AN EMPTY ANSWER IS NOT A ZERO. A child that failed prints nothing on stdout, and reading
+        # that as zero reports the best possible number for a measurement that did not happen. See
+        # UNMEASURED.
+        return int(out.stdout.strip()) if out.stdout.strip().isdigit() else UNMEASURED
     except Exception:
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
 
 
 def budget_invented_markup_in_tests(ctx):
@@ -2438,7 +2464,7 @@ def budget_structural_triples(ctx):
             capture_output=True, text=True, timeout=120)
         return sum(1 for l in out.stdout.splitlines() if l.startswith("STRUCTURE:"))
     except Exception:
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
 
 
 def budget_scraped_counters_in_chapter_names(ctx):
@@ -2527,7 +2553,7 @@ def budget_volumes_with_an_isbn_and_no_date(ctx):
     try:
         import isbndate
     except Exception:                                                       # noqa: BLE001
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     return len(isbndate.undated_isbn_volumes(ctx["works"]))
 
 
@@ -2555,7 +2581,7 @@ def budget_bookwalker_series_unread(ctx):
         from recon import bookwalker_volumes as _bv
         doc = _cap.load(ROOT / "data/queue/bookwalker-volumes.yaml")
     except Exception:                                                       # noqa: BLE001
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     works = {str(w["shop_id"]): w for w in (doc.get("works") or []) if w.get("shop_id")}
     return len(_bv.series_to_follow(works))
 
@@ -2577,7 +2603,7 @@ def budget_bookwalker_listings_unconfirmed(ctx):
         from recon import bookwalker_volumes as _bv
         doc = _cap.load(ROOT / "data/queue/bookwalker-volumes.yaml")
     except Exception:                                                       # noqa: BLE001
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     works = {str(w["shop_id"]): w for w in (doc.get("works") or []) if w.get("shop_id")}
     return len(_bv.series_unconfirmed(works))
 
@@ -2724,10 +2750,12 @@ def budget_shadowed_names(ctx):
     try:
         out = subprocess.run([sys.executable, str(ROOT / "adapters" / "lint" / "shadowing.py"),
                               str(ROOT / "build.py")], capture_output=True, text=True, timeout=60)
+        # NO MATCH MEANS THE CHILD DID NOT ANSWER, which is what happened when a mangled import
+        # left build.py unparseable: this reported 0 against a real 40 and the gate banked it.
         m = re.search(r"(\d+) name\(s\) rebound", out.stdout)
-        return int(m.group(1)) if m else 0
+        return int(m.group(1)) if m else UNMEASURED
     except Exception:
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
 
 
 # name, measure, what a rise would mean. The third field exists because a bare number in a JSON
@@ -2905,7 +2933,7 @@ def budget_credits_the_corpus_files_as_a_venue(ctx):
     try:
         import entities
     except Exception:
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     pubs = (_yaml(NAMES / "publishers.yaml", {}) or {}).get("names") or {}
     filed = entities.filed_elsewhere(pubs, ctx["series"])
     return sum(1 for k, v in (ctx["names"].get("authors") or {}).items()
@@ -2959,7 +2987,7 @@ def budget_credit_fields_no_identifier_covers(ctx):
     try:
         import credit_identity
     except Exception:                                                       # noqa: BLE001
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     left = set()
     for r in list(ctx["series"]) + list(ctx["releases"]):
         left.update(credit_identity.uncovered(r.get("author") or "", surfaces))
@@ -2988,7 +3016,7 @@ def budget_credits_sharing_a_reading_nobody_ruled_on(ctx):
     try:
         import credit_identity
     except Exception:                                                       # noqa: BLE001
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     return len(credit_identity.unruled((ctx["names_shipped"] or {}).get("authors") or {},
                                        ctx["credit_rulings"] or {}))
 
@@ -3118,7 +3146,7 @@ def budget_publishers_with_no_english(ctx):
     try:
         import publishers as _pub
     except Exception:                                                       # noqa: BLE001
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     shipped = (ctx["names_shipped"] or {}).get("publishers")
     if shipped is None:
         return 0
@@ -3177,7 +3205,7 @@ def budget_publisher_keys_the_interface_misses(ctx):
         shown = _interface(ctx).labels([(fn, s) for fn, s in keys])
         second = _interface(ctx).labels([("pubBoth", v) for v in shown])
     except interface.Unavailable:
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     return len({v for v in second if interface.KANA_KANJI.search(v)})
 
 
@@ -3284,7 +3312,7 @@ def budget_bylines_drawn_in_a_spelling_the_field_does_not_write(ctx):
         drawn = _interface(ctx).with_prefs(LANG="ja", FURIGANA=True).values(
             [("linkedCredits", r) for r in rows])
     except interface.Unavailable:
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     bad = 0
     for row, markup in zip(rows, drawn):
         # The reading comes off and the surface stays: `<ruby>永田<rt>ながた</rt></ruby>` is the
@@ -3368,7 +3396,7 @@ def budget_imprint_strings_that_reach_no_line(ctx):
     MADB, from openBD and from a retailer in three transcriptions, notation and case and the parent
     line vary on top, and the field stored each result as though it were a line of its own: 一迅社
     runs one yuri line and the rows held 27 strings for it. `data/names/imprints.yaml` says which
-    spellings are one line and `adapters/names/imprints.py` does the matching. This counts what the
+    spellings are one line and `adapters/facts/imprint` does the matching. This counts what the
     registry has not reached.
 
     A COVERAGE DEFICIT, and the number a curating round is against. It falls as houses are entered
@@ -3389,7 +3417,7 @@ def budget_imprint_strings_that_reach_no_line(ctx):
     WHAT IT THEREFORE CANNOT SEE is a string that reaches the WRONG line. `an imprint spelling
     belongs to its own publisher` catches that across houses. Within one house nothing can, because
     the two spellings look alike by construction, so the guard is the counter-case pinned in
-    `adapters/names/test_imprints.py`: 一迅社's ZERO-SUM, HOWL, DNAメディア and 4コマKINGS lines and
+    `adapters/facts/imprint/test_imprint.py`: 一迅社's ZERO-SUM, HOWL, DNAメディア and 4コマKINGS lines and
     its bare umbrella must each land somewhere other than the yuri line.
     """
     # A MISSING MAP COUNTS EVERY STRING, and it is not shortcut to zero. `return 0` on an absent key
@@ -3462,7 +3490,8 @@ def budget_labels_with_nothing_to_quote(ctx):
     # A SPELLING THE REGISTRY DOES NOT PLACE STILL COUNTS, and a line whose own name says nothing
     # counts too, so this cannot be satisfied by curating an entry that carries no term either.
     sys.path.insert(0, str(ROOT / "adapters" / "names"))
-    import imprints as _imp
+    sys.path.insert(0, str(ROOT / "adapters" / "facts"))
+    import imprint as _imp
     _idx = _imp.index(_imp.load())
 
     def _quotable(rec):
@@ -3537,7 +3566,7 @@ def budget_citations_withheld_from_readers(ctx):
     try:
         from names import provenance
     except Exception:                                                       # noqa: BLE001
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     return sum(len(provenance.uncitable(ctx["names"].get(k) or {}))
                for k in ("titles", "authors"))
 
@@ -3569,7 +3598,7 @@ def budget_one_page_cited_for_two_claims(ctx):
     try:
         from names import provenance
     except Exception:                                                       # noqa: BLE001
-        return 0
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     return sum(len(provenance.borrowed(ctx["names"].get(k) or {}))
                for k in ("titles", "authors"))
 
@@ -4981,6 +5010,7 @@ def main():
         _phase["hashing what the checks read"] = time.perf_counter() - _t0
 
     skipped = 0
+    unmeasured = []
     failed = []
     print("invariants:")
     for name, fn in INVARIANTS:
@@ -5026,6 +5056,11 @@ def main():
         timings[name] = time.perf_counter() - _t0
         budget_values[name] = n
         was = recorded.get(name)
+        # A CHECK THAT COULD NOT RUN IS NOT A CHECK THAT FOUND NOTHING. See UNMEASURED.
+        if n is UNMEASURED:
+            unmeasured.append(name)
+            print(f"  FAIL  {name}: could not be measured")
+            continue
         if was is None:
             tightened[name] = n
             print(f"  set   {name}: {n}")
@@ -5123,14 +5158,18 @@ def main():
         # The show must go on. Violations are reported and counted; the build publishes anyway,
         # having already degraded to the fallback each invariant names.
         _report_time()
-        if failed or loosened:
+        if failed or loosened or unmeasured:
             print(f"\n{len(failed)} invariant(s) violated, {len(loosened)} budget(s) exceeded — "
                   f"degraded per the stated fallbacks; see docs/STANDING-INSTRUCTIONS.md")
         return 0
 
-    if failed or loosened:
+    if failed or loosened or unmeasured:
         _report_time()
-        print(f"\nNO GO: {len(failed)} invariant(s) violated, {len(loosened)} budget(s) exceeded.")
+        print(f"\nNO GO: {len(failed)} invariant(s) violated, {len(loosened)} budget(s) exceeded"
+              + (f", {len(unmeasured)} budget(s) could not be measured" if unmeasured else "") + ".")
+        for name in unmeasured:
+            print(f"  {name} could not be measured, so nothing about it is known; "
+                  f"run it alone to see what it raised")
         for name, was, now in loosened:
             print(f"  {name} rose {was} -> {now}; to accept it, edit docs/budgets.json and say why")
         return 1

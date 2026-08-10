@@ -79,6 +79,10 @@ Exit 1 if anything is found, so it can gate.
 """
 import argparse, ast, io, pathlib, re, sys, tokenize
 
+
+class Unreadable(Exception):
+    """A file the scanner could not read. Not the same as a file with no tics in it."""
+
 # ── The list ──────────────────────────────────────────────────────────────────────────────────
 #
 # Each entry is (pattern, what to write instead). The second field is not decoration: a lint that
@@ -341,16 +345,21 @@ def comments_of(path):
         return
     if path.suffix != ".py":
         return
+    # A FILE THIS CANNOT READ IS NOT A FILE WITH NOTHING IN IT. Swallowing the error and returning
+    # what was tokenised so far reports a LOWER count for a file nobody could read, and a caller
+    # that caches or ratchets on the number banks it: `stock phrasing in comments` fell from 895 to
+    # 890 while build.py was unparseable, and the gate recorded 890 as the new budget. Raising is
+    # what lets `--counts` say the file produced no answer.
     try:
         for tok in tokenize.generate_tokens(io.StringIO(raw).readline):
             if tok.type == tokenize.COMMENT:
                 yield tok.start[0], tok.string
-    except (tokenize.TokenError, IndentationError):
-        pass
+    except (tokenize.TokenError, IndentationError) as e:
+        raise Unreadable(f"{path}: {e}") from e
     try:
         tree = ast.parse(raw)
-    except SyntaxError:
-        return
+    except SyntaxError as e:
+        raise Unreadable(f"{path}: {e}") from e
     for node in ast.walk(tree):
         if isinstance(node, (ast.Module, ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef)):
             doc = ast.get_docstring(node, clean=False)
@@ -595,6 +604,24 @@ def main():
 
     rules = (HARD_RX + PROSE_RX + CASED_RX) if a.prose else HARD_RX + SOFT_RX + CASED_RX
     extract = prose_of if a.prose else comments_of
+
+    if a.counts:
+        # PER FILE, so a caller can keep the answer for a file it has already scanned. The total is
+        # the sum of these by construction: every hit carries the path it was found in. A file the
+        # scanner could not read produces NO LINE, so a caller sees a gap rather than a zero.
+        #
+        # ASKED FILE BY FILE, and before the whole-set scan below, because one unreadable file in a
+        # set of 700 must not take the answer for the other 699 with it.
+        per = {}
+        for f in a.files:
+            try:
+                per[str(f)] = sum(1 for _h in scan([f], rules, extract))
+            except Unreadable as e:
+                print(f"unreadable: {e}", file=sys.stderr)
+        for f, n in per.items():
+            print(f"{f}\t{n}")
+        return 1 if any(per.values()) else 0
+
     hits = scan(a.files, rules, extract)
 
     struct = []
@@ -604,16 +631,6 @@ def main():
                 struct += [(f, n, why) for n, why in structure(f)]
 
     over = []
-    if a.counts:
-        # PER FILE, so a caller can keep the answer for a file it has already scanned. The total is
-        # the sum of these by construction: every hit carries the path it was found in.
-        per = {str(f): 0 for f in a.files}
-        for path, _line, _found, _fix in hits:
-            per[str(path)] = per.get(str(path), 0) + 1
-        for f, n in per.items():
-            print(f"{f}\t{n}")
-        return 1 if hits else 0
-
     if a.quiet:
         print(len(hits) + len(over) + len(struct))
     else:

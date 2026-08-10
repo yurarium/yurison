@@ -242,7 +242,12 @@ stages:
           The blind spot is stated: a house that prints a sign is indistinguishable from a cataloguer who transcribed one, and RULED is a list a person grows by reading the publisher's own page.
       - id: D11
         title: imprint, which already has one reader
-        state: todo
+        state: done
+        note: >-
+          adapters/names/imprints.py is adapters/facts/imprint, with an entry point, its suite at 61 checks and a BLINDSPOT.md; facts/namekey got the BLINDSPOT.md it was missing at the same time.
+          IT HAS NO checks.py AND THE DOCSTRING SAYS WHY, because every other fact has one. The two counts that measure it are deliberately independent of the module: they ask the corpus for its strings and the SHIPPED map whether it holds each, importing nothing and folding nothing, since a matcher that gave every unrecognised string a line of its own would satisfy a check written against itself by construction. Moving them beside the fact is the one place that would be wrong.
+          Its blind spot is the fold it cannot see: a string placed under the WRONG line is not reported at all, because the registry is what the module believes. The counter-cases in the suite stand in for that count, run against the shipped registry rather than a fixture.
+          THE MOVE ITSELF FOUND A PATH BUG, which is the ordinary hazard of a file going one directory deeper: the suite located the registry by counting parents and quietly loaded nothing, so 61 checks became a KeyError rather than a wrong pass.
       - id: D12
         title: work identity
         state: todo

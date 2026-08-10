@@ -2059,7 +2059,8 @@ def publisher_page_data(rows):
     """
     sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters"))
     sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
-    import imprints as _imp
+    sys.path.insert(0, str(ROOT / "adapters" / "facts"))
+    import imprint as _imp
     import publisher_identity as _phid
 
     entries, _doc = _phid.load("data/identity/publishers.yaml")
@@ -2138,12 +2139,13 @@ def imprint_map(rows):
     A publisher page over that field would give one line twenty entries, which is why this is the
     step in front of the pages and not part of them.
 
-    ONE PRODUCER, AND IT IS NOT THIS FUNCTION. `adapters/names/imprints.py` owns the registry and
+    ONE PRODUCER, AND IT IS NOT THIS FUNCTION. `adapters/facts/imprint` owns the registry and
     the matching; check.py measures the map this ships. `imprintOf` in app.js is the third reader of
     the same fact and is the one still deriving its own answer, which is what the shipped map is for.
     """
     sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
-    import imprints as _imp
+    sys.path.insert(0, str(ROOT / "adapters" / "facts"))
+    import imprint as _imp
     return _imp.shipped(rows, _imp.load(pathlib.Path("data/names/imprints.yaml")))
 
 

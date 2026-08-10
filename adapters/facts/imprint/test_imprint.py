@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""imprints.py: which imprint line a catalogued imprint string names.
+"""facts/imprint: which imprint line a catalogued imprint string names.
 
-COVERS = ['adapters/names/imprints.py']
+COVERS = ['adapters/facts/imprint/__init__.py']
 
 MOST OF WHAT IS PINNED HERE IS A COUNTER-CASE, because the fault this module can commit is folding
 two lines into one and no count can see it. 一迅社 runs 10 lines under one umbrella and a substring
@@ -16,9 +16,12 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import testkit
-from adapters.names import imprints as I
+from facts import imprint as I
 
-REGISTRY = pathlib.Path(__file__).resolve().parents[2] / "data" / "names" / "imprints.yaml"
+# THE FILE MOVED ONE DIRECTORY DEEPER when it became a fact, and a path counted in parents
+# is exactly the kind of thing that goes quietly wrong when it does. The registry is where
+# it always was.
+REGISTRY = pathlib.Path(__file__).resolve().parents[3] / "data" / "names" / "imprints.yaml"
 
 
 def name_of(publisher, raw, idx):
@@ -213,4 +216,4 @@ def main(s):
 
 
 if __name__ == "__main__":
-    sys.exit(testkit.run(main, "names.imprints"))
+    sys.exit(testkit.run(main, "imprint"))

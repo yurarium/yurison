@@ -65,6 +65,16 @@ def main(s):
     s.eq(got, ["Episode.3 -1", "Episode.3 -2"],
          "a named title element is taken whole, counts and all trailing furniture left behind")
 
+    # A HOST WITH ITS OWN ADAPTER IS NOT RE-READ HERE, and this adapter asks one list rather than
+    # keeping a copy. Its copy said comic.pixiv.net alone, so ニコニコ's meta line reached the
+    # build as a chapter called `3話 無料` for お姉さんは女子小学生に興味があります。 beside 竹コミ's
+    # 64 real ones. The counter-case is the whole reason this adapter exists: a GigaViewer host is
+    # still its to try, because the platform pass is what skipped the work.
+    s.check(rm.dedicated.covers("https://manga.nicovideo.jp/comic/31194"),
+            "a host with a dedicated adapter is recognised through the shared list")
+    s.check(rm.dedicated.covers("https://comic-zenon.com/episode/12207421983944323839") is None,
+            "and a GigaViewer host is not, or the residue this adapter reaches goes unread")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "remaining.releases"))

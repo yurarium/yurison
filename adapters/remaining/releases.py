@@ -17,6 +17,14 @@ we hold nothing for and tries every route we have against each, in order of cost
 A work is reported unreached only after all four fail, which is a much stronger statement than any
 one adapter declining to pick it up.
 
+A HOST WITH AN ADAPTER OF ITS OWN IS LEFT ALONE, from `adapters/dedicated.py`. Those four routes
+are heuristics and the dedicated parsers read the platform's own stated fields, so running these
+over comic-fuz.com, comic-walker.com or manga.nicovideo.jp put a second, worse answer beside a
+good one: お姉さんは女子小学生に興味があります。 was published here with two chapters called
+`第１話から読む` and `3話 無料`, the read-from-the-start button and a fragment of ニコニコ's own
+`[ 3話 無料 ]` meta line, while 竹コミ's adapter held 64 chapters for it. Those works are reported
+as covered elsewhere rather than as unreached, because they are.
+
 Usage:  releases.py --works data/coverage/remaining.yaml --out data/source/webpages \
                     --cache $YURI_CACHE/remaining-cache --retrieved 2026-08-01
 """
@@ -31,6 +39,7 @@ import comici  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "recon"))
 from extract import CHAPTERISH, try_jsonld, try_markup, try_next, try_pairs  # noqa: E402
 from names import credits as _credits  # noqa: E402
+import dedicated  # noqa: E402
 
 UA = "Mozilla/5.0 (compatible; yurarium/0.1; +https://yurarium.github.io/)"
 CHROME = next((c for c in ("/snap/bin/chromium", "/usr/bin/chromium",
@@ -39,11 +48,6 @@ CHROME = next((c for c in ("/snap/bin/chromium", "/usr/bin/chromium",
 PAUSE = 1.0
 MIN_EPISODES = 1
 TODAY = __import__("datetime").date.today().isoformat()
-# Hosts whose own adapter reads them better than the generic routes here can. pixivコミック numbers
-# chapters 1, 2, 3 and states access by which episodes it renders at all; the generic extractor sees
-# neither and produced a chapter called "第1話 … 更新日:" with no access beside the render adapter's
-# clean reading of the same page.
-COVERED_HOSTS = ("comic.pixiv.net",)
 
 COMICI_BLOCK = re.compile(r'data-e2e="eli"')
 COMICI_ROW = re.compile(
@@ -199,9 +203,10 @@ def main():
         if not url:
             failed.append((w.get("title"), "no URL"))
             continue
-        if any(h in (url or "") for h in COVERED_HOSTS):
+        host = dedicated.covers(url)
+        if host:
             failed.append((w.get("title"),
-                           "host is covered by a dedicated adapter — not re-read here"))
+                           f"{host} is covered by a dedicated adapter, so it is not re-read here"))
             continue
         html = get(url)
         eps, route, page_author = [], None, None

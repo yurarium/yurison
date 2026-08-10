@@ -83,6 +83,39 @@ def main(s):
     s.check(any("check.py" in l for l, _ in runnables), "a --self-test module is collected")
     s.check("adapters/testkit.py" in covered, "COVERS is honoured over the name convention")
 
+    # WHERE THE CHECKOUT SITS IS NOT THIS REPOSITORY'S BUSINESS. The hidden-directory rule read the
+    # ABSOLUTE path, so a checkout under `.claude/worktrees/agent-*` had a dot in every path it
+    # owned and discovered none of its own files: 0 suites, "0 passed, 0 failed", exit 0. The three
+    # assertions above are the ones that would have caught it and they live in a file that was
+    # thrown away first, which is why the rule is pinned here directly (§14b).
+    with tempfile.TemporaryDirectory() as tmp:
+        at = pathlib.Path(tmp) / ".hidden" / "wt"
+        (at / "adapters").mkdir(parents=True)
+        (at / "adapters" / "thing.py").write_text("def f():\n    return 1\n")
+        # The counter-case, and the case the rule was written for: a dot-directory INSIDE the
+        # checkout is still somebody's working space and is still skipped.
+        (at / ".tmp-c2").mkdir()
+        (at / ".tmp-c2" / "q.py").write_text("x = 1\n")
+        real, t.ROOT = t.ROOT, at
+        try:
+            found = {str(p.relative_to(at)) for p in t.modules()}
+        finally:
+            t.ROOT = real
+        s.check("adapters/thing.py" in found,
+                "a checkout under a dot-directory still discovers its own modules")
+        s.check(".tmp-c2/q.py" not in found,
+                "and a dot-directory inside the checkout is still skipped")
+
+    # AND A RUN OF NOTHING IS NOT A PASS. With discovery broken there was no signal at all: the
+    # runner reported success having executed no suite, at pre-push and in both workflows.
+    with tempfile.TemporaryDirectory() as tmp:
+        copy = pathlib.Path(tmp) / "test.py"
+        copy.write_text((ROOT / "test.py").read_text())
+        r = subprocess.run([sys.executable, str(copy), "--list"], capture_output=True, text=True)
+        s.ne(r.returncode, 0, "a runner that discovered no suite exits non-zero")
+        s.check("Discovery is broken" in (r.stdout + r.stderr),
+                "and says the runner is broken rather than that everything passed")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "harness"))

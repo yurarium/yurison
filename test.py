@@ -245,6 +245,16 @@ def main():
     allmods = {str(p.relative_to(ROOT)) for p in modules()}
     untested = sorted(allmods - covered)
 
+    # A RUNNER THAT FOUND NOTHING HAS NOT PASSED. Discovery returning empty printed
+    # "0 passed, 0 failed" and exited 0, which reads as green everywhere it is used: pre-push, both
+    # workflows, and a person's terminal. `modules without a test` is a budget at zero, so the
+    # repository always holds a test for every module it holds, and `./test.py --list` reports 167
+    # of them today. An empty collection is therefore a broken runner, and it says so.
+    if not runnables:
+        sys.exit(f"no suites found under {ROOT}. Discovery is broken; a run of nothing is not a "
+                 f"pass. Check that this is a checkout of the repository and that modules() can "
+                 f"see it.")
+
     if a.untested or a.quiet:
         if a.quiet:
             print(len(untested))

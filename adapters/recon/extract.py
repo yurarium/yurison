@@ -37,6 +37,22 @@ CHAPTERISH = re.compile(
     r"第?\s*[0-9０-９]+\s*(話|回|章|品|皿|杯)|#\s*\d+|"
     r"(?:episode|ep|file|case|act|vol|chapter)\s*\.?\s*\d+|最終(話|回)", re.I)
 ISO = re.compile(r"(\d{4})[-/.年](\d{1,2})[-/.月](\d{1,2})")
+# A JAPANESE PLATFORM WRITING ITS DATES IN ENGLISH. ちゃおプラス prints
+# <p class="c-episode-item__date">15 Aug 2026</p> beside <h3 class="c-episode-item__ttl">第35話</h3>,
+# for all 56 chapters of 上杉くんは女の子をやめたい. Every strategy here finds the date through
+# `norm_date`, which knew only the numeric forms, so each block came back with a chapter label and
+# no date and every row was dropped. The work was then reported as one no route could reach, which
+# is a statement about this pattern rather than about 小学館.
+#
+# A DAY IS REQUIRED. `May 2024` is a month and a year, and a date guessed out of one would be
+# invented (§6). `全56話 Aug 2026` yields nothing, which is the correct answer.
+#
+# THE CAPITAL IS REQUIRED TOO. A platform printing a date capitalises the month, and accepting a
+# lowercase one buys nothing while opening the pattern to English prose that happens to run a
+# number into a month name.
+MONTHS = {m: i for i, m in enumerate(
+    ("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"), 1)}
+DMY = re.compile(r"\b([0-3]?\d)\s+([A-Z][a-z]{2})[a-z]*\.?\s+(\d{4})\b")
 # 単行本 release dates are the trap this pass exists to avoid.
 VOLUMEISH = re.compile(r"発売|刊行|単行本|巻")
 # The element a page uses to hold the chapter's own name. マンガPark writes
@@ -68,10 +84,20 @@ def get(url):
 
 
 def norm_date(v):
-    m = ISO.search(str(v))
-    if not m:
-        return None
-    y, mo, d = (int(x) for x in m.groups())
+    s = str(v)
+    m = ISO.search(s)
+    if m:
+        y, mo, d = (int(x) for x in m.groups())
+    else:
+        # THE NUMERIC FORM FIRST, ALWAYS. A block can hold both, and the one the platform wrote
+        # against the chapter is the numeric one everywhere it appears.
+        m = DMY.search(s)
+        if not m:
+            return None
+        mo = MONTHS.get(m.group(2).lower())
+        if not mo:
+            return None
+        d, y = int(m.group(1)), int(m.group(3))
     if not (1990 <= y <= 2100 and 1 <= mo <= 12 and 1 <= d <= 31):
         return None
     return f"{y:04d}-{mo:02d}-{d:02d}"

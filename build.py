@@ -1425,7 +1425,7 @@ def _shop_address(rec):
     THE NARROWING THAT FIXED IT LEFT ONE SHOP WITH A HOME AND THE OTHERS WITHOUT ONE. Guarding on
     `source == "bookwalker"` made a shop address derivable for exactly the shop whose records happen
     to store the label basis and the shop page at the same URL, so コミックシーモア admitted 256
-    works, held a page for every one of them, and 231 shipped rows could not reach it. The fault was
+    works, held a page for every one of them, and 230 shipped rows could not reach it. The fault was
     reading a shop address out of a field that is not one.
 
     So each record states its own, and this asks for it by name. A record the shop itself supplied

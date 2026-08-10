@@ -1,0 +1,76 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C417731
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75807693
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758076937"
+    on_sale: "2017-06-16"
+    title_printed: "私の百合はお仕事です！1"
+    url: https://data.ichijinsha.co.jp/detail/75807693
+  - isbn: "9784758077392"
+    on_sale: "2017-10-18"
+    title_printed: "私の百合はお仕事です！2"
+    url: https://data.ichijinsha.co.jp/detail/75807739
+  - isbn: "9784758078047"
+    on_sale: "2018-04-18"
+    title_printed: "私の百合はお仕事です！3"
+    url: https://data.ichijinsha.co.jp/detail/75807804
+  - isbn: "9784758078689"
+    on_sale: "2018-11-15"
+    title_printed: "私の百合はお仕事です！4"
+    url: https://data.ichijinsha.co.jp/detail/75807868
+  - isbn: "9784758079488"
+    on_sale: "2019-06-18"
+    title_printed: "私の百合はお仕事です！5"
+    url: https://data.ichijinsha.co.jp/detail/75807948
+  - isbn: "9784758020756"
+    on_sale: "2020-01-17"
+    title_printed: "私の百合はお仕事です！6"
+    url: https://data.ichijinsha.co.jp/detail/75802075
+  - isbn: "9784758021616"
+    on_sale: "2020-09-18"
+    title_printed: "私の百合はお仕事です！7"
+    url: https://data.ichijinsha.co.jp/detail/75802161
+  - isbn: "9784758022422"
+    on_sale: "2021-04-16"
+    title_printed: "私の百合はお仕事です！8"
+    url: https://data.ichijinsha.co.jp/detail/75802242
+  - isbn: "9784758023252"
+    on_sale: "2021-11-18"
+    title_printed: "私の百合はお仕事です！9"
+    url: https://data.ichijinsha.co.jp/detail/75802325
+  - isbn: "9784758024136"
+    on_sale: "2022-05-18"
+    title_printed: "私の百合はお仕事です！10"
+    url: https://data.ichijinsha.co.jp/detail/75802413
+  - isbn: "9784758024143"
+    on_sale: "2022-05-18"
+    title_printed: "私の百合はお仕事です！10 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802414
+  - isbn: "9784758024723"
+    on_sale: "2022-11-17"
+    title_printed: "私の百合はお仕事です！11"
+    url: https://data.ichijinsha.co.jp/detail/75802472
+  - isbn: "9784758025379"
+    on_sale: "2023-05-17"
+    title_printed: "私の百合はお仕事です！12"
+    url: https://data.ichijinsha.co.jp/detail/75802537
+  - isbn: "9784758026468"
+    on_sale: "2024-01-17"
+    title_printed: "私の百合はお仕事です！13"
+    url: https://data.ichijinsha.co.jp/detail/75802646
+  - isbn: "9784758029902"
+    on_sale: "2025-11-18"
+    title_printed: "私の百合はお仕事です！14"
+    url: https://data.ichijinsha.co.jp/detail/75802990

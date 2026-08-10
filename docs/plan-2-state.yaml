@@ -349,7 +349,14 @@ stages:
           TWO WORKS HERE RAISE THE PORNOGRAPHY EXCLUSION and it is the owner's call, not mine: Image markets Sunstone as an erotic BDSM romance, and えろ勉 is a doujin title. Both are already in the corpus; recording an artist's Latin name adds no content either way, and the inclusion question is flagged rather than deepened.
       - id: E6
         title: The three branches holding work main never took
-        state: todo
+        state: done
+        note: >-
+          THE CAPTURE IS TAKEN AND THE CODE IS NOT, and the split is between what is expensive to get again and what is cheap to write again.
+          364 source records from 一迅社's own catalogue came across, each with the §5 header, each read from the publisher route REQUIREMENTS prefers. They conflict with nothing in main.
+          MEASURED BEFORE AND AFTER, because "it changes nothing" is a claim: no work added, none removed, no work record altered, and 348 series rows changed in exactly one field, `sourced_from` gaining an ichijinsha entry. That is the provenance improving and is the point of keeping a source record.
+          The adapter, its 698 lines and its check.py changes stay on the branch. They were written against a tree that has since been rewritten twice, and their conflicts are in the modules this plan reorganised; rewriting them against today's fact boundaries is cheaper than merging code against a shape that no longer exists.
+          A NINTH DATE BASIS RIDES IN THE DATA, `publisher-catalogue`, which facts/dating has never heard of. Nothing reads it while the adapter is absent, which is what makes taking the data safe and is exactly the blind spot that fact records.
+          work/q10 and work/romfallback hold NO captured records at all, 0 files under data/source between them. Everything on them is code and regenerated name data, so there is nothing here that costs a re-fetch, and they stay as branches.
       - id: C10
         title: curate --apply drops a reading's division
         state: done

@@ -1,0 +1,28 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C419040
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75807840
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758078405"
+    on_sale: "2018-07-18"
+    title_printed: "グッバイ・ディストピア1"
+    url: https://data.ichijinsha.co.jp/detail/75807840
+  - isbn: "9784758078900"
+    on_sale: "2018-12-18"
+    title_printed: "グッバイ・ディストピア2"
+    url: https://data.ichijinsha.co.jp/detail/75807890
+  - isbn: "9784758079518"
+    on_sale: "2019-06-18"
+    title_printed: "グッバイ・ディストピア3"
+    url: https://data.ichijinsha.co.jp/detail/75807951

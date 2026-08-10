@@ -1,0 +1,64 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C360682
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75802131
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758074353"
+    on_sale: "2015-06-18"
+    title_printed: "立花館To Lieあんぐる (1)"
+    url: https://data.ichijinsha.co.jp/detail/75807435
+  - isbn: "9784758075183"
+    on_sale: "2016-01-18"
+    title_printed: "立花館To Lieあんぐる (2) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75807518
+  - isbn: "9784758076609"
+    on_sale: "2017-04-18"
+    title_printed: "立花館To Lieあんぐる (4)"
+    url: https://data.ichijinsha.co.jp/detail/75807660
+  - isbn: "9784758077507"
+    on_sale: "2017-12-18"
+    title_printed: "立花館To Lieあんぐる (5)"
+    url: https://data.ichijinsha.co.jp/detail/75807750
+  - isbn: "9784758078023"
+    on_sale: "2018-04-18"
+    title_printed: "立花館To Lieあんぐる (6)"
+    url: https://data.ichijinsha.co.jp/detail/75807802
+  - isbn: "9784758078030"
+    on_sale: "2018-04-18"
+    title_printed: "立花館To Lieあんぐる (6) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75807803
+  - isbn: "9784758078146"
+    on_sale: "2018-07-18"
+    title_printed: "立花館To Lieあんぐる (7) Blu-ray付き特装版"
+    url: https://data.ichijinsha.co.jp/detail/75807814
+  - isbn: "9784758078351"
+    on_sale: "2018-07-18"
+    title_printed: "立花館To Lieあんぐる (7)"
+    url: https://data.ichijinsha.co.jp/detail/75807835
+  - isbn: "9784758079365"
+    on_sale: "2019-05-16"
+    title_printed: "立花館To Lieあんぐる (8)"
+    url: https://data.ichijinsha.co.jp/detail/75807936
+  - isbn: "9784758079372"
+    on_sale: "2019-05-16"
+    title_printed: "立花館To Lieあんぐる（8）特装版"
+    url: https://data.ichijinsha.co.jp/detail/75807937
+  - isbn: "9784758021302"
+    on_sale: "2020-06-30"
+    title_printed: "立花館To Lieあんぐる (9)"
+    url: https://data.ichijinsha.co.jp/detail/75802130
+  - isbn: "9784758021319"
+    on_sale: "2020-06-30"
+    title_printed: "立花館To Lieあんぐる（9）特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802131

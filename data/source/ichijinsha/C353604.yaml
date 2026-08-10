@@ -1,0 +1,32 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C353604
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75807022
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758070225"
+    on_sale: "2007-10-18"
+    title_printed: "百合姫Wildrose"
+    url: https://data.ichijinsha.co.jp/detail/75807022
+  - isbn: "9784758070423"
+    on_sale: "2009-04-18"
+    title_printed: "百合姫Wildrose (3)"
+    url: https://data.ichijinsha.co.jp/detail/75807042
+  - isbn: "9784758070720"
+    on_sale: "2010-02-18"
+    title_printed: "百合姫Wildrose (5)"
+    url: https://data.ichijinsha.co.jp/detail/75807072
+  - isbn: "9784758073257"
+    on_sale: "2014-07-31"
+    title_printed: "百合姫Wildrose Vol.8"
+    url: https://data.ichijinsha.co.jp/detail/75807325

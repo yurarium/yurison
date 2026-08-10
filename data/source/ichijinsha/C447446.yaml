@@ -1,0 +1,44 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C447446
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75802110
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758021104"
+    on_sale: "2020-04-16"
+    title_printed: "ロンリーガールに逆らえない(1)"
+    url: https://data.ichijinsha.co.jp/detail/75802110
+  - isbn: "9784758021715"
+    on_sale: "2020-10-16"
+    title_printed: "ロンリーガールに逆らえない(2)"
+    url: https://data.ichijinsha.co.jp/detail/75802171
+  - isbn: "9784758022392"
+    on_sale: "2021-04-16"
+    title_printed: "ロンリーガールに逆らえない(3)"
+    url: https://data.ichijinsha.co.jp/detail/75802239
+  - isbn: "9784758023085"
+    on_sale: "2021-10-18"
+    title_printed: "ロンリーガールに逆らえない(4)"
+    url: https://data.ichijinsha.co.jp/detail/75802308
+  - isbn: "9784758024105"
+    on_sale: "2022-05-18"
+    title_printed: "ロンリーガールに逆らえない(5)"
+    url: https://data.ichijinsha.co.jp/detail/75802410
+  - isbn: "9784758024808"
+    on_sale: "2022-12-16"
+    title_printed: "ロンリーガールに逆らえない(6) 初回限定版"
+    url: https://data.ichijinsha.co.jp/detail/75802480
+  - isbn: "9784758026994"
+    on_sale: "2024-04-17"
+    title_printed: "ロンリーガールに逆らえない(6)"
+    url: https://data.ichijinsha.co.jp/detail/75802699

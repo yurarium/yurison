@@ -1,0 +1,24 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: madb-t-1ef804f147fa
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75802620
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758026208"
+    on_sale: "2023-11-17"
+    title_printed: "しかばね少女と愛が重い聖騎士の討伐学園ライフ(1)"
+    url: https://data.ichijinsha.co.jp/detail/75802620
+  - isbn: "9784758027038"
+    on_sale: "2024-05-17"
+    title_printed: "しかばね少女と愛が重い聖騎士の討伐学園ライフ(2)"
+    url: https://data.ichijinsha.co.jp/detail/75802703

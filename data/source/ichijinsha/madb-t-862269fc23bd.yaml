@@ -1,0 +1,44 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: madb-t-862269fc23bd
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75802339
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758023399"
+    on_sale: "2021-12-18"
+    title_printed: "今日はカノジョがいないから（1）"
+    url: https://data.ichijinsha.co.jp/detail/75802339
+  - isbn: "9784758024501"
+    on_sale: "2022-08-18"
+    title_printed: "今日はカノジョがいないから（2）"
+    url: https://data.ichijinsha.co.jp/detail/75802450
+  - isbn: "9784758024990"
+    on_sale: "2023-02-16"
+    title_printed: "今日はカノジョがいないから（3）"
+    url: https://data.ichijinsha.co.jp/detail/75802499
+  - isbn: "9784758026161"
+    on_sale: "2023-10-18"
+    title_printed: "今日はカノジョがいないから（4）"
+    url: https://data.ichijinsha.co.jp/detail/75802616
+  - isbn: "9784758027304"
+    on_sale: "2024-07-18"
+    title_printed: "今日はカノジョがいないから（5）"
+    url: https://data.ichijinsha.co.jp/detail/75802730
+  - isbn: "9784758028806"
+    on_sale: "2025-04-17"
+    title_printed: "今日はカノジョがいないから（6）"
+    url: https://data.ichijinsha.co.jp/detail/75802880
+  - isbn: "9784758089838"
+    on_sale: "2026-03-18"
+    title_printed: "今日はカノジョがいないから（7）"
+    url: https://data.ichijinsha.co.jp/detail/75808983

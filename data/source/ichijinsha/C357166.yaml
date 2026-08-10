@@ -1,0 +1,64 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C357166
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75807437
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758074377"
+    on_sale: "2015-06-18"
+    title_printed: "ゆるゆり (2) 新装版"
+    url: https://data.ichijinsha.co.jp/detail/75807437
+  - isbn: "9784758074551"
+    on_sale: "2015-07-18"
+    title_printed: "ゆるゆり (3) 新装版"
+    url: https://data.ichijinsha.co.jp/detail/75807455
+  - isbn: "9784758074568"
+    on_sale: "2015-07-18"
+    title_printed: "ゆるゆり (4) 新装版"
+    url: https://data.ichijinsha.co.jp/detail/75807456
+  - isbn: "9784758074575"
+    on_sale: "2015-07-18"
+    title_printed: "ゆるゆり (5) 新装版"
+    url: https://data.ichijinsha.co.jp/detail/75807457
+  - isbn: "9784758074735"
+    on_sale: "2015-08-18"
+    title_printed: "ゆるゆり (6) 新装版"
+    url: https://data.ichijinsha.co.jp/detail/75807473
+  - isbn: "9784758074742"
+    on_sale: "2015-08-18"
+    title_printed: "ゆるゆり (7) 新装版"
+    url: https://data.ichijinsha.co.jp/detail/75807474
+  - isbn: "9784758074759"
+    on_sale: "2015-09-18"
+    title_printed: "ゆるゆり (8) 新装版"
+    url: https://data.ichijinsha.co.jp/detail/75807475
+  - isbn: "9784758074797"
+    on_sale: "2015-09-18"
+    title_printed: "ゆるゆり (9) 新装版"
+    url: https://data.ichijinsha.co.jp/detail/75807479
+  - isbn: "9784758074940"
+    on_sale: "2015-10-17"
+    title_printed: "ゆるゆり (10) 新装版"
+    url: https://data.ichijinsha.co.jp/detail/75807494
+  - isbn: "9784758074957"
+    on_sale: "2015-10-17"
+    title_printed: "ゆるゆり (11) 新装版"
+    url: https://data.ichijinsha.co.jp/detail/75807495
+  - isbn: "9784758077750"
+    on_sale: "2018-01-30"
+    title_printed: "ゆるゆり (16)"
+    url: https://data.ichijinsha.co.jp/detail/75807775
+  - isbn: "9784758077767"
+    on_sale: "2018-01-30"
+    title_printed: "ゆるゆり (16) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75807776

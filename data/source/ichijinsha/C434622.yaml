@@ -1,0 +1,64 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C434622
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75807976
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758079761"
+    on_sale: "2019-11-18"
+    title_printed: "citrus +（1）"
+    url: https://data.ichijinsha.co.jp/detail/75807976
+  - isbn: "9784758079952"
+    on_sale: "2019-11-18"
+    title_printed: "citrus +（1）特装版"
+    url: https://data.ichijinsha.co.jp/detail/75807995
+  - isbn: "9784758021043"
+    on_sale: "2020-07-31"
+    title_printed: "citrus +（2）"
+    url: https://data.ichijinsha.co.jp/detail/75802104
+  - isbn: "9784758021050"
+    on_sale: "2020-07-31"
+    title_printed: "citrus +（2）特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802105
+  - isbn: "9784758022187"
+    on_sale: "2021-03-31"
+    title_printed: "citrus +（3）"
+    url: https://data.ichijinsha.co.jp/detail/75802218
+  - isbn: "9784758022194"
+    on_sale: "2021-03-31"
+    title_printed: "citrus +（3）特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802219
+  - isbn: "9784758023375"
+    on_sale: "2022-01-18"
+    title_printed: "citrus +（4）"
+    url: https://data.ichijinsha.co.jp/detail/75802337
+  - isbn: "9784758023382"
+    on_sale: "2022-01-18"
+    title_printed: "citrus +（4）特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802338
+  - isbn: "9784758024891"
+    on_sale: "2023-01-13"
+    title_printed: "citrus +（5）"
+    url: https://data.ichijinsha.co.jp/detail/75802489
+  - isbn: "9784758024907"
+    on_sale: "2023-01-13"
+    title_printed: "citrus +（5）特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802490
+  - isbn: "9784758027229"
+    on_sale: "2024-06-25"
+    title_printed: "citrus +（6）"
+    url: https://data.ichijinsha.co.jp/detail/75802722
+  - isbn: "9784758027236"
+    on_sale: "2024-06-25"
+    title_printed: "citrus +（6）特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802723

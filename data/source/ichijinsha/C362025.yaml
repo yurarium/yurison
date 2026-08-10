@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C362025
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75807434
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758074346"
+    on_sale: "2015-06-18"
+    title_printed: "2DK、Gペン、目覚まし時計。 (1)"
+    url: https://data.ichijinsha.co.jp/detail/75807434
+  - isbn: "9784758075060"
+    on_sale: "2015-12-18"
+    title_printed: "2DK、Gペン、目覚まし時計。 (2)"
+    url: https://data.ichijinsha.co.jp/detail/75807506
+  - isbn: "9784758075688"
+    on_sale: "2016-07-16"
+    title_printed: "2DK、Gペン、目覚まし時計。 (3)"
+    url: https://data.ichijinsha.co.jp/detail/75807568
+  - isbn: "9784758076463"
+    on_sale: "2017-02-17"
+    title_printed: "2DK、Gペン、目覚まし時計。 (4)"
+    url: https://data.ichijinsha.co.jp/detail/75807646
+  - isbn: "9784758077088"
+    on_sale: "2017-07-18"
+    title_printed: "2DK、Gペン、目覚まし時計。 (5)"
+    url: https://data.ichijinsha.co.jp/detail/75807708
+  - isbn: "9784758077491"
+    on_sale: "2017-11-16"
+    title_printed: "2DK、Gペン、目覚まし時計。 (6)"
+    url: https://data.ichijinsha.co.jp/detail/75807749
+  - isbn: "9784758078115"
+    on_sale: "2018-05-18"
+    title_printed: "2DK、Gペン、目覚まし時計。 (7)"
+    url: https://data.ichijinsha.co.jp/detail/75807811
+  - isbn: "9784758078924"
+    on_sale: "2018-12-18"
+    title_printed: "2DK、Gペン、目覚まし時計。（8）初回限定版"
+    url: https://data.ichijinsha.co.jp/detail/75807892

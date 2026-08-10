@@ -1,0 +1,124 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C371024
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75807672
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758076722"
+    on_sale: "2017-05-18"
+    title_printed: "私に天使が舞い降りた!1"
+    url: https://data.ichijinsha.co.jp/detail/75807672
+  - isbn: "9784758077552"
+    on_sale: "2017-11-16"
+    title_printed: "私に天使が舞い降りた!2"
+    url: https://data.ichijinsha.co.jp/detail/75807755
+  - isbn: "9784758078191"
+    on_sale: "2018-06-15"
+    title_printed: "私に天使が舞い降りた!3"
+    url: https://data.ichijinsha.co.jp/detail/75807819
+  - isbn: "9784758078757"
+    on_sale: "2018-11-15"
+    title_printed: "私に天使が舞い降りた!4"
+    url: https://data.ichijinsha.co.jp/detail/75807875
+  - isbn: "9784758078962"
+    on_sale: "2019-01-11"
+    title_printed: "私に天使が舞い降りた!5"
+    url: https://data.ichijinsha.co.jp/detail/75807896
+  - isbn: "9784758078979"
+    on_sale: "2019-01-11"
+    title_printed: "私に天使が舞い降りた!5 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75807897
+  - isbn: "9784758079525"
+    on_sale: "2019-06-18"
+    title_printed: "私に天使が舞い降りた!6"
+    url: https://data.ichijinsha.co.jp/detail/75807952
+  - isbn: "9784758020787"
+    on_sale: "2020-01-31"
+    title_printed: "私に天使が舞い降りた!7"
+    url: https://data.ichijinsha.co.jp/detail/75802078
+  - isbn: "9784758020794"
+    on_sale: "2020-01-31"
+    title_printed: "私に天使が舞い降りた!7 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802079
+  - isbn: "9784758021562"
+    on_sale: "2020-09-18"
+    title_printed: "私に天使が舞い降りた!8"
+    url: https://data.ichijinsha.co.jp/detail/75802156
+  - isbn: "9784758021579"
+    on_sale: "2020-09-18"
+    title_printed: "私に天使が舞い降りた!8 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802157
+  - isbn: "9784758022156"
+    on_sale: "2021-02-18"
+    title_printed: "私に天使が舞い降りた!9"
+    url: https://data.ichijinsha.co.jp/detail/75802215
+  - isbn: "9784758022163"
+    on_sale: "2021-02-18"
+    title_printed: "私に天使が舞い降りた!9 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802216
+  - isbn: "9784758023061"
+    on_sale: "2021-10-18"
+    title_printed: "私に天使が舞い降りた!10"
+    url: https://data.ichijinsha.co.jp/detail/75802306
+  - isbn: "9784758023078"
+    on_sale: "2021-10-18"
+    title_printed: "私に天使が舞い降りた!10 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802307
+  - isbn: "9784758024242"
+    on_sale: "2022-06-17"
+    title_printed: "私に天使が舞い降りた!11"
+    url: https://data.ichijinsha.co.jp/detail/75802424
+  - isbn: "9784758024259"
+    on_sale: "2022-06-17"
+    title_printed: "私に天使が舞い降りた!11 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802425
+  - isbn: "9784758024600"
+    on_sale: "2022-10-14"
+    title_printed: "私に天使が舞い降りた!12"
+    url: https://data.ichijinsha.co.jp/detail/75802460
+  - isbn: "9784758024617"
+    on_sale: "2022-10-14"
+    title_printed: "私に天使が舞い降りた!12 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802461
+  - isbn: "9784758025799"
+    on_sale: "2023-07-18"
+    title_printed: "私に天使が舞い降りた!13"
+    url: https://data.ichijinsha.co.jp/detail/75802579
+  - isbn: "9784758025805"
+    on_sale: "2023-07-18"
+    title_printed: "私に天使が舞い降りた!13 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802580
+  - isbn: "9784758026574"
+    on_sale: "2024-02-17"
+    title_printed: "私に天使が舞い降りた!14"
+    url: https://data.ichijinsha.co.jp/detail/75802657
+  - isbn: "9784758026581"
+    on_sale: "2024-02-17"
+    title_printed: "私に天使が舞い降りた!14 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802658
+  - isbn: "9784758027694"
+    on_sale: "2024-09-28"
+    title_printed: "私に天使が舞い降りた!15"
+    url: https://data.ichijinsha.co.jp/detail/75802769
+  - isbn: "9784758027700"
+    on_sale: "2024-09-28"
+    title_printed: "私に天使が舞い降りた!15 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802770
+  - isbn: "9784758029018"
+    on_sale: "2025-05-29"
+    title_printed: "私に天使が舞い降りた!16"
+    url: https://data.ichijinsha.co.jp/detail/75802901
+  - isbn: "9784758029025"
+    on_sale: "2025-05-29"
+    title_printed: "私に天使が舞い降りた!16 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802902

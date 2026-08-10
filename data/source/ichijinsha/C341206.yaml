@@ -1,0 +1,148 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C341206
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75807055
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758070553"
+    on_sale: "2009-07-18"
+    title_printed: "ゆるゆり (1)"
+    url: https://data.ichijinsha.co.jp/detail/75807055
+  - isbn: "9784758070706"
+    on_sale: "2010-01-18"
+    title_printed: "ゆるゆり (2)"
+    url: https://data.ichijinsha.co.jp/detail/75807070
+  - isbn: "9784758070904"
+    on_sale: "2010-06-18"
+    title_printed: "ゆるゆり (3)"
+    url: https://data.ichijinsha.co.jp/detail/75807090
+  - isbn: "9784758071208"
+    on_sale: "2011-01-18"
+    title_printed: "ゆるゆり (4)巻"
+    url: https://data.ichijinsha.co.jp/detail/75807120
+  - isbn: "9784758071475"
+    on_sale: "2011-05-18"
+    title_printed: "ゆるゆり (5)巻"
+    url: https://data.ichijinsha.co.jp/detail/75807147
+  - isbn: "9784758071505"
+    on_sale: "2011-06-18"
+    title_printed: "ゆるゆり (6)巻"
+    url: https://data.ichijinsha.co.jp/detail/75807150
+  - isbn: "9784758071451"
+    on_sale: "2011-07-28"
+    title_printed: "ゆるゆり (7)巻"
+    url: https://data.ichijinsha.co.jp/detail/75807145
+  - isbn: "9784758072007"
+    on_sale: "2012-07-23"
+    title_printed: "ゆるゆり (8)巻"
+    url: https://data.ichijinsha.co.jp/detail/75807200
+  - isbn: "9784758072038"
+    on_sale: "2012-07-26"
+    title_printed: "ゆるゆり (9)巻"
+    url: https://data.ichijinsha.co.jp/detail/75807203
+  - isbn: "9784758072519"
+    on_sale: "2013-06-01"
+    title_printed: "ゆるゆり (10)巻"
+    url: https://data.ichijinsha.co.jp/detail/75807251
+  - isbn: "9784758072526"
+    on_sale: "2013-06-01"
+    title_printed: "ゆるゆり (10)巻 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75807252
+  - isbn: "9784758072908"
+    on_sale: "2014-02-01"
+    title_printed: "ゆるゆり (11)巻"
+    url: https://data.ichijinsha.co.jp/detail/75807290
+  - isbn: "9784758072915"
+    on_sale: "2014-02-01"
+    title_printed: "ゆるゆり (11)巻 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75807291
+  - isbn: "9784758073264"
+    on_sale: "2014-08-04"
+    title_printed: "ゆるゆり (12)巻"
+    url: https://data.ichijinsha.co.jp/detail/75807326
+  - isbn: "9784758073905"
+    on_sale: "2015-02-04"
+    title_printed: "ゆるゆり (13)巻"
+    url: https://data.ichijinsha.co.jp/detail/75807390
+  - isbn: "9784758075213"
+    on_sale: "2016-01-18"
+    title_printed: "ゆるゆり (14)巻 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75807521
+  - isbn: "9784758076753"
+    on_sale: "2017-05-31"
+    title_printed: "ゆるゆり (15) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75807675
+  - isbn: "9784758079747"
+    on_sale: "2019-08-29"
+    title_printed: "ゆるゆり (17)"
+    url: https://data.ichijinsha.co.jp/detail/75807974
+  - isbn: "9784758079754"
+    on_sale: "2019-08-29"
+    title_printed: "ゆるゆり (17) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75807975
+  - isbn: "9784758021142"
+    on_sale: "2020-05-27"
+    title_printed: "ゆるゆり (18)"
+    url: https://data.ichijinsha.co.jp/detail/75802114
+  - isbn: "9784758021159"
+    on_sale: "2020-05-27"
+    title_printed: "ゆるゆり (18) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802115
+  - isbn: "9784758021975"
+    on_sale: "2020-12-23"
+    title_printed: "ゆるゆり (19)"
+    url: https://data.ichijinsha.co.jp/detail/75802197
+  - isbn: "9784758021982"
+    on_sale: "2020-12-23"
+    title_printed: "ゆるゆり (19) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802198
+  - isbn: "9784758022866"
+    on_sale: "2021-08-31"
+    title_printed: "ゆるゆり (20)"
+    url: https://data.ichijinsha.co.jp/detail/75802286
+  - isbn: "9784758022873"
+    on_sale: "2021-08-31"
+    title_printed: "ゆるゆり (20) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802287
+  - isbn: "9784758023405"
+    on_sale: "2021-12-27"
+    title_printed: "ゆるゆり (21)"
+    url: https://data.ichijinsha.co.jp/detail/75802340
+  - isbn: "9784758023412"
+    on_sale: "2021-12-27"
+    title_printed: "ゆるゆり (21) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802341
+  - isbn: "9784758024815"
+    on_sale: "2022-12-26"
+    title_printed: "ゆるゆり (22)"
+    url: https://data.ichijinsha.co.jp/detail/75802481
+  - isbn: "9784758024822"
+    on_sale: "2022-12-26"
+    title_printed: "ゆるゆり (22) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802482
+  - isbn: "9784758028196"
+    on_sale: "2024-12-24"
+    title_printed: "ゆるゆり (23)"
+    url: https://data.ichijinsha.co.jp/detail/75802819
+  - isbn: "9784758028202"
+    on_sale: "2024-12-24"
+    title_printed: "ゆるゆり (23) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802820
+  - isbn: "9784758029827"
+    on_sale: "2025-10-30"
+    title_printed: "ゆるゆり (24)"
+    url: https://data.ichijinsha.co.jp/detail/75802982
+  - isbn: "9784758029834"
+    on_sale: "2025-10-30"
+    title_printed: "ゆるゆり (24) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802983

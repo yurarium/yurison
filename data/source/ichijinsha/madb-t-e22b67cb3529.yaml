@@ -1,0 +1,28 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: madb-t-e22b67cb3529
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75802752
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758027526"
+    on_sale: "2024-08-17"
+    title_printed: "崖っぷち令嬢は黒騎士様を惚れさせたい！（1）"
+    url: https://data.ichijinsha.co.jp/detail/75802752
+  - isbn: "9784758028820"
+    on_sale: "2025-04-17"
+    title_printed: "崖っぷち令嬢は黒騎士様を惚れさせたい！（2）"
+    url: https://data.ichijinsha.co.jp/detail/75802882
+  - isbn: "9784758029926"
+    on_sale: "2025-11-18"
+    title_printed: "崖っぷち令嬢は黒騎士様を惚れさせたい！（3）"
+    url: https://data.ichijinsha.co.jp/detail/75802992

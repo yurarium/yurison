@@ -1,0 +1,48 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C357167
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75800637
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758006378"
+    on_sale: "2011-07-16"
+    title_printed: "ゆるゆり コミックアンソロジー"
+    url: https://data.ichijinsha.co.jp/detail/75800637
+  - isbn: "9784758006538"
+    on_sale: "2011-09-24"
+    title_printed: "ゆるゆり コミックアンソロジー VOL.2"
+    url: https://data.ichijinsha.co.jp/detail/75800653
+  - isbn: "9784758006606"
+    on_sale: "2011-10-25"
+    title_printed: "ゆるゆり コミックアンソロジー VOL.3"
+    url: https://data.ichijinsha.co.jp/detail/75800660
+  - isbn: "9784758006859"
+    on_sale: "2012-04-25"
+    title_printed: "ゆるゆり コミックアンソロジー VOL.4"
+    url: https://data.ichijinsha.co.jp/detail/75800685
+  - isbn: "9784758006965"
+    on_sale: "2012-06-25"
+    title_printed: "ゆるゆり コミックアンソロジー VOL.5"
+    url: https://data.ichijinsha.co.jp/detail/75800696
+  - isbn: "9784758007047"
+    on_sale: "2012-07-25"
+    title_printed: "ゆるゆり コミックアンソロジー VOL.6"
+    url: https://data.ichijinsha.co.jp/detail/75800704
+  - isbn: "9784758007139"
+    on_sale: "2012-08-25"
+    title_printed: "ゆるゆり コミックアンソロジー VOL.7"
+    url: https://data.ichijinsha.co.jp/detail/75800713
+  - isbn: "9784758007177"
+    on_sale: "2012-09-25"
+    title_printed: "ゆるゆり コミックアンソロジー VOL.8"
+    url: https://data.ichijinsha.co.jp/detail/75800717

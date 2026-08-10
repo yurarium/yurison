@@ -1,0 +1,44 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C447146
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75802202
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758022026"
+    on_sale: "2021-01-18"
+    title_printed: "君と綴るうたかた（1）"
+    url: https://data.ichijinsha.co.jp/detail/75802202
+  - isbn: "9784758022668"
+    on_sale: "2021-06-17"
+    title_printed: "君と綴るうたかた（2）"
+    url: https://data.ichijinsha.co.jp/detail/75802266
+  - isbn: "9784758023689"
+    on_sale: "2022-02-17"
+    title_printed: "君と綴るうたかた（3）"
+    url: https://data.ichijinsha.co.jp/detail/75802368
+  - isbn: "9784758024518"
+    on_sale: "2022-08-18"
+    title_printed: "君と綴るうたかた（4）"
+    url: https://data.ichijinsha.co.jp/detail/75802451
+  - isbn: "9784758025126"
+    on_sale: "2023-03-16"
+    title_printed: "君と綴るうたかた（5）"
+    url: https://data.ichijinsha.co.jp/detail/75802512
+  - isbn: "9784758026604"
+    on_sale: "2024-02-17"
+    title_printed: "君と綴るうたかた（6）初回限定版"
+    url: https://data.ichijinsha.co.jp/detail/75802660
+  - isbn: "9784758028301"
+    on_sale: "2024-12-17"
+    title_printed: "君と綴るうたかた（6）"
+    url: https://data.ichijinsha.co.jp/detail/75802830

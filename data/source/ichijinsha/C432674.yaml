@@ -1,0 +1,80 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C432674
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75807950
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758079501"
+    on_sale: "2019-06-18"
+    title_printed: "ささやくように恋を唄う（1）"
+    url: https://data.ichijinsha.co.jp/detail/75807950
+  - isbn: "9784758020749"
+    on_sale: "2020-01-17"
+    title_printed: "ささやくように恋を唄う（2）"
+    url: https://data.ichijinsha.co.jp/detail/75802074
+  - isbn: "9784758021357"
+    on_sale: "2020-07-17"
+    title_printed: "ささやくように恋を唄う（3）"
+    url: https://data.ichijinsha.co.jp/detail/75802135
+  - isbn: "9784758022019"
+    on_sale: "2021-01-18"
+    title_printed: "ささやくように恋を唄う（4）"
+    url: https://data.ichijinsha.co.jp/detail/75802201
+  - isbn: "9784758022941"
+    on_sale: "2021-09-17"
+    title_printed: "ささやくように恋を唄う（5）"
+    url: https://data.ichijinsha.co.jp/detail/75802294
+  - isbn: "9784758023979"
+    on_sale: "2022-04-18"
+    title_printed: "ささやくように恋を唄う（6）"
+    url: https://data.ichijinsha.co.jp/detail/75802397
+  - isbn: "9784758024914"
+    on_sale: "2023-01-18"
+    title_printed: "ささやくように恋を唄う（7）"
+    url: https://data.ichijinsha.co.jp/detail/75802491
+  - isbn: "9784758025782"
+    on_sale: "2023-07-18"
+    title_printed: "ささやくように恋を唄う（8）"
+    url: https://data.ichijinsha.co.jp/detail/75802578
+  - isbn: "9784758026949"
+    on_sale: "2024-03-18"
+    title_printed: "ささやくように恋を唄う（9）"
+    url: https://data.ichijinsha.co.jp/detail/75802694
+  - isbn: "9784758026956"
+    on_sale: "2024-03-18"
+    title_printed: "ささやくように恋を唄う（9）特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802695
+  - isbn: "9784758027427"
+    on_sale: "2024-07-29"
+    title_printed: "ささやくように恋を唄う（10）"
+    url: https://data.ichijinsha.co.jp/detail/75802742
+  - isbn: "9784758027434"
+    on_sale: "2024-07-29"
+    title_printed: "ささやくように恋を唄う（10）特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802743
+  - isbn: "9784758029261"
+    on_sale: "2025-06-27"
+    title_printed: "ささやくように恋を唄う（11）"
+    url: https://data.ichijinsha.co.jp/detail/75802926
+  - isbn: "9784758029278"
+    on_sale: "2025-06-27"
+    title_printed: "ささやくように恋を唄う（11）特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802927
+  - isbn: "9784758098342"
+    on_sale: "2026-04-17"
+    title_printed: "ささやくように恋を唄う（12）"
+    url: https://data.ichijinsha.co.jp/detail/75809834
+  - isbn: "9784758098359"
+    on_sale: "2026-04-17"
+    title_printed: "ささやくように恋を唄う（12）特装版"
+    url: https://data.ichijinsha.co.jp/detail/75809835

@@ -1,0 +1,68 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# 発売日 as the publisher states it. This is NOT the 奥付 date a bibliography carries, and
+# it does not replace one: see adapters/ichijinsha.py and docs/GAPS.md.
+source: ichijinsha
+retrieved: 2026-08-08
+work_id: C357320
+record_type: publisher_catalogue
+publisher: "一迅社"
+catalogue_url: https://data.ichijinsha.co.jp/detail/75807250
+date_event: publisher-on-sale
+date_basis: publisher-catalogue
+date_note: >-
+  発売日 as 一迅社 states it in its own catalogue: the day the house put this book on sale. It is a
+  different event from the 奥付 month a bibliography records, which for this house usually falls
+  the month after, and it neither corrects that month nor is corrected by it.
+volumes:
+  - isbn: "9784758072502"
+    on_sale: "2013-08-01"
+    title_printed: "大室家 (1) 限定版"
+    url: https://data.ichijinsha.co.jp/detail/75807250
+  - isbn: "9784758079822"
+    on_sale: "2019-10-31"
+    title_printed: "大室家 (3)"
+    url: https://data.ichijinsha.co.jp/detail/75807982
+  - isbn: "9784758079839"
+    on_sale: "2019-10-31"
+    title_printed: "大室家 (3) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75807983
+  - isbn: "9784758021999"
+    on_sale: "2020-12-23"
+    title_printed: "大室家 (4)"
+    url: https://data.ichijinsha.co.jp/detail/75802199
+  - isbn: "9784758022002"
+    on_sale: "2020-12-23"
+    title_printed: "大室家 (4) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802200
+  - isbn: "9784758023429"
+    on_sale: "2021-12-27"
+    title_printed: "大室家 (5)"
+    url: https://data.ichijinsha.co.jp/detail/75802342
+  - isbn: "9784758023436"
+    on_sale: "2021-12-27"
+    title_printed: "大室家 (5) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802343
+  - isbn: "9784758024839"
+    on_sale: "2022-12-26"
+    title_printed: "大室家 (6)"
+    url: https://data.ichijinsha.co.jp/detail/75802483
+  - isbn: "9784758024846"
+    on_sale: "2022-12-26"
+    title_printed: "大室家 (6) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802484
+  - isbn: "9784758026628"
+    on_sale: "2024-02-29"
+    title_printed: "大室家 (7)"
+    url: https://data.ichijinsha.co.jp/detail/75802662
+  - isbn: "9784758026635"
+    on_sale: "2024-02-29"
+    title_printed: "大室家 (7) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802663
+  - isbn: "9784758028219"
+    on_sale: "2024-12-24"
+    title_printed: "大室家 (8)"
+    url: https://data.ichijinsha.co.jp/detail/75802821
+  - isbn: "9784758028226"
+    on_sale: "2024-12-24"
+    title_printed: "大室家 (8) 特装版"
+    url: https://data.ichijinsha.co.jp/detail/75802822

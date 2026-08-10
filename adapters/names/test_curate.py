@@ -394,6 +394,26 @@ def main(s):
         f.write_text("titles:\n  ある話:\n    en: One\n")
         s.eq(curate.duplicate_keys(f), [], "a clean file reports nothing")
 
+        # A FIELD WRITTEN TWICE INSIDE ONE ENTRY GOES THE SAME WAY, and checking only the top level
+        # is this check sharing its subject's blind spot. Merging a decision into an entry that
+        # already held a reading gave 11 titles two `source` and two `reviewed` lines each, and the
+        # top level was clean throughout.
+        f.write_text("titles:\n  ある話:\n    en: One\n    source: derived\n"
+                     "    note: >-\n      a sentence\n      over two lines\n"
+                     "    source: yurarium\n    reviewed: '2026-08-10'\n")
+        inner = curate.duplicate_keys(f)
+        s.eq([(x[0], x[1]) for x in inner], [("titles", "ある話.source")],
+             "a field written twice in one entry is found, named under the entry it is in")
+        s.eq(inner[0][2], [4, 8], "with both lines, and the wrapped note between them is not a key")
+        s.check(not any(x[1] == "ある話" for x in inner),
+                "and the entry itself is not reported, having been written once")
+
+        # TWO BLOCKS SHARING A NAME ARE TWO BLOCKS. Pooling their fields reported the second
+        # entry's `en:` as a duplicated field, which is one fault counted twice and misnamed.
+        f.write_text("titles:\n  ある話:\n    en: One\n  ある話:\n    en: Three\n")
+        s.eq([(x[0], x[1]) for x in curate.duplicate_keys(f)], [("titles", "ある話")],
+             "a duplicated entry is one finding and its fields are not a second")
+
     dividing_bases_and_donors(s)
 
 

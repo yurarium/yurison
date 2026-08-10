@@ -51,6 +51,33 @@ def main(s):
                                   {"title": "ふたりの話 2", "series_title": None}]), "2026-08-06")
     s.eq(two["title"], "ふたりの話", "a volume number is stripped from a borrowed title")
 
+    # A SHOP HOLDING ONE VOLUME STILL NUMBERS IT, and stripping only where there were siblings sent
+    # `うどみょん１` to the works list with the number in its name. The shop stocks one volume of a
+    # doujin, so the sibling test could never fire on exactly the works that needed it.
+    lone = bw.record(work(volumes=[{"title": "うどみょん１", "series_title": None}]), "2026-08-06")
+    s.eq(lone["title"], "うどみょん", "a lone volume's number is not part of the work's name either")
+
+    # AND WHAT SITS BEFORE THE NUMBER IS WHAT SAYS WHETHER IT IS ONE. Seven of the nine single
+    # volumes ending in a digit are ギロチン銀座's 再録集, where the number counts re-collections and
+    # belongs to that word. Stripping by shape alone renames every one of them.
+    kept = bw.record(work(volumes=[{"title": "乙女ホリック 再録集4", "series_title": None}]), "2026-08-06")
+    s.eq(kept["title"], "乙女ホリック 再録集4", "a number a counter word governs stays in the title")
+    s.eq(bw.without_volume_number("ガチ恋カウント2.9"), "ガチ恋カウント2.9",
+         "and a digit inside a number is not a volume")
+    s.eq(bw.without_volume_number("百合姫 第3巻"), "百合姫", "第 and 巻 around it are still a volume")
+    s.eq(bw.without_volume_number("2"), "2", "a title that is only a number keeps it, having no other")
+
+    # A HALF-WIDTH DIGIT GLUED TO A NAME IS THE NAME. These are the counter-cases that stop the rule
+    # from being "ends in a digit", and every one of them is a shipped row.
+    for name in ("魔法少女201", "あやめ14", "Smile0", "P-0004", "ラブフェロモンNo.5",
+                 "百合姫表紙集 2011-2025", "小学生百合2019", "百合癖シチュ100"):
+        s.eq(bw.without_volume_number(name), name, f"{name} keeps the number that is its name")
+
+    # AND A SENTENCE-FINAL MARK MARKS ONE OFF, which is what tells `ふぉーおぶあかいんど！2` from
+    # `あやめ14`: both are one volume with a half-width digit and only one has a boundary.
+    s.eq(bw.without_volume_number("ふぉーおぶあかいんど！2"), "ふぉーおぶあかいんど！",
+         "a number after ！ is a volume, and the mark stays with the name")
+
     # NOTHING CAPTURED IS NOT A WORK WITHOUT A NAME. 284 rows read no volumes at all.
     s.eq(bw.record(work(volumes=[]), "2026-08-06"), None,
          "a work the capture could not open is skipped rather than invented")

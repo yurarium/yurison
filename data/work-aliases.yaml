@@ -33,3 +33,20 @@ aliases:
       完全版 records got when their base title was already held; this one had no base row to merge
       into, which is why it stayed behind.
     retrieved: 2026-08-08
+  - variant: "うどみょん１"
+    canonical: "うどみょん"
+    note: >-
+      BOOK☆WALKER's own listing carries the volume number in the volume's title, and this record's
+      title was taken from it because the shop stocks one volume of the work. `bwingest` stripped a
+      volume number only where a work had more than one, so a doujin the shop holds a single volume
+      of could never qualify. The record's own reading note already read "apart from the volume
+      number" while the title kept it. The rule now reads the full-width digit as the boundary it
+      is; this row is for the record already written.
+    retrieved: 2026-08-10
+  - variant: "ふぉーおぶあかいんど！2"
+    canonical: "ふぉーおぶあかいんど！"
+    note: >-
+      The same case as うどみょん１ with a half-width digit, where what marks the number off is the
+      ！ before it. studio Kiro's listing is one volume, so the sibling test could not fire here
+      either.
+    retrieved: 2026-08-10

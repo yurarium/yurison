@@ -39,6 +39,11 @@ def main(s):
             # Already the work's own Latin name.
             "GIRL FRIENDS": {"basis": "romaji", "romaji": {"macron": "GIRL FRIENDS"}},
             "schadenliebe": {"basis": "romaji", "romaji": {"macron": "schadenliebe"}},
+            # Latin names carrying marks an approved-punctuation list did not hold.
+            'She "Falls" in Love': {"basis": "romaji"},
+            "YuRe：Log": {"basis": "romaji"},
+            "maimaimaimai mind！": {"basis": "romaji"},
+            "Rouge　caprice": {"basis": "romaji"},
             # A short kana coinage.
             "ナキノン": {"basis": "romaji", "romaji": {"macron": "Nakinon"}},
             # A phrase nobody has named.
@@ -63,6 +68,14 @@ def main(s):
         # THE ONE THE FIRST RUN GOT WRONG. A title already in Latin letters is the work's own name.
         s.eq(got.get("GIRL FRIENDS"), "already-latin", "a Latin title needs no English rendering")
         s.eq(got.get("schadenliebe"), "already-latin", "including a lowercase one")
+
+        # WHAT MAKES IT LATIN IS THE ABSENCE OF JAPANESE. A list of approved punctuation held none
+        # of these four and sent every one of them to somebody to translate into English.
+        for latin in ('She "Falls" in Love', "YuRe：Log", "maimaimaimai mind！", "Rouge　caprice"):
+            s.eq(got.get(latin), "already-latin", f"{latin} is already its own name, marks and all")
+        s.check(not worklist.already_latin("球詠"), "and a title with no Latin letters is not")
+        s.check(not worklist.already_latin("Fate/kaleid ライナー"),
+                "nor is one mixing the two, which still owes a rendering of its Japanese")
         s.ne(got.get("GIRL FRIENDS"), "compose",
              "and it is not sent to somebody to translate, which is what it was")
 

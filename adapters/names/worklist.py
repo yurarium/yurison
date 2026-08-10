@@ -53,7 +53,18 @@ ENGLISH = re.compile(r"\b(the|a|an|of|and|in|is|my|your|with|to|for|who|that|but
 #: are the work's own name and need no English rendering at all, so a queue that sends somebody to
 #: translate them is wasting the one resource this queue exists to spend. Found on the first run of
 #: this module, which had 30 of them under `compose`.
-ALREADY_LATIN = re.compile(r"^[A-Za-z0-9 .,!?&@:'\-+#/♡×~]+$")
+#:
+#: WHAT MAKES A TITLE LATIN IS THE ABSENCE OF JAPANESE and not the presence of an approved list of
+#: punctuation. Listing the marks missed seven more: `She "Falls" in Love` carries quotes,
+#: `YuRe：Log` and `maimaimaimai mind！` carry full-width marks, and `Rouge　caprice` is divided by
+#: an ideographic space. Every one of them was queued for somebody to translate into English.
+JAPANESE = re.compile(r"[ぁ-ゟ゠-ヿ㐀-䶿一-鿿々〆ヵヶ]")
+LATIN = re.compile(r"[A-Za-z]")
+
+
+def already_latin(title):
+    """Whether the work's own name is in Latin letters and no English rendering is owed."""
+    return bool(LATIN.search(title) and not JAPANESE.search(title))
 
 #: A title this short, in kana, is usually a coinage or a name, and a romanisation is the finished
 #: answer for those. Kept as a hint and never as a verdict.
@@ -111,7 +122,7 @@ def rows(build="data/build"):
             continue
         sib = answered.get(_bare(ja))
         shown = ((rec.get("romaji") or {}).get("macron") or "")
-        if ALREADY_LATIN.match(ja.strip()):
+        if already_latin(ja.strip()):
             route, why = "already-latin", "the work's own name is in Latin letters"
         # A ROMANISATION THAT DIVIDES A SURFACE STATING NO DIVISION. さろめりっく is seven kana
         # written straight through and reaches a reader as `Saro Meri Kku`; the spaces are the

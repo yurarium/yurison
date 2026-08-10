@@ -412,19 +412,34 @@ def duplicate_keys(path=None):
 
     Read as TEXT, because the parser is what loses them: by the time a dict exists the evidence is
     gone. `(section, key, [line numbers])`.
+
+    A FIELD WRITTEN TWICE INSIDE ONE ENTRY GOES THE SAME WAY, and looking only at the top level is
+    the check sharing its subject's blind spot. Merging an entry that already held a reading put a
+    second `source` and `reviewed` under 11 titles at once: the file parsed, the top level was
+    clean, and each entry quietly held one of its two dates.
     """
     import collections
     lines = pathlib.Path(path or FILE).read_text().split("\n")
-    section, seen = None, collections.defaultdict(list)
+    section, entry, seen, fields = None, None, collections.defaultdict(list), {}
     for n, line in enumerate(lines, 1):
         head = re.match(r"^(%s):" % "|".join(CURATED_KINDS), line)
         if head:
-            section = head.group(1)
+            section, entry = head.group(1), None
             continue
         key = re.match(r"^  (\S.*?):\s*$", line)
         if key and section:
+            # KEYED ON THE BLOCK AND NOT ON ITS NAME, because two blocks sharing a name are two
+            # blocks. Pooling their fields reports the second `en:` of a duplicated entry as a
+            # duplicated field, which is one fault counted twice and named wrongly the second time.
+            entry = (section, key.group(1), n)
             seen[(section, key.group(1))].append(n)
-    return [(s, k, ns) for (s, k), ns in seen.items() if len(ns) > 1]
+            continue
+        field = re.match(r"^    ([A-Za-z_]+):", line)
+        if field and entry:
+            fields.setdefault((entry, field.group(1)), []).append(n)
+    out = [(s, k, ns) for (s, k), ns in seen.items() if len(ns) > 1]
+    out += [(e[0], f"{e[1]}.{f}", ns) for (e, f), ns in fields.items() if len(ns) > 1]
+    return out
 
 
 def known_titles(build="data/build"):

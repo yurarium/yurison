@@ -7137,7 +7137,12 @@ names:
     reading_source_kind: analyser
     verified: false
   いちゃらぶしかない百合アンソロジーコミックsugar:
-    basis: romaji
+    basis: translated
+    en: 'Nothing But Lovey-Dovey: A Yuri Anthology Comic, sugar'
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - いちゃらぶしかない
       - null
@@ -7145,8 +7150,8 @@ names:
       - ゆり
     - - アンソロジーコミックsugar
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: いちゃらぶ is affection shown openly and at length, and しかない says the book holds that and no other
+      kind of story. sugar is the volume's own name and keeps its lowercase.
     reading: イチャ ラブ シカ ナイ ユリ アンソロジー コミック sugar
     reading_at: '2026-08-08'
     reading_basis: analyser
@@ -7691,6 +7696,27 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  うどみょん:
+    basis: romaji
+    en: Udomyon
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: A coinage in kana with no meaning to render, so the romanisation is the finished name. The work
+      reached the list as うどみょん１ because BOOK☆WALKER stocks one volume of it and the volume number was
+      only stripped from works with more than one, which this could never be.
+    reading: ウドミョン
+    reading_at: '2026-08-10'
+    reading_basis: researched
+    reading_note: 'The title is written in kana throughout, so the reading is the surface transcribed.
+      The analyser divided it ウド ミ ョ ン, which splits ょ and ん off as words of their own: neither can stand
+      alone, and no reading of the title has a boundary there.'
+    reading_pass: 4
+    reading_reviewed: '2026-08-10'
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   うどみょん１:
     basis: romaji
@@ -11018,11 +11044,16 @@ names:
     verified: false
   こい☆フラ　レボリューション:
     basis: romaji
+    en: Koi☆Fla Revolution
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
     furigana_spans:
     - - こい☆フラ　レボリューション
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: こい is 恋 and フラ is a clipping the title never expands, so the first half is a coinage. The star
+      is the title's own mark.
     reading: コイ ☆ フラ 　 レボリューション
     reading_at: '2026-08-06'
     reading_basis: analyser
@@ -12002,12 +12033,17 @@ names:
     reading_source_kind: analyser
     verified: false
   これでわかってよ!:
-    basis: romaji
+    basis: translated
+    en: Get the Message!
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - これでわかってよ!
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: これでわかってよ is a speaker asking to be understood from what she has already done, with よ pressing
+      the point. Get the message carries both the request and the exasperation in it.
     reading: コレ デ ワカッテ ヨ !
     reading_at: '2026-08-08'
     reading_basis: analyser
@@ -17024,6 +17060,30 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  ふぉーおぶあかいんど！:
+    basis: translated
+    en: Four of a Kind!
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The English phrase spelled out in hiragana, which softens it and slows it down. The card game's
+      four of a kind is what it says. The 2 was the volume's number and not the work's, so the English
+      no longer carries it either.
+    reading: フォーオブアカインド
+    reading_at: '2026-08-10'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: SudachiPy 0.6.11, SudachiDict-core 20260723
+      value: フ ォー オ ブア カ インド！
+    reading_note: The title is the English phrase four of a kind spelled in hiragana, so the reading is
+      the katakana the same phrase takes. Renaming the work off its volume number made this key new and
+      the analyser read it from scratch, which is what a hiragana spelling of English defeats.
+    reading_reviewed: '2026-08-10'
+    reading_source: yurarium
+    reading_source_kind: derived
+    verified: false
   ふぉーおぶあかいんど！2:
     basis: translated
     en: Four of a Kind! 2
@@ -17369,11 +17429,15 @@ names:
     verified: false
   ふちゅれ！オトメ:
     basis: romaji
+    en: Futule! Otome
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
     furigana_spans:
     - - ふちゅれ！オトメ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: ふちゅれ is a coined word and オトメ is 乙女 written in katakana as a name. Neither half states a phrase.
     reading: フチュレ！ オトメ
     reading_at: '2026-08-06'
     reading_basis: analyser
@@ -19561,12 +19625,19 @@ names:
     verified: false
   ゆゆ式:
     basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    en: Yuyushiki
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: 式 here is the suffix for a style or a way of doing things, attached to a coined ゆゆ, so the title
+      names a manner and not a thing English has a word for.
     reading: ユユシキ
-    reading_at: '2026-08-08'
+    reading_at: '2026-08-10'
     reading_basis: stated
-    reading_reviewed: '2026-08-08'
+    reading_corroborated:
+    - derived
+    reading_reviewed: '2026-08-10'
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034320623
@@ -19842,11 +19913,17 @@ names:
     verified: false
   ゆりでなる♡えすぽわーる:
     basis: romaji
+    en: Yuri de Naru ♡ Espoir
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
     furigana_spans:
     - - ゆりでなる♡えすぽわーる
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: えすぽわーる is the French espoir, hope, spelled in kana, so it is rendered as that word. The first
+      half is a play on 百合 and the title has no English of its own beyond it. The row showed e Supo Wāru,
+      which divides a word nobody divided.
     reading: ユリ デ ナル ♡ エ スポ ワール
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -19956,6 +20033,13 @@ names:
     reading_source_kind: analyser
     verified: false
   ゆりゆり:
+    basis: romaji
+    en: Yuri Yuri
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: A doubling of 百合 used as a name, with no phrase under it to translate.
     reading: ユリユリ
     reading_at: '2026-08-05'
     reading_basis: surface
@@ -22227,12 +22311,16 @@ names:
     reading_source: surface
     verified: true
   イヴとイヴ:
-    basis: romaji
+    basis: translated
+    en: Eve and Eve
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - イヴとイヴ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: イヴ is Eve, the name, and と joins the pair. The English is the same two words the Japanese is.
     reading: イヴ ト イヴ
     reading_at: '2026-08-08'
     reading_basis: analyser
@@ -24263,6 +24351,14 @@ names:
     reading_source_kind: analyser
     verified: false
   キマシ!:
+    basis: romaji
+    en: Kimashi!
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: キマシ is the fandom interjection called out when two characters read as a couple, and it has no
+      English equivalent that is a word rather than a sentence.
     reading: キマシ!
     reading_at: '2026-08-05'
     reading_basis: surface
@@ -26058,9 +26154,14 @@ names:
     reading_source: surface
     verified: true
   'サタノファニ : 妖艶彩色本・極':
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: 'Satanophany: Bewitching Colour Book, Deluxe'
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
+    note: サタノファニ is the coined Satanophany the series is sold under. 妖艶 is a beauty that unsettles and
+      彩色本 is a book of colour art. 極 marks the better of two editions.
     reading: 'サタノファニ : ヨウエン サイシキボン ・ キワミ'
     reading_at: '2026-08-08'
     reading_basis: stated
@@ -30294,9 +30395,14 @@ names:
     reading_source_kind: analyser
     verified: false
   ハニー＆ハニー:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: Honey & Honey
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Both halves are the English word in kana and ＆ is the ampersand, so the title is already English
+      and only the script is Japanese.
     reading: ハニー ＆ ハニー
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -32688,6 +32794,13 @@ names:
     reading_source: surface
     verified: true
   ボドカン！:
+    basis: romaji
+    en: Bodokan!
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: A clipping of ボードゲーム同好会 in the shape club names take, so it is a coinage and not a phrase.
     reading: ボドカン！
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -35147,8 +35260,12 @@ names:
     verified: false
   リンリンサイド！！:
     basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    en: Rin Rin Side!!
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: A character name doubled and followed by サイド, the word a spin-off uses for whose view it takes.
     reading: リンリンサイド！！
     reading_at: '2026-08-06'
     reading_basis: analyser
@@ -35354,7 +35471,12 @@ names:
     reading_source_kind: analyser
     verified: false
   レズ風俗アンソロジーリピーター:
-    basis: romaji
+    basis: translated
+    en: 'The Lesbian Sex-Trade Anthology: Repeater'
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - レズ
       - null
@@ -35362,8 +35484,8 @@ names:
       - ふうぞく
     - - アンソロジーリピーター
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 風俗 is the sex trade as an industry and レズ風俗 is the part of it staffed by and sold to women.
+      リピーター is a returning customer, which is the anthology's subject and its subtitle.
     reading: レズ フウゾク アンソロジー リピーター
     reading_at: '2026-08-08'
     reading_basis: analyser
@@ -35518,12 +35640,17 @@ names:
     reading_source: surface
     verified: true
   レンズのむこう:
-    basis: romaji
+    basis: translated
+    en: Beyond the Lens
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - レンズのむこう
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: むこう is what lies on the far side and の marks the lens as the thing it lies beyond. The row showed
+      Renzu no Mukō, which is the phrase transcribed rather than read.
     reading: レンズ ノ ムコウ
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -36449,7 +36576,12 @@ names:
     reading_source_kind: analyser
     verified: false
   一端の子:
-    basis: romaji
+    basis: translated
+    en: A Child of Some Standing
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 一端
       - いったん
@@ -36457,13 +36589,15 @@ names:
       - null
     - - 子
       - こ
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 一端の is idiomatic and means full-fledged or of some account, said of somebody who has earned
+      a place. Reading the characters singly gives an edge or a end, which is not what the phrase is.
     reading: イッタン ノ コ
-    reading_at: '2026-08-08'
+    reading_at: '2026-08-10'
     reading_basis: stated
+    reading_corroborated:
+    - yurarium
     reading_pass: 4
-    reading_reviewed: '2026-08-08'
+    reading_reviewed: '2026-08-10'
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I030101132
@@ -38480,15 +38614,22 @@ names:
     verified: false
   京アミ！:
     basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    en: Kyō Ami!
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: A clipped compound naming a group, in the shape a club or a circle takes, with nothing spelled
+      out to render.
     reading: キョウアミ！
-    reading_at: '2026-08-08'
+    reading_at: '2026-08-10'
     reading_basis: researched
+    reading_corroborated:
+    - derived
     reading_note: 'Two NDL records state the reading and differ only in whether the exclamation mark is
       transcribed: キョウアミ and キョウアミ !. The kana is the same on both, so what they settle is that 京アミ is
       one word, where the analyser divided キョウ from アミ. NDL''s record is https://ndlsearch.ndl.go.jp/books/R100000002-I024097725.'
-    reading_reviewed: '2026-08-08'
+    reading_reviewed: '2026-08-10'
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: derived
     verified: false
@@ -43269,11 +43410,16 @@ names:
     reading_source_kind: analyser
     verified: false
   可愛原先輩はかわいいがすき！:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: Kawaihara-senpai Likes Cute Things!
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The surname 可愛原 is written with the characters of かわいい, so her name says what she likes. English
+      cannot hold the pun and keeps the name as it is read.
     reading: カワイハラ センパイ ワ カワイイ ガ スキ！
-    reading_at: '2026-08-08'
+    reading_at: '2026-08-10'
     reading_basis: researched
     reading_conflicts:
     - basis: analyser
@@ -43285,7 +43431,7 @@ names:
       which no Japanese surname uses here. カワイバラ is the alternative, since 原 voices in 桑原 and does not
       in 上原, and nothing about this name settles which; ハラ is the commoner and the pun does not turn on
       it.'
-    reading_reviewed: '2026-08-08'
+    reading_reviewed: '2026-08-10'
     reading_source: yurarium
     reading_source_kind: derived
     verified: false
@@ -46954,22 +47100,29 @@ names:
     verified: false
   天華百剣 ‐瞬‐:
     basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    en: Tenka Hyakken -Shun-
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: The work is a tie-in to the game of that name, which is sold as Tenka Hyakken, and 瞬 is the
+      subtitle marking this line. The dashes are the title's own.
     reading: テンカヒャッケン ‐ シュン ‐
-    reading_at: '2026-08-08'
+    reading_at: '2026-08-10'
     reading_basis: researched
     reading_conflicts:
     - basis: analyser
       source: sudachi
       value: テンカ ヒャク ケン   ‐ マドカ ‐
+    reading_corroborated:
+    - derived
     reading_note: '天華百剣 is てんかひゃっけん: 百 geminates before a k-sound, as it does in 百科 ヒャッカ, so the stored
       テンカ ヒャク ケン was wrong before the subtitle was reached. ‐瞬‐ is a single kanji bracketed as a subtitle,
       which is the shape the same franchise uses for ‐斬‐, and a subtitle in that shape takes the on-reading:
       シュン. The analyser answered マドカ, which is a given-name reading of 瞬 and reads the subtitle as somebody''s
       name.'
-    reading_reviewed: '2026-08-08'
-    reading_source: yurarium
+    reading_reviewed: '2026-08-10'
+    reading_source: derived
     reading_source_kind: derived
     verified: false
   天蓋の中はふたりの:
@@ -47119,11 +47272,16 @@ names:
     reading_source_kind: analyser
     verified: false
   奏 青春バンド百合アンソロジー:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: 'Kanade: A Youth Band Yuri Anthology'
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 奏 is カナデ, to play music, and stands as the book's name. 青春 is the school years taken as a season
+      of life, which English says as youth.
     reading: カナデ セイシュン バンド ユリ アンソロジー
-    reading_at: '2026-08-08'
+    reading_at: '2026-08-10'
     reading_basis: researched
     reading_conflicts:
     - basis: analyser
@@ -47133,7 +47291,7 @@ names:
       reading: カナデ, the noun of 奏でる, to play an instrument. The subtitle says the anthology is about school
       bands, so the word means what it says. ソウ is the alternative and needs a compound to sit in, which
       the title does not give it.'
-    reading_reviewed: '2026-08-08'
+    reading_reviewed: '2026-08-10'
     reading_source: yurarium
     reading_source_kind: derived
     verified: false
@@ -48878,14 +49036,19 @@ names:
     verified: false
   完パコLOVE:
     basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    en: Kanpako LOVE
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: 完パコ is slang built on 完 and a vulgar clipping, and it is a coinage rather than a phrase. LOVE
+      is already the work's own.
     reading: カンパコ LOVE
-    reading_at: '2026-08-08'
+    reading_at: '2026-08-10'
     reading_basis: researched
     reading_note: 完パコ is one coined word, カンパコ, on the pattern of 完全 shortened to 完 and stuck to a katakana
       stem. The analyser cut it in two, which puts a boundary in the middle of the coinage.
-    reading_reviewed: '2026-08-08'
+    reading_reviewed: '2026-08-10'
     reading_source: derived
     reading_source_kind: derived
     verified: false
@@ -54763,20 +54926,25 @@ names:
     verified: false
   愛マイyummy:
     basis: romaji
+    en: Ai Mai Yummy
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
     furigana_spans:
     - - 愛
       - あい
     - - マイyummy
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 愛マイ is read アイマイ and puns on 曖昧, ambiguous, while writing 愛 for love and マイ for the English
+      my. The pun is in the spelling, so a translation would state one reading and lose it.
     reading: アイ マイ yummy
-    reading_at: '2026-08-08'
+    reading_at: '2026-08-10'
     reading_basis: researched
     reading_note: 愛 stands alone here as a pun on the English I, so it is アイ; the rest is katakana and
       Latin.
     reading_pass: 4
-    reading_reviewed: '2026-08-08'
+    reading_reviewed: '2026-08-10'
     reading_source: derived
     reading_source_kind: derived
     verified: false
@@ -66155,6 +66323,9 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Ours, kept beside the cover's name rather than dropped. The work's own English outranks
+      it for display, and this is still the rendering that carries the 百景 allusion into English, which
+      is what a reader wanting the sense of the title is after.
     verified: false
   百合百景・夜伽:
     basis: translated
@@ -68304,7 +68475,12 @@ names:
     reading_source_kind: analyser
     verified: false
   私に体、売ってみない?:
-    basis: romaji
+    basis: translated
+    en: Want to Sell Me Your Body?
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 私
       - わたし
@@ -68318,8 +68494,8 @@ names:
       - う
     - - ってみない?
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 売ってみない? is an invitation put as a negative question, which English asks as Want to. 私に marks
+      the speaker as the buyer and 体 is the seller's own, so the question is addressed to the reader.
     reading: ワタシ ニ カラダ、 ウッテ ミナイ ?
     reading_at: '2026-08-08'
     reading_basis: analyser
@@ -72216,15 +72392,21 @@ names:
     verified: false
   能面 battle girl納言:
     basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    en: Nōmen battle girl Nagon
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: The title already mixes scripts and keeps its English in the middle. 能面 is the impassive face
+      of a noh mask and 納言 is a court rank, and both are held as read because the joke is the collision
+      of the three registers.
     reading: ノウメン battle girl ナゴン
-    reading_at: '2026-08-08'
+    reading_at: '2026-08-10'
     reading_basis: researched
     reading_note: 能面 is ノウメン, the Noh mask, and 納言 is ナゴン, the court rank that 少納言 and 大納言 are built from.
       The joke is the rank attached to a girl in a Noh mask, and both halves have one reading each. The
       Latin in the middle stays Latin.
-    reading_reviewed: '2026-08-08'
+    reading_reviewed: '2026-08-10'
     reading_source: derived
     reading_source_kind: derived
     verified: false
@@ -74345,20 +74527,29 @@ names:
     reading_source_kind: analyser
     verified: false
   豹藤さんは攻略したい:
-    basis: romaji
+    basis: translated
+    en: Hyōdō-san Wants to Win Her Over
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 攻略 is winning somebody round, the word a dating game uses for a route. 豹藤 is a surname and the
+      row showed it glued into Hyōdōsanhaotoshitai, which is the analyser reading no boundaries.
     reading: ヒョウドウサンハオトシタイ
-    reading_at: '2026-08-06'
+    reading_at: '2026-08-10'
     reading_basis: stated
     reading_conflicts:
     - basis: stated
       source: title-furigana
       value: ヒョウ フジサン ワ オト シタイ
+    reading_corroborated:
+    - yurarium
     reading_note: BOOK☆WALKER's own page for this work carries the reading in its keywords field, beside
       the title. The shop is the publisher's retail arm and the string is the yomi registered for the
       edition. The publisher's blurb on the same page glosses 豹藤（ひょうどう） in running text, which is the
       same reading written a second way. It replaces 'ヒョウ フジサン ワ コウリャク シタイ', which no source had stated.
-    reading_reviewed: '2026-08-06'
-    reading_source: BOOK☆WALKER
+    reading_reviewed: '2026-08-10'
+    reading_source: yurarium
     reading_source_kind: platform
     reading_url: https://bookwalker.jp/de640f54a8-0664-4c88-8643-7379f85af56d/
     verified: true
@@ -78802,11 +78993,18 @@ names:
     reading_source_kind: analyser
     verified: false
   鮮血王女、皆殺す ～家族に裏切られ、処刑された少女は蘇り、『死神』となって復讐する～:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: The Blood-Red Princess Kills Them All ~Betrayed by Her Family and Executed, the Girl Revives as
+      a Shinigami and Takes Her Revenge~
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The subtitle is the whole plot stated in one sentence, which is how a web serial advertises
+      itself, and it is carried over whole. 死神 is left as shinigami because the work quotes it in brackets
+      as a title she takes.
     reading: センケツ オウジョ、 ミナゴロス ～ カゾク ニ ウラギラレ、 ショケイ サレタ ショウジョ ワ ヨミガエリ、 『シニガミ』 ト ナッテ フクシュウ スル ～
-    reading_at: '2026-08-08'
+    reading_at: '2026-08-10'
     reading_basis: researched
     reading_conflicts:
     - basis: analyser
@@ -78816,7 +79014,7 @@ names:
       So it reads ミナゴロス in one word, and the analyser's ミナ コロス split it in two and dropped the voicing,
       which loses the compound the title is built on. The rest of the subtitle is confirmed as the analyser
       had it.
-    reading_reviewed: '2026-08-08'
+    reading_reviewed: '2026-08-10'
     reading_source: yurarium
     reading_source_kind: derived
     verified: false

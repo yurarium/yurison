@@ -30,8 +30,25 @@ SHOP = "bookwalker.jp"
 # what bookwalker's shelf is, and each wrote out the sentence explaining what a shelf admits.
 SHELF = _inclusion.shelf_of(SHOP)
 
-# A volume title carrying its own number, where the work has more than one volume: `作品名 3`.
+# A volume title carrying its own number: `作品名 3`.
 VOLUME_SUFFIX = re.compile(r"\s*(?:第\s*)?\d+\s*(?:巻)?\s*$")
+
+# WHAT MARKS THE NUMBER OFF FROM THE NAME. 22 titles in the corpus end in a digit and most of those
+# digits are the name: `魔法少女201`, `あやめ14`, `Smile0`, `P-0004`, `ラブフェロモンNo.5`. What the
+# volume numbers have that those lack is a boundary. A space is one, 第 is one, and a sentence-final
+# mark is one, so `ふぉーおぶあかいんど！2` is volume 2 and `あやめ14` is a girl's name and an age.
+#
+# AND A FULL-WIDTH DIGIT IS ITS OWN BOUNDARY. `うどみょん１` is glued straight to the kana with no
+# mark at all, and BOOK☆WALKER writes it full-width, as it does for every volume number it sets in
+# a Japanese title. Every one of the digits that is part of a name is half-width.
+_N = r"[\s　]*(?:第[\s　]*)?[0-9０-９]+[\s　]*巻?[\s　]*$"
+NUMBERED_OFF = re.compile(rf"(?P<keep>[！？。、]){_N}|[\s　]+(?:第[\s　]*)?[0-9０-９]+[\s　]*巻?[\s　]*$"
+                          rf"|第{_N}|[０-９]+[\s　]*巻?[\s　]*$")
+
+# 集 IS THE WORD THE NUMBER COUNTS. `乙女ホリック 再録集4` is the fourth of ギロチン銀座's 再録集 and
+# `乙女ホリック` is not a work; seven of the nine single-volume titles ending in a digit are this,
+# which is why the count of volumes could never have decided it. They all have exactly one.
+COUNTED_BY = re.compile(r"集\s*$")
 
 
 # A bracketed imprint on the end of a title: `雪解けとアガパンサス（電撃コミックスNEXT）`. 771 of
@@ -79,6 +96,11 @@ def title_of(work):
 
     284 of 2,423 rows read no volumes at all and have no title anywhere. Those are works the
     capture could not open, not works without a name, and they are skipped rather than invented.
+
+    A SHOP HOLDING ONE VOLUME STILL NUMBERS IT. `うどみょん１` reached the works list under that
+    name, volume number and all, because the number was only stripped from works with more than one
+    volume, and a doujin the shop stocks one volume of has one. Its own reading note said "apart
+    from the volume number" while the title kept it. What decides is the word before the number.
     """
     vols = work.get("volumes") or []
     if not vols:
@@ -86,8 +108,20 @@ def title_of(work):
     series = (vols[0].get("series_title") or "").strip()
     if series:
         return series
-    own = (vols[0].get("title") or "").strip()
-    return VOLUME_SUFFIX.sub("", own).strip() if len(vols) > 1 else own
+    return without_volume_number((vols[0].get("title") or "").strip())
+
+
+def without_volume_number(title):
+    """`title` with a trailing volume number removed, where the number is the volume's and not the
+    work's. A title that is nothing but its number keeps it, having no name left otherwise."""
+    m = NUMBERED_OFF.search(title)
+    if not m or not m.start():
+        return title
+    kept = m.group("keep") or ""
+    head = title[:m.start()].strip()
+    if not head or COUNTED_BY.search(head):
+        return title
+    return head + kept
 
 
 # A release sold one chapter at a time. 単話 and 単話版 are exactly that, and 分冊版 is a volume

@@ -86,16 +86,31 @@ stages:
           Its blind spot is SQL assembled at runtime, which is why the rule is also written in the store's own docstring.
       - id: C2
         title: The cascade is gated on output change, never on input change
-        state: todo
+        state: done
+        note: >-
+          adapters/relational/delta.py. `write` compares before it writes and returns whether anything changed; a write producing the value already there is a no-op and cascades nothing.
+          `converge` recomputes what a delta touched and follows only the derivations whose ANSWER moved.
+          test_delta plants the case that makes it worth having: a role changed on a row, a real change to an input, where no derivation reads that column and the cascade is empty. Gating on input change is what that avoids.
       - id: C3
         title: Convergence to a fixed point, which is the equivalence argument
-        state: todo
+        state: done
+        note: >-
+          `converge(db, touched)` returns the derivations that moved and the number of passes, and raises rather than spinning if a registry cannot settle.
+          A pure derivation plus an idempotent write means the fixed point a delta reaches is the fixed point a rebuild produces, so equivalence is a property of the construction rather than something a comparison discovers.
+          Nothing in the real registry depends on another derivation today, so the loop would have been untested by the tree as it stands: test_delta drives a three-link chain and requires three passes, then requires a second run to move nothing, and requires a cyclic registry to be refused.
       - id: C4
         title: Corpus-wide reductions recomputed freely, their digests deciding the cascade
-        state: todo
+        state: done
+        note: >-
+          A derivation is recomputed freely and its DIGEST decides the cascade. Measured before building it: scanning every credit surface is 1.2 ms, grouping every credit by its works 4.1 ms, grouping all 4,989 claims 2.4 ms.
+          The store's standing questions ARE the derivations, typed once in delta.DERIVATIONS, because a question the store answers and a derivation whose digest gates the cascade are the same thing and two copies of the SQL would let a partial update and a full rebuild answer differently.
       - id: C5
         title: A focused test per delta kind, including delete and retract
-        state: todo
+        state: done
+        note: >-
+          test_delta.py, 29 checks, one focused case per kind in delta.KINDS: insert, update, delete, merge, divide and retract.
+          Delete and retract get the most: an output whose input disappeared has nothing left to notice it, so both assert the recorded answer moved BACK, which is what a stale digest would miss.
+          Merge and divide are both directions of the same question, since a wrong join erases a person and a wrong split invents one.
       - id: C6
         title: Differential site build, keyed on the digest of the rows an artefact renders
         state: dropped
@@ -106,7 +121,13 @@ stages:
           of the checks in one cycle. Dropped as effort against eight tenths of a second.
       - id: C7
         title: A weekly CI run of the cache-free path, compared against the incremental result
-        state: todo
+        state: done
+        note: >-
+          .github/workflows/equivalence.yml, weekly, plus `--equivalent` to run it by hand.
+          It compares the derivations the store RECORDED, not fresh ones: recomputing before comparing would repair the exact fault it exists to find, a derivation whose reads declaration missed a table so its digest never moved.
+          IT COMPARES THE ROWS AS WELL, one ordered digest per table, because two stores can agree on five counts and hold different data. That is what caught the canary: deleting 40 work_credit rows and converging on a table no derivation reads left the counts agreeing and the table 4,241 against 4,281, with three of the missing rows named.
+          It reports and does not repair, because overwriting the incremental store with the rebuilt one hides the bug until the next divergence.
+          The same run exercises ./cycle.py --full, which refuses the token, every remembered pass and the per-file cache.
       - id: C8
         title: The eight researched readings carrying no reasoning
         state: done

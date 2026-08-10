@@ -23,6 +23,8 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "names"))
 
 from facts import namekey as _namekey                                   # noqa: E402
+from relational import delta as _delta                                  # noqa: E402
+from relational import delta                                            # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SCHEMA = pathlib.Path(__file__).resolve().parent / "schema.sql"
@@ -30,21 +32,10 @@ DB = ROOT / "data" / "relational.db"
 BUILD = ROOT / "data" / "build"
 
 #: The standing questions, kept beside the schema that makes them one line each. Each was a script
-#: or was unaskable before.
-QUESTIONS = {
-    "claims resting on a community database":
-        "SELECT count(*) FROM claim WHERE source_kind = 'community-db'",
-    "claims we would lose if NDL were withdrawn":
-        "SELECT count(*) FROM claim WHERE source_kind = 'national-library'",
-    "works naming nobody":
-        "SELECT count(*) FROM work w LEFT JOIN work_credit e ON e.work = w.id "
-        "WHERE e.work IS NULL",
-    "names two sources disagree about":
-        "SELECT count(*) FROM (SELECT subject FROM claim GROUP BY subject_kind, subject, predicate "
-        "HAVING count(DISTINCT value) > 1)",
-    "credits named by more than one work":
-        "SELECT count(*) FROM (SELECT credit FROM work_credit GROUP BY credit HAVING count(*) > 1)",
-}
+#: or was unaskable before. They are the derivations `delta.py` recomputes and digests. Typed once
+#: there: a question the store answers and a derivation whose digest gates the cascade are the same
+#: thing, and two copies of the SQL would let a partial update and a full rebuild answer differently.
+QUESTIONS = {name: spec["sql"] for name, spec in _delta.DERIVATIONS.items()}
 
 
 def create(path=None):
@@ -238,11 +229,96 @@ def ask(db):
     return {q: db.execute(sql).fetchone()[0] for q, sql in QUESTIONS.items()}
 
 
+def equivalent(db=None):
+    """Rebuild from nothing and set every derivation beside the store as it stands.
+
+    THE CHECK THAT SHARES NOTHING WITH THE INCREMENTAL PATH, which is what §14b asks for. Every
+    focused test in `test_delta.py` is written against the same `reads` declarations the updater
+    uses, so a wrong declaration satisfies the updater and the test together. A rebuild does not
+    consult those declarations at all: it computes every derivation from a store compiled from
+    source, and a difference is a bug in the updater.
+
+    IT REPORTS AND DOES NOT REPAIR. Overwriting the incremental store with the rebuilt one would
+    hide the fault until the next divergence, which is later and harder.
+    """
+    if db is None:
+        db = sqlite3.connect(DB)
+    delta.ensure(db)
+    # THE RECORDED ANSWER, not a fresh one. A wrong `reads` declaration leaves a derivation that was
+    # never recomputed, so its digest never moved and the store still reports yesterday's number.
+    # Recomputing here before comparing would repair exactly the fault this exists to find.
+    held = {n: delta.value(db, n) for n in delta.DERIVATIONS}
+    # AND THE ROWS, because two stores can agree on five counts and hold different data. Cheap: one
+    # ordered digest per table.
+    held_rows = _table_digests(db)
+
+    fresh, _counts, _refused = build(path=ROOT / "data" / "relational-rebuilt.db")
+    delta.ensure(fresh)
+    delta.recompute(fresh)
+    rebuilt = {n: delta.value(fresh, n) for n in delta.DERIVATIONS}
+    rebuilt_rows = _table_digests(fresh)
+
+    differ = [(n, held.get(n), rebuilt.get(n)) for n in delta.DERIVATIONS
+              if held.get(n) != rebuilt.get(n)]
+    rows = [(t, held_rows.get(t), rebuilt_rows.get(t))
+            for t in sorted(set(held_rows) | set(rebuilt_rows))
+            if held_rows.get(t) != rebuilt_rows.get(t)]
+    for name, was, now in differ:
+        print(f"  DIFFERS  {name}: the store says {was!r}, a rebuild says {now!r}")
+    for table, was, now in rows:
+        print(f"  DIFFERS  table {table}: {(was or ['?'])[0]} rows here, "
+              f"{(now or ['?'])[0]} in a rebuild")
+        for r in _first_differing_rows(db, fresh, table):
+            print(f"      {r}")
+    print(f"{len(differ)} of {len(delta.DERIVATIONS)} derivation(s) and {len(rows)} table(s) "
+          f"differ between the store and a rebuild")
+    return not (differ or rows)
+
+
+def _tables(db):
+    return [r[0] for r in db.execute(
+        "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%' "
+        "AND name <> 'derivation' ORDER BY name")]
+
+
+def _table_digests(db):
+    """`{table: (rows, digest)}` over every row in a stable order."""
+    import hashlib
+    out = {}
+    for t in _tables(db):
+        cols = [r[1] for r in db.execute(f"PRAGMA table_info({t})")]
+        order = ", ".join(f'"{c}"' for c in cols)
+        h = hashlib.sha256()
+        n = 0
+        for row in db.execute(f'SELECT {order} FROM "{t}" ORDER BY {order}'):
+            h.update(repr(row).encode("utf-8"))
+            n += 1
+        out[t] = (n, h.hexdigest())
+    return out
+
+
+def _first_differing_rows(a, b, table, limit=3):
+    """A few rows one store holds and the other does not, so a report says what to look at."""
+    cols = [r[1] for r in a.execute(f"PRAGMA table_info({table})")]
+    order = ", ".join(f'"{c}"' for c in cols)
+    left = {tuple(r) for r in a.execute(f'SELECT {order} FROM "{table}"')}
+    right = {tuple(r) for r in b.execute(f'SELECT {order} FROM "{table}"')}
+    out = [f"only in the store:  {r}" for r in sorted(left - right, key=repr)[:limit]]
+    out += [f"only in a rebuild:  {r}" for r in sorted(right - left, key=repr)[:limit]]
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--build", action="store_true")
     ap.add_argument("--ask", action="store_true")
+    ap.add_argument("--equivalent", action="store_true",
+                    help="rebuild from scratch and compare every derivation against the store as "
+                         "it stands; what the scheduled CI run does")
     a = ap.parse_args()
+
+    if a.equivalent:
+        return 0 if equivalent() else 1
 
     if a.build or not a.ask:
         db, counts, refused = build()

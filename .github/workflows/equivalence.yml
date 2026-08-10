@@ -1,0 +1,68 @@
+# The expensive proof, put where the time does not matter.
+#
+# WHY THIS IS NOT IN THE WORKING LOOP. `adapters/relational/delta.py` updates the store without
+# recompiling it, and its correctness argument is convergence: recompute what a delta touches,
+# follow the digests that moved, stop when nothing moves. That argument is constructive, and every
+# focused test in `test_delta.py` is written against the SAME `reads` declarations the updater
+# uses. A wrong declaration satisfies the updater and its tests together.
+#
+# A REBUILD SHARES NOTHING WITH THOSE DECLARATIONS. It compiles the store from source and computes
+# every derivation from the result, so setting it beside a store that has only ever been updated is
+# the check that does not share its subject's blind spot (STANDING-INSTRUCTIONS §14b). It costs a
+# couple of minutes of a 2,000-minute allowance, weekly, and stays out of the loop entirely.
+#
+# IT ALSO RUNS THE CACHE-FREE CYCLE. `./cycle.py --full` refuses the green-tree token, refuses every
+# remembered pass, and moves the per-file cache aside rather than deleting it, so a disagreement
+# leaves both answers on disk. A cycle that only ever runs the fast path has never checked that the
+# fast path agrees with anything.
+#
+# ON A DIFFERENCE IT REPORTS, LOUDLY, WITH THE ROWS. It does not overwrite the incremental store
+# with the rebuilt one: a divergence is a bug in the updater, and quietly repairing the symptom
+# would hide it until the next one.
+name: equivalence
+
+on:
+  schedule:
+    - cron: "17 4 * * 1"        # Monday, well away from the daily update
+  workflow_dispatch:
+
+concurrency:
+  group: equivalence
+  cancel-in-progress: false
+
+jobs:
+  equivalence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install what the pipeline needs
+        run: pip install pyyaml
+
+      - name: Compile the store from source
+        run: python3 adapters/relational/__init__.py --build
+
+      - name: Record every derivation
+        run: |
+          python3 - <<'PY'
+          import sys, sqlite3
+          sys.path.insert(0, "adapters"); sys.path.insert(0, "adapters/names")
+          import relational
+          from relational import delta
+          db = sqlite3.connect(relational.DB)
+          delta.ensure(db)
+          delta.recompute(db)
+          db.commit()
+          PY
+
+      - name: A rebuild agrees with the store
+        run: python3 adapters/relational/__init__.py --equivalent
+
+      - name: The cache-free cycle
+        # Every half proves itself: no token, no remembered pass, no per-file cache.
+        run: ./cycle.py --full

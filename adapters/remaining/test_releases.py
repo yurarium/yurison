@@ -76,5 +76,39 @@ def main(s):
             "and a GigaViewer host is not, or the residue this adapter reaches goes unread")
 
 
+    a_one_shot_states_one_date(s)
+
+
+def a_one_shot_states_one_date(s):
+    """A work the platform marks 読み切り has one chapter, and its date is that chapter's.
+
+    The extractors want a chapter-shaped label before they keep a date. きら星ポータル's page for
+    ツイてるギャルとミエてる陰キャ prints 読み切り and 2026年6月17日 and no 第N話, so the date was
+    thrown away and the work reported as having no dated chapter list. Ruled by the project owner
+    on 2026-08-10: updated reads as released here.
+    """
+    page = '<p>読み切り</p><span>2026年6月17日</span>'
+    got = rm.from_generic(page)
+    s.eq(len(got), 1, "a one-shot page yields its single release")
+    s.eq(got[0]["updated"], "2026-06-17", "dated by the one date the page states")
+    s.check(got[0].get("oneshot"), "and typed as a one-shot rather than a numbered chapter")
+
+    # NARROW ON PURPOSE, and each of these is why.
+    s.eq(rm.from_generic('<span>2026年6月17日</span>'), [],
+         "a page that does not say it is a one-shot is not read as one")
+    s.eq(rm.from_generic('<p>読み切り</p>'), [],
+         "nor one that says so and states no date")
+    s.eq(rm.from_generic('<p>読み切り</p><span>2026年6月17日</span><span>2026年5月1日</span>'), [],
+         "nor one stating two, which is the page saying something this cannot read")
+
+    # AND A PAGE WITH A CHAPTER LIST NEVER REACHES IT, because the ordinary route answers first.
+    listed = ('<div>第1話 A<time datetime="2026-06-01">2026年6月1日</time></div>'
+              '<div>第2話 B<time datetime="2026-06-08">2026年6月8日</time></div>'
+              '<p>読み切り</p>')
+    got2 = rm.from_generic(listed)
+    s.check(got2 and not any(g.get("oneshot") for g in got2),
+            "a page listing chapters is read as chapters even where the word appears on it")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "remaining.releases"))

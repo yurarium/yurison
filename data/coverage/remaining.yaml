@@ -61,7 +61,10 @@ works:
   platform: 一迅プラス
   url: https://comic.pixiv.net/works/13225
 - title: 世界で一番おっぱいが好き!
-  platform: マンガボックス
+  # RELABELLED 2026-08-10. The address is カドコミ's and always was; マンガボックス's own page for
+  # this work redirects to the site front page. The work is old and only a rump of it is still
+  # posted, and カドコミ is where that rump is, which `adapters/dedicated.py` reads.
+  platform: カドコミ
   url: https://comic-walker.com/detail/KC_000034_S
 - title: ひなちゃんが生きてるなら
   platform: 一迅プラス
@@ -170,7 +173,10 @@ works:
   url: https://comic-growl.com/series/5ec689382839e
 - title: ガールミートガール
   platform: アサコミ
-  url: http://sonorama.asahi.com/series/GMG-story.html
+  # MIGRATED 2026-08-10. sonorama.asahi.com is gone and the work moved to asacomi.jp, where the
+  # capture holds 26 dated chapters. The dead address was reported here as "page did not load"
+  # for a work the corpus has in full.
+  url: https://asacomi.jp/series/d67c4f256e18f
 - title: 香原さんのふぇちのーと
   platform: 竹コミ
   url: https://manga.nicovideo.jp/comic/56509

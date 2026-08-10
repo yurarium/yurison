@@ -2479,3 +2479,18 @@ and could not learn of a new one. The first run after the fix moved `works_missi
 
 The step carries `--force` now. `fetch` returns a cached page whenever one exists, so a cache that
 once held an unparseable page is read for ever, and this pass is cheap enough to re-read.
+
+## A まんがタイムSquare title arrives reversed around its full stop. Found 2026-08-10
+
+`updates naming a work we do not hold` turned up two feed rows whose work is
+`スクエア）。（ニセアイホンアイ` and `スクエア）。（腹割るウチらの秘密ごと！`, both on まんがタイムSquare,
+both with an ordinary episode number and a working episode address. The works themselves are
+`ニセアイホンアイ` and `腹割るウチらの秘密ごと！`, and MADB holds the first of them under that name.
+
+The shape says what happened: a title of the form `作品名（まんがタイムスクエア）` has been split at its
+`。` and the halves put back the wrong way round, so the bracket that opened the platform name now
+closes the string and the work's own name follows it. Two rows, and neither can be browsed, searched
+or classified because no work matches the string.
+
+Not chased here. It wants the まんがタイムSquare capture read beside the adapter that writes it, and
+what is recorded is the shape, so the next reader starts from the fault rather than from the count.

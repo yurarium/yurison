@@ -37,7 +37,7 @@ import yaml
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 import comici  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "recon"))
-from extract import CHAPTERISH, try_jsonld, try_markup, try_next, try_pairs  # noqa: E402
+from extract import CHAPTERISH, norm_date, try_jsonld, try_markup, try_next, try_pairs  # noqa: E402
 from names import credits as _credits  # noqa: E402
 import dedicated  # noqa: E402
 
@@ -174,7 +174,38 @@ def from_generic(html):
         if lab and (lab, d) not in seen:
             seen.add((lab, d))
             out.append({"title": lab, "updated": d})
-    return out
+    return out or from_oneshot(html)
+
+
+# A work the platform marks as a one-shot. 読み切り is the word and 読切 is the same word written
+# short. It reaches us as the label on the button that opens the thing, きら星ポータル's page
+# offering 読み切りを読む and nothing else, so the match is anywhere on the page.
+ONESHOT = re.compile(r"読\s*み?\s*切り?")
+
+
+def from_oneshot(html):
+    """The single release of a work whose page states one date and marks itself a one-shot.
+
+    THE EXTRACTORS WANT A CHAPTER-SHAPED LABEL before they will keep a date, and a 読み切り offers
+    none: きら星ポータル's page for ツイてるギャルとミエてる陰キャ offers a 読み切りを読む button
+    beside 2026年6月17日
+    and no 第N話 anywhere, so a date the platform states plainly was thrown away and the work read
+    as having no dated chapter list.
+
+    A ONE-SHOT IS ONE CHAPTER, so the work-level date is that chapter's, and the platform's 更新 is
+    its release. The project owner ruled this on 2026-08-10 for exactly this shape.
+
+    NARROW ON PURPOSE. It runs only where the ordinary extractors found nothing, the page says it is
+    a one-shot, and the page states exactly one date. Two dates mean the page is telling us
+    something this cannot read, and a page with a chapter list never reaches here.
+    """
+    if not ONESHOT.search(html):
+        return []
+    found = {norm_date(m) for m in re.findall(r"\d{4}[-/.年]\s*\d{1,2}[-/.月]\s*\d{1,2}", html)}
+    dates = sorted(d for d in found if d and d <= TODAY)
+    if len(dates) != 1:
+        return []
+    return [{"title": "読み切り", "updated": dates[0], "oneshot": True}]
 
 
 def js(v):

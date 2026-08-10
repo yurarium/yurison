@@ -5982,12 +5982,20 @@ titles:
       The synopsis states it directly: an official comicalisation, told from the teacher's side, of a relationship the visual novel 噓から始まる恋の夏 did not itself depict; -squall- is that side story's own subtitle.
 
   喫茶 秘匿異:
-    en: Café Hitoku-i
+    en: Café Hitokui
     basis: translated
     source: yurarium
     source_kind: derived
-    reviewed: '2026-08-04'
-    note: 秘匿異 is the café's own coined name in the story, kept romanised rather than translated.
+    reviewed: '2026-08-10'
+    reading: キッサ ヒトクイ
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      秘匿異 is one coined word and reads ヒトクイ, which puns on 人喰い, a title this corpus also
+      holds. The analyser cut it 秘匿 and 異 and the romaniser hyphenated across its own cut.
+    note: >-
+      秘匿異 is the café's own coined name in the story, kept as it is read. The hyphen this carried
+      until 2026-08-10 came from the analyser's split and no source wrote it.
 
   咲いたキズアト:
     en: The Scar That Bloomed
@@ -6347,13 +6355,31 @@ titles:
     reviewed: '2026-08-04'
 
   伽藍の姫 -がらんのひめ-:
-    en: Princess of the Ruined Sanctuary
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
+    en: "Princess of cathedral"
+    basis: official-jp
+    source: "pixivコミック"
+    source_kind: platform
+    en_url: "https://comic.pixiv.net/works/10090"
+    reviewed: '2026-08-10'
+    reading: ガラン ノ ヒメ
+    reading_basis: stated
+    reading_source: 一迅社
+    reading_source_kind: publisher-jp
+    reading_url: "https://www.ichijinsha.co.jp/yurihime/title/%E3%81%93%E3%82%8B%E3%81%9B/%E4%BC%BD%E8%97%8D%E3%81%AE%E5%A7%AB-%E3%81%8C%E3%82%89%E3%82%93%E3%81%AE%E3%81%B2%E3%82%81/"
+    reading_note: >-
+      The dashes in the title carry the publisher's own furigana, がらんのひめ, and 一迅社's page for the
+      work sets it the same way. They state the reading and are not more title, so the row read
+      Garan no Hime - Garan no Hime - until this was written.
     note: >-
-      伽藍 is specifically a Buddhist temple compound, matching the synopsis's ruins; 姫 doubles as the title word and the name Isana gives the memoryless machine person she finds there, so both readings are carried rather than one being dropped.
+      The cover of volume 1 prints the work's own English: In the future, "Princess of
+      cathedral" explores a new world angel is no more. Capital P and lowercase c are the
+      cover's, and a name a work gives itself is taken as it gives it, which is how
+      百合百景 came to read A hundred scenes of Girls Love.
+
+      It replaces Princess of the Ruined Sanctuary here and The Princess of the Empty Hall on the
+      print row, which disagreed with each other and neither of which was the work's own. Every
+      page carrying this phrase in a search is a scanlation aggregator, which may name a lead and
+      may not supply a name; the cover is what settles it.
 
   会長！今日はサボりましょう！:
     en: 'Chairman! Let''s Skip Out Today!'
@@ -16735,13 +16761,19 @@ titles:
       The sentence is the teacher's announcement, which the exclamation mark is for.
 
   "伽藍の姫":
-    en: "The Princess of the Empty Hall"
-    basis: "translated"
-    source: "yurarium"
-    source_kind: "derived"
-    reviewed: '2026-08-06'
+    en: "Princess of cathedral"
+    basis: official-jp
+    source: "pixivコミック"
+    source_kind: platform
+    en_url: "https://comic.pixiv.net/works/10090"
+    reviewed: '2026-08-10'
     note: >-
-      伽藍 is the temple compound, and 伽藍堂 is a hall with nothing in it, which is the emptiness the word carries.
+      The cover of volume 1 prints the work's own English: In the future, "Princess of
+      cathedral" explores a new world angel is no more. Capital P and lowercase c are the
+      cover's, and a name a work gives itself is taken as it gives it, which is how
+      百合百景 came to read A hundred scenes of Girls Love.
+
+      The print row and the serialised row are one work and read the same way now.
 
   "先パイがお呼びです！":
     en: "Senpai Is Asking for You!"
@@ -30072,6 +30104,17 @@ titles:
     source: derived
     source_kind: derived
     reviewed: '2026-08-10'
+
+  君が一等星に光るまで:
+    en: "Until You Shine as a First-Magnitude Star"
+    basis: translated
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-10'
+    note: >-
+      一等星 is a first-magnitude star, the brightest class the eye sorts stars into, and the phrase
+      is the ordinary Japanese for it rather than a coinage. 光るまで is until you shine, so the
+      title is the wait and not the arrival. The row showed Kimi ga Ittōsei ni Hikaru made.
 
   # ---- Licensed English names, 2026-08-10. REQUIREMENTS §1's `title_en_official` carve-out:
   # the English licensor is the entity that announces the name, so a licensor's own catalogue is

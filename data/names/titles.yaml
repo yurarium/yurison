@@ -40069,12 +40069,17 @@ names:
     reading_source_kind: analyser
     verified: false
   伽藍の姫:
-    basis: translated
-    en: The Princess of the Empty Hall
-    en_at: '2026-08-06'
-    en_reviewed: '2026-08-06'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Princess of cathedral
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Princess of the Empty Hall
+    en_reviewed: '2026-08-10'
+    en_source: pixivコミック
+    en_source_kind: platform
+    en_url: https://comic.pixiv.net/works/10090
     furigana_spans:
     - - 伽藍
       - がらん
@@ -40082,8 +40087,12 @@ names:
       - null
     - - 姫
       - ひめ
-    note: 伽藍 is the temple compound, and 伽藍堂 is a hall with nothing in it, which is the emptiness the
-      word carries.
+    note: 'The cover of volume 1 prints the work''s own English: In the future, "Princess of cathedral"
+      explores a new world angel is no more. Capital P and lowercase c are the cover''s, and a name a
+      work gives itself is taken as it gives it, which is how 百合百景 came to read A hundred scenes of Girls
+      Love.
+
+      The print row and the serialised row are one work and read the same way now.'
     reading: ガラン ノ ヒメ
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -40093,31 +40102,43 @@ names:
     reading_source_kind: analyser
     verified: false
   伽藍の姫 -がらんのひめ-:
-    basis: translated
-    en: Princess of the Ruined Sanctuary
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
-    furigana_spans:
-    - - 伽藍
-      - がらん
-    - - の
-      - null
-    - - 姫
-      - ひめ
-    - - ' -がらんのひめ-'
-      - null
-    note: 伽藍 is specifically a Buddhist temple compound, matching the synopsis's ruins; 姫 doubles as the
-      title word and the name Isana gives the memoryless machine person she finds there, so both readings
-      are carried rather than one being dropped.
-    reading: ガラン ノ ヒメ   - ガラン ノ ヒメ -
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    basis: official-jp
+    en: Princess of cathedral
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Princess of the Ruined Sanctuary
+    en_reviewed: '2026-08-10'
+    en_source: pixivコミック
+    en_source_kind: platform
+    en_url: https://comic.pixiv.net/works/10090
+    note: 'The cover of volume 1 prints the work''s own English: In the future, "Princess of cathedral"
+      explores a new world angel is no more. Capital P and lowercase c are the cover''s, and a name a
+      work gives itself is taken as it gives it, which is how 百合百景 came to read A hundred scenes of Girls
+      Love.
+
+      It replaces Princess of the Ruined Sanctuary here and The Princess of the Empty Hall on the print
+      row, which disagreed with each other and neither of which was the work''s own. Every page carrying
+      this phrase in a search is a scanlation aggregator, which may name a lead and may not supply a name;
+      the cover is what settles it.'
+    reading: ガラン ノ ヒメ
+    reading_at: '2026-08-10'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: ガラン ノ ヒメ   - ガラン ノ ヒメ -
+    reading_corroborated:
+    - pixivコミック
+    reading_note: The dashes in the title carry the publisher's own furigana, がらんのひめ, and 一迅社's page for
+      the work sets it the same way. They state the reading and are not more title, so the row read Garan
+      no Hime - Garan no Hime - until this was written.
+    reading_reviewed: '2026-08-10'
+    reading_source: 一迅社
+    reading_source_kind: publisher-jp
+    reading_url: https://www.ichijinsha.co.jp/yurihime/title/%E3%81%93%E3%82%8B%E3%81%9B/%E4%BC%BD%E8%97%8D%E3%81%AE%E5%A7%AB-%E3%81%8C%E3%82%89%E3%82%93%E3%81%AE%E3%81%B2%E3%82%81/
+    verified: true
   住めど地獄のインフェルノ:
     basis: translated
     en: 'Live There and It''s Hell: Inferno'
@@ -44196,7 +44217,12 @@ names:
     reading_source_kind: analyser
     verified: false
   君が一等星に光るまで:
-    basis: romaji
+    basis: translated
+    en: Until You Shine as a First-Magnitude Star
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 君
       - きみ
@@ -44210,8 +44236,9 @@ names:
       - ひか
     - - るまで
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 一等星 is a first-magnitude star, the brightest class the eye sorts stars into, and the phrase
+      is the ordinary Japanese for it rather than a coinage. 光るまで is until you shine, so the title is
+      the wait and not the arrival. The row showed Kimi ga Ittōsei ni Hikaru made.
     reading: キミ ガ イットウセイ ニ ヒカル マデ
     reading_at: '2026-08-10'
     reading_basis: analyser
@@ -45209,27 +45236,26 @@ names:
     verified: false
   喫茶 秘匿異:
     basis: translated
-    en: Café Hitoku-i
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
+    en: Café Hitokui
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Café Hitoku-i
+    en_reviewed: '2026-08-10'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 喫茶
-      - きっさ
-    - - ' '
-      - null
-    - - 秘匿
-      - ひとく
-    - - 異
-      - い
-    note: 秘匿異 is the café's own coined name in the story, kept romanised rather than translated.
-    reading: キッサ   ヒトク イ
-    reading_at: '2026-08-05'
-    reading_basis: analyser
+    note: 秘匿異 is the café's own coined name in the story, kept as it is read. The hyphen this carried
+      until 2026-08-10 came from the analyser's split and no source wrote it.
+    reading: キッサ ヒトクイ
+    reading_at: '2026-08-10'
+    reading_basis: researched
+    reading_note: 秘匿異 is one coined word and reads ヒトクイ, which puns on 人喰い, a title this corpus also holds.
+      The analyser cut it 秘匿 and 異 and the romaniser hyphenated across its own cut.
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_reviewed: '2026-08-10'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   喫茶フレミングへようこそ:
     basis: translated

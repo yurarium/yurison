@@ -43,12 +43,15 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 import net                                                                     # noqa: E402
 from identity import match_key, people                                              # noqa: E402
+import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
+_sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
+import htmlbits as _htmlbits                                            # noqa: E402
 
 BRACKET = re.compile(r"^\[[^\]]*\]")
 TAG = re.compile(r"<[^>]+>")
 
 TITLE = re.compile(r"<title[^>]*>(.*?)</title>", re.S | re.I)
-OG_TITLE = re.compile(r'<meta[^>]+property="og:title"[^>]+content="([^"]*)"', re.I)
+OG_TITLE = _htmlbits.OG_TITLE
 META_AUTHOR = re.compile(r'<meta[^>]+name="author"[^>]+content="([^"]*)"', re.I)
 JSONLD = re.compile(r'<script[^>]+type="application/ld\+json"[^>]*>(.*?)</script>', re.S | re.I)
 

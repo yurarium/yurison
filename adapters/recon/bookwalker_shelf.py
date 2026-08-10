@@ -36,6 +36,9 @@ import html
 import re
 import unicodedata
 
+#: BOOK☆WALKER's shelf label, matched in two files.
+SHELF_LABEL = re.compile(r'<p class="m-book-item__label">(.*?)</p>')
+
 # Where one listing row in the volume store starts. The trailing space in the class attribute is
 # the shop's. Where it ENDS is `item_blocks`, and the two were one regex until 2026-08-06.
 ITEM_START = re.compile(r'<div class="m-book-item\s*">')
@@ -45,7 +48,7 @@ LI = re.compile(r"<(/?)li[\s>]")
 SERIES_HREF = re.compile(r'href="https://bookwalker\.jp/series/(\d+)/')
 DETAIL_HREF = re.compile(r'href="https://bookwalker\.jp/de([0-9a-f-]{36})/')
 TITLE_A = re.compile(r'<a[^>]*class="m-book-item__title".*?>\s*(.*?)\s*</a>', re.S)
-LABEL = re.compile(r'<p class="m-book-item__label">(.*?)</p>', re.S)
+LABEL = SHELF_LABEL
 AUTHOR = re.compile(r'<p class="m-book-item__author">(.*?)</p>', re.S)
 COMP_TAG = re.compile(r'<span class="a-tag-comp">\s*完結\s*</span>')
 KIND_TAG = re.compile(r'<span class="a-tag-(comic|novel|magazine|[a-z]+)">(.*?)</span>')

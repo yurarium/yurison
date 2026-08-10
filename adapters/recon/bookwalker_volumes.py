@@ -47,6 +47,9 @@ counted with their reason and the title is written nowhere.
 """
 import collections
 import re
+import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
+_sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
+import htmlbits as _htmlbits                                            # noqa: E402
 
 # What kind of venue the date came from, per basis, in build.py's vocabulary.
 VENUE_TYPE = {
@@ -110,7 +113,7 @@ INFO_DL = re.compile(r'<dl class="(?:t-c-detail-about-information__data|o-ttsk-c
                      r'(.*?)</dl>', re.S)
 INFO_PAIR = re.compile(r"<dt>(.*?)</dt>\s*<dd>(.*?)</dd>", re.S)
 # Each linked value in a dd. 著者 puts one per <li>, so the anchors are the values.
-INFO_LINK = re.compile(r"<a\b[^>]*>(.*?)</a>", re.S)
+INFO_LINK = _htmlbits.ANCHOR
 SERIES_IN_INFO = re.compile(r"/series/(\d+)/")
 
 # 2025/12/26 and 2020/11/2 are both the shop's. Zero padding is not guaranteed.

@@ -49,6 +49,9 @@ import urllib.parse
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 from facts import division as boundary                                                    # noqa: E402
+import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
+_sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
+import htmlbits as _htmlbits                                            # noqa: E402
 
 # The heading field, and the one this module reads. `著者標目` is the person; `タイトル` and
 # `著者` are `ndl_books.py`'s business.
@@ -58,7 +61,7 @@ HEADING = "著者標目"
 # after every heading, including the last, so splitting on it yields one chunk per person.
 AUTHORITY = "典拠"
 
-_A = re.compile(r"<a\b[^>]*>(.*?)</a>", re.S)
+_A = _htmlbits.ANCHOR
 _TAG = re.compile(r"<[^>]+>")
 
 # A birth year, which NDL puts on both halves of a heading: `南木, 義隆, 1991- ナンボク, ヨシタカ,

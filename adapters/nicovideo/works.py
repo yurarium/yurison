@@ -30,6 +30,10 @@ import sys
 
 import yaml
 
+#: The address of a work on nicovideo. Three files matched it; this is the one that owns the
+#: platform.
+COMIC_URL = re.compile(r"manga\.nicovideo\.jp/comic/(\d+)")
+
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
@@ -37,7 +41,7 @@ import net                                                                     #
 import releases as nv                                                          # noqa: E402
 
 WORK = "https://manga.nicovideo.jp/comic/{cid}"
-COMIC_ID = re.compile(r"manga\.nicovideo\.jp/comic/(\d+)")
+COMIC_ID = COMIC_URL
 
 
 def record(cid, html):

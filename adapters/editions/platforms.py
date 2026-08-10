@@ -28,6 +28,9 @@ than joined on the strength of a string.
 """
 import json
 import re
+import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
+_sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
+import htmlbits as _htmlbits                                            # noqa: E402
 
 # A GigaViewer コミックス page lists a volume, a link to the shop selling it, and, on some of the
 # platforms, a link to the series' first episode. That episode URL is the join: it is the same
@@ -88,7 +91,7 @@ BOOK_DETAILS = re.compile(r'class="series-book-details[^"]*"')
 # deciding between a volume's shops and the whole site navigation.
 BOOK_DETAILS_END = re.compile(r'<div class="series-(?!book-detail)|</aside>|</section>|<footer')
 BOOK_DETAIL = re.compile(r'class="series-book-detail"(.*?)(?=class="series-book-detail"|\Z)', re.S)
-BOOK_TITLE = re.compile(r'alt="([^"]*)"')
+BOOK_TITLE = _htmlbits.ALT
 BOOK_HREF = re.compile(r'href="([^"]+)"')
 
 

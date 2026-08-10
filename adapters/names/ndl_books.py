@@ -45,6 +45,9 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 import net  # noqa: E402
 import paths  # noqa: E402
+import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
+_sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
+import htmlbits as _htmlbits                                            # noqa: E402
 
 # Beside the repository, where every other cache directory in this project lives. Through
 # `paths.cache` and not derived again here: that module states the rule and honours YURI_CACHE,
@@ -81,7 +84,7 @@ READING = "タイトルよみ"
 AUTHOR = "著者"
 
 # Vue renders each field as `<dt>label</dt><dd>value</dd>` with hydration comments inside both.
-_DT = re.compile(r"<dt[^>]*>(.*?)</dt>\s*<dd[^>]*>(.*?)</dd>", re.S)
+_DT = _htmlbits.DT_DD
 _TAG = re.compile(r"<[^>]+>")
 _RECORD = re.compile(r"/books/(R\d+-I\d+)")
 

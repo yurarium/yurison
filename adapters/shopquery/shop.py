@@ -41,6 +41,9 @@ import urllib.parse
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 import identity                                                                # noqa: E402
+import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
+_sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
+import htmlbits as _htmlbits                                            # noqa: E402
 
 BASE = "https://bookwalker.jp"
 
@@ -73,7 +76,7 @@ _VOLUME = re.compile(r'href="(https://bookwalker\.jp/de[0-9a-f-]+/)"')
 # 配信開始日 is the day the FILE went on sale and is not a publication of the work. The same capture
 # measured 115 of 276 volumes delivered before the print edition and 38 after it by up to 4,471
 # days, so it bounds nothing in either direction. It is read and named as what it is.
-_ROW = re.compile(r'<dt[^>]*>(.*?)</dt>\s*<dd[^>]*>(.*?)</dd>', re.S)
+_ROW = _htmlbits.DT_DD
 
 # The shop marks a finished series on the tile. `bookwalker.py` reads the same fact off a series
 # page and off a volume list; this is the third place it is printed and the cheapest to read,

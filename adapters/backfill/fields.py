@@ -28,6 +28,8 @@ import urllib.error, urllib.request
 from collections import Counter, defaultdict
 
 import yaml
+import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
+_sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
 import htmlbits as _htmlbits                                            # noqa: E402
 
 UA = "Mozilla/5.0 (compatible; yurarium/0.1; +https://yurarium.github.io/)"

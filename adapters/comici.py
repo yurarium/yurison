@@ -33,7 +33,10 @@ one.
 import html as _html
 import re
 
-BLOCK = re.compile(r'data-e2e="eli"')
+#: Comici's episode marker, matched in two files. Its markup belongs to its adapter.
+EPISODE_ITEM = re.compile(r'data-e2e="eli"')
+
+BLOCK = EPISODE_ITEM
 ROW = re.compile(
     r'data-e2e="eliTitle">([^<]+)<.*?series-eplist-item-meta-date">(\d{4})/(\d{1,2})/(\d{1,2})<',
     re.S)

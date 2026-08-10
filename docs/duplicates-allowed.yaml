@@ -1,0 +1,36 @@
+# Cases where a fact appearing twice has been argued for, so `facts with more than one home` stays
+# a list of the OPEN ones. An entry needs a reason, not a wish.
+#
+# `match` is a substring of what the lint prints. Keep it specific enough that a NEW duplicate of a
+# different thing is not silently covered by an old argument.
+
+allowed:
+  - match: "note, retrieved, source, url"
+    why: >-
+      The shape of a citation, written independently by kadokomi and pixivcomic. It is four keys a
+      record carries and not a rule anybody applies: two adapters producing the same shape is the
+      shape being right, and a shared constructor would put one platform's field order in the
+      other's file. If a fifth key is ever added to one and not the other, that is a real
+      divergence and this entry should be removed so the lint reports it again.
+
+  - match: "reading, reading_basis, reading_note"
+    why: >-
+      The shape of a reading claim as madb_reading and openbd_reading each emit it. The same
+      argument: it is the record `curate` consumes, and `facts/reading` already owns the RULES about
+      basis and source kind, which is the part that could disagree. The keys are the contract.
+
+  - match: "episodes, url, work_title"
+    why: >-
+      Two release adapters emitting the same row for the same consumer. The consumer's shape is the
+      fact and it has one home; these are two producers filling it.
+
+  - match: "genre, imprint, publisher, title"
+    why: >-
+      cmoa_volumes and madb/by_platform_isbn each describe a volume they found. Same shape because
+      the same four things are what a volume record holds.
+
+  - match: "comicboost, comici, gangan, giga, kadokomi"
+    why: >-
+      The engine registry, in `editions/capture` and `editions/engines`. These SHOULD be one, and
+      the entry is here to say the argument has not been made rather than to close it. Removing
+      this line is the task; it is listed in the plan as part of stage D and is not yet done.

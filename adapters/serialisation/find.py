@@ -46,6 +46,9 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 from identity import match_key, people  # noqa: E402
+import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
+_sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
+import htmlbits as _htmlbits                                            # noqa: E402
 
 # ISBD apparatus, as the national bibliography writes a title. `シナモン = Cinnamon : 人外×人間百合
 # アンソロジー` is one book; `シナモン` is what a platform calls the work. The parallel title after
@@ -132,7 +135,7 @@ def nico_searched(html):
 ANT_ENTRY = re.compile(r'<div class="entry" data-comic-no="(\d+)">(.*?)'
                        r'(?=<div class="entry" data-comic-no=|<div class="footer-navi">)', re.S)
 ANT_THUMB = re.compile(r'<div class="entry-thumb">\s*<a href="([^"]+)"', re.S)
-ANT_ALT = re.compile(r'alt="([^"]*)"')
+ANT_ALT = _htmlbits.ALT
 ANT_SITE = re.compile(r'<div class="entry-site">\s*<a href="[^"]*">\s*(.*?)\s*</a>', re.S)
 ANT_NONE = re.compile(r"に関係する漫画が見つかりませんでした")
 

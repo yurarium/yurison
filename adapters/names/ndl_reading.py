@@ -55,6 +55,8 @@ finding, and it is never an invitation to derive a reading from the characters i
 """
 import re
 import unicodedata
+import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
+_sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
 import htmlbits as _htmlbits                                            # noqa: E402
 
 # The XML tags this reads. Kept as a name each so a changed feed fails visibly rather than by

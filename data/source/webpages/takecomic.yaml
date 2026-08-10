@@ -6,7 +6,7 @@ platform: takecomic
 platform_name: "竹コミ"
 publisher: "竹書房"
 engine: comici
-retrieved: 2026-08-10
+retrieved: 2026-08-11
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -14,7 +14,7 @@ works:
     status: "連載中"
     author: "ゔぇじたぶる"
     url: "https://takecomic.jp/series/b53a116d9f0e7"
-    chapter_count: 17
+    chapter_count: 18
     chapters:
       - title: "1話"
         updated: "2025-10-17"
@@ -51,7 +51,7 @@ works:
         access_modes: ["free-timed"]
       - title: "12話"
         updated: "2025-11-08"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "13話"
         updated: "2025-12-06"
         access_modes: ["purchase"]
@@ -63,15 +63,18 @@ works:
         access_modes: ["purchase"]
       - title: "16話"
         updated: "2026-05-23"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "17話"
         updated: "2026-07-10"
+        access_modes: ["free"]
+      - title: "18話"
+        updated: "2026-08-07"
         access_modes: ["purchase"]
   - work_title: "30まで独りだったら一緒に暮らそうって言ったよね?"
     status: "連載中"
     author: "くずしろ"
     url: "https://takecomic.jp/series/4ad31024142fd"
-    chapter_count: 8
+    chapter_count: 9
     chapters:
       - title: "1話"
         updated: "2025-12-06"
@@ -93,15 +96,18 @@ works:
         access_modes: ["purchase"]
       - title: "7話"
         updated: "2026-06-06"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "8話"
         updated: "2026-07-03"
+        access_modes: ["free"]
+      - title: "9話"
+        updated: "2026-08-07"
         access_modes: ["purchase"]
   - work_title: "百合神さまの言うとおり!"
     status: "連載中"
     author: "橘まなり"
     url: "https://takecomic.jp/series/5b8e11d2274cc"
-    chapter_count: 13
+    chapter_count: 14
     chapters:
       - title: "1話"
         updated: "2025-10-17"
@@ -126,7 +132,7 @@ works:
         access_modes: ["free-timed"]
       - title: "7話"
         updated: "2026-01-16"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "8話"
         updated: "2026-02-20"
         access_modes: ["purchase"]
@@ -138,9 +144,12 @@ works:
         access_modes: ["purchase"]
       - title: "11話"
         updated: "2026-05-29"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "12話"
         updated: "2026-07-03"
+        access_modes: ["free"]
+      - title: "13話"
+        updated: "2026-08-07"
         access_modes: ["purchase"]
   - work_title: "狼の皮をかぶった羊姫"
     status: "連載中"

@@ -6,7 +6,7 @@ platform: kimicomi
 platform_name: "キミコミ"
 publisher: "キルタイムコミュニケーション"
 engine: comici
-retrieved: 2026-08-10
+retrieved: 2026-08-11
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -14,7 +14,7 @@ works:
     status: "連載中"
     author: "真田一輝"
     url: "https://kimicomi.com/series/f42014b3e7df6"
-    chapter_count: 16
+    chapter_count: 17
     chapters:
       - title: "熟成01"
         updated: "2026-04-19"
@@ -54,21 +54,24 @@ works:
         access_modes: ["free-timed"]
       - title: "熟成13"
         updated: "2026-07-12"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "熟成14"
         updated: "2026-07-19"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "熟成15"
         updated: "2026-07-26"
         access_modes: ["free"]
       - title: "熟成16"
         updated: "2026-08-02"
+        access_modes: ["free"]
+      - title: "熟成17"
+        updated: "2026-08-09"
         access_modes: ["purchase"]
   - work_title: "ロリースイートロリー"
     status: "完結"
     author: "ほしあらん"
     url: "https://kimicomi.com/series/f7db55fffae10"
-    chapter_count: 5
+    chapter_count: 6
     chapters:
       - title: "第1話"
         updated: "2025-08-22"
@@ -85,11 +88,14 @@ works:
       - title: "第5話"
         updated: "2026-04-10"
         access_modes: ["purchase"]
+      - title: "ロリースイートロリー発売告知"
+        updated: "2026-08-07"
+        access_modes: ["free"]
   - work_title: "ステラ・ステップ"
     status: "連載中"
     author: "りんご水,林星悟,餡こたく"
     url: "https://kimicomi.com/series/8acb58b98ca8f"
-    chapter_count: 24
+    chapter_count: 25
     chapters:
       - title: "Step.0"
         updated: "2025-08-22"
@@ -147,7 +153,7 @@ works:
         access_modes: ["free-timed"]
       - title: "Step.11①"
         updated: "2026-03-16"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "Step.11②"
         updated: "2026-04-06"
         access_modes: ["purchase"]
@@ -159,15 +165,18 @@ works:
         access_modes: ["purchase"]
       - title: "Step.13①"
         updated: "2026-06-22"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "Step.13②"
         updated: "2026-07-06"
+        access_modes: ["free"]
+      - title: "Step.14①"
+        updated: "2026-08-03"
         access_modes: ["free"]
   - work_title: "魔王城デート大作戦!"
     status: "連載中"
     author: "涼海来夏"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
-    chapter_count: 2
+    chapter_count: 4
     chapters:
       - title: "OPERATION1"
         updated: "2026-07-20"
@@ -175,6 +184,12 @@ works:
       - title: "OPERATION2"
         updated: "2026-07-27"
         access_modes: ["free"]
+      - title: "OPERATION3"
+        updated: "2026-08-03"
+        access_modes: ["free"]
+      - title: "OPERATION4"
+        updated: "2026-08-10"
+        access_modes: ["purchase"]
   - work_title: "見えてますよ! 愛沢さん"
     status: "連載中"
     author: "棘尾どろしー"

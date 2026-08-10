@@ -6,7 +6,7 @@ platform: heros-web
 platform_name: "HERO'S Web"
 publisher: "ヒーローズ"
 engine: comici
-retrieved: 2026-08-10
+retrieved: 2026-08-11
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -14,7 +14,7 @@ works:
     status: "連載中"
     author: "柴田康平"
     url: "https://heros-web.com/series/2b64bc0622a2a"
-    chapter_count: 34
+    chapter_count: 35
     chapters:
       - title: "第一服「魔女と再会」"
         updated: "2026-05-18"
@@ -111,18 +111,21 @@ works:
         access_modes: ["free-timed"]
       - title: "第十七服「魔女と禁域」前編"
         updated: "2026-06-24"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第十七服「魔女と禁域」後編"
         updated: "2026-07-08"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第十八服「魔女と秘匿」前編"
         updated: "2026-07-22"
+        access_modes: ["purchase"]
+      - title: "第十八服「魔女と秘匿」後編"
+        updated: "2026-08-05"
         access_modes: ["purchase"]
   - work_title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     status: "連載中"
     author: "朱白あおい,糀もろみ,村田真哉,柳井伸彦"
     url: "https://heros-web.com/series/ec09a10dc9490"
-    chapter_count: 25
+    chapter_count: 26
     chapters:
       - title: "第１輪「ヤってしまいましたわ」"
         updated: "2026-05-18"
@@ -199,6 +202,9 @@ works:
       - title: "第19輪「来ちゃった」②"
         updated: "2026-07-17"
         access_modes: ["purchase"]
+      - title: "【４巻告知イラスト】"
+        updated: "2026-08-07"
+        access_modes: ["free"]
   - work_title: "ナキノン"
     status: "完結"
     author: "根岸岳春"

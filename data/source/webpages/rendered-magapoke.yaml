@@ -10,7 +10,7 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-08-10
+retrieved: 2026-08-11
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -320,6 +320,58 @@ works:
         date_basis: rendered
       - title: "【第1夜】伝説の吸血鬼、堕つ。"
         updated: 2020-06-24
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "ふたりエスケープ"
+    author: "田口囁一"
+    url: "https://pocket.shonenmagazine.com/title/01357"
+    stated_schedule:
+      cadence: "毎週日曜"
+    chapter_count: 10
+    chapters:
+      - title: "【その32】ふたりエスケープ(2)"
+        updated: 2023-01-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
+      - title: "【その32】ふたりエスケープ(1)"
+        updated: 2023-01-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
+      - title: "【その31】ロスト・エスケープ"
+        updated: 2022-12-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
+      - title: "【その30】伊豆アンモナイト・エスケープ"
+        updated: 2022-11-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
+      - title: "【その29】緊急エスケープ"
+        updated: 2022-06-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
+      - title: "【その5】HOKURIKUエスケープ"
+        updated: 2021-04-26
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【その4】金欠ドリームエスケープ"
+        updated: 2021-04-26
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【その3】贅沢三昧エスケープ"
+        updated: 2021-04-26
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【その2】終点エスケープ"
+        updated: 2021-04-26
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【その1】オフライン・エスケープ"
+        updated: 2021-04-26
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "ロンリーガールに逆らえない"
@@ -1550,55 +1602,5 @@ works:
         date_basis: rendered
       - title: "【第1話】ハザマ学園怪奇新聞部"
         updated: 2026-06-30
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "ふたりエスケープ"
-    author: "田口囁一"
-    url: "https://pocket.shonenmagazine.com/title/01357"
-    chapter_count: 10
-    chapters:
-      - title: "【その32】ふたりエスケープ(2)"
-        updated: 2023-01-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【その32】ふたりエスケープ(1)"
-        updated: 2023-01-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【その31】ロスト・エスケープ"
-        updated: 2022-12-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【その30】伊豆アンモナイト・エスケープ"
-        updated: 2022-11-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【その29】緊急エスケープ"
-        updated: 2022-06-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【その5】HOKURIKUエスケープ"
-        updated: 2021-04-26
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【その4】金欠ドリームエスケープ"
-        updated: 2021-04-26
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【その3】贅沢三昧エスケープ"
-        updated: 2021-04-26
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【その2】終点エスケープ"
-        updated: 2021-04-26
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【その1】オフライン・エスケープ"
-        updated: 2021-04-26
         access_modes: ["free"]
         date_basis: rendered

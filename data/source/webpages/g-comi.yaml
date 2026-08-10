@@ -6,7 +6,7 @@ platform: g-comi
 platform_name: "Gコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-08-10
+retrieved: 2026-08-11
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -14,10 +14,13 @@ works:
     status: "連載中"
     author: "裏海マユ,ちょきんぎょ。"
     url: "https://g-comi.jp/series/58238b3987c11"
-    chapter_count: 1
+    chapter_count: 2
     chapters:
       - title: "第1話"
         updated: "2026-07-03"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: "2026-08-07"
         access_modes: ["free"]
   - work_title: "百合フェチLIFE"
     status: "連載中"
@@ -39,7 +42,7 @@ works:
         access_modes: ["purchase"]
       - title: "第5話"
         updated: "2026-07-22"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
   - work_title: "暴走!?サキュバスせんぱい"
     status: "連載中"
     author: "ミナミト"
@@ -110,7 +113,7 @@ works:
     status: "連載中"
     author: "窓口基"
     url: "https://g-comi.jp/series/f5a28c7f5cc1b"
-    chapter_count: 11
+    chapter_count: 12
     chapters:
       - title: "第1話 爪女のウワサ"
         updated: "2023-10-23"
@@ -138,13 +141,16 @@ works:
         access_modes: ["free"]
       - title: "第7話 口大習村のウワサ②"
         updated: "2025-03-14"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第8話 心霊“加工”写真のウワサ"
         updated: "2025-10-24"
         access_modes: ["purchase"]
       - title: "第9話 夜哭き界隈のウワサ"
         updated: "2026-05-22"
         access_modes: ["purchase"]
+      - title: "第10話 外れ小路のウワサ"
+        updated: "2026-08-07"
+        access_modes: ["free"]
   - work_title: "狙いはキミだけ!"
     status: "読み切り"
     author: "あまね"

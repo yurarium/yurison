@@ -6,7 +6,7 @@ platform: hanayume
 platform_name: "花とゆめ+"
 publisher: "白泉社"
 engine: comici
-retrieved: 2026-08-10
+retrieved: 2026-08-11
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -62,7 +62,7 @@ works:
     status: "連載中"
     author: "瑠夏子"
     url: "https://hanayume.com/series/f3ce082d639de"
-    chapter_count: 29
+    chapter_count: 31
     chapters:
       - title: "#1"
         updated: "2026-04-20"
@@ -147,9 +147,15 @@ works:
         access_modes: ["free-timed"]
       - title: "＃15①"
         updated: "2026-07-20"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "＃15②"
         updated: "2026-07-27"
+        access_modes: ["free"]
+      - title: "おまけ"
+        updated: "2026-08-03"
+        access_modes: ["free"]
+      - title: "＃16①"
+        updated: "2026-08-10"
         access_modes: ["purchase"]
   - work_title: "魔法使いの作庭/よみきり"
     status: "読み切り"

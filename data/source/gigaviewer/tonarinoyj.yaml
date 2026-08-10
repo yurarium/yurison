@@ -6,12 +6,13 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-08-10
+retrieved: 2026-08-11
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "tonarino_yj:episode:12207421983966653061"
+    in_current_window: false
     work_title: "英雄少女と呪われの銀姫"
     web_status: "serialised"
     identified_via: "discovery-candidate"

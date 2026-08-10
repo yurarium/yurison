@@ -427,3 +427,40 @@ platforms:
   works:
   - title: ロイヤルテーラー ―王宮の裁縫師―
     url: https://zerosumonline.com/detail/royaltailor
+# ガンガンONLINE, restored 2026-08-10. This section was here until 544a462 dropped it, and
+# adapters/ganganonline/releases.py selects its works out of this file by id, so from that
+# commit on the adapter exited `no ganganonline section` before reading a page, on every run.
+# Three of the works below are also in Stage C's `no route yielded a dated chapter list`,
+# which is the same fault seen from the other end: the rendered route cannot read this
+# platform, and the adapter written because it cannot was never given anything to read.
+- id: ganganonline
+  name: ガンガンONLINE
+  publisher: スクウェア・エニックス
+  host: www.ganganonline.com
+  works:
+  - title: 〆切前には百合が捗る
+    url: https://www.ganganonline.com/title/1525
+  - title: ひきこまり吸血姫の悶々
+    url: https://www.ganganonline.com/title/1593
+  - title: イタズラっ子世に憚らず!!
+    url: https://www.ganganonline.com/title/2268
+  - title: レベル1の最強テイマー ～幸運極振りの初心者ゲーマーはもふもふ軍団を従え最強へ至ります～
+    url: https://www.ganganonline.com/title/1587
+  - title: 女同士とかありえないでしょと言い張る女の子を、百日間で徹底的に落とす百合のお話
+    url: https://www.ganganonline.com/title/1258
+  - title: 性別「モナリザ」の君へ。
+    url: https://www.ganganonline.com/title/12
+  - title: 春綴る、桜咲くこの部屋で
+    url: https://www.ganganonline.com/title/1222
+  - title: 温室のアトリエ
+    url: https://www.ganganonline.com/title/2643
+  - title: 私がモテないのはどう考えてもお前らが悪い!
+    url: https://www.ganganonline.com/title/29
+  - title: 藤髪の魔女
+    url: https://www.ganganonline.com/title/2649
+  - title: 裏世界ピクニック
+    url: https://www.ganganonline.com/title/38
+  - title: 限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした
+    url: https://www.ganganonline.com/title/2349
+  - title: 香り屋さんの纏さん
+    url: https://www.ganganonline.com/title/2286

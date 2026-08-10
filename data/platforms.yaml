@@ -63,7 +63,14 @@ platforms:
   overlap: 0.77
   watched: true
   watched_since: 2026-08-02
-  adapter: adapters/pixivcomic/
+  adapter: adapters/render/
+  adapter_note: 'RETIRED 2026-08-02 and finished 2026-08-10. adapters/pixivcomic/ read the
+    /api/app/ endpoint named in `blocker` below, which answers a self-identifying client 403,
+    so the route only works by pretending to be a browser and §5 rules that out. The revert
+    moved its candidate list to ../pixiv-api-adapter-retired/ and left the code in the tree,
+    where nothing ran it and build.py held a validation that hard-exits if its output ever
+    appears beside the rendered file. The code is now beside its candidate list. pixivコミック
+    is served by the rendered route, which is the browser the operator serves.'
   blocker: Reachable, but only with a browser in the pipeline. Work pages are a pure client shell (__NEXT_DATA__
     empty) and the data comes from /api/app/works/..., which returns 403 to a self-identifying non-browser
     request — so a plain fetch gets nothing, and spoofing the client to get past that is out under §5.

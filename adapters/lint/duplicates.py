@@ -31,6 +31,12 @@ import os
 import pathlib
 import sys
 
+# WHICH FILES ARE THIS REPOSITORY'S OWN is asked of git, in one place, because an agent
+# worktree at .claude/worktrees/ is a second copy of this repo inside it and walking counted
+# every file once per tree. See `lint/tree`.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import tree as _tree                                                    # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 ALLOW = ROOT / "docs" / "duplicates-allowed.yaml"
 
@@ -44,9 +50,11 @@ MIN_BODY_STATEMENTS = 4
 def _sources(paths=None, tests=False):
     if paths:
         return [pathlib.Path(p) for p in paths]
+    # ASKED OF GIT (`lint/tree`), because an agent worktree at .claude/worktrees/ is a second copy
+    # of this repository inside it, and walking counted every file once per tree.
     out = []
-    for f in ROOT.rglob("*.py"):
-        if any(x in f.parts for x in (".git", "data", "__pycache__")):
+    for f in _tree.own_files(".py"):
+        if any(x in f.parts for x in ("data", "__pycache__")):
             continue
         if not tests and (f.name.startswith("test_") or f.name == "testkit.py"):
             continue

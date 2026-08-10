@@ -22,6 +22,12 @@ import pathlib
 import re
 import sys
 
+# WHICH FILES ARE THIS REPOSITORY'S OWN is asked of git, in one place, because an agent
+# worktree at .claude/worktrees/ is a second copy of this repo inside it and walking counted
+# every file once per tree. See `lint/tree`.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import tree as _tree                                                    # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 FACTS = ROOT / "adapters" / "facts"
 
@@ -51,8 +57,9 @@ def findings(paths=None, facts_dir=None):
     facts = set(owned(root))
     if not facts:
         return []
-    files = paths or [p for p in ROOT.rglob("*.py")
-                      if ".git" not in p.parts and "data" not in p.parts]
+    # ASKED OF GIT (`lint/tree`): two agent worktrees turned this count from 12 into 1,737,
+    # because a file copied into three trees really does look like a fact with three homes.
+    files = paths or [p for p in _tree.own_files(".py") if "data" not in p.parts]
     out = []
     for f in files:
         f = pathlib.Path(f)

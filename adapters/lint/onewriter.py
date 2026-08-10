@@ -30,6 +30,12 @@ import pathlib
 import re
 import sys
 
+# WHICH FILES ARE THIS REPOSITORY'S OWN is asked of git, in one place, because an agent
+# worktree at .claude/worktrees/ is a second copy of this repo inside it and walking counted
+# every file once per tree. See `lint/tree`.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import tree as _tree                                                    # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 
 #: The module allowed to write, as a path fragment. One entry, on purpose.
@@ -45,9 +51,10 @@ _EXEC = {"execute", "executemany", "executescript"}
 def findings(paths=None, root=None):
     """`[(path, line, what)]` for every write to the store outside the compiler."""
     root = pathlib.Path(root or ROOT)
+    # ASKED OF GIT (`lint/tree`), so a nested worktree is not read as a second writer.
     files = [pathlib.Path(p) for p in paths] if paths else [
-        f for f in root.rglob("*.py")
-        if not any(x in f.parts for x in (".git", "data", "__pycache__", "node_modules"))]
+        f for f in _tree.own_files(".py", root=root)
+        if not any(x in f.parts for x in ("data", "__pycache__", "node_modules"))]
 
     out = []
     for f in sorted(files):

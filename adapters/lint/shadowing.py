@@ -51,6 +51,12 @@ Exit 1 if the count exceeds --max, so it can gate a change if anyone wants it to
 """
 import argparse, ast, collections, pathlib, re, sys
 
+# WHICH FILES ARE THIS REPOSITORY'S OWN is asked of git, in one place, because an agent
+# worktree at .claude/worktrees/ is a second copy of this repo inside it and walking counted
+# every file once per tree. See `lint/tree`.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import tree as _tree                                                    # noqa: E402
+
 
 def offenders(path, span):
     tree = ast.parse(open(path).read(), filename=path)
@@ -89,8 +95,9 @@ def _reachable(root):
     with the code, so reading the inserts is the only way the answer stays true.
     """
     out = collections.defaultdict(set)
-    for f in root.rglob("*.py"):
-        if any(x in f.parts for x in (".git", "data", "__pycache__", "node_modules")):
+    # ASKED OF GIT (`lint/tree`), so a nested worktree does not report every insert three times.
+    for f in _tree.own_files(".py", root=root):
+        if any(x in f.parts for x in ("data", "__pycache__", "node_modules")):
             continue
         try:
             text = f.read_text(encoding="utf-8")

@@ -41,6 +41,7 @@ sys.path.insert(0, str(ROOT))
 # invariants which do read YAML get the fast parser, and so a machine cannot end up with build.py
 # and check.py reading the same file two different ways. See adapters/yamlfast.py.
 from adapters import yamlfast  # noqa: F401,E402
+from adapters.lint import tree as _tree  # noqa: E402
 BUILD = ROOT / "data" / "build"
 NAMES = ROOT / "data" / "names"
 BUDGETS = ROOT / "docs" / "budgets.json"
@@ -2589,8 +2590,13 @@ def budget_invented_markup_in_tests(ctx):
     has cached.
     """
     n = 0
-    for f in sorted(ROOT.glob("**/test_*.py")) + sorted(ROOT.glob("**/*_test.py")):
-        if ".git" in f.parts or "data" in f.parts:
+    # ASKED OF GIT (`lint/tree`), because an agent worktree at .claude/worktrees/ is a checkout of
+    # this repository inside it. Two of them read this budget as 225 where it is 75, which is a
+    # floor no later run could ever meet, and budgets only ratchet down.
+    for f in _tree.own_files(".py"):
+        if not (f.name.startswith("test_") or f.name.endswith("_test.py")):
+            continue
+        if "data" in f.parts:
             continue
         try:
             tree = ast.parse(f.read_text(encoding="utf-8", errors="replace"))
@@ -2690,8 +2696,8 @@ def budget_structural_triples(ctx):
     public at 1.0 and so need the same pass. A count, so it ratchets down instead of blocking.
     """
     try:
-        files = [str(f) for f in sorted(ROOT.rglob("*.md"))
-                 if ".git" not in f.parts and "data" not in f.parts]
+        # ASKED OF GIT, for the reason `budget_stock_phrasing_in_comments` beside it already gives.
+        files = [str(f) for f in _tree.own_files(".md") if "data" not in f.parts]
         out = subprocess.run(
             [sys.executable, str(ROOT / "adapters" / "lint" / "tics.py"), "--prose", *files],
             capture_output=True, text=True, timeout=120)

@@ -2476,10 +2476,18 @@ out of the workflow rather than retried or worked around. A step that cannot suc
 ganganonline had already cost us: it trains a reader to skim the failure list, and the run beside it
 that mattered went unread for a week.
 
-**What this costs.** New candidates are not discovered by the automated run. The corpus keeps the
-1,200 candidates already in `data/coverage/webcomics-works.yaml`, which is committed and is what the
-rest of the pipeline reads, so a run is complete in every other respect. Discovery is a local pass
-now, run by a person on a machine the site answers:
+**What this costs, and it is more than a list going stale.** The two files this pass writes are the
+target list for five of Stage A's adapters: `comicfuz` and `webpages` read `webcomics-gap.yaml`, and
+`kadokomi`, `nicovideo` and `generic` read `webcomics-works.yaml`. Frozen, those five go on fetching
+the 1,200 works already named and never learn of a new one. Every run stays complete for what the
+corpus holds, and the corpus stops growing by this route.
+
+百合ナビ is the other discovery route and is unaffected, so new works still arrive; what stops is the
+half that Web漫画アンテナ answers for. `data/coverage/webcomics-gap.yaml` is dated 2026-08-04 and the
+successful run left it untouched, which is the pass refusing to write behaving as intended.
+
+Discovery is a local pass now, run by a person on a machine the site answers, and it wants a standing slot in
+whoever's week owns this pipeline:
 
 ```
 python3 adapters/webcomics/coverage.py --out data/coverage \

@@ -134,6 +134,15 @@ def main(s):
     s.eq(d.retire_store(pathlib.Path(tmp) / "gone.yaml"), ({}, []),
          "no store is the documented fallback, not an error")
 
+    # THE DOOR build.py USES, WHICH IS NOT THE DOOR THIS FILE USES (§14b). Everything above reaches
+    # `facts.division.analyser_division`; the build reaches `facts.division`, whose `__getattr__`
+    # forwards to `boundary` and `checks` and to nothing else. `retire` and `asks` were written out
+    # by hand there and `retire_store` was missed, so the build raised AttributeError inside the
+    # naming block, printed `automatic reading pass skipped`, and every test here passed.
+    from facts import division as entry
+    for name in ("retire", "asks", "retire_store"):
+        s.check(hasattr(entry, name), f"the entry point answers {name}, which build.py calls on it")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

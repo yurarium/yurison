@@ -368,3 +368,46 @@ is the same shape as ヒラエス for hiraeth, and it is a guess until a page sa
 **The setting is usually the evidence.** ベーズ was unresolvable in a record whose own note said the
 work is a maid romance, which is the one setting where that word is a door. Whoever works this queue
 should read what the entry already knows before looking anywhere else.
+
+## A blank and a censored word are two things, and neither is rendered consistently
+
+**Raised by the project owner, 2026-08-10**, asking about consistency after the elision in
+`セッ○スしないと出られない部屋` was corrected. Surveying every title carrying one of these marks
+turns up seven spellings for what are really three different things.
+
+**Three functions wearing one mark.**
+
+1. **A BLANK.** `○○`, `〇〇`, `××`, `×××` standing in for a word the reader supplies. The joke is
+   that the title refuses to say it.
+2. **A CENSORED WORD.** `セッ○ス`, `おマ◯コ`. The reader knows the word; a character is withheld.
+3. **A PAIRING SIGN.** `彼女×彼女`, `ゆり×こちょ!`, `教師×生徒`. Not a blank at all. Rendered `x`
+   throughout, which is right and is the one part of this that is already consistent.
+
+**What the corpus does with a blank today**, one row per spelling in use:
+
+| Source | Rendering |
+|---|---|
+| `ひとりぼっちの○○生活` | `Hitoribocchi's ○○ Life` |
+| `異種族女子に〇〇する話` | `The Story of Doing ___ to Interspecies Girls` |
+| `白百合に×いを込めて` | `A ____ Upon the White Lily` |
+| `幼馴染を選ばない奴は〇〇だ!` | `Anyone Who Doesn't Pick the Childhood Friend Is a **!` |
+| `×××したいくらい可愛い君が` | `You're Cute Enough That I Want to xxx` |
+| `夕日の見えるバルコニーで、君と××` | `XX with You` |
+
+Three underscores, four underscores, two asterisks, lowercase `xxx`, uppercase `XX`, and one title
+that keeps the Japanese circles. That last one also puts Japanese typography into an English
+rendering, which is the fault a reader reported the same day about work pages.
+
+**The proposal, which needs a ruling because it is a house style and not a fact.**
+
+- A BLANK becomes `___`, three underscores, whatever the source uses to mark it and however many
+  characters it hides. The reader's job is to fill it, and an underscore is the English shape for
+  that.
+- A CENSORED WORD keeps its letters and loses one to `*`: `s*x`. The mark has to cover something
+  or it is decoration, which is what `Se*x` was.
+- A PAIRING `×` stays `x`. Already consistent; recorded so it is not swept up.
+
+`ひとりぼっちの○○生活` is the one to check before applying anything, since a licensor may have
+published it with the circles intact, in which case it is not an outlier but a licensed name and
+outranks any house style. No English licence was found on the search made, and the anime's
+convention is not a manga licence.

@@ -177,3 +177,15 @@ def retire(*a, **k):
 def asks(*a, **k):
     """`analyser_division.asks`: whether a record's division is the analyser's to remove."""
     return _ad().asks(*a, **k)
+
+
+def retire_store(*a, **k):
+    """`analyser_division.retire_store`: strip every uncited division from the store on disk.
+
+    NAMED HERE BECAUSE `__getattr__` DOES NOT REACH IT. The hook forwards to `boundary` and to
+    `checks`, so the two functions above had to be written out and this third one was missed.
+    build.py calls it on every build, inside the try that prints one line and continues, so the
+    AttributeError read as `automatic reading pass skipped` and took the author readings, the
+    divisions and the publisher names down with it. STANDING-INSTRUCTIONS §4.
+    """
+    return _ad().retire_store(*a, **k)

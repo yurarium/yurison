@@ -458,7 +458,12 @@ def _interpunct():
     root = str(_pl.Path(__file__).resolve().parents[1])   # noqa: E501  (cached by the decorator)
     if root not in _sys.path:
         _sys.path.insert(0, root)
-    mod = importlib.import_module("names.interpunct")
+    # `facts.credit.interpunct` SINCE 93469a1 MOVED IT, and this line still said `names.interpunct`.
+    # The import raised, `is_credit_line` raised with it, and build.py's naming block catches
+    # everything and prints one line, so the second half of the autopilot had stopped running: no
+    # author reading, no division, no publisher name, and a build that said `automatic reading pass
+    # skipped`. STANDING-INSTRUCTIONS §4, failing by returning a plausible sentence.
+    mod = importlib.import_module("facts.credit.interpunct")
     return mod, mod.key.fold
 
 

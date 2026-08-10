@@ -1081,6 +1081,24 @@ names:
     reading_source: read off the name itself
     reading_source_kind: derived
     verified: false
+  れんが書房新社:
+    basis: romaji
+    furigana_spans:
+    - - れんが
+      - null
+    - - 書房
+      - しょぼう
+    - - 新社
+      - しんしゃ
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: レンガ ショボウ シンシャ
+    reading_at: '2026-08-10'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   わんこ院:
     basis: romaji
     en: Wankoin
@@ -3022,6 +3040,22 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I026279877
     verified: true
+  学研マーケティング:
+    basis: romaji
+    furigana_spans:
+    - - 学研
+      - がっけん
+    - - マーケティング
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ガッケン マーケティング
+    reading_at: '2026-08-10'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   宇宙りんご:
     basis: romaji
     en: Uchu Ringo
@@ -3083,6 +3117,22 @@ names:
     note: The company publishes at shogakukan.co.jp and prints no other Latin form on the front page or
       the company page; the domain is its own spelling.
     verified: true
+  小学館クリエイティブ:
+    basis: romaji
+    furigana_spans:
+    - - 小学館
+      - しょうがくかん
+    - - クリエイティブ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ショウガクカン クリエイティブ
+    reading_at: '2026-08-10'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   少年サンデーコミックス:
     basis: romaji
     en: Shonen Sunday Comics
@@ -3131,6 +3181,20 @@ names:
     en_url: https://www.shonengahosha.co.jp/
     note: The company signs its own site COPYRIGHT(C) Shonengahosha.
     verified: true
+  幻冬舎:
+    basis: romaji
+    furigana_spans:
+    - - 幻冬舎
+      - げんとうしゃ
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ゲントウシャ
+    reading_at: '2026-08-10'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   幻冬舎コミックス:
     basis: official-jp
     en: Gentosha Comics
@@ -3646,6 +3710,22 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I025833843
     verified: true
+  角川グループパブリッシング:
+    basis: romaji
+    furigana_spans:
+    - - 角川
+      - かどかわ
+    - - グループパブリッシング
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: カドカワグループパブリッシング
+    reading_at: '2026-08-10'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   角川コミックス・エース:
     basis: romaji
     en: Kadokawa Comics Ace

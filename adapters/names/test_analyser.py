@@ -89,6 +89,18 @@ def main(s):
     for who in ("博（ひろ）", "壇九（TANJIU)", "太陽まりい"):
         s.check(not p4.is_credit_line(who), f"and a bracket holding no role is not: {who}")
 
+    # A ・ IS THE ONE PATH THAT LOADS THE INTERPUNCT MODULE, and nothing above takes it: every
+    # string here either holds a role or holds no separator, so `_interpunct` was never called and
+    # the import inside it went on naming `names.interpunct` for a week after 93469a1 moved that
+    # file to `facts/credit`. The ImportError reached build.py's naming block, which catches
+    # everything and prints one line, so every author reading, every division and every publisher
+    # name stopped being filled while the build reported `automatic reading pass skipped`.
+    s.check(p4.is_credit_line("くろば・Ｕ"),
+            "an interpunct nobody has ruled on still reads as a credit line")
+    _ip, _fold = p4._interpunct()
+    s.check(not p4.is_credit_line("くろば・Ｕ", {_fold("くろば・Ｕ"): _ip.ONE}),
+            "and the corpus ruling that it names one person is what makes it a name")
+
     s.check(p4.has_japanese("第1話"), "japanese detected")
     s.check(not p4.has_japanese("Chapter 1"), "plain english is not japanese")
 

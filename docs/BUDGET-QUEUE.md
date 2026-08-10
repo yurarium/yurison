@@ -475,6 +475,35 @@ One pair on the list is settled by rank rather than by argument:
 `私の女神が今日も推せる~これからも、いつまでも~` carries a licensor's name, so it outranks ours, while the
 base record's `Worth Championing` is ours and stands where no licensor has spoken.
 
+### The residue after the 2026-08-10 naming pass
+
+Re-swept once the accepted names landed, grouping on the shared title core instead of on the fold
+key. The fold key finds none of these, because an anthology and its base are two works and not two
+editions, so nothing was going to catch them by the route the earlier sweep took.
+
+Seven work names still reach a reader rendered more than one way:
+
+| Work | One row says | Another says |
+|---|---|---|
+| `うらら迷路帖` | URARA MEIROCHOU | Urara Meirochō |
+| `ネイルちゃんと深爪さん。` | Fukazume-san | Cut-Too-Short-san |
+| `ギャルメイドと悪役令嬢` | The Gyaru Maid | The Gal Maid |
+| `ステラのまほう` | Stella's Magic | Stella's Magic Anthology Comic |
+| `人妻とJK` | Married Woman and JK | The Married Woman and the Schoolgirl |
+| `私の女神が今日も推せる` | Worth Championing Again Today | is Precious Today, Too |
+| `乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった…` | My Next Life as a Villainess | I Reincarnated as a Villainess in an Otome Game |
+
+**The last one is settled by rank and not by argument.** Two of its three rows carry the licensed
+name and the anthology carries ours, so the licensed name takes the anthology too. `うらら迷路帖` is
+the same shape at a smaller scale: one row shouts the romanisation in capitals and the other sets it
+with a macron, and neither spelling is a decision anybody recorded.
+
+**`ステラのまほう` and `人妻とJK` are the honest half of the list.** Adding `Anthology Comic` or
+`Series` to a name is what those rows are, so what disagrees is whether the apparatus belongs in the
+English at all. That is the same question `EDITION_EN` answers for `単話版` and `合本版`, and three
+rows are still waiting on labels it does not hold: `（LatteComi）`, `（コスモブルー）` and
+`（OrangeVox）`.
+
 ## `titles with no translation of our own` accepted at 172. 2026-08-10
 
 **Raised by one**, and the one is `うらら迷路帖`. It carried no English name at all until its own

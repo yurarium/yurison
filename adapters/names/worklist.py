@@ -125,8 +125,12 @@ def rows(build="data/build"):
             route, why = "inherit", f"the same work as {sib[0]}, which is {sib[1]!r}"
         elif sib and sib[0] != ja:
             route, why = "inherit-romaji", f"{sib[0]} carries {sib[1]!r}, itself a romanisation"
-        elif COINAGE.match(ja):
-            route, why = "coinage", "short and already kana or Latin, so a romanisation may be the answer"
+        # A PARTICLE MAKES IT A PHRASE AND NOT A COINAGE, whatever its length. `レンズのむこう` is
+        # seven kana and means beyond the lens; `イヴとイヴ` is five and is Eve and Eve. Both were
+        # filed as coinages to confirm, which is the queue telling a reviewer the job is smaller
+        # than it is.
+        elif COINAGE.match(ja) and not PARTICLE.search(ja.strip()):
+            route, why = "coinage", "short and in kana with no particle, so a romanisation may be the answer"
         else:
             route, why = "compose", "no sibling has a name; look for a licensor, then the work's own art"
         out.append({"id": r.get("id"), "work": ja, "shown": shown, "route": route, "why": why,

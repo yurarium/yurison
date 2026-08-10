@@ -181,6 +181,28 @@ def _checks():
     return importlib.import_module(".checks", __name__)
 
 
+#: The submodules, which `__getattr__` must never forward: `from . import vocabulary` reaches the
+#: hook before the submodule is bound on the package, so forwarding it calls the import that called
+#: the hook. `facts/division` records the same trap.
+_SUBMODULES = ("checks", "vocabulary")
+
+
+def __getattr__(name):
+    """Anything `vocabulary` publishes, reached through the entry point.
+
+    Written as a hook rather than a re-export list so the list cannot drift from what the submodule
+    offers. `analyser_vocabulary` asks for `doubt` and for the reasons a doubt stands, and asking
+    the package for them is what `a fact is reached through its entry point` requires.
+    """
+    if name in _SUBMODULES or name.startswith("__"):
+        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+    import importlib
+    mod = importlib.import_module(".vocabulary", __name__)
+    if hasattr(mod, name):
+        return getattr(mod, name)
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+
 #: WHAT THIS FACT CAN BE CHECKED ON, keyed by the name check.py registers.
 CHECKS = {
     "readings_are_kana": lambda ctx, _n="readings_are_kana": getattr(_checks(), _n)(ctx),
@@ -188,6 +210,7 @@ CHECKS = {
     "uncertain_readings": lambda ctx, _n="uncertain_readings": getattr(_checks(), _n)(ctx),
     "author_readings_no_source_states": lambda ctx, _n="author_readings_no_source_states": getattr(_checks(), _n)(ctx),
     "publisher_readings_nobody_has_settled": lambda ctx, _n="publisher_readings_nobody_has_settled": getattr(_checks(), _n)(ctx),
+    "titles_read_by_a_machine_unmarked": lambda ctx, _n="titles_read_by_a_machine_unmarked": getattr(_checks(), _n)(ctx),
     "kana_reading_spells_its_name": lambda ctx, _n="kana_reading_spells_its_name": getattr(_checks(), _n)(ctx),
     "ruby_spells_reading": lambda ctx, _n="ruby_spells_reading": getattr(_checks(), _n)(ctx),
     "facts_fetched_with_no_citation":

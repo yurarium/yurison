@@ -141,6 +141,35 @@ def author_readings_no_source_states(ctx):
                if v.get("basis") == "romaji" and (v.get("uncertain") or v.get("unverified")))
 
 
+def titles_read_by_a_machine_unmarked(ctx):
+    """Titles a reader meets spelled from an analyser's reading with nothing saying so.
+
+    THE POPULATION THE 2026-08-10 RULING CREATED, counted where somebody can watch it. Until that
+    day every analyser reading carried the `[?]`, so this number was 0 and said nothing; the mark
+    now falls where the analyser met only ordinary in-dictionary vocabulary, and 1,415 titles ship
+    a machine's segmentation of a Japanese sentence as settled fact. Most of them are right. The
+    ones that are not are invisible, which is exactly why the count belongs here rather than in a
+    sentence somebody wrote once.
+
+    A DEFICIT, so it falls when a title's reading gets stated or researched and rises when the
+    corpus grows. A rise is a finding: either new works arrived, or the rule in
+    `facts/reading/vocabulary` widened and let something through that the analyser was guessing at.
+
+    §14b, WHAT IT SHARES WITH ITS SUBJECT: the word `analyser` and nothing else. The rule that
+    removes the mark reads Sudachi's part of speech and its dictionary; this reads the file a
+    reader is served and asks whether the mark is drawn. A pass that decided wrongly is counted
+    here all the same, and a change that suppressed the mark for a reason nobody argued raises this
+    number instead of being agreed with.
+
+    What it therefore cannot see is whether any individual reading is right. Nothing mechanical
+    can; that is the residue `facts/reading/vocabulary` states in its own docstring, and it is why
+    a title with a stated reading always outranks one of these.
+    """
+    return sum(1 for v in ((ctx["names_shipped"] or {}).get("titles") or {}).values()
+               if v.get("reading_basis") == "analyser"
+               and not v.get("unverified") and not v.get("uncertain"))
+
+
 def publisher_readings_nobody_has_settled(ctx):
     """Publisher keys shipped as OUR romanisation whose reading no source states.
 

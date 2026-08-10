@@ -1889,8 +1889,22 @@ def load_names():
         #
         # KANJI, LATIN AND DIGITS ALL DISQUALIFY. Each of them has to be READ: タイザン5 could end
         # ゴ or ファイブ, and that is a real guess, so it keeps its mark.
+        # AND ORDINARY VOCABULARY IS NOT A GUESS EITHER, ruled by the project owner 2026-08-10:
+        # for fundamental kanji, the absence of special information is evidence that they have
+        # their obvious readings, in a title. 私 is ワタシ, 体 is カラダ, 風俗 is フウゾク and 百合
+        # is ユリ, and the note stored on each of those records justified its mark by saying
+        # analysers are weakest on pen names and coinages, which those are not. So the mark is
+        # drawn where the analyser says it met a proper noun, a word its dictionary does not hold,
+        # or a compound it had to read a character at a time.
+        #
+        # `reading_ordinary` IS THE ONE PRODUCER OF THAT ANSWER, written by
+        # adapters/names/analyser_vocabulary.py on every build, because deciding it needs the
+        # analyser and this function runs with no tokeniser and must work without one installed.
+        # The pass removes the field from any record that leaves the `analyser` basis, so a title
+        # a source later settles cannot carry a stale one.
         _mechanical = k_ja and not NEEDS_READING.search(str(k_ja))
-        if (rec.get("verified") is False and not _mechanical
+        _ordinary = rec.get("reading_ordinary") and rec.get("reading_basis") == "analyser"
+        if (rec.get("verified") is False and not _mechanical and not _ordinary
                 and rec.get("reading_basis") not in ("researched", "stated")):
             out["unverified"] = True
         # A reading assembled character by character because nothing could read the word. Weaker
@@ -5887,6 +5901,19 @@ def main():
         if _cut:
             print(f"names           : {len(_cut)} kana name(s) divided from a record we already "
                   f"hold; {sum(_left.values())} left whole")
+
+        # WHICH TITLES THE ANALYSER WAS ACTUALLY GUESSING AT. Every reading it produces is stamped
+        # `verified: false` and the interface draws a `[?]`, and the note stored beside each one
+        # says the doubt is about pen names and coinages. 私, 体, 風俗 and 百合 are none of those.
+        # This asks the analyser what KIND of word it read rather than trusting its reading, and a
+        # title whose every word is ordinary in-dictionary vocabulary keeps the reading and loses
+        # the mark. adapters/facts/reading/vocabulary.py holds the rule and the three shapes that
+        # keep the doubt.
+        import analyser_vocabulary as _vocab
+        _ord, _doubted = _vocab.apply_store()
+        if _ord:
+            print(f"names           : {sum(1 for v in _ord.values() if v)} title(s) read entirely "
+                  f"in ordinary vocabulary; {sum(_doubted.values())} still guessed at")
 
         # PUBLISHERS TOO, and only the ones nothing else can reach. 32 publisher and imprint names
         # had no English at all, so 550 print rows named their publisher in Japanese beside an

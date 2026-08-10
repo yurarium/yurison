@@ -2941,6 +2941,12 @@ def budget_author_readings_no_source_states(ctx):
     return _rd.CHECKS["author_readings_no_source_states"](ctx)
 
 
+def budget_titles_read_by_a_machine_unmarked(ctx):
+    """Defined in `adapters/facts/reading/checks.py`, beside the rulings it applies."""
+    from facts import reading as _rd
+    return _rd.CHECKS["titles_read_by_a_machine_unmarked"](ctx)
+
+
 def budget_credits_the_corpus_files_as_a_venue(ctx):
     """Credits in the author store that the corpus records elsewhere as a publisher or an imprint.
 
@@ -3931,6 +3937,11 @@ BUDGETS_DEF = [
     ("implausible ruby spans", budget_implausible_ruby_spans,
      "furigana runs holding fewer kana than they have kanji. A rise means the aligner placed a "
      "boundary somewhere no reading could fall, which the spelling check cannot see."),
+    ("titles read by a machine, unmarked", budget_titles_read_by_a_machine_unmarked,
+     "titles a reader is shown spelled from an analyser's reading with no mark on it. Created by "
+     "the 2026-08-10 ruling that ordinary vocabulary in a title needs no mark; falls when a title "
+     "gets a stated or researched reading. A rise means new works, or a widened rule letting "
+     "through something the analyser was guessing at."),
     ("uncertain readings", budget_uncertain_readings,
      "readings assembled character by character because no analyser could read the word. A rise "
      "means new works whose kanji nothing can read, or a regression in the analyser passes."),

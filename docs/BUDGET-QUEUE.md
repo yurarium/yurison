@@ -287,8 +287,8 @@ inconsistent by design, which is the thing being complained about.
 
 ### One term, three treatments, which is the same fault at a smaller scale
 
-`地雷系` reaches a reader three ways in three titles: `Jirai-kei` hyphenated, `Jiraikei` glued inside
-a mostly romanised line, and `Landmine-Type` translated literally. The owner's note on it is that it
+`地雷系` reaches a reader as `Jirai-kei`, as `Jiraikei` and as `Landmine-Type`, one hyphenated, one glued inside a mostly
+romanised line and one translated literally. The owner's note on it is that it
 "has an understandable meaning that could be translated". It names a fashion and personality
 subculture, doll-like and emotionally volatile, and English-language fandom writes both `jirai kei`
 and `landmine girl`, so any of the three is defensible on its own and no two of them are defensible
@@ -408,6 +408,6 @@ rendering, which is the fault a reader reported the same day about work pages.
 - A PAIRING `×` stays `x`. Already consistent; recorded so it is not swept up.
 
 `ひとりぼっちの○○生活` is the one to check before applying anything, since a licensor may have
-published it with the circles intact, in which case it is not an outlier but a licensed name and
-outranks any house style. No English licence was found on the search made, and the anime's
+published it with the circles intact, in which case it is a licensed name and outranks any
+house style. No English licence was found on the search made, and the anime's
 convention is not a manga licence.

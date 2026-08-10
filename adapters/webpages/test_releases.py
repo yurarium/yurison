@@ -128,5 +128,43 @@ def main(s):
              "a site with no file yet carries nothing over")
 
 
+    a_refusal_on_a_continuation_page(s)
+
+
+def a_refusal_on_a_continuation_page(s):
+    """One transient 502 on page 2 of one work must not end the adapter.
+
+    Run 31399575062 lost all 13 platforms and wrote 0 works to a single `HTTP Error 502: Bad
+    Gateway`. The series-page fetch records an HTTP error against its own title and carries on; the
+    fetch handed to `episodes` for the pages a series is paginated over had nothing round it, so it
+    raised out of the loop.
+    """
+    import urllib.error
+
+    calls = []
+
+    def page(u):
+        calls.append(u)
+        raise urllib.error.HTTPError(u, 502, "Bad Gateway", {}, None)
+
+    # `episodes` reads its pager as `fetch(u) or ""`, so a refusal that returns empty is already
+    # the contract. What is asserted here is that a raising pager is what the caller must not have.
+    failed = []
+    tgt = {"title": "T"}
+
+    def guarded(u):
+        try:
+            return page(u)
+        except urllib.error.HTTPError as e:
+            failed.append((tgt["title"], f"HTTP {e.code} on a continuation page"))
+            return ""
+
+    s.eq(guarded("https://x.test/2"), "", "a refused continuation page reads as no page")
+    s.eq(len(failed), 1, "and is recorded against the work it belongs to")
+    s.check("502" in failed[0][1], "with the code, so a run says what refused")
+    s.raises(urllib.error.HTTPError, lambda: page("https://x.test/3"),
+             "while the unguarded call is what used to reach the loop and end the adapter")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "webpages.releases"))

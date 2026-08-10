@@ -216,8 +216,26 @@ def main():
             except urllib.error.HTTPError as e:
                 failed.append((tgt["title"], f"HTTP {e.code}"))
                 continue
-            eps = episodes(html, eng, f"https://{site['host']}", tgt["url"],
-                           lambda u: fetch(u, cache))
+            # THE INNER FETCH IS GUARDED TOO. `episodes` is handed this to read the pages a
+            # series is paginated over, and it was `lambda u: fetch(u, cache)` with nothing round
+            # it, while the fetch of the series page above records an HTTP error against that one
+            # title and carries on. So a single transient refusal on page 2 of one work raised out
+            # of the loop and ended the adapter: run 31399575062 lost all 13 platforms and wrote 0
+            # works to one 502 Bad Gateway, from a host that answers 200 either side of it.
+            #
+            # An empty page is the contract `episodes` already has, since its caller reads
+            # `fetch(u) or ""`, so a refusal degrades that one work's pagination and nothing else.
+            def _page(u, _c=cache, _f=failed, _t=tgt):
+                try:
+                    return fetch(u, _c)
+                except urllib.error.HTTPError as e:
+                    _f.append((_t["title"], f"HTTP {e.code} on a continuation page"))
+                    return ""
+                except (urllib.error.URLError, OSError) as e:
+                    _f.append((_t["title"], f"{type(e).__name__} on a continuation page"))
+                    return ""
+
+            eps = episodes(html, eng, f"https://{site['host']}", tgt["url"], _page)
             if len(eps) < site.get("min_episodes", 1):
                 failed.append((tgt["title"], f"{len(eps)} episodes parsed"))
                 continue

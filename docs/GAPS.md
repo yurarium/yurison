@@ -2376,3 +2376,54 @@ running it: 4 works resolved, 8 chapters, 4 free and 4 purchase, every one with 
 matches the 2026-08-02 capture. The other 9 state no dated chapter or no page state, which is what a
 completed series on this platform looks like. `check.inv_the_pipeline_runs_from_a_clean_checkout`
 now fails if a stage entry names a section its targets file does not hold.
+
+## What the 2026-08-10 update run reported, work by work
+
+The run named 21 unreached works, 4 nicovideo failures, 2 degraded platforms and 4 platforms
+parsing nothing. Most of it is a fact about a platform. What follows is the residue, so that a later
+reader does not re-derive the benign half.
+
+**Platforms that print no per-chapter date at all.** 獄門撫子此処ニ在リ on てれびくん lists
+`10話 9話 11話` and carries no date anywhere; the same work is reached on コロコロオンライン with 10
+dated chapters. 私の魂を食べて下さい! on COMICリュウ and 横槍メンゴ新作読切シリーズ on ヤンジャン+ are the
+same: across all three ynjn captures the entire DOM holds two dates, one of them the Unix epoch.
+球詠 on comic-fuz draws only volume 発売日 on the web page, and its 228 chapters come from the
+dedicated adapter. Selectors for dates that do not exist cannot be written, and these are recorded
+so nobody tries.
+
+The four nicovideo failures are ニコニコ's own error page, 9.7 KB against about 120 KB for a work
+page: two say 閲覧できません and two say 非公開です. `data/fixtures/nicovideo/error-page.fixture` is cut
+from one of them.
+
+**ダ・ヴィンチニュース refused the runner and answers us here.** The adapter counts only transport
+errors and all four fetches raised one on the GitHub runner; the same host returns 200 to the same
+user agent from a developer machine, and `data/source/webpages/generic-ddnavi-com.yaml` holds those
+four works from a local run. `ddnavi.com` is in `build.PROMO_HOSTS`, so nothing depends on it.
+
+## A one-shot states one date and no chapter. Open, 2026-08-10
+
+`ツイてるギャルとミエてる陰キャ` on きら星ポータル prints `2026年6月17日更新!` and `読み切り`. The
+extractors need a chapter-shaped label before they will keep a date, and a 読み切り offers none, so a
+date the platform states plainly is discarded. `data/coverage/unreached.yaml` records the reason as
+"carries no dated chapter list", which is wrong: the page carries a date and no chapter.
+
+This is a class rather than one work: every 読み切り on a platform that states a single work-level
+date is in it. ニコニコ already has the shape this wants, a work-level date with the release typed as
+a one-shot. Applying it here is a design decision about what a release IS when the work is one
+chapter long, which is the project owner's to make, so it is recorded rather than patched.
+
+## Addresses in the coverage files that no longer resolve. Open, 2026-08-10
+
+Three works are listed as unreachable at addresses that have moved, while the corpus holds them in
+full from another route:
+
+| Work | The address that is recorded | What we hold |
+|---|---|---|
+| `ぬるめた` | `comic-fuz.com/series/2389`, a 404 | 75 chapters, from the dedicated adapter at `/manga/2389` |
+| `ガールミートガール` | `sonorama.asahi.com`, gone | 26 dated chapters at `asacomi.jp/series/d67c4f256e18f` |
+| `世界で一番おっぱいが好き！` | `www.mangabox.me/reader/262412/`, which redirects to the site front page | 75 chapters on カドコミ |
+
+`adapters/dedicated.py` now keeps the per-work routes off hosts an adapter of ours reads, which
+covers the first. The other two are stale strings in `data/coverage/remaining.yaml`, and rewriting
+that file from what the dedicated adapters actually hold would shrink the unreached list honestly.
+That was not done here because it needs all 70 entries checked and only these three were.

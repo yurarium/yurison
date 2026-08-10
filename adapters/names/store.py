@@ -265,7 +265,69 @@ class NameStore:
         return dropped
 
     def compact(self):
-        """Write the YAML from memory, then drop the journal it superseded."""
+        """Write the YAML from memory, then drop the journal it superseded.
+
+        IT TAKES A LOCK AND RE-READS FIRST, and the reason is a day's worth of lost decisions.
+        This writes each file WHOLE. Three passes ran against one checkout on 2026-08-10 and a
+        compaction that rewrote a file while another was doing the same kept whichever finished
+        last: four curated names were applied, reported as applied, and were not in the file
+        afterwards. Every run said it had succeeded, because from inside one process it had.
+
+        THE JOURNAL IS WHAT MAKES THE REPAIR EXACT. It holds what THIS store learned since it
+        loaded, so the safe order is to take the lock, re-read whatever is on disk now, replay our
+        own journal onto that, and write. A pass that landed while we worked is kept and our
+        writes go on top of it, which is what a reader of either pass would expect.
+
+        The lock is `data/names/.lock` and it is held only across this, not for the life of the
+        store, so a long naming pass does not block a short one from starting.
+        """
+        with self._locked():
+            self._merge_from_disk()
+            return self._compact_unlocked()
+
+    def _locked(self):
+        """An exclusive lock over the store's directory, for the length of one compaction."""
+        import contextlib
+        import fcntl
+
+        @contextlib.contextmanager
+        def held():
+            self.root.mkdir(parents=True, exist_ok=True)
+            fh = open(self.root / ".lock", "w", encoding="utf-8")
+            try:
+                fcntl.flock(fh.fileno(), fcntl.LOCK_EX)
+                yield
+            finally:
+                try:
+                    fcntl.flock(fh.fileno(), fcntl.LOCK_UN)
+                finally:
+                    fh.close()
+        return held()
+
+    def _merge_from_disk(self):
+        """Take whatever is on disk now and replay our journal onto it.
+
+        Called under the lock. Where nothing else wrote, this is the state we already had and the
+        replay is idempotent; where something did, its work survives and ours is applied on top.
+        """
+        for kind in KINDS:
+            path = self.root / f"{kind}.yaml"
+            if path.exists():
+                doc = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+                self.records[kind] = doc.get("names") or {}
+        apath = self.root / "attempts.yaml"
+        if apath.exists():
+            doc = yaml.safe_load(apath.read_text(encoding="utf-8")) or {}
+            self.attempts = doc.get("attempts") or {}
+        for name in list(self._journals):
+            self._journals[name].flush()
+        for kind in KINDS:
+            for entry in self._replay(kind):
+                self._apply(kind, entry["ja"], entry["fact"])
+        for entry in self._replay("attempts"):
+            self._note_attempt(entry["ja"], entry["attempt"])
+
+    def _compact_unlocked(self):
         self.drop_stale_spans()
         self.drop_settled_doubt()
         self.drop_spacing_conflicts()

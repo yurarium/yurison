@@ -242,6 +242,39 @@ def main(s):
              "and nothing is filed as a conflict: one claim was rebased, not replaced")
 
 
+
+def _concurrency(s):
+    """Two stores writing the same directory, which is how four decisions were lost."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        root = pathlib.Path(d)
+        seed = store.NameStore(root)
+        seed.record("titles", "A", en="First", basis="translated", source="x", source_kind="derived")
+        seed.compact()
+
+        # TWO PASSES LOAD THE SAME STATE, each learns something different, and each compacts. Before
+        # the lock and the re-read, whichever wrote last replaced the other's file wholesale and
+        # reported success: four curated names went missing that way on 2026-08-10.
+        one = store.NameStore(root)
+        two = store.NameStore(root)
+        one.record("titles", "B", en="From one", basis="translated", source="x", source_kind="derived")
+        two.record("titles", "C", en="From two", basis="translated", source="x", source_kind="derived")
+        one.compact()
+        two.compact()
+
+        after = store.NameStore(root).records["titles"]
+        s.check("A" in after, "what was there before both passes survives")
+        s.check("B" in after, "the pass that compacted first is not overwritten by the second")
+        s.check("C" in after, "and the second pass's own write is there")
+        s.eq((after.get("B") or {}).get("en"), "From one", "with the value it recorded")
+        s.eq((after.get("C") or {}).get("en"), "From two", "and so is the other")
+
+        # THE JOURNAL IS GONE AFTER A COMPACTION, or the next load replays writes already in the
+        # YAML. A surviving journal is what said something had gone wrong.
+        s.check(not list((root / ".journal").glob("*.jsonl")),
+                "a completed compaction leaves no journal behind")
+
+
 if __name__ == "__main__":
-    sys.exit(testkit.run(main, "store"))
+    sys.exit(testkit.run(lambda s: (main(s), _concurrency(s)) and None, "store"))
 

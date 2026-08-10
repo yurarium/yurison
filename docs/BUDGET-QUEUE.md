@@ -331,3 +331,40 @@ Each is confirmed and none is a policy question.
   styles itself is the work's to decide and it had already decided. Corrected in
   `data/names/curated.yaml`; the apply was racing three agents writing the same files, so it is
   recorded here until a clean run lands it.
+
+## A word the record itself says it could not resolve. Found 2026-08-10
+
+Five renderings the owner corrected on one day were the same fault: **the source already stated the
+answer and the pipeline reached past it for a guess.** The publisher's tagline said 勇者 while the
+reading said ユウモノ. The title's own dashes said がらんのひめ and were romanised as more title. The
+work's lead art said Destiny while the record carried a misspelling invented here. A note said 언니
+while the rendering said Onni. And ベーズ, in a maid romance, is baize.
+
+**The records flag it themselves.** Twelve curated entries carry a note saying, in their own words,
+that a word could not be resolved: "does not resolve to any word or name found elsewhere", "isn't
+glossed anywhere reachable", "kept in transliteration rather than guessed". That is a queue and not
+a state, and nobody has worked it.
+
+Resolved so far: `散り損ないのヒラエス` is Hiraeth, `ベーズのドアの向こうには` is baize, and
+`ブリリアント・ブラウン` is recorded as a name whose own spelling has not been found.
+
+Left, with the note's own admission beside each:
+
+| Title | Rendering | What the note says |
+|---|---|---|
+| `メイドのデューデ` | The Maid's Dyūde | kept rather than guessed |
+| `チャンマスと勇者ちゃん` | Chanmasu and the Hero Girl | does not resolve |
+| `まるせっせんす` | Marusessensu | kept in transliteration |
+| `ぐがぐもぐるてん` | Gugagumoguruten | does not resolve |
+| `ことのことのは` | Koto no Kotonoha | kept in transliteration |
+| `色知らぬ黒は青に触れる` | Black That Knows No Colour Touches Blue | rather than guess |
+| `私の宝箱` | My Treasure Box | rather than guess |
+| `御羊ちゃんは触りたい` | Little Miss Sheep Wants to Touch | rather than guess |
+
+**One candidate worth checking rather than asserting**: `まるせっせんす` in hiragana reads as
+*marcescence*, the botanical word for leaves that wither and stay on the branch through winter. That
+is the same shape as ヒラエス for hiraeth, and it is a guess until a page says so.
+
+**The setting is usually the evidence.** ベーズ was unresolvable in a record whose own note said the
+work is a maid romance, which is the one setting where that word is a door. Whoever works this queue
+should read what the entry already knows before looking anywhere else.

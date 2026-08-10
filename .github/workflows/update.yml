@@ -57,8 +57,18 @@ jobs:
           echo "::warning::no chromium on the runner — stage C will be skipped"
           echo "present=no" >> "$GITHUB_OUTPUT"
 
-      - name: Cache fetches and rendered DOMs
-        uses: actions/cache@v4
+      # RESTORE AND SAVE ARE SEPARATE STEPS so the save can run on a failed job. `actions/cache`
+      # only saves when the job succeeds, and the two runs on 2026-08-10 both paid the full
+      # cold-cache cost for that reason: the first fetched for 19 minutes, died in the compile, and
+      # threw away everything it had read, so the second started from nothing again. Fetching is
+      # the dominant cost of this workflow and it is polite, paced traffic against other people's
+      # servers, so re-reading pages a failed run already read is the expensive kind of waste.
+      #
+      # The key is the run id and so never hits; `restore-keys: fetch-` is what does the restoring,
+      # taking the newest cache with that prefix. GitHub evicts a cache untouched for 7 days.
+      - name: Restore fetches and rendered DOMs
+        id: cache
+        uses: actions/cache/restore@v4
         with:
           path: .cache
           key: fetch-${{ github.run_id }}
@@ -196,6 +206,16 @@ jobs:
 
       - name: Push
         run: git push
+
+      # SAVED WHETHER OR NOT THE JOB PASSED, which is the whole point of splitting the step. It
+      # sits after the work that fills the cache and before nothing in particular; `if: always()`
+      # is what makes a failed compile cost one run's fetching instead of two.
+      - name: Save fetches and rendered DOMs
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .cache
+          key: fetch-${{ github.run_id }}
 
       - name: Publish artefacts to the site repo
         env:

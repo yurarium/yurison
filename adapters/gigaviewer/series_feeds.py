@@ -39,8 +39,14 @@ UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
 PAUSE = 1.2
 MIN_RESOLVED = 20
 
-SERIES_ID = re.compile(
-    r'data-series-name="([^"]+)"(.{0,2000}?)series-sub-thumbnail[^"]*?(?:%2F|/)(\d+)-', re.S)
+#: Where one series starts on a GigaViewer listing page. `releases.yuri_series` splits on this too
+#: and imports it from here, because a boundary two readers of one page each spell for themselves
+#: is a boundary they can disagree about (§3), and this is the disagreement that cost 163 works.
+SERIES_BLOCK = re.compile(r'(?=<div class="Series_series_)')
+#: A series block names itself on the thumbnail anchor and again on each of its two buttons; the id
+#: appears once, inside the percent-encoded thumbnail address.
+SERIES_NAME = re.compile(r'data-series-name="([^"]+)"')
+SERIES_THUMB = re.compile(r'series-sub-thumbnail[^"]*?(?:%2F|/)(\d+)-')
 ENTRY = _htmlbits.ATOM_ENTRY
 
 
@@ -64,11 +70,32 @@ def norm(s):
 
 
 def series_ids(html):
-    """Series name -> id, read off the listing page. First occurrence wins; a listing repeats an
-    entry across carousels and the later copies carry the same id."""
+    """Series name -> id, read off the listing page one series block at a time.
+
+    THE PAIRING WAS OFF BY ONE FOR 163 OF 一迅プラス'S 164 WORKS, and it corrected itself so
+    convincingly that the damage was a work nobody could see was gone.
+
+    This scanned the whole page for `data-series-name="..."` followed by the next thumbnail
+    address. A series block names itself three times: once on the anchor around the thumbnail, and
+    again on the 1話へ and 最新話へ buttons, which sit AFTER the thumbnail. `finditer` yields
+    non-overlapping matches, so every match ate its own block's thumbnail and the scan resumed with
+    a button's copy of the name, whose next thumbnail belongs to the FOLLOWING series. From the
+    second entry on, each name took its neighbour's id.
+
+    What made it survive is that the feed states its own name, so `main` renamed each work to
+    whatever series it had actually fetched and the file came out self-consistent. The listing's
+    second entry, たゆたう恋の散り際に, had no id left to take: it fell out of the run, and
+    `carry_over` kept serving its chapter list from an earlier one.
+
+    Splitting on the block first makes the pairing local, so the buttons cannot reach past their
+    own series. First occurrence wins; a listing repeats an entry across carousels and the later
+    copies carry the same id.
+    """
     out = {}
-    for m in SERIES_ID.finditer(html):
-        out.setdefault(m.group(1).strip(), m.group(3))
+    for block in SERIES_BLOCK.split(html):
+        name, sid = SERIES_NAME.search(block), SERIES_THUMB.search(block)
+        if name and sid:
+            out.setdefault(name.group(1).strip(), sid.group(1))
     return out
 
 

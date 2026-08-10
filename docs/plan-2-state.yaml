@@ -42,15 +42,33 @@ stages:
         state: todo
 
   C:
-    title: The schema earns its place or is retired
+    title: The store becomes load-bearing
     items:
       - id: C1
-        title: Something in the pipeline consumes the store
+        title: Nothing writes to the store except the compiler, proved by a lint
         state: todo
       - id: C2
-        title: The eight researched readings carrying no reasoning
+        title: The cascade is gated on output change, never on input change
         state: todo
       - id: C3
+        title: Convergence to a fixed point, which is the equivalence argument
+        state: todo
+      - id: C4
+        title: Corpus-wide reductions recomputed freely, their digests deciding the cascade
+        state: todo
+      - id: C5
+        title: A focused test per delta kind, including delete and retract
+        state: todo
+      - id: C6
+        title: Differential site build, keyed on the digest of the rows an artefact renders
+        state: todo
+      - id: C7
+        title: A weekly CI rebuild compared against the incremental store, reporting differences
+        state: todo
+      - id: C8
+        title: The eight researched readings carrying no reasoning
+        state: todo
+      - id: C9
         title: analyser gets a ruling or a recorded reason
         state: todo
 

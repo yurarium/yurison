@@ -65,37 +65,97 @@ Ordered by payoff against risk, with the cheapest guarantees first.
    says they are the only two. A per-check timing report, printed by `--gate --timings`, makes the
    next one visible without another round of this conversation.
 
-### Stage C. The schema earns its place or is retired
+### Stage C. The store becomes load-bearing
 
-7. **Something consumes the store.** `adapters/store/` builds, answers five standing questions, and
-   nothing in the pipeline reads it. A schema nothing consumes is a document, and this plan should
-   not pretend otherwise. Either a check moves onto it or the claim that it replaces invariants
-   stays theoretical.
+Ruled by the project owner on 2026-08-10: retiring it is off the table. The store carries the build
+and the site. It is still not a unique source of truth, and data is compiled into it from
+git-diffable sources.
 
-8. **The eight refused claims are dealt with.** `researched` readings carrying no reasoning, which
-   `curate.problems` is supposed to demand. The enforcement has a hole as well as the data.
+What it buys is the thing the current pipeline cannot do: **partial ingestion**, so new source
+information updates the store without recompiling it, and a **differential site build**, so only
+the artefacts that changed data requires are written. There are 5,542 pre-rendered pages today and
+a deploy regenerates all of them.
 
-9. **`analyser` gets a ruling or a reason.** It is the commonest source kind in the store and
-   `READING_ATTRIBUTION` does not mention it. The loader admits the pair against the `analyser`
-   basis alone, which is a decision made by a loader and belongs to the owner.
+**THE CONSTRAINT ON HOW THIS IS PROVED, and it shapes the design.** Equivalence with a from-scratch
+rebuild is established constructively and by focused offline tests. It is NOT established by
+building the whole database twice and comparing, which is the verification a slow pipeline reaches
+for and the reason it stays slow.
+
+7. **Nothing writes to the store except the compiler.** The property that keeps it derived. A check
+   proves the only writer is `adapters/store`, the way the fact lint proves an entry point.
+
+8. **The cascade is gated on OUTPUT change, and never on input change.** This is the whole design
+   and it replaces a more elaborate one. Every derivation is a pure function of the store,
+   recomputed as freely as SQL allows; a write that produces the value already there is a no-op and
+   cascades nothing. Downstream work is triggered by a digest that moved, so a recomputation that
+   confirms what was already known costs a comparison.
+
+   **Measured, because the first version of this plan guessed the other way.** Scanning every credit
+   surface is 1.2 ms. Grouping every credit by its works is 4.1 ms. Grouping all 4,989 claims is
+   2.4 ms. The expensive thing was never the reduction; it is rewriting a class of rows, and that
+   only happens when the answers actually move, which in the common case is few of them or none.
+
+9. **Convergence is the correctness argument.** Recompute what a delta touches, follow the digests
+   that moved, and stop when nothing moves. A pure derivation plus an idempotent write means the
+   fixed point a delta converges to is the fixed point a rebuild produces, so equivalence is a
+   property of the construction and not something a comparison has to discover. Most deltas settle
+   in one pass.
+
+10. **A reduction over everything is fine; assuming its output changed is not.**
+    `interpunct.attested_apart` reads every credit field to decide one name, and adding a work that
+    credits くろば on its own genuinely flips くろば・Ｕ from one person to two. That is a real
+    dependency and the answer is to recompute the reduction, which is milliseconds, and then let
+    the digest decide whether anything downstream cares. The failure to avoid is treating an input
+    change as an output change and rewriting a class that did not need it.
+
+11. **The delta kinds are enumerated and each gets its own focused test.** Insert, update, delete,
+    merge, divide, retract. Deletion and retraction are where these systems fail, because an output
+    whose input disappeared has nothing left to notice it, and a digest that is never recomputed
+    never moves.
+
+12. **A differential site build.** Each artefact declares the store rows it renders; an artefact is
+    rewritten when the digest of those rows changes. 5,542 pages, nearly all identical between runs.
+
+13. **A weekly full rebuild on the GitHub side, compared against the incremental store.** The
+    owner's suggestion of 2026-08-10, and it puts the expensive proof where the time does not
+    matter. The focused tests have to be provable able to fail, and the honest proof that they
+    catch a real divergence is a whole rebuild set beside a store that has only ever been updated.
+    Running it weekly in CI costs a couple of minutes of a 2,000-minute allowance and keeps it out
+    of the working loop entirely.
+
+    Section 14b: this is the check that does not share the incremental path's assumptions. Every
+    focused test is written against the same dependency declarations the updater uses, so a wrong
+    declaration satisfies both. A rebuild shares nothing with it.
+
+    What it does on a difference is report, loudly, with the rows that differ. It does not
+    silently overwrite the incremental store with the rebuilt one, because a divergence is a bug in
+    the updater and quietly repairing the symptom would hide it until the next one.
+
+14. **The eight refused claims are dealt with.** `researched` readings carrying no reasoning, which
+    `curate.problems` is supposed to demand. The enforcement has a hole as well as the data, and the
+    store already refuses the rows.
+
+15. **`analyser` gets a ruling or a recorded reason.** It is the commonest source kind in the store
+    and `READING_ATTRIBUTION` does not mention it. The loader currently admits the pair against the
+    `analyser` basis alone, which is a decision a loader made and which belongs to the owner.
 
 ### Stage D. The facts the first round did not reach
 
-10. **Six facts are still unowned:** dates, inclusion, work identity, title cataloguing, imprint,
+16. **Six facts are still unowned:** dates, inclusion, work identity, title cataloguing, imprint,
     and rendering surfaces. Two of them, `title cataloguing` and `imprint`, are close: each already
     has a single reader. The first round took four and stopped where the plan's list stopped.
 
-11. **Rendering surfaces are derived, not listed.** `interface.py` keeps a hand-written table, and
+17. **Rendering surfaces are derived, not listed.** `interface.py` keeps a hand-written table, and
     `creditLine` missing from it let `???? · Bun?Bun` reach a reader. A hand-maintained list of what
     to check will always lag what the renderer does.
 
 ### Stage E. The residue the first round recorded and did not clear
 
-12. **The eight unevidenced impossibilities**, found by the lint decision 8 called for.
-13. **Two modules called `store`**, whichever is on the path first winning.
-14. **The glued-romanisation shape** (`Uedakyōko`) and **the kana that spells a foreign name**
+18. **The eight unevidenced impossibilities**, found by the lint decision 8 called for.
+19. **Two modules called `store`**, whichever is on the path first winning.
+20. **The glued-romanisation shape** (`Uedakyōko`) and **the kana that spells a foreign name**
     (`Sutefan Sejiku`), both raised by the owner and both written up rather than done.
-15. **Fifteen leftover worktrees**, thirteen unmerged, two holding uncommitted edits.
+21. **Fifteen leftover worktrees**, thirteen unmerged, two holding uncommitted edits.
 
 ## The tracker updates itself
 
@@ -123,6 +183,7 @@ is where a reviewer sees them.
 
 ## What done looks like
 
-A full cycle runs in under two minutes with nothing verified less than it is today. Every fact the
-inventory lists has one owner. The store is consumed or retired. Nothing in the residue list is
-still a note.
+A full cycle runs in under two minutes with nothing verified less than it is today. An ingestion of
+new source data updates the store and the site without recompiling either, and the equivalence with
+a from-scratch build rests on declared dependencies and focused tests. Every fact the inventory
+lists has one owner. Nothing in the residue list is still a note.

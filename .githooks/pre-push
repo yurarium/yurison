@@ -34,15 +34,17 @@ ROOT="$(git rev-parse --show-toplevel)"
 if python3 "$ROOT/adapters/greentree.py" --held gate >/dev/null 2>&1; then
   echo "pre-push: gate and tests already passed on this exact tree; not repeating them."
 else
+  # TOGETHER, because the gate reads data/build and the tests read source and their own fixtures,
+  # and neither writes what the other reads. `cycle.py` also stops the pair proving the same thing
+  # twice: ./test.py runs check.py --self-test and --gate runs it again, so the tests carry it and
+  # the driver fails if that half fails. 82 s serial, 27 s together.
   if [ -f "$ROOT/data/build/series.json" ]; then
-    python3 "$ROOT/check.py" --gate --no-tighten || {
-      echo "pre-push: data gate said NO GO. Fix, or --no-verify if you know why." >&2
+    python3 "$ROOT/cycle.py" || {
+      echo "pre-push: the cycle said NO GO. Fix, or --no-verify if you know why." >&2
       exit 1
     }
+  else
+    "$ROOT/test.py" || { echo "pre-push: tests fail. ./test.py to see why." >&2; exit 1; }
   fi
-
-  # The whole suite, discovered and offline. pre-commit runs a fast subset; this is the exposure
-  # moment, so it runs everything including the canary pass that proves the suites can fail.
-  "$ROOT/test.py" || { echo "pre-push: tests fail. ./test.py to see why." >&2; exit 1; }
   "$ROOT/test.py" --canary >/dev/null || { echo "pre-push: a suite is vacuous. ./test.py --canary" >&2; exit 1; }
 fi

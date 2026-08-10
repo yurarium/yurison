@@ -4160,6 +4160,33 @@ def _plant_imprint_under_another_house(c):
                                        "imprint": spelling}]})
 
 
+def _private(value):
+    """A copy a probe may mutate freely, sharing everything that cannot be mutated.
+
+    `copy.deepcopy` WAS 18.3 OF THE SELF-TEST'S 18.4 SECONDS, twelve million calls to copy data that
+    came out of JSON and YAML. Only the containers need copying: a string, a number, None and a bool
+    are immutable, so handing the same object to the probe and to the base is safe by construction.
+
+    ANYTHING THIS DOES NOT RECOGNISE GOES TO `deepcopy`, because the cost of being wrong here is a
+    probe writing into the context every later probe reads, and the fault would look like a check
+    that stopped catching its canary rather than like a copying bug. `self_test` compares a
+    fingerprint of the context taken before any probe ran, which is the net under this.
+    """
+    t = type(value)
+    if t is dict:
+        return {k: _private(v) for k, v in value.items()}
+    if t is list:
+        return [_private(v) for v in value]
+    if t is tuple:
+        return tuple(_private(v) for v in value)
+    if t is set:
+        return set(value)
+    if t in (str, int, float, bool, bytes, type(None)):
+        return value
+    import copy as _c
+    return _c.deepcopy(value)
+
+
 class _Scratch(dict):
     """A context a canary can be planted in, copying only the part the plant actually touches.
 
@@ -4184,8 +4211,7 @@ class _Scratch(dict):
         # A KEY THE BASE NEVER HELD is one a probe added, so it is already private and copying it
         # would fail. `_iface` is planted by the interface probes and is exactly this case.
         if not self._frozen and k not in self._copied and k in self._base:
-            import copy as _c
-            super().__setitem__(k, _c.deepcopy(self._base[k]))
+            super().__setitem__(k, _private(self._base[k]))
             self._copied.add(k)
         return super().__getitem__(k)
 
@@ -4792,6 +4818,9 @@ def main():
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--runtime", action="store_true", help="count and report; never fail")
     g.add_argument("--gate", action="store_true", help="fail on any violation or loosened budget")
+    ap.add_argument("--proved-by", metavar="WHO", default=None,
+                    help="another process now running is proving the checks can fail; only "
+                         "cycle.py passes this, and it fails if that process fails")
     g.add_argument("--deploy-window", action="store_true",
                    help="re-answer only the invariants a copy can change, and patch checks.json")
     g.add_argument("--self-test", action="store_true", help="prove the checks can fail")
@@ -4805,7 +4834,13 @@ def main():
         return deploy_window()
 
     _phase = {}
-    if a.gate:
+    # THE PROOF IS NOT SKIPPED, IT IS SOMEWHERE ELSE. `./test.py` runs `check.py --self-test` as one
+    # of its suites, so a cycle that runs both proves the same property twice, 16 s each. cycle.py
+    # runs them together and passes this; it reports failure if the test half fails, so the proof
+    # still gates. Nothing else passes it, and `--full` never does.
+    if a.gate and a.proved_by:
+        print(f"invariants proved by {a.proved_by}, running alongside this")
+    if a.gate and not a.proved_by:
         _t0 = time.perf_counter()
         proved = self_test()
         _phase["proving the checks can fail"] = time.perf_counter() - _t0

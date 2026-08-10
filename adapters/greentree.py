@@ -115,9 +115,20 @@ def main():
         import tempfile
         global TOKEN                                                    # noqa: PLW0603
         keep = TOKEN
+        # THE OVERRIDE IS TESTED, THEN SET ASIDE. `YURA_NO_TOKEN` refuses every token by design, so
+        # with it set the rest of this suite read "a fresh token was refused" as a failure. The
+        # scheduled cache-free run sets it, and that is exactly when the suite must still run.
+        no_token = os.environ.pop("YURA_NO_TOKEN", None)
         try:
             with tempfile.TemporaryDirectory() as d:
                 TOKEN = pathlib.Path(d) / "t.json"
+                write("gate")
+                os.environ["YURA_NO_TOKEN"] = "1"
+                if held()[0]:
+                    print("  self-test FAILED — YURA_NO_TOKEN did not refuse a valid token")
+                    return 1
+                del os.environ["YURA_NO_TOKEN"]
+                TOKEN.unlink()
                 ok, why = held()
                 if ok:
                     print("  self-test FAILED — a missing token was honoured")
@@ -151,6 +162,8 @@ def main():
                     return 1
         finally:
             TOKEN = keep
+            if no_token is not None:
+                os.environ["YURA_NO_TOKEN"] = no_token
         # AND NOTHING A COMPILER WRITES IS IN THE COVERED SET, or a token is refused for a tree
         # nobody edited. This asks the real set, not a temporary one, because that is where it went
         # wrong: two .pyc were tracked and every import invalidated the token.
@@ -161,7 +174,7 @@ def main():
             return 1
         if os.environ.get("YURA_CANARY"):
             print("CANARY-PROVEN")
-        print("  self-test passed (4 refusals caught, no bytecode covered, a fresh token honoured)")
+        print("  self-test passed (5 refusals caught, no bytecode covered, a fresh token honoured)")
         return 0
 
     if a.write:

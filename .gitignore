@@ -26,3 +26,4 @@ data/store.db
 # data/build on purpose: the green-tree token hashes that, and a cache written during a gate
 # would invalidate the token the same gate is about to write. See adapters/filecache.py.
 data/cache/
+data/cache.set-aside/

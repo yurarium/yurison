@@ -59,7 +59,12 @@ stages:
           Nine cases in test_filecache.py, including the rule change, the restore, the added file, the dropped file and a corrupt cache.
       - id: B2
         title: deploy.sh regenerates only pages whose content changed
-        state: todo
+        state: dropped
+        note: >-
+          Measured, and it is the same item as C6 under another name.
+          The plan wrote it as 39 seconds for 5,378 pages. 37 of those 39 were check.py --runtime, the fourth run of the checks in one cycle, which A2 removed; writing every page is 0.8 s.
+          A deploy is now 4.2 s end to end, and 3,048 work stubs plus 2,402 credit and publisher pages are inside it.
+          Dropped as effort against eight tenths of a second, on the same measurement that dropped C6, and recorded so the reasoning survives rather than the item being quietly deleted.
       - id: B3
         title: Per-check timings, so the next slow one is visible
         state: done
@@ -375,7 +380,13 @@ stages:
           Proved end to end by planting an unevidenced impossibility in adapters/greentree.py and watching the incremental gate refuse it.
       - id: F3
         title: Incremental build, stages keyed on the digest of their inputs
-        state: todo
+        state: done
+        note: >-
+          MEASURED FIRST, AND THE ANSWER WAS NOT STAGE DIGESTS. 55 of a profiled build's 76 seconds are inside yaml.safe_load, 22,774 calls, and most re-parse a document another stage parsed a moment earlier. Keying stages on their inputs would have left every one of those parses in place.
+          yamlfast memoises on the TEXT, so a caller that read the file itself gets the same answer as one that read it again, and there is no path-keyed invalidation to get wrong.
+          EVERY CALLER GETS ITS OWN OBJECT. Handing back the cached document would let one stage's mutation reach another's read; the cache holds a pickle and each call unpickles it, which is a deep copy at a twenty-fourth of the cost of re-parsing and round-trips a datetime.date exactly, where JSON cannot hold one at all and 322 were found in a 45-file sample.
+          Build 41.6 s to 28.6 s, and YURI_NO_YAML_MEMO=1 produces output byte-identical across all 14 artefacts, which is the proof the change needed.
+          FOUND ON THE WAY: build.py had an undefined ROOT from an earlier edit of mine and crashed 34 seconds in. Neither the gate nor the tests run a build, so nothing caught it; recorded as F6.
       - id: F4
         title: The gate and the tests run concurrently, being independent of each other
         state: done
@@ -385,6 +396,9 @@ stages:
           The tests carry it and the gate is told so by --proved-by, which is sound only because the driver reports failure when the test half fails; nothing but cycle.py passes the flag and --full never does.
           The pre-push hook runs the driver rather than the two in sequence.
           Separately, the copy a canary is planted into was 18.3 of the self-test's 18.4 seconds: twelve million deepcopy calls over data that came out of JSON, where only the containers need copying and a string cannot be mutated. Anything unrecognised still goes to deepcopy, and the fingerprint taken before any probe ran is the net under it. 18.4 s to 16.1 s.
+      - id: F6
+        title: Nothing in the cycle runs a build, so a build-only fault ships
+        state: todo
       - id: F5
         title: A cache-free --full path, which the scheduled CI run exercises end to end
         state: done

@@ -246,6 +246,38 @@ def main(s):
           f"{seen.get('date', 0)} dates, {seen.get('non-ascii', 0)} non-ascii strings, "
           f"{dup_keys} duplicate key(s) in {dup_files} file(s)")
 
+    # ── one parse per document, and every caller gets its own object ────────────────────────────
+    #
+    # 22,774 `safe_load` calls cost 55 of the 76 seconds a profiled build takes, and most of them
+    # re-parse a document another stage parsed a moment earlier. THE HAZARD IS SHARING: handing back
+    # the cached object would let one stage's mutation reach another's read, which is the worst kind
+    # of fault to go looking for. The cache holds a pickle and each call unpickles it.
+    import yaml as _yaml
+    yamlfast.forget()
+    text = "a: 1\nb:\n  - x\n  - y\nwhen: 2026-08-10\n"
+    first = _yaml.safe_load(text)
+    first["a"] = 999
+    first["b"].append("z")
+    second = _yaml.safe_load(text)
+    s.eq(second["a"], 1, "a second read of the same text is unaffected by the first caller")
+    s.eq(second["b"], ["x", "y"], "including the nested containers, which is where sharing hides")
+    s.check(second is not first, "and it is a different object")
+
+    # A DATE SURVIVES THE ROUND TRIP, which is why the cache is a pickle and not JSON: JSON cannot
+    # hold a `datetime.date` at all, and 322 of them were found in a 45-file sample.
+    s.eq(second["when"], datetime.date(2026, 8, 10), "a date comes back as a date")
+
+    # THE MEMO CAN BE TURNED OFF, so the uncached path is a thing that runs and not only a comment.
+    # `YURI_NO_YAML_MEMO=1 ./build.py` produced output byte-identical to the memoised build.
+    import os as _os
+    _os.environ["YURI_NO_YAML_MEMO"] = "1"
+    try:
+        a = _yaml.safe_load(text)
+        a["a"] = 5
+        s.eq(_yaml.safe_load(text)["a"], 1, "the uncached path parses afresh every time")
+    finally:
+        del _os.environ["YURI_NO_YAML_MEMO"]
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "yamlfast"))

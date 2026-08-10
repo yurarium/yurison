@@ -2063,7 +2063,7 @@ def publisher_page_data(rows):
     """
     sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters"))
     sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
-    sys.path.insert(0, str(ROOT / "adapters" / "facts"))
+    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "facts"))
     import imprint as _imp
     import publisher_identity as _phid
 
@@ -2148,7 +2148,7 @@ def imprint_map(rows):
     the same fact and is the one still deriving its own answer, which is what the shipped map is for.
     """
     sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
-    sys.path.insert(0, str(ROOT / "adapters" / "facts"))
+    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "facts"))
     import imprint as _imp
     return _imp.shipped(rows, _imp.load(pathlib.Path("data/names/imprints.yaml")))
 

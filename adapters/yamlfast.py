@@ -128,6 +128,8 @@ def install():
         return parser()
 
     def safe_load(stream):
+        if isinstance(stream, (str, bytes)) and not os.environ.get("YURI_NO_YAML_MEMO"):
+            return _memo(stream)
         return yaml.load(stream, Loader=yaml.CSafeLoader)
 
     def safe_load_all(stream):
@@ -138,6 +140,53 @@ def install():
         fn.__doc__ = _original(name).__doc__
         setattr(yaml, name, fn)
     return parser()
+
+
+#: One parse per distinct document IN ONE RUN, keyed on the text itself.
+#:
+#: A BUILD READS THE SAME FILE SEVERAL TIMES. 22,774 `safe_load` calls cost 55 of the 76 seconds a
+#: profiled build takes, and most of them re-parse a document parsed a moment earlier by a different
+#: stage. Keyed on the text and not on a path, so a caller that read the file itself gets the same
+#: answer as one that read it again.
+#:
+#: EVERY CALLER GETS ITS OWN OBJECT. Handing back the cached document would let one stage's mutation
+#: reach another's read, which is the worst kind of fault to go looking for. The cache holds a
+#: pickle and each call unpickles it, which is a deep copy at about a twenty-fourth of the cost of
+#: re-parsing, and it round-trips a `datetime.date` exactly where JSON cannot hold one at all.
+#:
+#: IT IS A PROCESS'S MEMORY AND NOT A FILE. Nothing is written to disk, so there is no invalidation
+#: to get wrong: a run that reads an edited file reads the edit, because the text is the key.
+_PARSED = {}
+
+#: Documents kept before the cache is emptied. A build holds about 5 MiB at 3,646 files; the cap is
+#: there so a caller streaming thousands of unrelated documents cannot grow it without bound.
+MEMO_LIMIT = 20000
+
+
+def _memo(stream):
+    import hashlib
+    import pickle
+    raw = stream.encode("utf-8") if isinstance(stream, str) else stream
+    key = hashlib.sha256(raw).digest()
+    blob = _PARSED.get(key)
+    if blob is None:
+        doc = yaml.load(stream, Loader=yaml.CSafeLoader)
+        try:
+            blob = pickle.dumps(doc, protocol=5)
+        except Exception:                                               # noqa: BLE001
+            # A DOCUMENT THAT WILL NOT PICKLE IS RETURNED AND NOT REMEMBERED, which is the parser's
+            # behaviour before this existed. Nothing in this corpus reaches it; it is here because
+            # a cache that raises on an unusual document would be worse than no cache.
+            return doc
+        if len(_PARSED) < MEMO_LIMIT:
+            _PARSED[key] = blob
+        return doc
+    return pickle.loads(blob)
+
+
+def forget():
+    """Empty the memo. For a test that needs a parse to actually happen."""
+    _PARSED.clear()
 
 
 def uninstall():

@@ -332,6 +332,19 @@ def main(s):
     s.check(curate.problems("authors", "X", {"reviewed": "2026-08-10", "note": "n"}),
             "an entry with neither a claim nor a ruling is refused as before")
 
+    # ── a work ruled out of scope is not a typo ─────────────────────────────────────────────────
+    #
+    # `unmatched` exists to catch a hand-typed key that is off by a wave dash, applies cleanly and
+    # changes nothing. A work ruled out under DEFINITIONS §6 stops being published, so its curated
+    # entry stops naming a work we hold while staying a decision somebody made and wrote down.
+    # Reporting those asks a reviewer to delete the reasoning for a retraction.
+    s.eq(curate.unmatched({"titles": {"アアア": {}}}, {"イイイ"}), ["アアア"],
+         "a key naming no held work is still reported")
+    ruled = curate._ruled_out_of_scope()
+    s.check(ruled, "the scope register carries at least one out-of-scope ruling to test against")
+    s.eq(curate.unmatched({"titles": {ruled[0]: {}}}, {"イイイ"}), [],
+         "and a key naming a work ruled out of scope is not")
+
     # The shipped file must itself pass, or the check is a thing that only tests fixtures.
     s.eq(curate.check(curate.load()), [], "the file in the repository validates")
     s.eq(curate.unmatched(curate.load(), curate.known_titles()), [],

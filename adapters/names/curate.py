@@ -369,7 +369,24 @@ def unmatched(doc, known):
         raise SystemExit("data/build/titles.json is missing: run build.py before checking the "
                          "curated names against the corpus")
     folded = {_fold(k) for k in known}
-    return sorted(k for k in (doc.get("titles") or {}) if k not in known and _fold(k) not in folded)
+    # A WORK RULED OUT OF SCOPE IS NOT A TYPO. `data/scope.yaml` carries the §6 rulings, and a work
+    # ruled `out-of-scope` stops being published, so its curated entry stops naming a work we hold
+    # while remaining a decision somebody made and recorded. Reporting those as strays would ask a
+    # reviewer to delete the reasoning for a retraction, which is the one thing the file is for.
+    out_of_scope = {_fold(k) for k in _ruled_out_of_scope()}
+    return sorted(k for k in (doc.get("titles") or {})
+                  if k not in known and _fold(k) not in folded and _fold(k) not in out_of_scope)
+
+
+def _ruled_out_of_scope(path=None):
+    """Titles `data/scope.yaml` rules out under DEFINITIONS §6, or nothing where it has no rulings."""
+    at = pathlib.Path(path or (pathlib.Path(__file__).resolve().parents[2] / "data" / "scope.yaml"))
+    if not at.exists():
+        return ()
+    doc = yaml.safe_load(at.read_text(encoding="utf-8")) or {}
+    got = [str((x or {}).get("title") or "") for x in (doc.get("rulings") or [])
+           if str((x or {}).get("disposition") or "") == "out-of-scope"]
+    return tuple(x for x in got if x)
 
 
 def spaced_keys(doc, known):

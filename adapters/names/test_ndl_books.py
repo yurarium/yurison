@@ -73,16 +73,16 @@ def main(s):
     # edition, （BC） an imprint, 【連載版】 a chapter sold on its own: none of it is on a title page.
     s.eq(nb.reading(URARA, "うらら迷路帖【タテスク】"), "ウララ メイロチョウ",
          "the platform's edition marker is apparatus and comes off before comparing")
-    s.eq(nb.fold("みんな私のはらのなか【連載版】（BC）"), nb.fold("みんな私のはらのなか"),
+    s.eq(nb.match_key("みんな私のはらのなか【連載版】（BC）"), nb.match_key("みんな私のはらのなか"),
          "two groups of apparatus, and both come off")
-    s.eq(nb.fold("ロイヤルテーラー"), nb.fold("ロイヤルテーラー"), "and a title with none is untouched")
+    s.eq(nb.match_key("ロイヤルテーラー"), nb.match_key("ロイヤルテーラー"), "and a title with none is untouched")
     # THE COUNTER-CASE THAT KEEPS THE RULE HONEST. A bracket in the MIDDLE of a title is content:
     # 少女たちの痕(きずあと)にくちづけを prints its own furigana gloss there, and cutting it would
     # make a different work's record answer for this one.
-    s.ne(nb.fold("少女たちの痕(きずあと)にくちづけを"), nb.fold("少女たちの痕にくちづけを"),
+    s.ne(nb.match_key("少女たちの痕(きずあと)にくちづけを"), nb.match_key("少女たちの痕にくちづけを"),
          "a bracket inside a title is part of the title")
-    s.eq(nb.fold("恋する小惑星"), "恋する小惑星", "and the folded form is still the title")
-    s.ne(nb.fold("恋する小惑星"), nb.fold("恋する小惑星アンソロジー"),
+    s.eq(nb.match_key("恋する小惑星"), "恋する小惑星", "and the folded form is still the title")
+    s.ne(nb.match_key("恋する小惑星"), nb.match_key("恋する小惑星アンソロジー"),
          "a prefix is not a match; that is how the wrong book answers")
 
     # THE QUERY IS ALLOWED TO BE LOOSER THAN THE MATCH. Searching the whole stored title found

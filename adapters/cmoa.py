@@ -103,8 +103,11 @@ def is_doujin(publisher, labels=()):
     return bool(publisher in DOUJIN_PUBLISHERS or (set(labels or ()) & DOUJIN_LABELS))
 
 
-def fold(s):
-    """NFKC, so a marker matches in whichever width the shop wrote it."""
+def width(s):
+    """NFKC, so a shop MARKER matches in whichever width the shop wrote it. Not a name key, and
+    calling it `fold` is what put it among the thirteen.
+
+    ORIGINALLY CALLED `fold`. NFKC, so a marker matches in whichever width the shop wrote it."""
     return unicodedata.normalize("NFKC", s or "")
 
 
@@ -119,11 +122,11 @@ def censored_marker(title):
     A filter whose effect nobody can see is a filter that stops working silently
     (STANDING-INSTRUCTIONS §13), and the count is the only thing published about these rows.
     """
-    t = fold(title)
-    if any(fold(s) in t for s in EDITION_SAFE):
+    t = width(title)
+    if any(width(s) in t for s in EDITION_SAFE):
         return None
     for m in CENSORSHIP_MARKERS:
-        if fold(m) in t:
+        if width(m) in t:
             return m
     return None
 
@@ -317,7 +320,7 @@ def details(html):
 
 def iso_date(japanese):
     """`2015年9月19日` as `2015-09-19`, or None. A partial date is not repaired into a whole one."""
-    m = _JP_DATE.search(fold(japanese))
+    m = _JP_DATE.search(width(japanese))
     if not m:
         return None
     return f"{m.group(1)}-{int(m.group(2)):02d}-{int(m.group(3)):02d}"
@@ -331,7 +334,7 @@ def iso_month(japanese):
     source stated, which is the failure DEFINITIONS §6 cannot afford in the field that IS the
     inclusion test.
     """
-    m = _JP_MONTH.search(fold(japanese))
+    m = _JP_MONTH.search(width(japanese))
     return f"{m.group(1)}-{int(m.group(2)):02d}" if m else None
 
 
@@ -370,7 +373,7 @@ def stated_volumes(html):
     a capture that only counted `<li>`s would have reported 付き合ってあげてもいいかな as 10 volumes
     from the default page and said nothing.
     """
-    t = fold(" ".join(_RELEASE_TEXT.findall(html or "")))
+    t = width(" ".join(_RELEASE_TEXT.findall(html or "")))
     m = re.search(r"(\d+)\s*巻", t)
     return (int(m.group(1)) if m else None), ("完結" in t)
 

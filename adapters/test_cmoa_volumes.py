@@ -140,9 +140,9 @@ def main(s):
 
     # ── RESUMING, WHICH IS THE HALF THAT ONLY RUNS ON THE SECOND DAY ──────────────────────────
     doc = {"works": {}, "retrieved": "2026-08-05", "asked": 2}
-    doc, added = cv.fold(doc, [cv.record(parsed(), None)[0]])
+    doc, added = cv.fold_in(doc, [cv.record(parsed(), None)[0]])
     s.eq(added, 1, "the first work is added")
-    doc, added = cv.fold(doc, [cv.record(parsed(cmoa_title_id="103366"), None)[0]])
+    doc, added = cv.fold_in(doc, [cv.record(parsed(cmoa_title_id="103366"), None)[0]])
     s.eq(sorted(doc["works"]), ["103366", "167439"], "and the second joins it")
 
     # A SECOND RUN MUST NOT REBUILD THE FILE FROM WHAT IT ALONE FETCHED. This is the failure that
@@ -166,7 +166,7 @@ def main(s):
         # names, which is this project's most repeated bug (STANDING-INSTRUCTIONS §3).
         s.eq(back["asked"], 2, "the number of rows the shelf asked about comes back")
 
-        after, _ = cv.fold(back, [cv.record(parsed(cmoa_title_id="1132"), None)[0]])
+        after, _ = cv.fold_in(back, [cv.record(parsed(cmoa_title_id="1132"), None)[0]])
         s.eq(sorted(after["works"]), ["103366", "1132", "167439"],
              "a third run adds one work and carries the two it never touched")
 

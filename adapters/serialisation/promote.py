@@ -32,7 +32,7 @@ import yaml
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-from identity import fold  # noqa: E402
+from identity import match_key  # noqa: E402
 
 NICO = re.compile(r"manga\.nicovideo\.jp/comic/(\d+)")
 KADOKOMI = re.compile(r"comic-walker\.com/detail/([A-Za-z0-9_]+)")

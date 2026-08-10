@@ -2115,7 +2115,7 @@ def budget_one_work_under_two_names(ctx):
         by = collections.defaultdict(list)
         for title, credit in rows:
             if title:
-                by[identity.fold(title)].append(credit)
+                by[identity.match_key(title)].append(credit)
         for key, credits in by.items():
             if not key or len(credits) < 2:
                 continue
@@ -2940,7 +2940,9 @@ def budget_renderings_with_nothing_to_show(ctx):
     parts = shipped.get("credit_parts") or {}
 
     def fold(t):
-        return unicodedata.normalize("NFKC", t or "").replace(" ", "")
+        # ASKED OF `facts/namekey`, which owns the identity key. check.py held three copies.
+        from facts import namekey as _nk
+        return _nk.fold(t)
 
     for r in ctx["releases"]:
         surface = str(r.get("author") or "")
@@ -3111,7 +3113,9 @@ def budget_credit_phrases_spelling_a_person_otherwise(ctx):
         return 0
 
     def fold(t):
-        return unicodedata.normalize("NFKC", t or "").replace(" ", "")
+        # ASKED OF `facts/namekey`, which owns the identity key. check.py held three copies.
+        from facts import namekey as _nk
+        return _nk.fold(t)
 
     bad = set()
     for key, div in parts.items():
@@ -3204,7 +3208,9 @@ def budget_names_rendered_two_ways(ctx):
         return 0
 
     def fold(t):
-        return unicodedata.normalize("NFKC", t or "").replace(" ", "")
+        # ASKED OF `facts/namekey`, which owns the identity key. check.py held three copies.
+        from facts import namekey as _nk
+        return _nk.fold(t)
 
     bad = set()
     for ja, rec in pubs.items():

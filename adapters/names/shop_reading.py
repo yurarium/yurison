@@ -37,6 +37,7 @@ title the page states. A page whose two do not agree yields nothing.
 import html as _html
 import re
 import unicodedata
+from facts import namekey as _namekey                                   # noqa: E402
 
 KEYWORDS = re.compile(r'<meta name="keywords" content="([^"]*)"')
 DESCRIPTION = re.compile(r'<meta name="description" content="([^"]*)"')
@@ -59,8 +60,13 @@ def _meta(page, pattern):
 
 
 def fold(s):
-    """Width-folded and stripped of the spaces a shop adds, for comparing two spellings."""
-    return unicodedata.normalize("NFKC", s or "").replace(" ", "").strip()
+    """Width-folded and stripped of the spaces a shop adds, for comparing two spellings.
+
+    ASKED OF `facts/namekey`, which owns it. Thirteen functions called `fold` disagreed on
+    real input until 2026-08-10, and one invariant pinned one of them while the rest
+    answered to nobody. This one was already the identity key and is unchanged.
+    """
+    return _namekey.fold(s)
 
 
 # What the shop writes in that field about itself. Every keywords line ends with these, they are

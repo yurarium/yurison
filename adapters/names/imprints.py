@@ -103,8 +103,11 @@ REGISTRY = pathlib.Path("data/names/imprints.yaml")
 _FOLD_OUT = re.compile(r"[\s　・\-‐‑–]")
 
 
-def fold(s):
-    """The form two spellings are compared in. One entry covers every spelling that folds to it."""
+def match_key(s):
+    """The form two imprint spellings are compared in. Keeps a hyphen, which the other matching
+    keys drop, because an imprint line prints one.
+
+    ORIGINALLY CALLED `fold`. The form two spellings are compared in. One entry covers every spelling that folds to it."""
     return _FOLD_OUT.sub("", unicodedata.normalize("NFKC", str(s or "")).lower())
 
 
@@ -129,7 +132,7 @@ def index(lines):
     for line in lines:
         for pub in (line.get("publishers") or []):
             for spelling in (line.get("spellings") or []):
-                out.setdefault((fold(pub), fold(spelling)), line)
+                out.setdefault((match_key(pub), match_key(spelling)), line)
     return out
 
 
@@ -144,14 +147,14 @@ def resolve(publisher, raw, idx):
     A SEGMENT IS MATCHED WHOLE. `Yuri-hime comics anthology series` and `Yuri-hime comics` fold to
     different keys and are two entries, so the shorter one cannot reach the longer one's rows.
     """
-    p = fold(publisher_of(publisher))
+    p = match_key(publisher_of(publisher))
     if not p:
         return None
-    whole = idx.get((p, fold(raw)))
+    whole = idx.get((p, match_key(raw)))
     if whole:
         return whole
     for seg in reversed(segments(raw)):
-        line = idx.get((p, fold(seg)))
+        line = idx.get((p, match_key(seg)))
         if line:
             return line
     return None
@@ -223,7 +226,7 @@ def shipped(rows, lines):
             fact["adult"] = True
         for raw in held["spellings"]:
             out.setdefault(raw, fact)
-            out.setdefault(fold(raw), fact)
+            out.setdefault(match_key(raw), fact)
     return out
 
 
@@ -241,13 +244,13 @@ def dead_spellings(rows, lines):
             raw = str(pr.get("imprint") or "").strip()
             if not raw:
                 continue
-            p = fold(publisher_of(pr.get("publisher") or ""))
-            seen.add((p, fold(raw)))
-            seen.update((p, fold(s)) for s in segments(raw))
+            p = match_key(publisher_of(pr.get("publisher") or ""))
+            seen.add((p, match_key(raw)))
+            seen.update((p, match_key(s)) for s in segments(raw))
     return sorted((pub, spelling) for line in lines
                   for pub in (line.get("publishers") or [])
                   for spelling in (line.get("spellings") or [])
-                  if (fold(pub), fold(spelling)) not in seen and (fold(pub), fold(spelling)) in idx)
+                  if (match_key(pub), match_key(spelling)) not in seen and (match_key(pub), match_key(spelling)) in idx)
 
 
 def series_rows(build="data/build"):

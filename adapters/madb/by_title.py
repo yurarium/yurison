@@ -104,7 +104,7 @@ def keys(title):
     stripped = COLLECTION.sub("", SHOP_SUBTITLE.sub("", PARALLEL_TITLE.sub("", title or "")))
     forms = (title, PARALLEL_TITLE.sub("", title or ""), SHOP_SUBTITLE.sub("", title or ""),
              COLLECTION.sub("", title or ""), stripped)
-    return {k for k in (identity.fold(f) for f in forms) if k}
+    return {k for k in (identity.match_key(f) for f in forms) if k}
 
 
 def credits(record):

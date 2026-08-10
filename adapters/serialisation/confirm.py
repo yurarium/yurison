@@ -42,7 +42,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 import net                                                                     # noqa: E402
-from identity import fold, people                                              # noqa: E402
+from identity import match_key, people                                              # noqa: E402
 
 BRACKET = re.compile(r"^\[[^\]]*\]")
 TAG = re.compile(r"<[^>]+>")
@@ -114,7 +114,7 @@ def _named(text):
     """
     out = set(people(text))
     for part in re.split(r"\s*[-–—/／,、]\s*", text or ""):
-        f = fold(part)
+        f = match_key(part)
         if f:
             out.add(f)
     return out
@@ -131,24 +131,24 @@ def verdict(creator_line, publisher, says, imprint=""):
     nothing, and calling that a refusal turns silence into evidence, which is the mistake
     STANDING-INSTRUCTIONS §5 names.
     """
-    want = {fold(n) for n in people(creator_line) if fold(n)}
+    want = {match_key(n) for n in people(creator_line) if match_key(n)}
     tokens, credit_tokens = set(), set()
     for ln in says.get("lines") or []:
         tokens |= _named(ln)
     for c in says.get("credits") or []:
         credit_tokens |= _named(c)
     tokens |= credit_tokens
-    joined = " ".join(fold(x) for x in (says.get("lines") or []) + (says.get("credits") or []))
+    joined = " ".join(match_key(x) for x in (says.get("lines") or []) + (says.get("credits") or []))
 
     for n in sorted(want, key=len, reverse=True):
         if n in tokens or (len(n) >= 3 and n in joined):
             return "agreed", f"creator {n} is named on the platform page"
-    pub = fold(BRACKET.sub("", publisher or ""))
+    pub = match_key(BRACKET.sub("", publisher or ""))
     if pub and (pub in tokens or (len(pub) >= 3 and pub in joined)):
         return "agreed", f"publisher {pub} is named on the platform page"
     # The imprint, which RUNBOOK §11 accepts and which one platform states where nothing else
     # does: COMIC FUZ tags a series まんがタイムKRコミックス, the label printed on the volume.
-    imp = fold(imprint or "")
+    imp = match_key(imprint or "")
     if imp and (imp in tokens or (len(imp) >= 3 and imp in joined)):
         return "agreed", f"imprint {imp} is named on the platform page"
     if want and credit_tokens:

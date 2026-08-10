@@ -36,21 +36,21 @@ ADULT_IMPRINT = ("Ghost Ship", "秋水社ORIGINAL", "ヤングアンリアル")
 EXPLICIT = re.compile(r"えっち|エッチ|セフレ|レズ風俗|官能|ラブスレイブ|ハーレム肉便器")
 
 
-def fold(s):
+def width(s):
     return unicodedata.normalize("NFKC", str(s or "")).strip()
 
 
 def designated(row):
     """Why this row is excluded, or None. Only a designation counts."""
-    g = fold(row.get("genre"))
+    g = width(row.get("genre"))
     if any(a in g for a in ADULT_GENRE):
         return f"the shop files it under {g}"
     for f in ("imprint", "publisher"):
-        v = fold(row.get(f))
+        v = width(row.get(f))
         if any(a.lower() in v.lower() for a in ADULT_IMPRINT):
             return f"published on {v}, an adult imprint"
     for f in ("title", "imprint"):
-        if ADULT_MARK.search(fold(row.get(f))):
+        if ADULT_MARK.search(width(row.get(f))):
             return "carries an R-18 or 成年 marking"
     return None
 
@@ -67,7 +67,7 @@ def age_gated(row, shop):
 
 def explicit(row):
     """Whether the content is explicit, which is a flag and never an exclusion."""
-    return bool(EXPLICIT.search(fold(row.get("title"))))
+    return bool(EXPLICIT.search(width(row.get("title"))))
 
 
 def normalise(row, shop):
@@ -75,16 +75,16 @@ def normalise(row, shop):
     why = designated(row)
     if why:
         return None
-    title = fold(row.get("title"))
+    title = width(row.get("title"))
     if not title:
         return None
     authors = row.get("authors") or ([row.get("author")] if row.get("author") else [])
-    authors = [re.sub(r"^\s*(著|作画|原作|漫画)\s*[:：]\s*", "", fold(a)) for a in authors if a]
+    authors = [re.sub(r"^\s*(著|作画|原作|漫画)\s*[:：]\s*", "", width(a)) for a in authors if a]
     return {
         "title": title,
         "authors": authors,
-        "publisher": fold(row.get("publisher")) or None,
-        "imprint": fold(row.get("imprint")) or (row.get("label") or [None])[0],
+        "publisher": width(row.get("publisher")) or None,
+        "imprint": width(row.get("imprint")) or (row.get("label") or [None])[0],
         "url": row.get("url"),
         "shop_id": row.get("cmoa_title_id") or row.get("id"),
         "completed": bool(row.get("completed") or row.get("completed_facet")

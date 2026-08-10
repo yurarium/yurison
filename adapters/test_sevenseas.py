@@ -51,11 +51,11 @@ def main(s):
          "Seven Seas", "and so is the general one")
     s.eq(ss.imprint("<div>no publisher here</div>"), None, "silence is not an imprint")
 
-    s.eq(ss.fold("姫と女勇者が結ばれるための１２の聖行為"), ss.fold("姫と女勇者が結ばれるための12の聖行為"),
+    s.eq(ss.match_key("姫と女勇者が結ばれるための１２の聖行為"), ss.match_key("姫と女勇者が結ばれるための12の聖行為"),
          "full-width digits are the same title")
-    s.eq(ss.fold("私に天使が舞い降りた！"), ss.fold("私に天使が舞い降りた!"),
+    s.eq(ss.match_key("私に天使が舞い降りた！"), ss.match_key("私に天使が舞い降りた!"),
          "and so is a title whose exclamation mark differs in width")
-    s.check(ss.fold("citrus") != ss.fold("citrus+"),
+    s.check(ss.match_key("citrus") != ss.match_key("citrus+"),
             "while a sequel marker is not decoration and must survive the fold")
 
 

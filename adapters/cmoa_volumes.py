@@ -142,7 +142,7 @@ def outstanding(wanted, doc):
     return [i for i in wanted if i not in held]
 
 
-def fold(doc, rows):
+def fold_in(doc, rows):
     """Add rows to the document, keeping every work the rows do not mention.
 
     The merge semantics are `cmoa.merge`'s, not a second copy of them. Rebuilding a file from only
@@ -695,7 +695,7 @@ def run_pages(doc, shelf, todo, cache, out, offline=False):
                 excluded[why] = excluded.get(why, 0) + 1
                 excluded_ids.add(tid)
             else:
-                doc, _ = fold(doc, [rec])
+                doc, _ = fold_in(doc, [rec])
                 kept += 1
         doc["excluded"], doc["excluded_ids"] = excluded, sorted(excluded_ids)
         pathlib.Path(out).write_text(yaml_document(doc))

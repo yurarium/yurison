@@ -45,7 +45,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
-from identity import fold, people  # noqa: E402
+from identity import match_key, people  # noqa: E402
 
 # ISBD apparatus, as the national bibliography writes a title. `シナモン = Cinnamon : 人外×人間百合
 # アンソロジー` is one book; `シナモン` is what a platform calls the work. The parallel title after
@@ -204,8 +204,8 @@ def agrees(print_creator, print_publisher, platform_author, platform_rights=()):
     a, b = people(print_creator), people(platform_author)
     if a & b:
         return "agreed", sorted(a & b)
-    rights = {fold(x) for x in platform_rights if x}
-    pub = fold(print_publisher)
+    rights = {match_key(x) for x in platform_rights if x}
+    pub = match_key(print_publisher)
     if pub and rights and pub in rights:
         return "agreed", [pub]
     # A rights line names the author too, so it can settle a pairing whose author fields are
@@ -224,11 +224,11 @@ def title_matches(print_title, platform_title):
     different work is dropped before anything is fetched for it, which is most of what a keyword
     search returns.
     """
-    a, b = fold(print_title), fold(platform_title)
+    a, b = match_key(print_title), match_key(platform_title)
     if not a or not b:
         return False
     if a == b:
         return True
     # The bibliography keeps a volume number in the title of a work published in one volume and the
     # platform does not, and the reverse happens where a platform numbers a re-serialisation.
-    return fold(VOLUME_TAIL.sub("", print_title)) == fold(VOLUME_TAIL.sub("", platform_title))
+    return match_key(VOLUME_TAIL.sub("", print_title)) == match_key(VOLUME_TAIL.sub("", platform_title))

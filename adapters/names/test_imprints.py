@@ -28,20 +28,20 @@ def name_of(publisher, raw, idx):
 
 def main(s):
     # ── the fold, which is what lets one entry cover many spellings ─────────────────────────────
-    s.eq(I.fold("ＦＵＺコミックス"), I.fold("FUZコミックス"),
+    s.eq(I.match_key("ＦＵＺコミックス"), I.match_key("FUZコミックス"),
          "full-width Latin in a Japanese name is the source's typesetting, and NFKC settles it")
-    s.eq(I.fold("MFC　キューンシリーズ"), I.fold("MFCキューンシリーズ"),
+    s.eq(I.match_key("MFC　キューンシリーズ"), I.match_key("MFCキューンシリーズ"),
          "an ideographic space a transcriber inserted is not part of the name")
-    s.eq(I.fold("Yuri-hime comics"), I.fold("YURIHIME COMICS"),
+    s.eq(I.match_key("Yuri-hime comics"), I.match_key("YURIHIME COMICS"),
          "the hyphen the logotype lost in 2015, and case, fold onto one key")
 
     # AND WHAT THE FOLD MUST NOT REACH. Dropping the hyphen is safe only if it does not collapse a
     # suffix that distinguishes a line, and クロスフォリオ出版 is the house where it would: the
     # difference between its yuri line and its adult line is three letters after a hyphen.
-    s.ne(I.fold("BLIC-GL"), I.fold("BLIC"), "a suffix that makes a line its own line survives")
-    s.ne(I.fold("BLIC-GL"), I.fold("BLIC-ERO"),
+    s.ne(I.match_key("BLIC-GL"), I.match_key("BLIC"), "a suffix that makes a line its own line survives")
+    s.ne(I.match_key("BLIC-GL"), I.match_key("BLIC-ERO"),
          "and the two genre suffixes stay apart, which is the whole point of naming them")
-    s.ne(I.fold("AOKISHI COMICS"), I.fold("AOKISHI COMIX"),
+    s.ne(I.match_key("AOKISHI COMICS"), I.match_key("AOKISHI COMIX"),
          "COMICS and COMIX are two transcriptions and need two entries, not a cleverer fold")
 
     lines = I.load(REGISTRY)
@@ -177,7 +177,7 @@ def main(s):
 
     shipped = I.shipped(rows, lines)
     s.eq(shipped["ZERO-SUMコミックス"]["name"], "ZERO-SUMコミックス", "the map answers by raw string")
-    s.eq(shipped[I.fold("IDコミックス. コミック百合姫")]["name"], "百合姫コミックス",
+    s.eq(shipped[I.match_key("IDコミックス. コミック百合姫")]["name"], "百合姫コミックス",
          "and by the fold, so a drift in the browser's stripping costs a lookup the other key holds")
     s.check("Yurihime comics" not in shipped,
             "a string that reached no line is absent from the map, which is what the budget counts")

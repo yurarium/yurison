@@ -64,8 +64,8 @@ def main(s):
         s.eq(ident.stable_url(kept), kept, f"an address with no work prefix is unchanged: {kept}")
     s.eq(ident.stable_url(""), "", "an empty address is empty")
 
-    s.eq(ident.fold("Ａ　Ｂ！"), "ab", "width, spacing and decoration are not part of a name")
-    s.eq(ident.fold("彩純ちゃん【カラーイラスト特典付】"), ident.fold("彩純ちゃん"),
+    s.eq(ident.match_key("Ａ　Ｂ！"), "ab", "width, spacing and decoration are not part of a name")
+    s.eq(ident.match_key("彩純ちゃん【カラーイラスト特典付】"), ident.match_key("彩純ちゃん"),
          "and neither is a bonus note in brackets")
 
     # ONE PRODUCER OF THE CREDIT. Both forms have to reach the same people, or the join misses
@@ -192,7 +192,7 @@ def main(s):
     # RELATED WORKS, NOT MERGED ONES. Both shapes are quoted from the corpus. 超深宇宙より愛をこめて
     # carries its marker in brackets, which `fold` removes, so it folds equal to its serialisation.
     # 白妙様、秘密ですよ／読切版 marks itself after a slash and needs the variant rule.
-    s.eq(ident.variant_base("白妙様、秘密ですよ／読切版"), ident.fold("白妙様、秘密ですよ"),
+    s.eq(ident.variant_base("白妙様、秘密ですよ／読切版"), ident.match_key("白妙様、秘密ですよ"),
          "a title naming itself a separate edition gives up its base")
     s.eq(ident.variant_base("超深宇宙より愛をこめて"), None, "an ordinary title is not a variant")
     s.eq(ident.variant_base("読み切り版"), None,

@@ -118,7 +118,7 @@ CIRCLES = str.maketrans({"〇": "○", "◯": "○"})
 def _forms(title):
     """The folded forms of a title, including each part of an ISBD notation."""
     t = str(title or "").translate(CIRCLES)
-    return {f for f in (identity.fold(p) for p in [t] + ISBD.split(t)) if f}
+    return {f for f in (identity.match_key(p) for p in [t] + ISBD.split(t)) if f}
 
 
 def agreement(vols, series, sid, platform_work):

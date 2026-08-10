@@ -31,11 +31,17 @@ because a collected edition is the work it collects. A name key must not do that
 would serve two titles a reader can tell apart.
 """
 import unicodedata
+from facts import namekey as _namekey                                   # noqa: E402
 
 
-def fold(t):
-    """The lookup key for a Japanese name or title."""
-    return unicodedata.normalize("NFKC", t or "").replace(" ", "")
+def fold(s):
+    """The lookup key for a Japanese name or title.
+
+    ASKED OF `facts/namekey`, which owns it. Thirteen functions called `fold` disagreed on
+    real input until 2026-08-10, and one invariant pinned one of them while the rest
+    answered to nobody. This one was already the identity key and is unchanged.
+    """
+    return _namekey.fold(s)
 
 
 def spaced(a, b):

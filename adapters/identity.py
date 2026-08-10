@@ -49,8 +49,12 @@ BRACKETED = re.compile(r"[【\[（(][^】\]）)]*[】\]）)]")
 NOISE = re.compile(r"[\s　・!！?？。、,，~〜ー―\-–—:：;；'\"“”‘’]+")
 
 
-def fold(s):
-    """A comparison key for a title or a name.
+def match_key(s):
+    """Two records seen through two sources, asked whether they MIGHT be one. It strips decoration
+    CHARACTERS and keeps what they wrapped, which is why it is not `namekey.loosely`: that one
+    strips a bracketed SPAN, so `CottonCandy【単話】` loses 単話 there and keeps it here.
+
+    ORIGINALLY CALLED `fold`. A comparison key for a title or a name.
 
     Width, spacing and decorative punctuation differ between a shop, a library and a platform
     without meaning anything, so they are removed. Bracketed matter goes too, because it carries
@@ -69,7 +73,7 @@ def people(credit):
     `[作画]A / [原作]B` and the platform form `漫画：A,原作：B`. A second parser here would be the
     two-paths-one-fact shape that has already produced a wrong answer in this project.
     """
-    return {fold(n) for n, _role in split_authors(credit or "") if fold(n)}
+    return {match_key(n) for n, _role in split_authors(credit or "") if match_key(n)}
 
 
 # A chapter address that carries its work's address in front of it: /title/03056/episode/441581.
@@ -129,7 +133,7 @@ def web_anchor(url, title=None, shared=False):
     url = (url or "").strip()
     if not url:
         return None
-    return f"web:{url}#{fold(title)}" if shared else f"web:{url}"
+    return f"web:{url}#{match_key(title)}" if shared else f"web:{url}"
 
 
 def print_anchor(work_id):
@@ -399,7 +403,7 @@ def variant_base(title):
     bracketed marker, so `超深宇宙より愛をこめて【読み切り版】` folds equal to its serialisation and
     needs no rule here.
     """
-    f = fold(title)
+    f = match_key(title)
     m = VARIANT.search(f)
     return (f[:m.start()] or None) if m else None
 
@@ -419,7 +423,7 @@ def siblings(web):
     out = []
     by_fold = {}
     for w in web:
-        by_fold.setdefault(fold(w.get("work")), []).append(w)
+        by_fold.setdefault(match_key(w.get("work")), []).append(w)
     for key, group in by_fold.items():
         for i, a in enumerate(group):
             for b in group[i + 1:]:
@@ -441,10 +445,10 @@ def propose(web, prints):
     """
     idx = {}
     for w in web:
-        idx.setdefault(fold(w.get("work")), []).append(w)
+        idx.setdefault(match_key(w.get("work")), []).append(w)
     out = []
     for p in prints:
-        for w in idx.get(fold(p.get("t") or p.get("title")), []):
+        for w in idx.get(match_key(p.get("t") or p.get("title")), []):
             shared = people(p.get("c") or p.get("creator")) & people(w.get("author"))
             out.append((w, p, {"agreed": sorted(shared), "basis": "title-and-author" if shared
                                else "title-only"}))

@@ -61,8 +61,11 @@ def imprint(html):
     return m.group(1) if m else None
 
 
-def fold(s):
-    """A join key for a Japanese title: width and decoration differ between catalogues."""
+def match_key(s):
+    """A join key for a licensor catalogue, stripping decoration characters. Same rule as
+    `identity.match_key` and kept separate because the two catalogues may diverge.
+
+    ORIGINALLY CALLED `fold`. A join key for a Japanese title: width and decoration differ between catalogues."""
     s = unicodedata.normalize("NFKC", s or "")
     return re.sub(r"""[\s　・!！?？。、,，~〜ー―\-–—:：;；'"“”‘’()\[\]{}「」『』【】]+""", "", s).lower()
 
@@ -102,7 +105,7 @@ def main(argv=None):
         if len(found) == before:
             break
 
-    ours = {fold(w["work"]): w for w in
+    ours = {match_key(w["work"]): w for w in
             json.loads(pathlib.Path(a.series).read_text())["series"]}
     rows, unmatched, noja = [], 0, 0
     for url, en in sorted(found.items()):
@@ -116,7 +119,7 @@ def main(argv=None):
         if not ja:
             noja += 1
             continue
-        held = ours.get(fold(ja))
+        held = ours.get(match_key(ja))
         if not held:
             unmatched += 1
         rows.append({"en": en, "ja": ja, "romaji": ro, "imprint": imprint(page),

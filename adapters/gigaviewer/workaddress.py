@@ -42,7 +42,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
-from identity import fold  # noqa: E402
+from identity import match_key  # noqa: E402
 
 # The chapter page's link to its own series feed. Anchored on the href so that the `?free_only=1`
 # variant beside it yields the same id rather than a second one.
@@ -74,7 +74,7 @@ def names_work(og, work):
     少年ジャンプ+ writes `[CHAPTER]WORK - AUTHOR | SITE`. An empty work title matches nothing,
     since `""` is contained in every string.
     """
-    w, o = fold(work), fold(og)
+    w, o = match_key(work), match_key(og)
     return bool(w) and bool(o) and w in o
 
 

@@ -163,7 +163,7 @@ def houses(rows, lines, entries):
                     continue
                 line = _imprints.resolve(publisher_of(pr.get("publisher") or ""), imp,
                                          _imprints.index(lines))
-                key = line["id"] if line else f"?{_imprints.fold(imp)}"
+                key = line["id"] if line else f"?{_imprints.match_key(imp)}"
                 slot = fact["lines"].setdefault(key, {
                     "id": line["id"] if line else None,
                     # A STRING NO LINE ANSWERS FOR IS SHOWN AS ITSELF, not dropped and not invented

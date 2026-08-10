@@ -186,8 +186,8 @@ def same_work(page_title, shop_title):
     """
     if not page_title or not shop_title:
         return False
-    a = DECORATIVE.sub("", unicodedata.normalize("NFKC", identity.fold(page_title)))
-    b = DECORATIVE.sub("", unicodedata.normalize("NFKC", identity.fold(shop_title)))
+    a = DECORATIVE.sub("", unicodedata.normalize("NFKC", identity.match_key(page_title)))
+    b = DECORATIVE.sub("", unicodedata.normalize("NFKC", identity.match_key(shop_title)))
     return bool(a) and bool(b) and (a in b or b in a)
 
 

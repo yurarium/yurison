@@ -68,6 +68,7 @@ import sys
 import unicodedata
 
 import yaml
+from facts import namekey as _namekey                                   # noqa: E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
@@ -163,8 +164,13 @@ def corpus_names(build="data/build"):
 
 
 def fold(s):
-    """The interface's key: NFKC, spaces removed. `foldKey` in app.js and `_fold` in build.py."""
-    return unicodedata.normalize("NFKC", s or "").replace(" ", "")
+    """The interface's key: NFKC, spaces removed. `foldKey` in app.js and `_fold` in build.py.
+
+    ASKED OF `facts/namekey`, which owns it. Thirteen functions called `fold` disagreed on
+    real input until 2026-08-10, and one invariant pinned one of them while the rest
+    answered to nobody. This one was already the identity key and is unchanged.
+    """
+    return _namekey.fold(s)
 
 
 def folded(store):

@@ -131,8 +131,10 @@ def record_ids(page):
     return out
 
 
-def fold(title):
-    """A title in the form two catalogues can be compared on.
+def match_key(title):
+    """A title in the form two catalogues can be compared on, keeping the ISBD colon.
+
+    ORIGINALLY CALLED `fold`. A title in the form two catalogues can be compared on.
 
     Width-folded and lower-cased, with the trailing bracketed apparatus off and spaces removed.
     `ひとりぼっちの○○生活【タテスク】` and `ひとりぼっちの○○生活` are one work under two
@@ -180,7 +182,7 @@ def reading(page, title):
     got, kana = f.get(TITLE), f.get(READING)
     if not kana or not got:
         return None
-    if fold(got) != fold(title):
+    if match_key(got) != match_key(title):
         return None
     return kana
 

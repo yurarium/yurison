@@ -171,7 +171,7 @@ def title_agrees(shop_title, our_title):
     platform sometimes keeps one the shop drops. Equality alone refused ロンリーガールに花束を
     against its shelf form on the first run.
     """
-    a, b = identity.fold(shop_title), identity.fold(our_title)
+    a, b = identity.match_key(shop_title), identity.match_key(our_title)
     if not a or not b:
         return False
     return a == b or a.startswith(b) or b.startswith(a)

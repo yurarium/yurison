@@ -129,8 +129,11 @@ def author_names(field):
     return out
 
 
-def fold(s):
-    """The key two catalogues can be compared on: width, case and spacing folded away."""
+def match_key(s):
+    """The key two shelf listings are compared on, keeping bracketed apparatus that the shop uses
+    to distinguish one edition from another.
+
+    ORIGINALLY CALLED `fold`. The key two catalogues can be compared on: width, case and spacing folded away."""
     return unicodedata.normalize("NFKC", s or "").replace(" ", "").replace("　", "").lower()
 
 
@@ -726,7 +729,7 @@ def authors_main(argv=None):
                  .get("authors") or {})
     known |= {w["author"] for w in json.loads(pathlib.Path("data/build/series.json").read_text())
               ["series"] if w.get("author")}
-    known = {fold(k) for k in known}
+    known = {match_key(k) for k in known}
 
     doc = {"retrieved": datetime.date.today().isoformat(),
            "from_capture": a.capture,
@@ -741,7 +744,7 @@ def authors_main(argv=None):
         doc["retrieved"] = old.get("retrieved", doc["retrieved"])
 
     for name, works in by_name.items():
-        if fold(name) in known:
+        if match_key(name) in known:
             continue
         r = doc["authors"].setdefault(name, {})
         r["works"] = len(works)

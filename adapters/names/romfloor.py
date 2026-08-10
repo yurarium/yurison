@@ -42,6 +42,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import kana as _kana                                                            # noqa: E402
 from facts import romanisation as _romanisation  # noqa: E402
+from facts import namekey as _namekey                                   # noqa: E402
 
 STYLES = ("macron", "double", "plain")
 
@@ -225,9 +226,14 @@ def runs_within(text):
     return sorted(got, key=len, reverse=True)
 
 
-def fold(text):
-    """The key kari/app.js looks up, which is `foldKey`: NFKC with the spaces removed."""
-    return unicodedata.normalize("NFKC", str(text or "")).replace(" ", "")
+def fold(s):
+    """The key kari/app.js looks up, which is `foldKey`: NFKC with the spaces removed.
+
+    ASKED OF `facts/namekey`, which owns it. Thirteen functions called `fold` disagreed on
+    real input until 2026-08-10, and one invariant pinned one of them while the rest
+    answered to nobody. This one was already the identity key and is unchanged.
+    """
+    return _namekey.fold(s)
 
 
 def build(strings, read, runs_of=()):

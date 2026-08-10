@@ -97,7 +97,17 @@ stages:
     items:
       - id: D1
         title: A name's comparison key has three incompatible answers across thirteen folds
-        state: todo
+        state: done
+        note: >-
+          DECIDED, not deferred.
+          There are two questions and thirteen functions were answering both under one name.
+          `facts/namekey.fold` is the IDENTITY key: NFKC and the space, which are typography and nothing else.
+          Measured over 6,076 surfaces: the space merges 108 pairs and every one is one person, 源 久也 and 源久也.
+          Case merges 4, the interpunct 3, brackets 57, and each of those can also merge two things that are not one.
+          The project already ruled that a wrong join erases a person while a wrong split invents one, so the identity key takes only typography and every judgement lives in `loosely`, which a caller opts into by name.
+          Four identity folds now delegate and agree on all 6,076 surfaces; check.py held three more copies and now asks.
+          Five that answered the OTHER question are renamed `match_key`, because the shared name is what produced thirteen answers, and they stay separate: they are genuinely different rules, one stripping bracket characters and keeping the contents where another strips the span.
+          Two were never name keys at all and are now `width`; one folded rows into a document and is `fold_in`.
       - id: D2
         title: Six distinct implementations of kata, kana to katakana
         state: todo

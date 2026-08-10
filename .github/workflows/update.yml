@@ -147,15 +147,7 @@ jobs:
 
       # ── Stage D — compile. This one is allowed to fail the run. ───────────────────────────────
       - name: Compile
-        run: |
-          python3 build.py
-          # THE LEDGER AND THE STATUS FILE, which deploy.sh also runs and which the checks need
-          # before it gets a chance to. `data/build/status.json` is written by adapters/status.py,
-          # and `inv_status_page_shows_no_japanese_of_its_own` reads it: with the file absent the
-          # check returns no violations, so `--self-test` planted its canary and caught nothing and
-          # the step that runs it blocked the job. The ledger goes first because status reads it.
-          python3 adapters/ledger.py
-          python3 adapters/status.py
+        run: python3 build.py
 
       # The hooks in .githooks are per-clone local config — a fresh checkout has none, which is
       # exactly why the leak guard documents CI as its backstop. The same argument applies to the
@@ -167,6 +159,20 @@ jobs:
       # requests, where someone is present to fix it.
       - name: Invariants and budgets (runtime — reports, does not block)
         run: python3 check.py --runtime
+
+      # THE LEDGER AND THE STATUS FILE, which deploy.sh also runs and which the checks need before
+      # it gets the chance. `inv_status_page_shows_no_japanese_of_its_own` reads
+      # `data/build/status.json`: with it absent the check returns no violations, so `--self-test`
+      # planted its canary and caught nothing, and the step below blocked the job.
+      #
+      # AFTER THE RUNTIME PASS AND NOT INSIDE Compile, because `adapters/status.py` reads
+      # `data/build/checks.json` and that is what the runtime pass writes. Putting these two beside
+      # build.py looked right and died on the missing file. The ledger goes first because status
+      # reads its output.
+      - name: The ledger and the status page's data
+        run: |
+          python3 adapters/ledger.py
+          python3 adapters/status.py
 
       - name: Prove the checks can fail
         run: python3 check.py --self-test

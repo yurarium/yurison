@@ -8176,7 +8176,15 @@ names:
     verified: true
   アサルトリリィプロジェクト:
     basis: romaji
+    en: Assault Lily Project
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: read off the name itself
+    en_source_kind: derived
     entity: project
+    note: 'A katakana word spelling an English word is rendered as that word, which is the rule Hiraeth,
+      Unnie, baize and Destiny stand on. Romanising it glues the English back into Japanese: this read
+      Asarutoririipurojekuto.'
     reading: アサルトリリィプロジェクト
     reading_at: '2026-08-06'
     reading_basis: surface
@@ -9527,8 +9535,14 @@ names:
     verified: true
   コミックnishi:
     basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    en: Comic nishi
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: read off the name itself
+    en_source_kind: derived
+    note: 'A katakana word spelling an English word is rendered as that word, which is the rule Hiraeth,
+      Unnie, baize and Destiny stand on. Romanising it glues the English back into Japanese: this read
+      Komikku Nishi.'
     reading: コミック nishi
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -9539,6 +9553,14 @@ names:
     verified: false
   コミックニュータイプ:
     basis: romaji
+    en: Comic Newtype
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: read off the name itself
+    en_source_kind: derived
+    note: 'A katakana word spelling an English word is rendered as that word, which is the rule Hiraeth,
+      Unnie, baize and Destiny stand on. Romanising it glues the English back into Japanese: this read
+      Komikkunyūtaipu.'
     reading: コミックニュータイプ
     reading_at: '2026-08-07'
     reading_basis: surface
@@ -10096,41 +10118,59 @@ names:
     verified: true
   スタジオクロマト:
     basis: romaji
-    en_at: '2026-08-02'
+    en: Studio Kuromato
+    en_at: '2026-08-10'
     en_pass: 1
-    en_source: surface
+    en_reviewed: '2026-08-10'
+    en_source: read off the name itself
+    en_source_kind: derived
+    en_url: https://api.openbd.jp/v1/get?isbn=9784048117579
     entity: studio
+    note: 'A katakana word spelling an English word is rendered as that word, which is the rule Hiraeth,
+      Unnie, baize and Destiny stand on. Romanising it glues the English back into Japanese: this read
+      Sutajio Kuromato.'
     reading: スタジオ クロマト
-    reading_at: '2026-08-07'
+    reading_at: '2026-08-10'
     reading_basis: surface
     reading_boundary: openBD's collationkey
+    reading_corroborated:
+    - read off the name itself
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''超かぐや姫! = COSMIC PRINCESS KAGUYA! 1''
       (KADOKAWA), divides this name as ''スタジオ クロマト''. The kana here are the name''s own surface and only
       the division is taken, since a collationkey is a filing key first: it folds the kana that sort together.
       It divides ''スタジオクロマト''.'
     reading_pass: 1
-    reading_reviewed: '2026-08-07'
-    reading_source: openBD
+    reading_reviewed: '2026-08-10'
+    reading_source: read off the name itself
     reading_source_kind: derived
     reading_url: https://api.openbd.jp/v1/get?isbn=9784048117579
     verified: true
   スタジオコロリド:
     basis: romaji
-    en_at: '2026-08-02'
+    en: Studio Colorido
+    en_at: '2026-08-10'
     en_pass: 1
-    en_source: surface
+    en_reviewed: '2026-08-10'
+    en_source: read off the name itself
+    en_source_kind: derived
+    en_url: https://api.openbd.jp/v1/get?isbn=9784048117579
     entity: studio
+    note: 'A katakana word spelling an English word is rendered as that word, which is the rule Hiraeth,
+      Unnie, baize and Destiny stand on. Romanising it glues the English back into Japanese: this read
+      Sutajio Kororido.'
     reading: スタジオ コロリド
-    reading_at: '2026-08-07'
+    reading_at: '2026-08-10'
     reading_basis: surface
     reading_boundary: openBD's collationkey
+    reading_corroborated:
+    - read off the name itself
     reading_note: 'openBD''s collationkey on 1 volume(s), e.g. ''超かぐや姫! = COSMIC PRINCESS KAGUYA! 1''
       (KADOKAWA), divides this name as ''スタジオ コロリド''. The kana here are the name''s own surface and only
       the division is taken, since a collationkey is a filing key first: it folds the kana that sort together.
       It divides ''スタジオコロリド''.'
     reading_pass: 1
-    reading_reviewed: '2026-08-07'
-    reading_source: openBD
+    reading_reviewed: '2026-08-10'
+    reading_source: read off the name itself
     reading_source_kind: derived
     reading_url: https://api.openbd.jp/v1/get?isbn=9784048117579
     verified: true
@@ -16163,13 +16203,22 @@ names:
     verified: false
   円谷プロダクション:
     basis: romaji
+    en: Tsuburaya Production
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: read off the name itself
+    en_source_kind: derived
+    en_url: https://comic.k-manga.jp/search/author/18950
     entity: company
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'A katakana word spelling an English word is rendered as that word, which is the rule Hiraeth,
+      Unnie, baize and Destiny stand on. Romanising it glues the English back into Japanese: this read
+      Tsuburaya Purodakushon.'
     reading: ツブラヤ プロダクション
-    reading_at: '2026-08-08'
+    reading_at: '2026-08-10'
     reading_basis: researched
     reading_boundary: the National Diet Library's author heading on record R100000002-I034668638
+    reading_corroborated:
+    - read off the name itself
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''ウルトラマンSTORY 0''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
@@ -16180,7 +16229,7 @@ names:
       as ''ツブラヤ プロダクション''. The kana here are the name''s own surface and only the division is taken, since
       a heading is a filing form first: it folds the kana that sort together. It divides ''ツブラヤプロダクション'',
       which stated no division at all.'
-    reading_reviewed: '2026-08-08'
+    reading_reviewed: '2026-08-10'
     reading_source: まんが王国
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/18950
@@ -20065,23 +20114,32 @@ names:
     verified: false
   天華百剣プロジェクト:
     basis: romaji
+    en: Tenka Hyakken Project
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: read off the name itself
+    en_source_kind: derived
+    en_url: https://comic.k-manga.jp/search/author/30719
     entity: project
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'A katakana word spelling an English word is rendered as that word, which is the rule Hiraeth,
+      Unnie, baize and Destiny stand on. Romanising it glues the English back into Japanese: this read
+      Tenkahyakkenpurojekuto.'
     reading: テンカヒャッケンプロジェクト
-    reading_at: '2026-08-08'
+    reading_at: '2026-08-10'
     reading_basis: researched
     reading_conflicts:
     - basis: analyser
       source: sudachi
       value: テンカ ヒャク ケン プロジェクト
+    reading_corroborated:
+    - read off the name itself
     reading_note: 'まんが王国 prints this reading in the byline of the 3 book(s) it sells under this name,
       e.g. ''はぴどじ！～桑名江がんばる～''. The shop is a retailer and does not say where its kana came from, so this
       is weighed and not attributed: what is being recorded is that the shop files the person under these
       kana, on the page cited. It disagrees with ''テンカ ヒャク ケン プロジェクト'', which no source had stated and
       which a morphological analyser assembled, and it is taken over it because a shop filing the artist''s
       own books is closer to the name than a tokeniser reading it as running text.'
-    reading_reviewed: '2026-08-08'
+    reading_reviewed: '2026-08-10'
     reading_source: まんが王国
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/30719
@@ -26355,20 +26413,28 @@ names:
     verified: false
   東方Project:
     basis: romaji
+    en: Touhou Project
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: read off the name itself
+    en_source_kind: derived
     entity: project
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'A katakana word spelling an English word is rendered as that word, which is the rule Hiraeth,
+      Unnie, baize and Destiny stand on. Romanising it glues the English back into Japanese: this read
+      Tōhōpurojekuto.'
     reading: トウホウプロジェクト
-    reading_at: '2026-08-04'
+    reading_at: '2026-08-10'
     reading_basis: stated
     reading_conflicts:
     - basis: analyser
       source: sudachi
       value: トウホウ Project
+    reading_corroborated:
+    - read off the name itself
     reading_note: A franchise credited as originator, not a person.
     reading_pass: 4
-    reading_reviewed: '2026-08-04'
-    reading_source: national-library
+    reading_reviewed: '2026-08-10'
+    reading_source: read off the name itself
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A13099200000
     verified: true
@@ -40910,21 +40976,29 @@ names:
     verified: false
   電撃G'sマガジン:
     basis: romaji
+    en: Dengeki G's Magazine
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: read off the name itself
+    en_source_kind: derived
     entity: magazine
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'A katakana word spelling an English word is rendered as that word, which is the rule Hiraeth,
+      Unnie, baize and Destiny stand on. Romanising it glues the English back into Japanese: this read
+      Dengekijīzumagajin.'
     reading: デンゲキジーズマガジン
-    reading_at: '2026-08-04'
+    reading_at: '2026-08-10'
     reading_basis: stated
     reading_conflicts:
     - basis: analyser
       source: sudachi
       value: デンゲキ G ' s マガジン
+    reading_corroborated:
+    - read off the name itself
     reading_note: A magazine, not a person. The reading comes from NDL's 電撃Ｇ’ｓマガジン編集部 heading, デンゲキジーズマガジンヘンシュウブ,
       with 編集部 removed.
     reading_pass: 4
-    reading_reviewed: '2026-08-04'
-    reading_source: national-library
+    reading_reviewed: '2026-08-10'
+    reading_source: read off the name itself
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A24599800000
     verified: true

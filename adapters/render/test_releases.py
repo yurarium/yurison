@@ -68,5 +68,35 @@ def main(s):
              "a first run has nothing to carry over and does not fail")
 
 
+    a_clean_read_is_recorded(s)
+
+
+def a_clean_read_is_recorded(s):
+    """Only failures reached the ledger, so success looked like never having looked.
+
+    `checkstate.record` was called on `blocked` and on `empty` and nowhere else. `schedule.py` sorts
+    by `overdue_days`, which returns None for a work with no row, and None sorts first as most
+    overdue. So a work read cleanly every run was permanently the most overdue thing in the list:
+    アイ・ヘイ・チュー published on 2026-08-07, was read without trouble, and was listed overdue on
+    the 8th.
+    """
+    import sys as _s
+    _s.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    import checkstate
+
+    checks = {}
+    checkstate.record(checks, "P", "read cleanly", "ok", when="2026-08-07")
+    checkstate.record(checks, "P", "came back empty", "empty", when="2026-08-01")
+    s.eq(checkstate.overdue_days(checks, "P", "read cleanly", __import__("datetime").date(2026, 8, 8)), 1,
+         "a work read cleanly yesterday is one day since we looked")
+    s.eq(checkstate.overdue_days(checks, "P", "came back empty", __import__("datetime").date(2026, 8, 8)), 7,
+         "and one that failed a week ago is seven")
+    s.eq(checkstate.overdue_days(checks, "P", "never seen", __import__("datetime").date(2026, 8, 8)), None,
+         "a work with no row is None, which is what sorts first")
+    s.check(checkstate.overdue_days(checks, "P", "read cleanly", __import__("datetime").date(2026, 8, 8))
+            < checkstate.overdue_days(checks, "P", "came back empty", __import__("datetime").date(2026, 8, 8)),
+            "so recording the clean read is what stops it outranking a real failure")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "render.releases"))

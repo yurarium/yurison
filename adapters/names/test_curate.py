@@ -43,6 +43,32 @@ def main(s):
             "a translation needs no page, because it is not a finding")
     s.check(curate.problems("titles", "x", with_(reviewed=None)),
             "an entry with no review date")
+
+    # A COMMA THE CATALOGUE CLOSED UP. MADB and openBD transcribe to ISBD and drop the space after a
+    # comma doing it, so a name carrying one has not been read off the work. It sent five entries
+    # out with a comma no publisher set, including Nighty night,Sheherazade, whose cover breaks the
+    # line there. The refusal is what sends somebody to the artwork.
+    CATALOGUED = {"basis": "official-jp", "source_kind": "bibliography",
+                  "source_url": "https://example.invalid/m", "reviewed": "2026-08-10"}
+    s.check(curate.problems("titles", "x", {"en": "Nighty night,Sheherazade",
+                                            "source": "mediaarts-db", **CATALOGUED}),
+            "a catalogued name with a comma closed up is refused")
+    s.eq(curate.problems("titles", "x", {"en": "Nighty night, Sheherazade",
+                                         "source": "mediaarts-db", **CATALOGUED}), [],
+         "and the same name spaced is accepted")
+    # ONLY THOSE TWO SOURCES, because a cover really can close a comma up: 一億年ボタン romanises a
+    # fullwidth 、 as `Oreha,Saikyo`. A name read off the work is the work's business.
+    s.eq(curate.problems("titles", "x", {"en": "Nighty night,Sheherazade", "source": "小学館",
+                                         "source_kind": "publisher-jp", "basis": "official-jp",
+                                         "source_url": "https://example.invalid/s",
+                                         "reviewed": "2026-08-10"}), [],
+         "a name read off the work may close its own comma up")
+    # AND A DIGIT IS NOT A CLAUSE, so a volume list is left alone.
+    s.eq(curate.problems("titles", "x", {"en": "Avalon 1,2", "source": "openBD",
+                                         "source_kind": "publisher-jp", "basis": "official-jp",
+                                         "source_url": "https://example.invalid/o",
+                                         "reviewed": "2026-08-10"}), [],
+         "a comma between digits is not a flattened line")
     s.check(curate.problems("titles", "x", with_(bais="licensed")),
             "a misspelt key is an error rather than a silent no-op")
     s.check(curate.problems("titles", "x", with_(candidate="Otherside Picnic")),

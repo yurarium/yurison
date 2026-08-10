@@ -326,6 +326,14 @@ def main():
                 if sched:
                     row["stated_schedule"] = sched
                 rows.append(row)
+                # A SUCCESSFUL READ IS THE THING WORTH RECORDING, and only failures were. The
+                # ledger holds `last_checked`, `schedule.py` sorts by how long ago that was, and a
+                # work with no row at all returns None, which sorts FIRST as most overdue. So every
+                # work we read cleanly looked maximally stale and every work that failed looked
+                # freshly seen. アイ・ヘイ・チュー published on 2026-08-07, was read without trouble,
+                # and was still listed overdue on the 8th because success left no trace.
+                checkstate.record(CHECKS, plat['name'], t.get('title') or '', 'ok',
+                                  note=f'rendered; {len(eps)} episode(s) read')
             else:
                 failed['no dated chapters'] += 1
                 # A FINDING, not a failure. The page rendered and the platform drew no dates on it,

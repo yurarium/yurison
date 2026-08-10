@@ -147,6 +147,25 @@ KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "revi
 # What we call ourselves in the store when a claim is our own judgement rather than a finding.
 OURS = "yurarium"
 
+# CATALOGUES THAT FLATTEN A TITLE ONTO ONE LINE. Both transcribe to ISBD, where the parallel title
+# follows an equals sign and the volume follows a full stop, and both drop the space after a comma
+# doing it. Three works checked against their own artwork all set the space, or set the comma at a
+# line end where nothing could follow it: おやすみシェヘラザード breaks after `Nighty night,` on the
+# cover of book one, 先輩、美味しいですか sets `Senpai, does it taste good?` on one line in its series
+# art, and ヴァンピアーズ sets `VAMPEERZ, MY PEER VAMPIRES` under its logo. The catalogues recorded all
+# three closed up.
+#
+# WHY THIS IS NOT A REWRITE RULE. A Japanese cover really does sometimes close the comma up, so a
+# pass that silently inserted the space would be asserting a typography nobody looked at: 一億年ボタン
+# prints `shita Oreha,Saikyo ni natteita` on its own cover, romanising a fullwidth 、 with no space.
+# The catalogue cannot tell the two apart and neither can a regex, so this refuses the entry and
+# sends somebody to the work.
+FLATTENS_THE_COMMA = ("mediaarts-db", "openBD")
+
+#: A comma with a letter hard against it. Digits are left alone: `Vol.1,2` is a list and not a title
+#: set across two lines.
+CLOSED_COMMA = re.compile(r",[A-Za-z]")
+
 # What a reading may contain. Katakana and the marks that ride along with it: a title's own
 # punctuation stays in its reading, and 100日後 keeps its digits, so a rule allowing katakana alone
 # rejects readings the store already holds. What it still refuses is kanji and hiragana, which is
@@ -274,6 +293,10 @@ def problems(kind, ja, e):
                        f"{' or '.join(table[basis])}, not {e.get('source_kind')!r}")
         if e.get("source_kind") != "derived" and not (e.get("source_url") or e.get("en_url")):
             out.append(f"{where}: an attributed name needs the page it was read from")
+        if (e.get("en_source") or e.get("source")) in FLATTENS_THE_COMMA and CLOSED_COMMA.search(e["en"]):
+            out.append(f"{where}: {e.get('en_source') or e.get('source')} transcribes a title onto "
+                       f"one line, so a comma closed up in {e['en']!r} is the catalogue's and not "
+                       f"the work's. Read the comma off the work and cite that page instead")
     elif e.get("basis"):
         out.append(f"{where}: a candidate carries no basis; it is not yet a claim about the work")
 

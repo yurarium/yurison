@@ -3712,13 +3712,19 @@ names:
     verified: true
   角川グループパブリッシング:
     basis: romaji
+    en: Kadokawa Group Publishing
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: read off the name itself
+    en_source_kind: derived
     furigana_spans:
     - - 角川
       - かどかわ
     - - グループパブリッシング
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'A katakana word spelling an English word is rendered as that word, which is the rule Hiraeth,
+      Unnie, baize and Destiny stand on. Romanising it glues the English back into Japanese: this read
+      Kadokawagurūpupaburisshingu.'
     reading: カドカワグループパブリッシング
     reading_at: '2026-08-10'
     reading_basis: analyser

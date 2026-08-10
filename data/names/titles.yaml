@@ -796,8 +796,12 @@ names:
     verified: false
   'Avalon : Towards the happiness,with you. : 幸福を紡ぐ百合アンソロジー':
     basis: translated
-    en: 'Avalon: Towards the happiness,with you.: A Yuri Anthology That Spins Happiness'
+    en: 'Avalon: Towards the happiness, with you.: A Yuri Anthology That Spins Happiness'
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Avalon: Towards the happiness,with you.: A Yuri Anthology That Spins Happiness'
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
@@ -827,9 +831,14 @@ names:
     verified: false
   'Avalon Alter～karma～ : Do not pass anyone this crave,because only our sin. : 幸福を求める百合アンソロジー':
     basis: translated
-    en: 'Avalon Alter ~karma~: Do not pass anyone this crave,because only our sin.: A Yuri Anthology in
-      Search of Happiness'
+    en: 'Avalon Alter ~karma~: Do not pass anyone this crave, because only our sin.: A Yuri Anthology
+      in Search of Happiness'
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Avalon Alter ~karma~: Do not pass anyone this crave,because only our sin.: A Yuri Anthology
+        in Search of Happiness'
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
@@ -892,8 +901,13 @@ names:
     verified: false
   'Avalon～bloom～ : Ringing bloom,the brilliant days of life. : 幸福を迎える百合アンソロジー':
     basis: translated
-    en: 'Avalon ~bloom~: Ringing bloom,the brilliant days of life.: A Yuri Anthology That Welcomes Happiness'
+    en: 'Avalon ~bloom~: Ringing bloom, the brilliant days of life.: A Yuri Anthology That Welcomes Happiness'
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Avalon ~bloom~: Ringing bloom,the brilliant days of life.: A Yuri Anthology That Welcomes
+        Happiness'
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
@@ -8664,20 +8678,26 @@ names:
     verified: false
   おやすみシェヘラザード:
     basis: official-jp
-    en: Nighty night,Sheherazade
-    en_at: '2026-08-06'
-    en_reviewed: '2026-08-06'
-    en_source: openBD
+    en: Nighty night, Sheherazade
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: official-jp
+      source: openBD
+      value: Nighty night,Sheherazade
+    en_reviewed: '2026-08-10'
+    en_source: 小学館
     en_source_kind: publisher-jp
-    en_url: https://api.openbd.jp/v1/get?isbn=9784098600908
+    en_url: https://bookwalker.jp/series/167971/
     furigana_spans:
     - - おやすみシェヘラザード
       - null
-    note: The book's own English title. openBD carries the publisher's registration for 9784098600908
-      with the title 「おやすみシェヘラザード = Nighty night,Sheherazade」, pairing the Japanese with Nighty night,Sheherazade,
-      which is how the title page prints it. openBD is publisher-supplied, so this is the work's own name
-      rather than a rendering made here, and it is kept verbatim including its own capitalisation and
-      spacing. This row is the same work under its Japanese title alone.
+    note: The book's own English title, printed on the cover of book one above the Japanese. The cover
+      sets it across two lines, Nighty night, then Sheherazade, so the comma falls at a line end and has
+      nothing after it. Set on one line it takes the space. It was recorded as Nighty night,Sheherazade
+      until 2026-08-10 from openBD, whose string is an ISBD transcription, 「おやすみシェヘラザード = Nighty night,Sheherazade.
+      1」 with the parallel title after an equals sign and the volume after a full stop. A cataloguer flattening
+      two lines into one is not the work setting a comma closed up, and openBD cannot say how a title
+      page prints anything.
     reading: オヤスミ シェヘラザード
     reading_at: '2026-08-06'
     reading_basis: analyser
@@ -8710,9 +8730,13 @@ names:
     verified: false
   おやすみシェヘラザード【単話】:
     basis: translated
-    en: Nighty night,Sheherazade (single chapters)
-    en_at: '2026-08-06'
-    en_reviewed: '2026-08-06'
+    en: Nighty night, Sheherazade (single chapters)
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Nighty night,Sheherazade (single chapters)
+    en_reviewed: '2026-08-10'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -8724,9 +8748,8 @@ names:
       - はなし
     - - 】
       - null
-    note: The English is the publisher's own, which openBD carries in the registration for the collected
-      volumes as おやすみシェヘラザード = Nighty night,Sheherazade. Only 【単話】, the chapter-at-a-time edition, is
-      added here, which is why this row is filed as ours.
+    note: The English is the publisher's own, taken from the cover of the collected book one. Only 【単話】,
+      the chapter-at-a-time edition, is added here, which is why this row is filed as ours.
     reading: オヤスミ シェヘラザード 【タン ハナシ】
     reading_at: '2026-08-06'
     reading_basis: analyser
@@ -9487,34 +9510,35 @@ names:
     reading_url: https://www.mangaupdates.com/series/h86igq5/okiku-san-wa-icha-tsukitai
     verified: false
   お葉花を愛でる:
-    basis: translated
-    en: Doting on Kunika
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
-    furigana_spans:
-    - - お
-      - null
-    - - 葉
-      - は
-    - - 花
-      - はな
-    - - を
-      - null
-    - - 愛
-      - め
-    - - でる
-      - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: オ ハ ハナ ヲ メデル
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
+    basis: official-jp
+    en: Obaka love!
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Doting on Kunika
+    en_reviewed: '2026-08-10'
+    en_source: チャンピオンクロス
+    en_source_kind: platform
+    en_url: https://championcross.jp/series/46c8d0a17ed62
+    note: 'The work''s own English, printed on a tag in its series art: Obaka love!, with that capital
+      and that exclamation mark. A name a work gives itself is taken as it gives it, which is the rule
+      百合百景 and 伽藍の姫 already stand on.'
+    reading: オバカ ヲ メデル
+    reading_at: '2026-08-10'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: sudachi
+      value: オ ハ ハナ ヲ メデル
+    reading_note: The series art prints バカ as furigana over 葉花 and め over 愛, so お葉花 is おバカ and the title
+      is a pun on calling somebody a fool. It read Doting on Kunika until 2026-08-10, which took 葉花 for
+      a given name; nothing in the corpus had looked at the art.
+    reading_reviewed: '2026-08-10'
+    reading_source: チャンピオンクロス
+    reading_source_kind: platform
+    reading_url: https://championcross.jp/series/46c8d0a17ed62
+    verified: true
   お酒のせいにはしませんから:
     basis: translated
     en: I'm Not Going to Blame It on the Drink
@@ -20241,7 +20265,7 @@ names:
     en_conflicts:
     - basis: translated
       source: yurarium
-      value: 'Yuri Yuri Panic: An Excessively Precious Situation Is Occurring!'
+      value: Yuri Yuri Panic ~An Incident of Excessive Preciousness Is In Progress!~
     en_reviewed: '2026-08-05'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -20269,6 +20293,15 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: '尊い is the fandom word for something so good it is almost holy, said of a pairing
+      that moves the person saying it, and cuteness is not it: a thing can be cute without being 尊い and
+      the word is doing the work of precious, blessed and sublime at once. 尊すぎる is that taken past what
+      the speaker can stand.
+
+      The rest of the title is the joke the licensor also drops. 事案 is the word an incident report uses
+      and 発生しています is the tense a public body announces one in, so the sentence is officialese about two
+      girls being adorable. Kept beside the licensed name rather than instead of it, since EN_ORDER is
+      the reader''s.'
     verified: false
   ゆりゆりゆる女子2人旅:
     basis: translated
@@ -21466,6 +21499,41 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  アイドル総選挙4位だった私が魔王を倒すんですか？:
+    basis: romaji
+    furigana_spans:
+    - - アイドル
+      - null
+    - - 総選挙
+      - そうせんきょ
+    - - '4'
+      - null
+    - - 位
+      - い
+    - - だった
+      - null
+    - - 私
+      - わたし
+    - - が
+      - null
+    - - 魔王
+      - まおう
+    - - を
+      - null
+    - - 倒
+      - たお
+    - - すんですか？
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アイドル ソウセンキョ 4イダッタ ワタシ ガ マオウ ヲ タオス ンデス カ？
+    reading_at: '2026-08-10'
+    reading_basis: analyser
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   アイドル総選挙4位だった私が魔王を倒すんですか？（Lilie comics）:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -22061,14 +22129,16 @@ names:
     verified: false
   アンドロイドは地雷系の夢を見る。:
     basis: translated
-    en: The Android Dreams of Jirai-kei.
-    en_at: '2026-08-04'
+    en: The Android Dreams of the Landmine Type.
+    en_at: '2026-08-10'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Android wa Jiraikei no Yume o Miru.
-    en_pass: 2
-    en_reviewed: '2026-08-04'
+    - basis: translated
+      source: yurarium
+      value: The Android Dreams of Jirai-kei.
+    en_reviewed: '2026-08-10'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -22088,10 +22158,14 @@ names:
       - み
     - - る。
       - null
-    note: Echoes アンドロイドは電気羊の夢を見るか, the Japanese title of Do Androids Dream of Electric Sheep?, but as
-      a statement rather than the original's question. 地雷系, landmine-type, is a specific fashion and mood
-      subculture, closer to goth-adjacent emotional fragility than the English word landmine suggests,
-      kept rather than translated.
+    note: 'Echoes アンドロイドは電気羊の夢を見るか, the Japanese title of Do Androids Dream of Electric Sheep?, but as
+      a statement where the original asks.
+
+      地雷系 is landmine type, the aesthetic and the temperament together: a presentation that reads as sweet
+      over an attachment that may go off, and the metaphor is the whole of the word. It is rendered the
+      same way in all three titles carrying it from 2026-08-10, having been Jirai-kei here, Landmine Girl
+      on another and Landmine-Type on the third. Type rather than Girl, because 地雷系 says nothing about
+      who and one of the three is an earthbound spirit.'
     reading: アンドロイド ワ ジライケイ ノ ユメ ヲ ミル。
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -29608,9 +29682,14 @@ names:
   ドMダメ会社員のめぐむんはドSヒモ地雷系のシマちゃんに逆転したい※出来ません。:
     basis: translated
     en: Megumun the Hopeless Masochist Office Worker Wants to Turn the Tables on Shima-chan the Sadistic
-      Freeloading Landmine Girl *She Can't.
-    en_at: '2026-08-06'
-    en_reviewed: '2026-08-06'
+      Freeloading Landmine Type *She Can't.
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Megumun the Hopeless Masochist Office Worker Wants to Turn the Tables on Shima-chan the Sadistic
+        Freeloading Landmine Girl *She Can't.
+    en_reviewed: '2026-08-10'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -29634,10 +29713,15 @@ names:
       - でき
     - - ません。
       - null
-    note: ドM and ドS are the masochist and the sadist with an intensifying prefix, ordinary shorthand in
-      Japanese and not clinical terms. ヒモ is somebody living off a partner's money, and 地雷系 is the landmine
-      look and temperament, a scene English fandom already calls jirai but a reader here will not. The
-      ※ is the footnote mark that undercuts the title, so it stays as an asterisk.
+    note: 'ドM and ドS are the masochist and the sadist with an intensifying prefix, ordinary shorthand
+      in Japanese and not clinical terms. ヒモ is somebody living off a partner''s money. The ※ is the footnote
+      mark that undercuts the title, so it stays as an asterisk.
+
+      地雷系 is landmine type, the aesthetic and the temperament together: a presentation that reads as sweet
+      over an attachment that may go off, and the metaphor is the whole of the word. It is rendered the
+      same way in all three titles carrying it from 2026-08-10, having been Jirai-kei on one, Landmine
+      Girl on another and Landmine-Type on the third. Type rather than Girl, because 地雷系 says nothing
+      about who and one of the three is an earthbound spirit.'
     reading: ド M ダメ カイシャイン ノ メグム ン ワ ド S ヒモ ジライケイ ノ シマチャン ニ ギャクテン シタイ ※ デキマセン。
     reading_at: '2026-08-06'
     reading_basis: analyser
@@ -36639,21 +36723,26 @@ names:
     verified: false
   ヴァンピアーズ:
     basis: official-jp
-    en: VAMPEERZ,MY PEER VAMPIRES
-    en_at: '2026-08-06'
+    en: VAMPEERZ, MY PEER VAMPIRES
+    en_at: '2026-08-10'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: Vampires
-    en_reviewed: '2026-08-06'
-    en_source: openBD
-    en_source_kind: publisher-jp
-    en_url: https://api.openbd.jp/v1/get?isbn=9784091575739
-    note: 'Replaces a translation made here. openBD carries the publisher''s registration for 9784091575739
-      with the title 「ヴァンピアーズ : VAMPEERZ,MY PEER VAMPIRES」, which pairs the Japanese with VAMPEERZ,MY
-      PEER VAMPIRES. That is the work''s own English name and §5 puts it above ours. The stored Vampires
-      read ヴァンピアーズ as the plural of vampire. It is a coinage on peers, which the book''s own gloss spells
-      out, so the translation was wrong about the word as well as outranked.'
+    - basis: official-jp
+      source: openBD
+      value: VAMPEERZ,MY PEER VAMPIRES
+    en_reviewed: '2026-08-10'
+    en_source: サンデーうぇぶり
+    en_source_kind: platform
+    en_url: https://www.sunday-webry.com/series/3269754496548915366
+    note: 'Replaces a translation made here. The series art sets VAMPEERZ, MY PEER VAMPIRES in letterspaced
+      capitals beneath the logo, with the space after the comma. That is the work''s own English name
+      and §5 puts it above ours. openBD carries the same words in the registration for 9784091575739 as
+      「ヴァンピアーズ : VAMPEERZ,MY PEER VAMPIRES」, closed up, which is what its ISBD transcription does to a
+      comma and not what the work does. The stored Vampires read ヴァンピアーズ as the plural of vampire. It
+      is a coinage on peers, which the book''s own gloss spells out, so the translation was wrong about
+      the word as well as outranked.'
     reading: ヴァンピアーズ
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -36662,17 +36751,20 @@ names:
     verified: true
   'ヴァンピアーズ : VAMPEERZ,MY PEER VAMPIRES':
     basis: official-jp
-    en: VAMPEERZ,MY PEER VAMPIRES
+    en: VAMPEERZ, MY PEER VAMPIRES
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: official-jp
+      source: openBD
+      value: VAMPEERZ,MY PEER VAMPIRES
     en_reviewed: '2026-08-06'
     en_source: openBD
     en_source_kind: publisher-jp
     en_url: https://api.openbd.jp/v1/get?isbn=9784091575739
-    note: 'The book''s own English title. openBD carries the publisher''s registration for 9784091575739
-      with the title 「ヴァンピアーズ : VAMPEERZ,MY PEER VAMPIRES」, pairing the Japanese with VAMPEERZ,MY PEER
-      VAMPIRES, which is how the title page prints it. openBD is publisher-supplied, so this is the work''s
-      own name rather than a rendering made here, and it is kept verbatim including its own capitalisation
-      and spacing.'
+    note: 'The book''s own English title, set in letterspaced capitals beneath the logo in the series
+      art. This row is the ISBD string openBD registers for 9784091575739, 「ヴァンピアーズ : VAMPEERZ,MY PEER
+      VAMPIRES」, kept as the key so the catalogue record still matches. Its comma is closed up because
+      that transcription closes commas up; the work sets the space.'
     reading: 'ヴァンピアーズ   :   VAMPEERZ , MY   PEER   VAMPIRES'
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -41250,14 +41342,22 @@ names:
     verified: false
   先輩、美味しいですか?:
     basis: official-jp
-    en: Senpai,does it taste good?
-    en_at: '2026-08-07'
-    en_reviewed: '2026-08-07'
-    en_source: mediaarts-db
-    en_source_kind: bibliography
-    en_url: https://mediaarts-db.artmuseums.go.jp/id/M867745
-    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
-      page. The missing space after the comma is the publisher's and is kept.
+    en: Senpai, does it taste good?
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: official-jp
+      source: mediaarts-db
+      value: Senpai,does it taste good?
+    en_corroborated:
+    - mediaarts-db
+    en_reviewed: '2026-08-10'
+    en_source: カドコミ
+    en_source_kind: platform
+    en_url: https://comic-walker.com/detail/KC_001719_S
+    note: The work's own English, set on one line in its series art under the Japanese logo, beside 'presented
+      by MIKANUJI.'. MADB records the same words after ' = ' as 'Senpai,does it taste good?'. That note
+      read until 2026-08-10 that the missing space was the publisher's; the art shows the space, and closing
+      a comma up is what MADB's ISBD transcription does to every title it holds.
     verified: true
   先輩、美味しいですか? = Senpai,does it taste good?:
     basis: official-jp
@@ -47790,13 +47890,16 @@ names:
     verified: false
   女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました:
     basis: official-jp
-    en: Exiled woman,form the strongest tag team with legendary witch
-    en_at: '2026-08-07'
+    en: Exiled woman, form the strongest tag team with legendary witch
+    en_at: '2026-08-10'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: Kicked Out of My Party for Being a Woman, So I Teamed Up with a Legendary Witch Instead
-    en_reviewed: '2026-08-07'
+    - basis: official-jp
+      source: mediaarts-db
+      value: Exiled woman,form the strongest tag team with legendary witch
+    en_reviewed: '2026-08-10'
     en_source: mediaarts-db
     en_source_kind: bibliography
     en_url: https://mediaarts-db.artmuseums.go.jp/id/C449694
@@ -47825,8 +47928,13 @@ names:
       - く
     - - みました
       - null
-    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
-      page. The publisher printed this English name; the bibliography copied it.
+    note: 'The parallel title MADB records after '' = '', which ISBD transcribes from the book''s own
+      title page. The publisher printed this English name; the bibliography copied it. MADB writes it
+      ''Exiled woman,form'', and the space is restored here because that transcription closes every comma
+      up: three works checked against their own artwork all set the space where MADB and openBD had none.
+      THE VOLUME ITSELF WAS NOT SEEN. Neither the サンデーうぇぶり series art nor the front cover of 9784098507702
+      carries any English, so the words are the work''s and the space is inferred from the catalogue''s
+      habit.'
     reading: オンナダカラ、 ト パーティ ヲ ツイホウ サレタ ノデ デンセツ ノ マジョ ト サイキョウ タッグ ヲ クミマシタ
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -49052,18 +49160,26 @@ names:
     reading_source_kind: derived
     verified: false
   姉妹傭兵:
-    basis: translated
-    en: Sister Mercenaries
-    en_at: '2026-08-03'
-    en_reviewed: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: MERCENARY SISTERS
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Sister Mercenaries
+    en_reviewed: '2026-08-10'
+    en_source: カドコミ
+    en_source_kind: platform
+    en_url: https://comic-walker.com/detail/KC_019475_S
     furigana_spans:
     - - 姉妹
       - しまい
     - - 傭兵
       - ようへい
-    note: 'The synopsis puts 姉妹 in quotation marks: they are not related.'
+    note: 'The series logo sets MERCENARY SISTERS in letterspaced capitals under the Japanese, so the
+      work supplies its own English and the capitals are how it sets them, as with GUNBURED × SISTERS.
+      It read Sister Mercenaries until 2026-08-10, which had the two words the other way round. The synopsis
+      puts 姉妹 in quotation marks: they are not related.'
     reading: シマイ ヨウヘイ
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -55250,8 +55366,12 @@ names:
     verified: false
   愛に愛らし愛しいあなた:
     basis: translated
-    en: Love,Love,Love My Sweet!
+    en: Love, Love, Love My Sweet!
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Love,Love,Love My Sweet!
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
@@ -56329,13 +56449,16 @@ names:
     verified: false
   推しが隣で授業に集中できない!:
     basis: official-jp
-    en: GIRL,PLZ MAKE ME CONCENTRATE ON THE CLASS!?
-    en_at: '2026-08-07'
+    en: GIRL, PLZ MAKE ME CONCENTRATE ON THE CLASS!?
+    en_at: '2026-08-10'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: I Can't Focus in Class With My Oshi Right Next to Me!
-    en_reviewed: '2026-08-07'
+    - basis: official-jp
+      source: mediaarts-db
+      value: GIRL,PLZ MAKE ME CONCENTRATE ON THE CLASS!?
+    en_reviewed: '2026-08-10'
     en_source: mediaarts-db
     en_source_kind: bibliography
     en_url: https://mediaarts-db.artmuseums.go.jp/id/C449723
@@ -56356,8 +56479,12 @@ names:
       - しゅうちゅう
     - - できない!
       - null
-    note: The parallel title MADB records after ' = ', which ISBD transcribes from the book's own title
-      page. The publisher printed this English name; the bibliography copied it.
+    note: 'The parallel title MADB records after '' = '', which ISBD transcribes from the book''s own
+      title page. The publisher printed this English name; the bibliography copied it. MADB writes it
+      ''GIRL,PLZ'', and the space is restored here because that transcription closes every comma up: three
+      works checked against their own artwork all set the space where MADB and openBD had none. THE VOLUME
+      ITSELF WAS NOT SEEN. The series art on コミックDAYS carries no English and the front cover was not reached,
+      so the words are the work''s and the space is inferred from the catalogue''s habit.'
     reading: オシ ガ トナリ デ ジュギョウ ニ シュウチュウ デキナイ !
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -76181,12 +76308,15 @@ names:
     verified: false
   運命のヤマダダダダダダダダダダ:
     basis: translated
-    en: The Yamadadadadadadadadada of Destiny
+    en: My Destined Yamadadadadadadadadada
     en_at: '2026-08-07'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: Yamada of Fate, da-da-da-daaa
+    - basis: translated
+      source: yurarium
+      value: The Yamadadadadadadadadada of Destiny
     en_reviewed: '2026-08-07'
     en_source: yurarium
     en_source_kind: derived
@@ -76202,7 +76332,11 @@ names:
       Yamada, so 運命の is 運命の人 and modifies the name. It leaves the second half open, and the run of ダ is
       not the shape of that figure, which Japanese writes as three short and one long. What the page does
       explain is the pile-up: every classmate is a Yamada. So the name keeps its own tail and the music
-      is not asserted.'
+      is not asserted.
+
+      MY, BECAUSE 運命の人 IS SOMEBODY''S. The idiom names the person fate has picked out for the speaker,
+      so of Destiny put the phrase at arm''s length and lost whose destiny it is. Reworded 2026-08-10
+      by the project owner.'
     reading: ウンメイ ノ ヤマダダダダダダダダダダ
     reading_at: '2026-08-05'
     reading_basis: analyser

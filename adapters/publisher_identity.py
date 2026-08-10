@@ -44,7 +44,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "names"))
 
-import identity                                                             # noqa: E402
+from facts import identity                                                             # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "facts"))
 from facts import imprint as _imprints                          # noqa: E402
 from names.publishers import publisher_of                                   # noqa: E402

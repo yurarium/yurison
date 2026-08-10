@@ -37,7 +37,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 import by_isbn                                                                 # noqa: E402
 import extract                                                                 # noqa: E402
-import identity                                                                # noqa: E402
+from facts import identity                                                                # noqa: E402
 import isbn as _isbn                                                           # noqa: E402
 import shelfingest                                                             # noqa: E402
 

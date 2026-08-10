@@ -119,7 +119,7 @@ def main(s):
     s.eq(kodansha["works"], ["w00003"], "with the book it shipped")
 
     # ---- a retired identifier still resolves -----------------------------------------------------
-    import identity
+    from facts import identity
     merged = identity.merge(entries, entries[1]["id"], entries[0]["id"],
                             "the same house recorded under two spellings")
     fwd = P.forwarders(merged)

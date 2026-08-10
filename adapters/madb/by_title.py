@@ -43,7 +43,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 import extract                                                                 # noqa: E402
-import identity                                                                # noqa: E402
+from facts import identity                                                                # noqa: E402
 import isbn as _isbn                                                           # noqa: E402
 from names.inputs import split_authors                                         # noqa: E402
 

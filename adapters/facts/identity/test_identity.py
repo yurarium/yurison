@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""identity.py: an identifier that never moves, and a join that needs more than a title."""
+"""facts/identity: an identifier that never moves, and a join that needs more than a title."""
 import pathlib
 import sys
 
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
 
-import identity as ident  # noqa: E402
+from facts import identity as ident  # noqa: E402
 import testkit  # noqa: E402
 
-COVERS = ["adapters/identity.py"]
+COVERS = ['adapters/facts/identity/__init__.py']
 
 # Quoted from the two populations. 春夏秋冬 is a real joined pair; the anthology stories are the
 # only URL collisions in the corpus and both sit on comic.pixiv.net containers.

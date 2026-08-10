@@ -42,7 +42,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
-from identity import match_key  # noqa: E402
+from facts.identity import match_key  # noqa: E402
 import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
 _sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
 import htmlbits as _htmlbits                                            # noqa: E402
@@ -147,7 +147,7 @@ def main(argv=None):
     """Read a work-level address for every exposed row and write it as an attachments file."""
     import argparse, collections, datetime, json                             # noqa: E401
 
-    import identity
+    from facts import identity
     import net
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])

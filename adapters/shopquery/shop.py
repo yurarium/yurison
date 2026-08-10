@@ -40,7 +40,7 @@ import urllib.parse
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
-import identity                                                                # noqa: E402
+from facts import identity                                                                # noqa: E402
 import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
 _sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
 import htmlbits as _htmlbits                                            # noqa: E402

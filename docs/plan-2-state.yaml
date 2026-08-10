@@ -250,7 +250,12 @@ stages:
           THE MOVE ITSELF FOUND A PATH BUG, which is the ordinary hazard of a file going one directory deeper: the suite located the registry by counting parents and quietly loaded nothing, so 61 checks became a KeyError rather than a wrong pass.
       - id: D12
         title: work identity
-        state: todo
+        state: done
+        note: >-
+          adapters/identity.py is adapters/facts/identity, with its suite at 89 checks and a BLINDSPOT.md.
+          Fourteen call sites, every one of them a bare `import identity` that worked because adapters is on the path; they read `from facts import identity` now, which works in exactly the same places, so no module needed a new path entry and the last two moves' import bugs had nowhere to happen.
+          THE BLIND SPOT IS THE JOIN AND NOT THE IDENTIFIER. The promise that an id never moves is kept perfectly while the work behind it is the wrong work: a work filed under another's identifier is one row and looks exactly like a correct one.
+          Recorded with it: a merge is undoable and a split is not, which is why the file holds the join it can reverse and not the one it cannot, and eight anthology stories anchor on a folded title inside an anchor chosen because titles are unreliable.
       - id: D13
         title: dates
         state: todo

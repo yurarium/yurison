@@ -48,7 +48,7 @@ import unicodedata
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "names"))
 
-import identity                                                             # noqa: E402
+from facts import identity                                                             # noqa: E402
 from names import entities                                                  # noqa: E402
 from names.inputs import split_credits_detail                               # noqa: E402
 

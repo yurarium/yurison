@@ -2151,7 +2151,7 @@ def budget_works_offered_twice(ctx):
     nothing.
     """
     sys.path.insert(0, str(ROOT / "adapters"))
-    import identity
+    from facts import identity
 
     reg = ctx["identity"]
     byanchor = identity.index(reg)
@@ -2201,7 +2201,7 @@ def budget_one_work_under_two_names(ctx):
     than from tightening the fold.
     """
     sys.path.insert(0, str(ROOT / "adapters"))
-    import identity
+    from facts import identity
 
     pairs = 0
     for _name, rows in _shipped_lists(ctx):
@@ -2661,7 +2661,7 @@ def budget_rows_with_a_moving_address(ctx):
     """
     import urllib.parse as _up
     sys.path.insert(0, str(ROOT))
-    from adapters import identity as _identity
+    from facts import identity as _identity
 
     held = {}
     for e in ctx["identity"]:

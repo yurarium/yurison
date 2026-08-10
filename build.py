@@ -29,7 +29,7 @@ from facts import division as _division  # noqa: E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402
-import identity  # noqa: E402
+from facts import identity  # noqa: E402
 import importdates  # noqa: E402
 import isbndate  # noqa: E402
 from names import credits as _credits  # noqa: E402
@@ -1922,7 +1922,7 @@ def registry_index(which):
     """
     try:
         sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters"))
-        import identity as _ident
+        from facts import identity as _ident
         if which == "credits":
             import credit_identity as _mod
         else:

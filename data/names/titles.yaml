@@ -22757,14 +22757,16 @@ names:
     verified: false
   オンニって呼んでもいいですか？:
     basis: translated
-    en: Can I Call You Onni?
-    en_at: '2026-08-04'
+    en: Can I Call You Unnie?
+    en_at: '2026-08-10'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Unnie tte Yonde Mo Ii desu ka?
-    en_pass: 2
-    en_reviewed: '2026-08-04'
+    - basis: translated
+      source: yurarium
+      value: Can I Call You Onni?
+    en_reviewed: '2026-08-10'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -22774,8 +22776,13 @@ names:
       - よ
     - - んでもいいですか？
       - null
-    note: オンニ is Korean, 언니, a younger woman's term for an older female friend; kept as onni rather than
-      translated to "big sister," matching the K-pop fandom setting the synopsis is built around.
+    note: 'オンニ is Korean, 언니, a younger woman''s term for an older female friend; kept as the word rather
+      than translated to "big sister," matching the K-pop fandom setting the synopsis is built around.
+      SPELLED AS THE ENGLISH-SPEAKING FANDOM SPELLS IT, which is unnie. This read "Onni", a transliteration
+      of the Japanese transliteration of a Korean word, which takes a reader one step further from it
+      at each hop. The note already named the K-pop setting, and that is the readership whose spelling
+      the word has. Ruled by the project owner on 2026-08-10. THE SAME RULE AS ヒラエス, which is Hiraeth
+      and not Hiraesu: katakana spelling a word from another language is rendered as that word.'
     reading: オンニ ッテ ヨンデ モ イイデス カ？
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -55120,9 +55127,13 @@ names:
     verified: false
   散り損ないのヒラエス:
     basis: translated
-    en: Hiraesu, Who Failed to Scatter
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
+    en: Hiraeth, Who Failed to Scatter
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Hiraesu, Who Failed to Scatter
+    en_reviewed: '2026-08-10'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -55136,8 +55147,13 @@ names:
       - null
     note: '散り損ない, failing to fall or scatter, matches the synopsis closely: a woman betrayed by the old
       friend she gave everything to, about to jump from a high-rise with a stranger who offered to die
-      with her. ヒラエス does not resolve to any word or name found elsewhere, and no synopsis explains it,
-      so it is kept exactly as written rather than guessed at.'
+      with her. ヒラエス IS HIRAETH, the Welsh word for a longing for a home you cannot return to or that
+      never was. The note here said it "does not resolve to any word or name found elsewhere" and the
+      rendering transliterated it straight back as Hiraesu, which turns a borrowed word into a name nobody
+      uses. Identified in an earlier round and agreed by the project owner on 2026-08-10; the rendering
+      had not been carried through, which is why the two disagreed. A LOANWORD IS RENDERED AS THE WORD
+      IT BORROWS, the same rule that keeps ギャル as gal and リニューアル as renewal. Katakana spelling a word
+      from another language is not a name to be transliterated.'
     reading: チリ ソコナイ ノ ヒラエス
     reading_at: '2026-08-05'
     reading_basis: analyser

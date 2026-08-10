@@ -597,6 +597,45 @@ def inv_every_name_is_defined_where_it_is_used(ctx):
     return [f"{path}:{line}: {name}" if path else name for path, line, name in got]
 
 
+def inv_a_work_shows_the_english_its_record_holds(ctx):
+    """The English on a works-list row is the English the name store holds for that title.
+
+    THE BRIDGE BETWEEN TWO VIEWS, and it exists because they were measured apart and drifted in
+    conversation before they drifted in the data. `works showing a romanisation` counts SERIES ROWS
+    whose attached `work_en` names no English basis. A sweep taken from `feed/names.json` instead
+    counted TITLE RECORDS, and the two answers were 178 and 26 for what sounded like one question.
+
+    NEITHER NUMBER WAS WRONG AND NEITHER IS THE OTHER'S CHECK. `feed/names.json` holds 3,164 titles
+    against 3,046 rows, because 226 of them are edition variants and print-only records that are no
+    row at all; and a row carries the store's answer only if `build.py` attached it under a key the
+    store also uses. Nothing tested that second part, so a fold that stopped matching would have
+    shown up as a reader seeing romaji while every count stayed where it was.
+
+    So this asserts the join: for every row, if the store holds an English name under the same folded
+    key, the row carries it. It is at zero and it is the reason the data-side budget can be read as a
+    statement about what a reader sees.
+
+    §14b, WHAT IT SHARES WITH ITS SUBJECT: the fold, `facts/namekey.fold`, which is the one producer
+    of that key and is what the interface uses too. It asks nothing of the renderer and holds no copy
+    of the attachment rule; it compares two shipped artefacts.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    from facts import namekey as _nk
+    titles = (ctx.get("names_shipped") or {}).get("titles") or {}
+    held = {}
+    for k, v in titles.items():
+        if isinstance(v, dict) and v.get("en"):
+            held.setdefault(_nk.fold(k), v["en"])
+    bad = []
+    for r in ctx["series"]:
+        ja = r.get("work") or ""
+        store_en = held.get(_nk.fold(ja))
+        row_en = (r.get("work_en") or {}).get("en")
+        if store_en and not row_en:
+            bad.append(f"{r.get('id')} {ja}: the store holds {store_en!r} and the row shows none")
+    return bad
+
+
 def inv_the_store_has_one_writer(ctx):
     """Nothing writes to the relational store except the module that compiles it.
 
@@ -2182,6 +2221,8 @@ INVARIANTS = [
     ("a name reaches both lines of a bilingual row", inv_a_name_in_both_mode_is_rendered_in_both),
     ("a fact is reached through its entry point", inv_a_fact_is_reached_through_its_entry_point),
     ("a name is answered by one module", inv_a_name_is_answered_by_one_module),
+    ("a work shows the English its record holds",
+     inv_a_work_shows_the_english_its_record_holds),
     ("the store has one writer", inv_the_store_has_one_writer),
     ("every name is defined where it is used", inv_every_name_is_defined_where_it_is_used),
     ("every renderer is ruled", inv_every_renderer_is_ruled),
@@ -2225,6 +2266,15 @@ def budget_works_without_an_english_name(ctx):
     a title that is already a name. It is not a finished answer for あなたのとなり, which is four
     kana meaning next to you. Nothing here can tell those apart, so the count includes both and
     comes down as titles are reviewed rather than to zero.
+
+    WHAT IT COUNTS AND WHAT IT DOES NOT, because a sweep taken from `feed/names.json` answered a
+    different question with a similar name and the two numbers were compared as though they were
+    one. This counts SERIES ROWS, which is what a works list paints. The name store holds 3,164
+    titles against 3,046 rows, the extra 226 being edition variants and print-only records that are
+    no row at all, so a count taken there is larger and is about the store rather than the reader.
+    `a work shows the English its record holds` is the invariant that lets this one be read as a
+    statement about a reader: it asserts every row carries the store's answer where the store has
+    one, so this number falling means English names arriving and not a join quietly breaking.
     """
     return sum(1 for r in ctx["series"]
                if (r.get("work_en") or {}).get("basis") not in ("official-jp", "licensed",
@@ -3020,6 +3070,40 @@ SOURCE_BUDGETS = {"stock phrasing in comments", "three as an organising shape",
 
 RUBY_KANJI = re.compile(r"[一-鿿々]")
 RUBY_KANA = re.compile(r"[ぁ-ゖァ-ヺー]")
+
+
+def budget_ruby_asserting_a_reading_per_character(ctx):
+    """Ruby that cuts a word into one annotated character after another.
+
+    THE SHAPE THE PROJECT OWNER REPORTED on 2026-08-10: 総選挙 arrived as 総/そう 選/せん 挙/きょ,
+    and 鮮血王女 as four. app.js wraps each span in its own <ruby>, so a compound annotated that way
+    is several ruby units that break and space apart, and each one asserts a reading of one
+    character that nobody stated. 927e141 produced most of them from a per-character table, applied
+    wherever exactly one partition of the reading existed; that is removed, and 2,402 atomised runs
+    across 1,622 span sets went with it.
+
+    WHAT IS LEFT IS THE ANALYSER'S OWN, and it is a different fault worth watching. Where
+    SudachiDict has no entry for a compound it reads each character alone, so 超深, 焔炎, 退鬼師 and
+    樫風 reach a reader with a reading over each character and no compound behind any of them.
+    NAMES-PLAN names 樫風 as the case a reader can adjudicate on sight.
+
+    ARITHMETIC ON THE RENDERED ROW (§14b), in the shape `implausible ruby spans` established: it
+    counts adjacent annotated single-character spans and owes the aligner, the analyser and the
+    per-character table nothing. It cannot see a wrong reading over a run of two characters, which
+    is `implausible ruby spans` and `ruby spells the reading` between them, and neither can see a
+    plausible reading that is not the one anybody says.
+    """
+    n = 0
+    for r in ctx["series"]:
+        for key in ("work_en", "author_en"):
+            run = 0
+            for span in ((r.get(key) or {}).get("ruby") or []):
+                base, rt = (span + [None, None])[:2] if isinstance(span, list) else (None, None)
+                alone = bool(rt) and len(str(base or "")) == 1 and bool(RUBY_KANJI.fullmatch(str(base)))
+                run = run + 1 if alone else 0
+                if run == 2:
+                    n += 1
+    return n
 
 
 def budget_implausible_ruby_spans(ctx):
@@ -4165,6 +4249,10 @@ BUDGETS_DEF = [
      "readings the shipped name map gives to several credits with no ruling on the pair. Should be "
      "0: a rise means a newly sourced reading has put two credits together and nobody has said "
      "whether they are one credit written twice or two names that sound alike."),
+    ("ruby asserting a reading per character", budget_ruby_asserting_a_reading_per_character,
+     "runs where the ruby annotates one character after another, so a compound reaches a reader as "
+     "several ruby units each claiming a reading nobody stated. A rise means a producer started "
+     "cutting words again, or new works whose compounds the analyser has no entry for."),
     ("implausible ruby spans", budget_implausible_ruby_spans,
      "furigana runs holding fewer kana than they have kanji. A rise means the aligner placed a "
      "boundary somewhere no reading could fall, which the spelling check cannot see."),
@@ -4655,6 +4743,13 @@ def self_test():
          lambda c: c["releases"].append({"work": "CANARY", "provenance": "claimed"})),
         ("every update has a kind", inv_no_unknown_kind,
          lambda c: c["releases"].append({"work": "CANARY", "kind": "unknown"})),
+        # THE JOIN BETWEEN THE STORE AND THE ROW, planted as the fault would arrive: a title the
+        # store has an English name for whose row carries none. That is what a fold quietly ceasing
+        # to match looks like, and it would otherwise show only as a reader seeing romaji.
+        ("a work shows the English its record holds", inv_a_work_shows_the_english_its_record_holds,
+         lambda c: (c["names_shipped"].setdefault("titles", {}).update(
+             {(c["series"][0].get("work") or "CANARY"): {"en": "A Canary In English"}}),
+             c["series"][0].pop("work_en", None))),
         ("readings are stored as kana", inv_readings_are_kana,
          lambda c: c["names"]["titles"].update({"カナリア": {"reading": "Kanaria Romaji"}})),
         # BOTH CANARIES ARE RECORDS THE PIPELINE REALLY WROTE, which is §14b's requirement and not

@@ -148,21 +148,46 @@ for and the reason it stays slow.
 
 ### Stage D. The facts the first round did not reach
 
-16. **Six facts are still unowned:** dates, inclusion, work identity, title cataloguing, imprint,
-    and rendering surfaces. Two of them, `title cataloguing` and `imprint`, are close: each already
-    has a single reader. The first round took four and stopped where the plan's list stopped.
+16. **Verify the four already claimed before extracting a fifth.** `romanisation` is marked owned
+    on the tracker and its core vocabulary has FOUR homes: `facts/romanisation.STYLES`,
+    `romfloor.STYLES`, `credits.ROMAJI_STYLES`, and a local `ORDER` inside `credits.py`. `romfloor`
+    imports the fact and keeps its own copy anyway; `credits.py` does not import it at all.
 
-17. **Rendering surfaces are derived, not listed.** `interface.py` keeps a hand-written table, and
+    This is the blind spot written into `facts/romanisation/BLINDSPOT.md` on the day it was
+    extracted: a second implementation importing nothing passes the import lint. The hazard was
+    documented and then nobody looked for instances. Owned means what the lint can see, and the lint
+    cannot see a tuple typed again.
+
+17. **A detector, because an inventory somebody wrote by hand is a list nobody checked.** The
+    inventory of ten facts was written in one sitting and never verified, which is the fault stage
+    one had in a different costume. Applying the plan's own test mechanically, a vocabulary written
+    down in more than one module, finds three cases in a minute, and two of them are facts the
+    inventory never listed. A lint makes a fact announce itself.
+
+18. **`YURI_TAGS` is an unlisted fact, and it decides inclusion.** `{"百合", "GL", "ガールズラブ"}`
+    is written down in `pixivcomic/releases.py`, `kadokomi/releases.py` and `kadokomi/confirm.py`.
+    What counts as a platform's yuri label is arguably the most consequential fact the database
+    holds, since it decides what is admitted, and it has three homes and no owner.
+
+19. **The name-kind vocabulary is another,** `("authors", "publishers", "titles")` in `curate.py`
+    and `store.py`. Smaller, and the same shape.
+
+20. **Six facts remain from the original inventory:** dates, inclusion, work identity, title
+    cataloguing, imprint, and rendering surfaces. `title cataloguing` and `imprint` are close, each
+    already having a single reader.
+
+21. **Rendering surfaces are derived, not listed.** `interface.py` keeps a hand-written table, and
     `creditLine` missing from it let `???? · Bun?Bun` reach a reader. A hand-maintained list of what
-    to check will always lag what the renderer does.
+    to check will always lag what the renderer does, which is the same argument as item 17 pointed
+    at a different list.
 
 ### Stage E. The residue the first round recorded and did not clear
 
-18. **The eight unevidenced impossibilities**, found by the lint decision 8 called for.
-19. **Two modules called `store`**, whichever is on the path first winning.
-20. **The glued-romanisation shape** (`Uedakyōko`) and **the kana that spells a foreign name**
+22. **The eight unevidenced impossibilities**, found by the lint decision 8 called for.
+23. **Two modules called `store`**, whichever is on the path first winning.
+24. **The glued-romanisation shape** (`Uedakyōko`) and **the kana that spells a foreign name**
     (`Sutefan Sejiku`), both raised by the owner and both written up rather than done.
-21. **Fifteen leftover worktrees**, thirteen unmerged, two holding uncommitted edits.
+25. **Fifteen leftover worktrees**, thirteen unmerged, two holding uncommitted edits.
 
 ### Stage F. The common case stops re-verifying what did not change
 
@@ -176,28 +201,28 @@ Everything here replaces that with "what changed is sound, and what did not chan
 time". That is a weaker claim and it rests entirely on the read sets being complete. A check whose
 declaration omits something it reads will be skipped when it should have run, and skipped silently,
 which is the shape this project has hit under several other names. The claim is bought back by item
-26, and no item here lands without it.
+30, and no item here lands without it.
 
-22. **Test selection from `COVERS`.** Every suite already names its subjects, and `test.py` parses
+26. **Test selection from `COVERS`.** Every suite already names its subjects, and `test.py` parses
     that list to compute untested modules. Inverting the map gives changed file to affected suite. A
     typical change touches one or two modules. The machinery exists; this is the cheapest item in
     the plan.
 
-23. **Incremental verification, which brings back an apparatus stage C dropped.** Dependency
+27. **Incremental verification, which brings back an apparatus stage C dropped.** Dependency
     declarations were removed from stage C because SQL scans are milliseconds, so nothing needed to
     AVOID recomputing. That is right about recomputation and wrong about skipping: to not run a
     check you must know what it reads. Each check declares a read set; the gate runs the ones whose
     inputs moved. This is the largest remaining term, and the one that carries the risk above.
 
-24. **Incremental build, which round one deferred on an argument that has since expired.** The
+28. **Incremental build, which round one deferred on an argument that has since expired.** The
     hash-keyed stage cache was held because parsing dominated and storage was going to be the lever.
     Once the store is load-bearing that reasoning no longer applies, and a build keyed on input
     digests skips nearly everything for a one-row change.
 
-25. **Concurrency between phases that do not depend on each other.** Given a build, the gate and the
+29. **Concurrency between phases that do not depend on each other.** Given a build, the gate and the
     tests are independent, and running them together saves the smaller of the two.
 
-26. **A cache-free path, and the scheduled run uses it.** `--full` on the build, the gate and the
+30. **A cache-free path, and the scheduled run uses it.** `--full` on the build, the gate and the
     tests, ignoring every digest, every read set and every selection. This is what makes the weaker
     in-loop claim defensible: the strong one is bought back on a schedule. The weekly CI job of item
     13 runs the cache-free path end to end and reports any difference against what the incremental

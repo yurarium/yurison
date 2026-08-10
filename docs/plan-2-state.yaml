@@ -78,24 +78,36 @@ stages:
         state: todo
 
   D:
-    title: The facts the first round did not reach
+    title: The facts the first round did not reach, and the ones it did not notice
     items:
       - id: D1
-        title: title cataloguing, which already has one reader
+        title: Verify the four already claimed; romanisation's vocabulary has four homes
         state: todo
       - id: D2
-        title: imprint, which already has one reader
+        title: A lint that detects a vocabulary with more than one home
         state: todo
       - id: D3
-        title: work identity
+        title: YURI_TAGS, an unlisted fact with three homes that decides inclusion
         state: todo
       - id: D4
-        title: dates
+        title: The name-kind vocabulary, authors/publishers/titles, in two homes
         state: todo
       - id: D5
-        title: inclusion
+        title: title cataloguing, which already has one reader
         state: todo
       - id: D6
+        title: imprint, which already has one reader
+        state: todo
+      - id: D7
+        title: work identity
+        state: todo
+      - id: D8
+        title: dates
+        state: todo
+      - id: D9
+        title: inclusion
+        state: todo
+      - id: D10
         title: Rendering surfaces derived from the renderer, not listed
         state: todo
 

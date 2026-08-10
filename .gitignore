@@ -21,3 +21,8 @@ data/names/.journal/
 # before it can fetch. The committed copy used to hide that ordering.
 data/build/
 data/store.db
+
+# Answers a check already worked out, keyed on the content they were measured from. Outside
+# data/build on purpose: the green-tree token hashes that, and a cache written during a gate
+# would invalidate the token the same gate is about to write. See adapters/filecache.py.
+data/cache/

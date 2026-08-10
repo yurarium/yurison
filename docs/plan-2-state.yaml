@@ -48,7 +48,15 @@ stages:
     items:
       - id: B1
         title: stock phrasing in comments caches per file
-        state: todo
+        state: done
+        note: >-
+          12.93 s to 0.02 s warm, and the gate 66.7 s to 54.0 s.
+          The mechanism is adapters/filecache.py rather than code inside the budget, because the same shape fits several other checks that walk the tree and answer per file.
+          Keyed on the content of each file AND on the content of tics.py, so changing a rule throws the whole cache away: a cache that survives a rule change is a check that has silently stopped asking, which is worse than the seconds it saves.
+          tics.py imports only the standard library, so its own text is the whole of what the count depends on, and the docstring says that is the caller's job to get right.
+          Pruning to the current set looked tidy and made `git checkout` of one file cost a rescan, so entries are kept to a cap of 20,000 and the answer for restored content is still there.
+          It lives in data/cache and not data/build, since the green-tree token hashes the latter and a cache written during a gate would invalidate the token that gate is about to write.
+          Nine cases in test_filecache.py, including the rule change, the restore, the added file, the dropped file and a corrupt cache.
       - id: B2
         title: deploy.sh regenerates only pages whose content changed
         state: todo

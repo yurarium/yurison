@@ -586,6 +586,8 @@ def main():
     ap.add_argument("--comments", action="store_true", help="comments and docs; HARD + SOFT")
     ap.add_argument("--self-test", action="store_true")
     ap.add_argument("--quiet", action="store_true", help="print the count only")
+    ap.add_argument("--counts", action="store_true",
+                    help="print `path<TAB>n` per file, so a caller can cache what it already asked")
     a = ap.parse_args()
 
     if a.self_test:
@@ -602,6 +604,16 @@ def main():
                 struct += [(f, n, why) for n, why in structure(f)]
 
     over = []
+    if a.counts:
+        # PER FILE, so a caller can keep the answer for a file it has already scanned. The total is
+        # the sum of these by construction: every hit carries the path it was found in.
+        per = {str(f): 0 for f in a.files}
+        for path, _line, _found, _fix in hits:
+            per[str(path)] = per.get(str(path), 0) + 1
+        for f, n in per.items():
+            print(f"{f}\t{n}")
+        return 1 if hits else 0
+
     if a.quiet:
         print(len(hits) + len(over) + len(struct))
     else:

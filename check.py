@@ -27,7 +27,7 @@ BUDGETS RATCHET ONE WAY. Tier-2 numbers are counts with no correct value, only a
 `--gate` tightens the recorded budget to what was actually measured; loosening one requires editing
 docs/budgets.json by hand, which puts the reason in a commit message where it can be argued with.
 """
-import argparse, ast, collections, json, os, pathlib, re, subprocess, sys, time, unicodedata
+import argparse, ast, collections, hashlib, json, os, pathlib, re, subprocess, sys, time, unicodedata
 # Named apart from the plain module name because several measures below bind `html` to one
 # rendering they are walking, and a global with the same name reads as that variable.
 import html as html_module
@@ -2201,21 +2201,42 @@ def budget_impossibilities_asserted_without_evidence(ctx):
 
 
 def budget_stock_phrasing_in_comments(ctx):
-    # THE REPOSITORY IS THE SUBJECT, so the scan asks git what is in it. Walking the directory
-    # counted CLAUDE.md, which is ignored and exists only in the main working tree, so the same
-    # commit measured 903 here and 898 in a worktree. A branch then ratcheted the budget down by
-    # 5 in good faith and the merge result put it straight back. A number that depends on which
-    # tree you stand in cannot ratchet, which is what STANDING-INSTRUCTIONS 14a is about.
+    """Stock phrasing in comments, docstrings and documentation, counted per file and remembered.
+
+    THE REPOSITORY IS THE SUBJECT, so the scan asks git what is in it. Walking the directory counted
+    CLAUDE.md, which is ignored and exists only in the main working tree, so the same commit measured
+    903 here and 898 in a worktree. A branch then ratcheted the budget down by 5 in good faith and
+    the merge result put it straight back. A number that depends on which tree you stand in cannot
+    ratchet, which is what STANDING-INSTRUCTIONS 14a is about.
+
+    CACHED ON CONTENT, by `adapters/filecache.py`, which is keyed on each file AND on `tics.py`, so
+    changing a rule throws every remembered answer away. At 12.9 s this was the most expensive check
+    in a gate and nearly all of it re-read files nobody had touched. `tics.py` imports only the
+    standard library, so its own text is the whole of what the count depends on.
+    """
     try:
         tracked = subprocess.run(["git", "ls-files", "-z", "*.py", "*.md"], cwd=str(ROOT),
                                  capture_output=True, text=True, timeout=60).stdout.split("\0")
-        files = [str(ROOT / f) for f in tracked
+        files = [ROOT / f for f in tracked
                  if f and not f.startswith("data/") and (ROOT / f).exists()]
-        out = subprocess.run(
-            [sys.executable, str(ROOT / "adapters" / "lint" / "tics.py"), "--comments",
-             "--quiet", *files], capture_output=True, text=True, timeout=120)
-        return int(out.stdout.strip() or 0)
-    except Exception:
+        lint = ROOT / "adapters" / "lint" / "tics.py"
+
+        def scan(paths):
+            out = subprocess.run(
+                [sys.executable, str(lint), "--comments", "--counts", *[str(p) for p in paths]],
+                capture_output=True, text=True, timeout=300)
+            got = {}
+            for line in out.stdout.splitlines():
+                path, _, n = line.rpartition("\t")
+                if path and n.strip().isdigit():
+                    got[pathlib.Path(path)] = int(n)
+            return got
+
+        sys.path.insert(0, str(ROOT / "adapters"))
+        import filecache
+        total, _scanned = filecache.counted(files, [lint], scan, ROOT / "data" / "cache" / "tics.json")
+        return total
+    except Exception:                                                   # noqa: BLE001
         return 0
 
 
